@@ -30,9 +30,9 @@ public:
     }
 
 private:
-    ReadSettings * settings;
-
-    void setupGUI(int height);
+    ReadSettings * cfg;
+    QString m_configId;
+    QMap<QString,QString> m_icons;
 
 private slots:
     //! run command in the action

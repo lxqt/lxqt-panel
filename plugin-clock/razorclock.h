@@ -3,6 +3,7 @@
 #include "defs.h"
 #include "razorplugin.h"
 
+class ReadSettings;
 
 /**
  * @brief the clock-plugin for razorbar
@@ -33,6 +34,10 @@ public slots:
 private:
     QTimer* clocktimer;
     QLabel * gui;
+    ReadSettings * cfg;
+    QString m_configId;
+    QString clockFormat;
+
 };
 
 extern "C" RazorPlugin* init(RazorBar* panel, QWidget* parent, const QString & name);

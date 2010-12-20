@@ -14,33 +14,45 @@ RazorPlugin* init(RazorBar* panel, QWidget* parent, const QString & name)
 RazorSpinButton::RazorSpinButton(RazorBar * panel, QWidget * parent, const QString & _cmd)
     : RazorPlugin(panel, parent, _cmd)
 {
-
-    QString cmd = _cmd;
-    cmd.remove("razorspinbutton");
-    settings = new ReadSettings("spin"+cmd+".conf");
-    int stateCount = settings->getInt("count");
+    cfg = new ReadSettings("spinbutton", this);
     gui = new RazorSpinButtonGUI(this);
 
     mainLayout()->addWidget(gui);
 
-    for (int i = 0; i < stateCount; i++)
+    // TODO/FIXME: it's the same code as in quicklauncher!
+    QSettings *s = cfg->settings();
+    s->beginGroup(_cmd);
+    int count = s->beginReadArray("apps");
+
+    QString execname;
+    QString exec;
+    QString icon;
+    for (int i = 0; i < count; ++i)
     {
-        QString s;
-        s.setNum(i);
-        QStringList Explode = settings->getString("state"+s).split("|");
-        QAction* tmp = new QAction((QIcon)Explode.at(2),Explode.at(1),gui);
-        tmp->setData(Explode.at(0));
+        s->setArrayIndex(i);
+        execname = s->value("name", "").toString();
+        exec = s->value("exec", "").toString();
+        icon = s->value("icon", "").toString();
+        //m_icons[name] = icon;
+
+        if (!QFile::exists(icon))
+        {
+            qDebug() << "Icon file" << icon << "does not exists. Skipped.";
+            continue;
+        }
+        QAction* tmp = new QAction(QIcon(icon), execname, gui);
+        tmp->setData(exec);
         gui->addAction(tmp);
     }
+    s->endArray();
+    s->endGroup();
+
     gui->changeAction(0);
-    gui->setFixedHeight(Razor::getInstance().get_looknfeel()->getInt("razorbar_height")-6);
-    //Razor::getInstance().get_gui()->addWidget(gui,_bar,0,Qt::AlignLeft);
 }
 
 RazorSpinButton::~RazorSpinButton()
 {
 //    delete gui;
-    delete settings;
 }
 
 void RazorSpinButtonGUI::mousePressEvent(QMouseEvent* _event)

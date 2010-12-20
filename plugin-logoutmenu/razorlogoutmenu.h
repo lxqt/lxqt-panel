@@ -32,7 +32,7 @@ class RazorLogoutMenuGUI : public QLabel
 public:
     RazorLogoutMenuGUI(RazorLogoutMenu * parent);
     ~RazorLogoutMenuGUI();
-    void makeUp();
+
 private:
     QAction* shutdown;
 
@@ -41,11 +41,6 @@ private:
     QAction* about;
     QMenu* mainMenu;
     void createMenus();
-    QString icon;
-    QPixmap picon;
-    QString acticon;
-    QPixmap actpicon;
-signals:
 
 protected:
     void mousePressEvent(QMouseEvent *);

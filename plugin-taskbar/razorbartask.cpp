@@ -28,10 +28,10 @@ RazorBarTask::RazorBarTask(RazorPlugin* _owner)
     Layout->setSpacing(0);
     Layout->setMargin(0);
 
-    if (!Razor::getInstance().get_looknfeel()->getString("taskbar_background").isEmpty())
-    {
-        setPixmap((QPixmap)(Razor::getInstance().get_looknfeel()->getPath() +  Razor::getInstance().get_looknfeel()->getString("taskbar_background")));
-    }
+//    if (!Razor::getInstance().get_looknfeel()->getString("taskbar_background").isEmpty())
+//    {
+//        setPixmap((QPixmap)(Razor::getInstance().get_looknfeel()->getPath() +  Razor::getInstance().get_looknfeel()->getString("taskbar_background")));
+//    }
 
     makeUp();
 }
@@ -226,7 +226,7 @@ void RazorBarTaskEntry::makeUp()
     setFixedWidth(owner->width()/count);
 
 
-    setFixedHeight(Razor::getInstance().get_looknfeel()->getInt("razorbar_height")-5);
+    setFixedHeight(owner->height()-5);
     //setPixmap((QPixmap)(Razor::getInstance().get_looknfeel()->getPath() +  Razor::getInstance().get_looknfeel()->getValue("task_background")));
     QString name = QApplication::fontMetrics().elidedText(linkedTask->getTitle(), Qt::ElideRight, width()-width()/3);
     if (linkedTask->isHidden())

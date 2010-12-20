@@ -67,7 +67,7 @@ public:
 
 private:
     RazorSpinButtonGUI* gui;
-    ReadSettings* settings;
+    ReadSettings* cfg;
 
 };
 

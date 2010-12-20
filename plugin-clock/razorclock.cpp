@@ -3,6 +3,7 @@
 
 #include "razorclock.h"
 #include "razor.h"
+#include "razorqt/readsettings.h"
 
 /**
  * @file razorclock.cpp
@@ -21,6 +22,12 @@ RazorPlugin* init(RazorBar* panel, QWidget* parent, const QString & name)
  */
 RazorClock::RazorClock(RazorBar * panel, QWidget * parent, const QString & name): RazorPlugin(panel, parent, name)
 {
+    m_configId = name;
+    cfg = new ReadSettings("clock");
+    cfg->settings()->beginGroup(name);
+    clockFormat = cfg->settings()->value("format", "hh:mm").toString();
+    cfg->settings()->endGroup();
+
     qDebug() << "Razorclock loading";
     //gui machen
     gui = new QLabel(this);
@@ -44,9 +51,7 @@ RazorClock::RazorClock(RazorBar * panel, QWidget * parent, const QString & name)
 void RazorClock::updateTime()
 {
     QTime time = QTime::currentTime();
-    gui->setText(QDateTime::currentDateTime().toString(
-                     Razor::getInstance().get_looknfeel()->getString("clocks_format")
-                 ));
+    gui->setText(QDateTime::currentDateTime().toString(clockFormat));
 }
 
 /**

@@ -47,10 +47,14 @@ void RazorLogoutMenuGUI::createMenus()
     // add the basic actions (shutdown and stuff)
 
     // 1 create the actions
-    shutdown = new QAction((QIcon)(Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_shutdown")),tr("Shutdown"),this);
-    reboot = new QAction((QIcon)(Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_reboot")),tr("Reboot"),this);
-    logout = new QAction((QIcon)(Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_logout")),tr("Logout"),this);
-    about = new QAction((QIcon)(Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_about")),tr("about"),this);
+    shutdown = new QAction(QIcon(Razor::getInstance().theme()->icon("shutdown")),
+                           tr("Shutdown"), this);
+    reboot = new QAction(QIcon(Razor::getInstance().theme()->icon("reboot")),
+                         tr("Reboot"), this);
+    logout = new QAction(QIcon(Razor::getInstance().theme()->icon("logout")),
+                         tr("Logout"), this);
+    about = new QAction(QIcon(Razor::getInstance().theme()->icon("about")),
+                        tr("about"), this);
 
     // 2 link with handler
     connect(shutdown, SIGNAL(triggered()), Razor::getInstance().get_handler(),SLOT(sys_shutdown()));
@@ -69,9 +73,15 @@ void RazorLogoutMenuGUI::createMenus()
  * @brief this initializes us
  */
 RazorLogoutMenuGUI::RazorLogoutMenuGUI(RazorLogoutMenu * parent)
+    : QLabel(parent)
 {
-    makeUp();
+    setScaledContents(true);
+    QPixmap pm(Razor::getInstance().theme()->icon("shutdown"));
+    //pm = pm.scaled(parent->height(), parent->height());
+    setPixmap(pm);
+
     createMenus();
+    show();
 }
 
 /**
@@ -86,25 +96,6 @@ RazorLogoutMenuGUI::~RazorLogoutMenuGUI()
     delete about;
 }
 
-
-/**
- * @brief makes up the menu and style
- */
-
-void RazorLogoutMenuGUI::makeUp()
-{
-    int barheight = Razor::getInstance().get_looknfeel()->getInt("razorbar_height");
-    setFixedSize(barheight -3, barheight -3);
-    icon = Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_icon");
-    //setPixmap( ((QPixmap)icon ).scaled(barheight - 5, barheight - 5));
-    picon = ((QPixmap)icon ).scaled(barheight - 5, barheight - 5);
-    acticon = Razor::getInstance().get_looknfeel()->getPath() + Razor::getInstance().get_looknfeel()->getString("razorlogmenu_acticon");
-    //setPixmap( ((QPixmap)icon ).scaled(barheight - 5, barheight - 5));
-    actpicon = ((QPixmap)acticon ).scaled(barheight-2, barheight-2);
-    setPixmap(picon);
-    show();
-}
-
 /**
  * @brief makes the menu popup
  */
@@ -113,9 +104,10 @@ void RazorLogoutMenuGUI::mousePressEvent(QMouseEvent* _event)
 {
     if (_event->button() == Qt::LeftButton)
     {
-        QPoint popuppos = mapToGlobal(QPoint(0,0));
-        popuppos.setY(popuppos.y()-mainMenu->sizeHint().height()-5);
-        mainMenu->popup(popuppos);
+        //QPoint popuppos = mapToGlobal(QPoint(0,0));
+        //popuppos.setY(popuppos.y()-mainMenu->sizeHint().height()-5);
+        //mainMenu->popup(popuppos);
+        mainMenu->popup(QCursor::pos());
     }
 }
 
@@ -127,7 +119,7 @@ void RazorLogoutMenuGUI::mousePressEvent(QMouseEvent* _event)
 void RazorLogoutMenuGUI::enterEvent(QEvent* _event)
 {
     Q_UNUSED(_event);
-    setPixmap(actpicon);
+    //setPixmap(actpicon);
 
 }
 
@@ -138,7 +130,7 @@ void RazorLogoutMenuGUI::enterEvent(QEvent* _event)
 void RazorLogoutMenuGUI::leaveEvent(QEvent* _event)
 {
     Q_UNUSED(_event);
-    setPixmap(picon);
+    //setPixmap(picon);
 }
 
 

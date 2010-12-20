@@ -1,5 +1,6 @@
 #include "razorquicklaunch.h"
 #include "razor.h"
+#include "razorbar.h"
 
 RazorPlugin* init(RazorBar* panel, QWidget* parent, const QString & name)
 {
@@ -10,46 +11,38 @@ RazorPlugin* init(RazorBar* panel, QWidget* parent, const QString & name)
 
 
 RazorQuickLaunch::RazorQuickLaunch(RazorBar * panel, QWidget * parent, const QString & name)
-    : RazorPlugin(panel, parent, name)
+    : RazorPlugin(panel, parent, name),
+      m_configId(name)
 {
-    QString nameIx(name);
-    nameIx.remove("quicklaunch");
-    //!\todo TODO/FIXME: decide if it should use its own config file
-    settings = new ReadSettings("spin"+nameIx+".conf");
-    int stateCount = settings->getInt("count");
+    cfg = new ReadSettings("quicklaunch", this);
+    QSettings *s = cfg->settings();
 
+    s->beginGroup(name);
+    int count = s->beginReadArray("apps");
 
-    /*!\todo TODO/FIXME: share the code with Razorspinbutton.
-    		 And maybe change the configuration file syntax - it's annoying
-    		 to increase the count everytime it's changed. QSettings?
-    */
-    for (int i = 0; i < stateCount; ++i)
+    QString execname;
+    QString exec;
+    QString icon;
+    for (int i = 0; i < count; ++i)
     {
-        QString s;
-        s.setNum(i);
-        QStringList Explode = settings->getString("state"+s).split("|");
-        if (!QFile::exists(Explode.at(2)))
+        s->setArrayIndex(i);
+        execname = s->value("name", "").toString();
+        exec = s->value("exec", "").toString();
+        icon = s->value("icon", "").toString();
+        m_icons[name] = icon;
+
+        if (!QFile::exists(icon))
         {
-            qDebug() << "Icon file" << Explode.at(2) << "does not exists. Skipped.";
+            qDebug() << "Icon file" << icon << "does not exists. Skipped.";
             continue;
         }
-        QAction* tmp = new QAction((QIcon)Explode.at(2),Explode.at(1), this);
-        tmp->setData(Explode.at(0));
+        QAction* tmp = new QAction(QIcon(icon), execname, this);
+        tmp->setData(exec);
         addAction(tmp);
     }
+    s->endArray();
+    s->endGroup();
 
-    setupGUI(Razor::getInstance().get_looknfeel()->getInt("razorbar_height"));
-//    Razor::getInstance().get_gui()->addWidget(gui, bar, 0, Qt::AlignLeft);
-}
-
-RazorQuickLaunch::~RazorQuickLaunch()
-{
-    //delete gui;
-    delete settings;
-}
-
-void RazorQuickLaunch::setupGUI(int height)
-{
     /*! \todo TODO/FIXME: here it should be decided how to
     		  organize it - horizontally/vertically. Panel
     		  supports horizontal layout only for now
@@ -60,8 +53,8 @@ void RazorQuickLaunch::setupGUI(int height)
 
     //! \todo TODO/FIXME: make it (the size) configurable?
     // now do some layouting magic to save space (rows, columns)
-    int maxSize = qMin(height, 32);
-    int rows = height / maxSize;
+    int maxSize = qMin(panel->height(), 32);
+    int rows = panel->height() / maxSize;
     // add 1 to columns if there is more actions in one row
     int addon = ((actions().count() % rows) > 0) ? 1 : 0;
     int cols = actions().count() / rows + addon;
@@ -93,6 +86,10 @@ void RazorQuickLaunch::setupGUI(int height)
 
     //setMinimumWidth(ix * 32);
     mainLayout()->addLayout(layout);
+}
+
+RazorQuickLaunch::~RazorQuickLaunch()
+{
 }
 
 void RazorQuickLaunch::execAction(QAction* _action)
