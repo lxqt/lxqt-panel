@@ -24,23 +24,14 @@
  * Boston, MA 02110-1301 USA
  *
  * END_COMMON_COPYRIGHT_HEADER */
-/* Based on a "MountTray" project - modified for Razor needs
-    http://hatred.homelinux.net
-
-    @date   2010-11-11
-    @brief  Main application class: integrate all components
-
-    Copyright (C) 2010 by hatred <hatred@inbox.ru>
-
-    Comparing current version the file seems rewriten completely.
-*/
 
 #ifndef MENUDISKITEM_H
 #define MENUDISKITEM_H
 
-#include "razormount/diskmonitor.h"
 
 #include "ui_menudiskitem.h"
+class UdisksInfo;
+
 
 class MenuDiskItem : public QWidget, private Ui::MenuDiskItem
 {
@@ -48,16 +39,12 @@ class MenuDiskItem : public QWidget, private Ui::MenuDiskItem
 
 public:
 //    explicit MenuDiskItem(QWidget *parent = 0);
-    explicit MenuDiskItem(const DiskInfo &info, QWidget *parent = 0);
+    explicit MenuDiskItem(UdisksInfo *info, QWidget *parent);
 
-    void setLabel(const QString &text);
     void setMountStatus(bool is_mount);
 
-    QString deviceName() const { return m_device; }
-
 signals:
-    void ejectMedia(const QString &media_dev);
-    void mountMedia(const QString &media_dev);
+    void error(const QString &msg);
 
 protected:
     void changeEvent(QEvent *e);
@@ -67,7 +54,8 @@ private slots:
     void on_diskButton_clicked();
 
 private:
-    QString m_device;
+    UdisksInfo *m_info;
+    void setLabel(const QString &text);
 };
 
 #endif // MENUDISKITEM_H
