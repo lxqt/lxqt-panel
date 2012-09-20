@@ -1,111 +1,111 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="eo" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="th_TH" version="2.0">
 <context>
     <name>RazorClockConfiguration</name>
     <message>
         <location filename="../razorclockconfiguration.ui" line="14"/>
         <source>Razor Clock Settings</source>
-        <translation>Agordoj de horloĝo de Razor</translation>
+        <translation>ค่าตั้งนาฬิกา Razor</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="20"/>
         <source>Time</source>
-        <translation>Tempo</translation>
+        <translation>เวลา</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="26"/>
         <source>&amp;Show seconds</source>
-        <translation>Montri &amp;sekundojn</translation>
+        <translation>แ&amp;สดงวินาที</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="33"/>
         <source>12 &amp;hour style</source>
-        <translation>12-&amp;hora aranĝo</translation>
+        <translation>รูปแบบ 12 ชั่วโ&amp;มง</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="43"/>
         <source>&amp;Font</source>
-        <translation>&amp;Tiparo</translation>
+        <translation>แบบอั&amp;กษร</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="56"/>
         <location filename="../razorclockconfiguration.ui" line="102"/>
         <source>Font</source>
-        <translation>Tiparo</translation>
+        <translation>แบบอักษร</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="66"/>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>วันที่</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="72"/>
         <source>Show &amp;date</source>
-        <translation>Montri &amp;daton</translation>
+        <translation>แสดง&amp;เวลา</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="82"/>
         <source>D&amp;ate format</source>
-        <translation>&amp;Aranĝo de dato</translation>
+        <translation>รูปแ&amp;บบวันที่</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="112"/>
         <source>Fon&amp;t</source>
-        <translation>&amp;Tiparo</translation>
+        <translation>แบบอักษ&amp;ร</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="125"/>
         <source>Show date in &amp;new line</source>
-        <translation>Montri daton en &amp;nova linio</translation>
+        <translation>แสดงวันที่ในบรรทัดใ&amp;หม่</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.ui" line="135"/>
         <source>&amp;Use theme fonts</source>
-        <translation>&amp;Uzi tiparojn de etoso</translation>
+        <translation>&amp;ใช้แบบอักษรของชุดตกแต่ง</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="213"/>
         <source>Time font</source>
-        <translation>Tiparo de tempo</translation>
+        <translation>แบบอักษรของเวลา</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="225"/>
         <source>Date font</source>
-        <translation>Tiparo de dato</translation>
+        <translation>แบบอักษรของวันที่</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="239"/>
         <source>Ultra light</source>
-        <translation>Tre maldike</translation>
+        <translation>สว่างจ้า</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="241"/>
         <source>Light</source>
-        <translation>Maldike</translation>
+        <translation>สว่าง</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="243"/>
         <source>Ultra black</source>
-        <translation>Tre nigre</translation>
+        <translation>ดำมืด</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="245"/>
         <source>Black</source>
-        <translation>Nigre</translation>
+        <translation>ดำ</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="247"/>
         <source>Bold</source>
-        <translation>Dike</translation>
+        <translation>ตัวหนา</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="249"/>
         <source>Demi bold</source>
-        <translation>Mezdike</translation>
+        <translation>ตัวกึ่งหนา</translation>
     </message>
     <message>
         <location filename="../razorclockconfiguration.cpp" line="254"/>
         <source>Italic</source>
-        <translation>Kursive</translation>
+        <translation>ตัวเอียง</translation>
     </message>
 </context>
 </TS>
