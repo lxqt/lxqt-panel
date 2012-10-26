@@ -25,32 +25,26 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "razorhelloworld.h"
-#include <QtGui/QMessageBox>
-#include <QDebug>
 
-Q_EXPORT_PLUGIN2(panelhelloworld, RazorHelloWorldPluginLibrary)
+#ifndef IRAZORPANEL_H
+#define IRAZORPANEL_H
+#include <QRect>
 
-
-RazorHelloWorldPlugin::RazorHelloWorldPlugin(const IRazorPanelPluginStartupInfo &startupInfo):
-    QObject(),
-    IRazorPanelPlugin(startupInfo)
+class IRazorPanel
 {
-    setObjectName("HelloWorld");
+public:
+    enum Position{
+        PositionBottom,
+        PositionTop,
+        PositionLeft,
+        PositionRight
+    };
+    Q_PROPERTY(Position position READ position NOTIFY positionChanged)
 
-    mButton.setText(tr("HW"));
-    connect(&mButton, SIGNAL(clicked()), this, SLOT(showMessage()));
-}
+    virtual Position position() const = 0;
+    bool isHorizontal() const { return position() == PositionBottom || position() == PositionTop; }
 
+    virtual QRect globalGometry() const = 0;
+};
 
-QWidget *RazorHelloWorldPlugin::widget()
-{
-    return &mButton;
-}
-
-void RazorHelloWorldPlugin::showMessage()
-{
-    QMessageBox::information(0, tr("Panel"), tr("Hello, World!"));
-}
-
-
+#endif // IRAZORPANEL_H

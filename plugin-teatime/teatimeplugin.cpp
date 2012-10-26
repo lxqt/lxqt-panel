@@ -25,32 +25,42 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "razorhelloworld.h"
+#include "teatimeplugin.h"
 #include <QtGui/QMessageBox>
-#include <QDebug>
 
-Q_EXPORT_PLUGIN2(panelhelloworld, RazorHelloWorldPluginLibrary)
+Q_EXPORT_PLUGIN2(teatime, TeaTimePluginLibrary)
 
-
-RazorHelloWorldPlugin::RazorHelloWorldPlugin(const IRazorPanelPluginStartupInfo &startupInfo):
+TeaTimePlugin::TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo):
     QObject(),
     IRazorPanelPlugin(startupInfo)
 {
-    setObjectName("HelloWorld");
-
-    mButton.setText(tr("HW"));
+    mButton.setText("Tea");
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMessage()));
 }
 
-
-QWidget *RazorHelloWorldPlugin::widget()
+QWidget *TeaTimePlugin::widget()
 {
     return &mButton;
 }
 
-void RazorHelloWorldPlugin::showMessage()
+/*
+TeaTimePlugin::TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo):
+    QObject(),
+    IRazorPanelPlugin(startupInfo)
 {
-    QMessageBox::information(0, tr("Panel"), tr("Hello, World!"));
+    connect(&mButton, SIGNAL(clicked()), this, SLOT(showMessage()));
 }
+
+QWidget *TeaTimePlugin::widget()
+{
+    return &mButton;
+}
+
+void TeaTimePlugin::showMessage()
+{
+   QMessageBox::information(0, tr("Panel"), tr("Hello, World!"));
+}
+*/
+
 
 
