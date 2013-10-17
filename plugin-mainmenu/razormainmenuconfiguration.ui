@@ -147,7 +147,7 @@
   <customwidget>
    <class>ShortcutSelector</class>
    <extends>QToolButton</extends>
-   <header location="global">razor-global-key-shortcut-selector/shortcut_selector.h</header>
+   <header location="global">lxqt-globalkeys-ui/shortcut_selector.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
