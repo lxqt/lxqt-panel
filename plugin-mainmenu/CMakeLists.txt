@@ -26,9 +26,9 @@ set(UIS
 )
 
 set(LIBRARIES
-  razorqt
-  razor-global-key-shortcuts-client
-  razor-global-key-shortcut-selector
+  ${LXQT_LIBRARIES}
+  ${LXQT_GLOBALKEYS_LIBRARIES}
+  ${LXQT_GLOBALKEYS_UI_LIBRARIES}
 )
 
 set(QT_USE_QTXML 1)

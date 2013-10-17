@@ -31,14 +31,15 @@
 #include <QWheelEvent>
 #include <QtDebug>
 #include <QSignalMapper>
-#include <razorqt/xfitman.h>
-#include <razor-global-key-shortcuts-client/razor-global-key-shortcuts-client.h>
-#include <razorqt/razorgridlayout.h>
+#include <lxqt/lxqtxfitman.h>
+#include <lxqt-globalkeys.h>
+#include <lxqt/lxqtgridlayout.h>
 
 #include <QHBoxLayout>
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
 
+using namespace LxQt;
 
 Q_EXPORT_PLUGIN2(DesktopSwitch, DesktopSwitchPluginLibrary)
 
@@ -52,7 +53,7 @@ DesktopSwitch::DesktopSwitch(const IRazorPanelPluginStartupInfo &startupInfo) :
     m_buttons = new QButtonGroup(this);
     connect ( m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
 
-    mLayout = new RazorGridLayout(&mWidget);
+    mLayout = new LxQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
     setup();
 }

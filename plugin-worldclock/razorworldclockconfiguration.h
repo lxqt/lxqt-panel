@@ -29,7 +29,7 @@
 #ifndef RAZORWORLDCLOCKCONFIGURATION_H
 #define RAZORWORLDCLOCKCONFIGURATION_H
 
-#include "razorqt/razorsettings.h"
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 #include <QtGui/QAbstractButton>
@@ -58,7 +58,7 @@ public slots:
 private:
     Ui::RazorWorldClockConfiguration *ui;
     QSettings *mSettings;
-    RazorSettingsCache mOldSettings;
+    LxQt::SettingsCache mOldSettings;
 
     /*
       Read settings from conf file and put data into controls.

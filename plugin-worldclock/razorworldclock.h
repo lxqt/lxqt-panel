@@ -32,7 +32,7 @@
 
 #include <QtGui/QLabel>
 
-#include <razorqt/rotatedwidget.h>
+#include <lxqt/lxqtrotatedwidget.h>
 
 #include "../panel/irazorpanelplugin.h"
 #include "razorworldclockconfiguration.h"

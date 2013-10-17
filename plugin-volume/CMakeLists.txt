@@ -51,7 +51,7 @@ if (ALSA_FOUND)
     LINK_LIBRARIES(${PLUGIN} ${ALSA_LIBRARIES})
 endif (ALSA_FOUND)
 
-set(LIBRARIES ${LIBRARIES} razor-global-key-shortcuts-client )
+set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")

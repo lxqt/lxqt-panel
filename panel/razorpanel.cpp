@@ -34,11 +34,11 @@
 #include "config/configpaneldialog.h"
 #include "popupmenu.h"
 #include "plugin.h"
-#include <razorqt/addplugindialog/addplugindialog.h>
-#include <razorqt/razorsettings.h>
-#include <razorqt/razorplugininfo.h>
+#include <lxqt/lxqtaddplugindialog.h>
+#include <lxqt/lxqtsettings.h>
+#include <lxqt/lxqtplugininfo.h>
 
-#include <razorqt/xfitman.h>
+#include <lxqt/lxqtxfitman.h>
 
 #include <QtCore/QDebug>
 #include <QtGui/QDesktopWidget>
@@ -57,6 +57,7 @@
 #define CFG_KEY_ALIGNMENT   "alignment"
 #define CFG_KEY_PLUGINS "plugins"
 
+using namespace LxQt;
 
 /************************************************
  Returns the Position by the string.
@@ -117,8 +118,8 @@ RazorPanel::RazorPanel(const QString &configGroup, QWidget *parent) :
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(screensChangeds()));
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(realign()));
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(screensChangeds()));
-    connect(RazorSettings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
-    connect(razorApp, SIGNAL(themeChanged()), this, SLOT(realign()));
+    connect(LxQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
+    connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
     RazorPanelApplication *app = reinterpret_cast<RazorPanelApplication*>(qApp);
     mSettings = app->settings();
@@ -235,7 +236,7 @@ QStringList pluginDesktopDirs()
 {
     QStringList dirs;
     dirs << QString(getenv("RAZORQT_PANEL_PLUGINS_DIR")).split(':', QString::SkipEmptyParts);
-    dirs << QString("%1/%2").arg(XdgDirs::dataHome(), "/razor/razor-panel");
+    dirs << QString("%1/%2").arg(XdgDirs::dataHome(), "/lxqt/lxqt-panel");
     dirs << PLUGIN_DESKTOPS_DIR;
     return dirs;
 }
@@ -260,7 +261,7 @@ void RazorPanel::loadPlugins()
             continue;
         }
 
-        RazorPluginInfoList list = RazorPluginInfo::search(desktopDirs, "RazorPanel/Plugin", QString("%1.desktop").arg(type));
+        LxQt::PluginInfoList list = LxQt::PluginInfo::search(desktopDirs, "RazorPanel/Plugin", QString("%1.desktop").arg(type));
         if( !list.count())
         {
             qWarning() << QString("Plugin \"%1\" not found.").arg(type);
@@ -275,7 +276,7 @@ void RazorPanel::loadPlugins()
 /************************************************
 
  ************************************************/
-Plugin *RazorPanel::loadPlugin(const RazorPluginInfo &desktopFile, const QString &settingsGroup)
+Plugin *RazorPanel::loadPlugin(const LxQt::PluginInfo &desktopFile, const QString &settingsGroup)
 {
     Plugin *plugin = new Plugin(desktopFile, mSettings->fileName(), settingsGroup, this);
     if (plugin->isLoaded())
@@ -531,10 +532,10 @@ void RazorPanel::showAddPluginDialog()
         dialog = new AddPluginDialog(pluginDesktopDirs(), "RazorPanel/Plugin", "*", this);
         dialog->setWindowTitle(tr("Add Panel Widgets"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
-        connect(dialog, SIGNAL(pluginSelected(const RazorPluginInfo&)), this, SLOT(addPlugin(const RazorPluginInfo&)));
+        connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
     }
     
-    RazorPluginInfoList pluginsInUse;
+    LxQt::PluginInfoList pluginsInUse;
     foreach (Plugin *i, mPlugins)
         pluginsInUse << i->desktopFile();
     dialog->setPluginsInUse(pluginsInUse);
@@ -552,7 +553,7 @@ void RazorPanel::showAddPluginDialog()
 /************************************************
 
  ************************************************/
-void RazorPanel::addPlugin(const RazorPluginInfo &desktopFile)
+void RazorPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
     QString settingsGroup = findNewPluginSettingsGroup(desktopFile.id());
     loadPlugin(desktopFile, settingsGroup);

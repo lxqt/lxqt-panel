@@ -29,7 +29,7 @@
 #ifndef RAZORCPULOADCONFIGURATION_H
 #define RAZORCPULOADCONFIGURATION_H
 
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 
@@ -51,7 +51,7 @@ public:
 private:
 	Ui::RazorCpuLoadConfiguration *ui;
     QSettings *mSettings;
-	RazorSettingsCache mOldSettings;
+	LxQt::SettingsCache mOldSettings;
 
     /*
       Fills Bar orientation combobox

@@ -29,7 +29,7 @@
 #ifndef RAZORKBINDICATORCONFIGURATION_H
 #define RAZORKBINDICATORCONFIGURATION_H
 
-#include "razorqt/razorsettings.h"
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 #include <QtGui/QAbstractButton>
@@ -60,7 +60,7 @@ public slots:
 private:
     Ui::RazorKbIndicatorConfiguration *ui;
     QSettings *mSettings;
-    RazorSettingsCache oldSettings;
+    LxQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

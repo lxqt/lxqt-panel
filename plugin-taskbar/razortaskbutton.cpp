@@ -35,8 +35,10 @@
 #include <QtGui/QPainter>
 
 #include "razortaskbutton.h"
-#include <razorqt/xfitman.h>
+#include <lxqt/lxqtxfitman.h>
 #include <QX11Info>
+
+using namespace LxQt;
 
 /************************************************
 

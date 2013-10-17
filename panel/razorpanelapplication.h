@@ -29,12 +29,14 @@
 #ifndef RAZORPANELAPPLICATION_H
 #define RAZORPANELAPPLICATION_H
 
-#include <razorqt/razorapplication.h>
+#include <lxqt/lxqtapplication.h>
 
 class RazorPanel;
-class RazorSettings;
+namespace LxQt {
+class Settings;
+}
 
-class RazorPanelApplication : public RazorApplication
+class RazorPanelApplication : public LxQt::Application
 {
     Q_OBJECT
 public:
@@ -43,7 +45,7 @@ public:
     virtual bool x11EventFilter(XEvent* event);
 
     int count() { return mPanels.count(); }
-    RazorSettings *settings() { return mSettings; }
+    LxQt::Settings *settings() { return mSettings; }
 
 public slots:
     void addNewPanel();
@@ -57,7 +59,7 @@ private slots:
     void removePanel(RazorPanel* panel);
 
 private:
-    RazorSettings *mSettings;
+    LxQt::Settings *mSettings;
 };
 
 

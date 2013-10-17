@@ -1,12 +1,12 @@
 cmake_minimum_required( VERSION 2.6 )
 
-set(PROJECT razor-panel )
+set(PROJECT lxqt-panel )
 
 set(QT_USE_QTXML 1)
 set(QT_USE_QTDBUS 1)
 
 
-set(razor-panel_PRIV_H_FILES
+set(lxqt-panel_PRIV_H_FILES
     razorpanel.h
     razorpanelapplication.h
     razorpanellayout.h
@@ -18,12 +18,15 @@ set(razor-panel_PRIV_H_FILES
     pluginmoveprocessor.h
 )
 
-set(razor-panel_PUB_H_FILES
+
+# FIXME: we need to rename public headers to lxqt* and
+# using LxQt namespace in the public headers.
+set(lxqt-panel_PUB_H_FILES
     irazorpanelplugin.h
     irazorpanel.h
 )
 
-set(razor-panel_CPP_FILES
+set(lxqt-panel_CPP_FILES
     main.cpp
     razorpanel.cpp
     razorpanelapplication.cpp
@@ -46,8 +49,8 @@ set(MOCS
 )
 
 set(LIBRARIES
-    razorqt
-    qtxdg
+    ${LXQT_LIBRARIES}
+    ${QTXDG_LIBRARIES}
 )
 
 # QRC files .................
@@ -55,11 +58,11 @@ set(RESOURCES
 
 )
 
-set (razor-panel_UI_FILES
+set (lxqt-panel_UI_FILES
     config/configpaneldialog.ui
 )
 
-QT4_WRAP_UI(UI_HEADERS ${razor-panel_UI_FILES})
+QT4_WRAP_UI(UI_HEADERS ${lxqt-panel_UI_FILES})
 
 add_definitions(-DDEFULT_PANEL_PLUGINS=\"MainMenu,Quicklaunch,TaskBar,Tray,Clock\")
 
@@ -80,7 +83,7 @@ endif()
 
 
 set(PLUGIN_DESKTOPS_DIR
-    ${CMAKE_INSTALL_PREFIX}/share/razor/${PROJECT}
+    ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT}
 )
 
 add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
@@ -105,21 +108,21 @@ qt4_add_resources(QRC_SOURCES ${RESOURCES})
 include(RazorTranslate)
 razor_translate_ts(razor-runner_QM_FILES 
     SOURCES
-        ${razor-panel_PUB_H_FILES}
-        ${razor-panel_PRIV_H_FILES}
-        ${razor-panel_CPP_FILES} 
-        ${razor-panel_UI_FILES}
+        ${lxqt-panel_PUB_H_FILES}
+        ${lxqt-panel_PRIV_H_FILES}
+        ${lxqt-panel_CPP_FILES} 
+        ${lxqt-panel_UI_FILES}
 )
 #************************************************
 
 
-set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/razor-panel/)
+set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/)
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-add_executable(${PROJECT} ${razor-panel_PUB_H_FILES} ${razor-panel_PRIV_H_FILES} ${razor-panel_CPP_FILES} ${MOC_SOURCES} ${razor-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
+add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${razor-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QT_LIBRARIES})
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
-install(FILES   ${CONFIG_FILES}    DESTINATION ${RAZOR_ETC_XDG_DIRECTORY}/razor/)
-install(FILES  ${razor-panel_PUB_H_FILES} DESTINATION include/razorqt)
+install(FILES   ${CONFIG_FILES}    DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
+install(FILES  ${lxqt-panel_PUB_H_FILES} DESTINATION include/lxqt)

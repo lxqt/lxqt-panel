@@ -34,7 +34,9 @@
 
 class QSignalMapper;
 class QButtonGroup;
-class RazorGridLayout;
+namespace LxQt {
+class GridLayout;
+}
 
 class DesktopSwitchWidget: public QFrame
 {
@@ -68,7 +70,7 @@ private:
     int m_desktopCount;
     QStringList m_desktopNames;
     DesktopSwitchWidget mWidget;
-    RazorGridLayout *mLayout;
+    LxQt::GridLayout *mLayout;
 
     void setup();
 

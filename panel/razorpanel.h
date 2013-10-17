@@ -36,8 +36,11 @@
 
 class QMenu;
 class Plugin;
-class RazorSettings;
-class RazorPluginInfo;
+
+namespace LxQt {
+class Settings;
+class PluginInfo;
+}
 class RazorPanelLayout;
 
 /*! \brief The RazorPanel class provides a single razor-panel.
@@ -86,7 +89,7 @@ public:
     RazorPanel::Alignment alignment() const { return mAlignment; }
     int screenNum() const { return mScreenNum; }
 
-    RazorSettings *settings() const { return mSettings; }
+    LxQt::Settings *settings() const { return mSettings; }
 
 public slots:
     void show();
@@ -110,7 +113,7 @@ protected:
 
 private slots:
     void screensChangeds();
-    void addPlugin(const RazorPluginInfo &desktopFile);
+    void addPlugin(const LxQt::PluginInfo &desktopFile);
     void showConfigDialog();
     void showAddPluginDialog();
     void realign();
@@ -120,14 +123,14 @@ private slots:
 
 private:
     RazorPanelLayout* mLayout;
-    RazorSettings *mSettings;
+    LxQt::Settings *mSettings;
     QString mConfigGroup;
     QList<Plugin*> mPlugins;
 
     int findAvailableScreen(RazorPanel::Position position);
 
     void loadPlugins();
-    Plugin *loadPlugin(const RazorPluginInfo &desktopFile, const QString &settingsGroup);
+    Plugin *loadPlugin(const LxQt::PluginInfo &desktopFile, const QString &settingsGroup);
     Plugin *findPlugin(const IRazorPanelPlugin *iPlugin) const;
 
     QString findNewPluginSettingsGroup(const QString &pluginType) const;

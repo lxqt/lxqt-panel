@@ -37,10 +37,13 @@
 class XdgDesktopFile;
 class QuickLaunchAction;
 class QDragEnterEvent;
-class RazorGridLayout;
 class QuickLaunchButton;
 class QSettings;
 class QLabel;
+
+namespace LxQt {
+class GridLayout;
+}
 
 /*! \brief Loader for "quick launcher" icons in the panel.
 \author Petr Vanek <petr@scribus.info>
@@ -59,7 +62,7 @@ public:
     void realign();
 
 private:
-    RazorGridLayout *mLayout;
+    LxQt::GridLayout *mLayout;
     IRazorPanelPlugin *mPlugin;
     QLabel *mPlaceHolder;
 

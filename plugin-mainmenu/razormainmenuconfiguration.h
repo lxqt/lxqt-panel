@@ -29,7 +29,7 @@
 #ifndef RAZORMAINMENUCONFIGURATION_H
 #define RAZORMAINMENUCONFIGURATION_H
 
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 
@@ -51,7 +51,7 @@ public:
 private:
     Ui::RazorMainMenuConfiguration *ui;
     QSettings &mSettings;
-    RazorSettingsCache mOldSettings;
+    LxQt::SettingsCache mOldSettings;
     QString mDefaultShortcut;
 
 private slots:

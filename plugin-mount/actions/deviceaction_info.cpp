@@ -28,7 +28,7 @@
 
 #include "deviceaction_info.h"
 #include "../razormountplugin.h"
-#include <razorqt/razornotification.h>
+#include <lxqt/lxqtnotification.h>
 #include <QDebug>
 
 DeviceActionInfo::DeviceActionInfo(RazorMountPlugin *plugin, QObject *parent):
@@ -56,7 +56,7 @@ void DeviceActionInfo::doDeviceRemoved(RazorMountDevice *device)
 
 void DeviceActionInfo::showMessage(const QString &text)
 {
-    RazorNotification::notify(tr("Removable media/devices manager"),
+    LxQt::Notification::notify(tr("Removable media/devices manager"),
                               text
                           #if QT_VERSION >= 0x040700
                               , mPlugin->icon().name()

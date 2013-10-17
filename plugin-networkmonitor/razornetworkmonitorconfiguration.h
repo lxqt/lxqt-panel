@@ -29,7 +29,7 @@
 #ifndef RAZORNETWORKMONITORCONFIGURATION_H
 #define RAZORNETWORKMONITORCONFIGURATION_H
 
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 
@@ -52,7 +52,7 @@ public:
 private:
     Ui::RazorNetworkMonitorConfiguration *ui;
     QSettings *mSettings;
-    RazorSettingsCache mOldSettings;
+    LxQt::SettingsCache mOldSettings;
 
 private slots:
     /*

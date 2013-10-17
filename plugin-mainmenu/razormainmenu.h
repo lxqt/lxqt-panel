@@ -42,8 +42,12 @@
 
 class QMenu;
 class RazorBar;
+
+namespace LxQt {
 class PowerManager;
 class ScreenSaver;
+}
+
 namespace GlobalKeyShortcut
 {
 class Action;
@@ -71,8 +75,8 @@ private:
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
     MenuStyle mMenuStyle;
-    PowerManager* mPowerManager;
-    ScreenSaver* mScreenSaver;
+    LxQt::PowerManager* mPowerManager;
+    LxQt::ScreenSaver* mScreenSaver;
     XdgMenu mXdgMenu;
 
     bool mLockCascadeChanges;

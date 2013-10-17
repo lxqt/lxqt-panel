@@ -31,7 +31,7 @@
 
 #include <QFrame>
 #include <QString>
-#include <razorqt/razorplugininfo.h>
+#include <lxqt/lxqtplugininfo.h>
 #include "irazorpanel.h"
 
 class QPluginLoader;
@@ -54,7 +54,7 @@ public:
     };
 
 
-    explicit Plugin(const RazorPluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel);
+    explicit Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel);
     ~Plugin();
 
     bool isLoaded() const { return mPlugin != 0; }
@@ -69,7 +69,7 @@ public:
     QMenu* popupMenu() const;
     IRazorPanelPlugin * iPlugin() const { return mPlugin; }
     
-    const RazorPluginInfo desktopFile() { return mDesktopFile; }
+    const LxQt::PluginInfo desktopFile() { return mDesktopFile; }
 
     bool isSeparate() const;
     bool isExpandable() const;
@@ -98,7 +98,7 @@ protected:
 private:
     bool loadLib(const QString &libraryName);
 
-    const RazorPluginInfo mDesktopFile;
+    const LxQt::PluginInfo mDesktopFile;
     QByteArray calcSettingsHash();
     QPluginLoader *mPluginLoader;
     IRazorPanelPlugin *mPlugin;

@@ -1,5 +1,8 @@
-project( razor-panel )
-cmake_minimum_required( VERSION 2.6 )
+cmake_minimum_required(VERSION 2.6)
+project( lxqt-panel )
+
+# additional cmake files
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 if (NOT CMAKE_BUILD_TYPE)
 	set ( CMAKE_BUILD_TYPE Release )
@@ -56,14 +59,28 @@ add_definitions ( -Wall )
 find_package ( Qt4 REQUIRED )
 find_package ( X11 REQUIRED )
 include ( ${QT_USE_FILE} )
+
+find_package(LXQT REQUIRED )
+include(${LXQT_USE_FILE})
+
+find_package(QTXDG REQUIRED QUIET)
+include(${QTXDG_USE_FILE})
+
+find_package(LXQT_GLOBALKEYS REQUIRED )
+include(${LXQT_GLOBALKEYS_USE_FILE})
+
+find_package(LXQT_GLOBALKEYS_UI REQUIRED )
+include(${LXQT_GLOBALKEYS_UI_USE_FILE})
+
 include_directories (
 	${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
 	${QT_QTCORE_INCLUDE_DIR} ${QT_QTGUI_INCLUDE_DIR} ${QT_QTXML_INCLUDE_DIR} ${QT_QTDBUS_INCLUDE_DIR}
 	${X11_INCLUDE_DIR}
-	${CMAKE_SOURCE_DIR}/libraries/
+	${LXQT_INCLUDE_DIRS}
+	${QTXDG_INCLUDE_DIRS}
 	src)
 
-set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/razor-panel/)
+set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/)
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 

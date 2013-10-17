@@ -35,7 +35,7 @@
 #include <QApplication>
 #include <QtDebug>
 #include "trayicon.h"
-#include <razorqt/razorgridlayout.h>
+#include <lxqt/lxqtgridlayout.h>
 #include "../panel/irazorpanel.h"
 #include <QX11Info>
 #include "razortray.h"
@@ -47,7 +47,7 @@
 
 #undef Bool // defined as int in X11/Xlib.h
 
-#include "razorqt/xfitman.h"
+#include <lxqt/lxqtxfitman.h>
 #include <QtCore/QTimer>
 #include "../panel/irazorpanelplugin.h"
 
@@ -61,6 +61,7 @@
 #define XEMBED_EMBEDDED_NOTIFY  0
 #define XEMBED_MAPPED          (1 << 0)
 
+using namespace LxQt;
 
 /************************************************
 
@@ -74,7 +75,7 @@ RazorTray::RazorTray(IRazorPanelPlugin *plugin, QWidget *parent):
     mIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT),
     mPlugin(plugin)
 {
-    mLayout = new RazorGridLayout(this);
+    mLayout = new LxQt::GridLayout(this);
     realign();
 
     // Init the selection later just to ensure that no signals are sent until

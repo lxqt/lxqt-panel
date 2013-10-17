@@ -1,8 +1,8 @@
 MACRO (BUILD_RAZOR_PLUGIN NAME)
-    set(PROGRAM "razor-panel")
+    set(PROGRAM "lxqt-panel")
     project(${PROGRAM}_${NAME})
 
-    set(PROG_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/razor/${PROGRAM})
+    set(PROG_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM})
     set(PLUGIN_SHARE_DIR ${PROG_SHARE_DIR}/${NAME})
 
     # Translations **********************************
@@ -16,11 +16,11 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
         TS_SRC_FILE
             translations/${NAME}.ts.src
         INSTALLATION_DIR
-            ${CMAKE_INSTALL_PREFIX}/share/razor/${PROGRAM}/${NAME}
+            ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM}/${NAME}
     )
     
 
-    #razor_translate_to(QM_FILES ${CMAKE_INSTALL_PREFIX}/share/razor/${PROGRAM}/${PROJECT_NAME})
+    #razor_translate_to(QM_FILES ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM}/${PROJECT_NAME})
     file (GLOB ${PROJECT_NAME}_DESKTOP_FILES_IN resources/*.desktop.in)
     razor_translate_desktop(DESKTOP_FILES 
         SOURCES
@@ -31,7 +31,6 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
     file (GLOB CONFIG_FILES     resources/*.conf    )
 
     include_directories (
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../libraries
         ${CMAKE_CURRENT_SOURCE_DIR}/panel
         ${CMAKE_CURRENT_BINARY_DIR}
     )
@@ -53,7 +52,6 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
     install(FILES ${CONFIG_FILES}  DESTINATION ${PLUGIN_SHARE_DIR})
     install(FILES ${DESKTOP_FILES} DESTINATION ${PROG_SHARE_DIR})
 
-    add_dependencies(${NAME} razorqt)
 ENDMACRO(BUILD_RAZOR_PLUGIN)
 
 

@@ -28,7 +28,7 @@
 
 #include "razorquicklaunch.h"
 #include "quicklaunchbutton.h"
-#include <razorqt/razorgridlayout.h>
+#include <lxqt/lxqtgridlayout.h>
 #include "quicklaunchaction.h"
 #include "../panel/irazorpanelplugin.h"
 
@@ -55,7 +55,7 @@ RazorQuickLaunch::RazorQuickLaunch(IRazorPanelPlugin *plugin, QWidget* parent) :
 {
     setAcceptDrops(true);
 
-    mLayout = new RazorGridLayout(this);
+    mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
 
     QSettings *settings = mPlugin->settings();

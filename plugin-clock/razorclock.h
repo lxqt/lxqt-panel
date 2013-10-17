@@ -33,7 +33,7 @@
 
 #include "../panel/irazorpanelplugin.h"
 #include "razorclockconfiguration.h"
-#include <razorqt/rotatedwidget.h>
+#include <lxqt/lxqtrotatedwidget.h>
 
 #include <QtCore/QString>
 
@@ -69,7 +69,7 @@ private:
     QTimer* mClockTimer;
     QWidget *mMainWidget;
     QWidget *mContent;
-    RotatedWidget* mRotatedWidget;
+    LxQt::RotatedWidget* mRotatedWidget;
     QLabel* mTimeLabel;
     QLabel* mDateLabel;
     QString mClockFormat;

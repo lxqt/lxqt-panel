@@ -36,10 +36,10 @@
 #include <QAction>
 #include <QtCore/QTimer>
 #include <QtGui/QMessageBox>
-#include <razorqt/powermanager.h>
-#include <razorqt/screensaver.h>
-#include <razor-global-key-shortcuts-client/razor-global-key-shortcuts-client.h>
-#include <razorqt/xfitman.h>
+#include <lxqt/lxqtpowermanager.h>
+#include <lxqt/lxqtscreensaver.h>
+#include <lxqt-globalkeys.h>
+#include <lxqt/lxqtxfitman.h>
 
 #include <qtxdg/xdgicon.h>
 #include <qtxdg/xdgdesktopfile.h>
@@ -68,8 +68,8 @@ RazorMainMenu::RazorMainMenu(const IRazorPanelPluginStartupInfo &startupInfo):
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
 
-    mPowerManager = new PowerManager(this);
-    mScreenSaver = new ScreenSaver(this);
+    mPowerManager = new LxQt::PowerManager(this);
+    mScreenSaver = new LxQt::ScreenSaver(this);
 
     settingsChanged();
 

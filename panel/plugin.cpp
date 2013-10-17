@@ -43,7 +43,7 @@
 #include <QApplication>
 #include <QtCore/QCryptographicHash>
 
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 #include <qtxdg/xdgicon.h>
 
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
@@ -51,7 +51,7 @@ QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 /************************************************
 
  ************************************************/
-Plugin::Plugin(const RazorPluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel) :
+Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel) :
     QFrame(panel),
     mDesktopFile(desktopFile),
     mPluginLoader(0),
@@ -62,7 +62,7 @@ Plugin::Plugin(const RazorPluginInfo &desktopFile, const QString &settingsFile, 
     mPanel(panel)
 {
 
-    mSettings = new RazorSettings(settingsFile, QSettings::IniFormat, this);
+    mSettings = new LxQt::Settings(settingsFile, QSettings::IniFormat, this);
     connect(mSettings, SIGNAL(settingsChanged()), this, SLOT(settingsChanged()));
     mSettings->beginGroup(settingsGroup);
 

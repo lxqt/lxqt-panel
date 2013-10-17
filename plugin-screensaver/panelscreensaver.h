@@ -32,8 +32,9 @@
 #include "../panel/irazorpanelplugin.h"
 #include <QToolButton>
 
-
+namespace LxQt {
 class ScreenSaver;
+}
 namespace GlobalKeyShortcut
 {
 class Action;
@@ -51,7 +52,7 @@ public:
 
 private:
     QToolButton  mButton;
-    ScreenSaver * mSaver;
+    LxQt::ScreenSaver * mSaver;
     GlobalKeyShortcut::Action * mShortcutKey;
 };
 

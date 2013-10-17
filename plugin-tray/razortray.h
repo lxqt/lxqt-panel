@@ -35,7 +35,10 @@
 
 class TrayIcon;
 class QSize;
-class RazorGridLayout;
+
+namespace LxQt {
+class GridLayout;
+}
 
 /**
  * @brief This makes our trayplugin
@@ -80,7 +83,7 @@ private:
     int mDamageEvent;
     int mDamageError;
     QSize mIconSize;
-    RazorGridLayout *mLayout;
+    LxQt::GridLayout *mLayout;
     IRazorPanelPlugin *mPlugin;
 };
 

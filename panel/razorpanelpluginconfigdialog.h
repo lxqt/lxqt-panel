@@ -31,7 +31,7 @@
 
 #include <QtGui/QAbstractButton>
 #include <QtGui/QDialog>
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 
 class QComboBox;
 
@@ -56,7 +56,7 @@ protected:
 
 private:
     QSettings &mSettings;
-    RazorSettingsCache mOldSettings;
+    LxQt::SettingsCache mOldSettings;
 
 };
 

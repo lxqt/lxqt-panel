@@ -37,7 +37,7 @@
 #include "../panel/razorpanel.h"
 #include "trayicon.h"
 #include <QtGui/QX11Info>
-#include "razorqt/xfitman.h"
+#include <lxqt/lxqtxfitman.h>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/Xcomposite.h>
@@ -48,6 +48,7 @@
 
 static bool xError;
 
+using namespace LxQt;
 
 /************************************************
 

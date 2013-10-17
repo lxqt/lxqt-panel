@@ -29,7 +29,7 @@
 #ifndef RAZORSYSSTATCONFIGURATION_H
 #define RAZORSYSSTATCONFIGURATION_H
 
-#include "razorqt/razorsettings.h"
+#include <lxqt/lxqtsettings.h>
 
 #include <QtGui/QDialog>
 #include <QtGui/QAbstractButton>
@@ -70,7 +70,7 @@ signals:
 private:
     Ui::RazorSysStatConfiguration *ui;
     QSettings *mSettings;
-    RazorSettingsCache oldSettings;
+    LxQt::SettingsCache oldSettings;
 
     void loadSettings();
 

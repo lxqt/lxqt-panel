@@ -32,7 +32,7 @@
 #include <QtPlugin>
 #include <QtGui/qwindowdefs.h> // For XEvent
 #include <QSettings>
-#include <razorqt/razorplugininfo.h>
+#include <lxqt/lxqtplugininfo.h>
 #include "irazorpanel.h"
 
 /**
@@ -42,10 +42,10 @@ Razor panel plugins are standalone sharedlibraries
 Plugin for the panel is a library written on C++. One more necessary thing
 is a .desktop file describing this plugin. The same may be additional files,
 like translations. Themselves plugins will be installed to
-/usr/local/lib/razor-panel or /usr/lib/razor-panel (dependent on cmake option
+/usr/local/lib/lxqt-panel or /usr/lib/lxqt-panel (dependent on cmake option
 -DCMAKE_INSTALL_PREFIX). Desktop files are installed to
-/usr/local/share/razor/razor-panel, translations to
-/usr/local/share/razor/razor-panel/PLUGIN_NAME.
+/usr/local/share/lxqt/lxqt-panel, translations to
+/usr/local/share/lxqt/lxqt-panel/PLUGIN_NAME.
 **/
 
 class QDialog;
@@ -54,7 +54,7 @@ struct IRazorPanelPluginStartupInfo
 {
     IRazorPanel *razorPanel;
     QSettings *settings;
-    const RazorPluginInfo *desktopFile;
+    const LxQt::PluginInfo *desktopFile;
 };
 
 
@@ -180,7 +180,7 @@ public:
 
 
     QSettings *settings() const { return mSettings; }
-    const RazorPluginInfo *desktopFile() const { return mDesktopFile; }
+    const LxQt::PluginInfo *desktopFile() const { return mDesktopFile; }
 
     /**
      Helper functions for calculating global screen position of some popup window with windowSize size.
@@ -197,7 +197,7 @@ public:
 private:
     QSettings *mSettings;
     IRazorPanel *mPanel;
-    const RazorPluginInfo *mDesktopFile;
+    const LxQt::PluginInfo *mDesktopFile;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(IRazorPanelPlugin::Flags)

@@ -35,7 +35,7 @@
 #include <QtCore/QLocale>
 #include <QtCore/QDateTime>
 
-#include "razorqt/razorsettings.h"
+#include <lxqt/lxqtsettings.h>
 
 namespace Ui {
     class RazorClockConfiguration;
@@ -52,7 +52,7 @@ public:
 private:
     Ui::RazorClockConfiguration *ui;
     QSettings &mSettings;
-    RazorSettingsCache oldSettings;
+    LxQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

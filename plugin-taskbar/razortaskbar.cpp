@@ -34,9 +34,9 @@
 #include <QSettings>
 
 #include "razortaskbar.h"
-#include <razorqt/razorgridlayout.h>
+#include <lxqt/lxqtgridlayout.h>
 #include <qtxdg/xdgicon.h>
-#include <razorqt/xfitman.h>
+#include <lxqt/lxqtxfitman.h>
 #include <QtCore/QList>
 
 
@@ -53,6 +53,8 @@
 #include <QDebug>
 #include "../panel/irazorpanelplugin.h"
 
+using namespace LxQt;
+
 /************************************************
 
 ************************************************/
@@ -63,7 +65,7 @@ RazorTaskBar::RazorTaskBar(IRazorPanelPlugin *plugin, QWidget *parent) :
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this))
 {
-    mLayout = new RazorGridLayout(this);
+    mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     realign();
@@ -331,7 +333,7 @@ void RazorTaskBar::realign()
             // Horizontal + Icons **************
             mLayout->setRowCount(panel->lineCount());
             mLayout->setColumnCount(0);
-            mLayout->setStretch(RazorGridLayout::StretchVertical);
+            mLayout->setStretch(LxQt::GridLayout::StretchVertical);
 
             minSize.rheight() = 0;
             minSize.rwidth()  = 0;
@@ -344,7 +346,7 @@ void RazorTaskBar::realign()
             // Horizontal + Text ***************
             mLayout->setRowCount(panel->lineCount());
             mLayout->setColumnCount(0);
-            mLayout->setStretch(RazorGridLayout::StretchHorizontal | RazorGridLayout::StretchVertical);
+            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
 
             minSize.rheight() = 0;
             minSize.rwidth()  = 0;
@@ -360,7 +362,7 @@ void RazorTaskBar::realign()
             // Vertical + Icons ****************
             mLayout->setRowCount(0);
             mLayout->setColumnCount(panel->lineCount());
-            mLayout->setStretch(RazorGridLayout::StretchHorizontal);
+            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
 
             minSize.rheight() = 0;
             minSize.rwidth()  = 0;
@@ -374,7 +376,7 @@ void RazorTaskBar::realign()
             // Vertical + Text *****************
             mLayout->setRowCount(0);
             mLayout->setColumnCount(1);
-            mLayout->setStretch(RazorGridLayout::StretchHorizontal);
+            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
 
             minSize.rheight() = 0;
             minSize.rwidth()  = mButtonWidth;

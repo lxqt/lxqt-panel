@@ -18,7 +18,7 @@ set(MOCS
   desktopswitchbutton.h
 )
 
-set(LIBRARIES ${LIBRARIES} razor-global-key-shortcuts-client )
+set(LIBRARIES ${LIBRARIES} ${LXQT_LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} )
 
 #*******************************************
 include ("../BuildPlugin.cmake")

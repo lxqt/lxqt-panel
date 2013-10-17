@@ -36,7 +36,9 @@
 class VolumeButton;
 class AudioEngine;
 class AudioDevice;
-class RazorNotification;
+namespace LxQt {
+class Notification;
+}
 namespace GlobalKeyShortcut
 {
 class Action;
@@ -71,7 +73,7 @@ private:
     GlobalKeyShortcut::Action *m_keyVolumeUp;
     GlobalKeyShortcut::Action *m_keyVolumeDown;
     GlobalKeyShortcut::Action *m_keyMuteToggle;
-    RazorNotification *m_notification;
+    LxQt::Notification *m_notification;
 };
 
 

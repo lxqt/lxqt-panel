@@ -28,22 +28,22 @@
 
 #include "razorpanelapplication.h"
 #include "razorpanel.h"
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 #include <QtDebug>
 #include <QUuid>
 #include <X11/Xlib.h>
 
 
 RazorPanelApplication::RazorPanelApplication(int& argc, char** argv, const QString &configFile)
-    : RazorApplication(argc, argv)
+    : LxQt::Application(argc, argv)
 {
     if (configFile.isEmpty())
-        mSettings = new RazorSettings("panel", this);
+        mSettings = new LxQt::Settings("panel", this);
     else
-        mSettings = new RazorSettings(configFile, QSettings::IniFormat, this);
+        mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
 
     QStringList panels = mSettings->value("panels").toStringList();
-
+qDebug() << configFile;
     Q_FOREACH(QString i, panels)
     {
         addPanel(i);

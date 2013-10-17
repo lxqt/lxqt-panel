@@ -41,8 +41,8 @@
 #include <QtGui/QMessageBox>
 #include <QtDebug>
 #include <qtxdg/xdgicon.h>
-#include <razor-global-key-shortcuts-client/razor-global-key-shortcuts-client.h>
-#include <razorqt/razornotification.h>
+#include <lxqt-globalkeys.h>
+#include <lxqt/lxqtnotification.h>
 
 Q_EXPORT_PLUGIN2(volume, RazorVolumePluginLibrary)
 
@@ -59,7 +59,7 @@ RazorVolume::RazorVolume(const IRazorPanelPluginStartupInfo &startupInfo):
 {
     m_volumeButton = new VolumeButton(this);
 
-    m_notification = new RazorNotification("", this);
+    m_notification = new LxQt::Notification("", this);
 
     // global key shortcuts
     QString shortcutNotRegistered;
@@ -116,7 +116,7 @@ RazorVolume::RazorVolume(const IRazorPanelPluginStartupInfo &startupInfo):
     }
     
     m_notification->setTimeout(1000);
-    m_notification->setUrgencyHint(RazorNotification::UrgencyLow);
+    m_notification->setUrgencyHint(LxQt::Notification::UrgencyLow);
 
     settingsChanged();
 }

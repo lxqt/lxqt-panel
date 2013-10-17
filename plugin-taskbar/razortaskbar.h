@@ -39,7 +39,10 @@
 
 class RazorTaskButton;
 class IRazorPanelPlugin;
-class RazorGridLayout;
+
+namespace LxQt {
+class GridLayout;
+}
 
 class RazorTaskBar : public QFrame
 {
@@ -60,7 +63,7 @@ private:
     void refreshTaskList();
     void refreshButtonVisibility();
     QHash<Window, RazorTaskButton*> mButtonsHash;
-    RazorGridLayout *mLayout;
+    LxQt::GridLayout *mLayout;
     RazorTaskButton* buttonByWindow(Window window) const;
     bool windowOnActiveDesktop(Window window) const;
     Window mRootWindow;

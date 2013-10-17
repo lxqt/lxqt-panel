@@ -28,7 +28,7 @@
 
 #include <QToolButton>
 #include <QtDebug>
-#include <razor-global-key-shortcuts-client/razor-global-key-shortcuts-client.h>
+#include <lxqt-globalkeys.h>
 
 #include "desktopswitchbutton.h"
 

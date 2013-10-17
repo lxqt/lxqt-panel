@@ -32,7 +32,9 @@
 #include <QDebug>
 #include <QtGui/QDesktopWidget>
 
-#include <razorqt/xfitman.h>
+#include <lxqt/lxqtxfitman.h>
+
+using namespace LxQt;
 
 struct ScreenPosition
 {
@@ -69,7 +71,7 @@ ConfigPanelDialog *ConfigPanelDialog::exec(RazorPanel *panel)
 
  ************************************************/
 ConfigPanelDialog::ConfigPanelDialog(RazorPanel *panel, QWidget *parent):
-    RazorConfigDialog(tr("Configure Panel"), panel->settings(), parent)
+    LxQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent)
 {
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_DeleteOnClose);

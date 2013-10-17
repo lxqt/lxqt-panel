@@ -28,16 +28,17 @@
 #include <QtGui/QToolButton>
 #include <QtGui/QAction>
 #include <QtGui/QX11Info>
-#include <razor-global-key-shortcuts-client/razor-global-key-shortcuts-client.h>
+#include <lxqt-globalkeys.h>
 #include <qtxdg/xdgicon.h>
-#include <razorqt/xfitman.h>
-#include <razorqt/razornotification.h>
+#include <lxqt/lxqtxfitman.h>
+#include <lxqt/lxqtnotification.h>
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
 #include "showdesktop.h"
 
+using namespace LxQt;
 
 Q_EXPORT_PLUGIN2(showdesktop, ShowDesktopLibrary)
 
@@ -58,7 +59,7 @@ ShowDesktop::ShowDesktop(const IRazorPanelPluginStartupInfo &startupInfo) :
             m_key->changeShortcut(DEFAULT_SHORTCUT);
             if (m_key->shortcut().isEmpty())
             {
-                RazorNotification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
+                LxQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
             }
         }
     }

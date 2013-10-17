@@ -31,12 +31,12 @@
 #include "../razorpanel.h"
 #include <QSettings>
 #include <QTimer>
-#include <razorqt/razorconfigdialog.h>
+#include <lxqt/lxqtconfigdialog.h>
 
 
 class RazorPanel;
 
-class ConfigPanelDialog : public RazorConfigDialog
+class ConfigPanelDialog : public LxQt::ConfigDialog
 {
     Q_OBJECT
 public:

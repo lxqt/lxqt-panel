@@ -31,7 +31,7 @@
 #include <QtGui/QDialog>
 #include <QtGui/QAbstractButton>
 
-#include <razorqt/razorsettings.h>
+#include <lxqt/lxqtsettings.h>
 
 namespace Ui {
     class RazorTaskbarConfiguration;
@@ -48,7 +48,7 @@ public:
 private:
     Ui::RazorTaskbarConfiguration *ui;
     QSettings &mSettings;
-    RazorSettingsCache oldSettings;
+    LxQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

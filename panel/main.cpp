@@ -37,9 +37,9 @@
 #include "razorpanel.h"
 #include "razortranslate.h"
 
-/*! The razor-panel is the panel of Razor-qt.
-  Usage: razor-panel [CONFIG_ID]
-    CONFIG_ID      Section name in config file ~/.razor/panel.conf
+/*! The lxqt-panel is the panel of Razor-qt.
+  Usage: lxqt-panel [CONFIG_ID]
+    CONFIG_ID      Section name in config file ~/.config/lxqt-panel/panel.conf
                    (default main)
  */
 
@@ -52,9 +52,9 @@ void termSignalHandler(int)
 void printHelp()
 {
     QTextStream out(stdout);
-    out << "Usage: razor-panel [options]" << endl;
+    out << "Usage: lxqt-panel [options]" << endl;
     out << endl;
-    out << "Start Razor-qt panel and its plugins" << endl;
+    out << "Start lxde-qt panel and its plugins" << endl;
     out << endl;
     out << "Options:" << endl;
     out << "  -h, --help                    Show help about options" << endl;
