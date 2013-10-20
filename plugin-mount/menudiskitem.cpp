@@ -27,7 +27,7 @@
 
 #include <QtGui/QDesktopServices>
 #include "menudiskitem.h"
-#include <razormount/razormount.h>
+#include <lxqtmount/lxqtmount.h>
 #include <qtxdg/xdgicon.h>
 #include <QtCore/QDebug>
 #include <QtCore/QUrl>
@@ -38,7 +38,7 @@
 /************************************************
 
  ************************************************/
-MenuDiskItem::MenuDiskItem(RazorMountDevice *device, QWidget *parent):
+MenuDiskItem::MenuDiskItem(LxQt::MountDevice *device, QWidget *parent):
     QFrame(parent),
     mDevice(device)
 {
@@ -107,19 +107,19 @@ void MenuDiskItem::update()
 /************************************************
 
  ************************************************/
-bool MenuDiskItem::isUsableDevice(const RazorMountDevice *device)
+bool MenuDiskItem::isUsableDevice(const LxQt::MountDevice *device)
 {
     switch (device->mediaType())
     {
-    case RazorMountDevice::MediaTypeFdd:
+    case LxQt::MountDevice::MediaTypeFdd:
         return  true;
 
-    case RazorMountDevice::MediaTypeOptical:
+    case LxQt::MountDevice::MediaTypeOptical:
         return true;
         break;
 
-    case RazorMountDevice::MediaTypePartition:
-    case RazorMountDevice::MediaTypeDrive:
+    case LxQt::MountDevice::MediaTypePartition:
+    case LxQt::MountDevice::MediaTypeDrive:
         return device->isExternal();
         break;
 

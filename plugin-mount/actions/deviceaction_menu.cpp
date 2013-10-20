@@ -43,14 +43,14 @@ DeviceActionMenu::DeviceActionMenu(RazorMountPlugin *plugin, QObject *parent):
 }
 
 
-void DeviceActionMenu::doDeviceAdded(RazorMountDevice *device)
+void DeviceActionMenu::doDeviceAdded(LxQt::MountDevice *device)
 {
     mHideTimer.start();
     mPopup->show();
 }
 
 
-void DeviceActionMenu::doDeviceRemoved(RazorMountDevice *device)
+void DeviceActionMenu::doDeviceRemoved(LxQt::MountDevice *device)
 {
 
 }

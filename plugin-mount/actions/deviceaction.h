@@ -31,10 +31,13 @@
 
 #include <QObject>
 #include <QSettings>
-#include <razormount/razormount.h>
+#include <lxqtmount/lxqtmount.h>
 
-class RazorMountDevice;
-class RazorMountManager;
+namespace {
+class MountDevice;
+class MountManager;
+}
+
 class RazorMountPlugin;
 
 class DeviceAction: public QObject
@@ -54,13 +57,13 @@ public:
     static QString actionIdToString(ActionId id);
 
 public slots:
-    void deviceAdded(RazorMountDevice *device);
-    void deviceRemoved(RazorMountDevice *device);
+    void deviceAdded(LxQt::MountDevice *device);
+    void deviceRemoved(LxQt::MountDevice *device);
 
 protected:
     explicit DeviceAction(RazorMountPlugin *plugin, QObject *parent=0);
-    virtual void doDeviceAdded(RazorMountDevice *device) = 0;
-    virtual void doDeviceRemoved(RazorMountDevice *device) = 0;
+    virtual void doDeviceAdded(LxQt::MountDevice *device) = 0;
+    virtual void doDeviceRemoved(LxQt::MountDevice *device) = 0;
 
     RazorMountPlugin *mPlugin;
 };

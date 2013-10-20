@@ -33,8 +33,11 @@
 #include <QDialog>
 #include "../panel/irazorpanelplugin.h"
 
-class RazorMountManager;
-class RazorMountDevice;
+namespace LxQt {
+class MountManager;
+class MountDevice;
+}
+
 class MenuDiskItem;
 class QLabel;
 
@@ -42,7 +45,7 @@ class Popup: public QDialog
 {
     Q_OBJECT
 public:
-    explicit Popup(RazorMountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent = 0);
+    explicit Popup(LxQt::MountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent = 0);
 
 public slots:
     void showHide();
@@ -56,12 +59,12 @@ protected:
     void hideEvent(QHideEvent *event);
 
 private slots:
-    MenuDiskItem *addItem(RazorMountDevice *device);
-    void removeItem(RazorMountDevice *device);
+    MenuDiskItem *addItem(LxQt::MountDevice *device);
+    void removeItem(LxQt::MountDevice *device);
 
 private:
     void realign();
-    RazorMountManager *mManager;
+    LxQt::MountManager *mManager;
     IRazorPanelPlugin *mPlugin;
     QLabel *mPlaceholder;
     int mDisplayCount;

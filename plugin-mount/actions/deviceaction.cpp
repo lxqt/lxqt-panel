@@ -80,13 +80,13 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
     return ACT_INFO;
 }
 
-void DeviceAction::deviceAdded(RazorMountDevice *device)
+void DeviceAction::deviceAdded(LxQt::MountDevice *device)
 {
     if (MenuDiskItem::isUsableDevice(device))
         doDeviceAdded(device);
 }
 
-void DeviceAction::deviceRemoved(RazorMountDevice *device)
+void DeviceAction::deviceRemoved(LxQt::MountDevice *device)
 {
     if (MenuDiskItem::isUsableDevice(device))
         doDeviceRemoved(device);

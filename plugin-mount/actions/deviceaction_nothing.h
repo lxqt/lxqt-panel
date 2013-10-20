@@ -39,8 +39,8 @@ public:
     explicit DeviceActionNothing(RazorMountPlugin *plugin, QObject *parent=0);
 
 protected:
-    void doDeviceAdded(RazorMountDevice *device);
-    void doDeviceRemoved(RazorMountDevice *device);
+    void doDeviceAdded(LxQt::MountDevice *device);
+    void doDeviceRemoved(LxQt::MountDevice *device);
 };
 
 #endif // DEVICEACTIONNOTHING_H

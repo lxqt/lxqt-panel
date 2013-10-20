@@ -38,7 +38,7 @@ DeviceActionInfo::DeviceActionInfo(RazorMountPlugin *plugin, QObject *parent):
 }
 
 
-void DeviceActionInfo::doDeviceAdded(RazorMountDevice *device)
+void DeviceActionInfo::doDeviceAdded(LxQt::MountDevice *device)
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -46,7 +46,7 @@ void DeviceActionInfo::doDeviceAdded(RazorMountDevice *device)
 }
 
 
-void DeviceActionInfo::doDeviceRemoved(RazorMountDevice *device)
+void DeviceActionInfo::doDeviceRemoved(LxQt::MountDevice *device)
 {
     qDebug() << Q_FUNC_INFO;
 

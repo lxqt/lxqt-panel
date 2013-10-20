@@ -34,12 +34,12 @@ DeviceActionNothing::DeviceActionNothing(RazorMountPlugin *plugin, QObject *pare
 }
 
 
-void DeviceActionNothing::doDeviceAdded(RazorMountDevice *device)
+void DeviceActionNothing::doDeviceAdded(LxQt::MountDevice *device)
 {
 }
 
 
-void DeviceActionNothing::doDeviceRemoved(RazorMountDevice *device)
+void DeviceActionNothing::doDeviceRemoved(LxQt::MountDevice *device)
 {
 }
 

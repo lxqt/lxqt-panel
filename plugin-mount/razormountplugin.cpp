@@ -28,7 +28,7 @@
 
 #include "razormountplugin.h"
 #include "razormountconfiguration.h"
-#include <razormount/razormount.h>
+#include <lxqtmount/lxqtmount.h>
 #include "actions/deviceaction.h"
 #include "popup.h"
 #include "mountbutton.h"
@@ -41,7 +41,7 @@ Q_EXPORT_PLUGIN2(mount, RazorMountPluginLibrary)
 RazorMountPlugin::RazorMountPlugin(const IRazorPanelPluginStartupInfo &startupInfo):
     QObject(),
     IRazorPanelPlugin(startupInfo),
-    mMountManager(new RazorMountManager(this)),
+    mMountManager(new LxQt::MountManager(this)),
     mDeviceAction(0)
 {
     mButton = new MountButton();

@@ -32,7 +32,10 @@
 #include "../panel/irazorpanelplugin.h"
 #include "../panel/razorpanel.h"
 
-class RazorMountManager;
+namespace LxQt {
+class MountManager;
+}
+
 class Popup;
 class MountButton;
 class DeviceAction;
@@ -55,7 +58,7 @@ public:
     void realign();
     QDialog *configureDialog();
 
-    RazorMountManager *mountManager() const { return mMountManager; }
+    LxQt::MountManager *mountManager() const { return mMountManager; }
     Popup *popup() { return mPopup; }
 
     QIcon icon() const;
@@ -66,7 +69,7 @@ protected slots:
 private:
     MountButton *mButton;
     Popup *mPopup;
-    RazorMountManager *mMountManager;
+    LxQt::MountManager *mMountManager;
     DeviceAction *mDeviceAction;
 };
 

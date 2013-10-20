@@ -29,43 +29,43 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QtGui/QDesktopWidget>
-#include <razormount/razormount.h>
+#include <lxqtmount/lxqtmount.h>
 #include "menudiskitem.h"
 #include "popup.h"
 
 
-Popup::Popup(RazorMountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent):
+Popup::Popup(LxQt::MountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent):
     QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint),
     mManager(manager),
     mPlugin(plugin),
     mDisplayCount(0)
 {
 
-    setObjectName("RazorMountPopup");
+    setObjectName("LxQtMountPopup");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setLayout(new QVBoxLayout(this));
     layout()->setMargin(0);
 
     setAttribute(Qt::WA_AlwaysShowToolTips);
 
-    connect(mManager, SIGNAL(deviceAdded(RazorMountDevice*)),
-                this, SLOT(addItem(RazorMountDevice*)));
-    connect(mManager, SIGNAL(deviceRemoved(RazorMountDevice*)),
-                this, SLOT(removeItem(RazorMountDevice*)));
+    connect(mManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
+                this, SLOT(addItem(LxQt::MountDevice*)));
+    connect(mManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
+                this, SLOT(removeItem(LxQt::MountDevice*)));
 
     mPlaceholder = new QLabel(tr("No devices are available"), this);
     mPlaceholder->setObjectName("NoDiskLabel");
     layout()->addWidget(mPlaceholder);
     mPlaceholder->hide();
 
-    foreach(RazorMountDevice *device, mManager->devices())
+    foreach(LxQt::MountDevice *device, mManager->devices())
     {
         addItem(device);
     }
 }
 
 
-MenuDiskItem *Popup::addItem(RazorMountDevice *device)
+MenuDiskItem *Popup::addItem(LxQt::MountDevice *device)
 {
     if (MenuDiskItem::isUsableDevice(device))
     {
@@ -86,7 +86,7 @@ MenuDiskItem *Popup::addItem(RazorMountDevice *device)
     }
 }
 
-void Popup::removeItem(RazorMountDevice *device)
+void Popup::removeItem(LxQt::MountDevice *device)
 {
     if (MenuDiskItem::isUsableDevice(device))
     {

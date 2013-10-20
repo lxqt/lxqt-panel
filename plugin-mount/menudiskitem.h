@@ -30,7 +30,10 @@
 
 #include <QFrame>
 
-class RazorMountDevice;
+namespace LxQt {
+class MountDevice;
+}
+
 class QToolButton;
 
 class MenuDiskItem : public QFrame
@@ -38,11 +41,11 @@ class MenuDiskItem : public QFrame
     Q_OBJECT
 
 public:
-    explicit MenuDiskItem(RazorMountDevice *device, QWidget *parent);
+    explicit MenuDiskItem(LxQt::MountDevice *device, QWidget *parent);
 
     void setMountStatus(bool is_mount);
 
-    static bool isUsableDevice(const RazorMountDevice *device);
+    static bool isUsableDevice(const LxQt::MountDevice *device);
 
 signals:
     void error(const QString &msg);
@@ -56,7 +59,7 @@ private slots:
     void unmounted();
 
 private:
-    RazorMountDevice *mDevice;
+    LxQt::MountDevice *mDevice;
     QToolButton *mDiskButton;
     QToolButton *mEjectButton;
 };
