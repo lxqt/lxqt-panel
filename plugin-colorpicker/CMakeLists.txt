@@ -18,7 +18,7 @@ set(UIS
 )
 
 set(LIBRARIES
-  razorqt
+  ${LXQT_LIBRARIES}
 )
 
 #*******************************************
