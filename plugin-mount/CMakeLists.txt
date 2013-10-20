@@ -41,7 +41,9 @@ set(UIS
     razormountconfiguration.ui
 )
 
-set(LIBRARIES razormount)
+# FIXME: we probably should either add lxqtmount-config.cmake to 
+# lxqt-mount, or merge it with liblxqt again since it's small enough.
+set(LIBRARIES lxqtmount)
 
 #*******************************************
 include ("../BuildPlugin.cmake")
