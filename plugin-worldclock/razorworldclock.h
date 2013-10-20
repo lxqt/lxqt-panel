@@ -74,7 +74,7 @@ private:
     static size_t instanceCounter;
 
     QWidget *mMainWidget;
-    RotatedWidget* mRotatedWidget;
+    LxQt::RotatedWidget* mRotatedWidget;
     ActiveLabel *mContent;
     QDialog* mPopup;
 

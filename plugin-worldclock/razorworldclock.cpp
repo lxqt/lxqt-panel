@@ -90,7 +90,7 @@ RazorWorldClock::RazorWorldClock(const IRazorPanelPluginStartupInfo &startupInfo
 {
     mMainWidget = new QWidget();
     mContent = new ActiveLabel();
-    mRotatedWidget = new RotatedWidget(*mContent, mMainWidget);
+    mRotatedWidget = new LxQt::RotatedWidget(*mContent, mMainWidget);
 
     mRotatedWidget->setTransferWheelEvent(true);
 
