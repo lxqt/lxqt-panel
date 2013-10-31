@@ -32,6 +32,10 @@
 #include "../panel/irazorpanelplugin.h"
 #include <qtxdg/xdgmenu.h>
 
+#ifdef HAVE_MENU_CACHE
+#include <menu-cache/menu-cache.h>
+#endif
+
 #include <QtGui/QLabel>
 #include <QToolButton>
 #include <QDomElement>
@@ -77,7 +81,14 @@ private:
     MenuStyle mMenuStyle;
     LxQt::PowerManager* mPowerManager;
     LxQt::ScreenSaver* mScreenSaver;
+
+#ifdef HAVE_MENU_CACHE
+    MenuCache* mMenuCache;
+    MenuCacheNotifyId mMenuCacheNotify;
+    static void menuCacheReloadNotify(MenuCache* cache, gpointer user_data);
+#else
     XdgMenu mXdgMenu;
+#endif
 
     bool mLockCascadeChanges;
 

@@ -45,6 +45,10 @@
 #include <qtxdg/xdgdesktopfile.h>
 #include <qtxdg/xdgmenuwidget.h>
 
+#ifdef HAVE_MENU_CACHE
+#include "xdgcachedmenu.h"
+#endif
+
 #include <QPixmap>
 #include <QStack>
 
@@ -64,6 +68,11 @@ RazorMainMenu::RazorMainMenu(const IRazorPanelPluginStartupInfo &startupInfo):
     mShortcut(0),
     mLockCascadeChanges(false)
 {
+#ifdef HAVE_MENU_CACHE
+    mMenuCache = NULL;
+    mMenuCacheNotify = 0;
+#endif
+  
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
@@ -83,6 +92,13 @@ RazorMainMenu::RazorMainMenu(const IRazorPanelPluginStartupInfo &startupInfo):
  ************************************************/
 RazorMainMenu::~RazorMainMenu()
 {
+#ifdef HAVE_MENU_CACHE
+    if(mMenuCache)
+    {
+        menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
+        menu_cache_unref(mMenuCache);
+    }
+#endif
 }
 
 
@@ -158,6 +174,12 @@ void RazorMainMenu::showMenu()
 }
 
 
+// static
+void RazorMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
+{
+    reinterpret_cast<RazorMainMenu*>(user_data)->buildMenu();
+}
+
 /************************************************
 
  ************************************************/
@@ -183,6 +205,16 @@ void RazorMainMenu::settingsChanged()
     if (mMenuFile.isEmpty())
         mMenuFile = XdgMenu::getMenuFileName();
 
+#ifdef HAVE_MENU_CACHE
+    menu_cache_init(0);
+    if(mMenuCache)
+    {
+        menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
+        menu_cache_unref(mMenuCache);
+    }
+    mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
+    mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
+#else
     mXdgMenu.setEnvironments(QStringList() << "X-RAZOR" << "Razor");
     mXdgMenu.setLogDir(mLogDir);
 
@@ -197,7 +229,7 @@ void RazorMainMenu::settingsChanged()
         QMessageBox::warning(0, "Parse error", mXdgMenu.errorString());
         return;
     }
-
+#endif
 
     QString shortcut = settings()->value("shortcut", DEFAULT_SHORTCUT).toString();
     if (shortcut.isEmpty())
@@ -219,7 +251,12 @@ void RazorMainMenu::settingsChanged()
  ************************************************/
 void RazorMainMenu::buildMenu()
 {
+  qDebug() << "BUILD_MENU";
+#ifdef HAVE_MENU_CACHE
+    XdgCachedMenu* menu = new XdgCachedMenu(mMenuCache, &mButton);
+#else
     XdgMenuWidget *menu = new XdgMenuWidget(mXdgMenu, "", &mButton);
+#endif
     menu->setObjectName("TopLevelMainMenu");
     menu->setStyle(&mTopMenuStyle);
 
