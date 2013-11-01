@@ -21,22 +21,51 @@
 #ifndef XDGCACHEDMENU_H
 #define XDGCACHEDMENU_H
 
-#include <QMenu>
 #include <menu-cache/menu-cache.h>
+#include <QMenu>
+
+class QEvent;
+class QMouseEvent;
 
 class XdgCachedMenu : public QMenu
 {
     Q_OBJECT
 public:
+	XdgCachedMenu(QWidget* parent = NULL): QMenu(parent)
+	{
+	}
     XdgCachedMenu(MenuCache* menuCache, QWidget* parent);
-    ~XdgCachedMenu();
+    virtual ~XdgCachedMenu();
+
+protected:
+    bool event(QEvent* event);
 
 private:
     void addMenuItems(QMenu* menu, MenuCacheDir* dir);
+    void handleMouseMoveEvent(QMouseEvent *event);
 
 private Q_SLOTS:
     void onItemTrigerred();
     void onItemHovered(QAction * action);
+    
+private:
+    QPoint mDragStartPosition;
 };
+
+class XdgCachedMenuAction: public QAction
+{
+	Q_OBJECT
+public:
+    explicit XdgCachedMenuAction(MenuCacheItem* item, QObject* parent = 0);
+    virtual ~XdgCachedMenuAction();
+
+    MenuCacheItem* item() const {
+      return item_;
+    }
+
+private:
+    MenuCacheItem* item_;
+};
+
 
 #endif // XDGCACHEDMENU_H
