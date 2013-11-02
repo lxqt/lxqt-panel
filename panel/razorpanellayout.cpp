@@ -184,6 +184,7 @@ private:
 LayoutItemGrid::LayoutItemGrid()
 {
     mLineSize = 0;
+    mHoriz = true;
     clear();
 }
 
