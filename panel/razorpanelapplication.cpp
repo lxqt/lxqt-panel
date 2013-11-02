@@ -43,7 +43,12 @@ RazorPanelApplication::RazorPanelApplication(int& argc, char** argv, const QStri
         mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
 
     QStringList panels = mSettings->value("panels").toStringList();
-qDebug() << configFile;
+
+    if (panels.isEmpty())
+    {
+        panels << "panel1";
+    }
+
     Q_FOREACH(QString i, panels)
     {
         addPanel(i);
