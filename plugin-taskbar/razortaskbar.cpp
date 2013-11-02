@@ -63,14 +63,13 @@ RazorTaskBar::RazorTaskBar(IRazorPanelPlugin *plugin, QWidget *parent) :
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mShowOnlyCurrentDesktopTasks(false),
     mPlugin(plugin),
-    mPlaceHolder(new QWidget(this))
+    mPlaceHolder(new RazorTaskButton(0, this))
 {
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     realign();
     mLayout->addWidget(mPlaceHolder);
-    mPlaceHolder->setMinimumSize(1, 1);
 
     mRootWindow = QX11Info::appRootWindow();
 
@@ -388,6 +387,11 @@ void RazorTaskBar::realign()
 
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
+
+    if (panel->isHorizontal())
+        mPlaceHolder->setFixedWidth(0);
+    else
+        mPlaceHolder->setFixedHeight(0);
 
     mLayout->setEnabled(true);
 }
