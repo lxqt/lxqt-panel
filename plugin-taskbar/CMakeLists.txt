@@ -4,28 +4,28 @@ set(PLUGIN "taskbar")
 
 
 set(HEADERS
-    razortaskbar.h
-    razortaskbutton.h
-    razortaskbarconfiguration.h
-    razortaskbarplugin.h
+    lxqttaskbar.h
+    lxqttaskbutton.h
+    lxqttaskbarconfiguration.h
+    lxqttaskbarplugin.h
 )
 
 set(SOURCES
-    razortaskbar.cpp
-    razortaskbutton.cpp
-    razortaskbarconfiguration.cpp
-    razortaskbarplugin.cpp
+    lxqttaskbar.cpp
+    lxqttaskbutton.cpp
+    lxqttaskbarconfiguration.cpp
+    lxqttaskbarplugin.cpp
 )
 
 set(MOCS
-    razortaskbar.h
-    razortaskbutton.h
-    razortaskbarconfiguration.h
-    razortaskbarplugin.h
+    lxqttaskbar.h
+    lxqttaskbutton.h
+    lxqttaskbarconfiguration.h
+    lxqttaskbarplugin.h
 )
 
 set(UIS
-    razortaskbarconfiguration.ui
+    lxqttaskbarconfiguration.ui
 )
 
 set(LIBRARIES
@@ -35,4 +35,4 @@ set(LIBRARIES
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

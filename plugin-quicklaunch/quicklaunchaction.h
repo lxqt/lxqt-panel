@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -34,7 +34,7 @@
 class XdgDesktopFile;
 
 
-/*! \brief Special action representation for RazorQuickLaunch plugin.
+/*! \brief Special action representation for LxQtQuickLaunch plugin.
 It supports XDG desktop files or "legacy" launching of specified apps.
 All process management is handled internally.
 \author Petr Vanek <petr@scribus.info>

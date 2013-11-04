@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="eu" version="2.0">
 <context>
-    <name>RazorNetworkMonitor</name>
+    <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; sareko interfazea</translation>
@@ -39,10 +39,10 @@
     </message>
 </context>
 <context>
-    <name>RazorNetworkMonitorConfiguration</name>
+    <name>LxQtNetworkMonitorConfiguration</name>
     <message>
-        <source>Razor Network Monitor settings</source>
-        <translation>Razor sarearen monitorearen ezarpenak</translation>
+        <source>LxQt Network Monitor settings</source>
+        <translation>LxQt sarearen monitorearen ezarpenak</translation>
     </message>
     <message>
         <source>General</source>

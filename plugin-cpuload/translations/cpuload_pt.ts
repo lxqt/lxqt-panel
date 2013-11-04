@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
 <context>
-    <name>RazorCpuLoad</name>
+    <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation>Carga do cpu %1%</translation>
     </message>
 </context>
 <context>
-    <name>RazorCpuLoadConfiguration</name>
+    <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>Razor Cpu Load settings</source>
+        <source>LxQt Cpu Load settings</source>
         <translation>Definições da Carga do cpu</translation>
     </message>
     <message>

@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="ru_RU" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Показать Рабочий стол: Глобальный ярлык &apos;%1&apos;   не может быть зарегистрирован</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Настройки регулятора громкости Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>Настройки регулятора громкости LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 Name=System Statistics
 Comment=System Statistics plugin.
 

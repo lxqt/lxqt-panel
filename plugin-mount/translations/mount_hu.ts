@@ -36,34 +36,34 @@
     </message>
 </context>
 <context>
-    <name>RazorMountConfiguration</name>
+    <name>LxQtMountConfiguration</name>
     <message>
-        <location filename="../razormountconfiguration.ui" line="14"/>
-        <source>Razor Removable media manager settings</source>
+        <location filename="../lxqtmountconfiguration.ui" line="14"/>
+        <source>LxQt Removable media manager settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razormountconfiguration.ui" line="20"/>
+        <location filename="../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razormountconfiguration.ui" line="26"/>
+        <location filename="../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="44"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="45"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="46"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
         <translation type="unfinished"/>
     </message>

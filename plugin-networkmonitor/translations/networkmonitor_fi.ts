@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.0">
 <context>
-    <name>RazorNetworkMonitor</name>
+    <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Verkkoliitäntä &lt;b&gt;%1&lt;/b&gt;</translation>
@@ -39,10 +39,10 @@
     </message>
 </context>
 <context>
-    <name>RazorNetworkMonitorConfiguration</name>
+    <name>LxQtNetworkMonitorConfiguration</name>
     <message>
-        <source>Razor Network Monitor settings</source>
-        <translation>Razorin verkonhallinnan asetukset</translation>
+        <source>LxQt Network Monitor settings</source>
+        <translation>LxQtin verkonhallinnan asetukset</translation>
     </message>
     <message>
         <source>General</source>

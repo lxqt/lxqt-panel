@@ -23,4 +23,4 @@ set(LIBRARIES
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

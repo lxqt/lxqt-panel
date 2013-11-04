@@ -52,7 +52,7 @@ setByDefault(DOM_PLUGIN            Yes)
 
 
 
-include(RazorLibSuffix)
+include(LxQtLibSuffix)
 
 
 add_definitions ( -Wall )

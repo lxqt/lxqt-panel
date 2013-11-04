@@ -1,9 +1,9 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.0">
 <context>
-    <name>RazorClockConfiguration</name>
+    <name>LxQtClockConfiguration</name>
     <message>
-        <source>Razor Clock Settings</source>
-        <translation>Razor時鐘設定</translation>
+        <source>LxQt Clock Settings</source>
+        <translation>LxQt時鐘設定</translation>
     </message>
     <message>
         <source>Time</source>

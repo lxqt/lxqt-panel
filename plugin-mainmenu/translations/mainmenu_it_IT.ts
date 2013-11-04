@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="it_IT" version="2.0">
 <context>
-    <name>RazorMainMenu</name>
+    <name>LxQtMainMenu</name>
     <message>
         <source>Leave</source>
         <translation>Esci</translation>
     </message>
 </context>
 <context>
-    <name>RazorMainMenuConfiguration</name>
+    <name>LxQtMainMenuConfiguration</name>
     <message>
-        <source>Razor Main Menu settings</source>
-        <translation>Impostazioni del menu principale di Razor</translation>
+        <source>LxQt Main Menu settings</source>
+        <translation>Impostazioni del menu principale di LxQt</translation>
     </message>
     <message>
         <source>General</source>

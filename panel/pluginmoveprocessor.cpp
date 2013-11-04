@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -28,14 +28,14 @@
 
 #include "pluginmoveprocessor.h"
 #include "plugin.h"
-#include "razorpanellayout.h"
+#include "lxqtpanellayout.h"
 #include <QtGui/QMouseEvent>
 
 
 /************************************************
 
  ************************************************/
-PluginMoveProcessor::PluginMoveProcessor(RazorPanelLayout *layout, Plugin *plugin):
+PluginMoveProcessor::PluginMoveProcessor(LxQtPanelLayout *layout, Plugin *plugin):
     QWidget(plugin),
     mLayout(layout),
     mPlugin(plugin)
@@ -106,8 +106,8 @@ void PluginMoveProcessor::mouseMoveEvent(QMouseEvent *event)
     }
 
     bool plugSep = mPlugin->isSeparate();
-    bool prevSep = RazorPanelLayout::itemIsSeparate(prevItem);
-    bool nextSep = RazorPanelLayout::itemIsSeparate(nextItem);
+    bool prevSep = LxQtPanelLayout::itemIsSeparate(prevItem);
+    bool nextSep = LxQtPanelLayout::itemIsSeparate(nextItem);
 
     if (!nextItem)
     {
@@ -176,13 +176,13 @@ PluginMoveProcessor::MousePosInfo PluginMoveProcessor::itemByMousePos(const QPoi
             ret.item = item;
             if (mLayout->isHorizontal())
             {
-                ret.after = RazorPanelLayout::itemIsSeparate(item) ?
+                ret.after = LxQtPanelLayout::itemIsSeparate(item) ?
                         mouse.x() > itemRect.center().x() :
                         mouse.y() > itemRect.center().y() ;
             }
             else
             {
-                ret.after = RazorPanelLayout::itemIsSeparate(item) ?
+                ret.after = LxQtPanelLayout::itemIsSeparate(item) ?
                         mouse.y() > itemRect.center().y() :
                         mouse.x() > itemRect.center().x() ;
             }

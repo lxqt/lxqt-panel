@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -26,8 +26,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef RAZORCLOCK_CALENDAR_UTILS_H
-#define RAZORCLOCK_CALENDAR_UTILS_H
+#ifndef LXQTCLOCK_CALENDAR_UTILS_H
+#define LXQTCLOCK_CALENDAR_UTILS_H
 
 
 #include <QtCore/QLocale>
@@ -36,4 +36,4 @@
 Qt::DayOfWeek firstDayOfWeek();
 
 
-#endif // RAZORCLOCK_CALENDAR_UTILS_H
+#endif // LXQTCLOCK_CALENDAR_UTILS_H

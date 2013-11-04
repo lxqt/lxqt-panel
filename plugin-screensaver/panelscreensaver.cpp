@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -40,9 +40,9 @@ Q_EXPORT_PLUGIN2(screensaver, PanelScreenSaverLibrary)
 #define DEFAULT_SHORTCUT "Control+Alt+L"
 
 
-PanelScreenSaver::PanelScreenSaver(const IRazorPanelPluginStartupInfo &startupInfo) :
+PanelScreenSaver::PanelScreenSaver(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    IRazorPanelPlugin(startupInfo)
+    ILxQtPanelPlugin(startupInfo)
 {
     mSaver = new LxQt::ScreenSaver(this);
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="es_VE" version="2.0">
 <context>
-    <name>RazorTaskButton</name>
+    <name>LxQtTaskButton</name>
     <message>
         <source>Application</source>
         <translation>Aplicación</translation>
@@ -71,10 +71,10 @@
     </message>
 </context>
 <context>
-    <name>RazorTaskbarConfiguration</name>
+    <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>Razor Task Manager Settings</source>
-        <translation>Configuaracion de lista de tareas Razor</translation>
+        <source>LxQt Task Manager Settings</source>
+        <translation>Configuaracion de lista de tareas LxQt</translation>
     </message>
     <message>
         <source>Window List Content</source>

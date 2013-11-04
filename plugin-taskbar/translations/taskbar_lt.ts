@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.0">
 <context>
-    <name>RazorTaskButton</name>
+    <name>LxQtTaskButton</name>
     <message>
         <source>Application</source>
         <translation>Programa</translation>
@@ -71,10 +71,10 @@
     </message>
 </context>
 <context>
-    <name>RazorTaskbarConfiguration</name>
+    <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>Razor Task Manager Settings</source>
-        <translation>Razor užduočių tvarkutyvės nuostatos</translation>
+        <source>LxQt Task Manager Settings</source>
+        <translation>LxQt užduočių tvarkutyvės nuostatos</translation>
     </message>
     <message>
         <source>Window List Content</source>

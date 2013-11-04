@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -35,10 +35,10 @@
 #include <QtCore/QProcess>
 
 #include <qtxdg/xdgicon.h>
-#include "../panel/irazorpanel.h"
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanel.h"
+#include "../panel/ilxqtpanelplugin.h"
 
-VolumeButton::VolumeButton(IRazorPanelPlugin *plugin, QWidget* parent):
+VolumeButton::VolumeButton(ILxQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
         m_panel(plugin->panel()),

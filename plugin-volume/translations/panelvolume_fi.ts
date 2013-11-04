@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Näytä työpöytä: globaalia pikanäppäintä &apos;%1&apos; ei voi rekisteröidä</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Razorin äänenhallinnan asetukset</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>LxQtin äänenhallinnan asetukset</translation>
     </message>
     <message>
         <source>Device to control</source>

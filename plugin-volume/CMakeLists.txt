@@ -4,34 +4,34 @@ set(PLUGIN "panelvolume")
 
 
 set(HEADERS
-    razorvolume.h
+    lxqtvolume.h
     volumebutton.h
     volumepopup.h
     audiodevice.h
-    razorvolumeconfiguration.h
+    lxqtvolumeconfiguration.h
     audioengine.h
 )
 
 set(SOURCES
-    razorvolume.cpp
+    lxqtvolume.cpp
     volumebutton.cpp
     volumepopup.cpp
     audiodevice.cpp
-    razorvolumeconfiguration.cpp
+    lxqtvolumeconfiguration.cpp
     audioengine.cpp
 )
 
 set(MOCS
-    razorvolume.h
+    lxqtvolume.h
     volumebutton.h
     volumepopup.h
     audiodevice.h
-    razorvolumeconfiguration.h
+    lxqtvolumeconfiguration.h
     audioengine.h
 )
 
 set(UIS
-    razorvolumeconfiguration.ui
+    lxqtvolumeconfiguration.ui
 )
 
 if (PULSEAUDIO_FOUND)
@@ -55,4 +55,4 @@ set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

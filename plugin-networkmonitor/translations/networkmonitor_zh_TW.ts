@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.0">
 <context>
-    <name>RazorNetworkMonitor</name>
+    <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>網路介面 &lt;b&gt;%1&lt;/b&gt;</translation>
@@ -39,10 +39,10 @@
     </message>
 </context>
 <context>
-    <name>RazorNetworkMonitorConfiguration</name>
+    <name>LxQtNetworkMonitorConfiguration</name>
     <message>
-        <source>Razor Network Monitor settings</source>
-        <translation>Razor網路監視器設定</translation>
+        <source>LxQt Network Monitor settings</source>
+        <translation>LxQt網路監視器設定</translation>
     </message>
     <message>
         <source>General</source>

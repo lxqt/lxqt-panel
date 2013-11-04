@@ -15,7 +15,7 @@
     </message>
 </context>
 <context>
-    <name>RazorQuickLaunch</name>
+    <name>LxQtQuickLaunch</name>
     <message>
         <source>Drop Error</source>
         <translation>Ne pas tenir compte de l&apos;erreur</translation>

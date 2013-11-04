@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Показати стільницю: Не вдалося зареєструвати глобальне скорочення &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Налаштування регулятора гучності Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>Налаштування регулятора гучності LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

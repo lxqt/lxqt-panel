@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="sr_RS" version="2.0">
 <context>
-    <name>RazorMainMenu</name>
+    <name>LxQtMainMenu</name>
     <message>
         <source>Leave</source>
         <translation>Напуштање</translation>
     </message>
 </context>
 <context>
-    <name>RazorMainMenuConfiguration</name>
+    <name>LxQtMainMenuConfiguration</name>
     <message>
-        <source>Razor Main Menu settings</source>
+        <source>LxQt Main Menu settings</source>
         <translation>Подешавања главног менија</translation>
     </message>
     <message>

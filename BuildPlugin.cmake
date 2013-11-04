@@ -1,4 +1,4 @@
-MACRO (BUILD_RAZOR_PLUGIN NAME)
+MACRO (BUILD_LXQT_PLUGIN NAME)
     set(PROGRAM "lxqt-panel")
     project(${PROGRAM}_${NAME})
 
@@ -6,8 +6,8 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
     set(PLUGIN_SHARE_DIR ${PROG_SHARE_DIR}/${NAME})
 
     # Translations **********************************
-    include(RazorTranslate)
-    razor_translate_ts(${PROJECT_NAME}_QM_FILES 
+    include(LxQtTranslate)
+    lxqt_translate_ts(${PROJECT_NAME}_QM_FILES 
         SOURCES
             ${HEADERS} 
             ${SOURCES} 
@@ -20,9 +20,9 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
     )
     
 
-    #razor_translate_to(QM_FILES ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM}/${PROJECT_NAME})
+    #lxqt_translate_to(QM_FILES ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM}/${PROJECT_NAME})
     file (GLOB ${PROJECT_NAME}_DESKTOP_FILES_IN resources/*.desktop.in)
-    razor_translate_desktop(DESKTOP_FILES 
+    lxqt_translate_desktop(DESKTOP_FILES 
         SOURCES
             ${${PROJECT_NAME}_DESKTOP_FILES_IN}
     )
@@ -52,7 +52,7 @@ MACRO (BUILD_RAZOR_PLUGIN NAME)
     install(FILES ${CONFIG_FILES}  DESTINATION ${PLUGIN_SHARE_DIR})
     install(FILES ${DESKTOP_FILES} DESTINATION ${PROG_SHARE_DIR})
 
-ENDMACRO(BUILD_RAZOR_PLUGIN)
+ENDMACRO(BUILD_LXQT_PLUGIN)
 
 
 

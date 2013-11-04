@@ -10,25 +10,25 @@ set(PLUGIN "mainmenu")
 
 
 set(HEADERS
-    razormainmenu.h
+    lxqtmainmenu.h
     menustyle.h
-    razormainmenuconfiguration.h
+    lxqtmainmenuconfiguration.h
 )
 
 set(SOURCES
-    razormainmenu.cpp
+    lxqtmainmenu.cpp
     menustyle.cpp
-    razormainmenuconfiguration.cpp
+    lxqtmainmenuconfiguration.cpp
 )
 
 set(MOCS
-    razormainmenu.h
+    lxqtmainmenu.h
     menustyle.h
-    razormainmenuconfiguration.h
+    lxqtmainmenuconfiguration.h
 )
 
 set(UIS
-    razormainmenuconfiguration.ui
+    lxqtmainmenuconfiguration.ui
 )
 
 # if libmenu-cache is available
@@ -53,4 +53,4 @@ set(QT_USE_QTDBUS 1)
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

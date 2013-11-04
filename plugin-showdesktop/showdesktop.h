@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -29,7 +29,7 @@
 #ifndef SHOWDESKTOP_H
 #define SHOWDESKTOP_H
 
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
 
 
@@ -38,12 +38,12 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
-class ShowDesktop :  public QObject, public IRazorPanelPlugin
+class ShowDesktop :  public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    ShowDesktop(const IRazorPanelPluginStartupInfo &startupInfo);
+    ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "ShowDesktop"; }
@@ -57,12 +57,12 @@ private:
     QToolButton mButton;
 };
 
-class ShowDesktopLibrary: public QObject, public IRazorPanelPluginLibrary
+class ShowDesktopLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_INTERFACES(IRazorPanelPluginLibrary)
+    Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    IRazorPanelPlugin *instance(const IRazorPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
     {
         return new ShowDesktop(startupInfo);
     }

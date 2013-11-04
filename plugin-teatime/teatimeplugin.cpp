@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -31,9 +31,9 @@
 
 Q_EXPORT_PLUGIN2(teatime, TeaTimePluginLibrary)
 
-TeaTimePlugin::TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo):
+TeaTimePlugin::TeaTimePlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    IRazorPanelPlugin(startupInfo)
+    ILxQtPanelPlugin(startupInfo)
 {
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mButton.setIcon(XdgIcon::fromTheme("preferences-plugin"));
@@ -46,9 +46,9 @@ QWidget *TeaTimePlugin::widget()
 }
 
 /*
-TeaTimePlugin::TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo):
+TeaTimePlugin::TeaTimePlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    IRazorPanelPlugin(startupInfo)
+    ILxQtPanelPlugin(startupInfo)
 {
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMessage()));
 }

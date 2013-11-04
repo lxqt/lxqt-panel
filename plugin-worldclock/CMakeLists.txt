@@ -4,26 +4,26 @@ set(PLUGIN "panelworldclock")
 
 
 set(HEADERS
-    razorworldclock.h
-    razorworldclockconfiguration.h
-    razorworldclockconfigurationtimezones.h
+    lxqtworldclock.h
+    lxqtworldclockconfiguration.h
+    lxqtworldclockconfigurationtimezones.h
 )
 
 set(SOURCES
-    razorworldclock.cpp
-    razorworldclockconfiguration.cpp
-    razorworldclockconfigurationtimezones.cpp
+    lxqtworldclock.cpp
+    lxqtworldclockconfiguration.cpp
+    lxqtworldclockconfigurationtimezones.cpp
 )
 
 set(MOCS
-    razorworldclock.h
-    razorworldclockconfiguration.h
-    razorworldclockconfigurationtimezones.h
+    lxqtworldclock.h
+    lxqtworldclockconfiguration.h
+    lxqtworldclockconfigurationtimezones.h
 )
 
 set(UIS
-    razorworldclockconfiguration.ui
-    razorworldclockconfigurationtimezones.ui
+    lxqtworldclockconfiguration.ui
+    lxqtworldclockconfigurationtimezones.ui
 )
 
 
@@ -32,5 +32,5 @@ LINK_LIBRARIES(${PLUGIN} ${ICU_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

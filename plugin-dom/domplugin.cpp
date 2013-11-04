@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2013 Razor team
@@ -35,9 +35,9 @@
 
 Q_EXPORT_PLUGIN2(dom, DomPluginLibrary)
 
-DomPlugin::DomPlugin(const IRazorPanelPluginStartupInfo &startupInfo):
+DomPlugin::DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    IRazorPanelPlugin(startupInfo)
+    ILxQtPanelPlugin(startupInfo)
 {
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mButton.setIcon(XdgIcon::fromTheme("preferences-plugin"));

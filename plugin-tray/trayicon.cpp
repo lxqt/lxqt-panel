@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2011 Razor team
@@ -34,7 +34,7 @@
 #include <QtGui/QBitmap>
 #include <QtGui/QStyle>
 
-#include "../panel/razorpanel.h"
+#include "../panel/lxqtpanel.h"
 #include "trayicon.h"
 #include <QtGui/QX11Info>
 #include <lxqt/lxqtxfitman.h>

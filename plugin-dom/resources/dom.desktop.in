@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 Name=Panel DOM tree.
-Comment=Show a DOM tree of the Razor-qt panel.
+Comment=Show a DOM tree of the LxQt-qt panel.

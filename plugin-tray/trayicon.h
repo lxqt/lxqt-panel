@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -39,7 +39,7 @@
 #define TRAY_ICON_SIZE_DEFAULT 24
 
 class QWidget;
-class RazorPanel;
+class LxQtPanel;
 
 class TrayIcon: public QFrame
 {

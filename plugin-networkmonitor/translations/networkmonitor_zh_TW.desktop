@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 
 Name=Network monitor
 Comment=Displays network status and activity.
@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[zh_TW]=Razor滑鼠設定
+Comment[zh_TW]=LxQt滑鼠設定
 Name[zh_TW]=X11滑鼠設定

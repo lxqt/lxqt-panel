@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="it_IT" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Impostazioni del controllo del volume di Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>Impostazioni del controllo del volume di LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

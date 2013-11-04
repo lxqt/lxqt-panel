@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2013 Razor team
@@ -27,12 +27,12 @@
 
 
 #include "deviceaction_menu.h"
-#include "../razormountplugin.h"
+#include "../lxqtmountplugin.h"
 #include "../popup.h"
 
 #include <QDebug>
 
-DeviceActionMenu::DeviceActionMenu(RazorMountPlugin *plugin, QObject *parent):
+DeviceActionMenu::DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent):
     DeviceAction(plugin, parent)
 {
     mPopup = plugin->popup();

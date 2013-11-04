@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -34,7 +34,7 @@
 #include <QtCore/QEvent>
 #include "plugin.h"
 
-class RazorPanelLayout;
+class LxQtPanelLayout;
 class QLayoutItem;
 
 
@@ -42,7 +42,7 @@ class PluginMoveProcessor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PluginMoveProcessor(RazorPanelLayout *layout, Plugin *plugin);
+    explicit PluginMoveProcessor(LxQtPanelLayout *layout, Plugin *plugin);
     ~PluginMoveProcessor();
 
     Plugin *plugin() const { return mPlugin; }
@@ -78,7 +78,7 @@ private:
         bool after;
     };
 
-    RazorPanelLayout *mLayout;
+    LxQtPanelLayout *mLayout;
     Plugin *mPlugin;
     int mDestIndex;
 

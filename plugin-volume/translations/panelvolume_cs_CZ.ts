@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
+        <source>LxQt Volume Control Settings</source>
         <translation>Nastavení ovládání hlasitosti</translation>
     </message>
     <message>

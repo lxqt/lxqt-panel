@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 Name=Sensors
 Comment=View readings from hardware sensors.
 

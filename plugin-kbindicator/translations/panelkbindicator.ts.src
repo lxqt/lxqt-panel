@@ -2,9 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
-    <name>RazorKbIndicatorConfiguration</name>
+    <name>LxQtKbIndicatorConfiguration</name>
     <message>
-        <source>Razor Keyboard Indicator Settings</source>
+        <source>LxQt Keyboard Indicator Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

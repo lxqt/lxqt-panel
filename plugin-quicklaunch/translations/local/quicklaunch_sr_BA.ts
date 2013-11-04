@@ -20,14 +20,14 @@
     </message>
 </context>
 <context>
-    <name>RazorQuickLaunch</name>
+    <name>LxQtQuickLaunch</name>
     <message>
-        <location filename="../razorquicklaunch.cpp" line="175"/>
+        <location filename="../lxqtquicklaunch.cpp" line="175"/>
         <source>Drop Error</source>
         <translation>Грешка испуштања</translation>
     </message>
     <message>
-        <location filename="../razorquicklaunch.cpp" line="176"/>
+        <location filename="../lxqtquicklaunch.cpp" line="176"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Фајл/УРЛ „%1“ не може бити уграђен у Брзо Покретање за сада</translation>
     </message>

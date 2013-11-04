@@ -1,8 +1,8 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
 <context>
-    <name>RazorClockConfiguration</name>
+    <name>LxQtClockConfiguration</name>
     <message>
-        <source>Razor Clock Settings</source>
+        <source>LxQt Clock Settings</source>
         <translation>Настройки часов</translation>
     </message>
     <message>

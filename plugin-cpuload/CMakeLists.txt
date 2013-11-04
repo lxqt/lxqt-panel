@@ -4,29 +4,29 @@ set(PLUGIN "cpuload")
 
 
 set(HEADERS
-        razorcpuloadplugin.h
-	razorcpuload.h
-	razorcpuloadconfiguration.h
+        lxqtcpuloadplugin.h
+	lxqtcpuload.h
+	lxqtcpuloadconfiguration.h
 )
 
 set(SOURCES
-        razorcpuloadplugin.cpp
-	razorcpuload.cpp
-	razorcpuloadconfiguration.cpp
+        lxqtcpuloadplugin.cpp
+	lxqtcpuload.cpp
+	lxqtcpuloadconfiguration.cpp
 )
 
 set(MOCS
-        razorcpuloadplugin.h
-	razorcpuload.h
-	razorcpuloadconfiguration.h
+        lxqtcpuloadplugin.h
+	lxqtcpuload.h
+	lxqtcpuloadconfiguration.h
 )
 
 set(UIS
-	razorcpuloadconfiguration.ui
+	lxqtcpuloadconfiguration.ui
 )
 
 LINK_LIBRARIES(${PLUGIN} ${STATGRAB_LIB})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
 <context>
-    <name>RazorCpuLoad</name>
+    <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation>Cpu 负载 %1%</translation>
     </message>
 </context>
 <context>
-    <name>RazorCpuLoadConfiguration</name>
+    <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>Razor Cpu Load settings</source>
-        <translation>Razor Cpu 负载设置</translation>
+        <source>LxQt Cpu Load settings</source>
+        <translation>LxQt Cpu 负载设置</translation>
     </message>
     <message>
         <source>General</source>

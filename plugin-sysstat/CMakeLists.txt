@@ -4,28 +4,28 @@ set(PLUGIN "panelsysstat")
 
 
 set(HEADERS
-    razorsysstat.h
-    razorsysstatconfiguration.h
-    razorsysstatcolours.h
-    razorsysstatutils.h
+    lxqtsysstat.h
+    lxqtsysstatconfiguration.h
+    lxqtsysstatcolours.h
+    lxqtsysstatutils.h
 )
 
 set(SOURCES
-    razorsysstat.cpp
-    razorsysstatconfiguration.cpp
-    razorsysstatcolours.cpp
-    razorsysstatutils.cpp
+    lxqtsysstat.cpp
+    lxqtsysstatconfiguration.cpp
+    lxqtsysstatcolours.cpp
+    lxqtsysstatutils.cpp
 )
 
 set(MOCS
-    razorsysstat.h
-    razorsysstatconfiguration.h
-    razorsysstatcolours.h
+    lxqtsysstat.h
+    lxqtsysstatconfiguration.h
+    lxqtsysstatcolours.h
 )
 
 set(UIS
-    razorsysstatconfiguration.ui
-    razorsysstatcolours.ui
+    lxqtsysstatconfiguration.ui
+    lxqtsysstatcolours.ui
 )
 
 
@@ -33,7 +33,7 @@ LINK_LIBRARIES(${PLUGIN} ${SYSSTAT_LIB})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(panelsysstat_LIBRARIES

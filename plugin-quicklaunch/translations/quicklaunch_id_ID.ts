@@ -18,14 +18,14 @@
     </message>
 </context>
 <context>
-    <name>RazorQuickLaunch</name>
+    <name>LxQtQuickLaunch</name>
     <message>
-        <location filename="../razorquicklaunch.cpp" line="176"/>
+        <location filename="../lxqtquicklaunch.cpp" line="176"/>
         <source>Drop Error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../razorquicklaunch.cpp" line="177"/>
+        <location filename="../lxqtquicklaunch.cpp" line="177"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation type="unfinished"/>
     </message>

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 
 Name=Network monitor
 Comment=Displays network status and activity.
@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[cs_CZ]=Nastavení Razoru
-Name[cs_CZ]=Nastavit moduly Razor-Qt
+Comment[cs_CZ]=Nastavení LxQtu
+Name[cs_CZ]=Nastavit moduly LxQt-Qt

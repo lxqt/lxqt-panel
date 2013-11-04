@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -34,9 +34,9 @@
 #include <qtxdg/xdgicon.h>
 
 #include "quicklaunchbutton.h"
-#include "razorquicklaunch.h"
+#include "lxqtquicklaunch.h"
 
-#define MIMETYPE "x-razor/quicklaunch-button"
+#define MIMETYPE "x-lxqt/quicklaunch-button"
 
 
 QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, QWidget * parent)
@@ -87,7 +87,7 @@ QHash<QString,QString> QuickLaunchButton::settingsMap()
 
 void QuickLaunchButton::this_customContextMenuRequested(const QPoint & pos)
 {
-    RazorQuickLaunch *panel = qobject_cast<RazorQuickLaunch*>(parent());
+    LxQtQuickLaunch *panel = qobject_cast<LxQtQuickLaunch*>(parent());
 
     mMoveLeftAct->setEnabled( panel && panel->indexOfButton(this) > 0);
     mMoveRightAct->setEnabled(panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);

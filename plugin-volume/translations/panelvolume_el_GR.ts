@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="el_GR" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Εμφάνιση επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Ρυθμίσεις ελέγχου έντασης ήχου Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>Ρυθμίσεις ελέγχου έντασης ήχου LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

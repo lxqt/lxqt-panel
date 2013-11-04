@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation type="unfinished"></translation>
@@ -13,9 +13,9 @@
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
+        <source>LxQt Volume Control Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

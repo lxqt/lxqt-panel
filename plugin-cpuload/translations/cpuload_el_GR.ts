@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="el_GR" version="2.0">
 <context>
-    <name>RazorCpuLoad</name>
+    <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation>Φορτίο ΚΜΕ %1%</translation>
     </message>
 </context>
 <context>
-    <name>RazorCpuLoadConfiguration</name>
+    <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>Razor Cpu Load settings</source>
+        <source>LxQt Cpu Load settings</source>
         <translation>Ρυθμίσεις φορτίου ΚΜΕ</translation>
     </message>
     <message>

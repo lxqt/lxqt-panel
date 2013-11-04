@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -273,7 +273,7 @@ void PulseAudioEngine::setupSubscription()
 void PulseAudioEngine::handleContextStateChanged()
 {
     if (m_contextState == PA_CONTEXT_FAILED || m_contextState == PA_CONTEXT_TERMINATED) {
-        qWarning("Razor-Volume: Context connection failed or terminated lets try to reconnect");
+        qWarning("LxQt-Volume: Context connection failed or terminated lets try to reconnect");
         m_reconnectionTimer.start();
     }
 }
@@ -295,7 +295,7 @@ void PulseAudioEngine::connectContext()
         m_context = 0;
     }
 
-    m_context = pa_context_new(m_mainLoopApi, "razor-volume");
+    m_context = pa_context_new(m_mainLoopApi, "lxqt-volume");
     pa_context_set_state_callback(m_context, contextStateCallback, this);
     pa_context_set_event_callback(m_context, contextEventCallback, this);
 

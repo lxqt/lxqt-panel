@@ -30,10 +30,10 @@
     </message>
 </context>
 <context>
-    <name>RazorMountConfiguration</name>
+    <name>LxQtMountConfiguration</name>
     <message>
-        <source>Razor Removable media manager settings</source>
-        <translation>Razor可卸除式裝置管理員設定</translation>
+        <source>LxQt Removable media manager settings</source>
+        <translation>LxQt可卸除式裝置管理員設定</translation>
     </message>
     <message>
         <source>Behaviour</source>

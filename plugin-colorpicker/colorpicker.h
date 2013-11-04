@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef RAZOR_COLORPICKER_H
-#define RAZOR_COLORPICKER_H
+#ifndef LXQT_COLORPICKER_H
+#define LXQT_COLORPICKER_H
 
 #include <QtGui/QApplication>
 #include <QtGui/QFontMetrics>
@@ -35,7 +35,7 @@
 #include <QtGui/QToolButton>
 #include <QFrame>
 
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include <qtxdg/xdgicon.h>
 
 
@@ -63,11 +63,11 @@ private:
 };
 
 
-class ColorPicker : public QObject, public IRazorPanelPlugin
+class ColorPicker : public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 public:
-    ColorPicker(const IRazorPanelPluginStartupInfo &startupInfo);
+    ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo);
     ~ColorPicker();
 
     virtual QWidget *widget() { return &mWidget; }
@@ -81,12 +81,12 @@ private:
     ColorPickerWidget mWidget;
 };
 
-class ColorPickerLibrary: public QObject, public IRazorPanelPluginLibrary
+class ColorPickerLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_INTERFACES(IRazorPanelPluginLibrary)
+    Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    IRazorPanelPlugin *instance(const IRazorPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
     {
         return new ColorPicker(startupInfo);
     }

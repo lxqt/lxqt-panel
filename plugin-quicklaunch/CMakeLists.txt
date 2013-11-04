@@ -2,28 +2,28 @@ set(PLUGIN "quicklaunch")
 
 # if (QUICKLAUNCH_PLUGIN)
 #   set(ENABLED_PLUGINS ${ENABLED_PLUGINS}  "Quick launch")
-#   QT4_WRAP_CPP(quicklaunch_moc plugin-quicklaunch/razorquicklaunch.h)
-#   add_library(razorpanel_quicklaunch SHARED ${quicklaunch_moc} plugin-quicklaunch/razorquicklaunch.cpp)
-#   target_link_libraries(razorpanel_quicklaunch ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})
-#   install(TARGETS razorpanel_quicklaunch DESTINATION ${PLUGIN_DIR})
+#   QT4_WRAP_CPP(quicklaunch_moc plugin-quicklaunch/lxqtquicklaunch.h)
+#   add_library(lxqtpanel_quicklaunch SHARED ${quicklaunch_moc} plugin-quicklaunch/lxqtquicklaunch.cpp)
+#   target_link_libraries(lxqtpanel_quicklaunch ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})
+#   install(TARGETS lxqtpanel_quicklaunch DESTINATION ${PLUGIN_DIR})
 # endif (QUICKLAUNCH_PLUGIN)
 set(HEADERS
-  razorquicklaunchplugin.h
-  razorquicklaunch.h
+  lxqtquicklaunchplugin.h
+  lxqtquicklaunch.h
   quicklaunchbutton.h
   quicklaunchaction.h
 )
 
 set(SOURCES
-  razorquicklaunchplugin.cpp
-  razorquicklaunch.cpp
+  lxqtquicklaunchplugin.cpp
+  lxqtquicklaunch.cpp
   quicklaunchbutton.cpp
   quicklaunchaction.cpp
 )
 
 set(MOCS
-  razorquicklaunchplugin.h
-  razorquicklaunch.h
+  lxqtquicklaunchplugin.h
+  lxqtquicklaunch.h
   quicklaunchbutton.h
   quicklaunchaction.h
 )
@@ -35,4 +35,4 @@ include_directories (
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

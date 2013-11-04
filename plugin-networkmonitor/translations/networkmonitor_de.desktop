@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 
 Name=Network monitor
 Comment=Displays network status and activity.
@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[de]=Razor Konfigurations Center
+Comment[de]=LxQt Konfigurations Center
 Name[de]=Bildschirm Notizblock

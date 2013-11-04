@@ -30,10 +30,10 @@
     </message>
 </context>
 <context>
-    <name>RazorMountConfiguration</name>
+    <name>LxQtMountConfiguration</name>
     <message>
-        <source>Razor Removable media manager settings</source>
-        <translation>Configurações do gerenciador de mídia removível do Razor</translation>
+        <source>LxQt Removable media manager settings</source>
+        <translation>Configurações do gerenciador de mídia removível do LxQt</translation>
     </message>
     <message>
         <source>Behaviour</source>

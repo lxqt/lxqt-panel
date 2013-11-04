@@ -1,15 +1,15 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="eo" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Montri labortablon: ĉiea klavkombino &apos;%1&apos; ne registreblas</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
+        <source>LxQt Volume Control Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>

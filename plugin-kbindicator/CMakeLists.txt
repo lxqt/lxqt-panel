@@ -4,26 +4,26 @@ set(PLUGIN "panelkbindicator")
 
 
 set(HEADERS
-    razorkbindicator.h
-    razorkbindicatorconfiguration.h
+    lxqtkbindicator.h
+    lxqtkbindicatorconfiguration.h
 )
 
 set(SOURCES
-    razorkbindicator.cpp
-    razorkbindicatorconfiguration.cpp
+    lxqtkbindicator.cpp
+    lxqtkbindicatorconfiguration.cpp
 )
 
 set(MOCS
-    razorkbindicator.h
-    razorkbindicatorconfiguration.h
+    lxqtkbindicator.h
+    lxqtkbindicatorconfiguration.h
 )
 
 set(UIS
-    razorkbindicatorconfiguration.ui
+    lxqtkbindicatorconfiguration.ui
 )
 
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

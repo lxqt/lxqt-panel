@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -27,8 +27,8 @@
 
 
 #include "plugin.h"
-#include "irazorpanelplugin.h"
-#include "razorpanel.h"
+#include "ilxqtpanelplugin.h"
+#include "lxqtpanel.h"
 #include <QDebug>
 #include <QProcessEnvironment>
 #include <QStringList>
@@ -51,7 +51,7 @@ QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 /************************************************
 
  ************************************************/
-Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel) :
+Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LxQtPanel *panel) :
     QFrame(panel),
     mDesktopFile(desktopFile),
     mPluginLoader(0),
@@ -72,7 +72,7 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     mName = desktopFile.name();
 
     QStringList dirs;
-    dirs << QProcessEnvironment::systemEnvironment().value("RAZORPANEL_PLUGIN_PATH").split(":");
+    dirs << QProcessEnvironment::systemEnvironment().value("LXQTPANEL_PLUGIN_PATH").split(":");
     dirs << PLUGIN_DIR;
 
     QString baseName = QString("lib%1.so").arg(desktopFile.id());
@@ -103,7 +103,7 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     // Retrun default value
     if (s.isEmpty())
     {
-        mAlignment = (mPlugin->flags().testFlag(IRazorPanelPlugin::PreferRightAlignment)) ?
+        mAlignment = (mPlugin->flags().testFlag(ILxQtPanelPlugin::PreferRightAlignment)) ?
                     Plugin::AlignRight :
                     Plugin::AlignLeft;
     }
@@ -169,23 +169,23 @@ bool Plugin::loadLib(const QString &libraryName)
         return false;
     }
 
-    IRazorPanelPluginLibrary* pluginLib= qobject_cast<IRazorPanelPluginLibrary*>(obj);
+    ILxQtPanelPluginLibrary* pluginLib= qobject_cast<ILxQtPanelPluginLibrary*>(obj);
     if (!pluginLib)
     {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin is not a IRazorPanelPluginLibrary.").arg(mPluginLoader->fileName());
+        qWarning() << QString("Can't load plugin \"%1\". Plugin is not a ILxQtPanelPluginLibrary.").arg(mPluginLoader->fileName());
         delete obj;
         return false;
     }
 
-    IRazorPanelPluginStartupInfo startupInfo;
+    ILxQtPanelPluginStartupInfo startupInfo;
     startupInfo.settings = mSettings;
     startupInfo.desktopFile = &mDesktopFile;
-    startupInfo.razorPanel = mPanel;
+    startupInfo.lxqtPanel = mPanel;
 
     mPlugin = pluginLib->instance(startupInfo);
     if (!mPlugin)
     {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build IRazorPanelPlugin.").arg(mPluginLoader->fileName());
+        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILxQtPanelPlugin.").arg(mPluginLoader->fileName());
         delete obj;
         return false;
     }
@@ -269,11 +269,11 @@ void Plugin::mousePressEvent(QMouseEvent *event)
     switch (event->button())
     {
     case Qt::LeftButton:
-        mPlugin->activated(IRazorPanelPlugin::Trigger);
+        mPlugin->activated(ILxQtPanelPlugin::Trigger);
         break;
 
     case Qt::MidButton:
-        mPlugin->activated(IRazorPanelPlugin::MiddleClick);
+        mPlugin->activated(ILxQtPanelPlugin::MiddleClick);
         break;
 
     default:
@@ -287,7 +287,7 @@ void Plugin::mousePressEvent(QMouseEvent *event)
  ************************************************/
 void Plugin::mouseDoubleClickEvent(QMouseEvent*)
 {
-    mPlugin->activated(IRazorPanelPlugin::DoubleClick);
+    mPlugin->activated(ILxQtPanelPlugin::DoubleClick);
 }
 
 
@@ -309,7 +309,7 @@ QMenu *Plugin::popupMenu() const
     QString name = this->name().replace("&", "&&");
     QMenu* menu = new QMenu(windowTitle());
 
-    if (mPlugin->flags().testFlag(IRazorPanelPlugin::HaveConfigDialog))
+    if (mPlugin->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog))
     {
         QAction* configAction = new QAction(tr("Configure \"%1\"").arg(name), menu);
         menu->addAction(configAction);

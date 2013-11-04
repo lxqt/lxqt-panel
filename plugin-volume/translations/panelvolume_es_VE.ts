@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="es_VE" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Mostrar escritorio: Acceso de teclado global &apos;%1&apos; no puede registrarse</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Preferencias de control de volumen de Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>Preferencias de control de volumen de LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

@@ -38,34 +38,34 @@
     </message>
 </context>
 <context>
-    <name>RazorMountConfiguration</name>
+    <name>LxQtMountConfiguration</name>
     <message>
-        <location filename="../razormountconfiguration.ui" line="14"/>
-        <source>Razor Removable media manager settings</source>
+        <location filename="../lxqtmountconfiguration.ui" line="14"/>
+        <source>LxQt Removable media manager settings</source>
         <translation>Подешавање менаџера уклоњивих медија</translation>
     </message>
     <message>
-        <location filename="../razormountconfiguration.ui" line="20"/>
+        <location filename="../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
         <translation>Понашање</translation>
     </message>
     <message>
-        <location filename="../razormountconfiguration.ui" line="26"/>
+        <location filename="../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
         <translation>Кад је уређај прикључен </translation>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="44"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>прикажи мени</translation>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="45"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
         <translation>прикажи инфо</translation>
     </message>
     <message>
-        <location filename="../razormountconfiguration.cpp" line="46"/>
+        <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
         <translation>не ради ништа</translation>
     </message>

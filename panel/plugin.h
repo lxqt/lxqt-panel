@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -32,13 +32,13 @@
 #include <QFrame>
 #include <QString>
 #include <lxqt/lxqtplugininfo.h>
-#include "irazorpanel.h"
+#include "ilxqtpanel.h"
 
 class QPluginLoader;
 class QSettings;
-class IRazorPanelPlugin;
-class IRazorPanelPluginLibrary;
-class RazorPanel;
+class ILxQtPanelPlugin;
+class ILxQtPanelPluginLibrary;
+class LxQtPanel;
 class QMenu;
 
 
@@ -54,7 +54,7 @@ public:
     };
 
 
-    explicit Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, RazorPanel *panel);
+    explicit Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LxQtPanel *panel);
     ~Plugin();
 
     bool isLoaded() const { return mPlugin != 0; }
@@ -67,7 +67,7 @@ public:
     void x11EventFilter(XEvent* event);
 
     QMenu* popupMenu() const;
-    IRazorPanelPlugin * iPlugin() const { return mPlugin; }
+    ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
     
     const LxQt::PluginInfo desktopFile() { return mDesktopFile; }
 
@@ -101,12 +101,12 @@ private:
     const LxQt::PluginInfo mDesktopFile;
     QByteArray calcSettingsHash();
     QPluginLoader *mPluginLoader;
-    IRazorPanelPlugin *mPlugin;
+    ILxQtPanelPlugin *mPlugin;
     QWidget *mPluginWidget;
     Alignment mAlignment;
     QSettings *mSettings;
     QString mSettingsGroup;
-    RazorPanel *mPanel;
+    LxQtPanel *mPanel;
     QByteArray mSettingsHash;
     static QColor mMoveMarkerColor;
     QString mName;

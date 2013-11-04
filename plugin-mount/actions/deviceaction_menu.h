@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2013 Razor team
@@ -39,7 +39,7 @@ class DeviceActionMenu : public DeviceAction
 {
     Q_OBJECT
 public:
-    explicit DeviceActionMenu(RazorMountPlugin *plugin, QObject *parent=0);
+    explicit DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent=0);
 
 protected:
     void doDeviceAdded(LxQt::MountDevice *device);

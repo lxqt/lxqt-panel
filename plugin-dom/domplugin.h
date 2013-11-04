@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2013 Razor team
@@ -29,18 +29,18 @@
 #ifndef DOMPLUGIN_H
 #define DOMPLUGIN_H
 
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include <QtGui/QToolButton>
 
-class DomPlugin: public QObject, public IRazorPanelPlugin
+class DomPlugin: public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 public:
-    DomPlugin(const IRazorPanelPluginStartupInfo &startupInfo);
+    DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "Dom"; }
-    virtual IRazorPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
+    virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
 
 private slots:
     void showDialog();
@@ -50,12 +50,12 @@ private:
 
 };
 
-class DomPluginLibrary: public QObject, public IRazorPanelPluginLibrary
+class DomPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_INTERFACES(IRazorPanelPluginLibrary)
+    Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    IRazorPanelPlugin *instance(const IRazorPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
     {
         return new DomPlugin(startupInfo);
     }

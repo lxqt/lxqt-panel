@@ -2,9 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="sr_BA">
 <context>
-    <name>RazorClockConfiguration</name>
+    <name>LxQtClockConfiguration</name>
     <message>
-        <source>Razor Clock Settings</source>
+        <source>LxQt Clock Settings</source>
         <translation>Подешавање Рејзоровог сата</translation>
     </message>
     <message>

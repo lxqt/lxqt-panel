@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="de_DE" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Zeige Desktop: Globales Tastenkürzel &apos;%1&apos; kann nicht vergeben werden</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>Razor Lautstärkeregelung</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>LxQt Lautstärkeregelung</translation>
     </message>
     <message>
         <source>Device to control</source>

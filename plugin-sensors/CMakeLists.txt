@@ -4,35 +4,35 @@ set(PLUGIN "sensors")
 
 
 set(HEADERS
-    razorsensorsplugin.h
+    lxqtsensorsplugin.h
     chip.h
     feature.h
-    razorsensors.h
-    razorsensorsconfiguration.h
+    lxqtsensors.h
+    lxqtsensorsconfiguration.h
     sensors.h
 )
 
 set(SOURCES
-    razorsensorsplugin.cpp
+    lxqtsensorsplugin.cpp
     chip.cpp
     feature.cpp
-    razorsensors.cpp
-    razorsensorsconfiguration.cpp
+    lxqtsensors.cpp
+    lxqtsensorsconfiguration.cpp
     sensors.cpp
 )
 
 set(MOCS
-    razorsensorsplugin.h
-    razorsensors.h
-    razorsensorsconfiguration.h
+    lxqtsensorsplugin.h
+    lxqtsensors.h
+    lxqtsensorsconfiguration.h
 )
 
 set(UIS
-  razorsensorsconfiguration.ui
+  lxqtsensorsconfiguration.ui
 )
 
 LINK_LIBRARIES(${PLUGIN} ${SENSORS_LIB})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

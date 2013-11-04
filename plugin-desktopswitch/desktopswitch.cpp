@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2011 Razor team
@@ -44,9 +44,9 @@ using namespace LxQt;
 Q_EXPORT_PLUGIN2(DesktopSwitch, DesktopSwitchPluginLibrary)
 
 
-DesktopSwitch::DesktopSwitch(const IRazorPanelPluginStartupInfo &startupInfo) :
+DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    IRazorPanelPlugin(startupInfo),
+    ILxQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
     m_desktopCount(1)
 {

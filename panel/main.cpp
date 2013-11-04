@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -33,11 +33,11 @@
 #include <QDirIterator>
 #include <csignal>
 
-#include "razorpanelapplication.h"
-#include "razorpanel.h"
-#include "razortranslate.h"
+#include "lxqtpanelapplication.h"
+#include "lxqtpanel.h"
+#include "lxqttranslate.h"
 
-/*! The lxqt-panel is the panel of Razor-qt.
+/*! The lxqt-panel is the panel of LxQt-qt.
   Usage: lxqt-panel [CONFIG_ID]
     CONFIG_ID      Section name in config file ~/.config/lxqt-panel/panel.conf
                    (default main)
@@ -66,7 +66,7 @@ void printHelp()
 void printVersion()
 {
     QTextStream out(stdout);
-    out << "razor-confupdate " << RAZOR_VERSION << endl;
+    out << "lxqt-confupdate " << LXQT_VERSION << endl;
     out << "Copyright (c) 2012 Razor team" << endl;
     out << endl;
     out << "License LGPLv2+: GNU Lesser GPL version 2 or later <http://www.gnu.org/licenses/lgpl-2.1.html>." << endl;
@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    RazorPanelApplication *app = new RazorPanelApplication(argc, argv, configFile);
+    LxQtPanelApplication *app = new LxQtPanelApplication(argc, argv, configFile);
 
     TRANSLATE_APP;
 

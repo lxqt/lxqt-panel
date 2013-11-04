@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -28,21 +28,21 @@
 #ifndef CONFIGPANELDIALOG_H
 #define CONFIGPANELDIALOG_H
 
-#include "../razorpanel.h"
+#include "../lxqtpanel.h"
 #include <QSettings>
 #include <QTimer>
 #include <lxqt/lxqtconfigdialog.h>
 
 
-class RazorPanel;
+class LxQtPanel;
 
 class ConfigPanelDialog : public LxQt::ConfigDialog
 {
     Q_OBJECT
 public:
-    static ConfigPanelDialog *exec(RazorPanel *panel);
+    static ConfigPanelDialog *exec(LxQtPanel *panel);
 
-    ConfigPanelDialog(RazorPanel *panel, QWidget *parent = 0);
+    ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
 };
 
 namespace Ui {
@@ -54,11 +54,11 @@ class ConfigPanelWidget : public QWidget
     Q_OBJECT
     
 public:
-    explicit ConfigPanelWidget(RazorPanel *panel, QWidget *parent = 0);
+    explicit ConfigPanelWidget(LxQtPanel *panel, QWidget *parent = 0);
     ~ConfigPanelWidget();
 
     int screenNum() const { return mScreenNum; }
-    IRazorPanel::Position position() const { return mPosition; }
+    ILxQtPanel::Position position() const { return mPosition; }
 
 
 signals:
@@ -75,14 +75,14 @@ private slots:
 
 private:
     Ui::ConfigPanelWidget *ui;
-    RazorPanel *mPanel;
+    LxQtPanel *mPanel;
     int mScreenNum;
-    IRazorPanel::Position mPosition;
+    ILxQtPanel::Position mPosition;
 
-    void addPosition(const QString& name, int screen, RazorPanel::Position position);
+    void addPosition(const QString& name, int screen, LxQtPanel::Position position);
     void fillComboBox_position();
     void fillComboBox_alignment();
-    int indexForPosition(int screen, IRazorPanel::Position position);
+    int indexForPosition(int screen, ILxQtPanel::Position position);
     int getMaxLength();
 
     // For reset function
@@ -90,8 +90,8 @@ private:
     int mOldLineCount;
     int mOldLength;
     bool mOldLengthInPercents;
-    RazorPanel::Alignment mOldAlignment;
-    IRazorPanel::Position mOldPosition;
+    LxQtPanel::Alignment mOldAlignment;
+    ILxQtPanel::Position mOldPosition;
     int mOldScreenNum;
 };
 

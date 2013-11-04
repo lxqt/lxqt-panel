@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2013 Razor team
@@ -32,7 +32,7 @@
 #include "deviceaction_nothing.h"
 
 #include "../menudiskitem.h"
-#include "../razormountplugin.h"
+#include "../lxqtmountplugin.h"
 
 #define ACT_NOTHING "nothing"
 #define ACT_INFO    "showInfo"
@@ -42,7 +42,7 @@
 #define ACT_INFO_UPPER      QString(ACT_INFO).toUpper()
 #define ACT_MENU_UPPER      QString(ACT_MENU).toUpper()
 
-DeviceAction::DeviceAction(RazorMountPlugin *plugin, QObject *parent):
+DeviceAction::DeviceAction(LxQtMountPlugin *plugin, QObject *parent):
     mPlugin(plugin)
 {
 }
@@ -51,7 +51,7 @@ DeviceAction::~DeviceAction()
 {
 }
 
-DeviceAction *DeviceAction::create(ActionId id, RazorMountPlugin *plugin, QObject *parent)
+DeviceAction *DeviceAction::create(ActionId id, LxQtMountPlugin *plugin, QObject *parent)
 {
     switch (id)
     {

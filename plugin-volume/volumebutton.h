@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -32,15 +32,15 @@
 #include <QtCore/QTimer>
 
 class VolumePopup;
-class IRazorPanel;
-class RazorVolume;
-class IRazorPanelPlugin;
+class ILxQtPanel;
+class LxQtVolume;
+class ILxQtPanelPlugin;
 
 class VolumeButton : public QToolButton
 {
     Q_OBJECT
 public:
-    VolumeButton(IRazorPanelPlugin *plugin, QWidget* parent = 0);
+    VolumeButton(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
     ~VolumeButton();
 
     void setShowOnClicked(bool state);
@@ -66,8 +66,8 @@ private slots:
 
 private:
     VolumePopup *m_volumePopup;
-    IRazorPanelPlugin *mPlugin;
-    IRazorPanel *m_panel;
+    ILxQtPanelPlugin *mPlugin;
+    ILxQtPanel *m_panel;
     QTimer m_popupHideTimer;
     bool m_showOnClick;
     bool m_muteOnMiddleClick;

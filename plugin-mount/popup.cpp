@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2011-2013 Razor team
@@ -34,7 +34,7 @@
 #include "popup.h"
 
 
-Popup::Popup(LxQt::MountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent):
+Popup::Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* parent):
     QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint),
     mManager(manager),
     mPlugin(plugin),

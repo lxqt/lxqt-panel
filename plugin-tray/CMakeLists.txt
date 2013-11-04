@@ -1,20 +1,20 @@
 set(PLUGIN "tray")
 
 set(HEADERS
-  razortrayplugin.h
-  razortray.h
+  lxqttrayplugin.h
+  lxqttray.h
   trayicon.h
 )
 
 set(SOURCES
-  razortrayplugin.cpp
-  razortray.cpp
+  lxqttrayplugin.cpp
+  lxqttray.cpp
   trayicon.cpp
 )
 
 set(MOCS
-  razortrayplugin.h
-  razortray.h
+  lxqttrayplugin.h
+  lxqttray.h
   trayicon.h
 )
 
@@ -37,5 +37,5 @@ include ("../BuildPlugin.cmake")
 
 
 
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})
 #target_link_libraries( tint2)

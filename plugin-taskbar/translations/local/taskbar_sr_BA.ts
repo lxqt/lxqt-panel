@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="sr_BA">
 <context>
-    <name>RazorTaskButton</name>
+    <name>LxQtTaskButton</name>
     <message>
         <source>Application</source>
         <translation>Програм</translation>
@@ -73,9 +73,9 @@
     </message>
 </context>
 <context>
-    <name>RazorTaskbarConfiguration</name>
+    <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>Razor Task Manager Settings</source>
+        <source>LxQt Task Manager Settings</source>
         <translation>Подешавања менаџера задатака</translation>
     </message>
     <message>

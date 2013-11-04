@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=RazorPanel/Plugin
+ServiceTypes=LxQtPanel/Plugin
 
 Name=Network monitor
 Comment=Displays network status and activity.
@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[eo]=Agordoj de muso por Razoro
+Comment[eo]=Agordoj de muso por LxQto
 Name[eo]=Agordi X11-muson

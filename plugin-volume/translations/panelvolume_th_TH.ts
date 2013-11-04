@@ -1,16 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="th_TH" version="2.0">
 <context>
-    <name>RazorVolume</name>
+    <name>LxQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>แสดงพื้นโต๊ะ: ไม่สามารถตั้ง &apos;%1&apos; เป็นปุ่มลัดส่วนกลางได้</translation>
     </message>
 </context>
 <context>
-    <name>RazorVolumeConfiguration</name>
+    <name>LxQtVolumeConfiguration</name>
     <message>
-        <source>Razor Volume Control Settings</source>
-        <translation>ค่าตั้งควบคุมระดับเสียง Razor</translation>
+        <source>LxQt Volume Control Settings</source>
+        <translation>ค่าตั้งควบคุมระดับเสียง LxQt</translation>
     </message>
     <message>
         <source>Device to control</source>

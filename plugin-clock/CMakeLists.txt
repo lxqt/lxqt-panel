@@ -6,26 +6,26 @@ include(ConfigureChecks.cmake)
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 set(HEADERS
-    razorclock.h
-    razorclockconfiguration.h
+    lxqtclock.h
+    lxqtclockconfiguration.h
     calendar_utils.h
 )
 
 set(SOURCES
-    razorclock.cpp
-    razorclockconfiguration.cpp
+    lxqtclock.cpp
+    lxqtclockconfiguration.cpp
     calendar_utils.cpp
 )
 
 set(MOCS
-    razorclock.h
-    razorclockconfiguration.h
+    lxqtclock.h
+    lxqtclockconfiguration.h
 )
 
 set(UIS
-    razorclockconfiguration.ui
+    lxqtclockconfiguration.ui
 )
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

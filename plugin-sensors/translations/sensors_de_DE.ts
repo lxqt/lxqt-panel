@@ -1,9 +1,9 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="de_DE" version="2.0">
 <context>
-    <name>RazorSensorsConfiguration</name>
+    <name>LxQtSensorsConfiguration</name>
     <message>
-        <source>Razor Sensors Settings</source>
-        <translation>Razor Sensor Einstellungen</translation>
+        <source>LxQt Sensors Settings</source>
+        <translation>LxQt Sensor Einstellungen</translation>
     </message>
     <message>
         <source>Common</source>

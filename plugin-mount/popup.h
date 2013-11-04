@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2011-2013 Razor team
@@ -31,7 +31,7 @@
 #define POPUP_H
 
 #include <QDialog>
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 
 namespace LxQt {
 class MountManager;
@@ -45,7 +45,7 @@ class Popup: public QDialog
 {
     Q_OBJECT
 public:
-    explicit Popup(LxQt::MountManager *manager, IRazorPanelPlugin *plugin, QWidget* parent = 0);
+    explicit Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* parent = 0);
 
 public slots:
     void showHide();
@@ -65,7 +65,7 @@ private slots:
 private:
     void realign();
     LxQt::MountManager *mManager;
-    IRazorPanelPlugin *mPlugin;
+    ILxQtPanelPlugin *mPlugin;
     QLabel *mPlaceholder;
     int mDisplayCount;
 };

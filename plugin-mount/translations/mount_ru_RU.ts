@@ -30,9 +30,9 @@
     </message>
 </context>
 <context>
-    <name>RazorMountConfiguration</name>
+    <name>LxQtMountConfiguration</name>
     <message>
-        <source>Razor Removable media manager settings</source>
+        <source>LxQt Removable media manager settings</source>
         <translation>Настройки менеджера сменных носителей</translation>
     </message>
     <message>

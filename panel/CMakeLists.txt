@@ -7,13 +7,13 @@ set(QT_USE_QTDBUS 1)
 
 
 set(lxqt-panel_PRIV_H_FILES
-    razorpanel.h
-    razorpanelapplication.h
-    razorpanellayout.h
-    razorpanelpluginconfigdialog.h
+    lxqtpanel.h
+    lxqtpanelapplication.h
+    lxqtpanellayout.h
+    lxqtpanelpluginconfigdialog.h
     config/configpaneldialog.h
     plugin.h
-    razorpanellimits.h
+    lxqtpanellimits.h
     popupmenu.h
     pluginmoveprocessor.h
 )
@@ -22,16 +22,16 @@ set(lxqt-panel_PRIV_H_FILES
 # FIXME: we need to rename public headers to lxqt* and
 # using LxQt namespace in the public headers.
 set(lxqt-panel_PUB_H_FILES
-    irazorpanelplugin.h
-    irazorpanel.h
+    ilxqtpanelplugin.h
+    ilxqtpanel.h
 )
 
 set(lxqt-panel_CPP_FILES
     main.cpp
-    razorpanel.cpp
-    razorpanelapplication.cpp
-    razorpanellayout.cpp
-    razorpanelpluginconfigdialog.cpp
+    lxqtpanel.cpp
+    lxqtpanelapplication.cpp
+    lxqtpanellayout.cpp
+    lxqtpanelpluginconfigdialog.cpp
     config/configpaneldialog.cpp
     plugin.cpp
     popupmenu.cpp
@@ -39,10 +39,10 @@ set(lxqt-panel_CPP_FILES
 )
 
 set(MOCS
-    razorpanel.h
-    razorpanelapplication.h
-    razorpanellayout.h
-    razorpanelpluginconfigdialog.h
+    lxqtpanel.h
+    lxqtpanelapplication.h
+    lxqtpanellayout.h
+    lxqtpanelpluginconfigdialog.h
     config/configpaneldialog.h
     plugin.h
     pluginmoveprocessor.h
@@ -66,7 +66,7 @@ QT4_WRAP_UI(UI_HEADERS ${lxqt-panel_UI_FILES})
 
 add_definitions(-DDEFULT_PANEL_PLUGINS=\"MainMenu,Quicklaunch,TaskBar,Tray,Clock\")
 
-include(RazorTranslate)
+include(LxQtTranslate)
 
 file (GLOB CONFIG_FILES     resources/*.conf)
 
@@ -105,8 +105,8 @@ qt4_wrap_ui(UI_HEADERS ${FORMS})
 qt4_add_resources(QRC_SOURCES ${RESOURCES})
 
 # Translations **********************************
-include(RazorTranslate)
-razor_translate_ts(razor-runner_QM_FILES 
+include(LxQtTranslate)
+lxqt_translate_ts(lxqt-runner_QM_FILES 
     SOURCES
         ${lxqt-panel_PUB_H_FILES}
         ${lxqt-panel_PRIV_H_FILES}
@@ -120,7 +120,7 @@ set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/)
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${razor-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
+add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QT_LIBRARIES})
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)

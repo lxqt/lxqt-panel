@@ -4,25 +4,25 @@ set(PLUGIN "networkmonitor")
 
 
 set(HEADERS
-	razornetworkmonitorplugin.h
-	razornetworkmonitor.h
-	razornetworkmonitorconfiguration.h
+	lxqtnetworkmonitorplugin.h
+	lxqtnetworkmonitor.h
+	lxqtnetworkmonitorconfiguration.h
 )
 
 set(SOURCES
-	razornetworkmonitorplugin.cpp
-	razornetworkmonitor.cpp
-	razornetworkmonitorconfiguration.cpp
+	lxqtnetworkmonitorplugin.cpp
+	lxqtnetworkmonitor.cpp
+	lxqtnetworkmonitorconfiguration.cpp
 )
 
 set(MOCS
-	razornetworkmonitorplugin.h
-	razornetworkmonitor.h
-	razornetworkmonitorconfiguration.h
+	lxqtnetworkmonitorplugin.h
+	lxqtnetworkmonitor.h
+	lxqtnetworkmonitorconfiguration.h
 )
 
 set(UIS
-	razornetworkmonitorconfiguration.ui
+	lxqtnetworkmonitorconfiguration.ui
 )
 
 set(RESOURCES
@@ -33,4 +33,4 @@ LINK_LIBRARIES(${PLUGIN} ${STATGRAB_LIB})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -2,9 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
-    <name>RazorSensorsConfiguration</name>
+    <name>LxQtSensorsConfiguration</name>
     <message>
-        <source>Razor Sensors Settings</source>
+        <source>LxQt Sensors Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

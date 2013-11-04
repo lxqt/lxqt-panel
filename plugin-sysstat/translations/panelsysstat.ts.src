@@ -2,9 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
-    <name>RazorSysStatConfiguration</name>
+    <name>LxQtSysStatConfiguration</name>
     <message>
-        <source>Razor SysStat Settings</source>
+        <source>LxQt SysStat Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

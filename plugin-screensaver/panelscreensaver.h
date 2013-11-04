@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -29,7 +29,7 @@
 #ifndef PANELSCREENSAVER_H
 #define PANELSCREENSAVER_H
 
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
 
 namespace LxQt {
@@ -40,12 +40,12 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
-class PanelScreenSaver : public QObject, public IRazorPanelPlugin
+class PanelScreenSaver : public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    PanelScreenSaver(const IRazorPanelPluginStartupInfo &startupInfo);
+    PanelScreenSaver(const ILxQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "PanelScreenSaver"; }
@@ -56,12 +56,12 @@ private:
     GlobalKeyShortcut::Action * mShortcutKey;
 };
 
-class PanelScreenSaverLibrary: public QObject, public IRazorPanelPluginLibrary
+class PanelScreenSaverLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_INTERFACES(IRazorPanelPluginLibrary)
+    Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    IRazorPanelPlugin *instance(const IRazorPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
     {
         return new PanelScreenSaver(startupInfo);
     }

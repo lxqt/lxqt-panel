@@ -15,7 +15,7 @@
     </message>
 </context>
 <context>
-    <name>RazorQuickLaunch</name>
+    <name>LxQtQuickLaunch</name>
     <message>
         <source>Drop Error</source>
         <translation>Errorea jaregitean</translation>

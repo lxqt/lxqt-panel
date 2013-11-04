@@ -2,10 +2,10 @@ set(PLUGIN "mount")
 
 
 set(HEADERS
-    razormountplugin.h
+    lxqtmountplugin.h
     mountbutton.h
     menudiskitem.h
-    razormountconfiguration.h
+    lxqtmountconfiguration.h
     popup.h
     actions/deviceaction.h
     actions/deviceaction_info.h
@@ -14,11 +14,11 @@ set(HEADERS
 )
 
 set(SOURCES
-    razormountplugin.cpp
+    lxqtmountplugin.cpp
     mountbutton.cpp
     menudiskitem.cpp
     popup.cpp
-    razormountconfiguration.cpp
+    lxqtmountconfiguration.cpp
     actions/deviceaction.cpp
     actions/deviceaction_info.cpp
     actions/deviceaction_menu.cpp
@@ -26,11 +26,11 @@ set(SOURCES
 )
 
 set(MOCS
-    razormountplugin.h
+    lxqtmountplugin.h
     mountbutton.h
     menudiskitem.h
     popup.h
-    razormountconfiguration.h
+    lxqtmountconfiguration.h
     actions/deviceaction.h
     actions/deviceaction_info.h
     actions/deviceaction_menu.h
@@ -38,7 +38,7 @@ set(MOCS
 )
 
 set(UIS
-    razormountconfiguration.ui
+    lxqtmountconfiguration.ui
 )
 
 # FIXME: we probably should either add lxqtmount-config.cmake to 
@@ -47,4 +47,4 @@ set(LIBRARIES lxqtmount)
 
 #*******************************************
 include ("../BuildPlugin.cmake")
-BUILD_RAZOR_PLUGIN(${PLUGIN})
+BUILD_LXQT_PLUGIN(${PLUGIN})

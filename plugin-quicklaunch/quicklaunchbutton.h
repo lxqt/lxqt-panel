@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2012 Razor team
@@ -27,8 +27,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef RAZORQUICKLAUNCHBUTTON_H
-#define RAZORQUICKLAUNCHBUTTON_H
+#ifndef LXQTQUICKLAUNCHBUTTON_H
+#define LXQTQUICKLAUNCHBUTTON_H
 
 #include <QtGui/QToolButton>
 #include <QMimeData>

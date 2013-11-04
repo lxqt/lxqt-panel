@@ -15,7 +15,7 @@
     </message>
 </context>
 <context>
-    <name>RazorQuickLaunch</name>
+    <name>LxQtQuickLaunch</name>
     <message>
         <source>Drop Error</source>
         <translation>移入錯誤</translation>

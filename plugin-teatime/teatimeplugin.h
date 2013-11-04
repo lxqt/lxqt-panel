@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * Razor - a lightweight, Qt based, desktop toolset
+ * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -28,30 +28,30 @@
 #ifndef TEATIMEPLUGIN_H
 #define TEATIMEPLUGIN_H
 
-#include "../panel/irazorpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include <QtGui/QToolButton>
 
-class TeaTimePlugin: public QObject, public IRazorPanelPlugin
+class TeaTimePlugin: public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 public:
-    TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo);
+    TeaTimePlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "TeaTime"; }
-    virtual IRazorPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
+    virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
 
 private:
     QToolButton mButton;
 };
 
 /*
-class TeaTimePlugin: public QObject, public IRazorPanelPlugin
+class TeaTimePlugin: public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 public:
-    TeaTimePlugin(const IRazorPanelPluginStartupInfo &startupInfo);
-    void init(const IRazorPanelPluginStartupInfo &startupInfo) {}
+    TeaTimePlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
+    void init(const ILxQtPanelPluginStartupInfo &startupInfo) {}
 
     QString themeId() const { return "TeaTime"; }
     QWidget *widget();
@@ -63,12 +63,12 @@ private:
     QToolButton mButton;
 };
 */
-class TeaTimePluginLibrary: public QObject, public IRazorPanelPluginLibrary
+class TeaTimePluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_INTERFACES(IRazorPanelPluginLibrary)
+    Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    IRazorPanelPlugin *instance(const IRazorPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
     {
         return new TeaTimePlugin(startupInfo);
     }
