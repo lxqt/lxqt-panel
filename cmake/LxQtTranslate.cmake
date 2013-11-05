@@ -140,7 +140,7 @@ function(lxqt_translate_ts _qmFiles)
     
     file(WRITE ${_txFile}
         "[ -f ${_tsSrcFile} ] || exit 0\n"
-        "echo '[lxqt-qt.${_tsSrcFileNameWE}]'\n"
+        "echo '[lxde-qt.${_tsSrcFileNameWE}]'\n"
         "echo 'type = QT'\n"
         "echo 'source_lang = en'\n"
         "echo 'source_file = ${_tx_tsSrcFile}'\n"
@@ -260,7 +260,7 @@ function(lxqt_translate_desktop _RESULT)
     
         file(WRITE ${_txFile}
             "[ -f ${_inFile} ] || exit 0\n"
-            "echo '[lxqt-qt.${_fileName}_${_fileType}]'\n"
+            "echo '[lxde-qt.${_fileName}_${_fileType}]'\n"
             "echo 'type = DESKTOP'\n"
             "echo 'source_lang = en'\n"
             "echo 'source_file = ${_tx_inFile}'\n"

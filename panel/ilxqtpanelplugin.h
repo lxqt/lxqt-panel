@@ -64,7 +64,7 @@ All plugins *must* be inherited from this one.
 This class provides some basic API and inherited/implemented
 plugins GUIs will be responsible on the functionality itself.
 
-See <a href=https://github.com/LxQt-qt/lxqt-qt/wiki/How-to-write-the-panel-plugin>
+See <a href=https://github.com/LXDE-Qt/lxde-qt/wiki/How-to-write-the-panel-plugin>
 How to write the panel plugin</a> for more information about how to make your plugins.
 **/
 
@@ -231,6 +231,6 @@ public:
 
 
 Q_DECLARE_INTERFACE(ILxQtPanelPluginLibrary,
-                    "lxqt-qt.org/Panel/PluginInterface/2.0")
+                    "lxde-qt.org/Panel/PluginInterface/2.0")
 
 #endif // ILXQTPANELPLUGIN_H

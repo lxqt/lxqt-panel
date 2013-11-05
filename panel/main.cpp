@@ -37,7 +37,7 @@
 #include "lxqtpanel.h"
 #include "lxqttranslate.h"
 
-/*! The lxqt-panel is the panel of LxQt-qt.
+/*! The lxqt-panel is the panel of LXDE-Qt.
   Usage: lxqt-panel [CONFIG_ID]
     CONFIG_ID      Section name in config file ~/.config/lxqt-panel/panel.conf
                    (default main)
