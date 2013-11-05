@@ -79,7 +79,7 @@ ConfigPanelDialog::ConfigPanelDialog(LxQtPanel *panel, QWidget *parent):
     ConfigPanelWidget* page = new ConfigPanelWidget(panel, this);
     addPage(page, tr("Configure Panel"));
     connect(this, SIGNAL(reset()), page, SLOT(reset()));
-    connect(this, SIGNAL(accepted()), panel, SLOT(saveSettings(false)));
+    connect(this, SIGNAL(accepted()), panel, SLOT(saveSettings()));
 }
 
 

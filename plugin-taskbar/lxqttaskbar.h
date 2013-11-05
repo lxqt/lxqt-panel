@@ -58,6 +58,7 @@ public:
 
 public slots:
     void activeWindowChanged();
+    void refreshIconGeometry();
 
 private:
     void refreshTaskList();

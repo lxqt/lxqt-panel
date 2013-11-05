@@ -39,7 +39,6 @@
 #include <lxqt/lxqtxfitman.h>
 #include <QtCore/QList>
 
-
 #include <QDesktopWidget>
 #include <QWheelEvent>
 
@@ -161,6 +160,7 @@ void LxQtTaskBar::refreshTaskList()
 /************************************************
 
  ************************************************/
+
 void LxQtTaskBar::refreshButtonVisibility()
 {
     bool haveVisibleWindow = false;
@@ -174,7 +174,26 @@ void LxQtTaskBar::refreshButtonVisibility()
     }
     mPlaceHolder->setVisible(!haveVisibleWindow);
 }
+/************************************************
 
+ ************************************************/
+
+void LxQtTaskBar::refreshIconGeometry()
+{
+	// FIXME: sometimes we get wrong globalPos here, especially
+	//        after changing the pos or size of the panel.
+	//        this might be caused by bugs in lxqtpanel.cpp.
+    QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+    while (i.hasNext())
+    {
+        i.next();
+        LxQtTaskButton* button = i.value();
+        QRect rect = button->geometry();
+        QPoint globalPos = mapToGlobal(button->pos());
+        rect.moveTo(globalPos);
+        xfitMan().setIconGeometry(button->windowId(), &rect);
+    }
+}
 
 /************************************************
 
@@ -394,6 +413,7 @@ void LxQtTaskBar::realign()
         mPlaceHolder->setFixedHeight(0);
 
     mLayout->setEnabled(true);
+    refreshIconGeometry();
 }
 
 
