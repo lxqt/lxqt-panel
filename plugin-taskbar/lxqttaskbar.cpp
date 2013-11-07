@@ -180,9 +180,9 @@ void LxQtTaskBar::refreshButtonVisibility()
 
 void LxQtTaskBar::refreshIconGeometry()
 {
-	// FIXME: sometimes we get wrong globalPos here, especially
-	//        after changing the pos or size of the panel.
-	//        this might be caused by bugs in lxqtpanel.cpp.
+        // FIXME: sometimes we get wrong globalPos here, especially
+        //        after changing the pos or size of the panel.
+        //        this might be caused by bugs in lxqtpanel.cpp.
     QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
@@ -221,7 +221,14 @@ void LxQtTaskBar::x11EventFilter(XEvent* event)
         case PropertyNotify:
             handlePropertyNotify(&event->xproperty);
             break;
-
+        case ConfigureNotify:
+	  // if the size or position of our window is changed, update icon geometry
+            if(event->xconfigure.window == effectiveWinId())
+            {
+                // qDebug() << "configure event";
+                refreshIconGeometry();
+            }
+            break;
 #if 0
         case MotionNotify:
             break;
@@ -437,3 +444,4 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
         }
     }
 }
+
