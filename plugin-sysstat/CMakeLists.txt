@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 set(PLUGIN "panelsysstat")
 
+find_package(SysStat REQUIRED)
 
 set(HEADERS
     lxqtsysstat.h
@@ -29,14 +30,9 @@ set(UIS
 )
 
 
-LINK_LIBRARIES(${PLUGIN} ${SYSSTAT_LIB})
+LINK_LIBRARIES(${PLUGIN} ${SYSSTAT_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
-set(panelsysstat_LIBRARIES
-    sysstat
-)
-target_link_libraries(${PLUGIN}  ${panelsysstat_LIBRARIES})
