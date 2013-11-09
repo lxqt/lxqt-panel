@@ -34,6 +34,7 @@
 #include <QSettings>
 #include <lxqt/lxqtplugininfo.h>
 #include "ilxqtpanel.h"
+#include "lxqtpanelglobals.h"
 
 /**
 LxQt panel plugins are standalone sharedlibraries
@@ -50,7 +51,7 @@ like translations. Themselves plugins will be installed to
 
 class QDialog;
 
-struct ILxQtPanelPluginStartupInfo
+struct LXQT_PANEL_API ILxQtPanelPluginStartupInfo
 {
     ILxQtPanel *lxqtPanel;
     QSettings *settings;
@@ -68,7 +69,7 @@ See <a href=https://github.com/LXDE-Qt/lxde-qt/wiki/How-to-write-the-panel-plugi
 How to write the panel plugin</a> for more information about how to make your plugins.
 **/
 
-class ILxQtPanelPlugin
+class LXQT_PANEL_API ILxQtPanelPlugin
 {
 public:
     /**
@@ -215,7 +216,7 @@ public:
 };
 @endcode
 **/
-class ILxQtPanelPluginLibrary
+class LXQT_PANEL_API ILxQtPanelPluginLibrary
 {
 public:
     /**

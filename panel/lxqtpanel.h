@@ -33,6 +33,7 @@
 #include <QtCore/QString>
 #include <QtCore/QTimer>
 #include "ilxqtpanel.h"
+#include "lxqtpanelglobals.h"
 
 class QMenu;
 class Plugin;
@@ -45,7 +46,7 @@ class LxQtPanelLayout;
 
 /*! \brief The LxQtPanel class provides a single lxqt-panel.
  */
-class LxQtPanel : public QFrame, public ILxQtPanel
+class LXQT_PANEL_API LxQtPanel : public QFrame, public ILxQtPanel
 {
     Q_OBJECT
 

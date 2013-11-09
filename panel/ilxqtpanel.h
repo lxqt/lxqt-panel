@@ -29,12 +29,13 @@
 #ifndef ILXQTPANEL_H
 #define ILXQTPANEL_H
 #include <QRect>
+#include "lxqtpanelglobals.h"
 
 class ILxQtPanelPlugin;
 
 /**
  **/
-class ILxQtPanel
+class LXQT_PANEL_API ILxQtPanel
 {
 public:
     /**

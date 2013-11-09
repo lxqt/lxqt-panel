@@ -33,6 +33,7 @@
 #include <QString>
 #include <lxqt/lxqtplugininfo.h>
 #include "ilxqtpanel.h"
+#include "lxqtpanelglobals.h"
 
 class QPluginLoader;
 class QSettings;
@@ -42,7 +43,7 @@ class LxQtPanel;
 class QMenu;
 
 
-class Plugin : public QFrame
+class LXQT_PANEL_API Plugin : public QFrame
 {
     Q_OBJECT
 

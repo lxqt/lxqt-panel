@@ -2,11 +2,11 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxde.org/
  *
- * Copyright: 2010-2012 Razor team
+ * Copyright: 2013 LXDE-Qt team
  * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *   Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -24,27 +24,16 @@
  * Boston, MA 02110-1301 USA
  *
  * END_COMMON_COPYRIGHT_HEADER */
+ 
+#ifndef __LXQT_PANEL_GLOBALS_H__
+#define __LXQT_PANEL_GLOBALS_H__
 
+#include <QtGlobal>
 
-#ifndef POPUPMENU_H
-#define POPUPMENU_H
+#ifdef COMPILE_LXQT_PANEL
+#define LXQT_PANEL_API Q_DECL_EXPORT
+#else
+#define LXQT_PANEL_API Q_DECL_IMPORT
+#endif
 
-#include <QMenu>
-#include "lxqtpanelglobals.h"
-
-class LXQT_PANEL_API PopupMenu: public QMenu
-{
-public:
-    explicit PopupMenu(QWidget *parent = 0): QMenu(parent) {}
-    explicit PopupMenu(const QString &title, QWidget *parent = 0): QMenu(title, parent) {}
-
-    QAction* addTitle(const QIcon &icon, const QString &text);
-    QAction* addTitle(const QString &text);
-
-    bool eventFilter(QObject *object, QEvent *event);
-
-protected:
-    virtual void keyPressEvent(QKeyEvent* e);
-};
-
-#endif // POPUPMENU_H
+#endif // __LXQT_PANEL_GLOBALS_H__

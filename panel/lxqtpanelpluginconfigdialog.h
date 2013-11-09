@@ -32,10 +32,11 @@
 #include <QtGui/QAbstractButton>
 #include <QtGui/QDialog>
 #include <lxqt/lxqtsettings.h>
+#include "lxqtpanelglobals.h"
 
 class QComboBox;
 
-class LxQtPanelPluginConfigDialog : public QDialog
+class LXQT_PANEL_API LxQtPanelPluginConfigDialog : public QDialog
 {
     Q_OBJECT
 public:

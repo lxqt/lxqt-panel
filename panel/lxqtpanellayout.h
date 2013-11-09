@@ -34,7 +34,7 @@
 #include <QtGui/QWidget>
 #include <QtGui/QLayoutItem>
 #include "ilxqtpanel.h"
-
+#include "lxqtpanelglobals.h"
 
 class MoveInfo;
 class QMouseEvent;
@@ -43,7 +43,7 @@ class QEvent;
 class Plugin;
 class LayoutItemGrid;
 
-class LxQtPanelLayout : public QLayout
+class LXQT_PANEL_API LxQtPanelLayout : public QLayout
 {
     Q_OBJECT
 public:

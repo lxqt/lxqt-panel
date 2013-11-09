@@ -81,6 +81,8 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 #    add_definitions (-Wall -pedantic)
 endif()
 
+add_definitions(-DCOMPILE_LXQT_PANEL)
+
 
 set(PLUGIN_DESKTOPS_DIR
     ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT}

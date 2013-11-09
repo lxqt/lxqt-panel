@@ -33,12 +33,13 @@
 #include <QtCore/QVariantAnimation>
 #include <QtCore/QEvent>
 #include "plugin.h"
+#include "lxqtpanelglobals.h"
 
 class LxQtPanelLayout;
 class QLayoutItem;
 
 
-class PluginMoveProcessor : public QWidget
+class LXQT_PANEL_API PluginMoveProcessor : public QWidget
 {
     Q_OBJECT
 public:
@@ -87,7 +88,7 @@ private:
 };
 
 
-class CursorAnimation: public QVariantAnimation
+class LXQT_PANEL_API CursorAnimation: public QVariantAnimation
 {
     Q_OBJECT
 public:
