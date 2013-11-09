@@ -15,6 +15,12 @@ macro( setByDefault VAR_NAME VAR_VALUE )
   endif (NOT DEFINED ${VAR_NAME})
 endmacro()
 
+# use gcc visibility feature to decrease unnecessary exported symbols
+if (CMAKE_COMPILER_IS_GNUCXX)
+  # set visibility to hidden to hide symbols, unlesss they're exporeted manually in the code
+  set(CMAKE_CXX_FLAGS "-fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
+endif()
+
 
 # *******************************************************************
 # What plugins will be built, by default.
