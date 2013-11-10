@@ -18,7 +18,8 @@ endmacro()
 # use gcc visibility feature to decrease unnecessary exported symbols
 if (CMAKE_COMPILER_IS_GNUCXX)
   # set visibility to hidden to hide symbols, unlesss they're exporeted manually in the code
-  set(CMAKE_CXX_FLAGS "-fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
+  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
 endif()
 
 
@@ -68,6 +69,9 @@ include ( ${QT_USE_FILE} )
 
 find_package(LXQT REQUIRED )
 include(${LXQT_USE_FILE})
+
+find_package(LXQTMOUNT REQUIRED )
+include(${LXQTMOUNT_USE_FILE})
 
 find_package(QTXDG REQUIRED QUIET)
 include(${QTXDG_USE_FILE})

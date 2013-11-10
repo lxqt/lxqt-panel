@@ -33,6 +33,8 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}/../panel
 )
 
+set(LIBRARIES ${QTXDG_LIBRARIES})
+
 #*******************************************
 include ("../BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

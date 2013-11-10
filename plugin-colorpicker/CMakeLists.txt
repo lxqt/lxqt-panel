@@ -19,6 +19,7 @@ set(UIS
 
 set(LIBRARIES
   ${LXQT_LIBRARIES}
+  ${QTXDG_LIBRARIES}
 )
 
 #*******************************************

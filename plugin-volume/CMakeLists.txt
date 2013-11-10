@@ -51,7 +51,7 @@ if (ALSA_FOUND)
     LINK_LIBRARIES(${PLUGIN} ${ALSA_LIBRARIES})
 endif (ALSA_FOUND)
 
-set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES})
+set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} ${QTXDG_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")

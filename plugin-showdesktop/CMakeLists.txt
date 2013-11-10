@@ -12,7 +12,7 @@ set(MOCS
   showdesktop.h
 )
 
-set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} )
+set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} ${QTXDG_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")

@@ -41,9 +41,7 @@ set(UIS
     lxqtmountconfiguration.ui
 )
 
-# FIXME: we probably should either add lxqtmount-config.cmake to 
-# lxqt-mount, or merge it with liblxqt again since it's small enough.
-set(LIBRARIES lxqtmount)
+set(LIBRARIES ${QTXDG_LIBRARIES} ${LXQTMOUNT_LIBRARIES})
 
 #*******************************************
 include ("../BuildPlugin.cmake")
