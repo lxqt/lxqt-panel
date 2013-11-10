@@ -173,12 +173,13 @@ void LxQtMainMenu::showMenu()
     mMenu->exec(QPoint(x, y));
 }
 
-
+#ifdef HAVE_MENU_CACHE
 // static
 void LxQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
 {
     reinterpret_cast<LxQtMainMenu*>(user_data)->buildMenu();
 }
+#endif
 
 /************************************************
 
