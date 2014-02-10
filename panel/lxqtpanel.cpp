@@ -397,7 +397,6 @@ void LxQtPanel::realign()
     // Reserve our space on the screen ..........
     XfitMan xf = xfitMan();
     Window wid = effectiveWinId();
-    QRect desktop = QApplication::desktop()->screen(mScreenNum)->geometry();
 
     switch (mPosition)
     {
@@ -411,7 +410,7 @@ void LxQtPanel::realign()
         break;
 
         case LxQtPanel::PositionBottom:
-            xf.setStrut(wid, 0, 0, 0, desktop.height() - rect.y(),
+            xf.setStrut(wid, 0, 0, 0, screen.height() - rect.y(),
                /* Left   */  0, 0,
                /* Right  */  0, 0,
                /* Top    */  0, 0,
@@ -430,7 +429,7 @@ void LxQtPanel::realign()
             break;
 
         case LxQtPanel::PositionRight:
-            xf.setStrut(wid, 0, desktop.width() - rect.x(), 0, 0,
+            xf.setStrut(wid, 0, screen.width() - rect.x(), 0, 0,
                /* Left   */  0, 0,
                /* Right  */  rect.top(), rect.bottom(),
                /* Top    */  0, 0,
