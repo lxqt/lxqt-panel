@@ -46,8 +46,7 @@ private:
 
 private Q_SLOTS:
     void onItemTrigerred();
-    void onItemHovered(QAction * action);
-    
+
 private:
     QPoint mDragStartPosition;
 };

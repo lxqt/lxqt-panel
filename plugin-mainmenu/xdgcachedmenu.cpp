@@ -30,19 +30,23 @@
 #include <QApplication>
 #include <qtxdg/XdgDesktopFile>
 #include <qtxdg/XdgIcon>
-
+#include <QHelpEvent>
 #include <QDebug>
 
 XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
-	QAction(parent),
-	item_(menu_cache_item_ref(item))
+    QAction(parent),
+    item_(menu_cache_item_ref(item))
 {
-	QString title = QString::fromUtf8(menu_cache_item_get_name(item));
-	setText(title);
-	QString comment = QString::fromUtf8(menu_cache_item_get_comment(item));
-	setToolTip(comment);
-	QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item));
-	setIcon(icon);
+    QString title = QString::fromUtf8(menu_cache_item_get_name(item));
+    setText(title);
+    // Only set tooltips for app items
+    if(menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP)
+    {
+        QString comment = QString::fromUtf8(menu_cache_item_get_comment(item));
+        setToolTip(comment);
+    }
+    QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item));
+    setIcon(icon);
 }
 
 XdgCachedMenuAction::~XdgCachedMenuAction()
@@ -84,7 +88,6 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
       else if(type == MENU_CACHE_TYPE_DIR)
       {
         XdgCachedMenu* submenu = new XdgCachedMenu(menu);
-        connect(submenu, SIGNAL(hovered(QAction*)), SLOT(onItemHovered(QAction*)));
         action->setMenu(submenu);
         addMenuItems(submenu, (MenuCacheDir*)item);
       }
@@ -102,17 +105,6 @@ void XdgCachedMenu::onItemTrigerred()
     df.startDetached();
 }
 
-// Qt does not show tooltips for menu items natively
-// Let's do it manually here
-void XdgCachedMenu::onItemHovered(QAction* action)
-{
-  QString tooltip = action->toolTip();
-  if(!tooltip.isEmpty()) {
-    QMenu* menu = static_cast<QMenu*>(sender());
-    QToolTip::showText(QCursor::pos(), tooltip, menu);
-  }
-}
-
 // taken from libqtxdg: XdgMenuWidget
 bool XdgCachedMenu::event(QEvent* event)
 {
@@ -127,6 +119,14 @@ bool XdgCachedMenu::event(QEvent* event)
     {
         QMouseEvent *e = static_cast<QMouseEvent*>(event);
         handleMouseMoveEvent(e);
+    }
+
+    else if(event->type() == QEvent::ToolTip)
+    {
+        QHelpEvent* helpEvent = static_cast<QHelpEvent*>(event);
+        QAction* action = actionAt(helpEvent->pos());
+        if(action && action->menu() == NULL)
+            QToolTip::showText(helpEvent->globalPos(), action->toolTip(), this);
     }
 
     return QMenu::event(event);
