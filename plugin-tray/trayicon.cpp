@@ -291,13 +291,19 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
         return;
     }
 
-    XImage* ximage = XGetImage(dsp, mIconId, 0, 0, attr.width, attr.height, AllPlanes, ZPixmap);
-    if (!ximage)
+    QImage image;
+    XImage* ximage = XGetImage(dsp, mIconId, 1, 1, attr.width-2, attr.height-2, AllPlanes, ZPixmap);
+    if(ximage)
+    {
+        image = QImage((const uchar*) ximage->data, ximage->width, ximage->height, ximage->bytes_per_line,  QImage::Format_ARGB32_Premultiplied);
+    }
+    else
     {
         qWarning() << "    * Error image is NULL";
-        return;
+        // for some unknown reason, XGetImage failed. try another less efficient method.
+        // QPixmap::grabWindow uses XCopyArea() internally.
+        image = QPixmap::grabWindow(mIconId).toImage();
     }
-
 
 //    qDebug() << "Paint icon **************************************";
 //    qDebug() << "  * XComposite: " << isXCompositeAvailable();
@@ -319,11 +325,6 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
 //    qDebug() << "    * color depth:  " << ximage->depth;
 //    qDebug() << "    * bits per pixel:" << ximage->bits_per_pixel;
 
-
-    //const uchar* d =(uchar*) ximage->data;
-    QImage image = QImage((const uchar*) ximage->data, ximage->width, ximage->height, ximage->bytes_per_line,  QImage::Format_ARGB32_Premultiplied);
-
-
     // Draw QImage ...........................
     QPainter painter(this);
     QRect iconRect = iconGeometry();
@@ -338,7 +339,8 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
 
     painter.drawImage(iconRect, image);
 
-    XDestroyImage(ximage);
+    if(ximage)
+        XDestroyImage(ximage);
 //    debug << "End paint icon **********************************";
 }
 

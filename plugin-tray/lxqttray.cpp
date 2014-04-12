@@ -77,7 +77,7 @@ LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
 {
     mLayout = new LxQt::GridLayout(this);
     realign();
-
+    _NET_SYSTEM_TRAY_OPCODE = xfitMan().atom("_NET_SYSTEM_TRAY_OPCODE");
     // Init the selection later just to ensure that no signals are sent until
     // after construction is done and the creating object has a chance to connect.
     QTimer::singleShot(0, this, SLOT(startTray()));
@@ -166,6 +166,9 @@ void LxQtTray::clientMessageEvent(XClientMessageEvent* e)
     opcode = e->data.l[1];
     Window id;
 
+    if(e->message_type != _NET_SYSTEM_TRAY_OPCODE)
+        return;
+
     switch (opcode)
     {
         case SYSTEM_TRAY_REQUEST_DOCK:
@@ -211,6 +214,16 @@ TrayIcon* LxQtTray::findIcon(Window id)
 ************************************************/
 void LxQtTray::setIconSize(QSize iconSize)
 {
+    unsigned long size = qMin(mIconSize.width(), mIconSize.height());
+    XChangeProperty(QX11Info::display(),
+                    mTrayId,
+                    xfitMan().atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
+                    XA_CARDINAL,
+                    32,
+                    PropModeReplace,
+                    (unsigned char*)&size,
+                    1);
+
     mIconSize = iconSize;
     foreach(TrayIcon* icon, mIcons)
         icon->setIconSize(mIconSize);
@@ -309,6 +322,8 @@ void LxQtTray::startTray()
                         1);
     }
     // ******************************************
+    
+    setIconSize(mIconSize);
 
     XClientMessageEvent ev;
     ev.type = ClientMessage;
