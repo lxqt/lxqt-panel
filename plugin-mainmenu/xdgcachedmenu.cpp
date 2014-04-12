@@ -58,7 +58,6 @@ XdgCachedMenuAction::~XdgCachedMenuAction()
 XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(parent)
 {
     // qDebug() << "CREATE MENU FROM CACHE" << menuCache;
-    connect(this, SIGNAL(hovered(QAction*)), SLOT(onItemHovered(QAction*)));
     MenuCacheDir* dir = menu_cache_get_root_dir(menuCache);
     addMenuItems(this, dir);
 }

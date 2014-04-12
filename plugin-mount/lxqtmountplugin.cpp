@@ -97,10 +97,10 @@ void LxQtMountPlugin::settingsChanged()
     delete mDeviceAction;
     mDeviceAction = DeviceAction::create(actionId, this);
 
-    connect(mMountManager, SIGNAL(deviceAdded(LxQtMountDevice*)),
-             mDeviceAction, SLOT(deviceAdded(LxQtMountDevice*)));
+    connect(mMountManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
+             mDeviceAction, SLOT(deviceAdded(LxQt::MountDevice*)));
 
-    connect(mMountManager, SIGNAL(deviceRemoved(LxQtMountDevice*)),
-             mDeviceAction, SLOT(deviceRemoved(LxQtMountDevice*)));
+    connect(mMountManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
+             mDeviceAction, SLOT(deviceRemoved(LxQt::MountDevice*)));
 
 }
