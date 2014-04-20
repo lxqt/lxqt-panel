@@ -292,7 +292,7 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
     }
 
     QImage image;
-    XImage* ximage = XGetImage(dsp, mIconId, 1, 1, attr.width-2, attr.height-2, AllPlanes, ZPixmap);
+    XImage* ximage = XGetImage(dsp, mIconId, 0, 0, attr.width, attr.height, AllPlanes, ZPixmap);
     if(ximage)
     {
         image = QImage((const uchar*) ximage->data, ximage->width, ximage->height, ximage->bytes_per_line,  QImage::Format_ARGB32_Premultiplied);
