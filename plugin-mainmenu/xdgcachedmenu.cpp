@@ -45,8 +45,6 @@ XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
         QString comment = QString::fromUtf8(menu_cache_item_get_comment(item));
         setToolTip(comment);
     }
-    QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item));
-    setIcon(icon);
 }
 
 XdgCachedMenuAction::~XdgCachedMenuAction()
@@ -55,11 +53,26 @@ XdgCachedMenuAction::~XdgCachedMenuAction()
     menu_cache_item_unref(item_);
 }
 
+void XdgCachedMenuAction::updateIcon()
+{
+    if(icon().isNull())
+    {
+        QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item_));
+        setIcon(icon);
+    }
+}
+
+XdgCachedMenu::XdgCachedMenu(QWidget* parent): QMenu(parent)
+{
+    connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
+}
+
 XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(parent)
 {
     // qDebug() << "CREATE MENU FROM CACHE" << menuCache;
     MenuCacheDir* dir = menu_cache_get_root_dir(menuCache);
     addMenuItems(this, dir);
+    connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
 }
 
 XdgCachedMenu::~XdgCachedMenu()
@@ -155,4 +168,16 @@ void XdgCachedMenu::handleMouseMoveEvent(QMouseEvent *event)
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->exec(Qt::CopyAction | Qt::LinkAction);
+}
+
+void XdgCachedMenu::onAboutToShow()
+{
+    Q_FOREACH(QAction* action, actions())
+    {
+        if(action->inherits("XdgCachedMenuAction"))
+        {
+            static_cast<XdgCachedMenuAction*>(action)->updateIcon();
+            qApp->processEvents();
+        }
+    }
 }

@@ -31,9 +31,7 @@ class XdgCachedMenu : public QMenu
 {
     Q_OBJECT
 public:
-	XdgCachedMenu(QWidget* parent = NULL): QMenu(parent)
-	{
-	}
+    XdgCachedMenu(QWidget* parent = NULL);
     XdgCachedMenu(MenuCache* menuCache, QWidget* parent);
     virtual ~XdgCachedMenu();
 
@@ -46,6 +44,7 @@ private:
 
 private Q_SLOTS:
     void onItemTrigerred();
+    void onAboutToShow();
 
 private:
     QPoint mDragStartPosition;
@@ -53,7 +52,7 @@ private:
 
 class XdgCachedMenuAction: public QAction
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
     explicit XdgCachedMenuAction(MenuCacheItem* item, QObject* parent = 0);
     virtual ~XdgCachedMenuAction();
@@ -61,6 +60,8 @@ public:
     MenuCacheItem* item() const {
       return item_;
     }
+
+    void updateIcon();
 
 private:
     MenuCacheItem* item_;

@@ -252,7 +252,6 @@ void LxQtMainMenu::settingsChanged()
  ************************************************/
 void LxQtMainMenu::buildMenu()
 {
-  qDebug() << "BUILD_MENU";
 #ifdef HAVE_MENU_CACHE
     XdgCachedMenu* menu = new XdgCachedMenu(mMenuCache, &mButton);
 #else
