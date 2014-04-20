@@ -177,7 +177,9 @@ void XdgCachedMenu::onAboutToShow()
         if(action->inherits("XdgCachedMenuAction"))
         {
             static_cast<XdgCachedMenuAction*>(action)->updateIcon();
-            qApp->processEvents();
+
+            // this seems to cause some incorrect menu behaviour.
+            // qApp->processEvents();
         }
     }
 }
