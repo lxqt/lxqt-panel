@@ -41,17 +41,12 @@ Q_EXPORT_PLUGIN2(mount, LxQtMountPluginLibrary)
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mMountManager(new LxQt::MountManager(this)),
+    mMountManager(NULL),
+    mPopup(NULL),
     mDeviceAction(0)
 {
     mButton = new MountButton();
-    mPopup = new Popup(mMountManager, this, mButton);
-
-    settingsChanged();
-
-    connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
-    connect(mButton, SIGNAL(clicked()), mPopup, SLOT(showHide()));
-    mMountManager->update();
+    connect(mButton, SIGNAL(clicked(bool)), SLOT(buttonClicked()));
 }
 
 
@@ -70,13 +65,15 @@ QWidget *LxQtMountPlugin::widget()
 
 void LxQtMountPlugin::realign()
 {
-    mPopup->hide();
+    if(mPopup)
+        mPopup->hide();
 }
 
 
 QDialog *LxQtMountPlugin::configureDialog()
 {
-    mPopup->hide();
+    if(mPopup)
+        mPopup->hide();
     LxQtMountConfiguration *configWindow = new LxQtMountConfiguration(*settings());
     configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
     return configWindow;
@@ -97,10 +94,26 @@ void LxQtMountPlugin::settingsChanged()
     delete mDeviceAction;
     mDeviceAction = DeviceAction::create(actionId, this);
 
-    connect(mMountManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
-             mDeviceAction, SLOT(deviceAdded(LxQt::MountDevice*)));
+    if(mMountManager)
+    {
+        connect(mMountManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
+                mDeviceAction, SLOT(deviceAdded(LxQt::MountDevice*)));
 
-    connect(mMountManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
-             mDeviceAction, SLOT(deviceRemoved(LxQt::MountDevice*)));
+        connect(mMountManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
+                mDeviceAction, SLOT(deviceRemoved(LxQt::MountDevice*)));
+    }
+}
 
+void LxQtMountPlugin::buttonClicked()
+{
+    if(!mMountManager)
+    {
+        mMountManager = new LxQt::MountManager(this);
+        mPopup = new Popup(mMountManager, this, mButton);
+        settingsChanged();
+
+        connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
+        mMountManager->update();
+    }
+    mPopup->showHide();
 }

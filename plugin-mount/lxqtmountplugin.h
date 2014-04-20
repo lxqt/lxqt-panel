@@ -65,6 +65,7 @@ public:
 
 protected slots:
     virtual void settingsChanged();
+    void buttonClicked();
 
 private:
     MountButton *mButton;
