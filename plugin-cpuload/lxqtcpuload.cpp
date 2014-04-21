@@ -36,6 +36,11 @@ extern "C" {
 #include <statgrab.h>
 }
 
+#ifdef __sg_public
+// since libstatgrab 0.90 this macro is defined, so we use it for version check
+#define STATGRAB_NEWER_THAN_0_90 	1
+#endif
+
 #define BAR_ORIENT_BOTTOMUP "bottomUp"
 #define BAR_ORIENT_TOPDOWN "topDown"
 #define BAR_ORIENT_LEFTRIGHT "leftRight"
@@ -55,7 +60,11 @@ LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     layout->addWidget(&m_stuff);
 
 	/* Initialise statgrab */
+#ifdef STATGRAB_NEWER_THAN_0_90
+	sg_init(0);
+#else
 	sg_init();
+#endif
 
 	/* Drop setuid/setgid privileges. */
 	if (sg_drop_privileges() != 0) {
@@ -92,7 +101,12 @@ void LxQtCpuLoad::resizeEvent(QResizeEvent *)
 
 double LxQtCpuLoad::getLoadCpu() const
 {
+ #ifdef STATGRAB_NEWER_THAN_0_90
+        size_t count;
+	sg_cpu_percents* cur = sg_get_cpu_percents(&count);
+#else
 	sg_cpu_percents* cur = sg_get_cpu_percents();
+#endif
 	return (cur->user + cur->kernel + cur->nice);
 }
 

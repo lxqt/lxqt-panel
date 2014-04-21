@@ -39,7 +39,10 @@ extern "C" {
 #include <statgrab.h>
 }
 
-
+#ifdef __sg_public
+// since libstatgrab 0.90 this macro is defined, so we use it for version check
+#define STATGRAB_NEWER_THAN_0_90 	1
+#endif
 
 LxQtNetworkMonitor::LxQtNetworkMonitor(ILxQtPanelPlugin *plugin, QWidget* parent):
     QFrame(parent),
@@ -49,7 +52,11 @@ LxQtNetworkMonitor::LxQtNetworkMonitor(ILxQtPanelPlugin *plugin, QWidget* parent
     layout->addWidget(&m_stuff);
     setLayout(layout);
     /* Initialise statgrab */
+#ifdef STATGRAB_NEWER_THAN_0_90
+    sg_init(0);
+#else
     sg_init();
+#endif
 
     m_iconList << "modem" << "monitor"
                << "network" << "wireless";
@@ -76,8 +83,11 @@ void LxQtNetworkMonitor::timerEvent(QTimerEvent *event)
 {
     bool matched = false;
 
+#ifdef STATGRAB_NEWER_THAN_0_90
+    size_t num_network_stats;
+#else
     int num_network_stats;
-
+#endif
     sg_network_io_stats *network_stats = sg_get_network_io_stats_diff(&num_network_stats);
 
     for (int x = 0; x < num_network_stats; x++)
@@ -133,9 +143,14 @@ bool LxQtNetworkMonitor::event(QEvent *event)
 {
     if (event->type() == QEvent::ToolTip)
     {
+#ifdef STATGRAB_NEWER_THAN_0_90
+        size_t num_network_stats;
+#else
         int num_network_stats;
+#endif
         sg_network_io_stats *network_stats = sg_get_network_io_stats(&num_network_stats);
-        for (int x = 0; x < num_network_stats; x++)
+
+	for (int x = 0; x < num_network_stats; x++)
         {
             if (m_interface == QString::fromLocal8Bit(network_stats->interface_name))
             {
@@ -171,7 +186,11 @@ void LxQtNetworkMonitor::settingsChanged()
     m_interface = mPlugin->settings()->value("interface").toString();
     if (m_interface.isEmpty())
     {
+#ifdef STATGRAB_NEWER_THAN_0_90
+        size_t count;
+#else
         int count;
+#endif
         sg_network_iface_stats* stats = sg_get_network_iface_stats(&count);
         if (count > 0)
             m_interface = QString(stats[0].interface_name);

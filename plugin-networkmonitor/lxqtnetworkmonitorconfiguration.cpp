@@ -33,6 +33,11 @@ extern "C" {
 #include <statgrab.h>
 }
 
+#ifdef __sg_public
+// since libstatgrab 0.90 this macro is defined, so we use it for version check
+#define STATGRAB_NEWER_THAN_0_90 	1
+#endif
+
 LxQtNetworkMonitorConfiguration::LxQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LxQtNetworkMonitorConfiguration),
@@ -66,7 +71,13 @@ void LxQtNetworkMonitorConfiguration::loadSettings()
     ui->iconCB->setCurrentIndex(mSettings->value("icon", 1).toInt());
 
     int count;
+#ifdef STATGRAB_NEWER_THAN_0_90
+    size_t ret_count;
+    sg_network_iface_stats* stats = sg_get_network_iface_stats(&ret_count);
+    count = (int)ret_count;
+#else
     sg_network_iface_stats* stats = sg_get_network_iface_stats(&count);
+#endif
     for (int ix = 0; ix < count; ix++)
         ui->interfaceCB->addItem(stats[ix].interface_name);
 

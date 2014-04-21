@@ -300,6 +300,8 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
     else
     {
         qWarning() << "    * Error image is NULL";
+
+        XClearArea(QX11Info::display(), (Window)winId(), 0, 0, attr.width, attr.height, False);
         // for some unknown reason, XGetImage failed. try another less efficient method.
         // QPixmap::grabWindow uses XCopyArea() internally.
         image = QPixmap::grabWindow(mIconId).toImage();
