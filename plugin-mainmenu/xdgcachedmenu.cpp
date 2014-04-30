@@ -38,6 +38,7 @@ XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
     item_(menu_cache_item_ref(item))
 {
     QString title = QString::fromUtf8(menu_cache_item_get_name(item));
+    title = title.replace('&', QLatin1String("&&")); // & is reserved for mnemonics
     setText(title);
     // Only set tooltips for app items
     if(menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP)
