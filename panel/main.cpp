@@ -58,7 +58,7 @@ void printHelp()
     out << endl;
     out << "Options:" << endl;
     out << "  -h, --help                    Show help about options" << endl;
-    out << "  --version                     Show version information" << endl;
+    out << "      --version                 Show version information" << endl;
     out << "  -c, --configfile=CONFIGFILE   Use alternate configuration file" << endl;
 }
 
@@ -66,12 +66,7 @@ void printHelp()
 void printVersion()
 {
     QTextStream out(stdout);
-    out << "lxqt-confupdate " << LXQT_VERSION << endl;
-    out << "Copyright (c) 2012 Razor team" << endl;
-    out << endl;
-    out << "License LGPLv2+: GNU Lesser GPL version 2 or later <http://www.gnu.org/licenses/lgpl-2.1.html>." << endl;
-    out << "This is free software: you are free to change and redistribute it." << endl;
-    out << "There is NO WARRANTY, to the extent permitted by law." << endl;
+    out << "lxqt-panel " << LXQT_VERSION << endl;
 }
 
 
