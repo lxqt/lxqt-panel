@@ -114,7 +114,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     setLayout(lav);
     this->layout()->addWidget(LxQtPanelWidget);
 
-    mLayout = new LxQtPanelLayout(this);
+    mLayout = new LxQtPanelLayout(LxQtPanelWidget);
     connect(mLayout, SIGNAL(pluginMoved()), this, SLOT(pluginMoved()));
     LxQtPanelWidget->setLayout(mLayout);
     mLayout->setLineCount(mLineCount);
