@@ -125,6 +125,7 @@ private slots:
 private:
     LxQtPanelLayout* mLayout;
     LxQt::Settings *mSettings;
+    QFrame *LxQtPanelWidget;
     QString mConfigGroup;
     QList<Plugin*> mPlugins;
 
