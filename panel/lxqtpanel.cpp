@@ -103,12 +103,20 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
+    setAttribute(Qt::WA_TranslucentBackground);
     setWindowTitle("LxQt Panel");
     setObjectName(QString("LxQtPanel %1").arg(configGroup));
 
-    mLayout = new LxQtPanelLayout(this);
+    LxQtPanelWidget = new QFrame(this);
+    LxQtPanelWidget->setObjectName("BackgroundWidget");
+    QGridLayout* lav = new QGridLayout();
+    lav->setContentsMargins(QMargins(0,0,0,0));
+    setLayout(lav);
+    this->layout()->addWidget(LxQtPanelWidget);
+
+    mLayout = new LxQtPanelLayout(LxQtPanelWidget);
     connect(mLayout, SIGNAL(pluginMoved()), this, SLOT(pluginMoved()));
-    setLayout(mLayout);
+    LxQtPanelWidget->setLayout(mLayout);
     mLayout->setLineCount(mLineCount);
 
     mDelaySave.setSingleShot(true);
