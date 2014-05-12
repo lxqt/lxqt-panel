@@ -42,6 +42,7 @@ LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *p
     loadSettings();
     connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
     connect(ui->alsaRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+    connect(ui->ossRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
     connect(ui->devAddedCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(sinkSelectionChanged(int)));
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
     connect(ui->showOnClickCheckBox, SIGNAL(toggled(bool)), this, SLOT(showOnClickedChanged(bool)));
@@ -85,8 +86,12 @@ void LxQtVolumeConfiguration::audioEngineChanged(bool checked)
 
     if (ui->pulseAudioRadioButton->isChecked())
         settings().setValue(SETTINGS_AUDIO_ENGINE, "PulseAudio");
+    else if(ui->alsaRadioButton->isChecked())
+        settings().setValue(SETTINGS_AUDIO_ENGINE, "Alsa");
     else
-        settings().setValue(SETTINGS_AUDIO_ENGINE, "ALSA");
+        settings().setValue(SETTINGS_AUDIO_ENGINE, "Oss");
+
+    // FIXME: need to update sinkList for different backends here.
 }
 
 void LxQtVolumeConfiguration::sinkSelectionChanged(int index)
@@ -121,10 +126,13 @@ void LxQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
 
 void LxQtVolumeConfiguration::loadSettings()
 {
-    if (settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower() == "pulseaudio")
+    QString engine = settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower();
+    if (engine == "pulseaudio")
         ui->pulseAudioRadioButton->setChecked(true);
-    else
+    else if (engine == "alsa")
         ui->alsaRadioButton->setChecked(true);
+    else
+        ui->ossRadioButton->setChecked(true);
 
     setComboboxIndexByData(ui->devAddedCombo, settings().value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE), 1);
     ui->showOnClickCheckBox->setChecked(settings().value(SETTINGS_SHOW_ON_LEFTCLICK, SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());

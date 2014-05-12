@@ -63,6 +63,8 @@ private:
 private:
     int m_mixer; // oss mixer fd
     AudioDevice* m_device;
+    int m_leftVolume;
+    int m_rightVolume;
 };
 
 #endif // OSSENGINE_H

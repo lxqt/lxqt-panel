@@ -149,26 +149,31 @@ void LxQtVolume::setAudioEngine(AudioEngine *engine)
 
 void LxQtVolume::settingsChanged()
 {
+    QString engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString();
+    qDebug() << "settingsChanged" << engineName;
+    if (!m_engine || m_engine->backendName() != engineName) {
 #if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
-    if (!m_engine || m_engine->backendName() != settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString()) {
-        QByteArray engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toByteArray();
         if (engineName == "PulseAudio")
             setAudioEngine(new PulseAudioEngine(this));
         else if (engineName == "Alsa")
             setAudioEngine(new AlsaEngine(this));
-        else
+        else // fallback to OSS
             setAudioEngine(new OssEngine(this));
-    }
 #elif defined(USE_PULSEAUDIO)
-    if (!m_engine)
-        setAudioEngine(new PulseAudioEngine(this));
+        if (engineName == "PulseAudio")
+            setAudioEngine(new PulseAudioEngine(this));
+        else // fallback to OSS
+            setAudioEngine(new OssEngine(this));
 #elif defined(USE_ALSA)
-    if (!m_engine)
-        setAudioEngine(new AlsaEngine(this));
+        if (engineName == "Alsa")
+            setAudioEngine(new AlsaEngine(this));
+        else // fallback to OSS
+            setAudioEngine(new OssEngine(this));
 #else
-    if (!m_engine)
+        // No other backends are available, fallback to OSS
         setAudioEngine(new OssEngine(this));
 #endif
+    }
 
     m_volumeButton->setShowOnClicked(settings()->value(SETTINGS_SHOW_ON_LEFTCLICK, SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
     m_volumeButton->setMuteOnMiddleClick(settings()->value(SETTINGS_MUTE_ON_MIDDLECLICK, SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());

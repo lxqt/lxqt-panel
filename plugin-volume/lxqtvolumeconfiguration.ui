@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>355</height>
+    <width>306</width>
+    <height>407</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,6 +33,13 @@
          <widget class="QRadioButton" name="pulseAudioRadioButton">
           <property name="text">
            <string>PulseAudio</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="ossRadioButton">
+          <property name="text">
+           <string>OSS</string>
           </property>
          </widget>
         </item>
