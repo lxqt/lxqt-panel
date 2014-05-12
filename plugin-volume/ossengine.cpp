@@ -47,7 +47,9 @@
 OssEngine::OssEngine(QObject *parent) :
     AudioEngine(parent),
     m_mixer(-1),
-    m_device(NULL)
+    m_device(NULL),
+    m_leftVolume(0),
+    m_rightVolume(0)
 {
     qDebug() << "OssEngine";
     initMixer();
@@ -79,28 +81,29 @@ void OssEngine::initMixer() {
 }
 
 void OssEngine::updateVolume() {
-  if(m_mixer < 0 || !m_device)
-    return;
-  int volumes;
-  if(ioctl(m_mixer, MIXER_READ(SOUND_MIXER_VOLUME), &volumes) < 0) {
-      qDebug() << "updateVolume() failed" << errno;
-  }
-  int leftVolume = volumes & 0xff; // left
-  int rightVolume = (volumes >> 8) & 0xff; // right
-  qDebug() << "volume:" << leftVolume << rightVolume;
-  m_device->setVolumeNoCommit(leftVolume);
+    if(m_mixer < 0 || !m_device)
+        return;
+    int volumes;
+    if(ioctl(m_mixer, MIXER_READ(SOUND_MIXER_VOLUME), &volumes) < 0) {
+        qDebug() << "updateVolume() failed" << errno;
+    }
+    m_leftVolume = volumes & 0xff; // left
+    m_rightVolume = (volumes >> 8) & 0xff; // right
+    qDebug() << "volume:" << m_leftVolume << m_rightVolume;
+
+    m_device->setVolumeNoCommit(m_leftVolume);
 }
 
 void OssEngine::setVolume(int volume) {
-  if(m_mixer < 0)
-    return;
-  int volumes = (volume << 8) + volume;
-  if(ioctl(m_mixer, MIXER_WRITE(SOUND_MIXER_VOLUME), &volumes) < 0) {
-    qDebug() << "setVolume() failed" << errno;
-  }
-  else {
-    qDebug() << "setVolume()" << volume;
-  }
+    if(m_mixer < 0)
+        return;
+    int volumes = (volume << 8) + volume;
+    if(ioctl(m_mixer, MIXER_WRITE(SOUND_MIXER_VOLUME), &volumes) < 0) {
+        qDebug() << "setVolume() failed" << errno;
+    }
+    else {
+        qDebug() << "setVolume()" << volume;
+    }
 }
 
 void OssEngine::commitDeviceVolume(AudioDevice *device)
@@ -112,7 +115,10 @@ void OssEngine::commitDeviceVolume(AudioDevice *device)
 
 void OssEngine::setMute(AudioDevice *device, bool state)
 {
-  // TODO
+  if(state)
+      setVolume(0);
+  else
+      setVolume(m_leftVolume);
 }
 
 void OssEngine::setIgnoreMaxVolume(bool ignore)
