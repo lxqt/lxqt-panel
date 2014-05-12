@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 2.6)
 
 # optionally use libmenu-cache from lxde to generate the application menu
 find_package(PkgConfig)
-pkg_check_modules(MENU_CACHE
+if (NOT WITHOUT_MENU_CACHE)
+  pkg_check_modules(MENU_CACHE
     libmenu-cache>=0.3.3
-)
+  )
+endif (NOT WITHOUT_MENU_CACHE)
 
 set(PLUGIN "mainmenu")
 
