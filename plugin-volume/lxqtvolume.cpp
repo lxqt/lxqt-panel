@@ -37,6 +37,7 @@
 #ifdef USE_ALSA
 #include "alsaengine.h"
 #endif
+#include "ossengine.h"
 
 #include <QtGui/QMessageBox>
 #include <QtDebug>
@@ -150,10 +151,13 @@ void LxQtVolume::settingsChanged()
 {
 #if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
     if (!m_engine || m_engine->backendName() != settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString()) {
-        if (settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString() == "PulseAudio")
+        QByteArray engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toByteArray();
+        if (engineName == "PulseAudio")
             setAudioEngine(new PulseAudioEngine(this));
-        else
+        else if (engineName == "Alsa")
             setAudioEngine(new AlsaEngine(this));
+        else
+            setAudioEngine(new OssEngine(this));
     }
 #elif defined(USE_PULSEAUDIO)
     if (!m_engine)
@@ -161,6 +165,9 @@ void LxQtVolume::settingsChanged()
 #elif defined(USE_ALSA)
     if (!m_engine)
         setAudioEngine(new AlsaEngine(this));
+#else
+    if (!m_engine)
+        setAudioEngine(new OssEngine(this));
 #endif
 
     m_volumeButton->setShowOnClicked(settings()->value(SETTINGS_SHOW_ON_LEFTCLICK, SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
