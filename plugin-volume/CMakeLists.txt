@@ -19,6 +19,7 @@ set(SOURCES
     audiodevice.cpp
     lxqtvolumeconfiguration.cpp
     audioengine.cpp
+    ossengine.cpp
 )
 
 set(MOCS
@@ -28,6 +29,7 @@ set(MOCS
     audiodevice.h
     lxqtvolumeconfiguration.h
     audioengine.h
+    ossengine.h
 )
 
 set(UIS
