@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>LxQt World Clock Settings</string>
+   <string>World Clock Settings</string>
   </property>
   <layout class="QVBoxLayout" name="_6">
    <item>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>LxQt Sensors Settings</string>
+   <string>Sensors Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

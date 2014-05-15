@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>LxQt Network Monitor settings</string>
+   <string>Network Monitor settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
