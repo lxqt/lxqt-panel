@@ -41,8 +41,8 @@ Q_EXPORT_PLUGIN2(mount, LxQtMountPluginLibrary)
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
+	mPopup(NULL),
     mMountManager(NULL),
-    mPopup(NULL),
     mDeviceAction(0)
 {
     mButton = new MountButton();
