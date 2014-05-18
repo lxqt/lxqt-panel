@@ -79,7 +79,7 @@ LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
                 qDebug() << "XdgDesktopFile" << desktop << "is not valid";
                 continue;
             }
-            if (!xdg->isApplicable())
+            if (!xdg->isSuitable())
             {
                 qDebug() << "XdgDesktopFile" << desktop << "is not applicable";
                 continue;
@@ -205,7 +205,7 @@ void LxQtQuickLaunch::dropEvent(QDropEvent *e)
 
         if (xdg->isValid())
         {
-            if (xdg->isApplicable())
+            if (xdg->isSuitable())
                 addButton(new QuickLaunchAction(xdg, this));
         }
         else if (fi.exists() && fi.isExecutable() && !fi.isDir())
