@@ -125,6 +125,9 @@ message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QT_LIBRARIES})
 
+# To let plugins use some APIs defined in the panel itself, we need to export the symbols
+set_target_properties(${PROJECT} PROPERTIES LINK_FLAGS -Wl,--export-dynamic)
+
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES   ${CONFIG_FILES}    DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
 install(FILES  ${lxqt-panel_PUB_H_FILES} DESTINATION include/lxqt)
