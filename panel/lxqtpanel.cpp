@@ -333,7 +333,12 @@ void LxQtPanel::realign()
         if (mLengthInPercents)
             rect.setWidth(screen.width() * mLength / 100.0);
         else
-            rect.setWidth(mLength);
+		{
+			if (mLength <= 0)
+				rect.setWidth(screen.width() + mLength);
+			else
+				rect.setWidth(mLength);
+		}
 
         rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
 
@@ -368,7 +373,12 @@ void LxQtPanel::realign()
         if (mLengthInPercents)
             rect.setHeight(screen.height() * mLength / 100.0);
         else
-            rect.setHeight(mLength);
+		{
+			if (mLength <= 0)
+				rect.setHeight(screen.height() + mLength);
+			else
+				rect.setHeight(mLength);
+		}
 
         rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
 
