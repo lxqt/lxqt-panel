@@ -70,7 +70,6 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
     updateText();
     updateIcon();
 
-    connect(this, SIGNAL(clicked(bool)), this, SLOT(btnClicked(bool)));
     connect(this, SIGNAL(toggled(bool)), this, SLOT(checkedChanged(bool)));
 
 
@@ -227,18 +226,6 @@ bool LxQtTaskButton::isAppHidden() const
 bool LxQtTaskButton::isApplicationActive() const
 {
     return xfitMan().getActiveAppWindow() == mWindow;
-}
-
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::btnClicked(bool checked)
-{
-    if (checked)
-        minimizeApplication();
-    else
-        raiseApplication();
 }
 
 
