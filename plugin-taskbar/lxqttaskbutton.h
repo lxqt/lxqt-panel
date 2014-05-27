@@ -101,7 +101,6 @@ private:
     static bool mCloseOnMiddleClick;
 
 private slots:
-    void btnClicked(bool checked);
     void checkedChanged(bool checked);
     void activateWithDraggable();
 };
