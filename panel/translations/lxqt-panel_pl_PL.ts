@@ -90,7 +90,7 @@
     <name>LxQtPanel</name>
     <message>
         <source>Panel</source>
-        <translation>Konfiguracja wyglądu LxQt</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <source>Configure panel...</source>
