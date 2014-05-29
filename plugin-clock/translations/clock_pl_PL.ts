@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>Show date in &amp;new line</source>
-        <translation>Pokaz date w &amp;nowej lini</translation>
+        <translation>Pokaż datę w &amp;nowej linii</translation>
     </message>
     <message>
         <source>&amp;Use theme fonts</source>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Ultra light</source>
-        <translation>Ultra Cienka</translation>
+        <translation>Bardzo cienka</translation>
     </message>
     <message>
         <source>Light</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Ultra black</source>
-        <translation>Ultra Czarna</translation>
+        <translation>Bardzo czarna</translation>
     </message>
     <message>
         <source>Black</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Demi bold</source>
-        <translation>Demi pogrubiony</translation>
+        <translation>Wpół pogrubiona</translation>
     </message>
     <message>
         <source>Italic</source>
