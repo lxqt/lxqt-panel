@@ -35,7 +35,7 @@
 #include <QtCore/QLocale>
 #include <QtCore/QDateTime>
 
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 
 namespace Ui {
     class LxQtSensorsConfiguration;

@@ -37,7 +37,7 @@
 #include "../panel/lxqtpanel.h"
 #include "trayicon.h"
 #include <QtGui/QX11Info>
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/Xcomposite.h>

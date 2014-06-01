@@ -29,7 +29,7 @@
 #ifndef LXQTWORLDCLOCKCONFIGURATION_H
 #define LXQTWORLDCLOCKCONFIGURATION_H
 
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 
 #include <QtGui/QDialog>
 #include <QtGui/QAbstractButton>

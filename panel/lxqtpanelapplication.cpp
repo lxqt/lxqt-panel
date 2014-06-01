@@ -28,7 +28,7 @@
 
 #include "lxqtpanelapplication.h"
 #include "lxqtpanel.h"
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 #include <QtDebug>
 #include <QUuid>
 #include <X11/Xlib.h>

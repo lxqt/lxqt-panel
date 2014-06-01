@@ -32,7 +32,7 @@
 #include <QDebug>
 #include <QtGui/QDesktopWidget>
 
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 
 using namespace LxQt;
 

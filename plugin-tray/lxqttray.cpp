@@ -35,7 +35,7 @@
 #include <QApplication>
 #include <QtDebug>
 #include "trayicon.h"
-#include <lxqt/lxqtgridlayout.h>
+#include <LXQt/GridLayout>
 #include "../panel/ilxqtpanel.h"
 #include <QX11Info>
 #include "lxqttray.h"
@@ -47,7 +47,7 @@
 
 #undef Bool // defined as int in X11/Xlib.h
 
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 #include <QtCore/QTimer>
 #include "../panel/ilxqtpanelplugin.h"
 

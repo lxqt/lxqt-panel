@@ -31,7 +31,7 @@
 
 #include <QFrame>
 #include <QString>
-#include <lxqt/lxqtplugininfo.h>
+#include <LXQt/PluginInfo>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 

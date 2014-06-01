@@ -29,7 +29,7 @@
 #ifndef LXQTPANELAPPLICATION_H
 #define LXQTPANELAPPLICATION_H
 
-#include <lxqt/lxqtapplication.h>
+#include <LXQt/Application>
 
 class LxQtPanel;
 namespace LxQt {

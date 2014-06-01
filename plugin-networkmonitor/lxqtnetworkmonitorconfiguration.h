@@ -29,7 +29,7 @@
 #ifndef LXQTNETWORKMONITORCONFIGURATION_H
 #define LXQTNETWORKMONITORCONFIGURATION_H
 
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 
 #include <QtGui/QDialog>
 

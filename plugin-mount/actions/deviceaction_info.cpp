@@ -28,7 +28,7 @@
 
 #include "deviceaction_info.h"
 #include "../lxqtmountplugin.h"
-#include <lxqt/lxqtnotification.h>
+#include <LXQt/Notification>
 #include <QDebug>
 
 DeviceActionInfo::DeviceActionInfo(LxQtMountPlugin *plugin, QObject *parent):

@@ -32,7 +32,7 @@
 
 #include <QtGui/QLabel>
 
-#include <lxqt/lxqtrotatedwidget.h>
+#include <LXQt/RotatedWidget>
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtworldclockconfiguration.h"

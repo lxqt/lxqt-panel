@@ -29,7 +29,7 @@
 #ifndef LXQTMAINMENUCONFIGURATION_H
 #define LXQTMAINMENUCONFIGURATION_H
 
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 
 #include <QtGui/QDialog>
 

@@ -30,8 +30,8 @@
 #include <QtGui/QX11Info>
 #include <lxqt-globalkeys.h>
 #include <qtxdg/xdgicon.h>
-#include <lxqt/lxqtxfitman.h>
-#include <lxqt/lxqtnotification.h>
+#include <LXQt/XfitMan>
+#include <LXQt/Notification>
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>

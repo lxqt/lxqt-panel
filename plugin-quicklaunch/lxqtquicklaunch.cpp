@@ -28,7 +28,7 @@
 
 #include "lxqtquicklaunch.h"
 #include "quicklaunchbutton.h"
-#include <lxqt/lxqtgridlayout.h>
+#include <LXQt/GridLayout>
 #include "quicklaunchaction.h"
 #include "../panel/ilxqtpanelplugin.h"
 

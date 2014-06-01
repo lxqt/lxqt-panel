@@ -31,7 +31,7 @@
 
 #include <QtGui/QAbstractButton>
 #include <QtGui/QDialog>
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 #include "lxqtpanelglobals.h"
 
 class QComboBox;

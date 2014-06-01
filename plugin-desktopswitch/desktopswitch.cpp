@@ -31,9 +31,9 @@
 #include <QWheelEvent>
 #include <QtDebug>
 #include <QSignalMapper>
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 #include <lxqt-globalkeys.h>
-#include <lxqt/lxqtgridlayout.h>
+#include <LXQt/GridLayout>
 
 #include <QHBoxLayout>
 #include "desktopswitch.h"

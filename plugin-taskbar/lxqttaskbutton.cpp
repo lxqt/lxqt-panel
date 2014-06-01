@@ -35,7 +35,7 @@
 #include <QtGui/QPainter>
 
 #include "lxqttaskbutton.h"
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 #include <QX11Info>
 
 using namespace LxQt;

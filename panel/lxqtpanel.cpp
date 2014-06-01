@@ -34,11 +34,11 @@
 #include "config/configpaneldialog.h"
 #include "popupmenu.h"
 #include "plugin.h"
-#include <lxqt/lxqtaddplugindialog.h>
-#include <lxqt/lxqtsettings.h>
-#include <lxqt/lxqtplugininfo.h>
+#include <LXQt/AddPluginDialog>
+#include <LXQt/Settings>
+#include <LXQt/PluginInfo>
 
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 
 #include <QtCore/QDebug>
 #include <QtGui/QDesktopWidget>

@@ -29,7 +29,7 @@
 #ifndef LXQTCPULOADCONFIGURATION_H
 #define LXQTCPULOADCONFIGURATION_H
 
-#include <lxqt/lxqtsettings.h>
+#include <LXQt/Settings>
 
 #include <QtGui/QDialog>
 

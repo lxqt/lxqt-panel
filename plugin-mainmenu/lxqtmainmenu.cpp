@@ -36,10 +36,10 @@
 #include <QAction>
 #include <QtCore/QTimer>
 #include <QtGui/QMessageBox>
-#include <lxqt/lxqtpowermanager.h>
-#include <lxqt/lxqtscreensaver.h>
+#include <LXQt/PowerManager>
+#include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 
 #include <qtxdg/xdgicon.h>
 #include <qtxdg/xdgdesktopfile.h>

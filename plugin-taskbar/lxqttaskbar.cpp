@@ -34,9 +34,9 @@
 #include <QSettings>
 
 #include "lxqttaskbar.h"
-#include <lxqt/lxqtgridlayout.h>
+#include <LXQt/GridLayout>
 #include <qtxdg/xdgicon.h>
-#include <lxqt/lxqtxfitman.h>
+#include <LXQt/XfitMan>
 #include <QtCore/QList>
 
 #include <QDesktopWidget>

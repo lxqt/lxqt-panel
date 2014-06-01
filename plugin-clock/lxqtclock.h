@@ -33,7 +33,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtclockconfiguration.h"
-#include <lxqt/lxqtrotatedwidget.h>
+#include <LXQt/RotatedWidget>
 
 #include <QtCore/QString>
 

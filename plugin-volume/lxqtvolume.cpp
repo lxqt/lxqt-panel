@@ -43,7 +43,7 @@
 #include <QtDebug>
 #include <qtxdg/xdgicon.h>
 #include <lxqt-globalkeys.h>
-#include <lxqt/lxqtnotification.h>
+#include <LXQt/Notification>
 
 Q_EXPORT_PLUGIN2(volume, LxQtVolumePluginLibrary)
 

@@ -28,8 +28,8 @@
 #include <QtGui/QToolButton>
 #include <QtGui/QMessageBox>
 #include <QHBoxLayout>
-#include <lxqt/lxqtscreensaver.h>
-#include <lxqt/lxqtnotification.h>
+#include <LXQt/ScreenSaver>
+#include <LXQt/Notification>
 #include <lxqt-globalkeys.h>
 
 #include "panelscreensaver.h"

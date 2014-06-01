@@ -31,7 +31,7 @@
 #include "../lxqtpanel.h"
 #include <QSettings>
 #include <QTimer>
-#include <lxqt/lxqtconfigdialog.h>
+#include <LXQt/ConfigDialog>
 
 
 class LxQtPanel;
