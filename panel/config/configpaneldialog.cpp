@@ -118,7 +118,7 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     connect(ui->comboBox_lenghtType,SIGNAL(activated(int)),    this, SLOT(widthTypeChanged()));
 
     connect(ui->comboBox_alignment, SIGNAL(activated(int)),    this, SLOT(editChanged()));
-    connect(ui->comboBox_position,  SIGNAL(activated(int)),    this, SLOT(posittionChanged()));
+    connect(ui->comboBox_position,  SIGNAL(activated(int)),    this, SLOT(positionChanged()));
 }
 
 
@@ -138,6 +138,9 @@ void ConfigPanelWidget::reset()
     ui->comboBox_lenghtType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
+
+    // update position
+    positionChanged();
 }
 
 
@@ -298,7 +301,7 @@ int ConfigPanelWidget::getMaxLength()
 /************************************************
 
  ************************************************/
-void ConfigPanelWidget::posittionChanged()
+void ConfigPanelWidget::positionChanged()
 {
     ScreenPosition sp = ui->comboBox_position->itemData(
                 ui->comboBox_position->currentIndex()).value<ScreenPosition>();

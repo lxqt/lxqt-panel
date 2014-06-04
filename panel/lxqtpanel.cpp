@@ -657,6 +657,7 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mLayout->setPosition(mPosition);
     emit realigned();
     saveSettings(true);
+    realign();
 }
 
 

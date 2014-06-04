@@ -71,7 +71,7 @@ public slots:
 private slots:
     void editChanged();
     void widthTypeChanged();
-    void posittionChanged();
+    void positionChanged();
 
 private:
     Ui::ConfigPanelWidget *ui;
