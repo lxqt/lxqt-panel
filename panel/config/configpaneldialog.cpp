@@ -122,7 +122,7 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     connect(ui->checkBox_autohideTb,     SIGNAL(stateChanged(int)), this, SLOT(editChanged()));
 
     connect(ui->comboBox_alignment, SIGNAL(activated(int)),    this, SLOT(editChanged()));
-    connect(ui->comboBox_position,  SIGNAL(activated(int)),    this, SLOT(posittionChanged()));
+    connect(ui->comboBox_position,  SIGNAL(activated(int)),    this, SLOT(positionChanged()));
 }
 
 
@@ -145,6 +145,8 @@ void ConfigPanelWidget::reset()
 
     ui->checkBox_autohideTb->setChecked(mOldAutohideTb);
 
+    // update position
+    positionChanged();
 }
 
 
@@ -308,7 +310,7 @@ int ConfigPanelWidget::getMaxLength()
 /************************************************
 
  ************************************************/
-void ConfigPanelWidget::posittionChanged()
+void ConfigPanelWidget::positionChanged()
 {
     ScreenPosition sp = ui->comboBox_position->itemData(
                 ui->comboBox_position->currentIndex()).value<ScreenPosition>();
