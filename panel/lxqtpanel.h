@@ -87,6 +87,9 @@ public:
     int lineCount() const { return mLineCount; }
     int length() const { return mLength; }
     bool lengthInPercents() const { return mLengthInPercents; }
+
+    bool autohideTb() const {return mAutoHideTb; }
+
     LxQtPanel::Alignment alignment() const { return mAlignment; }
     int screenNum() const { return mScreenNum; }
 
@@ -101,6 +104,7 @@ public slots:
     void setLength(int length, bool inPercents);
     void setPosition(int screen, ILxQtPanel::Position position);
     void setAlignment(LxQtPanel::Alignment value);
+    void setAutohide(bool value);
 
     void saveSettings(bool later=false);
 
@@ -111,6 +115,9 @@ signals:
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
+    void enterEvent(QEvent *event);
+    void leaveEvent(QEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event);    
 
 private slots:
     void screensChangeds();
@@ -118,6 +125,7 @@ private slots:
     void showConfigDialog();
     void showAddPluginDialog();
     void realign();
+    void setAutohideActive(bool value);
     void removePlugin();
     void pluginMoved();
     void userRequestForDeletion();
@@ -142,6 +150,9 @@ private:
 
     int mLength;
     bool mLengthInPercents;
+
+    bool mAutoHideTb;
+    bool mAutoHideActive;
 
     LxQtPanel::Alignment mAlignment;
 

@@ -57,6 +57,10 @@
 #define CFG_KEY_ALIGNMENT   "alignment"
 #define CFG_KEY_PLUGINS "plugins"
 
+#define CFG_KEY_AUTOHIDE "autohideTb"
+#define AUTOHIDETB_DEFAULT_HEIGHT 1
+
+
 using namespace LxQt;
 
 /************************************************
@@ -135,6 +139,9 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     loadPlugins();
 
     show();
+
+    // startup apply show or hide
+    setAutohideActive(mAutoHideTb);    
 }
 
 
@@ -157,6 +164,9 @@ void LxQtPanel::readSettings()
                 strToPosition(mSettings->value(CFG_KEY_POSITION).toString(), PositionBottom));
 
     setAlignment(LxQtPanel::Alignment(mSettings->value(CFG_KEY_ALIGNMENT, mAlignment).toInt()));
+
+    setAutohide(mSettings->value(CFG_KEY_AUTOHIDE,PANEL_DEFAULT_AUTOHIDE).toBool());
+
     mSettings->endGroup();
 }
 
@@ -201,6 +211,8 @@ void LxQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_POSITION, positionToStr(mPosition));
 
     mSettings->setValue(CFG_KEY_ALIGNMENT, mAlignment);
+
+    mSettings->setValue(CFG_KEY_AUTOHIDE, mAutoHideTb);
 
     mSettings->endGroup();
 }
@@ -319,7 +331,6 @@ void LxQtPanel::realign()
     qDebug() << "Plugins count: " << mPlugins.count();
 #endif
 
-
     const QRect screen = QApplication::desktop()->screenGeometry(mScreenNum);
     QSize size = sizeHint();
     QRect rect;
@@ -328,8 +339,12 @@ void LxQtPanel::realign()
     {
         // Horiz panel ***************************
 
-        // Size .......................
-        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
+        // Size .......................        
+        if (mAutoHideActive)
+            rect.setHeight(qMax(1, AUTOHIDETB_DEFAULT_HEIGHT));
+        else
+            rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
+
         if (mLengthInPercents)
             rect.setWidth(screen.width() * mLength / 100.0);
         else
@@ -368,8 +383,13 @@ void LxQtPanel::realign()
     {
         // Vert panel ***************************
 
-        // Size .......................
-        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
+        // Size .......................        
+        if (mAutoHideActive)
+            rect.setWidth(qMax(1, AUTOHIDETB_DEFAULT_HEIGHT));
+        else
+            rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
+
+
         if (mLengthInPercents)
             rect.setHeight(screen.height() * mLength / 100.0);
         else
@@ -405,8 +425,9 @@ void LxQtPanel::realign()
             rect.moveRight(screen.right());
     }
 
-    if (rect == geometry())
-        return;
+    // due to autohide commented
+//    if (rect == geometry())
+//        return;
 
     setGeometry(rect);
     setFixedSize(rect.size());
@@ -416,45 +437,96 @@ void LxQtPanel::realign()
     XfitMan xf = xfitMan();
     Window wid = effectiveWinId();
 
-    switch (mPosition)
+
+    // ... depeding on autohide taskbar on or off
+    if (mAutoHideTb)
     {
-        case LxQtPanel::PositionTop:
-            xf.setStrut(wid, 0, 0, height(), 0,
-               /* Left   */  0, 0,
-               /* Right  */  0, 0,
-               /* Top    */  rect.left(), rect.right(),
-               /* Bottom */  0, 0
-                         );
-        break;
 
-        case LxQtPanel::PositionBottom:
-            xf.setStrut(wid, 0, 0, 0, screen.height() - rect.y(),
-               /* Left   */  0, 0,
-               /* Right  */  0, 0,
-               /* Top    */  0, 0,
-               /* Bottom */  rect.left(), rect.right()
-                         );
+        switch (mPosition)
+        {
+            case LxQtPanel::PositionTop:
+                xf.setStrut(wid, 0, 0, AUTOHIDETB_DEFAULT_HEIGHT, 0,
+                   /* Left   */  0, 0,
+                   /* Right  */  0, 0,
+                   /* Top    */  rect.left(), rect.right(),
+                   /* Bottom */  0, 0
+                             );
             break;
 
-        case LxQtPanel::PositionLeft:
-            xf.setStrut(wid, width(), 0, 0, 0,
-               /* Left   */  rect.top(), rect.bottom(),
-               /* Right  */  0, 0,
-               /* Top    */  0, 0,
-               /* Bottom */  0, 0
-                         );
+            case LxQtPanel::PositionBottom:
 
-            break;
+            xf.setStrut(wid, 0, 0, 0, AUTOHIDETB_DEFAULT_HEIGHT,
+                   /* Left   */  0, 0,
+                   /* Right  */  0, 0,
+                   /* Top    */  0, 0,
+                   /* Bottom */  rect.left(), rect.right()
+                             );
+                break;
 
-        case LxQtPanel::PositionRight:
-            xf.setStrut(wid, 0, screen.width() - rect.x(), 0, 0,
-               /* Left   */  0, 0,
-               /* Right  */  rect.top(), rect.bottom(),
-               /* Top    */  0, 0,
-               /* Bottom */  0, 0
-                         );
-            break;
+            case LxQtPanel::PositionLeft:
+                xf.setStrut(wid, AUTOHIDETB_DEFAULT_HEIGHT, 0, 0, 0,
+                   /* Left   */  rect.top(), rect.bottom(),
+                   /* Right  */  0, 0,
+                   /* Top    */  0, 0,
+                   /* Bottom */  0, 0
+                             );
+
+                break;
+
+            case LxQtPanel::PositionRight:
+                xf.setStrut(wid, 0, screen.width() - rect.x(), 0, 0,
+                   /* Left   */  0, 0,
+                   /* Right  */  rect.top(), rect.bottom(),
+                   /* Top    */  0, 0,
+                   /* Bottom */  0, 0
+                             );
+                break;
+        }
     }
+    else
+    {
+        switch (mPosition)
+        {
+            case LxQtPanel::PositionTop:
+                xf.setStrut(wid, 0, 0, height(), 0,
+                   /* Left   */  0, 0,
+                   /* Right  */  0, 0,
+                   /* Top    */  rect.left(), rect.right(),
+                   /* Bottom */  0, 0
+                             );
+            break;
+
+            case LxQtPanel::PositionBottom:
+               xf.setStrut(wid, 0, 0, 0, screen.height() - rect.y(),
+                   /* Left   */  0, 0,
+                   /* Right  */  0, 0,
+                   /* Top    */  0, 0,
+                   /* Bottom */  rect.left(), rect.right()
+                             );
+                break;
+
+            case LxQtPanel::PositionLeft:
+                xf.setStrut(wid, width(), 0, 0, 0,
+                   /* Left   */  rect.top(), rect.bottom(),
+                   /* Right  */  0, 0,
+                   /* Top    */  0, 0,
+                   /* Bottom */  0, 0
+                             );
+
+                break;
+
+            case LxQtPanel::PositionRight:
+                xf.setStrut(wid, 0, screen.width() - rect.x(), 0, 0,
+                   /* Left   */  0, 0,
+                   /* Right  */  rect.top(), rect.bottom(),
+                   /* Top    */  0, 0,
+                   /* Bottom */  0, 0
+                             );
+                break;
+        }
+    }
+
+
 }
 
 
@@ -610,6 +682,27 @@ void LxQtPanel::setIconSize(int value)
 
 
 /************************************************
+ *
+ * *********************************************/
+void LxQtPanel::setAutohide(bool value)
+{
+
+    if (mAutoHideTb != value)
+    {
+        mAutoHideTb = value;
+        updateStyleSheet();        
+        saveSettings(true);
+
+        // for showing the result immediately
+        mAutoHideActive = value;
+
+        emit realigned();
+    }
+
+}
+
+
+/************************************************
 
  ************************************************/
 void LxQtPanel::setLineCount(int value)
@@ -677,6 +770,18 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
 /************************************************
 
  ************************************************/
+void LxQtPanel::setAutohideActive(bool value)
+{
+    if (!mAutoHideTb)
+        return;
+
+    mAutoHideActive = value;
+    realign();
+}
+
+/************************************************
+
+ ************************************************/
 void LxQtPanel::x11EventFilter(XEvent* event)
 {
     QList<Plugin*>::iterator i;
@@ -723,6 +828,25 @@ void LxQtPanel::showEvent(QShowEvent *event)
 {
     realign();
     emit realigned();
+}
+
+//void LxQtPanel::mouseMoveEvent(QMouseEvent *event) {
+void LxQtPanel::enterEvent(QEvent *event)
+{
+
+    setAutohideActive(false);
+}
+
+
+void LxQtPanel::dragEnterEvent(QDragEnterEvent *event)
+{
+    qDebug() << "dragEnterEvent should bring all panels to unhide";
+
+}
+
+void LxQtPanel::leaveEvent(QEvent *event)
+{
+    setAutohideActive(true);
 }
 
 

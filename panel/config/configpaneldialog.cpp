@@ -109,6 +109,8 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     mOldPosition = mPanel->position();
     mPosition = mOldPosition;
 
+    mOldAutohideTb = mPanel->autohideTb();
+
     reset();
 
     connect(ui->spinBox_iconSize,   SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
@@ -116,6 +118,8 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
 
     connect(ui->spinBox_length,     SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
     connect(ui->comboBox_lenghtType,SIGNAL(activated(int)),    this, SLOT(widthTypeChanged()));
+
+    connect(ui->checkBox_autohideTb,     SIGNAL(stateChanged(int)), this, SLOT(editChanged()));
 
     connect(ui->comboBox_alignment, SIGNAL(activated(int)),    this, SLOT(editChanged()));
     connect(ui->comboBox_position,  SIGNAL(activated(int)),    this, SLOT(posittionChanged()));
@@ -138,6 +142,9 @@ void ConfigPanelWidget::reset()
     ui->comboBox_lenghtType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
+
+    ui->checkBox_autohideTb->setChecked(mOldAutohideTb);
+
 }
 
 
@@ -249,6 +256,9 @@ void ConfigPanelWidget::editChanged()
     mPanel->setAlignment(align);
 
     mPanel->setPosition(mScreenNum, mPosition);
+
+    mPanel->setAutohide(ui->checkBox_autohideTb->isChecked());
+
 }
 
 
