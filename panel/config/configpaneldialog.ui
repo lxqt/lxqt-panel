@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>269</width>
-    <height>248</height>
+    <width>359</width>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -146,6 +146,9 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="1" colspan="3">
+       <widget class="QComboBox" name="comboBox_position"/>
+      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_position">
         <property name="text">
@@ -153,24 +156,21 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1" colspan="3">
-       <widget class="QComboBox" name="comboBox_position"/>
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="checkBox_autohideTb">
+        <property name="maximumSize">
+         <size>
+          <width>251</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Autohide this panel</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

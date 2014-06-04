@@ -67,11 +67,10 @@ signals:
 public slots:
     void reset();
 
-
 private slots:
     void editChanged();
     void widthTypeChanged();
-    void posittionChanged();
+    void positionChanged();
 
 private:
     Ui::ConfigPanelWidget *ui;
@@ -93,6 +92,7 @@ private:
     LxQtPanel::Alignment mOldAlignment;
     ILxQtPanel::Position mOldPosition;
     int mOldScreenNum;
+    bool mOldAutohideTb;
 };
 
 #endif // CONFIGPANELDIALOG_H
