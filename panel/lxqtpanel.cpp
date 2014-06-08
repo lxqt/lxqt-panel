@@ -574,8 +574,10 @@ void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
     QString settingsGroup = findNewPluginSettingsGroup(desktopFile.id());
     loadPlugin(desktopFile, settingsGroup);
-    emit realigned();
     saveSettings(true);
+
+    realign();
+    emit realigned();
 }
 
 
@@ -602,9 +604,11 @@ void LxQtPanel::setIconSize(int value)
     {
         mIconSize = value;
         updateStyleSheet();
-        emit realigned();
         mLayout->setLineSize(mIconSize);
         saveSettings(true);
+
+        realign();
+        emit realigned();
     }
 }
 
@@ -618,11 +622,12 @@ void LxQtPanel::setLineCount(int value)
     {
         mLineCount = value;
         mLayout->setEnabled(false);
-        mLayout->setLineCount(mLineCount);
-        realign();
-        mLayout->setEnabled(true);
-        emit realigned();
+        mLayout->setLineCount(mLineCount);        
+        mLayout->setEnabled(true);        
         saveSettings(true);
+
+        realign();
+        emit realigned();
     }
 }
 
@@ -637,9 +642,11 @@ void LxQtPanel::setLength(int length, bool inPercents)
         return;
 
     mLength = length;
-    mLengthInPercents = inPercents;
-    realign();
+    mLengthInPercents = inPercents;    
     saveSettings(true);
+
+    realign();
+    emit realigned();
 }
 
 
@@ -655,9 +662,10 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mScreenNum = screen;
     mPosition = position;
     mLayout->setPosition(mPosition);
-    emit realigned();
-    saveSettings(true);
+    saveSettings(true);    
+
     realign();
+    emit realigned();
 }
 
 
@@ -669,9 +677,11 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
     if (mAlignment == value)
         return;
 
-    mAlignment = value;
-    realign();
+    mAlignment = value;    
     saveSettings(true);
+
+    realign();
+    emit realigned();
 }
 
 
@@ -708,6 +718,7 @@ bool LxQtPanel::event(QEvent *event)
 
     case QEvent::LayoutRequest:
         realign();
+        emit realigned();
         break;
 
     default:
