@@ -41,6 +41,7 @@ set(UIS
     lxqtmountconfiguration.ui
 )
 
+include_directories(${LXQTMOUNT_INCLUDE_DIRS})
 set(LIBRARIES ${QTXDG_LIBRARIES} ${LXQTMOUNT_LIBRARIES})
 
 #*******************************************
