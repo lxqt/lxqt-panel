@@ -61,7 +61,7 @@ public:
 
     LxQtPanel(const QString &configGroup, QWidget *parent = 0);
     virtual ~LxQtPanel();
-    
+
     QString name() { return mConfigGroup; }
 
     void readSettings();
@@ -83,6 +83,7 @@ public:
 
 
     // Settings
+    int panelHeight() const { return mPanelHeight; }
     int iconSize() const { return mIconSize; }
     int lineCount() const { return mLineCount; }
     int length() const { return mLength; }
@@ -96,6 +97,7 @@ public slots:
     void show();
 
     // Settings
+    void setPanelHeight(int value);
     void setIconSize(int value);
     void setLineCount(int value);
     void setLength(int length, bool inPercents);
@@ -107,7 +109,7 @@ public slots:
 signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
-    
+
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
@@ -137,6 +139,7 @@ private:
 
     QString findNewPluginSettingsGroup(const QString &pluginType) const;
 
+    int mPanelHeight;
     int mIconSize;
     int mLineCount;
 

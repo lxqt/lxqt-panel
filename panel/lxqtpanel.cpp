@@ -50,6 +50,7 @@
 // Config keys and groups
 #define CFG_KEY_SCREENNUM   "desktop"
 #define CFG_KEY_POSITION    "position"
+#define CFG_KEY_PANELHEIGHT "panelHeight"
 #define CFG_KEY_ICONSIZE    "iconSize"
 #define CFG_KEY_LINECNT     "lineCount"
 #define CFG_KEY_LENGTH      "width"
@@ -147,6 +148,7 @@ void LxQtPanel::readSettings()
     mSettings->beginGroup(mConfigGroup);
 
     // By default we are using size & count from theme.
+    setPanelHeight(mSettings->value(CFG_KEY_PANELHEIGHT, PANEL_DEFAULT_HEIGHT).toInt());
     setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt());
     setLineCount(mSettings->value(CFG_KEY_LINECNT, PANEL_DEFAULT_LINE_COUNT).toInt());
 
@@ -191,6 +193,7 @@ void LxQtPanel::saveSettings(bool later)
         mSettings->setValue(CFG_KEY_PLUGINS, pluginsList);
     }
 
+    mSettings->setValue(CFG_KEY_PANELHEIGHT, mPanelHeight);
     mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
     mSettings->setValue(CFG_KEY_LINECNT,  mLineCount);
 
@@ -309,8 +312,9 @@ void LxQtPanel::realign()
 {
     if (!isVisible())
         return;
-#if 0
+#if 1
     qDebug() << "** Realign *********************";
+    qDebug() << "PanelHeight:   " << mPanelHeight;
     qDebug() << "IconSize:      " << mIconSize;
     qDebug() << "LineCount:     " << mLineCount;
     qDebug() << "Length:        " << mLength << (mLengthInPercents ? "%" : "px");
@@ -321,7 +325,7 @@ void LxQtPanel::realign()
 
 
     const QRect screen = QApplication::desktop()->screenGeometry(mScreenNum);
-    QSize size = sizeHint();
+    QSize size = QSize(sizeHint().width(), mPanelHeight);
     QRect rect;
 
     if (isHorizontal())
@@ -329,16 +333,16 @@ void LxQtPanel::realign()
         // Horiz panel ***************************
 
         // Size .......................
-        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
+        rect.setHeight(qMax(PANEL_MINIMUM_HEIGHT, size.height()));
         if (mLengthInPercents)
             rect.setWidth(screen.width() * mLength / 100.0);
         else
-		{
-			if (mLength <= 0)
-				rect.setWidth(screen.width() + mLength);
-			else
-				rect.setWidth(mLength);
-		}
+        {
+          if (mLength <= 0)
+            rect.setWidth(screen.width() + mLength);
+          else
+            rect.setWidth(mLength);
+        }
 
         rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
 
@@ -369,16 +373,16 @@ void LxQtPanel::realign()
         // Vert panel ***************************
 
         // Size .......................
-        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
+        rect.setWidth(qMax(PANEL_MINIMUM_HEIGHT, size.width()));
         if (mLengthInPercents)
             rect.setHeight(screen.height() * mLength / 100.0);
         else
-		{
-			if (mLength <= 0)
-				rect.setHeight(screen.height() + mLength);
-			else
-				rect.setHeight(mLength);
-		}
+        {
+          if (mLength <= 0)
+            rect.setHeight(screen.height() + mLength);
+          else
+            rect.setHeight(mLength);
+        }
 
         rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
 
@@ -551,7 +555,7 @@ void LxQtPanel::showAddPluginDialog()
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
     }
-    
+
     LxQt::PluginInfoList pluginsInUse;
     foreach (Plugin *i, mPlugins)
         pluginsInUse << i->desktopFile();
@@ -596,12 +600,29 @@ void LxQtPanel::updateStyleSheet()
 /************************************************
 
  ************************************************/
+void LxQtPanel::setPanelHeight(int value)
+{
+    if (mPanelHeight != value)
+    {
+        mPanelHeight = value;
+        realign();
+        emit realigned();
+        saveSettings(true);
+    }
+}
+
+
+
+/************************************************
+
+ ************************************************/
 void LxQtPanel::setIconSize(int value)
 {
     if (mIconSize != value)
     {
         mIconSize = value;
         updateStyleSheet();
+        realign();
         emit realigned();
         mLayout->setLineSize(mIconSize);
         saveSettings(true);
@@ -917,10 +938,10 @@ void LxQtPanel::userRequestForDeletion()
     mSettings->beginGroup(mConfigGroup);
     QStringList plugins = mSettings->value("plugins").toStringList();
     mSettings->endGroup();
-    
+
     Q_FOREACH(QString i, plugins)
         mSettings->remove(i);
-    
+
     mSettings->remove(mConfigGroup);
 
     emit deletedByUser(this);

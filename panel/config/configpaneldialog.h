@@ -52,7 +52,7 @@ class ConfigPanelWidget;
 class ConfigPanelWidget : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit ConfigPanelWidget(LxQtPanel *panel, QWidget *parent = 0);
     ~ConfigPanelWidget();
@@ -86,6 +86,7 @@ private:
     int getMaxLength();
 
     // For reset function
+    int mOldPanelHeight;
     int mOldIconSize;
     int mOldLineCount;
     int mOldLength;
