@@ -31,7 +31,7 @@
 
 #include <QObject>
 #include <QSettings>
-#include <lxqtmount/lxqtmount.h>
+#include <LXQtMount/Mount>
 
 namespace {
 class MountDevice;

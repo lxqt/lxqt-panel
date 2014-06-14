@@ -28,7 +28,7 @@
 
 #include "lxqtmountplugin.h"
 #include "lxqtmountconfiguration.h"
-#include <lxqtmount/lxqtmount.h>
+#include <LXQtMount/Mount>
 #include "actions/deviceaction.h"
 #include "popup.h"
 #include "mountbutton.h"

@@ -29,7 +29,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QtGui/QDesktopWidget>
-#include <lxqtmount/lxqtmount.h>
+#include <LXQtMount/Mount>
 #include "menudiskitem.h"
 #include "popup.h"
 
