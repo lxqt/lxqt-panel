@@ -96,7 +96,7 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     fillComboBox_position();
     fillComboBox_alignment();
 
-    mOldPanelHeight = mPanel->panelHeight();
+    mOldPanelSize = mPanel->panelSize();
     mOldIconSize    = mPanel->iconSize();
     mOldLineCount   = mPanel->lineCount();
 
@@ -111,12 +111,12 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     mOldPosition = mPanel->position();
     mPosition = mOldPosition;
 
-    ui->spinBox_panelHeight->setMinimum(PANEL_MINIMUM_HEIGHT);
-    ui->spinBox_panelHeight->setMaximum(PANEL_MAXIMUM_HEIGHT);
+    ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
+    ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
 
     reset();
 
-    connect(ui->spinBox_panelHeight,  SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
+    connect(ui->spinBox_panelSize,  SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
     connect(ui->spinBox_iconSize,     SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
     connect(ui->spinBox_lineCount,    SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
 
@@ -133,7 +133,7 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
  ************************************************/
 void ConfigPanelWidget::reset()
 {
-    ui->spinBox_panelHeight->setValue(mOldPanelHeight);
+    ui->spinBox_panelSize->setValue(mOldPanelSize);
     ui->spinBox_iconSize->setValue(mOldIconSize);
     ui->spinBox_lineCount->setValue(mOldLineCount);
 
@@ -245,7 +245,7 @@ ConfigPanelWidget::~ConfigPanelWidget()
  ************************************************/
 void ConfigPanelWidget::editChanged()
 {
-    mPanel->setPanelHeight(ui->spinBox_panelHeight->value());
+    mPanel->setPanelSize(ui->spinBox_panelSize->value());
     mPanel->setIconSize(ui->spinBox_iconSize->value());
     mPanel->setLineCount(ui->spinBox_lineCount->value());
 

@@ -50,7 +50,7 @@
 // Config keys and groups
 #define CFG_KEY_SCREENNUM   "desktop"
 #define CFG_KEY_POSITION    "position"
-#define CFG_KEY_PANELHEIGHT "panelHeight"
+#define CFG_KEY_PANELSIZE   "panelSize"
 #define CFG_KEY_ICONSIZE    "iconSize"
 #define CFG_KEY_LINECNT     "lineCount"
 #define CFG_KEY_LENGTH      "width"
@@ -148,7 +148,7 @@ void LxQtPanel::readSettings()
     mSettings->beginGroup(mConfigGroup);
 
     // By default we are using size & count from theme.
-    setPanelHeight(mSettings->value(CFG_KEY_PANELHEIGHT, PANEL_DEFAULT_HEIGHT).toInt());
+    setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt());
     setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt());
     setLineCount(mSettings->value(CFG_KEY_LINECNT, PANEL_DEFAULT_LINE_COUNT).toInt());
 
@@ -193,9 +193,9 @@ void LxQtPanel::saveSettings(bool later)
         mSettings->setValue(CFG_KEY_PLUGINS, pluginsList);
     }
 
-    mSettings->setValue(CFG_KEY_PANELHEIGHT, mPanelHeight);
-    mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
-    mSettings->setValue(CFG_KEY_LINECNT,  mLineCount);
+    mSettings->setValue(CFG_KEY_PANELSIZE,  mPanelSize);
+    mSettings->setValue(CFG_KEY_ICONSIZE,   mIconSize);
+    mSettings->setValue(CFG_KEY_LINECNT,    mLineCount);
 
     mSettings->setValue(CFG_KEY_LENGTH,   mLength);
     mSettings->setValue(CFG_KEY_PERCENT,  mLengthInPercents);
@@ -312,9 +312,9 @@ void LxQtPanel::realign()
 {
     if (!isVisible())
         return;
-#if 1
+#if 0
     qDebug() << "** Realign *********************";
-    qDebug() << "PanelHeight:   " << mPanelHeight;
+    qDebug() << "PanelSize:   " << mPanelSize;
     qDebug() << "IconSize:      " << mIconSize;
     qDebug() << "LineCount:     " << mLineCount;
     qDebug() << "Length:        " << mLength << (mLengthInPercents ? "%" : "px");
@@ -325,15 +325,16 @@ void LxQtPanel::realign()
 
 
     const QRect screen = QApplication::desktop()->screenGeometry(mScreenNum);
-    QSize size = QSize(sizeHint().width(), mPanelHeight);
+    QSize size = sizeHint();
     QRect rect;
 
     if (isHorizontal())
     {
         // Horiz panel ***************************
+        size.setHeight(mPanelSize);
 
         // Size .......................
-        rect.setHeight(qMax(PANEL_MINIMUM_HEIGHT, size.height()));
+        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
         if (mLengthInPercents)
             rect.setWidth(screen.width() * mLength / 100.0);
         else
@@ -371,9 +372,10 @@ void LxQtPanel::realign()
     else
     {
         // Vert panel ***************************
+        size.setWidth(mPanelSize);
 
         // Size .......................
-        rect.setWidth(qMax(PANEL_MINIMUM_HEIGHT, size.width()));
+        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
         if (mLengthInPercents)
             rect.setHeight(screen.height() * mLength / 100.0);
         else
@@ -600,11 +602,11 @@ void LxQtPanel::updateStyleSheet()
 /************************************************
 
  ************************************************/
-void LxQtPanel::setPanelHeight(int value)
+void LxQtPanel::setPanelSize(int value)
 {
-    if (mPanelHeight != value)
+    if (mPanelSize != value)
     {
-        mPanelHeight = value;
+        mPanelSize = value;
         realign();
         emit realigned();
         saveSettings(true);

@@ -86,7 +86,7 @@ private:
     int getMaxLength();
 
     // For reset function
-    int mOldPanelHeight;
+    int mOldPanelSize;
     int mOldIconSize;
     int mOldLineCount;
     int mOldLength;

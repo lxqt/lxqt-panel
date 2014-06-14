@@ -77,7 +77,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Panel height:</string>
+         <string>Panel size:</string>
         </property>
        </widget>
       </item>
@@ -92,7 +92,7 @@
        </widget>
       </item>
       <item row="0" column="1" colspan="2">
-       <widget class="QSpinBox" name="spinBox_panelHeight">
+       <widget class="QSpinBox" name="spinBox_panelSize">
         <property name="value">
          <number>24</number>
         </property>

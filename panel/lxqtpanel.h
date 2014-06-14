@@ -83,7 +83,7 @@ public:
 
 
     // Settings
-    int panelHeight() const { return mPanelHeight; }
+    int panelSize() const { return mPanelSize; }
     int iconSize() const { return mIconSize; }
     int lineCount() const { return mLineCount; }
     int length() const { return mLength; }
@@ -97,7 +97,7 @@ public slots:
     void show();
 
     // Settings
-    void setPanelHeight(int value);
+    void setPanelSize(int value);
     void setIconSize(int value);
     void setLineCount(int value);
     void setLength(int length, bool inPercents);
@@ -139,7 +139,7 @@ private:
 
     QString findNewPluginSettingsGroup(const QString &pluginType) const;
 
-    int mPanelHeight;
+    int mPanelSize;
     int mIconSize;
     int mLineCount;
 
