@@ -29,7 +29,7 @@
 #include "domplugin.h"
 #include "treewindow.h"
 
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include <QDebug>
 
 

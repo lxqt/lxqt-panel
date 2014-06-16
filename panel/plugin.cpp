@@ -44,7 +44,7 @@
 #include <QtCore/QCryptographicHash>
 
 #include <LXQt/Settings>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 

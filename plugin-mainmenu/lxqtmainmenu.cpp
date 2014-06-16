@@ -29,8 +29,8 @@
 #include "lxqtmainmenu.h"
 #include "lxqtmainmenuconfiguration.h"
 #include <QDebug>
-#include <qtxdg/xdgdesktopfile.h>
-#include <qtxdg/xmlhelper.h>
+#include <XdgDesktopFile>
+#include <XmlHelper>
 #include <QSettings>
 #include <QFileInfo>
 #include <QAction>
@@ -41,9 +41,9 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/XfitMan>
 
-#include <qtxdg/xdgicon.h>
-#include <qtxdg/xdgdesktopfile.h>
-#include <qtxdg/xdgmenuwidget.h>
+#include <XdgIcon>
+#include <XdgDesktopFile>
+#include <XdgMenuWidget>
 
 #ifdef HAVE_MENU_CACHE
 #include "xdgcachedmenu.h"

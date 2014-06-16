@@ -31,7 +31,7 @@
 #include <QtGui/QStyleOptionToolButton>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QApplication>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
 #include "quicklaunchbutton.h"
 #include "lxqtquicklaunch.h"

@@ -43,9 +43,9 @@
 #include <QtCore/QDebug>
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QMenu>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
-#include <qtxdg/xdgdirs.h>
+#include <XdgDirs>
 
 // Config keys and groups
 #define CFG_KEY_SCREENNUM   "desktop"

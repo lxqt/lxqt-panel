@@ -34,7 +34,7 @@
 #include <QtGui/QMouseEvent>
 #include <QtCore/QProcess>
 
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
 

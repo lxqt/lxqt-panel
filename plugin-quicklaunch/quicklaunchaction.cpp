@@ -35,9 +35,9 @@
 #include <QtGui/QDesktopServices>
 #include <QtGui/QFileIconProvider>
 
-#include <qtxdg/xdgdesktopfile.h>
-#include <qtxdg/xdgicon.h>
-#include <qtxdg/xdgmime.h>
+#include <XdgDesktopFile>
+#include <XdgIcon>
+#include <XdgMime>
 
 
 QuickLaunchAction::QuickLaunchAction(const QString & name,

@@ -29,7 +29,7 @@
 
 #include "audiodevice.h"
 
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
 #include <QtGui/QSlider>
 #include <QtGui/QPushButton>

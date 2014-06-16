@@ -28,7 +28,7 @@
 
 #include "lxqtmainmenuconfiguration.h"
 #include "ui_lxqtmainmenuconfiguration.h"
-#include <qtxdg/xdgmenu.h>
+#include <XdgMenu>
 
 #include <QtGui/QFileDialog>
 

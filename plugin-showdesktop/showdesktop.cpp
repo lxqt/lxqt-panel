@@ -29,7 +29,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QX11Info>
 #include <lxqt-globalkeys.h>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include <LXQt/XfitMan>
 #include <LXQt/Notification>
 

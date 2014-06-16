@@ -30,7 +30,7 @@
 #define LXQT_MAINMENU_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <qtxdg/xdgmenu.h>
+#include <XdgMenu>
 
 #ifdef HAVE_MENU_CACHE
 #include <menu-cache/menu-cache.h>

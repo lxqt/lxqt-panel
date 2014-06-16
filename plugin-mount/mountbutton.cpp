@@ -28,7 +28,7 @@
 
 #include <QtDebug>
 
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include "mountbutton.h"
 
 MountButton::MountButton(QWidget * parent) :

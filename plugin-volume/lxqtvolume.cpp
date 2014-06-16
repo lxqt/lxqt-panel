@@ -41,7 +41,7 @@
 
 #include <QtGui/QMessageBox>
 #include <QtDebug>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include <lxqt-globalkeys.h>
 #include <LXQt/Notification>
 

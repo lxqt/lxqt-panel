@@ -36,7 +36,7 @@
 #include <QFrame>
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
 
 class ColorPickerWidget: public QFrame

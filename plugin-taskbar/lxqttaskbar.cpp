@@ -35,7 +35,7 @@
 
 #include "lxqttaskbar.h"
 #include <LXQt/GridLayout>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include <LXQt/XfitMan>
 #include <QtCore/QList>
 

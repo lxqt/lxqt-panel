@@ -27,7 +27,7 @@
 
 #include "teatimeplugin.h"
 #include <QtGui/QMessageBox>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 
 Q_EXPORT_PLUGIN2(teatime, TeaTimePluginLibrary)
 

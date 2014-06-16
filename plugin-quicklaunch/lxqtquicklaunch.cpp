@@ -32,9 +32,9 @@
 #include "quicklaunchaction.h"
 #include "../panel/ilxqtpanelplugin.h"
 
-#include <qtxdg/xdgdesktopfile.h>
-#include <qtxdg/xdgicon.h>
-#include <qtxdg/xdgmime.h>
+#include <XdgDesktopFile>
+#include <XdgIcon>
+#include <XdgMime>
 
 #include <QtDebug>
 #include <QtCore/QSettings>

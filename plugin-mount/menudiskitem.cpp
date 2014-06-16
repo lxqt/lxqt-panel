@@ -28,7 +28,7 @@
 #include <QtGui/QDesktopServices>
 #include "menudiskitem.h"
 #include <LXQtMount/Mount>
-#include <qtxdg/xdgicon.h>
+#include <XdgIcon>
 #include <QtCore/QDebug>
 #include <QtCore/QUrl>
 #include <QHBoxLayout>

@@ -28,8 +28,8 @@
 #include <QDrag>
 #include <QMouseEvent>
 #include <QApplication>
-#include <qtxdg/XdgDesktopFile>
-#include <qtxdg/XdgIcon>
+#include <XdgDesktopFile>
+#include <XdgIcon>
 #include <QHelpEvent>
 #include <QDebug>
 
