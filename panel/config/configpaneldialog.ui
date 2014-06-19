@@ -156,6 +156,37 @@
       <item row="2" column="1" colspan="3">
        <widget class="QComboBox" name="comboBox_position"/>
       </item>
+      <item row="3" column="1" colspan="2">
+	<widget class="QCheckBox" name="checkBox_autohideTb">
+        <property name="text">
+         <string>Autohide this panel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+	 <widget class="QLabel" name="label_autohideDelay">
+        <property name="text">
+         <string>Autohide duration:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+	<widget class="QSpinBox" name="spinBox_autohideDuration">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+       </widget>
+      </item>
+     <item row="4" column="3">
+	<widget class="QLabel" name="label_autohideMs">
+        <property name="text">
+         <string>ms</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

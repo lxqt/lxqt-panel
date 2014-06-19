@@ -55,7 +55,6 @@ public:
     virtual QWidget *widget();
     virtual QString themeId() const { return "LxQtMount"; }
     virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
-    void realign();
     QDialog *configureDialog();
 
     LxQt::MountManager *mountManager() const { return mMountManager; }

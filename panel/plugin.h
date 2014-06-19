@@ -89,6 +89,8 @@ public slots:
 signals:
     void startMove();
     void remove();
+    void autoHidePermanentLock();
+    void autoHidePermanentUnlock();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
