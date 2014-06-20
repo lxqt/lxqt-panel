@@ -64,6 +64,9 @@ public:
     bool isApplicationActive() const;
     Window windowId() const { return mWindow; }
 
+    bool hasUrgencyHint() const { return mUrgencyHint; }
+    void setUrgencyHint(bool set);
+
     static void unCheckAll();
     int desktopNum() const;
 
@@ -98,6 +101,7 @@ private:
     Window mWindow;
     static LxQtTaskButton* mCheckedBtn;
     ElidedButtonStyle mStyle;
+    bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
     static bool mShowOnlyCurrentDesktopTasks;
     static bool mCloseOnMiddleClick;

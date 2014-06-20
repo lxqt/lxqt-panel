@@ -206,7 +206,11 @@ void LxQtTaskBar::activeWindowChanged()
     LxQtTaskButton* btn = buttonByWindow(window);
 
     if (btn)
+    {
         btn->setChecked(true);
+        if (btn->hasUrgencyHint())
+            btn->setUrgencyHint(false);
+    }
     else
         LxQtTaskButton::unCheckAll();
 }

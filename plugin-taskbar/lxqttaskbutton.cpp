@@ -72,7 +72,6 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
 
     connect(this, SIGNAL(toggled(bool)), this, SLOT(checkedChanged(bool)));
 
-
     XWindowAttributes oldAttr;
     XGetWindowAttributes(QX11Info::display(), mWindow, &oldAttr);
 
@@ -250,6 +249,8 @@ void LxQtTaskButton::raiseApplication()
     if (xfitMan().getActiveDesktop() != winDesktop)
         xfitMan().setActiveDesktop(winDesktop);
     xfitMan().raiseWindow(mWindow);
+
+    setUrgencyHint(false);
 }
 
 
@@ -578,12 +579,37 @@ void  LxQtTaskButton::handlePropertyNotify(XEventType* event)
         return;
     }
 
+    if (prop_event->atom == XfitMan::atom("WM_HINTS"))
+    {
+        WMHintsFlags flags = XfitMan().getWMHintsFlags(prop_event->window);
+        if (flags & WMUrgencyHint)
+        {
+            if (prop_event->window != xfitMan().getActiveAppWindow())
+                setUrgencyHint(true);
+        }
+        else
+            setUrgencyHint(false);
+        return;
+    }
 
-//    char* aname = XGetAtomName(QX11Info::display(), event->atom);
-//    qDebug() << "** XPropertyEvent ********************";
-//    qDebug() << "  atom:       0x" << hex << event->atom
-//            << " (" << (aname ? aname : "Unknown") << ')';
+//     char* aname = XGetAtomName(QX11Info::display(), event->atom);
+//     qDebug() << "** XPropertyEvent ********************";
+//     qDebug() << "  atom:       0x" << hex << event->atom
+//             << " (" << (aname ? aname : "Unknown") << ')';
+//     qDebug() << "  window:      " << event->window;
+}
 
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskButton::setUrgencyHint(bool set)
+{
+    mUrgencyHint = set;
+    setProperty("urgent", set);
+    style()->unpolish(this);
+    style()->polish(this);
+    update();
 }
 
 
