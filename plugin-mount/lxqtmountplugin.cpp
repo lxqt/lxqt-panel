@@ -65,8 +65,8 @@ QWidget *LxQtMountPlugin::widget()
 
 void LxQtMountPlugin::realign()
 {
-    if(mPopup)
-        mPopup->hide();
+//    if(mPopup)
+//        mPopup->hide();
 }
 
 
