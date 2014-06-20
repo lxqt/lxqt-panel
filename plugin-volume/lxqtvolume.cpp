@@ -229,7 +229,7 @@ QWidget *LxQtVolume::widget()
 
 void LxQtVolume::realign()
 {
-    m_volumeButton->hideVolumeSlider();
+    //m_volumeButton->hideVolumeSlider();
 }
 
 QDialog *LxQtVolume::configureDialog()
