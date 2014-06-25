@@ -2,10 +2,6 @@ cmake_minimum_required( VERSION 2.6 )
 
 set(PROJECT lxqt-panel )
 
-set(QT_USE_QTXML 1)
-set(QT_USE_QTDBUS 1)
-
-
 set(lxqt-panel_PRIV_H_FILES
     lxqtpanel.h
     lxqtpanelapplication.h
@@ -55,14 +51,17 @@ set(LIBRARIES
 
 # QRC files .................
 set(RESOURCES
-
 )
 
 set (lxqt-panel_UI_FILES
     config/configpaneldialog.ui
 )
 
-QT4_WRAP_UI(UI_HEADERS ${lxqt-panel_UI_FILES})
+if(USE_QT5)
+    qt5_wrap_ui(UI_HEADERS ${lxqt-panel_UI_FILES})
+else()
+    qt4_wrap_ui(UI_HEADERS ${lxqt-panel_UI_FILES})
+endif()
 
 add_definitions(-DDEFULT_PANEL_PLUGINS=\"MainMenu,Quicklaunch,TaskBar,Tray,Clock\")
 
@@ -94,17 +93,21 @@ add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
 #*******************************************
 project(${PROJECT})
 
-find_package(Qt4 REQUIRED)
-#find_package ( X11 REQUIRED )
-
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-include(${QT_USE_FILE})
-qt4_wrap_cpp(MOC_SOURCES ${MOCS})
-qt4_wrap_ui(UI_HEADERS ${FORMS})
-qt4_add_resources(QRC_SOURCES ${RESOURCES})
+if(USE_QT5)
+    qt5_wrap_cpp(MOC_SOURCES ${MOCS})
+    qt5_wrap_ui(UI_HEADERS ${FORMS})
+    qt5_add_resources(QRC_SOURCES ${RESOURCES})
+    set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)
+else()
+    qt4_wrap_cpp(MOC_SOURCES ${MOCS})
+    qt4_wrap_ui(UI_HEADERS ${FORMS})
+    qt4_add_resources(QRC_SOURCES ${RESOURCES})
+    set(QTX_LIBRARIES ${QT_CORE_LIBRARY} ${QT_GUI_LIBRARY} ${QT_XML_LIBRARY} ${QT_DBUS_LIBRARY})
+endif()
 
 # Translations **********************************
 include(LxQtTranslate)
@@ -123,7 +126,7 @@ add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
-target_link_libraries(${PROJECT} ${LIBRARIES} ${QT_LIBRARIES})
+target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES})
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES   ${CONFIG_FILES}    DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)

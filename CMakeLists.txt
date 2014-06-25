@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.9)
 project( lxqt-panel )
 
 # additional cmake files
@@ -57,30 +57,50 @@ setByDefault(TEATIME_PLUGIN        No)
 setByDefault(DOM_PLUGIN            Yes)
 # *******************************************************************
 
-
-
 include(LxQtLibSuffix)
 
-
 add_definitions ( -Wall )
-find_package ( Qt4 REQUIRED )
-find_package ( X11 REQUIRED )
-include ( ${QT_USE_FILE} )
 
-find_package(LXQT REQUIRED )
+# Support Qt5
+option(USE_QT5 "Build with Qt5." $ENV{USE_QT5})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# set(CMAKE_AUTOMOC ON)
+if(USE_QT5)
+  cmake_minimum_required(VERSION 2.8.11)
+  find_package(Qt5Widgets REQUIRED)
+  find_package(Qt5DBus REQUIRED)
+  find_package(Qt5LinguistTools REQUIRED QUIET)
+  find_package(Qt5Xml REQUIRED QUIET)
+  find_package(Qt5X11Extras REQUIRED QUIET)
+  find_package(Qt5LinguistTools REQUIRED QUIET)
+  message(STATUS "Building with Qt${Qt5Core_VERSION_STRING}")
+
+  find_package(lxqt-qt5 REQUIRED)
+  find_package(lxqtmount-qt5 REQUIRED )
+  find_package(Qt5Xdg REQUIRED QUIET)
+  find_package(lxqt-globalkeys-qt5 REQUIRED)
+  find_package(lxqt-globalkeys-ui-qt5 REQUIRED)
+else()
+  set(QT_USE_QTXML 1)
+  set(QT_USE_QTDBUS 1)
+  find_package(Qt4 REQUIRED)
+  include(${QT_USE_FILE})
+  message(STATUS "Building with Qt${QTVERSION}")
+
+  find_package(LXQT REQUIRED)
+  find_package(LXQTMOUNT REQUIRED )
+  find_package(QTXDG REQUIRED QUIET)
+  find_package(LXQT_GLOBALKEYS REQUIRED)
+  find_package(LXQT_GLOBALKEYS_UI REQUIRED)
+endif()
 include(${LXQT_USE_FILE})
-
-find_package(LXQTMOUNT REQUIRED )
 include(${LXQTMOUNT_USE_FILE})
-
-find_package(QTXDG REQUIRED QUIET)
 include(${QTXDG_USE_FILE})
-
-find_package(LXQT_GLOBALKEYS REQUIRED )
 include(${LXQT_GLOBALKEYS_USE_FILE})
-
-find_package(LXQT_GLOBALKEYS_UI REQUIRED )
 include(${LXQT_GLOBALKEYS_UI_USE_FILE})
+
+find_package ( X11 REQUIRED )
 
 include_directories (
 	${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
@@ -94,9 +114,7 @@ set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/)
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-
 add_subdirectory(panel)
-
 
 set(ENABLED_PLUGINS)
 
@@ -269,7 +287,6 @@ foreach (PLUGIN_STR ${ENABLED_PLUGINS})
   message(STATUS   "  ${PLUGIN_STR}")
 endforeach()
 message(STATUS  "*********************************************************************")
-
 
 # building tarball with CPack -------------------------------------------------
 include (InstallRequiredSystemLibraries)
