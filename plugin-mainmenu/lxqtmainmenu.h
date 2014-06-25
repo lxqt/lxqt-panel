@@ -106,6 +106,9 @@ private slots:
 class LxQtMainMenuPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+#endif
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new LxQtMainMenu(startupInfo);}
