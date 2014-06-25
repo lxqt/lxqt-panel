@@ -154,9 +154,9 @@ void AlsaEngine::discoverDevices()
         snd_ctl_card_info_t *cardInfo;
         snd_ctl_card_info_alloca(&cardInfo);
 
-        QString cardName = QString::fromAscii(snd_ctl_card_info_get_name(cardInfo));
+        QString cardName = QString::fromLatin1(snd_ctl_card_info_get_name(cardInfo));
         if (cardName.isEmpty())
-            cardName = QString::fromAscii(str);
+            cardName = QString::fromLatin1(str);
 
         if ((error = snd_ctl_card_info(cardHandle, cardInfo)) < 0) {
             qWarning("Can't get info for card %i: %s\n", cardNum, snd_strerror(error));
@@ -186,12 +186,12 @@ void AlsaEngine::discoverDevices()
                 // check if we have a Sink or Source
                 if (snd_mixer_selem_has_playback_volume(mixerElem)) {
                     AlsaDevice *dev = new AlsaDevice(Sink, this, this);
-                    dev->setName(QString::fromAscii(snd_mixer_selem_get_name(mixerElem)));
+                    dev->setName(QString::fromLatin1(snd_mixer_selem_get_name(mixerElem)));
                     dev->setIndex(cardNum);
                     dev->setDescription(cardName + " - " + dev->name());
 
                     // set alsa specific members
-                    dev->setCardName(QString::fromAscii(str));
+                    dev->setCardName(QString::fromLatin1(str));
                     dev->setMixer(mixer);
                     dev->setElement(mixerElem);
 

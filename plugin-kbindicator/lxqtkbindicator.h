@@ -30,7 +30,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtkbindicatorconfiguration.h"
-
+#include <X11/Xlib.h>
 
 class QLabel;
 

@@ -116,9 +116,17 @@ bool LxQtKbIndicator::getLockStatus(int bit)
 
 void LxQtKbIndicator::x11EventFilter(XEventType* event)
 {
+    int type;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    type = event->response_type;
+    // FIXME: implement for Qt5 + xcb
+#else
+    type = event->type;
     XkbEvent* xkbEvent = reinterpret_cast<XkbEvent*>(event);
-
-    if (xkbEvent->type == mXkbEventBase + XkbEventCode)
+    if (type == mXkbEventBase + XkbEventCode)
+    {
         if (xkbEvent->any.xkb_type == XkbIndicatorStateNotify)
             emit indicatorsChanged(xkbEvent->indicators.changed, xkbEvent->indicators.state);
+    }
+#endif
 }

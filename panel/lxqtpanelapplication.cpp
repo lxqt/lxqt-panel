@@ -42,6 +42,10 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
     else
         mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+		qApp->installNativeEventFilter(this);
+#endif
+
     QStringList panels = mSettings->value("panels").toStringList();
 
     if (panels.isEmpty())
@@ -58,6 +62,9 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
 
 LxQtPanelApplication::~LxQtPanelApplication()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    qApp->removeNativeEventFilter(this);
+#endif
     qDeleteAll(mPanels);
 }
 
@@ -79,13 +86,30 @@ void LxQtPanelApplication::addPanel(const QString &name)
             this, SLOT(removePanel(LxQtPanel*)));
 }
 
-bool LxQtPanelApplication::x11EventFilter(XEventType * event)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+
+// Qt5 uses native event filter
+bool LxQtPanelApplication::nativeEventFilter(const QByteArray & eventType, void * message, long * result)
+{
+    if(eventType != "xcb_generic_event_t") // We only want to handle XCB events
+        return false;
+    xcb_generic_event_t* event = reinterpret_cast<xcb_generic_event_t*>(message);
+    foreach(LxQtPanel *i, mPanels)
+        i->x11EventFilter(event);
+    return false;
+}
+
+#else
+
+// This X11 event is no longer supported in Qt5
+bool LxQtPanelApplication::x11EventFilter(XEvent * event)
 {
     foreach(LxQtPanel *i, mPanels)
         i->x11EventFilter(event);
     return false;
 }
 
+#endif // Qt5
 
 void LxQtPanelApplication::removePanel(LxQtPanel* panel)
 {

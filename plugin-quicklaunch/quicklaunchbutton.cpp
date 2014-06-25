@@ -32,6 +32,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <XdgIcon>
+#include <QDrag>
 
 #include "quicklaunchbutton.h"
 #include "lxqtquicklaunch.h"

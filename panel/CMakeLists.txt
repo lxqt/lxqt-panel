@@ -95,6 +95,8 @@ project(${PROJECT})
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${LXQT_INCLUDE_DIRS}
+    ${LXQT_INCLUDE_DIRS}/LXQt # FIXME: liblxqt seems to be broken, workaround it.
 )
 
 if(USE_QT5)

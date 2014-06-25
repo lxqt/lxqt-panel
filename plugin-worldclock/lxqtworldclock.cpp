@@ -242,13 +242,13 @@ void LxQtWorldClock::updateTimezone()
 
 #if ICU_VERSION >= 48
         char region[3];
-        icu::TimeZone::getRegion(mActiveTimeZone.toAscii().data(), region, sizeof(region) / sizeof(char), status);
+        icu::TimeZone::getRegion(mActiveTimeZone.toLatin1().data(), region, sizeof(region) / sizeof(char), status);
         if (U_FAILURE(status))
             qDebug() << "updateTimezone: TimeZone::getRegion() status = " << status;
 
         if (mLocale)
             delete mLocale;
-        mLocale = new icu::Locale(mDefaultLanguage.toAscii().data(), region);
+        mLocale = new icu::Locale(mDefaultLanguage.toLatin1().data(), region);
 #endif
 
         icu::UnicodeString timeZoneName = Qt_to_ICU(mActiveTimeZone);

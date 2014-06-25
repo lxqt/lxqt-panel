@@ -35,7 +35,7 @@
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
-
+#include "../panel/fixx11h.h" // Xlib headers frequtly causes name clashes. Use this hack to fix it.
 #include "showdesktop.h"
 
 using namespace LxQt;

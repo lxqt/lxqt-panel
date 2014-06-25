@@ -32,6 +32,7 @@
 #include <QtDebug>
 #include <QSignalMapper>
 #include <LXQt/XfitMan>
+#include "../panel/fixx11h.h"
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 
@@ -101,7 +102,13 @@ DesktopSwitch::~DesktopSwitch()
 
 void DesktopSwitch::x11EventFilter(XEventType* _event)
 {
-    if (_event->type == PropertyNotify)
+    int type;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    type = _event->response_type;
+#else
+    type = _event->type;
+#endif
+    if (type == PropertyNotify)
     {
         int count = qMax(xfitMan().getNumDesktop(), 1);
         if (m_desktopCount != count)

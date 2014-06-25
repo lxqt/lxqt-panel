@@ -50,7 +50,7 @@ int netSpeedFromString(QString value)
     if (re.exactMatch(value))
     {
         int shift = 0;
-        switch (re.cap(2)[0].toAscii())
+        switch (re.cap(2)[0].toLatin1())
         {
         case 'k':
             shift = 10;

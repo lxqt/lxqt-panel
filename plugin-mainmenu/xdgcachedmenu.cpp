@@ -31,6 +31,7 @@
 #include <XdgDesktopFile>
 #include <XdgIcon>
 #include <QHelpEvent>
+#include <QMimeData>
 #include <QDebug>
 
 XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):

@@ -35,7 +35,7 @@ Chip::Chip(const sensors_chip_name* sensorsChipName)
     char buf[BUF_SIZE];
     if (sensors_snprintf_chip_name(buf, BUF_SIZE, mSensorsChipName) > 0)
     {
-        mName = QString::fromAscii(buf);
+        mName = QString::fromLatin1(buf);
     }
 
     qDebug() << "Detected chip:" << mName;

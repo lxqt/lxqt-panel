@@ -39,6 +39,8 @@
 #include <LXQt/PluginInfo>
 
 #include <LXQt/XfitMan>
+#include <X11/Xatom.h>
+#include <QX11Info>
 
 #include <QDebug>
 #include <QDesktopWidget>
@@ -105,6 +107,16 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
     setAttribute(Qt::WA_TranslucentBackground);
+
+    // skip taskbar and desktop pager
+    // FIXME: this has no effect, why?
+    Atom props[] = {
+        xfitMan().atom("_NET_WM_STATE_SKIP_TASKBAR"),
+        xfitMan().atom("_NET_WM_STATE_SKIP_PAGER")
+    };
+    XChangeProperty(QX11Info::display(), effectiveWinId(), xfitMan().atom("_NET_WM_STATE"),
+        XA_ATOM, 32, PropModeReplace, (unsigned char*)props, 2);
+
     setWindowTitle("LxQt Panel");
     setObjectName(QString("LxQtPanel %1").arg(configGroup));
 

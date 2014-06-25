@@ -32,18 +32,34 @@
 #include <LXQt/Application>
 #include "ilxqtpanelplugin.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QAbstractNativeEventFilter>
+#endif
+
 class LxQtPanel;
 namespace LxQt {
 class Settings;
 }
 
 class LxQtPanelApplication : public LxQt::Application
+#ifndef Q_MOC_RUN // Qt4 moc has some problem handling multiple inheritence with conditional compilation, disable it
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+	, public QAbstractNativeEventFilter // we need to filter some native events in Qt5
+#endif
+#endif // Q_MOC_RUN
 {
     Q_OBJECT
 public:
     explicit LxQtPanelApplication(int& argc, char** argv, const QString &configFile);
     ~LxQtPanelApplication();
-    virtual bool x11EventFilter(XEventType* event);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // Qt5 uses native event filter
+    virtual bool nativeEventFilter(const QByteArray & eventType, void * message, long * result);
+#else
+    // X11 event is no longer supported in Qt5
+    virtual bool x11EventFilter(XEvent* event);
+#endif
 
     int count() { return mPanels.count(); }
     LxQt::Settings *settings() { return mSettings; }

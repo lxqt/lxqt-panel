@@ -40,7 +40,7 @@ Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature
         free(featureLabel);
     }
 
-    qDebug() << "Detected feature:" << QString::fromAscii(sensorsFeature->name)
+    qDebug() << "Detected feature:" << QString::fromLatin1(sensorsFeature->name)
              << "(" << mLabel << ")";
 }
 
