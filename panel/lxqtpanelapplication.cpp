@@ -31,7 +31,7 @@
 #include <LXQt/Settings>
 #include <QtDebug>
 #include <QUuid>
-#include <X11/Xlib.h>
+#include <LXQt/XfitMan>
 
 
 LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString &configFile)
@@ -81,8 +81,34 @@ void LxQtPanelApplication::addPanel(const QString &name)
 
 bool LxQtPanelApplication::x11EventFilter(XEvent * event)
 {
+    LxQtPanel::AutohideMsg type = LxQtPanel::NoMsg;
+    long int win = 0;
+
+    switch (event->type)
+    {
+        case UnmapNotify:
+            type = LxQtPanel::RemoveWindow;
+            win = event->xunmap.window;
+        break;
+
+        case MapNotify:
+            type = LxQtPanel::SaveWindow;
+            win = event->xmap.window;
+        break;
+
+        case ClientMessage:
+            win = event->xclient.window;
+            if (event->xclient.data.l[1] == SYSTEM_TRAY_REQUEST_DOCK)
+                type = LxQtPanel::SysTrayConfigure;
+        break;
+        default:
+        break;
+    }
+
     foreach(LxQtPanel *i, mPanels)
-        i->x11EventFilter(event);
+    {
+        i->x11EventFilter(event, type, win);
+    }
     return false;
 }
 

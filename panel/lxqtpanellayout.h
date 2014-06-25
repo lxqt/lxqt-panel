@@ -74,8 +74,10 @@ public:
     void setPosition(ILxQtPanel::Position value);
 
     static bool itemIsSeparate(QLayoutItem *item);
+
 signals:
     void pluginMoved();
+    void pluginMoving();
 
 public slots:
     void startMovePlugin();

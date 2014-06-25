@@ -284,7 +284,10 @@ void PluginMoveProcessor::doFinish()
 
     int currentIdx = mLayout->indexOf(mPlugin);
     if (currentIdx == mDestIndex)
+    {
+        emit finished();
         return;
+    }
 
     if (mDestIndex > currentIdx)
         mDestIndex--;

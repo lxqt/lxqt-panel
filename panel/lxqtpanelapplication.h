@@ -31,6 +31,9 @@
 
 #include <LXQt/Application>
 
+// from system tray plugin
+#define SYSTEM_TRAY_REQUEST_DOCK 0
+
 class LxQtPanel;
 namespace LxQt {
 class Settings;

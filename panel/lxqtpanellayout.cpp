@@ -945,6 +945,8 @@ void LxQtPanelLayout::startMovePlugin()
         PluginMoveProcessor *moveProcessor = new PluginMoveProcessor(this, plugin);
         moveProcessor->start();
         connect(moveProcessor, SIGNAL(finished()), this, SLOT(finishMovePlugin()));
+
+        emit pluginMoving();
     }
 }
 
@@ -960,6 +962,7 @@ void LxQtPanelLayout::finishMovePlugin()
         Plugin *plugin = moveProcessor->plugin();
         int n = indexOf(plugin);
         plugin->setAlignment(n<mLeftGrid->count() ? Plugin::AlignLeft : Plugin::AlignRight);
-        emit pluginMoved();
     }
+
+    emit pluginMoved();
 }

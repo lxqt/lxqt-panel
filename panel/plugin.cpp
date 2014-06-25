@@ -371,11 +371,13 @@ void Plugin::showConfigureDialog()
         dialog = mPlugin->configureDialog();
         ref = dialog;
         connect(this, SIGNAL(destroyed()), dialog, SLOT(close()));
+        connect(dialog, SIGNAL(destroyed()), mPanel,SLOT(autohidePermanentUnlock()));
     }
 
     if (!dialog)
         return;
 
+    emit autoHidePermanentLock();
     dialog->show();
     dialog->raise();
     dialog->activateWindow();
