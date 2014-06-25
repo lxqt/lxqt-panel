@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>269</width>
-    <height>248</height>
+    <width>298</width>
+    <height>301</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <bool>false</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="1" colspan="2">
+      <item row="2" column="1" colspan="2">
        <widget class="QSpinBox" name="spinBox_lineCount">
         <property name="minimum">
          <number>1</number>
@@ -33,14 +33,14 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="3">
+      <item row="3" column="3">
        <widget class="QPushButton" name="button_fromTheme">
         <property name="text">
          <string>Set from theme</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
+      <item row="1" column="3">
        <widget class="QLabel" name="label_px">
         <property name="text">
          <string>px</string>
@@ -50,27 +50,51 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="label_lineCount">
         <property name="text">
          <string>Rows count:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label_iconSize">
         <property name="text">
          <string>Icon size:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1" colspan="2">
+      <item row="1" column="1" colspan="2">
        <widget class="QSpinBox" name="spinBox_iconSize">
         <property name="minimum">
          <number>10</number>
         </property>
         <property name="maximum">
          <number>128</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Panel size:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>px</string>
+        </property>
+        <property name="indent">
+         <number>5</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QSpinBox" name="spinBox_panelSize">
+        <property name="value">
+         <number>24</number>
         </property>
        </widget>
       </item>
