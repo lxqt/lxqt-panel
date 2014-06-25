@@ -53,7 +53,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
     m_settingsMap["exec"] = exec;
     m_settingsMap["icon"] = icon;
 
-    if (icon == "" || icon.isNull())
+    if (icon.isNull() || icon == "")
         setIcon(XdgIcon::defaultApplicationIcon());
     else
         setIcon(QIcon(icon));
