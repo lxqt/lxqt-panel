@@ -48,6 +48,7 @@
 #include <X11/Xutil.h>
 
 #include <QX11Info>
+#include "../panel/fixx11h.h"
 
 #include <QDebug>
 #include "../panel/ilxqtpanelplugin.h"
@@ -216,19 +217,31 @@ void LxQtTaskBar::activeWindowChanged()
  ************************************************/
 void LxQtTaskBar::x11EventFilter(XEventType* event)
 {
-    switch (event->type)
+    int event_type;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    event_type = event->response_type; // XCB
+#else
+    event_type = event->type; // XLib
+#endif
+    switch (event_type)
     {
         case PropertyNotify:
-            handlePropertyNotify(&event->xproperty);
+            handlePropertyNotify(event);
             break;
-        case ConfigureNotify:
+        case ConfigureNotify: {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+            unsigned long window = reinterpret_cast<xcb_configure_notify_event_t*>(event)->window;
+#else
+            unsigned long window = event->xconfigure.window;
+#endif
 	  // if the size or position of our window is changed, update icon geometry
-            if(event->xconfigure.window == effectiveWinId())
+            if(window == effectiveWinId())
             {
                 // qDebug() << "configure event";
                 refreshIconGeometry();
             }
             break;
+        }
 #if 0
         case MotionNotify:
             break;
@@ -247,26 +260,31 @@ void LxQtTaskBar::x11EventFilter(XEventType* event)
 /************************************************
 
  ************************************************/
-void LxQtTaskBar::handlePropertyNotify(XPropertyEvent* event)
+void LxQtTaskBar::handlePropertyNotify(XEventType* event)
 {
-    if (event->window == mRootWindow)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    xcb_property_notify_event_t* prop_event = reinterpret_cast<xcb_property_notify_event_t*>(event);
+#else
+    XPropertyEvent* prop_event = reinterpret_cast<XPropertyEvent*>(event);
+#endif
+    if (prop_event->window == mRootWindow)
     {
         // Windows list changed ...............................
-        if (event->atom == XfitMan::atom("_NET_CLIENT_LIST"))
+        if (prop_event->atom == XfitMan::atom("_NET_CLIENT_LIST"))
         {
             refreshTaskList();
             return;
         }
 
         // Activate window ....................................
-        if (event->atom == XfitMan::atom("_NET_ACTIVE_WINDOW"))
+        if (prop_event->atom == XfitMan::atom("_NET_ACTIVE_WINDOW"))
         {
             activeWindowChanged();
             return;
         }
 
         // Desktop switch .....................................
-        if (event->atom == XfitMan::atom("_NET_CURRENT_DESKTOP"))
+        if (prop_event->atom == XfitMan::atom("_NET_CURRENT_DESKTOP"))
         {
             if (mShowOnlyCurrentDesktopTasks)
                 refreshTaskList();
@@ -275,7 +293,7 @@ void LxQtTaskBar::handlePropertyNotify(XPropertyEvent* event)
     }
     else
     {
-        LxQtTaskButton* btn = buttonByWindow(event->window);
+        LxQtTaskButton* btn = buttonByWindow(prop_event->window);
         if (btn)
             btn->handlePropertyNotify(event);
     }

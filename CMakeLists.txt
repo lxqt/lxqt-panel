@@ -60,7 +60,6 @@ setByDefault(DOM_PLUGIN            Yes)
 # Disable plugins that do not work with Qt5
 if(USE_QT5)
     set(TRAY_PLUGIN           No)
-    set(TASKBAR_PLUGIN        No)
     set(KBINDICATOR_PLUGIN    No)
 endif()
 

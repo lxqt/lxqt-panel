@@ -32,9 +32,11 @@
 #include <QToolButton>
 #include <QHash>
 #include <QProxyStyle>
+#include "../panel/ilxqtpanel.h"
 
 #include <X11/X.h>
 #include <X11/Xlib.h>
+#include "../panel/fixx11h.h"
 
 class QPainter;
 class QPalette;
@@ -82,7 +84,7 @@ public slots:
     void moveApplicationToDesktop();
     void setApplicationLayer();
 
-    void handlePropertyNotify(XPropertyEvent* event);
+    void handlePropertyNotify(XEventType* event);
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);

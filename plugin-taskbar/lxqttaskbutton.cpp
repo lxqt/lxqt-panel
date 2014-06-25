@@ -537,33 +537,38 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 /************************************************
 
  ************************************************/
-void  LxQtTaskButton::handlePropertyNotify(XPropertyEvent* event)
+void  LxQtTaskButton::handlePropertyNotify(XEventType* event)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    xcb_property_notify_event_t* prop_event = reinterpret_cast<xcb_property_notify_event_t*>(event);
+#else
+    XPropertyEvent* prop_event = reinterpret_cast<XPropertyEvent*>(event);
+#endif
     // I suppose here that only new/update values need to
     // be promoted here. There is no need to update inof
     // If it's deleted/about to delete. And mainly - it prevents
     // "BadWindow (invalid Window parameter)" errors:
     // Issue #4 BadWindow when a window is closed
-    if (event->state == PropertyDelete)
+    if (prop_event->state == PropertyDelete)
     {
 //        qDebug() << "LxQtTaskButton::handlePropertyNotify to delete";
         return;
     }
 
-    if (event->atom == XfitMan::atom("WM_NAME") ||
-        event->atom == XfitMan::atom("_NET_WM_VISIBLE_NAME"))
+    if (prop_event->atom == XfitMan::atom("WM_NAME") ||
+        prop_event->atom == XfitMan::atom("_NET_WM_VISIBLE_NAME"))
     {
         updateText();
         return;
     }
 
-    if (event->atom == XfitMan::atom("_NET_WM_ICON"))
+    if (prop_event->atom == XfitMan::atom("_NET_WM_ICON"))
     {
         updateIcon();
         return;
     }
 
-    if (event->atom == XfitMan::atom("_NET_WM_DESKTOP"))
+    if (prop_event->atom == XfitMan::atom("_NET_WM_DESKTOP"))
     {
         if (mShowOnlyCurrentDesktopTasks)
         {

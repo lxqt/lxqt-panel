@@ -35,6 +35,7 @@
 #include <QBoxLayout>
 #include <QHash>
 #include <X11/Xlib.h>
+#include "../panel/fixx11h.h"
 #include "../panel/ilxqtpanel.h"
 
 class LxQtTaskButton;
@@ -73,7 +74,7 @@ private:
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
     bool mShowOnlyCurrentDesktopTasks;
 
-    void handlePropertyNotify(XPropertyEvent* event);
+    void handlePropertyNotify(XEventType* event);
     void wheelEvent(QWheelEvent* event);
     ILxQtPanelPlugin *mPlugin;
     LxQtTaskButton *mPlaceHolder;
