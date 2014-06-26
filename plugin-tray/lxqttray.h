@@ -29,7 +29,7 @@
 #define LXQTTRAY_H
 
 #include <QFrame>
-
+#include "../panel/ilxqtpanel.h"
 #include <X11/X.h>
 #include <X11/Xlib.h>
 
@@ -72,7 +72,7 @@ private slots:
 private:
     VisualID getVisual();
 
-    void clientMessageEvent(XClientMessageEvent* e);
+    void clientMessageEvent(XEventType* e);
 
     void addIcon(Window id);
     TrayIcon* findIcon(Window trayId);

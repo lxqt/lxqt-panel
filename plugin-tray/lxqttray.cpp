@@ -45,6 +45,11 @@
 #include <X11/extensions/Xrender.h>
 #include <X11/extensions/Xdamage.h>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
+#include <xcb/xcb.h>
+#include <xcb/damage.h>
+#endif
+
 #undef Bool // defined as int in X11/Xlib.h
 
 #include <LXQt/XfitMan>
@@ -100,11 +105,17 @@ LxQtTray::~LxQtTray()
 void LxQtTray::x11EventFilter(XEventType* event)
 {
     TrayIcon* icon;
+    int event_type;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
+    event_type = event->response_type;
+#else // use XLib for Qt4
+    event_type = event->type;
+#endif
 
-    switch (event->type)
+    switch (event_type)
     {
         case ClientMessage:
-            clientMessageEvent(&(event->xclient));
+            clientMessageEvent(event);
             break;
 
 //        case ConfigureNotify:
@@ -113,19 +124,30 @@ void LxQtTray::x11EventFilter(XEventType* event)
 //                icon->configureEvent(&(event->xconfigure));
 //            break;
 
-        case DestroyNotify:
-            icon = findIcon(event->xany.window);
+        case DestroyNotify: {
+            unsigned long event_window;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
+            event_window = reinterpret_cast<xcb_destroy_notify_event_t*>(event)->window;
+#else // use XLib for Qt4
+            event_window = event->xany.window;
+#endif
+            icon = findIcon(event_window);
             if (icon)
             {
                 mIcons.removeAll(icon);
                 delete icon;
             }
             break;
-
+        }
         default:
-            if (event->type == mDamageEvent + XDamageNotify)
+            if (event_type == mDamageEvent + XDamageNotify)
             {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
+                //FIXME: implement for XCB
+                xcb_damage_notify_event_t* dmg = reinterpret_cast<xcb_damage_notify_event_t*>(event);
+#else // use XLib for Qt4
                 XDamageNotifyEvent* dmg = reinterpret_cast<XDamageNotifyEvent*>(event);
+#endif
                 icon = findIcon(dmg->drawable);
                 if (icon)
                     icon->update();
@@ -160,19 +182,28 @@ void LxQtTray::realign()
 /************************************************
 
  ************************************************/
-void LxQtTray::clientMessageEvent(XClientMessageEvent* e)
+void LxQtTray::clientMessageEvent(XEventType* e)
 {
     unsigned long opcode;
-    opcode = e->data.l[1];
+    unsigned long message_type;
     Window id;
-
-    if(e->message_type != _NET_SYSTEM_TRAY_OPCODE)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
+    xcb_client_message_event_t* event = reinterpret_cast<xcb_client_message_event_t*>(e);
+    uint32_t* data32 = event->data.data32;
+    message_type = event->type;
+#else // use XLib for Qt4
+    XClientMessageEvent* event = reinterpret_cast<XClientMessageEvent*>(e);
+    long* data32 = event->data.l;
+    message_type = event->message_type;
+#endif
+    opcode = data32[1];
+    if(message_type != _NET_SYSTEM_TRAY_OPCODE)
         return;
 
     switch (opcode)
     {
         case SYSTEM_TRAY_REQUEST_DOCK:
-            id = e->data.l[2];
+            id = data32[2];
             if (id)
                 addIcon(id);
             break;

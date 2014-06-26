@@ -35,9 +35,9 @@ class ILxQtPanelPlugin;
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <xcb/xcb.h>
-typedef xcb_generic_event_t XEventType;
+#define XEventType      xcb_generic_event_t
 #else
-typedef XEvent XEventType;
+#define XEventType      XEvent
 #endif
 
 /**
