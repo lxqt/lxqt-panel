@@ -219,7 +219,7 @@ void LxQtTaskBar::x11EventFilter(XEventType* event)
 {
     int event_type;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    event_type = event->response_type; // XCB
+    event_type = event->response_type & ~0x80; // XCB
 #else
     event_type = event->type; // XLib
 #endif

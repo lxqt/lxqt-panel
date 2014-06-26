@@ -107,7 +107,7 @@ void LxQtTray::x11EventFilter(XEventType* event)
     TrayIcon* icon;
     int event_type;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
-    event_type = event->response_type;
+        event_type = event->response_type & ~0x80;
 #else // use XLib for Qt4
     event_type = event->type;
 #endif

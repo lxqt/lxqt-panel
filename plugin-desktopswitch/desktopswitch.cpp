@@ -104,7 +104,7 @@ void DesktopSwitch::x11EventFilter(XEventType* _event)
 {
     int type;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    type = _event->response_type;
+    type = _event->response_type & ~0x80;
 #else
     type = _event->type;
 #endif
