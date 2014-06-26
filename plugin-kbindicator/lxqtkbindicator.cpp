@@ -33,6 +33,15 @@
 #include <QX11Info>
 #include <QTimer>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <xcb/xcb.h>
+// xkb.h uses explicit as the name of a data member of xcb_xkb_set_explicit_t.
+// unfortunately, this is a C++ keyword. Use this hack to workaround it.
+#define explicit _explicit
+#include <xcb/xkb.h>
+#undef explicit
+#endif
+
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(panelkbindicator, LxQtKbIndicatorLibrary)
 #endif
@@ -116,14 +125,18 @@ bool LxQtKbIndicator::getLockStatus(int bit)
 
 void LxQtKbIndicator::x11EventFilter(XEventType* event)
 {
-    int type;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    type = event->response_type;
-    // FIXME: implement for Qt5 + xcb
+    // for Qt5 + xcb
+    if (event->response_type == mXkbEventBase + XkbEventCode)
+    {
+        xcb_xkb_indicator_state_notify_event_t* xkbEvent = reinterpret_cast<xcb_xkb_indicator_state_notify_event_t*>(event);
+        // qDebug() << "xkb indicator state notify:" << xkbEvent->xkbType << xkbEvent->stateChanged << xkbEvent->state;
+        if (xkbEvent->xkbType == XkbIndicatorStateNotify)
+            emit indicatorsChanged(xkbEvent->stateChanged, xkbEvent->state);
+    }
 #else
-    type = event->type;
     XkbEvent* xkbEvent = reinterpret_cast<XkbEvent*>(event);
-    if (type == mXkbEventBase + XkbEventCode)
+    if (event->type == mXkbEventBase + XkbEventCode)
     {
         if (xkbEvent->any.xkb_type == XkbIndicatorStateNotify)
             emit indicatorsChanged(xkbEvent->indicators.changed, xkbEvent->indicators.state);
