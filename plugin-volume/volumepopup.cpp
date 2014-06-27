@@ -33,10 +33,10 @@
 
 #include <QtGui/QSlider>
 #include <QtGui/QPushButton>
+#include <QtGui/QStyleOptionButton>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QApplication>
 #include <QtGui/QDesktopWidget>
-#include <QtGui/QLabel>
 #include <QtCore/QProcess>
 
 VolumePopup::VolumePopup(QWidget* parent):
@@ -45,11 +45,21 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_anchor(Qt::TopLeftCorner),
     m_device(0)
 {
-    m_mixerButton = new QLabel(this);
-    m_mixerButton->setMargin(5);
+    m_mixerButton = new QPushButton(this);
+    m_mixerButton->setObjectName("MixerLink");
+    m_mixerButton->setMinimumWidth(1);
+    m_mixerButton->setFlat(true);
     m_mixerButton->setToolTip(tr("Launch mixer"));
-    m_mixerButton->setTextFormat(Qt::RichText);
-    m_mixerButton->setText(QString("<a href=\"#\">%1</a>").arg(tr("Mixer")));
+    m_mixerButton->setText(tr("Mixer"));
+    QSize textSize = m_mixerButton->fontMetrics().size(Qt::TextShowMnemonic, m_mixerButton->text());
+    QStyleOptionButton opt;
+    opt.initFrom(m_mixerButton);
+    opt.rect.setSize(textSize);
+    m_mixerButton->setMaximumSize(m_mixerButton->style()->sizeFromContents(QStyle::CT_PushButton,
+                                                                           &opt,
+                                                                           textSize,
+                                                                           m_mixerButton));
+    m_mixerButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     m_volumeSlider = new QSlider(Qt::Vertical, this);
     m_volumeSlider->setTickPosition(QSlider::TicksBothSides);
@@ -68,7 +78,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     l->addWidget(m_volumeSlider, 0, Qt::AlignHCenter);
     l->addWidget(m_muteToggleButton, 0, Qt::AlignHCenter);
 
-    connect(m_mixerButton, SIGNAL(linkActivated(QString)), this, SIGNAL(launchMixer()));
+    connect(m_mixerButton, SIGNAL(released()), this, SIGNAL(launchMixer()));
     connect(m_volumeSlider, SIGNAL(valueChanged(int)), this, SLOT(handleSliderValueChanged(int)));
     connect(m_muteToggleButton, SIGNAL(clicked()), this, SLOT(handleMuteToggleClicked()));
 }

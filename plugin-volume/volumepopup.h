@@ -33,7 +33,6 @@
 class QSlider;
 class QPushButton;
 class AudioDevice;
-class QLabel;
 
 class VolumePopup : public QDialog
 {
@@ -75,7 +74,7 @@ private:
     void updateStockIcon();
 
     QSlider *m_volumeSlider;
-    QLabel *m_mixerButton;
+    QPushButton *m_mixerButton;
     QPushButton *m_muteToggleButton;
     QPoint m_pos;
     Qt::Corner m_anchor;
