@@ -108,15 +108,6 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     setAttribute(Qt::WA_AlwaysShowToolTips);
     setAttribute(Qt::WA_TranslucentBackground);
 
-    // skip taskbar and desktop pager
-    // FIXME: this has no effect, why?
-    Atom props[] = {
-        xfitMan().atom("_NET_WM_STATE_SKIP_TASKBAR"),
-        xfitMan().atom("_NET_WM_STATE_SKIP_PAGER")
-    };
-    XChangeProperty(QX11Info::display(), effectiveWinId(), xfitMan().atom("_NET_WM_STATE"),
-        XA_ATOM, 32, PropModeReplace, (unsigned char*)props, 2);
-
     setWindowTitle("LxQt Panel");
     setObjectName(QString("LxQtPanel %1").arg(configGroup));
 
@@ -247,6 +238,18 @@ LxQtPanel::~LxQtPanel()
  ************************************************/
 void LxQtPanel::show()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
+    // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
+    // Let's do it manually
+    Atom windowTypes[] = {
+        xfitMan().atom("_NET_WM_WINDOW_TYPE_DOCK"),
+        xfitMan().atom("_KDE_NET_WM_WINDOW_TYPE_OVERRIDE"), // required for Qt::FramelessWindowHint
+        xfitMan().atom("_NET_WM_WINDOW_TYPE_NORMAL")
+    };
+    XChangeProperty(QX11Info::display(), winId(), xfitMan().atom("_NET_WM_WINDOW_TYPE"),
+        XA_ATOM, 32, PropModeReplace, (unsigned char*)windowTypes, 3);
+#endif
     QWidget::show();
     xfitMan().moveWindowToDesktop(this->effectiveWinId(), -1);
 }
