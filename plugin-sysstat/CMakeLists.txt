@@ -39,4 +39,7 @@ LINK_LIBRARIES(${PLUGIN} ${SYSSTAT_LIBRARIES})
 #*******************************************
 include ("../BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${SYSSTAT_INCLUDE_DIRS}
+)
