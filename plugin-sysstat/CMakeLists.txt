@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 2.6)
 
 set(PLUGIN "panelsysstat")
 
-find_package(SysStat REQUIRED)
+if (USE_QT5)
+    find_package(SysStat-Qt5 REQUIRED)
+else()
+    find_package(SysStat REQUIRED)
+endif()
 
 set(HEADERS
     lxqtsysstat.h
