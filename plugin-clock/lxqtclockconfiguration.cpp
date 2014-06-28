@@ -26,7 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include <QtGui/QInputDialog>
+#include <QInputDialog>
 
 #include "lxqtclockconfiguration.h"
 #include "ui_lxqtclockconfiguration.h"

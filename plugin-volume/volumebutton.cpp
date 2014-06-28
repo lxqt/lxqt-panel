@@ -30,9 +30,9 @@
 #include "volumepopup.h"
 #include "audiodevice.h"
 
-#include <QtGui/QSlider>
-#include <QtGui/QMouseEvent>
-#include <QtCore/QProcess>
+#include <QSlider>
+#include <QMouseEvent>
+#include <QProcess>
 
 #include <XdgIcon>
 #include "../panel/ilxqtpanel.h"

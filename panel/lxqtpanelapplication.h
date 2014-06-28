@@ -30,6 +30,7 @@
 #define LXQTPANELAPPLICATION_H
 
 #include <LXQt/Application>
+#include "ilxqtpanelplugin.h"
 
 class LxQtPanel;
 namespace LxQt {
@@ -42,7 +43,7 @@ class LxQtPanelApplication : public LxQt::Application
 public:
     explicit LxQtPanelApplication(int& argc, char** argv, const QString &configFile);
     ~LxQtPanelApplication();
-    virtual bool x11EventFilter(XEvent* event);
+    virtual bool x11EventFilter(XEventType* event);
 
     int count() { return mPanels.count(); }
     LxQt::Settings *settings() { return mSettings; }

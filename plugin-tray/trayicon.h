@@ -29,9 +29,9 @@
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
-#include <QtCore/QObject>
-#include <QtGui/QFrame>
-#include <QtCore/QList>
+#include <QObject>
+#include <QFrame>
+#include <QList>
 
 #include <X11/X.h>
 #include <X11/extensions/Xdamage.h>

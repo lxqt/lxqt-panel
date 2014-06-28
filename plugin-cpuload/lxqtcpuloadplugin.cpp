@@ -32,7 +32,9 @@
 
 #include <QVBoxLayout>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(cpuload, LxQtCpuLoadPluginLibrary)
+#endif
 
 LxQtCpuLoadPlugin::LxQtCpuLoadPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),

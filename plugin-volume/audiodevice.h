@@ -28,7 +28,7 @@
 #ifndef AUDIODEVICE_H
 #define AUDIODEVICE_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class AudioEngine;
 

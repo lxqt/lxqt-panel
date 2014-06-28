@@ -30,7 +30,7 @@
 #include "calendar_utils.h"
 #include "config.h"
 
-#include <QtCore/QtGlobal>
+#include <QtGlobal>
 
 
 #if QT_VERSION >= 0x040800
@@ -53,7 +53,7 @@ Qt::DayOfWeek firstDayOfWeek()
 
 #include <langinfo.h>
 #include <locale.h>
-#include <QtCore/QDebug>
+#include <QDebug>
 
 Qt::DayOfWeek firstDayOfWeek()
 {

@@ -31,9 +31,9 @@
 #define LXQTTASKBAR_H
 
 #include "lxqttaskbarconfiguration.h"
-#include <QtGui/QFrame>
-#include <QtGui/QBoxLayout>
-#include <QtCore/QHash>
+#include <QFrame>
+#include <QBoxLayout>
+#include <QHash>
 #include <X11/Xlib.h>
 #include "../panel/ilxqtpanel.h"
 
@@ -51,7 +51,7 @@ public:
     explicit LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
     virtual ~LxQtTaskBar();
 
-    virtual void x11EventFilter(XEvent* event);
+    virtual void x11EventFilter(XEventType* event);
     virtual void settingsChanged();
 
     void realign();

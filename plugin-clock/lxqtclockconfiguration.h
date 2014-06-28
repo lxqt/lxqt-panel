@@ -29,11 +29,11 @@
 #ifndef LXQTCLOCKCONFIGURATION_H
 #define LXQTCLOCKCONFIGURATION_H
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
-#include <QtGui/QButtonGroup>
-#include <QtCore/QLocale>
-#include <QtCore/QDateTime>
+#include <QDialog>
+#include <QAbstractButton>
+#include <QButtonGroup>
+#include <QLocale>
+#include <QDateTime>
 
 #include <LXQt/Settings>
 

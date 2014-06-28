@@ -27,10 +27,10 @@
 
 
 #include "popupmenu.h"
-#include <QtGui/QWidgetAction>
-#include <QtGui/QToolButton>
-#include <QtCore/QEvent>
-#include <QtGui/QKeyEvent>
+#include <QWidgetAction>
+#include <QToolButton>
+#include <QEvent>
+#include <QKeyEvent>
 
 static const char POPUPMENU_TITLE[] = "POPUP_MENU_TITLE_OBJECT_NAME";
 

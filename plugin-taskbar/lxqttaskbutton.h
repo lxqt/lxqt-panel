@@ -29,9 +29,9 @@
 #ifndef LXQTTASKBUTTON_H
 #define LXQTTASKBUTTON_H
 
-#include <QtGui/QToolButton>
-#include <QtCore/QHash>
-#include <QtGui/QProxyStyle>
+#include <QToolButton>
+#include <QHash>
+#include <QProxyStyle>
 
 #include <X11/X.h>
 #include <X11/Xlib.h>

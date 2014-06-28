@@ -31,7 +31,7 @@
 
 #include <LXQt/Settings>
 
-#include <QtGui/QDialog>
+#include <QDialog>
 
 class QSettings;
 class QAbstractButton;

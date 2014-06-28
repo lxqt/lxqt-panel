@@ -30,7 +30,7 @@
 
 #include <unicode/unistr.h>
 
-#include <QtGui/QLabel>
+#include <QLabel>
 
 #include <LXQt/RotatedWidget>
 

@@ -155,9 +155,9 @@ function(lxqt_translate_ts _qmFiles)
     # translate.h file *************************************
     file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/lxqttranslate.h
         "#ifndef LXQT_TRANSLATE_H\n"
-        "#include <QtCore/QLocale>\n"
-        "#include <QtCore/QTranslator>\n"
-        "#include <QtCore/QLibraryInfo>\n"
+        "#include <QLocale>\n"
+        "#include <QTranslator>\n"
+        "#include <QLibraryInfo>\n"
         "class LxQtTranslator {\n"
         "public:\n"
         "  static void translate()\n"

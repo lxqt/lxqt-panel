@@ -29,10 +29,10 @@
 #ifndef LXQTPANELLAYOUT_H
 #define LXQTPANELLAYOUT_H
 
-#include <QtGui/QLayout>
-#include <QtCore/QList>
-#include <QtGui/QWidget>
-#include <QtGui/QLayoutItem>
+#include <QLayout>
+#include <QList>
+#include <QWidget>
+#include <QLayoutItem>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 

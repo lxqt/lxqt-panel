@@ -29,8 +29,8 @@
 #include "lxqtsysstatcolours.h"
 #include "ui_lxqtsysstatcolours.h"
 
-#include <QtCore/QSignalMapper>
-#include <QtGui/QColorDialog>
+#include <QSignalMapper>
+#include <QColorDialog>
 
 
 LxQtSysStatColours::LxQtSysStatColours(QWidget *parent) :

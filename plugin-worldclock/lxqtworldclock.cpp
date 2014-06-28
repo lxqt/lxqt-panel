@@ -34,21 +34,22 @@
 #include <unicode/timezone.h>
 #include <unicode/uclean.h>
 
-#include <QtCore/QLocale>
-#include <QtCore/QTimer>
-#include <QtCore/QScopedArrayPointer>
-#include <QtCore/QDate>
-//#include <QtCore/QDebug>
-#include <QtGui/QWheelEvent>
-#include <QtGui/QCalendarWidget>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QDialog>
+#include <QLocale>
+#include <QTimer>
+#include <QScopedArrayPointer>
+#include <QDate>
+//#include <QDebug>
+#include <QWheelEvent>
+#include <QCalendarWidget>
+#include <QDesktopWidget>
+#include <QDialog>
 #include <QHBoxLayout>
 
 #include <time.h>
 
-
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(panelworldclock, LxQtWorldClockLibrary)
+#endif
 
 size_t LxQtWorldClock::instanceCounter = 0;
 

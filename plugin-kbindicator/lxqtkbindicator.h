@@ -61,7 +61,7 @@ protected slots:
 
 protected:
     bool getLockStatus(int mBit);
-    virtual void x11EventFilter(XEvent* event);
+    virtual void x11EventFilter(XEventType* event);
 
 private:
     QLabel *mContent;

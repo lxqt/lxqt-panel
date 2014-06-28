@@ -30,7 +30,7 @@
 #ifndef LXQTQUICKLAUNCHBUTTON_H
 #define LXQTQUICKLAUNCHBUTTON_H
 
-#include <QtGui/QToolButton>
+#include <QToolButton>
 #include <QMimeData>
 #include "quicklaunchaction.h"
 

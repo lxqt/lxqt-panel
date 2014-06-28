@@ -28,11 +28,11 @@
 #ifndef LXQT_COLORPICKER_H
 #define LXQT_COLORPICKER_H
 
-#include <QtGui/QApplication>
-#include <QtGui/QFontMetrics>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QLineEdit>
-#include <QtGui/QToolButton>
+#include <QApplication>
+#include <QFontMetrics>
+#include <QDesktopWidget>
+#include <QLineEdit>
+#include <QToolButton>
 #include <QFrame>
 
 #include "../panel/ilxqtpanelplugin.h"

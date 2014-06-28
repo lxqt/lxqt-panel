@@ -44,7 +44,7 @@ public:
     virtual QString themeId() const { return "Tray"; }
     virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
 
-    virtual void x11EventFilter(XEvent* event);
+    virtual void x11EventFilter(XEventType* event);
     void realign();
 
     bool isSeparate() const { return true; }

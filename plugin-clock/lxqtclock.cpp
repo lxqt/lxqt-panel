@@ -32,19 +32,19 @@
 #include "lxqtclock.h"
 #include "calendar_utils.h"
 
-#include <QtGui/QCalendarWidget>
-#include <QtGui/QDialog>
-#include <QtGui/QLabel>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QMouseEvent>
+#include <QCalendarWidget>
+#include <QDialog>
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QMouseEvent>
 
-#include <QtCore/QDateTime>
-#include <QtCore/QTimer>
-#include <QtCore/QPoint>
-#include <QtCore/QRect>
+#include <QDateTime>
+#include <QTimer>
+#include <QPoint>
+#include <QRect>
 
-#include <QtCore/QDebug>
+#include <QDebug>
 
 /**
  * @file lxqtclock.cpp
@@ -52,7 +52,10 @@
  * @author Christopher "VdoP" Regali
  * @author Kuzma Shapran
  */
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(clock, LxQtClockPluginLibrary)
+#endif
 
 /**
  * @brief constructor

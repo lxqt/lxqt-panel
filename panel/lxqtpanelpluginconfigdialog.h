@@ -29,8 +29,8 @@
 #ifndef LXQTPANELPLUGINCONFIGDIALOG_H
 #define LXQTPANELPLUGINCONFIGDIALOG_H
 
-#include <QtGui/QAbstractButton>
-#include <QtGui/QDialog>
+#include <QAbstractButton>
+#include <QDialog>
 #include <LXQt/Settings>
 #include "lxqtpanelglobals.h"
 

@@ -29,7 +29,7 @@
 
 #include <QApplication>
 
-#include <QtCore/QDebug>
+#include <QDebug>
 #include <QToolButton>
 #include <QSettings>
 
@@ -37,7 +37,7 @@
 #include <LXQt/GridLayout>
 #include <XdgIcon>
 #include <LXQt/XfitMan>
-#include <QtCore/QList>
+#include <QList>
 
 #include <QDesktopWidget>
 #include <QWheelEvent>
@@ -214,7 +214,7 @@ void LxQtTaskBar::activeWindowChanged()
 /************************************************
 
  ************************************************/
-void LxQtTaskBar::x11EventFilter(XEvent* event)
+void LxQtTaskBar::x11EventFilter(XEventType* event)
 {
     switch (event->type)
     {

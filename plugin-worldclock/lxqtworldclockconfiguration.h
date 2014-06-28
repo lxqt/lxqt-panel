@@ -31,10 +31,10 @@
 
 #include <LXQt/Settings>
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
-#include <QtGui/QFont>
-#include <QtCore/QMap>
+#include <QDialog>
+#include <QAbstractButton>
+#include <QFont>
+#include <QMap>
 
 
 namespace Ui {

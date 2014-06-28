@@ -29,9 +29,9 @@
 #define LXQTVOLUME_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QtGui/QToolButton>
+#include <QToolButton>
 
-#include <QtGui/QSlider>
+#include <QSlider>
 
 class VolumeButton;
 class AudioEngine;

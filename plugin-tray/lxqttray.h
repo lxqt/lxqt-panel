@@ -58,7 +58,7 @@ public:
     void setIconSize(QSize iconSize);
 
     /// This handles the events we get from the LxQtplugin subsystem
-    virtual void x11EventFilter(XEvent* event);
+    virtual void x11EventFilter(XEventType* event);
 
     void realign();
 

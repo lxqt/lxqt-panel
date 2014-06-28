@@ -28,11 +28,11 @@
 
 #include "lxqtsensorsconfiguration.h"
 #include "ui_lxqtsensorsconfiguration.h"
-#include <QtCore/QStringList>
-#include <QtGui/QPushButton>
-#include <QtGui/QCheckBox>
-#include <QtGui/QColorDialog>
-#include <QtCore/QDebug>
+#include <QStringList>
+#include <QPushButton>
+#include <QCheckBox>
+#include <QColorDialog>
+#include <QDebug>
 
 LxQtSensorsConfiguration::LxQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),

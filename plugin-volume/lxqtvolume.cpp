@@ -39,13 +39,15 @@
 #endif
 #include "ossengine.h"
 
-#include <QtGui/QMessageBox>
+#include <QMessageBox>
 #include <QtDebug>
 #include <XdgIcon>
 #include <lxqt-globalkeys.h>
 #include <LXQt/Notification>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(volume, LxQtVolumePluginLibrary)
+#endif
 
 #define DEFAULT_UP_SHORTCUT "XF86AudioRaiseVolume"
 #define DEFAULT_DOWN_SHORTCUT "XF86AudioLowerVolume"

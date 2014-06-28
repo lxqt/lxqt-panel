@@ -29,7 +29,7 @@
 #include "pluginmoveprocessor.h"
 #include "plugin.h"
 #include "lxqtpanellayout.h"
-#include <QtGui/QMouseEvent>
+#include <QMouseEvent>
 
 
 /************************************************

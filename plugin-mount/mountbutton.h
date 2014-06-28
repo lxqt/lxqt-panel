@@ -29,7 +29,7 @@
 #ifndef MOUNTBUTTON_H
 #define MOUNTBUTTON_H
 
-#include <QtGui/QToolButton>
+#include <QToolButton>
 
 class MountButton : public QToolButton
 {

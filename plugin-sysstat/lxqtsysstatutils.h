@@ -28,7 +28,7 @@
 #ifndef LXQTSYSSTATUTILS_HPP
 #define LXQTSYSSTATUTILS_HPP
 
-#include <QtCore/QString>
+#include <QString>
 
 namespace PluginSysStat
 {

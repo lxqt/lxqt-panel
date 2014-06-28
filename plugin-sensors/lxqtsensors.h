@@ -30,7 +30,7 @@
 
 #include "sensors.h"
 #include <QFrame>
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <QProgressBar>
 #include <sensors/sensors.h>
 #include <QSet>

@@ -61,7 +61,7 @@ public:
     QString themeId() const { return "DesktopSwitch"; }
     QWidget *widget() { return &mWidget; }
     bool isSeparate() const { return true; }
-    virtual void x11EventFilter(XEvent* event);
+    virtual void x11EventFilter(XEventType* event);
     void realign();
 
 private:

@@ -31,8 +31,8 @@
 #define LXQTQUICKLAUNCH_H
 
 #include "../panel/lxqtpanel.h"
-#include <QtCore/QHash>
-#include <QtCore/QString>
+#include <QHash>
+#include <QString>
 
 class XdgDesktopFile;
 class QuickLaunchAction;

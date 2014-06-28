@@ -79,7 +79,7 @@ void LxQtPanelApplication::addPanel(const QString &name)
             this, SLOT(removePanel(LxQtPanel*)));
 }
 
-bool LxQtPanelApplication::x11EventFilter(XEvent * event)
+bool LxQtPanelApplication::x11EventFilter(XEventType * event)
 {
     foreach(LxQtPanel *i, mPanels)
         i->x11EventFilter(event);

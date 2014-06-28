@@ -30,7 +30,7 @@
 #include "ui_lxqtmainmenuconfiguration.h"
 #include <XdgMenu>
 
-#include <QtGui/QFileDialog>
+#include <QFileDialog>
 
 LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent) :
     QDialog(parent),

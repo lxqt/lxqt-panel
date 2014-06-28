@@ -29,9 +29,9 @@
 #ifndef PLUGINMOVEPROCESSOR_H
 #define PLUGINMOVEPROCESSOR_H
 
-#include <QtGui/QWidget>
-#include <QtCore/QVariantAnimation>
-#include <QtCore/QEvent>
+#include <QWidget>
+#include <QVariantAnimation>
+#include <QEvent>
 #include "plugin.h"
 #include "lxqtpanelglobals.h"
 

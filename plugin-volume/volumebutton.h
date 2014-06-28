@@ -28,8 +28,8 @@
 #ifndef VOLUMEBUTTON_H
 #define VOLUMEBUTTON_H
 
-#include <QtGui/QToolButton>
-#include <QtCore/QTimer>
+#include <QToolButton>
+#include <QTimer>
 
 class VolumePopup;
 class ILxQtPanel;

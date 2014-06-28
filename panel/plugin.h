@@ -65,7 +65,7 @@ public:
     QString settingsGroup() const { return mSettingsGroup; }
 
     void saveSettings();
-    void x11EventFilter(XEvent* event);
+    void x11EventFilter(XEventType* event);
 
     QMenu* popupMenu() const;
     ILxQtPanelPlugin * iPlugin() const { return mPlugin; }

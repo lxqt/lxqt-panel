@@ -32,13 +32,15 @@
 #include <sysstat/memstat.h>
 #include <sysstat/netstat.h>
 
-#include <QtCore/QTimer>
-#include <QtCore/qmath.h>
-#include <QtGui/QPainter>
-#include <QtGui/QResizeEvent>
+#include <QTimer>
+#include <qmath.h>
+#include <QPainter>
+#include <QResizeEvent>
 #include <QVBoxLayout>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(panelsysstat, LxQtSysStatLibrary)
+#endif
 
 LxQtSysStat::LxQtSysStat(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),

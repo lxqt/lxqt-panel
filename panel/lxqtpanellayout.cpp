@@ -27,14 +27,14 @@
 
 
 #include "lxqtpanellayout.h"
-#include <QtCore/QSize>
-#include <QtGui/QWidget>
-#include <QtCore/QEvent>
-#include <QtGui/QCursor>
-#include <QtGui/QApplication>
+#include <QSize>
+#include <QWidget>
+#include <QEvent>
+#include <QCursor>
+#include <QApplication>
 #include <QDebug>
-#include <QtCore/QPoint>
-#include <QtGui/QMouseEvent>
+#include <QPoint>
+#include <QMouseEvent>
 #include <QtAlgorithms>
 #include <QPoint>
 #include <QMouseEvent>

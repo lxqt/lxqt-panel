@@ -28,7 +28,7 @@
 
 #include <QGridLayout>
 #include <QLabel>
-#include <QtGui/QDesktopWidget>
+#include <QDesktopWidget>
 #include <LXQtMount/Mount>
 #include "menudiskitem.h"
 #include "popup.h"

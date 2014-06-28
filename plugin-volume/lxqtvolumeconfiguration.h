@@ -30,7 +30,7 @@
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 
-#include <QtCore/QList>
+#include <QList>
 
 #define SETTINGS_MIXER_COMMAND          "mixerCommand"
 #define SETTINGS_SHOW_ON_LEFTCLICK      "showOnLeftClick"

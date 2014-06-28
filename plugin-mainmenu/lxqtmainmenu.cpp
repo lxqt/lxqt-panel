@@ -34,8 +34,8 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QAction>
-#include <QtCore/QTimer>
-#include <QtGui/QMessageBox>
+#include <QTimer>
+#include <QMessageBox>
 #include <LXQt/PowerManager>
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
@@ -54,7 +54,9 @@
 
 #include <QCursor>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(mainmenu, LxQtMainMenuPluginLibrary)
+#endif
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 

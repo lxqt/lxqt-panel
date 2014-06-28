@@ -25,13 +25,14 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtGui/QMouseEvent>
+#include <QMouseEvent>
 #include <QHBoxLayout>
 
 #include "colorpicker.h"
 
-
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(colorpicker, ColorPickerLibrary)
+#endif
 
 ColorPicker::ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),

@@ -29,9 +29,9 @@
 #include "lxqtsensorsconfiguration.h"
 #include "../panel/ilxqtpanelplugin.h"
 #include "../panel/ilxqtpanel.h"
-#include <QtGui/QMessageBox>
-#include <QtGui/QPalette>
-#include <QtCore/QDebug>
+#include <QMessageBox>
+#include <QPalette>
+#include <QDebug>
 #include <QBoxLayout>
 
 

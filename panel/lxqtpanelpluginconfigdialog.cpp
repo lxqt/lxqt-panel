@@ -29,9 +29,9 @@
 #include "lxqtpanelpluginconfigdialog.h"
 
 
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QComboBox>
+#include <QButtonGroup>
+#include <QDialogButtonBox>
+#include <QComboBox>
 #include <QDebug>
 /************************************************
 

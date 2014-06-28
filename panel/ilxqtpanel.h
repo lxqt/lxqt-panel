@@ -33,6 +33,13 @@
 
 class ILxQtPanelPlugin;
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <xcb/xcb.h>
+typedef xcb_generic_event_t XEventType;
+#else
+typedef XEvent XEventType;
+#endif
+
 /**
  **/
 class LXQT_PANEL_API ILxQtPanel

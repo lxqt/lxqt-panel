@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtCore/QRegExp>
-#include <QtCore/qmath.h>
+#include <QRegExp>
+#include <qmath.h>
 
 #include "lxqtsysstatutils.h"
 

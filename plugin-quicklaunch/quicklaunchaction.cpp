@@ -29,11 +29,11 @@
 #include "quicklaunchaction.h"
 
 #include <QtDebug>
-#include <QtCore/QProcess>
-#include <QtCore/QUrl>
-#include <QtGui/QMessageBox>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QFileIconProvider>
+#include <QProcess>
+#include <QUrl>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QFileIconProvider>
 
 #include <XdgDesktopFile>
 #include <XdgIcon>

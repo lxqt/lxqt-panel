@@ -41,7 +41,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QApplication>
-#include <QtCore/QCryptographicHash>
+#include <QCryptographicHash>
 
 #include <LXQt/Settings>
 #include <XdgIcon>
@@ -246,7 +246,7 @@ void Plugin::saveSettings()
 /************************************************
 
  ************************************************/
-void Plugin::x11EventFilter(XEvent *event)
+void Plugin::x11EventFilter(XEventType *event)
 {
     mPlugin->x11EventFilter(event);
 }
@@ -363,7 +363,11 @@ void Plugin::realign()
  ************************************************/
 void Plugin::showConfigureDialog()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    static QPointer<QDialog> ref;
+#else
     static QWeakPointer<QDialog> ref;
+#endif
     QDialog *dialog = ref.data();
 
     if (!dialog)

@@ -31,7 +31,7 @@
 #include "../lxqtpanellimits.h"
 
 #include <QDebug>
-#include <QtGui/QDesktopWidget>
+#include <QDesktopWidget>
 
 #include <LXQt/XfitMan>
 

@@ -31,7 +31,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtsysstatconfiguration.h"
 
-#include <QtGui/QLabel>
+#include <QLabel>
 
 
 class LxQtSysStatTitle;

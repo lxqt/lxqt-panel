@@ -31,13 +31,13 @@
 
 #include <XdgIcon>
 
-#include <QtGui/QSlider>
-#include <QtGui/QPushButton>
-#include <QtGui/QStyleOptionButton>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QApplication>
-#include <QtGui/QDesktopWidget>
-#include <QtCore/QProcess>
+#include <QSlider>
+#include <QStyleOptionButton>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QProcess>
 
 VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint),

@@ -37,14 +37,14 @@
 #include <XdgMime>
 
 #include <QtDebug>
-#include <QtCore/QSettings>
-#include <QtCore/QUrl>
-#include <QtCore/QFileInfo>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QToolButton>
-#include <QtGui/QMessageBox>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QFileIconProvider>
+#include <QSettings>
+#include <QUrl>
+#include <QFileInfo>
+#include <QDragEnterEvent>
+#include <QToolButton>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QFileIconProvider>
 #include <QSettings>
 #include <QLabel>
 

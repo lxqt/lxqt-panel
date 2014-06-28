@@ -41,8 +41,9 @@
 
 using namespace LxQt;
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(DesktopSwitch, DesktopSwitchPluginLibrary)
-
+#endif
 
 DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -98,7 +99,7 @@ DesktopSwitch::~DesktopSwitch()
 {
 }
 
-void DesktopSwitch::x11EventFilter(XEvent* _event)
+void DesktopSwitch::x11EventFilter(XEventType* _event)
 {
     if (_event->type == PropertyNotify)
     {

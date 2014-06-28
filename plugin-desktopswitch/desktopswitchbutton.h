@@ -29,7 +29,7 @@
 #ifndef DESKTOPSWITCHBUTTON_H
 #define DESKTOPSWITCHBUTTON_H
 
-#include <QtGui/QToolButton>
+#include <QToolButton>
 
 
 namespace GlobalKeyShortcut

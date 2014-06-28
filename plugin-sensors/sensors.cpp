@@ -26,7 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "sensors.h"
-#include <QtCore/QDebug>
+#include <QDebug>
 
 QList<Chip> Sensors::mDetectedChips = QList<Chip>();
 int Sensors::mInstanceCounter = 0;

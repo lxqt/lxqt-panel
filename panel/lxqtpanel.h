@@ -29,9 +29,9 @@
 #ifndef LXQTPANEL_H
 #define LXQTPANEL_H
 
-#include <QtGui/QFrame>
-#include <QtCore/QString>
-#include <QtCore/QTimer>
+#include <QFrame>
+#include <QString>
+#include <QTimer>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 
@@ -67,7 +67,7 @@ public:
     void readSettings();
 
     void showPopupMenu(Plugin *plugin = 0);
-    void x11EventFilter(XEvent* event);
+    void x11EventFilter(XEventType* event);
 
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }

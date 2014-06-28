@@ -30,7 +30,7 @@
 #define DOMPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QtGui/QToolButton>
+#include <QToolButton>
 
 class DomPlugin: public QObject, public ILxQtPanelPlugin
 {

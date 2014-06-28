@@ -29,14 +29,14 @@
 // Warning: order of those include is important.
 #include <QDebug>
 #include <QApplication>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QBitmap>
-#include <QtGui/QStyle>
+#include <QResizeEvent>
+#include <QPainter>
+#include <QBitmap>
+#include <QStyle>
 
 #include "../panel/lxqtpanel.h"
 #include "trayicon.h"
-#include <QtGui/QX11Info>
+#include <QX11Info>
 #include <LXQt/XfitMan>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>

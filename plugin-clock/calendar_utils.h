@@ -30,7 +30,7 @@
 #define LXQTCLOCK_CALENDAR_UTILS_H
 
 
-#include <QtCore/QLocale>
+#include <QLocale>
 
 
 Qt::DayOfWeek firstDayOfWeek();

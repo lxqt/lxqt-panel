@@ -28,8 +28,8 @@
 #ifndef LXQTTASKBARCONFIGURATION_H
 #define LXQTTASKBARCONFIGURATION_H
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
+#include <QDialog>
+#include <QAbstractButton>
 
 #include <LXQt/Settings>
 

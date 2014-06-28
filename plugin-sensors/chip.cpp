@@ -26,7 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "chip.h"
-#include <QtCore/QDebug>
+#include <QDebug>
 
 Chip::Chip(const sensors_chip_name* sensorsChipName)
     : mSensorsChipName(sensorsChipName)

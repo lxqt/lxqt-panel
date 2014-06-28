@@ -28,7 +28,7 @@
 #ifndef VOLUMEPOPUP_H
 #define VOLUMEPOPUP_H
 
-#include <QtGui/QDialog>
+#include <QDialog>
 
 class QSlider;
 class QPushButton;

@@ -40,9 +40,9 @@
 
 #include <LXQt/XfitMan>
 
-#include <QtCore/QDebug>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QMenu>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QMenu>
 #include <XdgIcon>
 
 #include <XdgDirs>
@@ -710,7 +710,7 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
 /************************************************
 
  ************************************************/
-void LxQtPanel::x11EventFilter(XEvent* event)
+void LxQtPanel::x11EventFilter(XEventType* event)
 {
     QList<Plugin*>::iterator i;
     for (i = mPlugins.begin(); i != mPlugins.end(); ++i)

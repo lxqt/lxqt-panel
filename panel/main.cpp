@@ -26,10 +26,10 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include <QtGui/QApplication>
-#include <QtGui/QIcon>
-#include <QtCore/QDebug>
-#include <QtCore/QLibraryInfo>
+#include <QApplication>
+#include <QIcon>
+#include <QDebug>
+#include <QLibraryInfo>
 #include <QDirIterator>
 #include <csignal>
 

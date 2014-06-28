@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtGui/QToolButton>
-#include <QtGui/QMessageBox>
+#include <QToolButton>
+#include <QMessageBox>
 #include <QHBoxLayout>
 #include <LXQt/ScreenSaver>
 #include <LXQt/Notification>
@@ -34,8 +34,9 @@
 
 #include "panelscreensaver.h"
 
-
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(screensaver, PanelScreenSaverLibrary)
+#endif
 
 #define DEFAULT_SHORTCUT "Control+Alt+L"
 

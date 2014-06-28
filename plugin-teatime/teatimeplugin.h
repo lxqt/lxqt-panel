@@ -29,7 +29,7 @@
 #define TEATIMEPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QtGui/QToolButton>
+#include <QToolButton>
 
 class TeaTimePlugin: public QObject, public ILxQtPanelPlugin
 {

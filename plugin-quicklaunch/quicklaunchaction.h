@@ -29,7 +29,7 @@
 #ifndef QUICKLAUNCHACTION_H
 #define QUICKLAUNCHACTION_H
 
-#include <QtGui/QAction>
+#include <QAction>
 
 class XdgDesktopFile;
 

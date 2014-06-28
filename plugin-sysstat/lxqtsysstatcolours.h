@@ -29,11 +29,11 @@
 #ifndef LXQTSYSSTATCOLOURS_HPP
 #define LXQTSYSSTATCOLOURS_HPP
 
-#include <QtGui/QDialog>
+#include <QDialog>
 
-#include <QtCore/QMap>
-#include <QtCore/QString>
-#include <QtGui/QColor>
+#include <QMap>
+#include <QString>
+#include <QColor>
 
 
 namespace Ui {

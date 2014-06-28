@@ -49,7 +49,7 @@ public:
     QDialog *configureDialog();
 
     void settingsChanged() { mTaskBar->settingsChanged(); }
-    void x11EventFilter(XEvent *event) { mTaskBar->x11EventFilter(event); }
+    void x11EventFilter(XEventType *event) { mTaskBar->x11EventFilter(event); }
     void realign();
 
     bool isSeparate() const { return true; }

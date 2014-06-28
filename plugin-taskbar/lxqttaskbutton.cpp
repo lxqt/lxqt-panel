@@ -28,11 +28,11 @@
 
 #include <QDebug>
 #include <XdgIcon>
-#include <QtCore/QTimer>
-#include <QtGui/QMenu>
-#include <QtGui/QAction>
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QPainter>
+#include <QTimer>
+#include <QMenu>
+#include <QAction>
+#include <QContextMenuEvent>
+#include <QPainter>
 
 #include "lxqttaskbutton.h"
 #include <LXQt/XfitMan>

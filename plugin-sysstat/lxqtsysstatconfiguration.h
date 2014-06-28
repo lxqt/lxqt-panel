@@ -31,9 +31,9 @@
 
 #include <LXQt/Settings>
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
-#include <QtCore/QMap>
+#include <QDialog>
+#include <QAbstractButton>
+#include <QMap>
 
 
 namespace Ui {

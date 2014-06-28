@@ -25,12 +25,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
-#include <QtGui/QStylePainter>
-#include <QtGui/QStyleOptionToolButton>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QApplication>
+#include <QAction>
+#include <QMenu>
+#include <QStylePainter>
+#include <QStyleOptionToolButton>
+#include <QMouseEvent>
+#include <QApplication>
 #include <XdgIcon>
 
 #include "quicklaunchbutton.h"

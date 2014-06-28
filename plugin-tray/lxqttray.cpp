@@ -48,7 +48,7 @@
 #undef Bool // defined as int in X11/Xlib.h
 
 #include <LXQt/XfitMan>
-#include <QtCore/QTimer>
+#include <QTimer>
 #include "../panel/ilxqtpanelplugin.h"
 
 #define _NET_SYSTEM_TRAY_ORIENTATION_HORZ 0
@@ -97,7 +97,7 @@ LxQtTray::~LxQtTray()
 /************************************************
 
  ************************************************/
-void LxQtTray::x11EventFilter(XEvent* event)
+void LxQtTray::x11EventFilter(XEventType* event)
 {
     TrayIcon* icon;
 

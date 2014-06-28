@@ -29,8 +29,8 @@
 #ifndef LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
 #define LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
+#include <QDialog>
+#include <QAbstractButton>
 
 
 namespace Ui {

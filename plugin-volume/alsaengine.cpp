@@ -29,8 +29,8 @@
 
 #include "alsadevice.h"
 
-#include <QtCore/QMetaType>
-#include <QtCore/QSocketNotifier>
+#include <QMetaType>
+#include <QSocketNotifier>
 #include <QtDebug>
 
 AlsaEngine *AlsaEngine::m_instance = 0;

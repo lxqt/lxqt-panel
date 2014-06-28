@@ -30,10 +30,10 @@
 
 #include "audioengine.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QTimer>
+#include <QObject>
+#include <QList>
+#include <QMap>
+#include <QTimer>
 
 #include <alsa/asoundlib.h>
 

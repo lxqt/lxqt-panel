@@ -36,7 +36,7 @@
 #include <menu-cache/menu-cache.h>
 #endif
 
-#include <QtGui/QLabel>
+#include <QLabel>
 #include <QToolButton>
 #include <QDomElement>
 #include <QAction>

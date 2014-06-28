@@ -32,8 +32,8 @@
 
 #include <alsa/asoundlib.h>
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QObject>
+#include <QString>
 
 class AlsaDevice : public AudioDevice
 {

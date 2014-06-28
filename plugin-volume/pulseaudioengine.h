@@ -30,10 +30,10 @@
 
 #include "audioengine.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QList>
-#include <QtCore/QTimer>
-#include <QtCore/QMap>
+#include <QObject>
+#include <QList>
+#include <QTimer>
+#include <QMap>
 
 #include <pulse/pulseaudio.h>
 

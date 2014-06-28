@@ -30,7 +30,9 @@
 #include "lxqtsensors.h"
 #include "lxqtsensorsconfiguration.h"
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(sensors, LxQtSensorsPluginLibrary)
+#endif
 
 LxQtSensorsPlugin::LxQtSensorsPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),

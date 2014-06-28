@@ -29,7 +29,9 @@
 #include "lxqttrayplugin.h"
 #include "lxqttray.h"
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(lxqttray, LxQtTrayPluginLibrary)
+#endif
 
 LxQtTrayPlugin::LxQtTrayPlugin(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -48,7 +50,7 @@ QWidget *LxQtTrayPlugin::widget()
     return mWidget;
 }
 
-void LxQtTrayPlugin::x11EventFilter(XEvent *event)
+void LxQtTrayPlugin::x11EventFilter(XEventType *event)
 {
     mWidget->x11EventFilter(event);
 }

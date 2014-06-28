@@ -29,10 +29,10 @@
 #include "lxqtnetworkmonitorconfiguration.h"
 #include "../panel/ilxqtpanelplugin.h"
 
-#include <QtCore/QEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
-#include <QtGui/QLinearGradient>
+#include <QEvent>
+#include <QPainter>
+#include <QPixmap>
+#include <QLinearGradient>
 #include <QHBoxLayout>
 
 extern "C" {

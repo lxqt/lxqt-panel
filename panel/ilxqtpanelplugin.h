@@ -30,7 +30,7 @@
 #define ILXQTPANELPLUGIN_H
 
 #include <QtPlugin>
-#include <QtGui/qwindowdefs.h> // For XEvent
+#include <qwindowdefs.h> // For XEvent
 #include <QSettings>
 #include <LXQt/PluginInfo>
 #include "ilxqtpanel.h"
@@ -136,7 +136,7 @@ public:
 
     The default implementation do nothing.
     **/
-    virtual void x11EventFilter(XEvent *event) {}
+    virtual void x11EventFilter(XEventType *event) {}
 
     /**
     Returns the plugin settings dialog. Reimplement this function if your plugin has it.

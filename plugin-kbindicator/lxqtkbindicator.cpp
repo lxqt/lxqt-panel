@@ -29,11 +29,13 @@
 
 #include <X11/XKBlib.h>
 
-#include <QtGui/QLabel>
-#include <QtGui/QX11Info>
+#include <QLabel>
+#include <QX11Info>
 #include <QTimer>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(panelkbindicator, LxQtKbIndicatorLibrary)
+#endif
 
 LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -112,7 +114,7 @@ bool LxQtKbIndicator::getLockStatus(int bit)
     return state;
 }
 
-void LxQtKbIndicator::x11EventFilter(XEvent* event)
+void LxQtKbIndicator::x11EventFilter(XEventType* event)
 {
     XkbEvent* xkbEvent = reinterpret_cast<XkbEvent*>(event);
 

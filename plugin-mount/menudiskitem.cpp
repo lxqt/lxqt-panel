@@ -25,12 +25,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtGui/QDesktopServices>
+#include <QDesktopServices>
 #include "menudiskitem.h"
 #include <LXQtMount/Mount>
 #include <XdgIcon>
-#include <QtCore/QDebug>
-#include <QtCore/QUrl>
+#include <QDebug>
+#include <QUrl>
 #include <QHBoxLayout>
 #include <QToolButton>
 #include <QEvent>

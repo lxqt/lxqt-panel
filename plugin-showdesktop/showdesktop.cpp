@@ -25,9 +25,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtGui/QToolButton>
-#include <QtGui/QAction>
-#include <QtGui/QX11Info>
+#include <QToolButton>
+#include <QAction>
+#include <QX11Info>
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
 #include <LXQt/XfitMan>
@@ -40,7 +40,9 @@
 
 using namespace LxQt;
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(showdesktop, ShowDesktopLibrary)
+#endif
 
 #define DEFAULT_SHORTCUT "Control+Alt+D"
 

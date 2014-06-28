@@ -29,7 +29,7 @@
 
 #include "audiodevice.h"
 
-#include <QtCore/QMetaType>
+#include <QMetaType>
 #include <QtDebug>
 
 //#define PULSEAUDIO_ENGINE_DEBUG

@@ -26,7 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "feature.h"
-#include <QtCore/QDebug>
+#include <QDebug>
 
 Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature* sensorsFeature)
     : mSensorsChipName(sensorsChipName),

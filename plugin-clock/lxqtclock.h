@@ -35,7 +35,7 @@
 #include "lxqtclockconfiguration.h"
 #include <LXQt/RotatedWidget>
 
-#include <QtCore/QString>
+#include <QString>
 
 class QLabel;
 class QDialog;
