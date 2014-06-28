@@ -31,9 +31,9 @@
 #include "lxqtsysstatutils.h"
 #include "lxqtsysstatcolours.h"
 
-#include <sysstat/cpustat.h>
-#include <sysstat/memstat.h>
-#include <sysstat/netstat.h>
+#include <SysStat/CpuStat>
+#include <SysStat/MemStat>
+#include <SysStat/NetStat>
 
 
 LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget *parent) :

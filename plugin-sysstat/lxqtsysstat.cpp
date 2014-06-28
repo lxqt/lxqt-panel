@@ -28,9 +28,9 @@
 #include "lxqtsysstat.h"
 #include "lxqtsysstatutils.h"
 
-#include <sysstat/cpustat.h>
-#include <sysstat/memstat.h>
-#include <sysstat/netstat.h>
+#include <SysStat/CpuStat>
+#include <SysStat/MemStat>
+#include <SysStat/NetStat>
 
 #include <QTimer>
 #include <qmath.h>
