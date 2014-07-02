@@ -46,10 +46,13 @@
 #define SETTINGS_DEFAULT_STEP                   3
 #ifdef USE_PULSEAUDIO
     #define SETTINGS_DEFAULT_MIXER_COMMAND      "pavucontrol"
-    #define SETTINGS_DEFAULT_AUDIO_ENGINE       "pulseaudio"
-#else
+    #define SETTINGS_DEFAULT_AUDIO_ENGINE       "PulseAudio"
+#elif defined(USE_ALSA)
     #define SETTINGS_DEFAULT_MIXER_COMMAND      "qasmixer"
-    #define SETTINGS_DEFAULT_AUDIO_ENGINE       "alsa"
+    #define SETTINGS_DEFAULT_AUDIO_ENGINE       "Alsa"
+#else
+    #define SETTINGS_DEFAULT_MIXER_COMMAND      ""
+    #define SETTINGS_DEFAULT_AUDIO_ENGINE       "Oss"
 #endif
 #define SETTINGS_DEFAULT_IGNORE_MAX_VOLUME      false
 
