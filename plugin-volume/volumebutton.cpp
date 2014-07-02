@@ -96,7 +96,7 @@ void VolumeButton::enterEvent(QEvent *event)
 
 void VolumeButton::leaveEvent(QEvent *event)
 {
-    m_popupHideTimer.stop();
+    m_popupHideTimer.start();
 }
 
 void VolumeButton::wheelEvent(QWheelEvent *event)
@@ -136,10 +136,12 @@ void VolumeButton::showVolumeSlider()
     m_volumePopup->adjustSize();
     QRect pos = mPlugin->calculatePopupWindowPos(m_volumePopup->size());
     m_volumePopup->open(pos.topLeft(), Qt::TopLeftCorner);
+    m_volumePopup->activateWindow();
 }
 
 void VolumeButton::hideVolumeSlider()
 {
+    // qDebug() << "hideVolumeSlider";
     m_popupHideTimer.stop();
     m_volumePopup->hide();
 }

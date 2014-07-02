@@ -40,7 +40,7 @@
 #include <QProcess>
 
 VolumePopup::VolumePopup(QWidget* parent):
-    QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint),
+    QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     m_pos(0,0),
     m_anchor(Qt::TopLeftCorner),
     m_device(0)
@@ -83,6 +83,16 @@ VolumePopup::VolumePopup(QWidget* parent):
     connect(m_muteToggleButton, SIGNAL(clicked()), this, SLOT(handleMuteToggleClicked()));
 }
 
+bool VolumePopup::event(QEvent *event)
+{
+    if(event->type() == QEvent::WindowDeactivate)
+    {
+        // qDebug("QEvent::WindowDeactivate");
+        hide();
+    }
+    return QDialog::event(event);
+}
+
 void VolumePopup::enterEvent(QEvent *event)
 {
     emit mouseEntered();
@@ -90,6 +100,7 @@ void VolumePopup::enterEvent(QEvent *event)
 
 void VolumePopup::leaveEvent(QEvent *event)
 {
+    // qDebug("leaveEvent");
     emit mouseLeft();
 }
 
@@ -97,7 +108,7 @@ void VolumePopup::handleSliderValueChanged(int value)
 {
     if (!m_device)
         return;
-
+    // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
 }
 
@@ -111,7 +122,7 @@ void VolumePopup::handleMuteToggleClicked()
 
 void VolumePopup::handleDeviceVolumeChanged(int volume)
 {
-    m_volumeSlider->setValue(volume);
+    // m_volumeSlider->setValue(volume);
     updateStockIcon();
 }
 

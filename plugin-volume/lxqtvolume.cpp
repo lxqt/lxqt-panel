@@ -155,19 +155,19 @@ void LxQtVolume::settingsChanged()
     qDebug() << "settingsChanged" << engineName;
     if (!m_engine || m_engine->backendName() != engineName) {
 #if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
-        if (engineName == "PulseAudio")
+        if (engineName == QLatin1String("PulseAudio"))
             setAudioEngine(new PulseAudioEngine(this));
-        else if (engineName == "Alsa")
+        else if (engineName == QLatin1String("Alsa"))
             setAudioEngine(new AlsaEngine(this));
         else // fallback to OSS
             setAudioEngine(new OssEngine(this));
 #elif defined(USE_PULSEAUDIO)
-        if (engineName == "PulseAudio")
+        if (engineName == QLatin1String("PulseAudio"))
             setAudioEngine(new PulseAudioEngine(this));
         else // fallback to OSS
             setAudioEngine(new OssEngine(this));
 #elif defined(USE_ALSA)
-        if (engineName == "Alsa")
+        if (engineName == QLatin1String("Alsa"))
             setAudioEngine(new AlsaEngine(this));
         else // fallback to OSS
             setAudioEngine(new OssEngine(this));
@@ -232,7 +232,6 @@ QWidget *LxQtVolume::widget()
 
 void LxQtVolume::realign()
 {
-    m_volumeButton->hideVolumeSlider();
 }
 
 QDialog *LxQtVolume::configureDialog()

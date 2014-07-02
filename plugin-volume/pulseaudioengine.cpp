@@ -219,7 +219,7 @@ void PulseAudioEngine::commitDeviceVolume(AudioDevice *device)
     pa_volume_t v = (device->volume()/100.0) * m_maximumVolume;
     pa_cvolume tmpVolume = m_cVolumeMap.value(device);
     pa_cvolume *volume = pa_cvolume_set(&tmpVolume, tmpVolume.channels, v);
-
+qDebug() << "PulseAudioEngine::commitDeviceVolume" << v;
     pa_threaded_mainloop_lock(m_mainLoop);
 
     pa_operation *operation;
