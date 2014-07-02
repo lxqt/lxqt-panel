@@ -195,7 +195,8 @@ void LxQtVolume::settingsChanged()
 
 void LxQtVolume::updateConfigurationSinkList()
 {
-
+    if (m_engine && m_configDialog)
+        m_configDialog->setSinkList(m_engine->sinks());
 }
 
 void LxQtVolume::handleShortcutVolumeUp()
@@ -236,13 +237,15 @@ void LxQtVolume::realign()
 
 QDialog *LxQtVolume::configureDialog()
 {
-    LxQtVolumeConfiguration *configWindow = new LxQtVolumeConfiguration(*settings());
-    configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
+	if(!m_configDialog)
+	{
+		m_configDialog = new LxQtVolumeConfiguration(*settings());
+		m_configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
 
-    if (m_engine)
-       configWindow->setSinkList(m_engine->sinks());
-
-    return configWindow;
+		if (m_engine)
+		   m_configDialog->setSinkList(m_engine->sinks());
+	}
+    return m_configDialog;
 }
 
 #undef DEFAULT_UP_SHORTCUT

@@ -30,8 +30,8 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
-
 #include <QSlider>
+#include <QPointer>
 
 class VolumeButton;
 class AudioEngine;
@@ -43,6 +43,8 @@ namespace GlobalKeyShortcut
 {
 class Action;
 }
+
+class LxQtVolumeConfiguration;
 
 class LxQtVolume : public QObject, public ILxQtPanelPlugin
 {
@@ -74,6 +76,7 @@ private:
     GlobalKeyShortcut::Action *m_keyVolumeDown;
     GlobalKeyShortcut::Action *m_keyMuteToggle;
     LxQt::Notification *m_notification;
+    QPointer<LxQtVolumeConfiguration> m_configDialog;
 };
 
 

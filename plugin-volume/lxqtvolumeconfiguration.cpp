@@ -40,8 +40,6 @@ LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *p
     ui->setupUi(this);
 
     loadSettings();
-    connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
-    connect(ui->alsaRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
     connect(ui->ossRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
     connect(ui->devAddedCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(sinkSelectionChanged(int)));
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
@@ -51,11 +49,15 @@ LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *p
     connect(ui->stepSpinBox, SIGNAL(valueChanged(int)), this, SLOT(stepSpinBoxChanged(int)));
     connect(ui->ignoreMaxVolumeCheckBox, SIGNAL(toggled(bool)), this, SLOT(ignoreMaxVolumeCheckBoxChanged(bool)));
 
-#if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
-    ui->pulseAudioRadioButton->setVisible(true);
-    ui->alsaRadioButton->setVisible(true);
+#ifdef USE_PULSEAUDIO
+    connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
 #else
     ui->pulseAudioRadioButton->setVisible(false);
+#endif
+
+#ifdef USE_ALSA
+    connect(ui->alsaRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+#else
     ui->alsaRadioButton->setVisible(false);
 #endif
 }
@@ -90,13 +92,11 @@ void LxQtVolumeConfiguration::audioEngineChanged(bool checked)
         settings().setValue(SETTINGS_AUDIO_ENGINE, "Alsa");
     else
         settings().setValue(SETTINGS_AUDIO_ENGINE, "Oss");
-
-    // FIXME: need to update sinkList for different backends here.
 }
 
 void LxQtVolumeConfiguration::sinkSelectionChanged(int index)
 {
-    settings().setValue(SETTINGS_DEVICE, index);
+    settings().setValue(SETTINGS_DEVICE, index >= 0 ? index : 0);
 }
 
 void LxQtVolumeConfiguration::showOnClickedChanged(bool state)
