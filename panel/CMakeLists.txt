@@ -15,9 +15,9 @@ set(lxqt-panel_PRIV_H_FILES
 )
 
 
-# FIXME: we need to rename public headers to lxqt* and
 # using LxQt namespace in the public headers.
 set(lxqt-panel_PUB_H_FILES
+    lxqtpanelglobals.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
 )
