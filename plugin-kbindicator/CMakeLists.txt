@@ -22,7 +22,8 @@ set(UIS
     lxqtkbindicatorconfiguration.ui
 )
 
-set(LIBRARIES ${LIBRARIES} ${X11_LIBRARIES})
+set(LIBRARIES ${LIBRARIES} ${X11_LIBRARIES} ${XCB_LIBRARIES} ${XCB_XCB_LIBRARIES}
+)
 
 #*******************************************
 include ("../BuildPlugin.cmake")

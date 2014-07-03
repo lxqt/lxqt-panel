@@ -30,6 +30,8 @@ set(LIBRARIES
     ${XCOMPOSITE_LIBRARIES}
     ${XDAMAGE_LIBRARIES}
     ${XRENDER_LIBRARIES}
+    ${XCB_LIBRARIES}
+    ${XCB_DAMAGE_LIBRARIES}
 )
 
 #*******************************************

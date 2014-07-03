@@ -81,6 +81,13 @@ if(USE_QT5)
   find_package(Qt5Xdg REQUIRED QUIET)
   find_package(lxqt-globalkeys-qt5 REQUIRED)
   find_package(lxqt-globalkeys-ui-qt5 REQUIRED)
+  
+  # xcb packages
+  find_package(PkgConfig)
+  pkg_check_modules(XCB REQUIRED xcb)
+  pkg_check_modules(XCB_DAMAGE REQUIRED xcb-damage)
+  pkg_check_modules(XCB_XKB REQUIRED xcb-xkb)
+  include_directories(${XCB_INCLUDE_DIRS} ${XCB_DAMAGE_INCLUDE_DIRS} ${XCB_XKB_INCLUDE_DIRS})
 else()
   set(QT_USE_QTXML 1)
   set(QT_USE_QTDBUS 1)
