@@ -72,6 +72,9 @@ public:
 
     bool isSeparate() const { return true; }
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 private:
     QToolButton mButton;
     QString mLogDir;

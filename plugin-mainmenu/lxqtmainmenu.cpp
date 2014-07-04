@@ -36,6 +36,7 @@
 #include <QAction>
 #include <QTimer>
 #include <QMessageBox>
+#include <QEvent>
 #include <LXQt/PowerManager>
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
@@ -76,6 +77,7 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
 #endif
   
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    mButton.installEventFilter(this);
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
 
@@ -94,6 +96,7 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
  ************************************************/
 LxQtMainMenu::~LxQtMainMenu()
 {
+    mButton.removeEventFilter(this);
 #ifdef HAVE_MENU_CACHE
     if(mMenuCache)
     {
@@ -281,6 +284,22 @@ QDialog *LxQtMainMenu::configureDialog()
 {
     return new LxQtMainMenuConfiguration(*settings(), DEFAULT_SHORTCUT);
 }
+/************************************************
 
+ ************************************************/
+bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
+{
+    if(obj == &mButton)
+    {
+        // the application is given a new QStyle
+        if(event->type() == QEvent::StyleChange)
+        {
+            // reset proxy style for the menus so they can apply the new styles
+            mTopMenuStyle.setBaseStyle(NULL);
+            mMenuStyle.setBaseStyle(NULL);
+        }
+    }
+    return false;
+}
 
 #undef DEFAULT_SHORTCUT
