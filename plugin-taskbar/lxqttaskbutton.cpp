@@ -78,8 +78,6 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
     XSetWindowAttributes newAttr;
     newAttr.event_mask = oldAttr.your_event_mask | PropertyChangeMask;
     XChangeWindowAttributes(QX11Info::display(), mWindow, CWEventMask, &newAttr);
-
-    setStyle(&mStyle);
 }
 
 

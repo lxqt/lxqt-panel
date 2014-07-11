@@ -63,12 +63,14 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mShowOnlyCurrentDesktopTasks(false),
     mPlugin(plugin),
-    mPlaceHolder(new LxQtTaskButton(0, this))
+    mPlaceHolder(new LxQtTaskButton(0, this)),
+    mStyle(new ElidedButtonStyle())
 {
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     realign();
+    mPlaceHolder->setStyle(mStyle);
     mLayout->addWidget(mPlaceHolder);
 
     mRootWindow = QX11Info::appRootWindow();
@@ -82,6 +84,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
  ************************************************/
 LxQtTaskBar::~LxQtTaskBar()
 {
+    delete mStyle;
 }
 
 
@@ -146,6 +149,7 @@ void LxQtTaskBar::refreshTaskList()
         if (xf.acceptWindow(wnd))
         {
             LxQtTaskButton* btn = new LxQtTaskButton(wnd, this);
+            btn->setStyle(mStyle);
             btn->setToolButtonStyle(mButtonStyle);
 
             mButtonsHash.insert(wnd, btn);
@@ -467,3 +471,15 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
     }
 }
 
+/************************************************
+
+ ************************************************/
+
+void LxQtTaskBar::changeEvent(QEvent* event)
+{
+    // if current style is changed, reset the base style of the proxy style
+    // so we can apply the new style correctly to task buttons.
+    if(event->type() == QEvent::StyleChange)
+        mStyle->setBaseStyle(NULL);
+    QFrame::changeEvent(event);
+}

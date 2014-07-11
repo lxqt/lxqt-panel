@@ -39,6 +39,7 @@
 #include "../panel/ilxqtpanel.h"
 
 class LxQtTaskButton;
+class ElidedButtonStyle;
 class ILxQtPanelPlugin;
 
 namespace LxQt {
@@ -76,8 +77,11 @@ private:
 
     void handlePropertyNotify(XEventType* event);
     void wheelEvent(QWheelEvent* event);
+    void changeEvent(QEvent* event);
+
     ILxQtPanelPlugin *mPlugin;
     LxQtTaskButton *mPlaceHolder;
+    ElidedButtonStyle* mStyle;
 };
 
 #endif // LXQTTASKBAR_H

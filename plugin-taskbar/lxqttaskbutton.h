@@ -100,7 +100,6 @@ protected:
 private:
     Window mWindow;
     static LxQtTaskButton* mCheckedBtn;
-    ElidedButtonStyle mStyle;
     bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
     static bool mShowOnlyCurrentDesktopTasks;
