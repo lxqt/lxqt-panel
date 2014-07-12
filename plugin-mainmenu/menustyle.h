@@ -37,6 +37,7 @@ class MenuStyle : public QProxyStyle
 public:
     explicit MenuStyle();
     int pixelMetric(PixelMetric metric, const QStyleOption * option = 0, const QWidget * widget = 0 ) const;
+    int styleHint(StyleHint hint, const QStyleOption* option = 0, const QWidget* widget = 0, QStyleHintReturn* returnData = 0) const;
     int iconSize() const { return mIconSize; }
     void setIconSize(int value) { mIconSize = value; }
 
