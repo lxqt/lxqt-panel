@@ -71,10 +71,11 @@ void AudioDevice::setIndex(uint index)
 }
 
 // this is just for setting the internal volume
-void AudioDevice::setVolumeNoCommit(int volume)
+void AudioDevice::setVolumeNoCommit(int volume, bool percentage)
 {
     if (m_engine) {
-	volume = volume*m_engine->volumeMax(this)/99;
+	if (percentage)
+		volume = volume*m_engine->volumeMax(this)/99;
         volume = qBound(0, volume, m_engine->volumeMax(this));
     }
     
@@ -111,12 +112,12 @@ void AudioDevice::setMuteNoCommit(bool state)
 }
 
 // this performs a volume change on the device
-void AudioDevice::setVolume(int volume)
+void AudioDevice::setVolume(int volume, bool percentage)
 {
     if (m_volume == volume)
         return;
 
-    setVolumeNoCommit(volume);
+    setVolumeNoCommit(volume,percentage);
     setMute(false);
 
     if (m_engine)
