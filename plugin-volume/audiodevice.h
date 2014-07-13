@@ -60,8 +60,8 @@ public:
     void setIndex(uint index);
 
 public slots:
-    void setVolume(int volume);
-    void setVolumeNoCommit(int volume);
+    void setVolume(int volume,bool percent=false);
+    void setVolumeNoCommit(int volume,bool percent=false);
     void toggleMute();
     void setMute(bool state);
     void setMuteNoCommit(bool state);

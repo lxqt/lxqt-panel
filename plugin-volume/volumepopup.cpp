@@ -109,7 +109,7 @@ void VolumePopup::handleSliderValueChanged(int value)
     if (!m_device)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
-    m_device->setVolume(value);
+    m_device->setVolume(value,true);
 }
 
 void VolumePopup::handleMuteToggleClicked()
