@@ -73,7 +73,6 @@ if(USE_QT5)
   find_package(Qt5LinguistTools REQUIRED QUIET)
   find_package(Qt5Xml REQUIRED QUIET)
   find_package(Qt5X11Extras REQUIRED QUIET)
-  find_package(Qt5LinguistTools REQUIRED QUIET)
   message(STATUS "Building with Qt${Qt5Core_VERSION_STRING}")
 
   find_package(lxqt-qt5 REQUIRED)
