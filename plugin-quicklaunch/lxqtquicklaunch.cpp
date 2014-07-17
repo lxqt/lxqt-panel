@@ -194,12 +194,12 @@ void LxQtQuickLaunch::dropEvent(QDropEvent *e)
     // urls from mainmenu
     foreach (QUrl url, mime->urls())
     {
-    if (duplicates.contains(url))
-            continue;
-    else
-        duplicates << url;
+        if (duplicates.contains(url))
+                continue;
+        else
+            duplicates << url;
 
-        QString fileName(url.toLocalFile());
+        QString fileName(url.url());
         XdgDesktopFile * xdg = XdgDesktopFileCache::getFile(fileName);
         QFileInfo fi(fileName);
 
