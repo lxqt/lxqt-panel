@@ -120,3 +120,9 @@ void AudioDevice::setVolume(int volume)
     if (m_engine)
         m_engine->commitDeviceVolume(this);
 }
+
+int AudioDevice::maxVolume() {
+    if(m_engine)
+        return m_engine->volumeMax(this);
+    return 100;
+}

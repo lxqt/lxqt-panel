@@ -49,6 +49,10 @@ LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *p
     connect(ui->stepSpinBox, SIGNAL(valueChanged(int)), this, SLOT(stepSpinBoxChanged(int)));
     connect(ui->ignoreMaxVolumeCheckBox, SIGNAL(toggled(bool)), this, SLOT(ignoreMaxVolumeCheckBoxChanged(bool)));
 
+    // currently, this option is only supported by the pulse audio backend
+    if(!ui->pulseAudioRadioButton->isChecked())
+        ui->ignoreMaxVolumeCheckBox->setEnabled(false);
+
 #ifdef USE_PULSEAUDIO
     connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
 #else
@@ -86,12 +90,17 @@ void LxQtVolumeConfiguration::audioEngineChanged(bool checked)
     if (!checked)
         return;
 
+    bool canIgnoreMaxVolume = false;
     if (ui->pulseAudioRadioButton->isChecked())
+    {
         settings().setValue(SETTINGS_AUDIO_ENGINE, "PulseAudio");
+        canIgnoreMaxVolume = true;
+    }
     else if(ui->alsaRadioButton->isChecked())
         settings().setValue(SETTINGS_AUDIO_ENGINE, "Alsa");
     else
         settings().setValue(SETTINGS_AUDIO_ENGINE, "Oss");
+    ui->ignoreMaxVolumeCheckBox->setEnabled(canIgnoreMaxVolume);
 }
 
 void LxQtVolumeConfiguration::sinkSelectionChanged(int index)

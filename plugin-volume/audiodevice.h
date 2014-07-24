@@ -48,7 +48,9 @@ public:
     AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = 0);
     ~AudioDevice();
 
+    // the volume can range from 0 to maxVolume().
     int volume() const { return m_volume; }
+    int maxVolume();
     bool mute() const { return m_mute; }
     AudioDeviceType type() const { return m_type; }
     const QString &name() const { return m_name; }
@@ -58,6 +60,8 @@ public:
     void setName(const QString &name);
     void setDescription(const QString &description);
     void setIndex(uint index);
+    
+    AudioEngine* engine() { return m_engine; }
 
 public slots:
     void setVolume(int volume);

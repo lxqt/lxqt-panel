@@ -38,6 +38,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QProcess>
+#include "audioengine.h"
+#include <QDebug>
 
 VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
@@ -64,6 +66,9 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_volumeSlider = new QSlider(Qt::Vertical, this);
     m_volumeSlider->setTickPosition(QSlider::TicksBothSides);
     m_volumeSlider->setTickInterval(10);
+    // the volume slider shows 0-100 and volumes of all devices
+    // should be converted to percentages.
+    m_volumeSlider->setRange(0, 100);
 
     m_muteToggleButton = new QPushButton(this);
     m_muteToggleButton->setIcon(XdgIcon::fromTheme(QStringList() << "audio-volume-muted"));
@@ -109,7 +114,9 @@ void VolumePopup::handleSliderValueChanged(int value)
     if (!m_device)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
-    m_device->setVolume(value);
+    int max = m_device->maxVolume();
+    // convert from percent to real value
+    m_device->setVolume((double)max * value / 100);
 }
 
 void VolumePopup::handleMuteToggleClicked()
@@ -122,7 +129,19 @@ void VolumePopup::handleMuteToggleClicked()
 
 void VolumePopup::handleDeviceVolumeChanged(int volume)
 {
-    // m_volumeSlider->setValue(volume);
+    int max = m_device->maxVolume();
+    // qDebug() << "handleDeviceVolumeChanged" << "volume" << volume << "max" << max;
+    // calling m_volumeSlider->setValue will trigger
+    // handleSliderValueChanged(), which set the device volume
+    // again, so we have to block the signals to avoid recursive
+    // signal emission.
+    m_volumeSlider->blockSignals(true);
+    // convert from volume to percent
+    int percent = (double)100 * volume / max;
+    m_volumeSlider->setValue(percent);
+    m_volumeSlider->blockSignals(false);
+
+    // emit volumeChanged(percent);
     updateStockIcon();
 }
 
@@ -182,14 +201,13 @@ void VolumePopup::setDevice(AudioDevice *device)
     m_device = device;
 
     if (m_device) {
-        m_volumeSlider->setValue(m_device->volume());
         m_muteToggleButton->setChecked(m_device->mute());
-
+        handleDeviceVolumeChanged(m_device->volume());
         connect(m_device, SIGNAL(volumeChanged(int)), this, SLOT(handleDeviceVolumeChanged(int)));
         connect(m_device, SIGNAL(muteChanged(bool)), this, SLOT(handleDeviceMuteChanged(bool)));
     }
-
-    updateStockIcon();
+    else
+        updateStockIcon();
     emit deviceChanged();
 }
 
