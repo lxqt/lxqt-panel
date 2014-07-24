@@ -53,7 +53,7 @@ signals:
     void mouseEntered();
     void mouseLeft();
 
-    void volumeChanged(int value);
+    // void volumeChanged(int value);
     void deviceChanged();
     void launchMixer();
     void stockIconChanged(const QString &iconName);

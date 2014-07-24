@@ -63,15 +63,9 @@ AlsaEngine *AlsaEngine::instance()
 
 int AlsaEngine::volumeMax(AudioDevice *device) const
 {
-    AlsaDevice *dev = qobject_cast<AlsaDevice*>(device);
-    if (!dev || !dev->element())
-        return 100;
-
-    long vmin;
-    long vmax;
-    snd_mixer_selem_get_playback_volume_range(dev->element(), &vmin, &vmax);
-
-    return vmax;
+    // We already did snd_mixer_selem_set_playback_volume_range(mixerElem, 0, 100);
+    // during initialization. So we can return 100 directly here.
+    return 100;
 }
 
 AlsaDevice *AlsaEngine::getDeviceByAlsaElem(snd_mixer_elem_t *elem) const
@@ -117,6 +111,7 @@ void AlsaEngine::updateDevice(AlsaDevice *device)
 
     long value;
     snd_mixer_selem_get_playback_volume(device->element(), (snd_mixer_selem_channel_id_t)0, &value);
+    // qDebug() << "updateDevice:" << device->name() << value;
     device->setVolumeNoCommit(value);
 
     if (snd_mixer_selem_has_playback_switch(device->element())) {
@@ -195,8 +190,11 @@ void AlsaEngine::discoverDevices()
                     dev->setMixer(mixer);
                     dev->setElement(mixerElem);
 
+                    // set the range of volume to 0-100
+                    snd_mixer_selem_set_playback_volume_range(mixerElem, 0, 100);
                     long value;
                     snd_mixer_selem_get_playback_volume(mixerElem, (snd_mixer_selem_channel_id_t)0, &value);
+                    // qDebug() << dev->name() << "initial volume" << value;
                     dev->setVolumeNoCommit(value);
 
                     if (snd_mixer_selem_has_playback_switch(mixerElem)) {

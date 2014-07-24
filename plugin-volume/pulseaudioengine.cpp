@@ -198,7 +198,7 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
     m_cVolumeMap.insert(dev, info->volume);
 
     pa_volume_t v = pa_cvolume_avg(&(info->volume));
-    dev->setVolumeNoCommit(((double)v*100.0) / m_maximumVolume);
+    dev->setVolumeNoCommit(v);
 
     if (newSink) {
         m_sinks.append(dev);
@@ -216,10 +216,10 @@ void PulseAudioEngine::commitDeviceVolume(AudioDevice *device)
     if (!device || !m_ready)
         return;
 
-    pa_volume_t v = (device->volume()/100.0) * m_maximumVolume;
+    pa_volume_t v = device->volume();
     pa_cvolume tmpVolume = m_cVolumeMap.value(device);
     pa_cvolume *volume = pa_cvolume_set(&tmpVolume, tmpVolume.channels, v);
-qDebug() << "PulseAudioEngine::commitDeviceVolume" << v;
+    // qDebug() << "PulseAudioEngine::commitDeviceVolume" << v;
     pa_threaded_mainloop_lock(m_mainLoop);
 
     pa_operation *operation;
