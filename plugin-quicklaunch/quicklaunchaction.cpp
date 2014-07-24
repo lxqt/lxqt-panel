@@ -34,10 +34,11 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QFileIconProvider>
+#include <QMimeDatabase>
 
 #include <XdgDesktopFile>
 #include <XdgIcon>
-#include <XdgMime>
+#include <XdgMimeType>
 
 
 QuickLaunchAction::QuickLaunchAction(const QString & name,
@@ -101,7 +102,8 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     }
     else
     {
-        XdgMimeInfo mi(fi);
+        QMimeDatabase db;
+        XdgMimeType mi(db.mimeTypeForFile(fi));
         setIcon(mi.icon());
     }
     
