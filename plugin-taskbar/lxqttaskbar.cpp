@@ -61,6 +61,8 @@ using namespace LxQt;
 LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
+    mCheckedBtn(NULL),
+    mCloseOnMiddleClick(true),
     mShowOnlyCurrentDesktopTasks(false),
     mPlugin(plugin),
     mPlaceHolder(new LxQtTaskButton(0, this)),
@@ -139,6 +141,9 @@ void LxQtTaskBar::refreshTaskList()
 
         if (!n)
         {
+            // if the button we're removing is the currently selected app
+            if(i.value() == mCheckedBtn)
+                mCheckedBtn = NULL;
             delete i.value();
             i.remove();
         }
@@ -206,17 +211,19 @@ void LxQtTaskBar::refreshIconGeometry()
 void LxQtTaskBar::activeWindowChanged()
 {
     Window window = xfitMan().getActiveAppWindow();
-
     LxQtTaskButton* btn = buttonByWindow(window);
-
-    if (btn)
+    if(mCheckedBtn != btn)
     {
-        btn->setChecked(true);
-        if (btn->hasUrgencyHint())
-            btn->setUrgencyHint(false);
+        if(mCheckedBtn)
+            mCheckedBtn->setChecked(false);
+        if(btn)
+        {
+            btn->setChecked(true);
+            if (btn->hasUrgencyHint())
+                btn->setUrgencyHint(false);
+        }
+        mCheckedBtn = btn;
     }
-    else
-        LxQtTaskButton::unCheckAll();
 }
 
 
@@ -303,7 +310,18 @@ void LxQtTaskBar::handlePropertyNotify(XEventType* event)
     {
         LxQtTaskButton* btn = buttonByWindow(prop_event->window);
         if (btn)
-            btn->handlePropertyNotify(event);
+        {
+            if (prop_event->atom == XfitMan::atom("_NET_WM_DESKTOP"))
+            {
+                if (mShowOnlyCurrentDesktopTasks)
+                {
+                    int desktop = btn->desktopNum();
+                    btn->setHidden(desktop != -1 && desktop != xfitMan().getActiveDesktop());
+                }
+            }
+            else
+                btn->handlePropertyNotify(event);
+        }
     }
 
 //    char* aname = XGetAtomName(QX11Info::display(), event->atom);
@@ -359,8 +377,7 @@ void LxQtTaskBar::settingsChanged()
     }
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
-    LxQtTaskButton::setShowOnlyCurrentDesktopTasks(mShowOnlyCurrentDesktopTasks);
-    LxQtTaskButton::setCloseOnMiddleClick(mPlugin->settings()->value("closeOnMiddleClick", true).toBool());
+    mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
     refreshTaskList();
 }
 
@@ -482,4 +499,27 @@ void LxQtTaskBar::changeEvent(QEvent* event)
     if(event->type() == QEvent::StyleChange)
         mStyle->setBaseStyle(NULL);
     QFrame::changeEvent(event);
+}
+/************************************************
+
+ ************************************************/
+void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
+{
+    // close the app on mouse middle click
+    if (mCloseOnMiddleClick && event->button() == Qt::MidButton)
+    {
+        // find the button at current cursor pos
+        QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+        while (i.hasNext())
+        {
+            i.next();
+            LxQtTaskButton* btn = i.value();
+            if(btn->geometry().contains(event->pos()))
+            {
+                btn->closeApplication();
+                break;
+            }
+        }
+    }
+    QFrame::mousePressEvent(event);
 }

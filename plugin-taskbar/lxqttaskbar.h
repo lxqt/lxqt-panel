@@ -72,12 +72,16 @@ private:
     Window mRootWindow;
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
+
+    LxQtTaskButton* mCheckedBtn;
+    bool mCloseOnMiddleClick;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
     bool mShowOnlyCurrentDesktopTasks;
 
     void handlePropertyNotify(XEventType* event);
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
+    void mousePressEvent(QMouseEvent *event);
 
     ILxQtPanelPlugin *mPlugin;
     LxQtTaskButton *mPlaceHolder;

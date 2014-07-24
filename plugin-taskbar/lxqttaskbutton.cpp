@@ -70,7 +70,7 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
     updateText();
     updateIcon();
 
-    connect(this, SIGNAL(toggled(bool)), this, SLOT(checkedChanged(bool)));
+    // connect(this, SIGNAL(toggled(bool)), this, SLOT(checkedChanged(bool)));
 
     XWindowAttributes oldAttr;
     XGetWindowAttributes(QX11Info::display(), mWindow, &oldAttr);
@@ -86,8 +86,6 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
 ************************************************/
 LxQtTaskButton::~LxQtTaskButton()
 {
-    if (mCheckedBtn == this)
-        mCheckedBtn = 0;
 }
 
 
@@ -113,33 +111,6 @@ void LxQtTaskButton::updateIcon()
     else
         setIcon(XdgIcon::defaultApplicationIcon());
 }
-
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::setShowOnlyCurrentDesktopTasks(bool value)
-{
-    mShowOnlyCurrentDesktopTasks = value;
-}
-
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::setCloseOnMiddleClick(bool value)
-{
-    mCloseOnMiddleClick = value;
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::nextCheckState()
-{
-    setChecked(xfitMan().getActiveAppWindow() == mWindow);
-}
-
 
 /************************************************
 
@@ -167,6 +138,7 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
+        // qDebug() << "isChecked:" << isChecked();
         if (this->isChecked())
         {
             minimizeApplication();
@@ -175,38 +147,10 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent *event)
         {
             raiseApplication();
         }
+        return;
     }
-    else if (mCloseOnMiddleClick && event->button() == Qt::MidButton)
-    {
-        closeApplication();
-    }
+    QToolButton::mousePressEvent(event);
 }
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::checkedChanged(bool checked)
-{
-
-    if (checked)
-    {
-        if (mCheckedBtn != 0 && mCheckedBtn != this)
-            mCheckedBtn->setChecked(false);
-
-        mCheckedBtn = this;
-    }
-}
-
-
-/************************************************
-
- ************************************************/
-void LxQtTaskButton::unCheckAll()
-{
-    if (mCheckedBtn)
-        mCheckedBtn->setChecked(false);
-}
-
 
 /************************************************
 
@@ -567,16 +511,6 @@ void  LxQtTaskButton::handlePropertyNotify(XEventType* event)
         return;
     }
 
-    if (prop_event->atom == XfitMan::atom("_NET_WM_DESKTOP"))
-    {
-        if (mShowOnlyCurrentDesktopTasks)
-        {
-            int desktop = desktopNum();
-            setHidden(desktop != -1 && desktop != xfitMan().getActiveDesktop());
-        }
-        return;
-    }
-
     if (prop_event->atom == XfitMan::atom("WM_HINTS"))
     {
         WMHintsFlags flags = XfitMan().getWMHintsFlags(prop_event->window);
@@ -618,9 +552,3 @@ int LxQtTaskButton::desktopNum() const
 {
     return xfitMan().getWindowDesktop(mWindow);
 }
-
-
-LxQtTaskButton* LxQtTaskButton::mCheckedBtn = 0;
-
-bool LxQtTaskButton::mShowOnlyCurrentDesktopTasks = false;
-bool LxQtTaskButton::mCloseOnMiddleClick = true;

@@ -67,14 +67,14 @@ public:
     bool hasUrgencyHint() const { return mUrgencyHint; }
     void setUrgencyHint(bool set);
 
-    static void unCheckAll();
+    // static void unCheckAll();
     int desktopNum() const;
 
     void updateText();
     void updateIcon();
 
-    static void setShowOnlyCurrentDesktopTasks(bool);
-    static void setCloseOnMiddleClick(bool);
+    // static void setShowOnlyCurrentDesktopTasks(bool);
+    // static void setCloseOnMiddleClick(bool);
 
 public slots:
     void raiseApplication();
@@ -94,16 +94,12 @@ protected:
     virtual void dragLeaveEvent(QDragLeaveEvent *event);
     void mousePressEvent(QMouseEvent *event);
 
-    void nextCheckState();
     void contextMenuEvent( QContextMenuEvent* event);
 
 private:
     Window mWindow;
-    static LxQtTaskButton* mCheckedBtn;
     bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
-    static bool mShowOnlyCurrentDesktopTasks;
-    static bool mCloseOnMiddleClick;
 
 private slots:
     void checkedChanged(bool checked);
