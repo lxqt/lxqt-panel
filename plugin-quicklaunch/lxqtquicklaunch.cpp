@@ -34,7 +34,6 @@
 
 #include <XdgDesktopFile>
 #include <XdgIcon>
-#include <XdgMime>
 
 #include <QtDebug>
 #include <QSettings>
