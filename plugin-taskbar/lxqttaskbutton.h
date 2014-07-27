@@ -30,7 +30,6 @@
 #define LXQTTASKBUTTON_H
 
 #include <QToolButton>
-#include <QHash>
 #include <QProxyStyle>
 #include "../panel/ilxqtpanel.h"
 
@@ -67,14 +66,9 @@ public:
     bool hasUrgencyHint() const { return mUrgencyHint; }
     void setUrgencyHint(bool set);
 
-    // static void unCheckAll();
     int desktopNum() const;
-
     void updateText();
     void updateIcon();
-
-    // static void setShowOnlyCurrentDesktopTasks(bool);
-    // static void setCloseOnMiddleClick(bool);
 
 public slots:
     void raiseApplication();
@@ -92,7 +86,9 @@ public slots:
 protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);
     virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
 
     void contextMenuEvent( QContextMenuEvent* event);
 
@@ -100,6 +96,7 @@ private:
     Window mWindow;
     bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
+    QPoint mDragStartPosition;
 
 private slots:
     void checkedChanged(bool checked);

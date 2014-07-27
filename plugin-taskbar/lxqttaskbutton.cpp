@@ -33,6 +33,11 @@
 #include <QAction>
 #include <QContextMenuEvent>
 #include <QPainter>
+#include <QDrag>
+#include <QMouseEvent>
+#include <QMimeData>
+#include <QApplication>
+#include <QDragEnterEvent>
 
 #include "lxqttaskbutton.h"
 #include <LXQt/XfitMan>
@@ -69,8 +74,6 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
 
     updateText();
     updateIcon();
-
-    // connect(this, SIGNAL(toggled(bool)), this, SLOT(checkedChanged(bool)));
 
     XWindowAttributes oldAttr;
     XGetWindowAttributes(QX11Info::display(), mWindow, &oldAttr);
@@ -112,11 +115,18 @@ void LxQtTaskButton::updateIcon()
         setIcon(XdgIcon::defaultApplicationIcon());
 }
 
+
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    {
+        event->ignore();
+        return;
+    }
+
     mDraggableMimeData = event->mimeData();
     QTimer::singleShot(1000, this, SLOT(activateWithDraggable()));
 }
@@ -134,23 +144,58 @@ void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 /************************************************
 
  ************************************************/
-void LxQtTaskButton::mousePressEvent(QMouseEvent *event)
+void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton)
+        mDragStartPosition = event->pos();
+    QToolButton::mousePressEvent(event);
+}
+
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
     {
         // qDebug() << "isChecked:" << isChecked();
         if (this->isChecked())
-        {
             minimizeApplication();
-        }
         else
-        {
             raiseApplication();
-        }
-        return;
     }
-    QToolButton::mousePressEvent(event);
+    QToolButton::mouseReleaseEvent(event);
 }
+
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
+{
+    if (!(event->buttons() & Qt::LeftButton))
+        return;
+
+    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
+        return;
+
+    QMimeData *mime = new QMimeData;
+    QByteArray byteArray;
+    QDataStream stream(&byteArray, QIODevice::WriteOnly);
+    qDebug() << QString("Dragging window: %1").arg(mWindow);
+    stream << (qlonglong) mWindow;
+    mime->setData("lxqt/lxqttaskbutton", byteArray);
+
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mime);
+    drag->setPixmap(this->grab());
+    drag->setHotSpot(QPoint(mapTo(this, event->pos())));
+    drag->exec();
+
+    QAbstractButton::mouseMoveEvent(event);
+}
+
 
 /************************************************
 

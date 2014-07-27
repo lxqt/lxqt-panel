@@ -62,14 +62,18 @@ public slots:
     void activeWindowChanged();
     void refreshIconGeometry();
 
+protected:
+    virtual void dragEnterEvent(QDragEnterEvent * event);
+    virtual void dropEvent(QDropEvent * event);
+
 private:
     void refreshTaskList();
     void refreshButtonVisibility();
-    QHash<Window, LxQtTaskButton*> mButtonsHash;
+    QHash<WId, LxQtTaskButton*> mButtonsHash;
     LxQt::GridLayout *mLayout;
-    LxQtTaskButton* buttonByWindow(Window window) const;
-    bool windowOnActiveDesktop(Window window) const;
-    Window mRootWindow;
+    LxQtTaskButton* buttonByWindow(WId window) const;
+    bool windowOnActiveDesktop(WId window) const;
+    WId mRootWindow;
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
 

@@ -38,6 +38,7 @@
 #include <XdgIcon>
 #include <LXQt/XfitMan>
 #include <QList>
+#include <QMimeData>
 
 #include <QDesktopWidget>
 #include <QWheelEvent>
@@ -78,6 +79,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mRootWindow = QX11Info::appRootWindow();
 
     settingsChanged();
+    setAcceptDrops(true);
 }
 
 
@@ -93,7 +95,7 @@ LxQtTaskBar::~LxQtTaskBar()
 /************************************************
 
  ************************************************/
-LxQtTaskButton* LxQtTaskBar::buttonByWindow(Window window) const
+LxQtTaskButton* LxQtTaskBar::buttonByWindow(WId window) const
 {
     if (mButtonsHash.contains(window))
         return mButtonsHash.value(window);
@@ -103,7 +105,7 @@ LxQtTaskButton* LxQtTaskBar::buttonByWindow(Window window) const
 /************************************************
 
  ************************************************/
-bool LxQtTaskBar::windowOnActiveDesktop(Window window) const
+bool LxQtTaskBar::windowOnActiveDesktop(WId window) const
 {
     if (!mShowOnlyCurrentDesktopTasks)
         return true;
@@ -119,6 +121,58 @@ bool LxQtTaskBar::windowOnActiveDesktop(Window window) const
     return false;
 }
 
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
+{
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+        event->acceptProposedAction();
+    else
+        event->ignore();
+    QWidget::dragEnterEvent(event);
+}
+
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskBar::dropEvent(QDropEvent* event)
+{
+    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+        return;
+
+    QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
+    // window id for dropped button
+    qlonglong temp;
+    stream >> temp;
+    WId droppedWid = (WId) temp;
+    qDebug() << QString("Dropped window: %1").arg(droppedWid);
+
+    int droppedIndex = mLayout->indexOf(mButtonsHash[droppedWid]);
+    int newPos = -1;
+    const int size = mLayout->count();
+    for (int i = 0; i < droppedIndex && newPos == -1; i++)
+        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 > event->pos().x())
+            newPos = i;
+
+    for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
+        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 < event->pos().x())
+            newPos = i;
+
+    if (newPos == -1 || droppedIndex == newPos)
+        return;
+
+    qDebug() << QString("Dropped button shoud go to position %1").arg(newPos);
+
+    mLayout->moveItem(droppedIndex, newPos);
+    mLayout->invalidate();
+
+    QWidget::dropEvent(event);
+}
+
+
 /************************************************
 
  ************************************************/
@@ -129,11 +183,11 @@ void LxQtTaskBar::refreshTaskList()
 
     //qDebug() << "** Fill ********************************";
     //foreach (Window wnd, tmp)
-    //    if (xf->acceptWindow(wnd)) qDebug() << XfitMan::debugWindow(wnd);
+    // if (xf->acceptWindow(wnd)) qDebug() << XfitMan::debugWindow(wnd);
     //qDebug() << "****************************************";
 
 
-    QMutableHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+    QMutableHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
         i.next();
@@ -174,7 +228,7 @@ void LxQtTaskBar::refreshTaskList()
 void LxQtTaskBar::refreshButtonVisibility()
 {
     bool haveVisibleWindow = false;
-    QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
         i.next();
@@ -191,9 +245,9 @@ void LxQtTaskBar::refreshButtonVisibility()
 void LxQtTaskBar::refreshIconGeometry()
 {
         // FIXME: sometimes we get wrong globalPos here, especially
-        //        after changing the pos or size of the panel.
-        //        this might be caused by bugs in lxqtpanel.cpp.
-    QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+        // after changing the pos or size of the panel.
+        // this might be caused by bugs in lxqtpanel.cpp.
+    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
         i.next();
@@ -212,11 +266,12 @@ void LxQtTaskBar::activeWindowChanged()
 {
     Window window = xfitMan().getActiveAppWindow();
     LxQtTaskButton* btn = buttonByWindow(window);
-    if(mCheckedBtn != btn)
+
+    if (mCheckedBtn != btn)
     {
-        if(mCheckedBtn)
+        if (mCheckedBtn)
             mCheckedBtn->setChecked(false);
-        if(btn)
+        if (btn)
         {
             btn->setChecked(true);
             if (btn->hasUrgencyHint())
@@ -322,7 +377,7 @@ void LxQtTaskBar::handlePropertyNotify(XEventType* event)
             else
                 btn->handlePropertyNotify(event);
         }
-    }
+}
 
 //    char* aname = XGetAtomName(QX11Info::display(), event->atom);
 //    qDebug() << "** XPropertyEvent ********************";
@@ -346,7 +401,7 @@ void LxQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
 {
     mButtonStyle = buttonStyle;
 
-    QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
+    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
         i.next();
@@ -470,6 +525,31 @@ void LxQtTaskBar::realign()
 /************************************************
 
  ************************************************/
+void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
+{
+    // close the app on mouse middle click
+    if (mCloseOnMiddleClick && event->button() == Qt::MidButton)
+    {
+        // find the button at current cursor pos
+        QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
+        while (i.hasNext())
+        {
+            i.next();
+            LxQtTaskButton* btn = i.value();
+            if (btn->geometry().contains(event->pos()))
+            {
+                btn->closeApplication();
+                break;
+            }
+        }
+    }
+    QFrame::mousePressEvent(event);
+}
+
+
+/************************************************
+
+ ************************************************/
 void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 {
     XfitMan xf = xfitMan();
@@ -499,27 +579,4 @@ void LxQtTaskBar::changeEvent(QEvent* event)
     if(event->type() == QEvent::StyleChange)
         mStyle->setBaseStyle(NULL);
     QFrame::changeEvent(event);
-}
-/************************************************
-
- ************************************************/
-void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
-{
-    // close the app on mouse middle click
-    if (mCloseOnMiddleClick && event->button() == Qt::MidButton)
-    {
-        // find the button at current cursor pos
-        QHashIterator<Window, LxQtTaskButton*> i(mButtonsHash);
-        while (i.hasNext())
-        {
-            i.next();
-            LxQtTaskButton* btn = i.value();
-            if(btn->geometry().contains(event->pos()))
-            {
-                btn->closeApplication();
-                break;
-            }
-        }
-    }
-    QFrame::mousePressEvent(event);
 }
