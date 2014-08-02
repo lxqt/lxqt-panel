@@ -99,7 +99,6 @@ private:
     QPoint mDragStartPosition;
 
 private slots:
-    void checkedChanged(bool checked);
     void activateWithDraggable();
 };
 
