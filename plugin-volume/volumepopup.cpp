@@ -114,9 +114,7 @@ void VolumePopup::handleSliderValueChanged(int value)
     if (!m_device)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
-    int max = m_device->maxVolume();
-    // convert from percent to real value
-    m_device->setVolume((double)max * value / 100);
+    m_device->setVolume(value);
 }
 
 void VolumePopup::handleMuteToggleClicked()
@@ -129,16 +127,13 @@ void VolumePopup::handleMuteToggleClicked()
 
 void VolumePopup::handleDeviceVolumeChanged(int volume)
 {
-    int max = m_device->maxVolume();
     // qDebug() << "handleDeviceVolumeChanged" << "volume" << volume << "max" << max;
     // calling m_volumeSlider->setValue will trigger
     // handleSliderValueChanged(), which set the device volume
     // again, so we have to block the signals to avoid recursive
     // signal emission.
     m_volumeSlider->blockSignals(true);
-    // convert from volume to percent
-    int percent = (double)100 * volume / max;
-    m_volumeSlider->setValue(percent);
+    m_volumeSlider->setValue(volume);
     m_volumeSlider->blockSignals(false);
 
     // emit volumeChanged(percent);

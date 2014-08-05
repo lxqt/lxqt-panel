@@ -198,7 +198,8 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
     m_cVolumeMap.insert(dev, info->volume);
 
     pa_volume_t v = pa_cvolume_avg(&(info->volume));
-    dev->setVolumeNoCommit(v);
+    // convert real volume to percentage
+    dev->setVolumeNoCommit(((double)v * 100.0) / m_maximumVolume);
 
     if (newSink) {
         m_sinks.append(dev);
@@ -216,7 +217,8 @@ void PulseAudioEngine::commitDeviceVolume(AudioDevice *device)
     if (!device || !m_ready)
         return;
 
-    pa_volume_t v = device->volume();
+    // convert from percentage to real volume value
+    pa_volume_t v = ((double)device->volume() / 100.0) * m_maximumVolume;
     pa_cvolume tmpVolume = m_cVolumeMap.value(device);
     pa_cvolume *volume = pa_cvolume_set(&tmpVolume, tmpVolume.channels, v);
     // qDebug() << "PulseAudioEngine::commitDeviceVolume" << v;
