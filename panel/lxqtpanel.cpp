@@ -103,7 +103,21 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mIconSize(0),
     mLineCount(0)
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // NOTE: by PCMan:
+    // In Qt 4, the window is not activated if it has Qt::WA_X11NetWmWindowTypeDock.
+    // Since Qt 5, the default behaviour is changed. A window is always activated on mouse click.
+    // Please see the source code of Qt5: src/plugins/platforms/xcb/qxcbwindow.cpp.
+    // void QXcbWindow::handleButtonPressEvent(const xcb_button_press_event_t *event)
+    // This new behaviour caused lxqt bug #161 - Cannot minimize windows from panel 1 when two task managers are open
+    // Besides, this breaks minimizing or restoring windows when clicking on the taskbar buttons.
+    // To workaround this regression bug, we need to add this window flag here.
+    // However, since the panel gets no keyboard focus, this may decrease accessibility since
+    // it's not possible to use the panel with keyboards. We need to find a better solution later.
+    flags |= Qt::WindowDoesNotAcceptFocus;
+#endif
+    setWindowFlags(flags);
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
     setAttribute(Qt::WA_TranslucentBackground);
@@ -767,7 +781,7 @@ bool LxQtPanel::event(QEvent *event)
 
 /************************************************
 
- ************************************************/
+************************************************/
 void LxQtPanel::showEvent(QShowEvent *event)
 {
     realign();
