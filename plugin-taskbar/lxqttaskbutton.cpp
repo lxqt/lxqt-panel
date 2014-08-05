@@ -189,7 +189,13 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);
-    drag->setPixmap(this->grab());
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    QPixmap pixmap = grab();
+#else
+    QPixmap pixmap(size());
+    render(&pixmap);
+#endif
+    drag->setPixmap(pixmap);
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
     drag->exec();
 
