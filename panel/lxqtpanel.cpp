@@ -353,7 +353,7 @@ void LxQtPanel::realign()
 #endif
 
 
-    const QRect screen = QApplication::desktop()->screenGeometry(mScreenNum);
+    const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
     QSize size = sizeHint();
     QRect rect;
 
@@ -365,11 +365,11 @@ void LxQtPanel::realign()
         // Size .......................
         rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
         if (mLengthInPercents)
-            rect.setWidth(screen.width() * mLength / 100.0);
+            rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
         {
           if (mLength <= 0)
-            rect.setWidth(screen.width() + mLength);
+            rect.setWidth(currentScreen.width() + mLength);
           else
             rect.setWidth(mLength);
         }
@@ -380,23 +380,23 @@ void LxQtPanel::realign()
         switch (mAlignment)
         {
         case LxQtPanel::AlignmentLeft:
-            rect.moveLeft(screen.left());
+            rect.moveLeft(currentScreen.left());
             break;
 
         case LxQtPanel::AlignmentCenter:
-            rect.moveCenter(screen.center());
+            rect.moveCenter(currentScreen.center());
             break;
 
         case LxQtPanel::AlignmentRight:
-            rect.moveRight(screen.right());
+            rect.moveRight(currentScreen.right());
             break;
         }
 
         // Vert .......................
         if (mPosition == ILxQtPanel::PositionTop)
-            rect.moveTop(screen.top());
+            rect.moveTop(currentScreen.top());
         else
-            rect.moveBottom(screen.bottom());
+            rect.moveBottom(currentScreen.bottom());
     }
     else
     {
@@ -406,11 +406,11 @@ void LxQtPanel::realign()
         // Size .......................
         rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
         if (mLengthInPercents)
-            rect.setHeight(screen.height() * mLength / 100.0);
+            rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
         {
           if (mLength <= 0)
-            rect.setHeight(screen.height() + mLength);
+            rect.setHeight(currentScreen.height() + mLength);
           else
             rect.setHeight(mLength);
         }
@@ -421,23 +421,23 @@ void LxQtPanel::realign()
         switch (mAlignment)
         {
         case LxQtPanel::AlignmentLeft:
-            rect.moveTop(screen.top());
+            rect.moveTop(currentScreen.top());
             break;
 
         case LxQtPanel::AlignmentCenter:
-            rect.moveCenter(screen.center());
+            rect.moveCenter(currentScreen.center());
             break;
 
         case LxQtPanel::AlignmentRight:
-            rect.moveBottom(screen.bottom());
+            rect.moveBottom(currentScreen.bottom());
             break;
         }
 
         // Horiz ......................
         if (mPosition == ILxQtPanel::PositionLeft)
-            rect.moveLeft(screen.left());
+            rect.moveLeft(currentScreen.left());
         else
-            rect.moveRight(screen.right());
+            rect.moveRight(currentScreen.right());
     }
 
     if (rect == geometry())
@@ -450,6 +450,12 @@ void LxQtPanel::realign()
     XfitMan xf = xfitMan();
     Window wid = effectiveWinId();
 
+    const QRect wholeScreen = QApplication::desktop()->geometry();
+    // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+    // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
+    // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
+    // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
+    // At least openbox is implemented like this.
     switch (mPosition)
     {
         case LxQtPanel::PositionTop:
@@ -462,7 +468,7 @@ void LxQtPanel::realign()
         break;
 
         case LxQtPanel::PositionBottom:
-            xf.setStrut(wid, 0, 0, 0, screen.bottom() - rect.y(),
+            xf.setStrut(wid, 0, 0, 0, wholeScreen.bottom() - rect.y(),
                /* Left   */  0, 0,
                /* Right  */  0, 0,
                /* Top    */  0, 0,
@@ -481,7 +487,7 @@ void LxQtPanel::realign()
             break;
 
         case LxQtPanel::PositionRight:
-            xf.setStrut(wid, 0, screen.right() - rect.x(), 0, 0,
+            xf.setStrut(wid, 0, wholeScreen.right() - rect.x(), 0, 0,
                /* Left   */  0, 0,
                /* Right  */  rect.top(), rect.bottom(),
                /* Top    */  0, 0,
@@ -490,6 +496,7 @@ void LxQtPanel::realign()
             break;
     }
 }
+
 
 
 /************************************************
