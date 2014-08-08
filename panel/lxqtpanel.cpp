@@ -446,7 +446,6 @@ void LxQtPanel::realign()
     setGeometry(rect);
     setFixedSize(rect.size());
 
-
     // Reserve our space on the screen ..........
     XfitMan xf = xfitMan();
     Window wid = effectiveWinId();
@@ -463,7 +462,7 @@ void LxQtPanel::realign()
         break;
 
         case LxQtPanel::PositionBottom:
-            xf.setStrut(wid, 0, 0, 0, screen.height() - rect.y(),
+            xf.setStrut(wid, 0, 0, 0, screen.bottom() - rect.y(),
                /* Left   */  0, 0,
                /* Right  */  0, 0,
                /* Top    */  0, 0,
@@ -482,7 +481,7 @@ void LxQtPanel::realign()
             break;
 
         case LxQtPanel::PositionRight:
-            xf.setStrut(wid, 0, screen.width() - rect.x(), 0, 0,
+            xf.setStrut(wid, 0, screen.right() - rect.x(), 0, 0,
                /* Left   */  0, 0,
                /* Right  */  rect.top(), rect.bottom(),
                /* Top    */  0, 0,
