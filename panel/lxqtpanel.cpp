@@ -141,7 +141,6 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mDelaySave.setInterval(SETTINGS_SAVE_DELAY);
     connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
 
-    connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(screensChangeds()));
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(realign()));
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(screensChangeds()));
     connect(LxQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
@@ -231,8 +230,24 @@ void LxQtPanel::saveSettings(bool later)
  ************************************************/
 void LxQtPanel::screensChangeds()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // workaround for Qt bug: 40681
+    // https://bugreports.qt-project.org/browse/QTBUG-40681
+    // Qt 5 seems to re-create the underlying window sometimes when the screen layout is changed.
+    // However, it forgot to update the internal winId, so effectiveWinId() always return the olf value.
+    // To workaround this bug, we destroy the window and create it again manually to force
+    // update of the winId.
+    destroy(); // now internal winId becomes 0 and QEvent::WinIdChange is emitted
+#endif
     if (! canPlacedOn(mScreenNum, mPosition))
         setPosition(findAvailableScreen(mPosition), mPosition);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // workaround for Qt bug: 40681
+    if(effectiveWinId() == 0)
+        create(); // create the underlying window again manually, now QEvent::WinIdChange is emitted again.
+#endif
+    // the screen size might be changed, let's update the reserved screen space.
+    updateWmStrut();
 }
 
 
@@ -252,18 +267,6 @@ LxQtPanel::~LxQtPanel()
  ************************************************/
 void LxQtPanel::show()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
-    // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
-    // Let's do it manually
-    Atom windowTypes[] = {
-        xfitMan().atom("_NET_WM_WINDOW_TYPE_DOCK"),
-        xfitMan().atom("_KDE_NET_WM_WINDOW_TYPE_OVERRIDE"), // required for Qt::FramelessWindowHint
-        xfitMan().atom("_NET_WM_WINDOW_TYPE_NORMAL")
-    };
-    XChangeProperty(QX11Info::display(), winId(), xfitMan().atom("_NET_WM_WINDOW_TYPE"),
-        XA_ATOM, 32, PropModeReplace, (unsigned char*)windowTypes, 3);
-#endif
     QWidget::show();
     xfitMan().moveWindowToDesktop(this->effectiveWinId(), -1);
 }
@@ -351,7 +354,6 @@ void LxQtPanel::realign()
     qDebug() << "Position:      " << positionToStr(mPosition) << "on" << mScreenNum;
     qDebug() << "Plugins count: " << mPlugins.count();
 #endif
-
 
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
     QSize size = sizeHint();
@@ -447,10 +449,19 @@ void LxQtPanel::realign()
     setFixedSize(rect.size());
 
     // Reserve our space on the screen ..........
-    XfitMan xf = xfitMan();
-    Window wid = effectiveWinId();
+    updateWmStrut();
+}
 
+
+// Update the _NET_WM_PARTIAL_STRUT and _NET_WM_STRUT properties for the window
+void LxQtPanel::updateWmStrut()
+{
+    Window wid = effectiveWinId();
+    if(wid == 0)
+        return;
+    XfitMan xf = xfitMan();
     const QRect wholeScreen = QApplication::desktop()->geometry();
+    const QRect rect = geometry();
     // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
     // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
     // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
@@ -496,7 +507,6 @@ void LxQtPanel::realign()
             break;
     }
 }
-
 
 
 /************************************************
@@ -720,7 +730,6 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mPosition = position;
     mLayout->setPosition(mPosition);
     saveSettings(true);    
-
     realign();
     emit realigned();
 }
@@ -778,6 +787,32 @@ bool LxQtPanel::event(QEvent *event)
         emit realigned();
         break;
 
+    case QEvent::WinIdChange: {
+        // qDebug() << "WinIdChange" << hex << effectiveWinId();
+        if(effectiveWinId() == 0)
+            break;
+        // Sometimes Qt needs to re-create the underlying window of the widget and
+        // the winId() may be changed at runtime. So we need to reset all X11 properties
+        // when this happens.
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
+        // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
+        // Let's do it manually
+        Atom windowTypes[] = {
+            xfitMan().atom("_NET_WM_WINDOW_TYPE_DOCK"),
+            xfitMan().atom("_KDE_NET_WM_WINDOW_TYPE_OVERRIDE"), // required for Qt::FramelessWindowHint
+            xfitMan().atom("_NET_WM_WINDOW_TYPE_NORMAL")
+        };
+        XChangeProperty(QX11Info::display(), effectiveWinId(), xfitMan().atom("_NET_WM_WINDOW_TYPE"),
+            XA_ATOM, 32, PropModeReplace, (unsigned char*)windowTypes, 3);
+#endif
+
+        updateWmStrut(); // reserve screen space for the panel
+
+        if(isVisible())
+            xfitMan().moveWindowToDesktop(effectiveWinId(), -1);
+        break;
+    }
     default:
         break;
     }
@@ -790,6 +825,7 @@ bool LxQtPanel::event(QEvent *event)
 ************************************************/
 void LxQtPanel::showEvent(QShowEvent *event)
 {
+    QFrame::showEvent(event);
     realign();
     emit realigned();
 }

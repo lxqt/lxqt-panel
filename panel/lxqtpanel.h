@@ -113,7 +113,7 @@ signals:
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
-
+    
 private slots:
     void screensChangeds();
     void addPlugin(const LxQt::PluginInfo &desktopFile);
@@ -132,6 +132,7 @@ private:
     QList<Plugin*> mPlugins;
 
     int findAvailableScreen(LxQtPanel::Position position);
+    void updateWmStrut();
 
     void loadPlugins();
     Plugin *loadPlugin(const LxQt::PluginInfo &desktopFile, const QString &settingsGroup);
