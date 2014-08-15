@@ -36,6 +36,8 @@
 #include <QAbstractNativeEventFilter>
 #endif
 
+class QScreen;
+
 class LxQtPanel;
 namespace LxQt {
 class Settings;
@@ -70,10 +72,17 @@ public slots:
 private:
     QList<LxQtPanel*> mPanels;
 
-    void addPanel(const QString &name);
+    LxQtPanel* addPanel(const QString &name);
 
 private slots:
     void removePanel(LxQtPanel* panel);
+
+    // These slots are for Qt 5 onlt, but the stupid Qt moc cannot do conditional compilation
+    // so we have to provide them for Qt 4 as well.
+    void handleScreenAdded(QScreen* newScreen);
+    void screenDestroyed(QObject* screenObj);
+    void reloadPanelsAsNeeded();
+    // end Qt5 only slots
 
 private:
     LxQt::Settings *mSettings;

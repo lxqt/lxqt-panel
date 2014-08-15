@@ -86,6 +86,7 @@ private:
     LxQt::GridLayout *mLayout;
     ILxQtPanelPlugin *mPlugin;
     Atom _NET_SYSTEM_TRAY_OPCODE;
+    Display* mDisplay;
 };
 
 

@@ -38,6 +38,11 @@
 #include <LXQt/Settings>
 #include <LXQt/PluginInfo>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QScreen>
+#include <QWindow>
+#endif
+
 #include <LXQt/XfitMan>
 #include <X11/Xatom.h>
 #include <QX11Info>
@@ -142,13 +147,15 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
 
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(realign()));
-    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(screensChangeds()));
+    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
     connect(LxQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
     LxQtPanelApplication *app = reinterpret_cast<LxQtPanelApplication*>(qApp);
     mSettings = app->settings();
     readSettings();
+    // the old position might be on a visible screen
+    ensureVisible();
     loadPlugins();
 
     show();
@@ -228,24 +235,10 @@ void LxQtPanel::saveSettings(bool later)
 /************************************************
 
  ************************************************/
-void LxQtPanel::screensChangeds()
+void LxQtPanel::ensureVisible()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    // workaround for Qt bug: 40681
-    // https://bugreports.qt-project.org/browse/QTBUG-40681
-    // Qt 5 seems to re-create the underlying window sometimes when the screen layout is changed.
-    // However, it forgot to update the internal winId, so effectiveWinId() always return the olf value.
-    // To workaround this bug, we destroy the window and create it again manually to force
-    // update of the winId.
-    destroy(); // now internal winId becomes 0 and QEvent::WinIdChange is emitted
-#endif
     if (! canPlacedOn(mScreenNum, mPosition))
         setPosition(findAvailableScreen(mPosition), mPosition);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    // workaround for Qt bug: 40681
-    if(effectiveWinId() == 0)
-        create(); // create the underlying window again manually, now QEvent::WinIdChange is emitted again.
-#endif
     // the screen size might be changed, let's update the reserved screen space.
     updateWmStrut();
 }
@@ -457,7 +450,7 @@ void LxQtPanel::realign()
 void LxQtPanel::updateWmStrut()
 {
     Window wid = effectiveWinId();
-    if(wid == 0)
+    if(wid == 0 || !isVisible())
         return;
     XfitMan xf = xfitMan();
     const QRect wholeScreen = QApplication::desktop()->geometry();
@@ -729,7 +722,32 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mScreenNum = screen;
     mPosition = position;
     mLayout->setPosition(mPosition);
-    saveSettings(true);    
+    saveSettings(true);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    // Qt 5 adds a new class QScreen and add API for setting the screen of a QWindow.
+    // so we had better use it. However, without this, our program should still work
+    // as long as XRandR is used. Since XRandR combined all screens into a large virtual desktop
+    // every screen and their virtual siblings are actually on the same virtual desktop.
+    // So things still work if we don't set the screen correctly, but this is not the case
+    // for other backends, such as the upcoming wayland support. Hence it's better to set it.
+    if(windowHandle())
+    {
+        // QScreen* newScreen = qApp->screens().at(screen);
+        // QScreen* oldScreen = windowHandle()->screen();
+        // const bool shouldRecreate = windowHandle()->handle() && !(oldScreen && oldScreen->virtualSiblings().contains(newScreen));
+        // Q_ASSERT(shouldRecreate == false);
+
+        // NOTE: When you move a window to another screen, Qt 5 might recreate the window as needed
+        // But luckily, this never happen in XRandR, so Qt bug #40681 is not triggered here.
+        // (The only exception is when the old screen is destroyed, Qt always re-create the window and
+        // this corner case triggers #40681.)
+        // When using other kind of multihead settings, such as Xinerama, this might be different and
+        // unless Qt developers can fix their bug, we have no way to workaround that.
+        windowHandle()->setScreen(qApp->screens().at(screen));
+    }
+#endif
+
     realign();
     emit realigned();
 }
@@ -787,7 +805,8 @@ bool LxQtPanel::event(QEvent *event)
         emit realigned();
         break;
 
-    case QEvent::WinIdChange: {
+    case QEvent::WinIdChange:
+    {
         // qDebug() << "WinIdChange" << hex << effectiveWinId();
         if(effectiveWinId() == 0)
             break;
@@ -795,6 +814,7 @@ bool LxQtPanel::event(QEvent *event)
         // the winId() may be changed at runtime. So we need to reset all X11 properties
         // when this happens.
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        qDebug() << "WinIdChange" << hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
         // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
         // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
         // Let's do it manually
@@ -819,10 +839,10 @@ bool LxQtPanel::event(QEvent *event)
     return QFrame::event(event);
 }
 
-
 /************************************************
 
-************************************************/
+ ************************************************/
+
 void LxQtPanel::showEvent(QShowEvent *event)
 {
     QFrame::showEvent(event);

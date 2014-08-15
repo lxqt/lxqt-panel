@@ -105,6 +105,7 @@ public slots:
     void setAlignment(LxQtPanel::Alignment value);
 
     void saveSettings(bool later=false);
+    void ensureVisible();
 
 signals:
     void realigned();
@@ -115,7 +116,6 @@ protected:
     void showEvent(QShowEvent *event);
     
 private slots:
-    void screensChangeds();
     void addPlugin(const LxQt::PluginInfo &desktopFile);
     void showConfigDialog();
     void showAddPluginDialog();
@@ -123,7 +123,6 @@ private slots:
     void removePlugin();
     void pluginMoved();
     void userRequestForDeletion();
-
 private:
     LxQtPanelLayout* mLayout;
     LxQt::Settings *mSettings;

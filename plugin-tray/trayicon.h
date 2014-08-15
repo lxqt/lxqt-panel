@@ -72,6 +72,7 @@ private:
     bool mValid;
     QSize mIconSize;
     Damage mDamage;
+    Display* mDisplay;
 
     static bool isXCompositeAvailable();
 };

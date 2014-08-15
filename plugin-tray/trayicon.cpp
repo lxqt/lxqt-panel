@@ -74,8 +74,17 @@ TrayIcon::TrayIcon(Window iconId, QWidget* parent):
     mIconId(iconId),
     mWindowId(0),
     mIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT),
-    mDamage(0)
+    mDamage(0),
+    mDisplay(QX11Info::display())
 {
+    // NOTE:
+    // it's a good idea to save the return value of QX11Info::display().
+    // In Qt 5, this API is slower and has some limitations which can trigger crashes.
+    // The XDisplay value is actally stored in QScreen object of the primary screen rather than
+    // in a global variable. So when the parimary QScreen is being deleted and becomes invalid,
+    // QX11Info::display() will fail and cause crash. Storing this value improves the efficiency and
+    // also prevent potential crashes caused by this bug.
+
     setObjectName("TrayIcon");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mValid = init();
@@ -88,7 +97,7 @@ TrayIcon::TrayIcon(Window iconId, QWidget* parent):
  ************************************************/
 bool TrayIcon::init()
 {
-    Display* dsp = QX11Info::display();
+    Display* dsp = mDisplay;
 
     XWindowAttributes attr;
     if (! XGetWindowAttributes(dsp, mIconId, &attr)) return false;
@@ -187,7 +196,7 @@ bool TrayIcon::init()
  ************************************************/
 TrayIcon::~TrayIcon()
 {
-    Display* dsp = QX11Info::display();
+    Display* dsp = mDisplay;
     XSelectInput(dsp, mIconId, NoEventMask);
 
     if (mDamage)
@@ -282,7 +291,7 @@ QRect TrayIcon::iconGeometry()
  ************************************************/
 void TrayIcon::draw(QPaintEvent* /*event*/)
 {
-    Display* dsp = QX11Info::display();
+    Display* dsp = mDisplay;
 
     XWindowAttributes attr;
     if (!XGetWindowAttributes(dsp, mIconId, &attr))
@@ -301,7 +310,7 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
     {
         qWarning() << "    * Error image is NULL";
 
-        XClearArea(QX11Info::display(), (Window)winId(), 0, 0, attr.width, attr.height, False);
+        XClearArea(mDisplay, (Window)winId(), 0, 0, attr.width, attr.height, False);
         // for some unknown reason, XGetImage failed. try another less efficient method.
         // QPixmap::grabWindow uses XCopyArea() internally.
         image = QPixmap::grabWindow(mIconId).toImage();

@@ -78,7 +78,8 @@ LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
     mDamageEvent(0),
     mDamageError(0),
     mIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT),
-    mPlugin(plugin)
+    mPlugin(plugin),
+    mDisplay(QX11Info::display())
 {
     mLayout = new LxQt::GridLayout(this);
     realign();
@@ -246,7 +247,7 @@ TrayIcon* LxQtTray::findIcon(Window id)
 void LxQtTray::setIconSize(QSize iconSize)
 {
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
-    XChangeProperty(QX11Info::display(),
+    XChangeProperty(mDisplay,
                     mTrayId,
                     xfitMan().atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
                     XA_CARDINAL,
@@ -267,7 +268,7 @@ void LxQtTray::setIconSize(QSize iconSize)
 VisualID LxQtTray::getVisual()
 {
     VisualID visualId = 0;
-    Display* dsp = QX11Info::display();
+    Display* dsp = mDisplay;
 
     XVisualInfo templ;
     templ.screen=QX11Info::appScreen();
@@ -304,7 +305,7 @@ VisualID LxQtTray::getVisual()
  ************************************************/
 void LxQtTray::startTray()
 {
-    Display* dsp = QX11Info::display();
+    Display* dsp = mDisplay;
     Window root = QX11Info::appRootWindow();
 
     QString s = QString("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(dsp));
@@ -343,7 +344,7 @@ void LxQtTray::startTray()
     VisualID visualId = getVisual();
     if (visualId)
     {
-        XChangeProperty(QX11Info::display(),
+        XChangeProperty(mDisplay,
                         mTrayId,
                         xfitMan().atom("_NET_SYSTEM_TRAY_VISUAL"),
                         XA_VISUALID,
@@ -368,7 +369,7 @@ void LxQtTray::startTray()
     ev.data.l[4] = 0;
     XSendEvent(dsp, root, False, StructureNotifyMask, (XEvent*)&ev);
 
-    XDamageQueryExtension(QX11Info::display(), &mDamageEvent, &mDamageError);
+    XDamageQueryExtension(mDisplay, &mDamageEvent, &mDamageError);
 
     qDebug() << "Systray started";
     mValid = true;
@@ -383,7 +384,7 @@ void LxQtTray::stopTray()
     qDeleteAll(mIcons);
     if (mTrayId)
     {
-        XDestroyWindow(QX11Info::display(), mTrayId);
+        XDestroyWindow(mDisplay, mTrayId);
         mTrayId = 0;
     }
     mValid = false;
