@@ -434,14 +434,14 @@ void LxQtPanel::realign()
         else
             rect.moveRight(currentScreen.right());
     }
-
-    if (rect == geometry())
-        return;
-
-    setGeometry(rect);
-    setFixedSize(rect.size());
-
+    if (rect != geometry())     
+    {
+        setGeometry(rect);
+        setFixedSize(rect.size());
+    }
     // Reserve our space on the screen ..........
+    // It's possible that our geometry is not changed, but screen resolution is changed,
+    // so resetting WM_STRUT is still needed. To make it simple, we always do it.
     updateWmStrut();
 }
 
@@ -454,6 +454,7 @@ void LxQtPanel::updateWmStrut()
         return;
     XfitMan xf = xfitMan();
     const QRect wholeScreen = QApplication::desktop()->geometry();
+    // qDebug() << "wholeScreen" << wholeScreen;
     const QRect rect = geometry();
     // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
     // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
@@ -961,8 +962,11 @@ QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const Q
 
     QRect res(QPoint(x, y), windowSize);
 
-    QRect screen = QApplication::desktop()->availableGeometry(this);
-
+    QRect screen = QApplication::desktop()->screenGeometry(this);
+    // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
+    // multihead setup with different resolutions. In this case, the size of the work area is limited
+    // by the smallest monitor and may be much smaller than the current screen and we will place the 
+    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.    
     if (res.right() > screen.right())
         res.moveRight(screen.right());
 

@@ -33,6 +33,10 @@
 #include <QDebug>
 #include <QDesktopWidget>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QWindow>
+#endif
+
 #include <LXQt/XfitMan>
 
 using namespace LxQt;
@@ -62,8 +66,13 @@ ConfigPanelDialog *ConfigPanelDialog::exec(LxQtPanel *panel)
     dialog->show();
     dialog->raise();
     dialog->activateWindow();
-    xfitMan().raiseWindow(dialog->effectiveWinId());
-    xfitMan().moveWindowToDesktop(dialog->effectiveWinId(), qMax(xfitMan().getActiveDesktop(), 0));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+    WId wid = dialog->windowHandle()->winId();
+#else
+    WId wid = dialog->effectiveWinId();
+#endif
+    xfitMan().raiseWindow(wid);
+    xfitMan().moveWindowToDesktop(wid, qMax(xfitMan().getActiveDesktop(), 0));
     return dialog;
 }
 
