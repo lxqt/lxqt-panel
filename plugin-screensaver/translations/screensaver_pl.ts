@@ -1,9 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.0">
+<!DOCTYPE TS>
+<TS language="pl" version="2.0">
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation>Globalny skrót do panelu oszczędzania energii ekranu: %1 nie może byc zarejestrowany</translation>
+        <source>Panel Screensaver Global shortcut: '%1' cannot be registered</source>
+        <translation>Ogólny skrót panelu wygaszacza ekranu: „%1” nie może zostać zarejestrowany</translation>
     </message>
 </context>
 </TS>
