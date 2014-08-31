@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.0">
+<!DOCTYPE TS>
+<TS language="sl" version="2.0">
 <context>
     <name>LxQtNetworkMonitor</name>
     <message>
@@ -15,27 +16,27 @@
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished"/>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished"/>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished"/>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>TiB</source>
-        <translation type="unfinished"/>
+        <translation>TiB</translation>
     </message>
     <message>
         <source>PiB</source>
-        <translation type="unfinished"/>
+        <translation>PiB</translation>
     </message>
 </context>
 <context>
@@ -50,19 +51,19 @@
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>Vmesnik</translation>
     </message>
     <message>
         <source>Modem</source>
-        <translation type="unfinished"/>
+        <translation>Modem</translation>
     </message>
     <message>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Zaslon</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Omrežje</translation>
     </message>
     <message>
         <source>Wireless</source>
