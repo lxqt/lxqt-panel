@@ -39,7 +39,7 @@
 #include <XdgDesktopFile>
 #include <XdgIcon>
 #include <XdgMimeType>
-
+#include "desktopfile.h"
 
 QuickLaunchAction::QuickLaunchAction(const QString & name,
                                      const QString & exec,
@@ -121,9 +121,9 @@ void QuickLaunchAction::execAction()
             break;
         case ActionXdg:
         {
-            XdgDesktopFile * xdg = XdgDesktopFileCache::getFile(exec);
-            if (xdg->isValid())
-                xdg->startDetached();
+            XdgDesktopFile xdg;
+            if(loadDesktopFile(xdg, exec))
+                xdg.startDetached();
             break;
         }
         case ActionFile:

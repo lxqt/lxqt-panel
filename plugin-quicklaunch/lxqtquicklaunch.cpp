@@ -46,6 +46,7 @@
 #include <QFileIconProvider>
 #include <QSettings>
 #include <QLabel>
+#include "desktopfile.h"
 
 LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
     QFrame(parent),
@@ -72,19 +73,19 @@ LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
         file = settings->value("file", "").toString();
         if (! desktop.isEmpty())
         {
-            XdgDesktopFile * xdg = XdgDesktopFileCache::getFile(desktop);
-            if (!xdg->isValid())
+            XdgDesktopFile xdg;
+            if(!loadDesktopFile(xdg, desktop))
             {
                 qDebug() << "XdgDesktopFile" << desktop << "is not valid";
                 continue;
             }
-            if (!xdg->isSuitable())
+            if (!xdg.isSuitable())
             {
                 qDebug() << "XdgDesktopFile" << desktop << "is not applicable";
                 continue;
             }
 
-            addButton(new QuickLaunchAction(xdg, this));
+            addButton(new QuickLaunchAction(&xdg, this));
         }
         else if (! file.isEmpty())
         {
@@ -204,13 +205,13 @@ void LxQtQuickLaunch::dropEvent(QDropEvent *e)
         QString fileName(url.toLocalFile());
         #endif
 
-        XdgDesktopFile * xdg = XdgDesktopFileCache::getFile(fileName);
+		XdgDesktopFile xdg;
         QFileInfo fi(fileName);
 
-        if (xdg->isValid())
+        if (loadDesktopFile(xdg, fileName))
         {
-            if (xdg->isSuitable())
-                addButton(new QuickLaunchAction(xdg, this));
+            if (xdg.isSuitable())
+                addButton(new QuickLaunchAction(&xdg, this));
         }
         else if (fi.exists() && fi.isExecutable() && !fi.isDir())
         {
