@@ -69,7 +69,7 @@ endif()
 
 function(lxqt_translate_ts _qmFiles)
     set(_translationDir "translations")
-    set(_installDir "${CMAKE_INSTALL_PREFIX}/share/${LXQT_LIBRARY}/${PROJECT_NAME}")
+    set(_installDir "${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT_NAME}")
     
     # Parse arguments ***************************************
     set(_state "")
