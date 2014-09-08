@@ -12,6 +12,7 @@ set(HEADERS
   lxqtquicklaunch.h
   quicklaunchbutton.h
   quicklaunchaction.h
+  desktopfile.h
 )
 
 set(SOURCES
@@ -19,6 +20,7 @@ set(SOURCES
   lxqtquicklaunch.cpp
   quicklaunchbutton.cpp
   quicklaunchaction.cpp
+  desktopfile.cpp
 )
 
 set(MOCS

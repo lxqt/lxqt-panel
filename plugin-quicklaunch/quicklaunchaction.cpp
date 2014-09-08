@@ -34,11 +34,12 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QFileIconProvider>
+#include <QMimeDatabase>
 
 #include <XdgDesktopFile>
 #include <XdgIcon>
-#include <XdgMime>
-
+#include <XdgMimeType>
+#include "desktopfile.h"
 
 QuickLaunchAction::QuickLaunchAction(const QString & name,
                                      const QString & exec,
@@ -101,7 +102,8 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     }
     else
     {
-        XdgMimeInfo mi(fi);
+        QMimeDatabase db;
+        XdgMimeType mi(db.mimeTypeForFile(fi));
         setIcon(mi.icon());
     }
     
@@ -119,9 +121,9 @@ void QuickLaunchAction::execAction()
             break;
         case ActionXdg:
         {
-            XdgDesktopFile * xdg = XdgDesktopFileCache::getFile(exec);
-            if (xdg->isValid())
-                xdg->startDetached();
+            XdgDesktopFile xdg;
+            if(loadDesktopFile(xdg, exec))
+                xdg.startDetached();
             break;
         }
         case ActionFile:
