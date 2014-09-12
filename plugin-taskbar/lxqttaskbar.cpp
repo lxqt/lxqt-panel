@@ -419,17 +419,11 @@ void LxQtTaskBar::settingsChanged()
     QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
 
     if (s == "ICON")
-    {
         setButtonStyle(Qt::ToolButtonIconOnly);
-    }
     else if (s == "TEXT")
-    {
         setButtonStyle(Qt::ToolButtonTextOnly);
-    }
     else
-    {
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
-    }
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
@@ -536,7 +530,8 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
         {
             i.next();
             LxQtTaskButton* btn = i.value();
-            if (btn->geometry().contains(event->pos()))
+            if (btn->geometry().contains(event->pos()) &&
+                (!mShowOnlyCurrentDesktopTasks || xfitMan().getActiveDesktop() == xfitMan().getWindowDesktop(i.key())))
             {
                 btn->closeApplication();
                 break;
