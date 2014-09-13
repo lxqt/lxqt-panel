@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+<!DOCTYPE TS>
+<TS language="nl" version="2.0">
 <context>
     <name>LxQtMainMenu</name>
     <message>
@@ -10,7 +11,7 @@
     <name>LxQtMainMenuConfiguration</name>
     <message>
         <source>LxQt Main Menu settings</source>
-        <translation>LxQt Hoofd Menu instellingen</translation>
+        <translation>Instellingen van hoofdmenu van LxQt</translation>
     </message>
     <message>
         <source>General</source>
@@ -18,15 +19,15 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation>tekst weergeven</translation>
+        <translation>Tekst weergeven</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation>Knop tekst</translation>
+        <translation>Knoptekst</translation>
     </message>
     <message>
         <source>Menu file</source>
-        <translation>Menu bestand</translation>
+        <translation>Menubestand</translation>
     </message>
     <message>
         <source>...</source>
@@ -34,19 +35,19 @@
     </message>
     <message>
         <source>Keyboard Shortcut</source>
-        <translation>Toetsenbord Toets-combinatie</translation>
+        <translation>Sneltoets</translation>
     </message>
     <message>
         <source>Click the button to record shortcut:</source>
-        <translation>Klik op de knop om de Toets-combinatie te vangen:</translation>
+        <translation>Klik op de knop om de sneltoets vast te leggen:</translation>
     </message>
     <message>
         <source>Choose menu file</source>
-        <translation>Kies menu bestand</translation>
+        <translation>Kies menubestand</translation>
     </message>
     <message>
         <source>Menu files (*.menu)</source>
-        <translation>Menu bestanden (*.menu)</translation>
+        <translation>Menubestanden (*.menu)</translation>
     </message>
 </context>
 </TS>

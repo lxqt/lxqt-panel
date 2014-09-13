@@ -1,17 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+<!DOCTYPE TS>
+<TS language="nl" version="2.0">
 <context>
     <name>LxQtTaskButton</name>
     <message>
         <source>Application</source>
-        <translation>Programma</translation>
+        <translation>Toepassing</translation>
     </message>
     <message>
         <source>To &amp;Desktop</source>
-        <translation>Naar &amp;Bureaublad</translation>
+        <translation>Naar &amp;bureaublad</translation>
     </message>
     <message>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Alle Bureaubladen</translation>
+        <translation>&amp;Alle bureaubladen</translation>
     </message>
     <message>
         <source>Desktop &amp;%1</source>
@@ -19,7 +20,7 @@
     </message>
     <message>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;Naar huidig Bureaublad</translation>
+        <translation>&amp;Naar huidig bureaublad</translation>
     </message>
     <message>
         <source>Ma&amp;ximize</source>
@@ -55,7 +56,7 @@
     </message>
     <message>
         <source>Always on &amp;top</source>
-        <translation>Boven anderen &amp;houden</translation>
+        <translation>Altijd bovenop</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -63,7 +64,7 @@
     </message>
     <message>
         <source>Always on &amp;bottom</source>
-        <translation>Onder anderen &amp;Houden</translation>
+        <translation>Altijd onderop</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -74,11 +75,11 @@
     <name>LxQtTaskbarConfiguration</name>
     <message>
         <source>LxQt Task Manager Settings</source>
-        <translation>LxQt Taak Beheerder Instellingen</translation>
+        <translation>Instellingen voor taakbeheerder van LxQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation>Venster Lijst Inhoud</translation>
+        <translation>Inhoud van vensterlijst</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -90,27 +91,27 @@
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation>Venster Lijst Voorkeuren</translation>
+        <translation>Uiterlijk van vensterlijst</translation>
     </message>
     <message>
         <source>Button style</source>
-        <translation>Knop uiterlijk</translation>
+        <translation>Stijl van knoppen</translation>
     </message>
     <message>
         <source>Max button width</source>
-        <translation>Max. knop breedte</translation>
+        <translation>Maximale knopbreedte</translation>
     </message>
     <message>
         <source>Close on middle-click</source>
-        <translation type="unfinished"/>
+        <translation>Sluiten bij middelklik</translation>
     </message>
     <message>
         <source>Icon and text</source>
-        <translation>Icoon en tekst</translation>
+        <translation>Pictogram en tekst</translation>
     </message>
     <message>
         <source>Only icon</source>
-        <translation>Alleen icoon</translation>
+        <translation>Alleen pictogram</translation>
     </message>
     <message>
         <source>Only text</source>

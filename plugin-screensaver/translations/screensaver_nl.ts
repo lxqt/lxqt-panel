@@ -1,9 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+<!DOCTYPE TS>
+<TS language="nl" version="2.0">
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation>Paneel Schermbeveiliging Globale snelkoppeling: &apos;%1&apos; kan niet worden toegepast</translation>
+        <source>Panel Screensaver Global shortcut: '%1' cannot be registered</source>
+        <translation>Schermbeveiliging van paneel: systeembrede sneltoets '%1' kan niet worden geregistreerd</translation>
     </message>
 </context>
 </TS>

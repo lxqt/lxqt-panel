@@ -1,9 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+<!DOCTYPE TS>
+<TS language="nl" version="2.0">
 <context>
     <name>LxQtClockConfiguration</name>
     <message>
         <source>LxQt Clock Settings</source>
-        <translation>LxQt Klok Instellingen</translation>
+        <translation>Instellingen van LxQt Klok</translation>
     </message>
     <message>
         <source>Time</source>
@@ -19,11 +20,11 @@
     </message>
     <message>
         <source>&amp;Font</source>
-        <translation>&amp;lettertype</translation>
+        <translation>&amp;Lettertype</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation>lettertype</translation>
+        <translation>Lettertype</translation>
     </message>
     <message>
         <source>Date</source>
@@ -43,23 +44,23 @@
     </message>
     <message>
         <source>Show date in &amp;new line</source>
-        <translation>Laat datum zien in &amp;nieuwe lijn</translation>
+        <translation>Toon datum in &amp;nieuwe regel</translation>
     </message>
     <message>
         <source>&amp;Use theme fonts</source>
-        <translation>&amp;Gebruik thema lettertype</translation>
+        <translation>&amp;Gebruik lettertypes van thema</translation>
     </message>
     <message>
         <source>Time font</source>
-        <translation>Tijd lettertype</translation>
+        <translation>Lettertype voor de tijd</translation>
     </message>
     <message>
         <source>Date font</source>
-        <translation>Datum lettertype</translation>
+        <translation>Lettertype voor de datum</translation>
     </message>
     <message>
         <source>Ultra light</source>
-        <translation>Ultra licht</translation>
+        <translation>Ultralicht</translation>
     </message>
     <message>
         <source>Light</source>
@@ -67,7 +68,7 @@
     </message>
     <message>
         <source>Ultra black</source>
-        <translation>Ultra zwart</translation>
+        <translation>Ultrazwart</translation>
     </message>
     <message>
         <source>Black</source>
@@ -75,15 +76,15 @@
     </message>
     <message>
         <source>Bold</source>
-        <translation>Bold</translation>
+        <translation>Vet</translation>
     </message>
     <message>
         <source>Demi bold</source>
-        <translation>Demi bold</translation>
+        <translation>Halfvet</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation>Cursief</translation>
+        <translation>Schuin</translation>
     </message>
 </context>
 </TS>
