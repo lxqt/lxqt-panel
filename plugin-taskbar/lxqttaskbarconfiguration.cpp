@@ -3,10 +3,13 @@
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
+ * http://lxqt.org
  *
  * Copyright: 2011 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Maciej Płaza <plaza.maciej@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
