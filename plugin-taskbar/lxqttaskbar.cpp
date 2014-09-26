@@ -609,17 +609,24 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
  ************************************************/
 void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 {
-    XfitMan xf = xfitMan();
-    QList<Window> winList = xf.getClientList();
-    int current = winList.indexOf(xf.getActiveAppWindow());
-    int delta = event->delta() < 0 ? 1 : -1;
+    if (!mCheckedBtn)
+        return;
 
-    for (int ix = current + delta; 0 <= ix && ix < winList.size(); ix += delta)
+    int current = mLayout->indexOf(mCheckedBtn);
+    if (current == -1)
+        return;
+
+    int delta = event->delta() < 0 ? 1 : -1;
+    for (int ix = current + delta; 0 <= ix && ix < mLayout->count(); ix += delta)
     {
-        Window window = winList.at(ix);
-        if (xf.acceptWindow(window) && windowOnActiveDesktop(window))
+        QLayoutItem *item = mLayout->itemAt(ix);
+        if (!item)
+            continue;
+
+        Window window = ((LxQtTaskButton *) item->widget())->windowId();
+        if (XfitMan().acceptWindow(window) && windowOnActiveDesktop(window))
         {
-            xf.raiseWindow(window);
+            XfitMan().raiseWindow(window);
             break;
         }
     }
