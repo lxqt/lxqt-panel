@@ -65,15 +65,20 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mCheckedBtn(NULL),
     mCloseOnMiddleClick(true),
     mShowOnlyCurrentDesktopTasks(false),
+    mAutoRotate(true),
     mPlugin(plugin),
-    mPlaceHolder(new LxQtTaskButton(0, this)),
+    mPlaceHolder(new QWidget(this)),
     mStyle(new ElidedButtonStyle())
 {
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     realign();
+
     mPlaceHolder->setStyle(mStyle);
+    mPlaceHolder->setMinimumSize(1, 1);
+    mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+    mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
     mRootWindow = QX11Info::appRootWindow();
@@ -225,6 +230,23 @@ void LxQtTaskBar::refreshTaskList()
 
  ************************************************/
 
+void LxQtTaskBar::refreshButtonRotation()
+{
+    bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);
+
+    ILxQtPanel::Position panelPosition = mPlugin->panel()->position();
+
+    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
+    while (i.hasNext())
+    {
+        i.next();
+        i.value()->setAutoRotation(autoRotate, panelPosition);
+    }
+}
+/************************************************
+
+ ************************************************/
+
 void LxQtTaskBar::refreshButtonVisibility()
 {
     bool haveVisibleWindow = false;
@@ -237,6 +259,14 @@ void LxQtTaskBar::refreshButtonVisibility()
         i.value()->setVisible(isVisible);
     }
     mPlaceHolder->setVisible(!haveVisibleWindow);
+    if (haveVisibleWindow)
+        mPlaceHolder->setFixedSize(0, 0);
+    else
+    {
+        mPlaceHolder->setMinimumSize(1, 1);
+        mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+    }
+
 }
 /************************************************
 
@@ -426,10 +456,11 @@ void LxQtTaskBar::settingsChanged()
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
+
     refreshTaskList();
 }
-
 
 /************************************************
 
@@ -437,6 +468,8 @@ void LxQtTaskBar::settingsChanged()
 void LxQtTaskBar::realign()
 {
     mLayout->setEnabled(false);
+
+    refreshButtonRotation();
 
     ILxQtPanel *panel = mPlugin->panel();
     QSize maxSize = QSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
@@ -490,27 +523,52 @@ void LxQtTaskBar::realign()
         }
         else
         {
+            bool rotated = false;
+            if (mAutoRotate)
+            {
+                switch (panel->position())
+                {
+                case ILxQtPanel::PositionLeft:
+                case ILxQtPanel::PositionRight:
+                    rotated = true;
+                    break;
+
+                default:;
+                }
+            }
+
             // Vertical + Text *****************
-            mLayout->setRowCount(0);
-            mLayout->setColumnCount(1);
-            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
+            if (rotated)
+            {
+                mLayout->setColumnCount(panel->lineCount());
+                mLayout->setRowCount(0);
+                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
 
-            minSize.rheight() = 0;
-            minSize.rwidth()  = mButtonWidth;
+                minSize.rheight() = 0;
+                minSize.rwidth()  = 0;
 
-            maxSize.rheight() = QWIDGETSIZE_MAX;
-            maxSize.rwidth()  = QWIDGETSIZE_MAX;
+                maxSize.rheight() = mButtonWidth;
+                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+            }
+            else
+            {
+                mLayout->setColumnCount(1);
+                mLayout->setRowCount(0);
+                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
+
+                minSize.rheight() = 0;
+                minSize.rwidth()  = mButtonWidth;
+
+                maxSize.rheight() = QWIDGETSIZE_MAX;
+                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+            }
         }
     }
 
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
 
-    if (panel->isHorizontal())
-        mPlaceHolder->setFixedWidth(0);
-    else
-        mPlaceHolder->setFixedHeight(0);
-
+    mLayout->setDirection(panel->isHorizontal() ? LxQt::GridLayout::LeftToRight : LxQt::GridLayout::TopToBottom);
     mLayout->setEnabled(true);
     refreshIconGeometry();
 }
@@ -519,6 +577,7 @@ void LxQtTaskBar::realign()
 /************************************************
 
  ************************************************/
+
 void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
 {
     // close the app on mouse middle click

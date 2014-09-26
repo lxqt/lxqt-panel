@@ -38,6 +38,8 @@
 #include <QMimeData>
 #include <QApplication>
 #include <QDragEnterEvent>
+#include <QStylePainter>
+#include <QStyleOptionToolButton>
 
 #include "lxqttaskbutton.h"
 #include <LXQt/XfitMan>
@@ -160,7 +162,7 @@ void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
     if (event->button() == Qt::LeftButton)
     {
         // qDebug() << "isChecked:" << isChecked();
-        if (this->isChecked())
+        if (isChecked())
             minimizeApplication();
         else
             raiseApplication();
@@ -362,7 +364,6 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         event->ignore();
         return;
     }
-
 
     XfitMan xf = xfitMan();
 
@@ -602,4 +603,109 @@ void LxQtTaskButton::setUrgencyHint(bool set)
 int LxQtTaskButton::desktopNum() const
 {
     return xfitMan().getWindowDesktop(mWindow);
+}
+
+Qt::Corner LxQtTaskButton::origin() const
+{
+    return mOrigin;
+}
+
+void LxQtTaskButton::setOrigin(Qt::Corner newOrigin)
+{
+    if (mOrigin != newOrigin)
+    {
+        mOrigin = newOrigin;
+        update();
+    }
+}
+
+void LxQtTaskButton::setAutoRotation(bool value, ILxQtPanel::Position position)
+{
+    if (value)
+    {
+        switch (position)
+        {
+        case ILxQtPanel::PositionTop:
+        case ILxQtPanel::PositionBottom:
+            setOrigin(Qt::TopLeftCorner);
+            break;
+
+        case ILxQtPanel::PositionLeft:
+            setOrigin(Qt::BottomLeftCorner);
+            break;
+
+        case ILxQtPanel::PositionRight:
+            setOrigin(Qt::TopRightCorner);
+            break;
+        }
+    }
+    else
+        setOrigin(Qt::TopLeftCorner);
+}
+
+void LxQtTaskButton::paintEvent(QPaintEvent *event)
+{
+    if (mOrigin == Qt::TopLeftCorner)
+    {
+        QToolButton::paintEvent(event);
+        return;
+    }
+
+
+    QSize sz = size();
+    QSize adjSz = sz;
+    QRect rect = geometry();
+    QRect adjRect = rect;
+    QTransform transform;
+    QPoint originPoint;
+
+    bool swap = false;
+    switch (mOrigin)
+    {
+    case Qt::TopLeftCorner:
+        transform.rotate(0.0);
+        originPoint = QPoint(0.0, 0.0);
+        break;
+
+    case Qt::TopRightCorner:
+        transform.rotate(90.0);
+        originPoint = QPoint(0.0, -sz.width());
+        swap = true;
+        break;
+
+    case Qt::BottomRightCorner:
+        transform.rotate(180.0);
+        originPoint = QPoint(-sz.width(), -sz.height());
+        break;
+
+    case Qt::BottomLeftCorner:
+        transform.rotate(270.0);
+        originPoint = QPoint(-sz.height(), 0.0);
+        swap = true;
+        break;
+    }
+    if (swap)
+    {
+        adjSz.transpose();
+        int tmp = adjRect.width();
+        adjRect.setWidth(adjRect.height());
+        adjRect.setHeight(tmp);
+    }
+
+    QPixmap pixmap(adjSz);
+    pixmap.fill(QColor(0, 0, 0, 0));
+
+    setGeometry(adjRect);
+    {
+        QStylePainter painter(&pixmap, this);
+        QStyleOptionToolButton opt;
+        initStyleOption(&opt);
+        painter.drawComplexControl(QStyle::CC_ToolButton, opt);
+    }
+    setGeometry(rect);
+    {
+        QPainter painter(this);
+        painter.setTransform(transform);
+        painter.drawPixmap(originPoint, pixmap);
+    }
 }

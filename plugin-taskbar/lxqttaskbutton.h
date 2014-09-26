@@ -55,6 +55,9 @@ public:
 class LxQtTaskButton : public QToolButton
 {
     Q_OBJECT
+
+    Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
+
 public:
     explicit LxQtTaskButton(const Window window, QWidget *parent = 0);
     virtual ~LxQtTaskButton();
@@ -70,6 +73,9 @@ public:
     void updateText();
     void updateIcon();
 
+    Qt::Corner origin() const;
+    void setAutoRotation(bool value, ILxQtPanel::Position position);
+
 public slots:
     void raiseApplication();
     void minimizeApplication();
@@ -83,20 +89,23 @@ public slots:
 
     void handlePropertyNotify(XEventType* event);
 
-protected:
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void mouseReleaseEvent(QMouseEvent *event);
-    virtual void mouseMoveEvent(QMouseEvent *event);
+    void setOrigin(Qt::Corner);
 
-    void contextMenuEvent( QContextMenuEvent* event);
+protected:
+    void dragEnterEvent(QDragEnterEvent *event);
+    void dragLeaveEvent(QDragLeaveEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event);
+    void paintEvent(QPaintEvent *);
 
 private:
     Window mWindow;
     bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
+    Qt::Corner mOrigin;
 
 private slots:
     void activateWithDraggable();

@@ -68,6 +68,7 @@ protected:
 
 private:
     void refreshTaskList();
+    void refreshButtonRotation();
     void refreshButtonVisibility();
     QHash<WId, LxQtTaskButton*> mButtonsHash;
     LxQt::GridLayout *mLayout;
@@ -81,6 +82,7 @@ private:
     bool mCloseOnMiddleClick;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
     bool mShowOnlyCurrentDesktopTasks;
+    bool mAutoRotate;
 
     void handlePropertyNotify(XEventType* event);
     void wheelEvent(QWheelEvent* event);
@@ -88,7 +90,7 @@ private:
     void mousePressEvent(QMouseEvent *event);
 
     ILxQtPanelPlugin *mPlugin;
-    LxQtTaskButton *mPlaceHolder;
+    QWidget *mPlaceHolder;
     ElidedButtonStyle* mStyle;
 };
 
