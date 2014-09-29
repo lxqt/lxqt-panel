@@ -479,6 +479,7 @@ void LxQtTaskBar::realign()
     QSize minSize = QSize(0, 0);
 
 
+    bool rotated = false;
     if (panel->isHorizontal())
     {
         if (mButtonStyle == Qt::ToolButtonIconOnly)
@@ -526,7 +527,6 @@ void LxQtTaskBar::realign()
         }
         else
         {
-            bool rotated = false;
             if (mAutoRotate)
             {
                 switch (panel->position())
@@ -571,7 +571,7 @@ void LxQtTaskBar::realign()
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
 
-    mLayout->setDirection(panel->isHorizontal() ? LxQt::GridLayout::LeftToRight : LxQt::GridLayout::TopToBottom);
+    mLayout->setDirection(rotated ? LxQt::GridLayout::TopToBottom : LxQt::GridLayout::LeftToRight);
     mLayout->setEnabled(true);
     refreshIconGeometry();
 }
