@@ -109,6 +109,8 @@ private:
     const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
     Qt::Corner mOrigin;
+    QPixmap mPixmap;
+    bool mDrawPixmap;
 
 private slots:
     void activateWithDraggable();

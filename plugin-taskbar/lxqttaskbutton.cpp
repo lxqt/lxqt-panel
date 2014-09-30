@@ -67,7 +67,8 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 ************************************************/
 LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
     QToolButton(parent),
-    mWindow(window)
+    mWindow(window),
+    mDrawPixmap(false)
 {
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -654,15 +655,11 @@ void LxQtTaskButton::paintEvent(QPaintEvent *event)
         return;
     }
 
-
     QSize sz = size();
     QSize adjSz = sz;
-    QRect rect = geometry();
-    QRect adjRect = rect;
     QTransform transform;
     QPoint originPoint;
 
-    bool swap = false;
     switch (mOrigin)
     {
     case Qt::TopLeftCorner:
@@ -673,7 +670,7 @@ void LxQtTaskButton::paintEvent(QPaintEvent *event)
     case Qt::TopRightCorner:
         transform.rotate(90.0);
         originPoint = QPoint(0.0, -sz.width());
-        swap = true;
+        adjSz.transpose();
         break;
 
     case Qt::BottomRightCorner:
@@ -684,31 +681,43 @@ void LxQtTaskButton::paintEvent(QPaintEvent *event)
     case Qt::BottomLeftCorner:
         transform.rotate(270.0);
         originPoint = QPoint(-sz.height(), 0.0);
-        swap = true;
+        adjSz.transpose();
         break;
     }
-    if (swap)
-    {
-        adjSz.transpose();
-        int tmp = adjRect.width();
-        adjRect.setWidth(adjRect.height());
-        adjRect.setHeight(tmp);
-    }
 
-    QPixmap pixmap(adjSz);
-    pixmap.fill(QColor(0, 0, 0, 0));
+    bool drawPixmapNextTime = false;
 
-    setGeometry(adjRect);
+    if (!mDrawPixmap)
     {
-        QStylePainter painter(&pixmap, this);
+        mPixmap = QPixmap(adjSz);
+        mPixmap.fill(QColor(0, 0, 0, 0));
+
+        if (adjSz != sz)
+            resize(adjSz); // this causes paint event to be repeated - next time we'll paint the pixmap to the widget surface.
+
+        // copied from QToolButton::paintEvent   {
+        QStylePainter painter(&mPixmap, this);
         QStyleOptionToolButton opt;
         initStyleOption(&opt);
         painter.drawComplexControl(QStyle::CC_ToolButton, opt);
+        // }
+
+        if (adjSz != sz)
+        {
+            resize(sz);
+            drawPixmapNextTime = true;
+        }
+        else
+            mDrawPixmap = true; // transfer the pixmap to the widget now!
     }
-    setGeometry(rect);
+    if (mDrawPixmap)
     {
         QPainter painter(this);
         painter.setTransform(transform);
-        painter.drawPixmap(originPoint, pixmap);
+        painter.drawPixmap(originPoint, mPixmap);
+
+        drawPixmapNextTime = false;
     }
+
+    mDrawPixmap = drawPixmapNextTime;
 }
