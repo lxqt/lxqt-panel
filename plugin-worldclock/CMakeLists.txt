@@ -21,14 +21,23 @@ set(MOCS
     lxqtworldclockconfigurationtimezones.h
 )
 
+if(ICU_I18N_FOUND)
+set(UIS
+    lxqtworldclockconfiguration_icu.ui
+    lxqtworldclockconfigurationtimezones_icu.ui
+)
+else()
 set(UIS
     lxqtworldclockconfiguration.ui
     lxqtworldclockconfigurationtimezones.ui
 )
+endif()
 
 
-include_directories(${ICU_INCLUDE_DIRS})
-LINK_LIBRARIES(${PLUGIN} ${ICU_LIBRARIES})
+if(ICU_I18N_FOUND)
+  include_directories(${ICU_INCLUDE_DIRS})
+  LINK_LIBRARIES(${PLUGIN} ${ICU_LIBRARIES})
+endif()
 
 #*******************************************
 include ("../BuildPlugin.cmake")

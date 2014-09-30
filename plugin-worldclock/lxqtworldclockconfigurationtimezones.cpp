@@ -5,6 +5,7 @@
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
@@ -26,11 +27,20 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
+#ifdef ICU_VERSION
 #include <unicode/timezone.h>
 #include <unicode/calendar.h>
+#else
+#include <QTimeZone>
+#endif
 
 #include "lxqtworldclockconfigurationtimezones.h"
+
+#ifdef ICU_VERSION
+#include "ui_lxqtworldclockconfigurationtimezones_icu.h"
+#else
 #include "ui_lxqtworldclockconfigurationtimezones.h"
+#endif
 
 
 LxQtWorldClockConfigurationTimeZones::LxQtWorldClockConfigurationTimeZones(QWidget *parent) :
@@ -58,7 +68,11 @@ void LxQtWorldClockConfigurationTimeZones::itemSelectionChanged()
 {
     QList<QTreeWidgetItem*> items = ui->timeZonesTW->selectedItems();
     if (!items.empty())
+#ifdef ICU_VERSION
         mTimeZone = items[0]->data(1, Qt::UserRole).toString();
+#else
+        mTimeZone = items[0]->data(0, Qt::UserRole).toString();
+#endif
     else
         mTimeZone.clear();
 }
@@ -69,6 +83,7 @@ void LxQtWorldClockConfigurationTimeZones::itemDoubleClicked(QTreeWidgetItem* /*
         accept();
 }
 
+#ifdef ICU_VERSION
 int LxQtWorldClockConfigurationTimeZones::updateAndExec()
 {
     ui->timeZonesTW->clear();
@@ -174,3 +189,62 @@ int LxQtWorldClockConfigurationTimeZones::updateAndExec()
 
     return exec();
 }
+#else
+QTreeWidgetItem* LxQtWorldClockConfigurationTimeZones::makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems)
+{
+    if (parts.length() == 1)
+        return 0;
+
+    QStringList parentParts = parts.mid(0, parts.length() - 1);
+
+    QString parentPath = parentParts.join(QLatin1String("/"));
+
+    QMap<QString, QTreeWidgetItem*>::Iterator I = parentItems.find(parentPath);
+    if (I != parentItems.end())
+        return I.value();
+
+    QTreeWidgetItem* newItem = new QTreeWidgetItem(QStringList() << parts[parts.length() - 2]);
+
+    QTreeWidgetItem* parentItem = makeSureParentsExist(parentParts, parentItems);
+
+    if (!parentItem)
+        ui->timeZonesTW->addTopLevelItem(newItem);
+    else
+        parentItem->addChild(newItem);
+
+    parentItems[parentPath] = newItem;
+
+    return newItem;
+}
+
+int LxQtWorldClockConfigurationTimeZones::updateAndExec()
+{
+    QDateTime now = QDateTime::currentDateTime();
+
+    ui->timeZonesTW->clear();
+
+    QMap<QString, QTreeWidgetItem*> parentItems;
+
+    foreach(QByteArray ba, QTimeZone::availableTimeZoneIds())
+    {
+        QTimeZone timeZone(ba);
+        QString ianaId(ba);
+        QStringList qStrings(QString(ba).split('/'));
+
+        if ((qStrings.size() == 1) && (qStrings[0].startsWith(QLatin1String("UTC"))))
+            qStrings.prepend(QLatin1String("UTC"));
+
+        if (qStrings.size() == 1)
+            qStrings.prepend(QLatin1String("Other"));
+
+        QTreeWidgetItem *tzItem = new QTreeWidgetItem(QStringList() << qStrings[qStrings.length() - 1] << timeZone.displayName(now) << timeZone.comment() << QLocale::countryToString(timeZone.country()));
+        tzItem->setData(0, Qt::UserRole, ianaId);
+
+        makeSureParentsExist(qStrings, parentItems)->addChild(tzItem);
+    }
+
+    ui->timeZonesTW->sortByColumn(0, Qt::AscendingOrder);
+
+    return exec();
+}
+#endif

@@ -5,6 +5,7 @@
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
@@ -59,6 +60,10 @@ private:
     Ui::LxQtWorldClockConfigurationTimeZones *ui;
 
     QString mTimeZone;
+
+#ifndef ICU_VERSION
+    QTreeWidgetItem* makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems);
+#endif
 };
 
 #endif // LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
