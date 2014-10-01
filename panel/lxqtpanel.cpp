@@ -873,8 +873,7 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
 
         if (m)
         {
-            menu.addTitle(plugin->windowTitle().replace("&", "&&"));
-
+            menu.addTitle(plugin->windowTitle());
             menu.addActions(m->actions());
             pluginsMenus << m;
         }
