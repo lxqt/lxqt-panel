@@ -434,7 +434,7 @@ void LxQtPanel::realign()
         else
             rect.moveRight(currentScreen.right());
     }
-    if (rect != geometry())     
+    if (rect != geometry())
     {
         setGeometry(rect);
         setFixedSize(rect.size());
@@ -683,8 +683,8 @@ void LxQtPanel::setLineCount(int value)
     {
         mLineCount = value;
         mLayout->setEnabled(false);
-        mLayout->setLineCount(mLineCount);        
-        mLayout->setEnabled(true);        
+        mLayout->setLineCount(mLineCount);
+        mLayout->setEnabled(true);
         saveSettings(true);
 
         realign();
@@ -703,7 +703,7 @@ void LxQtPanel::setLength(int length, bool inPercents)
         return;
 
     mLength = length;
-    mLengthInPercents = inPercents;    
+    mLengthInPercents = inPercents;
     saveSettings(true);
 
     realign();
@@ -762,7 +762,7 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
     if (mAlignment == value)
         return;
 
-    mAlignment = value;    
+    mAlignment = value;
     saveSettings(true);
 
     realign();
@@ -869,8 +869,7 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
 
         if (m)
         {
-            menu.addTitle(plugin->windowTitle().replace("&", "&&"));
-
+            menu.addTitle(plugin->windowTitle());
             menu.addActions(m->actions());
             pluginsMenus << m;
         }
@@ -965,8 +964,8 @@ QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const Q
     QRect screen = QApplication::desktop()->screenGeometry(this);
     // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
     // multihead setup with different resolutions. In this case, the size of the work area is limited
-    // by the smallest monitor and may be much smaller than the current screen and we will place the 
-    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.    
+    // by the smallest monitor and may be much smaller than the current screen and we will place the
+    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.
     if (res.right() > screen.right())
         res.moveRight(screen.right());
 
