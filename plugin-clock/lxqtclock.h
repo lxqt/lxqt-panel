@@ -33,6 +33,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtclockconfiguration.h"
+#include "calendarpopup.h"
 #include <LXQt/RotatedWidget>
 
 #include <QString>
@@ -74,7 +75,7 @@ private:
     QLabel* mDateLabel;
     QString mClockFormat;
     QString mToolTipFormat;
-    QDialog* mCalendarDialog;
+    CalendarPopup* mCalendarPopup;
     QString mTimeFormat;
     QString mDateFormat;
     bool mDateOnNewLine;
