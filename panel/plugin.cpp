@@ -363,17 +363,18 @@ void Plugin::realign()
  ************************************************/
 void Plugin::showConfigureDialog()
 {
+    // store a pointer to each plugin using the plugins' names
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    static QPointer<QDialog> ref;
+    static QHash<QString, QPointer<QDialog> > refs;
 #else
-    static QWeakPointer<QDialog> ref;
+    static QHash<QString, QWeakPointer<QDialog> > refs;
 #endif
-    QDialog *dialog = ref.data();
+    QDialog *dialog = refs[name()].data();
 
     if (!dialog)
     {
         dialog = mPlugin->configureDialog();
-        ref = dialog;
+        refs[name()] = dialog;
         connect(this, SIGNAL(destroyed()), dialog, SLOT(close()));
     }
 
