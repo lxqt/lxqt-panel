@@ -41,7 +41,6 @@ DomPlugin::DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     ILxQtPanelPlugin(startupInfo)
 {
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    mButton.setIcon(XdgIcon::fromTheme("preferences-plugin"));
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showDialog()));
 }
 
