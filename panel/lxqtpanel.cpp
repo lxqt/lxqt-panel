@@ -595,12 +595,14 @@ void LxQtPanel::showAddPluginDialog()
         dialog->setWindowTitle(tr("Add Panel Widgets"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
+        connect(this, SIGNAL(pluginAdded(QString)), dialog, SLOT(pluginAdded(const QString &)));
+        connect(this, SIGNAL(pluginRemoved(QString)), dialog, SLOT(pluginRemoved(const QString &)));
     }
 
-    LxQt::PluginInfoList pluginsInUse;
+    QStringList pluginsInUseIDs;
     foreach (Plugin *i, mPlugins)
-        pluginsInUse << i->desktopFile();
-    dialog->setPluginsInUse(pluginsInUse);
+        pluginsInUseIDs << i->desktopFile().id();
+    dialog->setPluginsInUse(pluginsInUseIDs);
 
     dialog->show();
     dialog->raise();
@@ -623,6 +625,8 @@ void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 
     realign();
     emit realigned();
+
+    emit pluginAdded(desktopFile.id());
 }
 
 
@@ -1017,11 +1021,13 @@ QString LxQtPanel::findNewPluginSettingsGroup(const QString &pluginType) const
 void LxQtPanel::removePlugin()
 {
     Plugin *plugin = qobject_cast<Plugin*>(sender());
+    QString id;
     if (plugin)
-    {
-        mPlugins.removeAll(plugin);
-    }
+        id = mPlugins.takeAt(mPlugins.indexOf(plugin))->desktopFile().id();
+
     saveSettings();
+
+    emit pluginRemoved(id);
 }
 
 
