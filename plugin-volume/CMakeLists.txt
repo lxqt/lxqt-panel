@@ -13,6 +13,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtvolume.cpp
     volumebutton.cpp
     volumepopup.cpp
@@ -23,6 +24,7 @@ set(SOURCES
 )
 
 set(MOCS
+    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
     lxqtvolume.h
     volumebutton.h
     volumepopup.h

@@ -27,7 +27,7 @@ set(SOURCES
 )
 
 set(MOCS
-    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
+    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
     lxqtmountplugin.h
     mountbutton.h
     menudiskitem.h
