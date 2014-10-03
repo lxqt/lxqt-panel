@@ -14,6 +14,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtmountplugin.cpp
     mountbutton.cpp
     menudiskitem.cpp
@@ -26,6 +27,7 @@ set(SOURCES
 )
 
 set(MOCS
+    ${CMAKE_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtmountplugin.h
     mountbutton.h
     menudiskitem.h
