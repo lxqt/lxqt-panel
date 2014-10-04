@@ -67,11 +67,12 @@ signals:
 public slots:
     void reset();
 
-
 private slots:
     void editChanged();
     void widthTypeChanged();
     void positionChanged();
+    void pickBackgroundColor();
+    void pickBackgroundImage();
 
 private:
     Ui::ConfigPanelWidget *ui;
@@ -94,6 +95,8 @@ private:
     LxQtPanel::Alignment mOldAlignment;
     ILxQtPanel::Position mOldPosition;
     int mOldScreenNum;
+    QColor mOldBackgroundColor;
+    QString mOldBackgroundImage;
 };
 
 #endif // CONFIGPANELDIALOG_H

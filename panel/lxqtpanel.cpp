@@ -51,15 +51,17 @@
 #include <KF5/KWindowSystem/NETWM>
 
 // Config keys and groups
-#define CFG_KEY_SCREENNUM   "desktop"
-#define CFG_KEY_POSITION    "position"
-#define CFG_KEY_PANELSIZE   "panelSize"
-#define CFG_KEY_ICONSIZE    "iconSize"
-#define CFG_KEY_LINECNT     "lineCount"
-#define CFG_KEY_LENGTH      "width"
-#define CFG_KEY_PERCENT     "width-percent"
-#define CFG_KEY_ALIGNMENT   "alignment"
-#define CFG_KEY_PLUGINS     "plugins"
+#define CFG_KEY_SCREENNUM          "desktop"
+#define CFG_KEY_POSITION           "position"
+#define CFG_KEY_PANELSIZE          "panelSize"
+#define CFG_KEY_ICONSIZE           "iconSize"
+#define CFG_KEY_LINECNT            "lineCount"
+#define CFG_KEY_LENGTH             "width"
+#define CFG_KEY_PERCENT            "width-percent"
+#define CFG_KEY_ALIGNMENT          "alignment"
+#define CFG_KEY_BACKGROUNDCOLOR    "background-color"
+#define CFG_KEY_BACKGROUNDIMAGE    "background-image"
+#define CFG_KEY_PLUGINS            "plugins"
 
 /************************************************
  Returns the Position by the string.
@@ -173,17 +175,28 @@ void LxQtPanel::readSettings()
     mSettings->beginGroup(mConfigGroup);
 
     // By default we are using size & count from theme.
-    setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt());
-    setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt());
-    setLineCount(mSettings->value(CFG_KEY_LINECNT, PANEL_DEFAULT_LINE_COUNT).toInt());
+    setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
+    setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt(), false);
+    setLineCount(mSettings->value(CFG_KEY_LINECNT, PANEL_DEFAULT_LINE_COUNT).toInt(), false);
 
     setLength(mSettings->value(CFG_KEY_LENGTH, 100).toInt(),
-              mSettings->value(CFG_KEY_PERCENT, true).toBool());
+              mSettings->value(CFG_KEY_PERCENT, true).toBool(),
+              false);
 
     setPosition(mSettings->value(CFG_KEY_SCREENNUM, QApplication::desktop()->primaryScreen()).toInt(),
-                strToPosition(mSettings->value(CFG_KEY_POSITION).toString(), PositionBottom));
+                strToPosition(mSettings->value(CFG_KEY_POSITION).toString(), PositionBottom),
+                false);
 
-    setAlignment(LxQtPanel::Alignment(mSettings->value(CFG_KEY_ALIGNMENT, mAlignment).toInt()));
+    setAlignment(Alignment(mSettings->value(CFG_KEY_ALIGNMENT, mAlignment).toInt()), false);
+
+    QColor color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
+    if (color.isValid())
+        setBackgroundColor(color, true);
+
+    QString image = mSettings->value(CFG_KEY_BACKGROUNDIMAGE, "").toString();
+    if (!image.isEmpty())
+        setBackgroundImage(image, false);
+
     mSettings->endGroup();
 }
 
@@ -230,6 +243,9 @@ void LxQtPanel::saveSettings(bool later)
 
     mSettings->setValue(CFG_KEY_ALIGNMENT, mAlignment);
 
+    mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
+    mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
+
     mSettings->endGroup();
 }
 
@@ -240,7 +256,8 @@ void LxQtPanel::saveSettings(bool later)
 void LxQtPanel::ensureVisible()
 {
     if (!canPlacedOn(mScreenNum, mPosition))
-        setPosition(findAvailableScreen(mPosition), mPosition);
+        setPosition(findAvailableScreen(mPosition), mPosition, true);
+
     // the screen size might be changed, let's update the reserved screen space.
     updateWmStrut();
 }
@@ -625,6 +642,21 @@ void LxQtPanel::updateStyleSheet()
     sheet << QString("Plugin > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
     sheet << QString("Plugin > * > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
 
+    QString object = LxQtPanelWidget->objectName();
+    if (mBackgroundColor.isValid())
+    {
+        QString color = QString("%1, %2, %3, %5")
+            .arg(mBackgroundColor.red())
+            .arg(mBackgroundColor.green())
+            .arg(mBackgroundColor.blue())
+            .arg((float) mBackgroundColor.alpha() / 255);
+
+        sheet << QString("LxQtPanel #" + object + " { background-color: rgba(" + color + "); }");
+    }
+
+    if (QFileInfo(mBackgroundImage).exists())
+        sheet << QString("LxQtPanel #" + object + " { background-image: url('" + mBackgroundImage + "');}");
+
     setStyleSheet(sheet.join("\n"));
 }
 
@@ -633,14 +665,16 @@ void LxQtPanel::updateStyleSheet()
 /************************************************
 
  ************************************************/
-void LxQtPanel::setPanelSize(int value)
+void LxQtPanel::setPanelSize(int value, bool save)
 {
     if (mPanelSize != value)
     {
         mPanelSize = value;
         realign();
         emit realigned();
-        saveSettings(true);
+
+        if (save)
+            saveSettings(true);
     }
 }
 
@@ -649,14 +683,16 @@ void LxQtPanel::setPanelSize(int value)
 /************************************************
 
  ************************************************/
-void LxQtPanel::setIconSize(int value)
+void LxQtPanel::setIconSize(int value, bool save)
 {
     if (mIconSize != value)
     {
         mIconSize = value;
         updateStyleSheet();
         mLayout->setLineSize(mIconSize);
-        saveSettings(true);
+
+        if (save)
+            saveSettings(true);
 
         realign();
         emit realigned();
@@ -667,7 +703,7 @@ void LxQtPanel::setIconSize(int value)
 /************************************************
 
  ************************************************/
-void LxQtPanel::setLineCount(int value)
+void LxQtPanel::setLineCount(int value, bool save)
 {
     if (mLineCount != value)
     {
@@ -675,7 +711,9 @@ void LxQtPanel::setLineCount(int value)
         mLayout->setEnabled(false);
         mLayout->setLineCount(mLineCount);
         mLayout->setEnabled(true);
-        saveSettings(true);
+
+        if (save)
+            saveSettings(true);
 
         realign();
         emit realigned();
@@ -686,7 +724,7 @@ void LxQtPanel::setLineCount(int value)
 /************************************************
 
  ************************************************/
-void LxQtPanel::setLength(int length, bool inPercents)
+void LxQtPanel::setLength(int length, bool inPercents, bool save)
 {
     if (mLength == length &&
             mLengthInPercents == inPercents)
@@ -694,7 +732,9 @@ void LxQtPanel::setLength(int length, bool inPercents)
 
     mLength = length;
     mLengthInPercents = inPercents;
-    saveSettings(true);
+
+    if (save)
+        saveSettings(true);
 
     realign();
     emit realigned();
@@ -704,7 +744,7 @@ void LxQtPanel::setLength(int length, bool inPercents)
 /************************************************
 
  ************************************************/
-void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
+void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position, bool save)
 {
     if (mScreenNum == screen &&
             mPosition == position)
@@ -713,7 +753,9 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mScreenNum = screen;
     mPosition = position;
     mLayout->setPosition(mPosition);
-    saveSettings(true);
+
+    if (save)
+        saveSettings(true);
 
     // Qt 5 adds a new class QScreen and add API for setting the screen of a QWindow.
     // so we had better use it. However, without this, our program should still work
@@ -741,17 +783,42 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     emit realigned();
 }
 
+/************************************************
+
+ ************************************************/
+void LxQtPanel::setBackgroundColor(QColor color, bool save)
+{
+    mBackgroundColor = color;
+    updateStyleSheet();
+
+    if (save)
+        saveSettings(true);
+}
 
 /************************************************
 
  ************************************************/
-void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
+void LxQtPanel::setBackgroundImage(QString path, bool save)
+{
+    mBackgroundImage = path;
+    updateStyleSheet();
+
+    if (save)
+        saveSettings(true);
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtPanel::setAlignment(Alignment value, bool save)
 {
     if (mAlignment == value)
         return;
 
     mAlignment = value;
-    saveSettings(true);
+
+    if (save)
+        saveSettings(true);
 
     realign();
     emit realigned();

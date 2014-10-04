@@ -34,6 +34,9 @@
 #include <QDesktopWidget>
 #include <QWindow>
 #include <KF5/KWindowSystem/KWindowSystem>
+#include <QColorDialog>
+#include <QFileDialog>
+#include <QStandardPaths>
 
 using namespace LxQt;
 
@@ -95,12 +98,13 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     mPanel(panel)
 {
     ui->setupUi(this);
+
     fillComboBox_position();
     fillComboBox_alignment();
 
     mOldPanelSize = mPanel->panelSize();
-    mOldIconSize    = mPanel->iconSize();
-    mOldLineCount   = mPanel->lineCount();
+    mOldIconSize = mPanel->iconSize();
+    mOldLineCount = mPanel->lineCount();
 
     mOldLength = mPanel->length();
     mOldLengthInPercents = mPanel->lengthInPercents();
@@ -116,17 +120,28 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
     ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
 
+    mOldBackgroundColor = mPanel->backgroundColor();
+    mOldBackgroundImage = mPanel->backgroundImage();
+
     reset();
 
-    connect(ui->spinBox_panelSize,  SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->spinBox_iconSize,     SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->spinBox_lineCount,    SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
+    connect(ui->spinBox_panelSize,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_iconSize,           SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_lineCount,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
 
-    connect(ui->spinBox_length,       SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->comboBox_lenghtType,  SIGNAL(activated(int)),    this, SLOT(widthTypeChanged()));
+    connect(ui->spinBox_length,             SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->comboBox_lenghtType,        SIGNAL(activated(int)),         this, SLOT(widthTypeChanged()));
 
-    connect(ui->comboBox_alignment,   SIGNAL(activated(int)),    this, SLOT(editChanged()));
-    connect(ui->comboBox_position,    SIGNAL(activated(int)),    this, SLOT(positionChanged()));
+    connect(ui->comboBox_alignment,         SIGNAL(activated(int)),         this, SLOT(editChanged()));
+    connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
+
+    connect(ui->checkBox_customColor,       SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->pushButton_customColor,     SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
+    connect(ui->lineEdit_customColor,       SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
+    connect(ui->slider_opacity,             SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->checkBox_customImage,       SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->lineEdit_customImage,       SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
+    connect(ui->pushButton_customImage,     SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
 }
 
 
@@ -147,6 +162,13 @@ void ConfigPanelWidget::reset()
     ui->comboBox_lenghtType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
+
+    ui->slider_opacity->setValue(mOldBackgroundColor.alpha() * 100 / 255);
+    ui->lineEdit_customColor->setText(mOldBackgroundColor.name().toUpper());
+    ui->lineEdit_customImage->setText(mOldBackgroundImage);
+
+    ui->checkBox_customColor->setChecked(mOldBackgroundColor.isValid());
+    ui->checkBox_customImage->setChecked(QFileInfo(mOldBackgroundImage).exists());
 
     // update position
     positionChanged();
@@ -247,21 +269,33 @@ ConfigPanelWidget::~ConfigPanelWidget()
  ************************************************/
 void ConfigPanelWidget::editChanged()
 {
-    mPanel->setPanelSize(ui->spinBox_panelSize->value());
-    mPanel->setIconSize(ui->spinBox_iconSize->value());
-    mPanel->setLineCount(ui->spinBox_lineCount->value());
+    mPanel->setPanelSize(ui->spinBox_panelSize->value(), true);
+    mPanel->setIconSize(ui->spinBox_iconSize->value(), true);
+    mPanel->setLineCount(ui->spinBox_lineCount->value(), true);
 
     mPanel->setLength(ui->spinBox_length->value(),
-                      ui->comboBox_lenghtType->currentIndex() == 0);
+                      ui->comboBox_lenghtType->currentIndex() == 0,
+                      true);
 
     LxQtPanel::Alignment align = LxQtPanel::Alignment(
                 ui->comboBox_alignment->itemData(
                     ui->comboBox_alignment->currentIndex()
                     ).toInt());
 
-    mPanel->setAlignment(align);
+    mPanel->setAlignment(align, true);
+    mPanel->setPosition(mScreenNum, mPosition, true);
 
-    mPanel->setPosition(mScreenNum, mPosition);
+    if (ui->checkBox_customColor->isChecked())
+    {
+        QColor color = QColor(ui->lineEdit_customColor->text());
+        color.setAlpha(ui->slider_opacity->value() * 255 / 100);
+        mPanel->setBackgroundColor(color, true);
+    }
+    else
+        mPanel->setBackgroundColor(QColor(), true);
+
+    mPanel->setBackgroundImage(ui->checkBox_customImage->isChecked() ? ui->lineEdit_customImage->text() : QString(),
+                               true);
 }
 
 
@@ -339,4 +373,29 @@ void ConfigPanelWidget::positionChanged()
         fillComboBox_alignment();
 
     editChanged();
+}
+
+/************************************************
+
+ ************************************************/
+void ConfigPanelWidget::pickBackgroundColor()
+{
+    QColor newColor = QColorDialog::getColor(QColor(ui->lineEdit_customColor->text()), this, tr("Pick color"));
+    if (newColor.isValid())
+        ui->lineEdit_customColor->setText(newColor.name());
+}
+
+/************************************************
+
+ ************************************************/
+void ConfigPanelWidget::pickBackgroundImage()
+{
+    QString picturesLocation;
+    picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+
+    QString file = QFileDialog::getOpenFileName(this,
+                                                "Pick image",
+                                                picturesLocation,
+                                                tr("Images (*.png *.gif *.jpg)"));
+    ui->lineEdit_customImage->setText(file);
 }
