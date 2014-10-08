@@ -119,6 +119,8 @@ lxqt_translate_ts(lxqt-runner_QM_FILES
         ${lxqt-panel_PRIV_H_FILES}
         ${lxqt-panel_CPP_FILES} 
         ${lxqt-panel_UI_FILES}
+    INSTALLATION_DIR
+        ${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}
 )
 #************************************************
 

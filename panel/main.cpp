@@ -33,9 +33,9 @@
 #include <QDirIterator>
 #include <csignal>
 
+#include <LXQt/Translator>
 #include "lxqtpanelapplication.h"
 #include "lxqtpanel.h"
-#include "lxqttranslate.h"
 
 /*! The lxqt-panel is the panel of LXDE-Qt.
   Usage: lxqt-panel [CONFIG_ID]
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 
     LxQtPanelApplication *app = new LxQtPanelApplication(argc, argv, configFile);
 
-    TRANSLATE_APP;
+    LxQt::Translator::translateApplication(QLatin1String("lxqt-runner"));
 
     //Setup Unix signal handlers
     struct sigaction term;
