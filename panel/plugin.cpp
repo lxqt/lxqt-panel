@@ -44,6 +44,7 @@
 #include <QCryptographicHash>
 
 #include <LXQt/Settings>
+#include <LXQt/Translator>
 #include <XdgIcon>
 
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
@@ -96,6 +97,9 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
 
         return;
     }
+
+    // Load plugin translations
+    LxQt::Translator::translatePlugin(desktopFile.id(), QLatin1String("lxqt-panel"));
 
     setObjectName(mPlugin->themeId() + "Plugin");
     QString s = mSettings->value("alignment").toString();
