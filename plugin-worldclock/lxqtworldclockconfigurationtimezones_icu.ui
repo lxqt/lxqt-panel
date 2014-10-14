@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>718</width>
+    <width>440</width>
     <height>280</height>
    </rect>
   </property>
@@ -26,10 +26,10 @@
       <bool>true</bool>
      </property>
      <property name="columnCount">
-      <number>4</number>
+      <number>2</number>
      </property>
      <attribute name="headerDefaultSectionSize">
-      <number>150</number>
+      <number>200</number>
      </attribute>
      <column>
       <property name="text">
@@ -38,17 +38,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Comment</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Country</string>
+       <string>Offset</string>
       </property>
      </column>
     </widget>

@@ -30,9 +30,7 @@
 
 
 #include "lxqtclock.h"
-#include "calendar_utils.h"
 
-#include <QCalendarWidget>
 #include <QDialog>
 #include <QLabel>
 #include <QHBoxLayout>
@@ -63,7 +61,6 @@ Q_EXPORT_PLUGIN2(clock, LxQtClockPluginLibrary)
 LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mCalendarDialog(0),
     mAutoRotate(true)
 {
     mMainWidget = new QWidget();
@@ -102,7 +99,7 @@ LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
 
     mClockFormat = "hh:mm";
 
-    mFirstDayOfWeek = firstDayOfWeek();
+    mCalendarPopup = new CalendarPopup(mContent);
 
     mMainWidget->installEventFilter(this);
     settingsChanged();
@@ -339,26 +336,15 @@ void LxQtClock::activated(ActivationReason reason)
     if (reason != ILxQtPanelPlugin::Trigger)
         return;
 
-    if (!mCalendarDialog)
+    if (!mCalendarPopup->isVisible())
     {
-        mCalendarDialog = new QDialog(mContent);
-        //mCalendarDialog->setAttribute(Qt::WA_DeleteOnClose, true);
-        mCalendarDialog->setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
-        mCalendarDialog->setLayout(new QHBoxLayout(mCalendarDialog));
-        mCalendarDialog->layout()->setMargin(1);
-
-        QCalendarWidget* cal = new QCalendarWidget(mCalendarDialog);
-        cal->setFirstDayOfWeek(mFirstDayOfWeek);
-        mCalendarDialog->layout()->addWidget(cal);
-        mCalendarDialog->adjustSize();
-        QRect pos = calculatePopupWindowPos(mCalendarDialog->size());
-        mCalendarDialog->move(pos.topLeft());
-        mCalendarDialog->show();
+        QRect pos = calculatePopupWindowPos(mCalendarPopup->size());
+        mCalendarPopup->move(pos.topLeft());
+        mCalendarPopup->show();
     }
     else
     {
-        delete mCalendarDialog;
-        mCalendarDialog = 0;
+        mCalendarPopup->hide();
     }
 }
 

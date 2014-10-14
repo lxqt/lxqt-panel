@@ -4,10 +4,9 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2012 Razor team
- *            2014 LXQt team
+ * Copyright: 2014 LXQt team
  * Authors:
- *   Kuzma Shapran <kuzma.shapran@gmail.com>
+ *   Paulo Lieuthier <paulolieuthier@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -26,44 +25,27 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
-#define LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
+#ifndef CALENDARPOPUP_H
+#define CALENDARPOPUP_H
 
 #include <QDialog>
-#include <QAbstractButton>
+#include <QCalendarWidget>
 
-
-namespace Ui {
-    class LxQtWorldClockConfigurationTimeZones;
-}
-
-class QTreeWidgetItem;
-
-class LxQtWorldClockConfigurationTimeZones : public QDialog
+class CalendarPopup :  public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtWorldClockConfigurationTimeZones(QWidget *parent = NULL);
-    ~LxQtWorldClockConfigurationTimeZones();
+    CalendarPopup(QWidget *parent = 0);
+    ~CalendarPopup();
 
-    int updateAndExec();
+    void show();
 
-    QString timeZone();
-
-public slots:
-    void itemSelectionChanged();
-    void itemDoubleClicked(QTreeWidgetItem*,int);
+protected:
+    virtual bool event(QEvent* );
 
 private:
-    Ui::LxQtWorldClockConfigurationTimeZones *ui;
-
-    QString mTimeZone;
-
-#ifndef ICU_VERSION
-    QTreeWidgetItem* makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems);
-#endif
+    QCalendarWidget *cal;
 };
 
-#endif // LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
+#endif // CALENDARPOPUP_H

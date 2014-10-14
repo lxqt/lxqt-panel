@@ -8,18 +8,21 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 set(HEADERS
     lxqtclock.h
     lxqtclockconfiguration.h
+    calendarpopup.h
     calendar_utils.h
 )
 
 set(SOURCES
     lxqtclock.cpp
     lxqtclockconfiguration.cpp
+    calendarpopup.cpp
     calendar_utils.cpp
 )
 
 set(MOCS
     lxqtclock.h
     lxqtclockconfiguration.h
+    calendarpopup.h
 )
 
 set(UIS

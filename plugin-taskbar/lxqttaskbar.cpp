@@ -3,11 +3,14 @@
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
+ * http://lxqt.org
  *
  * Copyright: 2011 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *   Maciej Płaza <plaza.maciej@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -65,15 +68,20 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mCheckedBtn(NULL),
     mCloseOnMiddleClick(true),
     mShowOnlyCurrentDesktopTasks(false),
+    mAutoRotate(true),
     mPlugin(plugin),
-    mPlaceHolder(new LxQtTaskButton(0, this)),
+    mPlaceHolder(new QWidget(this)),
     mStyle(new ElidedButtonStyle())
 {
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     realign();
+
     mPlaceHolder->setStyle(mStyle);
+    mPlaceHolder->setMinimumSize(1, 1);
+    mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+    mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
     mRootWindow = QX11Info::appRootWindow();
@@ -225,6 +233,23 @@ void LxQtTaskBar::refreshTaskList()
 
  ************************************************/
 
+void LxQtTaskBar::refreshButtonRotation()
+{
+    bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);
+
+    ILxQtPanel::Position panelPosition = mPlugin->panel()->position();
+
+    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
+    while (i.hasNext())
+    {
+        i.next();
+        i.value()->setAutoRotation(autoRotate, panelPosition);
+    }
+}
+/************************************************
+
+ ************************************************/
+
 void LxQtTaskBar::refreshButtonVisibility()
 {
     bool haveVisibleWindow = false;
@@ -237,6 +262,14 @@ void LxQtTaskBar::refreshButtonVisibility()
         i.value()->setVisible(isVisible);
     }
     mPlaceHolder->setVisible(!haveVisibleWindow);
+    if (haveVisibleWindow)
+        mPlaceHolder->setFixedSize(0, 0);
+    else
+    {
+        mPlaceHolder->setMinimumSize(1, 1);
+        mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+    }
+
 }
 /************************************************
 
@@ -426,10 +459,11 @@ void LxQtTaskBar::settingsChanged()
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
+
     refreshTaskList();
 }
-
 
 /************************************************
 
@@ -438,11 +472,14 @@ void LxQtTaskBar::realign()
 {
     mLayout->setEnabled(false);
 
+    refreshButtonRotation();
+
     ILxQtPanel *panel = mPlugin->panel();
     QSize maxSize = QSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     QSize minSize = QSize(0, 0);
 
 
+    bool rotated = false;
     if (panel->isHorizontal())
     {
         if (mButtonStyle == Qt::ToolButtonIconOnly)
@@ -490,27 +527,51 @@ void LxQtTaskBar::realign()
         }
         else
         {
+            if (mAutoRotate)
+            {
+                switch (panel->position())
+                {
+                case ILxQtPanel::PositionLeft:
+                case ILxQtPanel::PositionRight:
+                    rotated = true;
+                    break;
+
+                default:;
+                }
+            }
+
             // Vertical + Text *****************
-            mLayout->setRowCount(0);
-            mLayout->setColumnCount(1);
-            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
+            if (rotated)
+            {
+                mLayout->setColumnCount(panel->lineCount());
+                mLayout->setRowCount(0);
+                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
 
-            minSize.rheight() = 0;
-            minSize.rwidth()  = mButtonWidth;
+                minSize.rheight() = 0;
+                minSize.rwidth()  = 0;
 
-            maxSize.rheight() = QWIDGETSIZE_MAX;
-            maxSize.rwidth()  = QWIDGETSIZE_MAX;
+                maxSize.rheight() = mButtonWidth;
+                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+            }
+            else
+            {
+                mLayout->setColumnCount(1);
+                mLayout->setRowCount(0);
+                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
+
+                minSize.rheight() = 0;
+                minSize.rwidth()  = mButtonWidth;
+
+                maxSize.rheight() = QWIDGETSIZE_MAX;
+                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+            }
         }
     }
 
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
 
-    if (panel->isHorizontal())
-        mPlaceHolder->setFixedWidth(0);
-    else
-        mPlaceHolder->setFixedHeight(0);
-
+    mLayout->setDirection(rotated ? LxQt::GridLayout::TopToBottom : LxQt::GridLayout::LeftToRight);
     mLayout->setEnabled(true);
     refreshIconGeometry();
 }
@@ -519,6 +580,7 @@ void LxQtTaskBar::realign()
 /************************************************
 
  ************************************************/
+
 void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
 {
     // close the app on mouse middle click
@@ -547,17 +609,24 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
  ************************************************/
 void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 {
-    XfitMan xf = xfitMan();
-    QList<Window> winList = xf.getClientList();
-    int current = winList.indexOf(xf.getActiveAppWindow());
-    int delta = event->delta() < 0 ? 1 : -1;
+    if (!mCheckedBtn)
+        return;
 
-    for (int ix = current + delta; 0 <= ix && ix < winList.size(); ix += delta)
+    int current = mLayout->indexOf(mCheckedBtn);
+    if (current == -1)
+        return;
+
+    int delta = event->delta() < 0 ? 1 : -1;
+    for (int ix = current + delta; 0 <= ix && ix < mLayout->count(); ix += delta)
     {
-        Window window = winList.at(ix);
-        if (xf.acceptWindow(window) && windowOnActiveDesktop(window))
+        QLayoutItem *item = mLayout->itemAt(ix);
+        if (!item)
+            continue;
+
+        Window window = ((LxQtTaskButton *) item->widget())->windowId();
+        if (XfitMan().acceptWindow(window) && windowOnActiveDesktop(window))
         {
-            xf.raiseWindow(window);
+            XfitMan().raiseWindow(window);
             break;
         }
     }

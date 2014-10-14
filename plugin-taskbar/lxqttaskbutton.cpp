@@ -3,10 +3,13 @@
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
+ * http://lxqt.org
  *
  * Copyright: 2011 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -38,6 +41,8 @@
 #include <QMimeData>
 #include <QApplication>
 #include <QDragEnterEvent>
+#include <QStylePainter>
+#include <QStyleOptionToolButton>
 
 #include "lxqttaskbutton.h"
 #include <LXQt/XfitMan>
@@ -62,7 +67,8 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 ************************************************/
 LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
     QToolButton(parent),
-    mWindow(window)
+    mWindow(window),
+    mDrawPixmap(false)
 {
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -160,7 +166,7 @@ void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
     if (event->button() == Qt::LeftButton)
     {
         // qDebug() << "isChecked:" << isChecked();
-        if (this->isChecked())
+        if (isChecked())
             minimizeApplication();
         else
             raiseApplication();
@@ -362,7 +368,6 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         event->ignore();
         return;
     }
-
 
     XfitMan xf = xfitMan();
 
@@ -602,4 +607,117 @@ void LxQtTaskButton::setUrgencyHint(bool set)
 int LxQtTaskButton::desktopNum() const
 {
     return xfitMan().getWindowDesktop(mWindow);
+}
+
+Qt::Corner LxQtTaskButton::origin() const
+{
+    return mOrigin;
+}
+
+void LxQtTaskButton::setOrigin(Qt::Corner newOrigin)
+{
+    if (mOrigin != newOrigin)
+    {
+        mOrigin = newOrigin;
+        update();
+    }
+}
+
+void LxQtTaskButton::setAutoRotation(bool value, ILxQtPanel::Position position)
+{
+    if (value)
+    {
+        switch (position)
+        {
+        case ILxQtPanel::PositionTop:
+        case ILxQtPanel::PositionBottom:
+            setOrigin(Qt::TopLeftCorner);
+            break;
+
+        case ILxQtPanel::PositionLeft:
+            setOrigin(Qt::BottomLeftCorner);
+            break;
+
+        case ILxQtPanel::PositionRight:
+            setOrigin(Qt::TopRightCorner);
+            break;
+        }
+    }
+    else
+        setOrigin(Qt::TopLeftCorner);
+}
+
+void LxQtTaskButton::paintEvent(QPaintEvent *event)
+{
+    if (mOrigin == Qt::TopLeftCorner)
+    {
+        QToolButton::paintEvent(event);
+        return;
+    }
+
+    QSize sz = size();
+    QSize adjSz = sz;
+    QTransform transform;
+    QPoint originPoint;
+
+    switch (mOrigin)
+    {
+    case Qt::TopLeftCorner:
+        transform.rotate(0.0);
+        originPoint = QPoint(0.0, 0.0);
+        break;
+
+    case Qt::TopRightCorner:
+        transform.rotate(90.0);
+        originPoint = QPoint(0.0, -sz.width());
+        adjSz.transpose();
+        break;
+
+    case Qt::BottomRightCorner:
+        transform.rotate(180.0);
+        originPoint = QPoint(-sz.width(), -sz.height());
+        break;
+
+    case Qt::BottomLeftCorner:
+        transform.rotate(270.0);
+        originPoint = QPoint(-sz.height(), 0.0);
+        adjSz.transpose();
+        break;
+    }
+
+    bool drawPixmapNextTime = false;
+
+    if (!mDrawPixmap)
+    {
+        mPixmap = QPixmap(adjSz);
+        mPixmap.fill(QColor(0, 0, 0, 0));
+
+        if (adjSz != sz)
+            resize(adjSz); // this causes paint event to be repeated - next time we'll paint the pixmap to the widget surface.
+
+        // copied from QToolButton::paintEvent   {
+        QStylePainter painter(&mPixmap, this);
+        QStyleOptionToolButton opt;
+        initStyleOption(&opt);
+        painter.drawComplexControl(QStyle::CC_ToolButton, opt);
+        // }
+
+        if (adjSz != sz)
+        {
+            resize(sz);
+            drawPixmapNextTime = true;
+        }
+        else
+            mDrawPixmap = true; // transfer the pixmap to the widget now!
+    }
+    if (mDrawPixmap)
+    {
+        QPainter painter(this);
+        painter.setTransform(transform);
+        painter.drawPixmap(originPoint, mPixmap);
+
+        drawPixmapNextTime = false;
+    }
+
+    mDrawPixmap = drawPixmapNextTime;
 }

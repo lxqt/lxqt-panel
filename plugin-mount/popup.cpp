@@ -35,7 +35,7 @@
 
 
 Popup::Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* parent):
-    QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint),
+    QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     mManager(manager),
     mPlugin(plugin),
     mDisplayCount(0)
@@ -96,7 +96,6 @@ void Popup::removeItem(LxQt::MountDevice *device)
     }
 }
 
-
 void Popup::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
@@ -111,6 +110,8 @@ void Popup::showEvent(QShowEvent *event)
 
     realign();
 
+    this->setFocus();
+    this->activateWindow();
     QWidget::showEvent(event);
     emit visibilityChanged(true);
 }

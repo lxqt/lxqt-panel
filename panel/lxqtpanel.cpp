@@ -434,7 +434,7 @@ void LxQtPanel::realign()
         else
             rect.moveRight(currentScreen.right());
     }
-    if (rect != geometry())     
+    if (rect != geometry())
     {
         setGeometry(rect);
         setFixedSize(rect.size());
@@ -595,12 +595,14 @@ void LxQtPanel::showAddPluginDialog()
         dialog->setWindowTitle(tr("Add Panel Widgets"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
+        connect(this, SIGNAL(pluginAdded(QString)), dialog, SLOT(pluginAdded(const QString &)));
+        connect(this, SIGNAL(pluginRemoved(QString)), dialog, SLOT(pluginRemoved(const QString &)));
     }
 
-    LxQt::PluginInfoList pluginsInUse;
+    QStringList pluginsInUseIDs;
     foreach (Plugin *i, mPlugins)
-        pluginsInUse << i->desktopFile();
-    dialog->setPluginsInUse(pluginsInUse);
+        pluginsInUseIDs << i->desktopFile().id();
+    dialog->setPluginsInUse(pluginsInUseIDs);
 
     dialog->show();
     dialog->raise();
@@ -623,6 +625,8 @@ void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 
     realign();
     emit realigned();
+
+    emit pluginAdded(desktopFile.id());
 }
 
 
@@ -683,8 +687,8 @@ void LxQtPanel::setLineCount(int value)
     {
         mLineCount = value;
         mLayout->setEnabled(false);
-        mLayout->setLineCount(mLineCount);        
-        mLayout->setEnabled(true);        
+        mLayout->setLineCount(mLineCount);
+        mLayout->setEnabled(true);
         saveSettings(true);
 
         realign();
@@ -703,7 +707,7 @@ void LxQtPanel::setLength(int length, bool inPercents)
         return;
 
     mLength = length;
-    mLengthInPercents = inPercents;    
+    mLengthInPercents = inPercents;
     saveSettings(true);
 
     realign();
@@ -762,7 +766,7 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
     if (mAlignment == value)
         return;
 
-    mAlignment = value;    
+    mAlignment = value;
     saveSettings(true);
 
     realign();
@@ -869,8 +873,7 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
 
         if (m)
         {
-            menu.addTitle(plugin->windowTitle().replace("&", "&&"));
-
+            menu.addTitle(plugin->windowTitle());
             menu.addActions(m->actions());
             pluginsMenus << m;
         }
@@ -965,8 +968,8 @@ QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const Q
     QRect screen = QApplication::desktop()->screenGeometry(this);
     // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
     // multihead setup with different resolutions. In this case, the size of the work area is limited
-    // by the smallest monitor and may be much smaller than the current screen and we will place the 
-    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.    
+    // by the smallest monitor and may be much smaller than the current screen and we will place the
+    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.
     if (res.right() > screen.right())
         res.moveRight(screen.right());
 
@@ -1017,11 +1020,13 @@ QString LxQtPanel::findNewPluginSettingsGroup(const QString &pluginType) const
 void LxQtPanel::removePlugin()
 {
     Plugin *plugin = qobject_cast<Plugin*>(sender());
+    QString id;
     if (plugin)
-    {
-        mPlugins.removeAll(plugin);
-    }
+        id = mPlugins.takeAt(mPlugins.indexOf(plugin))->desktopFile().id();
+
     saveSettings();
+
+    emit pluginRemoved(id);
 }
 
 
@@ -1047,7 +1052,8 @@ void LxQtPanel::userRequestForDeletion()
     mSettings->endGroup();
 
     Q_FOREACH(QString i, plugins)
-        mSettings->remove(i);
+        if (!i.isEmpty())
+            mSettings->remove(i);
 
     mSettings->remove(mConfigGroup);
 

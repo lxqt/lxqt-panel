@@ -5,6 +5,7 @@
  * http://razor-qt.org
  *
  * Copyright: 2012-2013 Razor team
+ *            2014 LXQt team
  * Authors:
  *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
@@ -28,7 +29,11 @@
 #ifndef LXQTPANELWORLDCLOCK_H
 #define LXQTPANELWORLDCLOCK_H
 
+#ifdef ICU_VERSION
 #include <unicode/unistr.h>
+#else
+#include <QTimeZone>
+#endif
 
 #include <QLabel>
 
@@ -42,11 +47,14 @@ class ActiveLabel;
 class QTimer;
 class QDialog;
 class LxQtWorldClockEventFilter;
+
+#ifdef ICU_VERSION
 namespace U_ICU_NAMESPACE {
     class Locale;
     class Calendar;
     class DateFormat;
 }
+#endif
 
 class LxQtWorldClock : public QObject, public ILxQtPanelPlugin
 {
@@ -71,7 +79,9 @@ private slots:
     void wheelScrolled(int);
 
 private:
+#ifdef ICU_VERSION
     static size_t instanceCounter;
+#endif
 
     QWidget *mMainWidget;
     LxQt::RotatedWidget* mRotatedWidget;
@@ -82,9 +92,9 @@ private:
     {
         FORMAT__INVALID = -1,
         FORMAT_SHORT = 0,
-        FORMAT_MEDIUM,
+        FORMAT_MEDIUM, // obsolete, use FORMAT_SHORT or FORMAT_CUSTOM
         FORMAT_LONG,
-        FORMAT_FULL,
+        FORMAT_FULL, // obsolete, use FORMAT_FULL or FORMAT_CUSTOM
         FORMAT_CUSTOM
     } FormatType;
 
@@ -96,17 +106,29 @@ private:
     QString mCustomFormat;
     FormatType mFormatType;
 
-    QString mDefaultLanguage;
     bool mAutoRotate;
+#ifdef ICU_VERSION
+    QString mDefaultLanguage;
 
     icu::Locale *mLocale;
     icu::Calendar *mCalendar;
     icu::DateFormat *mFormat;
     icu::UnicodeString mLastShownText;
+#else
+    QString mLastShownText;
+    Qt::DateFormat mFormat;
+#endif
+    QLabel *mPopupContent;
 
     void updateFormat();
     void restartTimer(int);
+
+    void updatePopupContent();
+#ifdef ICU_VERSION
     void updateTimezone();
+#else
+    QString preformat(const QString &format, const QTimeZone &timeZone, const QDateTime& dateTime);
+#endif
 };
 
 

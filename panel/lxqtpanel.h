@@ -111,10 +111,13 @@ signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
 
+    void pluginAdded(QString id);
+    void pluginRemoved(QString id);
+
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
-    
+
 private slots:
     void addPlugin(const LxQt::PluginInfo &desktopFile);
     void showConfigDialog();
@@ -123,6 +126,7 @@ private slots:
     void removePlugin();
     void pluginMoved();
     void userRequestForDeletion();
+
 private:
     LxQtPanelLayout* mLayout;
     LxQt::Settings *mSettings;

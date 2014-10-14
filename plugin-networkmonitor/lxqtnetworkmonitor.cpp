@@ -85,12 +85,14 @@ void LxQtNetworkMonitor::timerEvent(QTimerEvent *event)
 
 #ifdef STATGRAB_NEWER_THAN_0_90
     size_t num_network_stats;
+    size_t x;
 #else
     int num_network_stats;
+    int x;
 #endif
     sg_network_io_stats *network_stats = sg_get_network_io_stats_diff(&num_network_stats);
 
-    for (int x = 0; x < num_network_stats; x++)
+    for (x = 0; x < num_network_stats; x++)
     {
         if (m_interface == QString::fromLocal8Bit(network_stats->interface_name))
         {
@@ -145,12 +147,14 @@ bool LxQtNetworkMonitor::event(QEvent *event)
     {
 #ifdef STATGRAB_NEWER_THAN_0_90
         size_t num_network_stats;
+        size_t x;
 #else
         int num_network_stats;
+        int x;
 #endif
         sg_network_io_stats *network_stats = sg_get_network_io_stats(&num_network_stats);
 
-	for (int x = 0; x < num_network_stats; x++)
+        for (x = 0; x < num_network_stats; x++)
         {
             if (m_interface == QString::fromLocal8Bit(network_stats->interface_name))
             {

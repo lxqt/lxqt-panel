@@ -16,7 +16,7 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
         TS_SRC_FILE
             translations/${NAME}.ts.src
         INSTALLATION_DIR
-            ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROGRAM}/${NAME}
+            ${LXQT_TRANSLATIONS_DIR}/${PROGRAM}/${NAME}
     )
     
 
