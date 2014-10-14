@@ -28,6 +28,7 @@
 
 #include "lxqtpanelapplication.h"
 #include "lxqtpanel.h"
+#include "config/configpaneldialog.h"
 #include <LXQt/Settings>
 #include <QtDebug>
 #include <QUuid>
@@ -83,11 +84,14 @@ LxQtPanelApplication::~LxQtPanelApplication()
 void LxQtPanelApplication::addNewPanel()
 {
     QString name("panel_" + QUuid::createUuid().toString());
-    addPanel(name);
+    LxQtPanel *p = addPanel(name);
     
     QStringList panels = mSettings->value("panels").toStringList();
     panels << name;
     mSettings->setValue("panels", panels);
+
+    // Poupup the configuration dialog to allow user configuration right away
+    ConfigPanelDialog::exec(p);
 }
 
 LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)
