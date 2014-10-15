@@ -131,14 +131,6 @@ public:
     virtual QWidget *widget() = 0;
 
     /**
-    If you reimplement this function, you get direct access to all X events that the
-    are received from the X server. The events are passed in the event parameter.
-
-    The default implementation do nothing.
-    **/
-    virtual void x11EventFilter(XEventType *event) {}
-
-    /**
     Returns the plugin settings dialog. Reimplement this function if your plugin has it.
     The panel does not take ownership of the dialog, it would probably a good idea to set Qt::WA_DeleteOnClose
     attribute for the dialog.
@@ -210,9 +202,7 @@ Example:
 class LxQtClockPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-#endif
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new LxQtClock(startupInfo);}

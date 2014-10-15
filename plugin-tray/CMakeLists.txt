@@ -37,7 +37,5 @@ set(LIBRARIES
 #*******************************************
 include ("../BuildPlugin.cmake")
 
-
-
 BUILD_LXQT_PLUGIN(${PLUGIN})
 #target_link_libraries( tint2)

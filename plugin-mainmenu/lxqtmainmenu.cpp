@@ -40,7 +40,7 @@
 #include <LXQt/PowerManager>
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
-#include <LXQt/XfitMan>
+#include <KF5/KWindowSystem/KWindowSystem>
 
 #include <XdgIcon>
 #include <XdgDesktopFile>
@@ -52,12 +52,7 @@
 
 #include <QPixmap>
 #include <QStack>
-
 #include <QCursor>
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(mainmenu, LxQtMainMenuPluginLibrary)
-#endif
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 
@@ -75,7 +70,7 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
     mMenuCache = NULL;
     mMenuCacheNotify = 0;
 #endif
-  
+
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.installEventFilter(this);
 
@@ -170,10 +165,7 @@ void LxQtMainMenu::showMenu()
     }
 
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
-    // There are two solutions:
-    //  activate window with Qt call and then execute menu 1ms later using timer,
-    //  or use native X11 API calls:
-    //xfitMan().raiseWindow(mButton.effectiveWinId());
+    // Solution is to execute menu 1ms later using timer
     mButton.activateWindow();
     mMenu->exec(QPoint(x, y));
 }

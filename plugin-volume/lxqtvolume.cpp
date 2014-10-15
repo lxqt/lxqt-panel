@@ -45,10 +45,6 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/Notification>
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(volume, LxQtVolumePluginLibrary)
-#endif
-
 #define DEFAULT_UP_SHORTCUT "XF86AudioRaiseVolume"
 #define DEFAULT_DOWN_SHORTCUT "XF86AudioLowerVolume"
 #define DEFAULT_MUTE_SHORTCUT "XF86AudioMute"
@@ -117,7 +113,7 @@ LxQtVolume::LxQtVolume(const ILxQtPanelPluginStartupInfo &startupInfo):
         m_notification->setSummary(tr("Volume Control: The following shortcuts can not be registered: %1").arg(shortcutNotRegistered));
         m_notification->update();
     }
-    
+
     m_notification->setTimeout(1000);
     m_notification->setUrgencyHint(LxQt::Notification::UrgencyLow);
 

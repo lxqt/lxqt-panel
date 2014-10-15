@@ -184,8 +184,8 @@ bool TrayIcon::init()
     XMapWindow(dsp, mIconId);
     XMapRaised(dsp, mWindowId);
 
-    xfitMan().resizeWindow(mWindowId, mIconSize.width(), mIconSize.height());
-    xfitMan().resizeWindow(mIconId,   mIconSize.width(), mIconSize.height());
+    XResizeWindow(dsp, mWindowId, mIconSize.width(), mIconSize.height());
+    XResizeWindow(dsp, mIconId, mIconSize.width(), mIconSize.height());
 
     return true;
 }

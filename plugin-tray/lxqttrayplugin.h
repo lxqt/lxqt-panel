@@ -43,23 +43,19 @@ public:
     virtual QWidget *widget();
     virtual QString themeId() const { return "Tray"; }
     virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
-
-    virtual void x11EventFilter(XEventType* event);
     void realign();
 
     bool isSeparate() const { return true; }
 
 private:
     LxQtTray *mWidget;
-    
+
 };
 
 class LxQtTrayPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-#endif
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)

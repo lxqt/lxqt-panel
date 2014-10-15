@@ -25,39 +25,35 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include <QButtonGroup>
 #include <QToolButton>
 #include <QWheelEvent>
 #include <QtDebug>
 #include <QSignalMapper>
-#include <LXQt/XfitMan>
-#include "../panel/fixx11h.h"
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
+#include <KF5/KWindowSystem/KWindowSystem>
 
 #include <QHBoxLayout>
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
 
-using namespace LxQt;
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(DesktopSwitch, DesktopSwitchPluginLibrary)
-#endif
-
 DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
-    m_desktopCount(1)
+    m_desktopCount(KWindowSystem::numberOfDesktops())
 {
     m_buttons = new QButtonGroup(this);
-    connect ( m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
+    connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
 
     mLayout = new LxQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
     setup();
+
+    connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
+    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
+    connect(KWindowSystem::self(), SIGNAL(desktopNamesChanged()), SLOT(onDesktopNamesChanged()));
 }
 
 void DesktopSwitch::setup()
@@ -78,15 +74,18 @@ void DesktopSwitch::setup()
         QString path = QString("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
         QString shortcut = QString("Control+F%1").arg(i + 1);
 
-        DesktopSwitchButton * m = new DesktopSwitchButton(&mWidget, i, path, shortcut, xfitMan().getDesktopName(i, tr("Desktop %1").arg(i+1)));
+        DesktopSwitchButton * m = new DesktopSwitchButton(&mWidget, i, path, shortcut,
+                                                          KWindowSystem::desktopName(i + 1).isEmpty() ?
+                                                          tr("Desktop %1").arg(i + 1) :
+                                                          KWindowSystem::desktopName(i + 1));
         m_pSignalMapper->setMapping(m, i);
         connect(m, SIGNAL(activated()), m_pSignalMapper, SLOT(map())) ;
         mWidget.layout()->addWidget(m);
         m_buttons->addButton(m, i);
     }
 
-    int activeDesk = qMax(xfitMan().getActiveDesktop(), 0);
-    QAbstractButton * button = m_buttons->button(activeDesk);
+    int activeDesk = KWindowSystem::currentDesktop();
+    QAbstractButton * button = m_buttons->button(activeDesk - 1);
     if (button)
         button->setChecked(true);
 
@@ -100,40 +99,36 @@ DesktopSwitch::~DesktopSwitch()
 {
 }
 
-void DesktopSwitch::x11EventFilter(XEventType* _event)
-{
-    int type;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    type = _event->response_type & ~0x80;
-#else
-    type = _event->type;
-#endif
-    if (type == PropertyNotify)
-    {
-        int count = qMax(xfitMan().getNumDesktop(), 1);
-        if (m_desktopCount != count)
-        {
-            qDebug() << "Desktop count changed from" << m_desktopCount << "to" << count;
-            m_desktopCount = count;
-            m_desktopNames = xfitMan().getDesktopNames();
-            setup();
-        }
-        
-        if (m_desktopNames != xfitMan().getDesktopNames())
-        {
-            m_desktopNames = xfitMan().getDesktopNames();
-            setup();
-        }
-
-        int activeDesk = qMax(xfitMan().getActiveDesktop(), 0);
-        m_buttons->button(activeDesk)->setChecked(true);
-    }
-}
 void DesktopSwitch::setDesktop(int desktop)
 {
-    xfitMan().setActiveDesktop(desktop);
+    KWindowSystem::setCurrentDesktop(desktop + 1);
 }
 
+void DesktopSwitch::onNumberOfDesktopsChanged(int count)
+{
+    if (m_desktopCount != count)
+    {
+        qDebug() << "Desktop count changed from" << m_desktopCount << "to" << count;
+        m_desktopCount = count;
+        onDesktopNamesChanged();
+        setup();
+    }
+}
+
+void DesktopSwitch::onCurrentDesktopChanged(int current)
+{
+    m_buttons->button(current - 1)->setChecked(true);
+}
+
+void DesktopSwitch::onDesktopNamesChanged()
+{
+    QStringList names;
+    const int count = KWindowSystem::numberOfDesktops();
+    for (int i = 0; i < count; ++i)
+        names << KWindowSystem::desktopName(i + 1);
+    m_desktopNames = names;
+    setup();
+}
 
 void DesktopSwitch::realign()
 {
@@ -159,14 +154,14 @@ DesktopSwitchWidget::DesktopSwitchWidget():
 
 void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
-    int max = xfitMan().getNumDesktop() - 1;
+    int max = KWindowSystem::currentDesktop() - 1;
     int delta = e->delta() < 0 ? 1 : -1;
-    int current = xfitMan().getActiveDesktop() + delta;
+    int current = KWindowSystem::currentDesktop() + delta;
 
     if (current > max)
         current = 0;
     else if (current < 0)
         current = max;
 
-    xfitMan().setActiveDesktop(current);
+    KWindowSystem::setCurrentDesktop(current);
 }

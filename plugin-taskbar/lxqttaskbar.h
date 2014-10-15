@@ -37,9 +37,10 @@
 #include <QFrame>
 #include <QBoxLayout>
 #include <QHash>
-#include <X11/Xlib.h>
-#include "../panel/fixx11h.h"
 #include "../panel/ilxqtpanel.h"
+#include <KF5/KWindowSystem/KWindowSystem>
+#include <KF5/KWindowSystem/KWindowInfo>
+#include <KF5/KWindowSystem/NETWM>
 
 class LxQtTaskButton;
 class ElidedButtonStyle;
@@ -52,45 +53,47 @@ class GridLayout;
 class LxQtTaskBar : public QFrame
 {
     Q_OBJECT
+
 public:
     explicit LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
     virtual ~LxQtTaskBar();
 
-    virtual void x11EventFilter(XEventType* event);
     virtual void settingsChanged();
-
     void realign();
 
 public slots:
-    void activeWindowChanged();
+    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+    void activeWindowChanged(WId window = 0);
     void refreshIconGeometry();
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
     virtual void dropEvent(QDropEvent * event);
 
-private:
+private slots:
     void refreshTaskList();
     void refreshButtonRotation();
     void refreshButtonVisibility();
+
+private:
     QHash<WId, LxQtTaskButton*> mButtonsHash;
     LxQt::GridLayout *mLayout;
-    LxQtTaskButton* buttonByWindow(WId window) const;
-    bool windowOnActiveDesktop(WId window) const;
-    WId mRootWindow;
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
-
     LxQtTaskButton* mCheckedBtn;
     bool mCloseOnMiddleClick;
-    void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
     bool mShowOnlyCurrentDesktopTasks;
     bool mAutoRotate;
 
-    void handlePropertyNotify(XEventType* event);
+    LxQtTaskButton* buttonByWindow(WId window) const;
+    bool windowOnActiveDesktop(WId window) const;
+    bool acceptWindow(WId window) const;
+    void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
+
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
     void mousePressEvent(QMouseEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;

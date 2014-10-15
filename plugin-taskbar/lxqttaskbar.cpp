@@ -29,32 +29,23 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include <QApplication>
-
 #include <QDebug>
 #include <QToolButton>
 #include <QSettings>
 
-#include "lxqttaskbar.h"
 #include <LXQt/GridLayout>
 #include <XdgIcon>
-#include <LXQt/XfitMan>
 #include <QList>
 #include <QMimeData>
-
 #include <QDesktopWidget>
 #include <QWheelEvent>
-
-#include <X11/Xlib.h>
-#include "lxqttaskbutton.h"
-#include <X11/Xatom.h>
-#include <X11/Xutil.h>
-
+#include <QFlag>
 #include <QX11Info>
-#include "../panel/fixx11h.h"
-
 #include <QDebug>
+
+#include "lxqttaskbar.h"
+#include "lxqttaskbutton.h"
 #include "../panel/ilxqtpanelplugin.h"
 
 using namespace LxQt;
@@ -84,12 +75,15 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
-    mRootWindow = QX11Info::appRootWindow();
-
     settingsChanged();
     setAcceptDrops(true);
-}
 
+    connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
+    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(refreshTaskList()));
+    connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), SLOT(activeWindowChanged(WId)));
+    connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
+            SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
+}
 
 /************************************************
 
@@ -98,7 +92,6 @@ LxQtTaskBar::~LxQtTaskBar()
 {
     delete mStyle;
 }
-
 
 /************************************************
 
@@ -118,17 +111,57 @@ bool LxQtTaskBar::windowOnActiveDesktop(WId window) const
     if (!mShowOnlyCurrentDesktopTasks)
         return true;
 
-    XfitMan xf = xfitMan();
-    int desktop = xf.getWindowDesktop(window);
-    if (desktop == -1) // Show on all desktops
+    int desktop = KWindowInfo(window, NET::WMDesktop).desktop();
+    if (desktop == NET::OnAllDesktops)
         return true;
 
-    if (desktop == xf.getActiveDesktop())
-        return true;
-
-    return false;
+    return desktop == KWindowSystem::currentDesktop();
 }
 
+/************************************************
+
+ ************************************************/
+bool LxQtTaskBar::acceptWindow(WId window) const
+{
+    QFlags<NET::WindowTypeMask> ignoreList;
+    ignoreList |= NET::DesktopMask;
+    ignoreList |= NET::DockMask;
+    ignoreList |= NET::SplashMask;
+    ignoreList |= NET::ToolbarMask;
+    ignoreList |= NET::MenuMask;
+    ignoreList |= NET::PopupMenuMask;
+
+    KWindowInfo info(window, NET::WMWindowType | NET::WMState, NET::WM2TransientFor);
+    if (!info.valid())
+        return false;
+
+//     qDebug() << info.visibleName() << " "
+//              << info.windowType(NET::AllTypesMask) << " "
+//              << NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList);
+
+    if (NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
+        return false;
+
+    if (info.state() & NET::SkipTaskbar)
+        return false;
+
+    // WM_TRANSIENT_FOR hint not set - normal window
+    WId transFor = info.transientFor();
+    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
+        return true;
+
+    info = KWindowInfo(transFor, NET::WMWindowType);
+    if (!info.valid())
+        return true;
+
+    QFlags<NET::WindowTypeMask> normalFlag;
+    normalFlag |= NET::NormalMask;
+    normalFlag |= NET::DialogMask;
+    normalFlag |= NET::UtilityMask;
+//     normalFlag |= NET::OverrideMask; // qmmp bug
+
+    return NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
+}
 
 /************************************************
 
@@ -141,7 +174,6 @@ void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
         event->ignore();
     QWidget::dragEnterEvent(event);
 }
-
 
 /************************************************
 
@@ -180,20 +212,12 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
     QWidget::dropEvent(event);
 }
 
-
 /************************************************
 
  ************************************************/
 void LxQtTaskBar::refreshTaskList()
 {
-    XfitMan xf = xfitMan();
-    QList<Window> tmp = xf.getClientList();
-
-    //qDebug() << "** Fill ********************************";
-    //foreach (Window wnd, tmp)
-    // if (xf->acceptWindow(wnd)) qDebug() << XfitMan::debugWindow(wnd);
-    //qDebug() << "****************************************";
-
+    QList<WId> tmp = KWindowSystem::stackingOrder();
 
     QMutableHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
@@ -211,9 +235,9 @@ void LxQtTaskBar::refreshTaskList()
         }
     }
 
-    foreach (Window wnd, tmp)
+    foreach (WId wnd, tmp)
     {
-        if (xf.acceptWindow(wnd))
+        if (acceptWindow(wnd))
         {
             LxQtTaskButton* btn = new LxQtTaskButton(wnd, this);
             btn->setStyle(mStyle);
@@ -232,7 +256,6 @@ void LxQtTaskBar::refreshTaskList()
 /************************************************
 
  ************************************************/
-
 void LxQtTaskBar::refreshButtonRotation()
 {
     bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);
@@ -271,15 +294,15 @@ void LxQtTaskBar::refreshButtonVisibility()
     }
 
 }
+
 /************************************************
 
  ************************************************/
-
 void LxQtTaskBar::refreshIconGeometry()
 {
-        // FIXME: sometimes we get wrong globalPos here, especially
-        // after changing the pos or size of the panel.
-        // this might be caused by bugs in lxqtpanel.cpp.
+    // FIXME: sometimes we get wrong globalPos here, especially
+    // after changing the pos or size of the panel.
+    // this might be caused by bugs in lxqtpanel.cpp.
     QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
     {
@@ -288,16 +311,26 @@ void LxQtTaskBar::refreshIconGeometry()
         QRect rect = button->geometry();
         QPoint globalPos = mapToGlobal(button->pos());
         rect.moveTo(globalPos);
-        xfitMan().setIconGeometry(button->windowId(), &rect);
+
+        NETWinInfo info(QX11Info::connection(), button->windowId(),
+                        (WId) QX11Info::appRootWindow(), NET::WMIconGeometry, 0);
+        NETRect nrect;
+        nrect.pos.x = rect.x();
+        nrect.pos.y = rect.y();
+        nrect.size.height = rect.height();
+        nrect.size.width = rect.width();
+        info.setIconGeometry(nrect);
     }
 }
 
 /************************************************
 
  ************************************************/
-void LxQtTaskBar::activeWindowChanged()
+void LxQtTaskBar::activeWindowChanged(WId window)
 {
-    Window window = xfitMan().getActiveAppWindow();
+    if (!window)
+        window = KWindowSystem::activeWindow();
+
     LxQtTaskButton* btn = buttonByWindow(window);
 
     if (mCheckedBtn != btn)
@@ -314,118 +347,40 @@ void LxQtTaskBar::activeWindowChanged()
     }
 }
 
-
 /************************************************
 
  ************************************************/
-void LxQtTaskBar::x11EventFilter(XEventType* event)
+void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
-    int event_type;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    event_type = event->response_type & ~0x80; // XCB
-#else
-    event_type = event->type; // XLib
-#endif
-    switch (event_type)
+    LxQtTaskButton* button = buttonByWindow(window);
+    if (!button)
+        return;
+
+    // window changed virtual desktop
+    if (prop.testFlag(NET::WMDesktop))
     {
-        case PropertyNotify:
-            handlePropertyNotify(event);
-            break;
-        case ConfigureNotify: {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-            unsigned long window = reinterpret_cast<xcb_configure_notify_event_t*>(event)->window;
-#else
-            unsigned long window = event->xconfigure.window;
-#endif
-	  // if the size or position of our window is changed, update icon geometry
-            if(window == effectiveWinId())
-            {
-                // qDebug() << "configure event";
-                refreshIconGeometry();
-            }
-            break;
-        }
-#if 0
-        case MotionNotify:
-            break;
-
-        default:
+        if (mShowOnlyCurrentDesktopTasks)
         {
-            qDebug() << "** XEvent ************************";
-            qDebug() << "Type:   " << xEventTypeToStr(event);
-        }
-#endif
-
-    }
-}
-
-
-/************************************************
-
- ************************************************/
-void LxQtTaskBar::handlePropertyNotify(XEventType* event)
-{
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    xcb_property_notify_event_t* prop_event = reinterpret_cast<xcb_property_notify_event_t*>(event);
-#else
-    XPropertyEvent* prop_event = reinterpret_cast<XPropertyEvent*>(event);
-#endif
-    if (prop_event->window == mRootWindow)
-    {
-        // Windows list changed ...............................
-        if (prop_event->atom == XfitMan::atom("_NET_CLIENT_LIST"))
-        {
-            refreshTaskList();
-            return;
-        }
-
-        // Activate window ....................................
-        if (prop_event->atom == XfitMan::atom("_NET_ACTIVE_WINDOW"))
-        {
-            activeWindowChanged();
-            return;
-        }
-
-        // Desktop switch .....................................
-        if (prop_event->atom == XfitMan::atom("_NET_CURRENT_DESKTOP"))
-        {
-            if (mShowOnlyCurrentDesktopTasks)
-                refreshTaskList();
-            return;
+            int desktop = button->desktopNum();
+            button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
         }
     }
-    else
+
+    if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
+        button->updateText();
+
+    if (prop.testFlag(NET::WMIcon) || prop.testFlag(NET::WMIconGeometry))
+        button->updateIcon();
+
+    // FIXME: not working properly
+    // Proper support in the way:
+    // https://git.reviewboard.kde.org/r/120165/
+    if (prop.testFlag(NET::WMState))
     {
-        LxQtTaskButton* btn = buttonByWindow(prop_event->window);
-        if (btn)
-        {
-            if (prop_event->atom == XfitMan::atom("_NET_WM_DESKTOP"))
-            {
-                if (mShowOnlyCurrentDesktopTasks)
-                {
-                    int desktop = btn->desktopNum();
-                    btn->setHidden(desktop != -1 && desktop != xfitMan().getActiveDesktop());
-                }
-            }
-            else
-                btn->handlePropertyNotify(event);
-        }
+        KWindowInfo info(window, NET::WMState);
+        button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+    }
 }
-
-//    char* aname = XGetAtomName(QX11Info::display(), event->atom);
-//    qDebug() << "** XPropertyEvent ********************";
-//    qDebug() << "  atom:       0x" << hex << event->atom
-//            << " (" << (aname ? aname : "Unknown") << ')';
-//    qDebug() << "  window:    " << XfitMan::debugWindow(event->window);
-//    qDebug() << "  display:   " << event->display;
-//    qDebug() << "  send_event:" << event->send_event;
-//    qDebug() << "  serial:    " << event->serial;
-//    qDebug() << "  state:     " << event->state;
-//    qDebug() << "  time:      " << event->time;
-//    qDebug();
-
-}
-
 
 /************************************************
 
@@ -441,7 +396,6 @@ void LxQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
         i.value()->setToolButtonStyle(mButtonStyle);
     }
 }
-
 
 /************************************************
 
@@ -477,7 +431,6 @@ void LxQtTaskBar::realign()
     ILxQtPanel *panel = mPlugin->panel();
     QSize maxSize = QSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     QSize minSize = QSize(0, 0);
-
 
     bool rotated = false;
     if (panel->isHorizontal())
@@ -576,7 +529,6 @@ void LxQtTaskBar::realign()
     refreshIconGeometry();
 }
 
-
 /************************************************
 
  ************************************************/
@@ -593,7 +545,7 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
             i.next();
             LxQtTaskButton* btn = i.value();
             if (btn->geometry().contains(event->pos()) &&
-                (!mShowOnlyCurrentDesktopTasks || xfitMan().getActiveDesktop() == xfitMan().getWindowDesktop(i.key())))
+                (!mShowOnlyCurrentDesktopTasks || KWindowSystem::currentDesktop() == KWindowInfo(i.key(), NET::WMDesktop).desktop()))
             {
                 btn->closeApplication();
                 break;
@@ -602,7 +554,6 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
     }
     QFrame::mousePressEvent(event);
 }
-
 
 /************************************************
 
@@ -623,10 +574,10 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
         if (!item)
             continue;
 
-        Window window = ((LxQtTaskButton *) item->widget())->windowId();
-        if (XfitMan().acceptWindow(window) && windowOnActiveDesktop(window))
+        WId window = ((LxQtTaskButton *) item->widget())->windowId();
+        if (acceptWindow(window) && windowOnActiveDesktop(window))
         {
-            XfitMan().raiseWindow(window);
+            KWindowSystem::activateWindow(window);
             break;
         }
     }
@@ -635,12 +586,21 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 /************************************************
 
  ************************************************/
+void LxQtTaskBar::resizeEvent(QResizeEvent* event)
+{
+    refreshIconGeometry();
+    return QWidget::resizeEvent(event);
+}
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskBar::changeEvent(QEvent* event)
 {
     // if current style is changed, reset the base style of the proxy style
     // so we can apply the new style correctly to task buttons.
     if(event->type() == QEvent::StyleChange)
         mStyle->setBaseStyle(NULL);
+
     QFrame::changeEvent(event);
 }

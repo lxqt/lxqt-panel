@@ -38,10 +38,6 @@
 #include <QResizeEvent>
 #include <QVBoxLayout>
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(panelsysstat, LxQtSysStatLibrary)
-#endif
-
 LxQtSysStat::LxQtSysStat(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
@@ -362,12 +358,7 @@ void LxQtSysStatContent::reset()
 
     mHistoryOffset = 0;
     mHistoryImage = QImage(width(), 100, QImage::Format_ARGB32);
-#if QT_VERSION < 0x040800
-    mHistoryImage.fill(QColor(Qt::transparent).rgba());
-#else
     mHistoryImage.fill(Qt::transparent);
-#endif
-
     update();
 }
 

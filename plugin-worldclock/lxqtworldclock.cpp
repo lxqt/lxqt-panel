@@ -50,10 +50,6 @@
 
 #include <time.h>
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(panelworldclock, LxQtWorldClockLibrary)
-#endif
-
 #ifdef ICU_VERSION
 size_t LxQtWorldClock::instanceCounter = 0;
 

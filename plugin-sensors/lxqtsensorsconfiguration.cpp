@@ -204,11 +204,7 @@ void LxQtSensorsConfiguration::detectedChipSelected(int index)
         // Add detected chips and features
         QStringList chipFeaturesLabels;
         chipFeaturesLabels << tr("Enabled") << tr("Label") << tr("Color");
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         ui->chipFeaturesT->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-#else
-        ui->chipFeaturesT->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
-#endif
         ui->chipFeaturesT->setHorizontalHeaderLabels(chipFeaturesLabels);
 
         mSettings->beginGroup(chipNames[index]);
