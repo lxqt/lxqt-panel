@@ -370,11 +370,11 @@ void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Propertie
         button->updateText();
 
     if (prop.testFlag(NET::WMIcon) || prop.testFlag(NET::WMIconGeometry))
-        button->updateIcon();
+    {
+        // FIXME: This shouldn't be commented, but it's causing high CPU and memory usage =/
+        // button->updateIcon();
+    }
 
-    // FIXME: not working properly
-    // Proper support in the way:
-    // https://git.reviewboard.kde.org/r/120165/
     if (prop.testFlag(NET::WMState))
     {
         KWindowInfo info(window, NET::WMState);

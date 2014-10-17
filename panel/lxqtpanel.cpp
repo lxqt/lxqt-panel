@@ -103,8 +103,12 @@ QString LxQtPanel::positionToStr(ILxQtPanel::Position position)
 LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     QFrame(parent),
     mConfigGroup(configGroup),
+    mPanelSize(0),
     mIconSize(0),
-    mLineCount(0)
+    mLineCount(0),
+    mLength(0),
+    mAlignment(AlignmentLeft),
+    mPosition(ILxQtPanel::PositionBottom)
 {
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
 
