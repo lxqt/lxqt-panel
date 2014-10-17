@@ -29,11 +29,7 @@
 
 #include "lxqtworldclockconfiguration.h"
 
-#ifdef ICU_VERSION
-#include "ui_lxqtworldclockconfiguration_icu.h"
-#else
 #include "ui_lxqtworldclockconfiguration.h"
-#endif
 
 #include "lxqtworldclockconfigurationtimezones.h"
 
@@ -60,13 +56,7 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     connect(ui->moveDownPB, SIGNAL(clicked()), SLOT(moveTimeZoneDown()));
 
     connect(ui->shortFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
-#ifdef ICU_VERSION
-    connect(ui->mediumFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
-#endif
     connect(ui->longFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
-#ifdef ICU_VERSION
-    connect(ui->fullFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
-#endif
     connect(ui->customFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
     connect(ui->customFormatPTE, SIGNAL(textChanged()), SLOT(saveSettings()));
 
@@ -101,29 +91,17 @@ void LxQtWorldClockConfiguration::loadSettings()
     if (ui->timeZonesLW->count())
         setBold(ui->timeZonesLW->findItems(mDefaultTimeZone, Qt::MatchExactly)[0], true);
 
-#ifdef ICU_VERSION
-    ui->customFormatPTE->setPlainText(mSettings->value("customFormat", QString("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'eee, d MMM yyyy'<br/>'VVVV'</font>'")).toString());
-#else
     ui->customFormatPTE->setPlainText(mSettings->value("customFormat", QString("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString());
-#endif
 
     QString formatType = mSettings->value("formatType", QString()).toString();
     if (formatType == "custom")
         ui->customFormatRB->setChecked(true);
     else if (formatType == "full")
-#ifdef ICU_VERSION
-        ui->fullFormatRB->setChecked(true);
-#else
-        ui->longFormatRB->setChecked(true); // old 'full' is 'long' now
-#endif
+        ui->longFormatRB->setChecked(true);
     else if (formatType == "long")
         ui->longFormatRB->setChecked(true);
     else if (formatType == "medium")
-#ifdef ICU_VERSION
-        ui->mediumFormatRB->setChecked(true);
-#else
-        ui->shortFormatRB->setChecked(true); // old 'medium' is 'short' now
-#endif
+        ui->shortFormatRB->setChecked(true);
     else
         ui->shortFormatRB->setChecked(true);
 
@@ -152,16 +130,8 @@ void LxQtWorldClockConfiguration::saveSettings()
 
     if (ui->customFormatRB->isChecked())
         mSettings->setValue("formatType", "custom");
-#ifdef ICU_VERSION
-    else if (ui->fullFormatRB->isChecked())
-        mSettings->setValue("formatType", "full");
-#endif
     else if (ui->longFormatRB->isChecked())
         mSettings->setValue("formatType", "long");
-#ifdef ICU_VERSION
-    else if (ui->mediumFormatRB->isChecked())
-        mSettings->setValue("formatType", "medium");
-#endif
     else
         mSettings->setValue("formatType", "short");
 

@@ -61,9 +61,7 @@ private:
 
     QString mTimeZone;
 
-#ifndef ICU_VERSION
     QTreeWidgetItem* makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems);
-#endif
 };
 
 #endif // LXQTWORLDCLOCKCONFIGURATIONTIMEZONES_H
