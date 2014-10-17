@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "dom")
 
 set(HEADERS
@@ -28,6 +26,5 @@ set(RESOURCES
     resources.qrc
 )
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "panelkbindicator")
-
 
 set(HEADERS
     lxqtkbindicator.h
@@ -22,10 +19,13 @@ set(UIS
     lxqtkbindicatorconfiguration.ui
 )
 
-set(LIBRARIES ${LIBRARIES} ${X11_LIBRARIES} ${XCB_LIBRARIES} ${XCB_XCB_LIBRARIES}
+set(LIBRARIES
+    ${LIBRARIES}
+    ${X11_LIBRARIES}
+    ${XCB_LIBRARIES}
+    ${XCB_XCB_LIBRARIES}
 )
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

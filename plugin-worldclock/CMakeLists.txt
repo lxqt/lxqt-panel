@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "panelworldclock")
-
 
 set(HEADERS
     lxqtworldclock.h
@@ -35,11 +32,11 @@ endif()
 
 
 if(ICU_I18N_FOUND)
-  include_directories(${ICU_INCLUDE_DIRS})
-  LINK_LIBRARIES(${PLUGIN} ${ICU_LIBRARIES})
+    include_directories(${ICU_INCLUDE_DIRS})
+    link_libraries(${PLUGIN} ${ICU_LIBRARIES})
 endif()
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})

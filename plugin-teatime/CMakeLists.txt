@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "teatime")
 
 set(HEADERS
@@ -14,9 +12,5 @@ set(MOCS
     teatimeplugin.h
 )
 
-set(UIS
-)
-
-#*******************************************
-include ("../BuildPlugin.cmake")
+include("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

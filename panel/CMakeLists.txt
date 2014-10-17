@@ -1,6 +1,4 @@
-cmake_minimum_required( VERSION 2.6 )
-
-set(PROJECT lxqt-panel )
+set(PROJECT lxqt-panel)
 
 set(lxqt-panel_PRIV_H_FILES
     lxqtpanel.h
@@ -14,7 +12,7 @@ set(lxqt-panel_PRIV_H_FILES
     pluginmoveprocessor.h
 )
 
-# using LxQt namespace in the public headers.
+# using LXQt namespace in the public headers.
 set(lxqt-panel_PUB_H_FILES
     lxqtpanelglobals.h
     ilxqtpanelplugin.h
@@ -48,44 +46,35 @@ set(LIBRARIES
     ${QTXDG_LIBRARIES}
 )
 
-# QRC files .................
-set(RESOURCES
-)
+set(RESOURCES "")
 
-set (lxqt-panel_UI_FILES
+set(lxqt-panel_UI_FILES
     config/configpaneldialog.ui
 )
 
 qt5_wrap_ui(UI_HEADERS ${lxqt-panel_UI_FILES})
 
-add_definitions(-DDEFULT_PANEL_PLUGINS=\"MainMenu,Quicklaunch,TaskBar,Tray,Clock\")
-
 include(LxQtTranslate)
 
-file (GLOB CONFIG_FILES     resources/*.conf)
+file(GLOB CONFIG_FILES resources/*.conf)
 
 ############################################
 
-if (NOT CMAKE_BUILD_TYPE)
-    set ( CMAKE_BUILD_TYPE Release )
-endif (NOT CMAKE_BUILD_TYPE)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions (-Wall)
-#    add_definitions (-Wall -pedantic)
 endif()
 
 add_definitions(-DCOMPILE_LXQT_PANEL)
 
 
-set(PLUGIN_DESKTOPS_DIR
-    ${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT}
-)
-
+set(PLUGIN_DESKTOPS_DIR "${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT}")
 add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
 
 
-#*******************************************
 project(${PROJECT})
 
 include_directories(
@@ -98,22 +87,18 @@ qt5_wrap_cpp(MOC_SOURCES ${MOCS})
 qt5_wrap_ui(UI_HEADERS ${FORMS})
 qt5_add_resources(QRC_SOURCES ${RESOURCES})
 set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)
-find_package(KF5WindowSystem)
 
-# Translations **********************************
+# Translations
 include(LxQtTranslate)
-lxqt_translate_ts(lxqt-runner_QM_FILES
-    SOURCES
-        ${lxqt-panel_PUB_H_FILES}
-        ${lxqt-panel_PRIV_H_FILES}
-        ${lxqt-panel_CPP_FILES}
-        ${lxqt-panel_UI_FILES}
-    INSTALLATION_DIR
-        ${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}
+lxqt_translate_ts(lxqt-runner_QM_FILES SOURCES
+    ${lxqt-panel_PUB_H_FILES}
+    ${lxqt-panel_PRIV_H_FILES}
+    ${lxqt-panel_CPP_FILES}
+    ${lxqt-panel_UI_FILES}
+    INSTALLATION_DIR "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
 )
-#************************************************
 
-set (PLUGIN_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/)
+set(PLUGIN_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 

@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "clock")
 
 set(HEADERS
@@ -24,6 +22,5 @@ set(UIS
     lxqtclockconfiguration.ui
 )
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
