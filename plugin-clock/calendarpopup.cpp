@@ -48,8 +48,9 @@ CalendarPopup::~CalendarPopup()
 
 void CalendarPopup::show()
 {
-    QDialog::show();
+    cal->setSelectedDate(QDate::currentDate());
     activateWindow();
+    QDialog::show();
 }
 
 bool CalendarPopup::event(QEvent *event)
