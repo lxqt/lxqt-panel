@@ -8,5 +8,5 @@ Comment=Display applications minimized to the system tray.
 
 
 # Translations
-Comment[ru_RU]=Доступ к скрытым приложениям, минимизированным в системный трей
-Name[ru_RU]=Системный трей
+Comment[ru_RU]=Значки программ, свернутых в системный лоток.
+Name[ru_RU]=Системный лоток

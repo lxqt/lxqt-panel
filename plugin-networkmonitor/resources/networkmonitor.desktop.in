@@ -4,7 +4,3 @@ ServiceTypes=LxQtPanel/Plugin
 
 Name=Network monitor
 Comment=Displays network status and activity.
-
-Name[ru]=Монитор сети
-Comment[ru]=Монитор сети
-

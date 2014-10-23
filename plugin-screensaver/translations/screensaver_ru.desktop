@@ -8,5 +8,5 @@ Comment=Activate a screensaver and/or lock the screen
 
 
 # Translations
-Comment[ru]=Вклучение хранителя экрана и блокировка его
-Name[ru]=Хранитель экрана
+Comment[ru]=Включить хранитель экрана и/или блокировать экран
+Name[ru]=Запустить хранитель экрана
