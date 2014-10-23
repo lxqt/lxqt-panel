@@ -9,5 +9,6 @@ Comment=Displays the current CPU load.
 
 
 # Translations
-Comment[ru]=указаtил загрузки процессора
-Name[ru]=загрузки процессора
+Comment[ru]=Отображает текущую загрузку процессора.
+Name[ru]=Монитор загрузки процессора
+

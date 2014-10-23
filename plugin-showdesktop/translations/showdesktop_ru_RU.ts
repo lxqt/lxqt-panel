@@ -1,11 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru_RU" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru_RU">
 <context>
     <name>ShowDesktop</name>
     <message>
-        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Показатйл Рабочий стол: &apos;%1&apos; Глобальное кратчайший путь  не могут быть зарегистрированы</translation>
+        <location filename="../showdesktop.cpp" line="44"/>
+        <source>Show desktop</source>
+        <translation>Показать рабочий стол</translation>
     </message>
     <message>
+        <location filename="../showdesktop.cpp" line="54"/>
+        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation>Показать рабочий стол: глобальное сочетание клавиш &apos;%1&apos; не может быть зарегистрировано</translation>
+    </message>
+    <message>
+        <location filename="../showdesktop.cpp" line="59"/>
         <source>Show Desktop</source>
         <translation>Показать рабочий стол</translation>
     </message>
