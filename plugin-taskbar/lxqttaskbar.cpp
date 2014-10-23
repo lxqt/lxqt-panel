@@ -130,14 +130,11 @@ bool LxQtTaskBar::acceptWindow(WId window) const
     ignoreList |= NET::ToolbarMask;
     ignoreList |= NET::MenuMask;
     ignoreList |= NET::PopupMenuMask;
+    ignoreList |= NET::NotificationMask;
 
     KWindowInfo info(window, NET::WMWindowType | NET::WMState, NET::WM2TransientFor);
     if (!info.valid())
         return false;
-
-//     qDebug() << info.visibleName() << " "
-//              << info.windowType(NET::AllTypesMask) << " "
-//              << NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList);
 
     if (NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
         return false;
@@ -151,16 +148,13 @@ bool LxQtTaskBar::acceptWindow(WId window) const
         return true;
 
     info = KWindowInfo(transFor, NET::WMWindowType);
-    if (!info.valid())
-        return true;
 
     QFlags<NET::WindowTypeMask> normalFlag;
     normalFlag |= NET::NormalMask;
     normalFlag |= NET::DialogMask;
     normalFlag |= NET::UtilityMask;
-//     normalFlag |= NET::OverrideMask; // qmmp bug
 
-    return NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
+    return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
 /************************************************
