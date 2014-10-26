@@ -29,10 +29,6 @@
 #include "lxqtquicklaunchplugin.h"
 #include "lxqtquicklaunch.h"
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(quicklaunch, LxQtQuickLaunchPluginLibrary)
-#endif
-
 LxQtQuickLaunchPlugin::LxQtQuickLaunchPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),

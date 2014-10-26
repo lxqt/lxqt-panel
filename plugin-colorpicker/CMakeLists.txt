@@ -1,27 +1,23 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "colorpicker")
 
 set(HEADERS
-	colorpicker.h
+    colorpicker.h
 )
 
 set(SOURCES
-	colorpicker.cpp
+    colorpicker.cpp
 )
 
 set(MOCS
-	colorpicker.h
+    colorpicker.h
 )
 
-set(UIS
-)
+set(UIS "")
 
 set(LIBRARIES
-  ${LXQT_LIBRARIES}
-  ${QTXDG_LIBRARIES}
+    ${LXQT_LIBRARIES}
+    ${QTXDG_LIBRARIES}
 )
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

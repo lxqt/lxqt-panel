@@ -29,9 +29,11 @@
 #define LXQTTRAY_H
 
 #include <QFrame>
+#include <QAbstractNativeEventFilter>
 #include "../panel/ilxqtpanel.h"
 #include <X11/X.h>
 #include <X11/Xlib.h>
+#include <xcb/xcb_event.h>
 
 class TrayIcon;
 class QSize;
@@ -45,7 +47,7 @@ class GridLayout;
  */
 class ILxQtPanelPlugin;
 
-class LxQtTray: public QFrame
+class LxQtTray: public QFrame, QAbstractNativeEventFilter
 {
     Q_OBJECT
     Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize)
@@ -57,8 +59,7 @@ public:
     QSize iconSize() const { return mIconSize; }
     void setIconSize(QSize iconSize);
 
-    /// This handles the events we get from the LxQtplugin subsystem
-    virtual void x11EventFilter(XEventType* event);
+    bool nativeEventFilter(const QByteArray &eventType, void *message, long *);
 
     void realign();
 
@@ -72,7 +73,14 @@ private slots:
 private:
     VisualID getVisual();
 
-    void clientMessageEvent(XEventType* e);
+    void clientMessageEvent(xcb_generic_event_t *e);
+
+    int clientMessage(WId _wid, Atom _msg,
+                      long unsigned int data0,
+                      long unsigned int data1 = 0,
+                      long unsigned int data2 = 0,
+                      long unsigned int data3 = 0,
+                      long unsigned int data4 = 0) const;
 
     void addIcon(Window id);
     TrayIcon* findIcon(Window trayId);

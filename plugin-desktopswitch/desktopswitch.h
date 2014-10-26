@@ -61,7 +61,6 @@ public:
     QString themeId() const { return "DesktopSwitch"; }
     QWidget *widget() { return &mWidget; }
     bool isSeparate() const { return true; }
-    virtual void x11EventFilter(XEventType* event);
     void realign();
 
 private:
@@ -76,18 +75,15 @@ private:
 
 private slots:
     void setDesktop(int desktop);
-
-protected slots:
-
+    void onNumberOfDesktopsChanged(int);
+    void onCurrentDesktopChanged(int);
+    void onDesktopNamesChanged();
 };
-
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-#endif
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new DesktopSwitch(startupInfo);}

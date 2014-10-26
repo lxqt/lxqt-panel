@@ -32,12 +32,8 @@
 #include <LXQt/Settings>
 #include <QtDebug>
 #include <QUuid>
-#include <X11/Xlib.h>
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QScreen>
 #include <QWindow>
-#endif
 
 LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString &configFile)
     : LxQt::Application(argc, argv)
@@ -47,17 +43,12 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
     else
         mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    qApp->installNativeEventFilter(this);
-
     // This is a workaround for Qt 5 bug #40681.
     Q_FOREACH(QScreen* screen, screens())
     {
         connect(screen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
     }
     connect(this, &QGuiApplication::screenAdded, this, &LxQtPanelApplication::handleScreenAdded);
-
-#endif
 
     QStringList panels = mSettings->value("panels").toStringList();
 
@@ -72,12 +63,8 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
     }
 }
 
-
 LxQtPanelApplication::~LxQtPanelApplication()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    qApp->removeNativeEventFilter(this);
-#endif
     qDeleteAll(mPanels);
 }
 
@@ -85,7 +72,6 @@ void LxQtPanelApplication::addNewPanel()
 {
     QString name("panel_" + QUuid::createUuid().toString());
     LxQtPanel *p = addPanel(name);
-    
     QStringList panels = mSettings->value("panels").toStringList();
     panels << name;
     mSettings->setValue("panels", panels);
@@ -103,23 +89,16 @@ LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)
     return panel;
 }
 
-// This slot is for Qt 5 onlt, but the stupid Qt moc cannot do conditional compilation
-// so we have to define it for Qt 4 as well.
 void LxQtPanelApplication::handleScreenAdded(QScreen* newScreen)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     // qDebug() << "LxQtPanelApplication::handleScreenAdded" << newScreen;
     connect(newScreen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
-#endif
 }
 
-// This slot is for Qt 5 onlt, but the stupid Qt moc cannot do conditional compilation
-// so we have to define it for Qt 4 as well.
 void LxQtPanelApplication::reloadPanelsAsNeeded()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
-    // Here we try to re-create the missing panels which are deleted in 
+    // Here we try to re-create the missing panels which are deleted in
     // LxQtPanelApplication::screenDestroyed().
 
     // qDebug() << "LxQtPanelApplication::reloadPanelsAsNeeded()";
@@ -143,18 +122,14 @@ void LxQtPanelApplication::reloadPanelsAsNeeded()
         }
     }
     qApp->setQuitOnLastWindowClosed(true);
-#endif
 }
 
-// This slot is for Qt 5 onlt, but the stupid Qt moc cannot do conditional compilation
-// so we have to define it for Qt 4 as well.
 void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
     // With this very dirty workaround, we can fix lxde/lxde-qt bug #204, #205, and #206.
     // Qt 5 has two new regression bugs which breaks lxqt-panel in a multihead environment.
-    // #40681: Regression bug: QWidget::winId() returns old value and QEvent::WinIdChange event is not emitted sometimes. (multihead setup) 
+    // #40681: Regression bug: QWidget::winId() returns old value and QEvent::WinIdChange event is not emitted sometimes. (multihead setup)
     // #40791: Regression: QPlatformWindow, QWindow, and QWidget::winId() are out of sync.
     // Explanations for the workaround:
     // Internally, Qt mantains a list of QScreens and update it when XRandR configuration changes.
@@ -163,7 +138,7 @@ void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
     // Qt will call QWindow::setScreen(0) on the internal windowHandle() of our panel widget to move it
     // to the primary screen. However, moving a window to a different screen is more than just changing
     // its position. With XRandR, all screens are actually part of the same virtual desktop. However,
-    // this is not the case in other setups, such as Xinerama and moving a window to another screen is 
+    // this is not the case in other setups, such as Xinerama and moving a window to another screen is
     // not possible unless you destroy the widget and create it again for a new screen.
     // Therefore, Qt destroy the widget and re-create it when moving our panel to a new screen.
     // Unfortunately, destroying the window also destroy the child windows embedded into it,
@@ -197,42 +172,17 @@ void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
         QTimer::singleShot(1000, this, SLOT(reloadPanelsAsNeeded()));
     else
         qApp->setQuitOnLastWindowClosed(true);
-#endif
 }
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-// Qt5 uses native event filter
-bool LxQtPanelApplication::nativeEventFilter(const QByteArray & eventType, void * message, long * result)
-{
-    if(eventType != "xcb_generic_event_t") // We only want to handle XCB events
-        return false;
-    xcb_generic_event_t* event = reinterpret_cast<xcb_generic_event_t*>(message);
-    foreach(LxQtPanel *i, mPanels)
-        i->x11EventFilter(event);
-    return false;
-}
-
-#else
-
-// This X11 event is no longer supported in Qt5
-bool LxQtPanelApplication::x11EventFilter(XEvent * event)
-{
-    foreach(LxQtPanel *i, mPanels)
-        i->x11EventFilter(event);
-    return false;
-}
-
-#endif // Qt5
 
 void LxQtPanelApplication::removePanel(LxQtPanel* panel)
 {
     Q_ASSERT(mPanels.contains(panel));
 
     mPanels.removeAll(panel);
-    
+
     QStringList panels = mSettings->value("panels").toStringList();
     panels.removeAll(panel->name());
     mSettings->setValue("panels", panels);
-    
+
     panel->deleteLater();
 }

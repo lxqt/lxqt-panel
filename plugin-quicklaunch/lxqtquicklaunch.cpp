@@ -189,24 +189,12 @@ void LxQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
 void LxQtQuickLaunch::dropEvent(QDropEvent *e)
 {
     const QMimeData *mime = e->mimeData();
-    // duplicates storage: [quicklaunch] issue dragging from qtfm, #252
-    QList<QUrl> duplicates;
-    // urls from mainmenu
-    foreach (QUrl url, mime->urls())
+
+    foreach (QUrl url, mime->urls().toSet())
     {
-        if (duplicates.contains(url))
-                continue;
-        else
-            duplicates << url;
-
-        #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-        QString fileName(url.url());
-        #else
-        QString fileName(url.toLocalFile());
-        #endif
-
-		XdgDesktopFile xdg;
+        QString fileName(url.isLocalFile() ? url.toLocalFile() : url.url());
         QFileInfo fi(fileName);
+        XdgDesktopFile xdg;
 
         if (loadDesktopFile(xdg, fileName))
         {

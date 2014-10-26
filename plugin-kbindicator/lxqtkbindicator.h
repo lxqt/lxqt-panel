@@ -30,11 +30,13 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtkbindicatorconfiguration.h"
+#include <QAbstractNativeEventFilter>
 #include <X11/Xlib.h>
+#include <xcb/xcb_event.h>
 
 class QLabel;
 
-class LxQtKbIndicator : public QObject, public ILxQtPanelPlugin
+class LxQtKbIndicator : public QObject, public ILxQtPanelPlugin, QAbstractNativeEventFilter
 {
     Q_OBJECT
 public:
@@ -61,7 +63,7 @@ protected slots:
 
 protected:
     bool getLockStatus(int mBit);
-    virtual void x11EventFilter(XEventType* event);
+    bool nativeEventFilter(const QByteArray &eventType, void *message, long *);
 
 private:
     QLabel *mContent;
@@ -76,9 +78,7 @@ private:
 class LxQtKbIndicatorLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-#endif
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)

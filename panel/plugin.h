@@ -65,11 +65,10 @@ public:
     QString settingsGroup() const { return mSettingsGroup; }
 
     void saveSettings();
-    void x11EventFilter(XEventType* event);
 
     QMenu* popupMenu() const;
     ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
-    
+
     const LxQt::PluginInfo desktopFile() { return mDesktopFile; }
 
     bool isSeparate() const;

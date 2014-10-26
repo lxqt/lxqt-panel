@@ -67,7 +67,6 @@ public:
     void readSettings();
 
     void showPopupMenu(Plugin *plugin = 0);
-    void x11EventFilter(XEventType* event);
 
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }

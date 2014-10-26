@@ -51,10 +51,6 @@
  * @author Kuzma Shapran
  */
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(clock, LxQtClockPluginLibrary)
-#endif
-
 /**
  * @brief constructor
  */
@@ -115,11 +111,7 @@ LxQtClock::~LxQtClock()
 
 QDateTime LxQtClock::currentDateTime()
 {
-#if QT_VERSION < 0x040700
-    return QDateTime(mUseUTC ? QDateTime::currentDateTime().toUTC() : QDateTime::currentDateTime());
-#else
     return QDateTime(mUseUTC ? QDateTime::currentDateTimeUtc() : QDateTime::currentDateTime());
-#endif
 }
 
 /**
@@ -358,9 +350,7 @@ bool LxQtClock::eventFilter(QObject *watched, QEvent *event)
     if (watched == mMainWidget)
     {
         if (event->type() == QEvent::ToolTip)
-        {
             mMainWidget->setToolTip(QDateTime::currentDateTime().toString(Qt::DefaultLocaleLongDate));
-        }
 
         return false;
     }

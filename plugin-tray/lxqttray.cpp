@@ -45,10 +45,8 @@
 #include <X11/extensions/Xrender.h>
 #include <X11/extensions/Xdamage.h>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
 #include <xcb/xcb.h>
 #include <xcb/damage.h>
-#endif
 
 #undef Bool // defined as int in X11/Xlib.h
 
@@ -83,11 +81,10 @@ LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
 {
     mLayout = new LxQt::GridLayout(this);
     realign();
-    _NET_SYSTEM_TRAY_OPCODE = xfitMan().atom("_NET_SYSTEM_TRAY_OPCODE");
+    _NET_SYSTEM_TRAY_OPCODE = XfitMan::atom("_NET_SYSTEM_TRAY_OPCODE");
     // Init the selection later just to ensure that no signals are sent until
     // after construction is done and the creating object has a chance to connect.
     QTimer::singleShot(0, this, SLOT(startTray()));
-
 }
 
 
@@ -103,15 +100,15 @@ LxQtTray::~LxQtTray()
 /************************************************
 
  ************************************************/
-void LxQtTray::x11EventFilter(XEventType* event)
+bool LxQtTray::nativeEventFilter(const QByteArray &eventType, void *message, long *)
 {
+    if (eventType != "xcb_generic_event_t")
+        return false;
+
+    xcb_generic_event_t* event = static_cast<xcb_generic_event_t *>(message);
+
     TrayIcon* icon;
-    int event_type;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
-    event_type = event->response_type & ~0x80;
-#else // use XLib for Qt4
-    event_type = event->type;
-#endif
+    int event_type = event->response_type & ~0x80;
 
     switch (event_type)
     {
@@ -127,11 +124,7 @@ void LxQtTray::x11EventFilter(XEventType* event)
 
         case DestroyNotify: {
             unsigned long event_window;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
             event_window = reinterpret_cast<xcb_destroy_notify_event_t*>(event)->window;
-#else // use XLib for Qt4
-            event_window = event->xany.window;
-#endif
             icon = findIcon(event_window);
             if (icon)
             {
@@ -143,18 +136,15 @@ void LxQtTray::x11EventFilter(XEventType* event)
         default:
             if (event_type == mDamageEvent + XDamageNotify)
             {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
-                //FIXME: implement for XCB
                 xcb_damage_notify_event_t* dmg = reinterpret_cast<xcb_damage_notify_event_t*>(event);
-#else // use XLib for Qt4
-                XDamageNotifyEvent* dmg = reinterpret_cast<XDamageNotifyEvent*>(event);
-#endif
                 icon = findIcon(dmg->drawable);
                 if (icon)
                     icon->update();
             }
             break;
     }
+
+    return false;
 }
 
 
@@ -183,20 +173,14 @@ void LxQtTray::realign()
 /************************************************
 
  ************************************************/
-void LxQtTray::clientMessageEvent(XEventType* e)
+void LxQtTray::clientMessageEvent(xcb_generic_event_t *e)
 {
     unsigned long opcode;
     unsigned long message_type;
     Window id;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) // use XCB for Qt5
     xcb_client_message_event_t* event = reinterpret_cast<xcb_client_message_event_t*>(e);
     uint32_t* data32 = event->data.data32;
     message_type = event->type;
-#else // use XLib for Qt4
-    XClientMessageEvent* event = reinterpret_cast<XClientMessageEvent*>(e);
-    long* data32 = event->data.l;
-    message_type = event->message_type;
-#endif
     opcode = data32[1];
     if(message_type != _NET_SYSTEM_TRAY_OPCODE)
         return;
@@ -225,6 +209,33 @@ void LxQtTray::clientMessageEvent(XEventType* e)
     }
 }
 
+/**
+ * @brief sends a clientmessage to a window
+ */
+int LxQtTray::clientMessage(WId _wid, Atom _msg,
+                            unsigned long data0,
+                            unsigned long data1,
+                            unsigned long data2,
+                            unsigned long data3,
+                            unsigned long data4) const
+{
+    XClientMessageEvent msg;
+    msg.window = _wid;
+    msg.type = ClientMessage;
+    msg.message_type = _msg;
+    msg.send_event = true;
+    msg.display = QX11Info::display();
+    msg.format = 32;
+    msg.data.l[0] = data0;
+    msg.data.l[1] = data1;
+    msg.data.l[2] = data2;
+    msg.data.l[3] = data3;
+    msg.data.l[4] = data4;
+    if (XSendEvent(QX11Info::display(), QX11Info::appRootWindow(), false, (SubstructureRedirectMask | SubstructureNotifyMask) , (XEvent *) &msg) == Success)
+        return EXIT_SUCCESS;
+    else
+        return EXIT_FAILURE;
+}
 
 
 /************************************************
@@ -249,7 +260,7 @@ void LxQtTray::setIconSize(QSize iconSize)
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
     XChangeProperty(mDisplay,
                     mTrayId,
-                    xfitMan().atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
+                    XfitMan::atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
                     XA_CARDINAL,
                     32,
                     PropModeReplace,
@@ -309,7 +320,7 @@ void LxQtTray::startTray()
     Window root = QX11Info::appRootWindow();
 
     QString s = QString("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(dsp));
-    Atom _NET_SYSTEM_TRAY_S = xfitMan().atom(s.toLatin1());
+    Atom _NET_SYSTEM_TRAY_S = XfitMan::atom(s.toLatin1());
 
     if (XGetSelectionOwner(dsp, _NET_SYSTEM_TRAY_S) != None)
     {
@@ -333,7 +344,7 @@ void LxQtTray::startTray()
     int orientation = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;
     XChangeProperty(dsp,
                     mTrayId,
-                    xfitMan().atom("_NET_SYSTEM_TRAY_ORIENTATION"),
+                    XfitMan::atom("_NET_SYSTEM_TRAY_ORIENTATION"),
                     XA_CARDINAL,
                     32,
                     PropModeReplace,
@@ -346,7 +357,7 @@ void LxQtTray::startTray()
     {
         XChangeProperty(mDisplay,
                         mTrayId,
-                        xfitMan().atom("_NET_SYSTEM_TRAY_VISUAL"),
+                        XfitMan::atom("_NET_SYSTEM_TRAY_VISUAL"),
                         XA_VISUALID,
                         32,
                         PropModeReplace,
@@ -360,7 +371,7 @@ void LxQtTray::startTray()
     XClientMessageEvent ev;
     ev.type = ClientMessage;
     ev.window = root;
-    ev.message_type = xfitMan().atom("MANAGER");
+    ev.message_type = XfitMan::atom("MANAGER");
     ev.format = 32;
     ev.data.l[0] = CurrentTime;
     ev.data.l[1] = _NET_SYSTEM_TRAY_S;
@@ -373,6 +384,8 @@ void LxQtTray::startTray()
 
     qDebug() << "Systray started";
     mValid = true;
+
+    qApp->installNativeEventFilter(this);
 }
 
 

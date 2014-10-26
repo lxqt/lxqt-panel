@@ -1,11 +1,10 @@
 set(PLUGIN "mount")
 
-
 set(HEADERS
     lxqtmountplugin.h
+    lxqtmountconfiguration.h
     mountbutton.h
     menudiskitem.h
-    lxqtmountconfiguration.h
     popup.h
     actions/deviceaction.h
     actions/deviceaction_info.h
@@ -15,10 +14,10 @@ set(HEADERS
 
 set(SOURCES
     lxqtmountplugin.cpp
+    lxqtmountconfiguration.cpp
     mountbutton.cpp
     menudiskitem.cpp
     popup.cpp
-    lxqtmountconfiguration.cpp
     actions/deviceaction.cpp
     actions/deviceaction_info.cpp
     actions/deviceaction_menu.cpp
@@ -27,10 +26,10 @@ set(SOURCES
 
 set(MOCS
     lxqtmountplugin.h
+    lxqtmountconfiguration.h
     mountbutton.h
     menudiskitem.h
     popup.h
-    lxqtmountconfiguration.h
     actions/deviceaction.h
     actions/deviceaction_info.h
     actions/deviceaction_menu.h
@@ -44,6 +43,5 @@ set(UIS
 include_directories(${LXQTMOUNT_INCLUDE_DIRS})
 set(LIBRARIES ${QTXDG_LIBRARIES} ${LXQTMOUNT_LIBRARIES})
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -36,10 +36,6 @@
 #include <QProxyStyle>
 #include "../panel/ilxqtpanel.h"
 
-#include <X11/X.h>
-#include <X11/Xlib.h>
-#include "../panel/fixx11h.h"
-
 class QPainter;
 class QPalette;
 class QMimeData;
@@ -62,12 +58,12 @@ class LxQtTaskButton : public QToolButton
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LxQtTaskButton(const Window window, QWidget *parent = 0);
+    explicit LxQtTaskButton(const WId window, QWidget *parent = 0);
     virtual ~LxQtTaskButton();
 
     bool isAppHidden() const;
     bool isApplicationActive() const;
-    Window windowId() const { return mWindow; }
+    WId windowId() const { return mWindow; }
 
     bool hasUrgencyHint() const { return mUrgencyHint; }
     void setUrgencyHint(bool set);
@@ -90,8 +86,6 @@ public slots:
     void moveApplicationToDesktop();
     void setApplicationLayer();
 
-    void handlePropertyNotify(XEventType* event);
-
     void setOrigin(Qt::Corner);
 
 protected:
@@ -104,7 +98,7 @@ protected:
     void paintEvent(QPaintEvent *);
 
 private:
-    Window mWindow;
+    WId mWindow;
     bool mUrgencyHint;
     const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
@@ -116,6 +110,6 @@ private slots:
     void activateWithDraggable();
 };
 
-typedef QHash<Window,LxQtTaskButton*> LxQtTaskButtonHash;
+typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;
 
 #endif // LXQTTASKBUTTON_H

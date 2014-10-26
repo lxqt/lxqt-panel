@@ -1,19 +1,21 @@
 set(PLUGIN "screensaver")
 
 set(HEADERS
-  panelscreensaver.h
+    panelscreensaver.h
 )
 
 set(SOURCES
-  panelscreensaver.cpp
+    panelscreensaver.cpp
 )
 
 set(MOCS
-  panelscreensaver.h
+    panelscreensaver.h
 )
 
-set(LIBRARIES ${LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} )
+set(LIBRARIES
+    ${LIBRARIES}
+    ${LXQT_GLOBALKEYS_LIBRARIES}
+)
 
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

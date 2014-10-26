@@ -8,5 +8,5 @@ Comment=Easy mounting and unmounting of USB and optical drives.
 
 
 # Translations
-Comment[ru]=Менеджер сменных носителей (USB, CD, DVD, и.т.д.)
-Name[ru]=Сменные носители
+Comment[ru_RU]=Простое подключение и отключение USB и оптических приводов.
+Name[ru_RU]=Съёмные устройства

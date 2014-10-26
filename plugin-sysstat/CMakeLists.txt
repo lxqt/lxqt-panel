@@ -1,12 +1,6 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "panelsysstat")
 
-if (USE_QT5)
-    find_package(SysStat-Qt5 REQUIRED)
-else()
-    find_package(SysStat REQUIRED)
-endif()
+find_package(SysStat-Qt5 REQUIRED)
 
 set(HEADERS
     lxqtsysstat.h
@@ -34,12 +28,12 @@ set(UIS
 )
 
 
-LINK_LIBRARIES(${PLUGIN} ${SYSSTAT_LIBRARIES})
+link_libraries(${PLUGIN} ${SYSSTAT_LIBRARIES})
 
-#*******************************************
-include ("../BuildPlugin.cmake")
-BUILD_LXQT_PLUGIN(${PLUGIN})
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${SYSSTAT_INCLUDE_DIRS}
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${SYSSTAT_INCLUDE_DIRS}"
 )
+
+include ("../cmake/BuildPlugin.cmake")
+BUILD_LXQT_PLUGIN(${PLUGIN})

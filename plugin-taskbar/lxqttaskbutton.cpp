@@ -45,10 +45,11 @@
 #include <QStyleOptionToolButton>
 
 #include "lxqttaskbutton.h"
-#include <LXQt/XfitMan>
-#include <QX11Info>
+#include <KF5/KWindowSystem/KWindowSystem>
 
-using namespace LxQt;
+// Necessary for closeApplication()
+#include <KF5/KWindowSystem/NETWM>
+#include <QX11Info>
 
 /************************************************
 
@@ -65,7 +66,7 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 /************************************************
 
 ************************************************/
-LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
+LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
     mDrawPixmap(false)
@@ -80,15 +81,7 @@ LxQtTaskButton::LxQtTaskButton(const Window window, QWidget *parent) :
 
     updateText();
     updateIcon();
-
-    XWindowAttributes oldAttr;
-    XGetWindowAttributes(QX11Info::display(), mWindow, &oldAttr);
-
-    XSetWindowAttributes newAttr;
-    newAttr.event_mask = oldAttr.your_event_mask | PropertyChangeMask;
-    XChangeWindowAttributes(QX11Info::display(), mWindow, CWEventMask, &newAttr);
 }
-
 
 /************************************************
 
@@ -97,17 +90,16 @@ LxQtTaskButton::~LxQtTaskButton()
 {
 }
 
-
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::updateText()
 {
-    QString title = xfitMan().getWindowTitle(mWindow);
+    KWindowInfo info(mWindow, NET::WMVisibleName | NET::WMName);
+    QString title = info.visibleName().isEmpty() ? info.name() : info.visibleName();
     setText(title.replace("&", "&&"));
     setToolTip(title);
 }
-
 
 /************************************************
 
@@ -115,12 +107,13 @@ void LxQtTaskButton::updateText()
 void LxQtTaskButton::updateIcon()
 {
     QIcon ico;
-    if (xfitMan().getClientIcon(mWindow, &ico))
+    QPixmap pix = KWindowSystem::icon(mWindow);
+    ico.addPixmap(pix);
+    if (!pix.isNull())
         setIcon(ico);
     else
         setIcon(XdgIcon::defaultApplicationIcon());
 }
-
 
 /************************************************
 
@@ -137,7 +130,6 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
     QTimer::singleShot(1000, this, SLOT(activateWithDraggable()));
 }
 
-
 /************************************************
 
  ************************************************/
@@ -145,7 +137,6 @@ void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     mDraggableMimeData = NULL;
 }
-
 
 /************************************************
 
@@ -156,7 +147,6 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
         mDragStartPosition = event->pos();
     QToolButton::mousePressEvent(event);
 }
-
 
 /************************************************
 
@@ -173,7 +163,6 @@ void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
     }
     QToolButton::mouseReleaseEvent(event);
 }
-
 
 /************************************************
 
@@ -195,12 +184,7 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     QPixmap pixmap = grab();
-#else
-    QPixmap pixmap(size());
-    render(&pixmap);
-#endif
     drag->setPixmap(pixmap);
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
     drag->exec();
@@ -208,24 +192,22 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     QAbstractButton::mouseMoveEvent(event);
 }
 
-
 /************************************************
 
  ************************************************/
 bool LxQtTaskButton::isAppHidden() const
 {
-    return xfitMan().isHidden(mWindow);
+    KWindowInfo info(mWindow, NET::WMState);
+    return (info.state() & NET::Hidden);
 }
-
 
 /************************************************
 
  ************************************************/
 bool LxQtTaskButton::isApplicationActive() const
 {
-    return xfitMan().getActiveAppWindow() == mWindow;
+    return KWindowSystem::activeWindow() == mWindow;
 }
-
 
 /************************************************
 
@@ -234,6 +216,7 @@ void LxQtTaskButton::activateWithDraggable()
 {
     if (!mDraggableMimeData)
         return;
+
     // raise app in any time when there is a drag
     // in progress to allow drop it into an app
     raiseApplication();
@@ -244,23 +227,22 @@ void LxQtTaskButton::activateWithDraggable()
  ************************************************/
 void LxQtTaskButton::raiseApplication()
 {
-    int winDesktop = xfitMan().getWindowDesktop(mWindow);
-    if (xfitMan().getActiveDesktop() != winDesktop)
-        xfitMan().setActiveDesktop(winDesktop);
-    xfitMan().raiseWindow(mWindow);
+    KWindowInfo info(mWindow, NET::WMDesktop);
+    int winDesktop = info.desktop();
+    if (KWindowSystem::currentDesktop() != winDesktop)
+        KWindowSystem::setCurrentDesktop(winDesktop);
+    KWindowSystem::activateWindow(mWindow);
 
     setUrgencyHint(false);
 }
-
 
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::minimizeApplication()
 {
-    xfitMan().minimizeWindow(mWindow);
+    KWindowSystem::minimizeWindow(mWindow);
 }
-
 
 /************************************************
 
@@ -271,53 +253,55 @@ void LxQtTaskButton::maximizeApplication()
     if (!act)
         return;
 
-    if (act->data().toInt() == XfitMan::MaximizeHoriz)
-        xfitMan().maximizeWindow(mWindow, XfitMan::MaximizeHoriz);
+    int state = act->data().toInt();
+    switch (state)
+    {
+        case NET::MaxHoriz:
+            KWindowSystem::setState(mWindow, NET::MaxHoriz);
+            break;
 
-    else if (act->data().toInt() == XfitMan::MaximizeVert)
-        xfitMan().maximizeWindow(mWindow, XfitMan::MaximizeVert);
+        case NET::MaxVert:
+            KWindowSystem::setState(mWindow, NET::MaxVert);
+            break;
 
-    else
-        xfitMan().maximizeWindow(mWindow, XfitMan::MaximizeBoth);
+        default:
+            KWindowSystem::setState(mWindow, NET::Max);
+            break;
+    }
 }
-
 
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::deMaximizeApplication()
 {
-    XfitMan().raiseWindow(mWindow);
-    xfitMan().deMaximizeWindow(mWindow);
+    KWindowSystem::clearState(mWindow, NET::Max);
 }
-
 
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::shadeApplication()
 {
-    xfitMan().shadeWindow(mWindow, true);
+    KWindowSystem::setState(mWindow, NET::Shaded);
 }
-
 
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::unShadeApplication()
 {
-    xfitMan().shadeWindow(mWindow, false);
+    KWindowSystem::clearState(mWindow, NET::Shaded);
 }
-
 
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::closeApplication()
 {
-    xfitMan().closeWindow(mWindow);
+    // FIXME: Why there is no such thing in KWindowSystem??
+    NETRootInfo(QX11Info::connection(), NET::CloseWindow).closeWindowRequest(mWindow);
 }
-
 
 /************************************************
 
@@ -328,16 +312,25 @@ void LxQtTaskButton::setApplicationLayer()
     if (!act)
         return;
 
-    if (act->data().toInt() == XfitMan::LayerAbove)
-        xfitMan().setWindowLayer(mWindow, XfitMan::LayerAbove);
+    int layer = act->data().toInt();
+    switch(layer)
+    {
+        case NET::KeepAbove:
+            KWindowSystem::clearState(mWindow, NET::KeepBelow);
+            KWindowSystem::setState(mWindow, NET::KeepAbove);
+            break;
 
-    else if (act->data().toInt() == XfitMan::LayerBelow)
-        xfitMan().setWindowLayer(mWindow, XfitMan::LayerBelow);
+        case NET::KeepBelow:
+            KWindowSystem::clearState(mWindow, NET::KeepAbove);
+            KWindowSystem::setState(mWindow, NET::KeepBelow);
+            break;
 
-    else
-        xfitMan().setWindowLayer(mWindow, XfitMan::LayerNormal);
+        default:
+            KWindowSystem::clearState(mWindow, NET::KeepBelow);
+            KWindowSystem::clearState(mWindow, NET::KeepAbove);
+            break;
+    }
 }
-
 
 /************************************************
 
@@ -354,9 +347,8 @@ void LxQtTaskButton::moveApplicationToDesktop()
     if (!ok)
         return;
 
-    xfitMan().moveWindowToDesktop(mWindow, desk);
+    KWindowSystem::setOnDesktop(mWindow, desk);
 }
-
 
 /************************************************
 
@@ -369,39 +361,8 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         return;
     }
 
-    XfitMan xf = xfitMan();
-
-    WindowAllowedActions allow = xf.getAllowedActions(mWindow);
-    WindowState state = xf.getWindowState(mWindow);
-
-//    qDebug() << "Context menu " << xfitMan().getName(mWindow);
-//    qDebug() << "  Allowed Actions:";
-//    qDebug() << "    * Move          " << allow.Move;
-//    qDebug() << "    * Resize        " << allow.Resize;
-//    qDebug() << "    * Minimize      " << allow.Minimize;
-//    qDebug() << "    * Shade         " << allow.Shade;
-//    qDebug() << "    * Stick         " << allow.Stick;
-//    qDebug() << "    * MaximizeHoriz " << allow.MaximizeHoriz;
-//    qDebug() << "    * MaximizeVert  " << allow.MaximizeVert;
-//    qDebug() << "    * FullScreen    " << allow.FullScreen;
-//    qDebug() << "    * ChangeDesktop " << allow.ChangeDesktop;
-//    qDebug() << "    * Close         " << allow.Close;
-//    qDebug() << "    * AboveLayer    " << allow.AboveLayer;
-//    qDebug() << "    * BelowLayer    " << allow.BelowLayer;
-//    qDebug();
-//    qDebug() << "  Window State:";
-//    qDebug() << "    * Modal         " << state.Modal;
-//    qDebug() << "    * Sticky        " << state.Sticky;
-//    qDebug() << "    * MaximizedVert " << state.MaximizedVert;
-//    qDebug() << "    * MaximizedHoriz" << state.MaximizedHoriz;
-//    qDebug() << "    * Shaded        " << state.Shaded;
-//    qDebug() << "    * SkipTaskBar   " << state.SkipTaskBar;
-//    qDebug() << "    * SkipPager     " << state.SkipPager;
-//    qDebug() << "    * Hidden        " << state.Hidden;
-//    qDebug() << "    * FullScreen    " << state.FullScreen;
-//    qDebug() << "    * AboveLayer    " << state.AboveLayer;
-//    qDebug() << "    * BelowLayer    " << state.BelowLayer;
-//    qDebug() << "    * Attention     " << state.Attention;
+    KWindowInfo info(mWindow, 0, NET::WM2AllowedActions);
+    unsigned long state = KWindowInfo(mWindow, NET::WMState).state();
 
     QMenu menu(tr("Application"));
     QAction* a;
@@ -431,168 +392,117 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
       + &Close
     */
 
-    // ** Desktop menu **************************
-    int deskNum = xf.getNumDesktop();
+    /********** Desktop menu **********/
+    int deskNum = KWindowSystem::numberOfDesktops();
     if (deskNum > 1)
     {
-        int winDesk = xf.getWindowDesktop(mWindow);
+        int winDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop();
         QMenu* deskMenu = menu.addMenu(tr("To &Desktop"));
 
         a = deskMenu->addAction(tr("&All Desktops"));
-        a->setData(-1);
-        a->setEnabled(winDesk != -1);
+        a->setData(NET::OnAllDesktops);
+        a->setEnabled(winDesk != NET::OnAllDesktops);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
         deskMenu->addSeparator();
 
-        for (int i=0; i<deskNum; ++i)
+        for (int i = 0; i < deskNum; ++i)
         {
-            a = deskMenu->addAction(tr("Desktop &%1").arg(i+1));
-            a->setData(i);
-            a->setEnabled( i != winDesk );
+            a = deskMenu->addAction(tr("Desktop &%1").arg(i + 1));
+            a->setData(i + 1);
+            a->setEnabled(i + 1 != winDesk);
             connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
         }
 
-        int curDesk = xf.getActiveDesktop();
+        int curDesk = KWindowSystem::currentDesktop();
         a = menu.addAction(tr("&To Current Desktop"));
         a->setData(curDesk);
-        a->setEnabled( curDesk != winDesk );
+        a->setEnabled(curDesk != winDesk);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
     }
 
-    // ** State menu ****************************
+    /********** State menu **********/
     menu.addSeparator();
 
     a = menu.addAction(tr("Ma&ximize"));
-    a->setEnabled((allow.MaximizeHoriz && allow.MaximizeVert) &&
-                  (!state.MaximizedHoriz || !state.MaximizedVert /*|| state.Hidden*/));
-    a->setData(XfitMan::MaximizeBoth);
+    a->setEnabled(info.actionSupported(NET::ActionMax) && !(state & NET::Max));
+    a->setData(NET::Max);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
-
         a = menu.addAction(tr("Maximize vertically"));
-        a->setEnabled((allow.MaximizeVert) && (!state.MaximizedVert || state.Hidden));
-        a->setData(XfitMan::MaximizeVert);
+        a->setEnabled(info.actionSupported(NET::ActionMaxVert) && !((state & NET::MaxVert) || (state & NET::Hidden)));
+        a->setData(NET::MaxVert);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
 
         a = menu.addAction(tr("Maximize horizontally"));
-        a->setEnabled((allow.MaximizeHoriz) && (!state.MaximizedHoriz || state.Hidden));
-        a->setData(XfitMan::MaximizeHoriz);
+        a->setEnabled(info.actionSupported(NET::ActionMaxHoriz) && !((state & NET::MaxHoriz) || (state & NET::Hidden)));
+        a->setData(NET::MaxHoriz);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
     }
 
     a = menu.addAction(tr("&Restore"));
-    a->setEnabled(state.Hidden || state.MaximizedHoriz || state.MaximizedVert);
+    a->setEnabled((state & NET::Hidden) || (state & NET::Max) || (state & NET::MaxHoriz) || (state & NET::MaxVert));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(deMaximizeApplication()));
 
     a = menu.addAction(tr("Mi&nimize"));
-    a->setEnabled(allow.Minimize && !state.Hidden);
+    a->setEnabled(info.actionSupported(NET::ActionMinimize) && !(state & NET::Hidden));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(minimizeApplication()));
 
-    if (state.Shaded)
+    if (state & NET::Shaded)
     {
         a = menu.addAction(tr("Roll down"));
-        a->setEnabled(allow.Shade && !state.Hidden);
+        a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
         connect(a, SIGNAL(triggered(bool)), this, SLOT(unShadeApplication()));
     }
     else
     {
         a = menu.addAction(tr("Roll up"));
-        a->setEnabled(allow.Shade && !state.Hidden);
+        a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
         connect(a, SIGNAL(triggered(bool)), this, SLOT(shadeApplication()));
     }
 
-
-    // ** Layer menu ****************************
+    /********** Layer menu **********/
     menu.addSeparator();
 
     QMenu* layerMenu = menu.addMenu(tr("&Layer"));
 
     a = layerMenu->addAction(tr("Always on &top"));
-    a->setEnabled(allow.AboveLayer && !state.AboveLayer);
-    a->setData(XfitMan::LayerAbove);
+    // FIXME: There is no info.actionSupported(NET::ActionKeepAbove)
+    a->setEnabled(!(state & NET::KeepAbove));
+    a->setData(NET::KeepAbove);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
 
     a = layerMenu->addAction(tr("&Normal"));
-    a->setEnabled(state.AboveLayer || state.BelowLayer);
-    a->setData( XfitMan::LayerNormal);
+    a->setEnabled((state & NET::KeepAbove) || (state & NET::KeepBelow));
+    // FIXME: There is no NET::KeepNormal, so passing 0
+    a->setData(0);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
 
     a = layerMenu->addAction(tr("Always on &bottom"));
-    a->setEnabled(allow.BelowLayer && !state.BelowLayer);
-    a->setData(XfitMan::LayerBelow);
+    // FIXME: There is no info.actionSupported(NET::ActionKeepBelow)
+    a->setEnabled(!(state & NET::KeepBelow));
+    a->setData(NET::KeepBelow);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
 
-
-    // ** Kill menu *****************************
+    /********** Kill menu **********/
     menu.addSeparator();
     a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("&Close"));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(closeApplication()));
     menu.exec(mapToGlobal(event->pos()));
 }
 
-
-/************************************************
-
- ************************************************/
-void  LxQtTaskButton::handlePropertyNotify(XEventType* event)
-{
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    xcb_property_notify_event_t* prop_event = reinterpret_cast<xcb_property_notify_event_t*>(event);
-#else
-    XPropertyEvent* prop_event = reinterpret_cast<XPropertyEvent*>(event);
-#endif
-    // I suppose here that only new/update values need to
-    // be promoted here. There is no need to update inof
-    // If it's deleted/about to delete. And mainly - it prevents
-    // "BadWindow (invalid Window parameter)" errors:
-    // Issue #4 BadWindow when a window is closed
-    if (prop_event->state == PropertyDelete)
-    {
-//        qDebug() << "LxQtTaskButton::handlePropertyNotify to delete";
-        return;
-    }
-
-    if (prop_event->atom == XfitMan::atom("WM_NAME") ||
-        prop_event->atom == XfitMan::atom("_NET_WM_VISIBLE_NAME"))
-    {
-        updateText();
-        return;
-    }
-
-    if (prop_event->atom == XfitMan::atom("_NET_WM_ICON"))
-    {
-        updateIcon();
-        return;
-    }
-
-    if (prop_event->atom == XfitMan::atom("WM_HINTS"))
-    {
-        WMHintsFlags flags = XfitMan().getWMHintsFlags(prop_event->window);
-        if (flags & WMUrgencyHint)
-        {
-            if (prop_event->window != xfitMan().getActiveAppWindow())
-                setUrgencyHint(true);
-        }
-        else
-            setUrgencyHint(false);
-        return;
-    }
-
-//     char* aname = XGetAtomName(QX11Info::display(), event->atom);
-//     qDebug() << "** XPropertyEvent ********************";
-//     qDebug() << "  atom:       0x" << hex << event->atom
-//             << " (" << (aname ? aname : "Unknown") << ')';
-//     qDebug() << "  window:      " << event->window;
-}
-
-
 /************************************************
 
  ************************************************/
 void LxQtTaskButton::setUrgencyHint(bool set)
 {
+    if (mUrgencyHint == set)
+        return;
+
+    if (!set)
+        KWindowSystem::demandAttention(mWindow, false);
+
     mUrgencyHint = set;
     setProperty("urgent", set);
     style()->unpolish(this);
@@ -600,13 +510,12 @@ void LxQtTaskButton::setUrgencyHint(bool set)
     update();
 }
 
-
 /************************************************
 
  ************************************************/
 int LxQtTaskButton::desktopNum() const
 {
-    return xfitMan().getWindowDesktop(mWindow);
+    return KWindowInfo(mWindow, NET::WMDesktop).desktop();
 }
 
 Qt::Corner LxQtTaskButton::origin() const

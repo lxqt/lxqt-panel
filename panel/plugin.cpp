@@ -250,15 +250,6 @@ void Plugin::saveSettings()
 /************************************************
 
  ************************************************/
-void Plugin::x11EventFilter(XEventType *event)
-{
-    mPlugin->x11EventFilter(event);
-}
-
-
-/************************************************
-
- ************************************************/
 void Plugin::contextMenuEvent(QContextMenuEvent *event)
 {
     mPanel->showPopupMenu(this);
@@ -368,11 +359,7 @@ void Plugin::realign()
 void Plugin::showConfigureDialog()
 {
     // store a pointer to each plugin using the plugins' names
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     static QHash<QString, QPointer<QDialog> > refs;
-#else
-    static QHash<QString, QWeakPointer<QDialog> > refs;
-#endif
     QDialog *dialog = refs[name()].data();
 
     if (!dialog)

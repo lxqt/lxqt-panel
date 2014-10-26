@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "panelworldclock")
-
 
 set(HEADERS
     lxqtworldclock.h
@@ -21,25 +18,12 @@ set(MOCS
     lxqtworldclockconfigurationtimezones.h
 )
 
-if(ICU_I18N_FOUND)
-set(UIS
-    lxqtworldclockconfiguration_icu.ui
-    lxqtworldclockconfigurationtimezones_icu.ui
-)
-else()
 set(UIS
     lxqtworldclockconfiguration.ui
     lxqtworldclockconfigurationtimezones.ui
 )
-endif()
 
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
-if(ICU_I18N_FOUND)
-  include_directories(${ICU_INCLUDE_DIRS})
-  LINK_LIBRARIES(${PLUGIN} ${ICU_LIBRARIES})
-endif()
-
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})

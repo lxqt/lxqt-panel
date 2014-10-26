@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
-
 set(PLUGIN "taskbar")
-
 
 set(HEADERS
     lxqttaskbar.h
@@ -31,10 +28,7 @@ set(UIS
 set(LIBRARIES
     ${LXQT_LIBRARIES}
     ${QTXDG_LIBRARIES}
-    ${X11_LIBRARIES}
 )
 
-
-#*******************************************
-include ("../BuildPlugin.cmake")
+include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

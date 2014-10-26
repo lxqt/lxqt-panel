@@ -28,29 +28,26 @@
 #include "lxqtkbindicator.h"
 
 #include <X11/XKBlib.h>
-
+#include "fixx11h.h"
+#include <QApplication>
 #include <QLabel>
 #include <QX11Info>
 #include <QTimer>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <xcb/xcb.h>
 // xkb.h uses explicit as the name of a data member of xcb_xkb_set_explicit_t.
 // unfortunately, this is a C++ keyword. Use this hack to workaround it.
 #define explicit _explicit
 #include <xcb/xkb.h>
 #undef explicit
-#endif
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(panelkbindicator, LxQtKbIndicatorLibrary)
-#endif
 
 LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     mContent(new QLabel())
 {
+    qApp->installNativeEventFilter(this);
+
     connect(this, SIGNAL(indicatorsChanged(uint,uint)), this, SLOT(setIndicators(uint,uint)));
     mContent->setAlignment(Qt::AlignCenter);
 
@@ -123,25 +120,20 @@ bool LxQtKbIndicator::getLockStatus(int bit)
     return state;
 }
 
-void LxQtKbIndicator::x11EventFilter(XEventType* event)
+bool LxQtKbIndicator::nativeEventFilter(const QByteArray &eventType, void *message, long *)
 {
-	int event_type;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-    // for Qt5 + xcb
-    event_type = event->response_type & ~0x80;
-    if (event_type == mXkbEventBase + XkbEventCode)
+    if (eventType != "xcb_generic_event_t")
+        return false;
+
+    xcb_generic_event_t* event = static_cast<xcb_generic_event_t *>(message);
+	int type = event->response_type & ~0x80;
+    if (type == mXkbEventBase + XkbEventCode)
     {
         xcb_xkb_indicator_state_notify_event_t* xkbEvent = reinterpret_cast<xcb_xkb_indicator_state_notify_event_t*>(event);
         // qDebug() << "xkb indicator state notify:" << xkbEvent->xkbType << xkbEvent->stateChanged << xkbEvent->state;
         if (xkbEvent->xkbType == XkbIndicatorStateNotify)
             emit indicatorsChanged(xkbEvent->stateChanged, xkbEvent->state);
     }
-#else
-    XkbEvent* xkbEvent = reinterpret_cast<XkbEvent*>(event);
-    if (event_type == mXkbEventBase + XkbEventCode)
-    {
-        if (xkbEvent->any.xkb_type == XkbIndicatorStateNotify)
-            emit indicatorsChanged(xkbEvent->indicators.changed, xkbEvent->indicators.state);
-    }
-#endif
+
+    return false;
 }

@@ -38,21 +38,17 @@
 #include <LXQt/Settings>
 #include <LXQt/PluginInfo>
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QScreen>
 #include <QWindow>
-#endif
-
-#include <LXQt/XfitMan>
-#include <X11/Xatom.h>
 #include <QX11Info>
-
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QMenu>
 #include <XdgIcon>
-
 #include <XdgDirs>
+
+#include <KF5/KWindowSystem/KWindowSystem>
+#include <KF5/KWindowSystem/NETWM>
 
 // Config keys and groups
 #define CFG_KEY_SCREENNUM   "desktop"
@@ -63,9 +59,7 @@
 #define CFG_KEY_LENGTH      "width"
 #define CFG_KEY_PERCENT     "width-percent"
 #define CFG_KEY_ALIGNMENT   "alignment"
-#define CFG_KEY_PLUGINS "plugins"
-
-using namespace LxQt;
+#define CFG_KEY_PLUGINS     "plugins"
 
 /************************************************
  Returns the Position by the string.
@@ -89,10 +83,14 @@ QString LxQtPanel::positionToStr(ILxQtPanel::Position position)
 {
     switch (position)
     {
-        case LxQtPanel::PositionTop:    return QString("Top");
-        case LxQtPanel::PositionLeft:   return QString("Left");
-        case LxQtPanel::PositionRight:  return QString("Right");
-        case LxQtPanel::PositionBottom: return QString("Bottom");
+    case LxQtPanel::PositionTop:
+        return QString("Top");
+    case LxQtPanel::PositionLeft:
+        return QString("Left");
+    case LxQtPanel::PositionRight:
+        return QString("Right");
+    case LxQtPanel::PositionBottom:
+        return QString("Bottom");
     }
 
     return QString();
@@ -105,11 +103,15 @@ QString LxQtPanel::positionToStr(ILxQtPanel::Position position)
 LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     QFrame(parent),
     mConfigGroup(configGroup),
+    mPanelSize(0),
     mIconSize(0),
-    mLineCount(0)
+    mLineCount(0),
+    mLength(0),
+    mAlignment(AlignmentLeft),
+    mPosition(ILxQtPanel::PositionBottom)
 {
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+
     // NOTE: by PCMan:
     // In Qt 4, the window is not activated if it has Qt::WA_X11NetWmWindowTypeDock.
     // Since Qt 5, the default behaviour is changed. A window is always activated on mouse click.
@@ -121,7 +123,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     // However, since the panel gets no keyboard focus, this may decrease accessibility since
     // it's not possible to use the panel with keyboards. We need to find a better solution later.
     flags |= Qt::WindowDoesNotAcceptFocus;
-#endif
+
     setWindowFlags(flags);
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
@@ -237,7 +239,7 @@ void LxQtPanel::saveSettings(bool later)
  ************************************************/
 void LxQtPanel::ensureVisible()
 {
-    if (! canPlacedOn(mScreenNum, mPosition))
+    if (!canPlacedOn(mScreenNum, mPosition))
         setPosition(findAvailableScreen(mPosition), mPosition);
     // the screen size might be changed, let's update the reserved screen space.
     updateWmStrut();
@@ -261,7 +263,7 @@ LxQtPanel::~LxQtPanel()
 void LxQtPanel::show()
 {
     QWidget::show();
-    xfitMan().moveWindowToDesktop(this->effectiveWinId(), -1);
+    KWindowSystem::setOnDesktop(effectiveWinId(), NET::OnAllDesktops);
 }
 
 
@@ -363,10 +365,10 @@ void LxQtPanel::realign()
             rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
         {
-          if (mLength <= 0)
-            rect.setWidth(currentScreen.width() + mLength);
-          else
-            rect.setWidth(mLength);
+            if (mLength <= 0)
+                rect.setWidth(currentScreen.width() + mLength);
+            else
+                rect.setWidth(mLength);
         }
 
         rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
@@ -404,10 +406,10 @@ void LxQtPanel::realign()
             rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
         {
-          if (mLength <= 0)
-            rect.setHeight(currentScreen.height() + mLength);
-          else
-            rect.setHeight(mLength);
+            if (mLength <= 0)
+                rect.setHeight(currentScreen.height() + mLength);
+            else
+                rect.setHeight(mLength);
         }
 
         rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
@@ -449,10 +451,10 @@ void LxQtPanel::realign()
 // Update the _NET_WM_PARTIAL_STRUT and _NET_WM_STRUT properties for the window
 void LxQtPanel::updateWmStrut()
 {
-    Window wid = effectiveWinId();
+    WId wid = effectiveWinId();
     if(wid == 0 || !isVisible())
         return;
-    XfitMan xf = xfitMan();
+
     const QRect wholeScreen = QApplication::desktop()->geometry();
     // qDebug() << "wholeScreen" << wholeScreen;
     const QRect rect = geometry();
@@ -463,42 +465,42 @@ void LxQtPanel::updateWmStrut()
     // At least openbox is implemented like this.
     switch (mPosition)
     {
-        case LxQtPanel::PositionTop:
-            xf.setStrut(wid, 0, 0, height(), 0,
-               /* Left   */  0, 0,
-               /* Right  */  0, 0,
-               /* Top    */  rect.left(), rect.right(),
-               /* Bottom */  0, 0
-                         );
+    case LxQtPanel::PositionTop:
+        KWindowSystem::setExtendedStrut(wid,
+                                        /* Left   */  0, 0, 0,
+                                        /* Right  */  0, 0, 0,
+                                        /* Top    */  height(), rect.left(), rect.right(),
+                                        /* Bottom */  0, 0, 0
+                                       );
         break;
 
-        case LxQtPanel::PositionBottom:
-            xf.setStrut(wid, 0, 0, 0, wholeScreen.bottom() - rect.y(),
-               /* Left   */  0, 0,
-               /* Right  */  0, 0,
-               /* Top    */  0, 0,
-               /* Bottom */  rect.left(), rect.right()
-                         );
-            break;
+    case LxQtPanel::PositionBottom:
+        KWindowSystem::setExtendedStrut(wid,
+                                        /* Left   */  0, 0, 0,
+                                        /* Right  */  0, 0, 0,
+                                        /* Top    */  0, 0, 0,
+                                        /* Bottom */  wholeScreen.bottom() - rect.y(), rect.left(), rect.right()
+                                       );
+        break;
 
-        case LxQtPanel::PositionLeft:
-            xf.setStrut(wid, width(), 0, 0, 0,
-               /* Left   */  rect.top(), rect.bottom(),
-               /* Right  */  0, 0,
-               /* Top    */  0, 0,
-               /* Bottom */  0, 0
-                         );
+    case LxQtPanel::PositionLeft:
+        KWindowSystem::setExtendedStrut(wid,
+                                        /* Left   */  width(), rect.top(), rect.bottom(),
+                                        /* Right  */  0, 0, 0,
+                                        /* Top    */  0, 0, 0,
+                                        /* Bottom */  0, 0, 0
+                                       );
 
-            break;
+        break;
 
-        case LxQtPanel::PositionRight:
-            xf.setStrut(wid, 0, wholeScreen.right() - rect.x(), 0, 0,
-               /* Left   */  0, 0,
-               /* Right  */  rect.top(), rect.bottom(),
-               /* Top    */  0, 0,
-               /* Bottom */  0, 0
-                         );
-            break;
+    case LxQtPanel::PositionRight:
+        KWindowSystem::setExtendedStrut(wid,
+                                        /* Left   */  0, 0, 0,
+                                        /* Right  */  wholeScreen.right() - rect.x(), rect.top(), rect.bottom(),
+                                        /* Top    */  0, 0, 0,
+                                        /* Bottom */  0, 0, 0
+                                       );
+        break;
     }
 }
 
@@ -514,37 +516,29 @@ bool LxQtPanel::canPlacedOn(int screenNum, LxQtPanel::Position position)
 
     switch (position)
     {
-        case LxQtPanel::PositionTop:
-            for (int i=0; i < dw->screenCount(); ++i)
-            {
-                if (dw->screenGeometry(i).bottom() < dw->screenGeometry(screenNum).top())
-                    return false;
-            }
-            return true;
+    case LxQtPanel::PositionTop:
+        for (int i = 0; i < dw->screenCount(); ++i)
+            if (dw->screenGeometry(i).bottom() < dw->screenGeometry(screenNum).top())
+                return false;
+        return true;
 
-        case LxQtPanel::PositionBottom:
-            for (int i=0; i < dw->screenCount(); ++i)
-            {
-                if (dw->screenGeometry(i).top() > dw->screenGeometry(screenNum).bottom())
-                    return false;
-            }
-            return true;
+    case LxQtPanel::PositionBottom:
+        for (int i = 0; i < dw->screenCount(); ++i)
+            if (dw->screenGeometry(i).top() > dw->screenGeometry(screenNum).bottom())
+                return false;
+        return true;
 
-        case LxQtPanel::PositionLeft:
-            for (int i=0; i < dw->screenCount(); ++i)
-            {
-                if (dw->screenGeometry(i).right() < dw->screenGeometry(screenNum).left())
-                    return false;
-            }
-            return true;
+    case LxQtPanel::PositionLeft:
+        for (int i = 0; i < dw->screenCount(); ++i)
+            if (dw->screenGeometry(i).right() < dw->screenGeometry(screenNum).left())
+                return false;
+        return true;
 
-        case LxQtPanel::PositionRight:
-            for (int i=0; i < dw->screenCount(); ++i)
-            {
-                if (dw->screenGeometry(i).left() > dw->screenGeometry(screenNum).right())
-                    return false;
-            }
-            return true;
+    case LxQtPanel::PositionRight:
+        for (int i = 0; i < dw->screenCount(); ++i)
+            if (dw->screenGeometry(i).left() > dw->screenGeometry(screenNum).right())
+                return false;
+        return true;
     }
 
     return false;
@@ -557,17 +551,14 @@ bool LxQtPanel::canPlacedOn(int screenNum, LxQtPanel::Position position)
 int LxQtPanel::findAvailableScreen(LxQtPanel::Position position)
 {
     int current = mScreenNum;
+
     for (int i = current; i < QApplication::desktop()->screenCount(); ++i)
-    {
         if (canPlacedOn(i, position))
             return i;
-    }
 
     for (int i = 0; i < current; ++i)
-    {
         if (canPlacedOn(i, position))
             return i;
-    }
 
     return 0;
 }
@@ -587,11 +578,11 @@ void LxQtPanel::showConfigDialog()
  ************************************************/
 void LxQtPanel::showAddPluginDialog()
 {
-    AddPluginDialog* dialog = findChild<AddPluginDialog*>();
+    LxQt::AddPluginDialog *dialog = findChild<LxQt::AddPluginDialog *>();
 
     if (!dialog)
     {
-        dialog = new AddPluginDialog(pluginDesktopDirs(), "LxQtPanel/Plugin", "*", this);
+        dialog = new LxQt::AddPluginDialog(pluginDesktopDirs(), "LxQtPanel/Plugin", "*", this);
         dialog->setWindowTitle(tr("Add Panel Widgets"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
@@ -605,12 +596,7 @@ void LxQtPanel::showAddPluginDialog()
     dialog->setPluginsInUse(pluginsInUseIDs);
 
     dialog->show();
-    dialog->raise();
-    dialog->activateWindow();
-    xfitMan().raiseWindow(dialog->effectiveWinId());
-    xfitMan().moveWindowToDesktop(dialog->effectiveWinId(), qMax(xfitMan().getActiveDesktop(), 0));
-
-    dialog->show();
+    KWindowSystem::setOnDesktop(dialog->effectiveWinId(), KWindowSystem::currentDesktop());
 }
 
 
@@ -703,7 +689,7 @@ void LxQtPanel::setLineCount(int value)
 void LxQtPanel::setLength(int length, bool inPercents)
 {
     if (mLength == length &&
-        mLengthInPercents == inPercents)
+            mLengthInPercents == inPercents)
         return;
 
     mLength = length;
@@ -721,7 +707,7 @@ void LxQtPanel::setLength(int length, bool inPercents)
 void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
 {
     if (mScreenNum == screen &&
-        mPosition == position)
+            mPosition == position)
         return;
 
     mScreenNum = screen;
@@ -729,7 +715,6 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
     mLayout->setPosition(mPosition);
     saveSettings(true);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
     // Qt 5 adds a new class QScreen and add API for setting the screen of a QWindow.
     // so we had better use it. However, without this, our program should still work
     // as long as XRandR is used. Since XRandR combined all screens into a large virtual desktop
@@ -751,7 +736,6 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position)
         // unless Qt developers can fix their bug, we have no way to workaround that.
         windowHandle()->setScreen(qApp->screens().at(screen));
     }
-#endif
 
     realign();
     emit realigned();
@@ -771,17 +755,6 @@ void LxQtPanel::setAlignment(LxQtPanel::Alignment value)
 
     realign();
     emit realigned();
-}
-
-
-/************************************************
-
- ************************************************/
-void LxQtPanel::x11EventFilter(XEventType* event)
-{
-    QList<Plugin*>::iterator i;
-    for (i = mPlugins.begin(); i != mPlugins.end(); ++i)
-        (*i)->x11EventFilter(event);
 }
 
 
@@ -815,32 +788,26 @@ bool LxQtPanel::event(QEvent *event)
         // qDebug() << "WinIdChange" << hex << effectiveWinId();
         if(effectiveWinId() == 0)
             break;
+
         // Sometimes Qt needs to re-create the underlying window of the widget and
         // the winId() may be changed at runtime. So we need to reset all X11 properties
         // when this happens.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
         qDebug() << "WinIdChange" << hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
+
         // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
         // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
         // Let's do it manually
-        Atom windowTypes[] = {
-            xfitMan().atom("_NET_WM_WINDOW_TYPE_DOCK"),
-            xfitMan().atom("_KDE_NET_WM_WINDOW_TYPE_OVERRIDE"), // required for Qt::FramelessWindowHint
-            xfitMan().atom("_NET_WM_WINDOW_TYPE_NORMAL")
-        };
-        XChangeProperty(QX11Info::display(), effectiveWinId(), xfitMan().atom("_NET_WM_WINDOW_TYPE"),
-            XA_ATOM, 32, PropModeReplace, (unsigned char*)windowTypes, 3);
-#endif
+        NETWinInfo info(QX11Info::connection(), effectiveWinId(), QX11Info::appRootWindow(), NET::WMWindowType, 0);
+        info.setWindowType(NET::Dock);
 
         updateWmStrut(); // reserve screen space for the panel
-
-        if(isVisible())
-            xfitMan().moveWindowToDesktop(effectiveWinId(), -1);
+        KWindowSystem::setOnAllDesktops(effectiveWinId(), true);
         break;
     }
     default:
         break;
     }
+
     return QFrame::event(event);
 }
 
@@ -942,25 +909,25 @@ QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const Q
 
     switch (position())
     {
-        case ILxQtPanel::PositionTop:
-            x = panelPlugin->mapToGlobal(QPoint(0, 0)).x();
-            y = globalGometry().bottom();
-            break;
+    case ILxQtPanel::PositionTop:
+        x = panelPlugin->mapToGlobal(QPoint(0, 0)).x();
+        y = globalGometry().bottom();
+        break;
 
-        case ILxQtPanel::PositionBottom:
-            x = panelPlugin->mapToGlobal(QPoint(0, 0)).x();
-            y = globalGometry().top() - windowSize.height();
-            break;
+    case ILxQtPanel::PositionBottom:
+        x = panelPlugin->mapToGlobal(QPoint(0, 0)).x();
+        y = globalGometry().top() - windowSize.height();
+        break;
 
-        case ILxQtPanel::PositionLeft:
-            x = globalGometry().right();
-            y = panelPlugin->mapToGlobal(QPoint(0, 0)).y();
-            break;
+    case ILxQtPanel::PositionLeft:
+        x = globalGometry().right();
+        y = panelPlugin->mapToGlobal(QPoint(0, 0)).y();
+        break;
 
-        case ILxQtPanel::PositionRight:
-            x = globalGometry().left() - windowSize.width();
-            y = panelPlugin->mapToGlobal(QPoint(0, 0)).y();
-            break;
+    case ILxQtPanel::PositionRight:
+        x = globalGometry().left() - windowSize.width();
+        y = panelPlugin->mapToGlobal(QPoint(0, 0)).y();
+        break;
     }
 
     QRect res(QPoint(x, y), windowSize);
@@ -1003,14 +970,10 @@ QString LxQtPanel::findNewPluginSettingsGroup(const QString &pluginType) const
     QStringList groups = mSettings->childGroups();
     groups.sort();
 
-    // Generate new section name ................
-    for (int i=2; true; ++i)
-    {
+    // Generate new section name
+    for (int i = 2; true; ++i)
         if (!groups.contains(QString("%1%2").arg(pluginType).arg(i)))
-        {
             return QString("%1%2").arg(pluginType).arg(i);
-        }
-    }
 }
 
 
@@ -1045,6 +1008,10 @@ void LxQtPanel::pluginMoved()
     saveSettings();
 }
 
+
+/************************************************
+
+ ************************************************/
 void LxQtPanel::userRequestForDeletion()
 {
     mSettings->beginGroup(mConfigGroup);

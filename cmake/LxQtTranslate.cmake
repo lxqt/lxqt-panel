@@ -1,27 +1,25 @@
-#  funtion lxqt_translate_ts(qm_files 
-#                           SOURCES sources ... 
+#  funtion lxqt_translate_ts(qm_files
+#                           SOURCES sources ...
 #                           [TRANSLATION_DIR] translation_directory
 #                           [INSTALLATION_DIR] qm_install_directory
 #                          )
-#     out: qm_files 
-#     generates commands to create .ts.src and .qm files from sources. 
+#     out: qm_files
+#     generates commands to create .ts.src and .qm files from sources.
 #     The generated filenames can be found in qm_files.
 #
-#     in: sources 
+#     in: sources
 #     List of the h, cpp and ui files
 #
 #     in: translation_directory
-#     A relative path to the directory with .ts files, it is relative 
+#     A relative path to the directory with .ts files, it is relative
 #     to the CMakeList.txt. By default is "translations"
 #
 #     in: qm_install_directory
 #     A full path to the directory n which will be installed .qm files.
-#     By default is "${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT_NAME}" 
+#     By default is "${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT_NAME}"
 
-if(USE_QT5)
-	get_target_property(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE} LOCATION)
-	get_target_property(QT_LUPDATE_EXECUTABLE ${Qt5_LUPDATE_EXECUTABLE} LOCATION)
-endif()
+get_target_property(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE} LOCATION)
+get_target_property(QT_LUPDATE_EXECUTABLE ${Qt5_LUPDATE_EXECUTABLE} LOCATION)
 
 MACRO(QTX_ADD_TRANSLATION_FIXED _qm_files)
   FOREACH (_current_FILE ${ARGN})
@@ -61,7 +59,7 @@ if(NOT TARGET UpdateTxFile)
         "done\n"
       )
 
-  add_custom_target(UpdateTxFile  
+  add_custom_target(UpdateTxFile
     COMMAND sh ${CMAKE_BINARY_DIR}/tx/_updateTxFile.sh > ${CMAKE_SOURCE_DIR}/.tx/config
   )
 endif()
@@ -70,7 +68,7 @@ endif()
 function(lxqt_translate_ts _qmFiles)
     set(_translationDir "translations")
     set(_installDir "${CMAKE_INSTALL_PREFIX}/share/${LXQT_LIBRARY}/${PROJECT_NAME}")
-    
+
     # Parse arguments ***************************************
     set(_state "")
     foreach (_arg ${ARGN})
@@ -78,47 +76,47 @@ function(lxqt_translate_ts _qmFiles)
             ("${_arg}_I_HATE_CMAKE" STREQUAL "SOURCES_I_HATE_CMAKE") OR
             ("${_arg}_I_HATE_CMAKE" STREQUAL "TRANSLATION_DIR_I_HATE_CMAKE") OR
             ("${_arg}_I_HATE_CMAKE" STREQUAL "INSTALLATION_DIR_I_HATE_CMAKE") OR
-            ("${_arg}_I_HATE_CMAKE" STREQUAL "TS_SRC_FILE_I_HATE_CMAKE")        
-           )        
+            ("${_arg}_I_HATE_CMAKE" STREQUAL "TS_SRC_FILE_I_HATE_CMAKE")
+           )
             set(_state ${_arg})
-      
+
         else()
             if("${_state}" STREQUAL "SOURCES")
                 get_filename_component (__file ${_arg} ABSOLUTE)
                 set(_sources  ${_sources} ${__file})
                 set(_sourcesSpace  "${_sourcesSpace} ${__file}")
- 
+
             elseif("${_state}" STREQUAL "TRANSLATION_DIR")
-                set(_translationDir ${_arg})       
+                set(_translationDir ${_arg})
                 set(_state "")
 
             elseif("${_state}" STREQUAL "INSTALLATION_DIR")
-                set(_installDir ${_arg})       
+                set(_installDir ${_arg})
                 set(_state "")
 
             elseif("${_state}" STREQUAL "TS_SRC_FILE")
-                set(_tsSrcFile ${_arg})       
+                set(_tsSrcFile ${_arg})
                 set(_state "")
-        
-            else()  
-                MESSAGE(FATAL_ERROR 
+
+            else()
+                MESSAGE(FATAL_ERROR
                   "Unknown argument '${_arg}'.\n"
                   "See ${CMAKE_CURRENT_LIST_FILE} for more information.\n"
                 )
-            endif()  
+            endif()
         endif()
     endforeach(_arg)
 
     get_filename_component (_translationDir ${_translationDir} ABSOLUTE)
-    if ("${_tsSrcFile}" STREQUAL "") 
+    if ("${_tsSrcFile}" STREQUAL "")
         set(_tsSrcFile  "${_translationDir}/${PROJECT_NAME}.ts.src")
     endif()
-    
+
     get_filename_component (_tsSrcFile  ${_tsSrcFile} ABSOLUTE)
     get_filename_component (_tsSrcFileName  ${_tsSrcFile} NAME)
     get_filename_component (_tsSrcFileNameWE  ${_tsSrcFile} NAME_WE)
-      
-    # TS.SRC file *******************************************    
+
+    # TS.SRC file *******************************************
     file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/updateTsFile.sh
         "#/bin/sh\n"
         "\n"
@@ -134,14 +132,14 @@ function(lxqt_translate_ts _qmFiles)
         DEPENDS ${_sources}
         VERBATIM
     )
-  
+
     add_dependencies(UpdateTsFiles Update_${_tsSrcFileName})
-    
+
     # TX file ***********************************************
     set(_txFile "${CMAKE_BINARY_DIR}/tx/${_tsSrcFileName}.tx.sh")
     string(REPLACE "${CMAKE_SOURCE_DIR}/" "" _tx_translationDir ${_translationDir})
     string(REPLACE "${CMAKE_SOURCE_DIR}/" "" _tx_tsSrcFile ${_tsSrcFile})
-    
+
     file(WRITE ${_txFile}
         "[ -f ${_tsSrcFile} ] || exit 0\n"
         "echo '[lxde-qt.${_tsSrcFileNameWE}]'\n"
@@ -178,11 +176,11 @@ function(lxqt_translate_ts _qmFiles)
         "#endif // LXQT_TRANSLATE_H\n"
     )
 
-    # QM files **********************************************    
-    file(GLOB _tsFiles ${_translationDir}/${_tsSrcFileNameWE}_*.ts)    
+    # QM files **********************************************
+    file(GLOB _tsFiles ${_translationDir}/${_tsSrcFileNameWE}_*.ts)
     QTX_ADD_TRANSLATION_FIXED(_qmFilesLocal ${_tsFiles})
     install(FILES ${_qmFilesLocal} DESTINATION ${_installDir})
-    
+
     set(${_qmFiles} ${_qmFilesLocal} PARENT_SCOPE)
 endfunction(lxqt_translate_ts)
 
@@ -193,38 +191,38 @@ endfunction(lxqt_translate_ts)
 
 function(lxqt_translate_desktop _RESULT)
     set(_translationDir "translations")
-    
+
     # Parse arguments ***************************************
     set(_state "")
-    foreach (_arg ${ARGN})  
+    foreach (_arg ${ARGN})
         if (
             ("${_arg}_I_HATE_CMAKE" STREQUAL "SOURCES_I_HATE_CMAKE") OR
             ("${_arg}_I_HATE_CMAKE" STREQUAL "TRANSLATION_DIR_I_HATE_CMAKE")
-           )        
+           )
 
             set(_state ${_arg})
-      
+
         else()
             if("${_state}" STREQUAL "SOURCES")
                 get_filename_component (__file ${_arg} ABSOLUTE)
                 set(_sources  ${_sources} ${__file})
                 #set(_sources  ${_sources} ${_arg})
- 
+
             elseif("${_state}" STREQUAL "TRANSLATION_DIR")
-                set(_translationDir ${_arg})       
+                set(_translationDir ${_arg})
                 set(_state "")
 
-            else()  
-                MESSAGE(FATAL_ERROR 
+            else()
+                MESSAGE(FATAL_ERROR
                   "Unknown argument '${_arg}'.\n"
                   "See ${CMAKE_CURRENT_LIST_FILE} for more information.\n"
                 )
-            endif()  
+            endif()
         endif()
-    endforeach(_arg)    
+    endforeach(_arg)
 
-    get_filename_component (_translationDir ${_translationDir} ABSOLUTE)    
-    
+    get_filename_component (_translationDir ${_translationDir} ABSOLUTE)
+
     foreach (_inFile ${_sources})
         get_filename_component(_inFile   ${_inFile} ABSOLUTE)
         get_filename_component(_fileName ${_inFile} NAME_WE)
@@ -237,8 +235,8 @@ function(lxqt_translate_desktop _RESULT)
         file(GLOB _translations
             ${_translationDir}/${_fileName}_*${_fileExt}
             ${_translationDir}/local/${_fileName}_*${_fileExt}
-        )    
-  
+        )
+
         set(_pattern "'\\[.*]\\s*='")
         if (_translations)
             add_custom_command(OUTPUT ${_outFile}
@@ -253,7 +251,7 @@ function(lxqt_translate_desktop _RESULT)
             )
         endif()
 
-        set(__result ${__result} ${_outFile}) 
+        set(__result ${__result} ${_outFile})
 
 
         # TX file ***********************************************
@@ -261,7 +259,7 @@ function(lxqt_translate_desktop _RESULT)
         string(REPLACE "${CMAKE_SOURCE_DIR}/" "" _tx_translationDir ${_translationDir})
         string(REPLACE "${CMAKE_SOURCE_DIR}/" "" _tx_inFile ${_inFile})
         string(REPLACE "." "" _fileType ${_fileExt})
-    
+
         file(WRITE ${_txFile}
             "[ -f ${_inFile} ] || exit 0\n"
             "echo '[lxde-qt.${_fileName}_${_fileType}]'\n"
@@ -274,6 +272,6 @@ function(lxqt_translate_desktop _RESULT)
 
     endforeach()
 
-    set(${_RESULT} ${__result} PARENT_SCOPE)    
+    set(${_RESULT} ${__result} PARENT_SCOPE)
 endfunction(lxqt_translate_desktop)
 

@@ -30,22 +30,12 @@
 #include <QX11Info>
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
-#include <LXQt/XfitMan>
 #include <LXQt/Notification>
-
-#include <X11/Xatom.h>
-#include <X11/Xlib.h>
-#include "../panel/fixx11h.h" // Xlib headers frequtly causes name clashes. Use this hack to fix it.
+#include <KF5/KWindowSystem/KWindowSystem>
+#include <KF5/KWindowSystem/NETWM>
 #include "showdesktop.h"
 
-using namespace LxQt;
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
-Q_EXPORT_PLUGIN2(showdesktop, ShowDesktopLibrary)
-#endif
-
 #define DEFAULT_SHORTCUT "Control+Alt+D"
-
 
 ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -75,8 +65,8 @@ ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
 
 void ShowDesktop::showDesktop()
 {
-    bool bDesktopShown = xfitMan().getShowingDesktop();
-    xfitMan().setShowingDesktop(!bDesktopShown);
+    NETRootInfo info(QX11Info::connection(), NET::WMDesktop);
+    info.setShowingDesktop(!KWindowSystem::showingDesktop());
 }
 
 #undef DEFAULT_SHORTCUT

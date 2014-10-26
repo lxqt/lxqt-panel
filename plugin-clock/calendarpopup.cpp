@@ -28,7 +28,7 @@
 #include "calendarpopup.h"
 #include <QHBoxLayout>
 #include <QEvent>
-#include "calendar_utils.h"
+#include <QLocale>
 
 CalendarPopup::CalendarPopup(QWidget *parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
@@ -37,7 +37,7 @@ CalendarPopup::CalendarPopup(QWidget *parent):
     layout()->setMargin(1);
 
     cal = new QCalendarWidget(this);
-    cal->setFirstDayOfWeek(firstDayOfWeek());
+    cal->setFirstDayOfWeek(QLocale::system().firstDayOfWeek());
     layout()->addWidget(cal);
     adjustSize();
 }
@@ -48,8 +48,9 @@ CalendarPopup::~CalendarPopup()
 
 void CalendarPopup::show()
 {
-    QDialog::show();
+    cal->setSelectedDate(QDate::currentDate());
     activateWindow();
+    QDialog::show();
 }
 
 bool CalendarPopup::event(QEvent *event)

@@ -56,11 +56,6 @@ void DeviceActionInfo::doDeviceRemoved(LxQt::MountDevice *device)
 
 void DeviceActionInfo::showMessage(const QString &text)
 {
-    LxQt::Notification::notify(tr("Removable media/devices manager"),
-                              text
-                          #if QT_VERSION >= 0x040700
-                              , mPlugin->icon().name()
-                          #endif
-                              );
+    LxQt::Notification::notify(tr("Removable media/devices manager"), text, mPlugin->icon().name());
 }
 
