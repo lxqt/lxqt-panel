@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="ja" version="2.0">
 <context>
     <name>LxQtClockConfiguration</name>
     <message>
@@ -11,19 +13,19 @@
     </message>
     <message>
         <source>&amp;Show seconds</source>
-        <translation type="unfinished"/>
+        <translation>秒針を表示(&amp;S)</translation>
     </message>
     <message>
         <source>12 &amp;hour style</source>
-        <translation type="unfinished"/>
+        <translation>12時間表示(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Font</source>
-        <translation type="unfinished"/>
+        <translation>フォント (&amp;F)</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>フォント</translation>
     </message>
     <message>
         <source>Date</source>
@@ -31,59 +33,59 @@
     </message>
     <message>
         <source>Show &amp;date</source>
-        <translation type="unfinished"/>
+        <translation>日付を表示 (&amp;S)</translation>
     </message>
     <message>
         <source>D&amp;ate format</source>
-        <translation type="unfinished"/>
+        <translation>日付のフォーマット (&amp;A)</translation>
     </message>
     <message>
         <source>Fon&amp;t</source>
-        <translation type="unfinished"/>
+        <translation>フォント (&amp;T)</translation>
     </message>
     <message>
         <source>Show date in &amp;new line</source>
-        <translation type="unfinished"/>
+        <translation>新しい列に日付を表示 (&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Use theme fonts</source>
-        <translation type="unfinished"/>
+        <translation>テーマのフォントを使用 (&amp;U)</translation>
     </message>
     <message>
         <source>Time font</source>
-        <translation type="unfinished"/>
+        <translation>時刻のフォント</translation>
     </message>
     <message>
         <source>Date font</source>
-        <translation type="unfinished"/>
+        <translation>日付のフォント</translation>
     </message>
     <message>
         <source>Ultra light</source>
-        <translation type="unfinished"/>
+        <translation>Ultra light</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Light</translation>
     </message>
     <message>
         <source>Ultra black</source>
-        <translation type="unfinished"/>
+        <translation>Ultra black</translation>
     </message>
     <message>
         <source>Black</source>
-        <translation type="unfinished"/>
+        <translation>Black</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"/>
+        <translation>Bold</translation>
     </message>
     <message>
         <source>Demi bold</source>
-        <translation type="unfinished"/>
+        <translation>Demi bold</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"/>
+        <translation>Italic</translation>
     </message>
 </context>
 </TS>
