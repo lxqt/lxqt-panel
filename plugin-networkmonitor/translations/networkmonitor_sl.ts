@@ -1,18 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS language="sl" version="2.0">
 <context>
     <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Omrežni vmesnik &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Transmitted %1</source>
-        <translation type="unfinished"/>
+        <translation>Poslano: %1</translation>
     </message>
     <message>
         <source>Received %1</source>
-        <translation type="unfinished"/>
+        <translation>Prejeto: %1</translation>
     </message>
     <message>
         <source>B</source>
@@ -43,7 +44,7 @@
     <name>LxQtNetworkMonitorConfiguration</name>
     <message>
         <source>LxQt Network Monitor settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitve nadzornika omrežja LXQt</translation>
     </message>
     <message>
         <source>General</source>
@@ -67,11 +68,11 @@
     </message>
     <message>
         <source>Wireless</source>
-        <translation type="unfinished"/>
+        <translation>Brezžično</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished"/>
+        <translation>Ikona</translation>
     </message>
 </context>
 </TS>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="sl" version="2.0">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
@@ -19,7 +21,7 @@
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="unfinished"/>
+        <translation>Uporabi samodejno prilagajanje velikosti</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>

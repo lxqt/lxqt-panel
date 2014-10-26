@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sl" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="sl" version="2.0">
 <context>
     <name>LxQtClockConfiguration</name>
     <message>
@@ -47,7 +49,7 @@
     </message>
     <message>
         <source>&amp;Use theme fonts</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Uporabi pisavo teme</translation>
     </message>
     <message>
         <source>Time font</source>
