@@ -1,48 +1,50 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="ja" version="2.0">
 <context>
     <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークインターフェース &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Transmitted %1</source>
-        <translation type="unfinished"/>
+        <translation>送信 %1</translation>
     </message>
     <message>
         <source>Received %1</source>
-        <translation type="unfinished"/>
+        <translation>受信 %1</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished"/>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished"/>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished"/>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>TiB</source>
-        <translation type="unfinished"/>
+        <translation>TiB</translation>
     </message>
     <message>
         <source>PiB</source>
-        <translation type="unfinished"/>
+        <translation>PiB</translation>
     </message>
 </context>
 <context>
     <name>LxQtNetworkMonitorConfiguration</name>
     <message>
         <source>LxQt Network Monitor settings</source>
-        <translation type="unfinished"/>
+        <translation>LxQt ネットワークモニター設定</translation>
     </message>
     <message>
         <source>General</source>
@@ -50,27 +52,27 @@
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>インターフェース</translation>
     </message>
     <message>
         <source>Modem</source>
-        <translation type="unfinished"/>
+        <translation>モデム</translation>
     </message>
     <message>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>モニター</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <source>Wireless</source>
-        <translation type="unfinished"/>
+        <translation>無線</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished"/>
+        <translation>アイコン</translation>
     </message>
 </context>
 </TS>
