@@ -50,12 +50,6 @@ public:
 public slots:
     void saveSettings();
 
-    void selectColour(const QString &);
-    void on_typeCOB_currentIndexChanged(int);
-    void on_sourceCOB_currentIndexChanged(int);
-    void on_maximumHS_valueChanged(int);
-    void on_fontB_clicked();
-
 
 private:
     Ui::LxQtKbIndicatorConfiguration *ui;

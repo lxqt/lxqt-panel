@@ -63,7 +63,6 @@ public:
     QDialog *configureDialog();
 
 private slots:
-    void synchroTimeout();
     void timeout();
     void wheelScrolled(int);
 
