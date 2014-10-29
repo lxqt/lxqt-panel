@@ -13,6 +13,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtmountplugin.cpp
     lxqtmountconfiguration.cpp
     mountbutton.cpp
@@ -25,6 +26,7 @@ set(SOURCES
 )
 
 set(MOCS
+    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
     lxqtmountplugin.h
     lxqtmountconfiguration.h
     mountbutton.h

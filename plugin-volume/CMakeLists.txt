@@ -10,6 +10,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtvolume.cpp
     volumebutton.cpp
     volumepopup.cpp
@@ -20,6 +21,7 @@ set(SOURCES
 )
 
 set(MOCS
+    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
     lxqtvolume.h
     volumebutton.h
     volumepopup.h
