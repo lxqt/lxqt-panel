@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="fi" version="2.0">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -43,11 +45,11 @@
     </message>
     <message>
         <source>Roll down</source>
-        <translation type="unfinished"/>
+        <translation>Rullaa alas</translation>
     </message>
     <message>
         <source>Roll up</source>
-        <translation type="unfinished"/>
+        <translation>Rullaa ylös</translation>
     </message>
     <message>
         <source>&amp;Layer</source>
@@ -74,7 +76,7 @@
     <name>LxQtTaskbarConfiguration</name>
     <message>
         <source>LxQt Task Manager Settings</source>
-        <translation type="unfinished"/>
+        <translation>LxQt:n tehtävienhallinnan asetukset</translation>
     </message>
     <message>
         <source>Window List Content</source>
