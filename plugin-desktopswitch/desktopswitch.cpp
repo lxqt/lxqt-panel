@@ -117,7 +117,9 @@ void DesktopSwitch::onNumberOfDesktopsChanged(int count)
 
 void DesktopSwitch::onCurrentDesktopChanged(int current)
 {
-    m_buttons->button(current - 1)->setChecked(true);
+    QAbstractButton *button = m_buttons->button(current - 1);
+    if (button)
+        button->setChecked(true);
 }
 
 void DesktopSwitch::onDesktopNamesChanged()
