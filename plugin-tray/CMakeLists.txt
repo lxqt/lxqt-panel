@@ -12,18 +12,21 @@ set(HEADERS
     lxqttrayplugin.h
     lxqttray.h
     trayicon.h
+    xfitman.h
 )
 
 set(SOURCES
     lxqttrayplugin.cpp
     lxqttray.cpp
     trayicon.cpp
+    xfitman.cpp
 )
 
 set(MOCS
     lxqttrayplugin.h
     lxqttray.h
     trayicon.h
+    xfitman.h
 )
 
 set(LIBRARIES

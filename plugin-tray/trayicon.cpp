@@ -36,8 +36,9 @@
 
 #include "../panel/lxqtpanel.h"
 #include "trayicon.h"
+#include "xfitman.h"
+
 #include <QX11Info>
-#include <LXQt/XfitMan>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/Xcomposite.h>
@@ -47,8 +48,6 @@
 
 
 static bool xError;
-
-using namespace LxQt;
 
 /************************************************
 

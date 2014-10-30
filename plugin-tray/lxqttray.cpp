@@ -30,28 +30,26 @@
 
 *********************************************************************/
 
-
-// Warning: order of those include is important.
 #include <QApplication>
-#include <QtDebug>
-#include "trayicon.h"
-#include <LXQt/GridLayout>
-#include "../panel/ilxqtpanel.h"
+#include <QDebug>
+#include <QTimer>
 #include <QX11Info>
+#include "trayicon.h"
+#include "../panel/ilxqtpanel.h"
+#include <LXQt/GridLayout>
 #include "lxqttray.h"
+#include "xfitman.h"
+
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include <X11/extensions/Xrender.h>
 #include <X11/extensions/Xdamage.h>
-
 #include <xcb/xcb.h>
 #include <xcb/damage.h>
 
 #undef Bool // defined as int in X11/Xlib.h
 
-#include <LXQt/XfitMan>
-#include <QTimer>
 #include "../panel/ilxqtpanelplugin.h"
 
 #define _NET_SYSTEM_TRAY_ORIENTATION_HORZ 0
@@ -64,7 +62,6 @@
 #define XEMBED_EMBEDDED_NOTIFY  0
 #define XEMBED_MAPPED          (1 << 0)
 
-using namespace LxQt;
 
 /************************************************
 
@@ -208,35 +205,6 @@ void LxQtTray::clientMessageEvent(xcb_generic_event_t *e)
             break;
     }
 }
-
-/**
- * @brief sends a clientmessage to a window
- */
-int LxQtTray::clientMessage(WId _wid, Atom _msg,
-                            unsigned long data0,
-                            unsigned long data1,
-                            unsigned long data2,
-                            unsigned long data3,
-                            unsigned long data4) const
-{
-    XClientMessageEvent msg;
-    msg.window = _wid;
-    msg.type = ClientMessage;
-    msg.message_type = _msg;
-    msg.send_event = true;
-    msg.display = QX11Info::display();
-    msg.format = 32;
-    msg.data.l[0] = data0;
-    msg.data.l[1] = data1;
-    msg.data.l[2] = data2;
-    msg.data.l[3] = data3;
-    msg.data.l[4] = data4;
-    if (XSendEvent(QX11Info::display(), QX11Info::appRootWindow(), false, (SubstructureRedirectMask | SubstructureNotifyMask) , (XEvent *) &msg) == Success)
-        return EXIT_SUCCESS;
-    else
-        return EXIT_FAILURE;
-}
-
 
 /************************************************
 
