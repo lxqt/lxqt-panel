@@ -1,5 +1,7 @@
 set(PLUGIN "panelkbindicator")
 
+find_package(KF5GuiAddons REQUIRED)
+
 set(HEADERS
     lxqtkbindicator.h
     lxqtkbindicatorconfiguration.h
@@ -21,9 +23,7 @@ set(UIS
 
 set(LIBRARIES
     ${LIBRARIES}
-    ${X11_LIBRARIES}
-    ${XCB_LIBRARIES}
-    ${XCB_XCB_LIBRARIES}
+    KF5::GuiAddons
 )
 
 include ("../cmake/BuildPlugin.cmake")
