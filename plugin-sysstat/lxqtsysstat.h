@@ -66,6 +66,7 @@ private:
     QWidget *mWidget;
     LxQtSysStatTitle *mFakeTitle;
     LxQtSysStatContent *mContent;
+    QSize mSize;
 };
 
 class LxQtSysStatTitle : public QLabel

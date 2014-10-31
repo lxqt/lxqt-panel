@@ -69,6 +69,7 @@ void LxQtSysStat::lateInit()
 {
     settingsChanged();
     mContent->setTitleFont(mFakeTitle->font());
+    mSize = mContent->size();
 }
 
 QDialog *LxQtSysStat::configureDialog()
@@ -78,7 +79,12 @@ QDialog *LxQtSysStat::configureDialog()
 
 void LxQtSysStat::realign()
 {
-    mContent->reset();
+    QSize newSize = mContent->size();
+    if (mSize != newSize)
+    {
+        mContent->reset();
+        mSize = newSize;
+    }
 }
 
 void LxQtSysStat::settingsChanged()
