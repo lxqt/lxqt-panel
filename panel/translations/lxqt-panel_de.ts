@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="de" version="2.0">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
@@ -105,7 +107,7 @@
     <name>LxQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurieren</translation>
     </message>
     <message>
         <source>Move</source>

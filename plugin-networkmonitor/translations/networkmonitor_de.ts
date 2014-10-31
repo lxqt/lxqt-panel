@@ -5,7 +5,7 @@
     <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkschnittstelle &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Transmitted %1</source>
@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>Wireless</source>
-        <translation type="unfinished"/>
+        <translation>drahtlos</translation>
     </message>
     <message>
         <source>Icon</source>

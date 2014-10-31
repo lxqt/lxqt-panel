@@ -1,16 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="de" version="2.0">
 <context>
     <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation type="unfinished"/>
+        <translation>Prozessorauslastung %1%</translation>
     </message>
 </context>
 <context>
     <name>LxQtCpuLoadConfiguration</name>
     <message>
         <source>LxQt Cpu Load settings</source>
-        <translation type="unfinished"/>
+        <translation>LxQt Prozessorauslastung Einstellungen</translation>
     </message>
     <message>
         <source>General</source>
@@ -26,7 +28,7 @@
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>Sek.</translation>
     </message>
     <message>
         <source>Bar orientation:</source>

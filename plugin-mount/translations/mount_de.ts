@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="de" version="2.0">
 <context>
     <name>MenuDiskItem</name>
     <message>
@@ -21,18 +23,18 @@
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="188"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
+        <translation>Das Gerät &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; wurde verbunden.</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="207"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
+        <translation>Das Gerät &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; wurde entfernt.</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="235"/>
         <source>No devices Available.</source>
-        <translation type="unfinished"/>
+        <translation>Kein Gerät verfügbar.</translation>
     </message>
 </context>
 <context>
@@ -50,7 +52,7 @@
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
-        <translation type="unfinished"/>
+        <translation>Wenn ein Gerät verbunden wurde</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="44"/>
@@ -60,7 +62,7 @@
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
-        <translation type="unfinished"/>
+        <translation>Zeige Informationen</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="46"/>

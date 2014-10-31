@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="de" version="2.0">
 <context>
     <name>LxQtMainMenu</name>
     <message>
@@ -34,7 +36,7 @@
     </message>
     <message>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturkürzel</translation>
     </message>
     <message>
         <source>Click the button to record shortcut:</source>
