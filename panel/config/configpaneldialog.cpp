@@ -120,7 +120,10 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
     ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
 
+    mOldFontColor = mPanel->fontColor();
+    mFontColor = mOldFontColor;
     mOldBackgroundColor = mPanel->backgroundColor();
+    mBackgroundColor = mOldBackgroundColor;
     mOldBackgroundImage = mPanel->backgroundImage();
 
     reset();
@@ -135,13 +138,14 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     connect(ui->comboBox_alignment,         SIGNAL(activated(int)),         this, SLOT(editChanged()));
     connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
 
-    connect(ui->checkBox_customColor,       SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->pushButton_customColor,     SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
-    connect(ui->lineEdit_customColor,       SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
-    connect(ui->slider_opacity,             SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
-    connect(ui->checkBox_customImage,       SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->lineEdit_customImage,       SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
-    connect(ui->pushButton_customImage,     SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
+    connect(ui->checkBox_customFontColor,   SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->pushButton_customFontColor, SIGNAL(clicked(bool)),          this, SLOT(pickFontColor()));
+    connect(ui->checkBox_customBgColor,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->pushButton_customBgColor,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
+    connect(ui->slider_opacity,             SIGNAL(sliderReleased()),      this, SLOT(editChanged()));
+    connect(ui->checkBox_customBgImage,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->lineEdit_customBgImage,     SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
+    connect(ui->pushButton_customBgImage,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
 }
 
 
@@ -163,12 +167,16 @@ void ConfigPanelWidget::reset()
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
 
+    mFontColor.setNamedColor(mOldFontColor.name());
+    ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mOldFontColor.name()));
+    mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
+    ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mOldBackgroundColor.name()));
     ui->slider_opacity->setValue(mOldBackgroundColor.alpha() * 100 / 255);
-    ui->lineEdit_customColor->setText(mOldBackgroundColor.name().toUpper());
-    ui->lineEdit_customImage->setText(mOldBackgroundImage);
+    ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
 
-    ui->checkBox_customColor->setChecked(mOldBackgroundColor.isValid());
-    ui->checkBox_customImage->setChecked(QFileInfo(mOldBackgroundImage).exists());
+    ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
+    ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());
+    ui->checkBox_customBgImage->setChecked(QFileInfo(mOldBackgroundImage).exists());
 
     // update position
     positionChanged();
@@ -285,17 +293,21 @@ void ConfigPanelWidget::editChanged()
     mPanel->setAlignment(align, true);
     mPanel->setPosition(mScreenNum, mPosition, true);
 
-    if (ui->checkBox_customColor->isChecked())
+    if (ui->checkBox_customFontColor->isChecked())
+        mPanel->setFontColor(mFontColor, true);
+    else
+        mPanel->setFontColor(QColor(), true);
+
+    if (ui->checkBox_customBgColor->isChecked())
     {
-        QColor color = QColor(ui->lineEdit_customColor->text());
-        color.setAlpha(ui->slider_opacity->value() * 255 / 100);
-        mPanel->setBackgroundColor(color, true);
+        mBackgroundColor.setAlpha(ui->slider_opacity->value() * 255 / 100);
+        mPanel->setBackgroundColor(mBackgroundColor, true);
     }
     else
         mPanel->setBackgroundColor(QColor(), true);
 
-    mPanel->setBackgroundImage(ui->checkBox_customImage->isChecked() ? ui->lineEdit_customImage->text() : QString(),
-                               true);
+    QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
+    mPanel->setBackgroundImage(image, true);
 }
 
 
@@ -376,13 +388,31 @@ void ConfigPanelWidget::positionChanged()
 }
 
 /************************************************
+ *
+ ************************************************/
+void ConfigPanelWidget::pickFontColor()
+{
+    QColor newColor = QColorDialog::getColor(QColor(mFontColor.name()), this, tr("Pick color"));
+    if (newColor.isValid())
+    {
+        mFontColor.setNamedColor(newColor.name());
+        ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mFontColor.name()));
+        editChanged();
+    }
+}
+
+/************************************************
 
  ************************************************/
 void ConfigPanelWidget::pickBackgroundColor()
 {
-    QColor newColor = QColorDialog::getColor(QColor(ui->lineEdit_customColor->text()), this, tr("Pick color"));
+    QColor newColor = QColorDialog::getColor(QColor(mBackgroundColor.name()), this, tr("Pick color"));
     if (newColor.isValid())
-        ui->lineEdit_customColor->setText(newColor.name());
+    {
+        mBackgroundColor.setNamedColor(newColor.name());
+        ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mBackgroundColor.name()));
+        editChanged();
+    }
 }
 
 /************************************************
@@ -397,5 +427,5 @@ void ConfigPanelWidget::pickBackgroundImage()
                                                 "Pick image",
                                                 picturesLocation,
                                                 tr("Images (*.png *.gif *.jpg)"));
-    ui->lineEdit_customImage->setText(file);
+    ui->lineEdit_customBgImage->setText(file);
 }

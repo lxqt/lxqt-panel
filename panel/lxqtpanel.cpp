@@ -59,6 +59,7 @@
 #define CFG_KEY_LENGTH             "width"
 #define CFG_KEY_PERCENT            "width-percent"
 #define CFG_KEY_ALIGNMENT          "alignment"
+#define CFG_KEY_FONTCOLOR          "font-color"
 #define CFG_KEY_BACKGROUNDCOLOR    "background-color"
 #define CFG_KEY_BACKGROUNDIMAGE    "background-image"
 #define CFG_KEY_PLUGINS            "plugins"
@@ -189,7 +190,11 @@ void LxQtPanel::readSettings()
 
     setAlignment(Alignment(mSettings->value(CFG_KEY_ALIGNMENT, mAlignment).toInt()), false);
 
-    QColor color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
+    QColor color = mSettings->value(CFG_KEY_FONTCOLOR, "").value<QColor>();
+    if (color.isValid())
+        setFontColor(color, true);
+
+    color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
     if (color.isValid())
         setBackgroundColor(color, true);
 
@@ -243,6 +248,7 @@ void LxQtPanel::saveSettings(bool later)
 
     mSettings->setValue(CFG_KEY_ALIGNMENT, mAlignment);
 
+    mSettings->setValue(CFG_KEY_FONTCOLOR, mFontColor.isValid() ? mFontColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
 
@@ -642,7 +648,11 @@ void LxQtPanel::updateStyleSheet()
     sheet << QString("Plugin > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
     sheet << QString("Plugin > * > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
 
+    if (mFontColor.isValid())
+        sheet << QString("Plugin * { color: " + mFontColor.name() + "; }");
+
     QString object = LxQtPanelWidget->objectName();
+
     if (mBackgroundColor.isValid())
     {
         QString color = QString("%1, %2, %3, %5")
@@ -781,6 +791,18 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position, bool save
 
     realign();
     emit realigned();
+}
+
+/************************************************
+ *
+ ************************************************/
+void LxQtPanel::setFontColor(QColor color, bool save)
+{
+    mFontColor = color;
+    updateStyleSheet();
+
+    if (save)
+        saveSettings(true);
 }
 
 /************************************************

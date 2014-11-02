@@ -88,6 +88,7 @@ public:
     bool lengthInPercents() const { return mLengthInPercents; }
     LxQtPanel::Alignment alignment() const { return mAlignment; }
     int screenNum() const { return mScreenNum; }
+    QColor fontColor() const { return mFontColor; };
     QColor backgroundColor() const { return mBackgroundColor; };
     QString backgroundImage() const { return mBackgroundImage; };
 
@@ -102,6 +103,7 @@ public slots:
     void setLineCount(int value, bool save);
     void setLength(int length, bool inPercents, bool save);
     void setPosition(int screen, ILxQtPanel::Position position, bool save);
+    void setFontColor(QColor color, bool save);
     void setBackgroundColor(QColor color, bool save);
     void setBackgroundImage(QString path, bool save);
     void setAlignment(LxQtPanel::Alignment value, bool save);
@@ -158,6 +160,7 @@ private:
     int mScreenNum;
     QTimer mDelaySave;
 
+    QColor mFontColor;
     QColor mBackgroundColor;
     QString mBackgroundImage;
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>317</width>
-    <height>509</height>
+    <width>312</width>
+    <height>572</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -207,27 +207,79 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_customColor">
+       <widget class="QCheckBox" name="checkBox_customFontColor">
         <property name="text">
-         <string>Custom background color</string>
+         <string>Custom font color:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_customFontColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="color-picker">
+          <normaloff/>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_customBgColor">
+        <property name="text">
+         <string>Custom background color:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_customBgColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="color-picker">
+          <normaloff/>
+         </iconset>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QCheckBox" name="checkBox_customImage">
+       <widget class="QCheckBox" name="checkBox_customBgImage">
         <property name="text">
-         <string>Custom background image</string>
+         <string>Custom background image:</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_customImage">
+      <item row="4" column="0">
+       <widget class="QLineEdit" name="lineEdit_customBgImage">
         <property name="enabled">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="3">
+      <item row="4" column="1">
+       <widget class="QPushButton" name="pushButton_customBgImage">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="insert-image">
+          <normaloff/>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
        <widget class="QWidget" name="widget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
@@ -260,39 +312,15 @@
            <property name="maximum">
             <number>100</number>
            </property>
+           <property name="value">
+            <number>100</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
         </layout>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton_customColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Pick</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2">
-       <widget class="QPushButton" name="pushButton_customImage">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Browse</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_customColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
        </widget>
       </item>
      </layout>
@@ -303,98 +331,98 @@
  <resources/>
  <connections>
   <connection>
-   <sender>checkBox_customColor</sender>
+   <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
-   <receiver>lineEdit_customColor</receiver>
+   <receiver>pushButton_customBgColor</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>354</y>
+     <x>130</x>
+     <y>460</y>
     </hint>
     <hint type="destinationlabel">
-     <x>71</x>
-     <y>377</y>
+     <x>297</x>
+     <y>466</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_customColor</sender>
+   <sender>checkBox_customBgImage</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pushButton_customColor</receiver>
+   <receiver>lineEdit_customBgImage</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>116</x>
-     <y>353</y>
+     <x>109</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>386</y>
+     <x>121</x>
+     <y>556</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_customImage</sender>
+   <sender>checkBox_customBgImage</sender>
    <signal>toggled(bool)</signal>
-   <receiver>lineEdit_customImage</receiver>
+   <receiver>pushButton_customBgImage</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>95</x>
-     <y>447</y>
+     <x>97</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
-     <x>107</x>
-     <y>473</y>
+     <x>297</x>
+     <y>557</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_customImage</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>pushButton_customImage</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>83</x>
-     <y>442</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>240</x>
-     <y>464</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_customColor</sender>
+   <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>slider_opacity</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>25</x>
-     <y>356</y>
+     <x>39</x>
+     <y>460</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>412</y>
+     <x>218</x>
+     <y>492</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_customColor</sender>
+   <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>label_4</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>26</x>
-     <y>355</y>
+     <x>40</x>
+     <y>460</y>
     </hint>
     <hint type="destinationlabel">
-     <x>33</x>
-     <y>414</y>
+     <x>47</x>
+     <y>492</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_customFontColor</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>pushButton_customFontColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>176</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>287</x>
+     <y>419</y>
     </hint>
    </hints>
   </connection>
