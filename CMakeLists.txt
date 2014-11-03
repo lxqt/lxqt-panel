@@ -45,13 +45,11 @@ find_package(Qt5X11Extras REQUIRED QUIET)
 find_package(KF5WindowSystem)
 
 find_package(lxqt-qt5 REQUIRED)
-find_package(lxqtmount-qt5 REQUIRED )
 find_package(Qt5Xdg REQUIRED QUIET)
 find_package(lxqt-globalkeys-qt5 REQUIRED)
 find_package(lxqt-globalkeys-ui-qt5 REQUIRED)
 
 include(${LXQT_USE_FILE})
-include(${LXQTMOUNT_USE_FILE})
 include(${QTXDG_USE_FILE})
 include(${LXQT_GLOBALKEYS_USE_FILE})
 include(${LXQT_GLOBALKEYS_UI_USE_FILE})
@@ -110,6 +108,10 @@ endif()
 setByDefault(MOUNT_PLUGIN Yes)
 if(MOUNT_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Mount")
+
+    find_package(lxqtmount-qt5 REQUIRED)
+    include(${LXQTMOUNT_USE_FILE})
+
     add_subdirectory(plugin-mount)
 endif(MOUNT_PLUGIN)
 
