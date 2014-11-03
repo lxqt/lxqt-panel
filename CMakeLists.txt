@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.11)
 project(lxqt-panel)
 
+option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
+
 # additional cmake files
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
@@ -53,6 +55,8 @@ include(${LXQT_USE_FILE})
 include(${QTXDG_USE_FILE})
 include(${LXQT_GLOBALKEYS_USE_FILE})
 include(${LXQT_GLOBALKEYS_UI_USE_FILE})
+
+include(LXQtTranslate)
 
 include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}"

@@ -54,8 +54,6 @@ set(lxqt-panel_UI_FILES
 
 qt5_wrap_ui(UI_HEADERS ${lxqt-panel_UI_FILES})
 
-include(LxQtTranslate)
-
 file(GLOB CONFIG_FILES resources/*.conf)
 
 ############################################
@@ -89,20 +87,26 @@ qt5_add_resources(QRC_SOURCES ${RESOURCES})
 set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)
 
 # Translations
-include(LxQtTranslate)
 lxqt_translate_ts(lxqt-runner_QM_FILES SOURCES
-    ${lxqt-panel_PUB_H_FILES}
-    ${lxqt-panel_PRIV_H_FILES}
-    ${lxqt-panel_CPP_FILES}
-    ${lxqt-panel_UI_FILES}
-    INSTALLATION_DIR "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
+    UPDATE_TRANSLATIONS
+        ${UPDATE_TRANSLATIONS}
+    SOURCES
+        ${lxqt-panel_PUB_H_FILES}
+        ${lxqt-panel_PRIV_H_FILES}
+        ${lxqt-panel_CPP_FILES}
+        ${lxqt-panel_UI_FILES}
+    INSTALL_DIR
+        "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
 )
+
+lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
+
 
 set(PLUGIN_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS})
+add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS} ${QM_LOADER})
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES} KF5::WindowSystem)
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)

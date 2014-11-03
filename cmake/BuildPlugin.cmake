@@ -6,16 +6,14 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     set(PLUGIN_SHARE_DIR ${PROG_SHARE_DIR}/${NAME})
 
     # Translations **********************************
-    include(LxQtTranslate)
     lxqt_translate_ts(${PROJECT_NAME}_QM_FILES
+        UPDATE_TRANSLATIONS ${UPDATE_TRANSLATIONS}
         SOURCES
             ${HEADERS}
             ${SOURCES}
             ${MOCS}
             ${UIS}
-        TS_SRC_FILE
-            translations/${NAME}.ts.src
-        INSTALLATION_DIR
+        INSTALL_DIR
             ${LXQT_TRANSLATIONS_DIR}/${PROGRAM}/${NAME}
     )
 
