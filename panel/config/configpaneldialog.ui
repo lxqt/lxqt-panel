@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>312</width>
-    <height>572</height>
+    <width>365</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,13 +29,44 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Panel size</string>
+      <string>Size</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="1" colspan="2">
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Size:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" colspan="2">
+       <widget class="QSpinBox" name="spinBox_panelSize">
+        <property name="suffix">
+         <string> px</string>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLabel" name="label_iconSize">
+        <property name="text">
+         <string>Icon size:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="label_length">
+        <property name="text">
+         <string>Length:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="6">
        <widget class="QSpinBox" name="spinBox_lineCount">
         <property name="minimum">
          <number>1</number>
@@ -45,32 +76,11 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="3">
-       <widget class="QLabel" name="label_px">
-        <property name="text">
-         <string>px</string>
-        </property>
-        <property name="indent">
-         <number>5</number>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_lineCount">
-        <property name="text">
-         <string>Rows count:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_iconSize">
-        <property name="text">
-         <string>Icon size:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" colspan="2">
+      <item row="0" column="6">
        <widget class="QSpinBox" name="spinBox_iconSize">
+        <property name="suffix">
+         <string> px</string>
+        </property>
         <property name="minimum">
          <number>10</number>
         </property>
@@ -79,29 +89,73 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
+      <item row="2" column="2" colspan="2">
+       <widget class="QWidget" name="widget_2" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QSpinBox" name="spinBox_length">
+           <property name="toolTip">
+            <string>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_lenghtType">
+           <item>
+            <property name="text">
+             <string>%</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>px</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QLabel" name="label_lineCount">
         <property name="text">
-         <string>Panel size:</string>
+         <string>Rows count:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>px</string>
+      <item row="0" column="4">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="indent">
-         <number>5</number>
+        <property name="sizeType">
+         <enum>QSizePolicy::Minimum</enum>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="2">
-       <widget class="QSpinBox" name="spinBox_panelSize">
-        <property name="value">
-         <number>24</number>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
         </property>
-       </widget>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -115,23 +169,10 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Panel length &amp;&amp; position</string>
+      <string>Alignment &amp;&amp; position</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1" colspan="2">
-       <widget class="QSpinBox" name="spinBox_length">
-        <property name="toolTip">
-         <string>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</string>
-        </property>
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>100</number>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" colspan="3">
        <widget class="QComboBox" name="comboBox_alignment">
         <property name="currentIndex">
          <number>1</number>
@@ -153,38 +194,17 @@
         </item>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QComboBox" name="comboBox_lenghtType">
-        <item>
-         <property name="text">
-          <string>%</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>px</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="0">
+      <item row="0" column="0">
        <widget class="QLabel" name="label_alignment">
         <property name="text">
          <string>Alignment:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_length">
-        <property name="text">
-         <string>Length:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" colspan="3">
+      <item row="1" column="1" colspan="2">
        <widget class="QComboBox" name="comboBox_position"/>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label_position">
         <property name="text">
          <string>Position:</string>
@@ -213,43 +233,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="pushButton_customFontColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset theme="color-picker">
-          <normaloff/>
-         </iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_customBgColor">
-        <property name="text">
-         <string>Custom background color:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="pushButton_customBgColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset theme="color-picker">
-          <normaloff/>
-         </iconset>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="0">
        <widget class="QCheckBox" name="checkBox_customBgImage">
         <property name="text">
@@ -264,10 +247,20 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_customBgColor">
+        <property name="text">
+         <string>Custom background color:</string>
+        </property>
+       </widget>
+      </item>
       <item row="4" column="1">
        <widget class="QPushButton" name="pushButton_customBgImage">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -279,7 +272,43 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="2">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_customFontColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="color-picker">
+          <normaloff/>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_customBgColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="color-picker">
+          <normaloff/>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
        <widget class="QWidget" name="widget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
@@ -294,13 +323,25 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QWidget" name="widget_3" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="label_2">
            <property name="enabled">
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>Opacity:</string>
+            <string>Opacity</string>
            </property>
           </widget>
          </item>
@@ -311,6 +352,9 @@
            </property>
            <property name="maximum">
             <number>100</number>
+           </property>
+           <property name="pageStep">
+            <number>5</number>
            </property>
            <property name="value">
             <number>100</number>
@@ -337,12 +381,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>460</y>
+     <x>144</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>297</x>
-     <y>466</y>
+     <x>350</x>
+     <y>350</y>
     </hint>
    </hints>
   </connection>
@@ -353,12 +397,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>519</y>
+     <x>137</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>121</x>
-     <y>556</y>
+     <x>149</x>
+     <y>440</y>
     </hint>
    </hints>
   </connection>
@@ -369,44 +413,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>97</x>
-     <y>519</y>
+     <x>125</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>297</x>
-     <y>557</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_customBgColor</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>slider_opacity</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>39</x>
-     <y>460</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>218</x>
-     <y>492</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_customBgColor</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_4</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>40</x>
-     <y>460</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>47</x>
-     <y>492</y>
+     <x>350</x>
+     <y>441</y>
     </hint>
    </hints>
   </connection>
@@ -417,12 +429,44 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>176</x>
-     <y>406</y>
+     <x>190</x>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
-     <x>287</x>
-     <y>419</y>
+     <x>350</x>
+     <y>312</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_customBgColor</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>slider_opacity</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_customBgColor</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>32</x>
+     <y>362</y>
     </hint>
    </hints>
   </connection>

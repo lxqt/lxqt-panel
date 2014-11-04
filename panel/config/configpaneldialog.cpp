@@ -125,6 +125,7 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     mOldBackgroundColor = mPanel->backgroundColor();
     mBackgroundColor = mOldBackgroundColor;
     mOldBackgroundImage = mPanel->backgroundImage();
+    mOldOpacity = mPanel->opacity();
 
     reset();
 
@@ -142,10 +143,10 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     connect(ui->pushButton_customFontColor, SIGNAL(clicked(bool)),          this, SLOT(pickFontColor()));
     connect(ui->checkBox_customBgColor,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
     connect(ui->pushButton_customBgColor,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
-    connect(ui->slider_opacity,             SIGNAL(sliderReleased()),      this, SLOT(editChanged()));
     connect(ui->checkBox_customBgImage,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
     connect(ui->lineEdit_customBgImage,     SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
     connect(ui->pushButton_customBgImage,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
+    connect(ui->slider_opacity,             SIGNAL(sliderReleased()),      this, SLOT(editChanged()));
 }
 
 
@@ -171,8 +172,8 @@ void ConfigPanelWidget::reset()
     ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mOldFontColor.name()));
     mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
     ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mOldBackgroundColor.name()));
-    ui->slider_opacity->setValue(mOldBackgroundColor.alpha() * 100 / 255);
     ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
+    ui->slider_opacity->setValue(mOldOpacity);
 
     ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
     ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());
@@ -293,18 +294,17 @@ void ConfigPanelWidget::editChanged()
     mPanel->setAlignment(align, true);
     mPanel->setPosition(mScreenNum, mPosition, true);
 
-    if (ui->checkBox_customFontColor->isChecked())
-        mPanel->setFontColor(mFontColor, true);
-    else
-        mPanel->setFontColor(QColor(), true);
-
+    mPanel->setFontColor(ui->checkBox_customFontColor->isChecked() ? mFontColor : QColor(), true);
     if (ui->checkBox_customBgColor->isChecked())
     {
-        mBackgroundColor.setAlpha(ui->slider_opacity->value() * 255 / 100);
         mPanel->setBackgroundColor(mBackgroundColor, true);
+        mPanel->setOpacity(ui->slider_opacity->value(), true);
     }
     else
+    {
         mPanel->setBackgroundColor(QColor(), true);
+        mPanel->setOpacity(-1, true);
+    }
 
     QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
     mPanel->setBackgroundImage(image, true);
@@ -344,13 +344,9 @@ int ConfigPanelWidget::getMaxLength()
 
     if (mPosition == ILxQtPanel::PositionTop ||
         mPosition == ILxQtPanel::PositionBottom)
-    {
         return dw->screenGeometry(mScreenNum).width();
-    }
     else
-    {
         return dw->screenGeometry(mScreenNum).height();
-    }
 }
 
 

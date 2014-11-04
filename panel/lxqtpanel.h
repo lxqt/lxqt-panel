@@ -91,6 +91,7 @@ public:
     QColor fontColor() const { return mFontColor; };
     QColor backgroundColor() const { return mBackgroundColor; };
     QString backgroundImage() const { return mBackgroundImage; };
+    int opacity() const { return mOpacity; };
 
     LxQt::Settings *settings() const { return mSettings; }
 
@@ -103,10 +104,11 @@ public slots:
     void setLineCount(int value, bool save);
     void setLength(int length, bool inPercents, bool save);
     void setPosition(int screen, ILxQtPanel::Position position, bool save);
+    void setAlignment(LxQtPanel::Alignment value, bool save);
     void setFontColor(QColor color, bool save);
     void setBackgroundColor(QColor color, bool save);
     void setBackgroundImage(QString path, bool save);
-    void setAlignment(LxQtPanel::Alignment value, bool save);
+    void setOpacity(int opacity, bool save);
 
     void saveSettings(bool later=false);
     void ensureVisible();
@@ -163,6 +165,8 @@ private:
     QColor mFontColor;
     QColor mBackgroundColor;
     QString mBackgroundImage;
+    // 0 to 100
+    int mOpacity;
 
     void updateStyleSheet();
 };

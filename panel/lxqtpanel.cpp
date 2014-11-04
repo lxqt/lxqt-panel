@@ -42,6 +42,7 @@
 #include <QWindow>
 #include <QX11Info>
 #include <QDebug>
+#include <QString>
 #include <QDesktopWidget>
 #include <QMenu>
 #include <XdgIcon>
@@ -62,6 +63,7 @@
 #define CFG_KEY_FONTCOLOR          "font-color"
 #define CFG_KEY_BACKGROUNDCOLOR    "background-color"
 #define CFG_KEY_BACKGROUNDIMAGE    "background-image"
+#define CFG_KEY_OPACITY            "opacity"
 #define CFG_KEY_PLUGINS            "plugins"
 
 /************************************************
@@ -194,6 +196,7 @@ void LxQtPanel::readSettings()
     if (color.isValid())
         setFontColor(color, true);
 
+    setOpacity(mSettings->value(CFG_KEY_OPACITY, 100).toInt(), true);
     color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
     if (color.isValid())
         setBackgroundColor(color, true);
@@ -201,6 +204,7 @@ void LxQtPanel::readSettings()
     QString image = mSettings->value(CFG_KEY_BACKGROUNDIMAGE, "").toString();
     if (!image.isEmpty())
         setBackgroundImage(image, false);
+
 
     mSettings->endGroup();
 }
@@ -223,25 +227,16 @@ void LxQtPanel::saveSettings(bool later)
     mSettings->beginGroup(mConfigGroup);
 
     foreach (const Plugin *plugin, mPlugins)
-    {
         pluginsList << plugin->settingsGroup();
-    }
 
-    if (pluginsList.isEmpty())
-    {
-        mSettings->setValue(CFG_KEY_PLUGINS, "");
-    }
-    else
-    {
-        mSettings->setValue(CFG_KEY_PLUGINS, pluginsList);
-    }
+    mSettings->setValue(CFG_KEY_PLUGINS, (pluginsList.isEmpty() ? "" : QVariant(pluginsList)));
 
-    mSettings->setValue(CFG_KEY_PANELSIZE,  mPanelSize);
-    mSettings->setValue(CFG_KEY_ICONSIZE,   mIconSize);
-    mSettings->setValue(CFG_KEY_LINECNT,    mLineCount);
+    mSettings->setValue(CFG_KEY_PANELSIZE, mPanelSize);
+    mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
+    mSettings->setValue(CFG_KEY_LINECNT, mLineCount);
 
-    mSettings->setValue(CFG_KEY_LENGTH,   mLength);
-    mSettings->setValue(CFG_KEY_PERCENT,  mLengthInPercents);
+    mSettings->setValue(CFG_KEY_LENGTH, mLength);
+    mSettings->setValue(CFG_KEY_PERCENT, mLengthInPercents);
 
     mSettings->setValue(CFG_KEY_SCREENNUM, mScreenNum);
     mSettings->setValue(CFG_KEY_POSITION, positionToStr(mPosition));
@@ -251,6 +246,7 @@ void LxQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_FONTCOLOR, mFontColor.isValid() ? mFontColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
+    mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
 
     mSettings->endGroup();
 }
@@ -655,17 +651,16 @@ void LxQtPanel::updateStyleSheet()
 
     if (mBackgroundColor.isValid())
     {
-        QString color = QString("%1, %2, %3, %5")
+        QString color = QString("%1, %2, %3, %4")
             .arg(mBackgroundColor.red())
             .arg(mBackgroundColor.green())
             .arg(mBackgroundColor.blue())
-            .arg((float) mBackgroundColor.alpha() / 255);
-
-        sheet << QString("LxQtPanel #" + object + " { background-color: rgba(" + color + "); }");
+            .arg((float) mOpacity / 100);
+        sheet << QString("LxQtPanel #BackgroundWidget { background-color: rgba(" + color + "); }");
     }
 
     if (QFileInfo(mBackgroundImage).exists())
-        sheet << QString("LxQtPanel #" + object + " { background-image: url('" + mBackgroundImage + "');}");
+        sheet << QString("LxQtPanel #BackgroundWidget { background-image: url('" + mBackgroundImage + "');}");
 
     setStyleSheet(sheet.join("\n"));
 }
@@ -796,6 +791,23 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position, bool save
 /************************************************
  *
  ************************************************/
+void LxQtPanel::setAlignment(Alignment value, bool save)
+{
+    if (mAlignment == value)
+        return;
+
+    mAlignment = value;
+
+    if (save)
+        saveSettings(true);
+
+    realign();
+    emit realigned();
+}
+
+/************************************************
+ *
+ ************************************************/
 void LxQtPanel::setFontColor(QColor color, bool save)
 {
     mFontColor = color;
@@ -829,21 +841,17 @@ void LxQtPanel::setBackgroundImage(QString path, bool save)
         saveSettings(true);
 }
 
+
 /************************************************
-
+ *
  ************************************************/
-void LxQtPanel::setAlignment(Alignment value, bool save)
+void LxQtPanel::setOpacity(int opacity, bool save)
 {
-    if (mAlignment == value)
-        return;
-
-    mAlignment = value;
+    mOpacity = opacity;
+    updateStyleSheet();
 
     if (save)
         saveSettings(true);
-
-    realign();
-    emit realigned();
 }
 
 

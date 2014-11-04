@@ -103,6 +103,7 @@ private:
     QColor mOldFontColor;
     QColor mOldBackgroundColor;
     QString mOldBackgroundImage;
+    int mOldOpacity;
 };
 
 #endif // CONFIGPANELDIALOG_H
