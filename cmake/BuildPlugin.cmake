@@ -13,6 +13,8 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
             ${SOURCES}
             ${MOCS}
             ${UIS}
+        TEMPLATE
+            ${NAME}
         INSTALL_DIR
             ${LXQT_TRANSLATIONS_DIR}/${PROGRAM}/${NAME}
     )
