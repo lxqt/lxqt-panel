@@ -236,6 +236,13 @@ endif(WORLDCLOCK_PLUGIN)
 
 #########################################################################
 
+setByDefault(KBDLAYOUT_PLUGIN Yes)
+if(KBDLAYOUT_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS}   "Keyboard layout switcher")
+    add_subdirectory(plugin-kbdlayout)
+endif(KBDLAYOUT_PLUGIN)
+
+
 message(STATUS  "**************** The following plugins will be built ****************")
 foreach (PLUGIN_STR ${ENABLED_PLUGINS})
     message(STATUS "  ${PLUGIN_STR}")
