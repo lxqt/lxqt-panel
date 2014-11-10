@@ -69,7 +69,8 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
-    mDrawPixmap(false)
+    mDrawPixmap(false),
+    mShowDesktopName(false)
 {
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -95,10 +96,13 @@ LxQtTaskButton::~LxQtTaskButton()
  ************************************************/
 void LxQtTaskButton::updateText()
 {
-    KWindowInfo info(mWindow, NET::WMVisibleName | NET::WMName);
+    KWindowInfo info(mWindow, NET::WMVisibleName | NET::WMName | NET::WMDesktop);
     QString title = info.visibleName().isEmpty() ? info.name() : info.visibleName();
     setText(title.replace("&", "&&"));
-    setToolTip(title);
+    if (mShowDesktopName)
+        setToolTip(title+" - ("+KWindowSystem::desktopName(info.desktop())+")");
+    else
+        setToolTip(title);
 }
 
 /************************************************
@@ -516,6 +520,12 @@ void LxQtTaskButton::setUrgencyHint(bool set)
 int LxQtTaskButton::desktopNum() const
 {
     return KWindowInfo(mWindow, NET::WMDesktop).desktop();
+}
+
+void LxQtTaskButton::setShowDesktopName(bool showDesktopName)
+{
+    mShowDesktopName = showDesktopName;
+    updateText();
 }
 
 Qt::Corner LxQtTaskButton::origin() const
