@@ -57,6 +57,20 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
+class KeyPressEventFilter : public QObject
+{
+    Q_OBJECT
+public:
+    KeyPressEventFilter(QMenu* menu, QObject* parent);
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
+private:
+    QMenu* mMenu;
+    QAction* mPreviousAction;
+};
+
 class LxQtMainMenu : public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
@@ -79,6 +93,7 @@ private:
     QToolButton mButton;
     QString mLogDir;
     QMenu* mMenu;
+    KeyPressEventFilter* mEventFilter;
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
     MenuStyle mMenuStyle;
