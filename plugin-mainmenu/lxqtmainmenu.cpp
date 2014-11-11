@@ -37,6 +37,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QEvent>
+#include <QKeyEvent>
 #include <LXQt/PowerManager>
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
@@ -55,6 +56,74 @@
 #include <QCursor>
 
 #define DEFAULT_SHORTCUT "Alt+F1"
+
+/************************************************
+
+ ************************************************/
+KeyPressEventFilter::KeyPressEventFilter(QMenu *menu, QObject *parent):
+    QObject(parent),
+    mPreviousAction(0)
+{
+    mMenu = menu;
+}
+
+/************************************************
+
+ ************************************************/
+bool KeyPressEventFilter::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+        QMenu* menu=0;
+
+        //This finds out which menu received the key event
+        if (obj == mMenu)
+            menu = mMenu;
+
+        else
+            foreach (QAction* action, mMenu->actions())
+                if (action->menu() && action->menu() == obj)
+                {
+                    menu = action->menu();
+                    break;
+                }
+
+        if (menu == 0)
+            return QObject::eventFilter(obj, event);
+
+        QAction* currentAction = 0;
+
+        //If there is another QAction after the previous selected one, it gets selected
+        if (menu->actions().indexOf(mPreviousAction) > -1)
+            for (int i=menu->actions().indexOf(mPreviousAction)+1; i<menu->actions().count(); i++)
+                if (menu->actions().at(i)->text().startsWith(QChar(keyEvent->key()), Qt::CaseInsensitive))
+                {
+                    currentAction = menu->actions().at(i);
+                    break;
+                }
+
+        //Else the first matching QAction (if any) inside the menu gets selected
+        if (!currentAction)
+            foreach (QAction* action, menu->actions())
+                if (action->text().startsWith(QChar(keyEvent->key()), Qt::CaseInsensitive))
+                {
+                    currentAction = action;
+                    break;
+                }
+
+        if (currentAction)
+        {
+            mPreviousAction = currentAction;
+            menu->setActiveAction(currentAction);
+            if (currentAction->menu())
+                currentAction->menu()->hide();
+        }
+    }
+
+    return QObject::eventFilter(obj, event);
+}
 
 /************************************************
 
@@ -262,6 +331,15 @@ void LxQtMainMenu::buildMenu()
     QMenu* leaveMenu = menu->addMenu(XdgIcon::fromTheme("system-shutdown"), tr("Leave"));
     leaveMenu->addActions(mPowerManager->availableActions());
     menu->addActions(mScreenSaver->availableActions());
+
+    mEventFilter = new KeyPressEventFilter(menu, this);
+    foreach (QAction* action, menu->actions())
+    {
+        if (action->menu())
+            action->menu()->installEventFilter(mEventFilter);
+    }
+
+    menu->installEventFilter(mEventFilter);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
