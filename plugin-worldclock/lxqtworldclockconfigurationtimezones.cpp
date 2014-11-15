@@ -109,13 +109,13 @@ int LxQtWorldClockConfigurationTimeZones::updateAndExec()
     {
         QTimeZone timeZone(ba);
         QString ianaId(ba);
-        QStringList qStrings(QString(ba).split('/'));
+        QStringList qStrings(QString(ba).split(QLatin1Char('/')));
 
         if ((qStrings.size() == 1) && (qStrings[0].startsWith(QLatin1String("UTC"))))
-            qStrings.prepend(QLatin1String("UTC"));
+            qStrings.prepend(tr("UTC"));
 
         if (qStrings.size() == 1)
-            qStrings.prepend(QLatin1String("Other"));
+            qStrings.prepend(tr("Other"));
 
         QTreeWidgetItem *tzItem = new QTreeWidgetItem(QStringList() << qStrings[qStrings.length() - 1] << timeZone.displayName(now) << timeZone.comment() << QLocale::countryToString(timeZone.country()));
         tzItem->setData(0, Qt::UserRole, ianaId);

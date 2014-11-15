@@ -43,7 +43,7 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     mConfigurationTimeZones(NULL)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("WorldClockConfigurationWindow");
+    setObjectName(QLatin1String("WorldClockConfigurationWindow"));
     ui->setupUi(this);
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
@@ -57,6 +57,8 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
 
     connect(ui->shortFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
     connect(ui->longFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
+    connect(ui->shortTimeOnlyFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
+    connect(ui->longTimeOnlyFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
     connect(ui->customFormatRB, SIGNAL(toggled(bool)), SLOT(saveSettings()));
     connect(ui->customFormatPTE, SIGNAL(textChanged()), SLOT(saveSettings()));
 
@@ -76,11 +78,11 @@ void LxQtWorldClockConfiguration::loadSettings()
 
     ui->timeZonesLW->clear();
 
-    int size = mSettings->beginReadArray("timeZones");
+    int size = mSettings->beginReadArray(QLatin1String("timeZones"));
     for (int i = 0; i < size; ++i)
     {
         mSettings->setArrayIndex(i);
-        ui->timeZonesLW->addItem(mSettings->value("timeZone", QString()).toString());
+        ui->timeZonesLW->addItem(mSettings->value(QLatin1String("timeZone"), QString()).toString());
     }
     mSettings->endArray();
 
@@ -91,17 +93,21 @@ void LxQtWorldClockConfiguration::loadSettings()
     if (ui->timeZonesLW->count())
         setBold(ui->timeZonesLW->findItems(mDefaultTimeZone, Qt::MatchExactly)[0], true);
 
-    ui->customFormatPTE->setPlainText(mSettings->value("customFormat", QString("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString());
+    ui->customFormatPTE->setPlainText(mSettings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString());
 
-    QString formatType = mSettings->value("formatType", QString()).toString();
-    if (formatType == "custom")
+    QString formatType = mSettings->value(QLatin1String("formatType"), QString()).toString();
+    if (formatType == QLatin1String("custom"))
         ui->customFormatRB->setChecked(true);
-    else if (formatType == "full")
+    else if (formatType == QLatin1String("full"))
         ui->longFormatRB->setChecked(true);
-    else if (formatType == "long")
+    else if (formatType == QLatin1String("long"))
         ui->longFormatRB->setChecked(true);
-    else if (formatType == "medium")
+    else if (formatType == QLatin1String("medium"))
         ui->shortFormatRB->setChecked(true);
+    else if (formatType == QLatin1String("short-timeonly"))
+        ui->shortTimeOnlyFormatRB->setChecked(true);
+    else if (formatType == QLatin1String("long-timeonly"))
+        ui->longTimeOnlyFormatRB->setChecked(true);
     else
         ui->shortFormatRB->setChecked(true);
 
@@ -116,26 +122,30 @@ void LxQtWorldClockConfiguration::saveSettings()
         return;
 
     int size = ui->timeZonesLW->count();
-    mSettings->beginWriteArray("timeZones", size);
+    mSettings->beginWriteArray(QLatin1String("timeZones"), size);
     for (int i = 0; i < size; ++i)
     {
         mSettings->setArrayIndex(i);
-        mSettings->setValue("timeZone", ui->timeZonesLW->item(i)->text());
+        mSettings->setValue(QLatin1String("timeZone"), ui->timeZonesLW->item(i)->text());
     }
     mSettings->endArray();
 
-    mSettings->setValue("defaultTimeZone", mDefaultTimeZone);
+    mSettings->setValue(QLatin1String("defaultTimeZone"), mDefaultTimeZone);
 
-    mSettings->setValue("customFormat", ui->customFormatPTE->toPlainText());
+    mSettings->setValue(QLatin1String("customFormat"), ui->customFormatPTE->toPlainText());
 
     if (ui->customFormatRB->isChecked())
-        mSettings->setValue("formatType", "custom");
+        mSettings->setValue(QLatin1String("formatType"), QLatin1String("custom"));
     else if (ui->longFormatRB->isChecked())
-        mSettings->setValue("formatType", "long");
+        mSettings->setValue(QLatin1String("formatType"), QLatin1String("long"));
+    else if (ui->longTimeOnlyFormatRB->isChecked())
+        mSettings->setValue(QLatin1String("formatType"), QLatin1String("long-timeonly"));
+    else if (ui->shortTimeOnlyFormatRB->isChecked())
+        mSettings->setValue(QLatin1String("formatType"), QLatin1String("short-timeonly"));
     else
-        mSettings->setValue("formatType", "short");
+        mSettings->setValue(QLatin1String("formatType"), QLatin1String("short"));
 
-    mSettings->setValue("autoRotate", ui->autorotateCB->isChecked());
+    mSettings->setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
 }
 
 void LxQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *button)
@@ -205,9 +215,10 @@ void LxQtWorldClockConfiguration::addTimeZone()
 
     if (mConfigurationTimeZones->updateAndExec() == QDialog::Accepted)
     {
-        if (ui->timeZonesLW->findItems(mConfigurationTimeZones->timeZone(), Qt::MatchExactly).empty())
+        QString timeZone = mConfigurationTimeZones->timeZone();
+        if (ui->timeZonesLW->findItems(timeZone, Qt::MatchExactly).empty())
         {
-            QListWidgetItem *item = new QListWidgetItem(mConfigurationTimeZones->timeZone());
+            QListWidgetItem *item = new QListWidgetItem(timeZone);
             ui->timeZonesLW->addItem(item);
             if (mDefaultTimeZone.isEmpty())
                 setDefault(item);

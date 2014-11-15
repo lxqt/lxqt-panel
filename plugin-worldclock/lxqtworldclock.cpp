@@ -28,17 +28,16 @@
 
 #include "lxqtworldclock.h"
 
-#include <QLocale>
-#include <QTimer>
-#include <QScopedArrayPointer>
-#include <QDate>
-#include <QWheelEvent>
 #include <QCalendarWidget>
+#include <QDate>
 #include <QDesktopWidget>
 #include <QDialog>
+#include <QEvent>
 #include <QHBoxLayout>
-
-#include <time.h>
+#include <QLocale>
+#include <QScopedArrayPointer>
+#include <QTimer>
+#include <QWheelEvent>
 
 
 LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
@@ -62,7 +61,7 @@ LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     borderLayout->setSpacing(0);
     borderLayout->addWidget(mRotatedWidget, 0, Qt::AlignCenter);
 
-    mContent->setObjectName("WorldClockContent");
+    mContent->setObjectName(QLatin1String("WorldClockContent"));
 
     mContent->setAlignment(Qt::AlignCenter);
 
@@ -80,25 +79,17 @@ LxQtWorldClock::~LxQtWorldClock()
 
 void LxQtWorldClock::timeout()
 {
-        QDateTime now = QDateTime::currentDateTime();
+    QString str = formatDateTime(QDateTime::currentDateTime(), mActiveTimeZone);
+    if (str != mLastShownText)
+    {
+        mContent->setText(str);
+        mLastShownText = str;
 
-        QTimeZone timeZone(mActiveTimeZone.toLatin1());
-        QDateTime tzNow = now.toTimeZone(timeZone);
-        QString str;
-        if (mFormat == -1) // custom
-            str = tzNow.toString(preformat(mCustomFormat, timeZone, tzNow));
-        else
-            str = tzNow.toString(mFormat);
-        if (str != mLastShownText)
-        {
-            mContent->setText(str);
-            mLastShownText = str;
+        mRotatedWidget->adjustContentSize();
+        mRotatedWidget->update();
 
-            mRotatedWidget->adjustContentSize();
-            mRotatedWidget->update();
-
-            updatePopupContent();
-        }
+        updatePopupContent();
+    }
 }
 
 void LxQtWorldClock::updateFormat()
@@ -113,34 +104,26 @@ void LxQtWorldClock::updateFormat()
 
         QString format = mCustomFormat;
         format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
-        if (format.contains(QString("SSS")))
+        if (format.contains(QLatin1String("SSS")))
             timerInterval = 1;
-        else if (format.contains(QString("SS")))
+        else if (format.contains(QLatin1String("SS")))
             timerInterval = 10;
-        else if (format.contains(QString("S")))
+        else if (format.contains(QLatin1String("S")))
             timerInterval = 100;
-        else if (format.contains(QString("s")))
+        else if (format.contains(QLatin1String("s")))
             timerInterval = 1000;
         else
             timerInterval = 60000;
     }
         break;
 
-    case FORMAT_FULL:
-        mFormat = Qt::RFC2822Date;
-        timerInterval = 1000;
-        break;
-
+    case FORMAT_LONG_TIMEONLY:
     case FORMAT_LONG:
         mFormat = Qt::DefaultLocaleLongDate;
         timerInterval = 1000;
         break;
 
-    case FORMAT_MEDIUM:
-        mFormat = Qt::ISODate;
-        timerInterval = 1000;
-        break;
-
+    case FORMAT_SHORT_TIMEONLY:
     case FORMAT_SHORT:
         mFormat = Qt::DefaultLocaleShortDate;
         timerInterval = 60000;
@@ -176,39 +159,43 @@ void LxQtWorldClock::settingsChanged()
 
     mTimeZones.clear();
 
-    int size = _settings->beginReadArray("timeZones");
+    int size = _settings->beginReadArray(QLatin1String("timeZones"));
     for (int i = 0; i < size; ++i)
     {
         _settings->setArrayIndex(i);
-        mTimeZones.append(_settings->value("timeZone", QString()).toString());
+        mTimeZones.append(_settings->value(QLatin1String("timeZone"), QString()).toString());
     }
     _settings->endArray();
     if (mTimeZones.isEmpty())
         mTimeZones.append(QString::fromLatin1(QTimeZone::systemTimeZoneId()));
 
-    mDefaultTimeZone = _settings->value("defaultTimeZone", QString()).toString();
+    mDefaultTimeZone = _settings->value(QLatin1String("defaultTimeZone"), QString()).toString();
     if (mDefaultTimeZone.isEmpty())
         mDefaultTimeZone = mTimeZones[0];
     mActiveTimeZone = mDefaultTimeZone;
 
-    mCustomFormat = _settings->value("customFormat", QString("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'eee, d MMM yyyy'<br/>'VVVV'</font>'")).toString();
+    mCustomFormat = _settings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
 
-    QString formatType = _settings->value("formatType", QString()).toString();
-    if (formatType == "custom")
+    QString formatType = _settings->value(QLatin1String("formatType"), QString()).toString();
+    if (formatType == QLatin1String("custom"))
         mFormatType = FORMAT_CUSTOM;
-    else if (formatType == "full")
-        mFormatType = FORMAT_FULL;
-    else if (formatType == "long")
+    else if (formatType == QLatin1String("full"))
         mFormatType = FORMAT_LONG;
-    else if (formatType == "medium")
-        mFormatType = FORMAT_MEDIUM;
+    else if (formatType == QLatin1String("long"))
+        mFormatType = FORMAT_LONG;
+    else if (formatType == QLatin1String("medium"))
+        mFormatType = FORMAT_SHORT;
+    else if (formatType == QLatin1String("short-timeonly"))
+        mFormatType = FORMAT_SHORT_TIMEONLY;
+    else if (formatType == QLatin1String("long-timeonly"))
+        mFormatType = FORMAT_LONG_TIMEONLY;
     else
         mFormatType = FORMAT_SHORT;
 
     if ((oldFormatType != mFormatType) || (oldCustomFormat != mCustomFormat))
         updateFormat();
 
-    bool autoRotate = settings()->value("autoRotate", true).toBool();
+    bool autoRotate = settings()->value(QLatin1String("autoRotate"), true).toBool();
     if (autoRotate != mAutoRotate)
     {
         mAutoRotate = autoRotate;
@@ -253,13 +240,12 @@ void LxQtWorldClock::activated(ActivationReason reason)
 
     if (!mPopup)
     {
-        mPopup = new QDialog(mContent);
-        mPopup->setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
-        mPopup->setLayout(new QHBoxLayout(mPopup));
+        mPopup = new LxQtWorldClockPopup(mContent);
+        connect(mPopup, SIGNAL(deactivated()), SLOT(deletePopup()));
 
         if (reason == ILxQtPanelPlugin::Trigger)
         {
-            mPopup->setObjectName(QString());
+            mPopup->setObjectName(QLatin1String("WorldClockCalendar"));
 
             mPopup->layout()->setContentsMargins(0, 0, 0, 0);
             QCalendarWidget *calendarWidget = new QCalendarWidget(mPopup);
@@ -271,7 +257,7 @@ void LxQtWorldClock::activated(ActivationReason reason)
         }
         else
         {
-            mPopup->setObjectName("WorldClockPopup");
+            mPopup->setObjectName(QLatin1String("WorldClockPopup"));
 
             mPopupContent = new QLabel(mPopup);
             mPopup->layout()->addWidget(mPopupContent);
@@ -287,10 +273,42 @@ void LxQtWorldClock::activated(ActivationReason reason)
     }
     else
     {
-        mPopupContent = NULL;
-        mPopup->deleteLater();
-        mPopup = NULL;
+        deletePopup();
     }
+}
+
+void LxQtWorldClock::deletePopup()
+{
+    mPopupContent = NULL;
+    mPopup->deleteLater();
+    mPopup = NULL;
+}
+
+QString LxQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
+{
+    QTimeZone timeZone(timeZoneName.toLatin1());
+    QDateTime tzNow = datetime.toTimeZone(timeZone);
+    QString result;
+    switch (mFormatType)
+    {
+    case FORMAT_CUSTOM:
+        result = tzNow.toString(preformat(mCustomFormat, timeZone, tzNow));
+        break;
+
+    case FORMAT_SHORT_TIMEONLY:
+    case FORMAT_LONG_TIMEONLY:
+        result = tzNow.time().toString(mFormat);
+        break;
+
+    case FORMAT_SHORT:
+    case FORMAT_LONG:
+        result = tzNow.toString(mFormat);
+        break;
+
+    default:;
+    }
+
+    return result;
 }
 
 void LxQtWorldClock::updatePopupContent()
@@ -300,21 +318,22 @@ void LxQtWorldClock::updatePopupContent()
         QDateTime now = QDateTime::currentDateTime();
         QStringList allTimeZones;
 
-        foreach (QString qTimeZoneName, mTimeZones)
+        foreach (QString timeZoneName, mTimeZones)
         {
-            QTimeZone timeZone(qTimeZoneName.toLatin1());
-            QDateTime tzNow = now.toTimeZone(timeZone);
-            QString str;
-            if (mFormat == -1) // custom
-                str = tzNow.toString(preformat(mCustomFormat, timeZone, tzNow));
-            else
-                str = tzNow.toString(mFormat);
+            QString formatted = formatDateTime(now, timeZoneName);
+            switch (mFormatType)
+            {
+            case FORMAT_SHORT_TIMEONLY:
+            case FORMAT_SHORT:
+                formatted += QLatin1String("<br/>") + QString::fromLatin1(QTimeZone(timeZoneName.toLatin1()).id());
+                break;
 
-            allTimeZones.append(str);
+            default:;
+            }
+            allTimeZones.append(formatted);
         }
 
-        mPopupContent->setText(allTimeZones.join("<hr/>"));
-
+        mPopupContent->setText(allTimeZones.join(QLatin1String("<hr/>")));
     }
 }
 
@@ -417,7 +436,7 @@ void LxQtWorldClock::realign()
         mRotatedWidget->setOrigin(Qt::TopLeftCorner);
 }
 
-ActiveLabel::ActiveLabel(QWidget * parent) :
+ActiveLabel::ActiveLabel(QWidget *parent) :
     QLabel(parent)
 {
 }
@@ -445,4 +464,25 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
     }
 
     QLabel::mouseReleaseEvent(event);
+}
+
+LxQtWorldClockPopup::LxQtWorldClockPopup(QWidget *parent) :
+    QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
+{
+    setLayout(new QHBoxLayout(this));
+    layout()->setMargin(1);
+}
+
+void LxQtWorldClockPopup::show()
+{
+    QDialog::show();
+    activateWindow();
+}
+
+bool LxQtWorldClockPopup::event(QEvent *event)
+{
+    if (event->type() == QEvent::WindowDeactivate)
+        emit deactivated();
+
+    return QDialog::event(event);
 }
