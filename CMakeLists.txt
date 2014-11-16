@@ -79,7 +79,7 @@ set(PLUGIN_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-setByDefault(DESKTOPSWITCH_PLUGIN No)
+setByDefault(CLOCK_PLUGIN No)
 if(CLOCK_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Clock")
     add_subdirectory(plugin-clock)
