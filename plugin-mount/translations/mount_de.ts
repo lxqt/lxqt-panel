@@ -6,12 +6,12 @@
     <message>
         <location filename="../menudiskitem.ui" line="44"/>
         <source>Click to access this device from other applications.</source>
-        <translation type="unfinished"/>
+        <translation>Klicken, um auf dieses Gerät von anderen Anwendungen aus zuzugreifen.</translation>
     </message>
     <message>
         <location filename="../menudiskitem.ui" line="54"/>
         <source>Click to eject this disc.</source>
-        <translation type="unfinished"/>
+        <translation>Klicken, um diese CD auszuwerfen.</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../mountbutton.cpp" line="149"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"/>
+        <translation>Entfernbare Medien-/Geräteverwaltung</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="188"/>
@@ -42,12 +42,12 @@
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>
         <source>LxQt Removable media manager settings</source>
-        <translation type="unfinished"/>
+        <translation>LxQt entfernbare Medienverwaltung-Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Verhalten</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="26"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation type="unfinished"/>
+        <translation>Aufklapp-Menü</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="45"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Nichts tun</translation>
     </message>
 </context>
 </TS>

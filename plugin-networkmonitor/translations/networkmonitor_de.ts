@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished"/>
+        <translation>Symbol</translation>
     </message>
 </context>
 </TS>

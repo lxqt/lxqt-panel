@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="unfinished"/>
+        <translation>Leistengröße</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="unfinished"/>
+        <translation>Automatische Größe verwenden</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="unfinished"/>
+        <translation>Leistenlänge und Position</translation>
     </message>
     <message>
         <source>Left</source>
@@ -57,35 +57,35 @@
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="unfinished"/>
+        <translation>Oben</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="unfinished"/>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="unfinished"/>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="unfinished"/>
+        <translation>Unten</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="unfinished"/>
+        <translation>Oben %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="unfinished"/>
+        <translation>Links %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="unfinished"/>
+        <translation>Rechts %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished"/>
+        <translation>Unten %1</translation>
     </message>
 </context>
 <context>

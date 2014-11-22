@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"/>
+        <translation>Klicken Sie auf die Schaltfläche, um ein Tastaturkürzel aufzunehmen:</translation>
     </message>
     <message>
         <source>Choose menu file</source>

@@ -24,7 +24,7 @@
     </message>
     <message>
         <source>Update interval:</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierungsintervall:</translation>
     </message>
     <message>
         <source>sec</source>
@@ -32,23 +32,23 @@
     </message>
     <message>
         <source>Bar orientation:</source>
-        <translation type="unfinished"/>
+        <translation>Anzeigeausrichtung:</translation>
     </message>
     <message>
         <source>Bottom up</source>
-        <translation type="unfinished"/>
+        <translation>von unten nach oben</translation>
     </message>
     <message>
         <source>Top down</source>
-        <translation type="unfinished"/>
+        <translation>von oben nach unten</translation>
     </message>
     <message>
         <source>Left to right</source>
-        <translation type="unfinished"/>
+        <translation>von links nach rechts</translation>
     </message>
     <message>
         <source>Right to left</source>
-        <translation type="unfinished"/>
+        <translation>von rechts nach links</translation>
     </message>
 </context>
 </TS>
