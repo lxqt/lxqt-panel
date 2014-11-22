@@ -26,42 +26,36 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtkbindicator.h"
-
-#include <X11/XKBlib.h>
-#include "fixx11h.h"
 #include <QApplication>
 #include <QLabel>
-#include <QX11Info>
+#include <QLayout>
 #include <QTimer>
-
-#include <xcb/xcb.h>
-// xkb.h uses explicit as the name of a data member of xcb_xkb_set_explicit_t.
-// unfortunately, this is a C++ keyword. Use this hack to workaround it.
-#define explicit _explicit
-#include <xcb/xkb.h>
-#undef explicit
 
 LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mContent(new QLabel())
+    mContent(new QWidget())
 {
-    qApp->installNativeEventFilter(this);
+    modifierInfo = new KModifierKeyInfo(this);
+    connect(modifierInfo, SIGNAL(keyLocked(Qt::Key, bool)), this, SLOT(modifierStateChanged(Qt::Key, bool)));
 
-    connect(this, SIGNAL(indicatorsChanged(uint,uint)), this, SLOT(setIndicators(uint,uint)));
-    mContent->setAlignment(Qt::AlignCenter);
+    QHBoxLayout *layout = new QHBoxLayout(mContent);
+    mContent->setLayout(layout);
 
-    int code;
-    int major = XkbMajorVersion;
-    int minor = XkbMinorVersion;
-    int XkbErrorBase;
+    mCapsLock = new QLabel("C");
+    mCapsLock->setObjectName("CapsLockLabel");
+    mCapsLock->setAlignment(Qt::AlignCenter);
+    mContent->layout()->addWidget(mCapsLock);
 
-    mDisplay = QX11Info::display();
+    mNumLock = new QLabel("N");
+    mNumLock->setObjectName("NumLockLabel");
+    mNumLock->setAlignment(Qt::AlignCenter);
+    mContent->layout()->addWidget(mNumLock);
 
-    if (XkbLibraryVersion(&major, &minor))
-        if (XkbQueryExtension(mDisplay, &code, &mXkbEventBase, &XkbErrorBase, &major, &minor))
-            if (XkbUseExtension(mDisplay, &major, &minor))
-                XkbSelectEvents(mDisplay, XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask);
+    mScrollLock = new QLabel("S");
+    mScrollLock->setObjectName("ScrollLockLabel");
+    mScrollLock->setAlignment(Qt::AlignCenter);
+    mContent->layout()->addWidget(mScrollLock);
 
     QTimer::singleShot(0, this, SLOT(delayedInit()));
 }
@@ -84,9 +78,17 @@ QWidget *LxQtKbIndicator::widget()
 
 void LxQtKbIndicator::settingsChanged()
 {
-    mBit = settings()->value("bit", 0).toInt();
-    mContent->setText(settings()->value("text", QString("C")).toString());
-    mContent->setEnabled(getLockStatus(mBit));
+    mShowCapsLock = settings()->value("show_caps_lock", true).toBool();
+    mShowNumLock = settings()->value("show_num_lock", true).toBool();
+    mShowScrollLock = settings()->value("show_scroll_lock", true).toBool();
+
+    mCapsLock->setVisible(mShowCapsLock);
+    mNumLock->setVisible(mShowNumLock);
+    mScrollLock->setVisible(mShowScrollLock);
+
+    mCapsLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_CapsLock));
+    mNumLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_NumLock));
+    mScrollLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_ScrollLock));
 }
 
 QDialog *LxQtKbIndicator::configureDialog()
@@ -102,38 +104,23 @@ void LxQtKbIndicator::realign()
         mContent->setMinimumSize(panel()->iconSize(), 0);
 }
 
-void LxQtKbIndicator::setIndicators(unsigned int changed, unsigned int state)
+void LxQtKbIndicator::modifierStateChanged(Qt::Key key, bool active)
 {
-    if (changed & (1 << mBit))
-        mContent->setEnabled(state & (1 << mBit));
-}
-
-bool LxQtKbIndicator::getLockStatus(int bit)
-{
-    bool state = false;
-    if (mDisplay)
+    switch (key)
     {
-        unsigned n;
-        XkbGetIndicatorState(mDisplay, XkbUseCoreKbd, &n);
-        state = (n & (1 << bit));
+        case Qt::Key_CapsLock:
+            mCapsLock->setEnabled(active);
+            break;
+
+        case Qt::Key_NumLock:
+            mNumLock->setEnabled(active);
+            break;
+
+        case Qt::Key_ScrollLock:
+            mScrollLock->setEnabled(active);
+            break;
+
+        default:
+            break;
     }
-    return state;
-}
-
-bool LxQtKbIndicator::nativeEventFilter(const QByteArray &eventType, void *message, long *)
-{
-    if (eventType != "xcb_generic_event_t")
-        return false;
-
-    xcb_generic_event_t* event = static_cast<xcb_generic_event_t *>(message);
-	int type = event->response_type & ~0x80;
-    if (type == mXkbEventBase + XkbEventCode)
-    {
-        xcb_xkb_indicator_state_notify_event_t* xkbEvent = reinterpret_cast<xcb_xkb_indicator_state_notify_event_t*>(event);
-        // qDebug() << "xkb indicator state notify:" << xkbEvent->xkbType << xkbEvent->stateChanged << xkbEvent->state;
-        if (xkbEvent->xkbType == XkbIndicatorStateNotify)
-            emit indicatorsChanged(xkbEvent->stateChanged, xkbEvent->state);
-    }
-
-    return false;
 }

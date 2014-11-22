@@ -58,10 +58,11 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void doStart();
-    void doFinish();
+    void doFinish(bool cancel);
 
 private:
     enum MarkType

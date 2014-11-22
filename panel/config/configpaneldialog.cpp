@@ -34,6 +34,9 @@
 #include <QDesktopWidget>
 #include <QWindow>
 #include <KF5/KWindowSystem/KWindowSystem>
+#include <QColorDialog>
+#include <QFileDialog>
+#include <QStandardPaths>
 
 using namespace LxQt;
 
@@ -95,12 +98,13 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     mPanel(panel)
 {
     ui->setupUi(this);
+
     fillComboBox_position();
     fillComboBox_alignment();
 
     mOldPanelSize = mPanel->panelSize();
-    mOldIconSize    = mPanel->iconSize();
-    mOldLineCount   = mPanel->lineCount();
+    mOldIconSize = mPanel->iconSize();
+    mOldLineCount = mPanel->lineCount();
 
     mOldLength = mPanel->length();
     mOldLengthInPercents = mPanel->lengthInPercents();
@@ -116,17 +120,33 @@ ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
     ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
     ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
 
+    mOldFontColor = mPanel->fontColor();
+    mFontColor = mOldFontColor;
+    mOldBackgroundColor = mPanel->backgroundColor();
+    mBackgroundColor = mOldBackgroundColor;
+    mOldBackgroundImage = mPanel->backgroundImage();
+    mOldOpacity = mPanel->opacity();
+
     reset();
 
-    connect(ui->spinBox_panelSize,  SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->spinBox_iconSize,     SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->spinBox_lineCount,    SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
+    connect(ui->spinBox_panelSize,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_iconSize,           SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_lineCount,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
 
-    connect(ui->spinBox_length,       SIGNAL(valueChanged(int)), this, SLOT(editChanged()));
-    connect(ui->comboBox_lenghtType,  SIGNAL(activated(int)),    this, SLOT(widthTypeChanged()));
+    connect(ui->spinBox_length,             SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->comboBox_lenghtType,        SIGNAL(activated(int)),         this, SLOT(widthTypeChanged()));
 
-    connect(ui->comboBox_alignment,   SIGNAL(activated(int)),    this, SLOT(editChanged()));
-    connect(ui->comboBox_position,    SIGNAL(activated(int)),    this, SLOT(positionChanged()));
+    connect(ui->comboBox_alignment,         SIGNAL(activated(int)),         this, SLOT(editChanged()));
+    connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
+
+    connect(ui->checkBox_customFontColor,   SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->pushButton_customFontColor, SIGNAL(clicked(bool)),          this, SLOT(pickFontColor()));
+    connect(ui->checkBox_customBgColor,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->pushButton_customBgColor,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
+    connect(ui->checkBox_customBgImage,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->lineEdit_customBgImage,     SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
+    connect(ui->pushButton_customBgImage,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
+    connect(ui->slider_opacity,             SIGNAL(sliderReleased()),      this, SLOT(editChanged()));
 }
 
 
@@ -147,6 +167,17 @@ void ConfigPanelWidget::reset()
     ui->comboBox_lenghtType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
+
+    mFontColor.setNamedColor(mOldFontColor.name());
+    ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mOldFontColor.name()));
+    mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
+    ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mOldBackgroundColor.name()));
+    ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
+    ui->slider_opacity->setValue(mOldOpacity);
+
+    ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
+    ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());
+    ui->checkBox_customBgImage->setChecked(QFileInfo(mOldBackgroundImage).exists());
 
     // update position
     positionChanged();
@@ -247,21 +278,36 @@ ConfigPanelWidget::~ConfigPanelWidget()
  ************************************************/
 void ConfigPanelWidget::editChanged()
 {
-    mPanel->setPanelSize(ui->spinBox_panelSize->value());
-    mPanel->setIconSize(ui->spinBox_iconSize->value());
-    mPanel->setLineCount(ui->spinBox_lineCount->value());
+    mPanel->setPanelSize(ui->spinBox_panelSize->value(), true);
+    mPanel->setIconSize(ui->spinBox_iconSize->value(), true);
+    mPanel->setLineCount(ui->spinBox_lineCount->value(), true);
 
     mPanel->setLength(ui->spinBox_length->value(),
-                      ui->comboBox_lenghtType->currentIndex() == 0);
+                      ui->comboBox_lenghtType->currentIndex() == 0,
+                      true);
 
     LxQtPanel::Alignment align = LxQtPanel::Alignment(
                 ui->comboBox_alignment->itemData(
                     ui->comboBox_alignment->currentIndex()
                     ).toInt());
 
-    mPanel->setAlignment(align);
+    mPanel->setAlignment(align, true);
+    mPanel->setPosition(mScreenNum, mPosition, true);
 
-    mPanel->setPosition(mScreenNum, mPosition);
+    mPanel->setFontColor(ui->checkBox_customFontColor->isChecked() ? mFontColor : QColor(), true);
+    if (ui->checkBox_customBgColor->isChecked())
+    {
+        mPanel->setBackgroundColor(mBackgroundColor, true);
+        mPanel->setOpacity(ui->slider_opacity->value(), true);
+    }
+    else
+    {
+        mPanel->setBackgroundColor(QColor(), true);
+        mPanel->setOpacity(-1, true);
+    }
+
+    QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
+    mPanel->setBackgroundImage(image, true);
 }
 
 
@@ -298,13 +344,9 @@ int ConfigPanelWidget::getMaxLength()
 
     if (mPosition == ILxQtPanel::PositionTop ||
         mPosition == ILxQtPanel::PositionBottom)
-    {
         return dw->screenGeometry(mScreenNum).width();
-    }
     else
-    {
         return dw->screenGeometry(mScreenNum).height();
-    }
 }
 
 
@@ -339,4 +381,47 @@ void ConfigPanelWidget::positionChanged()
         fillComboBox_alignment();
 
     editChanged();
+}
+
+/************************************************
+ *
+ ************************************************/
+void ConfigPanelWidget::pickFontColor()
+{
+    QColor newColor = QColorDialog::getColor(QColor(mFontColor.name()), this, tr("Pick color"));
+    if (newColor.isValid())
+    {
+        mFontColor.setNamedColor(newColor.name());
+        ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mFontColor.name()));
+        editChanged();
+    }
+}
+
+/************************************************
+
+ ************************************************/
+void ConfigPanelWidget::pickBackgroundColor()
+{
+    QColor newColor = QColorDialog::getColor(QColor(mBackgroundColor.name()), this, tr("Pick color"));
+    if (newColor.isValid())
+    {
+        mBackgroundColor.setNamedColor(newColor.name());
+        ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mBackgroundColor.name()));
+        editChanged();
+    }
+}
+
+/************************************************
+
+ ************************************************/
+void ConfigPanelWidget::pickBackgroundImage()
+{
+    QString picturesLocation;
+    picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+
+    QString file = QFileDialog::getOpenFileName(this,
+                                                "Pick image",
+                                                picturesLocation,
+                                                tr("Images (*.png *.gif *.jpg)"));
+    ui->lineEdit_customBgImage->setText(file);
 }

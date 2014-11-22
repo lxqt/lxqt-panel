@@ -60,8 +60,6 @@ private:
     */
     void loadSettings();
 
-    bool lockSaving;
-
 private slots:
     /*
       Saves settings in conf file.

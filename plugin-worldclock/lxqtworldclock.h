@@ -26,11 +26,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTPANELWORLDCLOCK_H
-#define LXQTPANELWORLDCLOCK_H
+#ifndef LXQT_PANEL_WORLDCLOCK_H
+#define LXQT_PANEL_WORLDCLOCK_H
 
 #include <QTimeZone>
 
+#include <QDialog>
 #include <QLabel>
 
 #include <LXQt/RotatedWidget>
@@ -41,8 +42,7 @@
 
 class ActiveLabel;
 class QTimer;
-class QDialog;
-class LxQtWorldClockEventFilter;
+class LxQtWorldClockPopup;
 
 
 class LxQtWorldClock : public QObject, public ILxQtPanelPlugin
@@ -53,7 +53,7 @@ public:
     ~LxQtWorldClock();
 
     virtual QWidget *widget() { return mMainWidget; }
-    virtual QString themeId() const { return "WorldClock"; }
+    virtual QString themeId() const { return QLatin1String("WorldClock"); }
     virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     bool isSeparate() const { return true; }
     void activated(ActivationReason reason);
@@ -65,20 +65,21 @@ public:
 private slots:
     void timeout();
     void wheelScrolled(int);
+    void deletePopup();
 
 private:
     QWidget *mMainWidget;
     LxQt::RotatedWidget* mRotatedWidget;
     ActiveLabel *mContent;
-    QDialog* mPopup;
+    LxQtWorldClockPopup* mPopup;
 
     typedef enum FormatType
     {
         FORMAT__INVALID = -1,
-        FORMAT_SHORT = 0,
-        FORMAT_MEDIUM, // obsolete, use FORMAT_SHORT or FORMAT_CUSTOM
+        FORMAT_SHORT_TIMEONLY = 0,
+        FORMAT_LONG_TIMEONLY,
+        FORMAT_SHORT,
         FORMAT_LONG,
-        FORMAT_FULL, // obsolete, use FORMAT_FULL or FORMAT_CUSTOM
         FORMAT_CUSTOM
     } FormatType;
 
@@ -98,6 +99,7 @@ private:
     void updateFormat();
     void restartTimer(int);
 
+    QString formatDateTime(const QDateTime &datetime, const QString &timeZoneName);
     void updatePopupContent();
     QString preformat(const QString &format, const QTimeZone &timeZone, const QDateTime& dateTime);
 };
@@ -120,6 +122,23 @@ protected:
     void mouseReleaseEvent(QMouseEvent* event);
 };
 
+class LxQtWorldClockPopup : public QDialog
+{
+    Q_OBJECT
+
+public:
+    LxQtWorldClockPopup(QWidget *parent = 0);
+
+    void show();
+
+signals:
+    void deactivated();
+
+protected:
+    virtual bool event(QEvent* );
+
+};
+
 class LxQtWorldClockLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
@@ -132,5 +151,4 @@ public:
     }
 };
 
-
-#endif // LXQTPANELWORLDCLOCK_H
+#endif // LXQT_PANEL_WORLDCLOCK_H

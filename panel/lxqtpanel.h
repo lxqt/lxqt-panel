@@ -80,7 +80,6 @@ public:
     static QString positionToStr(ILxQtPanel::Position position);
     static ILxQtPanel::Position strToPosition(const QString &str, ILxQtPanel::Position defaultValue);
 
-
     // Settings
     int panelSize() const { return mPanelSize; }
     int iconSize() const { return mIconSize; }
@@ -89,6 +88,10 @@ public:
     bool lengthInPercents() const { return mLengthInPercents; }
     LxQtPanel::Alignment alignment() const { return mAlignment; }
     int screenNum() const { return mScreenNum; }
+    QColor fontColor() const { return mFontColor; };
+    QColor backgroundColor() const { return mBackgroundColor; };
+    QString backgroundImage() const { return mBackgroundImage; };
+    int opacity() const { return mOpacity; };
 
     LxQt::Settings *settings() const { return mSettings; }
 
@@ -96,12 +99,16 @@ public slots:
     void show();
 
     // Settings
-    void setPanelSize(int value);
-    void setIconSize(int value);
-    void setLineCount(int value);
-    void setLength(int length, bool inPercents);
-    void setPosition(int screen, ILxQtPanel::Position position);
-    void setAlignment(LxQtPanel::Alignment value);
+    void setPanelSize(int value, bool save);
+    void setIconSize(int value, bool save);
+    void setLineCount(int value, bool save);
+    void setLength(int length, bool inPercents, bool save);
+    void setPosition(int screen, ILxQtPanel::Position position, bool save);
+    void setAlignment(LxQtPanel::Alignment value, bool save);
+    void setFontColor(QColor color, bool save);
+    void setBackgroundColor(QColor color, bool save);
+    void setBackgroundImage(QString path, bool save);
+    void setOpacity(int opacity, bool save);
 
     void saveSettings(bool later=false);
     void ensureVisible();
@@ -149,11 +156,17 @@ private:
     int mLength;
     bool mLengthInPercents;
 
-    LxQtPanel::Alignment mAlignment;
+    Alignment mAlignment;
 
     ILxQtPanel::Position mPosition;
     int mScreenNum;
     QTimer mDelaySave;
+
+    QColor mFontColor;
+    QColor mBackgroundColor;
+    QString mBackgroundImage;
+    // 0 to 100
+    int mOpacity;
 
     void updateStyleSheet();
 };

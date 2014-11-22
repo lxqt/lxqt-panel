@@ -33,7 +33,6 @@
 #include <QDirIterator>
 #include <csignal>
 
-#include <LXQt/Translator>
 #include "lxqtpanelapplication.h"
 #include "lxqtpanel.h"
 
@@ -100,7 +99,6 @@ int main(int argc, char *argv[])
 
     LxQtPanelApplication *app = new LxQtPanelApplication(argc, argv, configFile);
 
-    LxQt::Translator::translateApplication(QLatin1String("lxqt-panel"));
 
     //Setup Unix signal handlers
     struct sigaction term;

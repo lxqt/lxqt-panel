@@ -67,11 +67,13 @@ signals:
 public slots:
     void reset();
 
-
 private slots:
     void editChanged();
     void widthTypeChanged();
     void positionChanged();
+    void pickFontColor();
+    void pickBackgroundColor();
+    void pickBackgroundImage();
 
 private:
     Ui::ConfigPanelWidget *ui;
@@ -85,6 +87,10 @@ private:
     int indexForPosition(int screen, ILxQtPanel::Position position);
     int getMaxLength();
 
+    // new values
+    QColor mFontColor;
+    QColor mBackgroundColor;
+
     // For reset function
     int mOldPanelSize;
     int mOldIconSize;
@@ -94,6 +100,10 @@ private:
     LxQtPanel::Alignment mOldAlignment;
     ILxQtPanel::Position mOldPosition;
     int mOldScreenNum;
+    QColor mOldFontColor;
+    QColor mOldBackgroundColor;
+    QString mOldBackgroundImage;
+    int mOldOpacity;
 };
 
 #endif // CONFIGPANELDIALOG_H

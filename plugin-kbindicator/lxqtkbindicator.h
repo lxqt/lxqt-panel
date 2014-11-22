@@ -30,13 +30,11 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtkbindicatorconfiguration.h"
-#include <QAbstractNativeEventFilter>
-#include <X11/Xlib.h>
-#include <xcb/xcb_event.h>
+#include <KF5/KGuiAddons/KModifierKeyInfo>
 
 class QLabel;
 
-class LxQtKbIndicator : public QObject, public ILxQtPanelPlugin, QAbstractNativeEventFilter
+class LxQtKbIndicator : public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
 public:
@@ -51,29 +49,23 @@ public:
     QDialog *configureDialog();
     virtual void realign();
 
-signals:
-    void indicatorsChanged(unsigned int, unsigned int);
-
 protected slots:
-    virtual void settingsChanged();
-
-    void setIndicators(unsigned int, unsigned int);
-
     void delayedInit();
-
-protected:
-    bool getLockStatus(int mBit);
-    bool nativeEventFilter(const QByteArray &eventType, void *message, long *);
+    virtual void settingsChanged();
+    void modifierStateChanged(Qt::Key key, bool active);
 
 private:
-    QLabel *mContent;
+    KModifierKeyInfo *modifierInfo;
+    QWidget *mContent;
 
-    int mBit;
+    bool mShowCapsLock;
+    bool mShowNumLock;
+    bool mShowScrollLock;
 
-    Display *mDisplay;
-    int mXkbEventBase;
+    QLabel *mCapsLock;
+    QLabel *mNumLock;
+    QLabel *mScrollLock;
 };
-
 
 class LxQtKbIndicatorLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
@@ -86,4 +78,5 @@ public:
         return new LxQtKbIndicator(startupInfo);
     }
 };
+
 #endif // LXQTPANELKBINDICATOR_H

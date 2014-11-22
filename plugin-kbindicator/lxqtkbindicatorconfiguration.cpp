@@ -34,8 +34,7 @@ LxQtKbIndicatorConfiguration::LxQtKbIndicatorConfiguration(QSettings *settings, 
     QDialog(parent),
     ui(new Ui::LxQtKbIndicatorConfiguration),
     mSettings(settings),
-    oldSettings(settings),
-    lockSaving(false)
+    oldSettings(settings)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("KbIndicatorConfigurationWindow");
@@ -43,12 +42,9 @@ LxQtKbIndicatorConfiguration::LxQtKbIndicatorConfiguration(QSettings *settings, 
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
-    connect(ui->capsLockRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->numLockRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->scrollLockRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->advancedRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->bitSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
-    connect(ui->textLE, SIGNAL(textChanged(QString)), this, SLOT(saveSettings()));
+    connect(ui->capsLockCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->numLockCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->scrollLockCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 
     loadSettings();
 }
@@ -60,48 +56,16 @@ LxQtKbIndicatorConfiguration::~LxQtKbIndicatorConfiguration()
 
 void LxQtKbIndicatorConfiguration::loadSettings()
 {
-    lockSaving = true;
-
-    ui->bitSB->setValue( mSettings->value("bit", 0).toInt() );
-    ui->textLE->setText( mSettings->value("text", QString("C")).toString() );
-
-    if ((ui->bitSB->value() == 0) && (ui->textLE->text() == QString("C")))
-        ui->capsLockRB->setChecked(true);
-    else if ((ui->bitSB->value() == 1) && (ui->textLE->text() == QString("1")))
-        ui->numLockRB->setChecked(true);
-    else if ((ui->bitSB->value() == 2) && (ui->textLE->text() == QString("S")))
-        ui->scrollLockRB->setChecked(true);
-    else
-        ui->advancedRB->setChecked(true);
-
-    ui->advancedW->setVisible(ui->advancedRB->isChecked());
-
-    lockSaving = false;
+    ui->capsLockCB->setChecked(mSettings->value("show_caps_lock", true).toBool());
+    ui->numLockCB->setChecked(mSettings->value("show_num_lock", true).toBool());
+    ui->scrollLockCB->setChecked(mSettings->value("show_scroll_lock", true).toBool());
 }
 
 void LxQtKbIndicatorConfiguration::saveSettings()
 {
-    if (lockSaving)
-        return;
-
-    if (ui->capsLockRB->isChecked())
-    {
-        ui->bitSB->setValue(0);
-        ui->textLE->setText(QString("C"));
-    }
-    else if (ui->numLockRB->isChecked())
-    {
-        ui->bitSB->setValue(1);
-        ui->textLE->setText(QString("1"));
-    }
-    else if (ui->scrollLockRB->isChecked())
-    {
-        ui->bitSB->setValue(2);
-        ui->textLE->setText(QString("S"));
-    }
-
-    mSettings->setValue("bit", ui->bitSB->value());
-    mSettings->setValue("text", ui->textLE->text());
+    mSettings->setValue("show_caps_lock", ui->capsLockCB->isChecked());
+    mSettings->setValue("show_num_lock", ui->numLockCB->isChecked());
+    mSettings->setValue("show_scroll_lock", ui->scrollLockCB->isChecked());
 }
 
 void LxQtKbIndicatorConfiguration::dialogButtonsAction(QAbstractButton *btn)

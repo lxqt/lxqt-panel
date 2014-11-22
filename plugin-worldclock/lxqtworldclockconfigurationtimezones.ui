@@ -63,6 +63,7 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>timeZonesTW</tabstop>
   <tabstop>buttons</tabstop>
  </tabstops>
  <resources/>

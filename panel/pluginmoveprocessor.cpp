@@ -41,6 +41,8 @@ PluginMoveProcessor::PluginMoveProcessor(LxQtPanelLayout *layout, Plugin *plugin
     mPlugin(plugin)
 {
     mDestIndex = mLayout->indexOf(plugin);
+
+    grabKeyboard();
 }
 
 
@@ -271,25 +273,41 @@ void PluginMoveProcessor::mouseReleaseEvent(QMouseEvent *event)
     event->accept();
     releaseMouse();
     setMouseTracking(false);
-    doFinish();
+    doFinish(false);
 }
-
 
 /************************************************
 
  ************************************************/
-void PluginMoveProcessor::doFinish()
+void PluginMoveProcessor::keyPressEvent(QKeyEvent *event)
 {
+    if (event->key() == Qt::Key_Escape) {
+        doFinish(true);
+        return;
+    }
+    QWidget::keyPressEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
+void PluginMoveProcessor::doFinish(bool cancel)
+{
+    releaseKeyboard();
+
     drawMark(0, TopMark);
 
-    int currentIdx = mLayout->indexOf(mPlugin);
-    if (currentIdx == mDestIndex)
-        return;
+    if (!cancel)
+    {
+        int currentIdx = mLayout->indexOf(mPlugin);
+        if (currentIdx == mDestIndex)
+            return;
 
-    if (mDestIndex > currentIdx)
-        mDestIndex--;
+        if (mDestIndex > currentIdx)
+            mDestIndex--;
 
-    mLayout->moveItem(currentIdx, mDestIndex, true);
+        mLayout->moveItem(currentIdx, mDestIndex, true);
+    }
 
     emit finished();
     deleteLater();
