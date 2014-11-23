@@ -266,6 +266,19 @@ void LxQtMainMenu::buildMenu()
     QMenu *oldMenu = mMenu;
     mMenu = menu;
     delete oldMenu;
+
+    if(settings()->value("customFont", false).toBool())
+    {
+        QFont menuFont = mMenu->font();
+        menuFont.setPointSize(settings()->value("customFontSize").toInt());
+
+        mMenu->setFont(menuFont);
+        QList<QMenu*> subMenuList = mMenu->findChildren<QMenu*>();
+        foreach (QMenu* subMenu, subMenuList)
+        {
+            subMenu->setFont(menuFont);
+        }
+    }
 }
 
 
