@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="176"/>
         <source>Drop Error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler fallen lassen</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="177"/>

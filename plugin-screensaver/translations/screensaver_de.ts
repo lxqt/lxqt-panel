@@ -11,7 +11,7 @@
     <message>
         <location filename="../panelscreensaver.cpp" line="60"/>
         <source>Panel Screensaver Global shortcut: '%1' cannot be registered</source>
-        <translation>Globales Tastenkürzel für Leistenbildschirmschoner: »%1« kann nicht registriert werden</translation>
+        <translation>Globales Tastenkürzel für Bildschirmschoner: »%1« kann nicht registriert werden</translation>
     </message>
 </context>
 </TS>

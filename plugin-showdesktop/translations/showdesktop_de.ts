@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="56"/>
         <source>Panel Show Desktop Global shortcut: '%1' cannot be registered</source>
-        <translation type="unfinished"/>
+        <translation>Globales Tastenkürzel für Arbeitsfläche anzeigen: »%1« kann nicht registriert werden</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="61"/>
