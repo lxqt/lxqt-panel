@@ -1,15 +1,17 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.0">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TS>
+<TS language="da" version="2.0">
 <context>
     <name>MenuDiskItem</name>
     <message>
         <location filename="../menudiskitem.ui" line="44"/>
         <source>Click to access this device from other applications.</source>
-        <translation type="unfinished"/>
+        <translation>Klik for at tilgå denne enhed fra andre programmer.</translation>
     </message>
     <message>
         <location filename="../menudiskitem.ui" line="54"/>
         <source>Click to eject this disc.</source>
-        <translation type="unfinished"/>
+        <translation>Klik for at skubbe disken ud.</translation>
     </message>
 </context>
 <context>
@@ -17,22 +19,22 @@
     <message>
         <location filename="../mountbutton.cpp" line="149"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"/>
+        <translation>Håndtering af medier/enheder</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="188"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
+        <translation>Enheden &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; er forbundet.</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="207"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
+        <translation>Enheden &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; er fjernet.</translation>
     </message>
     <message>
         <location filename="../mountbutton.cpp" line="235"/>
         <source>No devices Available.</source>
-        <translation type="unfinished"/>
+        <translation>Ingen tilgængelige enheder.</translation>
     </message>
 </context>
 <context>
@@ -40,32 +42,32 @@
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>
         <source>LxQt Removable media manager settings</source>
-        <translation type="unfinished"/>
+        <translation>LXQt Indstillinger for flytbare medier</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Opførsel</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
-        <translation type="unfinished"/>
+        <translation>Når en enhed forbinder </translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation type="unfinished"/>
+        <translation>Pop op-menu</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
-        <translation type="unfinished"/>
+        <translation>Vis information</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Gør intet</translation>
     </message>
 </context>
 </TS>
