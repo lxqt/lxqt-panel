@@ -363,17 +363,12 @@ void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Propertie
     if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
         button->updateText();
 
-    if (prop.testFlag(NET::WMIcon) || prop.testFlag(NET::WMIconGeometry))
-    {
-        // FIXME: This shouldn't be commented, but it's causing high CPU and memory usage =/
-        // button->updateIcon();
-    }
+    // FIXME: NET::WMIconGeometry is causing high CPU and memory usage
+    if (prop.testFlag(NET::WMIcon) /*|| prop.testFlag(NET::WMIconGeometry)*/)
+        button->updateIcon();
 
     if (prop.testFlag(NET::WMState))
-    {
-        KWindowInfo info(window, NET::WMState);
-        button->setUrgencyHint(info.hasState(NET::DemandsAttention));
-    }
+        button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
 }
 
 /************************************************
