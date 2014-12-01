@@ -1,17 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <location filename="../panelscreensaver.cpp" line="52"/>
-        <source>Lock Screen</source>
-        <translation>Блокировать экран</translation>
-    </message>
-    <message>
-        <location filename="../panelscreensaver.cpp" line="62"/>
-        <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Хранитель экрана панели: глобальное сочетание клавиш &apos;%1&apos; не может быть зарегистрировано</translation>
+        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
+        <translation>Глобальная Панель клавиш короткий путь Заставка: &apos;%1&apos; не могут быть зарегистрированы</translation>
     </message>
 </context>
 </TS>

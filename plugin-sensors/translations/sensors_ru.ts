@@ -1,80 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
 <context>
     <name>LxQtSensorsConfiguration</name>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
-        <source>Sensors Settings</source>
-        <translation>Настройки сенсоров</translation>
+        <source>LxQt Sensors Settings</source>
+        <translation>Настройки сенсоров LxQt</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>Общие</translation>
+        <translation>Общий</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
         <translation>Интервал обновления (секунды)</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
         <translation>Ширина температурной шкалы</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
         <source>Temperature scale</source>
-        <translation>Температурная шкала</translation>
+        <translation>Масштаб температуры</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation>По Цельсию</translation>
+        <translation>Цельсия</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation>По Фаренгейту</translation>
+        <translation>Фаренгейт</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
         <translation>Мигать индикатором состояния когда температура слишком высока</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
         <translation>Предупреждать о высокой температуре</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
         <source>Sensors</source>
-        <translation>Сенсоры</translation>
+        <translation>Датчики</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
         <translation>Обнаруженые чипы:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
         <translation>Возможности чипов:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
         <translation>Включён</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
         <translation>Метка</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
