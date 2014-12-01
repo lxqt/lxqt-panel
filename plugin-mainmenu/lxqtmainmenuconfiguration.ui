@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>471</width>
-    <height>367</height>
+    <width>434</width>
+    <height>325</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,27 +29,43 @@
       <bool>false</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" colspan="3">
+      <item row="0" column="0">
        <widget class="QCheckBox" name="showTextCB">
         <property name="text">
-         <string>Show text</string>
+         <string>Button text:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="textLE">
+        <property name="enabled">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="textL">
+       <widget class="QCheckBox" name="customFontCB">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="text">
-         <string>Button text</string>
+         <string>Custom font size:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" colspan="2">
-       <widget class="QLineEdit" name="textLE">
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="customFontSizeSB">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="suffix">
+         <string> pt</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>11</number>
         </property>
        </widget>
       </item>
@@ -68,7 +84,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="menuFileL">
         <property name="text">
-         <string>Menu file</string>
+         <string>Menu file:</string>
         </property>
        </widget>
       </item>
@@ -119,57 +135,6 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="customFontGB">
-     <property name="title">
-      <string>Custom font size</string>
-     </property>
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="customFontCB">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>Enable </string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="customFontSizeL">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>Point Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QSpinBox" name="customFontSizeSB">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="suffix">
-         <string/>
-        </property>
-        <property name="minimum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -206,22 +171,6 @@
   <connection>
    <sender>customFontCB</sender>
    <signal>toggled(bool)</signal>
-   <receiver>customFontSizeL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>60</x>
-     <y>249</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>53</x>
-     <y>277</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>customFontCB</sender>
-   <signal>toggled(bool)</signal>
    <receiver>customFontSizeSB</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -232,22 +181,6 @@
     <hint type="destinationlabel">
      <x>280</x>
      <y>277</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>showTextCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>textL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>239</x>
-     <y>39</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>93</x>
-     <y>68</y>
     </hint>
    </hints>
   </connection>
