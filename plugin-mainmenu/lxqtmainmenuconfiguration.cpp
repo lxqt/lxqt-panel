@@ -44,8 +44,6 @@ LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const 
     ui->setupUi(this);
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
-    connect(ui->showTextCB, SIGNAL(toggled(bool)), ui->textL, SLOT(setEnabled(bool)));
-    connect(ui->showTextCB, SIGNAL(toggled(bool)), ui->textLE, SLOT(setEnabled(bool)));
 
     loadSettings();
 
@@ -55,6 +53,9 @@ LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const 
     
     connect(ui->shortcutEd, SIGNAL(shortcutGrabbed(QString)), this, SLOT(shortcutChanged(QString)));
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), SIGNAL(triggered()), this, SLOT(shortcutReset()));
+
+    connect(ui->customFontCB, SIGNAL(toggled(bool)), this, SLOT(customFontChanged(bool)));
+    connect(ui->customFontSizeSB, SIGNAL(valueChanged(int)), this, SLOT(customFontSizeChanged(int)));
 }
 
 LxQtMainMenuConfiguration::~LxQtMainMenuConfiguration()
@@ -74,6 +75,14 @@ void LxQtMainMenuConfiguration::loadSettings()
     }
     ui->menuFilePathLE->setText(menuFile);
     ui->shortcutEd->setText(mSettings.value("shortcut", "Alt+F1").toString());
+
+    ui->customFontCB->setChecked(mSettings.value("customFont", false).toBool());
+    LxQt::Settings lxqtSettings("lxqt"); //load system font size as init value
+    QFont systemFont;
+    lxqtSettings.beginGroup(QLatin1String("Qt"));
+    systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
+    lxqtSettings.endGroup();
+    ui->customFontSizeSB->setValue(mSettings.value("customFontSize", systemFont.pointSize()).toInt());
 }
 
 void LxQtMainMenuConfiguration::textButtonChanged(const QString &value)
@@ -118,4 +127,14 @@ void LxQtMainMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
     {
         close();
     }
+}
+
+void LxQtMainMenuConfiguration::customFontChanged(bool value)
+{
+    mSettings.setValue("customFont", value);
+}
+
+void LxQtMainMenuConfiguration::customFontSizeChanged(int value)
+{
+    mSettings.setValue("customFontSize", value);
 }

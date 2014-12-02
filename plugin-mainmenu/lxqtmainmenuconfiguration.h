@@ -65,6 +65,8 @@ private slots:
     void chooseMenuFile();
     void shortcutChanged(const QString &value);
     void shortcutReset();
+    void customFontChanged(bool value);
+    void customFontSizeChanged(int value);
 };
 
 #endif // LXQTMAINMENUCONFIGURATION_H
