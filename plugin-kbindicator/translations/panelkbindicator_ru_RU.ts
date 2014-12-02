@@ -10,33 +10,18 @@
     </message>
     <message>
         <location filename="../lxqtkbindicatorconfiguration.ui" line="20"/>
-        <source>&amp;Caps lock</source>
-        <translation>&amp;Caps lock</translation>
+        <source>Caps Lock</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtkbindicatorconfiguration.ui" line="30"/>
-        <source>&amp;Num lock</source>
-        <translation>&amp;Num lock</translation>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="27"/>
+        <source>Num Lock</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtkbindicatorconfiguration.ui" line="37"/>
-        <source>&amp;Scroll lock</source>
-        <translation>&amp;Scroll lock</translation>
-    </message>
-    <message>
-        <location filename="../lxqtkbindicatorconfiguration.ui" line="44"/>
-        <source>&amp;Advanced control</source>
-        <translation>&amp;Расширенная настройка</translation>
-    </message>
-    <message>
-        <location filename="../lxqtkbindicatorconfiguration.ui" line="57"/>
-        <source>&amp;Bit</source>
-        <translation>&amp;Бит</translation>
-    </message>
-    <message>
-        <location filename="../lxqtkbindicatorconfiguration.ui" line="80"/>
-        <source>&amp;Text</source>
-        <translation>&amp;Текст</translation>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="34"/>
+        <source>Scroll Lock</source>
+        <translation></translation>
     </message>
 </context>
 </TS>
