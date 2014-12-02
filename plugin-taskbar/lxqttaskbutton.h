@@ -69,6 +69,7 @@ public:
     void setUrgencyHint(bool set);
 
     int desktopNum() const;
+    void setShowDesktopName(bool showDesktopName);
     void updateText();
     void updateIcon();
 
@@ -105,6 +106,7 @@ private:
     Qt::Corner mOrigin;
     QPixmap mPixmap;
     bool mDrawPixmap;
+    bool mShowDesktopName;
 
 private slots:
     void activateWithDraggable();

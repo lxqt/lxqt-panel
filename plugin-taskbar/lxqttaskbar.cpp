@@ -234,6 +234,8 @@ void LxQtTaskBar::refreshTaskList()
         if (acceptWindow(wnd))
         {
             LxQtTaskButton* btn = new LxQtTaskButton(wnd, this);
+            if (!mShowOnlyCurrentDesktopTasks)
+                btn->setShowDesktopName(true);
             btn->setStyle(mStyle);
             btn->setToolButtonStyle(mButtonStyle);
 
@@ -401,7 +403,15 @@ void LxQtTaskBar::settingsChanged()
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    if (mShowOnlyCurrentDesktopTasks != mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool())
+    {
+        mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+        foreach (LxQtTaskButton* btn, mButtonsHash)
+        {
+            btn->setShowDesktopName(!mShowOnlyCurrentDesktopTasks);
+        }
+    }
+
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
 
