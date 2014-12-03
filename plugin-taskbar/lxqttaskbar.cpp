@@ -48,6 +48,8 @@
 #include "lxqttaskbutton.h"
 #include "../panel/ilxqtpanelplugin.h"
 
+
+
 using namespace LxQt;
 
 /************************************************
@@ -62,8 +64,14 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mAutoRotate(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
-    mStyle(new ElidedButtonStyle())
+    mStyle(new ElidedButtonStyle()),
+    mEnabledGrouping(true)
 {
+
+
+
+
+    qDebug() << geometry();
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
@@ -83,6 +91,8 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), SLOT(activeWindowChanged(WId)));
     connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
             SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
+
+
 }
 
 /************************************************
@@ -162,7 +172,9 @@ bool LxQtTaskBar::acceptWindow(WId window) const
  ************************************************/
 void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 {
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton") && !mEnabledGrouping)
+        event->acceptProposedAction();
+    else if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
         event->acceptProposedAction();
     else
         event->ignore();
@@ -174,17 +186,26 @@ void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
  ************************************************/
 void LxQtTaskBar::dropEvent(QDropEvent* event)
 {
-    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
-        return;
+    int droppedIndex;
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    {
+        QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
+        // window id for dropped button
+        qlonglong temp;
+        stream >> temp;
+        WId droppedWid = (WId) temp;
+        qDebug() << QString("Dropped window: %1").arg(droppedWid);
+        droppedIndex = mLayout->indexOf(mButtonsHash.value(droppedWid,NULL));
+    }
+    else if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+    {
+        QDataStream stream(event->mimeData()->data("lxqt/lxqttaskgroup"));
+        QString groupName;
+        stream >> groupName;
+        qDebug() << QString("Dropped button group: %1").arg(groupName);
+        droppedIndex = mLayout->indexOf(mGroupsHash.value(groupName,NULL));
+    }
 
-    QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
-    // window id for dropped button
-    qlonglong temp;
-    stream >> temp;
-    WId droppedWid = (WId) temp;
-    qDebug() << QString("Dropped window: %1").arg(droppedWid);
-
-    int droppedIndex = mLayout->indexOf(mButtonsHash[droppedWid]);
     int newPos = -1;
     const int size = mLayout->count();
     for (int i = 0; i < droppedIndex && newPos == -1; i++)
@@ -209,9 +230,11 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
 /************************************************
 
  ************************************************/
+
 void LxQtTaskBar::refreshTaskList()
 {
     QList<WId> tmp = KWindowSystem::stackingOrder();
+
 
     QMutableHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
     while (i.hasNext())
@@ -224,6 +247,13 @@ void LxQtTaskBar::refreshTaskList()
             // if the button we're removing is the currently selected app
             if(i.value() == mCheckedBtn)
                 mCheckedBtn = NULL;
+
+
+            LxQtTaskGroup * group = i.value()->parentGroup();
+            group->removeButton(i.value());
+            if (group->buttonsCount() == 0)
+                delete group;
+
             delete i.value();
             i.remove();
         }
@@ -233,12 +263,36 @@ void LxQtTaskBar::refreshTaskList()
     {
         if (acceptWindow(wnd))
         {
-            LxQtTaskButton* btn = new LxQtTaskButton(wnd, this);
-            btn->setStyle(mStyle);
-            btn->setToolButtonStyle(mButtonStyle);
+            //mGroup = new LxQtTaskGroup("vole",QIcon(), this);
+            LxQtTaskButton* btn = new LxQtTaskButton(wnd);
+
+            if (mEnabledGrouping)
+            {
+                KWindowInfo info(wnd,static_cast<NET::Property>(0xfff),static_cast<NET::Property2>(0xfff));
+                QString cls = info.windowClassClass();
+                LxQtTaskGroup * group = mGroupsHash.value(cls);
+                if (!group)
+                {
+                    group = new LxQtTaskGroup(cls,btn->icon(),mPlugin,this);
+                    mLayout->addWidget(group);
+                    mGroupsHash.insert(cls,group);
+                    //group->setStyle(mStyle);
+                    //group->setToolButtonStyle(mButtonStyle);
+                }
+                btn->setParentGroup(group);
+                group->addButton(btn);
+                group->show();
+            }
+            else
+            {
+                btn->setParent(this);
+                mLayout->addWidget(btn);
+            }
+
+            //btn->setStyle(mStyle);
+            //btn->setToolButtonStyle(mButtonStyle);
 
             mButtonsHash.insert(wnd, btn);
-            mLayout->addWidget(btn);
         }
     }
     refreshButtonVisibility();
@@ -252,7 +306,7 @@ void LxQtTaskBar::refreshTaskList()
  ************************************************/
 void LxQtTaskBar::refreshButtonRotation()
 {
-    bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);
+    bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);   
 
     ILxQtPanel::Position panelPosition = mPlugin->panel()->position();
 

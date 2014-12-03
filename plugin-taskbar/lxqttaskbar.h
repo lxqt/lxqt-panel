@@ -42,6 +42,8 @@
 #include <KF5/KWindowSystem/KWindowInfo>
 #include <KF5/KWindowSystem/NETWM>
 
+#include "lxqttaskgroup.h"
+
 class LxQtTaskButton;
 class ElidedButtonStyle;
 class ILxQtPanelPlugin;
@@ -77,6 +79,7 @@ private slots:
 
 private:
     QHash<WId, LxQtTaskButton*> mButtonsHash;
+    QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
@@ -84,6 +87,7 @@ private:
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
     bool mAutoRotate;
+    bool mEnabledGrouping;
 
     LxQtTaskButton* buttonByWindow(WId window) const;
     bool windowOnActiveDesktop(WId window) const;

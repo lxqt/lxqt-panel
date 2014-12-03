@@ -46,6 +46,7 @@
 
 #include "lxqttaskbutton.h"
 #include <KF5/KWindowSystem/KWindowSystem>
+#include "lxqttaskgroup.h"
 
 // Necessary for closeApplication()
 #include <KF5/KWindowSystem/NETWM>
@@ -167,6 +168,18 @@ void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 /************************************************
 
  ************************************************/
+void LxQtTaskButton::arbitraryMimeData(QMimeData *mimedata)
+{
+    QByteArray byteArray;
+    QDataStream stream(&byteArray, QIODevice::WriteOnly);
+    qDebug() << QString("Dragging window: %1").arg(mWindow);
+    stream << (qlonglong) mWindow;
+    mimedata->setData("lxqt/lxqttaskbutton", byteArray);
+}
+
+/************************************************
+
+ ************************************************/
 void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 {
     if (!(event->buttons() & Qt::LeftButton))
@@ -176,11 +189,7 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
         return;
 
     QMimeData *mime = new QMimeData;
-    QByteArray byteArray;
-    QDataStream stream(&byteArray, QIODevice::WriteOnly);
-    qDebug() << QString("Dragging window: %1").arg(mWindow);
-    stream << (qlonglong) mWindow;
-    mime->setData("lxqt/lxqttaskbutton", byteArray);
+    arbitraryMimeData(mime);
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);

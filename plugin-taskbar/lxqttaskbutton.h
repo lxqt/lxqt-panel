@@ -39,6 +39,7 @@
 class QPainter;
 class QPalette;
 class QMimeData;
+class LxQtTaskGroup;
 
 class ElidedButtonStyle: public QProxyStyle
 {
@@ -75,6 +76,10 @@ public:
     Qt::Corner origin() const;
     void setAutoRotation(bool value, ILxQtPanel::Position position);
 
+    LxQtTaskGroup * parentGroup(void) const {return mParentGroup;}
+    void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
+
+
 public slots:
     void raiseApplication();
     void minimizeApplication();
@@ -97,6 +102,9 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event);
     void paintEvent(QPaintEvent *);
 
+    void setWindowId(WId wid) {mWindow = wid;}
+    virtual void arbitraryMimeData(QMimeData * mimedata);
+
 private:
     WId mWindow;
     bool mUrgencyHint;
@@ -105,6 +113,8 @@ private:
     Qt::Corner mOrigin;
     QPixmap mPixmap;
     bool mDrawPixmap;
+    LxQtTaskGroup * mParentGroup;
+
 
 private slots:
     void activateWithDraggable();
