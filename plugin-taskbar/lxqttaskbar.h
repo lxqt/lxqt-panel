@@ -42,9 +42,14 @@
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/NETWM>
 
+#include "lxqttaskgroup.h"
+//#include "lxqttaskbutton.h"
+
 class LxQtTaskButton;
 class ElidedButtonStyle;
 class ILxQtPanelPlugin;
+//class LxQtMasterPopup;
+#include "lxqtmasterpopup.h"
 
 namespace LxQt {
 class GridLayout;
@@ -61,9 +66,27 @@ public:
     virtual void settingsChanged();
     void realign();
 
+    typedef struct
+    {
+        bool closeOnMiddleClick;
+        bool showOnlyCurrentDesktopTasks;
+        bool autoRotate;
+        bool enabledGrouping;
+        int buttonWidth;
+        Qt::ToolButtonStyle toolButtonStyle;
+        bool eyeCandy;
+        bool showGroupWhenHover;
+        bool switchGroupWhenHover;
+        //bool showGroupWhenHoverOneWindow;
+        bool switchGroupWhenHoverOneWindow;
+        int groupButtonWidth;
+        int groupButtonHeight;
+    } settings_t;
+
+    const settings_t & settings() const {return mSettings;}
+
+
 public slots:
-    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
-    void activeWindowChanged(WId window = 0);
     void refreshIconGeometry();
 
 protected:
@@ -73,31 +96,33 @@ protected:
 private slots:
     void refreshTaskList();
     void refreshButtonRotation();
-    void refreshButtonVisibility();
+    void refreshPlaceholderVisibility();
+    void groupBecomeEmptySlot();
+    void groupDroppedSlot(const QPoint & point, QDropEvent * event);
 
 private:
-    QHash<WId, LxQtTaskButton*> mButtonsHash;
+    QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
-    Qt::ToolButtonStyle mButtonStyle;
-    int mButtonWidth;
-    LxQtTaskButton* mCheckedBtn;
-    bool mCloseOnMiddleClick;
-    bool mShowOnlyCurrentDesktopTasks;
-    bool mAutoRotate;
+    settings_t mSettings;
+    LxQtTaskGroup * mCheckedGroup;
 
-    LxQtTaskButton* buttonByWindow(WId window) const;
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
+    int dropValue(int idx);
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
-    void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent *event);
+
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
     ElidedButtonStyle* mStyle;
+
+public:
+    //used for plugin single instance of LxQtMasterPopup
+    LxQtMasterPopup * mMasterPopup;
 };
 
 #endif // LXQTTASKBAR_H
