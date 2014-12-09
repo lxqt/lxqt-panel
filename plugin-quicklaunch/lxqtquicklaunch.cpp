@@ -46,7 +46,6 @@
 #include <QFileIconProvider>
 #include <QSettings>
 #include <QLabel>
-#include "desktopfile.h"
 
 LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
     QFrame(parent),
@@ -74,7 +73,7 @@ LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
         if (! desktop.isEmpty())
         {
             XdgDesktopFile xdg;
-            if(!loadDesktopFile(xdg, desktop))
+            if (!xdg.load(desktop))
             {
                 qDebug() << "XdgDesktopFile" << desktop << "is not valid";
                 continue;
@@ -196,7 +195,7 @@ void LxQtQuickLaunch::dropEvent(QDropEvent *e)
         QFileInfo fi(fileName);
         XdgDesktopFile xdg;
 
-        if (loadDesktopFile(xdg, fileName))
+        if (xdg.load(fileName))
         {
             if (xdg.isSuitable())
                 addButton(new QuickLaunchAction(&xdg, this));
