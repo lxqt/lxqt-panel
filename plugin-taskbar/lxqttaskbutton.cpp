@@ -47,6 +47,7 @@
 #include "lxqttaskbutton.h"
 #include <KF5/KWindowSystem/KWindowSystem>
 #include "lxqttaskgroup.h"
+#include "lxqttaskbar.h"
 
 // Necessary for closeApplication()
 #include <KF5/KWindowSystem/NETWM>
@@ -67,11 +68,14 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 /************************************************
 
 ************************************************/
-LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
+LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
-    mDrawPixmap(false)
+    mDrawPixmap(false),
+    mParentTaskBar(taskbar)
 {
+    Q_ASSERT(taskbar);
+
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -82,6 +86,7 @@ LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
 
     updateText();
     updateIcon();
+
 }
 
 /************************************************
@@ -119,9 +124,30 @@ void LxQtTaskButton::updateIcon()
 /************************************************
 
  ************************************************/
+void LxQtTaskButton::refreshIconGeometry(int size)
+{ /*
+    QRect rect = geometry();
+    QPoint globalPos = globalWidget->mapToGlobal(pos());
+    rect.moveTo(globalPos);
+
+    NETWinInfo info(QX11Info::connection(), windowId(),
+                    (WId) QX11Info::appRootWindow(), NET::WMIconGeometry, 0);
+    NETRect nrect;
+    nrect.pos.x = rect.x();
+    nrect.pos.y = rect.y();
+    nrect.size.height = rect.height();
+    nrect.size.width = rect.width();
+    info.setIconGeometry(nrect);
+    */
+    setIconSize(QSize(size,size));
+}
+
+/************************************************
+
+ ************************************************/
 void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton") )
     {
         event->ignore();
         return;
@@ -146,6 +172,13 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
         mDragStartPosition = event->pos();
+
+
+    if (parentTaskBar()->settings().closeOnMiddleClick && event->button() == Qt::MidButton)
+    {
+        closeApplication();
+    }
+
     QToolButton::mousePressEvent(event);
 }
 
@@ -154,9 +187,9 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
  ************************************************/
 void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton)
+    if (event->button() == Qt::LeftButton  )
     {
-        // qDebug() << "isChecked:" << isChecked();
+ //        qDebug() << "isChecked:" << isChecked();
         if (isChecked())
             minimizeApplication();
         else

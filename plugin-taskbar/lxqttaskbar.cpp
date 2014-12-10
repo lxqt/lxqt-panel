@@ -57,21 +57,17 @@ using namespace LxQt;
 ************************************************/
 LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
-    mButtonStyle(Qt::ToolButtonTextBesideIcon),
-    mCheckedBtn(NULL),
-    mCloseOnMiddleClick(true),
-    mShowOnlyCurrentDesktopTasks(false),
-    mAutoRotate(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
-    mStyle(new ElidedButtonStyle()),
-    mEnabledGrouping(true)
+    mStyle(new ElidedButtonStyle())
 {
+    mSettings.autoRotate = true;
+    mSettings.buttonWidth = 400;
+    mSettings.closeOnMiddleClick = true;
+    mSettings.enabledGrouping = true;
+    mSettings.showOnlyCurrentDesktopTasks = false;
+    mSettings.toolButtonStyle = Qt::ToolButtonTextBesideIcon;
 
-
-
-
-    qDebug() << geometry();
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
@@ -87,12 +83,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     setAcceptDrops(true);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
-    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(refreshTaskList()));
-    connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), SLOT(activeWindowChanged(WId)));
-    connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
-            SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
-
-
+    connect(KWindowSystem::self(),SIGNAL(currentDesktopChanged(int)),this,SLOT(refreshPlaceholderVisibility()));
 }
 
 /************************************************
@@ -106,19 +97,9 @@ LxQtTaskBar::~LxQtTaskBar()
 /************************************************
 
  ************************************************/
-LxQtTaskButton* LxQtTaskBar::buttonByWindow(WId window) const
-{
-    if (mButtonsHash.contains(window))
-        return mButtonsHash.value(window);
-    return 0;
-}
-
-/************************************************
-
- ************************************************/
 bool LxQtTaskBar::windowOnActiveDesktop(WId window) const
 {
-    if (!mShowOnlyCurrentDesktopTasks)
+    if (!mSettings.showOnlyCurrentDesktopTasks)
         return true;
 
     int desktop = KWindowInfo(window, NET::WMDesktop).desktop();
@@ -172,9 +153,7 @@ bool LxQtTaskBar::acceptWindow(WId window) const
  ************************************************/
 void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 {
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton") && !mEnabledGrouping)
-        event->acceptProposedAction();
-    else if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
         event->acceptProposedAction();
     else
         event->ignore();
@@ -187,17 +166,7 @@ void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 void LxQtTaskBar::dropEvent(QDropEvent* event)
 {
     int droppedIndex;
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
-    {
-        QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
-        // window id for dropped button
-        qlonglong temp;
-        stream >> temp;
-        WId droppedWid = (WId) temp;
-        qDebug() << QString("Dropped window: %1").arg(droppedWid);
-        droppedIndex = mLayout->indexOf(mButtonsHash.value(droppedWid,NULL));
-    }
-    else if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
     {
         QDataStream stream(event->mimeData()->data("lxqt/lxqttaskgroup"));
         QString groupName;
@@ -230,74 +199,71 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
 /************************************************
 
  ************************************************/
+void LxQtTaskBar::groupBecomeEmptySlot()
+{
+    //group now contains no buttons - clean up in hash and delete the group
+    LxQtTaskGroup * group = qobject_cast<LxQtTaskGroup*>(sender());
+
+    Q_ASSERT(group);
+
+    mGroupsHash.remove(group->groupName());
+    delete group;
+}
+
+/************************************************
+
+ ************************************************/
 
 void LxQtTaskBar::refreshTaskList()
 {
+    //just add new windows to groups, deleting is up to the groups
+
     QList<WId> tmp = KWindowSystem::stackingOrder();
-
-
-    QMutableHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
-    while (i.hasNext())
-    {
-        i.next();
-        int n = tmp.removeAll(i.key());
-
-        if (!n)
-        {
-            // if the button we're removing is the currently selected app
-            if(i.value() == mCheckedBtn)
-                mCheckedBtn = NULL;
-
-
-            LxQtTaskGroup * group = i.value()->parentGroup();
-            group->removeButton(i.value());
-            if (group->buttonsCount() == 0)
-                delete group;
-
-            delete i.value();
-            i.remove();
-        }
-    }
 
     foreach (WId wnd, tmp)
     {
         if (acceptWindow(wnd))
         {
-            //mGroup = new LxQtTaskGroup("vole",QIcon(), this);
-            LxQtTaskButton* btn = new LxQtTaskButton(wnd);
+            KWindowInfo info(wnd,static_cast<NET::Property>(0xfff),static_cast<NET::Property2>(0xfff));
 
-            if (mEnabledGrouping)
-            {
-                KWindowInfo info(wnd,static_cast<NET::Property>(0xfff),static_cast<NET::Property2>(0xfff));
-                QString cls = info.windowClassClass();
-                LxQtTaskGroup * group = mGroupsHash.value(cls);
-                if (!group)
-                {
-                    group = new LxQtTaskGroup(cls,btn->icon(),mPlugin,this);
-                    mLayout->addWidget(group);
-                    mGroupsHash.insert(cls,group);
-                    //group->setStyle(mStyle);
-                    //group->setToolButtonStyle(mButtonStyle);
-                }
-                btn->setParentGroup(group);
-                group->addButton(btn);
-                group->show();
-            }
+            QString cls = info.windowClassClass();
+            LxQtTaskGroup * group = NULL;
+
+            //if grouping disabled group behaves like old button
+
+            if (mSettings.enabledGrouping)
+                group = mGroupsHash.value(cls);
             else
+                group = mGroupsHash.value(QString("%1").arg(wnd));
+
+
+            if (!group)
             {
-                btn->setParent(this);
-                mLayout->addWidget(btn);
+                group = new LxQtTaskGroup(cls,KWindowSystem::icon(wnd),mPlugin,this);
+                connect(group,SIGNAL(groupBecomeEmpty(QString)),this,SLOT(groupBecomeEmptySlot()));
+
+                mLayout->addWidget(group);
+                if (mSettings.enabledGrouping)
+                    mGroupsHash.insert(cls,group);
+                else
+                    mGroupsHash.insert(QString("%1").arg(wnd),group);
+
+                group->setToolButtonsStyle(mSettings.toolButtonStyle);
+                //group->setStyle(mStyle);
+                //group->setToolButtonStyle(mButtonStyle);
             }
+            //btn->setParentGroup(group);
+            //group->addButton(btn);
+            group->createButton(wnd);
 
             //btn->setStyle(mStyle);
             //btn->setToolButtonStyle(mButtonStyle);
 
-            mButtonsHash.insert(wnd, btn);
+            //mButtonsHash.insert(wnd, btn);
         }
     }
-    refreshButtonVisibility();
+    refreshPlaceholderVisibility();
     mLayout->invalidate();
-    activeWindowChanged();
     realign();
 }
 
@@ -306,31 +272,30 @@ void LxQtTaskBar::refreshTaskList()
  ************************************************/
 void LxQtTaskBar::refreshButtonRotation()
 {
-    bool autoRotate = mAutoRotate && (mButtonStyle != Qt::ToolButtonIconOnly);   
+    bool autoRotate = mSettings.autoRotate && (mSettings.toolButtonStyle != Qt::ToolButtonIconOnly);
 
     ILxQtPanel::Position panelPosition = mPlugin->panel()->position();
-
-    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
-    while (i.hasNext())
+    QHashIterator<QString,LxQtTaskGroup*> j(mGroupsHash);
+    while(j.hasNext())
     {
-        i.next();
-        i.value()->setAutoRotation(autoRotate, panelPosition);
+        j.next();
+        j.value()->setAutoRotation(autoRotate,panelPosition);
     }
 }
 /************************************************
 
  ************************************************/
-
-void LxQtTaskBar::refreshButtonVisibility()
+void LxQtTaskBar::refreshPlaceholderVisibility()
 {
+    // if no visible group button show placeholder widget
+
     bool haveVisibleWindow = false;
-    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
-    while (i.hasNext())
+    QHashIterator<QString, LxQtTaskGroup*> j(mGroupsHash);
+    while(j.hasNext())
     {
-        i.next();
-        bool isVisible = windowOnActiveDesktop(i.key());
-        haveVisibleWindow |= isVisible;
-        i.value()->setVisible(isVisible);
+        j.next();
+        if (j.value()->isVisible())
+            haveVisibleWindow = true;
     }
     mPlaceHolder->setVisible(!haveVisibleWindow);
     if (haveVisibleWindow)
@@ -348,81 +313,12 @@ void LxQtTaskBar::refreshButtonVisibility()
  ************************************************/
 void LxQtTaskBar::refreshIconGeometry()
 {
-    // FIXME: sometimes we get wrong globalPos here, especially
-    // after changing the pos or size of the panel.
-    // this might be caused by bugs in lxqtpanel.cpp.
-    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
+    QHashIterator<QString, LxQtTaskGroup*> i(mGroupsHash);
     while (i.hasNext())
     {
         i.next();
-        LxQtTaskButton* button = i.value();
-        QRect rect = button->geometry();
-        QPoint globalPos = mapToGlobal(button->pos());
-        rect.moveTo(globalPos);
-
-        NETWinInfo info(QX11Info::connection(), button->windowId(),
-                        (WId) QX11Info::appRootWindow(), NET::WMIconGeometry, 0);
-        NETRect nrect;
-        nrect.pos.x = rect.x();
-        nrect.pos.y = rect.y();
-        nrect.size.height = rect.height();
-        nrect.size.width = rect.width();
-        info.setIconGeometry(nrect);
+        i.value()->refreshIconsGeometry();
     }
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskBar::activeWindowChanged(WId window)
-{
-    if (!window)
-        window = KWindowSystem::activeWindow();
-
-    LxQtTaskButton* btn = buttonByWindow(window);
-
-    if (mCheckedBtn != btn)
-    {
-        if (mCheckedBtn)
-            mCheckedBtn->setChecked(false);
-        if (btn)
-        {
-            btn->setChecked(true);
-            if (btn->hasUrgencyHint())
-                btn->setUrgencyHint(false);
-        }
-        mCheckedBtn = btn;
-    }
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
-{
-    LxQtTaskButton* button = buttonByWindow(window);
-    if (!button)
-        return;
-
-    // window changed virtual desktop
-    if (prop.testFlag(NET::WMDesktop))
-    {
-        if (mShowOnlyCurrentDesktopTasks)
-        {
-            int desktop = button->desktopNum();
-            button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
-        }
-    }
-
-    if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
-        button->updateText();
-
-    // FIXME: NET::WMIconGeometry is causing high CPU and memory usage
-    if (prop.testFlag(NET::WMIcon) /*|| prop.testFlag(NET::WMIconGeometry)*/)
-        button->updateIcon();
-
-    if (prop.testFlag(NET::WMState))
-        button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
 }
 
 /************************************************
@@ -430,13 +326,13 @@ void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Propertie
  ************************************************/
 void LxQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
 {
-    mButtonStyle = buttonStyle;
+    mSettings.toolButtonStyle = buttonStyle;
 
-    QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
+    QHashIterator<QString, LxQtTaskGroup*> i(mGroupsHash);
     while (i.hasNext())
     {
         i.next();
-        i.value()->setToolButtonStyle(mButtonStyle);
+        i.value()->setToolButtonsStyle(buttonStyle);
     }
 }
 
@@ -445,7 +341,10 @@ void LxQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
  ************************************************/
 void LxQtTaskBar::settingsChanged()
 {
-    mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
+    bool groupingOld = mSettings.enabledGrouping;
+    bool allDesktops = mSettings.showOnlyCurrentDesktopTasks;
+
+    mSettings.buttonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
     QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
 
     if (s == "ICON")
@@ -455,9 +354,30 @@ void LxQtTaskBar::settingsChanged()
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
-    mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
-    mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
+    mSettings.showOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", false).toBool();
+    mSettings.autoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
+    mSettings.closeOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
+    mSettings.enabledGrouping = mPlugin->settings()->value("groupingEnabled",true).toBool();
+
+
+    //delete all groups if grouping feature toggled and start over
+    if (groupingOld != mSettings.enabledGrouping)
+    {
+        foreach(LxQtTaskGroup * group, mGroupsHash)
+        {
+            mLayout->removeWidget(group);
+            delete group;
+        }
+        mGroupsHash.clear();
+    }
+
+    if (allDesktops != mSettings.showOnlyCurrentDesktopTasks)
+    {
+        foreach (LxQtTaskGroup * group, mGroupsHash)
+        {
+            group->showOnAllDesktopSettingChanged();
+        }
+    }
 
     refreshTaskList();
 }
@@ -468,7 +388,6 @@ void LxQtTaskBar::settingsChanged()
 void LxQtTaskBar::realign()
 {
     mLayout->setEnabled(false);
-
     refreshButtonRotation();
 
     ILxQtPanel *panel = mPlugin->panel();
@@ -476,9 +395,10 @@ void LxQtTaskBar::realign()
     QSize minSize = QSize(0, 0);
 
     bool rotated = false;
+
     if (panel->isHorizontal())
     {
-        if (mButtonStyle == Qt::ToolButtonIconOnly)
+        if (mSettings.toolButtonStyle == Qt::ToolButtonIconOnly)
         {
             // Horizontal + Icons **************
             mLayout->setRowCount(panel->lineCount());
@@ -489,7 +409,7 @@ void LxQtTaskBar::realign()
             minSize.rwidth()  = 0;
 
             maxSize.rheight() = QWIDGETSIZE_MAX;
-            maxSize.rwidth()  = mButtonWidth;
+            maxSize.rwidth()  = mSettings.buttonWidth;
         }
         else
         {
@@ -502,12 +422,12 @@ void LxQtTaskBar::realign()
             minSize.rwidth()  = 0;
 
             maxSize.rheight() = QWIDGETSIZE_MAX;
-            maxSize.rwidth()  = mButtonWidth;
+            maxSize.rwidth()  = mSettings.buttonWidth;
         }
     }
     else
     {
-        if (mButtonStyle == Qt::ToolButtonIconOnly)
+        if (mSettings.toolButtonStyle == Qt::ToolButtonIconOnly)
         {
             // Vertical + Icons ****************
             mLayout->setRowCount(0);
@@ -523,7 +443,7 @@ void LxQtTaskBar::realign()
         }
         else
         {
-            if (mAutoRotate)
+            if (mSettings.autoRotate)
             {
                 switch (panel->position())
                 {
@@ -546,7 +466,7 @@ void LxQtTaskBar::realign()
                 minSize.rheight() = 0;
                 minSize.rwidth()  = 0;
 
-                maxSize.rheight() = mButtonWidth;
+                maxSize.rheight() = mSettings.buttonWidth;
                 maxSize.rwidth()  = QWIDGETSIZE_MAX;
             }
             else
@@ -556,7 +476,7 @@ void LxQtTaskBar::realign()
                 mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
 
                 minSize.rheight() = 0;
-                minSize.rwidth()  = mButtonWidth;
+                minSize.rwidth()  = mSettings.buttonWidth;
 
                 maxSize.rheight() = QWIDGETSIZE_MAX;
                 maxSize.rwidth()  = QWIDGETSIZE_MAX;
@@ -567,8 +487,12 @@ void LxQtTaskBar::realign()
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
 
+
     mLayout->setDirection(rotated ? LxQt::GridLayout::TopToBottom : LxQt::GridLayout::LeftToRight);
+
+
     mLayout->setEnabled(true);
+
     refreshIconGeometry();
 }
 
@@ -578,23 +502,7 @@ void LxQtTaskBar::realign()
 
 void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
 {
-    // close the app on mouse middle click
-    if (mCloseOnMiddleClick && event->button() == Qt::MidButton)
-    {
-        // find the button at current cursor pos
-        QHashIterator<WId, LxQtTaskButton*> i(mButtonsHash);
-        while (i.hasNext())
-        {
-            i.next();
-            LxQtTaskButton* btn = i.value();
-            if (btn->geometry().contains(event->pos()) &&
-                (!mShowOnlyCurrentDesktopTasks || KWindowSystem::currentDesktop() == KWindowInfo(i.key(), NET::WMDesktop).desktop()))
-            {
-                btn->closeApplication();
-                break;
-            }
-        }
-    }
+
     QFrame::mousePressEvent(event);
 }
 
@@ -603,26 +511,40 @@ void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
  ************************************************/
 void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 {
-    if (!mCheckedBtn)
-        return;
-
-    int current = mLayout->indexOf(mCheckedBtn);
-    if (current == -1)
-        return;
-
     int delta = event->delta() < 0 ? 1 : -1;
-    for (int ix = current + delta; 0 <= ix && ix < mLayout->count(); ix += delta)
+
+    // create temporary list of visible groups in the same order like on the layout
+    QList<LxQtTaskGroup *>list;
+    LxQtTaskGroup * group = NULL;
+    for (int i = 0 ; i < mLayout->count(); i++)
     {
-        QLayoutItem *item = mLayout->itemAt(ix);
-        if (!item)
+        QWidget * o = mLayout->itemAt(i)->widget();
+        LxQtTaskGroup * g = qobject_cast<LxQtTaskGroup *>(o);
+        if (!g)
             continue;
 
-        WId window = ((LxQtTaskButton *) item->widget())->windowId();
-        if (acceptWindow(window) && windowOnActiveDesktop(window))
-        {
-            KWindowSystem::activateWindow(window);
-            break;
-        }
+        if (g->isVisible())
+            list.append(g);
+        if (g->isChecked())
+            group = g;
+    }
+
+    if (list.isEmpty())
+        return;
+
+    if (!group)
+        group = list.at(0);
+
+    bool ok = false;
+    int i = 100;
+
+    //switching between groups from temporary list in modulo addressing
+    while (!ok && i--)
+    {
+        ok = group->checkNextPrevChild(delta, !(list.count() - 1));
+        int idx = (list.indexOf(group) + delta) + list.count();
+        idx %= list.count();
+        group = list.at(idx);
     }
 }
 

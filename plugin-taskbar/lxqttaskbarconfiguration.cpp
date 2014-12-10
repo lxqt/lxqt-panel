@@ -57,6 +57,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->groupCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -78,6 +79,8 @@ void LxQtTaskbarConfiguration::loadSettings()
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
+    ui->groupCB->setChecked(mSettings.value("groupingEnabled",true).toBool());
+
     updateControls(ui->buttonStyleCB->currentIndex());
 
     /* Keep buttonWidth loading at the end of this method to prevent errors */
@@ -91,6 +94,7 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
+    mSettings.setValue("groupingEnabled",ui->groupCB->isChecked());
 }
 
 void LxQtTaskbarConfiguration::updateControls(int index)

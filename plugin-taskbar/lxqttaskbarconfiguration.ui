@@ -40,6 +40,13 @@
         </attribute>
        </widget>
       </item>
+      <item>
+       <widget class="QCheckBox" name="groupCB">
+        <property name="text">
+         <string>Group buttons</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

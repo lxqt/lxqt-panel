@@ -35,11 +35,13 @@
 #include <QToolButton>
 #include <QProxyStyle>
 #include "../panel/ilxqtpanel.h"
+//#include "lxqttaskbar.h"
 
 class QPainter;
 class QPalette;
 class QMimeData;
 class LxQtTaskGroup;
+class LxQtTaskBar;
 
 class ElidedButtonStyle: public QProxyStyle
 {
@@ -59,7 +61,7 @@ class LxQtTaskButton : public QToolButton
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LxQtTaskButton(const WId window, QWidget *parent = 0);
+    explicit LxQtTaskButton(const WId window,LxQtTaskBar * taskBar ,QWidget *parent = 0);
     virtual ~LxQtTaskButton();
 
     bool isAppHidden() const;
@@ -74,10 +76,13 @@ public:
     void updateIcon();
 
     Qt::Corner origin() const;
-    void setAutoRotation(bool value, ILxQtPanel::Position position);
+    virtual void setAutoRotation(bool value, ILxQtPanel::Position position);
 
     LxQtTaskGroup * parentGroup(void) const {return mParentGroup;}
     void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
+    LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
+
+    void refreshIconGeometry(int size);
 
 
 public slots:
@@ -105,6 +110,8 @@ protected:
     void setWindowId(WId wid) {mWindow = wid;}
     virtual void arbitraryMimeData(QMimeData * mimedata);
 
+
+
 private:
     WId mWindow;
     bool mUrgencyHint;
@@ -114,6 +121,8 @@ private:
     QPixmap mPixmap;
     bool mDrawPixmap;
     LxQtTaskGroup * mParentGroup;
+    LxQtTaskBar * mParentTaskBar;
+
 
 
 private slots:

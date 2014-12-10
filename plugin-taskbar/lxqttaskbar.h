@@ -43,6 +43,7 @@
 #include <KF5/KWindowSystem/NETWM>
 
 #include "lxqttaskgroup.h"
+//#include "lxqttaskbutton.h"
 
 class LxQtTaskButton;
 class ElidedButtonStyle;
@@ -63,9 +64,19 @@ public:
     virtual void settingsChanged();
     void realign();
 
+    typedef struct
+    {
+        bool closeOnMiddleClick;
+        bool showOnlyCurrentDesktopTasks;
+        bool autoRotate;
+        bool enabledGrouping;
+        int buttonWidth;
+        Qt::ToolButtonStyle toolButtonStyle;
+    } settings_t;
+
+    const settings_t & settings() const {return mSettings;}
+
 public slots:
-    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
-    void activeWindowChanged(WId window = 0);
     void refreshIconGeometry();
 
 protected:
@@ -75,21 +86,15 @@ protected:
 private slots:
     void refreshTaskList();
     void refreshButtonRotation();
-    void refreshButtonVisibility();
+    void refreshPlaceholderVisibility();
+    void groupBecomeEmptySlot();
 
 private:
-    QHash<WId, LxQtTaskButton*> mButtonsHash;
     QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
-    Qt::ToolButtonStyle mButtonStyle;
-    int mButtonWidth;
-    LxQtTaskButton* mCheckedBtn;
-    bool mCloseOnMiddleClick;
-    bool mShowOnlyCurrentDesktopTasks;
-    bool mAutoRotate;
-    bool mEnabledGrouping;
+    settings_t mSettings;
+    LxQtTaskGroup * mCheckedGroup;
 
-    LxQtTaskButton* buttonByWindow(WId window) const;
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
