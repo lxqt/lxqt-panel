@@ -13,7 +13,7 @@
 LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):
     LxQtTaskButton(0,parent,parent),
     mGroupName(groupName),
-    mFrame(new LxQtLooseFocusFrame(this)),
+    mFrame(new LxQtLooseFocusFrame(mButtonHash,this)),
     mLayout(new QVBoxLayout(mFrame)),
     mPlugin(plugin),
     mTimer(new QTimer(this))
@@ -78,6 +78,7 @@ LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
     mLayout->addWidget(btn);
 
     connect(btn,SIGNAL(clicked()),this,SLOT(onChildButtonClicked()));
+    connect(btn,SIGNAL(dropped(QPoint,QDropEvent*)),mFrame,SLOT(buttonDropped(QPoint,QDropEvent*)));
 
     refreshVisibility();
     regroup();
@@ -453,6 +454,19 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
     timerEnable(false);
 }
 
+void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
+{
+    timerEnable(false);
+
+    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+        raisePopup(false);
+}
+
+void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
+{
+
+}
+
 void LxQtTaskGroup::mouseFrameChanged(bool left)
 {
     timerEnable(left);
@@ -474,6 +488,11 @@ void LxQtTaskGroup::timerEnable(bool enable)
 void LxQtTaskGroup::timeoutClose()
 {
     raisePopup(false);
+
+    if (!mButtonHash.contains(KWindowSystem::activeWindow()))
+    {
+        setChecked(false);
+    }
 }
 
 /************************************************
@@ -506,36 +525,25 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
 
     if (prop.testFlag(NET::WMState))
         button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
+
 }
 
 /************************************************
 
  ************************************************/
-LxQtLooseFocusFrame::LxQtLooseFocusFrame(QWidget *parent):
-    QDialog(parent)
+LxQtLooseFocusFrame::LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & buttons,QWidget *parent):
+    QDialog(parent),
+    mButtonHash(buttons)
 {
     //setWindowFlags( Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
     setWindowFlags(  Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::ToolTip);
 //    mFrame->setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
     //setMouseTracking(true);
+    setAcceptDrops(true);
 }
 LxQtLooseFocusFrame::~LxQtLooseFocusFrame()
 {
-}
-
-void LxQtLooseFocusFrame::showEvent(QShowEvent *event)
-{
-    setFocus();
-    //activateWindow();
-
-    QDialog::showEvent(event);
-}
-
-void LxQtLooseFocusFrame::focusOutEvent(QFocusEvent *event)
-{
-    emit focusLost();
-    QDialog::focusOutEvent(event);
 }
 
 void LxQtLooseFocusFrame::enterEvent(QEvent *event)
@@ -559,6 +567,76 @@ void LxQtLooseFocusFrame::leaveEvent(QEvent *event)
 
     QDialog::leaveEvent(event);
 }
+
+void LxQtLooseFocusFrame::dropEvent(QDropEvent *event)
+{
+    buttonDropped(event->pos(),event);
+}
+
+void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    {
+        event->ignore();
+        return;
+    }
+    if (mButtonHash.count() == 1)
+    {
+        event->ignore();
+        return;
+    }
+
+    event->acceptProposedAction();
+
+    //LxQtTaskButton::dragEnterEvent(event);
+    QWidget::dragEnterEvent(event);
+}
+
+void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
+{
+    WId window;
+    QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
+    stream >> window;
+    if (!mButtonHash.contains(window))
+    {
+        return;
+    }
+
+    LxQtTaskButton * dragged = mButtonHash.value(window);
+    int droppedIndex = layout()->indexOf(dragged);
+    int newIdx = -1;
+    int temp;
+
+    int oldTreshold = 0;
+    for (int i = 0 ; i < layout()->count(); i++)
+    {
+        QWidget * w = layout()->itemAt(i)->widget();
+        LxQtTaskButton * b = qobject_cast<LxQtTaskButton*>(w);
+        if (b && w->isVisibleTo(this))
+        {
+            int treshold = b->pos().y() + b->height() ;
+            if (oldTreshold <= point.y() && point.y() < treshold)
+            {
+                newIdx = i;
+                break;
+            }
+            temp = i;
+            oldTreshold = treshold;
+        }
+    }
+
+    /*
+    if (newIdx == -1)
+        newIdx = temp+ 1;
+        */
+
+    QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
+    l->insertWidget(newIdx,dragged);
+}
+
+
+
+
 
 
 

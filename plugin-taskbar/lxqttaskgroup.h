@@ -38,7 +38,8 @@ protected:
 
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
-
+    void dragEnterEvent(QDragEnterEvent * event);
+    void dragLeaveEvent(QDragLeaveEvent * event);
 
 private slots:
     void onClicked(bool checked);
@@ -53,6 +54,7 @@ private slots:
     void timeoutClose(void);
 
 
+
 signals:
     void groupBecomeEmpty(QString name);
 
@@ -60,7 +62,7 @@ private:
 
 
     QString mGroupName;
-    QDialog * mFrame;
+    LxQtLooseFocusFrame * mFrame;
     LxQtTaskButtonHash mButtonHash;
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
@@ -75,22 +77,28 @@ private:
 
 };
 
+class QFrame;
 class LxQtLooseFocusFrame: public QDialog
 {
     Q_OBJECT
 public:
-    LxQtLooseFocusFrame(QWidget * parent = NULL);
+    LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & buttons, QWidget * parent = NULL);
     ~LxQtLooseFocusFrame();
 
 protected:
-    void focusOutEvent(QFocusEvent * event);
-    void showEvent(QShowEvent * event);
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
+    void dragEnterEvent(QDragEnterEvent * event);
+    void dropEvent(QDropEvent * event);
 
 signals:
-    void focusLost(void);
     void mouseLeft(bool);
+
+private:
+    const QHash<WId, LxQtTaskButton *> & mButtonHash;
+
+private slots:
+    void buttonDropped(const QPoint & point, QDropEvent* event);
 };
 
 #endif // LXQTTASKGROUP_H

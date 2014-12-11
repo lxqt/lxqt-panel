@@ -72,7 +72,8 @@ LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *
     QToolButton(parent),
     mWindow(window),
     mDrawPixmap(false),
-    mParentTaskBar(taskbar)
+    mParentTaskBar(taskbar),
+    mTimer(new QTimer(this))
 {
     Q_ASSERT(taskbar);
 
@@ -87,6 +88,9 @@ LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *
     updateText();
     updateIcon();
 
+    mTimer->setSingleShot(true);
+    mTimer->setInterval(800);
+    connect(mTimer,SIGNAL(timeout()),this,SLOT(activateWithDraggable()));
 }
 
 /************************************************
@@ -154,7 +158,13 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
     }
 
     mDraggableMimeData = event->mimeData();
-    QTimer::singleShot(1000, this, SLOT(activateWithDraggable()));
+    mTimer->start();
+
+    //it must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
+    //on the other hand drop and dragmove event of parent widget won't be called
+    event->acceptProposedAction();
+
+    QToolButton::dragEnterEvent(event);
 }
 
 /************************************************
@@ -163,6 +173,20 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     mDraggableMimeData = NULL;
+    mTimer->stop();
+    event->ignore();;
+
+    QToolButton::dragLeaveEvent(event);
+}
+
+void LxQtTaskButton::dropEvent(QDropEvent *event)
+{
+    mDraggableMimeData = NULL;
+    mTimer->stop();
+    event->ignore();
+
+    emit dropped(mapToParent(event->pos()),event);
+    QToolButton::dropEvent(event);
 }
 
 /************************************************
@@ -205,7 +229,7 @@ void LxQtTaskButton::arbitraryMimeData(QMimeData *mimedata)
 {
     QByteArray byteArray;
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
-    qDebug() << QString("Dragging window: %1").arg(mWindow);
+    //qDebug() << QString("Dragging window: %1").arg(mWindow);
     stream << (qlonglong) mWindow;
     mimedata->setData("lxqt/lxqttaskbutton", byteArray);
 }
@@ -227,7 +251,8 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);
     QPixmap pixmap = grab();
-    drag->setPixmap(pixmap);
+    //drag->setPixmap(pixmap);
+
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
     drag->exec();
 

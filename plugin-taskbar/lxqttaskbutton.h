@@ -99,8 +99,9 @@ public slots:
     void setOrigin(Qt::Corner);
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
     void dragLeaveEvent(QDragLeaveEvent *event);
+    void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -109,8 +110,6 @@ protected:
 
     void setWindowId(WId wid) {mWindow = wid;}
     virtual void arbitraryMimeData(QMimeData * mimedata);
-
-
 
 private:
     WId mWindow;
@@ -122,8 +121,11 @@ private:
     bool mDrawPixmap;
     LxQtTaskGroup * mParentGroup;
     LxQtTaskBar * mParentTaskBar;
+    QTimer * mTimer;
 
 
+signals:
+    void dropped(const QPoint & point, QDropEvent * event);
 
 private slots:
     void activateWithDraggable();
