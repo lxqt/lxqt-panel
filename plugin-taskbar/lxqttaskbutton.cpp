@@ -90,7 +90,7 @@ LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *
 
     mTimer->setSingleShot(true);
     mTimer->setInterval(800);
-    connect(mTimer,SIGNAL(timeout()),this,SLOT(activateWithDraggable()));
+    connect(mTimer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
 }
 
 /************************************************
@@ -151,17 +151,16 @@ void LxQtTaskButton::refreshIconGeometry(int size)
  ************************************************/
 void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton") )
+    if (!event->mimeData()->hasFormat(acceptMimeData()) )
     {
         event->ignore();
         return;
     }
 
-    mDraggableMimeData = event->mimeData();
     mTimer->start();
 
     //it must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
-    //on the other hand drop and dragmove event of parent widget won't be called
+    //on the other hand drop and dragmove events of parent widget won't be called
     event->acceptProposedAction();
 
     QToolButton::dragEnterEvent(event);
@@ -172,7 +171,6 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
  ************************************************/
 void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    mDraggableMimeData = NULL;
     mTimer->stop();
     event->ignore();;
 
@@ -181,7 +179,6 @@ void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 
 void LxQtTaskButton::dropEvent(QDropEvent *event)
 {
-    mDraggableMimeData = NULL;
     mTimer->stop();
     event->ignore();
 
@@ -251,7 +248,9 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);
     QPixmap pixmap = grab();
-    //drag->setPixmap(pixmap);
+
+    //fixme when vertical panel, pixmap is empty
+    drag->setPixmap(pixmap);
 
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
     drag->exec();
@@ -281,9 +280,6 @@ bool LxQtTaskButton::isApplicationActive() const
  ************************************************/
 void LxQtTaskButton::activateWithDraggable()
 {
-    if (!mDraggableMimeData)
-        return;
-
     // raise app in any time when there is a drag
     // in progress to allow drop it into an app
     raiseApplication();

@@ -84,7 +84,6 @@ public:
 
     void refreshIconGeometry(int size);
 
-
 public slots:
     void raiseApplication();
     void minimizeApplication();
@@ -100,8 +99,8 @@ public slots:
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);
-    void dragLeaveEvent(QDragLeaveEvent *event);
-    void dropEvent(QDropEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -110,11 +109,13 @@ protected:
 
     void setWindowId(WId wid) {mWindow = wid;}
     virtual void arbitraryMimeData(QMimeData * mimedata);
+    virtual void draggingTimerTimeout() {activateWithDraggable();}
+    virtual QString acceptMimeData() const {return QString("lxqt/lxqttaskbutton");}
 
 private:
     WId mWindow;
     bool mUrgencyHint;
-    const QMimeData *mDraggableMimeData;
+    //const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
     Qt::Corner mOrigin;
     QPixmap mPixmap;
@@ -123,12 +124,13 @@ private:
     LxQtTaskBar * mParentTaskBar;
     QTimer * mTimer;
 
-
+    void activateWithDraggable();
 signals:
     void dropped(const QPoint & point, QDropEvent * event);
 
 private slots:
-    void activateWithDraggable();
+    void timerTimeout() {draggingTimerTimeout();}
+
 };
 
 typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;

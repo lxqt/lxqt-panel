@@ -160,10 +160,17 @@ void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
     QWidget::dragEnterEvent(event);
 }
 
-/************************************************
+int LxQtTaskBar::dropValue(int idx)
+{
+    QWidget * w = mLayout->itemAt(idx)->widget();
 
- ************************************************/
-void LxQtTaskBar::dropEvent(QDropEvent* event)
+    if (mPlugin->panel()->isHorizontal())
+        return w->x() + w->width() / 2;
+    else
+        return w->y() + w->height() / 2;
+}
+
+void LxQtTaskBar::groupDroppedSlot(const QPoint &point, QDropEvent *event)
 {
     int droppedIndex;
     if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
@@ -176,13 +183,16 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
     }
 
     int newPos = -1;
+    int p;
+    mPlugin->panel()->isHorizontal() ? p = point.x() : p = point.y();
+
     const int size = mLayout->count();
     for (int i = 0; i < droppedIndex && newPos == -1; i++)
-        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 > event->pos().x())
+        if (dropValue(i) > p)
             newPos = i;
 
     for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
-        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 < event->pos().x())
+        if (dropValue(i) < p)
             newPos = i;
 
     if (newPos == -1 || droppedIndex == newPos)
@@ -192,7 +202,14 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
 
     mLayout->moveItem(droppedIndex, newPos);
     mLayout->invalidate();
+}
 
+/************************************************
+
+ ************************************************/
+void LxQtTaskBar::dropEvent(QDropEvent* event)
+{
+    groupDroppedSlot(event->pos(),event);
     QWidget::dropEvent(event);
 }
 
@@ -208,6 +225,15 @@ void LxQtTaskBar::groupBecomeEmptySlot()
 
     mGroupsHash.remove(group->groupName());
     delete group;
+}
+
+void LxQtTaskBar::groupClickedSlot()
+{
+    foreach (LxQtTaskGroup * group, mGroupsHash)
+    {
+        if (group != sender())
+            group->hidePopup();
+    }
 }
 
 /************************************************
@@ -241,6 +267,8 @@ void LxQtTaskBar::refreshTaskList()
             {
                 group = new LxQtTaskGroup(cls,KWindowSystem::icon(wnd),mPlugin,this);
                 connect(group,SIGNAL(groupBecomeEmpty(QString)),this,SLOT(groupBecomeEmptySlot()));
+                connect(group,SIGNAL(dropped(QPoint,QDropEvent*)),this,SLOT(groupDroppedSlot(QPoint,QDropEvent*)));
+                connect(group,SIGNAL(clicked()),this,SLOT(groupClickedSlot()));
 
                 mLayout->addWidget(group);
                 if (mSettings.enabledGrouping)

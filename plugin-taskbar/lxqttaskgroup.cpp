@@ -9,6 +9,7 @@
 #include <QFocusEvent>
 #include "lxqttaskbar.h"
 #include <QTimer>
+#include <QDragLeaveEvent>
 
 LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):
     LxQtTaskButton(0,parent,parent),
@@ -46,9 +47,10 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
             SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
 
-    connect(mFrame,SIGNAL(focusLost()),this,SLOT(frameFocusLost()));
     connect(mFrame,SIGNAL(mouseLeft(bool)),this,SLOT(mouseFrameChanged(bool)));
 
+    mTimer->setSingleShot(true);
+    mTimer->setInterval(500);
     connect(mTimer,SIGNAL(timeout()),this,SLOT(timeoutClose()));
 
     setObjectName(groupName);
@@ -183,11 +185,6 @@ void LxQtTaskGroup::onChildButtonClicked()
     raisePopup(false);
 }
 
-void LxQtTaskGroup::frameFocusLost()
-{
-    onClicked(false);
-}
-
 /************************************************
 
  ************************************************/
@@ -258,6 +255,18 @@ int LxQtTaskGroup::visibleButtonsCount(LxQtTaskButton ** first) const
     return i;
 }
 
+void LxQtTaskGroup::draggingTimerTimeout()
+{
+    if (!windowId())
+    {
+        raisePopup(true);
+    }
+    else
+    {
+        raiseApplication();
+    }
+}
+
 /************************************************
 
  ************************************************/
@@ -316,10 +325,12 @@ void LxQtTaskGroup::showOnAllDesktopSettingChanged()
 
 void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
 {
+    /*
     foreach (LxQtTaskButton * button, mButtonHash)
     {
-        button->setAutoRotation(value,position);
+        //button->setAutoRotation(value,position);
     }
+    */
     LxQtTaskButton::setAutoRotation(value,position);
 }
 
@@ -351,24 +362,13 @@ void LxQtTaskGroup::refreshVisibility()
  ************************************************/
 void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
 {
-    raisePopup(false);
-    if (!mButtonHash.contains(KWindowSystem::activeWindow()))
-    {
-         setChecked(false);
-    }
-
     QByteArray byteArray;
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
     qDebug() << QString("Dragging group button: %1").arg(groupName());
     stream << groupName();
     mimedata->setData("lxqt/lxqttaskgroup", byteArray);
 
-    if (winId())
-    {
-        byteArray.clear();
-        stream << winId();
-        mimedata->setData("lxqt/lxqttaskgroupsinglebutton",byteArray);
-    }
+    mMimeData = mimedata;
 }
 
 /************************************************
@@ -444,39 +444,69 @@ void LxQtTaskGroup::recalculateFrameHeight()
     mFrame->resize(mFrame->width(),mFrame->maximumHeight());
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::leaveEvent(QEvent *event)
 {
     timerEnable(true);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::enterEvent(QEvent *event)
 {
     timerEnable(false);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
     timerEnable(false);
 
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
-        raisePopup(false);
+    bool vis = parentTaskBar()->property("groupvisible").toBool();
+
+    if (!(event->mimeData() == mMimeData))
+    {
+        if (!windowId())  raisePopup(vis);
+    }
+    else if (vis)
+    {
+        if (!windowId())  raisePopup(true);
+    }
+
+
+    LxQtTaskButton::dragEnterEvent(event);
 }
 
-void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
+/************************************************
+
+ ************************************************/
+void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent * event)
 {
-
+    parentTaskBar()->setProperty("groupvisible",mFrame->isVisible());
+    raisePopup(false);
+    LxQtTaskButton::dragLeaveEvent(event);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::mouseFrameChanged(bool left)
 {
     timerEnable(left);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::timerEnable(bool enable)
 {
     if (enable)
     {
-        mTimer->setInterval(1000);
         mTimer->start();
     }
     else
@@ -485,9 +515,13 @@ void LxQtTaskGroup::timerEnable(bool enable)
     }
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::timeoutClose()
 {
     raisePopup(false);
+    parentTaskBar()->setProperty("groupvisible",false);
 
     if (!mButtonHash.contains(KWindowSystem::activeWindow()))
     {
@@ -531,6 +565,11 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
 /************************************************
 
  ************************************************/
+
+
+/************************************************
+
+ ************************************************/
 LxQtLooseFocusFrame::LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & buttons,QWidget *parent):
     QDialog(parent),
     mButtonHash(buttons)
@@ -542,10 +581,16 @@ LxQtLooseFocusFrame::LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & but
     //setMouseTracking(true);
     setAcceptDrops(true);
 }
+/************************************************
+
+ ************************************************/
 LxQtLooseFocusFrame::~LxQtLooseFocusFrame()
 {
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtLooseFocusFrame::enterEvent(QEvent *event)
 {
     QEvent::Type t = event->type();
@@ -557,6 +602,9 @@ void LxQtLooseFocusFrame::enterEvent(QEvent *event)
     QDialog::enterEvent(event);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtLooseFocusFrame::leaveEvent(QEvent *event)
 {
     QEvent::Type t = event->type();
@@ -568,11 +616,17 @@ void LxQtLooseFocusFrame::leaveEvent(QEvent *event)
     QDialog::leaveEvent(event);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtLooseFocusFrame::dropEvent(QDropEvent *event)
 {
     buttonDropped(event->pos(),event);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
 {
     if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
@@ -592,6 +646,9 @@ void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
     QWidget::dragEnterEvent(event);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
 {
     WId window;

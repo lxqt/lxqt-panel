@@ -88,6 +88,8 @@ private slots:
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
+    void groupDroppedSlot(const QPoint & point, QDropEvent * event);
+    void groupClickedSlot();
 
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;
@@ -98,11 +100,13 @@ private:
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
+    int dropValue(int idx);
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
     void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent *event);
+
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;

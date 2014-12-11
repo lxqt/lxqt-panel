@@ -31,6 +31,8 @@ public:
     void showOnAllDesktopSettingChanged();
     void setAutoRotation(bool value, ILxQtPanel::Position position);
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
+    void hidePopup(void) {raisePopup(false);}
+    void showPopup(void) {raisePopup(true);}
 
 
 protected:
@@ -40,6 +42,8 @@ protected:
     void enterEvent(QEvent * event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dragLeaveEvent(QDragLeaveEvent * event);
+    QString acceptMimeData() const {return QString("lxqt/lxqttaskgroup");}
+    void draggingTimerTimeout();
 
 private slots:
     void onClicked(bool checked);
@@ -49,11 +53,8 @@ private slots:
     void onDesktopChanged(int number);
     void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
-    void frameFocusLost();
     void mouseFrameChanged(bool left);
     void timeoutClose(void);
-
-
 
 signals:
     void groupBecomeEmpty(QString name);
@@ -67,6 +68,7 @@ private:
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
     QTimer * mTimer;
+    const QMimeData * mMimeData;
 
     void raisePopup(bool raise);
     void recalculateFrameHeight();
