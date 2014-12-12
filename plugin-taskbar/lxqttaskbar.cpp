@@ -61,6 +61,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder(new QWidget(this)),
     mStyle(new ElidedButtonStyle())
 {
+
     mSettings.autoRotate = true;
     mSettings.buttonWidth = 400;
     mSettings.closeOnMiddleClick = true;
@@ -84,6 +85,8 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
     connect(KWindowSystem::self(),SIGNAL(currentDesktopChanged(int)),this,SLOT(refreshPlaceholderVisibility()));
+
+
 }
 
 /************************************************
@@ -277,17 +280,8 @@ void LxQtTaskBar::refreshTaskList()
                     mGroupsHash.insert(QString("%1").arg(wnd),group);
 
                 group->setToolButtonsStyle(mSettings.toolButtonStyle);
-                //group->setStyle(mStyle);
-                //group->setToolButtonStyle(mButtonStyle);
             }
-            //btn->setParentGroup(group);
-            //group->addButton(btn);
             group->createButton(wnd);
-
-            //btn->setStyle(mStyle);
-            //btn->setToolButtonStyle(mButtonStyle);
-
-            //mButtonsHash.insert(wnd, btn);
         }
     }
     refreshPlaceholderVisibility();
@@ -569,7 +563,7 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
     //switching between groups from temporary list in modulo addressing
     while (!ok && i--)
     {
-        ok = group->checkNextPrevChild(delta, !(list.count() - 1));
+        ok = group->checkNextPrevChild(delta == 1 ? true : false, !(list.count() - 1));
         int idx = (list.indexOf(group) + delta) + list.count();
         idx %= list.count();
         group = list.at(idx);

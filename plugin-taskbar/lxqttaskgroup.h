@@ -55,6 +55,7 @@ private slots:
 
     void mouseFrameChanged(bool left);
     void timeoutClose(void);
+    void timeoutRaise(void);
 
 signals:
     void groupBecomeEmpty(QString name);
@@ -68,6 +69,7 @@ private:
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
     QTimer * mTimer;
+    QTimer * mShowTimer;
     const QMimeData * mMimeData;
 
     void raisePopup(bool raise);

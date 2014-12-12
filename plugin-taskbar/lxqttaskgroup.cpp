@@ -17,7 +17,8 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     mFrame(new LxQtLooseFocusFrame(mButtonHash,this)),
     mLayout(new QVBoxLayout(mFrame)),
     mPlugin(plugin),
-    mTimer(new QTimer(this))
+    mTimer(new QTimer(this)),
+    mShowTimer(new QTimer(this))
 {
     Q_ASSERT(parent);
 
@@ -26,16 +27,6 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
 
     mFrame->setLayout(mLayout);
     mFrame->setHidden(true);
-
-
-
-    //mFrame->setAttribute(Qt::WA_TranslucentBackground);
-
-
-    //mFrame->setStyle(parentWidget()->style());
-    //QFrame * p = qobject_cast<QFrame*>(parentWidget());
-    //mFrame->setFrameStyle(p->frameStyle());
-
 
     mLayout->setSpacing(5);
     mLayout->setMargin(5);
@@ -50,13 +41,29 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     connect(mFrame,SIGNAL(mouseLeft(bool)),this,SLOT(mouseFrameChanged(bool)));
 
     mTimer->setSingleShot(true);
-    mTimer->setInterval(500);
+    mTimer->setInterval(200);
     connect(mTimer,SIGNAL(timeout()),this,SLOT(timeoutClose()));
+
+    mShowTimer->setSingleShot(true);
+    mShowTimer->setInterval(400);
+    //connect(mShowTimer,SIGNAL(timeout()),this,SLOT(timeoutRaise()));
 
     setObjectName(groupName);
 }
 
 
+void LxQtTaskGroup::timeoutRaise()
+{
+    if (toolButtonStyle() == Qt::ToolButtonIconOnly)
+    {
+        raisePopup(true);
+    }
+    else
+    {
+        if (!windowId())
+            raisePopup(true);
+    }
+}
 
 /************************************************
 
@@ -113,7 +120,21 @@ bool LxQtTaskGroup::checkNextPrevChild(bool next,bool modulo)
     idx += inc;
 
     if (!checkedButton())
-        idx = 0;
+    {
+        if (next)
+        {
+            idx = 0;
+        }
+        else
+        {
+            for(int i = mLayout->count() - 1; i >= 0; i--)
+                if(mLayout->itemAt(i)->widget()->isVisibleTo(mFrame))
+                {
+                    idx = i;
+                    break;
+                }
+        }
+    }
 
     while(true)
     {
@@ -275,14 +296,13 @@ void LxQtTaskGroup::onClicked(bool checked)
     if (visibleButtonsCount() > 1)
     {
         setChecked(true);
-        if (mFrame->isVisible())
+        if (mFrame->isVisible()  )
         {
             raisePopup(false);
             if (!mButtonHash.contains(KWindowSystem::activeWindow()))
                 setChecked(false);
             return;
         }
-
         raisePopup(true);
     }
 }
@@ -436,6 +456,9 @@ void LxQtTaskGroup::recalculateFrameHeight()
     if (horizontal)
         h = geometry.height();
 
+    if (!horizontal && !parentTaskBar()->settings().autoRotate)
+        h = height();
+
     h /= mPlugin->panel()->lineCount();
 
     int cont = visibleButtonsCount();
@@ -450,6 +473,7 @@ void LxQtTaskGroup::recalculateFrameHeight()
 void LxQtTaskGroup::leaveEvent(QEvent *event)
 {
     timerEnable(true);
+    mShowTimer->stop();
 }
 
 /************************************************
@@ -458,6 +482,7 @@ void LxQtTaskGroup::leaveEvent(QEvent *event)
 void LxQtTaskGroup::enterEvent(QEvent *event)
 {
     timerEnable(false);
+    mShowTimer->start();
 }
 
 /************************************************
@@ -471,11 +496,11 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 
     if (!(event->mimeData() == mMimeData))
     {
-        if (!windowId())  raisePopup(vis);
+        raisePopup(vis);
     }
     else if (vis)
     {
-        if (!windowId())  raisePopup(true);
+        raisePopup(true);
     }
 
 
