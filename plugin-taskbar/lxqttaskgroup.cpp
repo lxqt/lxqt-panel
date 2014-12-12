@@ -304,6 +304,7 @@ void LxQtTaskGroup::onClicked(bool checked)
             return;
         }
         raisePopup(true);
+        timerEnable(false);
     }
 }
 
@@ -414,7 +415,7 @@ void LxQtTaskGroup::raisePopup(bool raise)
         switch (mPlugin->panel()->position())
         {
         case ILxQtPanel::PositionBottom:
-            y_offset = -mPlugin->panel()->globalGometry().height() - 5; break;
+            y_offset = -mFrame->height() - 5 ; break;
         case ILxQtPanel::PositionTop:
             y_offset = mPlugin->panel()->globalGometry().height() + 5; break;
         case ILxQtPanel::PositionLeft:
@@ -428,8 +429,10 @@ void LxQtTaskGroup::raisePopup(bool raise)
         x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
         y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
         mFrame->move(x,y);
+
     }
 
+    //qDebug() << "now " << groupName() << "rlkae" << raise;
     mFrame->setVisible(raise);
 }
 
