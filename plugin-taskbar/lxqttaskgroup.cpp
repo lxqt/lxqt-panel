@@ -419,7 +419,7 @@ void LxQtTaskGroup::raisePopup(bool raise)
         case ILxQtPanel::PositionTop:
             y_offset = mPlugin->panel()->globalGometry().height() + 5; break;
         case ILxQtPanel::PositionLeft:
-            x_offset = 5; break;
+            x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
         case ILxQtPanel::PositionRight:
             x_offset = -mFrame->width() - 5;
             break;
