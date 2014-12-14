@@ -10,6 +10,8 @@
 #include "lxqttaskbar.h"
 #include <QTimer>
 #include <QDragLeaveEvent>
+#include <QMenu>
+#include <XdgIcon>
 
 LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):
     LxQtTaskButton(0,parent,parent),
@@ -51,6 +53,28 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     setObjectName(groupName);
 }
 
+void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
+{
+    if (windowId())
+    {
+        LxQtTaskButton::contextMenuEvent(event);
+        return;
+    }
+
+    QMenu menu(tr("Group"));
+
+    menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"),this,SLOT(closeGroup()));
+
+    menu.exec(mapToGlobal(event->pos()));
+}
+
+void LxQtTaskGroup::closeGroup()
+{
+    foreach (LxQtTaskButton * button, mButtonHash)
+    {
+        button->closeApplication();
+    }
+}
 
 void LxQtTaskGroup::timeoutRaise()
 {

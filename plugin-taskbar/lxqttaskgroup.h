@@ -42,6 +42,8 @@ protected:
     void enterEvent(QEvent * event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dragLeaveEvent(QDragLeaveEvent * event);
+    void contextMenuEvent(QContextMenuEvent * event);
+
     QString acceptMimeData() const {return QString("lxqt/lxqttaskgroup");}
     void draggingTimerTimeout();
 
@@ -56,6 +58,7 @@ private slots:
     void mouseFrameChanged(bool left);
     void timeoutClose(void);
     void timeoutRaise(void);
+    void closeGroup(void);
 
 signals:
     void groupBecomeEmpty(QString name);
