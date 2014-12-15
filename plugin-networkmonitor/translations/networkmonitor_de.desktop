@@ -5,9 +5,6 @@ ServiceTypes=LxQtPanel/Plugin
 Name=Network monitor
 Comment=Displays network status and activity.
 
-
-
-
 # Translations
-Comment[de]=LxQt Konfigurations Center
-Name[de]=Bildschirm Notizblock
+Name[de]=Netzwerk Monitor
+Comment[de]=Informationen zu Status und Aktivität des Netzwerks
