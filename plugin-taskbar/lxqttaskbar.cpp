@@ -510,16 +510,6 @@ void LxQtTaskBar::realign()
 /************************************************
 
  ************************************************/
-
-void LxQtTaskBar::mousePressEvent(QMouseEvent *event)
-{
-
-    QFrame::mousePressEvent(event);
-}
-
-/************************************************
-
- ************************************************/
 void LxQtTaskBar::wheelEvent(QWheelEvent* event)
 {
     int delta = event->delta() < 0 ? 1 : -1;

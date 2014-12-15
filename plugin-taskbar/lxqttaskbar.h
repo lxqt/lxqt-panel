@@ -104,7 +104,6 @@ private:
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
-    void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent *event);
 
 
