@@ -72,6 +72,7 @@ public:
         bool enabledGrouping;
         int buttonWidth;
         Qt::ToolButtonStyle toolButtonStyle;
+        bool eyeCandy;
     } settings_t;
 
     const settings_t & settings() const {return mSettings;}
@@ -89,7 +90,6 @@ private slots:
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
     void groupDroppedSlot(const QPoint & point, QDropEvent * event);
-    void groupClickedSlot();
 
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;

@@ -68,6 +68,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mSettings.enabledGrouping = true;
     mSettings.showOnlyCurrentDesktopTasks = false;
     mSettings.toolButtonStyle = Qt::ToolButtonTextBesideIcon;
+    mSettings.eyeCandy = false;
 
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
@@ -84,9 +85,6 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     setAcceptDrops(true);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
-    connect(KWindowSystem::self(),SIGNAL(currentDesktopChanged(int)),this,SLOT(refreshPlaceholderVisibility()));
-
-
 }
 
 /************************************************
@@ -230,15 +228,6 @@ void LxQtTaskBar::groupBecomeEmptySlot()
     delete group;
 }
 
-void LxQtTaskBar::groupClickedSlot()
-{
-    foreach (LxQtTaskGroup * group, mGroupsHash)
-    {
-        if (group != sender())
-            group->hidePopup();
-    }
-}
-
 /************************************************
 
  ************************************************/
@@ -271,7 +260,7 @@ void LxQtTaskBar::refreshTaskList()
                 group = new LxQtTaskGroup(cls,KWindowSystem::icon(wnd),mPlugin,this);
                 connect(group,SIGNAL(groupBecomeEmpty(QString)),this,SLOT(groupBecomeEmptySlot()));
                 connect(group,SIGNAL(dropped(QPoint,QDropEvent*)),this,SLOT(groupDroppedSlot(QPoint,QDropEvent*)));
-                connect(group,SIGNAL(clicked()),this,SLOT(groupClickedSlot()));
+                connect(group,SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
 
                 mLayout->addWidget(group);
                 if (mSettings.enabledGrouping)

@@ -9,6 +9,7 @@ class QVBoxLayout;
 class ILxQtPanelPlugin;
 
 class LxQtLooseFocusFrame;
+class QPropertyAnimation;
 
 class LxQtTaskGroup: public LxQtTaskButton
 {
@@ -62,6 +63,7 @@ private slots:
 
 signals:
     void groupBecomeEmpty(QString name);
+    void visibilityChanged(bool visible);
 
 private:
 
@@ -75,8 +77,11 @@ private:
     QTimer * mShowTimer;
     const QMimeData * mMimeData;
 
+
     void raisePopup(bool raise);
     void recalculateFrameHeight();
+    void recalculateFramePosition();
+    void recalculateFrameIfVisible();
     void refreshVisibility();
     void regroup(void);
     void timerEnable(bool enable);
@@ -92,6 +97,9 @@ public:
     LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & buttons, QWidget * parent = NULL);
     ~LxQtLooseFocusFrame();
 
+    void moveEyeCandy(const QPoint & newPos);
+    void resizeEyeCandy(int w, int h);
+
 protected:
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
@@ -103,6 +111,8 @@ signals:
 
 private:
     const QHash<WId, LxQtTaskButton *> & mButtonHash;
+    QPropertyAnimation * mPosAnimation;
+    QPropertyAnimation * mSizeAnimation;
 
 private slots:
     void buttonDropped(const QPoint & point, QDropEvent* event);

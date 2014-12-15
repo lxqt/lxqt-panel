@@ -12,6 +12,7 @@
 #include <QDragLeaveEvent>
 #include <QMenu>
 #include <XdgIcon>
+#include <QPropertyAnimation>
 
 LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):
     LxQtTaskButton(0,parent,parent),
@@ -253,6 +254,7 @@ void LxQtTaskGroup::removeButton(WId window)
         {
             hide();
             groupBecomeEmpty(groupName());
+            emit visibilityChanged(false);
         }
     }
 }
@@ -340,10 +342,7 @@ void LxQtTaskGroup::regroup()
     LxQtTaskButton * btn;
     int cont = visibleButtonsCount(&btn);
 
-    if (mFrame->isVisible())
-    {
-       recalculateFrameHeight();
-    }
+    recalculateFrameIfVisible();
 
     if (cont == 1)
     {
@@ -363,9 +362,17 @@ void LxQtTaskGroup::showOnAllDesktopSettingChanged()
     refreshVisibility();
     regroup();
 
+    recalculateFrameIfVisible();
+}
 
+void LxQtTaskGroup::recalculateFrameIfVisible()
+{
     if (mFrame->isVisible())
+    {
         recalculateFrameHeight();
+        if (mPlugin->panel()->position() == ILxQtPanel::PositionBottom)
+            recalculateFramePosition();
+    }
 }
 
 void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
@@ -399,7 +406,12 @@ void LxQtTaskGroup::refreshVisibility()
         }
     }
 
-    setVisible(visibleButtonsCount());
+    bool is = isVisible();
+    bool will = visibleButtonsCount();
+    setVisible(will);
+
+    if (is != will)
+        emit visibilityChanged(will);
 }
 
 /************************************************
@@ -434,26 +446,7 @@ void LxQtTaskGroup::raisePopup(bool raise)
         mFrame->setMinimumWidth(h);
         mFrame->resize(parentTaskBar()->settings().buttonWidth,mFrame->height());
 
-        //set position
-        int x_offset = 0, y_offset = 0;
-        switch (mPlugin->panel()->position())
-        {
-        case ILxQtPanel::PositionBottom:
-            y_offset = -mFrame->height() - 5 ; break;
-        case ILxQtPanel::PositionTop:
-            y_offset = mPlugin->panel()->globalGometry().height() + 5; break;
-        case ILxQtPanel::PositionLeft:
-            x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
-        case ILxQtPanel::PositionRight:
-            x_offset = -mFrame->width() - 5;
-            break;
-        }
-
-        int x, y;
-        x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
-        y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
-        mFrame->move(x,y);
-
+        recalculateFramePosition();
     }
 
     //qDebug() << "now " << groupName() << "rlkae" << raise;
@@ -492,6 +485,31 @@ void LxQtTaskGroup::recalculateFrameHeight()
     mFrame->setMaximumHeight(cont * h + (cont +1) * mLayout->spacing());
     mFrame->setMinimumHeight(mFrame->maximumHeight());
     mFrame->resize(mFrame->width(),mFrame->maximumHeight());
+    //mFrame->resizeEyeCandy(mFrame->width(),mFrame->maximumHeight());
+}
+
+void LxQtTaskGroup::recalculateFramePosition()
+{
+    //set position
+    int x_offset = 0, y_offset = 0;
+    switch (mPlugin->panel()->position())
+    {
+    case ILxQtPanel::PositionBottom:
+        y_offset = -mFrame->height() - 5 ; break;
+    case ILxQtPanel::PositionTop:
+        y_offset = mPlugin->panel()->globalGometry().height() + 5; break;
+    case ILxQtPanel::PositionLeft:
+        x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
+    case ILxQtPanel::PositionRight:
+        x_offset = -mFrame->width() - 5;
+        break;
+    }
+
+    int x, y;
+    x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
+    y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
+
+    mFrame->moveEyeCandy(QPoint(x,y));
 }
 
 /************************************************
@@ -632,6 +650,12 @@ LxQtLooseFocusFrame::LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & but
     setAttribute(Qt::WA_AlwaysShowToolTips);
     //setMouseTracking(true);
     setAcceptDrops(true);
+
+    mPosAnimation = new QPropertyAnimation(this,"pos",this);
+    mPosAnimation->setDuration(200);
+
+    mSizeAnimation = new QPropertyAnimation(this,"size",this);
+    mSizeAnimation->setDuration(200);
 }
 /************************************************
 
@@ -743,6 +767,43 @@ void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
     l->insertWidget(newIdx,dragged);
 }
 
+void LxQtLooseFocusFrame::moveEyeCandy(const QPoint  & newPos)
+{
+    LxQtTaskGroup* group = qobject_cast<LxQtTaskGroup*>(parent());
+    Q_ASSERT(group);
+    bool eyecandy = group->parentTaskBar()->settings().eyeCandy;
+
+    if (eyecandy)
+    {
+        mPosAnimation->stop();
+        mPosAnimation->setStartValue(pos());
+        mPosAnimation->setEndValue(newPos);
+        mPosAnimation->start();
+    }
+    else
+    {
+        move(newPos);
+    }
+}
+
+void LxQtLooseFocusFrame::resizeEyeCandy(int w, int h)
+{
+    LxQtTaskGroup* group = qobject_cast<LxQtTaskGroup*>(parent());
+    Q_ASSERT(group);
+    bool eyecandy = group->parentTaskBar()->settings().eyeCandy;
+
+    if (eyecandy)
+    {
+        mSizeAnimation->stop();
+        mSizeAnimation->setStartValue(size());
+        mSizeAnimation->setEndValue(QSize(w,h));
+        mSizeAnimation->start();
+    }
+    else
+    {
+        resize(w,h);
+    }
+}
 
 
 
