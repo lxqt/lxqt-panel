@@ -1,5 +1,5 @@
 #include "lxqtmasterpopup.h"
-#include "lxqttaskpopup.h"
+#include "lxqtgrouppopup.h"
 #include "lxqttaskbutton.h"
 #include <QEnterEvent>
 #include <QDrag>
@@ -14,7 +14,7 @@
     vertical layout and drag&drop feature inside
     group
  ************************************************/
-LxQtLooseFocusFrame::LxQtLooseFocusFrame(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons):
+LxQtGroupPopup::LxQtGroupPopup(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons):
     QFrame(parent),
     mButtonHash(buttons),
     mGroup(group)
@@ -27,14 +27,14 @@ LxQtLooseFocusFrame::LxQtLooseFocusFrame(LxQtMasterPopup * parent, LxQtTaskGroup
 /************************************************
 
  ************************************************/
-LxQtLooseFocusFrame::~LxQtLooseFocusFrame()
+LxQtGroupPopup::~LxQtGroupPopup()
 {
 }
 
 /************************************************
 
  ************************************************/
-LxQtMasterPopup * LxQtLooseFocusFrame::parentMasterPopup()
+LxQtMasterPopup * LxQtGroupPopup::parentMasterPopup()
 {
     return LxQtMasterPopup::instance(parentTaskBar());
 }
@@ -42,7 +42,7 @@ LxQtMasterPopup * LxQtLooseFocusFrame::parentMasterPopup()
 /************************************************
 
  ************************************************/
-LxQtTaskBar * LxQtLooseFocusFrame::parentTaskBar()
+LxQtTaskBar * LxQtGroupPopup::parentTaskBar()
 {
     return mGroup->parentTaskBar();
 }
@@ -50,7 +50,7 @@ LxQtTaskBar * LxQtLooseFocusFrame::parentTaskBar()
 /************************************************
 
  ************************************************/
-void LxQtLooseFocusFrame::dropEvent(QDropEvent *event)
+void LxQtGroupPopup::dropEvent(QDropEvent *event)
 {
     buttonDropped(event->pos(),event);
 }
@@ -58,7 +58,7 @@ void LxQtLooseFocusFrame::dropEvent(QDropEvent *event)
 /************************************************
     dragging buttons inside group
  ************************************************/
-void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
+void LxQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
 {
     if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
     {
@@ -79,7 +79,7 @@ void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
     button dragged inside group dropped
     reorder layout
  ************************************************/
-void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
+void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
 {
     WId window;
     QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));

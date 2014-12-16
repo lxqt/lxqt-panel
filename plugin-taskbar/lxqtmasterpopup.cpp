@@ -1,5 +1,5 @@
 #include "lxqtmasterpopup.h"
-#include "lxqttaskpopup.h"
+#include "lxqtgrouppopup.h"
 #include "lxqttaskbutton.h"
 #include <QEnterEvent>
 #include <QDrag>
@@ -99,13 +99,13 @@ void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
 /************************************************
     create new frame according to group
  ************************************************/
-LxQtLooseFocusFrame * LxQtMasterPopup::createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons)
+LxQtGroupPopup * LxQtMasterPopup::createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons)
 {
-    LxQtLooseFocusFrame * f = mGroupHash.value(group,NULL);
+    LxQtGroupPopup * f = mGroupHash.value(group,NULL);
 
     if (!f)
     {
-        f = new LxQtLooseFocusFrame(this,group,  buttons);
+        f = new LxQtGroupPopup(this,group,  buttons);
         mStackedWidget->addWidget(f);
         connect(group,SIGNAL(destroyed(QObject *)),this,SLOT(onGroupDestroyed(QObject *)));
         mGroupHash.insert(group,f);
@@ -127,7 +127,7 @@ void LxQtMasterPopup::onGroupDestroyed(QObject * a)
 
     if (mGroupHash.contains(group))
     {
-        LxQtLooseFocusFrame * frame = mGroupHash.value(group);
+        LxQtGroupPopup * frame = mGroupHash.value(group);
         mStackedWidget->removeWidget(frame);
         mGroupHash.remove(group);
 

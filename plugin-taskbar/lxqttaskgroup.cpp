@@ -12,7 +12,7 @@
 #include <QDragLeaveEvent>
 #include <QMenu>
 #include <XdgIcon>
-#include "lxqttaskpopup.h"
+#include "lxqtgrouppopup.h"
 #include "lxqtmasterpopup.h"
 
 LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):

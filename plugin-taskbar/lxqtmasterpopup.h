@@ -5,16 +5,16 @@
 
 class QStackedWidget;
 class LxQtTaskBar;
-class LxQtLooseFocusFrame;
 class LxQtTaskGroup;
 class LxQtTaskButton;
+class LxQtGroupPopup;
 
 class LxQtMasterPopup: public QFrame
 {
     Q_OBJECT
 public:
     static LxQtMasterPopup * instance(LxQtTaskBar * parent);
-    LxQtLooseFocusFrame * createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
+    LxQtGroupPopup * createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
     LxQtTaskBar * parentTaskBar();
     void activateGroup(LxQtTaskGroup * group, bool show);
     void activateCloseTimer(bool activate);
@@ -25,7 +25,7 @@ protected:
 
 private:
     QStackedWidget * mStackedWidget;
-    QHash<LxQtTaskGroup *, LxQtLooseFocusFrame *> mGroupHash;
+    QHash<LxQtTaskGroup *, LxQtGroupPopup *> mGroupHash;
     QTimer * mCloseTimer;
     bool mMouseOnFrame;
     bool mMouseOnGroup;

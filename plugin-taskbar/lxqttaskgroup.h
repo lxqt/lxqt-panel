@@ -8,7 +8,7 @@
 class QVBoxLayout;
 class ILxQtPanelPlugin;
 
-class LxQtLooseFocusFrame;
+class LxQtGroupPopup;
 
 class LxQtTaskGroup: public LxQtTaskButton
 {
@@ -65,7 +65,7 @@ private:
 
 
     QString mGroupName;
-    LxQtLooseFocusFrame * mFrame;
+    LxQtGroupPopup * mFrame;
     LxQtTaskButtonHash mButtonHash;
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;

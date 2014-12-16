@@ -9,12 +9,12 @@ class LxQtTaskBar;
 class LxQtTaskGroup;
 class LxQtMasterPopup;
 
-class LxQtLooseFocusFrame: public QFrame
+class LxQtGroupPopup: public QFrame
 {
     Q_OBJECT
 public:
-    LxQtLooseFocusFrame(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
-    ~LxQtLooseFocusFrame();
+    LxQtGroupPopup(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
+    ~LxQtGroupPopup();
 
 protected:
     void dragEnterEvent(QDragEnterEvent * event);
