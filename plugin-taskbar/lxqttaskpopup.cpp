@@ -1,28 +1,29 @@
+#include "lxqtmasterpopup.h"
 #include "lxqttaskpopup.h"
 #include "lxqttaskbutton.h"
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
-#include <QPropertyAnimation>
 #include <QLayout>
 #include "lxqttaskbar.h"
+#include <QDebug>
 
-LxQtLooseFocusFrame::LxQtLooseFocusFrame(const QHash<WId,LxQtTaskButton* > & buttons,QWidget *parent):
-    QDialog(parent)
+/************************************************
+    this class is just a container of window buttons
+    the main purpose is showing window buttons in
+    vertical layout and drag&drop feature inside
+    group
+ ************************************************/
+LxQtLooseFocusFrame::LxQtLooseFocusFrame(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons):
+    QFrame(parent),
+    mButtonHash(buttons),
+    mGroup(group)
 {
-    //setWindowFlags( Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
-    setWindowFlags(  Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::ToolTip);
-//    mFrame->setAttribute(Qt::WA_X11NetWmWindowTypeDock);
-    setAttribute(Qt::WA_AlwaysShowToolTips);
-    //setMouseTracking(true);
+    Q_ASSERT(group);
+    Q_ASSERT(parent);
     setAcceptDrops(true);
-
-    mPosAnimation = new QPropertyAnimation(this,"pos",this);
-    mPosAnimation->setDuration(200);
-
-    mSizeAnimation = new QPropertyAnimation(this,"size",this);
-    mSizeAnimation->setDuration(200);
 }
+
 /************************************************
 
  ************************************************/
@@ -33,29 +34,17 @@ LxQtLooseFocusFrame::~LxQtLooseFocusFrame()
 /************************************************
 
  ************************************************/
-void LxQtLooseFocusFrame::enterEvent(QEvent *event)
+LxQtMasterPopup * LxQtLooseFocusFrame::parentMasterPopup()
 {
-    QEvent::Type t = event->type();
-    if (t == QEvent::Enter)
-    {
-        mouseLeft(false);
-    }
-
-    QDialog::enterEvent(event);
+    return LxQtMasterPopup::instance(parentTaskBar());
 }
 
 /************************************************
 
  ************************************************/
-void LxQtLooseFocusFrame::leaveEvent(QEvent *event)
+LxQtTaskBar * LxQtLooseFocusFrame::parentTaskBar()
 {
-    QEvent::Type t = event->type();
-    if(t == QEvent::Leave)
-    {
-        emit mouseLeft(true);
-    }
-
-    QDialog::leaveEvent(event);
+    return mGroup->parentTaskBar();
 }
 
 /************************************************
@@ -67,7 +56,7 @@ void LxQtLooseFocusFrame::dropEvent(QDropEvent *event)
 }
 
 /************************************************
-
+    dragging buttons inside group
  ************************************************/
 void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
 {
@@ -83,13 +72,12 @@ void LxQtLooseFocusFrame::dragEnterEvent(QDragEnterEvent *event)
     }
 
     event->acceptProposedAction();
-
-    //LxQtTaskButton::dragEnterEvent(event);
     QWidget::dragEnterEvent(event);
 }
 
 /************************************************
-
+    button dragged inside group dropped
+    reorder layout
  ************************************************/
 void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
 {
@@ -132,44 +120,3 @@ void LxQtLooseFocusFrame::buttonDropped(const  QPoint& point, QDropEvent *event)
     QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
     l->insertWidget(newIdx,dragged);
 }
-
-void LxQtLooseFocusFrame::moveEyeCandy(const QPoint  & newPos)
-{
-    LxQtTaskGroup* group = qobject_cast<LxQtTaskGroup*>(parent());
-    Q_ASSERT(group);
-    bool eyecandy = group->parentTaskBar()->settings().eyeCandy;
-
-    if (eyecandy)
-    {
-        mPosAnimation->stop();
-        mPosAnimation->setStartValue(pos());
-        mPosAnimation->setEndValue(newPos);
-        mPosAnimation->start();
-    }
-    else
-    {
-        move(newPos);
-    }
-}
-
-void LxQtLooseFocusFrame::resizeEyeCandy(int w, int h)
-{
-    LxQtTaskGroup* group = qobject_cast<LxQtTaskGroup*>(parent());
-    Q_ASSERT(group);
-    bool eyecandy = group->parentTaskBar()->settings().eyeCandy;
-
-    if (eyecandy)
-    {
-        mSizeAnimation->stop();
-        mSizeAnimation->setStartValue(size());
-        mSizeAnimation->setEndValue(QSize(w,h));
-        mSizeAnimation->start();
-    }
-    else
-    {
-        resize(w,h);
-    }
-}
-
-
-

@@ -62,6 +62,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mStyle(new ElidedButtonStyle())
 {
 
+    mMasterPopup = NULL;
     mSettings.autoRotate = true;
     mSettings.buttonWidth = 400;
     mSettings.closeOnMiddleClick = true;

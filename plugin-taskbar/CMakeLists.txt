@@ -7,6 +7,7 @@ set(HEADERS
     lxqttaskbarplugin.h
     lxqttaskgroup.h
     lxqttaskpopup.h
+    lxqtmasterpopup.h
 )
 
 set(SOURCES
@@ -16,6 +17,7 @@ set(SOURCES
     lxqttaskbarplugin.cpp
     lxqttaskgroup.cpp
     lxqttaskpopup.cpp
+    lxqtmasterpopup.cpp
 )
 
 set(MOCS
@@ -25,6 +27,7 @@ set(MOCS
     lxqttaskbarplugin.h
     lxqttaskgroup.h
     lxqttaskpopup.h
+    lxqtmasterpopup.h
 )
 
 set(UIS

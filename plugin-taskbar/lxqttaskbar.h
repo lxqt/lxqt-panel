@@ -48,6 +48,8 @@
 class LxQtTaskButton;
 class ElidedButtonStyle;
 class ILxQtPanelPlugin;
+//class LxQtMasterPopup;
+#include "lxqtmasterpopup.h"
 
 namespace LxQt {
 class GridLayout;
@@ -76,6 +78,7 @@ public:
     } settings_t;
 
     const settings_t & settings() const {return mSettings;}
+
 
 public slots:
     void refreshIconGeometry();
@@ -110,6 +113,10 @@ private:
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
     ElidedButtonStyle* mStyle;
+
+public:
+    //used for plugin single instance of LxQtMasterPopup
+    LxQtMasterPopup * mMasterPopup;
 };
 
 #endif // LXQTTASKBAR_H

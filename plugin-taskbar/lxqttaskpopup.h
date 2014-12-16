@@ -1,50 +1,35 @@
 #ifndef LXQTTASKPOPUP_H
 #define LXQTTASKPOPUP_H
 
-#include <QDialog>
 #include <QHash>
+#include <QFrame>
 
-
-class QFrame;
 class LxQtTaskButton;
-class QPropertyAnimation;
+class LxQtTaskBar;
+class LxQtTaskGroup;
+class LxQtMasterPopup;
 
-class LxQtLooseFocusFrame: public QDialog
+class LxQtLooseFocusFrame: public QFrame
 {
     Q_OBJECT
 public:
-    LxQtLooseFocusFrame(QWidget * parent = NULL);
+    LxQtLooseFocusFrame(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
     ~LxQtLooseFocusFrame();
 
-    void moveEyeCandy(const QPoint & newPos);
-    void resizeEyeCandy(int w, int h);
-
-    LxQtLooseFocusFrame * instance();
-    void setLayout(QLayout * layout, const QHash<WId, LxQtTaskButton *> * buttons);
-
-public slots:
-    void startCloseTimer(bool start);
-
 protected:
-    void leaveEvent(QEvent * event);
-    void enterEvent(QEvent * event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dropEvent(QDropEvent * event);
 
-signals:
-    void mouseLeft(bool);
-
 private:
+    const QHash<WId, LxQtTaskButton *> & mButtonHash;
+    LxQtTaskBar * parentTaskBar() ;
+    LxQtMasterPopup * parentMasterPopup() ;
+    LxQtTaskGroup * mGroup;
 
-    static LxQtLooseFocusFrame * mSingleInstance;
-    const QHash<WId, LxQtTaskButton *> * mButtonHash;
-    QPropertyAnimation * mPosAnimation;
-    QPropertyAnimation * mSizeAnimation;
 
 private slots:
     void buttonDropped(const QPoint & point, QDropEvent* event);
 };
-
 
 
 #endif // LXQTTASKPOPUP_H
