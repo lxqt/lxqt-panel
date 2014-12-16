@@ -225,7 +225,10 @@ void LxQtTaskBar::groupBecomeEmptySlot()
 
     Q_ASSERT(group);
 
-    mGroupsHash.remove(group->groupName());
+    if (settings().enabledGrouping)
+        mGroupsHash.remove(group->groupName());
+    else
+        mGroupsHash.remove(QString("%1").arg(group->windowId()));
     delete group;
 }
 
@@ -243,7 +246,7 @@ void LxQtTaskBar::refreshTaskList()
     {
         if (acceptWindow(wnd))
         {
-            KWindowInfo info(wnd,static_cast<NET::Property>(0xfff),static_cast<NET::Property2>(0xfff));
+            KWindowInfo info(wnd,0,NET::WM2WindowClass);
 
             QString cls = info.windowClassClass();
             LxQtTaskGroup * group = NULL;

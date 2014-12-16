@@ -130,6 +130,7 @@ void LxQtMasterPopup::onGroupDestroyed(QObject * a)
         LxQtGroupPopup * frame = mGroupHash.value(group);
         mStackedWidget->removeWidget(frame);
         mGroupHash.remove(group);
+        hide();
 
         delete frame;
     }
