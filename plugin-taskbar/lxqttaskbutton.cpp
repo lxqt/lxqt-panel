@@ -89,7 +89,7 @@ LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *
     updateIcon();
 
     mTimer->setSingleShot(true);
-    mTimer->setInterval(800);
+    mTimer->setInterval(600);
     connect(mTimer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
 }
 

@@ -57,7 +57,11 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->groupCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
+    connect(ui->groupingGB,SIGNAL(clicked()),this,SLOT(saveSettings()));
+    connect(ui->hoverActivateCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
+    connect(ui->hoverSingleCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
+    connect(ui->hoverSwitchCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
+    //connect(ui->hoverActivateSingleCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -79,7 +83,13 @@ void LxQtTaskbarConfiguration::loadSettings()
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
-    ui->groupCB->setChecked(mSettings.value("groupingEnabled",true).toBool());
+    ui->groupingGB->setChecked(mSettings.value("groupingEnabled",true).toBool());
+    ui->hoverActivateCB->setChecked(mSettings.value("hoverActivate",true).toBool());
+    ui->hoverSingleCB->setChecked(mSettings.value("hoverSingle",true).toBool());
+    ui->hoverSwitchCB->setChecked(mSettings.value("hoverSwitch",true).toBool());
+    //ui->hoverActivateSingleCB->setChecked(mSettings.value("hoverActivateSingle",true).toBool());
+
+    ui->hoverSwitchCB->setDisabled(ui->hoverActivateCB->isChecked());
 
     updateControls(ui->buttonStyleCB->currentIndex());
 
@@ -94,7 +104,11 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
-    mSettings.setValue("groupingEnabled",ui->groupCB->isChecked());
+    mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
+    mSettings.setValue("hoverActivate",ui->hoverActivateCB->isChecked());
+    mSettings.setValue("hoverSingle",ui->hoverSingleCB->isChecked());
+    mSettings.setValue("hoverSwitch",ui->hoverSwitchCB->isChecked());
+    //mSettings.setValue("hoverActivateSingle",ui->hoverActivateSingleCB->isChecked());
 }
 
 void LxQtTaskbarConfiguration::updateControls(int index)

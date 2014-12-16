@@ -75,6 +75,10 @@ public:
         int buttonWidth;
         Qt::ToolButtonStyle toolButtonStyle;
         bool eyeCandy;
+        bool showGroupWhenHover;
+        bool switchGroupWhenHover;
+        //bool showGroupWhenHoverOneWindow;
+        bool switchGroupWhenHoverOneWindow;
     } settings_t;
 
     const settings_t & settings() const {return mSettings;}

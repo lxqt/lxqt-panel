@@ -24,7 +24,7 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     mFrame(LxQtMasterPopup::instance(parent)->createFrame(this,mButtonHash)),
     mLayout(new QVBoxLayout()),
     mPlugin(plugin),
-    mShowTimer(new QTimer(this))
+    mSwitchTimer(new QTimer(this))
 {
     Q_ASSERT(parent);
 
@@ -43,9 +43,9 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
             SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
 
-    mShowTimer->setSingleShot(true);
-    mShowTimer->setInterval(400);
-    //connect(mShowTimer,SIGNAL(timeout()),this,SLOT(timeoutRaise()));
+    mSwitchTimer->setSingleShot(true);
+    mSwitchTimer->setInterval(300);
+    connect(mSwitchTimer,SIGNAL(timeout()),this,SLOT(raisePopup()));
 
     setObjectName(groupName);
 }
@@ -74,22 +74,6 @@ void LxQtTaskGroup::closeGroup()
     foreach (LxQtTaskButton * button, mButtonHash)
     {
         button->closeApplication();
-    }
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskGroup::timeoutRaise()
-{
-    if (toolButtonStyle() == Qt::ToolButtonIconOnly)
-    {
-        raisePopup(true);
-    }
-    else
-    {
-        if (!windowId())
-            raisePopup(true);
     }
 }
 
@@ -325,6 +309,7 @@ void LxQtTaskGroup::draggingTimerTimeout()
     }
     else
     {
+        raisePopup(false);
         raiseApplication();
     }
 }
@@ -342,8 +327,12 @@ void LxQtTaskGroup::onClicked(bool checked)
             raisePopup(false);
             return;
         }
-        LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(false);
+        startStopFrameCloseTimer(false);
         raisePopup(true);
+    }
+    else
+    {
+        raisePopup(false);
     }
 }
 
@@ -364,7 +353,7 @@ void LxQtTaskGroup::regroup()
     }
     else
     {
-        setText(mGroupName + QString(" - %1 times").arg(cont));
+        setText(mGroupName + QString(" - %1 ").arg(cont) + tr("Windows"));
         setWindowId(0);
     }
 }
@@ -455,9 +444,16 @@ void LxQtTaskGroup::raisePopup(bool raise)
         //setup geometry
         recalculateFrameSize();
         recalculateFramePosition();
-    }
 
-    LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,raise);
+        if (!windowId() || parentTaskBar()->settings().switchGroupWhenHoverOneWindow)
+            LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,true);
+        else
+            LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,false);
+    }
+    else
+    {
+        LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,false);
+    }
 }
 
 /************************************************
@@ -515,12 +511,13 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     //set position
     LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
     int x_offset = 0, y_offset = 0;
+    int rows = mPlugin->panel()->lineCount();
     switch (mPlugin->panel()->position())
     {
     case ILxQtPanel::PositionBottom:
-        y_offset = -p->height() - 5 ; break;
+        y_offset = -p->height()  - 5 ; break;
     case ILxQtPanel::PositionTop:
-        y_offset = mPlugin->panel()->globalGometry().height() + 5; break;
+        y_offset = mPlugin->panel()->globalGometry().height() / rows + 5; break;
     case ILxQtPanel::PositionLeft:
         x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
     case ILxQtPanel::PositionRight:
@@ -537,14 +534,21 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     return QPoint(x,y);
 }
 
+void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
+{
+    LxQtTaskGroup * g = this;
+    if (parentTaskBar()->settings().showGroupWhenHover || parentTaskBar()->settings().switchGroupWhenHover)
+        g = NULL;
+    LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(g,start);
+}
+
 /************************************************
 
  ************************************************/
 void LxQtTaskGroup::leaveEvent(QEvent *event)
 {
-    //timerEnable(true);
-    LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(true);
-    mShowTimer->stop();
+    startStopFrameCloseTimer(true);
+    mSwitchTimer->stop();
 }
 
 /************************************************
@@ -552,12 +556,15 @@ void LxQtTaskGroup::leaveEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::enterEvent(QEvent *event)
 {
-    //timerEnable(false);
-    LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(false);
-    mShowTimer->start();
+    startStopFrameCloseTimer(false);
 
-    if (LxQtMasterPopup::instance(parentTaskBar())->isVisible())
-        raisePopup(true);
+    if (parentTaskBar()->settings().showGroupWhenHover)
+        mSwitchTimer->start();
+
+
+    if (parentTaskBar()->settings().switchGroupWhenHover &&
+            LxQtMasterPopup::instance(parentTaskBar())->isVisible())
+        mSwitchTimer->start();
 }
 
 /************************************************
@@ -565,11 +572,7 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
-    //timerEnable(false);
-    LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(false);
-
-    if (LxQtMasterPopup::instance(parentTaskBar())->isVisible())
-        raisePopup(true);
+    startStopFrameCloseTimer(false);
     LxQtTaskButton::dragEnterEvent(event);
 }
 
@@ -578,33 +581,38 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
  ************************************************/
 void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
-    LxQtTaskButton* button = NULL;
+    //LxQtTaskButton* button = NULL;
+    QVector<LxQtTaskButton *> buttons;
+    buttons.append(mButtonHash.value(window,NULL));
     if (window == windowId())
-        button = this;
-    else
-        button = mButtonHash.value(window,NULL);
-    if (!button)
-        return;
+        buttons.append(this);
 
     // window changed virtual desktop
-    if (prop.testFlag(NET::WMDesktop))
+    foreach (LxQtTaskButton * button, buttons)
     {
-        if (parentTaskBar()->settings().showOnlyCurrentDesktopTasks)
+        if (!button)
         {
-            int desktop = button->desktopNum();
-            button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
-            refreshVisibility();
-            regroup();
+            continue;
         }
+        if (prop.testFlag(NET::WMDesktop))
+        {
+            if (parentTaskBar()->settings().showOnlyCurrentDesktopTasks)
+            {
+                int desktop = button->desktopNum();
+                button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
+                refreshVisibility();
+                regroup();
+            }
+        }
+
+        if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
+            button->updateText();
+
+        // FIXME: NET::WMIconGeometry is causing high CPU and memory usage
+        if (prop.testFlag(NET::WMIcon) /*|| prop.testFlag(NET::WMIconGeometry)*/)
+            button->updateIcon();
+
+        if (prop.testFlag(NET::WMState))
+            button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
     }
-
-    if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
-        button->updateText();
-
-    // FIXME: NET::WMIconGeometry is causing high CPU and memory usage
-    if (prop.testFlag(NET::WMIcon) /*|| prop.testFlag(NET::WMIconGeometry)*/)
-        button->updateIcon();
-
-    if (prop.testFlag(NET::WMState))
-        button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
 }

@@ -70,6 +70,9 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mSettings.showOnlyCurrentDesktopTasks = false;
     mSettings.toolButtonStyle = Qt::ToolButtonTextBesideIcon;
     mSettings.eyeCandy = false;
+    mSettings.showGroupWhenHover = false;
+    //mSettings.showGroupWhenHoverOneWindow = false;
+    mSettings.switchGroupWhenHover = true;
 
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
@@ -182,6 +185,7 @@ void LxQtTaskBar::groupDroppedSlot(const QPoint &point, QDropEvent *event)
         stream >> groupName;
         qDebug() << QString("Dropped button group: %1").arg(groupName);
         droppedIndex = mLayout->indexOf(mGroupsHash.value(groupName,NULL));
+        mMasterPopup->hide();
     }
 
     int newPos = -1;
@@ -373,7 +377,18 @@ void LxQtTaskBar::settingsChanged()
     mSettings.autoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mSettings.closeOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
     mSettings.enabledGrouping = mPlugin->settings()->value("groupingEnabled",true).toBool();
+    mSettings.showGroupWhenHover = mPlugin->settings()->value("hoverActivate",true).toBool();
+    mSettings.switchGroupWhenHoverOneWindow = (mPlugin->settings()->value("hoverSingle",true).toBool());
+    mSettings.switchGroupWhenHover = mPlugin->settings()->value("hoverSwitch",true).toBool();
+    //mSettings.showGroupWhenHoverOneWindow= mPlugin->settings()->value("hoverActivateSingle",true).toBool();
 
+    if (!mSettings.enabledGrouping)
+    {
+        mSettings.showGroupWhenHover = false;
+        mSettings.switchGroupWhenHoverOneWindow = false;
+        mSettings.switchGroupWhenHover = false;
+
+    }
 
     //delete all groups if grouping feature toggled and start over
     if (groupingOld != mSettings.enabledGrouping)

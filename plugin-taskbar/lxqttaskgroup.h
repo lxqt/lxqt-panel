@@ -54,8 +54,8 @@ private slots:
     void onDesktopChanged(int number);
     void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
-    void timeoutRaise(void);
     void closeGroup(void);
+    void raisePopup(bool raise = true);
 
 signals:
     void groupBecomeEmpty(QString name);
@@ -69,14 +69,15 @@ private:
     LxQtTaskButtonHash mButtonHash;
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
-    QTimer * mShowTimer;
+    QTimer * mSwitchTimer;
 
-    void raisePopup(bool raise);
+
     QSize recalculateFrameSize();
     QPoint recalculateFramePosition();
     void recalculateFrameIfVisible();
     void refreshVisibility();
     void regroup(void);
+    void startStopFrameCloseTimer(bool start);
 };
 
 

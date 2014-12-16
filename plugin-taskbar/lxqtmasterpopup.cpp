@@ -51,9 +51,16 @@ void LxQtMasterPopup::checkTimer()
 /************************************************
 
  ************************************************/
-void LxQtMasterPopup::activateCloseTimer(bool activate)
+void LxQtMasterPopup::activateCloseTimer(LxQtTaskGroup * group, bool activate)
 {
-    mMouseOnGroup = !activate;
+    if (!activate)
+        mMouseOnGroup = false;
+
+    if (!group)
+        mMouseOnGroup = !activate;
+
+    if (mStackedWidget->currentWidget() == mGroupHash.value(group))
+        mMouseOnGroup = !activate;
     checkTimer();
 }
 

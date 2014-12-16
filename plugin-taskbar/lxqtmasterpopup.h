@@ -17,7 +17,7 @@ public:
     LxQtGroupPopup * createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
     LxQtTaskBar * parentTaskBar();
     void activateGroup(LxQtTaskGroup * group, bool show);
-    void activateCloseTimer(bool activate);
+    void activateCloseTimer(LxQtTaskGroup * group, bool activate);
 
 protected:
     void leaveEvent(QEvent * event);

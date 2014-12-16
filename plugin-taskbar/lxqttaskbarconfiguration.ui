@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
-    <height>316</height>
+    <width>349</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,10 +40,37 @@
         </attribute>
        </widget>
       </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupingGB">
+     <property name="title">
+      <string>Taskbar grouping</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QCheckBox" name="groupCB">
+       <widget class="QCheckBox" name="hoverActivateCB">
         <property name="text">
-         <string>Group buttons</string>
+         <string>Mouse hover shows popup</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="hoverSwitchCB">
+        <property name="text">
+         <string>Mouse hover switches visible popup</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="hoverSingleCB">
+        <property name="text">
+         <string>Enable mouse hover popup on buttons
+ with single window</string>
         </property>
        </widget>
       </item>
@@ -140,8 +167,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>256</x>
+     <y>453</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -156,12 +183,28 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>324</x>
+     <y>453</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hoverActivateCB</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>hoverSwitchCB</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
