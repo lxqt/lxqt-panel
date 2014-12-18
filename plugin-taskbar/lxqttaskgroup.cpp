@@ -353,6 +353,10 @@ void LxQtTaskGroup::regroup()
         setText(btn->text());
         setWindowId(btn->windowId());
     }
+    else if (cont == 0)
+    {
+        hide();
+    }
     else
     {
         setText(mGroupName + QString(" - %1 ").arg(cont) + tr("Windows"));
