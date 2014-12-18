@@ -22,8 +22,7 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     QFrame(parent),
     mStackedWidget(new QStackedWidget(this)),
     mCloseTimer(new QTimer(this)),
-    mMouseOnFrame(false),
-    mMouseOnGroup(false)
+    mFlags(0)
 {
     mPosAnimation = new QPropertyAnimation(this,"pos",this);
     mPosAnimation->setDuration(200);
@@ -43,6 +42,7 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     mCloseTimer->setSingleShot(true);
     mCloseTimer->setInterval(400);
 }
+
 
 void LxQtMasterPopup::moveAnimated(const QPoint &newpos)
 {
@@ -108,7 +108,7 @@ void LxQtMasterPopup::closeEvent(QCloseEvent *event)
  ************************************************/
 void LxQtMasterPopup::checkTimer()
 {
-    if (mMouseOnFrame || mMouseOnGroup)
+    if (mFlags)
         mCloseTimer->stop();
     else
         mCloseTimer->start();
@@ -117,17 +117,36 @@ void LxQtMasterPopup::checkTimer()
 /************************************************
 
  ************************************************/
+void LxQtMasterPopup::dragging(bool executing)
+{
+    setFlag(DRAGGING_ACTIVE, executing);
+    checkTimer();
+}
+
+/************************************************
+
+ ************************************************/
 void LxQtMasterPopup::activateCloseTimer(LxQtTaskGroup * group, bool activate)
 {
     if (!activate)
-        mMouseOnGroup = false;
+        setFlag(MOUSE_ON_GROUP,false);
 
     if (!group)
-        mMouseOnGroup = !activate;
+    {
+        setFlag(MOUSE_ON_GROUP, !activate);
+    }
 
     if (mStackedWidget->currentWidget() == mGroupHash.value(group))
-        mMouseOnGroup = !activate;
+        setFlag(MOUSE_ON_GROUP, !activate);
     checkTimer();
+}
+
+void LxQtMasterPopup::setFlag(noCloseFlags_t flag, bool set)
+{
+    if (set)
+        mFlags |= flag;
+    else
+        mFlags &= ~flag;
 }
 
 /************************************************
@@ -135,7 +154,7 @@ void LxQtMasterPopup::activateCloseTimer(LxQtTaskGroup * group, bool activate)
  ************************************************/
 void LxQtMasterPopup::leaveEvent(QEvent *event)
 {
-    mMouseOnFrame = false;
+    mFlags &= ~MOUSE_ON_FRAME;
     checkTimer();
 }
 
@@ -144,7 +163,7 @@ void LxQtMasterPopup::leaveEvent(QEvent *event)
  ************************************************/
 void LxQtMasterPopup::enterEvent(QEvent *event)
 {
-    mMouseOnFrame = true;
+    mFlags |= MOUSE_ON_FRAME;
     checkTimer();
 }
 

@@ -98,8 +98,10 @@ LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
     mButtonHash.insert(id,btn);
     mFrame->layout()->addWidget(btn);
 
+
     connect(btn,SIGNAL(clicked()),this,SLOT(onChildButtonClicked()));
     connect(btn,SIGNAL(dropped(QPoint,QDropEvent*)),mFrame,SLOT(buttonDropped(QPoint,QDropEvent*)));
+    connect(btn,SIGNAL(dragging(bool)),LxQtMasterPopup::instance(parentTaskBar()),SLOT(dragging(bool)));
 
     refreshVisibility();
     regroup();

@@ -127,10 +127,10 @@ private:
     void activateWithDraggable();
 signals:
     void dropped(const QPoint & point, QDropEvent * event);
+    void dragging(bool executing = false);
 
 private slots:
     void timerTimeout() {draggingTimerTimeout();}
-
 };
 
 typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;

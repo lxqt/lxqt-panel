@@ -251,9 +251,17 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     //fixme when vertical panel, pixmap is empty
     drag->setPixmap(pixmap);
-
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
+
+    //must be called before exec because it is blocking
+    connect(drag,SIGNAL(destroyed()),this,SIGNAL(dragging()));
+    emit dragging(true);
+
     drag->exec();
+
+    //if button is dropped out of panel (e.g. on desktop)
+    //it is not deleted automatically by Qt
+    drag->deleteLater();
 
     QAbstractButton::mouseMoveEvent(event);
 }
