@@ -9,6 +9,7 @@ class QVBoxLayout;
 class ILxQtPanelPlugin;
 
 class LxQtGroupPopup;
+class LxQtMasterPopup;
 
 class LxQtTaskGroup: public LxQtTaskButton
 {
@@ -83,6 +84,8 @@ private:
     void refreshVisibility();
     void regroup(void);
     void startStopFrameCloseTimer(bool start);
+
+    LxQtMasterPopup * popup();
 };
 
 

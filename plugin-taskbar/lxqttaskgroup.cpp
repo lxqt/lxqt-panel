@@ -118,7 +118,7 @@ LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
 
     connect(btn,SIGNAL(clicked()),this,SLOT(onChildButtonClicked()));
     connect(btn,SIGNAL(dropped(QPoint,QDropEvent*)),mFrame,SLOT(buttonDropped(QPoint,QDropEvent*)));
-    connect(btn,SIGNAL(dragging(bool)),LxQtMasterPopup::instance(parentTaskBar()),SLOT(dragging(bool)));
+    connect(btn,SIGNAL(dragging(bool)),popup(),SLOT(dragging(bool)));
 
     refreshVisibility();
     regroup();
@@ -469,13 +469,13 @@ void LxQtTaskGroup::raisePopup(bool raise)
         recalculateFramePosition();
 
         if (!windowId() || parentTaskBar()->settings().switchGroupWhenHoverOneWindow)
-            LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,true);
+            popup()->activateGroup(this,true);
         else
-            LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,false);
+            popup()->activateGroup(this,false);
     }
     else
     {
-        LxQtMasterPopup::instance(parentTaskBar())->activateGroup(this,false);
+        popup()->activateGroup(this,false);
     }
 }
 
@@ -498,7 +498,7 @@ void LxQtTaskGroup::refreshIconsGeometry()
  ************************************************/
 QSize LxQtTaskGroup::recalculateFrameSize()
 {
-    LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
+    LxQtMasterPopup * p = popup();
     int height = recalculateFrameHeight();
     p->setMaximumHeight(1000);
     p->setMinimumHeight(0);
@@ -539,7 +539,7 @@ int LxQtTaskGroup::recalculateFrameWidth() const
 QPoint LxQtTaskGroup::recalculateFramePosition()
 {
     //set position
-    LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
+    LxQtMasterPopup * p = popup();
     int x_offset = 0, y_offset = 0;
     int rows = mPlugin->panel()->lineCount();
     switch (mPlugin->panel()->position())
@@ -569,7 +569,7 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
  ************************************************/
 void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
 {
-    LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
+    LxQtMasterPopup * p = popup();
     if (parentTaskBar()->settings().showGroupWhenHover || parentTaskBar()->settings().switchGroupWhenHover)
     {
         p->mouseEnterAnyGroup(!start);
@@ -598,12 +598,19 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
     startStopFrameCloseTimer(false);
 
     if (parentTaskBar()->settings().showGroupWhenHover)
-        mSwitchTimer->start();
+    {
+        int t;
+        popup()->isVisible() ? t = 200 : t = 400;
+        mSwitchTimer->start(t);
+        return;
+    }
 
 
     if (parentTaskBar()->settings().switchGroupWhenHover &&
-            LxQtMasterPopup::instance(parentTaskBar())->isVisible())
-        mSwitchTimer->start();
+            popup()->isVisible())
+    {
+        mSwitchTimer->start(100);
+    }
 }
 
 /************************************************
@@ -663,4 +670,9 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
         if (prop.testFlag(NET::WMState))
             button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
     }
+}
+
+LxQtMasterPopup * LxQtTaskGroup::popup()
+{
+    return LxQtMasterPopup::instance(parentTaskBar());
 }
