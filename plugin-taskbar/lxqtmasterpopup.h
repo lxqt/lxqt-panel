@@ -19,15 +19,23 @@ public:
     LxQtGroupPopup * createFrame(LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
     LxQtTaskBar * parentTaskBar();
     void activateGroup(LxQtTaskGroup * group, bool show);
-    void activateCloseTimer(LxQtTaskGroup * group, bool activate);
+
+    void mouseEnterAnyGroup(bool enter) {setFlag(MOUSE_ON_ANY_GROUP,enter); checkTimer();}
+    bool mouseEnterCurrentGroup(LxQtTaskGroup * group,bool enter);
+
     void moveAnimated(const QPoint & newpos);
     void resizeAnimated(const QSize & newsize);
 
-    typedef enum {MOUSE_ON_FRAME = 1, MOUSE_ON_GROUP = 2, DRAGGING_ACTIVE = 4} close_flags_enum;
+    typedef enum {
+        MOUSE_ON_FRAME = 1,
+        MOUSE_ON_CURRENT_GROUP = 2,
+        DRAGGING_BUTTON_ACTIVE = 4,
+        MOUSE_ON_ANY_GROUP = 8
+    } close_flags_enum;
     Q_DECLARE_FLAGS(noCloseFlags_t,close_flags_enum)
 
 public slots:
-    void dragging(bool executing);
+    void dragging(bool executing) {setFlag(DRAGGING_BUTTON_ACTIVE, executing); checkTimer();}
 
 protected:
     void leaveEvent(QEvent * event);

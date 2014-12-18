@@ -112,33 +112,21 @@ void LxQtMasterPopup::checkTimer()
         mCloseTimer->stop();
     else
         mCloseTimer->start();
+
 }
 
 /************************************************
 
  ************************************************/
-void LxQtMasterPopup::dragging(bool executing)
+bool LxQtMasterPopup::mouseEnterCurrentGroup(LxQtTaskGroup * group,  bool enter)
 {
-    setFlag(DRAGGING_ACTIVE, executing);
+    //mouse on current group button
+    bool is = mStackedWidget->currentWidget() == mGroupHash.value(group);
+    if (is)
+        setFlag(MOUSE_ON_CURRENT_GROUP, enter);
     checkTimer();
-}
 
-/************************************************
-
- ************************************************/
-void LxQtMasterPopup::activateCloseTimer(LxQtTaskGroup * group, bool activate)
-{
-    if (!activate)
-        setFlag(MOUSE_ON_GROUP,false);
-
-    if (!group)
-    {
-        setFlag(MOUSE_ON_GROUP, !activate);
-    }
-
-    if (mStackedWidget->currentWidget() == mGroupHash.value(group))
-        setFlag(MOUSE_ON_GROUP, !activate);
-    checkTimer();
+    return is;
 }
 
 void LxQtMasterPopup::setFlag(noCloseFlags_t flag, bool set)

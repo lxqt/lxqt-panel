@@ -336,7 +336,7 @@ void LxQtTaskGroup::draggingTimerTimeout()
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::onClicked(bool checked)
+void LxQtTaskGroup::onClicked(bool )
 {
     if (visibleButtonsCount() > 1)
     {
@@ -346,8 +346,8 @@ void LxQtTaskGroup::onClicked(bool checked)
             raisePopup(false);
             return;
         }
-        startStopFrameCloseTimer(false);
         raisePopup(true);
+        startStopFrameCloseTimer(false);
     }
     else
     {
@@ -564,12 +564,21 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     return QPoint(x,y);
 }
 
+/************************************************
+
+ ************************************************/
 void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
 {
-    LxQtTaskGroup * g = this;
+    LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
     if (parentTaskBar()->settings().showGroupWhenHover || parentTaskBar()->settings().switchGroupWhenHover)
-        g = NULL;
-    LxQtMasterPopup::instance(parentTaskBar())->activateCloseTimer(g,start);
+    {
+        p->mouseEnterAnyGroup(!start);
+    }
+    else
+    {
+        p->mouseEnterCurrentGroup(this, !start);
+    }
+
 }
 
 /************************************************
@@ -604,6 +613,15 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
     startStopFrameCloseTimer(false);
     LxQtTaskButton::dragEnterEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    startStopFrameCloseTimer(true);
+    LxQtTaskButton::dragLeaveEvent(event);
 }
 
 /************************************************

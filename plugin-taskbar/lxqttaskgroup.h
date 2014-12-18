@@ -44,6 +44,7 @@ protected:
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
     void dragEnterEvent(QDragEnterEvent * event);
+    void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);
 
     QString acceptMimeData() const {return QString("lxqt/lxqttaskgroup");}
