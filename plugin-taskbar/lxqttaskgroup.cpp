@@ -14,6 +14,7 @@
 #include <XdgIcon>
 #include "lxqtgrouppopup.h"
 #include "lxqtmasterpopup.h"
+#include <QSignalMapper>
 
 /************************************************
 
@@ -24,7 +25,8 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
     mFrame(LxQtMasterPopup::instance(parent)->createFrame(this,mButtonHash)),
     mLayout(new QVBoxLayout()),
     mPlugin(plugin),
-    mSwitchTimer(new QTimer(this))
+    mSwitchTimer(new QTimer(this)),
+    mPreventPopup(false)
 {
     Q_ASSERT(parent);
 
@@ -55,6 +57,8 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
  ************************************************/
 void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 {
+    raisePopup(false);
+    mPreventPopup = true;
     if (windowId())
     {
         LxQtTaskButton::contextMenuEvent(event);
@@ -62,18 +66,31 @@ void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QMenu menu(tr("Group"));
-    menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"),this,SLOT(closeGroup()));
+    QSignalMapper mapper;
+    QAction * a;
+    a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close current desktop windows"));
+    connect(a,SIGNAL(triggered()),&mapper,SLOT(map()));
+    mapper.setMapping(a,1);
+
+    menu.addSeparator();
+    a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close whole group"));
+    mapper.setMapping(a,0);
+    connect(a,SIGNAL(triggered()),&mapper,SLOT(map()));
+
+    connect(&mapper,SIGNAL(mapped(int)),SLOT(closeGroup(int)));
     menu.exec(mapToGlobal(event->pos()));
+    mPreventPopup = false;
 }
 
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::closeGroup()
+void LxQtTaskGroup::closeGroup(int id)
 {
     foreach (LxQtTaskButton * button, mButtonHash)
     {
-        button->closeApplication();
+        if (id == 0 || button->desktopNum() == KWindowSystem::currentDesktop())
+            button->closeApplication();
     }
 }
 
@@ -445,7 +462,7 @@ void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
  ************************************************/
 void LxQtTaskGroup::raisePopup(bool raise)
 {
-    if (raise)
+    if (raise && !mPreventPopup)
     {
         //setup geometry
         recalculateFrameSize();

@@ -57,7 +57,7 @@ private slots:
     void onDesktopChanged(int number);
     void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
-    void closeGroup(void);
+    void closeGroup(int id);
     void raisePopup(bool raise = true);
 
 signals:
@@ -73,6 +73,7 @@ private:
     QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
     QTimer * mSwitchTimer;
+    bool mPreventPopup;
 
 
     QSize recalculateFrameSize();
