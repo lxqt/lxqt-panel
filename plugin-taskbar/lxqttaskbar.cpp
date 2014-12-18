@@ -69,7 +69,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mSettings.enabledGrouping = true;
     mSettings.showOnlyCurrentDesktopTasks = false;
     mSettings.toolButtonStyle = Qt::ToolButtonTextBesideIcon;
-    mSettings.eyeCandy = false;
+    mSettings.eyeCandy = true;
     mSettings.showGroupWhenHover = false;
     //mSettings.showGroupWhenHoverOneWindow = false;
     mSettings.switchGroupWhenHover = true;
@@ -381,6 +381,9 @@ void LxQtTaskBar::settingsChanged()
     mSettings.switchGroupWhenHoverOneWindow = (mPlugin->settings()->value("hoverSingle",true).toBool());
     mSettings.switchGroupWhenHover = mPlugin->settings()->value("hoverSwitch",true).toBool();
     //mSettings.showGroupWhenHoverOneWindow= mPlugin->settings()->value("hoverActivateSingle",true).toBool();
+    mSettings.groupButtonHeight = mPlugin->settings()->value("groupButtonHeight",100).toInt();
+    mSettings.groupButtonWidth = mPlugin->settings()->value("groupButtonWidth",100).toInt();
+    mSettings.eyeCandy = mPlugin->settings()->value("eyeCandy",true).toBool();
 
     if (!mSettings.enabledGrouping)
     {

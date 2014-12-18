@@ -79,6 +79,8 @@ public:
         bool switchGroupWhenHover;
         //bool showGroupWhenHoverOneWindow;
         bool switchGroupWhenHoverOneWindow;
+        int groupButtonWidth;
+        int groupButtonHeight;
     } settings_t;
 
     const settings_t & settings() const {return mSettings;}

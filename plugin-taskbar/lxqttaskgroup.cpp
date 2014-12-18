@@ -33,8 +33,8 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
 
     mFrame->setLayout(mLayout);
 
-    mLayout->setSpacing(5);
-    mLayout->setMargin(5);
+    mLayout->setSpacing(3);
+    mLayout->setMargin(3);
 
     connect(this,SIGNAL(clicked(bool)),this,SLOT(onClicked(bool)));
     connect(KWindowSystem::self(),SIGNAL(activeWindowChanged(WId)),this,SLOT(onActiveWindowChanged(WId)));
@@ -385,12 +385,12 @@ void LxQtTaskGroup::recalculateFrameIfVisible()
  ************************************************/
 void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
 {
-    /*
+
     foreach (LxQtTaskButton * button, mButtonHash)
     {
-        //button->setAutoRotation(value,position);
+        button->setAutoRotation(false,position);
     }
-    */
+
     LxQtTaskButton::setAutoRotation(value,position);
 }
 
@@ -475,32 +475,39 @@ void LxQtTaskGroup::refreshIconsGeometry()
  ************************************************/
 QSize LxQtTaskGroup::recalculateFrameSize()
 {
-    QRect geometry = mPlugin->panel()->globalGometry();
-    bool horizontal = mPlugin->panel()->isHorizontal();
-
-    int h = geometry.width() ;
-    if (horizontal)
-        h = geometry.height();
-
-    if (!horizontal && !parentTaskBar()->settings().autoRotate)
-        h = height();
-
-    h /= mPlugin->panel()->lineCount();
-
-    int cont = visibleButtonsCount();
     LxQtMasterPopup * p = LxQtMasterPopup::instance(parentTaskBar());
-    p->setMaximumHeight(cont * h + (cont +1) * mLayout->spacing());
-    p->setMinimumHeight(p->maximumHeight());
+    int height = recalculateFrameHeight();
+    p->setMaximumHeight(1000);
+    p->setMinimumHeight(0);
 
+    int hh = recalculateFrameWidth();
+    p->setMaximumWidth(hh);
+    p->setMinimumWidth(0);
 
-    int hh = height();
-    if (mPlugin->panel()->isHorizontal())
-        hh = width();
-    p->setMaximumWidth(parentTaskBar()->settings().buttonWidth);
-    p->setMinimumWidth(p->maximumWidth());
+    p->resizeAnimated(QSize(hh,height));
 
-    p->resize(p->maximumWidth(),p->maximumHeight());
+    return QSize(hh,height);
+}
 
+/************************************************
+
+ ************************************************/
+int LxQtTaskGroup::recalculateFrameHeight() const
+{
+    int h = parentTaskBar()->settings().groupButtonHeight;
+    int cont = visibleButtonsCount();
+    int height = cont * h + (cont +1) * mLayout->spacing();
+
+    return height;
+}
+
+/************************************************
+
+ ************************************************/
+int LxQtTaskGroup::recalculateFrameWidth() const
+{
+    int hh = parentTaskBar()->settings().groupButtonWidth;
+    return hh;
 }
 
 /************************************************
@@ -515,13 +522,13 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     switch (mPlugin->panel()->position())
     {
     case ILxQtPanel::PositionBottom:
-        y_offset = -p->height()  - 5 ; break;
+        y_offset = -recalculateFrameHeight()  - 5 ; break;
     case ILxQtPanel::PositionTop:
         y_offset = mPlugin->panel()->globalGometry().height() / rows + 5; break;
     case ILxQtPanel::PositionLeft:
         x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
     case ILxQtPanel::PositionRight:
-        x_offset = -p->width() - 5;
+        x_offset = -recalculateFrameWidth() - 5;
         break;
     }
 
@@ -529,7 +536,7 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
     y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
 
-    p->move(x,y);
+    p->moveAnimated(QPoint(x,y));
 
     return QPoint(x,y);
 }

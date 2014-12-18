@@ -10,6 +10,8 @@
 #include <QStackedWidget>
 #include <QDebug>
 #include <QTimer>
+#include "../panel/ilxqtpanelplugin.h"
+#include <QPropertyAnimation>
 
 /************************************************
     main purpose of this class is switching
@@ -23,6 +25,12 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     mMouseOnFrame(false),
     mMouseOnGroup(false)
 {
+    mPosAnimation = new QPropertyAnimation(this,"pos",this);
+    mPosAnimation->setDuration(200);
+
+    mSizeAnimation = new QPropertyAnimation(this,"size",this);
+    mSizeAnimation->setDuration(200);
+
     setWindowFlags(  Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::ToolTip);
     setAttribute(Qt::WA_AlwaysShowToolTips);
 
@@ -31,9 +39,67 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     l->setSpacing(0);
     l->setMargin(0);
 
-    connect(mCloseTimer,SIGNAL(timeout()),this,SLOT(hide()));
+    connect(mCloseTimer,SIGNAL(timeout()),this,SLOT(close()));
     mCloseTimer->setSingleShot(true);
     mCloseTimer->setInterval(400);
+}
+
+void LxQtMasterPopup::moveAnimated(const QPoint &newpos)
+{
+    if (isVisible() && parentTaskBar()->settings().eyeCandy)
+    {
+        mPosAnimation->setStartValue(pos());
+        mPosAnimation->setEndValue(newpos);
+        mPosAnimation->start();
+    }
+    else
+    {
+        move(newpos);
+    }
+}
+
+void LxQtMasterPopup::resizeAnimated(const QSize &newsize)
+{
+    if (isVisible() && parentTaskBar()->settings().eyeCandy)
+    {
+        mSizeAnimation->stop();
+        mSizeAnimation->setStartValue(size());
+        mSizeAnimation->setEndValue(newsize);
+        mSizeAnimation->start();
+    }
+    else
+    {
+        resize(newsize);
+    }
+}
+
+void LxQtMasterPopup::showEvent(QShowEvent *event)
+{
+    if (parentTaskBar()->settings().eyeCandy)
+    {
+        disconnect(mSizeAnimation,SIGNAL(finished()),this,SLOT(hide()));
+        mSizeAnimation->stop();
+        QSize s = size();
+        mSizeAnimation->setStartValue(QSize(0,0));
+        mSizeAnimation->setEndValue(s);
+        mSizeAnimation->start();
+    }
+}
+
+void LxQtMasterPopup::closeEvent(QCloseEvent *event)
+{
+    if (parentTaskBar()->settings().eyeCandy)
+    {
+        mSizeAnimation->stop();
+        QSize s = size();
+        mSizeAnimation->setEndValue(QSize(0,0));
+        mSizeAnimation->setStartValue(s);
+        mSizeAnimation->start();
+        connect(mSizeAnimation,SIGNAL(finished()),this,SLOT(hide()),Qt::UniqueConnection);
+
+        event->ignore();
+    }
+    //hide();
 }
 
 /************************************************
@@ -89,7 +155,7 @@ void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
 {
     if (!show)
     {
-        hide();
+        close();
         return;
     }
 
@@ -98,7 +164,7 @@ void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
     {
         mStackedWidget->setCurrentWidget(f);
         f->show();
-        resize(f->minimumSize());
+        //resize(f->minimumSize());
         this->show();
     }
 }
@@ -137,7 +203,7 @@ void LxQtMasterPopup::onGroupDestroyed(QObject * a)
         LxQtGroupPopup * frame = mGroupHash.value(group);
         mStackedWidget->removeWidget(frame);
         mGroupHash.remove(group);
-        hide();
+        close();
 
         delete frame;
     }

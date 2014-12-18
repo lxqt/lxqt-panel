@@ -34,6 +34,9 @@ public:
     void hidePopup(void) {raisePopup(false);}
     void showPopup(void) {raisePopup(true);}
 
+    int recalculateFrameHeight() const;
+    int recalculateFrameWidth() const;
+
 
 protected:
     void arbitraryMimeData(QMimeData * mime);
