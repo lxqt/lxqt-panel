@@ -51,7 +51,7 @@ private:
     GlobalKeyShortcut::Action * m_key;
 
 private slots:
-    void showDesktop();
+    void toggleShowingDesktop();
 
 private:
     QToolButton mButton;
