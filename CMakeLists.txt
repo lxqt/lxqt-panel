@@ -63,6 +63,7 @@ include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}"
     ${LXQT_INCLUDE_DIRS}
     ${QTXDG_INCLUDE_DIRS}
+    ${Qt5X11Extras_INCLUDE_DIRS}
     src
 )
 
