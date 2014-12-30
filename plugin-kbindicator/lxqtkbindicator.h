@@ -48,6 +48,7 @@ public:
 
     QDialog *configureDialog();
     virtual void realign();
+    virtual bool eventFilter(QObject *object, QEvent *event);
 
 protected slots:
     void delayedInit();

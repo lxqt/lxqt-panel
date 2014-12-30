@@ -45,16 +45,19 @@ LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo)
     mCapsLock = new QLabel("C");
     mCapsLock->setObjectName("CapsLockLabel");
     mCapsLock->setAlignment(Qt::AlignCenter);
+    mCapsLock->installEventFilter(this);
     mContent->layout()->addWidget(mCapsLock);
 
     mNumLock = new QLabel("N");
     mNumLock->setObjectName("NumLockLabel");
     mNumLock->setAlignment(Qt::AlignCenter);
+    mNumLock->installEventFilter(this);
     mContent->layout()->addWidget(mNumLock);
 
     mScrollLock = new QLabel("S");
     mScrollLock->setObjectName("ScrollLockLabel");
     mScrollLock->setAlignment(Qt::AlignCenter);
+    mScrollLock->installEventFilter(this);
     mContent->layout()->addWidget(mScrollLock);
 
     QTimer::singleShot(0, this, SLOT(delayedInit()));
@@ -123,4 +126,21 @@ void LxQtKbIndicator::modifierStateChanged(Qt::Key key, bool active)
         default:
             break;
     }
+}
+
+bool LxQtKbIndicator::eventFilter(QObject *object, QEvent *event)
+{
+    if (event->type() == QEvent::QEvent::MouseButtonRelease)
+    {
+        if (object == mCapsLock)
+            modifierInfo->setKeyLocked(Qt::Key_CapsLock, !modifierInfo->isKeyLocked(Qt::Key_CapsLock));
+        else if (object == mNumLock)
+            modifierInfo->setKeyLocked(Qt::Key_NumLock, !modifierInfo->isKeyLocked(Qt::Key_NumLock));
+        else if (object == mScrollLock)
+            modifierInfo->setKeyLocked(Qt::Key_ScrollLock, !modifierInfo->isKeyLocked(Qt::Key_ScrollLock));
+
+        return true;
+    }
+
+    return QObject::eventFilter(object, event);
 }
