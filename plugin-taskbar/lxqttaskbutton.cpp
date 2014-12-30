@@ -53,6 +53,8 @@
 #include <KF5/KWindowSystem/NETWM>
 #include <QX11Info>
 
+bool LxQtTaskButton::sDraggging = false;
+
 /************************************************
 
 ************************************************/
@@ -256,12 +258,14 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     //must be called before exec because it is blocking
     connect(drag,SIGNAL(destroyed()),this,SIGNAL(dragging()));
     emit dragging(true);
+    sDraggging = true;
 
     drag->exec();
 
     //if button is dropped out of panel (e.g. on desktop)
     //it is not deleted automatically by Qt
     drag->deleteLater();
+    sDraggging = false;
 
     QAbstractButton::mouseMoveEvent(event);
 }

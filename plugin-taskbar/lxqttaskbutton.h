@@ -112,6 +112,8 @@ protected:
     virtual void draggingTimerTimeout() {activateWithDraggable();}
     virtual QString acceptMimeData() const {return taskButtonMimeDataFormat();}
 
+    static bool sDraggging;
+
 private:
     WId mWindow;
     bool mUrgencyHint;

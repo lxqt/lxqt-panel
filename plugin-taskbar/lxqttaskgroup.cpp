@@ -348,14 +348,10 @@ int LxQtTaskGroup::visibleButtonsCount(LxQtTaskButton ** first) const
  ************************************************/
 void LxQtTaskGroup::draggingTimerTimeout()
 {
-    if (!windowId())
-    {
-        raisePopup(true);
-    }
-    else
+    if (windowId())
     {
         raisePopup(false);
-        raiseApplication();
+        LxQtTaskButton::draggingTimerTimeout();
     }
 }
 
@@ -622,8 +618,11 @@ void LxQtTaskGroup::leaveEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::enterEvent(QEvent *event)
 {
-    startStopFrameCloseTimer(false);
     QToolButton::enterEvent(event);
+
+    if (sDraggging)
+        return;
+    startStopFrameCloseTimer(false);
 
     if (parentTaskBar()->settings().showGroupWhenHover)
     {
@@ -646,7 +645,7 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
-    startStopFrameCloseTimer(false);
+    raisePopup(false);
     LxQtTaskButton::dragEnterEvent(event);
 }
 
@@ -655,7 +654,7 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    startStopFrameCloseTimer(true);
+    raisePopup(false);
     LxQtTaskButton::dragLeaveEvent(event);
 }
 
