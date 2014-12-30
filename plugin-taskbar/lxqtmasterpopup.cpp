@@ -190,7 +190,6 @@ void LxQtMasterPopup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
 {
-    qDebug() << show;
     if (!show)
     {
         close();

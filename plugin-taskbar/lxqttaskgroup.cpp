@@ -553,6 +553,10 @@ int LxQtTaskGroup::recalculateFrameWidth() const
 {
     int minimum = parentTaskBar()->settings().groupButtonWidth;
     int hh = width();
+
+    if (!mPlugin->panel()->isHorizontal())
+        hh = height();
+
     if (hh < minimum)
         hh = minimum;
 
