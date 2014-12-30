@@ -91,7 +91,7 @@ void LxQtGroupPopup::dropEvent(QDropEvent *event)
  ************************************************/
 void LxQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (!event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    if (!event->mimeData()->hasFormat(LxQtTaskButton::taskButtonMimeDataFormat()))
     {
         event->ignore();
         return;
@@ -113,7 +113,7 @@ void LxQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
 void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
 {
     WId window;
-    QDataStream stream(event->mimeData()->data("lxqt/lxqttaskbutton"));
+    QDataStream stream(event->mimeData()->data(LxQtTaskButton::taskButtonMimeDataFormat()));
     stream >> window;
     if (!mButtonHash.contains(window))
     {
@@ -142,11 +142,6 @@ void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
             oldTreshold = treshold;
         }
     }
-
-    /*
-    if (newIdx == -1)
-        newIdx = temp+ 1;
-        */
 
     QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
     l->insertWidget(newIdx,dragged);

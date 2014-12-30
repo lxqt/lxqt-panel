@@ -35,7 +35,6 @@
 #include <QToolButton>
 #include <QProxyStyle>
 #include "../panel/ilxqtpanel.h"
-//#include "lxqttaskbar.h"
 
 class QPainter;
 class QPalette;
@@ -83,6 +82,7 @@ public:
     LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
     void refreshIconGeometry(int size);
+    static QString taskButtonMimeDataFormat() {return QString("lxqt/lxqttaskbutton");}
 
 public slots:
     void raiseApplication();
@@ -110,12 +110,11 @@ protected:
     void setWindowId(WId wid) {mWindow = wid;}
     virtual void arbitraryMimeData(QMimeData * mimedata);
     virtual void draggingTimerTimeout() {activateWithDraggable();}
-    virtual QString acceptMimeData() const {return QString("lxqt/lxqttaskbutton");}
+    virtual QString acceptMimeData() const {return taskButtonMimeDataFormat();}
 
 private:
     WId mWindow;
     bool mUrgencyHint;
-    //const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
     Qt::Corner mOrigin;
     QPixmap mPixmap;

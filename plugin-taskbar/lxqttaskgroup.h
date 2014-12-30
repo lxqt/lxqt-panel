@@ -69,6 +69,7 @@ public:
     int recalculateFrameHeight() const;
     int recalculateFrameWidth() const;
 
+    static QString taskGroupMimeDataFormat() {return QString("lxqt/lxqttaskgroup");}
 
 protected:
     void arbitraryMimeData(QMimeData * mime);
@@ -79,7 +80,7 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);
 
-    QString acceptMimeData() const {return QString("lxqt/lxqttaskgroup");}
+    QString acceptMimeData() const {return taskGroupMimeDataFormat();}
     void draggingTimerTimeout();
 
 private slots:

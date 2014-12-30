@@ -196,11 +196,13 @@ bool LxQtTaskGroup::checkNextPrevChild(bool next,bool modulo)
         else
         {
             for(int i = mLayout->count() - 1; i >= 0; i--)
+            {
                 if(mLayout->itemAt(i)->widget()->isVisibleTo(mFrame))
                 {
                     idx = i;
                     break;
                 }
+            }
         }
     }
 
@@ -307,13 +309,6 @@ void LxQtTaskGroup::removeButton(WId window)
  ************************************************/
 void LxQtTaskGroup::setToolButtonsStyle(Qt::ToolButtonStyle style)
 {
-    /*
-    foreach (LxQtTaskButton* button, mButtonHash)
-    {
-        button->setToolButtonStyle(style);
-    }
-    */
-
     setToolButtonStyle(style);
 }
 
@@ -485,7 +480,7 @@ void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
     qDebug() << QString("Dragging group button: %1").arg(groupName());
     stream << groupName();
-    mimedata->setData("lxqt/lxqttaskgroup", byteArray);
+    mimedata->setData(acceptMimeData(), byteArray);
 }
 
 /************************************************

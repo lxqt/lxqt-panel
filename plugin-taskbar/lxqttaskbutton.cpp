@@ -228,7 +228,7 @@ void LxQtTaskButton::arbitraryMimeData(QMimeData *mimedata)
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
     //qDebug() << QString("Dragging window: %1").arg(mWindow);
     stream << (qlonglong) mWindow;
-    mimedata->setData("lxqt/lxqttaskbutton", byteArray);
+    mimedata->setData(acceptMimeData(), byteArray);
 }
 
 /************************************************

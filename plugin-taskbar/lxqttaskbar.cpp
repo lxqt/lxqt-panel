@@ -158,7 +158,7 @@ bool LxQtTaskBar::acceptWindow(WId window) const
  ************************************************/
 void LxQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 {
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+    if (event->mimeData()->hasFormat(LxQtTaskGroup::taskGroupMimeDataFormat()))
         event->acceptProposedAction();
     else
         event->ignore();
@@ -178,9 +178,9 @@ int LxQtTaskBar::dropValue(int idx)
 void LxQtTaskBar::groupDroppedSlot(const QPoint &point, QDropEvent *event)
 {
     int droppedIndex;
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskgroup"))
+    if (event->mimeData()->hasFormat(LxQtTaskGroup::taskGroupMimeDataFormat()))
     {
-        QDataStream stream(event->mimeData()->data("lxqt/lxqttaskgroup"));
+        QDataStream stream(event->mimeData()->data(LxQtTaskGroup::taskGroupMimeDataFormat()));
         QString groupName;
         stream >> groupName;
         qDebug() << QString("Dropped button group: %1").arg(groupName);
@@ -380,7 +380,6 @@ void LxQtTaskBar::settingsChanged()
     mSettings.showGroupWhenHover = mPlugin->settings()->value("hoverActivate",true).toBool();
     mSettings.switchGroupWhenHoverOneWindow = (mPlugin->settings()->value("hoverSingle",true).toBool());
     mSettings.switchGroupWhenHover = mPlugin->settings()->value("hoverSwitch",true).toBool();
-    //mSettings.showGroupWhenHoverOneWindow= mPlugin->settings()->value("hoverActivateSingle",true).toBool();
     mSettings.groupButtonHeight = mPlugin->settings()->value("groupButtonHeight",100).toInt();
     mSettings.groupButtonWidth = mPlugin->settings()->value("groupButtonWidth",100).toInt();
     mSettings.eyeCandy = mPlugin->settings()->value("eyeCandy",true).toBool();

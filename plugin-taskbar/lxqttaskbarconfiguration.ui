@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>349</width>
-    <height>507</height>
+    <width>345</width>
+    <height>503</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -180,7 +180,7 @@
    <item>
     <widget class="QCheckBox" name="eyeCandyCB">
      <property name="text">
-      <string>Eye candy</string>
+      <string>Animate hover popup</string>
      </property>
     </widget>
    </item>
@@ -218,8 +218,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
-     <y>453</y>
+     <x>262</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -234,8 +234,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>324</x>
-     <y>453</y>
+     <x>330</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -250,12 +250,28 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>137</y>
+     <x>169</x>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
-     <x>155</x>
-     <y>165</y>
+     <x>169</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hoverActivateCB</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>hoverSingleCB</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>54</x>
+     <y>177</y>
     </hint>
    </hints>
   </connection>
