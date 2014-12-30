@@ -130,7 +130,6 @@ void LxQtMasterPopup::closeEvent(QCloseEvent *event)
 
         event->ignore();
     }
-    //hide();
 }
 
 /************************************************
@@ -191,6 +190,7 @@ void LxQtMasterPopup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
 {
+    qDebug() << show;
     if (!show)
     {
         close();
@@ -202,7 +202,6 @@ void LxQtMasterPopup::activateGroup(LxQtTaskGroup *group, bool show)
     {
         mStackedWidget->setCurrentWidget(f);
         f->show();
-        //resize(f->minimumSize());
         this->show();
     }
 }

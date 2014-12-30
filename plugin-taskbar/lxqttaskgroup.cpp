@@ -551,7 +551,11 @@ int LxQtTaskGroup::recalculateFrameHeight() const
  ************************************************/
 int LxQtTaskGroup::recalculateFrameWidth() const
 {
-    int hh = parentTaskBar()->settings().groupButtonWidth;
+    int minimum = parentTaskBar()->settings().groupButtonWidth;
+    int hh = width();
+    if (hh < minimum)
+        hh = minimum;
+
     return hh;
 }
 
@@ -600,7 +604,6 @@ void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
     {
         p->mouseEnterCurrentGroup(this, !start);
     }
-
 }
 
 /************************************************
@@ -622,6 +625,7 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
 
     if (sDraggging)
         return;
+
     startStopFrameCloseTimer(false);
 
     if (parentTaskBar()->settings().showGroupWhenHover)
@@ -645,6 +649,7 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
+    mSwitchTimer->stop();
     raisePopup(false);
     LxQtTaskButton::dragEnterEvent(event);
 }
@@ -655,6 +660,7 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
 {
     raisePopup(false);
+    mSwitchTimer->stop();
     LxQtTaskButton::dragLeaveEvent(event);
 }
 
@@ -663,7 +669,6 @@ void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
  ************************************************/
 void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
-    //LxQtTaskButton* button = NULL;
     QVector<LxQtTaskButton *> buttons;
     buttons.append(mButtonHash.value(window,NULL));
     if (window == windowId())
