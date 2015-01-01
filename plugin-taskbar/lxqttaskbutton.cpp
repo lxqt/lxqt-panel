@@ -130,10 +130,10 @@ void LxQtTaskButton::updateIcon()
 /************************************************
 
  ************************************************/
-void LxQtTaskButton::refreshIconGeometry(int size)
-{ /*
+void LxQtTaskButton::refreshIconGeometry()
+{
     QRect rect = geometry();
-    QPoint globalPos = globalWidget->mapToGlobal(pos());
+    QPoint globalPos = parentTaskBar()->mapToGlobal(pos());
     rect.moveTo(globalPos);
 
     NETWinInfo info(QX11Info::connection(), windowId(),
@@ -144,8 +144,6 @@ void LxQtTaskButton::refreshIconGeometry(int size)
     nrect.size.height = rect.height();
     nrect.size.width = rect.width();
     info.setIconGeometry(nrect);
-    */
-    setIconSize(QSize(size,size));
 }
 
 /************************************************

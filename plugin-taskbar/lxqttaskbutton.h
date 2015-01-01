@@ -81,7 +81,7 @@ public:
     void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
     LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
-    void refreshIconGeometry(int size);
+    void refreshIconGeometry();
     static QString taskButtonMimeDataFormat() {return QString("lxqt/lxqttaskbutton");}
 
 public slots:

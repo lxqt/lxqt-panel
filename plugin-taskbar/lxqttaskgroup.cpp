@@ -508,11 +508,12 @@ void LxQtTaskGroup::refreshIconsGeometry()
 {
     foreach(LxQtTaskButton * but, mButtonHash)
     {
-        but->refreshIconGeometry(mPlugin->panel()->iconSize());
+        but->refreshIconGeometry();
+        but->setIconSize(QSize(mPlugin->panel()->iconSize(),mPlugin->panel()->iconSize()));
     }
 
-    //group icons are set automatically by panel
-    //refreshIconGeometry(parentTaskBar());
+    if (windowId())
+        refreshIconGeometry();
 }
 
 /************************************************
@@ -675,16 +676,19 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
 {
     QVector<LxQtTaskButton *> buttons;
     buttons.append(mButtonHash.value(window,NULL));
+
+    //if group contains only one window
+    //properties must be changed also on groupbutton
     if (window == windowId())
         buttons.append(this);
 
-    // window changed virtual desktop
     foreach (LxQtTaskButton * button, buttons)
     {
         if (!button)
         {
             continue;
         }
+        // window changed virtual desktop+
         if (prop.testFlag(NET::WMDesktop))
         {
             if (parentTaskBar()->settings().showOnlyCurrentDesktopTasks)
