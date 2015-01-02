@@ -3,7 +3,7 @@
     <name>LxQtNetworkMonitor</name>
     <message>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>Inerface de rede &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Interface de rede &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Transmitted %1</source>
@@ -42,7 +42,7 @@
     <name>LxQtNetworkMonitorConfiguration</name>
     <message>
         <source>LxQt Network Monitor settings</source>
-        <translation>Configurações De Monitoramento De Rede</translation>
+        <translation>Configurações de Monitoramento de Rede</translation>
     </message>
     <message>
         <source>General</source>
@@ -58,7 +58,7 @@
     </message>
     <message>
         <source>Monitor</source>
-        <translation>Monitorar</translation>
+        <translation>Monitoramento</translation>
     </message>
     <message>
         <source>Network</source>

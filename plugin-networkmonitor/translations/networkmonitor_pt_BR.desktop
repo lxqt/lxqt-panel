@@ -5,9 +5,6 @@ ServiceTypes=LxQtPanel/Plugin
 Name=Network monitor
 Comment=Displays network status and activity.
 
-
-
-
 # Translations
-Comment[pt_BR]=Suspender Automaticamente
-Name[pt_BR]=Ambiente De Trabalho Qt4
+Comment[pt_BR]=Monitor de Rede
+Name[pt_BR]=Mostra atividade e estado da rede
