@@ -42,6 +42,7 @@ namespace Ui {
 }
 
 class LxQtWorldClockConfigurationTimeZones;
+class LxQtWorldClockConfigurationManualFormat;
 class QListWidgetItem;
 
 class LxQtWorldClockConfiguration : public QDialog
@@ -71,6 +72,12 @@ private slots:
     */
     void dialogButtonsAction(QAbstractButton *);
 
+    void timeFormatChanged(int);
+    void dateFormatChanged(int);
+    void advancedFormatToggled(bool);
+    void customiseManualFormatClicked();
+    void manualFormatChanged();
+
     void updateTimeZoneButtons();
     void addTimeZone();
     void removeTimeZone();
@@ -84,6 +91,9 @@ private:
     bool mLockCascadeSettingChanges;
 
     LxQtWorldClockConfigurationTimeZones *mConfigurationTimeZones;
+    LxQtWorldClockConfigurationManualFormat *mConfigurationManualFormat;
+
+    QString mManualFormat;
 
     void setDefault(QListWidgetItem *);
     void setBold(QListWidgetItem *, bool);

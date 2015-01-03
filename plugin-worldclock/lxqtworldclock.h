@@ -73,34 +73,22 @@ private:
     ActiveLabel *mContent;
     LxQtWorldClockPopup* mPopup;
 
-    typedef enum FormatType
-    {
-        FORMAT__INVALID = -1,
-        FORMAT_SHORT_TIMEONLY = 0,
-        FORMAT_LONG_TIMEONLY,
-        FORMAT_SHORT,
-        FORMAT_LONG,
-        FORMAT_CUSTOM
-    } FormatType;
-
     QTimer *mTimer;
 
     QStringList mTimeZones;
     QString mDefaultTimeZone;
     QString mActiveTimeZone;
-    QString mCustomFormat;
-    FormatType mFormatType;
+    QString mFormat;
 
     bool mAutoRotate;
     QString mLastShownText;
-    Qt::DateFormat mFormat;
     QLabel *mPopupContent;
 
-    void updateFormat();
     void restartTimer(int);
 
     QString formatDateTime(const QDateTime &datetime, const QString &timeZoneName);
     void updatePopupContent();
+    bool formatHasTimeZone(QString format);
     QString preformat(const QString &format, const QTimeZone &timeZone, const QDateTime& dateTime);
 };
 

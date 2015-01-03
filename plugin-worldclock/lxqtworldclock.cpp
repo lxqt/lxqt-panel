@@ -45,9 +45,7 @@ LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     ILxQtPanelPlugin(startupInfo),
     mPopup(NULL),
     mTimer(new QTimer(this)),
-    mFormatType(FORMAT__INVALID),
     mAutoRotate(true),
-    mFormat(Qt::TextDate),
     mPopupContent(NULL)
 {
     mMainWidget = new QWidget();
@@ -92,48 +90,6 @@ void LxQtWorldClock::timeout()
     }
 }
 
-void LxQtWorldClock::updateFormat()
-{
-    int timerInterval = 0;
-
-    switch (mFormatType)
-    {
-    case FORMAT_CUSTOM:
-    {
-        mFormat = static_cast<Qt::DateFormat>(-1); // custom
-
-        QString format = mCustomFormat;
-        format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
-        if (format.contains(QLatin1String("SSS")))
-            timerInterval = 1;
-        else if (format.contains(QLatin1String("SS")))
-            timerInterval = 10;
-        else if (format.contains(QLatin1String("S")))
-            timerInterval = 100;
-        else if (format.contains(QLatin1String("s")))
-            timerInterval = 1000;
-        else
-            timerInterval = 60000;
-    }
-        break;
-
-    case FORMAT_LONG_TIMEONLY:
-    case FORMAT_LONG:
-        mFormat = Qt::DefaultLocaleLongDate;
-        timerInterval = 1000;
-        break;
-
-    case FORMAT_SHORT_TIMEONLY:
-    case FORMAT_SHORT:
-        mFormat = Qt::DefaultLocaleShortDate;
-        timerInterval = 60000;
-        break;
-
-    default:;
-    }
-
-    restartTimer(timerInterval);
-}
 
 void LxQtWorldClock::restartTimer(int timerInterval)
 {
@@ -154,8 +110,7 @@ void LxQtWorldClock::settingsChanged()
 {
     QSettings *_settings = settings();
 
-    FormatType oldFormatType = mFormatType;
-    QString oldCustomFormat = mCustomFormat;
+    QString oldFormat = mFormat;
 
     mTimeZones.clear();
 
@@ -174,26 +129,154 @@ void LxQtWorldClock::settingsChanged()
         mDefaultTimeZone = mTimeZones[0];
     mActiveTimeZone = mDefaultTimeZone;
 
-    mCustomFormat = _settings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
+
+    bool longTimeFormatSelected = false;
 
     QString formatType = _settings->value(QLatin1String("formatType"), QString()).toString();
-    if (formatType == QLatin1String("custom"))
-        mFormatType = FORMAT_CUSTOM;
-    else if (formatType == QLatin1String("full"))
-        mFormatType = FORMAT_LONG;
-    else if (formatType == QLatin1String("long"))
-        mFormatType = FORMAT_LONG;
-    else if (formatType == QLatin1String("medium"))
-        mFormatType = FORMAT_SHORT;
-    else if (formatType == QLatin1String("short-timeonly"))
-        mFormatType = FORMAT_SHORT_TIMEONLY;
-    else if (formatType == QLatin1String("long-timeonly"))
-        mFormatType = FORMAT_LONG_TIMEONLY;
-    else
-        mFormatType = FORMAT_SHORT;
+    QString dateFormatType = _settings->value(QLatin1String("dateFormatType"), QString()).toString();
+    bool advancedManual = _settings->value(QLatin1String("useAdvancedManualFormat"), false).toBool();
 
-    if ((oldFormatType != mFormatType) || (oldCustomFormat != mCustomFormat))
-        updateFormat();
+    // backward compatibility
+    if (formatType == QLatin1String("custom"))
+    {
+        formatType = QLatin1String("short-timeonly");
+        dateFormatType = QLatin1String("short");
+        advancedManual = true;
+    }
+    else if (formatType == QLatin1String("short"))
+    {
+        formatType = QLatin1String("short-timeonly");
+        dateFormatType = QLatin1String("short");
+        advancedManual = false;
+    }
+    else if ((formatType == QLatin1String("full")) ||
+             (formatType == QLatin1String("long")) ||
+             (formatType == QLatin1String("medium")))
+    {
+        formatType = QLatin1String("long-timeonly");
+        dateFormatType = QLatin1String("long");
+        advancedManual = false;
+    }
+
+    if (formatType == QLatin1String("long-timeonly"))
+        longTimeFormatSelected = true;
+
+    bool timeShowSeconds = _settings->value(QLatin1String("timeShowSeconds"), false).toBool();
+    bool timePadHour = _settings->value(QLatin1String("timePadHour"), false).toBool();
+    bool timeAMPM = _settings->value(QLatin1String("timeAMPM"), false).toBool();
+
+    // timezone
+    bool showTimezone = _settings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected;
+
+    QString timezonePosition = _settings->value(QLatin1String("timezonePosition"), QString()).toString();
+    QString timezoneFormatType = _settings->value(QLatin1String("timezoneFormatType"), QString()).toString();
+
+    // date
+    bool showDate = _settings->value(QLatin1String("showDate"), false).toBool();
+
+    QString datePosition = _settings->value(QLatin1String("datePosition"), QString()).toString();
+
+    bool dateShowYear = _settings->value(QLatin1String("dateShowYear"), false).toBool();
+    bool dateShowDoW = _settings->value(QLatin1String("dateShowDoW"), false).toBool();
+    bool datePadDay = _settings->value(QLatin1String("datePadDay"), false).toBool();
+    bool dateLongNames = _settings->value(QLatin1String("dateLongNames"), false).toBool();
+
+    // advanced
+    QString customFormat = _settings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
+
+    if (advancedManual)
+        mFormat = customFormat;
+    else
+    {
+        QTimeZone timeZone(mActiveTimeZone.toLatin1());
+        QLocale locale = QLocale(QLocale::AnyLanguage, QLocale().country());
+
+        if (formatType == QLatin1String("short-timeonly"))
+            mFormat = locale.timeFormat(QLocale::ShortFormat);
+        else if (formatType == QLatin1String("long-timeonly"))
+            mFormat = locale.timeFormat(QLocale::LongFormat);
+        else // if (formatType == QLatin1String("custom-timeonly"))
+            mFormat = QString(QLatin1String("%1:mm%2%3")).arg(timePadHour ? QLatin1String("hh") : QLatin1String("h")).arg(timeShowSeconds ? QLatin1String(":ss") : QLatin1String("")).arg(timeAMPM ? QLatin1String(" A") : QLatin1String(""));
+
+        if (showTimezone)
+        {
+            QString timezonePortion;
+            if (timezoneFormatType == QLatin1String("short"))
+                timezonePortion = QLatin1String("TTTT");
+            else if (timezoneFormatType == QLatin1String("long"))
+                timezonePortion = QLatin1String("TTTTT");
+            else if (timezoneFormatType == QLatin1String("offset"))
+                timezonePortion = QLatin1String("T");
+            else if (timezoneFormatType == QLatin1String("abbreviation"))
+                timezonePortion = QLatin1String("TTT");
+            else // if (timezoneFormatType == QLatin1String("iana"))
+                timezonePortion = QLatin1String("TT");
+
+            if (timezonePosition == QLatin1String("below"))
+                mFormat = mFormat + QLatin1String("'<br/>'") + timezonePortion;
+            else if (timezonePosition == QLatin1String("above"))
+                mFormat = timezonePortion + QLatin1String("'<br/>'") + mFormat;
+            else if (timezonePosition == QLatin1String("before"))
+                mFormat = timezonePortion + QLatin1String(" ") + mFormat;
+            else // if (timezonePosition == QLatin1String("after"))
+                mFormat = mFormat + QLatin1String(" ") + timezonePortion;
+        }
+
+        if (showDate)
+        {
+            QString datePortion;
+            if (dateFormatType == QLatin1String("short"))
+                datePortion = locale.dateFormat(QLocale::ShortFormat);
+            else if (dateFormatType == QLatin1String("long"))
+                datePortion = locale.dateFormat(QLocale::LongFormat);
+            else if (dateFormatType == QLatin1String("iso"))
+                datePortion = QLatin1String("yyyy-MM-dd");
+            else // if (dateFormatType == QLatin1String("custom"))
+            {
+                QString datePortionOrder;
+                QString dateLocale = locale.dateFormat(QLocale::ShortFormat).toLower();
+                int yearIndex = dateLocale.indexOf("y");
+                int monthIndex = dateLocale.indexOf("m");
+                int dayIndex = dateLocale.indexOf("d");
+                if (yearIndex < dayIndex)
+                // Big-endian (year, month, day) (yyyy MMMM dd, dddd) -> in some Asia countires like China or Japan
+                    datePortionOrder = QLatin1String("%1%2%3 %4%5%6");
+                else if (monthIndex < dayIndex)
+                // Middle-endian (month, day, year) (dddd, MMMM dd yyyy) -> USA
+                    datePortionOrder = QLatin1String("%6%5%3 %4%2%1");
+                else
+                // Little-endian (day, month, year) (dddd, dd MMMM yyyy) -> most of Europe
+                    datePortionOrder = QLatin1String("%6%5%4 %3%2%1");
+                datePortion = datePortionOrder.arg(dateShowYear ? QLatin1String("yyyy") : QLatin1String("")).arg(dateShowYear ? QLatin1String(" ") : QLatin1String("")).arg(dateLongNames ? QLatin1String("MMMM") : QLatin1String("MMM")).arg(datePadDay ? QLatin1String("dd") : QLatin1String("d")).arg(dateShowDoW ? QLatin1String(", ") : QLatin1String("")).arg(dateShowDoW ? (dateLongNames ? QLatin1String("dddd") : QLatin1String("ddd")) : QLatin1String(""));
+            }
+
+            if (datePosition == QLatin1String("below"))
+                mFormat = mFormat + QLatin1String("'<br/>'") + datePortion;
+            else if (datePosition == QLatin1String("above"))
+                mFormat = datePortion + QLatin1String("'<br/>'") + mFormat;
+            else if (datePosition == QLatin1String("before"))
+                mFormat = datePortion + QLatin1String(" ") + mFormat;
+            else // if (datePosition == QLatin1String("after"))
+                mFormat = mFormat + QLatin1String(" ") + datePortion;
+        }
+    }
+
+
+    if ((oldFormat != mFormat))
+    {
+        int timerInterval = 0;
+
+        QString format = mFormat;
+        format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+        if (format.contains(QLatin1String("z")))
+            timerInterval = 1;
+        else if (format.contains(QLatin1String("s")))
+            timerInterval = 1000;
+        else
+            timerInterval = 60000;
+
+        restartTimer(timerInterval);
+    }
 
     bool autoRotate = settings()->value(QLatin1String("autoRotate"), true).toBool();
     if (autoRotate != mAutoRotate)
@@ -288,27 +371,7 @@ QString LxQtWorldClock::formatDateTime(const QDateTime &datetime, const QString 
 {
     QTimeZone timeZone(timeZoneName.toLatin1());
     QDateTime tzNow = datetime.toTimeZone(timeZone);
-    QString result;
-    switch (mFormatType)
-    {
-    case FORMAT_CUSTOM:
-        result = tzNow.toString(preformat(mCustomFormat, timeZone, tzNow));
-        break;
-
-    case FORMAT_SHORT_TIMEONLY:
-    case FORMAT_LONG_TIMEONLY:
-        result = tzNow.time().toString(mFormat);
-        break;
-
-    case FORMAT_SHORT:
-    case FORMAT_LONG:
-        result = tzNow.toString(mFormat);
-        break;
-
-    default:;
-    }
-
-    return result;
+    return tzNow.toString(preformat(mFormat, timeZone, tzNow));
 }
 
 void LxQtWorldClock::updatePopupContent()
@@ -317,24 +380,26 @@ void LxQtWorldClock::updatePopupContent()
     {
         QDateTime now = QDateTime::currentDateTime();
         QStringList allTimeZones;
+        bool hasTimeZone = formatHasTimeZone(mFormat);
 
         foreach (QString timeZoneName, mTimeZones)
         {
             QString formatted = formatDateTime(now, timeZoneName);
-            switch (mFormatType)
-            {
-            case FORMAT_SHORT_TIMEONLY:
-            case FORMAT_SHORT:
-                formatted += QLatin1String("<br/>") + QString::fromLatin1(QTimeZone(timeZoneName.toLatin1()).id());
-                break;
 
-            default:;
-            }
+            if (!hasTimeZone)
+                formatted += QLatin1String("<br/>") + QString::fromLatin1(QTimeZone(timeZoneName.toLatin1()).id());
+
             allTimeZones.append(formatted);
         }
 
         mPopupContent->setText(allTimeZones.join(QLatin1String("<hr/>")));
     }
+}
+
+bool LxQtWorldClock::formatHasTimeZone(QString format)
+{
+    format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+    return format.toLower().contains(QLatin1String("t"));
 }
 
 QString LxQtWorldClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
