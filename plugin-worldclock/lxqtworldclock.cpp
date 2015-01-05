@@ -118,7 +118,9 @@ void LxQtWorldClock::settingsChanged()
     for (int i = 0; i < size; ++i)
     {
         _settings->setArrayIndex(i);
-        mTimeZones.append(_settings->value(QLatin1String("timeZone"), QString()).toString());
+        QString timeZoneName = _settings->value(QLatin1String("timeZone"), QString()).toString();
+        mTimeZones.append(timeZoneName);
+        mTimeZoneCustomNames[timeZoneName] = _settings->value(QLatin1String("customName"), QString()).toString();
     }
     _settings->endArray();
     if (mTimeZones.isEmpty())
@@ -209,8 +211,10 @@ void LxQtWorldClock::settingsChanged()
                 timezonePortion = QLatin1String("T");
             else if (timezoneFormatType == QLatin1String("abbreviation"))
                 timezonePortion = QLatin1String("TTT");
-            else // if (timezoneFormatType == QLatin1String("iana"))
+            else if (timezoneFormatType == QLatin1String("iana"))
                 timezonePortion = QLatin1String("TT");
+            else // if (timezoneFormatType == QLatin1String("custom"))
+                timezonePortion = QLatin1String("TTTTTT");
 
             if (timezonePosition == QLatin1String("below"))
                 mFormat = mFormat + QLatin1String("'<br/>'") + timezonePortion;
@@ -429,8 +433,8 @@ QString LxQtWorldClock::preformat(const QString &format, const QTimeZone &timeZo
         {
             int length = 1;
             for (; result[tz + length] == QLatin1Char('T'); ++length);
-            if (length > 5)
-                length = 5;
+            if (length > 6)
+                length = 6;
             QString replacement;
             switch (length)
             {
@@ -455,6 +459,9 @@ QString LxQtWorldClock::preformat(const QString &format, const QTimeZone &timeZo
             case 5:
                 replacement = timeZone.displayName(dateTime, QTimeZone::LongName);
                 break;
+
+            case 6:
+                replacement = mTimeZoneCustomNames[QString::fromLatin1(timeZone.id())];
             }
 
             if ((tz > 0) && (result[tz - 1] == QLatin1Char('\'')))

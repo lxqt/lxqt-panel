@@ -196,6 +196,11 @@
               <string>IANA id</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>Custom name</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -399,13 +404,38 @@
       </attribute>
       <layout class="QHBoxLayout" name="_7">
        <item>
-        <widget class="QListWidget" name="timeZonesLW">
+        <widget class="QTableWidget" name="timeZonesTW">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
          <property name="alternatingRowColors">
           <bool>true</bool>
          </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::ExtendedSelection</enum>
          </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="columnCount">
+          <number>2</number>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>IANA id</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Custom name</string>
+          </property>
+         </column>
         </widget>
        </item>
        <item>
@@ -434,6 +464,16 @@
            </property>
            <property name="text">
             <string>Set as &amp;default</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editCustomNamePB">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>&amp;Edit custom name ...</string>
            </property>
           </widget>
          </item>
@@ -520,10 +560,27 @@
  </widget>
  <tabstops>
   <tabstop>tabWidget</tabstop>
-  <tabstop>timeZonesLW</tabstop>
+  <tabstop>timeFormatCB</tabstop>
+  <tabstop>timeShowSecondsCB</tabstop>
+  <tabstop>timePadHourCB</tabstop>
+  <tabstop>timeAMPMCB</tabstop>
+  <tabstop>timezoneGB</tabstop>
+  <tabstop>timezonePositionCB</tabstop>
+  <tabstop>timezoneFormatCB</tabstop>
+  <tabstop>dateGB</tabstop>
+  <tabstop>datePositionCB</tabstop>
+  <tabstop>dateFormatCB</tabstop>
+  <tabstop>dateShowYearCB</tabstop>
+  <tabstop>dateShowDoWCB</tabstop>
+  <tabstop>datePadDayCB</tabstop>
+  <tabstop>dateLongNamesCB</tabstop>
+  <tabstop>advancedManualGB</tabstop>
+  <tabstop>customisePB</tabstop>
+  <tabstop>timeZonesTW</tabstop>
   <tabstop>addPB</tabstop>
   <tabstop>removePB</tabstop>
   <tabstop>setAsDefaultPB</tabstop>
+  <tabstop>editCustomNamePB</tabstop>
   <tabstop>moveUpPB</tabstop>
   <tabstop>moveDownPB</tabstop>
   <tabstop>autorotateCB</tabstop>

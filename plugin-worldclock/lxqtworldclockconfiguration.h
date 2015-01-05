@@ -43,7 +43,7 @@ namespace Ui {
 
 class LxQtWorldClockConfigurationTimeZones;
 class LxQtWorldClockConfigurationManualFormat;
-class QListWidgetItem;
+class QTableWidgetItem;
 
 class LxQtWorldClockConfiguration : public QDialog
 {
@@ -82,6 +82,7 @@ private slots:
     void addTimeZone();
     void removeTimeZone();
     void setTimeZoneAsDefault();
+    void editTimeZoneCustomName();
     void moveTimeZoneUp();
     void moveTimeZoneDown();
 
@@ -95,8 +96,10 @@ private:
 
     QString mManualFormat;
 
-    void setDefault(QListWidgetItem *);
-    void setBold(QListWidgetItem *, bool);
+    void setDefault(int);
+    void setBold(QTableWidgetItem*, bool);
+    void setBold(int row, bool value);
+    int findTimeZone(const QString& timeZone);
 };
 
 #endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H

@@ -76,6 +76,7 @@ private:
     QTimer *mTimer;
 
     QStringList mTimeZones;
+    QMap<QString, QString> mTimeZoneCustomNames;
     QString mDefaultTimeZone;
     QString mActiveTimeZone;
     QString mFormat;

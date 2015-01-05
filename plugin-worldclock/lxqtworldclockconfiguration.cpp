@@ -34,6 +34,8 @@
 #include "lxqtworldclockconfigurationtimezones.h"
 #include "lxqtworldclockconfigurationmanualformat.h"
 
+#include <QInputDialog>
+
 
 LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
@@ -72,10 +74,11 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(dateFormatChanged(int)));
     connect(ui->advancedManualGB, SIGNAL(toggled(bool)), SLOT(advancedFormatToggled(bool)));
 
-    connect(ui->timeZonesLW, SIGNAL(itemSelectionChanged()), SLOT(updateTimeZoneButtons()));
+    connect(ui->timeZonesTW, SIGNAL(itemSelectionChanged()), SLOT(updateTimeZoneButtons()));
     connect(ui->addPB, SIGNAL(clicked()), SLOT(addTimeZone()));
     connect(ui->removePB, SIGNAL(clicked()), SLOT(removeTimeZone()));
     connect(ui->setAsDefaultPB, SIGNAL(clicked()), SLOT(setTimeZoneAsDefault()));
+    connect(ui->editCustomNamePB, SIGNAL(clicked()), SLOT(editTimeZoneCustomName()));
     connect(ui->moveUpPB, SIGNAL(clicked()), SLOT(moveTimeZoneUp()));
     connect(ui->moveDownPB, SIGNAL(clicked()), SLOT(moveTimeZoneDown()));
 
@@ -193,22 +196,28 @@ void LxQtWorldClockConfiguration::loadSettings()
     ui->advancedManualGB->setChecked(advancedManual ? Qt::Checked : Qt:: Unchecked);
 
 
-    ui->timeZonesLW->clear();
+    mDefaultTimeZone = mSettings->value("defaultTimeZone", QString()).toString();
+
+    ui->timeZonesTW->setRowCount(0);
 
     int size = mSettings->beginReadArray(QLatin1String("timeZones"));
     for (int i = 0; i < size; ++i)
     {
         mSettings->setArrayIndex(i);
-        ui->timeZonesLW->addItem(mSettings->value(QLatin1String("timeZone"), QString()).toString());
+        ui->timeZonesTW->setRowCount(ui->timeZonesTW->rowCount() + 1);
+
+        QString timeZoneName = mSettings->value(QLatin1String("timeZone"), QString()).toString();
+        if (mDefaultTimeZone.isEmpty())
+            mDefaultTimeZone = timeZoneName;
+
+        ui->timeZonesTW->setItem(i, 0, new QTableWidgetItem(timeZoneName));
+        ui->timeZonesTW->setItem(i, 1, new QTableWidgetItem(mSettings->value(QLatin1String("customName"), QString()).toString()));
+
+        setBold(i, mDefaultTimeZone == timeZoneName);
     }
     mSettings->endArray();
 
-    mDefaultTimeZone = mSettings->value("defaultTimeZone", QString()).toString();
-    if (mDefaultTimeZone.isEmpty() && ui->timeZonesLW->count())
-        mDefaultTimeZone = ui->timeZonesLW->item(0)->text();
-
-    if (ui->timeZonesLW->count())
-        setBold(ui->timeZonesLW->findItems(mDefaultTimeZone, Qt::MatchExactly)[0], true);
+    ui->timeZonesTW->resizeColumnsToContents();
 
 
     ui->autorotateCB->setChecked(mSettings->value("autoRotate", true).toBool());
@@ -343,12 +352,15 @@ void LxQtWorldClockConfiguration::saveSettings()
     mSettings->setValue(QLatin1String("customFormat"), mManualFormat);
 
 
-    int size = ui->timeZonesLW->count();
+    mSettings->remove(QLatin1String("timeZones"));
+
+    int size = ui->timeZonesTW->rowCount();
     mSettings->beginWriteArray(QLatin1String("timeZones"), size);
     for (int i = 0; i < size; ++i)
     {
         mSettings->setArrayIndex(i);
-        mSettings->setValue(QLatin1String("timeZone"), ui->timeZonesLW->item(i)->text());
+        mSettings->setValue(QLatin1String("timeZone"), ui->timeZonesTW->item(i, 0)->text());
+        mSettings->setValue(QLatin1String("customName"), ui->timeZonesTW->item(i, 1)->text());
     }
     mSettings->endArray();
 
@@ -418,13 +430,19 @@ void LxQtWorldClockConfiguration::manualFormatChanged()
 
 void LxQtWorldClockConfiguration::updateTimeZoneButtons()
 {
-    int selectedCount = ui->timeZonesLW->selectedItems().count();
-    int allCount = ui->timeZonesLW->count();
+    QList<QTableWidgetItem*> selectedItems = ui->timeZonesTW->selectedItems();
+    int selectedCount = selectedItems.count() / 2;
+    int allCount = ui->timeZonesTW->rowCount();
 
     ui->removePB->setEnabled(selectedCount != 0);
     bool canSetAsDefault = (selectedCount == 1);
     if (canSetAsDefault)
-        canSetAsDefault = (ui->timeZonesLW->selectedItems()[0]->text() != mDefaultTimeZone);
+    {
+        if (selectedItems[0]->column() == 0)
+            canSetAsDefault = (selectedItems[0]->text() != mDefaultTimeZone);
+        else
+            canSetAsDefault = (selectedItems[1]->text() != mDefaultTimeZone);
+    }
 
     bool canMoveUp = false;
     bool canMoveDown = false;
@@ -433,7 +451,7 @@ void LxQtWorldClockConfiguration::updateTimeZoneButtons()
         bool skipBottom = true;
         for (int i = allCount - 1; i >= 0; --i)
         {
-            if (ui->timeZonesLW->item(i)->isSelected())
+            if (ui->timeZonesTW->item(i, 0)->isSelected())
             {
                 if (!skipBottom)
                 {
@@ -448,7 +466,7 @@ void LxQtWorldClockConfiguration::updateTimeZoneButtons()
         bool skipTop = true;
         for (int i = 0; i < allCount; ++i)
         {
-            if (ui->timeZonesLW->item(i)->isSelected())
+            if (ui->timeZonesTW->item(i, 0)->isSelected())
             {
                 if (!skipTop)
                 {
@@ -461,8 +479,18 @@ void LxQtWorldClockConfiguration::updateTimeZoneButtons()
         }
     }
     ui->setAsDefaultPB->setEnabled(canSetAsDefault);
+    ui->editCustomNamePB->setEnabled(selectedCount == 1);
     ui->moveUpPB->setEnabled(canMoveUp);
     ui->moveDownPB->setEnabled(canMoveDown);
+}
+
+int LxQtWorldClockConfiguration::findTimeZone(const QString& timeZone)
+{
+    QList<QTableWidgetItem*> items = ui->timeZonesTW->findItems(timeZone, Qt::MatchExactly);
+    foreach (QTableWidgetItem* item, items)
+        if (item->column() == 0)
+            return item->row();
+    return -1;
 }
 
 void LxQtWorldClockConfiguration::addTimeZone()
@@ -473,12 +501,15 @@ void LxQtWorldClockConfiguration::addTimeZone()
     if (mConfigurationTimeZones->updateAndExec() == QDialog::Accepted)
     {
         QString timeZone = mConfigurationTimeZones->timeZone();
-        if (ui->timeZonesLW->findItems(timeZone, Qt::MatchExactly).empty())
+        if (findTimeZone(timeZone) == -1)
         {
-            QListWidgetItem *item = new QListWidgetItem(timeZone);
-            ui->timeZonesLW->addItem(item);
+            int row = ui->timeZonesTW->rowCount();
+            ui->timeZonesTW->setRowCount(row + 1);
+            QTableWidgetItem *item = new QTableWidgetItem(timeZone);
+            ui->timeZonesTW->setItem(row, 0, item);
+            ui->timeZonesTW->setItem(row, 1, new QTableWidgetItem(QString()));
             if (mDefaultTimeZone.isEmpty())
-                setDefault(item);
+                setDefault(row);
         }
     }
 
@@ -487,19 +518,21 @@ void LxQtWorldClockConfiguration::addTimeZone()
 
 void LxQtWorldClockConfiguration::removeTimeZone()
 {
-    foreach (QListWidgetItem *item, ui->timeZonesLW->selectedItems())
-    {
-        if (item->text() == mDefaultTimeZone)
-            mDefaultTimeZone.clear();
-        delete item;
-    }
-    if ((mDefaultTimeZone.isEmpty()) && ui->timeZonesLW->count())
-        setDefault(ui->timeZonesLW->item(0));
+    foreach (QTableWidgetItem *item, ui->timeZonesTW->selectedItems())
+        if (item->column() == 0)
+        {
+            if (item->text() == mDefaultTimeZone)
+                mDefaultTimeZone.clear();
+            ui->timeZonesTW->removeRow(item->row());
+        }
+
+    if ((mDefaultTimeZone.isEmpty()) && ui->timeZonesTW->rowCount())
+        setDefault(0);
 
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::setBold(QListWidgetItem *item, bool value)
+void LxQtWorldClockConfiguration::setBold(QTableWidgetItem *item, bool value)
 {
     if (item)
     {
@@ -509,33 +542,67 @@ void LxQtWorldClockConfiguration::setBold(QListWidgetItem *item, bool value)
     }
 }
 
-void LxQtWorldClockConfiguration::setDefault(QListWidgetItem *item)
+void LxQtWorldClockConfiguration::setBold(int row, bool value)
 {
-    setBold(item, true);
-    mDefaultTimeZone = item->text();
+    setBold(ui->timeZonesTW->item(row, 0), value);
+    setBold(ui->timeZonesTW->item(row, 1), value);
+}
+
+void LxQtWorldClockConfiguration::setDefault(int row)
+{
+    setBold(row, true);
+    mDefaultTimeZone = ui->timeZonesTW->item(row, 0)->text();
 }
 
 void LxQtWorldClockConfiguration::setTimeZoneAsDefault()
 {
-    setBold(ui->timeZonesLW->findItems(mDefaultTimeZone, Qt::MatchExactly)[0], false);
+    setBold(findTimeZone(mDefaultTimeZone), false);
 
-    setDefault(ui->timeZonesLW->selectedItems()[0]);
+    setDefault(ui->timeZonesTW->selectedItems()[0]->row());
 
     saveSettings();
 }
 
+void LxQtWorldClockConfiguration::editTimeZoneCustomName()
+{
+    int row = ui->timeZonesTW->selectedItems()[0]->row();
+
+    QString oldName = ui->timeZonesTW->item(row, 1)->text();
+
+    bool ok;
+    QString newName = QInputDialog::getText(this, tr("Input custom time zone name"), tr("Custom name"), QLineEdit::Normal, oldName, &ok);
+    if (ok)
+    {
+        ui->timeZonesTW->item(row, 1)->setText(newName);
+
+        saveSettings();
+    }
+}
+
 void LxQtWorldClockConfiguration::moveTimeZoneUp()
 {
-    int m = ui->timeZonesLW->count();
+    int m = ui->timeZonesTW->rowCount();
     bool skipTop = true;
     for (int i = 0; i < m; ++i)
     {
-        if (ui->timeZonesLW->item(i)->isSelected())
+        if (ui->timeZonesTW->item(i, 0)->isSelected())
         {
             if (!skipTop)
             {
-                ui->timeZonesLW->insertItem(i - 1, ui->timeZonesLW->takeItem(i));
-                ui->timeZonesLW->item(i - 1)->setSelected(true);
+                QTableWidgetItem *itemP0 = ui->timeZonesTW->takeItem(i - 1, 0);
+                QTableWidgetItem *itemP1 = ui->timeZonesTW->takeItem(i - 1, 1);
+                QTableWidgetItem *itemT0 = ui->timeZonesTW->takeItem(i, 0);
+                QTableWidgetItem *itemT1 = ui->timeZonesTW->takeItem(i, 1);
+
+                ui->timeZonesTW->setItem(i - 1, 0, itemT0);
+                ui->timeZonesTW->setItem(i - 1, 1, itemT1);
+                ui->timeZonesTW->setItem(i, 0, itemP0);
+                ui->timeZonesTW->setItem(i, 1, itemP1);
+
+                itemT0->setSelected(true);
+                itemT1->setSelected(true);
+                itemP0->setSelected(false);
+                itemP1->setSelected(false);
             }
         }
         else
@@ -547,16 +614,28 @@ void LxQtWorldClockConfiguration::moveTimeZoneUp()
 
 void LxQtWorldClockConfiguration::moveTimeZoneDown()
 {
-    int m = ui->timeZonesLW->count();
+    int m = ui->timeZonesTW->rowCount();
     bool skipBottom = true;
     for (int i = m - 1; i >= 0; --i)
     {
-        if (ui->timeZonesLW->item(i)->isSelected())
+        if (ui->timeZonesTW->item(i, 0)->isSelected())
         {
             if (!skipBottom)
             {
-                ui->timeZonesLW->insertItem(i + 1, ui->timeZonesLW->takeItem(i));
-                ui->timeZonesLW->item(i + 1)->setSelected(true);
+                QTableWidgetItem *itemN0 = ui->timeZonesTW->takeItem(i + 1, 0);
+                QTableWidgetItem *itemN1 = ui->timeZonesTW->takeItem(i + 1, 1);
+                QTableWidgetItem *itemT0 = ui->timeZonesTW->takeItem(i, 0);
+                QTableWidgetItem *itemT1 = ui->timeZonesTW->takeItem(i, 1);
+
+                ui->timeZonesTW->setItem(i + 1, 0, itemT0);
+                ui->timeZonesTW->setItem(i + 1, 1, itemT1);
+                ui->timeZonesTW->setItem(i, 0, itemN0);
+                ui->timeZonesTW->setItem(i, 1, itemN1);
+
+                itemT0->setSelected(true);
+                itemT1->setSelected(true);
+                itemN0->setSelected(false);
+                itemN1->setSelected(false);
             }
         }
         else
