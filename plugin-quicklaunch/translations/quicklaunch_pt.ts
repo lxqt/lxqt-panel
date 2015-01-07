@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>QuickLaunchButton</name>
     <message>
@@ -22,7 +24,7 @@
     </message>
     <message>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Neste momento, não pode incluir o ficheiro/url &apos;%1&apos; no inicio rápido.</translation>
+        <translation>Neste momento, não pode incluir o ficheiro/URL &apos;%1&apos; no inicio rápido</translation>
     </message>
 </context>
 </TS>

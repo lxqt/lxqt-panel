@@ -6,7 +6,7 @@ Comment=Displays the current time. Comes with a calendar.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Relógio e calendário
 Name[pt]=Relógio
+Comment[pt]=Relógio e calendário
+

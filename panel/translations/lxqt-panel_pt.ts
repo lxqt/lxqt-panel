@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
@@ -27,15 +29,15 @@
     </message>
     <message>
         <source>Left</source>
-        <translation>À esquerda</translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Ao centro</translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>À direita</translation>
+        <translation>Direita</translation>
     </message>
     <message>
         <source>%</source>
@@ -43,7 +45,7 @@
     </message>
     <message>
         <source>Alignment:</source>
-        <translation>Alinhamento</translation>
+        <translation>Alinhamento:</translation>
     </message>
     <message>
         <source>Length:</source>

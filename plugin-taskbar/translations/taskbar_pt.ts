@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -55,7 +57,7 @@
     </message>
     <message>
         <source>Always on &amp;top</source>
-        <translation>Sempre no &amp;topo</translation>
+        <translation>Sempre na &amp;frente</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -63,7 +65,7 @@
     </message>
     <message>
         <source>Always on &amp;bottom</source>
-        <translation>Sempre na &amp;base</translation>
+        <translation>Sempre a&amp;trás</translation>
     </message>
     <message>
         <source>&amp;Close</source>

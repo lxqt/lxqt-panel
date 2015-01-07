@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>MenuDiskItem</name>
     <message>
@@ -26,14 +28,14 @@
     </message>
     <message>
         <source>No devices Available.</source>
-        <translation>Nenhum dispositivo.</translation>
+        <translation>Não existem dispositivos.</translation>
     </message>
 </context>
 <context>
     <name>LxQtMountConfiguration</name>
     <message>
         <source>LxQt Removable media manager settings</source>
-        <translation>Definições do gestor de unidades e discos amovíveis do LxQt</translation>
+        <translation>Definições do gestor de discos amovíveis do LxQt</translation>
     </message>
     <message>
         <source>Behaviour</source>

@@ -6,7 +6,6 @@ Comment=Allows easy switching between virtual desktops.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Permite trocar entre áreas de trabalho
 Name[pt]=Alternador de áreas de trabalho
+Comment[pt]=Permite trocar entre as áreas de trabalho

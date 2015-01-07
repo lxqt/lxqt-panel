@@ -6,7 +6,6 @@ Comment=Easy mounting and unmounting of USB and optical drives.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Gestor de discos amovíveis (USB, CD, DVD, ...)
 Name[pt]=Discos amovíveis
+Comment[pt]=Montar e desmontar discos óticos e unidades USB.

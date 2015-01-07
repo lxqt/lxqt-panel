@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>LxQtNetworkMonitor</name>
     <message>
@@ -19,23 +21,23 @@
     </message>
     <message>
         <source>KiB</source>
-        <translation>Kb</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation>Mb</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation>Gb</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>TiB</source>
-        <translation>Tb</translation>
+        <translation>TiB</translation>
     </message>
     <message>
         <source>PiB</source>
-        <translation>Pb</translation>
+        <translation>PiB</translation>
     </message>
 </context>
 <context>
