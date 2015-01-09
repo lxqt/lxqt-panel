@@ -106,6 +106,12 @@ if(CPULOAD_PLUGIN)
     endif()
 endif()
 
+setByDefault(DIRECTORYMENU_PLUGIN Yes)
+if(DIRECTORYMENU_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Directory menu")
+    add_subdirectory(plugin-directorymenu)
+endif()
+
 setByDefault(DOM_PLUGIN No)
 if(DOM_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "DOM")
