@@ -6,7 +6,6 @@ Comment=Control the system's volume and launch your preferred mixer.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Controlar o volume do sistema e iniciar o gestor de som
 Name[pt]=Controlo de volume
+Comment[pt]=Controlar o volume do sistema e abrir o gestor de som

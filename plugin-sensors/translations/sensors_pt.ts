@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="pt">
 <context>
     <name>LxQtSensorsConfiguration</name>
     <message>
@@ -7,7 +9,7 @@
     </message>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Update interval (seconds)</source>

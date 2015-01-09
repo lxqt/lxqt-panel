@@ -6,7 +6,6 @@ Comment=Switch between running applications
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Permite trocar entre as aplicações em execução
 Name[pt]=Gestor de tarefas
+Comment[pt]=Permite trocar entre as aplicações em execução
