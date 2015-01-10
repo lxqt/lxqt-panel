@@ -476,7 +476,10 @@ void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
     qDebug() << QString("Dragging group button: %1").arg(groupName());
     stream << groupName();
-    mimedata->setData(acceptMimeData(), byteArray);
+    mimedata->setData(taskGroupMimeDataFormat(), byteArray);
+
+    if (windowId())
+        LxQtTaskButton::arbitraryMimeData(mimedata);
 }
 
 /************************************************

@@ -224,11 +224,10 @@ void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
  ************************************************/
 void LxQtTaskButton::arbitraryMimeData(QMimeData *mimedata)
 {
-    QByteArray byteArray;
-    QDataStream stream(&byteArray, QIODevice::WriteOnly);
-    //qDebug() << QString("Dragging window: %1").arg(mWindow);
-    stream << (qlonglong) mWindow;
-    mimedata->setData(acceptMimeData(), byteArray);
+    QByteArray ba;
+    QDataStream stream(&ba,QIODevice::WriteOnly);
+    stream << (qlonglong)(mWindow);
+    mimedata->setData(taskButtonMimeDataFormat(), ba);
 }
 
 /************************************************

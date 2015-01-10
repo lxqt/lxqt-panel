@@ -178,13 +178,32 @@ int LxQtTaskBar::dropValue(int idx)
 void LxQtTaskBar::groupDroppedSlot(const QPoint &point, QDropEvent *event)
 {
     int droppedIndex;
+
+    qDebug() << event->mimeData()->text();
     if (event->mimeData()->hasFormat(LxQtTaskGroup::taskGroupMimeDataFormat()))
     {
-        QDataStream stream(event->mimeData()->data(LxQtTaskGroup::taskGroupMimeDataFormat()));
-        QString groupName;
-        stream >> groupName;
-        qDebug() << QString("Dropped button group: %1").arg(groupName);
-        droppedIndex = mLayout->indexOf(mGroupsHash.value(groupName,NULL));
+        QString mime;
+        QString data;
+
+        if (event->mimeData()->hasFormat(LxQtTaskButton::taskButtonMimeDataFormat())
+                && !settings().enabledGrouping)
+        {
+            mime = LxQtTaskButton::taskButtonMimeDataFormat();
+            QDataStream stream(event->mimeData()->data(mime));
+            qlonglong w;
+            stream >> w;
+            data = QString("%1").arg(w);
+        }
+        else
+        {
+            mime = LxQtTaskGroup::taskGroupMimeDataFormat();
+            QDataStream stream(event->mimeData()->data(mime));
+            stream >> data;
+        }
+
+        qDebug() << mime << data;
+        droppedIndex = mLayout->indexOf(mGroupsHash.value(data,NULL));
+
         mMasterPopup->hide();
     }
 
