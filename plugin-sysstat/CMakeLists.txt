@@ -1,4 +1,4 @@
-set(PLUGIN "panelsysstat")
+set(PLUGIN "sysstat")
 
 find_package(SysStat-Qt5 REQUIRED)
 

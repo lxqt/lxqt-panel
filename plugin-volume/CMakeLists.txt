@@ -1,4 +1,4 @@
-set(PLUGIN "panelvolume")
+set(PLUGIN "volume")
 
 set(HEADERS
     lxqtvolume.h
