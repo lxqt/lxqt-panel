@@ -1,57 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>LxQtClockConfiguration</name>
     <message>
-        <source>LxQt Clock Settings</source>
+        <location filename="../lxqtclockconfiguration.ui" line="14"/>
+        <source>Clock Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="20"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="26"/>
         <source>&amp;Show seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="33"/>
         <source>12 &amp;hour style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use UTC</source>
+        <location filename="../lxqtclockconfiguration.ui" line="40"/>
+        <source>&amp;Use UTC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="76"/>
+        <source>&amp;Do not show date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="86"/>
+        <source>Show date &amp;before time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="93"/>
+        <source>Show date &amp;after time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="100"/>
+        <source>Show date below time on new &amp;line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="110"/>
+        <source>Orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="116"/>
+        <source>Auto&amp;rotate when the panel is vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="50"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do not show date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show date before time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show date after time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show date below time on new line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
+        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
         <source>Input custom date format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
         <source>Interpreted sequences of date format are:
 
 d	the day as number without a leading zero (1 to 31)

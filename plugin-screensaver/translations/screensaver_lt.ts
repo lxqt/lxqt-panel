@@ -1,9 +1,21 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="lt">
 <context>
     <name>PanelScreenSaver</name>
     <message>
         <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation>Ekrano užsklandos klavišas: „%1“ negali būti registruojamas</translation>
+        <translation type="vanished">Ekrano užsklandos klavišas: „%1“ negali būti registruojamas</translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="52"/>
+        <source>Lock Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="62"/>
+        <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

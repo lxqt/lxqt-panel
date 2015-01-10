@@ -1,4 +1,4 @@
-set(PLUGIN "panelkbindicator")
+set(PLUGIN "kbindicator")
 
 find_package(KF5GuiAddons REQUIRED)
 

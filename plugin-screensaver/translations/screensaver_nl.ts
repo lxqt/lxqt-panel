@@ -1,10 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="nl" version="2.0">
+<TS version="2.1" language="nl">
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <source>Panel Screensaver Global shortcut: '%1' cannot be registered</source>
-        <translation>Schermbeveiliging van paneel: systeembrede sneltoets '%1' kan niet worden geregistreerd</translation>
+        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
+        <translation type="vanished">Schermbeveiliging van paneel: systeembrede sneltoets &apos;%1&apos; kan niet worden geregistreerd</translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="52"/>
+        <source>Lock Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="62"/>
+        <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

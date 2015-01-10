@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="sr_BA">
+<TS version="2.1" language="sr_BA">
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="179"/>
+        <location filename="../lxqtmainmenu.cpp" line="314"/>
+        <source>Show/hide main menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenu.cpp" line="339"/>
         <source>Leave</source>
         <translation>Напуштање</translation>
     </message>
@@ -12,9 +17,8 @@
 <context>
     <name>LxQtMainMenuConfiguration</name>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>LxQt Main Menu settings</source>
-        <translation>Подешавања главног менија</translation>
+        <translation type="vanished">Подешавања главног менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -22,43 +26,70 @@
         <translation>Опште</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Прикажи текст</translation>
+        <translation type="vanished">Прикажи текст</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="45"/>
         <source>Button text</source>
-        <translation>Текст тастера</translation>
+        <translation type="vanished">Текст тастера</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="65"/>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="71"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
+        <source>Main Menu settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
+        <source>Button text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="52"/>
+        <source>Custom font size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="62"/>
+        <source> pt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="81"/>
         <source>Menu file</source>
         <translation>Фајл менија</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="85"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="87"/>
+        <source>Menu file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="95"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Keyboard Shortcut</source>
         <translation>Пречица тастатуре</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="130"/>
         <source>Click the button to record shortcut:</source>
         <translation>Кликните на тастер да снимите пречицу:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="89"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="55"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Choose menu file</source>
         <translation>Изабери фајл менија</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="89"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Menu files (*.menu)</source>
         <translation>Фајлови менија (*.menu)</translation>
     </message>

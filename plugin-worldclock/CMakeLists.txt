@@ -1,4 +1,4 @@
-set(PLUGIN "panelworldclock")
+set(PLUGIN "worldclock")
 
 set(HEADERS
     lxqtworldclock.h

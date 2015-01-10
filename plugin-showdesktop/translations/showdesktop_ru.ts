@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="44"/>
+        <location filename="../showdesktop.cpp" line="48"/>
         <source>Show desktop</source>
         <translation>Показать рабочий стол</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="54"/>
+        <location filename="../showdesktop.cpp" line="58"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Показать рабочий стол: глобальное сочетание клавиш &apos;%1&apos; не может быть зарегистрировано</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="59"/>
+        <location filename="../showdesktop.cpp" line="63"/>
         <source>Show Desktop</source>
         <translation>Показать рабочий стол</translation>
     </message>

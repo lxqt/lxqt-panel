@@ -1,48 +1,34 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="da" version="2.0">
+<TS version="2.1" language="da">
 <context>
-    <name>MenuDiskItem</name>
+    <name>DeviceActionInfo</name>
     <message>
-        <location filename="../menudiskitem.ui" line="44"/>
-        <source>Click to access this device from other applications.</source>
-        <translation>Klik for at tilgå denne enhed fra andre programmer.</translation>
+        <location filename="../actions/deviceaction_info.cpp" line="45"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
+        <translation type="unfinished">Enheden &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; er forbundet.</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.ui" line="54"/>
-        <source>Click to eject this disc.</source>
-        <translation>Klik for at skubbe disken ud.</translation>
+        <location filename="../actions/deviceaction_info.cpp" line="53"/>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
+        <translation type="unfinished">Enheden &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; er fjernet.</translation>
     </message>
-</context>
-<context>
-    <name>MountButton</name>
     <message>
-        <location filename="../mountbutton.cpp" line="149"/>
+        <location filename="../actions/deviceaction_info.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation>Håndtering af medier/enheder</translation>
-    </message>
-    <message>
-        <location filename="../mountbutton.cpp" line="188"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Enheden &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; er forbundet.</translation>
-    </message>
-    <message>
-        <location filename="../mountbutton.cpp" line="207"/>
-        <source>The device &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Enheden &lt;b&gt;&lt;nobr&gt;"%1"&lt;/nobr&gt;&lt;/b&gt; er fjernet.</translation>
-    </message>
-    <message>
-        <location filename="../mountbutton.cpp" line="235"/>
-        <source>No devices Available.</source>
-        <translation>Ingen tilgængelige enheder.</translation>
+        <translation type="unfinished">Håndtering af medier/enheder</translation>
     </message>
 </context>
 <context>
     <name>LxQtMountConfiguration</name>
     <message>
-        <location filename="../lxqtmountconfiguration.ui" line="14"/>
         <source>LxQt Removable media manager settings</source>
-        <translation>LXQt Indstillinger for flytbare medier</translation>
+        <translation type="vanished">LXQt Indstillinger for flytbare medier</translation>
+    </message>
+    <message>
+        <location filename="../lxqtmountconfiguration.ui" line="14"/>
+        <source>Removable Media Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="20"/>
@@ -68,6 +54,45 @@
         <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
         <translation>Gør intet</translation>
+    </message>
+</context>
+<context>
+    <name>MenuDiskItem</name>
+    <message>
+        <source>Click to access this device from other applications.</source>
+        <translation type="vanished">Klik for at tilgå denne enhed fra andre programmer.</translation>
+    </message>
+    <message>
+        <source>Click to eject this disc.</source>
+        <translation type="vanished">Klik for at skubbe disken ud.</translation>
+    </message>
+</context>
+<context>
+    <name>MountButton</name>
+    <message>
+        <location filename="../mountbutton.cpp" line="39"/>
+        <source>Removable media/devices manager</source>
+        <translation>Håndtering af medier/enheder</translation>
+    </message>
+    <message>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
+        <translation type="vanished">Enheden &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; er forbundet.</translation>
+    </message>
+    <message>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
+        <translation type="vanished">Enheden &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; er fjernet.</translation>
+    </message>
+    <message>
+        <source>No devices Available.</source>
+        <translation type="vanished">Ingen tilgængelige enheder.</translation>
+    </message>
+</context>
+<context>
+    <name>Popup</name>
+    <message>
+        <location filename="../popup.cpp" line="56"/>
+        <source>No devices are available</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
