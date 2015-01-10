@@ -4,7 +4,11 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <source>Display Directory</source>
+        <source>Open directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in terminal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

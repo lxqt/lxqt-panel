@@ -4,8 +4,12 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <source>Display Directory</source>
-        <translation>Zeige Ordner</translation>
+        <source>Open directory</source>
+        <translation>Öffne Ordner</translation>
+    </message>
+    <message>
+        <source>Open in terminal</source>
+        <translation>Öffne in Terminal</translation>
     </message>
 </context>
 </TS>
