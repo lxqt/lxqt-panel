@@ -1,50 +1,71 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el_GR" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="el_GR">
 <context>
     <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation>Φορτίο ΚΜΕ %1%</translation>
+        <translation type="vanished">Φορτίο ΚΜΕ %1%</translation>
+    </message>
+    <message>
+        <location filename="../lxqtcpuload.cpp" line="119"/>
+        <source>CPU load %1%</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LxQtCpuLoadConfiguration</name>
     <message>
         <source>LxQt Cpu Load settings</source>
-        <translation>Ρυθμίσεις φορτίου ΚΜΕ</translation>
+        <translation type="vanished">Ρυθμίσεις φορτίου ΚΜΕ</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
+        <source>CPU Load Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
         <translation>Γενικά</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
         <translation>Εμφάνιση κειμένου</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
         <translation>Διάστημα ενημέρωσης:</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
         <translation>δευτ</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
         <translation>Προσανατολισμός γραμμής:</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Κάτω προς τα πάνω</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Πάνω προς τα κάτω</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Αριστερά προς δεξιά</translation>
     </message>
     <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Δεξιά προς αριστερά</translation>
     </message>

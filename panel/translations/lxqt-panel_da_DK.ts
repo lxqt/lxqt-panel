@@ -1,126 +1,353 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da_DK" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="da_DK">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
         <source>Configure panel</source>
-        <translation>Panelindstillinger</translation>
+        <translation type="vanished">Panelindstillinger</translation>
     </message>
     <message>
         <source>Panel size</source>
-        <translation>Panelstørrelse</translation>
+        <translation type="vanished">Panelstørrelse</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Størrelse:</translation>
+        <translation type="vanished">Størrelse:</translation>
     </message>
     <message>
         <source>px</source>
-        <translation>px</translation>
+        <translation type="vanished">px</translation>
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation>Brug automatisk dimensionering</translation>
+        <translation type="vanished">Brug automatisk dimensionering</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation>Panel længde &amp;&amp; position</translation>
+        <translation type="vanished">Panel længde &amp;&amp; position</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Venstrestillet</translation>
+        <translation type="vanished">Venstrestillet</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Midterstillet</translation>
+        <translation type="vanished">Midterstillet</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Højrestillet</translation>
+        <translation type="vanished">Højrestillet</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation type="vanished">%</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation>Tilpasning:</translation>
+        <translation type="vanished">Tilpasning:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Længde:</translation>
+        <translation type="vanished">Længde:</translation>
     </message>
     <message>
         <source>Position:</source>
-        <translation>Position:</translation>
+        <translation type="vanished">Position:</translation>
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation>Toppen af skrivebordet</translation>
+        <translation type="vanished">Toppen af skrivebordet</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation>Venstre side af skrivebordet</translation>
+        <translation type="vanished">Venstre side af skrivebordet</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation>Højre side af skrivebordet</translation>
+        <translation type="vanished">Højre side af skrivebordet</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation>Bunden af skrivebordet</translation>
+        <translation type="vanished">Bunden af skrivebordet</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation>Toppen af skrivebord %1</translation>
+        <translation type="vanished">Toppen af skrivebord %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation>Venstre side af skrivebord %1</translation>
+        <translation type="vanished">Venstre side af skrivebord %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation>Højre side af skrivebord %1</translation>
+        <translation type="vanished">Højre side af skrivebord %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation>Bunden af skrivebord %1</translation>
+        <translation type="vanished">Bunden af skrivebord %1</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="80"/>
+        <location filename="../config/configpaneldialog.cpp" line="86"/>
+        <source>Configure Panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigPanelWidget</name>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="20"/>
+        <source>Configure panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="32"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="41"/>
+        <source>Size:</source>
+        <translation type="unfinished">Størrelse:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="48"/>
+        <location filename="../config/configpaneldialog.ui" line="82"/>
+        <source> px</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="58"/>
+        <source>Icon size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="65"/>
+        <source>Length:</source>
+        <translation type="unfinished">Længde:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="110"/>
+        <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="124"/>
+        <source>%</source>
+        <translation type="unfinished">%</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="129"/>
+        <source>px</source>
+        <translation type="unfinished">px</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="140"/>
+        <source>Rows count:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="172"/>
+        <source>Alignment &amp;&amp; position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="182"/>
+        <location filename="../config/configpaneldialog.cpp" line="229"/>
+        <source>Left</source>
+        <translation type="unfinished">Venstrestillet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="187"/>
+        <location filename="../config/configpaneldialog.cpp" line="230"/>
+        <location filename="../config/configpaneldialog.cpp" line="236"/>
+        <source>Center</source>
+        <translation type="unfinished">Midterstillet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="192"/>
+        <location filename="../config/configpaneldialog.cpp" line="231"/>
+        <source>Right</source>
+        <translation type="unfinished">Højrestillet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="200"/>
+        <source>Alignment:</source>
+        <translation type="unfinished">Tilpasning:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="210"/>
+        <source>Position:</source>
+        <translation type="unfinished">Position:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="226"/>
+        <source>Styling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="232"/>
+        <source>Custom font color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="239"/>
+        <source>Custom background image:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="253"/>
+        <source>Custom background color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="344"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="195"/>
+        <source>Top of desktop</source>
+        <translation type="unfinished">Toppen af skrivebordet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="196"/>
+        <source>Left of desktop</source>
+        <translation type="unfinished">Venstre side af skrivebordet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="197"/>
+        <source>Right of desktop</source>
+        <translation type="unfinished">Højre side af skrivebordet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="198"/>
+        <source>Bottom of desktop</source>
+        <translation type="unfinished">Bunden af skrivebordet</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="207"/>
+        <source>Top of desktop %1</source>
+        <translation type="unfinished">Toppen af skrivebord %1</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="208"/>
+        <source>Left of desktop %1</source>
+        <translation type="unfinished">Venstre side af skrivebord %1</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="209"/>
+        <source>Right of desktop %1</source>
+        <translation type="unfinished">Højre side af skrivebord %1</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="210"/>
+        <source>Bottom of desktop %1</source>
+        <translation type="unfinished">Bunden af skrivebord %1</translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="235"/>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="237"/>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="391"/>
+        <location filename="../config/configpaneldialog.cpp" line="405"/>
+        <source>Pick color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.cpp" line="425"/>
+        <source>Images (*.png *.gif *.jpg)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LxQtPanel</name>
     <message>
+        <location filename="../lxqtpanel.cpp" line="605"/>
+        <source>Add Panel Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="929"/>
+        <location filename="../lxqtpanel.cpp" line="948"/>
         <source>Panel</source>
         <translation>Hej Verden</translation>
     </message>
     <message>
+        <location filename="../lxqtpanel.cpp" line="950"/>
+        <source>Configure Panel...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="955"/>
+        <source>Add Panel Widgets...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="960"/>
+        <source>Add Panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="966"/>
+        <source>Remove Panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Configure panel...</source>
-        <translation>Indstil panelet...</translation>
+        <translation type="vanished">Indstil panelet...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation>Tilføj plugins ...</translation>
+        <translation type="vanished">Tilføj plugins ...</translation>
     </message>
 </context>
 <context>
     <name>LxQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation>Indstil</translation>
+        <translation type="vanished">Indstil</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Flyt</translation>
+        <translation type="vanished">Flyt</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Fjern</translation>
+        <translation type="vanished">Fjern</translation>
     </message>
 </context>
 <context>
     <name>LxQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation>Indstil panel</translation>
+        <translation type="vanished">Indstil panel</translation>
+    </message>
+</context>
+<context>
+    <name>Plugin</name>
+    <message>
+        <location filename="../plugin.cpp" line="309"/>
+        <source>Configure &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugin.cpp" line="314"/>
+        <source>Move &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugin.cpp" line="320"/>
+        <source>Remove &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,59 +1,98 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_VE" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es_VE">
 <context>
-    <name>MenuDiskItem</name>
+    <name>DeviceActionInfo</name>
     <message>
-        <source>Click to access this device from other applications.</source>
-        <translation>Presione para acceder a este dispositivo desde la palicacion por defecto.</translation>
-    </message>
-    <message>
-        <source>Click to eject this disc.</source>
-        <translation>Presione para expulsar este disco.</translation>
-    </message>
-</context>
-<context>
-    <name>MountButton</name>
-    <message>
-        <source>Removable media/devices manager</source>
-        <translation>Administrador de medios y dispositivos</translation>
-    </message>
-    <message>
+        <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; está conectado.</translation>
+        <translation type="unfinished">El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; está conectado.</translation>
     </message>
     <message>
+        <location filename="../actions/deviceaction_info.cpp" line="53"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; fue quitado.</translation>
+        <translation type="unfinished">El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; fue quitado.</translation>
     </message>
     <message>
-        <source>No devices Available.</source>
-        <translation>No hay dispositivos disponibles.</translation>
+        <location filename="../actions/deviceaction_info.cpp" line="59"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Administrador de medios y dispositivos</translation>
     </message>
 </context>
 <context>
     <name>LxQtMountConfiguration</name>
     <message>
         <source>LxQt Removable media manager settings</source>
-        <translation>Configuración de manejador de dispositivos LxQt</translation>
+        <translation type="vanished">Configuración de manejador de dispositivos LxQt</translation>
     </message>
     <message>
+        <location filename="../lxqtmountconfiguration.ui" line="14"/>
+        <source>Removable Media Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
         <translation>Comportamiento</translation>
     </message>
     <message>
+        <location filename="../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
         <translation>Cuando un dispositivo es conectado</translation>
     </message>
     <message>
+        <location filename="../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>Menú emergente</translation>
     </message>
     <message>
+        <location filename="../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
         <translation>Mostrar información</translation>
     </message>
     <message>
+        <location filename="../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
         <translation>No hacer nada</translation>
+    </message>
+</context>
+<context>
+    <name>MenuDiskItem</name>
+    <message>
+        <source>Click to access this device from other applications.</source>
+        <translation type="vanished">Presione para acceder a este dispositivo desde la palicacion por defecto.</translation>
+    </message>
+    <message>
+        <source>Click to eject this disc.</source>
+        <translation type="vanished">Presione para expulsar este disco.</translation>
+    </message>
+</context>
+<context>
+    <name>MountButton</name>
+    <message>
+        <location filename="../mountbutton.cpp" line="39"/>
+        <source>Removable media/devices manager</source>
+        <translation>Administrador de medios y dispositivos</translation>
+    </message>
+    <message>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
+        <translation type="vanished">El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; está conectado.</translation>
+    </message>
+    <message>
+        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
+        <translation type="vanished">El dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; fue quitado.</translation>
+    </message>
+    <message>
+        <source>No devices Available.</source>
+        <translation type="vanished">No hay dispositivos disponibles.</translation>
+    </message>
+</context>
+<context>
+    <name>Popup</name>
+    <message>
+        <location filename="../popup.cpp" line="56"/>
+        <source>No devices are available</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

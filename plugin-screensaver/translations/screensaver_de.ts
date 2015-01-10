@@ -1,17 +1,25 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="de" version="2.0">
+<TS version="2.1" language="de">
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <location filename="../panelscreensaver.cpp" line="59"/>
         <source>Global keyboard shortcut</source>
-        <translation>Globales Tastaturkürzel</translation>
+        <translation type="vanished">Globales Tastaturkürzel</translation>
     </message>
     <message>
-        <location filename="../panelscreensaver.cpp" line="60"/>
-        <source>Panel Screensaver Global shortcut: '%1' cannot be registered</source>
-        <translation>Globales Tastenkürzel für Bildschirmschoner: »%1« kann nicht registriert werden</translation>
+        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
+        <translation type="vanished">Globales Tastenkürzel für Bildschirmschoner: »%1« kann nicht registriert werden</translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="52"/>
+        <source>Lock Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../panelscreensaver.cpp" line="62"/>
+        <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
