@@ -3,8 +3,9 @@
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2015 LXQt team
  * Authors:
  *   Daniel Drzisga <sersmicro@gmail.com>
  *
@@ -30,8 +31,23 @@
 #define DIRECTORYMENU_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QToolButton>
 
+#include <QLabel>
+#include <QToolButton>
+#include <QDomElement>
+#include <QAction>
+#include <QDir>
+#include <QSignalMapper>
+#include <QSettings>
+#include <QMenu>
+
+struct DirectoryMenuEntry : public QObject
+{
+	Q_OBJECT
+
+	QMenu* menu;
+	QString path;
+};
 
 class DirectoryMenu :  public QObject, public ILxQtPanelPlugin
 {
@@ -39,15 +55,32 @@ class DirectoryMenu :  public QObject, public ILxQtPanelPlugin
 
 public:
     DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo);
+    ~DirectoryMenu();
+
+    void test();
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "DirectoryMenu"; }
 
-//private slots:
-//    void toggleShowingDesktop();
+private slots:
+    void showMenu();
+    void openDirectory(const QString& path);
+    void openTerminal(const QString& path);
+    void addMenu(QString path);
+
+protected slots:
+    void buildMenu(const QString& path);
 
 private:
+	void addActions(QMenu* menu, const QString& path);
+
     QToolButton mButton;
+    QMenu *mMenu;
+    QSignalMapper *mOpenDirectorySignalMapper;
+    QSignalMapper *mOpenTerminalSignalMapper;
+    QSignalMapper *mMenuSignalMapper;
+
+    std::vector<QString> mPathStrings;
 };
 
 class DirectoryMenuLibrary: public QObject, public ILxQtPanelPluginLibrary
