@@ -28,4 +28,3 @@ set(LIBRARIES
 
 include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})

@@ -58,20 +58,10 @@ file(GLOB CONFIG_FILES resources/*.conf)
 
 ############################################
 
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
-if(CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions (-Wall)
-endif()
-
 add_definitions(-DCOMPILE_LXQT_PANEL)
 
-
-set(PLUGIN_DESKTOPS_DIR "${CMAKE_INSTALL_PREFIX}/share/lxqt/${PROJECT}")
+set(PLUGIN_DESKTOPS_DIR "${CMAKE_INSTALL_FULL_DATAROOTDIR}/lxqt/${PROJECT}")
 add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
-
 
 project(${PROJECT})
 
@@ -102,7 +92,7 @@ lxqt_translate_ts(lxqt-runner_QM_FILES SOURCES
 lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
 
 
-set(PLUGIN_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/")
+set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
@@ -110,5 +100,5 @@ add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} $
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES} KF5::WindowSystem)
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
-install(FILES   ${CONFIG_FILES}    DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
-install(FILES  ${lxqt-panel_PUB_H_FILES} DESTINATION include/lxqt)
+install(FILES ${CONFIG_FILES} DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
+install(FILES ${lxqt-panel_PUB_H_FILES} DESTINATION include/lxqt)
