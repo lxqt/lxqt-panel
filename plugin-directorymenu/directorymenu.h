@@ -31,6 +31,7 @@
 #define DIRECTORYMENU_H
 
 #include "../panel/ilxqtpanelplugin.h"
+ #include "directorymenuconfiguration.h"
 
 #include <QLabel>
 #include <QToolButton>
@@ -57,10 +58,11 @@ public:
     DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo);
     ~DirectoryMenu();
 
-    void test();
-
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "DirectoryMenu"; }
+    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    QDialog *configureDialog();
+    void settingsChanged();
 
 private slots:
     void showMenu();
@@ -78,6 +80,7 @@ private:
     QSignalMapper *mOpenDirectorySignalMapper;
     QSignalMapper *mMenuSignalMapper;
 
+    QDir mBaseDirectory;
     std::vector<QString> mPathStrings;
 };
 

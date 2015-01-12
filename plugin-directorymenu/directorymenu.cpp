@@ -46,11 +46,12 @@ DirectoryMenu::DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo) :
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.setIcon(XdgIcon::fromTheme("folder"));
-    mButton.installEventFilter(this);
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
     connect(mOpenDirectorySignalMapper, SIGNAL(mapped(QString)), this, SLOT(openDirectory(QString)));
     connect(mMenuSignalMapper, SIGNAL(mapped(QString)), this, SLOT(addMenu(QString)));
+
+    settingsChanged();
 }
 
 DirectoryMenu::~DirectoryMenu()
@@ -64,7 +65,15 @@ DirectoryMenu::~DirectoryMenu()
 
 void DirectoryMenu::showMenu()
 {
-    buildMenu(QDir::homePath());
+    if(mBaseDirectory.exists())
+    {
+        buildMenu(mBaseDirectory.absolutePath());
+    }
+    else
+    {
+        buildMenu(QDir::homePath());
+    }
+    
 
     int x=0, y=0;
 
@@ -153,4 +162,14 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
     		mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());	
     	}
     }
+}
+
+QDialog* DirectoryMenu::configureDialog()
+{
+     return new DirectoryMenuConfiguration(*settings());
+}
+
+void DirectoryMenu::settingsChanged()
+{
+    mBaseDirectory.setPath(settings()->value("baseDirectory", QDir::homePath()).toString());
 }

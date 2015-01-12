@@ -2,14 +2,21 @@ set(PLUGIN "directorymenu")
 
 set(HEADERS
     directorymenu.h
+    directorymenuconfiguration.h
 )
 
 set(SOURCES
     directorymenu.cpp
+    directorymenuconfiguration.cpp
 )
 
 set(MOCS
     directorymenu.h
+    directorymenuconfiguration.h
+)
+
+set(UIS
+    directorymenuconfiguration.ui
 )
 
 set(LIBRARIES
