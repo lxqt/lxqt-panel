@@ -38,4 +38,15 @@ icons here</source>
         <translation>Remover do inicio rápido</translation>
     </message>
 </context>
+<context>
+    <name>LxQtQuickLaunch</name>
+    <message>
+        <source>Drop Error</source>
+        <translation>Erro ao largar</translation>
+    </message>
+    <message>
+        <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
+        <translation>Neste momento, não pode incluir o ficheiro/URL &apos;%1&apos; no inicio rápido</translation>
+    </message>
+</context>
 </TS>

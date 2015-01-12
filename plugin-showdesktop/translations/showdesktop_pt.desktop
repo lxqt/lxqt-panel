@@ -6,7 +6,6 @@ Comment=Minimize all windows and show the desktop
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Minimizar janelas e mostrar a área de trabalho
 Name[pt]=Mostrar área de trabalho
+Comment[pt]=Minimizar janelas e mostrar a área de trabalho

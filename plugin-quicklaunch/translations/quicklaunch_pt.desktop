@@ -6,7 +6,6 @@ Comment=Easy access to your favourite applications.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Iniciar as aplicações preferidas
 Name[pt]=Inicio rápido
+Comment[pt]=Acesso rápido as suas aplicações preferidas.

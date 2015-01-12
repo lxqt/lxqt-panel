@@ -6,7 +6,6 @@ Comment=Display applications minimized to the system tray.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Aceder a aplicações minimizadas na bandeja do sistema
 Name[pt]=Bandeja do sistema
+Comment[pt]=Aceder às aplicações minimizadas na bandeja do sistema
