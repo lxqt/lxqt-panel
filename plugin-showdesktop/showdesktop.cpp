@@ -48,7 +48,7 @@ ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
     m_key = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show desktop"), this);
     if (m_key)
     {
-        connect(m_key, SIGNAL(activated()), this, SLOT(showDesktop()));
+        connect(m_key, SIGNAL(activated()), this, SLOT(toggleShowingDesktop()));
 
         if (m_key->shortcut().isEmpty())
         {
