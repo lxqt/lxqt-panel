@@ -33,7 +33,6 @@
 #include <QDesktopServices>
 #include <QFileInfo>
 #include <QUrl>
-#include <QProcess>
 
 #include <XdgIcon>
 
@@ -43,7 +42,6 @@ DirectoryMenu::DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo) :
     mMenu(0)
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);
-    mOpenTerminalSignalMapper = new QSignalMapper(this);
     mMenuSignalMapper = new QSignalMapper(this);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -52,7 +50,6 @@ DirectoryMenu::DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo) :
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
     connect(mOpenDirectorySignalMapper, SIGNAL(mapped(QString)), this, SLOT(openDirectory(QString)));
-    connect(mOpenTerminalSignalMapper, SIGNAL(mapped(QString)), this, SLOT(openTerminal(QString)));
     connect(mMenuSignalMapper, SIGNAL(mapped(QString)), this, SLOT(addMenu(QString)));
 }
 
@@ -120,12 +117,6 @@ void DirectoryMenu::openDirectory(const QString& path)
 	QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
 }
 
-void DirectoryMenu::openTerminal(const QString& path)
-{
-	QString command = QString("exo-open --working-directory \"%1\" --launch TerminalEmulator").arg(path);
-	QProcess::startDetached(command);
-}
-
 void DirectoryMenu::addMenu(QString path)
 {
 	QSignalMapper* sender = (QSignalMapper* )QObject::sender();
@@ -144,10 +135,6 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 	QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open"));
 	connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
 	mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
-
-	QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme("utilities-terminal"), tr("Open in terminal"));
-	connect(openTerminalAction, SIGNAL(triggered()), mOpenTerminalSignalMapper, SLOT(map()));
-	mOpenTerminalSignalMapper->setMapping(openTerminalAction, mPathStrings.back());
 
 	menu->addSeparator();
 

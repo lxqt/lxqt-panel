@@ -65,7 +65,6 @@ public:
 private slots:
     void showMenu();
     void openDirectory(const QString& path);
-    void openTerminal(const QString& path);
     void addMenu(QString path);
 
 protected slots:
@@ -77,7 +76,6 @@ private:
     QToolButton mButton;
     QMenu *mMenu;
     QSignalMapper *mOpenDirectorySignalMapper;
-    QSignalMapper *mOpenTerminalSignalMapper;
     QSignalMapper *mMenuSignalMapper;
 
     std::vector<QString> mPathStrings;
