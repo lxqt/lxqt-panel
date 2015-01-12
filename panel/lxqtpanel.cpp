@@ -1082,10 +1082,12 @@ void LxQtPanel::removePlugin()
     Plugin *plugin = qobject_cast<Plugin*>(sender());
     QString id;
     if (plugin)
+    {
+        mSettings->remove(plugin->settingsGroup());
         id = mPlugins.takeAt(mPlugins.indexOf(plugin))->desktopFile().id();
+    }
 
     saveSettings();
-
     emit pluginRemoved(id);
 }
 
