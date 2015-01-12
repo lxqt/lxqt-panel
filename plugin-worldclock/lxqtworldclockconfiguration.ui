@@ -100,7 +100,7 @@
              <item>
               <widget class="QCheckBox" name="timeAMPMCB">
                <property name="text">
-                <string>&amp;Use AM/PM</string>
+                <string>&amp;Use 12-hour format</string>
                </property>
               </widget>
              </item>
@@ -193,7 +193,7 @@
             </item>
             <item>
              <property name="text">
-              <string>IANA id</string>
+              <string>Location identifier</string>
              </property>
             </item>
             <item>
