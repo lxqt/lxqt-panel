@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="470"/>
         <source>Always on &amp;top</source>
-        <translation>Sempre no &amp;topo</translation>
+        <translation>Sempre na &amp;frente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="476"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="482"/>
         <source>Always on &amp;bottom</source>
-        <translation>Sempre na &amp;base</translation>
+        <translation>Sempre a&amp;trás</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="490"/>

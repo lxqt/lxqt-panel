@@ -27,13 +27,8 @@ set(UIS
     lxqtsysstatcolours.ui
 )
 
-
 link_libraries(${PLUGIN} ${SYSSTAT_LIBRARIES})
-
-include_directories(
-    "${CMAKE_CURRENT_SOURCE_DIR}"
-    "${SYSSTAT_INCLUDE_DIRS}"
-)
+include_directories("${SYSSTAT_INCLUDE_DIRS}")
 
 include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

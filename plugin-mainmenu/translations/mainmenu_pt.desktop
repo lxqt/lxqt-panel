@@ -6,7 +6,6 @@ Comment=A menu of all your applications.
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[pt]=Lançador de aplicações baseado no menu
 Name[pt]=Menu de aplicações
+Comment[pt]=Lançador de aplicações baseado no menu

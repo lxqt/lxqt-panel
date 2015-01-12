@@ -10,7 +10,6 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-
 macro(setByDefault VAR_NAME VAR_VALUE)
   if(NOT DEFINED ${VAR_NAME})
     set (${VAR_NAME} ${VAR_VALUE})
@@ -24,27 +23,21 @@ if (CMAKE_COMPILER_IS_GNUCXX)
   # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
 endif()
 
+#########################################################################
 
-# *******************************************************************
+add_definitions (-Wall)
+include(GNUInstallDirs)
 
-
-include(LxQtLibSuffix)
-
-add_definitions ( -Wall )
-
-# Support Qt5
-option(USE_QT5 "Build with Qt5." $ENV{USE_QT5})
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
-find_package(Qt5LinguistTools REQUIRED QUIET)
-find_package(Qt5Xml REQUIRED QUIET)
-find_package(Qt5X11Extras REQUIRED QUIET)
-
-find_package(KF5WindowSystem)
+find_package(Qt5LinguistTools REQUIRED)
+find_package(Qt5Xml REQUIRED)
+find_package(Qt5X11Extras REQUIRED)
+find_package(KF5WindowSystem REQUIRED)
 
 find_package(lxqt REQUIRED)
 find_package(Qt5Xdg REQUIRED QUIET)
@@ -59,15 +52,14 @@ include(${LXQT_GLOBALKEYS_UI_USE_FILE})
 include(LXQtTranslate)
 
 include_directories(
-    "${CMAKE_CURRENT_BINARY_DIR}"
-    "${CMAKE_CURRENT_SOURCE_DIR}"
     ${LXQT_INCLUDE_DIRS}
     ${QTXDG_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
-    src
 )
 
 add_subdirectory(panel)
+
+#########################################################################
 
 # Plugin system
 # You can enable/disable building of the plugin using cmake options.
@@ -76,7 +68,7 @@ add_subdirectory(panel)
 
 set(ENABLED_PLUGINS)
 
-set(PLUGIN_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/lxqt-panel/")
+set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
@@ -251,6 +243,7 @@ if(WORLDCLOCK_PLUGIN)
     add_subdirectory(plugin-worldclock)
 endif(WORLDCLOCK_PLUGIN)
 
+#########################################################################
 
 message(STATUS  "**************** The following plugins will be built ****************")
 foreach (PLUGIN_STR ${ENABLED_PLUGINS})
