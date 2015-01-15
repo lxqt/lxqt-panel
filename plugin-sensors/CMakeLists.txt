@@ -28,7 +28,7 @@ set(UIS
   lxqtsensorsconfiguration.ui
 )
 
-LINK_LIBRARIES(${PLUGIN} ${SENSORS_LIB})
+set(LIBRARIES ${SENSORS_LIB})
 
 include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

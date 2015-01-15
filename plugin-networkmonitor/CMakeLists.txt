@@ -26,7 +26,7 @@ set(RESOURCES
     resources.qrc
 )
 
-LINK_LIBRARIES(${PLUGIN} ${STATGRAB_LIB})
+set(LIBRARIES ${STATGRAB_LIB})
 
 include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
