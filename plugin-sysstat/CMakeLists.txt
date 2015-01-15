@@ -30,5 +30,4 @@ set(UIS
 set(LIBRARIES ${SYSSTAT_LIBRARIES})
 include_directories("${SYSSTAT_INCLUDE_DIRS}")
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

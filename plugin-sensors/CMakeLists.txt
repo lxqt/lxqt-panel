@@ -30,5 +30,4 @@ set(UIS
 
 set(LIBRARIES ${SENSORS_LIB})
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

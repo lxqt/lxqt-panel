@@ -66,6 +66,8 @@ add_subdirectory(panel)
 #    cmake -DCLOCK_PLUGIN=Yes .. # Enable clock plugin
 #    cmake -DCLOCK_PLUGIN=No ..  # Disable clock plugin
 
+include("cmake/BuildPlugin.cmake")
+
 set(ENABLED_PLUGINS)
 
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")

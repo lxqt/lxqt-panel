@@ -58,5 +58,4 @@ if(ALSA_FOUND)
     set(LIBRARIES ${LIBRARIES} ${ALSA_LIBRARIES})
 endif()
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -22,5 +22,4 @@ set(UIS
     lxqtclockconfiguration.ui
 )
 
-include("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

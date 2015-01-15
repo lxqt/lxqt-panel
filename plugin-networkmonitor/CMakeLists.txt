@@ -28,5 +28,4 @@ set(RESOURCES
 
 set(LIBRARIES ${STATGRAB_LIB})
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

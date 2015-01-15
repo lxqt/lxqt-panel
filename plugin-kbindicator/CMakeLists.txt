@@ -26,5 +26,4 @@ set(LIBRARIES
     KF5::GuiAddons
 )
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

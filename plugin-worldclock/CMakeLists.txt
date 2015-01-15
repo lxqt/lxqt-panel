@@ -27,5 +27,4 @@ set(UIS
     lxqtworldclockconfigurationmanualformat.ui
 )
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})
