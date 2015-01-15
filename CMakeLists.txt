@@ -57,6 +57,11 @@ include_directories(
     ${Qt5X11Extras_INCLUDE_DIRS}
 )
 
+# Warning: This must be before add_subdirectory(panel). Move with caution.
+set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
+add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
+message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
+
 add_subdirectory(panel)
 
 #########################################################################
@@ -69,10 +74,6 @@ add_subdirectory(panel)
 include("cmake/BuildPlugin.cmake")
 
 set(ENABLED_PLUGINS)
-
-set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
-add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
-message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 setByDefault(CLOCK_PLUGIN Yes)
 if(CLOCK_PLUGIN)
