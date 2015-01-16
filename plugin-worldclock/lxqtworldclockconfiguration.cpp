@@ -60,6 +60,7 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     connect(ui->timezonePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->timezoneFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateGB, SIGNAL(clicked()), SLOT(saveSettings()));
+    connect(ui->dateGB, SIGNAL(toggled(bool)), ui->dateCustomW, SLOT(setEnabled(bool)));
     connect(ui->datePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateShowYearCB, SIGNAL(clicked()), SLOT(saveSettings()));
@@ -166,7 +167,8 @@ void LxQtWorldClockConfiguration::loadSettings()
         ui->timezoneFormatCB->setCurrentIndex(4);
 
     // date
-    ui->dateGB->setChecked(mSettings->value(QLatin1String("showDate"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    bool dateGBValue = mSettings->value(QLatin1String("showDate"), false).toBool() ? Qt::Checked : Qt::Unchecked;
+    ui->dateGB->setChecked(dateGBValue);
 
     QString datePosition = mSettings->value(QLatin1String("datePosition"), QString()).toString();
     if (datePosition == QLatin1String("above"))
@@ -192,6 +194,8 @@ void LxQtWorldClockConfiguration::loadSettings()
     ui->datePadDayCB->setChecked(mSettings->value(QLatin1String("datePadDay"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
     ui->dateLongNamesCB->setChecked(mSettings->value(QLatin1String("dateLongNames"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
 
+    // This must came *after* all the dateCustomW checkbox's values are set
+    ui->dateCustomW->setEnabled(dateGBValue);
 
     ui->advancedManualGB->setChecked(advancedManual ? Qt::Checked : Qt:: Unchecked);
 
