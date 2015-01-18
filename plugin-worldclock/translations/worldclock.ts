@@ -62,11 +62,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
-        <source>&amp;Use AM/PM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
         <translation type="unfinished"></translation>
@@ -116,7 +111,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
         <translation type="unfinished"></translation>
@@ -124,8 +118,18 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="573"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
         <source>Custom name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
+        <source>&amp;Use 12-hour format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
+        <source>Location identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -224,12 +228,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="104"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="105"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="573"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
         <source>Input custom time zone name</source>
         <translation type="unfinished"></translation>
     </message>
