@@ -8,5 +8,5 @@ Comment=Activate a screensaver and/or lock the screen
 
 
 # Translations
-Comment[ja]=スクリーンセーバーの有効および/またはスクリーンのロック
-Name[ja]=スクリーンセーバー
+Comment[ja]=スクリーンセーバーを起動したり、スクリーンをロックしたりします
+Name[ja]=スクリーンセーバーの起動

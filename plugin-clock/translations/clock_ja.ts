@@ -4,13 +4,9 @@
 <context>
     <name>LxQtClockConfiguration</name>
     <message>
-        <source>LxQt Clock Settings</source>
-        <translation type="vanished">LxQt 時計の設定</translation>
-    </message>
-    <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>時計の設定</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="20"/>
@@ -20,7 +16,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="26"/>
         <source>&amp;Show seconds</source>
-        <translation>秒針を表示(&amp;S)</translation>
+        <translation>秒を表示(&amp;S)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="33"/>
@@ -30,50 +26,42 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
         <source>&amp;Use UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>UTCを使用する(&amp;U)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation>日時の形式(&amp;F)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
-        <translation type="unfinished"></translation>
+        <translation>日付を表示しない(&amp;D)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation type="unfinished"></translation>
+        <translation>日付のあとに時刻(&amp;B)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
         <source>Show date &amp;after time</source>
-        <translation type="unfinished"></translation>
+        <translation>時刻のあとに日付(&amp;A)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
-        <translation type="unfinished"></translation>
+        <translation>時刻の下に日付(&amp;L)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="110"/>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>回転</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="116"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Font</source>
-        <translation type="vanished">フォント (&amp;F)</translation>
-    </message>
-    <message>
-        <source>Font</source>
-        <translation type="vanished">フォント</translation>
+        <translation>パネルが縦のときに自動回転(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="50"/>
@@ -81,65 +69,9 @@
         <translation>日付</translation>
     </message>
     <message>
-        <source>Show &amp;date</source>
-        <translation type="vanished">日付を表示 (&amp;S)</translation>
-    </message>
-    <message>
-        <source>D&amp;ate format</source>
-        <translation type="vanished">日付のフォーマット (&amp;A)</translation>
-    </message>
-    <message>
-        <source>Fon&amp;t</source>
-        <translation type="vanished">フォント (&amp;T)</translation>
-    </message>
-    <message>
-        <source>Show date in &amp;new line</source>
-        <translation type="vanished">新しい列に日付を表示 (&amp;N)</translation>
-    </message>
-    <message>
-        <source>&amp;Use theme fonts</source>
-        <translation type="vanished">テーマのフォントを使用 (&amp;U)</translation>
-    </message>
-    <message>
-        <source>Time font</source>
-        <translation type="vanished">時刻のフォント</translation>
-    </message>
-    <message>
-        <source>Date font</source>
-        <translation type="vanished">日付のフォント</translation>
-    </message>
-    <message>
-        <source>Ultra light</source>
-        <translation type="vanished">Ultra light</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation type="vanished">Light</translation>
-    </message>
-    <message>
-        <source>Ultra black</source>
-        <translation type="vanished">Ultra black</translation>
-    </message>
-    <message>
-        <source>Black</source>
-        <translation type="vanished">Black</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="vanished">Bold</translation>
-    </message>
-    <message>
-        <source>Demi bold</source>
-        <translation type="vanished">Demi bold</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="vanished">Italic</translation>
-    </message>
-    <message>
         <location filename="../lxqtclockconfiguration.cpp" line="235"/>
         <source>Input custom date format</source>
-        <translation type="unfinished"></translation>
+        <translation>日付の表示形式を指定</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="235"/>
@@ -162,7 +94,25 @@ will also be treated as text and not be used as an expression.
 
 
 Custom date format:</source>
-        <translation type="unfinished"></translation>
+        <translation>解釈される記法:
+
+d	日(ゼロなし) (1 - 31)
+dd	日(ゼロ埋め) (01 - 31)
+ddd	 曜日（短い） (&apos;月&apos; - &apos;日&apos;)
+dddd	曜日（長い） (&apos;月曜日&apos; - &apos;日曜日&apos;)
+M	月（ゼロなし） (1 - 12)
+MM	月（ゼロ埋め） (01 - 12)
+MMM	月の名称（短い） (&apos;1月&apos; - &apos;12月&apos;)
+MMMM	月の名称 (長い） (&apos;1月&apos; - &apos;12月&apos;、※日本語では上記と同じ)
+yy	西暦年(2桁) (00 - 99)
+yyyy	西暦年(4桁)
+
+そのほかの文字は解釈されず、テキストとして表示されます。
+上記の解釈される文字も、シングルクオーテーション(&apos;)で括ると
+一般の文字として扱われ、上記の解釈はされません。
+
+
+日付形式の指定:</translation>
     </message>
 </context>
 </TS>

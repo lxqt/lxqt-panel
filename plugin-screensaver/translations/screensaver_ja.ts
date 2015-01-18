@@ -4,18 +4,14 @@
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">パネルスクリーンセーバの全体的なショートカット: &apos;%1&apos; は登録することはできません</translation>
-    </message>
-    <message>
         <location filename="../panelscreensaver.cpp" line="52"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンをロック</translation>
     </message>
     <message>
         <location filename="../panelscreensaver.cpp" line="62"/>
         <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンセーバー: グローバルショートカット &apos;%1&apos; を登録することができません</translation>
     </message>
 </context>
 </TS>

@@ -4,94 +4,10 @@
 <context>
     <name>ConfigPanelDialog</name>
     <message>
-        <source>Configure panel</source>
-        <translation type="vanished">パネル設定</translation>
-    </message>
-    <message>
-        <source>Panel size</source>
-        <translation type="vanished">パネルサイズ</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="vanished">サイズ:</translation>
-    </message>
-    <message>
-        <source>px</source>
-        <translation type="vanished">px</translation>
-    </message>
-    <message>
-        <source>Use automatic sizing</source>
-        <translation type="vanished">自動サイジングを使用</translation>
-    </message>
-    <message>
-        <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">パネル長と位置</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">左</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="vanished">中央</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">右</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="vanished">%</translation>
-    </message>
-    <message>
-        <source>Alignment:</source>
-        <translation type="vanished">アラインメント</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Position:</source>
-        <translation type="vanished">位置:</translation>
-    </message>
-    <message>
-        <source>Top of desktop</source>
-        <translation type="vanished">デスクトップの先頭</translation>
-    </message>
-    <message>
-        <source>Left of desktop</source>
-        <translation type="vanished">デスクトップの左</translation>
-    </message>
-    <message>
-        <source>Right of desktop</source>
-        <translation type="vanished">デスクトップの右</translation>
-    </message>
-    <message>
-        <source>Bottom of desktop</source>
-        <translation type="vanished">デスクトップの後尾</translation>
-    </message>
-    <message>
-        <source>Top of desktop %1</source>
-        <translation type="vanished">デスクトップ %1 の上</translation>
-    </message>
-    <message>
-        <source>Left of desktop %1</source>
-        <translation type="vanished">デスクトップ %1 の左</translation>
-    </message>
-    <message>
-        <source>Right of desktop %1</source>
-        <translation type="vanished">デスクトップ %1 の右</translation>
-    </message>
-    <message>
-        <source>Bottom of desktop %1</source>
-        <translation type="vanished">デスクトップ %1 の下</translation>
-    </message>
-    <message>
         <location filename="../config/configpaneldialog.cpp" line="80"/>
         <location filename="../config/configpaneldialog.cpp" line="86"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルを設定</translation>
     </message>
 </context>
 <context>
@@ -99,173 +15,173 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルを設定</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="32"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>大きさ</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="41"/>
         <source>Size:</source>
-        <translation type="unfinished">サイズ:</translation>
+        <translation>幅:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="48"/>
         <location filename="../config/configpaneldialog.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> ピクセル</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="58"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンの大きさ:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
         <source>Length:</source>
-        <translation type="unfinished">長さ:</translation>
+        <translation>長さ:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;負のピクセル値を設定すると、スクリーンの最大領域からその値を差し引いた長さになります。&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例: スクリーンの大きさが 1000 ピクセルである場合に -100 ピクセルを設定すると、パネルの長さは 900 ピクセルになります。&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="124"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="129"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>ピクセル</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>列の数</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>位置寄せと場所</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
         <location filename="../config/configpaneldialog.cpp" line="229"/>
         <source>Left</source>
-        <translation type="unfinished">左</translation>
+        <translation>左寄せ</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="187"/>
         <location filename="../config/configpaneldialog.cpp" line="230"/>
         <location filename="../config/configpaneldialog.cpp" line="236"/>
         <source>Center</source>
-        <translation type="unfinished">中央</translation>
+        <translation>中央</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="192"/>
         <location filename="../config/configpaneldialog.cpp" line="231"/>
         <source>Right</source>
-        <translation type="unfinished">右</translation>
+        <translation>右寄せ</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="200"/>
         <source>Alignment:</source>
-        <translation type="unfinished">アラインメント</translation>
+        <translation>位置寄せ:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="210"/>
         <source>Position:</source>
-        <translation type="unfinished">位置:</translation>
+        <translation type="unfinished">場所:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="226"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>見た目</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="232"/>
         <source>Custom font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>フォントの色を変更:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景画像を指定</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="253"/>
         <source>Custom background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景の色を変更:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="344"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>透明度</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="195"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">デスクトップの先頭</translation>
+        <translation>デスクトップの上</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="196"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">デスクトップの左</translation>
+        <translation>デスクトップの左</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="197"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">デスクトップの右</translation>
+        <translation>デスクトップの右</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="198"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">デスクトップの後尾</translation>
+        <translation>デスクトップの下</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="207"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">デスクトップ %1 の上</translation>
+        <translation>デスクトップ %1 の上</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="208"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">デスクトップ %1 の左</translation>
+        <translation>デスクトップ %1 の左</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="209"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">デスクトップ %1 の右</translation>
+        <translation>デスクトップ %1 の右</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="210"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">デスクトップ %1 の下</translation>
+        <translation>デスクトップ %1 の下</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="235"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="237"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>下</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="391"/>
         <location filename="../config/configpaneldialog.cpp" line="405"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>色を選ぶ</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="425"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>画像 (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -273,7 +189,7 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="605"/>
         <source>Add Panel Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルウィジェットを追加</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="929"/>
@@ -284,52 +200,22 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="950"/>
         <source>Configure Panel...</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルの設定</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="955"/>
         <source>Add Panel Widgets...</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィジェットを追加</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="960"/>
         <source>Add Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルを追加</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="966"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configure panel...</source>
-        <translation type="vanished">パネルの設定</translation>
-    </message>
-    <message>
-        <source>Add plugins ...</source>
-        <translation type="vanished">プラグインを追加...</translation>
-    </message>
-</context>
-<context>
-    <name>LxQtPanelPlugin</name>
-    <message>
-        <source>Configure</source>
-        <translation type="vanished">設定</translation>
-    </message>
-    <message>
-        <source>Move</source>
-        <translation type="vanished">移動</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">削除</translation>
-    </message>
-</context>
-<context>
-    <name>LxQtPanelPrivate</name>
-    <message>
-        <source>Configure panel</source>
-        <translation type="vanished">パネルの設定</translation>
+        <translation>パネルを削除</translation>
     </message>
 </context>
 <context>
@@ -337,17 +223,17 @@
     <message>
         <location filename="../plugin.cpp" line="309"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; を設定</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="314"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; を移動</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="320"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; を削除</translation>
     </message>
 </context>
 </TS>

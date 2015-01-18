@@ -52,13 +52,9 @@
 <context>
     <name>LxQtNetworkMonitorConfiguration</name>
     <message>
-        <source>LxQt Network Monitor settings</source>
-        <translation type="vanished">LxQt ネットワークモニター設定</translation>
-    </message>
-    <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ネットワークモニターの設定</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
