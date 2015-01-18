@@ -60,7 +60,6 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     connect(ui->timezonePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->timezoneFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateGB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->dateGB, SIGNAL(toggled(bool)), ui->dateCustomW, SLOT(setEnabled(bool)));
     connect(ui->datePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->dateShowYearCB, SIGNAL(clicked()), SLOT(saveSettings()));
@@ -72,6 +71,7 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
 
 
     connect(ui->timeFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(timeFormatChanged(int)));
+    connect(ui->dateGB, SIGNAL(toggled(bool)), SLOT(dateGroupToggled(bool)));
     connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(dateFormatChanged(int)));
     connect(ui->advancedManualGB, SIGNAL(toggled(bool)), SLOT(advancedFormatToggled(bool)));
 
@@ -141,8 +141,13 @@ void LxQtWorldClockConfiguration::loadSettings()
     ui->timePadHourCB->setChecked(mSettings->value(QLatin1String("timePadHour"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
     ui->timeAMPMCB->setChecked(mSettings->value(QLatin1String("timeAMPM"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
 
+    bool customTimeFormatSelected = ui->timeFormatCB->currentIndex() == ui->timeFormatCB->count() - 1;
+    ui->timeCustomW->setEnabled(customTimeFormatSelected);
+
+    ui->timezoneGB->setEnabled(!longTimeFormatSelected);
+
     // timezone
-    ui->timezoneGB->setChecked((mSettings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected) ? Qt::Checked : Qt:: Unchecked);
+    ui->timezoneGB->setChecked(mSettings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected);
 
     QString timezonePosition = mSettings->value(QLatin1String("timezonePosition"), QString()).toString();
     if (timezonePosition == QLatin1String("above"))
@@ -167,8 +172,8 @@ void LxQtWorldClockConfiguration::loadSettings()
         ui->timezoneFormatCB->setCurrentIndex(4);
 
     // date
-    bool dateGBValue = mSettings->value(QLatin1String("showDate"), false).toBool() ? Qt::Checked : Qt::Unchecked;
-    ui->dateGB->setChecked(dateGBValue);
+    bool dateIsChecked = mSettings->value(QLatin1String("showDate"), false).toBool();
+    ui->dateGB->setChecked(dateIsChecked);
 
     QString datePosition = mSettings->value(QLatin1String("datePosition"), QString()).toString();
     if (datePosition == QLatin1String("above"))
@@ -194,10 +199,11 @@ void LxQtWorldClockConfiguration::loadSettings()
     ui->datePadDayCB->setChecked(mSettings->value(QLatin1String("datePadDay"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
     ui->dateLongNamesCB->setChecked(mSettings->value(QLatin1String("dateLongNames"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
 
-    // This must came *after* all the dateCustomW checkbox's values are set
-    ui->dateCustomW->setEnabled(dateGBValue);
+    bool customDateFormatSelected = ui->dateFormatCB->currentIndex() == ui->dateFormatCB->count() - 1;
+    ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
 
-    ui->advancedManualGB->setChecked(advancedManual ? Qt::Checked : Qt:: Unchecked);
+
+    ui->advancedManualGB->setChecked(advancedManual);
 
 
     mDefaultTimeZone = mSettings->value("defaultTimeZone", QString()).toString();
@@ -396,9 +402,17 @@ void LxQtWorldClockConfiguration::timeFormatChanged(int index)
     ui->timezoneGB->setEnabled(!longTimeFormatSelected);
 }
 
+void LxQtWorldClockConfiguration::dateGroupToggled(bool dateIsChecked)
+{
+    bool customDateFormatSelected = ui->dateFormatCB->currentIndex() == ui->dateFormatCB->count() - 1;
+    ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
+}
+
 void LxQtWorldClockConfiguration::dateFormatChanged(int index)
 {
-    ui->dateCustomW->setEnabled(index == ui->dateFormatCB->count() - 1);
+    bool customDateFormatSelected = index == ui->dateFormatCB->count() - 1;
+    bool dateIsChecked = ui->dateGB->isChecked();
+    ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
 }
 
 void LxQtWorldClockConfiguration::advancedFormatToggled(bool on)
