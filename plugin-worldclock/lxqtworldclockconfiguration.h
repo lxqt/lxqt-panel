@@ -73,6 +73,7 @@ private slots:
     void dialogButtonsAction(QAbstractButton *);
 
     void timeFormatChanged(int);
+    void dateGroupToggled(bool);
     void dateFormatChanged(int);
     void advancedFormatToggled(bool);
     void customiseManualFormatClicked();
