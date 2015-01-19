@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<TS version="2.0" language="pt">
 <context>
     <name>LxQtSysStatColours</name>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Cores das estatísticas do sistema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation type="unfinished">Gráfico</translation>
+        <translation>Gráfico</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Grelha</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -33,89 +33,89 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation type="unfinished">Mudar...</translation>
+        <translation>Mudar...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation type="unfinished"></translation>
+        <translation>Tí&amp;tulo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation type="unfinished">CPU</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;ceitável</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation type="unfinished"></translation>
+        <translation>O&amp;utras</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Frequência</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;istema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Utilizador</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation type="unfinished">Memória</translation>
+        <translation>Memória</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation type="unfinished"></translation>
+        <translation>Cac&amp;he</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;wap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aplicações</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Buffers</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
         <source>Network</source>
-        <translation type="unfinished">Rede</translation>
+        <translation>Rede</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Recebido</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enviado</translation>
     </message>
 </context>
 <context>
     <name>LxQtSysStatConfiguration</name>
     <message>
         <source>LxQt SysStat Settings</source>
-        <translation type="vanished">Definiçoes do LxQt SysStat</translation>
+        <translation>Definições do LxQt SysStat</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -124,11 +124,11 @@
     </message>
     <message>
         <source>Update interval</source>
-        <translation type="vanished">Intervalo de atualização</translation>
+        <translation>Intervalo de atualização</translation>
     </message>
     <message>
         <source>Minimal size</source>
-        <translation type="vanished">Tamanho mínimo</translation>
+        <translation>Tamanho mínimo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -142,31 +142,31 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation type="vanished">Grelha</translation>
+        <translation>Grelha</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation type="vanished">Linhas</translation>
+        <translation>Linhas</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="vanished">Cor</translation>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Change ...</source>
-        <translation type="vanished">Mudar...</translation>
+        <translation>Mudar...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="vanished">Título</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation type="vanished">Etiqueta</translation>
+        <translation>Etiqueta</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="vanished">Tipo de letra</translation>
+        <translation>Tipo de letra</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -175,52 +175,52 @@
     </message>
     <message>
         <source>Type</source>
-        <translation type="vanished">Tipo</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Defiições das estatísticas do sistema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho &amp;mínimo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Intervalo de atualização</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Título</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Linhas da &amp;grelha</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lagura mínima se o painelestiver na horizontal.&lt;/p&gt;&lt;p&gt;Altura mínima se o painel estiver na vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar &amp;frequência</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation type="unfinished"></translation>
+        <translation>Má&amp;ximo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Escala lo&amp;garítmica</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="290"/>
@@ -240,88 +240,88 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="308"/>
         <source>&amp;Source</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fonte</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="318"/>
         <source>T&amp;ype</source>
-        <translation type="unfinished"></translation>
+        <translation>T&amp;ipo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="334"/>
         <source>Colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Cores</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="349"/>
         <source>Use t&amp;heme colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Utili&amp;zar cores do tema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="359"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Utilizar cores personalizadas</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="366"/>
         <source>Custom colour ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor personalizada...</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="vanished">Origem</translation>
+        <translation>Fonte</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">Sistema</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="vanished">Utilizador</translation>
+        <translation>Utilizador</translation>
     </message>
     <message>
         <source>Nice</source>
-        <translation type="vanished">Aceitável</translation>
+        <translation>Aceitável</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="vanished">Outras</translation>
+        <translation>Outras</translation>
     </message>
     <message>
         <source>Use Frequency</source>
-        <translation type="vanished">Utilizar frequência</translation>
+        <translation>Utilizar frequência</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation type="vanished">Frequência</translation>
+        <translation>Frequência</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="vanished">Aplicações</translation>
+        <translation>Aplicações</translation>
     </message>
     <message>
         <source>Buffers</source>
-        <translation type="vanished">Buffers</translation>
+        <translation>Buffers</translation>
     </message>
     <message>
         <source>Cached</source>
-        <translation type="vanished">Cache</translation>
+        <translation>Cache</translation>
     </message>
     <message>
         <source>Used</source>
-        <translation type="vanished">Utilizado</translation>
+        <translation>Utilizado</translation>
     </message>
     <message>
         <source>Received</source>
-        <translation type="vanished">Recebido</translation>
+        <translation>Recebido</translation>
     </message>
     <message>
         <source>Transmitted</source>
-        <translation type="vanished">Enviado</translation>
+        <translation>Enviado</translation>
     </message>
     <message>
         <source>Maximum</source>
-        <translation type="vanished">Máximo</translation>
+        <translation>Máximo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -330,7 +330,7 @@
     </message>
     <message>
         <source>Logarithmic scale</source>
-        <translation type="vanished">Escala logarítmica</translation>
+        <translation>Escala logarítmica</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
@@ -339,31 +339,31 @@
     </message>
     <message>
         <source>Ultra light</source>
-        <translation type="vanished">Ultra claro</translation>
+        <translation>Ultra claro</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="vanished">Claro</translation>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Ultra black</source>
-        <translation type="vanished">Ultra escuro</translation>
+        <translation>Ultra escuro</translation>
     </message>
     <message>
         <source>Black</source>
-        <translation type="vanished">Escuro</translation>
+        <translation>Escuro</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="vanished">Negrito</translation>
+        <translation>Negrito</translation>
     </message>
     <message>
         <source>Demi bold</source>
-        <translation type="vanished">Semi-negrito</translation>
+        <translation>Semi-negrito</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="vanished">Itálico</translation>
+        <translation>Itálico</translation>
     </message>
 </context>
 </TS>
