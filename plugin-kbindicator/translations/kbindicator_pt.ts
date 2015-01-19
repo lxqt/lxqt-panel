@@ -31,5 +31,25 @@
         <source>&amp;Text</source>
         <translation>&amp;Texto</translation>
     </message>
+    <message>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="14"/>
+        <source>Keyboard Indicator Settings</source>
+        <translation>Definições do indicador de teclado</translation>
+    </message>
+    <message>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="20"/>
+        <source>Caps Lock</source>
+        <translation>Caps Lock</translation>
+    </message>
+    <message>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="27"/>
+        <source>Num Lock</source>
+        <translation>Num Lock</translation>
+    </message>
+    <message>
+        <location filename="../lxqtkbindicatorconfiguration.ui" line="34"/>
+        <source>Scroll Lock</source>
+        <translation>Scroll Lock</translation>
+    </message>
 </context>
 </TS>
