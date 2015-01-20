@@ -153,9 +153,6 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
 
-    mPowerManager = new LxQt::PowerManager(this);
-    mScreenSaver = new LxQt::ScreenSaver(this);
-
     settingsChanged();
 
     connect(mShortcut, SIGNAL(activated()), this, SLOT(showHideMenu()));
@@ -335,10 +332,6 @@ void LxQtMainMenu::buildMenu()
     menu->setStyle(&mTopMenuStyle);
 
     menu->addSeparator();
-
-    QMenu* leaveMenu = menu->addMenu(XdgIcon::fromTheme("system-shutdown"), tr("Leave"));
-    leaveMenu->addActions(mPowerManager->availableActions());
-    menu->addActions(mScreenSaver->availableActions());
 
     mEventFilter = new KeyPressEventFilter(menu, this);
     foreach (QAction* action, menu->actions())
