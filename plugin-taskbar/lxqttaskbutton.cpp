@@ -46,10 +46,14 @@
 
 #include "lxqttaskbutton.h"
 #include <KF5/KWindowSystem/KWindowSystem>
+#include "lxqttaskgroup.h"
+#include "lxqttaskbar.h"
 
 // Necessary for closeApplication()
 #include <KF5/KWindowSystem/NETWM>
 #include <QX11Info>
+
+bool LxQtTaskButton::sDraggging = false;
 
 /************************************************
 
@@ -66,11 +70,15 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 /************************************************
 
 ************************************************/
-LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
+LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
-    mDrawPixmap(false)
+    mDrawPixmap(false),
+    mParentTaskBar(taskbar),
+    mTimer(new QTimer(this))
 {
+    Q_ASSERT(taskbar);
+
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -81,6 +89,10 @@ LxQtTaskButton::LxQtTaskButton(const WId window, QWidget *parent) :
 
     updateText();
     updateIcon();
+
+    mTimer->setSingleShot(true);
+    mTimer->setInterval(600);
+    connect(mTimer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
 }
 
 /************************************************
@@ -118,16 +130,40 @@ void LxQtTaskButton::updateIcon()
 /************************************************
 
  ************************************************/
+void LxQtTaskButton::refreshIconGeometry()
+{
+    QRect rect = geometry();
+    QPoint globalPos = parentTaskBar()->mapToGlobal(pos());
+    rect.moveTo(globalPos);
+
+    NETWinInfo info(QX11Info::connection(), windowId(),
+                    (WId) QX11Info::appRootWindow(), NET::WMIconGeometry, 0);
+    NETRect nrect;
+    nrect.pos.x = rect.x();
+    nrect.pos.y = rect.y();
+    nrect.size.height = rect.height();
+    nrect.size.width = rect.width();
+    info.setIconGeometry(nrect);
+}
+
+/************************************************
+
+ ************************************************/
 void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (event->mimeData()->hasFormat("lxqt/lxqttaskbutton"))
+    if (!event->mimeData()->hasFormat(acceptMimeData()) )
     {
         event->ignore();
         return;
     }
 
-    mDraggableMimeData = event->mimeData();
-    QTimer::singleShot(1000, this, SLOT(activateWithDraggable()));
+    mTimer->start();
+
+    //it must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
+    //on the other hand drop and dragmove events of parent widget won't be called
+    event->acceptProposedAction();
+
+    QToolButton::dragEnterEvent(event);
 }
 
 /************************************************
@@ -135,7 +171,19 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
  ************************************************/
 void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    mDraggableMimeData = NULL;
+    mTimer->stop();
+    event->ignore();;
+
+    QToolButton::dragLeaveEvent(event);
+}
+
+void LxQtTaskButton::dropEvent(QDropEvent *event)
+{
+    mTimer->stop();
+    event->ignore();
+
+    emit dropped(mapToParent(event->pos()),event);
+    QToolButton::dropEvent(event);
 }
 
 /************************************************
@@ -145,6 +193,13 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
         mDragStartPosition = event->pos();
+
+
+    if (parentTaskBar()->settings().closeOnMiddleClick && event->button() == Qt::MidButton)
+    {
+        closeApplication();
+    }
+
     QToolButton::mousePressEvent(event);
 }
 
@@ -153,15 +208,26 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
  ************************************************/
 void LxQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton)
+    if (event->button() == Qt::LeftButton  )
     {
-        // qDebug() << "isChecked:" << isChecked();
+ //        qDebug() << "isChecked:" << isChecked();
         if (isChecked())
             minimizeApplication();
         else
             raiseApplication();
     }
     QToolButton::mouseReleaseEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskButton::arbitraryMimeData(QMimeData *mimedata)
+{
+    QByteArray ba;
+    QDataStream stream(&ba,QIODevice::WriteOnly);
+    stream << (qlonglong)(mWindow);
+    mimedata->setData(taskButtonMimeDataFormat(), ba);
 }
 
 /************************************************
@@ -176,18 +242,27 @@ void LxQtTaskButton::mouseMoveEvent(QMouseEvent* event)
         return;
 
     QMimeData *mime = new QMimeData;
-    QByteArray byteArray;
-    QDataStream stream(&byteArray, QIODevice::WriteOnly);
-    qDebug() << QString("Dragging window: %1").arg(mWindow);
-    stream << (qlonglong) mWindow;
-    mime->setData("lxqt/lxqttaskbutton", byteArray);
+    arbitraryMimeData(mime);
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mime);
     QPixmap pixmap = grab();
+
+    //fixme when vertical panel, pixmap is empty
     drag->setPixmap(pixmap);
     drag->setHotSpot(QPoint(mapTo(this, event->pos())));
+
+    //must be called before exec because it is blocking
+    connect(drag,SIGNAL(destroyed()),this,SIGNAL(dragging()));
+    emit dragging(true);
+    sDraggging = true;
+
     drag->exec();
+
+    //if button is dropped out of panel (e.g. on desktop)
+    //it is not deleted automatically by Qt
+    drag->deleteLater();
+    sDraggging = false;
 
     QAbstractButton::mouseMoveEvent(event);
 }
@@ -214,9 +289,6 @@ bool LxQtTaskButton::isApplicationActive() const
  ************************************************/
 void LxQtTaskButton::activateWithDraggable()
 {
-    if (!mDraggableMimeData)
-        return;
-
     // raise app in any time when there is a drag
     // in progress to allow drop it into an app
     raiseApplication();
