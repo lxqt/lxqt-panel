@@ -193,12 +193,6 @@ if(TASKBAR_PLUGIN)
   add_subdirectory(plugin-taskbar)
 endif()
 
-setByDefault(TEATIME_PLUGIN Yes)
-if(TEATIME_PLUGIN)
-    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "TeaTime")
-    add_subdirectory(plugin-teatime)
-endif(TEATIME_PLUGIN)
-
 setByDefault(TRAY_PLUGIN Yes)
 if(TRAY_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "System Tray")

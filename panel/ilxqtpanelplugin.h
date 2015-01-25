@@ -119,7 +119,7 @@ public:
 
     /**
     Returns the string that is used in the theme QSS file.
-    If you retuns "TeaTime" string, theme author may write something like `#TeaTime { border: 1px solid red; }`
+    If you retuns "WorldClock" string, theme author may write something like `#WorldClock { border: 1px solid red; }`
     to set custom border for the your plugin.
     **/
     virtual QString themeId() const = 0;
