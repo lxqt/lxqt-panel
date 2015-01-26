@@ -169,7 +169,7 @@
         <!-- Leave -->
 	<Menu>
 		<Name>X-Leave</Name>
-		<Directory>lxde-leave.directory</Directory>
+		<Directory>lxqt-leave.directory</Directory>
 		<Include>
 			<And>
 				<Category>X-Leave</Category>
