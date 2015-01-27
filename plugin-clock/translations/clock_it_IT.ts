@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="it_IT">
 <context>
@@ -10,7 +10,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni orologio</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="20"/>
@@ -30,42 +30,42 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
         <source>&amp;Use UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Usa UTC</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato &amp;data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Non mostrare la data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation type="unfinished"></translation>
+        <translation>Prima la &amp;data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
         <source>Show date &amp;after time</source>
-        <translation type="unfinished"></translation>
+        <translation>Prima l&apos;&amp;ora</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostra la data su una seconda riga</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="110"/>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="116"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota automaticamente se il panello è verticale</translation>
     </message>
     <message>
         <source>&amp;Font</source>
