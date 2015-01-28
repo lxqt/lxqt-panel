@@ -90,8 +90,11 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
                                             mBaseDirectory.absolutePath(),
                                             QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
-    mBaseDirectory.setPath(newBaseDirectory);
-    ui->baseDirectoryB->setText(mBaseDirectory.dirName());
+    if(!newBaseDirectory.isEmpty())
+    {
+        mBaseDirectory.setPath(newBaseDirectory);
+        ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
-    saveSettings();
+        saveSettings();
+    }
 }
