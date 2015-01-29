@@ -306,7 +306,9 @@ QMenu *Plugin::popupMenu() const
 
     if (mPlugin->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog))
     {
-        QAction* configAction = new QAction(tr("Configure \"%1\"").arg(name), menu);
+        QAction* configAction = new QAction(
+            XdgIcon::fromTheme(QStringLiteral("preferences-other")),
+            tr("Configure \"%1\"").arg(name), menu);
         menu->addAction(configAction);
         connect(configAction, SIGNAL(triggered()), this, SLOT(showConfigureDialog()));
     }
@@ -317,7 +319,9 @@ QMenu *Plugin::popupMenu() const
 
     menu->addSeparator();
 
-    QAction* removeAction = new QAction(XdgIcon::fromTheme("dialog-close"), tr("Remove \"%1\"").arg(name), menu);
+    QAction* removeAction = new QAction(
+        XdgIcon::fromTheme(QStringLiteral("list-remove")),
+        tr("Remove \"%1\"").arg(name), menu);
     menu->addAction(removeAction);
     connect(removeAction, SIGNAL(triggered()), this, SLOT(requestRemove()));
 

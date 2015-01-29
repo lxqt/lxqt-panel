@@ -947,7 +947,8 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
 
     menu.addTitle(QIcon(), tr("Panel"));
 
-    menu.addAction(tr("Configure Panel..."),
+    menu.addAction(XdgIcon::fromTheme(QStringLiteral("configure")),
+                   tr("Configure Panel..."),
                    this, SLOT(showConfigDialog())
                   );
 
@@ -957,13 +958,15 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
                   );
 
     LxQtPanelApplication *a = reinterpret_cast<LxQtPanelApplication*>(qApp);
-    menu.addAction(tr("Add Panel"),
+    menu.addAction(XdgIcon::fromTheme(QLatin1String("list-add")),
+                   tr("Add Panel"),
                    a, SLOT(addNewPanel())
                   );
 
     if (a->count() > 1)
     {
-        menu.addAction(tr("Remove Panel"),
+        menu.addAction(XdgIcon::fromTheme(QStringLiteral("list-remove")),
+                       tr("Remove Panel"),
                        this, SLOT(userRequestForDeletion())
                       );
     }
