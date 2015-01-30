@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[ja]=ネットワークモニタ
-Name[ja]=ネットワークモニタ
+Comment[ja]=ネットワークの状態や動作状況を表示します
+Name[ja]=ネットワークモニター

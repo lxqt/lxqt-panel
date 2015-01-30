@@ -26,5 +26,4 @@ set(RESOURCES
     resources.qrc
 )
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

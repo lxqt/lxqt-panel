@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LxQtPanel/Plugin
-Name=Panel DOM tree
-Comment=Show a DOM tree of the LXQt panel.
-Icon=view-web-browser-dom-tree
+Name[ja]=システム統計
+Comment[ja]=システム統計のプラグイン
 
 #TRANSLATIONS_DIR=../translations
+

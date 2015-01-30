@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LxQtPanel/Plugin
+Name[ja]=キーボードインジケーター
+Comment[ja]=キーボードインジケーターのプラグイン
+
+#TRANSLATIONS_DIR=../translations

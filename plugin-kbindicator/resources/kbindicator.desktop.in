@@ -3,5 +3,6 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=Keyboard indicator
 Comment=Keyboard indicator plugin.
+Icon=input-keyboard
 
 #TRANSLATIONS_DIR=../translations

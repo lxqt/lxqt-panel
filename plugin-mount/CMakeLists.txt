@@ -45,5 +45,4 @@ set(UIS
 include_directories(${LXQTMOUNT_INCLUDE_DIRS})
 set(LIBRARIES ${QTXDG_LIBRARIES} ${LXQTMOUNT_LIBRARIES})
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

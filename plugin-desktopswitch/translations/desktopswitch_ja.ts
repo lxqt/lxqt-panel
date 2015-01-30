@@ -14,7 +14,7 @@
     <message>
         <location filename="../desktopswitchbutton.cpp" line="46"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップ%1に切り替える</translation>
     </message>
 </context>
 </TS>

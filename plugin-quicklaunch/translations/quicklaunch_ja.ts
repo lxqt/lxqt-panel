@@ -11,13 +11,14 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>ファイル/URL &apos;%1&apos; は、今のクイックに埋め込むことができません</translation>
+        <translation>ファイル/URL &apos;%1&apos; は現在、クイック起動に埋め込むことができません</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="319"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションアイコンを
+ここへドロップ</translation>
     </message>
 </context>
 <context>
@@ -35,7 +36,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Remove from quicklaunch</source>
-        <translation>クイックから削除</translation>
+        <translation>クイック起動から削除</translation>
     </message>
 </context>
 </TS>

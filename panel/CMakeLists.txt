@@ -92,10 +92,6 @@ lxqt_translate_ts(lxqt-runner_QM_FILES SOURCES
 lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
 
 
-set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
-add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
-message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
-
 add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS} ${QM_LOADER})
 target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES} KF5::WindowSystem)
 

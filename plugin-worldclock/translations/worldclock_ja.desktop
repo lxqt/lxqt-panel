@@ -1,8 +1,7 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LxQtPanel/Plugin
-Name=Panel DOM tree
-Comment=Show a DOM tree of the LXQt panel.
-Icon=view-web-browser-dom-tree
+Name[ja]=世界時計
+Comment[ja]=世界時計のウィジェットです
 
 #TRANSLATIONS_DIR=../translations

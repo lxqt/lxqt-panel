@@ -38,5 +38,4 @@ set(LIBRARIES
     ${XCB_DAMAGE_LIBRARIES}
 )
 
-include("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

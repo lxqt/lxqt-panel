@@ -97,8 +97,6 @@ private:
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
     MenuStyle mMenuStyle;
-    LxQt::PowerManager* mPowerManager;
-    LxQt::ScreenSaver* mScreenSaver;
 
 #ifdef HAVE_MENU_CACHE
     MenuCache* mMenuCache;

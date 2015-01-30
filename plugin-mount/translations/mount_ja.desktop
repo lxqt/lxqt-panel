@@ -8,5 +8,5 @@ Comment=Easy mounting and unmounting of USB and optical drives.
 
 
 # Translations
-Comment[ja]=リムーバルメディアハンドラー(USB, CD, DVD, ...)
+Comment[ja]=USBや光学ドライブのマウントやアンマウントを容易にします
 Name[ja]=リムーバルメディア

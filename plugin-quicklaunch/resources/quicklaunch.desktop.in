@@ -3,5 +3,6 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=Quick launch
 Comment=Easy access to your favourite applications.
+Icon=quickopen
 
 #TRANSLATIONS_DIR=../translations

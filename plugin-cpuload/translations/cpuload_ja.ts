@@ -4,25 +4,17 @@
 <context>
     <name>LxQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">CPU負荷 %1%</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuload.cpp" line="119"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU負荷 %1%</translation>
     </message>
 </context>
 <context>
     <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQt CPU負荷設定</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>CPUモニターの設定</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -37,7 +29,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>インターバルの更新:</translation>
+        <translation>更新頻度:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -52,22 +44,22 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation type="unfinished"></translation>
+        <translation>下から上へ</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation type="unfinished"></translation>
+        <translation>上から下へ</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation>左から右</translation>
+        <translation>左から右へ</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation>右から左</translation>
+        <translation>右から左へ</translation>
     </message>
 </context>
 </TS>

@@ -49,5 +49,4 @@ set(LIBRARIES
 set(QT_USE_QTXML 1)
 set(QT_USE_QTDBUS 1)
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

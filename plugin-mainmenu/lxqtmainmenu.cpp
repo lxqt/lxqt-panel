@@ -151,11 +151,6 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.installEventFilter(this);
 
-    connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
-
-    mPowerManager = new LxQt::PowerManager(this);
-    mScreenSaver = new LxQt::ScreenSaver(this);
-
     settingsChanged();
 
     connect(mShortcut, SIGNAL(activated()), this, SLOT(showHideMenu()));
@@ -241,10 +236,10 @@ void LxQtMainMenu::showMenu()
             break;
     }
 
-    // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
-    // Solution is to execute menu 1ms later using timer
     mButton.activateWindow();
-    mMenu->exec(QPoint(x, y));
+    mMenu->popup(QPoint(x, y));
+    KWindowSystem::forceActiveWindow(mMenu->winId());
+    mMenu->setFocus(Qt::ActiveWindowFocusReason);
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -331,14 +326,16 @@ void LxQtMainMenu::buildMenu()
 #else
     XdgMenuWidget *menu = new XdgMenuWidget(mXdgMenu, "", &mButton);
 #endif
+
+    // needed for menu's focus and for making invisible on taskbar
+    menu->setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
+    menu->setAttribute(Qt::WA_TranslucentBackground);
+    KWindowSystem::setType(menu->winId(), NET::Menu);
+
     menu->setObjectName("TopLevelMainMenu");
     menu->setStyle(&mTopMenuStyle);
 
     menu->addSeparator();
-
-    QMenu* leaveMenu = menu->addMenu(XdgIcon::fromTheme("system-shutdown"), tr("Leave"));
-    leaveMenu->addActions(mPowerManager->availableActions());
-    menu->addActions(mScreenSaver->availableActions());
 
     mEventFilter = new KeyPressEventFilter(menu, this);
     foreach (QAction* action, menu->actions())
@@ -388,8 +385,25 @@ bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             // reset proxy style for the menus so they can apply the new styles
             mTopMenuStyle.setBaseStyle(NULL);
             mMenuStyle.setBaseStyle(NULL);
+            return true;
+        }
+
+        if (event->type() == QEvent::MouseButtonRelease)
+        {
+            showHideMenu();
+            return true;
         }
     }
+
+    if (obj == mMenu)
+    {
+        if (event->type() == QEvent::FocusOut)
+        {
+            showHideMenu();
+            return true;
+        }
+    }
+
     return false;
 }
 

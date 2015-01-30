@@ -51,17 +51,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="448"/>
         <source>Mi&amp;nimize</source>
-        <translation>最小化(&amp;n)</translation>
+        <translation>最小化(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="454"/>
         <source>Roll down</source>
-        <translation>画面を下方に</translation>
+        <translation>広げる</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="460"/>
         <source>Roll up</source>
-        <translation>画面を上方に</translation>
+        <translation>たたむ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="468"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="470"/>
         <source>Always on &amp;top</source>
-        <translation>常に手前に表示(&amp;t)</translation>
+        <translation>常に手前に表示(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="476"/>
@@ -81,76 +81,60 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="482"/>
         <source>Always on &amp;bottom</source>
-        <translation>常に背面に表示(&amp;b)</translation>
+        <translation>常に奥に表示(&amp;B)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="490"/>
         <source>&amp;Close</source>
-        <translation>閉める(&amp;C)</translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">LxQtタスクマネージャー設定</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">ウィンドウリストの内容</translation>
-    </message>
-    <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>タスクマネージャーの設定</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>Taskbar Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>タスクバーの内容</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from current desktop</source>
-        <translation>現在のデスクトップからウィンドウを表示</translation>
+        <translation>現在のデスクトップのウィンドウを表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all desktops</source>
-        <translation>全てのデスクトップからウィンドウを表示</translation>
+        <translation>全てのデスクトップのウィンドウを表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="49"/>
         <source>Taskbar Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>タスクバーの見た目</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Minimum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタン幅の最小値</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="88"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">ウィンドウリストの外観</translation>
+        <translation>パネルが垂直なときにはボタンを回転(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Button style</source>
-        <translation>ボタンスタイル</translation>
-    </message>
-    <message>
-        <source>Max button width</source>
-        <translation type="vanished">最大ボタン幅</translation>
+        <translation>ボタンのスタイル</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="98"/>
         <source>Close on middle-click</source>
-        <translation>ホイールクリックで閉じる</translation>
+        <translation>中ボタンのクリックで閉じる</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

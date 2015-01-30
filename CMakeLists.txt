@@ -57,6 +57,11 @@ include_directories(
     ${Qt5X11Extras_INCLUDE_DIRS}
 )
 
+# Warning: This must be before add_subdirectory(panel). Move with caution.
+set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
+add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
+message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
+
 add_subdirectory(panel)
 
 #########################################################################
@@ -66,11 +71,9 @@ add_subdirectory(panel)
 #    cmake -DCLOCK_PLUGIN=Yes .. # Enable clock plugin
 #    cmake -DCLOCK_PLUGIN=No ..  # Disable clock plugin
 
-set(ENABLED_PLUGINS)
+include("cmake/BuildPlugin.cmake")
 
-set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
-add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
-message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
+set(ENABLED_PLUGINS)
 
 setByDefault(CLOCK_PLUGIN Yes)
 if(CLOCK_PLUGIN)
@@ -195,12 +198,6 @@ if(TASKBAR_PLUGIN)
   set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Taskbar")
   add_subdirectory(plugin-taskbar)
 endif()
-
-setByDefault(TEATIME_PLUGIN Yes)
-if(TEATIME_PLUGIN)
-    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "TeaTime")
-    add_subdirectory(plugin-teatime)
-endif(TEATIME_PLUGIN)
 
 setByDefault(TRAY_PLUGIN Yes)
 if(TRAY_PLUGIN)

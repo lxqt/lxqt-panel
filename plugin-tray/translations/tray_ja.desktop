@@ -8,5 +8,5 @@ Comment=Display applications minimized to the system tray.
 
 
 # Translations
-Comment[ja]=システムトレイに最小化された隠しアプリケーションにアクセス
+Comment[ja]=システムトレイに最小化されたアプリケーションを表示します
 Name[ja]=システムトレイ

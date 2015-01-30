@@ -30,5 +30,4 @@ include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}/../panel"
 )
 
-include ("../cmake/BuildPlugin.cmake")
 BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -6,5 +6,5 @@ Comment=View readings from hardware sensors.
 
 
 # Translations
-Name[ja]=センサ
-Comment[ja]=ハードウェアセンサからの測定値を表示(現在は lm_sensors)
+Name[ja]=センサー
+Comment[ja]=ハードウェアセンサからの測定値を表示します

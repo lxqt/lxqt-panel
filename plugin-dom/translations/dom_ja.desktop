@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LxQtPanel/Plugin
+Name[ja]=パネルのDOMツリー
+Comment[ja]=LXQtパネルのDOMツリーを表示する

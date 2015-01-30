@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="314"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>メインメニューを表示/隠す</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="339"/>
@@ -17,41 +17,29 @@
 <context>
     <name>LxQtMainMenuConfiguration</name>
     <message>
-        <source>LxQt Main Menu settings</source>
-        <translation type="vanished">LxQtメインメニュー設定</translation>
-    </message>
-    <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <source>Show text</source>
-        <translation type="vanished">テキストを表示</translation>
-    </message>
-    <message>
-        <source>Button text</source>
-        <translation type="vanished">テキストの最下部</translation>
-    </message>
-    <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>メインメニューの設定</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタンの文字列:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="52"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>フォントサイズの指定:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="62"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> ポイント</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="81"/>
@@ -61,7 +49,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="87"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>メニューファイル:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
@@ -76,12 +64,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="130"/>
         <source>Click the button to record shortcut:</source>
-        <translation>ショートカットの記録のため二クリック:</translation>
+        <translation>ショートカットを記録するにはボタンをクリック:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="55"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>リセット</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
