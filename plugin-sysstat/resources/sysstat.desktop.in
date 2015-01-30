@@ -3,5 +3,6 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=System Statistics
 Comment=System Statistics plugin.
+Icon=utilities-system-monitor
 
 #TRANSLATIONS_DIR=../translations
