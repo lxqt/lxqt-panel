@@ -81,6 +81,7 @@ private:
     QSignalMapper *mMenuSignalMapper;
 
     QDir mBaseDirectory;
+    QIcon mDefaultIcon;
     std::vector<QString> mPathStrings;
 };
 

@@ -56,6 +56,8 @@ private:
     QSettings &mSettings;
     LxQt::SettingsCache mOldSettings;
     QDir mBaseDirectory;
+    QString mIcon;
+    QIcon mDefaultIcon;
 
     /*
       Read settings from conf file and put data into controls.
@@ -69,6 +71,7 @@ private slots:
     void saveSettings();
     void dialogButtonsAction(QAbstractButton *btn);
     void showDirectoryDialog();
+    void showIconDialog();
 
 private:
 };

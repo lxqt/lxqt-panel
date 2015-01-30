@@ -27,8 +27,10 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
+#include <QIcon>
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QMessageBox>
 
 #include <XdgIcon>
 
@@ -41,7 +43,8 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(QSettings &settings, QWid
     ui(new Ui::DirectoryMenuConfiguration),
     mSettings(settings),
     mOldSettings(settings),
-    mBaseDirectory(QDir::homePath())
+    mBaseDirectory(QDir::homePath()),
+    mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("DirectoryMenuConfigurationWindow");
@@ -50,9 +53,10 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(QSettings &settings, QWid
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), SLOT(dialogButtonsAction(QAbstractButton*)));
 
     loadSettings();
-    ui->baseDirectoryB->setIcon(XdgIcon::fromTheme("folder"));
+    ui->baseDirectoryB->setIcon(mDefaultIcon);
 
     connect(ui->baseDirectoryB, SIGNAL(clicked()), SLOT(showDirectoryDialog()));
+    connect(ui->iconB, SIGNAL(clicked()), SLOT(showIconDialog()));
 }
 
 DirectoryMenuConfiguration::~DirectoryMenuConfiguration()
@@ -64,11 +68,25 @@ void DirectoryMenuConfiguration::loadSettings()
 {
     mBaseDirectory.setPath(mSettings.value("baseDirectory", QDir::homePath()).toString());
     ui->baseDirectoryB->setText(mBaseDirectory.dirName());
+
+    mIcon = mSettings.value("icon", QString()).toString();
+    if(!mIcon.isNull())
+    {
+        QIcon buttonIcon = QIcon(mIcon);
+        if(!buttonIcon.pixmap(QSize(24,24)).isNull())
+        {
+            ui->iconB->setIcon(buttonIcon);
+            return;
+        }
+    }
+
+    ui->iconB->setIcon(mDefaultIcon);
 }
 
 void DirectoryMenuConfiguration::saveSettings()
 {
     mSettings.setValue("baseDirectory", mBaseDirectory.absolutePath());
+    mSettings.setValue("icon", mIcon);
 }
 
 void DirectoryMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
@@ -95,6 +113,27 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
         mBaseDirectory.setPath(newBaseDirectory);
         ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
+        saveSettings();
+    }
+}
+
+void DirectoryMenuConfiguration::showIconDialog()
+{
+    QString newIconPath = QFileDialog::getOpenFileName(this, tr("Choose Icon"), QDir::homePath(), 
+                                tr("Icons (*.png *.xpm *.jpg)"));
+
+    if(!newIconPath.isNull())
+    {
+        QIcon newIcon = QIcon(newIconPath);
+
+        if(newIcon.pixmap(QSize(24,24)).isNull())
+        {
+            QMessageBox::warning(this, tr("Directory Menu"), tr("An error occurred while loading the icon."));
+            return;
+        }
+
+        ui->iconB->setIcon(newIcon);
+        mIcon = newIconPath;
         saveSettings();
     }
 }

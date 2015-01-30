@@ -33,13 +33,15 @@
 #include <QDesktopServices>
 #include <QFileInfo>
 #include <QUrl>
+#include <QIcon>
 
 #include <XdgIcon>
 
 DirectoryMenu::DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mMenu(0)
+    mMenu(0),
+    mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);
     mMenuSignalMapper = new QSignalMapper(this);
@@ -172,4 +174,19 @@ QDialog* DirectoryMenu::configureDialog()
 void DirectoryMenu::settingsChanged()
 {
     mBaseDirectory.setPath(settings()->value("baseDirectory", QDir::homePath()).toString());
+
+    QString iconPath = settings()->value("icon", QString()).toString();
+    QIcon icon = QIcon(iconPath);
+
+    if(!icon.isNull())
+    {
+        QIcon buttonIcon = QIcon(icon);
+        if(!buttonIcon.pixmap(QSize(24,24)).isNull())
+        {
+            mButton.setIcon(buttonIcon);
+            return;
+        }
+    }
+
+    mButton.setIcon(mDefaultIcon);
 }
