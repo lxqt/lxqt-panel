@@ -3,5 +3,6 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=World clock
 Comment=World clock plugin.
+Icon=clock
 
 #TRANSLATIONS_DIR=../translations
