@@ -40,6 +40,8 @@
 #include <QToolButton>
 #include <QDomElement>
 #include <QAction>
+#include <QTimer>
+#include <QKeySequence>
 
 #include "menustyle.h"
 
@@ -56,20 +58,6 @@ namespace GlobalKeyShortcut
 {
 class Action;
 }
-
-class KeyPressEventFilter : public QObject
-{
-    Q_OBJECT
-public:
-    KeyPressEventFilter(QMenu* menu, QObject* parent);
-
-protected:
-    bool eventFilter(QObject *obj, QEvent *event);
-
-private:
-    QMenu* mMenu;
-    QAction* mPreviousAction;
-};
 
 class LxQtMainMenu : public QObject, public ILxQtPanelPlugin
 {
@@ -93,7 +81,6 @@ private:
     QToolButton mButton;
     QString mLogDir;
     QMenu* mMenu;
-    KeyPressEventFilter* mEventFilter;
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
     MenuStyle mMenuStyle;
@@ -107,6 +94,8 @@ private:
 #endif
 
     bool mLockCascadeChanges;
+    QTimer mDelayedPopup;
+    QKeySequence mShortcutSeq;
 
 protected slots:
 
