@@ -41,7 +41,7 @@
 #include <LXQt/PowerManager>
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
 
 #include <XdgIcon>
 #include <XdgDesktopFile>

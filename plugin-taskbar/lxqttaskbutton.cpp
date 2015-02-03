@@ -45,10 +45,10 @@
 #include <QStyleOptionToolButton>
 
 #include "lxqttaskbutton.h"
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
 
 // Necessary for closeApplication()
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/NETWM>
 #include <QX11Info>
 
 /************************************************

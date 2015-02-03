@@ -38,9 +38,9 @@
 #include <QBoxLayout>
 #include <QHash>
 #include "../panel/ilxqtpanel.h"
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/KWindowInfo>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowInfo>
+#include <KWindowSystem/NETWM>
 
 class LxQtTaskButton;
 class ElidedButtonStyle;

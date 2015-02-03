@@ -48,8 +48,8 @@
 #include <XdgIcon>
 #include <XdgDirs>
 
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/NETWM>
 
 // Config keys and groups
 #define CFG_KEY_SCREENNUM          "desktop"

@@ -32,7 +32,7 @@
 #include <QSignalMapper>
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
 
 #include <QHBoxLayout>
 #include "desktopswitch.h"

@@ -30,7 +30,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtkbindicatorconfiguration.h"
-#include <KF5/KGuiAddons/KModifierKeyInfo>
+#include <KGuiAddons/KModifierKeyInfo>
 
 class QLabel;
 
