@@ -71,7 +71,7 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
 #endif
 
     mDelayedPopup.setSingleShot(true);
-    mDelayedPopup.setInterval(500);
+    mDelayedPopup.setInterval(250);
     connect(&mDelayedPopup, &QTimer::timeout, this, &LxQtMainMenu::showHideMenu);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
