@@ -156,13 +156,14 @@ DesktopSwitchWidget::DesktopSwitchWidget():
 
 void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
-    int max = KWindowSystem::currentDesktop() - 1;
+    int max = KWindowSystem::numberOfDesktops();
     int delta = e->delta() < 0 ? 1 : -1;
     int current = KWindowSystem::currentDesktop() + delta;
 
-    if (current > max)
-        current = 0;
-    else if (current < 0)
+    if (current > max){
+        current = 1;
+    }
+    else if (current < 1)
         current = max;
 
     KWindowSystem::setCurrentDesktop(current);
