@@ -43,6 +43,9 @@ class DesktopSwitchWidget: public QFrame
     Q_OBJECT
 public:
     DesktopSwitchWidget();
+    
+private:
+    int m_mouseWheelThresholdCounter;
 
 protected:
     void wheelEvent(QWheelEvent* e);

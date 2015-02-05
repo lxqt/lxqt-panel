@@ -150,12 +150,19 @@ void DesktopSwitch::realign()
 }
 
 DesktopSwitchWidget::DesktopSwitchWidget():
-    QFrame()
+    QFrame(),
+    m_mouseWheelThresholdCounter(0)
 {
 }
 
 void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
+    // Without some sort of threshold which has to be passed, scrolling is too sensitive
+    m_mouseWheelThresholdCounter -= e->delta();
+    // If the user hasn't scrolled far enough in one direction (positive or negative): do nothing
+    if(abs(m_mouseWheelThresholdCounter) < 100)
+        return;
+    
     int max = KWindowSystem::numberOfDesktops();
     int delta = e->delta() < 0 ? 1 : -1;
     int current = KWindowSystem::currentDesktop() + delta;
@@ -166,5 +173,6 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     else if (current < 1)
         current = max;
 
+    m_mouseWheelThresholdCounter = 0;
     KWindowSystem::setCurrentDesktop(current);
 }
