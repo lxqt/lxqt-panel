@@ -42,6 +42,7 @@
 #include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
 #include <KF5/KWindowSystem/KWindowSystem>
+#include <algorithm> // for find_if()
 
 #include <XdgIcon>
 #include <XdgDesktopFile>
@@ -57,85 +58,6 @@
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 
-/************************************************
-
- ************************************************/
-KeyPressEventFilter::KeyPressEventFilter(QMenu *menu, QObject *parent):
-    QObject(parent),
-    mPreviousAction(0)
-{
-    mMenu = menu;
-}
-
-/************************************************
-
- ************************************************/
-bool KeyPressEventFilter::eventFilter(QObject *obj, QEvent *event)
-{
-    if (event->type() == QEvent::KeyPress)
-    {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-
-        QMenu* menu=0;
-
-        if (obj == mMenu)
-        {
-            menu = mMenu;
-        }
-        else {
-            foreach (QAction* action, mMenu->actions())
-            {
-                if (action->menu() && action->menu() == obj)
-                    {
-                        menu = action->menu();
-                        break;
-                    }
-                }
-            }
-
-        if (menu == 0)
-            return QObject::eventFilter(obj, event);
-
-        QAction* currentAction = 0;
-        if (menu->actions().indexOf(mPreviousAction) > -1) {
-            for (int i=menu->actions().indexOf(mPreviousAction)+1; i<menu->actions().count(); i++)
-            {
-                if (menu->actions().at(i)->text().startsWith(QChar(keyEvent->key()), Qt::CaseInsensitive))
-                {
-                    currentAction = menu->actions().at(i);
-                    break;
-                }
-            }
-        }
-        if (!currentAction)
-        {
-            foreach (QAction* action, menu->actions())
-            {
-                if (action->text().startsWith(QChar(keyEvent->key()), Qt::CaseInsensitive))
-                {
-                    currentAction = action;
-                    break;
-                }
-            }
-        }
-
-        if (currentAction)
-        {
-            mPreviousAction = currentAction;
-            menu->setActiveAction(currentAction);
-            if (currentAction->menu())
-            {
-                currentAction->menu()->hide();
-            }
-        }
-    }
-
-    return QObject::eventFilter(obj, event);
-}
-
-/************************************************
-
- ************************************************/
 LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
@@ -148,12 +70,18 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
     mMenuCacheNotify = 0;
 #endif
 
+    mDelayedPopup.setSingleShot(true);
+    mDelayedPopup.setInterval(250);
+    connect(&mDelayedPopup, &QTimer::timeout, this, &LxQtMainMenu::showHideMenu);
+
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.installEventFilter(this);
 
+    connect(&mButton, &QToolButton::clicked, this, &LxQtMainMenu::showMenu);
+
     settingsChanged();
 
-    connect(mShortcut, SIGNAL(activated()), this, SLOT(showHideMenu()));
+    connect(mShortcut, SIGNAL(activated()), &mDelayedPopup, SLOT(start()));
     connect(mShortcut, SIGNAL(shortcutChanged(QString,QString)), this, SLOT(shortcutChanged(QString,QString)));
 }
 
@@ -185,7 +113,6 @@ void LxQtMainMenu::showHideMenu()
         showMenu();
 }
 
-
 /************************************************
 
  ************************************************/
@@ -197,6 +124,7 @@ void LxQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString
 
         settings()->setValue("dialog/shortcut", newShortcut);
         settings()->sync();
+        mShortcutSeq = QKeySequence(newShortcut);
 
         mLockCascadeChanges = false;
     }
@@ -236,10 +164,9 @@ void LxQtMainMenu::showMenu()
             break;
     }
 
-    mButton.activateWindow();
-    mMenu->popup(QPoint(x, y));
-    KWindowSystem::forceActiveWindow(mMenu->winId());
-    mMenu->setFocus(Qt::ActiveWindowFocusReason);
+    // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
+    // Solution is to execute menu 1ms later using timer
+    mMenu->exec(QPoint(x, y));
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -311,6 +238,7 @@ void LxQtMainMenu::settingsChanged()
     {
         mShortcut->changeShortcut(shortcut);
     }
+    mShortcutSeq = QKeySequence(shortcut);
 
     realign();
 }
@@ -326,29 +254,23 @@ void LxQtMainMenu::buildMenu()
 #else
     XdgMenuWidget *menu = new XdgMenuWidget(mXdgMenu, "", &mButton);
 #endif
-
-    // needed for menu's focus and for making invisible on taskbar
-    menu->setWindowFlags(Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
-    menu->setAttribute(Qt::WA_TranslucentBackground);
-    KWindowSystem::setType(menu->winId(), NET::Menu);
-
     menu->setObjectName("TopLevelMainMenu");
     menu->setStyle(&mTopMenuStyle);
 
     menu->addSeparator();
 
-    mEventFilter = new KeyPressEventFilter(menu, this);
-    foreach (QAction* action, menu->actions())
+    Q_FOREACH(QAction* action, menu->actions())
     {
         if (action->menu())
-            action->menu()->installEventFilter(mEventFilter);
+            action->menu()->installEventFilter(this);
     }
 
-    menu->installEventFilter(mEventFilter);
+    menu->installEventFilter(this);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
-    delete oldMenu;
+    if(oldMenu)
+        delete oldMenu;
 
     if(settings()->value("customFont", false).toBool())
     {
@@ -375,6 +297,15 @@ QDialog *LxQtMainMenu::configureDialog()
 /************************************************
 
  ************************************************/
+ 
+// functor used to match a QAction by prefix
+struct MatchAction
+{
+    MatchAction(QString key):key_(key) {}
+    bool operator()(QAction* action) { return action->text().startsWith(key_, Qt::CaseInsensitive); }
+    QString key_;
+};
+ 
 bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
 {
     if(obj == &mButton)
@@ -385,25 +316,35 @@ bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             // reset proxy style for the menus so they can apply the new styles
             mTopMenuStyle.setBaseStyle(NULL);
             mMenuStyle.setBaseStyle(NULL);
-            return true;
-        }
-
-        if (event->type() == QEvent::MouseButtonRelease)
-        {
-            showHideMenu();
-            return true;
         }
     }
-
-    if (obj == mMenu)
+    else if(QMenu* menu = qobject_cast<QMenu*>(obj))
     {
-        if (event->type() == QEvent::FocusOut)
+        if(event->type() == QEvent::KeyPress)
         {
-            showHideMenu();
-            return true;
+            // if our shortcut key is pressed while the menu is open, close the menu
+            QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+            if(mShortcutSeq == QKeySequence(keyEvent->modifiers() + keyEvent->key()))
+            {
+                mMenu->hide(); // close the app menu
+                return true;
+            }
+            else // go to the menu item starts with the pressed key
+            {
+                QString key = keyEvent->text();
+                if(key.isEmpty())
+                    return false;
+                QAction* action = menu->activeAction();
+                QList<QAction*> actions = menu->actions();
+                QList<QAction*>::iterator it = qFind(actions.begin(), actions.end(), action);
+                it = std::find_if(it + 1, actions.end(), MatchAction(key));
+                if(it == actions.end())
+                    it = std::find_if(actions.begin(), it, MatchAction(key));
+                if(it != actions.end())
+                    menu->setActiveAction(*it);
+            }
         }
     }
-
     return false;
 }
 
