@@ -50,7 +50,7 @@ extern "C" {
 LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
-	m_showText(false),
+    m_showText(false),
     m_barOrientation(TopDownBar),
     m_timerID(-1)
 {
@@ -59,21 +59,21 @@ LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(&m_stuff);
 
-	/* Initialise statgrab */
+    /* Initialise statgrab */
 #ifdef STATGRAB_NEWER_THAN_0_90
-	sg_init(0);
+    sg_init(0);
 #else
-	sg_init();
+    sg_init();
 #endif
 
-	/* Drop setuid/setgid privileges. */
-	if (sg_drop_privileges() != 0) {
-		perror("Error. Failed to drop privileges");
-	}
+    /* Drop setuid/setgid privileges. */
+    if (sg_drop_privileges() != 0) {
+        perror("Error. Failed to drop privileges");
+    }
 
-	m_font.setPointSizeF(8);
+    m_font.setPointSizeF(8);
 
-	settingsChanged();
+    settingsChanged();
 }
 
 LxQtCpuLoad::~LxQtCpuLoad()
@@ -95,43 +95,43 @@ void LxQtCpuLoad::resizeEvent(QResizeEvent *)
         m_stuff.setMinimumHeight(24);
     }
 
-	update();
+    update();
 }
 
 
 double LxQtCpuLoad::getLoadCpu() const
 {
- #ifdef STATGRAB_NEWER_THAN_0_90
-        size_t count;
-	sg_cpu_percents* cur = sg_get_cpu_percents(&count);
+#ifdef STATGRAB_NEWER_THAN_0_90
+    size_t count;
+    sg_cpu_percents* cur = sg_get_cpu_percents(&count);
 #else
-	sg_cpu_percents* cur = sg_get_cpu_percents();
+    sg_cpu_percents* cur = sg_get_cpu_percents();
 #endif
-	return (cur->user + cur->kernel + cur->nice);
+    return (cur->user + cur->kernel + cur->nice);
 }
 
 void LxQtCpuLoad::timerEvent(QTimerEvent *event)
 {
-	double avg = getLoadCpu();
-	if ( qAbs(m_avg-avg)>1 )
-	{
-		m_avg = avg;
+    double avg = getLoadCpu();
+    if ( qAbs(m_avg-avg)>1 )
+    {
+        m_avg = avg;
         setToolTip(tr("CPU load %1%").arg(m_avg));
-		update();
-	}
+        update();
+    }
 }
 
 void LxQtCpuLoad::paintEvent ( QPaintEvent * )
 {
-	QPainter p(this);
-	QPen pen;
-	pen.setWidth(2);
-	p.setPen(pen);
-	p.setRenderHint(QPainter::Antialiasing, true);
-	const double w = 20;
+    QPainter p(this);
+    QPen pen;
+    pen.setWidth(2);
+    p.setPen(pen);
+    p.setRenderHint(QPainter::Antialiasing, true);
+    const double w = 20;
 
-	p.setFont(m_font);
-	QRectF r = rect();
+    p.setFont(m_font);
+    QRectF r = rect();
 
     QRectF r1;
     QLinearGradient shade(0,0,1,1);
@@ -166,14 +166,14 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
         shade.setFinalStop(r1.width(), 0);
     }
 
-	shade.setSpread(QLinearGradient::ReflectSpread);
-	shade.setColorAt(0, QColor(0, 196, 0, 128));
-	shade.setColorAt(0.5, QColor(0, 128, 0, 255) );
-	shade.setColorAt(1, QColor(0, 196, 0 , 128));
+    shade.setSpread(QLinearGradient::ReflectSpread);
+    shade.setColorAt(0, QColor(0, 196, 0, 128));
+    shade.setColorAt(0.5, QColor(0, 128, 0, 255) );
+    shade.setColorAt(1, QColor(0, 196, 0 , 128));
 
-	p.fillRect(r1, shade);
+    p.fillRect(r1, shade);
 
-	if (m_showText)
+    if (m_showText)
     {
         p.setPen(fontColor);
         p.drawText(rect(), Qt::AlignCenter, QString::number(m_avg));
@@ -199,6 +199,6 @@ void LxQtCpuLoad::settingsChanged()
     else
         m_barOrientation = BottomUpBar;
 
-	m_timerID = startTimer(m_updateInterval);
-	update();
+    m_timerID = startTimer(m_updateInterval);
+    update();
 }

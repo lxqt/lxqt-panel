@@ -34,23 +34,23 @@
 #define BAR_ORIENT_RIGHTLEFT "rightLeft"
 
 LxQtCpuLoadConfiguration::LxQtCpuLoadConfiguration(QSettings *settings, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::LxQtCpuLoadConfiguration),
-	mSettings(settings),
-	mOldSettings(settings)
+    QDialog(parent),
+    ui(new Ui::LxQtCpuLoadConfiguration),
+    mSettings(settings),
+    mOldSettings(settings)
 {
-	setAttribute(Qt::WA_DeleteOnClose);
-	setObjectName("CpuLoadConfigurationWindow");
-	ui->setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose);
+    setObjectName("CpuLoadConfigurationWindow");
+    ui->setupUi(this);
 
     fillBarOrientations();
 
-	connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)),
+    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)),
             this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
-	loadSettings();
+    loadSettings();
 
-	connect(ui->showTextCB, SIGNAL(toggled(bool)),
+    connect(ui->showTextCB, SIGNAL(toggled(bool)),
             this, SLOT(showTextChanged(bool)));
     connect(ui->updateIntervalSpinBox, SIGNAL(valueChanged(double)),
             this, SLOT(updateIntervalChanged(double)));
@@ -60,7 +60,7 @@ LxQtCpuLoadConfiguration::LxQtCpuLoadConfiguration(QSettings *settings, QWidget 
 
 LxQtCpuLoadConfiguration::~LxQtCpuLoadConfiguration()
 {
-	delete ui;
+    delete ui;
 }
 
 void LxQtCpuLoadConfiguration::fillBarOrientations()
@@ -108,14 +108,14 @@ void LxQtCpuLoadConfiguration::barOrientationChanged(int index)
 
 void LxQtCpuLoadConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
-	if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-	{
-		mOldSettings.loadToSettings();
-		loadSettings();
-	}
-	else
-	{
-		close();
-	}
+    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
+    {
+        mOldSettings.loadToSettings();
+        loadSettings();
+    }
+    else
+    {
+        close();
+    }
 }
 
