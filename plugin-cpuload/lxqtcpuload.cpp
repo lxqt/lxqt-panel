@@ -51,12 +51,15 @@ LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
     m_showText(false),
+    m_barWidth(20),
     m_barOrientation(TopDownBar),
     m_timerID(-1)
 {
     setObjectName("LxQtCpuLoad");
 
     QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setSpacing(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(&m_stuff);
 
     /* Initialise statgrab */
@@ -80,21 +83,23 @@ LxQtCpuLoad::~LxQtCpuLoad()
 {
 }
 
-void LxQtCpuLoad::resizeEvent(QResizeEvent *)
+void LxQtCpuLoad::setSizes()
 {
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
-        m_stuff.setMinimumHeight(18);
-        m_stuff.setMaximumHeight(18);
+        m_stuff.setFixedHeight(m_barWidth);
         m_stuff.setMinimumWidth(24);
     }
     else
     {
-        m_stuff.setMinimumWidth(18);
-        m_stuff.setMaximumWidth(18);
+        m_stuff.setFixedWidth(m_barWidth);
         m_stuff.setMinimumHeight(24);
     }
+}
 
+void LxQtCpuLoad::resizeEvent(QResizeEvent *)
+{
+    setSizes();
     update();
 }
 
@@ -128,7 +133,6 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
     pen.setWidth(2);
     p.setPen(pen);
     p.setRenderHint(QPainter::Antialiasing, true);
-    const double w = 20;
 
     p.setFont(m_font);
     QRectF r = rect();
@@ -137,7 +141,7 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
     QLinearGradient shade(0,0,1,1);
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
-        float vo = (r.height() - w )/2.0;
+        float vo = (r.height() - static_cast<double>(m_barWidth))/2.0;
         float ho = r.width()*(1-m_avg*0.01);
 
         if (m_barOrientation == RightToLeftBar)
@@ -153,7 +157,7 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
     else // BottomUpBar || TopDownBar
     {
         float vo = r.height()*(1-m_avg*0.01);
-        float ho = (r.width() - w )/2.0;
+        float ho = (r.width() - static_cast<double>(m_barWidth) )/2.0;
 
         if (m_barOrientation == TopDownBar)
         {
@@ -187,6 +191,7 @@ void LxQtCpuLoad::settingsChanged()
         killTimer(m_timerID);
 
     m_showText = mPlugin->settings()->value("showText", false).toBool();
+    m_barWidth = mPlugin->settings()->value("barWidth", 20).toInt();
     m_updateInterval = mPlugin->settings()->value("updateInterval", 1000).toInt();
 
     QString barOrientation = mPlugin->settings()->value("barOrientation", BAR_ORIENT_BOTTOMUP).toString();
@@ -200,5 +205,6 @@ void LxQtCpuLoad::settingsChanged()
         m_barOrientation = BottomUpBar;
 
     m_timerID = startTimer(m_updateInterval);
+    setSizes();
     update();
 }
