@@ -75,6 +75,26 @@
       <item row="2" column="1">
        <widget class="QComboBox" name="barOrientationCOB"/>
       </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="barWidthL">
+        <property name="text">
+         <string>Bar width:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSpinBox" name="barWidthSB">
+        <property name="minimum">
+         <number>4</number>
+        </property>
+        <property name="maximum">
+         <number>2048</number>
+        </property>
+        <property name="value">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

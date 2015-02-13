@@ -52,6 +52,8 @@ LxQtCpuLoadConfiguration::LxQtCpuLoadConfiguration(QSettings *settings, QWidget 
 
     connect(ui->showTextCB, SIGNAL(toggled(bool)),
             this, SLOT(showTextChanged(bool)));
+    connect(ui->barWidthSB, SIGNAL(valueChanged(int)),
+            this, SLOT(barWidthChanged(int)));
     connect(ui->updateIntervalSpinBox, SIGNAL(valueChanged(double)),
             this, SLOT(updateIntervalChanged(double)));
     connect(ui->barOrientationCOB, SIGNAL(currentIndexChanged(int)),
@@ -74,6 +76,7 @@ void LxQtCpuLoadConfiguration::fillBarOrientations()
 void LxQtCpuLoadConfiguration::loadSettings()
 {
     ui->showTextCB->setChecked(mSettings->value("showText", false).toBool());
+    ui->barWidthSB->setValue(mSettings->value("barWidth", 20).toInt());
     ui->updateIntervalSpinBox->setValue(mSettings->value("updateInterval", 1000).toInt() / 1000.0);
 
     int boIndex = ui->barOrientationCOB->findData(
@@ -95,6 +98,10 @@ void LxQtCpuLoadConfiguration::showTextChanged(bool value)
     mSettings->setValue("showText", value);
 }
 
+void LxQtCpuLoadConfiguration::barWidthChanged(int value)
+{
+    mSettings->setValue("barWidth", value);
+}
 
 void LxQtCpuLoadConfiguration::updateIntervalChanged(double value)
 {

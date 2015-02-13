@@ -64,6 +64,7 @@ protected:
 
 private:
     double getLoadCpu() const;
+    void setSizes();
 
     ILxQtPanelPlugin *mPlugin;
     QWidget m_stuff;
@@ -72,6 +73,7 @@ private:
     int m_avg;
 
     bool m_showText;
+    int m_barWidth;
     BarOrientation m_barOrientation;
     int m_updateInterval;
     int m_timerID;

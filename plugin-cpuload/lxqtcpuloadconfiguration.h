@@ -65,6 +65,7 @@ private slots:
     void loadSettings();
     void dialogButtonsAction(QAbstractButton *btn);
     void showTextChanged(bool value);
+    void barWidthChanged(int value);
     void updateIntervalChanged(double value);
     void barOrientationChanged(int index);
 
