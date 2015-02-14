@@ -75,7 +75,7 @@ public:
 
     static bool itemIsSeparate(QLayoutItem *item);
 signals:
-    void pluginMoved();
+    void pluginMoved(Plugin const *plugin);
 
 public slots:
     void startMovePlugin();

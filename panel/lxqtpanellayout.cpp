@@ -960,6 +960,6 @@ void LxQtPanelLayout::finishMovePlugin()
         Plugin *plugin = moveProcessor->plugin();
         int n = indexOf(plugin);
         plugin->setAlignment(n<mLeftGrid->count() ? Plugin::AlignLeft : Plugin::AlignRight);
-        emit pluginMoved();
+        emit pluginMoved(plugin);
     }
 }

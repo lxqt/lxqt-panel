@@ -151,7 +151,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     this->layout()->addWidget(LxQtPanelWidget);
 
     mLayout = new LxQtPanelLayout(LxQtPanelWidget);
-    connect(mLayout, SIGNAL(pluginMoved()), this, SLOT(pluginMoved()));
+    connect(mLayout, SIGNAL(pluginMoved(Plugin const *)), this, SLOT(pluginMoved(Plugin const *)));
     LxQtPanelWidget->setLayout(mLayout);
     mLayout->setLineCount(mLineCount);
 
@@ -228,14 +228,9 @@ void LxQtPanel::saveSettings(bool later)
         return;
     }
 
-    QStringList pluginsList;
-
     mSettings->beginGroup(mConfigGroup);
 
-    foreach (const Plugin *plugin, mPlugins)
-        pluginsList << plugin->settingsGroup();
-
-    mSettings->setValue(CFG_KEY_PLUGINS, (pluginsList.isEmpty() ? "" : QVariant(pluginsList)));
+    mSettings->setValue(CFG_KEY_PLUGINS, (mPluginsList.isEmpty() ? "" : QVariant(mPluginsList)));
 
     mSettings->setValue(CFG_KEY_PANELSIZE, mPanelSize);
     mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
@@ -312,7 +307,7 @@ void LxQtPanel::loadPlugins()
 {
     QStringList desktopDirs = pluginDesktopDirs();
     mSettings->beginGroup(mConfigGroup);
-    QStringList sections = mSettings->value(CFG_KEY_PLUGINS).toStringList();
+    mPluginsList = mSettings->value(CFG_KEY_PLUGINS).toStringList();
     mSettings->endGroup();
 
 #ifdef DEBUG_PLUGIN_LOADTIME
@@ -320,7 +315,7 @@ void LxQtPanel::loadPlugins()
     timer.start();
     qint64 lastTime = 0;
 #endif
-    foreach (QString sect, sections)
+    foreach (QString sect, mPluginsList)
     {
         QString type = mSettings->value(sect+"/type").toString();
         if (type.isEmpty())
@@ -640,7 +635,8 @@ void LxQtPanel::showAddPluginDialog()
 void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
     QString settingsGroup = findNewPluginSettingsGroup(desktopFile.id());
-    loadPlugin(desktopFile, settingsGroup);
+    if (0 != loadPlugin(desktopFile, settingsGroup))
+        mPluginsList << settingsGroup;
     saveSettings(true);
 
     realign();
@@ -1102,6 +1098,7 @@ void LxQtPanel::removePlugin()
     if (plugin)
     {
         mSettings->remove(plugin->settingsGroup());
+        mPluginsList.removeAll(plugin->settingsGroup());
         id = mPlugins.takeAt(mPlugins.indexOf(plugin))->desktopFile().id();
     }
 
@@ -1113,15 +1110,23 @@ void LxQtPanel::removePlugin()
 /************************************************
 
  ************************************************/
-void LxQtPanel::pluginMoved()
+void LxQtPanel::pluginMoved(Plugin const * plug)
 {
-    mPlugins.clear();
+    //get new position of the moved plugin
+    QString plug_is_after, last_name;
     for (int i=0; i<mLayout->count(); ++i)
     {
         Plugin *plugin = qobject_cast<Plugin*>(mLayout->itemAt(i)->widget());
         if (plugin)
-            mPlugins << plugin;
+        {
+            if (plug == plugin)
+                plug_is_after = last_name; //is after previous name (or empty as first)
+            last_name = plugin->settingsGroup();
+        }
     }
+    //merge list of plugins (try to preserve original position)
+    mPluginsList.removeAll(plug->settingsGroup());
+    mPluginsList.insert(mPluginsList.indexOf(plug_is_after)/*-1 if not found*/ + 1, plug->settingsGroup());
     saveSettings();
 }
 
