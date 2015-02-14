@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Keyboard layout switcher
-Comment=Keyboard layout switcher plugin.
-

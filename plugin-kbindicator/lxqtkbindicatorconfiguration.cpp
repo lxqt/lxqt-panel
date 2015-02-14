@@ -46,6 +46,11 @@ LxQtKbIndicatorConfiguration::LxQtKbIndicatorConfiguration(QSettings *settings, 
     connect(ui->numLockCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->scrollLockCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 
+#ifdef ENABLE_KBDLAYOUT
+    ui->layoutCB->setEnabled(true);
+    connect(ui->layoutCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->layoutCB, SIGNAL(stateChanged(int)), SLOT(enableLayoutOptions(int)));
+#endif
     loadSettings();
 }
 
@@ -59,6 +64,15 @@ void LxQtKbIndicatorConfiguration::loadSettings()
     ui->capsLockCB->setChecked(mSettings->value("show_caps_lock", true).toBool());
     ui->numLockCB->setChecked(mSettings->value("show_num_lock", true).toBool());
     ui->scrollLockCB->setChecked(mSettings->value("show_scroll_lock", true).toBool());
+
+#ifdef ENABLE_KBDLAYOUT
+    ui->layoutCB->setChecked(mSettings->value("show_layout", true).toBool());
+
+    QString mode = mSettings->value("layout_switch_mode", "application").toString();
+    ui->applR->setChecked(mode == "application");
+    ui->globalR->setChecked(mode == "global");
+    ui->windowR->setChecked(mode == "window");
+#endif
 }
 
 void LxQtKbIndicatorConfiguration::saveSettings()
@@ -66,6 +80,15 @@ void LxQtKbIndicatorConfiguration::saveSettings()
     mSettings->setValue("show_caps_lock", ui->capsLockCB->isChecked());
     mSettings->setValue("show_num_lock", ui->numLockCB->isChecked());
     mSettings->setValue("show_scroll_lock", ui->scrollLockCB->isChecked());
+#ifdef ENABLE_KBDLAYOUT
+    mSettings->setValue("show_layout", ui->layoutCB->isChecked());
+    QString mode = "application";
+    if(ui->globalR->isChecked())
+        mode = "global";
+    else if(ui->windowR->isChecked())
+        mode = "window";
+    mSettings->setValue("layout_switch_mode", mode);
+#endif
 }
 
 void LxQtKbIndicatorConfiguration::dialogButtonsAction(QAbstractButton *btn)
@@ -77,4 +100,9 @@ void LxQtKbIndicatorConfiguration::dialogButtonsAction(QAbstractButton *btn)
     }
     else
         close();
+}
+
+void LxQtKbIndicatorConfiguration::enableLayoutOptions(int state)
+{
+    ui->layoutGB->setEnabled(state == Qt::Checked);
 }

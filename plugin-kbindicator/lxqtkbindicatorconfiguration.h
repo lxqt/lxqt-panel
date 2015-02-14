@@ -65,6 +65,7 @@ private slots:
       Saves settings in conf file.
     */
     void dialogButtonsAction(QAbstractButton *btn);
+    void enableLayoutOptions(int);
 };
 
 #endif // LXQTKBINDICATORCONFIGURATION_H

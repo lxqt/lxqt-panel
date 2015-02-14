@@ -31,6 +31,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtkbindicatorconfiguration.h"
 #include <KF5/KGuiAddons/KModifierKeyInfo>
+#include "kbdlayout/lxqtkbdlayout.h"
 
 class QLabel;
 
@@ -66,6 +67,8 @@ private:
     QLabel *mCapsLock;
     QLabel *mNumLock;
     QLabel *mScrollLock;
+
+    LxQtKbdLayout mLayout;
 };
 
 class LxQtKbIndicatorLibrary: public QObject, public ILxQtPanelPluginLibrary
