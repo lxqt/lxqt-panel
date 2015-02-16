@@ -241,6 +241,12 @@ if(WORLDCLOCK_PLUGIN)
     add_subdirectory(plugin-worldclock)
 endif(WORLDCLOCK_PLUGIN)
 
+setByDefault(SPACER_PLUGIN Yes)
+if(SPACER_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Spacer")
+    add_subdirectory(plugin-spacer)
+endif()
+
 #########################################################################
 
 message(STATUS  "**************** The following plugins will be built ****************")
