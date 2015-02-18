@@ -62,8 +62,6 @@ set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-add_subdirectory(panel)
-
 #########################################################################
 
 # Plugin system
@@ -73,11 +71,13 @@ add_subdirectory(panel)
 
 include("cmake/BuildPlugin.cmake")
 
-set(ENABLED_PLUGINS)
+set(ENABLED_PLUGINS) # list of enabled plugins
+set(STATIC_PLUGINS) # list of statically linked plugins
 
 setByDefault(CLOCK_PLUGIN Yes)
 if(CLOCK_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Clock")
+    list(APPEND STATIC_PLUGINS "clock")
     add_subdirectory(plugin-clock)
 endif()
 
@@ -109,6 +109,7 @@ endif(DOM_PLUGIN)
 
 setByDefault(DESKTOPSWITCH_PLUGIN Yes)
 if(DESKTOPSWITCH_PLUGIN)
+    list(APPEND STATIC_PLUGINS "desktopswitch")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Desktop Switcher")
     add_subdirectory(plugin-desktopswitch)
 endif()
@@ -121,6 +122,7 @@ endif(KBINDICATOR_PLUGIN)
 
 setByDefault(MAINMENU_PLUGIN Yes)
 if(MAINMENU_PLUGIN)
+    list(APPEND STATIC_PLUGINS "mainmenu")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Application menu")
     add_subdirectory(plugin-mainmenu)
 endif()
@@ -137,6 +139,7 @@ endif(MOUNT_PLUGIN)
 
 setByDefault(QUICKLAUNCH_PLUGIN Yes)
 if(QUICKLAUNCH_PLUGIN)
+    list(APPEND STATIC_PLUGINS "quicklaunch")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Quicklaunch")
     add_subdirectory(plugin-quicklaunch)
 endif()
@@ -163,6 +166,7 @@ endif()
 
 setByDefault(SHOWDESKTOP_PLUGIN Yes)
 if(SHOWDESKTOP_PLUGIN)
+    list(APPEND STATIC_PLUGINS "showdesktop")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Show Desktop")
     add_subdirectory(plugin-showdesktop)
 endif()
@@ -189,12 +193,14 @@ endif(SYSSTAT_PLUGIN)
 
 setByDefault(TASKBAR_PLUGIN Yes)
 if(TASKBAR_PLUGIN)
+  list(APPEND STATIC_PLUGINS "taskbar")
   set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Taskbar")
   add_subdirectory(plugin-taskbar)
 endif()
 
 setByDefault(TRAY_PLUGIN Yes)
 if(TRAY_PLUGIN)
+    list(APPEND STATIC_PLUGINS "tray")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "System Tray")
     add_subdirectory(plugin-tray)
 endif()
@@ -230,6 +236,7 @@ endif()
 
 setByDefault(WORLDCLOCK_PLUGIN Yes)
 if(WORLDCLOCK_PLUGIN)
+    list(APPEND STATIC_PLUGINS "worldclock")
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "World Clock")
     add_subdirectory(plugin-worldclock)
 endif(WORLDCLOCK_PLUGIN)
@@ -241,6 +248,8 @@ foreach (PLUGIN_STR ${ENABLED_PLUGINS})
     message(STATUS "  ${PLUGIN_STR}")
 endforeach()
 message(STATUS "*********************************************************************")
+
+add_subdirectory(panel)
 
 # building tarball with CPack -------------------------------------------------
 include(InstallRequiredSystemLibraries)

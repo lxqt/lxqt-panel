@@ -93,7 +93,7 @@ lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
 
 
 add_executable(${PROJECT} ${lxqt-panel_PUB_H_FILES} ${lxqt-panel_PRIV_H_FILES} ${lxqt-panel_CPP_FILES} ${MOC_SOURCES} ${lxqt-runner_QM_FILES} ${QRC_SOURCES} ${UI_HEADERS} ${QM_LOADER})
-target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES} KF5::WindowSystem)
+target_link_libraries(${PROJECT} ${LIBRARIES} ${QTX_LIBRARIES} KF5::WindowSystem ${STATIC_PLUGINS})
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES ${CONFIG_FILES} DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
