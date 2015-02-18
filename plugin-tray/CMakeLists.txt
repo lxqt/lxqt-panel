@@ -1,7 +1,10 @@
 set(PLUGIN "tray")
 
-include(FindPkgConfig)
 include(CheckLibraryExists)
+
+find_package(PkgConfig)
+pkg_check_modules(XCB REQUIRED xcb)
+pkg_check_modules(XCB_DAMAGE REQUIRED xcb-damage)
 
 find_package(X11 REQUIRED)
 pkg_check_modules(XCOMPOSITE REQUIRED xcomposite)
