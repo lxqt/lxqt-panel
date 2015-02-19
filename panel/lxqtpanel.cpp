@@ -51,6 +51,12 @@
 #include <KF5/KWindowSystem/KWindowSystem>
 #include <KF5/KWindowSystem/NETWM>
 
+// Turn on this to show the time required to load each plugin during startup
+// #define DEBUG_PLUGIN_LOADTIME
+#ifdef DEBUG_PLUGIN_LOADTIME
+#include <QElapsedTimer>
+#endif
+
 // Config keys and groups
 #define CFG_KEY_SCREENNUM          "desktop"
 #define CFG_KEY_POSITION           "position"
@@ -309,6 +315,11 @@ void LxQtPanel::loadPlugins()
     QStringList sections = mSettings->value(CFG_KEY_PLUGINS).toStringList();
     mSettings->endGroup();
 
+#ifdef DEBUG_PLUGIN_LOADTIME
+    QElapsedTimer timer;
+    timer.start();
+    qint64 lastTime = 0;
+#endif
     foreach (QString sect, sections)
     {
         QString type = mSettings->value(sect+"/type").toString();
@@ -326,6 +337,10 @@ void LxQtPanel::loadPlugins()
         }
 
         loadPlugin(list.first(), sect);
+#ifdef DEBUG_PLUGIN_LOADTIME
+        qDebug() << "load plugin" << type << "takes" << (timer.elapsed() - lastTime) << "ms";
+        lastTime = timer.elapsed();
+#endif
     }
 }
 
