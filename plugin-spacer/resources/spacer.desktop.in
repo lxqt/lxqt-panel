@@ -3,6 +3,6 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=Spacer
 Comment=Space between widgets
-Icon=
+Icon=bookmark-new
 
 #TRANSLATIONS_DIR=../translations
