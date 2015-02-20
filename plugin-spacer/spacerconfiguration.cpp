@@ -28,6 +28,13 @@
 #include "ui_spacerconfiguration.h"
 
 
+const QStringList SpacerConfiguration::msTypes = 
+    (QStringList()
+     << QStringLiteral("invisible")
+     << QStringLiteral("dotted")
+     << QStringLiteral("lined")
+     );
+
 SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::SpacerConfiguration)
@@ -38,12 +45,15 @@ SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     setObjectName("SpacerConfigurationWindow");
     ui->setupUi(this);
 
+    ui->typeCB->addItems(msTypes);
+
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
     loadSettings();
 
     connect(ui->sizeSB, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
+    connect(ui->typeCB, &QComboBox::currentTextChanged, this, &SpacerConfiguration::typeChanged);
 }
 
 SpacerConfiguration::~SpacerConfiguration()
@@ -54,12 +64,18 @@ SpacerConfiguration::~SpacerConfiguration()
 void SpacerConfiguration::loadSettings()
 {
     ui->sizeSB->setValue(mSettings->value("size", 8).toInt());
+    ui->typeCB->setCurrentText(mSettings->value("spaceType", msTypes[0]).toString());
 
 }
 
 void SpacerConfiguration::sizeChanged(int value)
 {
     mSettings->setValue("size", value);
+}
+
+void SpacerConfiguration::typeChanged(QString const & value)
+{
+    mSettings->setValue("spaceType", value);
 }
 
 void SpacerConfiguration::dialogButtonsAction(QAbstractButton *btn)
