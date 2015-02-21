@@ -420,7 +420,7 @@ void ConfigPanelWidget::pickBackgroundImage()
     picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
 
     QString file = QFileDialog::getOpenFileName(this,
-                                                "Pick image",
+                                                tr("Pick image"),
                                                 picturesLocation,
                                                 tr("Images (*.png *.gif *.jpg)"));
     ui->lineEdit_customBgImage->setText(file);
