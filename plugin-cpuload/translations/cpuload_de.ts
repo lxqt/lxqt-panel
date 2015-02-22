@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>LxQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">Prozessorauslastung %1%</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuload.cpp" line="119"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozessorauslastung %1%</translation>
     </message>
 </context>
 <context>
     <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQt Prozessorauslastung Einstellungen</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen zur Prozessorlast-Anzeige</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -42,7 +34,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation>Sek.</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
