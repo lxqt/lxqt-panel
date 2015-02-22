@@ -63,6 +63,9 @@ public:
     bool isSeparate() const { return true; }
     void realign();
 
+    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    QDialog *configureDialog();
+
 private:
     QButtonGroup * m_buttons;
     QSignalMapper* m_pSignalMapper;
@@ -70,6 +73,7 @@ private:
     QStringList m_desktopNames;
     DesktopSwitchWidget mWidget;
     LxQt::GridLayout *mLayout;
+    int mRows;
 
     void setup();
 
@@ -78,6 +82,7 @@ private slots:
     void onNumberOfDesktopsChanged(int);
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
+    virtual void settingsChanged();
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
