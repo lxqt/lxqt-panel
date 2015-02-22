@@ -6,5 +6,5 @@ Comment=View readings from hardware sensors.
 
 
 # Translations
-Name[de_DE]=Sensoren
-Comment[de_DE]=Zeige die Sensorwerte der Hardware-Sensoren (momentan lm_sensors) 
+Name[de]=Sensoren
+Comment[de]=Sensorwerte der Hardware-Sensoren anzeigen.
