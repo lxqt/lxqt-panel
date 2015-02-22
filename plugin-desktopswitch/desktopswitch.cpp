@@ -37,12 +37,14 @@
 #include <QHBoxLayout>
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
+#include "desktopswitchconfiguration.h"
 
 DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
-    m_desktopCount(KWindowSystem::numberOfDesktops())
+    m_desktopCount(KWindowSystem::numberOfDesktops()),
+    mRows(1)
 {
     m_buttons = new QButtonGroup(this);
     connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
@@ -92,7 +94,7 @@ void DesktopSwitch::setup()
     connect(m_buttons, SIGNAL(buttonClicked(int)),
             this, SLOT(setDesktop(int)));
 
-    realign();
+    settingsChanged();
 }
 
 DesktopSwitch::~DesktopSwitch()
@@ -132,21 +134,32 @@ void DesktopSwitch::onDesktopNamesChanged()
     setup();
 }
 
+void DesktopSwitch::settingsChanged()
+{
+    mRows = settings()->value("rows", 1).toInt();
+    realign();
+}
+
 void DesktopSwitch::realign()
 {
     mLayout->setEnabled(false);
 
     if (panel()->isHorizontal())
     {
-        mLayout->setRowCount(qMin(panel()->lineCount(), mLayout->count()));
+        mLayout->setRowCount(mRows);
         mLayout->setColumnCount(0);
     }
     else
     {
-        mLayout->setColumnCount(qMin(panel()->lineCount(), mLayout->count()));
+        mLayout->setColumnCount(mRows);
         mLayout->setRowCount(0);
     }
     mLayout->setEnabled(true);
+}
+
+QDialog *DesktopSwitch::configureDialog()
+{
+    return new DesktopSwitchConfiguration(settings(), &mWidget);
 }
 
 DesktopSwitchWidget::DesktopSwitchWidget():
