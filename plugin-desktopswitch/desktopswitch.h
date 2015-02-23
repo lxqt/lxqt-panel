@@ -31,9 +31,11 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
+#include <QScopedPointer>
 
 class QSignalMapper;
 class QButtonGroup;
+class NETRootInfo;
 namespace LxQt {
 class GridLayout;
 }
@@ -74,6 +76,7 @@ private:
     DesktopSwitchWidget mWidget;
     LxQt::GridLayout *mLayout;
     int mRows;
+    QScopedPointer<NETRootInfo> mDesktops;
 
     void setup();
 

@@ -33,8 +33,10 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 #include <KF5/KWindowSystem/KWindowSystem>
+#include <KF5/KWindowSystem/NETWM>
+#include <QX11Info>
+#include <cmath>
 
-#include <QHBoxLayout>
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
@@ -44,7 +46,8 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     ILxQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
     m_desktopCount(KWindowSystem::numberOfDesktops()),
-    mRows(1)
+    mRows(1),
+    mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout))
 {
     m_buttons = new QButtonGroup(this);
     connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
@@ -142,17 +145,19 @@ void DesktopSwitch::settingsChanged()
 
 void DesktopSwitch::realign()
 {
+    int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
     mLayout->setEnabled(false);
-
     if (panel()->isHorizontal())
     {
         mLayout->setRowCount(mRows);
         mLayout->setColumnCount(0);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, NET::DesktopLayoutCornerTopLeft);
     }
     else
     {
         mLayout->setColumnCount(mRows);
         mLayout->setRowCount(0);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, NET::DesktopLayoutCornerTopLeft);
     }
     mLayout->setEnabled(true);
 }
