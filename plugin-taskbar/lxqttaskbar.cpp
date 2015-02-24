@@ -187,18 +187,31 @@ void LxQtTaskBar::dropEvent(QDropEvent* event)
     int droppedIndex = mLayout->indexOf(mButtonsHash[droppedWid]);
     int newPos = -1;
     const int size = mLayout->count();
-    for (int i = 0; i < droppedIndex && newPos == -1; i++)
-        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 > event->pos().x())
-            newPos = i;
+    if (mPlugin->panel()->isHorizontal())
+    {
+        for (int i = 0; i < droppedIndex && newPos == -1; i++)
+            if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 > event->pos().x())
+                newPos = i;
 
-    for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
-        if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 < event->pos().x())
-            newPos = i;
+        for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
+            if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 < event->pos().x())
+                newPos = i;
+    }
+    else
+    {
+        for (int i = 0; i < droppedIndex && newPos == -1; i++)
+            if (mLayout->itemAt(i)->widget()->y() + mLayout->itemAt(i)->widget()->height() / 2 > event->pos().y())
+                newPos = i;
+
+        for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
+            if (mLayout->itemAt(i)->widget()->y() + mLayout->itemAt(i)->widget()->height() / 2 < event->pos().y())
+                newPos = i;
+    }
 
     if (newPos == -1 || droppedIndex == newPos)
         return;
 
-    qDebug() << QString("Dropped button shoud go to position %1").arg(newPos);
+    qDebug() << QString("Dropped button should go to position %1").arg(newPos);
 
     mLayout->moveItem(droppedIndex, newPos);
     mLayout->invalidate();
