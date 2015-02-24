@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="417"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Zur Ak&amp;tuellen Arbeitsfläche</translation>
+        <translation>Zur ak&amp;tuellen Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="426"/>
@@ -92,22 +92,14 @@
 <context>
     <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">LxQt Taskmanager Einstellungen</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">Fensterlisteninhalt</translation>
-    </message>
-    <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsverwalter - Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>Taskbar Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>Fensterlisteninhalt</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
@@ -115,46 +107,34 @@
         <translation>Fenster der aktuellen Arbeitsfläche anzeigen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="49"/>
-        <source>Taskbar Appearance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
-        <source>Minimum button width</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="88"/>
-        <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="98"/>
-        <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>wlcB</source>
-        <translation type="vanished">wlcB</translation>
-    </message>
-    <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all desktops</source>
         <translation>Fenster aller Arbeitsflächen anzeigen</translation>
     </message>
     <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">Fensterlisten Erscheinungsbild</translation>
+        <location filename="../lxqttaskbarconfiguration.ui" line="49"/>
+        <source>Taskbar Appearance</source>
+        <translation>Aussehen der Fensterliste</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Button style</source>
-        <translation>Schaltflächenstiel</translation>
+        <translation>Schaltflächenstil</translation>
     </message>
     <message>
-        <source>Max button width</source>
-        <translation type="vanished">Max. Schaltflächenbreite</translation>
+        <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
+        <source>Minimum button width</source>
+        <translation>Minimale Schaltflächenbreite</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="88"/>
+        <source>Auto&amp;rotate buttons when the panel is vertical</source>
+        <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="98"/>
+        <source>Close on middle-click</source>
+        <translation>Fenster bei Mittelklick schließen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
