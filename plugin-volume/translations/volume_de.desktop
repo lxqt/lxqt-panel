@@ -8,5 +8,5 @@ Comment=Control the system's volume and launch your preferred mixer.
 
 
 # Translations
-Comment[de_DE]=Regele die Systemlautstärke und starte bevorzugten Mixer.
-Name[de_DE]=Lautstärken Regelung
+Comment[de]=Systemlautstärke einstellen und den bevorzugten Mischer starten.
+Name[de]=Lautstärkeregelung
