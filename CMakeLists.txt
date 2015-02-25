@@ -130,10 +130,6 @@ endif()
 setByDefault(MOUNT_PLUGIN Yes)
 if(MOUNT_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Mount")
-
-    find_package(lxqtmount REQUIRED)
-    include(${LXQTMOUNT_USE_FILE})
-
     add_subdirectory(plugin-mount)
 endif(MOUNT_PLUGIN)
 

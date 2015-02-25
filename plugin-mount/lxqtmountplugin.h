@@ -58,7 +58,6 @@ public:
     void realign();
     QDialog *configureDialog();
 
-    LxQt::MountManager *mountManager() const { return mMountManager; }
     Popup *popup() { return mPopup; }
 
     QIcon icon() const;
@@ -70,7 +69,6 @@ protected slots:
 private:
     MountButton *mButton;
     Popup *mPopup;
-    LxQt::MountManager *mMountManager;
     DeviceAction *mDeviceAction;
 };
 

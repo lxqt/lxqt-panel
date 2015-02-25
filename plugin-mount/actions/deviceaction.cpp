@@ -30,9 +30,10 @@
 #include "deviceaction_info.h"
 #include "deviceaction_menu.h"
 #include "deviceaction_nothing.h"
-
 #include "../menudiskitem.h"
 #include "../lxqtmountplugin.h"
+#include <Solid/StorageAccess>
+
 
 #define ACT_NOTHING "nothing"
 #define ACT_INFO    "showInfo"
@@ -80,18 +81,19 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
     return ACT_INFO;
 }
 
-void DeviceAction::deviceAdded(LxQt::MountDevice *device)
+void DeviceAction::deviceAdded(QString const & udi)
 {
-    if (MenuDiskItem::isUsableDevice(device))
+    Solid::Device device(udi);
+    if (device.is<Solid::StorageAccess>())
         doDeviceAdded(device);
 }
 
-void DeviceAction::deviceRemoved(LxQt::MountDevice *device)
+void DeviceAction::deviceRemoved(QString const & udi)
 {
-    if (MenuDiskItem::isUsableDevice(device))
+    Solid::Device device(udi);
+    if (device.is<Solid::StorageAccess>())
         doDeviceRemoved(device);
 }
-
 
 DeviceAction::ActionId DeviceAction::stringToActionId(const QString &string, ActionId defaultValue)
 {
@@ -102,4 +104,3 @@ DeviceAction::ActionId DeviceAction::stringToActionId(const QString &string, Act
 
     return defaultValue;
 }
-

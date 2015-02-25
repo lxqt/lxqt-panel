@@ -30,18 +30,21 @@
 #include "actions/deviceaction.h"
 #include "popup.h"
 #include "mountbutton.h"
-#include <LXQtMount/Mount>
+#include <Solid/DeviceNotifier>
 
 
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     mPopup(NULL),
-    mMountManager(NULL),
     mDeviceAction(0)
 {
     mButton = new MountButton();
     connect(mButton, SIGNAL(clicked(bool)), SLOT(buttonClicked()));
+
+    mPopup = new Popup(this, mButton);
+    settingsChanged();
+    connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
 }
 
 
@@ -81,15 +84,6 @@ QIcon LxQtMountPlugin::icon() const
 
 void LxQtMountPlugin::buttonClicked()
 {
-    if(!mMountManager)
-    {
-        mMountManager = new LxQt::MountManager(this);
-        mPopup = new Popup(mMountManager, this, mButton);
-        settingsChanged();
-
-        connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
-        mMountManager->update();
-    }
     mPopup->showHide();
 }
 
@@ -97,17 +91,18 @@ void LxQtMountPlugin::buttonClicked()
 void LxQtMountPlugin::settingsChanged()
 {
     QString s = settings()->value("newDeviceAction").toString();
+
     DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
 
-    delete mDeviceAction;
-    mDeviceAction = DeviceAction::create(actionId, this);
-
-    if(mMountManager)
+    if (0 == mDeviceAction || mDeviceAction->Type() != actionId)
     {
-        connect(mMountManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
-                mDeviceAction, SLOT(deviceAdded(LxQt::MountDevice*)));
+        delete mDeviceAction;
+        mDeviceAction = DeviceAction::create(actionId, this);
+        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(QString const &))
+                , mDeviceAction, SLOT(deviceAdded(QString const &)));
 
-        connect(mMountManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
-                mDeviceAction, SLOT(deviceRemoved(LxQt::MountDevice*)));
+        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString const &))
+                , mDeviceAction, SLOT(deviceRemoved(QString const &)));
     }
+
 }

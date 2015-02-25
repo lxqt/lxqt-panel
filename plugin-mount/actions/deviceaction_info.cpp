@@ -38,19 +38,19 @@ DeviceActionInfo::DeviceActionInfo(LxQtMountPlugin *plugin, QObject *parent):
 }
 
 
-void DeviceActionInfo::doDeviceAdded(LxQt::MountDevice *device)
+void DeviceActionInfo::doDeviceAdded(Solid::Device device)
 {
     qDebug() << Q_FUNC_INFO;
 
-    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is connected.").arg(device->label()));
+    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is connected.").arg(device.description()));
 }
 
 
-void DeviceActionInfo::doDeviceRemoved(LxQt::MountDevice *device)
+void DeviceActionInfo::doDeviceRemoved(Solid::Device device)
 {
     qDebug() << Q_FUNC_INFO;
 
-    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is removed.").arg(device->label()));
+    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is removed.").arg(device.description()));
 }
 
 

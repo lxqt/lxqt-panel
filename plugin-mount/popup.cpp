@@ -30,17 +30,33 @@
 #include <QDesktopWidget>
 #include <QGridLayout>
 #include <QLabel>
-#include <LXQtMount/Mount>
 #include "menudiskitem.h"
+#include "popup.h"
+#include <Solid/StorageAccess>
+#include <Solid/StorageDrive>
+#include <Solid/DeviceNotifier>
 
 
-Popup::Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* parent):
+static bool hasRemovableParent(Solid::Device device)
+{
+    qDebug() << "acess:" << device.udi();
+    for ( ; !device.udi().isEmpty(); device = device.parent())
+    {
+        Solid::StorageDrive* drive = device.as<Solid::StorageDrive>();
+        if (drive && drive->isRemovable())
+        {
+            qDebug() << "removable parent drive:" << device.udi();
+            return true;
+        }
+    }
+    return false;
+}
+
+Popup::Popup(ILxQtPanelPlugin *plugin, QWidget* parent):
     QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
-    mManager(manager),
     mPlugin(plugin),
     mDisplayCount(0)
 {
-
     setObjectName("LxQtMountPopup");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setLayout(new QVBoxLayout(this));
@@ -48,53 +64,37 @@ Popup::Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* par
 
     setAttribute(Qt::WA_AlwaysShowToolTips);
 
-    connect(mManager, SIGNAL(deviceAdded(LxQt::MountDevice*)),
-                this, SLOT(addItem(LxQt::MountDevice*)));
-    connect(mManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
-                this, SLOT(removeItem(LxQt::MountDevice*)));
 
     mPlaceholder = new QLabel(tr("No devices are available"), this);
     mPlaceholder->setObjectName("NoDiskLabel");
     layout()->addWidget(mPlaceholder);
     mPlaceholder->hide();
 
-    foreach(LxQt::MountDevice *device, mManager->devices())
+    foreach(Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess))
     {
-        addItem(device);
+        if (hasRemovableParent(device))
+            addItem(device);
     }
+
+    connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(QString const &))
+            , this, SLOT(deviceAdded(QString const &)));
+    connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString const &))
+            , this, SLOT(deviceRemoved(QString const &)));
 }
 
 
-MenuDiskItem *Popup::addItem(LxQt::MountDevice *device)
+MenuDiskItem *Popup::addItem(Solid::Device device)
 {
-    if (MenuDiskItem::isUsableDevice(device))
-    {
-        MenuDiskItem  *item   = new MenuDiskItem(device, this);
-        layout()->addWidget(item);
-        item->setVisible(true);
-        mDisplayCount++;
-        if (mDisplayCount != 0)
-            mPlaceholder->hide();
+    MenuDiskItem  *item   = new MenuDiskItem(device, this);
+    layout()->addWidget(item);
+    item->setVisible(true);
+    mDisplayCount++;
+    if (mDisplayCount != 0)
+        mPlaceholder->hide();
 
-        if (isVisible())
-            realign();
-        return item;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-
-void Popup::removeItem(LxQt::MountDevice *device)
-{
-    if (MenuDiskItem::isUsableDevice(device))
-    {
-        mDisplayCount--;
-        if (mDisplayCount == 0)
-            mPlaceholder->show();
-    }
+    if (isVisible())
+        realign();
+    return item;
 }
 
 
@@ -141,4 +141,39 @@ void Popup::realign()
 void Popup::showHide()
 {
     setHidden(!isHidden());
+}
+
+void Popup::deviceRemoved(QString const & udi)
+{
+    MenuDiskItem* item(0);
+    for (int i = layout()->count() - 1; 0 <= i; --i)
+    {
+        QWidget* w = layout()->itemAt(i)->widget();
+        if (w == mPlaceholder)
+            continue;
+
+        MenuDiskItem& it = dynamic_cast<MenuDiskItem&>(*layout()->itemAt(i)->widget());
+        if (udi == it.DeviceUdi())
+        {
+            item = &it;
+            break;
+        }
+    }
+    if (0 != item)
+    {
+        layout()->removeWidget(item);
+        delete item;
+        --mDisplayCount;
+        if (mDisplayCount == 0)
+            mPlaceholder->show();
+    }
+}
+
+void Popup::deviceAdded(QString const & udi)
+{
+    Solid::Device device(udi);
+    if (device.is<Solid::StorageAccess>() && hasRemovableParent(device)/*is this superfluous? if device was just added?*/)
+    {
+        addItem(device);
+    }
 }
