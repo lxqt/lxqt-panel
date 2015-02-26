@@ -25,17 +25,13 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "domtreeitem.h"
-
-#include <QEvent>
 #include <QChildEvent>
+#include <QEvent>
 #include <QFile>
 #include <QToolButton>
 
-/************************************************
 
- ************************************************/
 DomTreeItem::DomTreeItem(QTreeWidget *view, QWidget *widget):
     QTreeWidgetItem(view),
     mWidget(widget)
@@ -46,9 +42,6 @@ DomTreeItem::DomTreeItem(QTreeWidget *view, QWidget *widget):
 }
 
 
-/************************************************
-
- ************************************************/
 DomTreeItem::DomTreeItem(QTreeWidgetItem *parent, QWidget *widget):
     QTreeWidgetItem(parent),
     mWidget(widget)
@@ -59,9 +52,6 @@ DomTreeItem::DomTreeItem(QTreeWidgetItem *parent, QWidget *widget):
 }
 
 
-/************************************************
-
- ************************************************/
 void DomTreeItem::init()
 {
     QStringList hierarcy = widgetClassHierarcy();
@@ -92,9 +82,6 @@ void DomTreeItem::init()
 }
 
 
-/************************************************
-
- ************************************************/
 void DomTreeItem::fill()
 {
     QList<QWidget*> widgets = mWidget->findChildren<QWidget*>();
@@ -109,9 +96,6 @@ void DomTreeItem::fill()
 }
 
 
-/************************************************
-
- ************************************************/
 bool DomTreeItem::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == mWidget &&
@@ -136,18 +120,12 @@ bool DomTreeItem::eventFilter(QObject *watched, QEvent *event)
 }
 
 
-/************************************************
-
- ************************************************/
 QString DomTreeItem::widgetObjectName() const
 {
     return mWidget->objectName();
 }
 
 
-/************************************************
-
- ************************************************/
 QString DomTreeItem::widgetText() const
 {
     QToolButton *toolButton = qobject_cast<QToolButton*>(mWidget);
@@ -158,18 +136,12 @@ QString DomTreeItem::widgetText() const
 }
 
 
-/************************************************
-
- ************************************************/
 QString DomTreeItem::widgetClassName() const
 {
     return mWidget->metaObject()->className();
 }
 
 
-/************************************************
-
- ************************************************/
 QStringList DomTreeItem::widgetClassHierarcy() const
 {
     QStringList hierarcy;
@@ -183,11 +155,7 @@ QStringList DomTreeItem::widgetClassHierarcy() const
 }
 
 
-/************************************************
-
- ************************************************/
 void DomTreeItem::widgetDestroyed()
 {
     deleteLater();
 }
-

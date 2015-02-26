@@ -25,19 +25,17 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QDesktopServices>
 #include "menudiskitem.h"
-#include <LXQtMount/Mount>
-#include <XdgIcon>
+#include <QDesktopServices>
 #include <QDebug>
-#include <QUrl>
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QToolButton>
-#include <QEvent>
+#include <QUrl>
+#include <LXQtMount/Mount>
+#include <XdgIcon>
 
-/************************************************
 
- ************************************************/
 MenuDiskItem::MenuDiskItem(LxQt::MountDevice *device, QWidget *parent):
     QFrame(parent),
     mDevice(device)
@@ -78,18 +76,12 @@ MenuDiskItem::MenuDiskItem(LxQt::MountDevice *device, QWidget *parent):
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::free()
 {
     this->deleteLater();
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::update()
 {
     mDiskButton->setIcon(XdgIcon::fromTheme(QStringList()
@@ -104,9 +96,6 @@ void MenuDiskItem::update()
 }
 
 
-/************************************************
-
- ************************************************/
 bool MenuDiskItem::isUsableDevice(const LxQt::MountDevice *device)
 {
     switch (device->mediaType())
@@ -131,18 +120,12 @@ bool MenuDiskItem::isUsableDevice(const LxQt::MountDevice *device)
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::setMountStatus(bool is_mount)
 {
     mEjectButton->setEnabled(is_mount);
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::diskButtonClicked()
 {
     if (!mDevice->isMounted())
@@ -154,18 +137,12 @@ void MenuDiskItem::diskButtonClicked()
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::mounted()
 {
     QDesktopServices::openUrl(QUrl(mDevice->mountPath()));
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::ejectButtonClicked()
 {
     mDevice->unmount();
@@ -175,12 +152,8 @@ void MenuDiskItem::ejectButtonClicked()
 }
 
 
-/************************************************
-
- ************************************************/
 void MenuDiskItem::unmounted()
 {
     if (mDevice->isEjectable())
         mDevice->eject();
 }
-

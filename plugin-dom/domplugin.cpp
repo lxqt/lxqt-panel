@@ -25,12 +25,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "domplugin.h"
 #include "treewindow.h"
-
-#include <XdgIcon>
 #include <QDebug>
+#include <XdgIcon>
+
 
 DomPlugin::DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -40,6 +39,7 @@ DomPlugin::DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     mButton.setIcon(XdgIcon::fromTheme("preferences-plugin"));
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showDialog()));
 }
+
 
 void DomPlugin::showDialog()
 {
@@ -54,5 +54,3 @@ void DomPlugin::showDialog()
     dialog->show();
     dialog->activateWindow();
 }
-
-

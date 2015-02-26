@@ -25,12 +25,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef DOMTREEITEM_H
 #define DOMTREEITEM_H
 
 #include <QObject>
 #include <QTreeWidgetItem>
+
 
 class DomTreeItem: public QObject, public QTreeWidgetItem
 {

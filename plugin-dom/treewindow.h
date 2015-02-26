@@ -25,12 +25,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef TREEWINDOW_H
 #define TREEWINDOW_H
 
 #include <QMainWindow>
 #include <QList>
+
 
 class QTreeWidgetItem;
 class QTreeWidget;
@@ -41,11 +41,10 @@ class TreeWindow;
 }
 
 
-
 class TreeWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit TreeWindow(QWidget *parent = 0);
     ~TreeWindow();

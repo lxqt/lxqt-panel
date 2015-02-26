@@ -25,20 +25,17 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "quicklaunchaction.h"
-
-#include <QtDebug>
-#include <QProcess>
-#include <QUrl>
-#include <QMessageBox>
 #include <QDesktopServices>
 #include <QFileIconProvider>
 #include <QMimeDatabase>
-
+#include <QMessageBox>
+#include <QProcess>
+#include <QUrl>
 #include <XdgDesktopFile>
 #include <XdgIcon>
 #include <XdgMimeType>
+
 
 QuickLaunchAction::QuickLaunchAction(const QString & name,
                                      const QString & exec,
@@ -48,7 +45,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
       m_valid(true)
 {
     m_type = ActionLegacy;
-    
+
     m_settingsMap["name"] = name;
     m_settingsMap["exec"] = exec;
     m_settingsMap["icon"] = icon;
@@ -68,7 +65,7 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
       m_valid(true)
 {
     m_type = ActionXdg;
-    
+
     m_settingsMap["desktop"] = xdg->fileName();
 
     QString title(xdg->localizedValue("Name").toString());
@@ -90,7 +87,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     m_type = ActionFile;
     setText(fileName);
     setData(fileName);
-    
+
     m_settingsMap["file"] = fileName;
 
     QFileInfo fi(fileName);
@@ -105,7 +102,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
         XdgMimeType mi(db.mimeTypeForFile(fi));
         setIcon(mi.icon());
     }
-    
+
     connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
 }
 

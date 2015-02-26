@@ -26,12 +26,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef POPUP_H
 #define POPUP_H
 
 #include <QDialog>
 #include "../panel/ilxqtpanelplugin.h"
+
 
 namespace LxQt {
 class MountManager;

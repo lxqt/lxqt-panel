@@ -25,10 +25,10 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include "colorpicker.h"
 #include <QMouseEvent>
 #include <QHBoxLayout>
 
-#include "colorpicker.h"
 
 ColorPicker::ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -36,6 +36,7 @@ ColorPicker::ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo) :
 {
     realign();
 }
+
 
 ColorPicker::~ColorPicker()
 {
@@ -69,9 +70,11 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
 
 }
 
+
 ColorPickerWidget::~ColorPickerWidget()
 {
 }
+
 
 void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -89,6 +92,7 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
     mCapturing = false;
     releaseMouse();
 }
+
 
 void ColorPickerWidget::captureMouse()
 {

@@ -25,12 +25,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef LXQTMOUNTPLUGIN_H
 #define LXQTMOUNTPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "../panel/lxqtpanel.h"
+
 
 namespace LxQt {
 class MountManager;

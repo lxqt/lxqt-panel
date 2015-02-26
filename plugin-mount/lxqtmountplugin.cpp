@@ -25,20 +25,18 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "lxqtmountplugin.h"
 #include "lxqtmountconfiguration.h"
-#include <LXQtMount/Mount>
 #include "actions/deviceaction.h"
 #include "popup.h"
 #include "mountbutton.h"
+#include <LXQtMount/Mount>
 
-#include <QtDebug>
 
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-	mPopup(NULL),
+    mPopup(NULL),
     mMountManager(NULL),
     mDeviceAction(0)
 {
@@ -62,15 +60,13 @@ QWidget *LxQtMountPlugin::widget()
 
 void LxQtMountPlugin::realign()
 {
-    if(mPopup)
-        mPopup->hide();
+    if(mPopup) mPopup->hide();
 }
 
 
 QDialog *LxQtMountPlugin::configureDialog()
 {
-    if(mPopup)
-        mPopup->hide();
+    if(mPopup) mPopup->hide();
     LxQtMountConfiguration *configWindow = new LxQtMountConfiguration(*settings());
     configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
     return configWindow;
@@ -80,6 +76,21 @@ QDialog *LxQtMountPlugin::configureDialog()
 QIcon LxQtMountPlugin::icon() const
 {
     return mButton->icon();
+}
+
+
+void LxQtMountPlugin::buttonClicked()
+{
+    if(!mMountManager)
+    {
+        mMountManager = new LxQt::MountManager(this);
+        mPopup = new Popup(mMountManager, this, mButton);
+        settingsChanged();
+
+        connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
+        mMountManager->update();
+    }
+    mPopup->showHide();
 }
 
 
@@ -99,18 +110,4 @@ void LxQtMountPlugin::settingsChanged()
         connect(mMountManager, SIGNAL(deviceRemoved(LxQt::MountDevice*)),
                 mDeviceAction, SLOT(deviceRemoved(LxQt::MountDevice*)));
     }
-}
-
-void LxQtMountPlugin::buttonClicked()
-{
-    if(!mMountManager)
-    {
-        mMountManager = new LxQt::MountManager(this);
-        mPopup = new Popup(mMountManager, this, mButton);
-        settingsChanged();
-
-        connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
-        mMountManager->update();
-    }
-    mPopup->showHide();
 }

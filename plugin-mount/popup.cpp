@@ -26,12 +26,12 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include "popup.h"
+#include <QDesktopWidget>
 #include <QGridLayout>
 #include <QLabel>
-#include <QDesktopWidget>
 #include <LXQtMount/Mount>
 #include "menudiskitem.h"
-#include "popup.h"
 
 
 Popup::Popup(LxQt::MountManager *manager, ILxQtPanelPlugin *plugin, QWidget* parent):
@@ -86,6 +86,7 @@ MenuDiskItem *Popup::addItem(LxQt::MountDevice *device)
     }
 }
 
+
 void Popup::removeItem(LxQt::MountDevice *device)
 {
     if (MenuDiskItem::isUsableDevice(device))
@@ -95,6 +96,16 @@ void Popup::removeItem(LxQt::MountDevice *device)
             mPlaceholder->show();
     }
 }
+
+
+void Popup::hideEvent(QHideEvent *event)
+{
+    mPlaceholder->hide();
+
+    QWidget::hideEvent(event);
+    emit visibilityChanged(false);
+}
+
 
 void Popup::resizeEvent(QResizeEvent *event)
 {
@@ -117,15 +128,6 @@ void Popup::showEvent(QShowEvent *event)
 }
 
 
-void Popup::hideEvent(QHideEvent *event)
-{
-    mPlaceholder->hide();
-
-    QWidget::hideEvent(event);
-    emit visibilityChanged(false);
-}
-
-
 void Popup::realign()
 {
     updateGeometry();
@@ -140,4 +142,3 @@ void Popup::showHide()
 {
     setHidden(!isHidden());
 }
-

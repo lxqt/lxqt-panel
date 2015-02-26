@@ -25,12 +25,13 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef LXQTQUICKLAUNCHPLUGIN_H
 #define LXQTQUICKLAUNCHPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
+
+
 class LxQtQuickLaunch;
 
 class LxQtQuickLaunchPlugin: public QObject, public ILxQtPanelPlugin

@@ -26,10 +26,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtDebug>
-
-#include <XdgIcon>
 #include "mountbutton.h"
+#include <XdgIcon>
+
 
 MountButton::MountButton(QWidget * parent) :
     QToolButton(parent)
