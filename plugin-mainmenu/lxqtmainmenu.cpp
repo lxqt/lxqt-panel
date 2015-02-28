@@ -213,6 +213,8 @@ void LxQtMainMenu::settingsChanged()
             menu_cache_unref(mMenuCache);
         }
         mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
+        if (menu_cache_get_root_dir(mMenuCache))
+            buildMenu();
         mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
 #else
         mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LxQt");
