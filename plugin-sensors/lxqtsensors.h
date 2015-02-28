@@ -30,10 +30,10 @@
 
 #include "sensors.h"
 #include <QFrame>
-#include <QTimer>
 #include <QProgressBar>
-#include <sensors/sensors.h>
 #include <QSet>
+#include <QTimer>
+
 
 class ProgressBar: public QProgressBar
 {

@@ -25,14 +25,14 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "lxqtsensorsconfiguration.h"
 #include "ui_lxqtsensorsconfiguration.h"
-#include <QStringList>
-#include <QPushButton>
 #include <QCheckBox>
 #include <QColorDialog>
 #include <QDebug>
+#include <QPushButton>
+#include <QStringList>
+
 
 LxQtSensorsConfiguration::LxQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
@@ -62,10 +62,12 @@ LxQtSensorsConfiguration::LxQtSensorsConfiguration(QSettings *settings, QWidget 
      */
 }
 
+
 LxQtSensorsConfiguration::~LxQtSensorsConfiguration()
 {
     delete ui;
 }
+
 
 void LxQtSensorsConfiguration::loadSettings()
 {
@@ -98,6 +100,7 @@ void LxQtSensorsConfiguration::loadSettings()
     ui->warningAboutHighTemperatureChB->setChecked(
             mSettings->value("warningAboutHighTemperature").toBool());
 }
+
 
 void LxQtSensorsConfiguration::saveSettings()
 {
@@ -150,6 +153,7 @@ void LxQtSensorsConfiguration::saveSettings()
                        ui->warningAboutHighTemperatureChB->isChecked());
 }
 
+
 void LxQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
@@ -162,6 +166,7 @@ void LxQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
         close();
     }
 }
+
 
 void LxQtSensorsConfiguration::changeProgressBarColor()
 {
@@ -184,6 +189,7 @@ void LxQtSensorsConfiguration::changeProgressBarColor()
         qDebug() << "LxQtSensorsConfiguration::changeProgressBarColor():" << "invalid button cast";
     }
 }
+
 
 void LxQtSensorsConfiguration::detectedChipSelected(int index)
 {
@@ -244,4 +250,3 @@ void LxQtSensorsConfiguration::detectedChipSelected(int index)
 
     mSettings->endGroup();
 }
-

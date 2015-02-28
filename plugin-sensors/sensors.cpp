@@ -28,9 +28,11 @@
 #include "sensors.h"
 #include <QDebug>
 
+
 QList<Chip> Sensors::mDetectedChips = QList<Chip>();
 int Sensors::mInstanceCounter = 0;
 bool Sensors::mSensorsInitialized = false;
+
 
 Sensors::Sensors()
 {
@@ -53,6 +55,7 @@ Sensors::Sensors()
     }
 }
 
+
 Sensors::~Sensors()
 {
     // Decrease instance counter
@@ -68,8 +71,8 @@ Sensors::~Sensors()
     }
 }
 
+
 const QList<Chip>& Sensors::getDetectedChips() const
 {
     return mDetectedChips;
 }
-
