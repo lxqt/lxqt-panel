@@ -198,35 +198,39 @@ void LxQtMainMenu::settingsChanged()
 
     mLogDir = settings()->value("log_dir", "").toString();
 
-    QString mMenuFile = settings()->value("menu_file", "").toString();
-    if (mMenuFile.isEmpty())
-        mMenuFile = XdgMenu::getMenuFileName();
+    QString menu_file = settings()->value("menu_file", "").toString();
+    if (menu_file.isEmpty())
+        menu_file = XdgMenu::getMenuFileName();
 
+    if (mMenuFile != menu_file)
+    {
+        mMenuFile = menu_file;
 #ifdef HAVE_MENU_CACHE
-    menu_cache_init(0);
-    if(mMenuCache)
-    {
-        menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
-        menu_cache_unref(mMenuCache);
-    }
-    mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
-    mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
+        menu_cache_init(0);
+        if(mMenuCache)
+        {
+            menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
+            menu_cache_unref(mMenuCache);
+        }
+        mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
+        mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
 #else
-    mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LxQt");
-    mXdgMenu.setLogDir(mLogDir);
+        mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LxQt");
+        mXdgMenu.setLogDir(mLogDir);
 
-    bool res = mXdgMenu.read(mMenuFile);
-    connect(&mXdgMenu, SIGNAL(changed()), this, SLOT(buildMenu()));
-    if (res)
-    {
-        QTimer::singleShot(1000, this, SLOT(buildMenu()));
-    }
-    else
-    {
-        QMessageBox::warning(0, "Parse error", mXdgMenu.errorString());
-        return;
-    }
+        bool res = mXdgMenu.read(mMenuFile);
+        connect(&mXdgMenu, SIGNAL(changed()), this, SLOT(buildMenu()));
+        if (res)
+        {
+            QTimer::singleShot(1000, this, SLOT(buildMenu()));
+        }
+        else
+        {
+            QMessageBox::warning(0, "Parse error", mXdgMenu.errorString());
+            return;
+        }
 #endif
+    }
 
     QString shortcut = settings()->value("shortcut", DEFAULT_SHORTCUT).toString();
     if (shortcut.isEmpty())
