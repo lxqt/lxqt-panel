@@ -28,6 +28,7 @@
 #include "chip.h"
 #include <QDebug>
 
+
 Chip::Chip(const sensors_chip_name* sensorsChipName)
     : mSensorsChipName(sensorsChipName)
 {
@@ -49,10 +50,12 @@ Chip::Chip(const sensors_chip_name* sensorsChipName)
     }
 }
 
+
 const QString& Chip::getName() const
 {
     return mName;
 }
+
 
 const QList<Feature>& Chip::getFeatures() const
 {

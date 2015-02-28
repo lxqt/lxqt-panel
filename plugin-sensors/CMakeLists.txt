@@ -25,7 +25,7 @@ set(MOCS
 )
 
 set(UIS
-  lxqtsensorsconfiguration.ui
+    lxqtsensorsconfiguration.ui
 )
 
 set(LIBRARIES ${SENSORS_LIB})

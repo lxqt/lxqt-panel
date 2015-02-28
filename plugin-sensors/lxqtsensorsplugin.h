@@ -29,9 +29,10 @@
 #ifndef LXQTSENSORSPLUGIN_H
 #define LXQTSENSORSPLUGIN_H
 
-
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
+
+
 class LxQtSensors;
 
 class LxQtSensorsPlugin: public QObject, public ILxQtPanelPlugin
@@ -69,6 +70,5 @@ public:
         return new LxQtSensorsPlugin(startupInfo);
     }
 };
-
 
 #endif // LXQTSENSORSPLUGIN_H
