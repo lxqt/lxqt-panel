@@ -29,7 +29,6 @@
 #include "treewindow.h"
 #include "ui_treewindow.h"
 #include "domtreeitem.h"
-
 #include <QDebug>
 #include <QTableWidget>
 
@@ -39,9 +38,6 @@
 #define PROP_CLASS_HIERARCY 3
 
 
-/************************************************
-
- ************************************************/
 TreeWindow::TreeWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TreeWindow)
@@ -75,18 +71,12 @@ TreeWindow::TreeWindow(QWidget *parent) :
 }
 
 
-/************************************************
-
- ************************************************/
 TreeWindow::~TreeWindow()
 {
     delete ui;
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::initPropertiesView()
 {
     ui->propertiesView->viewport()->setAutoFillBackground(false);
@@ -115,9 +105,6 @@ void TreeWindow::initPropertiesView()
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::updatePropertiesView()
 {
     if (ui->tree->selectedItems().isEmpty())
@@ -142,19 +129,8 @@ void TreeWindow::updatePropertiesView()
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::clearPropertiesView()
 {
     for (int i=0; i<ui->propertiesView->rowCount(); ++i)
         ui->propertiesView->item(i, 1)->setText("");
 }
-
-
-
-
-
-
-
-

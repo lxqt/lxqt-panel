@@ -130,10 +130,6 @@ endif()
 setByDefault(MOUNT_PLUGIN Yes)
 if(MOUNT_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Mount")
-
-    find_package(lxqtmount REQUIRED)
-    include(${LXQTMOUNT_USE_FILE})
-
     add_subdirectory(plugin-mount)
 endif(MOUNT_PLUGIN)
 
@@ -240,6 +236,12 @@ if(WORLDCLOCK_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "World Clock")
     add_subdirectory(plugin-worldclock)
 endif(WORLDCLOCK_PLUGIN)
+
+setByDefault(SPACER_PLUGIN Yes)
+if(SPACER_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Spacer")
+    add_subdirectory(plugin-spacer)
+endif()
 
 #########################################################################
 

@@ -33,7 +33,7 @@ class ILxQtPanelPlugin;
 
 class LxQtCpuLoad: public QFrame
 {
-	Q_OBJECT
+    Q_OBJECT
     
     Q_PROPERTY(QColor fontColor READ getFontColor WRITE setFontColor)
 
@@ -49,7 +49,7 @@ public:
     };
 
     LxQtCpuLoad(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-	~LxQtCpuLoad();
+    ~LxQtCpuLoad();
 
 
     void settingsChanged();
@@ -58,25 +58,27 @@ public:
     QColor getFontColor() const { return fontColor; }
 
 protected:
-	void virtual timerEvent(QTimerEvent *event);
-	void virtual paintEvent ( QPaintEvent * event );
-	void virtual resizeEvent(QResizeEvent *);
+    void virtual timerEvent(QTimerEvent *event);
+    void virtual paintEvent ( QPaintEvent * event );
+    void virtual resizeEvent(QResizeEvent *);
 
 private:
-	double getLoadCpu() const;
+    double getLoadCpu() const;
+    void setSizes();
 
     ILxQtPanelPlugin *mPlugin;
-	QWidget m_stuff;
+    QWidget m_stuff;
 
-	//! average load
-	int m_avg;
+    //! average load
+    int m_avg;
 
-	bool m_showText;
+    bool m_showText;
+    int m_barWidth;
     BarOrientation m_barOrientation;
     int m_updateInterval;
     int m_timerID;
 
-	QFont m_font;
+    QFont m_font;
     
     QColor fontColor;
 };

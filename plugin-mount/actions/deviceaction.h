@@ -31,12 +31,7 @@
 
 #include <QObject>
 #include <QSettings>
-#include <LXQtMount/Mount>
-
-namespace {
-class MountDevice;
-class MountManager;
-}
+#include <Solid/Device>
 
 class LxQtMountPlugin;
 
@@ -51,19 +46,20 @@ public:
     };
 
     virtual ~DeviceAction();
+    virtual ActionId Type() const throw () = 0;
 
     static DeviceAction *create(ActionId id, LxQtMountPlugin *plugin, QObject *parent=0);
     static ActionId stringToActionId(const QString &string, ActionId defaultValue);
     static QString actionIdToString(ActionId id);
 
 public slots:
-    void deviceAdded(LxQt::MountDevice *device);
-    void deviceRemoved(LxQt::MountDevice *device);
+    void deviceAdded(QString const & udi);
+    void deviceRemoved(QString const & udi);
 
 protected:
     explicit DeviceAction(LxQtMountPlugin *plugin, QObject *parent=0);
-    virtual void doDeviceAdded(LxQt::MountDevice *device) = 0;
-    virtual void doDeviceRemoved(LxQt::MountDevice *device) = 0;
+    virtual void doDeviceAdded(Solid::Device device) = 0;
+    virtual void doDeviceRemoved(Solid::Device device) = 0;
 
     LxQtMountPlugin *mPlugin;
 };

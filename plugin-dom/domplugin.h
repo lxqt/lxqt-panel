@@ -32,6 +32,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
 
+
 class DomPlugin: public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT

@@ -2,11 +2,10 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2013 Razor team
+ * Copyright: 2015 LxQt team
  * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,43 +24,50 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTQUICKLAUNCHPLUGIN_H
-#define LXQTQUICKLAUNCHPLUGIN_H
+
+#ifndef SPACER_H
+#define SPACER_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QObject>
+#include <QWidget>
 
 
-class LxQtQuickLaunch;
-
-class LxQtQuickLaunchPlugin: public QObject, public ILxQtPanelPlugin
+class Spacer :  public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
+
 public:
-    explicit LxQtQuickLaunchPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtQuickLaunchPlugin();
+    Spacer(const ILxQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return "QuickLaunch"; }
-
-    void realign();
+    virtual QWidget *widget() { return &mSpacer; }
+    virtual QString themeId() const { return "Spacer"; }
 
     bool isSeparate() const { return true; }
 
+    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    QDialog *configureDialog();
+
+    virtual void realign();
+
+private slots:
+    virtual void settingsChanged();
+
 private:
-    LxQtQuickLaunch *mWidget;
+    void setSizes();
+
+private:
+    QWidget mSpacer;
+    int mSize;
 };
 
-
-class LxQtQuickLaunchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class SpacerPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
-    {
-        return new LxQtQuickLaunchPlugin(startupInfo);
-    }
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new Spacer(startupInfo);}
 };
-#endif // LXQTQUICKLAUNCHPLUGIN_H
+
+#endif
+

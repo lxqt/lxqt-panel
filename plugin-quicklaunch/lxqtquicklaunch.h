@@ -34,6 +34,7 @@
 #include <QHash>
 #include <QString>
 
+
 class XdgDesktopFile;
 class QuickLaunchAction;
 class QDragEnterEvent;
@@ -44,6 +45,7 @@ class QLabel;
 namespace LxQt {
 class GridLayout;
 }
+
 
 /*! \brief Loader for "quick launcher" icons in the panel.
 \author Petr Vanek <petr@scribus.info>
@@ -79,6 +81,5 @@ private slots:
     void buttonMoveLeft();
     void buttonMoveRight();
 };
-
 
 #endif

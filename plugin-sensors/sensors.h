@@ -32,6 +32,9 @@
 #include <QList>
 #include <sensors/sensors.h>
 
+
+class Chip;
+
 /**
  * @brief Sensors class is providing RAII-style for lm_sensors library
  */

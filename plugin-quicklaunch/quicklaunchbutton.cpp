@@ -25,17 +25,16 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QAction>
-#include <QMenu>
-#include <QStylePainter>
-#include <QStyleOptionToolButton>
-#include <QMouseEvent>
-#include <QApplication>
-#include <XdgIcon>
-#include <QDrag>
-
 #include "quicklaunchbutton.h"
 #include "lxqtquicklaunch.h"
+#include <QAction>
+#include <QDrag>
+#include <QMenu>
+#include <QMouseEvent>
+#include <QStylePainter>
+#include <QStyleOptionToolButton>
+#include <QApplication>
+#include <XdgIcon>
 
 #define MIMETYPE "x-lxqt/quicklaunch-button"
 
@@ -74,10 +73,12 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, QWidget * parent)
             this, SLOT(this_customContextMenuRequested(const QPoint&)));
 }
 
+
 QuickLaunchButton::~QuickLaunchButton()
 {
     //m_act->deleteLater();
 }
+
 
 QHash<QString,QString> QuickLaunchButton::settingsMap()
 {
@@ -95,10 +96,12 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & pos)
     mMenu->popup(mapToGlobal(pos));
 }
 
+
 void QuickLaunchButton::selfRemove()
 {
     emit buttonDeleted();
 }
+
 
 void QuickLaunchButton::paintEvent(QPaintEvent *)
 {
@@ -110,6 +113,7 @@ void QuickLaunchButton::paintEvent(QPaintEvent *)
     p.drawComplexControl(QStyle::CC_ToolButton, opt);
 }
 
+
 void QuickLaunchButton::mousePressEvent(QMouseEvent *e)
 {
     if (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)
@@ -120,6 +124,7 @@ void QuickLaunchButton::mousePressEvent(QMouseEvent *e)
 
     QToolButton::mousePressEvent(e);
 }
+
 
 void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
 {
@@ -152,6 +157,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
     }
 }
 
+
 void QuickLaunchButton::dragMoveEvent(QDragMoveEvent * e)
 {
     if (e->mimeData()->hasFormat(MIMETYPE))
@@ -159,6 +165,7 @@ void QuickLaunchButton::dragMoveEvent(QDragMoveEvent * e)
     else
         e->ignore();
 }
+
 
 void QuickLaunchButton::dragEnterEvent(QDragEnterEvent *e)
 {
@@ -168,4 +175,3 @@ void QuickLaunchButton::dragEnterEvent(QDragEnterEvent *e)
         emit switchButtons(mimeData->button(), this);
     }
 }
-

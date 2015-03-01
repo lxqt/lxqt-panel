@@ -40,10 +40,11 @@ class DeviceActionMenu : public DeviceAction
     Q_OBJECT
 public:
     explicit DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent=0);
+    virtual ActionId Type() const throw () { return ActionMenu; }
 
 protected:
-    void doDeviceAdded(LxQt::MountDevice *device);
-    void doDeviceRemoved(LxQt::MountDevice *device);
+    void doDeviceAdded(Solid::Device device);
+    void doDeviceRemoved(Solid::Device device);
 
 private:
     Popup *mPopup;

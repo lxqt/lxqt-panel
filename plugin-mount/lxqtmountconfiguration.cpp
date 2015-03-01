@@ -28,13 +28,13 @@
 
 #include "lxqtmountconfiguration.h"
 #include "ui_lxqtmountconfiguration.h"
-
 #include <QComboBox>
 #include <QDebug>
 
 #define ACT_SHOW_MENU "showMenu"
 #define ACT_SHOW_INFO "showInfo"
 #define ACT_NOTHING   "nothing"
+
 
 LxQtMountConfiguration::LxQtMountConfiguration(QSettings &settings, QWidget *parent) :
     LxQtPanelPluginConfigDialog(settings, parent),

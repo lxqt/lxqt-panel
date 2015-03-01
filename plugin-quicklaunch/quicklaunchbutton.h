@@ -30,9 +30,9 @@
 #ifndef LXQTQUICKLAUNCHBUTTON_H
 #define LXQTQUICKLAUNCHBUTTON_H
 
-#include <QToolButton>
-#include <QMimeData>
 #include "quicklaunchaction.h"
+#include <QMimeData>
+#include <QToolButton>
 
 
 class QuickLaunchButton : public QToolButton

@@ -2,11 +2,10 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2012 Razor team
+ * Copyright: 2015 LxQt team
  * Authors:
- *   Łukasz Twarduś <ltwardus@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,39 +24,41 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "chip.h"
-#include <QDebug>
 
+#ifndef SPACERCONFIGURATION_H
+#define SPACERCONFIGURATION_H
 
-Chip::Chip(const sensors_chip_name* sensorsChipName)
-    : mSensorsChipName(sensorsChipName)
-{
-    const int BUF_SIZE = 256;
-    char buf[BUF_SIZE];
-    if (sensors_snprintf_chip_name(buf, BUF_SIZE, mSensorsChipName) > 0)
-    {
-        mName = QString::fromLatin1(buf);
-    }
+#include <LXQt/Settings>
 
-    qDebug() << "Detected chip:" << mName;
+#include <QDialog>
 
-    const sensors_feature* feature;
-    int featureNr = 0;
+class QSettings;
+class QAbstractButton;
 
-    while ((feature = sensors_get_features(mSensorsChipName, &featureNr)))
-    {
-        mFeatures.push_back(Feature(mSensorsChipName, feature));
-    }
+namespace Ui {
+    class SpacerConfiguration;
 }
 
-
-const QString& Chip::getName() const
+class SpacerConfiguration : public QDialog
 {
-    return mName;
-}
+    Q_OBJECT
 
+public:
+    explicit SpacerConfiguration(QSettings *settings, QWidget *parent = 0);
+    ~SpacerConfiguration();
 
-const QList<Feature>& Chip::getFeatures() const
-{
-    return mFeatures;
-}
+private:
+    Ui::SpacerConfiguration *ui;
+    QSettings *mSettings;
+    LxQt::SettingsCache mOldSettings;
+
+private slots:
+    /*
+       Saves settings in conf file.
+    */
+    void loadSettings();
+    void dialogButtonsAction(QAbstractButton *btn);
+    void sizeChanged(int value);
+};
+
+#endif // SPACERCONFIGURATION_H

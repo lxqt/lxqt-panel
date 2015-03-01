@@ -29,10 +29,10 @@
 #include "lxqtsensorsconfiguration.h"
 #include "../panel/ilxqtpanelplugin.h"
 #include "../panel/ilxqtpanel.h"
+#include <QBoxLayout>
+#include <QDebug>
 #include <QMessageBox>
 #include <QPalette>
-#include <QDebug>
-#include <QBoxLayout>
 
 
 LxQtSensors::LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent):
@@ -122,9 +122,11 @@ LxQtSensors::LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent):
     }
 }
 
+
 LxQtSensors::~LxQtSensors()
 {
 }
+
 
 void LxQtSensors::updateSensorReadings()
 {
@@ -230,6 +232,7 @@ void LxQtSensors::updateSensorReadings()
     update();
 }
 
+
 void LxQtSensors::warningAboutHighTemperature()
 {
     // Iterator for temperature progress bars
@@ -327,6 +330,7 @@ void LxQtSensors::settingsChanged()
     update();
 }
 
+
 void LxQtSensors::realign()
 {
     // Default values for LxQtPanel::PositionBottom or LxQtPanel::PositionTop
@@ -375,11 +379,13 @@ void LxQtSensors::realign()
     }
 }
 
+
 double LxQtSensors::celsiusToFahrenheit(double celsius)
 {
     // Fahrenheit = 32 * (9/5) * Celsius
     return 32 + 1.8 * celsius;
 }
+
 
 void LxQtSensors::initDefaultSettings()
 {
@@ -435,10 +441,12 @@ void LxQtSensors::initDefaultSettings()
     }
 }
 
+
 ProgressBar::ProgressBar(QWidget *parent):
     QProgressBar(parent)
 {
 }
+
 
 QSize ProgressBar::sizeHint() const
 {
