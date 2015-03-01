@@ -63,6 +63,7 @@ private slots:
     void handleScreenAdded(QScreen* newScreen);
     void screenDestroyed(QObject* screenObj);
     void reloadPanelsAsNeeded();
+    void cleanup();
 
 private:
     LxQt::Settings *mSettings;
