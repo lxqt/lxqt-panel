@@ -53,9 +53,28 @@
     </message>
 </context>
 <context>
+    <name>MenuDiskItem</name>
+    <message>
+        <location filename="../menudiskitem.cpp" line="122"/>
+        <location filename="../menudiskitem.cpp" line="157"/>
+        <source>Removable media/devices manager</source>
+        <translation>Entfernbare Medien-/Geräteverwaltung</translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="123"/>
+        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation>Das Einbinden von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="158"/>
+        <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation>Das Lösen von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
+    </message>
+</context>
+<context>
     <name>MountButton</name>
     <message>
-        <location filename="../mountbutton.cpp" line="39"/>
+        <location filename="../mountbutton.cpp" line="38"/>
         <source>Removable media/devices manager</source>
         <translation>Entfernbare Medien-/Geräteverwaltung</translation>
     </message>
@@ -63,7 +82,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="56"/>
+        <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
         <translation>Keine Geräte verfügbar</translation>
     </message>
