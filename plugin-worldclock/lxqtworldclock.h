@@ -74,6 +74,8 @@ private:
     LxQtWorldClockPopup* mPopup;
 
     QTimer *mTimer;
+    int mUpdateInterval;
+    qint64 mLastUpdate;
 
     QStringList mTimeZones;
     QMap<QString, QString> mTimeZoneCustomNames;
@@ -82,7 +84,6 @@ private:
     QString mFormat;
 
     bool mAutoRotate;
-    QString mLastShownText;
     QLabel *mPopupContent;
 
     void restartTimer(int);

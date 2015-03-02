@@ -45,6 +45,8 @@ LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     ILxQtPanelPlugin(startupInfo),
     mPopup(NULL),
     mTimer(new QTimer(this)),
+    mUpdateInterval(1),
+    mLastUpdate(0),
     mAutoRotate(true),
     mPopupContent(NULL)
 {
@@ -77,33 +79,25 @@ LxQtWorldClock::~LxQtWorldClock()
 
 void LxQtWorldClock::timeout()
 {
-    QString str = formatDateTime(QDateTime::currentDateTime(), mActiveTimeZone);
-    if (str != mLastShownText)
-    {
-        mContent->setText(str);
-        mLastShownText = str;
+    QDateTime now = QDateTime::currentDateTime();
+    qint64 nowMsec = now.toMSecsSinceEpoch();
+    if ((mLastUpdate / mUpdateInterval) == (nowMsec / mUpdateInterval))
+        return;
 
-        mRotatedWidget->adjustContentSize();
-        mRotatedWidget->update();
+    mLastUpdate = nowMsec;
 
-        updatePopupContent();
-    }
+    mContent->setText(formatDateTime(now, mActiveTimeZone));
+
+    mRotatedWidget->adjustContentSize();
+    mRotatedWidget->update();
+
+    updatePopupContent();
 }
 
-
-void LxQtWorldClock::restartTimer(int timerInterval)
+void LxQtWorldClock::restartTimer(int updateInterval)
 {
-    mTimer->stop();
-    mTimer->setInterval(timerInterval);
-
-    if (timerInterval < 1000)
-        mTimer->start();
-    else
-    {
-        int delay = static_cast<int>((timerInterval + 100 - (static_cast<long long>(QTime::currentTime().msecsSinceStartOfDay()) % timerInterval)) % timerInterval);
-        QTimer::singleShot(delay, this, SLOT(timeout()));
-        QTimer::singleShot(delay, mTimer, SLOT(start()));
-    }
+    mUpdateInterval = updateInterval;
+    mTimer->start(qMin(100, updateInterval));
 }
 
 void LxQtWorldClock::settingsChanged()
@@ -190,7 +184,6 @@ void LxQtWorldClock::settingsChanged()
         mFormat = customFormat;
     else
     {
-        QTimeZone timeZone(mActiveTimeZone.toLatin1());
         QLocale locale = QLocale(QLocale::AnyLanguage, QLocale().country());
 
         if (formatType == QLatin1String("short-timeonly"))
@@ -268,18 +261,18 @@ void LxQtWorldClock::settingsChanged()
 
     if ((oldFormat != mFormat))
     {
-        int timerInterval = 0;
+        int updateInterval = 0;
 
         QString format = mFormat;
         format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
         if (format.contains(QLatin1String("z")))
-            timerInterval = 1;
+            updateInterval = 1;
         else if (format.contains(QLatin1String("s")))
-            timerInterval = 1000;
+            updateInterval = 1000;
         else
-            timerInterval = 60000;
+            updateInterval = 60000;
 
-        restartTimer(timerInterval);
+        restartTimer(updateInterval);
     }
 
     bool autoRotate = settings()->value(QLatin1String("autoRotate"), true).toBool();
