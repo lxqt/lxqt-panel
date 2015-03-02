@@ -86,7 +86,11 @@ void LxQtWorldClock::timeout()
 
     mLastUpdate = nowMsec;
 
-    mContent->setText(formatDateTime(now, mActiveTimeZone));
+    QString timeZoneName = mActiveTimeZone;
+    if (timeZoneName == QLatin1String("local"))
+        timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+
+    mContent->setText(formatDateTime(now, timeZoneName));
 
     mRotatedWidget->adjustContentSize();
     mRotatedWidget->update();
@@ -118,7 +122,7 @@ void LxQtWorldClock::settingsChanged()
     }
     _settings->endArray();
     if (mTimeZones.isEmpty())
-        mTimeZones.append(QString::fromLatin1(QTimeZone::systemTimeZoneId()));
+        mTimeZones.append(QLatin1String("local"));
 
     mDefaultTimeZone = _settings->value(QLatin1String("defaultTimeZone"), QString()).toString();
     if (mDefaultTimeZone.isEmpty())
@@ -331,7 +335,11 @@ void LxQtWorldClock::activated(ActivationReason reason)
             QCalendarWidget *calendarWidget = new QCalendarWidget(mPopup);
             mPopup->layout()->addWidget(calendarWidget);
 
-            QTimeZone timeZone(mActiveTimeZone.toLatin1());
+            QString timeZoneName = mActiveTimeZone;
+            if (timeZoneName == QLatin1String("local"))
+                timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+
+            QTimeZone timeZone(timeZoneName.toLatin1());
             calendarWidget->setFirstDayOfWeek(QLocale(QLocale::AnyLanguage, timeZone.country()).firstDayOfWeek());
             calendarWidget->setSelectedDate(QDateTime::currentDateTime().toTimeZone(timeZone).date());
         }
@@ -381,6 +389,9 @@ void LxQtWorldClock::updatePopupContent()
 
         foreach (QString timeZoneName, mTimeZones)
         {
+            if (timeZoneName == QLatin1String("local"))
+                timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+
             QString formatted = formatDateTime(now, timeZoneName);
 
             if (!hasTimeZone)

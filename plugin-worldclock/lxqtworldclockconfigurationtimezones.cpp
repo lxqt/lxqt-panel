@@ -123,6 +123,11 @@ int LxQtWorldClockConfigurationTimeZones::updateAndExec()
         makeSureParentsExist(qStrings, parentItems)->addChild(tzItem);
     }
 
+    QStringList qStrings = QStringList() << tr("Other") << QLatin1String("local");
+    QTreeWidgetItem *tzItem = new QTreeWidgetItem(QStringList() << qStrings[qStrings.length() - 1] << QString() << tr("Local timezone") << QString());
+    tzItem->setData(0, Qt::UserRole, qStrings[qStrings.length() - 1]);
+    makeSureParentsExist(qStrings, parentItems)->addChild(tzItem);
+
     ui->timeZonesTW->sortByColumn(0, Qt::AscendingOrder);
 
     return exec();
