@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[cs]=Nabídka
-Name[cs]=Hlavní nabídka
+Name[cs]=Monitor sítě
+Comment[cs]=Zobrazuje stav a aktivity sítě
