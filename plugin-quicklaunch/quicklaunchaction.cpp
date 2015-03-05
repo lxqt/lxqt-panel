@@ -30,6 +30,7 @@
 #include <QFileIconProvider>
 #include <QMimeDatabase>
 #include <QMessageBox>
+#include <QMenu>
 #include <QProcess>
 #include <QUrl>
 #include <XdgDesktopFile>
@@ -64,7 +65,18 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
     : QAction(parent),
       m_valid(true)
 {
-    m_type = ActionXdg;
+    if (xdg->type() == XdgDesktopFile::DirectoryType)
+    {
+        m_type = ActionXdgDirectory;
+        foreach(XdgDesktopFile * desktopFile, XdgDesktopFileCache::getAppsOfCategory(xdg->name()))
+            m_subActions.append(new QuickLaunchAction(desktopFile, parent));
+    }
+    else
+    {
+        m_type = ActionXdg;
+        setData(xdg->fileName());
+        connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
+    }
 
     m_settingsMap["desktop"] = xdg->fileName();
 
@@ -75,9 +87,6 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
     setText(title);
 
     setIcon(xdg->icon(XdgIcon::defaultApplicationIcon()));
-
-    setData(xdg->fileName());
-    connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
 }
 
 QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
@@ -124,6 +133,8 @@ void QuickLaunchAction::execAction()
         }
         case ActionFile:
             QDesktopServices::openUrl(QUrl(exec));
+            break;
+        default:
             break;
     }
 }

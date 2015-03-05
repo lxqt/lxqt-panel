@@ -64,12 +64,14 @@ private:
     QAction *mDeleteAct;
     QAction *mMoveLeftAct;
     QAction *mMoveRightAct;
-    QMenu *mMenu;
+    QMenu *mDirectoryMenu; // only used for QuickLaunchAction of ActionType ActionXdgDirectory
+    QMenu *mContextMenu;
     QPoint mDragStart;
 
 private slots:
     void this_customContextMenuRequested(const QPoint & pos);
     void selfRemove();
+    void onClicked(); // only used for XdgDesktopFile of ActionType ActionXdgDirectory
 };
 
 
