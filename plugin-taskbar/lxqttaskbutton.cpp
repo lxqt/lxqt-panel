@@ -73,6 +73,8 @@ void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
 LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
+    mUrgencyHint(false),
+    mOrigin(Qt::TopLeftCorner), //whatever (avoid conditional on uninitialized value)
     mDrawPixmap(false),
     mParentTaskBar(taskbar),
     mTimer(new QTimer(this))

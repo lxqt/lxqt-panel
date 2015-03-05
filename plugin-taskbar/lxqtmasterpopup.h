@@ -40,7 +40,6 @@ class LxQtTaskGroup;
 class LxQtTaskButton;
 class LxQtGroupPopup;
 class ILxQtPanelPlugin;
-class QPropertyAnimation;
 
 class LxQtMasterPopup: public QFrame
 {
@@ -53,9 +52,6 @@ public:
 
     void mouseEnterAnyGroup(bool enter) {setFlag(MOUSE_ON_ANY_GROUP,enter); checkTimer();}
     bool mouseEnterCurrentGroup(LxQtTaskGroup * group,bool enter);
-
-    void moveAnimated(const QPoint & newpos);
-    void resizeAnimated(const QSize & newsize);
 
     typedef enum {
         MOUSE_ON_FRAME = 1,
@@ -71,8 +67,6 @@ public slots:
 protected:
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
-    void showEvent(QShowEvent * event) ;
-    void closeEvent(QCloseEvent * event);
 
 private:
     QStackedWidget * mStackedWidget;
@@ -82,8 +76,6 @@ private:
 
     void checkTimer();
     LxQtMasterPopup(LxQtTaskBar * parent);
-    QPropertyAnimation * mPosAnimation;
-    QPropertyAnimation * mSizeAnimation;
     void setFlag(noCloseFlags_t flag , bool set = true);
 
 private slots:

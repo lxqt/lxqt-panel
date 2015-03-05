@@ -35,14 +35,12 @@
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
-#include <QPropertyAnimation>
 #include <QLayout>
 #include "lxqttaskbar.h"
 #include <QStackedWidget>
 #include <QDebug>
 #include <QTimer>
 #include "../panel/ilxqtpanelplugin.h"
-#include <QPropertyAnimation>
 
 /************************************************
     main purpose of this class is switching
@@ -55,12 +53,6 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     mCloseTimer(new QTimer(this)),
     mFlags(0)
 {
-    mPosAnimation = new QPropertyAnimation(this,"pos",this);
-    mPosAnimation->setDuration(200);
-
-    mSizeAnimation = new QPropertyAnimation(this,"size",this);
-    mSizeAnimation->setDuration(200);
-
     setWindowFlags(  Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::ToolTip);
     setAttribute(Qt::WA_AlwaysShowToolTips);
 
@@ -74,64 +66,6 @@ LxQtMasterPopup::LxQtMasterPopup(LxQtTaskBar *parent):
     mCloseTimer->setInterval(400);
 }
 
-
-void LxQtMasterPopup::moveAnimated(const QPoint &newpos)
-{
-    if (isVisible() && parentTaskBar()->settings().eyeCandy)
-    {
-        mPosAnimation->setStartValue(pos());
-        mPosAnimation->setEndValue(newpos);
-        mPosAnimation->start();
-    }
-    else
-    {
-        move(newpos);
-    }
-}
-
-void LxQtMasterPopup::resizeAnimated(const QSize &newsize)
-{
-    if (isVisible() && parentTaskBar()->settings().eyeCandy)
-    {
-        mSizeAnimation->stop();
-        mSizeAnimation->setStartValue(size());
-        mSizeAnimation->setEndValue(newsize);
-        mSizeAnimation->start();
-    }
-    else
-    {
-        resize(newsize);
-    }
-}
-
-void LxQtMasterPopup::showEvent(QShowEvent *event)
-{
-    if (parentTaskBar()->settings().eyeCandy)
-    {
-        disconnect(mSizeAnimation,SIGNAL(finished()),this,SLOT(hide()));
-        mSizeAnimation->stop();
-        QSize s = size();
-        mSizeAnimation->setStartValue(QSize(0,0));
-        mSizeAnimation->setEndValue(s);
-        mSizeAnimation->start();
-    }
-}
-
-void LxQtMasterPopup::closeEvent(QCloseEvent *event)
-{
-    if (parentTaskBar()->settings().eyeCandy)
-    {
-        mSizeAnimation->stop();
-        QSize s = size();
-        mSizeAnimation->setEndValue(QSize(0,0));
-        mSizeAnimation->setStartValue(s);
-        mSizeAnimation->start();
-        connect(mSizeAnimation,SIGNAL(finished()),this,SLOT(hide()),Qt::UniqueConnection);
-
-        event->ignore();
-    }
-}
-
 /************************************************
     if mouse is not present neither on group button
     nor frame closing timer is activated
@@ -142,7 +76,6 @@ void LxQtMasterPopup::checkTimer()
         mCloseTimer->stop();
     else
         mCloseTimer->start();
-
 }
 
 /************************************************

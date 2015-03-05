@@ -533,7 +533,7 @@ QSize LxQtTaskGroup::recalculateFrameSize()
     p->setMaximumWidth(hh);
     p->setMinimumWidth(0);
 
-    p->resizeAnimated(QSize(hh,height));
+    p->resize(QSize(hh,height));
 
     return QSize(hh,height);
 }
@@ -593,7 +593,7 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
     y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
 
-    p->moveAnimated(QPoint(x,y));
+    p->move(QPoint(x,y));
 
     return QPoint(x,y);
 }

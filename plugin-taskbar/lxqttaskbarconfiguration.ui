@@ -40,6 +40,26 @@
         </attribute>
        </widget>
       </item>
+      <item>
+       <spacer name="verticalSpacer1">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>15</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="middleClickCB">
+        <property name="text">
+         <string>Close on middle-click</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -177,28 +197,14 @@
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="middleClickCB">
-     <property name="text">
-      <string>Close on middle-click</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="eyeCandyCB">
-     <property name="text">
-      <string>Animate hover popup</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
+    <spacer name="verticalSpacer2">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>15</height>
       </size>
      </property>
     </spacer>

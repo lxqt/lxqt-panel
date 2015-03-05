@@ -119,7 +119,8 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mLineCount(0),
     mLength(0),
     mAlignment(AlignmentLeft),
-    mPosition(ILxQtPanel::PositionBottom)
+    mPosition(ILxQtPanel::PositionBottom),
+    mScreenNum(0) //whatever (avoid conditional on uninitialized value)
 {
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
 

@@ -74,7 +74,6 @@ public:
         bool enabledGrouping;
         int buttonWidth;
         Qt::ToolButtonStyle toolButtonStyle;
-        bool eyeCandy;
         bool showGroupWhenHover;
         bool switchGroupWhenHover;
         //bool showGroupWhenHoverOneWindow;

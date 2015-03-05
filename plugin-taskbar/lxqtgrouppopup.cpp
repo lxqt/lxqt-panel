@@ -121,9 +121,7 @@ void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
     }
 
     LxQtTaskButton * dragged = mButtonHash.value(window);
-    int droppedIndex = layout()->indexOf(dragged);
     int newIdx = -1;
-    int temp;
 
     int oldTreshold = 0;
     for (int i = 0 ; i < layout()->count(); i++)
@@ -138,7 +136,6 @@ void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
                 newIdx = i;
                 break;
             }
-            temp = i;
             oldTreshold = treshold;
         }
     }

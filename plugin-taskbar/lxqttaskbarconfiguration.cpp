@@ -63,7 +63,6 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->hoverSwitchCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
     connect(ui->widthSB,SIGNAL(valueChanged(int)),this,SLOT(saveSettings()));
     connect(ui->heightSB,SIGNAL(valueChanged(int)),this,SLOT(saveSettings()));
-    connect(ui->eyeCandyCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -91,7 +90,6 @@ void LxQtTaskbarConfiguration::loadSettings()
     ui->hoverSwitchCB->setChecked(mSettings.value("hoverSwitch",true).toBool());
     ui->widthSB->setValue(mSettings.value("groupButtonWidth",100).toInt());
     ui->heightSB->setValue(mSettings.value("groupButtonHeight",100).toInt());
-    ui->eyeCandyCB->setChecked(mSettings.value("eyeCandy",true).toBool());
 
     ui->hoverSwitchCB->setDisabled(ui->hoverActivateCB->isChecked());
     ui->hoverSingleCB->setEnabled(ui->hoverActivateCB->isChecked());
@@ -115,7 +113,6 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("hoverSwitch",ui->hoverSwitchCB->isChecked());
     mSettings.setValue("groupButtonWidth",ui->widthSB->value());
     mSettings.setValue("groupButtonHeight",ui->heightSB->value());
-    mSettings.setValue("eyeCandy",ui->eyeCandyCB->isChecked());
 }
 
 void LxQtTaskbarConfiguration::updateControls(int index)
