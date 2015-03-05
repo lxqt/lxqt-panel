@@ -78,11 +78,9 @@ void MenuDiskItem::update()
 {
     if (mDevice.isValid())
     {
-        mDiskButton->setIcon(XdgIcon::fromTheme(QStringList()
-                    << mDevice.icon()
-                    << "drive-removable-media-usb"
-                    ));
+        const QIcon icon = XdgIcon::fromTheme(mDevice.icon(), QStringLiteral("drive-removable-media"));
 
+        mDiskButton->setIcon(icon);
         mDiskButton->setText(mDevice.description());
 
         setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
