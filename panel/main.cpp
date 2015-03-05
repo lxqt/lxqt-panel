@@ -44,7 +44,8 @@
 
 void termSignalHandler(int)
 {
-    qApp->quit();
+    if (qApp)
+        qApp->quit();
 }
 
 
@@ -100,13 +101,10 @@ int main(int argc, char *argv[])
     LxQtPanelApplication *app = new LxQtPanelApplication(argc, argv, configFile);
 
 
-    //Setup Unix signal handlers
-    struct sigaction term;
-    term.sa_handler = termSignalHandler;
-    sigemptyset(&term.sa_mask);
-    term.sa_flags |= SA_RESTART;
-    sigaction(SIGTERM, &term, 0);
-    sigaction(SIGINT,  &term, 0);
+    // Quit gracefully
+    ::signal(SIGTERM, termSignalHandler);
+    ::signal(SIGINT,  termSignalHandler);
+    ::signal(SIGHUP,  termSignalHandler);
 
     bool res = app->exec();
 
