@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>178</width>
-    <height>126</height>
+    <width>294</width>
+    <height>284</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,6 +33,52 @@
      <property name="text">
       <string>Scroll Lock</string>
      </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="layoutCB">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Keyboard layout</string>
+     </property>
+    </widget>
+   </item>
+   <item alignment="Qt::AlignTop">
+    <widget class="QGroupBox" name="layoutGB">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Switch layout settings</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="globalR">
+        <property name="text">
+         <string>Global</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="applR">
+        <property name="text">
+         <string>Application</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="windowR">
+        <property name="text">
+         <string>Window</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

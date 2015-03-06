@@ -34,7 +34,8 @@
 LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mContent(new QWidget())
+    mContent(new QWidget()),
+    mLayout(settings())
 {
     modifierInfo = new KModifierKeyInfo(this);
     connect(modifierInfo, SIGNAL(keyLocked(Qt::Key, bool)), this, SLOT(modifierStateChanged(Qt::Key, bool)));
@@ -59,6 +60,11 @@ LxQtKbIndicator::LxQtKbIndicator(const ILxQtPanelPluginStartupInfo &startupInfo)
     mScrollLock->setAlignment(Qt::AlignCenter);
     mScrollLock->installEventFilter(this);
     mContent->layout()->addWidget(mScrollLock);
+
+    if (mLayout.enabled()){
+        mContent->layout()->addWidget(mLayout.widget());
+        mLayout.widget()->installEventFilter(this);
+    }
 
     QTimer::singleShot(0, this, SLOT(delayedInit()));
 }
@@ -92,6 +98,10 @@ void LxQtKbIndicator::settingsChanged()
     mCapsLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_CapsLock));
     mNumLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_NumLock));
     mScrollLock->setEnabled(modifierInfo->isKeyLocked(Qt::Key_ScrollLock));
+
+    if(mLayout.enabled()){
+        mLayout.widget()->setVisible(settings()->value("show_layout", true).toBool());
+    }
 }
 
 QDialog *LxQtKbIndicator::configureDialog()
@@ -138,6 +148,9 @@ bool LxQtKbIndicator::eventFilter(QObject *object, QEvent *event)
             modifierInfo->setKeyLocked(Qt::Key_NumLock, !modifierInfo->isKeyLocked(Qt::Key_NumLock));
         else if (object == mScrollLock)
             modifierInfo->setKeyLocked(Qt::Key_ScrollLock, !modifierInfo->isKeyLocked(Qt::Key_ScrollLock));
+        else if(mLayout.enabled() && object == mLayout.widget()){
+            mLayout.switchNext();
+        }
 
         return true;
     }
