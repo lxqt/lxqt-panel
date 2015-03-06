@@ -48,6 +48,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     ui->buttonStyleCB->addItem(tr("Only text"), "Text");
 
     loadSettings();
+
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
     connect(ui->fAllDesktopsCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
@@ -57,12 +58,8 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->groupingGB,SIGNAL(clicked()),this,SLOT(saveSettings()));
-    connect(ui->hoverActivateCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
-    connect(ui->hoverSingleCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
-    connect(ui->hoverSwitchCB,SIGNAL(clicked()),this,SLOT(saveSettings()));
-    connect(ui->widthSB,SIGNAL(valueChanged(int)),this,SLOT(saveSettings()));
-    connect(ui->heightSB,SIGNAL(valueChanged(int)),this,SLOT(saveSettings()));
+    connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->hoverActivateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -73,26 +70,15 @@ LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
 void LxQtTaskbarConfiguration::loadSettings()
 {
     if (mSettings.value("showOnlyCurrentDesktopTasks", false).toBool() == true)
-    {
         ui->fCurrentDesktopRB->setChecked(true);
-    }
     else
-    {
         ui->fAllDesktopsCB->setChecked(true);
-    }
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
     ui->groupingGB->setChecked(mSettings.value("groupingEnabled",true).toBool());
     ui->hoverActivateCB->setChecked(mSettings.value("hoverActivate",true).toBool());
-    ui->hoverSingleCB->setChecked(mSettings.value("hoverSingle",true).toBool());
-    ui->hoverSwitchCB->setChecked(mSettings.value("hoverSwitch",true).toBool());
-    ui->widthSB->setValue(mSettings.value("groupButtonWidth",100).toInt());
-    ui->heightSB->setValue(mSettings.value("groupButtonHeight",100).toInt());
-
-    ui->hoverSwitchCB->setDisabled(ui->hoverActivateCB->isChecked());
-    ui->hoverSingleCB->setEnabled(ui->hoverActivateCB->isChecked());
 
     updateControls(ui->buttonStyleCB->currentIndex());
 
@@ -109,10 +95,6 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
     mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
     mSettings.setValue("hoverActivate",ui->hoverActivateCB->isChecked());
-    mSettings.setValue("hoverSingle",ui->hoverSingleCB->isChecked());
-    mSettings.setValue("hoverSwitch",ui->hoverSwitchCB->isChecked());
-    mSettings.setValue("groupButtonWidth",ui->widthSB->value());
-    mSettings.setValue("groupButtonHeight",ui->heightSB->value());
 }
 
 void LxQtTaskbarConfiguration::updateControls(int index)
@@ -141,7 +123,5 @@ void LxQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
         ui->buttonWidthSB->blockSignals(false);
     }
     else
-    {
         close();
-    }
 }

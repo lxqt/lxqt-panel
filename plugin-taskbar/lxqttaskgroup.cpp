@@ -363,7 +363,7 @@ void LxQtTaskGroup::onClicked(bool )
     if (visibleButtonsCount() > 1)
     {
         setChecked(mButtonHash.contains(KWindowSystem::activeWindow()));
-        if (mFrame->isVisible()  )
+        if (mFrame->isVisible())
         {
             raisePopup(false);
             return;
@@ -444,19 +444,12 @@ void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
  ************************************************/
 void LxQtTaskGroup::refreshVisibility()
 {
-    if (parentTaskBar()->settings().showOnlyCurrentDesktopTasks)
+    foreach(LxQtTaskButton * btn, mButtonHash)
     {
-        foreach(LxQtTaskButton * btn, mButtonHash)
-        {
+        if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
             btn->setVisible(btn->desktopNum() == KWindowSystem::currentDesktop());
-        }
-    }
-    else
-    {
-        foreach(LxQtTaskButton * btn, mButtonHash)
-        {
+        else
             btn->setVisible(true);
-        }
     }
 
     bool is = isVisible();
@@ -489,19 +482,15 @@ void LxQtTaskGroup::raisePopup(bool raise)
 {
     if (raise && !mPreventPopup)
     {
-        //setup geometry
+        // setup geometry
         recalculateFrameSize();
         recalculateFramePosition();
 
-        if (!windowId() || parentTaskBar()->settings().switchGroupWhenHoverOneWindow)
-            popup()->activateGroup(this,true);
-        else
-            popup()->activateGroup(this,false);
+        if (!windowId())
+            popup()->activateGroup(this, false);
     }
     else
-    {
-        popup()->activateGroup(this,false);
-    }
+        popup()->activateGroup(this, false);
 }
 
 /************************************************
@@ -543,11 +532,8 @@ QSize LxQtTaskGroup::recalculateFrameSize()
  ************************************************/
 int LxQtTaskGroup::recalculateFrameHeight() const
 {
-    int h = parentTaskBar()->settings().groupButtonHeight;
     int cont = visibleButtonsCount();
-    int height = cont * h + (cont +1) * mLayout->spacing();
-
-    return height;
+    return cont * height() + (cont + 1) * mLayout->spacing();
 }
 
 /************************************************
@@ -555,7 +541,7 @@ int LxQtTaskGroup::recalculateFrameHeight() const
  ************************************************/
 int LxQtTaskGroup::recalculateFrameWidth() const
 {
-    int minimum = parentTaskBar()->settings().groupButtonWidth;
+    int minimum = parentTaskBar()->buttonWidth();
     int hh = width();
 
     if (!mPlugin->panel()->isHorizontal())
@@ -572,7 +558,7 @@ int LxQtTaskGroup::recalculateFrameWidth() const
  ************************************************/
 QPoint LxQtTaskGroup::recalculateFramePosition()
 {
-    //set position
+    // Set position
     LxQtMasterPopup * p = popup();
     int x_offset = 0, y_offset = 0;
     int rows = mPlugin->panel()->lineCount();
@@ -591,7 +577,7 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
 
     int x, y;
     x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
-    y =    parentWidget()->mapToGlobal(pos()).y() + y_offset;
+    y = parentWidget()->mapToGlobal(pos()).y() + y_offset;
 
     p->move(QPoint(x,y));
 
@@ -604,14 +590,10 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
 void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
 {
     LxQtMasterPopup * p = popup();
-    if (parentTaskBar()->settings().showGroupWhenHover || parentTaskBar()->settings().switchGroupWhenHover)
-    {
+    if (parentTaskBar()->isShowGroupOnHover())
         p->mouseEnterAnyGroup(!start);
-    }
     else
-    {
         p->mouseEnterCurrentGroup(this, !start);
-    }
 }
 
 /************************************************
@@ -636,7 +618,7 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
 
     startStopFrameCloseTimer(false);
 
-    if (parentTaskBar()->settings().showGroupWhenHover)
+    if (parentTaskBar()->isShowGroupOnHover())
     {
         int t;
         popup()->isVisible() ? t = 200 : t = 400;
@@ -644,12 +626,8 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
         return;
     }
 
-
-    if (parentTaskBar()->settings().switchGroupWhenHover &&
-            popup()->isVisible())
-    {
+    if (popup()->isVisible())
         mSwitchTimer->start(100);
-    }
 }
 
 /************************************************
@@ -680,21 +658,19 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
     QVector<LxQtTaskButton *> buttons;
     buttons.append(mButtonHash.value(window,NULL));
 
-    //if group contains only one window
-    //properties must be changed also on groupbutton
+    // If group contains only one window properties must be changed also on groupbutton
     if (window == windowId())
         buttons.append(this);
 
     foreach (LxQtTaskButton * button, buttons)
     {
         if (!button)
-        {
             continue;
-        }
-        // window changed virtual desktop+
+
+        // window changed virtual desktop
         if (prop.testFlag(NET::WMDesktop))
         {
-            if (parentTaskBar()->settings().showOnlyCurrentDesktopTasks)
+            if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
             {
                 int desktop = button->desktopNum();
                 button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());

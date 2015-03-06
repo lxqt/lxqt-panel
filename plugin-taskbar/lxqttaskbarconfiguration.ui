@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>343</width>
-    <height>501</height>
+    <width>356</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,13 @@
    <item>
     <widget class="QGroupBox" name="WLContentGB">
      <property name="title">
-      <string>Taskbar Contents</string>
+      <string>General</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QRadioButton" name="fCurrentDesktopRB">
         <property name="text">
-         <string>Show windows from current desktop</string>
+         <string>Show windows from c&amp;urrent desktop</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">wlcB</string>
@@ -33,25 +33,12 @@
       <item>
        <widget class="QRadioButton" name="fAllDesktopsCB">
         <property name="text">
-         <string>Show windows from all desktops</string>
+         <string>Show windows from all des&amp;ktops</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">wlcB</string>
         </attribute>
        </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer1">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>15</height>
-         </size>
-        </property>
-       </spacer>
       </item>
       <item>
        <widget class="QCheckBox" name="middleClickCB">
@@ -66,7 +53,7 @@
    <item>
     <widget class="QGroupBox" name="groupingGB">
      <property name="title">
-      <string>Taskbar grouping</string>
+      <string>Window &amp;grouping</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -75,68 +62,9 @@
       <item>
        <widget class="QCheckBox" name="hoverActivateCB">
         <property name="text">
-         <string>Mouse hover shows popup</string>
+         <string>Show popup on mouse hover </string>
         </property>
        </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="hoverSwitchCB">
-        <property name="text">
-         <string>Mouse hover switches visible popup</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="hoverSingleCB">
-        <property name="text">
-         <string>Enable mouse hover popup on buttons
- with single window</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QFormLayout" name="formLayout_2">
-        <property name="fieldGrowthPolicy">
-         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-        </property>
-        <property name="labelAlignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Minimum buttons width</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Buttons height</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QSpinBox" name="widthSB">
-          <property name="suffix">
-           <string> px</string>
-          </property>
-          <property name="maximum">
-           <number>100000000</number>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QSpinBox" name="heightSB">
-          <property name="suffix">
-           <string> px</string>
-          </property>
-          <property name="maximum">
-           <number>1000000000</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </item>
      </layout>
     </widget>
@@ -144,7 +72,7 @@
    <item>
     <widget class="QGroupBox" name="WLApperanceGB">
      <property name="title">
-      <string>Taskbar Appearance</string>
+      <string>Appearance</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <property name="fieldGrowthPolicy">
@@ -197,19 +125,6 @@
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>15</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item>
     <widget class="QDialogButtonBox" name="buttons">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -252,38 +167,6 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>hoverActivateCB</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>hoverSwitchCB</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>128</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>169</x>
-     <y>153</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>hoverActivateCB</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>hoverSingleCB</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>49</x>
-     <y>121</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>54</x>
-     <y>177</y>
     </hint>
    </hints>
   </connection>

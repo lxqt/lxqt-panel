@@ -131,7 +131,7 @@ signals:
     void dragging(bool executing = false);
 
 private slots:
-    void timerTimeout() {draggingTimerTimeout();}
+    void timerTimeout() { draggingTimerTimeout(); }
 };
 
 typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;

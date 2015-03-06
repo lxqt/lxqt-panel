@@ -66,24 +66,16 @@ public:
     virtual void settingsChanged();
     void realign();
 
-    typedef struct
-    {
-        bool closeOnMiddleClick;
-        bool showOnlyCurrentDesktopTasks;
-        bool autoRotate;
-        bool enabledGrouping;
-        int buttonWidth;
-        Qt::ToolButtonStyle toolButtonStyle;
-        bool showGroupWhenHover;
-        bool switchGroupWhenHover;
-        //bool showGroupWhenHoverOneWindow;
-        bool switchGroupWhenHoverOneWindow;
-        int groupButtonWidth;
-        int groupButtonHeight;
-    } settings_t;
+    Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
+    int buttonWidth() { return mButtonWidth; }
+    bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
+    bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
+    bool isAutoRotate() { return mAutoRotate; }
+    bool isGroupingEnabled() { return mGroupingEnabled; }
+    bool isShowGroupOnHover() { return mShowGroupOnHover; }
 
-    const settings_t & settings() const {return mSettings;}
-
+    // Used for plugin single instance of LxQtMasterPopup
+    LxQtMasterPopup *mMasterPopup;
 
 public slots:
     void refreshIconGeometry();
@@ -102,8 +94,16 @@ private slots:
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
-    settings_t mSettings;
     LxQtTaskGroup * mCheckedGroup;
+
+    // Settings
+    Qt::ToolButtonStyle mButtonStyle;
+    int mButtonWidth;
+    bool mCloseOnMiddleClick;
+    bool mShowOnlyCurrentDesktopTasks;
+    bool mAutoRotate;
+    bool mGroupingEnabled;
+    bool mShowGroupOnHover;
 
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
@@ -114,14 +114,9 @@ private:
     void changeEvent(QEvent* event);
     void resizeEvent(QResizeEvent *event);
 
-
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
-    ElidedButtonStyle* mStyle;
-
-public:
-    //used for plugin single instance of LxQtMasterPopup
-    LxQtMasterPopup * mMasterPopup;
+    ElidedButtonStyle *mStyle;
 };
 
 #endif // LXQTTASKBAR_H

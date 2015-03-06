@@ -94,7 +94,7 @@ LxQtTaskButton::LxQtTaskButton(const WId window,LxQtTaskBar * taskbar ,QWidget *
 
     mTimer->setSingleShot(true);
     mTimer->setInterval(600);
-    connect(mTimer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
 }
 
 /************************************************
@@ -123,10 +123,7 @@ void LxQtTaskButton::updateIcon()
     QIcon ico;
     QPixmap pix = KWindowSystem::icon(mWindow);
     ico.addPixmap(pix);
-    if (!pix.isNull())
-        setIcon(ico);
-    else
-        setIcon(XdgIcon::defaultApplicationIcon());
+    setIcon(!pix.isNull() ? ico : XdgIcon::defaultApplicationIcon());
 }
 
 /************************************************
@@ -138,8 +135,11 @@ void LxQtTaskButton::refreshIconGeometry()
     QPoint globalPos = parentTaskBar()->mapToGlobal(pos());
     rect.moveTo(globalPos);
 
-    NETWinInfo info(QX11Info::connection(), windowId(),
-                    (WId) QX11Info::appRootWindow(), NET::WMIconGeometry, 0);
+    NETWinInfo info(QX11Info::connection(),
+                    windowId(),
+                    (WId) QX11Info::appRootWindow(),
+                    NET::WMIconGeometry,
+                    0);
     NETRect nrect;
     nrect.pos.x = rect.x();
     nrect.pos.y = rect.y();
@@ -161,8 +161,8 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 
     mTimer->start();
 
-    //it must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
-    //on the other hand drop and dragmove events of parent widget won't be called
+    // It must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
+    // on the other hand drop and dragmove events of parent widget won't be called
     event->acceptProposedAction();
 
     QToolButton::dragEnterEvent(event);
@@ -174,7 +174,7 @@ void LxQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 void LxQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     mTimer->stop();
-    event->ignore();;
+    event->ignore();
 
     QToolButton::dragLeaveEvent(event);
 }
@@ -184,7 +184,7 @@ void LxQtTaskButton::dropEvent(QDropEvent *event)
     mTimer->stop();
     event->ignore();
 
-    emit dropped(mapToParent(event->pos()),event);
+    emit dropped(mapToParent(event->pos()), event);
     QToolButton::dropEvent(event);
 }
 
@@ -196,11 +196,9 @@ void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
     if (event->button() == Qt::LeftButton)
         mDragStartPosition = event->pos();
 
-
-    if (parentTaskBar()->settings().closeOnMiddleClick && event->button() == Qt::MidButton)
-    {
-        closeApplication();
-    }
+    #warning fix this!
+//     if (parentTaskBar()->mCloseOnMiddleClick && event->button() == Qt::MidButton)
+//         closeApplication();
 
     QToolButton::mousePressEvent(event);
 }
