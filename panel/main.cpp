@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    LxQtPanelApplication *app = new LxQtPanelApplication(argc, argv, configFile);
+    QScopedPointer<LxQtPanelApplication> app(new LxQtPanelApplication(argc, argv, configFile));
 
 
     // Quit gracefully
@@ -108,6 +108,5 @@ int main(int argc, char *argv[])
 
     bool res = app->exec();
 
-    app->deleteLater();
     return res;
 }
