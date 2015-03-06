@@ -60,10 +60,10 @@ class LxQtTaskButton : public QToolButton
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LxQtTaskButton(const WId window,LxQtTaskBar * taskBar ,QWidget *parent = 0);
+    explicit LxQtTaskButton(const WId window, LxQtTaskBar * taskBar, QWidget *parent = 0);
     virtual ~LxQtTaskButton();
 
-    bool isAppHidden() const;
+    bool isApplicationHidden() const;
     bool isApplicationActive() const;
     WId windowId() const { return mWindow; }
 
@@ -82,7 +82,7 @@ public:
     LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
     void refreshIconGeometry();
-    static QString taskButtonMimeDataFormat() {return QString("lxqt/lxqttaskbutton");}
+    static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
 
 public slots:
     void raiseApplication();
@@ -108,10 +108,7 @@ protected:
     void paintEvent(QPaintEvent *);
 
     void setWindowId(WId wid) {mWindow = wid;}
-    virtual void arbitraryMimeData(QMimeData * mimedata);
-    virtual void draggingTimerTimeout() {activateWithDraggable();}
-    virtual QString acceptMimeData() const {return taskButtonMimeDataFormat();}
-
+    virtual QMimeData * mimeData();
     static bool sDraggging;
 
 private:
@@ -123,15 +120,17 @@ private:
     bool mDrawPixmap;
     LxQtTaskGroup * mParentGroup;
     LxQtTaskBar * mParentTaskBar;
-    QTimer * mTimer;
 
-    void activateWithDraggable();
-signals:
-    void dropped(const QPoint & point, QDropEvent * event);
-    void dragging(bool executing = false);
+    // Timer for when draggind something into a button (the button's window
+    // must be activated so that the use can continue dragging to the window
+    QTimer * mDNDTimer;
 
 private slots:
-    void timerTimeout() { draggingTimerTimeout(); }
+    void activateWithDraggable();
+
+signals:
+    void dropped(QDropEvent * event);
+    void dragging(bool executing = false);
 };
 
 typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;

@@ -30,57 +30,39 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqttaskgroup.h"
-#include <QVBoxLayout>
-#include <QDebug>
-#include "../panel/ilxqtpanel.h"
-#include <QMimeData>
-#include "../panel/ilxqtpanelplugin.h"
-#include <QDialog>
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <QFocusEvent>
 #include "lxqttaskbar.h"
-#include <QTimer>
+
+#include <QDebug>
+#include <QMimeData>
+#include <QFocusEvent>
 #include <QDragLeaveEvent>
+#include <QStringBuilder>
 #include <QMenu>
 #include <XdgIcon>
-#include "lxqtgrouppopup.h"
-#include "lxqtmasterpopup.h"
-#include <QSignalMapper>
+#include <KF5/KWindowSystem/KWindowSystem>
 
 /************************************************
 
  ************************************************/
-LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugin * plugin, LxQtTaskBar *parent):
-    LxQtTaskButton(0,parent,parent),
+LxQtTaskGroup::LxQtTaskGroup(const QString &groupName, QIcon icon, ILxQtPanelPlugin * plugin, LxQtTaskBar *parent)
+    : LxQtTaskButton(0, parent, parent),
     mGroupName(groupName),
-    mFrame(LxQtMasterPopup::instance(parent)->createFrame(this,mButtonHash)),
-    mLayout(new QVBoxLayout()),
+    mPopup(new LxQtGroupPopup(this)),
     mPlugin(plugin),
-    mSwitchTimer(new QTimer(this)),
     mPreventPopup(false)
 {
     Q_ASSERT(parent);
 
+    setObjectName(groupName);
     setText(groupName);
     setIcon(icon);
 
-    mFrame->setLayout(mLayout);
-
-    mLayout->setSpacing(3);
-    mLayout->setMargin(3);
-
-    connect(this,SIGNAL(clicked(bool)),this,SLOT(onClicked(bool)));
-    connect(KWindowSystem::self(),SIGNAL(activeWindowChanged(WId)),this,SLOT(onActiveWindowChanged(WId)));
-    connect(KWindowSystem::self(),SIGNAL(windowRemoved(WId)),this,SLOT(onWindowRemoved(WId)));
-    connect(KWindowSystem::self(),SIGNAL(currentDesktopChanged(int)),this,SLOT(onDesktopChanged(int)));
+    connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked(bool)));
+    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
+    connect(KWindowSystem::self(), SIGNAL(windowRemoved(WId)), this, SLOT(onWindowRemoved(WId)));
+    connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), this, SLOT(onActiveWindowChanged(WId)));
     connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
-            SLOT(windowChanged(WId, NET::Properties, NET::Properties2)));
-
-    mSwitchTimer->setSingleShot(true);
-    mSwitchTimer->setInterval(300);
-    connect(mSwitchTimer,SIGNAL(timeout()),this,SLOT(raisePopup()));
-
-    setObjectName(groupName);
+            SLOT(onWindowChanged(WId, NET::Properties, NET::Properties2)));
 }
 
 /************************************************
@@ -88,7 +70,7 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName,QIcon icon,ILxQtPanelPlugi
  ************************************************/
 void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 {
-    raisePopup(false);
+    setPopupVisible(false, true);
     mPreventPopup = true;
     if (windowId())
     {
@@ -97,18 +79,8 @@ void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QMenu menu(tr("Group"));
-    QSignalMapper mapper;
-    QAction * a;
-    a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close current desktop windows"));
-    connect(a,SIGNAL(triggered()),&mapper,SLOT(map()));
-    mapper.setMapping(a,1);
-
-    menu.addSeparator();
-    a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close whole group"));
-    mapper.setMapping(a,0);
-    connect(a,SIGNAL(triggered()),&mapper,SLOT(map()));
-
-    connect(&mapper,SIGNAL(mapped(int)),SLOT(closeGroup(int)));
+    QAction *a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"));
+    connect(a, SIGNAL(triggered()), this, SLOT(closeGroup()));
     menu.exec(mapToGlobal(event->pos()));
     mPreventPopup = false;
 }
@@ -116,24 +88,22 @@ void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::closeGroup(int id)
+void LxQtTaskGroup::closeGroup()
 {
-    foreach (LxQtTaskButton * button, mButtonHash)
-    {
-        if (id == 0 || button->desktopNum() == KWindowSystem::currentDesktop())
+    foreach (LxQtTaskButton * button, mButtonHash.values())
+        if (button->desktopNum() == KWindowSystem::currentDesktop() || button->desktopNum() == NET::OnAllDesktops)
             button->closeApplication();
-    }
 }
 
 /************************************************
 
  ************************************************/
-LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
+LxQtTaskButton * LxQtTaskGroup::addWindow(WId id)
 {
     if (mButtonHash.contains(id))
         return mButtonHash.value(id);
 
-    LxQtTaskButton * btn = new LxQtTaskButton(id,parentTaskBar(),mFrame);
+    LxQtTaskButton *btn = new LxQtTaskButton(id, parentTaskBar(), mPopup);
 
     if (btn->isApplicationActive())
     {
@@ -143,14 +113,10 @@ LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
 
     btn->setParentGroup(this);
 
-    mButtonHash.insert(id,btn);
-    mFrame->layout()->addWidget(btn);
+    mButtonHash.insert(id, btn);
+    mPopup->addButton(btn);
 
-
-    connect(btn,SIGNAL(clicked()),this,SLOT(onChildButtonClicked()));
-    connect(btn,SIGNAL(dropped(QPoint,QDropEvent*)),mFrame,SLOT(buttonDropped(QPoint,QDropEvent*)));
-    connect(btn,SIGNAL(dragging(bool)),popup(),SLOT(dragging(bool)));
-
+    connect(btn, SIGNAL(clicked()), this, SLOT(onChildButtonClicked()));
     refreshVisibility();
     regroup();
 
@@ -162,12 +128,54 @@ LxQtTaskButton * LxQtTaskGroup::createButton(WId id)
  ************************************************/
 LxQtTaskButton * LxQtTaskGroup::checkedButton() const
 {
-    foreach (LxQtTaskButton* button, mButtonHash)
-    {
+    foreach (LxQtTaskButton* button, mButtonHash.values())
         if (button->isChecked())
-        {
             return button;
+
+    return NULL;
+}
+
+/************************************************
+
+ ************************************************/
+LxQtTaskButton * LxQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
+{
+    LxQtTaskButton *button = checkedButton();
+    int idx = mPopup->indexOf(button);
+    int inc = next ? 1 : -1;
+    idx += inc;
+
+    // if there is no cheked button, get the first one if next equals true
+    // or the last one if not
+    if (!button)
+    {
+        idx = -1;
+        if (next)
+        {
+            for (int i = 0; i < mPopup->count() && idx == -1; i++)
+                if (mPopup->itemAt(i)->widget()->isVisibleTo(mPopup))
+                    idx = i;
         }
+        else
+        {
+            for (int i = mPopup->count() - 1; i >= 0 && idx == -1; i--)
+                if (mPopup->itemAt(i)->widget()->isVisibleTo(mPopup))
+                    idx = i;
+        }
+    }
+
+    if (circular)
+        idx = (idx + mButtonHash.count()) % mButtonHash.count();
+    else if (mPopup->count() <= idx || idx < 0)
+        return NULL;
+
+    // return the next or the previous child
+    QLayoutItem *item = mPopup->itemAt(idx);
+    if (item)
+    {
+        button = qobject_cast<LxQtTaskButton*>(item->widget());
+        if (button->isVisibleTo(mPopup))
+            return button;
     }
 
     return NULL;
@@ -176,79 +184,19 @@ LxQtTaskButton * LxQtTaskGroup::checkedButton() const
 /************************************************
 
  ************************************************/
-bool LxQtTaskGroup::checkNextPrevChild(bool next,bool modulo)
-{
-    int idx = mLayout->indexOf(checkedButton());
-    int inc;
-    if (next)
-        inc = 1;
-    else
-        inc = -1;
-
-    idx += inc;
-
-    if (!checkedButton())
-    {
-        if (next)
-        {
-            idx = 0;
-        }
-        else
-        {
-            for(int i = mLayout->count() - 1; i >= 0; i--)
-            {
-                if(mLayout->itemAt(i)->widget()->isVisibleTo(mFrame))
-                {
-                    idx = i;
-                    break;
-                }
-            }
-        }
-    }
-
-    while(true)
-    {
-        if (!modulo)
-        {
-            if (mLayout->count() <= idx || idx < 0)
-                return false;
-        }
-        else
-        {
-            idx = (idx + mButtonHash.count()) % mButtonHash.count();
-        }
-
-        QWidget * w = mLayout->itemAt(idx)->widget();
-        LxQtTaskButton * button = qobject_cast<LxQtTaskButton*>(w);
-        if (button->isVisibleTo(mFrame))
-        {
-            button->raiseApplication();
-            return true;
-        }
-        idx += inc;
-    }
-    return false;
-}
-
-/************************************************
-
- ************************************************/
 void LxQtTaskGroup::onActiveWindowChanged(WId window)
 {
-    bool contains = mButtonHash.contains(window);
-    foreach(LxQtTaskButton * btn, mButtonHash)
-    {
+    LxQtTaskButton *button = mButtonHash.value(window, NULL);
+    foreach (LxQtTaskButton *btn, mButtonHash.values())
         btn->setChecked(false);
-    }
 
-    if (contains)
+    if (button)
     {
-        LxQtTaskButton * btn = mButtonHash.value(window);
-        btn->setChecked(true);
-        if (btn->hasUrgencyHint())
-            btn->setUrgencyHint(false);
+        button->setChecked(true);
+        if (button->hasUrgencyHint())
+            button->setUrgencyHint(false);
     }
-    setChecked(contains);
+    setChecked(!!button);
 }
 
 /************************************************
@@ -257,7 +205,6 @@ void LxQtTaskGroup::onActiveWindowChanged(WId window)
 void LxQtTaskGroup::onDesktopChanged(int number)
 {
     refreshVisibility();
-    regroup();
 }
 
 /************************************************
@@ -265,34 +212,15 @@ void LxQtTaskGroup::onDesktopChanged(int number)
  ************************************************/
 void LxQtTaskGroup::onWindowRemoved(WId window)
 {
-    removeButton(window);
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskGroup::onChildButtonClicked()
-{
-    raisePopup(false);
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskGroup::removeButton(WId window)
-{
     if (mButtonHash.contains(window))
     {
-        LxQtTaskButton * button = mButtonHash.value(window);
+        LxQtTaskButton *button = mButtonHash.value(window);
         mButtonHash.remove(window);
-        mFrame->layout()->removeWidget(button);
-
-        delete button;
+        mPopup->removeWidget(button);
+        button->deleteLater();
 
         if (mButtonHash.count())
-        {
             regroup();
-        }
         else
         {
             if (isVisible())
@@ -302,6 +230,14 @@ void LxQtTaskGroup::removeButton(WId window)
 
         }
     }
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskGroup::onChildButtonClicked()
+{
+    setPopupVisible(false, true);
 }
 
 /************************************************
@@ -323,23 +259,12 @@ int LxQtTaskGroup::buttonsCount() const
 /************************************************
 
  ************************************************/
-int LxQtTaskGroup::visibleButtonsCount(LxQtTaskButton ** first) const
+int LxQtTaskGroup::visibleButtonsCount() const
 {
     int i = 0;
-    if (first)
-        *first = NULL;
-
-    foreach(LxQtTaskButton * btn, mButtonHash.values())
-    {
-
-        if (btn->isVisibleTo(mFrame))
-        {
+    foreach (LxQtTaskButton *btn, mButtonHash.values())
+        if (btn->isVisibleTo(mPopup))
             i++;
-            if (first && !*first)
-                *first = btn;
-        }
-    }
-
     return i;
 }
 
@@ -349,31 +274,18 @@ int LxQtTaskGroup::visibleButtonsCount(LxQtTaskButton ** first) const
 void LxQtTaskGroup::draggingTimerTimeout()
 {
     if (windowId())
-    {
-        raisePopup(false);
-        LxQtTaskButton::draggingTimerTimeout();
-    }
+        setPopupVisible(false);
 }
 
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::onClicked(bool )
+void LxQtTaskGroup::onClicked(bool)
 {
     if (visibleButtonsCount() > 1)
     {
         setChecked(mButtonHash.contains(KWindowSystem::activeWindow()));
-        if (mFrame->isVisible())
-        {
-            raisePopup(false);
-            return;
-        }
-        raisePopup(true);
-        startStopFrameCloseTimer(false);
-    }
-    else
-    {
-        raisePopup(false);
+        setPopupVisible(true);
     }
 }
 
@@ -382,23 +294,33 @@ void LxQtTaskGroup::onClicked(bool )
  ************************************************/
 void LxQtTaskGroup::regroup()
 {
-    LxQtTaskButton * btn;
-    int cont = visibleButtonsCount(&btn);
-
+    int cont = visibleButtonsCount();
     recalculateFrameIfVisible();
 
     if (cont == 1)
     {
-        setText(btn->text());
-        setWindowId(btn->windowId());
+        // Get first visible button
+        LxQtTaskButton * button = NULL;
+        foreach (LxQtTaskButton *btn, mButtonHash.values())
+        {
+            if (btn->isVisibleTo(mPopup))
+            {
+                button = btn;
+                break;
+            }
+        }
+
+        if (button)
+        {
+            setText(button->text());
+            setWindowId(button->windowId());
+        }
     }
     else if (cont == 0)
-    {
         hide();
-    }
     else
     {
-        setText(mGroupName + QString(" - %1 ").arg(cont) + tr("Windows"));
+        setText(mGroupName % QString(" - %1 ").arg(cont) % tr("windows"));
         setWindowId(0);
     }
 }
@@ -417,7 +339,7 @@ void LxQtTaskGroup::showOnAllDesktopSettingChanged()
  ************************************************/
 void LxQtTaskGroup::recalculateFrameIfVisible()
 {
-    if (mFrame->isVisible())
+    if (mPopup->isVisible())
     {
         recalculateFrameSize();
         if (mPlugin->panel()->position() == ILxQtPanel::PositionBottom)
@@ -430,13 +352,10 @@ void LxQtTaskGroup::recalculateFrameIfVisible()
  ************************************************/
 void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
 {
+    foreach (LxQtTaskButton *button, mButtonHash.values())
+        button->setAutoRotation(false, position);
 
-    foreach (LxQtTaskButton * button, mButtonHash)
-    {
-        button->setAutoRotation(false,position);
-    }
-
-    LxQtTaskButton::setAutoRotation(value,position);
+    LxQtTaskButton::setAutoRotation(value, position);
 }
 
 /************************************************
@@ -444,7 +363,7 @@ void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
  ************************************************/
 void LxQtTaskGroup::refreshVisibility()
 {
-    foreach(LxQtTaskButton * btn, mButtonHash)
+    foreach(LxQtTaskButton * btn, mButtonHash.values())
     {
         if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
             btn->setVisible(btn->desktopNum() == KWindowSystem::currentDesktop());
@@ -463,33 +382,34 @@ void LxQtTaskGroup::refreshVisibility()
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
+QMimeData * LxQtTaskGroup::mimeData()
 {
+    QMimeData *mimedata = new QMimeData;
     QByteArray byteArray;
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
-    qDebug() << QString("Dragging group button: %1").arg(groupName());
     stream << groupName();
-    mimedata->setData(taskGroupMimeDataFormat(), byteArray);
-
-    if (windowId())
-        LxQtTaskButton::arbitraryMimeData(mimedata);
+    mimedata->setData(mimeDataFormat(), byteArray);
+    return mimedata;
 }
 
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::raisePopup(bool raise)
+void LxQtTaskGroup::setPopupVisible(bool visible, bool fast)
 {
-    if (raise && !mPreventPopup && 0 == windowId())
+    if (visible && !mPreventPopup && 0 == windowId())
     {
-        // setup geometry
-        recalculateFrameSize();
-        recalculateFramePosition();
+        if (!mPopup->isVisible())
+        {
+            // setup geometry
+            recalculateFrameSize();
+            recalculateFramePosition();
+        }
 
-        popup()->activateGroup(this, true);
+        mPopup->show();
     }
     else
-        popup()->activateGroup(this, false);
+        mPopup->hide(fast);
 }
 
 /************************************************
@@ -497,10 +417,10 @@ void LxQtTaskGroup::raisePopup(bool raise)
  ************************************************/
 void LxQtTaskGroup::refreshIconsGeometry()
 {
-    foreach(LxQtTaskButton * but, mButtonHash)
+    foreach(LxQtTaskButton *but, mButtonHash.values())
     {
         but->refreshIconGeometry();
-        but->setIconSize(QSize(mPlugin->panel()->iconSize(),mPlugin->panel()->iconSize()));
+        but->setIconSize(QSize(mPlugin->panel()->iconSize(), mPlugin->panel()->iconSize()));
     }
 
     if (windowId())
@@ -512,18 +432,18 @@ void LxQtTaskGroup::refreshIconsGeometry()
  ************************************************/
 QSize LxQtTaskGroup::recalculateFrameSize()
 {
-    LxQtMasterPopup * p = popup();
     int height = recalculateFrameHeight();
-    p->setMaximumHeight(1000);
-    p->setMinimumHeight(0);
+    mPopup->setMaximumHeight(1000);
+    mPopup->setMinimumHeight(0);
 
     int hh = recalculateFrameWidth();
-    p->setMaximumWidth(hh);
-    p->setMinimumWidth(0);
+    mPopup->setMaximumWidth(hh);
+    mPopup->setMinimumWidth(0);
 
-    p->resize(QSize(hh,height));
+    QSize newSize(hh, height);
+    mPopup->resize(newSize);
 
-    return QSize(hh,height);
+    return newSize;
 }
 
 /************************************************
@@ -532,7 +452,8 @@ QSize LxQtTaskGroup::recalculateFrameSize()
 int LxQtTaskGroup::recalculateFrameHeight() const
 {
     int cont = visibleButtonsCount();
-    return cont * height() + (cont + 1) * mLayout->spacing();
+    int h = !mPlugin->panel()->isHorizontal() && parentTaskBar()->isAutoRotate() ? width() : height();
+    return cont * h + (cont + 1) * mPopup->spacing();
 }
 
 /************************************************
@@ -540,10 +461,11 @@ int LxQtTaskGroup::recalculateFrameHeight() const
  ************************************************/
 int LxQtTaskGroup::recalculateFrameWidth() const
 {
-    int minimum = parentTaskBar()->buttonWidth();
+    // FIXME: 300?
+    int minimum = 300;
     int hh = width();
 
-    if (!mPlugin->panel()->isHorizontal())
+    if (!mPlugin->panel()->isHorizontal() && !parentTaskBar()->isAutoRotate())
         hh = height();
 
     if (hh < minimum)
@@ -558,7 +480,6 @@ int LxQtTaskGroup::recalculateFrameWidth() const
 QPoint LxQtTaskGroup::recalculateFramePosition()
 {
     // Set position
-    LxQtMasterPopup * p = popup();
     int x_offset = 0, y_offset = 0;
     int rows = mPlugin->panel()->lineCount();
     switch (mPlugin->panel()->position())
@@ -578,21 +499,9 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
     y = parentWidget()->mapToGlobal(pos()).y() + y_offset;
 
-    p->move(QPoint(x,y));
+    mPopup->move(QPoint(x, y));
 
-    return QPoint(x,y);
-}
-
-/************************************************
-
- ************************************************/
-void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
-{
-    LxQtMasterPopup * p = popup();
-    if (parentTaskBar()->isShowGroupOnHover())
-        p->mouseEnterAnyGroup(!start);
-    else
-        p->mouseEnterCurrentGroup(this, !start);
+    return QPoint(x, y);
 }
 
 /************************************************
@@ -600,8 +509,7 @@ void LxQtTaskGroup::startStopFrameCloseTimer(bool start)
  ************************************************/
 void LxQtTaskGroup::leaveEvent(QEvent *event)
 {
-    startStopFrameCloseTimer(true);
-    mSwitchTimer->stop();
+    setPopupVisible(false);
     QToolButton::leaveEvent(event);
 }
 
@@ -615,18 +523,8 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
     if (sDraggging)
         return;
 
-    startStopFrameCloseTimer(false);
-
     if (parentTaskBar()->isShowGroupOnHover())
-    {
-        int t;
-        popup()->isVisible() ? t = 200 : t = 400;
-        mSwitchTimer->start(t);
-        return;
-    }
-
-    if (popup()->isVisible())
-        mSwitchTimer->start(100);
+        setPopupVisible(true);
 }
 
 /************************************************
@@ -634,9 +532,13 @@ void LxQtTaskGroup::enterEvent(QEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
-    mSwitchTimer->stop();
-    raisePopup(false);
-    LxQtTaskButton::dragEnterEvent(event);
+    sDraggging = true;
+    // only show the popup if we aren't dragging a taskgroup
+    if (!event->mimeData()->hasFormat(mimeDataFormat()))
+    {
+        setPopupVisible(true);
+        LxQtTaskButton::dragEnterEvent(event);
+    }
 }
 
 /************************************************
@@ -644,20 +546,31 @@ void LxQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
  ************************************************/
 void LxQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    raisePopup(false);
-    mSwitchTimer->stop();
+    // if draggind something into the taskgroup or the taskgroups' popup,
+    // do not close the popup
+    if (!sDraggging)
+        setPopupVisible(false);
+    else
+        sDraggging = false;
     LxQtTaskButton::dragLeaveEvent(event);
+}
+
+void LxQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
+{
+    // if dragging the taskgroup, do not show the popup
+    setPopupVisible(false, true);
+    LxQtTaskButton::mouseMoveEvent(event);
 }
 
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
+void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
     QVector<LxQtTaskButton *> buttons;
-    buttons.append(mButtonHash.value(window,NULL));
+    buttons.append(mButtonHash.value(window, NULL));
 
-    // If group contains only one window properties must be changed also on groupbutton
+    // If group contains only one window properties must be changed also on button group
     if (window == windowId())
         buttons.append(this);
 
@@ -688,9 +601,4 @@ void LxQtTaskGroup::windowChanged(WId window, NET::Properties prop, NET::Propert
         if (prop.testFlag(NET::WMState))
             button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
     }
-}
-
-LxQtMasterPopup * LxQtTaskGroup::popup()
-{
-    return LxQtMasterPopup::instance(parentTaskBar());
 }

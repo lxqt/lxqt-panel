@@ -32,7 +32,10 @@
 #ifndef LXQTTASKGROUP_H
 #define LXQTTASKGROUP_H
 
-#include <QDialog>
+#include "../panel/ilxqtpanel.h"
+#include "../panel/ilxqtpanelplugin.h"
+#include "lxqttaskbar.h"
+#include "lxqtgrouppopup.h"
 #include "lxqttaskbutton.h"
 #include <KF5/KWindowSystem/kwindowsystem.h>
 
@@ -45,42 +48,43 @@ class LxQtMasterPopup;
 class LxQtTaskGroup: public LxQtTaskButton
 {
     Q_OBJECT
+
 public:
     LxQtTaskGroup(const QString & groupName, QIcon icon ,ILxQtPanelPlugin * plugin, LxQtTaskBar * parent);
 
+    QString groupName() const { return mGroupName; }
+
     void removeButton(WId window);
     int buttonsCount() const;
-    int visibleButtonsCount(LxQtTaskButton ** first = NULL) const;
+    int visibleButtonsCount() const;
 
-
-    LxQtTaskButton * createButton(WId id);
+    LxQtTaskButton * addWindow(WId id);
     LxQtTaskButton * checkedButton() const;
-    bool checkNextPrevChild(bool next, bool modulo);
 
-    QString groupName() const {return mGroupName;}
+    // Returns the next or the previous button in the popup
+    // if circular is true, then it will go around the list of buttons
+    LxQtTaskButton * getNextPrevChildButton(bool next, bool circular);
 
     void refreshIconsGeometry();
     void showOnAllDesktopSettingChanged();
     void setAutoRotation(bool value, ILxQtPanel::Position position);
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
-    void hidePopup(void) {raisePopup(false);}
-    void showPopup(void) {raisePopup(true);}
 
     int recalculateFrameHeight() const;
     int recalculateFrameWidth() const;
 
-    static QString taskGroupMimeDataFormat() {return QString("lxqt/lxqttaskgroup");}
+    static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskgroup"); }
 
 protected:
-    void arbitraryMimeData(QMimeData * mime);
+    QMimeData * mimeData();
 
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);
+    void mouseMoveEvent(QMouseEvent * event);
 
-    QString acceptMimeData() const {return taskGroupMimeDataFormat();}
     void draggingTimerTimeout();
 
 private slots:
@@ -89,36 +93,27 @@ private slots:
     void onActiveWindowChanged(WId window);
     void onWindowRemoved(WId window);
     void onDesktopChanged(int number);
-    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
-    void closeGroup(int id);
-    void raisePopup(bool raise = true);
+    void closeGroup();
+    void setPopupVisible(bool visible = true, bool fast = false);
 
 signals:
     void groupBecomeEmpty(QString name);
     void visibilityChanged(bool visible);
 
 private:
-
-
     QString mGroupName;
-    LxQtGroupPopup * mFrame;
+    LxQtGroupPopup * mPopup;
     LxQtTaskButtonHash mButtonHash;
-    QVBoxLayout * mLayout;
     ILxQtPanelPlugin * mPlugin;
-    QTimer * mSwitchTimer;
     bool mPreventPopup;
-
 
     QSize recalculateFrameSize();
     QPoint recalculateFramePosition();
     void recalculateFrameIfVisible();
     void refreshVisibility();
-    void regroup(void);
-    void startStopFrameCloseTimer(bool start);
-
-    LxQtMasterPopup * popup();
+    void regroup();
 };
-
 
 #endif // LXQTTASKGROUP_H

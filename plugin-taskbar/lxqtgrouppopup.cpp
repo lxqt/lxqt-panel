@@ -29,14 +29,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "lxqtmasterpopup.h"
 #include "lxqtgrouppopup.h"
-#include "lxqttaskbutton.h"
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
 #include <QLayout>
-#include "lxqttaskbar.h"
 #include <QDebug>
 
 /************************************************
@@ -45,101 +42,108 @@
     vertical layout and drag&drop feature inside
     group
  ************************************************/
-LxQtGroupPopup::LxQtGroupPopup(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons):
-    QFrame(parent),
-    mButtonHash(buttons),
+LxQtGroupPopup::LxQtGroupPopup(LxQtTaskGroup *group):
+    QFrame(group),
     mGroup(group)
 {
     Q_ASSERT(group);
-    Q_ASSERT(parent);
     setAcceptDrops(true);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
+    setAttribute(Qt::WA_AlwaysShowToolTips);
+
+    setLayout(new QVBoxLayout);
+    layout()->setSpacing(3);
+    layout()->setMargin(3);
+
+    connect(&mCloseTimer, SIGNAL(timeout()), this, SLOT(close()));
+    mCloseTimer.setSingleShot(true);
+    mCloseTimer.setInterval(400);
 }
 
-/************************************************
-
- ************************************************/
 LxQtGroupPopup::~LxQtGroupPopup()
 {
 }
 
-/************************************************
-
- ************************************************/
-LxQtMasterPopup * LxQtGroupPopup::parentMasterPopup()
-{
-    return LxQtMasterPopup::instance(parentTaskBar());
-}
-
-/************************************************
-
- ************************************************/
-LxQtTaskBar * LxQtGroupPopup::parentTaskBar()
-{
-    return mGroup->parentTaskBar();
-}
-
-/************************************************
-
- ************************************************/
 void LxQtGroupPopup::dropEvent(QDropEvent *event)
 {
-    buttonDropped(event->pos(),event);
+    qlonglong temp;
+    WId window;
+    QDataStream stream(event->mimeData()->data(LxQtTaskButton::mimeDataFormat()));
+    stream >> temp;
+    window = (WId) temp;
+
+    LxQtTaskButton *button;
+    int oldIndex;
+    // get current position of the button being dragged
+    for (int i = 0; i < layout()->count(); i++)
+    {
+        LxQtTaskButton *b = qobject_cast<LxQtTaskButton*>(layout()->itemAt(i)->widget());
+        if (b && b->windowId() == window)
+        {
+            button = b;
+            oldIndex = i;
+            break;
+        }
+    }
+
+    int newIndex = -1;
+    // find the new position to place it in
+    for (int i = 0; i < oldIndex && newIndex == -1; i++)
+    {
+        QWidget *w = layout()->itemAt(i)->widget();
+        if (w && w->pos().y() + w->height() / 2 > event->pos().y())
+            newIndex = i;
+    }
+    const int size = layout()->count();
+    for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
+    {
+        QWidget *w = layout()->itemAt(i)->widget();
+        if (w && w->pos().y() + w->height() / 2 < event->pos().y())
+            newIndex = i;
+    }
+
+    if (newIndex == -1 || newIndex == oldIndex)
+        return;
+
+    QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
+    l->takeAt(oldIndex);
+    l->insertWidget(newIndex, button);
+    l->invalidate();
 }
 
-/************************************************
-    dragging buttons inside group
- ************************************************/
 void LxQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (!event->mimeData()->hasFormat(LxQtTaskButton::taskButtonMimeDataFormat()))
-    {
-        event->ignore();
-        return;
-    }
-    if (mButtonHash.count() == 1)
-    {
-        event->ignore();
-        return;
-    }
-
-    event->acceptProposedAction();
+    if (event->mimeData()->hasFormat(LxQtTaskButton::mimeDataFormat()))
+        event->accept();
     QWidget::dragEnterEvent(event);
 }
 
 /************************************************
-    button dragged inside group dropped
-    reorder layout
+ *
  ************************************************/
-void LxQtGroupPopup::buttonDropped(const  QPoint& point, QDropEvent *event)
+void LxQtGroupPopup::leaveEvent(QEvent *event)
 {
-    WId window;
-    QDataStream stream(event->mimeData()->data(LxQtTaskButton::taskButtonMimeDataFormat()));
-    stream >> window;
-    if (!mButtonHash.contains(window))
-    {
-        return;
-    }
+    mCloseTimer.start();
+}
 
-    LxQtTaskButton * dragged = mButtonHash.value(window);
-    int newIdx = -1;
+/************************************************
+ *
+ ************************************************/
+void LxQtGroupPopup::enterEvent(QEvent *event)
+{
+    mCloseTimer.stop();
+}
 
-    int oldTreshold = 0;
-    for (int i = 0 ; i < layout()->count(); i++)
-    {
-        QWidget * w = layout()->itemAt(i)->widget();
-        LxQtTaskButton * b = qobject_cast<LxQtTaskButton*>(w);
-        if (b && w->isVisibleTo(this))
-        {
-            int treshold = b->pos().y() + b->height() ;
-            if (oldTreshold <= point.y() && point.y() < treshold)
-            {
-                newIdx = i;
-                break;
-            }
-            oldTreshold = treshold;
-        }
-    }
+void LxQtGroupPopup::hide(bool fast)
+{
+    if (fast)
+        close();
+    else
+        mCloseTimer.start();
+}
 
-    QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
-    l->insertWidget(newIdx,dragged);
+void LxQtGroupPopup::show()
+{
+    mCloseTimer.stop();
+    QFrame::show();
 }

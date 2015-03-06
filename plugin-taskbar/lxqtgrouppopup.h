@@ -34,33 +34,42 @@
 
 #include <QHash>
 #include <QFrame>
+#include <QLayout>
+#include <QTimer>
+#include <QEvent>
 
-class LxQtTaskButton;
-class LxQtTaskBar;
-class LxQtTaskGroup;
-class LxQtMasterPopup;
+#include "lxqttaskbutton.h"
+#include "lxqttaskgroup.h"
+#include "lxqttaskbar.h"
 
 class LxQtGroupPopup: public QFrame
 {
     Q_OBJECT
+
 public:
-    LxQtGroupPopup(LxQtMasterPopup * parent, LxQtTaskGroup * group, const QHash<WId, LxQtTaskButton*> & buttons);
+    LxQtGroupPopup(LxQtTaskGroup *group);
     ~LxQtGroupPopup();
+
+    void hide(bool fast = false);
+    void show();
+
+    // Layout
+    int indexOf(LxQtTaskButton *button) { return layout()->indexOf(button); }
+    int count() { return layout()->count(); }
+    QLayoutItem * itemAt(int i) { return layout()->itemAt(i); }
+    int spacing() { return layout()->spacing(); }
+    void addButton(LxQtTaskButton* button) { layout()->addWidget(button); }
+    void removeWidget(QWidget *button) { layout()->removeWidget(button); }
 
 protected:
     void dragEnterEvent(QDragEnterEvent * event);
     void dropEvent(QDropEvent * event);
+    void leaveEvent(QEvent * event);
+    void enterEvent(QEvent * event);
 
 private:
-    const QHash<WId, LxQtTaskButton *> & mButtonHash;
-    LxQtTaskBar * parentTaskBar() ;
-    LxQtMasterPopup * parentMasterPopup() ;
-    LxQtTaskGroup * mGroup;
-
-
-private slots:
-    void buttonDropped(const QPoint & point, QDropEvent* event);
+    LxQtTaskGroup *mGroup;
+    QTimer mCloseTimer;
 };
-
 
 #endif // LXQTTASKPOPUP_H

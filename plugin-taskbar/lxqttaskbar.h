@@ -33,7 +33,12 @@
 #ifndef LXQTTASKBAR_H
 #define LXQTTASKBAR_H
 
+#include "../panel/ilxqtpanel.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include "lxqttaskbarconfiguration.h"
+#include "lxqttaskgroup.h"
+#include "lxqttaskbutton.h"
+
 #include <QFrame>
 #include <QBoxLayout>
 #include <QHash>
@@ -42,14 +47,9 @@
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/NETWM>
 
-#include "lxqttaskgroup.h"
-//#include "lxqttaskbutton.h"
-
 class LxQtTaskButton;
 class ElidedButtonStyle;
 class ILxQtPanelPlugin;
-//class LxQtMasterPopup;
-#include "lxqtmasterpopup.h"
 
 namespace LxQt {
 class GridLayout;
@@ -74,9 +74,6 @@ public:
     bool isGroupingEnabled() { return mGroupingEnabled; }
     bool isShowGroupOnHover() { return mShowGroupOnHover; }
 
-    // Used for plugin single instance of LxQtMasterPopup
-    LxQtMasterPopup *mMasterPopup;
-
 public slots:
     void refreshIconGeometry();
 
@@ -89,12 +86,10 @@ private slots:
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
-    void groupDroppedSlot(const QPoint & point, QDropEvent * event);
 
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
-    LxQtTaskGroup * mCheckedGroup;
 
     // Settings
     Qt::ToolButtonStyle mButtonStyle;
@@ -108,7 +103,6 @@ private:
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
-    int dropValue(int idx);
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
