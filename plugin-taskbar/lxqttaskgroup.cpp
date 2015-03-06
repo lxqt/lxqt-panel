@@ -480,14 +480,13 @@ void LxQtTaskGroup::arbitraryMimeData(QMimeData *mimedata)
  ************************************************/
 void LxQtTaskGroup::raisePopup(bool raise)
 {
-    if (raise && !mPreventPopup)
+    if (raise && !mPreventPopup && 0 == windowId())
     {
         // setup geometry
         recalculateFrameSize();
         recalculateFramePosition();
 
-        if (!windowId())
-            popup()->activateGroup(this, false);
+        popup()->activateGroup(this, true);
     }
     else
         popup()->activateGroup(this, false);

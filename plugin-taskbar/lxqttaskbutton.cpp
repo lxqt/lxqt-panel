@@ -193,12 +193,12 @@ void LxQtTaskButton::dropEvent(QDropEvent *event)
  ************************************************/
 void LxQtTaskButton::mousePressEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton)
-        mDragStartPosition = event->pos();
+    const Qt::MouseButton b = event->button();
 
-    #warning fix this!
-//     if (parentTaskBar()->mCloseOnMiddleClick && event->button() == Qt::MidButton)
-//         closeApplication();
+    if (Qt::LeftButton == b)
+        mDragStartPosition = event->pos();
+    else if (Qt::MidButton == b && parentTaskBar()->closeOnMiddleClick())
+        closeApplication();
 
     QToolButton::mousePressEvent(event);
 }
