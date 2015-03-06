@@ -57,6 +57,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->fCurrentScreenRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -69,6 +70,10 @@ void LxQtTaskbarConfiguration::loadSettings()
     if (mSettings.value("showOnlyCurrentDesktopTasks", false).toBool() == true)
     {
         ui->fCurrentDesktopRB->setChecked(true);
+    }
+    else if (mSettings.value("showOnlyCurrentScreenTasks", false).toBool() == true)
+    {
+        ui->fCurrentScreenRB->setChecked(true);
     }
     else
     {
@@ -87,6 +92,7 @@ void LxQtTaskbarConfiguration::loadSettings()
 void LxQtTaskbarConfiguration::saveSettings()
 {
     mSettings.setValue("showOnlyCurrentDesktopTasks", ui->fCurrentDesktopRB->isChecked());
+    mSettings.setValue("showOnlyCurrentScreenTasks", ui->fCurrentScreenRB->isChecked());
     mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());

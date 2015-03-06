@@ -43,6 +43,7 @@
 #include <QFlag>
 #include <QX11Info>
 #include <QDebug>
+#include <QDesktopWidget>
 
 #include "lxqttaskbar.h"
 #include "lxqttaskbutton.h"
@@ -59,6 +60,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mCheckedBtn(NULL),
     mCloseOnMiddleClick(true),
     mShowOnlyCurrentDesktopTasks(false),
+    mShowOnlyCurrentScreenTasks(false),
     mAutoRotate(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
@@ -101,6 +103,28 @@ LxQtTaskButton* LxQtTaskBar::buttonByWindow(WId window) const
     if (mButtonsHash.contains(window))
         return mButtonsHash.value(window);
     return 0;
+}
+
+/************************************************
+
+ ************************************************/
+bool LxQtTaskBar::windowOnCurrentScreen(WId window) const
+{
+    if (!mShowOnlyCurrentScreenTasks)
+        return true;
+
+    KWindowInfo info(window, NET::WMDesktop | NET::WMFrameExtents);
+    int desktop = info.desktop();
+    if (desktop == NET::OnAllDesktops)
+        return true;
+
+    if (desktop != KWindowSystem::currentDesktop())
+        return false;
+
+    QDesktopWidget desc;
+    QRect frame = info.frameGeometry();
+    QPoint midpoint = (frame.topLeft() + frame.bottomRight()) / 2;
+    return desc.screenNumber(midpoint) == desc.screenNumber(this);
 }
 
 /************************************************
@@ -287,7 +311,7 @@ void LxQtTaskBar::refreshButtonVisibility()
     while (i.hasNext())
     {
         i.next();
-        bool isVisible = windowOnActiveDesktop(i.key());
+        bool isVisible = windowOnActiveDesktop(i.key()) && windowOnCurrentScreen(i.key());
         haveVisibleWindow |= isVisible;
         i.value()->setVisible(isVisible);
     }
@@ -373,6 +397,9 @@ void LxQtTaskBar::windowChanged(WId window, NET::Properties prop, NET::Propertie
         }
     }
 
+    if (mShowOnlyCurrentScreenTasks && (prop.testFlag(NET::WMFrameExtents) || prop.testFlag(NET::WMGeometry)))
+        button->setHidden(!windowOnCurrentScreen(window));
+
     if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
         button->updateText();
 
@@ -415,6 +442,7 @@ void LxQtTaskBar::settingsChanged()
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
 
@@ -577,7 +605,7 @@ void LxQtTaskBar::wheelEvent(QWheelEvent* event)
             continue;
 
         WId window = ((LxQtTaskButton *) item->widget())->windowId();
-        if (acceptWindow(window) && windowOnActiveDesktop(window))
+        if (acceptWindow(window) && windowOnActiveDesktop(window) && windowOnCurrentScreen(window))
         {
             KWindowSystem::activateWindow(window);
             break;
