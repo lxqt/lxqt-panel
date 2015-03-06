@@ -100,11 +100,13 @@ private:
     int mButtonHeight;
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
+    bool mShowOnlyCurrentScreenTasks;
     bool mAutoRotate;
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
 
     bool windowOnActiveDesktop(WId window) const;
+    bool windowOnCurrentScreen(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 

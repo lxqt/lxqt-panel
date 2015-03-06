@@ -21,23 +21,17 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QRadioButton" name="fCurrentDesktopRB">
+       <widget class="QCheckBox" name="limitByDesktopCB">
         <property name="text">
-         <string>Show windows from c&amp;urrent desktop</string>
+         <string>Show only windows from c&amp;urrent desktop</string>
         </property>
-        <attribute name="buttonGroup">
-         <string notr="true">wlcB</string>
-        </attribute>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="fAllDesktopsCB">
+       <widget class="QCheckBox" name="limitByScreenCB">
         <property name="text">
-         <string>Show windows from all des&amp;ktops</string>
+         <string>Show only windows from &amp;panel's screen</string>
         </property>
-        <attribute name="buttonGroup">
-         <string notr="true">wlcB</string>
-        </attribute>
        </widget>
       </item>
       <item>
@@ -197,7 +191,4 @@
    </hints>
   </connection>
  </connections>
- <buttongroups>
-  <buttongroup name="wlcB"/>
- </buttongroups>
 </ui>

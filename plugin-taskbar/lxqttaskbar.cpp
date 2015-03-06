@@ -40,6 +40,7 @@
 #include <QFlag>
 #include <QX11Info>
 #include <QDebug>
+#include <QDesktopWidget>
 
 #include <LXQt/GridLayout>
 #include <XdgIcon>
@@ -54,6 +55,11 @@ using namespace LxQt;
 ************************************************/
 LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
+    mButtonStyle(Qt::ToolButtonTextBesideIcon),
+    mCloseOnMiddleClick(true),
+    mShowOnlyCurrentDesktopTasks(false),
+    mShowOnlyCurrentScreenTasks(false),
+    mAutoRotate(true),
     mShowGroupOnHover(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
@@ -85,6 +91,25 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
 LxQtTaskBar::~LxQtTaskBar()
 {
     delete mStyle;
+}
+
+/************************************************
+
+ ************************************************/
+bool LxQtTaskBar::windowOnCurrentScreen(WId window) const
+{
+    if (!mShowOnlyCurrentScreenTasks)
+        return true;
+
+    KWindowInfo info(window, NET::WMDesktop | NET::WMFrameExtents);
+    int desktop = info.desktop();
+    if (desktop == NET::OnAllDesktops)
+        return true;
+
+    QDesktopWidget desc;
+    QRect frame = info.frameGeometry();
+    QPoint midpoint = (frame.topLeft() + frame.bottomRight()) / 2;
+    return desc.screenNumber(midpoint) == desc.screenNumber(this);
 }
 
 /************************************************
@@ -377,7 +402,8 @@ void LxQtTaskBar::settingsChanged()
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", false).toBool();
+    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
