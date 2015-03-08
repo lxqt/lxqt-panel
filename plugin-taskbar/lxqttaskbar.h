@@ -86,6 +86,7 @@ private slots:
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
+    void groupPopupShown(LxQtTaskGroup * const sender);
 
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;

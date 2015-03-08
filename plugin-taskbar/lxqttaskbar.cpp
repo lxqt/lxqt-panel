@@ -246,6 +246,7 @@ void LxQtTaskBar::refreshTaskList()
                 group = new LxQtTaskGroup(id, KWindowSystem::icon(wnd), mPlugin, this);
                 connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
                 connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
+                connect(group, &LxQtTaskGroup::popupShown, this, &LxQtTaskBar::groupPopupShown);
 
                 mLayout->addWidget(group);
                 mGroupsHash.insert(id, group);
@@ -380,7 +381,7 @@ void LxQtTaskBar::realign()
     refreshButtonRotation();
 
     ILxQtPanel *panel = mPlugin->panel();
-    QSize maxSize = QSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+    QSize maxSize = QSize(mButtonWidth, QWIDGETSIZE_MAX);
     QSize minSize = QSize(0, 0);
 
     bool rotated = false;
@@ -389,11 +390,6 @@ void LxQtTaskBar::realign()
     {
         mLayout->setRowCount(panel->lineCount());
         mLayout->setColumnCount(0);
-
-        minSize.rheight() = 0;
-        minSize.rwidth()  = 0;
-        maxSize.rheight() = QWIDGETSIZE_MAX;
-        maxSize.rwidth()  = mButtonWidth;
 
         if (mButtonStyle == Qt::ToolButtonIconOnly)
             // Horizontal + Icons
@@ -405,17 +401,12 @@ void LxQtTaskBar::realign()
     else
     {
         mLayout->setRowCount(0);
-        minSize.rheight() = 0;
-        maxSize.rwidth()  = QWIDGETSIZE_MAX;
 
         if (mButtonStyle == Qt::ToolButtonIconOnly)
         {
             // Vertical + Icons
             mLayout->setColumnCount(panel->lineCount());
             mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
-
-            minSize.rwidth()  = 0;
-            maxSize.rheight() = QWIDGETSIZE_MAX;
         }
         else
         {
@@ -424,19 +415,16 @@ void LxQtTaskBar::realign()
             // Vertical + Text
             if (rotated)
             {
+                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+                maxSize.rheight() = mButtonWidth;
+
                 mLayout->setColumnCount(panel->lineCount());
                 mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
-
-                minSize.rwidth()  = 0;
-                maxSize.rheight() = mButtonWidth;
             }
             else
             {
                 mLayout->setColumnCount(1);
                 mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
-
-                minSize.rwidth()  = mButtonWidth;
-                maxSize.rheight() = QWIDGETSIZE_MAX;
             }
         }
     }
@@ -518,4 +506,14 @@ void LxQtTaskBar::changeEvent(QEvent* event)
         mStyle->setBaseStyle(NULL);
 
     QFrame::changeEvent(event);
+}
+
+void LxQtTaskBar::groupPopupShown(LxQtTaskGroup * const sender)
+{
+    //close all popups (should they be visible because of close delay)
+    for (auto group : mGroupsHash)
+    {
+        if (group->isVisible() && sender != group)
+            group->setPopupVisible(false, true/*fast*/);
+    }
 }

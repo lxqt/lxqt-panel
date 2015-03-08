@@ -313,6 +313,7 @@ void LxQtTaskGroup::regroup()
         if (button)
         {
             setText(button->text());
+            setToolTip(button->toolTip());
             setWindowId(button->windowId());
         }
     }
@@ -320,7 +321,9 @@ void LxQtTaskGroup::regroup()
         hide();
     else
     {
-        setText(mGroupName % QString(" - %1 ").arg(cont) % tr("windows"));
+        QString t = QString("%1 - %2 windows").arg(mGroupName).arg(cont);
+        setText(t);
+        setToolTip(parentTaskBar()->isShowGroupOnHover() ? QStringLiteral() : t);
         setWindowId(0);
     }
 }
@@ -407,6 +410,7 @@ void LxQtTaskGroup::setPopupVisible(bool visible, bool fast)
         }
 
         mPopup->show();
+        emit popupShown(this);
     }
     else
         mPopup->hide(fast);
@@ -485,13 +489,13 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
     switch (mPlugin->panel()->position())
     {
     case ILxQtPanel::PositionBottom:
-        y_offset = -recalculateFrameHeight()  - 5 ; break;
+        y_offset = -recalculateFrameHeight(); break;
     case ILxQtPanel::PositionTop:
-        y_offset = mPlugin->panel()->globalGometry().height() / rows + 5; break;
+        y_offset = mPlugin->panel()->globalGometry().height() / rows; break;
     case ILxQtPanel::PositionLeft:
-        x_offset = mPlugin->panel()->globalGometry().width() + 5; break;
+        x_offset = mPlugin->panel()->globalGometry().width(); break;
     case ILxQtPanel::PositionRight:
-        x_offset = -recalculateFrameWidth() - 5;
+        x_offset = -recalculateFrameWidth();
         break;
     }
 

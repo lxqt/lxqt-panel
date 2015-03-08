@@ -55,7 +55,7 @@ LxQtGroupPopup::LxQtGroupPopup(LxQtTaskGroup *group):
     layout()->setSpacing(3);
     layout()->setMargin(3);
 
-    connect(&mCloseTimer, SIGNAL(timeout()), this, SLOT(close()));
+    connect(&mCloseTimer, &QTimer::timeout, this, &LxQtGroupPopup::closeTimerSlot);
     mCloseTimer.setSingleShot(true);
     mCloseTimer.setInterval(400);
 }
@@ -73,7 +73,7 @@ void LxQtGroupPopup::dropEvent(QDropEvent *event)
     window = (WId) temp;
 
     LxQtTaskButton *button;
-    int oldIndex;
+    int oldIndex(0);
     // get current position of the button being dragged
     for (int i = 0; i < layout()->count(); i++)
     {
@@ -113,9 +113,14 @@ void LxQtGroupPopup::dropEvent(QDropEvent *event)
 
 void LxQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (event->mimeData()->hasFormat(LxQtTaskButton::mimeDataFormat()))
-        event->accept();
+    event->accept();
     QWidget::dragEnterEvent(event);
+}
+
+void LxQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    hide(false/*not fast*/);
+    QFrame::dragLeaveEvent(event);
 }
 
 /************************************************
@@ -146,4 +151,21 @@ void LxQtGroupPopup::show()
 {
     mCloseTimer.stop();
     QFrame::show();
+}
+
+void LxQtGroupPopup::closeTimerSlot()
+{
+    bool button_has_dnd_hover = false;
+    QLayout* l = layout();
+    for (int i = 0; l->count() > i; ++i)
+    {
+        LxQtTaskButton const * const button = dynamic_cast<LxQtTaskButton const *>(l->itemAt(i)->widget());
+        if (0 != button && button->hasDragAndDropHover())
+        {
+            button_has_dnd_hover = true;
+            break;
+        }
+    }
+    if (!button_has_dnd_hover)
+        close();
 }

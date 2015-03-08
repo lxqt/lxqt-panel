@@ -83,6 +83,9 @@ public:
 
     void refreshIconGeometry();
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
+    /*! \return true if this buttom received DragEnter event (and no DragLeave event yet)
+     * */
+    bool hasDragAndDropHover() const;
 
 public slots:
     void raiseApplication();

@@ -96,7 +96,7 @@ LxQtTaskButton::LxQtTaskButton(const WId window, LxQtTaskBar * taskbar, QWidget 
     updateIcon();
 
     mDNDTimer->setSingleShot(true);
-    mDNDTimer->setInterval(1000);
+    mDNDTimer->setInterval(700);
     connect(mDNDTimer, SIGNAL(timeout()), this, SLOT(activateWithDraggable()));
 }
 
@@ -692,4 +692,9 @@ void LxQtTaskButton::paintEvent(QPaintEvent *event)
     }
 
     mDrawPixmap = drawPixmapNextTime;
+}
+
+bool LxQtTaskButton::hasDragAndDropHover() const
+{
+    return mDNDTimer->isActive();
 }

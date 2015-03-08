@@ -70,8 +70,7 @@ public:
     void setAutoRotation(bool value, ILxQtPanel::Position position);
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
 
-    int recalculateFrameHeight() const;
-    int recalculateFrameWidth() const;
+    void setPopupVisible(bool visible = true, bool fast = false);
 
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskgroup"); }
 
@@ -84,6 +83,8 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);
     void mouseMoveEvent(QMouseEvent * event);
+    int recalculateFrameHeight() const;
+    int recalculateFrameWidth() const;
 
     void draggingTimerTimeout();
 
@@ -96,11 +97,11 @@ private slots:
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
     void closeGroup();
-    void setPopupVisible(bool visible = true, bool fast = false);
 
 signals:
     void groupBecomeEmpty(QString name);
     void visibilityChanged(bool visible);
+    void popupShown(LxQtTaskGroup* sender);
 
 private:
     QString mGroupName;
