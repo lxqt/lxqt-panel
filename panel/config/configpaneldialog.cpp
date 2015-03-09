@@ -33,7 +33,7 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QWindow>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
 #include <QColorDialog>
 #include <QFileDialog>
 #include <QStandardPaths>

@@ -32,8 +32,8 @@
 #include <QSignalMapper>
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/NETWM>
 #include <QX11Info>
 #include <cmath>
 
