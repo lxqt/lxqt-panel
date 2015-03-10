@@ -31,12 +31,19 @@ class StatusNotifierButton : public QToolButton
 public:
     StatusNotifierButton(QString service, QString objectPath, QWidget *parent = 0);
 
+    enum Status
+    {
+        Passive, Active, NeedsAttention
+    };
+
 public slots:
     void newIcon();
     void newToolTip();
+    void newStatus(QString status);
 
 private:
     org::kde::StatusNotifierItem *interface;
+    Status mStatus;
 
 protected:
     void contextMenuEvent(QContextMenuEvent * event);

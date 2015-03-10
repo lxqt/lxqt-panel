@@ -1,7 +1,8 @@
 #include "statusnotifierbutton.h"
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
-    : QToolButton(parent)
+    : QToolButton(parent),
+    mStatus(Passive)
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus());
 
@@ -10,6 +11,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
 
     connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
     connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
+    connect(interface, SIGNAL(NewStatus(QString)), this, SLOT(newStatus(QString)));
 }
 
 void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
@@ -34,32 +36,27 @@ void StatusNotifierButton::wheelEvent(QWheelEvent *event)
 
 void StatusNotifierButton::newIcon()
 {
-    QString attentionIconName = interface->attentionIconName();
-    QString iconName = attentionIconName.isEmpty() ?
-                interface->iconName() : attentionIconName;
+    QString iconName;
+    if (mStatus == Active)
+        iconName = interface->overlayIconName();
+    else if (mStatus == NeedsAttention)
+        iconName = interface->attentionIconName();
+    else // mStatus == Passive
+        iconName = interface->iconName();
 
+    QIcon icon;
     if (!iconName.isEmpty())
     {
-        QString iconThemePath = interface->iconThemePath();
-
-        QIcon icon;
         if (icon.hasThemeIcon(iconName))
-        {
             icon = QIcon::fromTheme(iconName);
-            setIcon(icon);
-        }
         else
         {
-            QDir themeDir(iconThemePath);
+            QDir themeDir(interface->iconThemePath());
             if (themeDir.exists(iconName + ".png"))
-            {
                 icon.addFile(themeDir.filePath(iconName + ".png"));
-            }
 
-            if (themeDir.exists("hicolor"))
+            if (themeDir.cd("hicolor"))
             {
-                themeDir.cd("hicolor");
-
                 QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                 foreach (QString dir, sizes)
                 {
@@ -68,64 +65,59 @@ void StatusNotifierButton::newIcon()
                 }
             }
 
-            if (icon.isNull()) {
-                icon = QIcon::fromTheme("image-missing");
-                setIcon(icon);
-            }
-            else
-            {
-                setIcon(icon);
-            }
+            if (icon.isNull())
+                icon = QIcon::fromTheme("application-x-executable");
         }
     }
     else
     {
-        QList<IconPixmap> attentionIconPixmaps = interface->attentionIconPixmap();
-        QList<IconPixmap> iconPixmaps = attentionIconPixmaps;
-        if (attentionIconPixmaps.isEmpty())
-        {
+        IconPixmapList iconPixmaps;
+        if (mStatus == Active)
+            iconPixmaps = interface->overlayIconPixmap();
+        else if (mStatus == NeedsAttention)
+            iconPixmaps = interface->attentionIconPixmap();
+        else // mStatus == Passive
             iconPixmaps = interface->iconPixmap();
-        }
-        else if (attentionIconPixmaps.first().bytes.isEmpty())
-        {
-            iconPixmaps = interface->iconPixmap();
-        }
 
-        if (iconPixmaps.isEmpty())
+        if (iconPixmaps.isEmpty() || iconPixmaps.first().bytes.isEmpty())
+            icon = QIcon::fromTheme("application-x-executable");
+        else
         {
-            setIcon(QIcon::fromTheme("image-missing"));
-            return;
-        }
-        else if (iconPixmaps.first().bytes.isEmpty())
-        {
-            setIcon(QIcon::fromTheme("image-missing"));
-            return;
-        }
+            IconPixmap iconPixmap = iconPixmaps.first();
+            QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
+            const uchar *end = image.constBits() + image.byteCount();
+            uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
+            for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
+                qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
 
-        IconPixmap iconPixmap = iconPixmaps.first();
-        QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
-        const uchar *end = image.constBits() + image.byteCount();
-        uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
-        for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
-            qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
-
-        image = QImage((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
-        QPixmap pixmap = QPixmap::fromImage(image);
-        QIcon icon(pixmap);
-        setIcon(icon);
+            image = QImage((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
+            QPixmap pixmap = QPixmap::fromImage(image);
+            icon = QIcon(pixmap);
+        }
     }
+
+    setIcon(icon);
 }
 
 void StatusNotifierButton::newToolTip()
 {
     QString toolTipTitle = interface->toolTip().title;
+    setToolTip(toolTipTitle.isEmpty() ? interface->title() : toolTipTitle);
+}
 
-    if (toolTipTitle.isEmpty())
-    {
-        setToolTip(interface->title());
-    }
+void StatusNotifierButton::newStatus(QString status)
+{
+    Status newStatus;
+    if (status == QStringLiteral("Passive"))
+        newStatus = Passive;
+    else if (status == QStringLiteral("Active"))
+        newStatus = Active;
     else
-    {
-        setToolTip(toolTipTitle);
-    }
+        newStatus = NeedsAttention;
+
+    if (mStatus == newStatus)
+        return;
+
+    mStatus = newStatus;
+    newIcon();
 }
