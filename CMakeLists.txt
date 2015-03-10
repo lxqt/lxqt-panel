@@ -38,11 +38,13 @@ find_package(Qt5LinguistTools REQUIRED)
 find_package(Qt5Xml REQUIRED)
 find_package(Qt5X11Extras REQUIRED)
 find_package(KF5WindowSystem REQUIRED)
+find_package(PkgConfig REQUIRED)
 
 find_package(lxqt REQUIRED)
 find_package(Qt5Xdg REQUIRED QUIET)
 find_package(lxqt-globalkeys REQUIRED)
 find_package(lxqt-globalkeys-ui REQUIRED)
+pkg_check_modules(dbusmenu-qt5 REQUIRED dbusmenu-qt5)
 
 include(${LXQT_USE_FILE})
 include(${QTXDG_USE_FILE})
@@ -55,6 +57,7 @@ include_directories(
     ${LXQT_INCLUDE_DIRS}
     ${QTXDG_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
+    ${dbusmenu-qt5_INCLUDE_DIRS}
 )
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
@@ -192,6 +195,13 @@ if(TASKBAR_PLUGIN)
   list(APPEND STATIC_PLUGINS "taskbar")
   set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Taskbar")
   add_subdirectory(plugin-taskbar)
+endif()
+
+setByDefault(STATUSNOTIFIER_PLUGIN Yes)
+if(STATUSNOTIFIER_PLUGIN)
+    list(APPEND STATIC_PLUGINS "statusnotifier")
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Status Notifier")
+    add_subdirectory(plugin-statusnotifier)
 endif()
 
 setByDefault(TRAY_PLUGIN Yes)

@@ -46,7 +46,6 @@
 #include <LXQt/Settings>
 #include <LXQt/Translator>
 #include <XdgIcon>
-#include <algorithm> // for std::lower_bound()
 
 // statically linked built-in plugins
 #include "../plugin-clock/lxqtclock.h" // clock
@@ -55,6 +54,7 @@
 #include "../plugin-quicklaunch/lxqtquicklaunchplugin.h" // quicklaunch
 #include "../plugin-showdesktop/showdesktop.h" // showdesktop
 #include "../plugin-taskbar/lxqttaskbarplugin.h" // taskbar
+#include "../plugin-statusnotifier/statusnotifier.h" // statusnotifier
 #include "../plugin-tray/lxqttrayplugin.h" // tray
 #include "../plugin-worldclock/lxqtworldclock.h" // worldclock
 
@@ -187,6 +187,7 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
     static LxQtQuickLaunchPluginLibrary quicklaunch_lib; // quicklaunch
     static ShowDesktopLibrary showdesktop_lib; //showdesktop
     static LxQtTaskBarPluginLibrary taskbar_lib; //taskbar
+    static StatusNotifierLibrary statusnotifier_lib; // statusnotifier
     static LxQtTrayPluginLibrary tray_lib; //tray
     static LxQtWorldClockLibrary worldclock_lib; // worldclock
 
@@ -198,6 +199,7 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
         QStringLiteral("quicklaunch"),
         QStringLiteral("showdesktop"),
         QStringLiteral("taskbar"),
+        QStringLiteral("statusnotifier"),
         QStringLiteral("tray"),
         QStringLiteral("worldclock")
     };
@@ -209,16 +211,15 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
         &quicklaunch_lib,
         &showdesktop_lib,
         &taskbar_lib,
+        &statusnotifier_lib,
         &tray_lib,
         &worldclock_lib
     };
 
-    // for small tables, binary search is often faster than hash tables
-    const QString* end = names + sizeof(names)/sizeof(QString);
-    const QString* it = std::lower_bound(names, end, libraryName);
-    if(it != end && *it == libraryName) {
-        return staticPlugins[(it - names)];
-    }
+    for (int i = 0; i < sizeof(names) / sizeof(QString); i++)
+        if (names[i] == libraryName)
+            return staticPlugins[i];
+
     return NULL;
 }
 
