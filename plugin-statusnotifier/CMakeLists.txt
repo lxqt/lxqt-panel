@@ -41,7 +41,6 @@ qt5_add_dbus_adaptor(SOURCES
 set(LIBRARIES
     ${LXQT_LIBRARIES}
     ${QTXDG_LIBRARIES}
-    ${dbusmenu-qt5_LIBRARIES}
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

@@ -1,39 +1,29 @@
 #include "statusnotifierbutton.h"
 
-StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath) : menu(0)
+StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
+    : QToolButton(parent)
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus());
 
     newIcon();
     newToolTip();
 
-    QString menuPath = interface->menu().path();
-    if (!menuPath.isEmpty()) {
-        DBusMenuImporter *menuImporter = new DBusMenuImporter(service, menuPath);
-        menu = menuImporter->menu();
-    }
-
     connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
     connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
-
-    connect(this, SIGNAL(clicked()), this, SLOT(showMenu()));
-
 }
 
-void StatusNotifierButton::showMenu()
+void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
 {
-    if (menu != NULL)
-    {
-        menu->exec(this->mapToGlobal(QPoint(0, 0)));
-    }
+    interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
+    // QWidget::contextMenuEvent(event);
 }
 
 void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::MidButton) {
-        setDown(false);
+    if (event->button() == Qt::LeftButton)
         interface->Activate(QCursor::pos().x(), QCursor::pos().y());
-    }
+    else if (event->button() == Qt::MidButton)
+        interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
     QToolButton::mouseReleaseEvent(event);
 }
 

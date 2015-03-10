@@ -25,7 +25,7 @@ StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *pa
 
 void StatusNotifierWidget::addButton(QString service, QString objectPath)
 {
-    StatusNotifierButton *button = new StatusNotifierButton(service, objectPath);
+    StatusNotifierButton *button = new StatusNotifierButton(service, objectPath, this);
 
     layout->addWidget(button);
     layout->setAlignment(button, Qt::AlignCenter);

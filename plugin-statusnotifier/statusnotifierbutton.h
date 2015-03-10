@@ -12,8 +12,6 @@
 #include <QToolButton>
 #include <QWheelEvent>
 
-#include <dbusmenuimporter.h>
-
 #include "statusnotifieriteminterface.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
@@ -31,25 +29,19 @@ class StatusNotifierButton : public QToolButton
     Q_OBJECT
 
 public:
-    StatusNotifierButton(QString service, QString objectPath);
+    StatusNotifierButton(QString service, QString objectPath, QWidget *parent = 0);
 
 public slots:
-    void showMenu();
-
     void newIcon();
     void newToolTip();
 
 private:
-    QMenu *menu;
     org::kde::StatusNotifierItem *interface;
 
 protected:
+    void contextMenuEvent(QContextMenuEvent * event);
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
-
-signals:
-    void midButtonPressed(int x, int y);
-    void wheelRotated(int delta, QString orientation);
 };
 
 #endif // STATUSNOTIFIERBUTTON_H
