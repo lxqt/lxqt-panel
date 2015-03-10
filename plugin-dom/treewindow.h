@@ -52,6 +52,7 @@ public:
 private slots:
     void updatePropertiesView();
     void clearPropertiesView();
+    void sectionDoubleClickedSlot(int column);
 
 private:
     Ui::TreeWindow *ui;
