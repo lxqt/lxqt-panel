@@ -50,14 +50,13 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     loadSettings();
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
-    connect(ui->fAllDesktopsCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->fCurrentDesktopRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(updateControls(int)));
     connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->fCurrentScreenRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -67,18 +66,8 @@ LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
 
 void LxQtTaskbarConfiguration::loadSettings()
 {
-    if (mSettings.value("showOnlyCurrentDesktopTasks", false).toBool() == true)
-    {
-        ui->fCurrentDesktopRB->setChecked(true);
-    }
-    else if (mSettings.value("showOnlyCurrentScreenTasks", false).toBool() == true)
-    {
-        ui->fCurrentScreenRB->setChecked(true);
-    }
-    else
-    {
-        ui->fAllDesktopsCB->setChecked(true);
-    }
+    ui->limitByDesktopCB->setChecked(mSettings.value("showOnlyCurrentDesktopTasks", false).toBool());
+    ui->limitByScreenCB->setChecked(mSettings.value("showOnlyCurrentScreenTasks", false).toBool());
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
@@ -91,8 +80,8 @@ void LxQtTaskbarConfiguration::loadSettings()
 
 void LxQtTaskbarConfiguration::saveSettings()
 {
-    mSettings.setValue("showOnlyCurrentDesktopTasks", ui->fCurrentDesktopRB->isChecked());
-    mSettings.setValue("showOnlyCurrentScreenTasks", ui->fCurrentScreenRB->isChecked());
+    mSettings.setValue("showOnlyCurrentDesktopTasks", ui->limitByDesktopCB->isChecked());
+    mSettings.setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
     mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());

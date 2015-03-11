@@ -118,9 +118,6 @@ bool LxQtTaskBar::windowOnCurrentScreen(WId window) const
     if (desktop == NET::OnAllDesktops)
         return true;
 
-    if (desktop != KWindowSystem::currentDesktop())
-        return false;
-
     QDesktopWidget desc;
     QRect frame = info.frameGeometry();
     QPoint midpoint = (frame.topLeft() + frame.bottomRight()) / 2;
