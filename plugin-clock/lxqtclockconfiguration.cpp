@@ -27,10 +27,53 @@
 
 
 #include <QInputDialog>
+#include <QStandardItemModel>
+#include <QStandardItem>
 
 #include "lxqtclockconfiguration.h"
 #include "ui_lxqtclockconfiguration.h"
 
+
+namespace
+{
+    class FirstDayCombo : public QStandardItemModel
+    {
+    public:
+        FirstDayCombo()
+        {
+            QStandardItem* item = 0;
+            int row = 0;
+            item = new QStandardItem;
+            item->setData(-1, Qt::UserRole);
+            setItem(row, 0, item);
+            item = new QStandardItem;
+            item->setData(tr("<locale based>"), Qt::DisplayRole);
+            setItem(row, 1, item);
+            ++row;
+            for (int wday = Qt::Monday; Qt::Sunday >= wday; ++wday, ++row)
+            {
+                item = new QStandardItem;
+                item->setData(wday, Qt::UserRole);
+                setItem(row, 0, item);
+                item = new QStandardItem;
+                item->setData(QLocale::system().dayName(wday), Qt::DisplayRole);
+                setItem(row, 1, item);
+            }
+        }
+
+        int findIndex(int wday)
+        {
+            int i = rowCount() - 1;
+            for ( ; 0 <= i; --i)
+            {
+                if (item(i)->data(Qt::UserRole).toInt() == wday)
+                    break;
+            }
+            return i;
+        }
+
+    };
+}
 
 LxQtClockConfiguration::LxQtClockConfiguration(QSettings &settings, QWidget *parent) :
     QDialog(parent),
@@ -44,6 +87,9 @@ LxQtClockConfiguration::LxQtClockConfiguration(QSettings &settings, QWidget *par
     ui->setupUi(this);
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), SLOT(dialogButtonsAction(QAbstractButton*)));
+
+    ui->firstDayOfWeekCB->setModel(new FirstDayCombo);
+    ui->firstDayOfWeekCB->setModelColumn(1);
 
     loadSettings();
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
@@ -60,6 +106,7 @@ LxQtClockConfiguration::LxQtClockConfiguration(QSettings &settings, QWidget *par
     connect(ui->showDateBelowTimeRB, SIGNAL(clicked()), SLOT(saveSettings()));
 
     connect(ui->autorotateCB, SIGNAL(clicked()), SLOT(saveSettings()));
+    connect(ui->firstDayOfWeekCB, SIGNAL(activated(int)), SLOT(saveSettings()));
 }
 
 LxQtClockConfiguration::~LxQtClockConfiguration()
@@ -187,6 +234,7 @@ void LxQtClockConfiguration::loadSettings()
     mOldIndex = ui->dateFormatCOB->currentIndex();
 
     ui->autorotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
+    ui->firstDayOfWeekCB->setCurrentIndex(dynamic_cast<FirstDayCombo&>(*(ui->firstDayOfWeekCB->model())).findIndex(mSettings.value("firstDayOfWeek", -1).toInt()));
 }
 
 void LxQtClockConfiguration::saveSettings()
@@ -212,6 +260,7 @@ void LxQtClockConfiguration::saveSettings()
         mSettings.setValue("dateFormat", ui->dateFormatCOB->itemData(ui->dateFormatCOB->currentIndex()));
 
     mSettings.setValue("autoRotate", ui->autorotateCB->isChecked());
+    mSettings.setValue("firstDayOfWeek", dynamic_cast<QStandardItemModel&>(*ui->firstDayOfWeekCB->model()).item(ui->firstDayOfWeekCB->currentIndex(), 0)->data(Qt::UserRole));
 }
 
 void LxQtClockConfiguration::dialogButtonsAction(QAbstractButton *btn)

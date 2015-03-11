@@ -80,7 +80,7 @@ private:
     QString mDateFormat;
     bool mDateOnNewLine;
     bool mUseUTC;
-    Qt::DayOfWeek mFirstDayOfWeek;
+    int mFirstDayOfWeek;
     bool mAutoRotate;
 
     QDateTime currentDateTime();
