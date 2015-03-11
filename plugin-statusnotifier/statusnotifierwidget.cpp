@@ -1,48 +1,54 @@
 #include "statusnotifierwidget.h"
+#include <QApplication>
 
 StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QWidget(parent),
-    m_plugin(plugin)
+    mPlugin(plugin)
 {
-    m_watcher = new StatusNotifierWatcher;
-
-    if (!QDBusConnection::sessionBus().registerService("org.kde.StatusNotifierWatcher"))
-    {
+    if (!QDBusConnection::sessionBus().registerService(QString("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1)))
         qDebug() << QDBusConnection::sessionBus().lastError().message();
-    }
-    if (!QDBusConnection::sessionBus().registerObject("/StatusNotifierWatcher", m_watcher, QDBusConnection::ExportScriptableContents))
-    {
-        qDebug() << QDBusConnection::sessionBus().lastError().message();
-    }
 
-    connect(m_watcher, SIGNAL(itemAdded(QString,QString)), this, SLOT(addButton(QString,QString)));
-    connect(m_watcher, SIGNAL(itemRemoved(int)), this, SLOT(removeButton(int)));
+    mWatcher = new StatusNotifierWatcher;
+
+    connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemRegistered,
+            this, &StatusNotifierWidget::itemAdded);
+    connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemUnregistered,
+            this, &StatusNotifierWidget::itemRemoved);
 
     layout = new LxQt::GridLayout(this);
     setLayout(layout);
     realign();
 }
 
-void StatusNotifierWidget::addButton(QString service, QString objectPath)
+void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 {
-    StatusNotifierButton *button = new StatusNotifierButton(service, objectPath, this);
+    QStringList item = serviceAndPath.split('/');
+    QString serv = item.at(0);
+    QString path = QLatin1Char('/') + item.at(1);
+    StatusNotifierButton *button = new StatusNotifierButton(serv, path, this);
+
+    mServices.insert(serviceAndPath, button);
 
     layout->addWidget(button);
     layout->setAlignment(button, Qt::AlignCenter);
     button->show();
 }
 
-void StatusNotifierWidget::removeButton(int index)
+void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
 {
-    layout->itemAt(index)->widget()->deleteLater();
-    layout->removeWidget(layout->itemAt(index)->widget());
+    StatusNotifierButton *button = mServices.value(serviceAndPath, NULL);
+    if (button)
+    {
+        button->deleteLater();
+        layout->removeWidget(button);
+    }
 }
 
 void StatusNotifierWidget::realign()
 {
     layout->setEnabled(false);
 
-    ILxQtPanel *panel = m_plugin->panel();
+    ILxQtPanel *panel = mPlugin->panel();
     if (panel->isHorizontal())
     {
         layout->setRowCount(panel->lineCount());

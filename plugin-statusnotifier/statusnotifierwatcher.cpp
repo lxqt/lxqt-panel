@@ -1,5 +1,6 @@
 #include "statusnotifierwatcher.h"
 #include <QDebug>
+#include <QDBusConnectionInterface>
 
 StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
 {
@@ -10,46 +11,71 @@ StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
     qRegisterMetaType<ToolTip>("ToolTip");
     qDBusRegisterMetaType<ToolTip>();
 
-    serviceWatcher = new QDBusServiceWatcher;
-    serviceWatcher->setConnection(QDBusConnection::sessionBus());
+    QDBusConnection dbus = QDBusConnection::sessionBus();
+    if (!dbus.registerService("org.kde.StatusNotifierWatcher"))
+        qDebug() << QDBusConnection::sessionBus().lastError().message();
+    if (!dbus.registerObject("/StatusNotifierWatcher", this, QDBusConnection::ExportScriptableContents))
+        qDebug() << QDBusConnection::sessionBus().lastError().message();
 
-    connect(serviceWatcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(removeItem(QString)));
+    mWatcher = new QDBusServiceWatcher(this);
+    mWatcher->setConnection(dbus);
+    mWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+
+    connect(mWatcher, &QDBusServiceWatcher::serviceUnregistered, this, &StatusNotifierWatcher::serviceUnregistered);
 }
 
 StatusNotifierWatcher::~StatusNotifierWatcher()
 {
-
+    QDBusConnection::sessionBus().unregisterService("org.kde.StatusNotifierWatcher");
 }
 
-void StatusNotifierWatcher::RegisterStatusNotifierItem(QString service)
+void StatusNotifierWatcher::RegisterStatusNotifierItem(const QString &serviceOrPath)
 {
+    QString service = serviceOrPath;
     QString path = "/StatusNotifierItem";
 
     // workaround for sni-qt
-    if (service.contains("/"))
+    if (service.startsWith('/'))
     {
         path = service;
         service = message().service();
     }
 
-    m_services << service;
-    serviceWatcher->addWatchedService(service);
+    QString notifierItemId = service + path;
 
-    emit StatusNotifierItemRegistered();
-    emit itemAdded(service, path);
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(service).value()
+        && !mServices.contains(notifierItemId))
+    {
+        qDebug() << "Registering" << notifierItemId;
+
+        mServices << notifierItemId;
+        mWatcher->addWatchedService(service);
+        emit StatusNotifierItemRegistered(notifierItemId);
+    }
 }
 
-void StatusNotifierWatcher::RegisterStatusNotifierHost(QString service)
+void StatusNotifierWatcher::RegisterStatusNotifierHost(const QString &service)
 {
     Q_UNUSED(service);
 }
 
-void StatusNotifierWatcher::removeItem(QString service)
+void StatusNotifierWatcher::serviceUnregistered(const QString &service)
 {
-    int index = m_services.indexOf(service);
-    m_services.removeAt(index);
-    serviceWatcher->removeWatchedService(service);
+    qDebug() << "Service" << service << "unregistered";
 
-    emit StatusNotifierItemUnregistered();
-    emit itemRemoved(index);
+    mWatcher->removeWatchedService(service);
+
+    QString match = service + '/';
+    QStringList::Iterator it = mServices.begin();
+    while (it != mServices.end())
+    {
+        if (it->startsWith(match))
+        {
+            QString name = *it;
+            it = mServices.erase(it);
+            emit StatusNotifierItemUnregistered(name);
+        }
+        else
+            ++it;
+    }
 }

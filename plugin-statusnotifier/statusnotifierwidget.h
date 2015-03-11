@@ -18,15 +18,17 @@ public:
 signals:
 
 public slots:
-    void addButton(QString service, QString objectPath);
-    void removeButton(int index);
+    void itemAdded(QString serviceAndPath);
+    void itemRemoved(const QString &serviceAndPath);
 
     void realign();
 
 private:
     LxQt::GridLayout *layout;
-    ILxQtPanelPlugin *m_plugin;
-    StatusNotifierWatcher *m_watcher;
+    ILxQtPanelPlugin *mPlugin;
+    StatusNotifierWatcher *mWatcher;
+
+    QHash<QString, StatusNotifierButton*> mServices;
 };
 
 #endif // STATUSNOTIFIERWIDGET_H
