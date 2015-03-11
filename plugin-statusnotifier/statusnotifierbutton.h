@@ -75,7 +75,7 @@ private:
     org::kde::StatusNotifierItem *interface;
     Status mStatus;
 
-    QIcon icon, overlayIcon, attentionIcon;
+    QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 
 protected:
     void contextMenuEvent(QContextMenuEvent * event);

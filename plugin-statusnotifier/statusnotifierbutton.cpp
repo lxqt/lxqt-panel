@@ -30,11 +30,15 @@
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
     : QToolButton(parent),
-    mStatus(Passive)
+    mStatus(Passive),
+    mFallbackIcon(QIcon::fromTheme("application-x-executable"))
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus());
 
     newToolTip();
+    refetchIcon(Active);
+    refetchIcon(Passive);
+    refetchIcon(NeedsAttention);
     newStatus(interface->status());
     resetIcon();
 
@@ -76,26 +80,31 @@ void StatusNotifierButton::refetchIcon(Status status)
     QIcon nextIcon;
     if (!iconName.isEmpty())
     {
-        if (nextIcon.hasThemeIcon(iconName))
+        if (QIcon::hasThemeIcon(iconName))
             nextIcon = QIcon::fromTheme(iconName);
         else
         {
             QDir themeDir(interface->iconThemePath());
-            if (themeDir.exists(iconName + ".png"))
-                nextIcon.addFile(themeDir.filePath(iconName + ".png"));
-
-            if (themeDir.cd("hicolor"))
+            if (themeDir.exists())
             {
-                QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                foreach (QString dir, sizes)
+                if (themeDir.exists(iconName + ".png"))
+                    nextIcon.addFile(themeDir.filePath(iconName + ".png"));
+
+                if (themeDir.cd("hicolor"))
                 {
-                    QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                    nextIcon.addFile(QDir(themeDir.path() + "/" + dir + "/" + dirs.at(0)).filePath(iconName + ".png"));
+                    QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+                    foreach (QString dir, sizes)
+                    {
+                        QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+                        foreach (QString innerDir, dirs)
+                        {
+                            QString file = QDir(themeDir.path() + "/" + dir + "/" + innerDir).filePath(iconName + ".png");
+                            if (QFile::exists(file))
+                                nextIcon.addFile(file);
+                        }
+                    }
                 }
             }
-
-            if (nextIcon.isNull())
-                nextIcon = QIcon::fromTheme("application-x-executable");
         }
     }
     else
@@ -109,9 +118,7 @@ void StatusNotifierButton::refetchIcon(Status status)
             iconPixmaps = interface->iconPixmap();
 
 
-        if (iconPixmaps.empty() || iconPixmaps.first().bytes.isNull())
-            nextIcon = QIcon::fromTheme("application-x-executable");
-        else
+        if (!iconPixmaps.empty() && !iconPixmaps.first().bytes.isNull())
         {
             IconPixmap iconPixmap = iconPixmaps.first();
             QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
@@ -126,11 +133,11 @@ void StatusNotifierButton::refetchIcon(Status status)
     }
 
     if (status == Active)
-        overlayIcon = nextIcon;
+        mOverlayIcon = nextIcon;
     else if (status == NeedsAttention)
-        attentionIcon = nextIcon;
+        mAttentionIcon = nextIcon;
     else // status == Passive
-        icon = nextIcon;
+        mIcon = nextIcon;
 }
 
 void StatusNotifierButton::newToolTip()
@@ -178,22 +185,16 @@ void StatusNotifierButton::wheelEvent(QWheelEvent *event)
 
 void StatusNotifierButton::resetIcon()
 {
-    if (mStatus == Active)
-    {
-        if (overlayIcon.isNull())
-            refetchIcon(Active);
-        setIcon(overlayIcon);
-    }
-    else if (mStatus == NeedsAttention)
-    {
-        if (attentionIcon.isNull())
-            refetchIcon(NeedsAttention);
-        setIcon(attentionIcon);
-    }
-    else // mStatus == Passive
-    {
-        if (icon.isNull())
-            refetchIcon(Passive);
-        setIcon(icon);
-    }
+    if (mStatus == Active && !mOverlayIcon.isNull())
+        setIcon(mOverlayIcon);
+    else if (mStatus == NeedsAttention && !mAttentionIcon.isNull())
+        setIcon(mAttentionIcon);
+    else if (!mIcon.isNull()) // mStatus == Passive
+        setIcon(mIcon);
+    else if (!mOverlayIcon.isNull())
+        setIcon(mOverlayIcon);
+    else if (!mAttentionIcon.isNull())
+        setIcon(mAttentionIcon);
+    else
+        setIcon(mFallbackIcon);
 }
