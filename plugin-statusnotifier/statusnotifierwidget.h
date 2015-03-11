@@ -24,7 +24,6 @@ public slots:
     void realign();
 
 private:
-    LxQt::GridLayout *layout;
     ILxQtPanelPlugin *mPlugin;
     StatusNotifierWatcher *mWatcher;
 

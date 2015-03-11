@@ -46,8 +46,6 @@ void StatusNotifierWatcher::RegisterStatusNotifierItem(const QString &serviceOrP
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered(service).value()
         && !mServices.contains(notifierItemId))
     {
-        qDebug() << "Registering" << notifierItemId;
-
         mServices << notifierItemId;
         mWatcher->addWatchedService(service);
         emit StatusNotifierItemRegistered(notifierItemId);
@@ -56,7 +54,11 @@ void StatusNotifierWatcher::RegisterStatusNotifierItem(const QString &serviceOrP
 
 void StatusNotifierWatcher::RegisterStatusNotifierHost(const QString &service)
 {
-    Q_UNUSED(service);
+    if (!mHosts.contains(service))
+    {
+        mHosts.append(service);
+        mWatcher->addWatchedService(service);
+    }
 }
 
 void StatusNotifierWatcher::serviceUnregistered(const QString &service)
@@ -64,6 +66,12 @@ void StatusNotifierWatcher::serviceUnregistered(const QString &service)
     qDebug() << "Service" << service << "unregistered";
 
     mWatcher->removeWatchedService(service);
+
+    if (mHosts.contains(service))
+    {
+        mHosts.removeAll(service);
+        return;
+    }
 
     QString match = service + '/';
     QStringList::Iterator it = mServices.begin();

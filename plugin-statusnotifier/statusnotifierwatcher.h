@@ -21,8 +21,8 @@ public:
     explicit StatusNotifierWatcher(QObject *parent = 0);
     ~StatusNotifierWatcher();
 
-    bool isStatusNotifierHostRegistered() const { return true; }
-    int protocolVersion() const { return 1; }
+    bool isStatusNotifierHostRegistered() { return mHosts.count() > 0; }
+    int protocolVersion() const { return 0; }
     QStringList RegisteredStatusNotifierItems() const { return mServices; }
 
 signals:
@@ -38,6 +38,7 @@ public slots:
 
 private:
     QStringList mServices;
+    QStringList mHosts;
     QDBusServiceWatcher *mWatcher;
 };
 

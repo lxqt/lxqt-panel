@@ -5,19 +5,23 @@ StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *pa
     QWidget(parent),
     mPlugin(plugin)
 {
-    if (!QDBusConnection::sessionBus().registerService(QString("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1)))
+    QString dbusName = QString("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1);
+    if (!QDBusConnection::sessionBus().registerService(dbusName))
         qDebug() << QDBusConnection::sessionBus().lastError().message();
 
     mWatcher = new StatusNotifierWatcher;
+    mWatcher->RegisterStatusNotifierHost(dbusName);
 
     connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemRegistered,
             this, &StatusNotifierWidget::itemAdded);
     connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemUnregistered,
             this, &StatusNotifierWidget::itemRemoved);
 
-    layout = new LxQt::GridLayout(this);
-    setLayout(layout);
+    setLayout(new LxQt::GridLayout(this));
     realign();
+
+    qDebug() << mWatcher->RegisteredStatusNotifierItems();
+
 }
 
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
@@ -29,8 +33,8 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 
     mServices.insert(serviceAndPath, button);
 
-    layout->addWidget(button);
-    layout->setAlignment(button, Qt::AlignCenter);
+    layout()->addWidget(button);
+    layout()->setAlignment(button, Qt::AlignCenter);
     button->show();
 }
 
@@ -40,12 +44,13 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
     if (button)
     {
         button->deleteLater();
-        layout->removeWidget(button);
+        layout()->removeWidget(button);
     }
 }
 
 void StatusNotifierWidget::realign()
 {
+    LxQt::GridLayout *layout = qobject_cast<LxQt::GridLayout*>(this->layout());
     layout->setEnabled(false);
 
     ILxQtPanel *panel = mPlugin->panel();
