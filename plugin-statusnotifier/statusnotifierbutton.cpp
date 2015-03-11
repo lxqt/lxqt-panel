@@ -6,54 +6,55 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus());
 
-    newIcon();
     newToolTip();
+    newStatus(interface->status());
+    resetIcon();
 
     connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
+    connect(interface, SIGNAL(NewOverlayIcon()), this, SLOT(newOverlayIcon()));
+    connect(interface, SIGNAL(NewAttentionIcon()), this, SLOT(newAttentionIcon()));
     connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
     connect(interface, SIGNAL(NewStatus(QString)), this, SLOT(newStatus(QString)));
 }
 
-void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
-{
-    interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
-    // QWidget::contextMenuEvent(event);
-}
-
-void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton)
-        interface->Activate(QCursor::pos().x(), QCursor::pos().y());
-    else if (event->button() == Qt::MidButton)
-        interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
-    QToolButton::mouseReleaseEvent(event);
-}
-
-void StatusNotifierButton::wheelEvent(QWheelEvent *event)
-{
-    interface->Scroll(event->delta(), "vertical");
-}
-
 void StatusNotifierButton::newIcon()
 {
+    refetchIcon(Passive);
+    resetIcon();
+}
+
+void StatusNotifierButton::newOverlayIcon()
+{
+    refetchIcon(Active);
+    resetIcon();
+}
+
+void StatusNotifierButton::newAttentionIcon()
+{
+    refetchIcon(NeedsAttention);
+    resetIcon();
+}
+
+void StatusNotifierButton::refetchIcon(Status status)
+{
     QString iconName;
-    if (mStatus == Active)
+    if (status == Active)
         iconName = interface->overlayIconName();
-    else if (mStatus == NeedsAttention)
+    else if (status == NeedsAttention)
         iconName = interface->attentionIconName();
-    else // mStatus == Passive
+    else // status == Passive
         iconName = interface->iconName();
 
-    QIcon icon;
+    QIcon nextIcon;
     if (!iconName.isEmpty())
     {
-        if (icon.hasThemeIcon(iconName))
-            icon = QIcon::fromTheme(iconName);
+        if (nextIcon.hasThemeIcon(iconName))
+            nextIcon = QIcon::fromTheme(iconName);
         else
         {
             QDir themeDir(interface->iconThemePath());
             if (themeDir.exists(iconName + ".png"))
-                icon.addFile(themeDir.filePath(iconName + ".png"));
+                nextIcon.addFile(themeDir.filePath(iconName + ".png"));
 
             if (themeDir.cd("hicolor"))
             {
@@ -61,26 +62,27 @@ void StatusNotifierButton::newIcon()
                 foreach (QString dir, sizes)
                 {
                     QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                    icon.addFile(QDir(themeDir.path() + "/" + dir + "/" + dirs.at(0)).filePath(iconName + ".png"));
+                    nextIcon.addFile(QDir(themeDir.path() + "/" + dir + "/" + dirs.at(0)).filePath(iconName + ".png"));
                 }
             }
 
-            if (icon.isNull())
-                icon = QIcon::fromTheme("application-x-executable");
+            if (nextIcon.isNull())
+                nextIcon = QIcon::fromTheme("application-x-executable");
         }
     }
     else
     {
         IconPixmapList iconPixmaps;
-        if (mStatus == Active)
+        if (status == Active)
             iconPixmaps = interface->overlayIconPixmap();
-        else if (mStatus == NeedsAttention)
+        else if (status == NeedsAttention)
             iconPixmaps = interface->attentionIconPixmap();
-        else // mStatus == Passive
+        else // status == Passive
             iconPixmaps = interface->iconPixmap();
 
-        if (iconPixmaps.isEmpty() || iconPixmaps.first().bytes.isEmpty())
-            icon = QIcon::fromTheme("application-x-executable");
+
+        if (iconPixmaps.empty() || iconPixmaps.first().bytes.isNull())
+            nextIcon = QIcon::fromTheme("application-x-executable");
         else
         {
             IconPixmap iconPixmap = iconPixmaps.first();
@@ -90,13 +92,17 @@ void StatusNotifierButton::newIcon()
             for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
                 qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
 
-            image = QImage((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
             QPixmap pixmap = QPixmap::fromImage(image);
-            icon = QIcon(pixmap);
+            nextIcon = QIcon(pixmap);
         }
     }
 
-    setIcon(icon);
+    if (status == Active)
+        overlayIcon = nextIcon;
+    else if (status == NeedsAttention)
+        attentionIcon = nextIcon;
+    else // status == Passive
+        icon = nextIcon;
 }
 
 void StatusNotifierButton::newToolTip()
@@ -119,5 +125,47 @@ void StatusNotifierButton::newStatus(QString status)
         return;
 
     mStatus = newStatus;
-    newIcon();
+    resetIcon();
+}
+
+void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
+{
+    interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
+    // QWidget::contextMenuEvent(event);
+}
+
+void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+        interface->Activate(QCursor::pos().x(), QCursor::pos().y());
+    else if (event->button() == Qt::MidButton)
+        interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
+    QToolButton::mouseReleaseEvent(event);
+}
+
+void StatusNotifierButton::wheelEvent(QWheelEvent *event)
+{
+    interface->Scroll(event->delta(), "vertical");
+}
+
+void StatusNotifierButton::resetIcon()
+{
+    if (mStatus == Active)
+    {
+        if (overlayIcon.isNull())
+            refetchIcon(Active);
+        setIcon(overlayIcon);
+    }
+    else if (mStatus == NeedsAttention)
+    {
+        if (attentionIcon.isNull())
+            refetchIcon(NeedsAttention);
+        setIcon(attentionIcon);
+    }
+    else // mStatus == Passive
+    {
+        if (icon.isNull())
+            refetchIcon(Passive);
+        setIcon(icon);
+    }
 }

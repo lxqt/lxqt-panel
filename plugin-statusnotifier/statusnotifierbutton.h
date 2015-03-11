@@ -38,6 +38,8 @@ public:
 
 public slots:
     void newIcon();
+    void newAttentionIcon();
+    void newOverlayIcon();
     void newToolTip();
     void newStatus(QString status);
 
@@ -45,10 +47,15 @@ private:
     org::kde::StatusNotifierItem *interface;
     Status mStatus;
 
+    QIcon icon, overlayIcon, attentionIcon;
+
 protected:
     void contextMenuEvent(QContextMenuEvent * event);
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
+
+    void refetchIcon(Status status);
+    void resetIcon();
 };
 
 #endif // STATUSNOTIFIERBUTTON_H
