@@ -216,7 +216,7 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
         &worldclock_lib
     };
 
-    for (int i = 0; i < sizeof(names) / sizeof(QString); i++)
+    for (unsigned i = 0; i < sizeof(names) / sizeof(QString); i++)
         if (names[i] == libraryName)
             return staticPlugins[i];
 
