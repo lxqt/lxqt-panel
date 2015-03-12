@@ -83,10 +83,12 @@ private:
     LxQtTaskButton* mCheckedBtn;
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
+    bool mShowOnlyCurrentScreenTasks;
     bool mAutoRotate;
 
     LxQtTaskButton* buttonByWindow(WId window) const;
     bool windowOnActiveDesktop(WId window) const;
+    bool windowOnCurrentScreen(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 
