@@ -37,6 +37,7 @@
 #include <QMouseEvent>
 #include <QToolButton>
 #include <QWheelEvent>
+#include <QMenu>
 
 #include "statusnotifieriteminterface.h"
 
@@ -74,6 +75,7 @@ public slots:
 
 private:
     org::kde::StatusNotifierItem *interface;
+    QMenu *mMenu;
     Status mStatus;
     bool mValid;
 

@@ -30,14 +30,24 @@
 
 #include <QDir>
 #include <QFile>
+#include <dbusmenu-qt5/dbusmenuimporter.h>
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
     : QToolButton(parent),
+    mMenu(NULL),
     mStatus(Passive),
     mValid(true),
     mFallbackIcon(QIcon::fromTheme("application-x-executable"))
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus(), this);
+
+    QString menuPath = interface->menu().path();
+    if (!menuPath.isEmpty())
+    {
+        mMenu = (new DBusMenuImporter(service, interface->menu().path(), this))->menu();
+        mMenu->setParent(this);
+        mMenu->setObjectName(QStringLiteral("StatusNotifierMenu"));
+    }
 
     // HACK: sni-qt creates some invalid items (like one for konversarion 1.5)
     if (interface->title().isEmpty() && interface->id().isEmpty())
@@ -180,7 +190,7 @@ void StatusNotifierButton::newStatus(QString status)
 
 void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
 {
-    interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
+    mMenu->exec(QCursor::pos());
     // QWidget::contextMenuEvent(event);
 }
 
