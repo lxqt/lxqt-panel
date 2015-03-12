@@ -54,16 +54,20 @@ StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *pa
 
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 {
-    QStringList item = serviceAndPath.split('/');
-    QString serv = item.at(0);
-    QString path = QLatin1Char('/') + item.at(1);
+    int slash = serviceAndPath.indexOf('/');
+    QString serv = serviceAndPath.left(slash);
+    QString path = serviceAndPath.mid(slash);
     StatusNotifierButton *button = new StatusNotifierButton(serv, path, this);
 
-    mServices.insert(serviceAndPath, button);
-
-    layout()->addWidget(button);
-    layout()->setAlignment(button, Qt::AlignCenter);
-    button->show();
+    if (!button->isValid())
+        delete button;
+    else
+    {
+        mServices.insert(serviceAndPath, button);
+        layout()->addWidget(button);
+        layout()->setAlignment(button, Qt::AlignCenter);
+        button->show();
+    }
 }
 
 void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)

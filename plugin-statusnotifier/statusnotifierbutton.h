@@ -34,8 +34,6 @@
 #include <QDBusArgument>
 #include <QDBusMessage>
 #include <QDBusInterface>
-#include <QDir>
-#include <QMenu>
 #include <QMouseEvent>
 #include <QToolButton>
 #include <QWheelEvent>
@@ -58,6 +56,9 @@ class StatusNotifierButton : public QToolButton
 
 public:
     StatusNotifierButton(QString service, QString objectPath, QWidget *parent = 0);
+    ~StatusNotifierButton();
+
+    bool isValid() const { return mValid; }
 
     enum Status
     {
@@ -74,6 +75,7 @@ public slots:
 private:
     org::kde::StatusNotifierItem *interface;
     Status mStatus;
+    bool mValid;
 
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 

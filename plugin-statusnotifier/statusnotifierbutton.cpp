@@ -28,25 +28,40 @@
 
 #include "statusnotifierbutton.h"
 
+#include <QDir>
+#include <QFile>
+
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
     : QToolButton(parent),
     mStatus(Passive),
+    mValid(true),
     mFallbackIcon(QIcon::fromTheme("application-x-executable"))
 {
-    interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus());
+    interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus(), this);
 
-    newToolTip();
-    refetchIcon(Active);
-    refetchIcon(Passive);
-    refetchIcon(NeedsAttention);
-    newStatus(interface->status());
-    resetIcon();
+    // HACK: sni-qt creates some invalid items (like one for konversarion 1.5)
+    if (interface->title().isEmpty() && interface->id().isEmpty())
+        mValid = false;
 
-    connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
-    connect(interface, SIGNAL(NewOverlayIcon()), this, SLOT(newOverlayIcon()));
-    connect(interface, SIGNAL(NewAttentionIcon()), this, SLOT(newAttentionIcon()));
-    connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
-    connect(interface, SIGNAL(NewStatus(QString)), this, SLOT(newStatus(QString)));
+    if (mValid)
+    {
+        newToolTip();
+        refetchIcon(Active);
+        refetchIcon(Passive);
+        refetchIcon(NeedsAttention);
+        newStatus(interface->status());
+        resetIcon();
+
+        connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
+        connect(interface, SIGNAL(NewOverlayIcon()), this, SLOT(newOverlayIcon()));
+        connect(interface, SIGNAL(NewAttentionIcon()), this, SLOT(newAttentionIcon()));
+        connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
+        connect(interface, SIGNAL(NewStatus(QString)), this, SLOT(newStatus(QString)));
+    }
+}
+
+StatusNotifierButton::~StatusNotifierButton()
+{
 }
 
 void StatusNotifierButton::newIcon()
@@ -90,7 +105,7 @@ void StatusNotifierButton::refetchIcon(Status status)
                 if (themeDir.exists(iconName + ".png"))
                     nextIcon.addFile(themeDir.filePath(iconName + ".png"));
 
-                if (themeDir.cd("hicolor"))
+                if (themeDir.cd("hicolor") || (themeDir.cd("icons") && themeDir.cd("hicolor")))
                 {
                     QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                     foreach (QString dir, sizes)
@@ -98,7 +113,7 @@ void StatusNotifierButton::refetchIcon(Status status)
                         QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                         foreach (QString innerDir, dirs)
                         {
-                            QString file = QDir(themeDir.path() + "/" + dir + "/" + innerDir).filePath(iconName + ".png");
+                            QString file = themeDir.absolutePath() + "/" + dir + "/" + innerDir + "/" + iconName + ".png";
                             if (QFile::exists(file))
                                 nextIcon.addFile(file);
                         }
