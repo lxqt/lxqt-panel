@@ -181,42 +181,98 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
     // find a static plugin library by name
     // internally this is implemented using binary search
     // statically linked built-in plugins
+#if defined(WITH_CLOCK_PLUGIN)
     static LxQtClockPluginLibrary clock_lib; // clock
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
     static DesktopSwitchPluginLibrary desktopswitch_lib; // desktopswitch
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
     static LxQtMainMenuPluginLibrary mainmenu_lib; // mainmenu
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
     static LxQtQuickLaunchPluginLibrary quicklaunch_lib; // quicklaunch
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
     static ShowDesktopLibrary showdesktop_lib; //showdesktop
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
     static LxQtTaskBarPluginLibrary taskbar_lib; //taskbar
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
     static StatusNotifierLibrary statusnotifier_lib; // statusnotifier
+#endif
+#if defined(WITH_TRAY_PLUGIN)
     static LxQtTrayPluginLibrary tray_lib; //tray
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
     static LxQtWorldClockLibrary worldclock_lib; // worldclock
+#endif
 
     static const QString names[] = // the names should be kept sorted (for binary search)
     {
-        QStringLiteral("clock"),
-        QStringLiteral("desktopswitch"),
-        QStringLiteral("mainmenu"),
-        QStringLiteral("quicklaunch"),
-        QStringLiteral("showdesktop"),
-        QStringLiteral("taskbar"),
-        QStringLiteral("statusnotifier"),
-        QStringLiteral("tray"),
-        QStringLiteral("worldclock")
+        QStringLiteral() //dummy first because of the next ifdefs
+#if defined(WITH_CLOCK_PLUGIN)
+        , QStringLiteral("clock")
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+        , QStringLiteral("desktopswitch")
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+        , QStringLiteral("mainmenu")
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+        , QStringLiteral("quicklaunch")
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+        , QStringLiteral("showdesktop")
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+        , QStringLiteral("taskbar")
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+        , QStringLiteral("statusnotifier")
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+        , QStringLiteral("tray")
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+        , QStringLiteral("worldclock")
+#endif
     };
     static ILxQtPanelPluginLibrary* staticPlugins[] = // should be kept in the same order as names
     {
-        &clock_lib,
-        &desktopswitch_lib,
-        &mainmenu_lib,
-        &quicklaunch_lib,
-        &showdesktop_lib,
-        &taskbar_lib,
-        &statusnotifier_lib,
-        &tray_lib,
-        &worldclock_lib
+        nullptr //dummy first because of the next ifdefs
+#if defined(WITH_CLOCK_PLUGIN)
+        , &clock_lib
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+        , &desktopswitch_lib
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+        , &mainmenu_lib
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+        , &quicklaunch_lib
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+        , &showdesktop_lib
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+        , &taskbar_lib
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+        , &statusnotifier_lib
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+        , &tray_lib
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+        , &worldclock_lib
+#endif
     };
 
-    for (unsigned i = 0; i < sizeof(names) / sizeof(QString); i++)
+    for (unsigned i = 1/*dummy first*/; i < sizeof(names) / sizeof(QString); i++)
         if (names[i] == libraryName)
             return staticPlugins[i];
 
