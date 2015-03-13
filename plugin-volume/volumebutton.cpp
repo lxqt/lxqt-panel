@@ -49,7 +49,7 @@ VolumeButton::VolumeButton(ILxQtPanelPlugin *plugin, QWidget* parent):
     // In the worst case - no soundcard/pulse - is found it remains
     // in the button but at least the button is not blank ("invisible")
     handleStockIconChanged("dialog-error");
-    m_volumePopup = new VolumePopup();
+    m_volumePopup = new VolumePopup(this);
 
     m_popupHideTimer.setInterval(1000);
     connect(this, SIGNAL(clicked()), this, SLOT(toggleVolumeSlider()));
@@ -64,8 +64,6 @@ VolumeButton::VolumeButton(ILxQtPanelPlugin *plugin, QWidget* parent):
 
 VolumeButton::~VolumeButton()
 {
-    if (m_volumePopup)
-        delete m_volumePopup;
 }
 
 void VolumeButton::setShowOnClicked(bool state)
