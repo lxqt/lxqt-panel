@@ -44,10 +44,16 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
         set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt5::DBus)
     endif()
 
-    add_library(${NAME} MODULE ${HEADERS} ${SOURCES} ${MOC_SOURCES} ${${PROJECT_NAME}_QM_FILES} ${QRC_SOURCES} ${UIS} ${DESKTOP_FILES})
+    list(FIND STATIC_PLUGINS ${NAME} IS_STATIC)
+    set(SRC ${HEADERS} ${SOURCES} ${MOC_SOURCES} ${${PROJECT_NAME}_QM_FILES} ${QRC_SOURCES} ${UIS} ${DESKTOP_FILES})
+    if (${IS_STATIC} EQUAL -1) # not static
+        add_library(${NAME} MODULE ${SRC}) # build dynamically loadable modules
+        install(TARGETS ${NAME} DESTINATION ${PLUGIN_DIR}) # install the *.so file
+    else() # static
+        add_library(${NAME} STATIC ${SRC}) # build statically linked lib
+    endif()
     target_link_libraries(${NAME} ${QTX_LIBRARIES} ${LXQT_LIBRARIES} ${LIBRARIES} KF5::WindowSystem)
 
-    install(TARGETS ${NAME} DESTINATION ${PLUGIN_DIR})
     install(FILES ${CONFIG_FILES}  DESTINATION ${PLUGIN_SHARE_DIR})
     install(FILES ${DESKTOP_FILES} DESTINATION ${PROG_SHARE_DIR})
 

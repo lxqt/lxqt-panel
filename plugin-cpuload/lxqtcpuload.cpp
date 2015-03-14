@@ -50,94 +50,98 @@ extern "C" {
 LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
-	m_showText(false),
+    m_showText(false),
+    m_barWidth(20),
     m_barOrientation(TopDownBar),
     m_timerID(-1)
 {
     setObjectName("LxQtCpuLoad");
 
     QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setSpacing(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(&m_stuff);
 
-	/* Initialise statgrab */
+    /* Initialise statgrab */
 #ifdef STATGRAB_NEWER_THAN_0_90
-	sg_init(0);
+    sg_init(0);
 #else
-	sg_init();
+    sg_init();
 #endif
 
-	/* Drop setuid/setgid privileges. */
-	if (sg_drop_privileges() != 0) {
-		perror("Error. Failed to drop privileges");
-	}
+    /* Drop setuid/setgid privileges. */
+    if (sg_drop_privileges() != 0) {
+        perror("Error. Failed to drop privileges");
+    }
 
-	m_font.setPointSizeF(8);
+    m_font.setPointSizeF(8);
 
-	settingsChanged();
+    settingsChanged();
 }
 
 LxQtCpuLoad::~LxQtCpuLoad()
 {
 }
 
-void LxQtCpuLoad::resizeEvent(QResizeEvent *)
+void LxQtCpuLoad::setSizes()
 {
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
-        m_stuff.setMinimumHeight(18);
-        m_stuff.setMaximumHeight(18);
+        m_stuff.setFixedHeight(m_barWidth);
         m_stuff.setMinimumWidth(24);
     }
     else
     {
-        m_stuff.setMinimumWidth(18);
-        m_stuff.setMaximumWidth(18);
+        m_stuff.setFixedWidth(m_barWidth);
         m_stuff.setMinimumHeight(24);
     }
+}
 
-	update();
+void LxQtCpuLoad::resizeEvent(QResizeEvent *)
+{
+    setSizes();
+    update();
 }
 
 
 double LxQtCpuLoad::getLoadCpu() const
 {
- #ifdef STATGRAB_NEWER_THAN_0_90
-        size_t count;
-	sg_cpu_percents* cur = sg_get_cpu_percents(&count);
+#ifdef STATGRAB_NEWER_THAN_0_90
+    size_t count;
+    sg_cpu_percents* cur = sg_get_cpu_percents(&count);
 #else
-	sg_cpu_percents* cur = sg_get_cpu_percents();
+    sg_cpu_percents* cur = sg_get_cpu_percents();
 #endif
-	return (cur->user + cur->kernel + cur->nice);
+    return (cur->user + cur->kernel + cur->nice);
 }
 
 void LxQtCpuLoad::timerEvent(QTimerEvent *event)
 {
-	double avg = getLoadCpu();
-	if ( qAbs(m_avg-avg)>1 )
-	{
-		m_avg = avg;
+    double avg = getLoadCpu();
+    if ( qAbs(m_avg-avg)>1 )
+    {
+        m_avg = avg;
         setToolTip(tr("CPU load %1%").arg(m_avg));
-		update();
-	}
+        update();
+    }
 }
 
 void LxQtCpuLoad::paintEvent ( QPaintEvent * )
 {
-	QPainter p(this);
-	QPen pen;
-	pen.setWidth(2);
-	p.setPen(pen);
-	p.setRenderHint(QPainter::Antialiasing, true);
-	const double w = 20;
+    QPainter p(this);
+    QPen pen;
+    pen.setWidth(2);
+    p.setPen(pen);
+    p.setRenderHint(QPainter::Antialiasing, true);
 
-	p.setFont(m_font);
-	QRectF r = rect();
+    p.setFont(m_font);
+    QRectF r = rect();
 
     QRectF r1;
     QLinearGradient shade(0,0,1,1);
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
-        float vo = (r.height() - w )/2.0;
+        float vo = (r.height() - static_cast<double>(m_barWidth))/2.0;
         float ho = r.width()*(1-m_avg*0.01);
 
         if (m_barOrientation == RightToLeftBar)
@@ -153,7 +157,7 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
     else // BottomUpBar || TopDownBar
     {
         float vo = r.height()*(1-m_avg*0.01);
-        float ho = (r.width() - w )/2.0;
+        float ho = (r.width() - static_cast<double>(m_barWidth) )/2.0;
 
         if (m_barOrientation == TopDownBar)
         {
@@ -166,14 +170,14 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
         shade.setFinalStop(r1.width(), 0);
     }
 
-	shade.setSpread(QLinearGradient::ReflectSpread);
-	shade.setColorAt(0, QColor(0, 196, 0, 128));
-	shade.setColorAt(0.5, QColor(0, 128, 0, 255) );
-	shade.setColorAt(1, QColor(0, 196, 0 , 128));
+    shade.setSpread(QLinearGradient::ReflectSpread);
+    shade.setColorAt(0, QColor(0, 196, 0, 128));
+    shade.setColorAt(0.5, QColor(0, 128, 0, 255) );
+    shade.setColorAt(1, QColor(0, 196, 0 , 128));
 
-	p.fillRect(r1, shade);
+    p.fillRect(r1, shade);
 
-	if (m_showText)
+    if (m_showText)
     {
         p.setPen(fontColor);
         p.drawText(rect(), Qt::AlignCenter, QString::number(m_avg));
@@ -187,6 +191,7 @@ void LxQtCpuLoad::settingsChanged()
         killTimer(m_timerID);
 
     m_showText = mPlugin->settings()->value("showText", false).toBool();
+    m_barWidth = mPlugin->settings()->value("barWidth", 20).toInt();
     m_updateInterval = mPlugin->settings()->value("updateInterval", 1000).toInt();
 
     QString barOrientation = mPlugin->settings()->value("barOrientation", BAR_ORIENT_BOTTOMUP).toString();
@@ -199,6 +204,7 @@ void LxQtCpuLoad::settingsChanged()
     else
         m_barOrientation = BottomUpBar;
 
-	m_timerID = startTimer(m_updateInterval);
-	update();
+    m_timerID = startTimer(m_updateInterval);
+    setSizes();
+    update();
 }

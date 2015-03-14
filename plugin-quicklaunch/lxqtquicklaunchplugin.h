@@ -25,12 +25,13 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef LXQTQUICKLAUNCHPLUGIN_H
 #define LXQTQUICKLAUNCHPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
+
+
 class LxQtQuickLaunch;
 
 class LxQtQuickLaunchPlugin: public QObject, public ILxQtPanelPlugin
@@ -55,7 +56,7 @@ private:
 class LxQtQuickLaunchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)

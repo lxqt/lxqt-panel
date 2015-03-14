@@ -29,9 +29,9 @@
 #include "treewindow.h"
 #include "ui_treewindow.h"
 #include "domtreeitem.h"
-
 #include <QDebug>
 #include <QTableWidget>
+#include <QMetaProperty>
 
 #define PROP_OBJECT_NAME    0
 #define PROP_CLASS_NAME     1
@@ -39,9 +39,6 @@
 #define PROP_CLASS_HIERARCY 3
 
 
-/************************************************
-
- ************************************************/
 TreeWindow::TreeWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TreeWindow)
@@ -72,21 +69,19 @@ TreeWindow::TreeWindow(QWidget *parent) :
     connect(ui->tree, SIGNAL(itemSelectionChanged()), this, SLOT(updatePropertiesView()));
     item->setSelected(true);
 
+    QHeaderView* h = new QHeaderView(Qt::Horizontal);
+    h->setStretchLastSection(true);
+    ui->allPropertiesView->setHorizontalHeader(h);
+    connect(h, &QHeaderView::sectionDoubleClicked, this, &TreeWindow::sectionDoubleClickedSlot);
 }
 
 
-/************************************************
-
- ************************************************/
 TreeWindow::~TreeWindow()
 {
     delete ui;
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::initPropertiesView()
 {
     ui->propertiesView->viewport()->setAutoFillBackground(false);
@@ -115,9 +110,6 @@ void TreeWindow::initPropertiesView()
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::updatePropertiesView()
 {
     if (ui->tree->selectedItems().isEmpty())
@@ -139,22 +131,38 @@ void TreeWindow::updatePropertiesView()
     ui->propertiesView->item(PROP_CLASS_NAME, 1)->setText(treeItem->widgetClassName());
     ui->propertiesView->item(PROP_TEXT, 1)->setText(treeItem->widgetText());
     ui->propertiesView->item(PROP_CLASS_HIERARCY, 1)->setText(treeItem->widgetClassHierarcy().join(" :: "));
+
+    QMetaObject const * const m = treeItem->widget()->metaObject();
+    const int curr_cnt = ui->allPropertiesView->rowCount();
+    ui->allPropertiesView->setRowCount(m->propertyCount());
+    for (int i = 0, cnt = m->propertyCount(); cnt > i; ++i)
+    {
+        if (curr_cnt <= i)
+        {
+            ui->allPropertiesView->setItem(i, 0, new QTableWidgetItem);
+            ui->allPropertiesView->setItem(i, 1, new QTableWidgetItem);
+            ui->allPropertiesView->setItem(i, 2, new QTableWidgetItem);
+        }
+        QMetaProperty const & prop = m->property(i);
+        ui->allPropertiesView->item(i, 0)->setText(prop.name());
+        ui->allPropertiesView->item(i, 1)->setText(prop.typeName());
+        ui->allPropertiesView->item(i, 2)->setText(prop.read(treeItem->widget()).toString());
+    }
+    for (int i = m->propertyCount(); curr_cnt > i; ++i)
+        ui->allPropertiesView->removeRow(i);
 }
 
 
-/************************************************
-
- ************************************************/
 void TreeWindow::clearPropertiesView()
 {
     for (int i=0; i<ui->propertiesView->rowCount(); ++i)
         ui->propertiesView->item(i, 1)->setText("");
+    for (int i = ui->allPropertiesView->rowCount(); 0 <=  i; --i)
+        ui->allPropertiesView->removeRow(i);
+    ui->allPropertiesView->setRowCount(0);
 }
 
-
-
-
-
-
-
-
+void TreeWindow::sectionDoubleClickedSlot(int column)
+{
+    ui->allPropertiesView->sortByColumn(column, Qt::AscendingOrder);
+}

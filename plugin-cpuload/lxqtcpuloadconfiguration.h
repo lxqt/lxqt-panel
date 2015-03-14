@@ -37,21 +37,21 @@ class QSettings;
 class QAbstractButton;
 
 namespace Ui {
-	class LxQtCpuLoadConfiguration;
+    class LxQtCpuLoadConfiguration;
 }
 
 class LxQtCpuLoadConfiguration : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit LxQtCpuLoadConfiguration(QSettings *settings, QWidget *parent = 0);
-	~LxQtCpuLoadConfiguration();
+    ~LxQtCpuLoadConfiguration();
 
 private:
-	Ui::LxQtCpuLoadConfiguration *ui;
+    Ui::LxQtCpuLoadConfiguration *ui;
     QSettings *mSettings;
-	LxQt::SettingsCache mOldSettings;
+    LxQt::SettingsCache mOldSettings;
 
     /*
       Fills Bar orientation combobox
@@ -59,12 +59,13 @@ private:
     void fillBarOrientations();
 
 private slots:
-	/*
-	  Saves settings in conf file.
-	*/
-	void loadSettings();
-	void dialogButtonsAction(QAbstractButton *btn);
-	void showTextChanged(bool value);
+    /*
+      Saves settings in conf file.
+    */
+    void loadSettings();
+    void dialogButtonsAction(QAbstractButton *btn);
+    void showTextChanged(bool value);
+    void barWidthChanged(int value);
     void updateIntervalChanged(double value);
     void barOrientationChanged(int index);
 

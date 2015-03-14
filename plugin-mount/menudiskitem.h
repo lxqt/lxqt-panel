@@ -29,10 +29,9 @@
 #define MENUDISKITEM_H
 
 #include <QFrame>
+#include <Solid/Device>
+#include <Solid/SolidNamespace>
 
-namespace LxQt {
-class MountDevice;
-}
 
 class QToolButton;
 
@@ -41,11 +40,14 @@ class MenuDiskItem : public QFrame
     Q_OBJECT
 
 public:
-    explicit MenuDiskItem(LxQt::MountDevice *device, QWidget *parent);
+    explicit MenuDiskItem(Solid::Device device, QWidget *parent);
+    QString DeviceUdi() const;
 
     void setMountStatus(bool is_mount);
 
-    static bool isUsableDevice(const LxQt::MountDevice *device);
+private:
+    void update();
+    Solid::Device opticalParent() const;
 
 signals:
     void error(const QString &msg);
@@ -53,15 +55,15 @@ signals:
 private slots:
     void ejectButtonClicked();
     void diskButtonClicked();
-    void update();
-    void free();
-    void mounted();
-    void unmounted();
+    void mounted(Solid::ErrorType error, QVariant resultData, const QString &udi);
+    void unmounted(Solid::ErrorType error, QVariant resultData, const QString &udi);
 
 private:
-    LxQt::MountDevice *mDevice;
+    Solid::Device mDevice;
     QToolButton *mDiskButton;
     QToolButton *mEjectButton;
+    bool mDiskButtonClicked;
+    bool mEjectButtonClicked;
 };
 
 #endif // MENUDISKITEM_H

@@ -33,14 +33,19 @@
 #ifndef LXQTTASKBAR_H
 #define LXQTTASKBAR_H
 
+#include "../panel/ilxqtpanel.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include "lxqttaskbarconfiguration.h"
+#include "lxqttaskgroup.h"
+#include "lxqttaskbutton.h"
+
 #include <QFrame>
 #include <QBoxLayout>
 #include <QHash>
 #include "../panel/ilxqtpanel.h"
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/KWindowInfo>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowInfo>
+#include <KWindowSystem/NETWM>
 
 class LxQtTaskButton;
 class ElidedButtonStyle;
@@ -61,9 +66,15 @@ public:
     virtual void settingsChanged();
     void realign();
 
+    Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
+    int buttonWidth() { return mButtonWidth; }
+    bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
+    bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
+    bool isAutoRotate() { return mAutoRotate; }
+    bool isGroupingEnabled() { return mGroupingEnabled; }
+    bool isShowGroupOnHover() { return mShowGroupOnHover; }
+
 public slots:
-    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
-    void activeWindowChanged(WId window = 0);
     void refreshIconGeometry();
 
 protected:
@@ -73,31 +84,34 @@ protected:
 private slots:
     void refreshTaskList();
     void refreshButtonRotation();
-    void refreshButtonVisibility();
+    void refreshPlaceholderVisibility();
+    void groupBecomeEmptySlot();
+    void groupPopupShown(LxQtTaskGroup * const sender);
 
 private:
-    QHash<WId, LxQtTaskButton*> mButtonsHash;
+    QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
+
+    // Settings
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
-    LxQtTaskButton* mCheckedBtn;
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
     bool mAutoRotate;
+    bool mGroupingEnabled;
+    bool mShowGroupOnHover;
 
-    LxQtTaskButton* buttonByWindow(WId window) const;
     bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
-    void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent *event);
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
-    ElidedButtonStyle* mStyle;
+    ElidedButtonStyle *mStyle;
 };
 
 #endif // LXQTTASKBAR_H

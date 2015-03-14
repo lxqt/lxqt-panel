@@ -96,7 +96,9 @@ protected:
     void showEvent(QShowEvent *event);
 
 private:
-    bool loadLib(const QString &libraryName);
+    bool loadLib(ILxQtPanelPluginLibrary* pluginLib);
+    bool loadModule(const QString &libraryName);
+    ILxQtPanelPluginLibrary* findStaticPlugin(const QString &libraryName);
 
     const LxQt::PluginInfo mDesktopFile;
     QByteArray calcSettingsHash();

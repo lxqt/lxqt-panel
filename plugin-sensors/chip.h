@@ -29,9 +29,10 @@
 #define CHIP_H
 
 #include "feature.h"
-#include <QString>
+#include "sensors.h"
 #include <QList>
-#include <sensors/sensors.h>
+#include <QString>
+
 
 /**
  * @brief Chip class is providing RAII-style for lm_sensors library

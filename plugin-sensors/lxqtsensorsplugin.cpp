@@ -25,10 +25,10 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "lxqtsensorsplugin.h"
 #include "lxqtsensors.h"
 #include "lxqtsensorsconfiguration.h"
+
 
 LxQtSensorsPlugin::LxQtSensorsPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -37,25 +37,30 @@ LxQtSensorsPlugin::LxQtSensorsPlugin(const ILxQtPanelPluginStartupInfo &startupI
 {
 }
 
+
 LxQtSensorsPlugin::~LxQtSensorsPlugin()
 {
     delete mWidget;
 }
+
 
 QWidget *LxQtSensorsPlugin::widget()
 {
     return mWidget;
 }
 
+
 QDialog *LxQtSensorsPlugin::configureDialog()
 {
     return new LxQtSensorsConfiguration(settings(), mWidget);
 }
 
+
 void LxQtSensorsPlugin::realign()
 {
     mWidget->realign();
 }
+
 
 void LxQtSensorsPlugin::settingsChanged()
 {

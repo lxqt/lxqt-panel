@@ -39,6 +39,8 @@
 class QPainter;
 class QPalette;
 class QMimeData;
+class LxQtTaskGroup;
+class LxQtTaskBar;
 
 class ElidedButtonStyle: public QProxyStyle
 {
@@ -58,10 +60,10 @@ class LxQtTaskButton : public QToolButton
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LxQtTaskButton(const WId window, QWidget *parent = 0);
+    explicit LxQtTaskButton(const WId window, LxQtTaskBar * taskBar, QWidget *parent = 0);
     virtual ~LxQtTaskButton();
 
-    bool isAppHidden() const;
+    bool isApplicationHidden() const;
     bool isApplicationActive() const;
     WId windowId() const { return mWindow; }
 
@@ -73,7 +75,17 @@ public:
     void updateIcon();
 
     Qt::Corner origin() const;
-    void setAutoRotation(bool value, ILxQtPanel::Position position);
+    virtual void setAutoRotation(bool value, ILxQtPanel::Position position);
+
+    LxQtTaskGroup * parentGroup(void) const {return mParentGroup;}
+    void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
+    LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
+
+    void refreshIconGeometry();
+    static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
+    /*! \return true if this buttom received DragEnter event (and no DragLeave event yet)
+     * */
+    bool hasDragAndDropHover() const;
 
 public slots:
     void raiseApplication();
@@ -89,25 +101,39 @@ public slots:
     void setOrigin(Qt::Corner);
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    void contextMenuEvent(QContextMenuEvent *event);
+    virtual void contextMenuEvent(QContextMenuEvent *event);
     void paintEvent(QPaintEvent *);
+
+    void setWindowId(WId wid) {mWindow = wid;}
+    virtual QMimeData * mimeData();
+    static bool sDraggging;
 
 private:
     WId mWindow;
     bool mUrgencyHint;
-    const QMimeData *mDraggableMimeData;
     QPoint mDragStartPosition;
     Qt::Corner mOrigin;
     QPixmap mPixmap;
     bool mDrawPixmap;
+    LxQtTaskGroup * mParentGroup;
+    LxQtTaskBar * mParentTaskBar;
+
+    // Timer for when draggind something into a button (the button's window
+    // must be activated so that the use can continue dragging to the window
+    QTimer * mDNDTimer;
 
 private slots:
     void activateWithDraggable();
+
+signals:
+    void dropped(QDropEvent * event);
+    void dragging(bool executing = false);
 };
 
 typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;

@@ -47,6 +47,17 @@
 #include <LXQt/Translator>
 #include <XdgIcon>
 
+// statically linked built-in plugins
+#include "../plugin-clock/lxqtclock.h" // clock
+#include "../plugin-desktopswitch/desktopswitch.h" // desktopswitch
+#include "../plugin-mainmenu/lxqtmainmenu.h" // mainmenu
+#include "../plugin-quicklaunch/lxqtquicklaunchplugin.h" // quicklaunch
+#include "../plugin-showdesktop/showdesktop.h" // showdesktop
+#include "../plugin-taskbar/lxqttaskbarplugin.h" // taskbar
+#include "../plugin-statusnotifier/statusnotifier.h" // statusnotifier
+#include "../plugin-tray/lxqttrayplugin.h" // tray
+#include "../plugin-worldclock/lxqtworldclock.h" // worldclock
+
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 
 /************************************************
@@ -76,24 +87,32 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     dirs << QProcessEnvironment::systemEnvironment().value("LXQTPANEL_PLUGIN_PATH").split(":");
     dirs << PLUGIN_DIR;
 
-    QString baseName = QString("lib%1.so").arg(desktopFile.id());
     bool found = false;
-    foreach(QString dirName, dirs)
+    if(ILxQtPanelPluginLibrary* pluginLib = findStaticPlugin(desktopFile.id()))
     {
-        QFileInfo fi(QDir(dirName), baseName);
-
-        if (fi.exists())
+        // this is a static plugin
+        found = true;
+        loadLib(pluginLib);
+    }
+    else {
+        // this plugin is a dynamically loadable module
+        QString baseName = QString("lib%1.so").arg(desktopFile.id());
+        foreach(QString dirName, dirs)
         {
-            found = true;
-            if (loadLib(fi.absoluteFilePath()))
-                break;
+            QFileInfo fi(QDir(dirName), baseName);
+            if (fi.exists())
+            {
+                found = true;
+                if (loadModule(fi.absoluteFilePath()))
+                    break;
+            }
         }
     }
 
     if (!isLoaded())
     {
         if (!found)
-            qWarning() << QString("Plugin %1 not found in the").arg(baseName) << dirs;
+            qWarning() << QString("Plugin %1 not found in the").arg(desktopFile.id()) << dirs;
 
         return;
     }
@@ -156,7 +175,136 @@ void Plugin::setAlignment(Plugin::Alignment alignment)
 /************************************************
 
  ************************************************/
-bool Plugin::loadLib(const QString &libraryName)
+
+ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
+{
+    // find a static plugin library by name
+    // internally this is implemented using binary search
+    // statically linked built-in plugins
+#if defined(WITH_CLOCK_PLUGIN)
+    static LxQtClockPluginLibrary clock_lib; // clock
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+    static DesktopSwitchPluginLibrary desktopswitch_lib; // desktopswitch
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+    static LxQtMainMenuPluginLibrary mainmenu_lib; // mainmenu
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+    static LxQtQuickLaunchPluginLibrary quicklaunch_lib; // quicklaunch
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+    static ShowDesktopLibrary showdesktop_lib; //showdesktop
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+    static LxQtTaskBarPluginLibrary taskbar_lib; //taskbar
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+    static StatusNotifierLibrary statusnotifier_lib; // statusnotifier
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+    static LxQtTrayPluginLibrary tray_lib; //tray
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+    static LxQtWorldClockLibrary worldclock_lib; // worldclock
+#endif
+
+    static const QString names[] = // the names should be kept sorted (for binary search)
+    {
+        QStringLiteral() //dummy first because of the next ifdefs
+#if defined(WITH_CLOCK_PLUGIN)
+        , QStringLiteral("clock")
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+        , QStringLiteral("desktopswitch")
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+        , QStringLiteral("mainmenu")
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+        , QStringLiteral("quicklaunch")
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+        , QStringLiteral("showdesktop")
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+        , QStringLiteral("taskbar")
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+        , QStringLiteral("statusnotifier")
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+        , QStringLiteral("tray")
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+        , QStringLiteral("worldclock")
+#endif
+    };
+    static ILxQtPanelPluginLibrary* staticPlugins[] = // should be kept in the same order as names
+    {
+        nullptr //dummy first because of the next ifdefs
+#if defined(WITH_CLOCK_PLUGIN)
+        , &clock_lib
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+        , &desktopswitch_lib
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+        , &mainmenu_lib
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+        , &quicklaunch_lib
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+        , &showdesktop_lib
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+        , &taskbar_lib
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+        , &statusnotifier_lib
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+        , &tray_lib
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+        , &worldclock_lib
+#endif
+    };
+
+    for (unsigned i = 1/*dummy first*/; i < sizeof(names) / sizeof(QString); i++)
+        if (names[i] == libraryName)
+            return staticPlugins[i];
+
+    return NULL;
+}
+
+// load a plugin from a library
+bool Plugin::loadLib(ILxQtPanelPluginLibrary* pluginLib)
+{
+    ILxQtPanelPluginStartupInfo startupInfo;
+    startupInfo.settings = mSettings;
+    startupInfo.desktopFile = &mDesktopFile;
+    startupInfo.lxqtPanel = mPanel;
+
+    mPlugin = pluginLib->instance(startupInfo);
+    if (!mPlugin)
+    {
+        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILxQtPanelPlugin.").arg(mPluginLoader->fileName());
+        return false;
+    }
+
+    mPluginWidget = mPlugin->widget();
+    if (mPluginWidget)
+    {
+        mPluginWidget->setObjectName(mPlugin->themeId());
+    }
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    return true;
+}
+
+// load dynamic plugin from a *.so module
+bool Plugin::loadModule(const QString &libraryName)
 {
     mPluginLoader = new QPluginLoader(libraryName);
 
@@ -180,28 +328,7 @@ bool Plugin::loadLib(const QString &libraryName)
         delete obj;
         return false;
     }
-
-    ILxQtPanelPluginStartupInfo startupInfo;
-    startupInfo.settings = mSettings;
-    startupInfo.desktopFile = &mDesktopFile;
-    startupInfo.lxqtPanel = mPanel;
-
-    mPlugin = pluginLib->instance(startupInfo);
-    if (!mPlugin)
-    {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILxQtPanelPlugin.").arg(mPluginLoader->fileName());
-        delete obj;
-        return false;
-    }
-
-    mPluginWidget = mPlugin->widget();
-    if (mPluginWidget)
-    {
-        mPluginWidget->setObjectName(mPlugin->themeId());
-    }
-    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    return true;
+    return loadLib(pluginLib);
 }
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
-    <height>316</height>
+    <width>356</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,13 @@
    <item>
     <widget class="QGroupBox" name="WLContentGB">
      <property name="title">
-      <string>Taskbar Contents</string>
+      <string>General</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QRadioButton" name="fCurrentDesktopRB">
         <property name="text">
-         <string>Show windows from current desktop</string>
+         <string>Show windows from c&amp;urrent desktop</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">wlcB</string>
@@ -33,11 +33,37 @@
       <item>
        <widget class="QRadioButton" name="fAllDesktopsCB">
         <property name="text">
-         <string>Show windows from all desktops</string>
+         <string>Show windows from all des&amp;ktops</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">wlcB</string>
         </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="middleClickCB">
+        <property name="text">
+         <string>Close on middle-click</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupingGB">
+     <property name="title">
+      <string>Window &amp;grouping</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="showGroupOnHoverCB">
+        <property name="text">
+         <string>Show popup on mouse hover </string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -46,9 +72,12 @@
    <item>
     <widget class="QGroupBox" name="WLApperanceGB">
      <property name="title">
-      <string>Taskbar Appearance</string>
+      <string>Appearance</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="buttonStyleL">
         <property name="text">
@@ -62,17 +91,20 @@
       <item row="1" column="0">
        <widget class="QLabel" name="buttonWidthL">
         <property name="text">
-         <string>Minimum button width</string>
+         <string>Maximum button width</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QSpinBox" name="buttonWidthSB">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="suffix">
+         <string> px</string>
         </property>
         <property name="minimum">
          <number>1</number>
@@ -91,26 +123,6 @@
       </item>
      </layout>
     </widget>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="middleClickCB">
-     <property name="text">
-      <string>Close on middle-click</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttons">
@@ -133,8 +145,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>262</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -149,8 +161,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>330</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>

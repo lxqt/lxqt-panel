@@ -28,24 +28,22 @@
 
 #include "lxqtquicklaunch.h"
 #include "quicklaunchbutton.h"
-#include <LXQt/GridLayout>
 #include "quicklaunchaction.h"
 #include "../panel/ilxqtpanelplugin.h"
-
+#include <QDesktopServices>
+#include <QDragEnterEvent>
+#include <QFileIconProvider>
+#include <QFileInfo>
+#include <QLabel>
+#include <QMessageBox>
+#include <QSettings>
+#include <QToolButton>
+#include <QUrl>
+#include <QSettings>
 #include <XdgDesktopFile>
 #include <XdgIcon>
+#include <LXQt/GridLayout>
 
-#include <QtDebug>
-#include <QSettings>
-#include <QUrl>
-#include <QFileInfo>
-#include <QDragEnterEvent>
-#include <QToolButton>
-#include <QMessageBox>
-#include <QDesktopServices>
-#include <QFileIconProvider>
-#include <QSettings>
-#include <QLabel>
 
 LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
     QFrame(parent),
@@ -112,19 +110,23 @@ LxQtQuickLaunch::LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent) :
     realign();
 }
 
+
 LxQtQuickLaunch::~LxQtQuickLaunch()
 {
 }
+
 
 int LxQtQuickLaunch::indexOfButton(QuickLaunchButton* button) const
 {
     return mLayout->indexOf(button);
 }
 
+
 int LxQtQuickLaunch::countOfButtons() const
 {
     return mLayout->count();
 }
+
 
 void LxQtQuickLaunch::realign()
 {
@@ -152,6 +154,7 @@ void LxQtQuickLaunch::realign()
     mLayout->setEnabled(true);
 }
 
+
 void LxQtQuickLaunch::addButton(QuickLaunchAction* action)
 {
     mLayout->setEnabled(false);
@@ -170,6 +173,7 @@ void LxQtQuickLaunch::addButton(QuickLaunchAction* action)
     realign();
 }
 
+
 void LxQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
 {
     // Getting URL from mainmenu...
@@ -184,6 +188,7 @@ void LxQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
         e->acceptProposedAction();
     }
 }
+
 
 void LxQtQuickLaunch::dropEvent(QDropEvent *e)
 {
@@ -235,6 +240,7 @@ void LxQtQuickLaunch::switchButtons(QuickLaunchButton *button1, QuickLaunchButto
     saveSettings();
 }
 
+
 void LxQtQuickLaunch::buttonDeleted()
 {
     QuickLaunchButton *btn = qobject_cast<QuickLaunchButton*>(sender());
@@ -250,6 +256,7 @@ void LxQtQuickLaunch::buttonDeleted()
 
     realign();
 }
+
 
 void LxQtQuickLaunch::buttonMoveLeft()
 {
@@ -308,6 +315,7 @@ void LxQtQuickLaunch::saveSettings()
 
     settings->endArray();
 }
+
 
 void LxQtQuickLaunch::showPlaceHolder()
 {

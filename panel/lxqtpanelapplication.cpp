@@ -49,6 +49,8 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
         connect(screen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
     }
     connect(this, &QGuiApplication::screenAdded, this, &LxQtPanelApplication::handleScreenAdded);
+    connect(this, &QCoreApplication::aboutToQuit, this, &LxQtPanelApplication::cleanup);
+
 
     QStringList panels = mSettings->value("panels").toStringList();
 
@@ -64,6 +66,10 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
 }
 
 LxQtPanelApplication::~LxQtPanelApplication()
+{
+}
+
+void LxQtPanelApplication::cleanup()
 {
     qDeleteAll(mPanels);
 }

@@ -28,6 +28,7 @@
 #include "feature.h"
 #include <QDebug>
 
+
 Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature* sensorsFeature)
     : mSensorsChipName(sensorsChipName),
       mSensorsFeature(sensorsFeature)
@@ -44,10 +45,12 @@ Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature
              << "(" << mLabel << ")";
 }
 
+
 const QString& Feature::getLabel() const
 {
     return mLabel;
 }
+
 
 double Feature::getValue(sensors_subfeature_type subfeature_type) const
 {
@@ -65,6 +68,7 @@ double Feature::getValue(sensors_subfeature_type subfeature_type) const
 
     return result;
 }
+
 
 sensors_feature_type Feature::getType() const
 {

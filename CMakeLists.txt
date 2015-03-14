@@ -10,6 +10,17 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+if(COMPILER_SUPPORTS_CXX11)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+elseif(COMPILER_SUPPORTS_CXX0X)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+else()
+    message(FATAL "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. C++11 support is required")
+endif()
+
 macro(setByDefault VAR_NAME VAR_VALUE)
   if(NOT DEFINED ${VAR_NAME})
     set (${VAR_NAME} ${VAR_VALUE})
@@ -22,6 +33,8 @@ if (CMAKE_COMPILER_IS_GNUCXX)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
   # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
 endif()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 #########################################################################
 
@@ -62,8 +75,6 @@ set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
-add_subdirectory(panel)
-
 #########################################################################
 
 # Plugin system
@@ -73,10 +84,13 @@ add_subdirectory(panel)
 
 include("cmake/BuildPlugin.cmake")
 
-set(ENABLED_PLUGINS)
+set(ENABLED_PLUGINS) # list of enabled plugins
+set(STATIC_PLUGINS) # list of statically linked plugins
 
 setByDefault(CLOCK_PLUGIN Yes)
 if(CLOCK_PLUGIN)
+    list(APPEND STATIC_PLUGINS "clock")
+    add_definitions(-DWITH_CLOCK_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Clock")
     add_subdirectory(plugin-clock)
 endif()
@@ -115,6 +129,8 @@ endif(DOM_PLUGIN)
 
 setByDefault(DESKTOPSWITCH_PLUGIN Yes)
 if(DESKTOPSWITCH_PLUGIN)
+    list(APPEND STATIC_PLUGINS "desktopswitch")
+    add_definitions(-DWITH_DESKTOPSWITCH_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Desktop Switcher")
     add_subdirectory(plugin-desktopswitch)
 endif()
@@ -127,6 +143,8 @@ endif(KBINDICATOR_PLUGIN)
 
 setByDefault(MAINMENU_PLUGIN Yes)
 if(MAINMENU_PLUGIN)
+    list(APPEND STATIC_PLUGINS "mainmenu")
+    add_definitions(-DWITH_MAINMENU_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Application menu")
     add_subdirectory(plugin-mainmenu)
 endif()
@@ -134,15 +152,13 @@ endif()
 setByDefault(MOUNT_PLUGIN Yes)
 if(MOUNT_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Mount")
-
-    find_package(lxqtmount REQUIRED)
-    include(${LXQTMOUNT_USE_FILE})
-
     add_subdirectory(plugin-mount)
 endif(MOUNT_PLUGIN)
 
 setByDefault(QUICKLAUNCH_PLUGIN Yes)
 if(QUICKLAUNCH_PLUGIN)
+    list(APPEND STATIC_PLUGINS "quicklaunch")
+    add_definitions(-DWITH_QUICKLAUNCH_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Quicklaunch")
     add_subdirectory(plugin-quicklaunch)
 endif()
@@ -169,6 +185,8 @@ endif()
 
 setByDefault(SHOWDESKTOP_PLUGIN Yes)
 if(SHOWDESKTOP_PLUGIN)
+    list(APPEND STATIC_PLUGINS "showdesktop")
+    add_definitions(-DWITH_SHOWDESKTOP_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Show Desktop")
     add_subdirectory(plugin-showdesktop)
 endif()
@@ -195,12 +213,24 @@ endif(SYSSTAT_PLUGIN)
 
 setByDefault(TASKBAR_PLUGIN Yes)
 if(TASKBAR_PLUGIN)
+  list(APPEND STATIC_PLUGINS "taskbar")
+  add_definitions(-DWITH_TASKBAR_PLUGIN)
   set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Taskbar")
   add_subdirectory(plugin-taskbar)
 endif()
 
+setByDefault(STATUSNOTIFIER_PLUGIN Yes)
+if(STATUSNOTIFIER_PLUGIN)
+    list(APPEND STATIC_PLUGINS "statusnotifier")
+    add_definitions(-DWITH_STATUSNOTIFIER_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Status Notifier")
+    add_subdirectory(plugin-statusnotifier)
+endif()
+
 setByDefault(TRAY_PLUGIN Yes)
 if(TRAY_PLUGIN)
+    list(APPEND STATIC_PLUGINS "tray")
+    add_definitions(-DWITH_TRAY_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "System Tray")
     add_subdirectory(plugin-tray)
 endif()
@@ -236,9 +266,17 @@ endif()
 
 setByDefault(WORLDCLOCK_PLUGIN Yes)
 if(WORLDCLOCK_PLUGIN)
+    list(APPEND STATIC_PLUGINS "worldclock")
+    add_definitions(-DWITH_WORLDCLOCK_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "World Clock")
     add_subdirectory(plugin-worldclock)
 endif(WORLDCLOCK_PLUGIN)
+
+setByDefault(SPACER_PLUGIN Yes)
+if(SPACER_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Spacer")
+    add_subdirectory(plugin-spacer)
+endif()
 
 #########################################################################
 
@@ -247,6 +285,8 @@ foreach (PLUGIN_STR ${ENABLED_PLUGINS})
     message(STATUS "  ${PLUGIN_STR}")
 endforeach()
 message(STATUS "*********************************************************************")
+
+add_subdirectory(panel)
 
 # building tarball with CPack -------------------------------------------------
 include(InstallRequiredSystemLibraries)

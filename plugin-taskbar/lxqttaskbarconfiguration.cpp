@@ -48,6 +48,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     ui->buttonStyleCB->addItem(tr("Only text"), "Text");
 
     loadSettings();
+
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
     connect(ui->fAllDesktopsCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
@@ -57,6 +58,8 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -67,17 +70,16 @@ LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
 void LxQtTaskbarConfiguration::loadSettings()
 {
     if (mSettings.value("showOnlyCurrentDesktopTasks", false).toBool() == true)
-    {
         ui->fCurrentDesktopRB->setChecked(true);
-    }
     else
-    {
         ui->fAllDesktopsCB->setChecked(true);
-    }
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
+    ui->groupingGB->setChecked(mSettings.value("groupingEnabled",true).toBool());
+    ui->showGroupOnHoverCB->setChecked(mSettings.value("showGroupOnHover",true).toBool());
+
     updateControls(ui->buttonStyleCB->currentIndex());
 
     /* Keep buttonWidth loading at the end of this method to prevent errors */
@@ -91,6 +93,8 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
+    mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
+    mSettings.setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
 }
 
 void LxQtTaskbarConfiguration::updateControls(int index)
@@ -119,7 +123,5 @@ void LxQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
         ui->buttonWidthSB->blockSignals(false);
     }
     else
-    {
         close();
-    }
 }

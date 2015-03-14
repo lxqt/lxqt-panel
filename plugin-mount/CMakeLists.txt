@@ -42,7 +42,8 @@ set(UIS
     lxqtmountconfiguration.ui
 )
 
-include_directories(${LXQTMOUNT_INCLUDE_DIRS})
-set(LIBRARIES ${QTXDG_LIBRARIES} ${LXQTMOUNT_LIBRARIES})
+find_package(KF5Solid REQUIRED)
+
+set(LIBRARIES ${QTXDG_LIBRARIES} KF5::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

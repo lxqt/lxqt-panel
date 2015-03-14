@@ -31,9 +31,11 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
+#include <QScopedPointer>
 
 class QSignalMapper;
 class QButtonGroup;
+class NETRootInfo;
 namespace LxQt {
 class GridLayout;
 }
@@ -43,6 +45,9 @@ class DesktopSwitchWidget: public QFrame
     Q_OBJECT
 public:
     DesktopSwitchWidget();
+    
+private:
+    int m_mouseWheelThresholdCounter;
 
 protected:
     void wheelEvent(QWheelEvent* e);
@@ -63,6 +68,9 @@ public:
     bool isSeparate() const { return true; }
     void realign();
 
+    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    QDialog *configureDialog();
+
 private:
     QButtonGroup * m_buttons;
     QSignalMapper* m_pSignalMapper;
@@ -70,6 +78,8 @@ private:
     QStringList m_desktopNames;
     DesktopSwitchWidget mWidget;
     LxQt::GridLayout *mLayout;
+    int mRows;
+    QScopedPointer<NETRootInfo> mDesktops;
 
     void setup();
 
@@ -78,12 +88,13 @@ private slots:
     void onNumberOfDesktopsChanged(int);
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
+    virtual void settingsChanged();
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new DesktopSwitch(startupInfo);}

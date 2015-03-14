@@ -31,8 +31,8 @@
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
 #include <LXQt/Notification>
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/NETWM>
 #include "showdesktop.h"
 
 // Still needed for lxde/lxqt#338

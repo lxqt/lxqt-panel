@@ -25,11 +25,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef QUICKLAUNCHACTION_H
 #define QUICKLAUNCHACTION_H
 
 #include <QAction>
+
 
 class XdgDesktopFile;
 
@@ -57,13 +57,13 @@ public:
     /*! Constructor for XDG desktop handlers.
      */
     QuickLaunchAction(const XdgDesktopFile * xdg, QWidget * parent);
-    /*! Constructor for regular files 
+    /*! Constructor for regular files
      */
     QuickLaunchAction(const QString & fileName, QWidget * parent);
 
     //! Returns true if the action is valid (contains all required properties).
     bool isValid() { return m_valid; }
-    
+
     QHash<QString, QString> settingsMap() { return m_settingsMap; }
 
 public slots:

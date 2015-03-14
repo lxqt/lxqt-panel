@@ -25,13 +25,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-
 #ifndef LXQTMOUNTCONFIGURATION_H
 #define LXQTMOUNTCONFIGURATION_H
 
-
 #include "../panel/lxqtpanelpluginconfigdialog.h"
+
 
 namespace Ui {
     class LxQtMountConfiguration;

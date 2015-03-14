@@ -130,7 +130,7 @@ private slots:
     void showAddPluginDialog();
     void realign();
     void removePlugin();
-    void pluginMoved();
+    void pluginMoved(Plugin const * plug);
     void userRequestForDeletion();
 
 private:
@@ -139,6 +139,7 @@ private:
     QFrame *LxQtPanelWidget;
     QString mConfigGroup;
     QList<Plugin*> mPlugins;
+    QList<QString> mPluginsList;
 
     int findAvailableScreen(LxQtPanel::Position position);
     void updateWmStrut();

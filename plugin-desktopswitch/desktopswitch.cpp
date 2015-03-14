@@ -32,17 +32,22 @@
 #include <QSignalMapper>
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/NETWM>
+#include <QX11Info>
+#include <cmath>
 
-#include <QHBoxLayout>
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
+#include "desktopswitchconfiguration.h"
 
 DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
-    m_desktopCount(KWindowSystem::numberOfDesktops())
+    m_desktopCount(KWindowSystem::numberOfDesktops()),
+    mRows(1),
+    mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout))
 {
     m_buttons = new QButtonGroup(this);
     connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
@@ -92,7 +97,7 @@ void DesktopSwitch::setup()
     connect(m_buttons, SIGNAL(buttonClicked(int)),
             this, SLOT(setDesktop(int)));
 
-    realign();
+    settingsChanged();
 }
 
 DesktopSwitch::~DesktopSwitch()
@@ -132,38 +137,60 @@ void DesktopSwitch::onDesktopNamesChanged()
     setup();
 }
 
+void DesktopSwitch::settingsChanged()
+{
+    mRows = settings()->value("rows", 1).toInt();
+    realign();
+}
+
 void DesktopSwitch::realign()
 {
+    int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
     mLayout->setEnabled(false);
-
     if (panel()->isHorizontal())
     {
-        mLayout->setRowCount(qMin(panel()->lineCount(), mLayout->count()));
+        mLayout->setRowCount(mRows);
         mLayout->setColumnCount(0);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, NET::DesktopLayoutCornerTopLeft);
     }
     else
     {
-        mLayout->setColumnCount(qMin(panel()->lineCount(), mLayout->count()));
+        mLayout->setColumnCount(mRows);
         mLayout->setRowCount(0);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, NET::DesktopLayoutCornerTopLeft);
     }
     mLayout->setEnabled(true);
 }
 
+QDialog *DesktopSwitch::configureDialog()
+{
+    return new DesktopSwitchConfiguration(settings(), &mWidget);
+}
+
 DesktopSwitchWidget::DesktopSwitchWidget():
-    QFrame()
+    QFrame(),
+    m_mouseWheelThresholdCounter(0)
 {
 }
 
 void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
-    int max = KWindowSystem::currentDesktop() - 1;
+    // Without some sort of threshold which has to be passed, scrolling is too sensitive
+    m_mouseWheelThresholdCounter -= e->delta();
+    // If the user hasn't scrolled far enough in one direction (positive or negative): do nothing
+    if(abs(m_mouseWheelThresholdCounter) < 100)
+        return;
+    
+    int max = KWindowSystem::numberOfDesktops();
     int delta = e->delta() < 0 ? 1 : -1;
     int current = KWindowSystem::currentDesktop() + delta;
 
-    if (current > max)
-        current = 0;
-    else if (current < 0)
+    if (current > max){
+        current = 1;
+    }
+    else if (current < 1)
         current = max;
 
+    m_mouseWheelThresholdCounter = 0;
     KWindowSystem::setCurrentDesktop(current);
 }

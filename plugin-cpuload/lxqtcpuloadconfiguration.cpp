@@ -34,24 +34,26 @@
 #define BAR_ORIENT_RIGHTLEFT "rightLeft"
 
 LxQtCpuLoadConfiguration::LxQtCpuLoadConfiguration(QSettings *settings, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::LxQtCpuLoadConfiguration),
-	mSettings(settings),
-	mOldSettings(settings)
+    QDialog(parent),
+    ui(new Ui::LxQtCpuLoadConfiguration),
+    mSettings(settings),
+    mOldSettings(settings)
 {
-	setAttribute(Qt::WA_DeleteOnClose);
-	setObjectName("CpuLoadConfigurationWindow");
-	ui->setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose);
+    setObjectName("CpuLoadConfigurationWindow");
+    ui->setupUi(this);
 
     fillBarOrientations();
 
-	connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)),
+    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)),
             this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
-	loadSettings();
+    loadSettings();
 
-	connect(ui->showTextCB, SIGNAL(toggled(bool)),
+    connect(ui->showTextCB, SIGNAL(toggled(bool)),
             this, SLOT(showTextChanged(bool)));
+    connect(ui->barWidthSB, SIGNAL(valueChanged(int)),
+            this, SLOT(barWidthChanged(int)));
     connect(ui->updateIntervalSpinBox, SIGNAL(valueChanged(double)),
             this, SLOT(updateIntervalChanged(double)));
     connect(ui->barOrientationCOB, SIGNAL(currentIndexChanged(int)),
@@ -60,7 +62,7 @@ LxQtCpuLoadConfiguration::LxQtCpuLoadConfiguration(QSettings *settings, QWidget 
 
 LxQtCpuLoadConfiguration::~LxQtCpuLoadConfiguration()
 {
-	delete ui;
+    delete ui;
 }
 
 void LxQtCpuLoadConfiguration::fillBarOrientations()
@@ -74,6 +76,7 @@ void LxQtCpuLoadConfiguration::fillBarOrientations()
 void LxQtCpuLoadConfiguration::loadSettings()
 {
     ui->showTextCB->setChecked(mSettings->value("showText", false).toBool());
+    ui->barWidthSB->setValue(mSettings->value("barWidth", 20).toInt());
     ui->updateIntervalSpinBox->setValue(mSettings->value("updateInterval", 1000).toInt() / 1000.0);
 
     int boIndex = ui->barOrientationCOB->findData(
@@ -95,6 +98,10 @@ void LxQtCpuLoadConfiguration::showTextChanged(bool value)
     mSettings->setValue("showText", value);
 }
 
+void LxQtCpuLoadConfiguration::barWidthChanged(int value)
+{
+    mSettings->setValue("barWidth", value);
+}
 
 void LxQtCpuLoadConfiguration::updateIntervalChanged(double value)
 {
@@ -108,14 +115,14 @@ void LxQtCpuLoadConfiguration::barOrientationChanged(int index)
 
 void LxQtCpuLoadConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
-	if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-	{
-		mOldSettings.loadToSettings();
-		loadSettings();
-	}
-	else
-	{
-		close();
-	}
+    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
+    {
+        mOldSettings.loadToSettings();
+        loadSettings();
+    }
+    else
+    {
+        close();
+    }
 }
 

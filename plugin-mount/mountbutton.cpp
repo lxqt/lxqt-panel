@@ -26,15 +26,14 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QtDebug>
-
-#include <XdgIcon>
 #include "mountbutton.h"
+#include <XdgIcon>
+
 
 MountButton::MountButton(QWidget * parent) :
     QToolButton(parent)
 {
-    setIcon(XdgIcon::fromTheme(QStringList() << "device-notifier" << "drive-removable-media-usb" << "drive-removable-media"));
+    setIcon(XdgIcon::fromTheme(QStringLiteral("drive-removable-media")));
 
     setToolTip(tr("Removable media/devices manager"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

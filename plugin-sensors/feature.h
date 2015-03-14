@@ -28,9 +28,10 @@
 #ifndef FEATURE_H
 #define FEATURE_H
 
-#include <QString>
 #include <QList>
+#include <QString>
 #include <sensors/sensors.h>
+
 
 /**
  * @brief Feature class is providing RAII-style for lm_sensors library

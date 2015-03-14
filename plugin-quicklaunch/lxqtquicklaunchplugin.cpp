@@ -25,9 +25,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "lxqtquicklaunchplugin.h"
 #include "lxqtquicklaunch.h"
+
 
 LxQtQuickLaunchPlugin::LxQtQuickLaunchPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),

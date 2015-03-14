@@ -34,12 +34,12 @@ DeviceActionNothing::DeviceActionNothing(LxQtMountPlugin *plugin, QObject *paren
 }
 
 
-void DeviceActionNothing::doDeviceAdded(LxQt::MountDevice *device)
+void DeviceActionNothing::doDeviceAdded(Solid::Device device)
 {
 }
 
 
-void DeviceActionNothing::doDeviceRemoved(LxQt::MountDevice *device)
+void DeviceActionNothing::doDeviceRemoved(Solid::Device device)
 {
 }
 

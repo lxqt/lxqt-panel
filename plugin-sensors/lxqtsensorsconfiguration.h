@@ -25,17 +25,16 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #ifndef LXQTSENSORSCONFIGURATION_H
 #define LXQTSENSORSCONFIGURATION_H
 
-#include <QDialog>
 #include <QAbstractButton>
 #include <QButtonGroup>
-#include <QLocale>
 #include <QDateTime>
-
+#include <QDialog>
+#include <QLocale>
 #include <LXQt/Settings>
+
 
 namespace Ui {
     class LxQtSensorsConfiguration;
