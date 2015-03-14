@@ -220,7 +220,7 @@ public:
     /**
     Returns the root component object of the plugin. When the library is finally unloaded, the root component will automatically be deleted.
      **/
-    virtual ILxQtPanelPlugin* instance(const ILxQtPanelPluginStartupInfo &startupInfo) = 0;
+    virtual ILxQtPanelPlugin* instance(const ILxQtPanelPluginStartupInfo &startupInfo) const = 0;
 };
 
 

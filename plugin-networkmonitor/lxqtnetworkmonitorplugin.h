@@ -62,7 +62,7 @@ class LxQtNetworkMonitorPluginLibrary: public QObject, public ILxQtPanelPluginLi
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
     {
         return new LxQtNetworkMonitorPlugin(startupInfo);
     }

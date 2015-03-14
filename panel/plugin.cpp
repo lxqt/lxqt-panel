@@ -88,7 +88,7 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     dirs << PLUGIN_DIR;
 
     bool found = false;
-    if(ILxQtPanelPluginLibrary* pluginLib = findStaticPlugin(desktopFile.id()))
+    if(ILxQtPanelPluginLibrary const * pluginLib = findStaticPlugin(desktopFile.id()))
     {
         // this is a static plugin
         found = true;
@@ -176,7 +176,7 @@ void Plugin::setAlignment(Plugin::Alignment alignment)
 
  ************************************************/
 
-ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
+ILxQtPanelPluginLibrary const * Plugin::findStaticPlugin(const QString &libraryName)
 {
     // find a static plugin library by name
     // internally this is implemented using binary search
@@ -280,7 +280,7 @@ ILxQtPanelPluginLibrary* Plugin::findStaticPlugin(const QString &libraryName)
 }
 
 // load a plugin from a library
-bool Plugin::loadLib(ILxQtPanelPluginLibrary* pluginLib)
+bool Plugin::loadLib(ILxQtPanelPluginLibrary const * pluginLib)
 {
     ILxQtPanelPluginStartupInfo startupInfo;
     startupInfo.settings = mSettings;
