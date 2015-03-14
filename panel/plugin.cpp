@@ -42,6 +42,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QCryptographicHash>
+#include <memory>
 
 #include <LXQt/Settings>
 #include <LXQt/Translator>
@@ -175,108 +176,64 @@ void Plugin::setAlignment(Plugin::Alignment alignment)
 /************************************************
 
  ************************************************/
+namespace
+{
+    //helper types for static plugins storage & binary search
+    typedef std::unique_ptr<ILxQtPanelPluginLibrary> plugin_ptr_t;
+    typedef std::pair<QString, plugin_ptr_t > plugin_pair_t;
+
+    //NOTE: Please keep the plugins sorted by name while adding new plugins.
+    static plugin_pair_t const static_plugins[] = {
+#if defined(WITH_CLOCK_PLUGIN)
+        { QStringLiteral("clock"), plugin_ptr_t{new LxQtClockPluginLibrary} },// clock
+#endif
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
+        { QStringLiteral("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary} },// desktopswitch
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
+        { QStringLiteral("mainmenu"), plugin_ptr_t{new LxQtMainMenuPluginLibrary} },// mainmenu
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
+        { QStringLiteral("quicklaunch"), plugin_ptr_t{new LxQtQuickLaunchPluginLibrary} },// quicklaunch
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
+        { QStringLiteral("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary} },//showdesktop
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
+        { QStringLiteral("statusnotifier"), plugin_ptr_t{new StatusNotifierLibrary} },// statusnotifier
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
+        { QStringLiteral("taskbar"), plugin_ptr_t{new LxQtTaskBarPluginLibrary} },//taskbar
+#endif
+#if defined(WITH_TRAY_PLUGIN)
+        { QStringLiteral("tray"), plugin_ptr_t{new LxQtTrayPluginLibrary} },//tray
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
+        { QStringLiteral("worldclock"), plugin_ptr_t{new LxQtWorldClockLibrary} },// worldclock
+#endif
+    };
+    static constexpr plugin_pair_t const * const plugins_begin = static_plugins;
+    static constexpr plugin_pair_t const * const plugins_end = static_plugins + sizeof (static_plugins) / sizeof (static_plugins[0]);
+
+    struct assert_helper
+    {
+        assert_helper()
+        {
+            Q_ASSERT(std::is_sorted(plugins_begin, plugins_end
+                        , [] (plugin_pair_t const & p1, plugin_pair_t const & p2) -> bool { return p1.first < p2.first; }));
+        }
+    };
+    static assert_helper h;
+}
 
 ILxQtPanelPluginLibrary const * Plugin::findStaticPlugin(const QString &libraryName)
 {
-    // find a static plugin library by name
-    // internally this is implemented using binary search
-    // statically linked built-in plugins
-#if defined(WITH_CLOCK_PLUGIN)
-    static LxQtClockPluginLibrary clock_lib; // clock
-#endif
-#if defined(WITH_DESKTOPSWITCH_PLUGIN)
-    static DesktopSwitchPluginLibrary desktopswitch_lib; // desktopswitch
-#endif
-#if defined(WITH_MAINMENU_PLUGIN)
-    static LxQtMainMenuPluginLibrary mainmenu_lib; // mainmenu
-#endif
-#if defined(WITH_QUICKLAUNCH_PLUGIN)
-    static LxQtQuickLaunchPluginLibrary quicklaunch_lib; // quicklaunch
-#endif
-#if defined(WITH_SHOWDESKTOP_PLUGIN)
-    static ShowDesktopLibrary showdesktop_lib; //showdesktop
-#endif
-#if defined(WITH_TASKBAR_PLUGIN)
-    static LxQtTaskBarPluginLibrary taskbar_lib; //taskbar
-#endif
-#if defined(WITH_STATUSNOTIFIER_PLUGIN)
-    static StatusNotifierLibrary statusnotifier_lib; // statusnotifier
-#endif
-#if defined(WITH_TRAY_PLUGIN)
-    static LxQtTrayPluginLibrary tray_lib; //tray
-#endif
-#if defined(WITH_WORLDCLOCK_PLUGIN)
-    static LxQtWorldClockLibrary worldclock_lib; // worldclock
-#endif
-
-    static const QString names[] = // the names should be kept sorted (for binary search)
-    {
-        QStringLiteral() //dummy first because of the next ifdefs
-#if defined(WITH_CLOCK_PLUGIN)
-        , QStringLiteral("clock")
-#endif
-#if defined(WITH_DESKTOPSWITCH_PLUGIN)
-        , QStringLiteral("desktopswitch")
-#endif
-#if defined(WITH_MAINMENU_PLUGIN)
-        , QStringLiteral("mainmenu")
-#endif
-#if defined(WITH_QUICKLAUNCH_PLUGIN)
-        , QStringLiteral("quicklaunch")
-#endif
-#if defined(WITH_SHOWDESKTOP_PLUGIN)
-        , QStringLiteral("showdesktop")
-#endif
-#if defined(WITH_TASKBAR_PLUGIN)
-        , QStringLiteral("taskbar")
-#endif
-#if defined(WITH_STATUSNOTIFIER_PLUGIN)
-        , QStringLiteral("statusnotifier")
-#endif
-#if defined(WITH_TRAY_PLUGIN)
-        , QStringLiteral("tray")
-#endif
-#if defined(WITH_WORLDCLOCK_PLUGIN)
-        , QStringLiteral("worldclock")
-#endif
-    };
-    static ILxQtPanelPluginLibrary* staticPlugins[] = // should be kept in the same order as names
-    {
-        nullptr //dummy first because of the next ifdefs
-#if defined(WITH_CLOCK_PLUGIN)
-        , &clock_lib
-#endif
-#if defined(WITH_DESKTOPSWITCH_PLUGIN)
-        , &desktopswitch_lib
-#endif
-#if defined(WITH_MAINMENU_PLUGIN)
-        , &mainmenu_lib
-#endif
-#if defined(WITH_QUICKLAUNCH_PLUGIN)
-        , &quicklaunch_lib
-#endif
-#if defined(WITH_SHOWDESKTOP_PLUGIN)
-        , &showdesktop_lib
-#endif
-#if defined(WITH_TASKBAR_PLUGIN)
-        , &taskbar_lib
-#endif
-#if defined(WITH_STATUSNOTIFIER_PLUGIN)
-        , &statusnotifier_lib
-#endif
-#if defined(WITH_TRAY_PLUGIN)
-        , &tray_lib
-#endif
-#if defined(WITH_WORLDCLOCK_PLUGIN)
-        , &worldclock_lib
-#endif
-    };
-
-    for (unsigned i = 1/*dummy first*/; i < sizeof(names) / sizeof(QString); i++)
-        if (names[i] == libraryName)
-            return staticPlugins[i];
-
-    return NULL;
+    // find a static plugin library by name -> binary search
+    plugin_pair_t const * plugin = std::lower_bound(plugins_begin, plugins_end, libraryName
+            , [] (plugin_pair_t const & plugin, QString const & name) -> bool { return plugin.first < name; });
+    if (plugins_end != plugin && libraryName == plugin->first)
+        return plugin->second.get();
+    return nullptr;
 }
 
 // load a plugin from a library
