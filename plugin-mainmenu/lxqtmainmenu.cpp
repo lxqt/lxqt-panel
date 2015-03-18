@@ -73,11 +73,13 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
     mDelayedPopup.setSingleShot(true);
     mDelayedPopup.setInterval(250);
     connect(&mDelayedPopup, &QTimer::timeout, this, &LxQtMainMenu::showHideMenu);
+    mHideTimer.setSingleShot(true);
+    mHideTimer.setInterval(250);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.installEventFilter(this);
 
-    connect(&mButton, &QToolButton::clicked, this, &LxQtMainMenu::showMenu);
+    connect(&mButton, &QToolButton::clicked, this, &LxQtMainMenu::showHideMenu);
 
     settingsChanged();
 
@@ -107,7 +109,8 @@ LxQtMainMenu::~LxQtMainMenu()
  ************************************************/
 void LxQtMainMenu::showHideMenu()
 {
-    if (mMenu && mMenu->isVisible())
+
+    if (mMenu && (mMenu->isVisible() || mHideTimer.isActive()))
         mMenu->hide();
     else
         showMenu();
@@ -272,6 +275,8 @@ void LxQtMainMenu::buildMenu()
     }
 
     menu->installEventFilter(this);
+    connect(menu, SIGNAL(aboutToHide()), &mHideTimer, SLOT(start()));
+    connect(menu, SIGNAL(aboutToShow()), &mHideTimer, SLOT(stop()));
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;

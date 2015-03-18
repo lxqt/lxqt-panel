@@ -95,6 +95,7 @@ private:
 
     bool mLockCascadeChanges;
     QTimer mDelayedPopup;
+    QTimer mHideTimer;
     QKeySequence mShortcutSeq;
     QString mMenuFile;
 
