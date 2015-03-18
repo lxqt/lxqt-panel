@@ -618,12 +618,12 @@ void LxQtPanel::showAddPluginDialog()
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
         connect(this, SIGNAL(pluginAdded(QString)), dialog, SLOT(pluginAdded(const QString &)));
         connect(this, SIGNAL(pluginRemoved(QString)), dialog, SLOT(pluginRemoved(const QString &)));
-    }
 
-    QStringList pluginsInUseIDs;
-    foreach (Plugin *i, mPlugins)
-        pluginsInUseIDs << i->desktopFile().id();
-    dialog->setPluginsInUse(pluginsInUseIDs);
+        QStringList pluginsInUseIDs;
+        foreach (Plugin *i, mPlugins)
+            pluginsInUseIDs << i->desktopFile().id();
+        dialog->setPluginsInUse(pluginsInUseIDs);
+    }
 
     dialog->show();
     KWindowSystem::setOnDesktop(dialog->effectiveWinId(), KWindowSystem::currentDesktop());
