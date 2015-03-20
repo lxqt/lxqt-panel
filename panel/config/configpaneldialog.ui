@@ -211,6 +211,13 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QCheckBox" name="checkBox_hidable">
+        <property name="text">
+         <string>Auto-hide</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

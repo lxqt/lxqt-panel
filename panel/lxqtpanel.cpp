@@ -71,6 +71,7 @@
 #define CFG_KEY_BACKGROUNDIMAGE    "background-image"
 #define CFG_KEY_OPACITY            "opacity"
 #define CFG_KEY_PLUGINS            "plugins"
+#define CFG_KEY_HIDABLE            "hidable"
 
 /************************************************
  Returns the Position by the string.
@@ -120,7 +121,9 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mLength(0),
     mAlignment(AlignmentLeft),
     mPosition(ILxQtPanel::PositionBottom),
-    mScreenNum(0) //whatever (avoid conditional on uninitialized value)
+    mScreenNum(0), //whatever (avoid conditional on uninitialized value)
+    mHidable(false),
+    mHidden(false)
 {
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
 
@@ -140,6 +143,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     setAttribute(Qt::WA_AlwaysShowToolTips);
     setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_AcceptDrops);
 
     setWindowTitle("LxQt Panel");
     setObjectName(QString("LxQtPanel %1").arg(configGroup));
@@ -147,7 +151,6 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     LxQtPanelWidget = new QFrame(this);
     LxQtPanelWidget->setObjectName("BackgroundWidget");
     QGridLayout* lav = new QGridLayout();
-    lav->setContentsMargins(QMargins(0,0,0,0));
     setLayout(lav);
     this->layout()->addWidget(LxQtPanelWidget);
 
@@ -159,6 +162,10 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mDelaySave.setSingleShot(true);
     mDelaySave.setInterval(SETTINGS_SAVE_DELAY);
     connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
+
+    mHideTimer.setSingleShot(true);
+    mHideTimer.setInterval(PANEL_HIDE_DELAY);
+    connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
 
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(realign()));
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
@@ -212,6 +219,8 @@ void LxQtPanel::readSettings()
     if (!image.isEmpty())
         setBackgroundImage(image, false);
 
+    mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
+    mHidden = mHidable;
 
     mSettings->endGroup();
 }
@@ -249,6 +258,8 @@ void LxQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
     mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
+
+    mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
 
     mSettings->endGroup();
 }
@@ -381,16 +392,12 @@ void LxQtPanel::realign()
 #endif
 
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
-    QSize size = sizeHint();
     QRect rect;
 
     if (isHorizontal())
     {
         // Horiz panel ***************************
-        size.setHeight(mPanelSize);
-
-        // Size .......................
-        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, size.height()));
+        rect.setHeight(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
@@ -428,10 +435,7 @@ void LxQtPanel::realign()
     else
     {
         // Vert panel ***************************
-        size.setWidth(mPanelSize);
-
-        // Size .......................
-        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, size.width()));
+        rect.setWidth(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
@@ -471,6 +475,8 @@ void LxQtPanel::realign()
         setGeometry(rect);
         setFixedSize(rect.size());
     }
+    layout()->setMargin(mHidden ? PANEL_HIDE_SIZE : 0);
+
     // Reserve our space on the screen ..........
     // It's possible that our geometry is not changed, but screen resolution is changed,
     // so resetting WM_STRUT is still needed. To make it simple, we always do it.
@@ -641,7 +647,6 @@ void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
     saveSettings(true);
 
     realign();
-    emit realigned();
 
     emit pluginAdded(desktopFile.id());
 }
@@ -688,7 +693,6 @@ void LxQtPanel::setPanelSize(int value, bool save)
     {
         mPanelSize = value;
         realign();
-        emit realigned();
 
         if (save)
             saveSettings(true);
@@ -712,7 +716,6 @@ void LxQtPanel::setIconSize(int value, bool save)
             saveSettings(true);
 
         realign();
-        emit realigned();
     }
 }
 
@@ -733,7 +736,6 @@ void LxQtPanel::setLineCount(int value, bool save)
             saveSettings(true);
 
         realign();
-        emit realigned();
     }
 }
 
@@ -754,7 +756,6 @@ void LxQtPanel::setLength(int length, bool inPercents, bool save)
         saveSettings(true);
 
     realign();
-    emit realigned();
 }
 
 
@@ -797,7 +798,6 @@ void LxQtPanel::setPosition(int screen, ILxQtPanel::Position position, bool save
     }
 
     realign();
-    emit realigned();
 }
 
 /************************************************
@@ -814,7 +814,6 @@ void LxQtPanel::setAlignment(Alignment value, bool save)
         saveSettings(true);
 
     realign();
-    emit realigned();
 }
 
 /************************************************
@@ -888,7 +887,6 @@ bool LxQtPanel::event(QEvent *event)
         break;
 
     case QEvent::LayoutRequest:
-        realign();
         emit realigned();
         break;
 
@@ -913,6 +911,18 @@ bool LxQtPanel::event(QEvent *event)
         KWindowSystem::setOnAllDesktops(effectiveWinId(), true);
         break;
     }
+    case QEvent::DragEnter:
+        event->ignore();
+        //no break intentionally
+    case QEvent::Enter:
+        showPanel();
+        break;
+
+    case QEvent::Leave:
+    case QEvent::DragLeave:
+        hidePanel();
+        break;
+
     default:
         break;
     }
@@ -928,7 +938,6 @@ void LxQtPanel::showEvent(QShowEvent *event)
 {
     QFrame::showEvent(event);
     realign();
-    emit realigned();
 }
 
 
@@ -1148,4 +1157,42 @@ void LxQtPanel::userRequestForDeletion()
     mSettings->remove(mConfigGroup);
 
     emit deletedByUser(this);
+}
+
+void LxQtPanel::showPanel()
+{
+    if (mHidable && mHidden)
+    {
+        mHidden = false;
+        mHideTimer.stop();
+        realign();
+    }
+}
+
+void LxQtPanel::hidePanel()
+{
+    if (mHidable && !mHidden && !geometry().contains(QCursor::pos()))
+    {
+        mHideTimer.start();
+    }
+}
+
+void LxQtPanel::hidePanelWork()
+{
+    mHidden = true;
+    realign();
+}
+
+void LxQtPanel::setHidable(bool hidable, bool save)
+{
+    if (mHidable == hidable)
+        return;
+
+    mHidable = hidable;
+    mHidden = mHidable;
+
+    if (save)
+        saveSettings(true);
+
+    realign();
 }

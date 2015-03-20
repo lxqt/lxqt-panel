@@ -99,6 +99,7 @@ private:
     bool mOldLengthInPercents;
     LxQtPanel::Alignment mOldAlignment;
     ILxQtPanel::Position mOldPosition;
+    bool mOldHidable;
     int mOldScreenNum;
     QColor mOldFontColor;
     QColor mOldBackgroundColor;

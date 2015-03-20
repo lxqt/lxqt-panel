@@ -67,6 +67,8 @@ public:
     void readSettings();
 
     void showPopupMenu(Plugin *plugin = 0);
+    void showPanel();
+    void hidePanel();
 
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }
@@ -92,11 +94,13 @@ public:
     QColor backgroundColor() const { return mBackgroundColor; };
     QString backgroundImage() const { return mBackgroundImage; };
     int opacity() const { return mOpacity; };
+    bool hidable() const { return mHidable; }
 
     LxQt::Settings *settings() const { return mSettings; }
 
 public slots:
     void show();
+    void hidePanelWork();
 
     // Settings
     void setPanelSize(int value, bool save);
@@ -109,6 +113,7 @@ public slots:
     void setBackgroundColor(QColor color, bool save);
     void setBackgroundImage(QString path, bool save);
     void setOpacity(int opacity, bool save);
+    void setHidable(bool hidable, bool save);
 
     void saveSettings(bool later=false);
     void ensureVisible();
@@ -162,6 +167,9 @@ private:
     ILxQtPanel::Position mPosition;
     int mScreenNum;
     QTimer mDelaySave;
+    bool mHidable;
+    bool mHidden;
+    QTimer mHideTimer;
 
     QColor mFontColor;
     QColor mBackgroundColor;
