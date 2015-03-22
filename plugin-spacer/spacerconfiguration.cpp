@@ -30,9 +30,9 @@
 
 const QStringList SpacerConfiguration::msTypes = 
     (QStringList()
-     << QStringLiteral("invisible")
-     << QStringLiteral("dotted")
      << QStringLiteral("lined")
+     << QStringLiteral("dotted")
+     << QStringLiteral("invisible")
      );
 
 SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
