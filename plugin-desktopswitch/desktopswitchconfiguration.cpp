@@ -43,6 +43,7 @@ DesktopSwitchConfiguration::DesktopSwitchConfiguration(QSettings *settings, QWid
     loadSettings();
 
     connect(ui->rowsSB, SIGNAL(valueChanged(int)), this, SLOT(rowsChanged(int)));
+    connect(ui->labelTypeCB, SIGNAL(currentIndexChanged(int)), this, SLOT(labelTypeChanged(int)));
 }
 
 DesktopSwitchConfiguration::~DesktopSwitchConfiguration()
@@ -53,12 +54,18 @@ DesktopSwitchConfiguration::~DesktopSwitchConfiguration()
 void DesktopSwitchConfiguration::loadSettings()
 {
     ui->rowsSB->setValue(mSettings->value("rows", 1).toInt());
+    ui->labelTypeCB->setCurrentIndex(mSettings->value("labelType", 0).toInt());
 
 }
 
 void DesktopSwitchConfiguration::rowsChanged(int value)
 {
     mSettings->setValue("rows", value);
+}
+
+void DesktopSwitchConfiguration::labelTypeChanged(int type)
+{
+    mSettings->setValue("labelType", type);
 }
 
 void DesktopSwitchConfiguration::dialogButtonsAction(QAbstractButton *btn)
