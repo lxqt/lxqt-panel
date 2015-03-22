@@ -59,6 +59,7 @@ private slots:
     void loadSettings();
     void dialogButtonsAction(QAbstractButton *btn);
     void rowsChanged(int value);
+    void labelTypeChanged(int type);
 };
 
 #endif // DESKTOPSWITCHCERCONFIGURATION_H

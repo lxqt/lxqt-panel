@@ -47,14 +47,15 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     m_pSignalMapper(new QSignalMapper(this)),
     m_desktopCount(KWindowSystem::numberOfDesktops()),
     mRows(1),
-    mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout))
+    mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout)),
+    mLabelType(DesktopSwitchButton::LABEL_TYPE_NUMBER)
 {
     m_buttons = new QButtonGroup(this);
     connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
 
     mLayout = new LxQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
-    setup();
+    settingsChanged(); // also calls setup
 
     connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
@@ -79,7 +80,7 @@ void DesktopSwitch::setup()
         QString path = QString("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
         QString shortcut = QString("Control+F%1").arg(i + 1);
 
-        DesktopSwitchButton * m = new DesktopSwitchButton(&mWidget, i, path, shortcut,
+        DesktopSwitchButton * m = new DesktopSwitchButton(&mWidget, i, path, shortcut, mLabelType,
                                                           KWindowSystem::desktopName(i + 1).isEmpty() ?
                                                           tr("Desktop %1").arg(i + 1) :
                                                           KWindowSystem::desktopName(i + 1));
@@ -97,7 +98,6 @@ void DesktopSwitch::setup()
     connect(m_buttons, SIGNAL(buttonClicked(int)),
             this, SLOT(setDesktop(int)));
 
-    settingsChanged();
 }
 
 DesktopSwitch::~DesktopSwitch()
@@ -140,7 +140,8 @@ void DesktopSwitch::onDesktopNamesChanged()
 void DesktopSwitch::settingsChanged()
 {
     mRows = settings()->value("rows", 1).toInt();
-    realign();
+    mLabelType = static_cast<DesktopSwitchButton::LabelType>(settings()->value("labelType", 0).toInt());
+    setup();
 }
 
 void DesktopSwitch::realign()

@@ -32,15 +32,22 @@
 
 #include "desktopswitchbutton.h"
 
-DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, const QString &title)
+DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, LabelType labelType,  const QString &title)
     : QToolButton(parent)
     , m_shortcut(0)
     , mIndex(index)
 {
-    setText(QString::number(index + 1));
+    switch (labelType) {
+        case LABEL_TYPE_NAME:
+            setText(title);
+            break;
+
+        default: // LABEL_TYPE_NUMBER
+            setText(QString::number(index + 1));
+    }
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    
+
     if (!shortcut.isEmpty())
     {
         QString description = tr("Switch to desktop %1").arg(index + 1);
@@ -56,7 +63,7 @@ DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QStr
             connect(m_shortcut, SIGNAL(activated()), this, SIGNAL(activated()));
         }
     }
-    
+
     if (!title.isEmpty())
     {
         setToolTip(title);
