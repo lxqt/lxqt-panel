@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="vanished">Dimensione del pannello</translation>
+        <translation type="vanished">Dimensione pannello</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="vanished">Utilizza il dimensionamento automatico</translation>
+        <translation type="vanished">Usa dimensionamento automatico</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Posizione e larghezza del pannello</translation>
+        <translation type="vanished">Lunghezza e posizione del pannello</translation>
     </message>
     <message>
         <source>Left</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Larghezza:</translation>
+        <translation type="vanished">Lunghezza:</translation>
     </message>
     <message>
         <source>Position:</source>
@@ -57,41 +57,41 @@
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="vanished">In alto nel desktop</translation>
+        <translation type="vanished">Alto del desktop</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">A sinistra nel desktop</translation>
+        <translation type="vanished">Sinistra del desktop</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">A destra nel desktop</translation>
+        <translation type="vanished">Destra del desktop</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">In basso nel desktop</translation>
+        <translation type="vanished">Basso del desktop</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">In alto nel desktop %1</translation>
+        <translation type="vanished">Alto del desktop %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">A sinistra nel desktop %1</translation>
+        <translation type="vanished">Sinistra del desktop %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">A destra nel desktop %1</translation>
+        <translation type="vanished">Destra del desktop %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">In basso nel desktop %1</translation>
+        <translation type="vanished">Basso del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="80"/>
         <location filename="../config/configpaneldialog.cpp" line="86"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Configura panello</translation>
     </message>
 </context>
 <context>
@@ -99,173 +99,173 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Configura il pannello</translation>
+        <translation>Configura panello</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="32"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="41"/>
         <source>Size:</source>
-        <translation type="unfinished">Dimensione:</translation>
+        <translation>Dimensione:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="48"/>
         <location filename="../config/configpaneldialog.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="58"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione icone:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
         <source>Length:</source>
-        <translation type="unfinished">Larghezza:</translation>
+        <translation>Lunghezza:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Valori negativi impongano una lunghezza del panello di quel numero di pixel meno dello spazio disponibile. &lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esempio: -100px e schermo di 1280px = 1180px&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="124"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="129"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero righe:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Allineamento e posizione</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
         <location filename="../config/configpaneldialog.cpp" line="229"/>
         <source>Left</source>
-        <translation type="unfinished">Sinistra</translation>
+        <translation>Sinistra</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="187"/>
         <location filename="../config/configpaneldialog.cpp" line="230"/>
         <location filename="../config/configpaneldialog.cpp" line="236"/>
         <source>Center</source>
-        <translation type="unfinished">Centro</translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="192"/>
         <location filename="../config/configpaneldialog.cpp" line="231"/>
         <source>Right</source>
-        <translation type="unfinished">Destra</translation>
+        <translation>Destra</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="200"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Allineamento:</translation>
+        <translation>Allineamento:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="210"/>
         <source>Position:</source>
-        <translation type="unfinished">Posizione:</translation>
+        <translation>Posizione:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="226"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Aspetto</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="232"/>
         <source>Custom font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore carattere personalizzato:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Immagine sfondo:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="253"/>
         <source>Custom background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore sfondo personalizzato:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="344"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasparenza</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="195"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">In alto nel desktop</translation>
+        <translation>Alto del desktop</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="196"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">A sinistra nel desktop</translation>
+        <translation>Sinistra del desktop</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="197"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">A destra nel desktop</translation>
+        <translation>Destra del desktop</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="198"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">In basso nel desktop</translation>
+        <translation>Basso del desktop</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="207"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">In alto nel desktop %1</translation>
+        <translation>Alto del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="208"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">A sinistra nel desktop %1</translation>
+        <translation>Sinistra del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="209"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">A destra nel desktop %1</translation>
+        <translation>Destra del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="210"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">In basso nel desktop %1</translation>
+        <translation>Basso del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="235"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>In cima</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="237"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>In fondo</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="391"/>
         <location filename="../config/configpaneldialog.cpp" line="405"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Scegli  colore</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="425"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Immagini (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -273,41 +273,42 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="605"/>
         <source>Add Panel Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi elementi</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="929"/>
         <location filename="../lxqtpanel.cpp" line="948"/>
         <source>Panel</source>
-        <translation>Esci</translation>
+        <translation>Panello</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="950"/>
         <source>Configure Panel...</source>
-        <translation type="unfinished"></translation>
+        <translation>Configura pannello...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="955"/>
         <source>Add Panel Widgets...</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Call them &quot;plugins&quot; better?</translatorcomment>
+        <translation>Aggiungi elementi...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="960"/>
         <source>Add Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi panello</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="966"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi panello</translation>
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation type="vanished">Configura il pannello...</translation>
+        <translation type="vanished">Configura pannello...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Aggiungi plugin ...</translation>
+        <translation type="vanished">Aggiungi plugin...</translation>
     </message>
 </context>
 <context>
@@ -329,7 +330,7 @@
     <name>LxQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Configura il pannello</translation>
+        <translation type="vanished">Configura pannello</translation>
     </message>
 </context>
 <context>
@@ -337,17 +338,17 @@
     <message>
         <location filename="../plugin.cpp" line="309"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Configura &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="314"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Sposta &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="320"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi &quot;%1&quot;</translation>
     </message>
 </context>
 </TS>
