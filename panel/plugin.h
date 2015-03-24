@@ -69,7 +69,7 @@ public:
     QMenu* popupMenu() const;
     ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
 
-    const LxQt::PluginInfo desktopFile() { return mDesktopFile; }
+    const LxQt::PluginInfo desktopFile() const { return mDesktopFile; }
 
     bool isSeparate() const;
     bool isExpandable() const;

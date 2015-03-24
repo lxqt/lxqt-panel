@@ -34,7 +34,6 @@
 #include "config/configpaneldialog.h"
 #include "popupmenu.h"
 #include "plugin.h"
-#include <LXQt/AddPluginDialog>
 #include <LXQt/Settings>
 #include <LXQt/PluginInfo>
 
@@ -620,16 +619,18 @@ void LxQtPanel::showAddPluginDialog()
     if (!dialog)
     {
         dialog = new LxQt::AddPluginDialog(pluginDesktopDirs(), "LxQtPanel/Plugin", "*", this);
-        dialog->setWindowTitle(tr("Add Panel Widgets"));
+        dialog->setWindowTitle(tr("Manage Panel Widgets"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
-        connect(this, SIGNAL(pluginAdded(QString)), dialog, SLOT(pluginAdded(const QString &)));
-        connect(this, SIGNAL(pluginRemoved(QString)), dialog, SLOT(pluginRemoved(const QString &)));
+        connect(this, &LxQtPanel::pluginAdded, dialog, static_cast<void (LxQt::AddPluginDialog::*)(LxQt::PluginData const &)>(&LxQt::AddPluginDialog::pluginAdded));
+        connect(this, &LxQtPanel::pluginRemoved, dialog, static_cast<void (LxQt::AddPluginDialog::*)(LxQt::PluginData const &)>(&LxQt::AddPluginDialog::pluginRemoved));
 
-        QStringList pluginsInUseIDs;
-        foreach (Plugin *i, mPlugins)
-            pluginsInUseIDs << i->desktopFile().id();
-        dialog->setPluginsInUse(pluginsInUseIDs);
+        QList<LxQt::PluginData> pl;
+        for (auto plugin : mPlugins)
+        {
+            pl << LxQt::PluginData(plugin->desktopFile().id(), plugin, plugin->popupMenu());
+        }
+        dialog->setPluginsInUse(pl);
     }
 
     dialog->show();
@@ -643,13 +644,15 @@ void LxQtPanel::showAddPluginDialog()
 void LxQtPanel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
     QString settingsGroup = findNewPluginSettingsGroup(desktopFile.id());
-    if (0 != loadPlugin(desktopFile, settingsGroup))
+    Plugin * plugin = loadPlugin(desktopFile, settingsGroup);
+    if (0 != plugin)
+    {
         mPluginsList << settingsGroup;
+
+        realign();
+        emit pluginAdded(LxQt::PluginData(plugin->desktopFile().id(), plugin, plugin->popupMenu()));
+    }
     saveSettings(true);
-
-    realign();
-
-    emit pluginAdded(desktopFile.id());
 }
 
 
@@ -975,7 +978,7 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
                   );
 
     menu.addAction(XdgIcon::fromTheme("preferences-plugin"),
-                   tr("Add Panel Widgets..."),
+                   tr("Manage Panel Widgets..."),
                    this, SLOT(showAddPluginDialog())
                   );
 
@@ -1105,16 +1108,15 @@ QString LxQtPanel::findNewPluginSettingsGroup(const QString &pluginType) const
 void LxQtPanel::removePlugin()
 {
     Plugin *plugin = qobject_cast<Plugin*>(sender());
-    QString id;
     if (plugin)
     {
         mSettings->remove(plugin->settingsGroup());
         mPluginsList.removeAll(plugin->settingsGroup());
-        id = mPlugins.takeAt(mPlugins.indexOf(plugin))->desktopFile().id();
+        mPlugins.removeAll(plugin);
     }
 
     saveSettings();
-    emit pluginRemoved(id);
+    emit pluginRemoved(LxQt::PluginData(plugin->desktopFile().id(), plugin, nullptr/*don't want any menu*/));
 }
 
 

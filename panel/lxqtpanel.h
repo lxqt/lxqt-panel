@@ -34,6 +34,7 @@
 #include <QTimer>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
+#include <LXQt/AddPluginDialog>
 
 class QMenu;
 class Plugin;
@@ -122,8 +123,8 @@ signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
 
-    void pluginAdded(QString id);
-    void pluginRemoved(QString id);
+    void pluginAdded(LxQt::PluginData const & plugin);
+    void pluginRemoved(LxQt::PluginData const & plugin);
 
 protected:
     bool event(QEvent *event);
