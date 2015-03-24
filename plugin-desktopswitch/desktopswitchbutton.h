@@ -40,24 +40,15 @@ class Action;
 class DesktopSwitchButton : public QToolButton
 {
     Q_OBJECT
-    
+
 public:
     enum LabelType { // Must match with combobox indexes
         LABEL_TYPE_NUMBER = 0,
         LABEL_TYPE_NAME = 1
     };
 
-    DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, LabelType labelType, const QString &title=QString());
-
-public slots:
-    void unregisterShortcut();
-
-signals:
-    void activated();
-
-private:
-    GlobalKeyShortcut::Action * m_shortcut;
-    int mIndex;
+    DesktopSwitchButton(QWidget * parent, int index, LabelType labelType, const QString &title=QString());
+    void update(int index, LabelType labelType,  const QString &title);
 };
 
 #endif

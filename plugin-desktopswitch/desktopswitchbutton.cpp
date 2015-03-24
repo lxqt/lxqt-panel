@@ -32,12 +32,19 @@
 
 #include "desktopswitchbutton.h"
 
-DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, LabelType labelType,  const QString &title)
+DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, LabelType labelType,  const QString &title)
     : QToolButton(parent)
-    , m_shortcut(0)
-    , mIndex(index)
 {
-    switch (labelType) {
+    update(index, labelType, title);
+
+    setCheckable(true);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+}
+
+void DesktopSwitchButton::update(int index, LabelType labelType, const QString &title)
+{
+    switch (labelType)
+    {
         case LABEL_TYPE_NAME:
             setText(title);
             break;
@@ -45,32 +52,9 @@ DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QStr
         default: // LABEL_TYPE_NUMBER
             setText(QString::number(index + 1));
     }
-    setCheckable(true);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    if (!shortcut.isEmpty())
-    {
-        QString description = tr("Switch to desktop %1").arg(index + 1);
-        if (!title.isEmpty())
-        {
-            description.append(QString(" (%1)").arg(title));
-        }
-        m_shortcut = GlobalKeyShortcut::Client::instance()->addAction(QString(), path, description, this);
-        if (m_shortcut)
-        {
-            if (m_shortcut->shortcut().isEmpty())
-                m_shortcut->changeShortcut(shortcut);
-            connect(m_shortcut, SIGNAL(activated()), this, SIGNAL(activated()));
-        }
-    }
 
     if (!title.isEmpty())
     {
         setToolTip(title);
     }
-}
-
-void DesktopSwitchButton::unregisterShortcut()
-{
-    GlobalKeyShortcut::Client::instance()->removeAction(QString("/desktop_switch/desktop_%1").arg(mIndex + 1));
 }

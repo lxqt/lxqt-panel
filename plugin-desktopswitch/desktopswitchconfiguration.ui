@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelRowsSB">
      <property name="text">
       <string>Number of rows:</string>
      </property>
@@ -35,7 +35,7 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelButtons">
      <property name="text">
       <string>Desktop labels:</string>
      </property>

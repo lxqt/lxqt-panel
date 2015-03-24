@@ -47,7 +47,7 @@ class DesktopSwitchWidget: public QFrame
     Q_OBJECT
 public:
     DesktopSwitchWidget();
-    
+
 private:
     int m_mouseWheelThresholdCounter;
 
@@ -77,14 +77,13 @@ private:
     QButtonGroup * m_buttons;
     QSignalMapper* m_pSignalMapper;
     int m_desktopCount;
-    QStringList m_desktopNames;
     DesktopSwitchWidget mWidget;
     LxQt::GridLayout *mLayout;
     int mRows;
     QScopedPointer<NETRootInfo> mDesktops;
     DesktopSwitchButton::LabelType mLabelType;
 
-    void setup();
+    void refresh();
 
 private slots:
     void setDesktop(int desktop);
