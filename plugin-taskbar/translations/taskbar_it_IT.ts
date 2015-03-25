@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="454"/>
         <source>Roll down</source>
-        <translation>Minimizza</translation>
+        <translation>&amp;Srotola</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="460"/>
         <source>Roll up</source>
-        <translation>Ripristina</translation>
+        <translation>&amp;Arrotola</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="468"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="470"/>
         <source>Always on &amp;top</source>
-        <translation>Sempre in &amp;alto</translation>
+        <translation>Sempre in &amp;primo piano</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="476"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="482"/>
         <source>Always on &amp;bottom</source>
-        <translation>Sempre in &amp;basso</translation>
+        <translation>Sempre in &amp;secondo piano</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="490"/>
@@ -93,7 +93,7 @@
     <name>LxQtTaskbarConfiguration</name>
     <message>
         <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">Impostazioni del Task Manager di LxQt</translation>
+        <translation type="vanished">Impostazioni del Task Manager di LXQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
@@ -102,17 +102,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni della barra applicazioni</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>Taskbar Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>Contenuti della barra</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from current desktop</source>
-        <translation>Mostra finestre sul desktop corrente</translation>
+        <translation>Mostra finestre del desktop corrente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
@@ -122,17 +122,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="49"/>
         <source>Taskbar Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Aspetto</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Minimum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Larghezza minima dei pulsanti</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="88"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota &amp;automaticamente se il panello è verticale</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
