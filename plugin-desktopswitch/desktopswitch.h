@@ -91,6 +91,7 @@ private slots:
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
     virtual void settingsChanged();
+    void registerShortcuts();
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary

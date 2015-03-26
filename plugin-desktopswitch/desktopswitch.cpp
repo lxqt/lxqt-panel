@@ -30,6 +30,7 @@
 #include <QWheelEvent>
 #include <QtDebug>
 #include <QSignalMapper>
+#include <QTimer>
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 #include <KWindowSystem/KWindowSystem>
@@ -56,6 +57,20 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     mLayout = new LxQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
 
+    settingsChanged();
+
+    onCurrentDesktopChanged(KWindowSystem::currentDesktop());
+    QTimer::singleShot(0, this, SLOT(registerShortcuts()));
+
+    connect(m_buttons, SIGNAL(buttonClicked(int)), this, SLOT(setDesktop(int)));
+
+    connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
+    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
+    connect(KWindowSystem::self(), SIGNAL(desktopNamesChanged()), SLOT(onDesktopNamesChanged()));
+}
+
+void DesktopSwitch::registerShortcuts()
+{
     // Register shortcuts to change desktop
     GlobalKeyShortcut::Action * gshortcut;
     QString path;
@@ -73,16 +88,6 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
         m_pSignalMapper->setMapping(gshortcut, i);
     }
     connect(m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
-
-    settingsChanged();
-
-    onCurrentDesktopChanged(KWindowSystem::currentDesktop());
-
-    connect(m_buttons, SIGNAL(buttonClicked(int)), this, SLOT(setDesktop(int)));
-
-    connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(desktopNamesChanged()), SLOT(onDesktopNamesChanged()));
 }
 
 void DesktopSwitch::refresh()
