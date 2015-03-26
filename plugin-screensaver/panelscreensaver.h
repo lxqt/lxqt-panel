@@ -50,6 +50,9 @@ public:
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "PanelScreenSaver"; }
 
+private slots:
+    void shortcutRegistered();
+
 private:
     QToolButton  mButton;
     LxQt::ScreenSaver * mSaver;
