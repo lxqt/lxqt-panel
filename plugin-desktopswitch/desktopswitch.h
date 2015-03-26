@@ -33,6 +33,8 @@
 #include <QFrame>
 #include <QScopedPointer>
 
+#include "desktopswitchbutton.h"
+
 class QSignalMapper;
 class QButtonGroup;
 class NETRootInfo;
@@ -80,6 +82,7 @@ private:
     LxQt::GridLayout *mLayout;
     int mRows;
     QScopedPointer<NETRootInfo> mDesktops;
+    DesktopSwitchButton::LabelType mLabelType;
 
     void setup();
 

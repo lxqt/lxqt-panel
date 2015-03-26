@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>DesktopSwitchConfiguration</class>
  <widget class="QDialog" name="DesktopSwitchConfiguration">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>378</width>
+    <height>153</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>DesktopSwitch settings</string>
   </property>
@@ -26,7 +34,14 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Desktop labels:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttons">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -34,6 +49,20 @@
      <property name="standardButtons">
       <set>QDialogButtonBox::Close</set>
      </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QComboBox" name="labelTypeCB">
+     <item>
+      <property name="text">
+       <string>Numbers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Names</string>
+      </property>
+     </item>
     </widget>
    </item>
   </layout>
