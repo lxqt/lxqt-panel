@@ -66,6 +66,7 @@ protected slots:
     void handleShortcutVolumeUp();
     void handleShortcutVolumeDown();
     void handleShortcutVolumeMute();
+    void shortcutRegistered();
 
 private:
     AudioEngine *m_engine;
