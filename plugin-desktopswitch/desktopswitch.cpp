@@ -42,6 +42,8 @@
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
 
+#define DEFAULT_SHORTCUT_TEMPLATE QStringLiteral("Control+F%1")
+
 DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILxQtPanelPlugin(startupInfo),
@@ -74,20 +76,36 @@ void DesktopSwitch::registerShortcuts()
     // Register shortcuts to change desktop
     GlobalKeyShortcut::Action * gshortcut;
     QString path;
-    QString shortcut;
     QString description;
     for (int i = 0; i < 12; ++i)
     {
         path = QString("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
-        shortcut = QString("Control+F%1").arg(i + 1);
         description = tr("Switch to desktop %1").arg(i + 1);
 
-        gshortcut = GlobalKeyShortcut::Client::instance()->addAction(shortcut, path, description, this);
-
-        connect(gshortcut, SIGNAL(activated()), m_pSignalMapper, SLOT(map()));
-        m_pSignalMapper->setMapping(gshortcut, i);
+        gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QStringLiteral(), path, description, this);
+        if (nullptr != gshortcut)
+        {
+            m_keys << gshortcut;
+            connect(gshortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &DesktopSwitch::shortcutRegistered);
+            connect(gshortcut, SIGNAL(activated()), m_pSignalMapper, SLOT(map()));
+            m_pSignalMapper->setMapping(gshortcut, i);
+        }
     }
-    connect(m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
+}
+
+void DesktopSwitch::shortcutRegistered()
+{
+    GlobalKeyShortcut::Action * const shortcut = qobject_cast<GlobalKeyShortcut::Action*>(sender());
+
+    disconnect(shortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &DesktopSwitch::shortcutRegistered);
+
+    const int i = m_keys.indexOf(shortcut);
+    Q_ASSERT(-1 != i);
+
+    if (shortcut->shortcut().isEmpty())
+    {
+        shortcut->changeShortcut(DEFAULT_SHORTCUT_TEMPLATE.arg(i + 1));
+    }
 }
 
 void DesktopSwitch::refresh()

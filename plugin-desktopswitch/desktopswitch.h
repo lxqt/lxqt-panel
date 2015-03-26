@@ -75,6 +75,7 @@ public:
 
 private:
     QButtonGroup * m_buttons;
+    QList<GlobalKeyShortcut::Action*> m_keys;
     QSignalMapper* m_pSignalMapper;
     int m_desktopCount;
     DesktopSwitchWidget mWidget;
@@ -92,6 +93,7 @@ private slots:
     void onDesktopNamesChanged();
     virtual void settingsChanged();
     void registerShortcuts();
+    void shortcutRegistered();
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
