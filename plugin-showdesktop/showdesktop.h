@@ -52,6 +52,7 @@ private:
 
 private slots:
     void toggleShowingDesktop();
+    void shortcutRegistered();
 
 private:
     QToolButton mButton;
