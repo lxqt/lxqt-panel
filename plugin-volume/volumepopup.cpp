@@ -176,7 +176,7 @@ void VolumePopup::resizeEvent(QResizeEvent *event)
     realign();
 }
 
-void VolumePopup::open(QPoint pos, Qt::Corner anchor)
+void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 {
     m_pos = pos;
     m_anchor = anchor;

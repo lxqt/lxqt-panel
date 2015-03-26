@@ -40,7 +40,7 @@ class VolumePopup : public QDialog
 public:
     VolumePopup(QWidget* parent = 0);
 
-    void open(QPoint pos, Qt::Corner anchor);
+    void openAt(QPoint pos, Qt::Corner anchor);
     void handleWheelEvent(QWheelEvent *event);
 
     QSlider *volumeSlider() const { return m_volumeSlider; }

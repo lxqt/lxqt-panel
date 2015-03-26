@@ -133,7 +133,7 @@ void VolumeButton::showVolumeSlider()
     m_volumePopup->updateGeometry();
     m_volumePopup->adjustSize();
     QRect pos = mPlugin->calculatePopupWindowPos(m_volumePopup->size());
-    m_volumePopup->open(pos.topLeft(), Qt::TopLeftCorner);
+    m_volumePopup->openAt(pos.topLeft(), Qt::TopLeftCorner);
     m_volumePopup->activateWindow();
 }
 
