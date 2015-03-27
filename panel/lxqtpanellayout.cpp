@@ -589,16 +589,18 @@ void LxQtPanelLayout::setGeometry(const QRect &geometry)
     if (!mRightGrid->isValid())
         mRightGrid->update();
 
+    QRect my_geometry{geometry};
+    my_geometry -= contentsMargins();
     if (count())
     {
         if (isHorizontal())
-            setGeometryHoriz(geometry);
+            setGeometryHoriz(my_geometry);
         else
-            setGeometryVert(geometry);
+            setGeometryVert(my_geometry);
     }
 
     mAnimate = false;
-    QLayout::setGeometry(geometry);
+    QLayout::setGeometry(my_geometry);
 }
 
 
@@ -682,7 +684,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(0, baseLines[c]));
                     rect.moveLeft(left);
                 }
@@ -719,7 +722,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(0, baseLines[c]));
                     rect.moveRight(right);
                 }
@@ -792,7 +796,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(baseLines[c], 0));
                     rect.moveTop(top);
                 }
@@ -829,7 +834,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(baseLines[c], 0));
                     rect.moveBottom(bottom);
                 }
