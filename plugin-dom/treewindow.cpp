@@ -132,6 +132,8 @@ void TreeWindow::updatePropertiesView()
     ui->propertiesView->item(PROP_TEXT, 1)->setText(treeItem->widgetText());
     ui->propertiesView->item(PROP_CLASS_HIERARCY, 1)->setText(treeItem->widgetClassHierarcy().join(" :: "));
 
+    QString s;
+    QDebug out(&s);
     QMetaObject const * const m = treeItem->widget()->metaObject();
     const int curr_cnt = ui->allPropertiesView->rowCount();
     ui->allPropertiesView->setRowCount(m->propertyCount());
@@ -146,7 +148,9 @@ void TreeWindow::updatePropertiesView()
         QMetaProperty const & prop = m->property(i);
         ui->allPropertiesView->item(i, 0)->setText(prop.name());
         ui->allPropertiesView->item(i, 1)->setText(prop.typeName());
-        ui->allPropertiesView->item(i, 2)->setText(prop.read(treeItem->widget()).toString());
+        s.clear();
+        out << prop.read(treeItem->widget());
+        ui->allPropertiesView->item(i, 2)->setText(s);
     }
     for (int i = m->propertyCount(); curr_cnt > i; ++i)
         ui->allPropertiesView->removeRow(i);
