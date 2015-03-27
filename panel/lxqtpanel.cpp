@@ -151,6 +151,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     LxQtPanelWidget = new QFrame(this);
     LxQtPanelWidget->setObjectName("BackgroundWidget");
     QGridLayout* lav = new QGridLayout();
+    lav->setMargin(0);
     setLayout(lav);
     this->layout()->addWidget(LxQtPanelWidget);
 
@@ -470,12 +471,12 @@ void LxQtPanel::realign()
         else
             rect.moveRight(currentScreen.right());
     }
+    mLayout->setMargin(mHidden ? PANEL_HIDE_MARGIN : 0);
     if (rect != geometry())
     {
         setGeometry(rect);
         setFixedSize(rect.size());
     }
-    layout()->setMargin(mHidden ? PANEL_HIDE_SIZE : 0);
 
     // Reserve our space on the screen ..........
     // It's possible that our geometry is not changed, but screen resolution is changed,
