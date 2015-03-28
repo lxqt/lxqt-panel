@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.1" language="pl_PL">
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="314"/>
+        <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
         <translation>Pokaż/ukryj menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="339"/>
         <source>Leave</source>
-        <translation>Opuść</translation>
+        <translation type="vanished">Opuść</translation>
     </message>
 </context>
 <context>
     <name>LxQtMainMenuConfiguration</name>
     <message>
         <source>LxQt Main Menu settings</source>
-        <translation>Ustawienia menu LxQt</translation>
+        <translation type="vanished">Ustawienia menu LxQt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -27,11 +26,11 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation>Pokaż tekst</translation>
+        <translation type="vanished">Pokaż tekst</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation>Tekst</translation>
+        <translation type="vanished">Tekst</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>

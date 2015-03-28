@@ -154,20 +154,20 @@
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
-        <location filename="../config/configpaneldialog.cpp" line="229"/>
+        <location filename="../config/configpaneldialog.cpp" line="234"/>
         <source>Left</source>
         <translation>Sinistra</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="187"/>
-        <location filename="../config/configpaneldialog.cpp" line="230"/>
-        <location filename="../config/configpaneldialog.cpp" line="236"/>
+        <location filename="../config/configpaneldialog.cpp" line="235"/>
+        <location filename="../config/configpaneldialog.cpp" line="241"/>
         <source>Center</source>
         <translation>Centro</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="192"/>
-        <location filename="../config/configpaneldialog.cpp" line="231"/>
+        <location filename="../config/configpaneldialog.cpp" line="236"/>
         <source>Right</source>
         <translation>Destra</translation>
     </message>
@@ -182,88 +182,93 @@
         <translation>Posizione:</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.ui" line="226"/>
+        <location filename="../config/configpaneldialog.ui" line="217"/>
+        <source>Auto-hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpaneldialog.ui" line="233"/>
         <source>Styling</source>
         <translation>Aspetto</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.ui" line="232"/>
+        <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom font color:</source>
         <translation>Colore carattere personalizzato:</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.ui" line="239"/>
+        <location filename="../config/configpaneldialog.ui" line="246"/>
         <source>Custom background image:</source>
         <translation>Immagine sfondo:</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.ui" line="253"/>
+        <location filename="../config/configpaneldialog.ui" line="260"/>
         <source>Custom background color:</source>
         <translation>Colore sfondo personalizzato:</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.ui" line="344"/>
+        <location filename="../config/configpaneldialog.ui" line="351"/>
         <source>Opacity</source>
         <translation>Trasparenza</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="195"/>
+        <location filename="../config/configpaneldialog.cpp" line="200"/>
         <source>Top of desktop</source>
         <translation>Alto del desktop</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="196"/>
+        <location filename="../config/configpaneldialog.cpp" line="201"/>
         <source>Left of desktop</source>
         <translation>Sinistra del desktop</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="197"/>
+        <location filename="../config/configpaneldialog.cpp" line="202"/>
         <source>Right of desktop</source>
         <translation>Destra del desktop</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="198"/>
+        <location filename="../config/configpaneldialog.cpp" line="203"/>
         <source>Bottom of desktop</source>
         <translation>Basso del desktop</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="207"/>
+        <location filename="../config/configpaneldialog.cpp" line="212"/>
         <source>Top of desktop %1</source>
         <translation>Alto del desktop %1</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="208"/>
+        <location filename="../config/configpaneldialog.cpp" line="213"/>
         <source>Left of desktop %1</source>
         <translation>Sinistra del desktop %1</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="209"/>
+        <location filename="../config/configpaneldialog.cpp" line="214"/>
         <source>Right of desktop %1</source>
         <translation>Destra del desktop %1</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="210"/>
+        <location filename="../config/configpaneldialog.cpp" line="215"/>
         <source>Bottom of desktop %1</source>
         <translation>Basso del desktop %1</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="235"/>
+        <location filename="../config/configpaneldialog.cpp" line="240"/>
         <source>Top</source>
         <translation>In cima</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="237"/>
+        <location filename="../config/configpaneldialog.cpp" line="242"/>
         <source>Bottom</source>
         <translation>In fondo</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="391"/>
-        <location filename="../config/configpaneldialog.cpp" line="405"/>
+        <location filename="../config/configpaneldialog.cpp" line="397"/>
+        <location filename="../config/configpaneldialog.cpp" line="411"/>
         <source>Pick color</source>
         <translation>Scegli  colore</translation>
     </message>
     <message>
-        <location filename="../config/configpaneldialog.cpp" line="425"/>
+        <location filename="../config/configpaneldialog.cpp" line="431"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Immagini (*.png *.gif *.jpg)</translation>
     </message>
@@ -271,34 +276,34 @@
 <context>
     <name>LxQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="605"/>
+        <location filename="../lxqtpanel.cpp" line="623"/>
         <source>Add Panel Widgets</source>
         <translation>Aggiungi elementi</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="929"/>
-        <location filename="../lxqtpanel.cpp" line="948"/>
+        <location filename="../lxqtpanel.cpp" line="951"/>
+        <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
         <translation>Panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="950"/>
+        <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
         <translation>Configura pannello...</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="955"/>
+        <location filename="../lxqtpanel.cpp" line="978"/>
         <source>Add Panel Widgets...</source>
         <translatorcomment>Call them &quot;plugins&quot; better?</translatorcomment>
         <translation>Aggiungi elementi...</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="960"/>
+        <location filename="../lxqtpanel.cpp" line="984"/>
         <source>Add Panel</source>
         <translation>Aggiungi panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="966"/>
+        <location filename="../lxqtpanel.cpp" line="991"/>
         <source>Remove Panel</source>
         <translation>Rimuovi panello</translation>
     </message>
@@ -336,17 +341,17 @@
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="309"/>
+        <location filename="../plugin.cpp" line="395"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Configura &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="314"/>
+        <location filename="../plugin.cpp" line="400"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Sposta &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="320"/>
+        <location filename="../plugin.cpp" line="408"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Rimuovi &quot;%1&quot;</translation>
     </message>

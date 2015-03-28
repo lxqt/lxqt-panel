@@ -8,28 +8,28 @@
         <translation type="vanished">Prikaz namizja: globalne bližnjice »%1« ni moč registrirati</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="66"/>
+        <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="81"/>
+        <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="96"/>
+        <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="113"/>
+        <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="203"/>
-        <location filename="../lxqtvolume.cpp" line="213"/>
+        <location filename="../lxqtvolume.cpp" line="219"/>
+        <location filename="../lxqtvolume.cpp" line="229"/>
         <source>Volume: %1</source>
         <translation type="unfinished"></translation>
     </message>

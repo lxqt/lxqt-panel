@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ja">
 <context>
+    <name>FirstDayCombo</name>
+    <message>
+        <location filename="../lxqtclockconfiguration.cpp" line="50"/>
+        <source>&lt;locale based&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LxQtClockConfiguration</name>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
@@ -54,12 +62,17 @@
         <translation>時刻の下に日付(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="110"/>
+        <location filename="../lxqtclockconfiguration.ui" line="107"/>
+        <source>First day of week in calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="124"/>
         <source>Orientation</source>
         <translation>回転</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="116"/>
+        <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>パネルが縦のときに自動回転(&amp;R)</translation>
     </message>
@@ -69,12 +82,12 @@
         <translation>日付</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
         <translation>日付の表示形式を指定</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Interpreted sequences of date format are:
 
 d	the day as number without a leading zero (1 to 31)

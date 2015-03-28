@@ -4,9 +4,9 @@
 <context>
     <name>LxQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="187"/>
+        <location filename="../lxqtworldclock.cpp" line="185"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -121,7 +121,6 @@
         <translation>場所</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
         <translation>IANAのID</translation>
@@ -129,7 +128,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="573"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="594"/>
         <source>Custom name</source>
         <translation>指定した名前</translation>
     </message>
@@ -229,12 +228,12 @@
         <translation>パネルが垂直なときには回転する(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="104"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="105"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="573"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="594"/>
         <source>Input custom time zone name</source>
         <translation>タイムゾーンの名前を入力</translation>
     </message>
@@ -358,8 +357,14 @@
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="118"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="126"/>
         <source>Other</source>
         <translation>その他</translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
+        <source>Local timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

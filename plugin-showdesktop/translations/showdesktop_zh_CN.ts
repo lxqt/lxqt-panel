@@ -9,12 +9,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="58"/>
+        <location filename="../showdesktop.cpp" line="69"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>显示桌面：无法注册全局快捷键&apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="63"/>
+        <location filename="../showdesktop.cpp" line="55"/>
         <source>Show Desktop</source>
         <translation>显示桌面</translation>
     </message>

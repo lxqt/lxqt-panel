@@ -9,12 +9,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="58"/>
+        <location filename="../showdesktop.cpp" line="69"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Masaüstünü Göster: &apos;%1&apos; genel kısayolu kaydedilemiyor</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="63"/>
+        <location filename="../showdesktop.cpp" line="55"/>
         <source>Show Desktop</source>
         <translation>Masaüstünü Göster</translation>
     </message>

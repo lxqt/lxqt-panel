@@ -66,11 +66,27 @@
         <source>Click to eject this disc.</source>
         <translation type="vanished">Klik om deze schijf uit te werpen.</translation>
     </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="120"/>
+        <location filename="../menudiskitem.cpp" line="155"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Beheerder van verwijderbare media/apparaten</translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="121"/>
+        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="156"/>
+        <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountButton</name>
     <message>
-        <location filename="../mountbutton.cpp" line="39"/>
+        <location filename="../mountbutton.cpp" line="38"/>
         <source>Removable media/devices manager</source>
         <translation>Beheerder van verwijderbare media/apparaten</translation>
     </message>
@@ -90,7 +106,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="56"/>
+        <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
         <translation type="unfinished"></translation>
     </message>

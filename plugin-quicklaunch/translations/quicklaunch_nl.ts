@@ -4,17 +4,17 @@
 <context>
     <name>LxQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="214"/>
+        <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>
         <translation>Neerzetfout</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="215"/>
+        <location filename="../lxqtquicklaunch.cpp" line="220"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Bestand/URL &apos;%1&apos; kan vooralsnog niet worden ingebed in de snelstartbalk</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="319"/>
+        <location filename="../lxqtquicklaunch.cpp" line="327"/>
         <source>Drop application
 icons here</source>
         <translation type="unfinished"></translation>
@@ -23,17 +23,17 @@ icons here</source>
 <context>
     <name>QuickLaunchButton</name>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="53"/>
+        <location filename="../quicklaunchbutton.cpp" line="52"/>
         <source>Move left</source>
         <translation>Verplaats naar links</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="56"/>
+        <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move right</source>
         <translation>Verplaats naar rechts</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="60"/>
+        <location filename="../quicklaunchbutton.cpp" line="59"/>
         <source>Remove from quicklaunch</source>
         <translation>Verwijder uit snelstartbalk</translation>
     </message>

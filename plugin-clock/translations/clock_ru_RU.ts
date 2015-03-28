@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>FirstDayCombo</name>
+    <message>
+        <location filename="../lxqtclockconfiguration.cpp" line="50"/>
+        <source>&lt;locale based&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LxQtClockConfiguration</name>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
@@ -59,22 +67,27 @@
         <translation>Показывать дату под временем новой &amp;строкой</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="110"/>
+        <location filename="../lxqtclockconfiguration.ui" line="107"/>
+        <source>First day of week in calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="124"/>
         <source>Orientation</source>
         <translation>Ориентация</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="116"/>
+        <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>Авто&amp;поворот для вертикальной панели</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
         <translation>Введите свой формат даты</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Interpreted sequences of date format are:
 
 d	the day as number without a leading zero (1 to 31)
