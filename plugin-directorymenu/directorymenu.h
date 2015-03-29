@@ -42,14 +42,6 @@
 #include <QSettings>
 #include <QMenu>
 
-struct DirectoryMenuEntry : public QObject
-{
-	Q_OBJECT
-
-	QMenu* menu;
-	QString path;
-};
-
 class DirectoryMenu :  public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
