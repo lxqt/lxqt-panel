@@ -485,27 +485,26 @@ QPoint LxQtTaskGroup::recalculateFramePosition()
 {
     // Set position
     int x_offset = 0, y_offset = 0;
-    int rows = mPlugin->panel()->lineCount();
     switch (mPlugin->panel()->position())
     {
-    case ILxQtPanel::PositionBottom:
-        y_offset = -recalculateFrameHeight(); break;
     case ILxQtPanel::PositionTop:
-        y_offset = mPlugin->panel()->globalGometry().height() / rows; break;
+        y_offset += height();
+        break;
+    case ILxQtPanel::PositionBottom:
+        y_offset = -recalculateFrameHeight();
+        break;
     case ILxQtPanel::PositionLeft:
-        x_offset = mPlugin->panel()->globalGometry().width(); break;
+        x_offset += width();
+        break;
     case ILxQtPanel::PositionRight:
         x_offset = -recalculateFrameWidth();
         break;
     }
 
-    int x, y;
-    x = parentWidget()->mapToGlobal(pos()).x() + x_offset ;
-    y = parentWidget()->mapToGlobal(pos()).y() + y_offset;
+    QPoint pos = mapToGlobal(QPoint(x_offset, y_offset));
+    mPopup->move(pos);
 
-    mPopup->move(QPoint(x, y));
-
-    return QPoint(x, y);
+    return pos;
 }
 
 /************************************************
