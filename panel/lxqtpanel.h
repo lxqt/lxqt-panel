@@ -68,8 +68,6 @@ public:
     void readSettings();
 
     void showPopupMenu(Plugin *plugin = 0);
-    void showPanel();
-    void hidePanel();
 
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }
@@ -101,6 +99,8 @@ public:
 
 public slots:
     void show();
+    void showPanel();
+    void hidePanel();
     void hidePanelWork();
 
     // Settings

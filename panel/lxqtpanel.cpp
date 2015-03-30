@@ -175,13 +175,14 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     LxQtPanelApplication *app = reinterpret_cast<LxQtPanelApplication*>(qApp);
     mSettings = app->settings();
     readSettings();
+    mHidden = false;//overriding configuration to show it first time
+    QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     // the old position might be on a visible screen
     ensureVisible();
     loadPlugins();
 
     show();
 }
-
 
 /************************************************
 
