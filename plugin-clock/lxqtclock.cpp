@@ -140,8 +140,6 @@ void LxQtClock::showTime(const QDateTime &now)
         mTimeLabel->setText(QLocale::system().toString(now, mClockFormat));
     }
 
-    mRotatedWidget->adjustContentSize();
-
     mRotatedWidget->update();
 }
 
