@@ -92,7 +92,6 @@ void LxQtWorldClock::timeout()
 
     mContent->setText(formatDateTime(now, timeZoneName));
 
-    mRotatedWidget->adjustContentSize();
     mRotatedWidget->update();
 
     updatePopupContent();
