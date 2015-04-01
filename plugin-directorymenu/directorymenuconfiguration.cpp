@@ -105,6 +105,7 @@ void DirectoryMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
 void DirectoryMenuConfiguration::showDirectoryDialog()
 {
     QFileDialog d(this, tr("Choose Base Directory"), mBaseDirectory.absolutePath());
+    d.setFileMode(QFileDialog::Directory);
     d.setOptions(QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     d.setWindowModality(Qt::WindowModal);
 
