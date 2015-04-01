@@ -74,7 +74,7 @@ void Spacer::settingsChanged()
  ************************************************/
 QDialog *Spacer::configureDialog()
 {
-    return new SpacerConfiguration(settings(), &mSpacer);
+    return new SpacerConfiguration(settings());
 }
 
 /************************************************

@@ -49,7 +49,7 @@ QWidget *LxQtNetworkMonitorPlugin::widget()
 
 QDialog *LxQtNetworkMonitorPlugin::configureDialog()
 {
-    return new LxQtNetworkMonitorConfiguration(settings(), mWidget);
+    return new LxQtNetworkMonitorConfiguration(settings());
 }
 
 void LxQtNetworkMonitorPlugin::settingsChanged()

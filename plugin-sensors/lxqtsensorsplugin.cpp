@@ -52,7 +52,7 @@ QWidget *LxQtSensorsPlugin::widget()
 
 QDialog *LxQtSensorsPlugin::configureDialog()
 {
-    return new LxQtSensorsConfiguration(settings(), mWidget);
+    return new LxQtSensorsConfiguration(settings());
 }
 
 

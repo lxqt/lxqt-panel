@@ -97,9 +97,11 @@ void LxQtMainMenuConfiguration::showTextChanged(bool value)
 
 void LxQtMainMenuConfiguration::chooseMenuFile()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Choose menu file"), "~", tr("Menu files (*.menu)"));
-    if (!path.isEmpty())
+    QFileDialog d(this, tr("Choose menu file"), "~", tr("Menu files (*.menu)"));
+    d.setWindowModality(Qt::WindowModal);
+    if (d.exec() && !d.selectedFiles().isEmpty())
     {
+        QString const & path = d.selectedFiles().front();
         ui->menuFilePathLE->setText(path);
         mSettings.setValue("menu_file", path);
     }

@@ -104,13 +104,13 @@ void DirectoryMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
 
 void DirectoryMenuConfiguration::showDirectoryDialog()
 {
-    QString newBaseDirectory = QFileDialog::getExistingDirectory(this, tr("Choose Base Directory"),
-                                            mBaseDirectory.absolutePath(),
-                                            QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    QFileDialog d(this, tr("Choose Base Directory"), mBaseDirectory.absolutePath());
+    d.setOptions(QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    d.setWindowModality(Qt::WindowModal);
 
-    if(!newBaseDirectory.isEmpty())
+    if(d.exec() && !d.selectedFiles().isEmpty())
     {
-        mBaseDirectory.setPath(newBaseDirectory);
+        mBaseDirectory.setPath(d.selectedFiles().front());
         ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
         saveSettings();
@@ -119,12 +119,12 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
 
 void DirectoryMenuConfiguration::showIconDialog()
 {
-    QString newIconPath = QFileDialog::getOpenFileName(this, tr("Choose Icon"), QDir::homePath(), 
-                                tr("Icons (*.png *.xpm *.jpg)"));
+    QFileDialog d(this, tr("Choose Icon"), QDir::homePath(), tr("Icons (*.png *.xpm *.jpg)"));
+    d.setWindowModality(Qt::WindowModal);
 
-    if(!newIconPath.isNull())
+    if(d.exec() && !d.selectedFiles().isEmpty())
     {
-        QIcon newIcon = QIcon(newIconPath);
+        QIcon newIcon = QIcon(d.selectedFiles().front());
 
         if(newIcon.pixmap(QSize(24,24)).isNull())
         {
@@ -133,7 +133,7 @@ void DirectoryMenuConfiguration::showIconDialog()
         }
 
         ui->iconB->setIcon(newIcon);
-        mIcon = newIconPath;
+        mIcon = d.selectedFiles().front();
         saveSettings();
     }
 }

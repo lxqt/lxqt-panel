@@ -211,7 +211,7 @@ void DesktopSwitch::realign()
 
 QDialog *DesktopSwitch::configureDialog()
 {
-    return new DesktopSwitchConfiguration(settings(), &mWidget);
+    return new DesktopSwitchConfiguration(settings());
 }
 
 DesktopSwitchWidget::DesktopSwitchWidget():
