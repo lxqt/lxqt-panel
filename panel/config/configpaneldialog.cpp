@@ -370,13 +370,12 @@ void ConfigPanelWidget::positionChanged()
  ************************************************/
 void ConfigPanelWidget::pickFontColor()
 {
-    QColorDialog* d = new QColorDialog(QColor(mFontColor.name()), this);
-    d->setWindowTitle(tr("Pick color"));
-    d->setAttribute(Qt::WA_DeleteOnClose);
-    d->setWindowModality(Qt::WindowModal);
-    if (d->exec() && d->currentColor().isValid())
+    QColorDialog d(QColor(mFontColor.name()), this);
+    d.setWindowTitle(tr("Pick color"));
+    d.setWindowModality(Qt::WindowModal);
+    if (d.exec() && d.currentColor().isValid())
     {
-        mFontColor.setNamedColor(d->currentColor().name());
+        mFontColor.setNamedColor(d.currentColor().name());
         ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mFontColor.name()));
         editChanged();
     }
@@ -387,13 +386,12 @@ void ConfigPanelWidget::pickFontColor()
  ************************************************/
 void ConfigPanelWidget::pickBackgroundColor()
 {
-    QColorDialog* d = new QColorDialog(QColor(mBackgroundColor.name()), this);
-    d->setWindowTitle(tr("Pick color"));
-    d->setAttribute(Qt::WA_DeleteOnClose);
-    d->setWindowModality(Qt::WindowModal);
-    if (d->exec() && d->currentColor().isValid())
+    QColorDialog d(QColor(mBackgroundColor.name()), this);
+    d.setWindowTitle(tr("Pick color"));
+    d.setWindowModality(Qt::WindowModal);
+    if (d.exec() && d.currentColor().isValid())
     {
-        mBackgroundColor.setNamedColor(d->currentColor().name());
+        mBackgroundColor.setNamedColor(d.currentColor().name());
         ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mBackgroundColor.name()));
         editChanged();
     }
