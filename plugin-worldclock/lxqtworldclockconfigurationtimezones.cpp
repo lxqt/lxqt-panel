@@ -39,6 +39,7 @@ LxQtWorldClockConfigurationTimeZones::LxQtWorldClockConfigurationTimeZones(QWidg
     ui(new Ui::LxQtWorldClockConfigurationTimeZones)
 {
     setObjectName("WorldClockConfigurationTimeZonesWindow");
+    setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
     connect(ui->timeZonesTW, SIGNAL(itemSelectionChanged()), SLOT(itemSelectionChanged()));

@@ -590,11 +590,14 @@ void LxQtWorldClockConfiguration::editTimeZoneCustomName()
 
     QString oldName = ui->timeZonesTW->item(row, 1)->text();
 
-    bool ok;
-    QString newName = QInputDialog::getText(this, tr("Input custom time zone name"), tr("Custom name"), QLineEdit::Normal, oldName, &ok);
-    if (ok)
+    QInputDialog d(this);
+    d.setWindowTitle(tr("Input custom time zone name"));
+    d.setLabelText(tr("Custom name"));
+    d.setTextValue(oldName);
+    d.setWindowModality(Qt::WindowModal);
+    if (d.exec())
     {
-        ui->timeZonesTW->item(row, 1)->setText(newName);
+        ui->timeZonesTW->item(row, 1)->setText(d.textValue());
 
         saveSettings();
     }
