@@ -52,30 +52,6 @@ Q_DECLARE_METATYPE(ScreenPosition)
 /************************************************
 
  ************************************************/
-ConfigPanelDialog *ConfigPanelDialog::exec(LxQtPanel *panel)
-{
-    ConfigPanelDialog *dialog =
-        panel->findChild<ConfigPanelDialog*>();
-
-    if (!dialog)
-    {
-        dialog = new ConfigPanelDialog(panel, panel);
-    }
-
-    dialog->show();
-    dialog->raise();
-    dialog->activateWindow();
-    WId wid = dialog->windowHandle()->winId();
-
-    KWindowSystem::activateWindow(wid);
-    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
-    return dialog;
-}
-
-
-/************************************************
-
- ************************************************/
 ConfigPanelDialog::ConfigPanelDialog(LxQtPanel *panel, QWidget *parent):
     LxQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent)
 {
@@ -431,3 +407,4 @@ void ConfigPanelWidget::pickBackgroundImage()
                                                 tr("Images (*.png *.gif *.jpg)"));
     ui->lineEdit_customBgImage->setText(file);
 }
+

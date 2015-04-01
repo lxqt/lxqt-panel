@@ -606,7 +606,18 @@ int LxQtPanel::findAvailableScreen(LxQtPanel::Position position)
  ************************************************/
 void LxQtPanel::showConfigDialog()
 {
-    ConfigPanelDialog::exec(this);
+    if (mConfigDialog.isNull())
+    {
+        mConfigDialog = new ConfigPanelDialog(this, nullptr/*make it top level window*/);
+    }
+
+    mConfigDialog->show();
+    mConfigDialog->raise();
+    mConfigDialog->activateWindow();
+    WId wid = mConfigDialog->windowHandle()->winId();
+
+    KWindowSystem::activateWindow(wid);
+    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
 }
 
 

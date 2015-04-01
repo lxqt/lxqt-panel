@@ -32,6 +32,7 @@
 #include <QFrame>
 #include <QString>
 #include <QTimer>
+#include <QPointer>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 #include <LXQt/AddPluginDialog>
@@ -44,6 +45,7 @@ class Settings;
 class PluginInfo;
 }
 class LxQtPanelLayout;
+class ConfigPanelDialog;
 
 /*! \brief The LxQtPanel class provides a single lxqt-panel.
  */
@@ -130,9 +132,10 @@ protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
 
+public slots:
+    void showConfigDialog();
 private slots:
     void addPlugin(const LxQt::PluginInfo &desktopFile);
-    void showConfigDialog();
     void showAddPluginDialog();
     void realign();
     void removePlugin();
@@ -177,6 +180,7 @@ private:
     QString mBackgroundImage;
     // 0 to 100
     int mOpacity;
+    QPointer<ConfigPanelDialog> mConfigDialog;
 
     void updateStyleSheet();
 };

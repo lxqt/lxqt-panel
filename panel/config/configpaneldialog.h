@@ -40,8 +40,6 @@ class ConfigPanelDialog : public LxQt::ConfigDialog
 {
     Q_OBJECT
 public:
-    static ConfigPanelDialog *exec(LxQtPanel *panel);
-
     ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
 };
 

@@ -83,7 +83,7 @@ void LxQtPanelApplication::addNewPanel()
     mSettings->setValue("panels", panels);
 
     // Poupup the configuration dialog to allow user configuration right away
-    ConfigPanelDialog::exec(p);
+    p->showConfigDialog();
 }
 
 LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)
