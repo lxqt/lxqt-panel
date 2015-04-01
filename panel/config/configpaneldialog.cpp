@@ -370,10 +370,13 @@ void ConfigPanelWidget::positionChanged()
  ************************************************/
 void ConfigPanelWidget::pickFontColor()
 {
-    QColor newColor = QColorDialog::getColor(QColor(mFontColor.name()), this, tr("Pick color"));
-    if (newColor.isValid())
+    QColorDialog* d = new QColorDialog(QColor(mFontColor.name()), this);
+    d->setWindowTitle(tr("Pick color"));
+    d->setAttribute(Qt::WA_DeleteOnClose);
+    d->setWindowModality(Qt::WindowModal);
+    if (d->exec() && d->currentColor().isValid())
     {
-        mFontColor.setNamedColor(newColor.name());
+        mFontColor.setNamedColor(d->currentColor().name());
         ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mFontColor.name()));
         editChanged();
     }
@@ -384,10 +387,13 @@ void ConfigPanelWidget::pickFontColor()
  ************************************************/
 void ConfigPanelWidget::pickBackgroundColor()
 {
-    QColor newColor = QColorDialog::getColor(QColor(mBackgroundColor.name()), this, tr("Pick color"));
-    if (newColor.isValid())
+    QColorDialog* d = new QColorDialog(QColor(mBackgroundColor.name()), this);
+    d->setWindowTitle(tr("Pick color"));
+    d->setAttribute(Qt::WA_DeleteOnClose);
+    d->setWindowModality(Qt::WindowModal);
+    if (d->exec() && d->currentColor().isValid())
     {
-        mBackgroundColor.setNamedColor(newColor.name());
+        mBackgroundColor.setNamedColor(d->currentColor().name());
         ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mBackgroundColor.name()));
         editChanged();
     }
@@ -401,10 +407,10 @@ void ConfigPanelWidget::pickBackgroundImage()
     QString picturesLocation;
     picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
 
-    QString file = QFileDialog::getOpenFileName(this,
-                                                "Pick image",
-                                                picturesLocation,
-                                                tr("Images (*.png *.gif *.jpg)"));
-    ui->lineEdit_customBgImage->setText(file);
+    QFileDialog* d = new QFileDialog(this, tr("Pick image"), picturesLocation, tr("Images (*.png *.gif *.jpg)"));
+    d->setAttribute(Qt::WA_DeleteOnClose);
+    d->setWindowModality(Qt::WindowModal);
+    connect(d, &QFileDialog::fileSelected, ui->lineEdit_customBgImage, &QLineEdit::setText);
+    d->show();
 }
 
