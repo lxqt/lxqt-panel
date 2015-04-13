@@ -582,6 +582,20 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (!button)
             continue;
 
+        // if class is changed the window won't belong to our group any more
+        if (prop2.testFlag(NET::WM2WindowClass) && this != button)
+        {
+            KWindowInfo info(window, 0, NET::WM2WindowClass);
+            if (info.windowClassName() != mGroupName)
+            {
+                //remove this window from this group
+                //Note: can't optimize case when there is only one window in this group
+                //      because mGroupName is a hash key in taskbar
+                emit windowDisowned(window);
+                onWindowRemoved(window);
+                continue;
+            }
+        }
         // window changed virtual desktop
         if (prop.testFlag(NET::WMDesktop))
         {

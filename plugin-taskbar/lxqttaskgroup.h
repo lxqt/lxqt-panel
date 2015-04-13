@@ -102,6 +102,7 @@ signals:
     void groupBecomeEmpty(QString name);
     void visibilityChanged(bool visible);
     void popupShown(LxQtTaskGroup* sender);
+    void windowDisowned(WId window);
 
 private:
     QString mGroupName;

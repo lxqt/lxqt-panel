@@ -247,6 +247,7 @@ void LxQtTaskBar::refreshTaskList()
                 connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
                 connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
                 connect(group, &LxQtTaskGroup::popupShown, this, &LxQtTaskBar::groupPopupShown);
+                connect(group, SIGNAL(windowDisowned(WId)), this, SLOT(refreshTaskList()));
 
                 mLayout->addWidget(group);
                 mGroupsHash.insert(id, group);
