@@ -185,7 +185,7 @@ LxQtTaskButton * LxQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
  ************************************************/
 void LxQtTaskGroup::onActiveWindowChanged(WId window)
 {
-    LxQtTaskButton *button = mButtonHash.value(window, NULL);
+    LxQtTaskButton *button = mButtonHash.value(window, nullptr);
     foreach (LxQtTaskButton *btn, mButtonHash.values())
         btn->setChecked(false);
 
@@ -195,7 +195,7 @@ void LxQtTaskGroup::onActiveWindowChanged(WId window)
         if (button->hasUrgencyHint())
             button->setUrgencyHint(false);
     }
-    setChecked(!!button);
+    setChecked(nullptr != button);
 }
 
 /************************************************
@@ -420,14 +420,20 @@ void LxQtTaskGroup::setPopupVisible(bool visible, bool fast)
  ************************************************/
 void LxQtTaskGroup::refreshIconsGeometry()
 {
-    foreach(LxQtTaskButton *but, mButtonHash.values())
-    {
-        but->refreshIconGeometry();
-        but->setIconSize(QSize(mPlugin->panel()->iconSize(), mPlugin->panel()->iconSize()));
-    }
+    QRect rect = geometry();
+    rect.moveTo(mapToGlobal(QPoint(0, 0)));
 
     if (windowId())
-        refreshIconGeometry();
+    {
+        refreshIconGeometry(rect);
+        return;
+    }
+
+    foreach(LxQtTaskButton *but, mButtonHash.values())
+    {
+        but->refreshIconGeometry(rect);
+        but->setIconSize(QSize(mPlugin->panel()->iconSize(), mPlugin->panel()->iconSize()));
+    }
 }
 
 /************************************************
@@ -570,7 +576,8 @@ void LxQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
     QVector<LxQtTaskButton *> buttons;
-    buttons.append(mButtonHash.value(window, NULL));
+    if (mButtonHash.contains(window))
+        buttons.append(mButtonHash.value(window));
 
     // If group contains only one window properties must be changed also on button group
     if (window == windowId())
@@ -578,9 +585,6 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
 
     foreach (LxQtTaskButton * button, buttons)
     {
-        if (!button)
-            continue;
-
         // if class is changed the window won't belong to our group any more
         if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass) && this != button)
         {
@@ -608,8 +612,8 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
             button->updateText();
 
-        // FIXME: NET::WMIconGeometry is causing high CPU and memory usage
-        if (prop.testFlag(NET::WMIcon) /*|| prop.testFlag(NET::WMIconGeometry)*/)
+        // XXX: we are setting window icon geometry -> don't need to handle NET::WMIconGeometry
+        if (prop.testFlag(NET::WMIcon))
             button->updateIcon();
 
         if (prop.testFlag(NET::WMState))

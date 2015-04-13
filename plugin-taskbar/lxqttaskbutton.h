@@ -81,7 +81,7 @@ public:
     void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
     LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
-    void refreshIconGeometry();
+    void refreshIconGeometry(QRect const & geom);
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
     /*! \return true if this buttom received DragEnter event (and no DragLeave event yet)
      * */

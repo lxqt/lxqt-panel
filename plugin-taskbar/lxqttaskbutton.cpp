@@ -132,23 +132,24 @@ void LxQtTaskButton::updateIcon()
 /************************************************
 
  ************************************************/
-void LxQtTaskButton::refreshIconGeometry()
+void LxQtTaskButton::refreshIconGeometry(QRect const & geom)
 {
-    QRect rect = geometry();
-    QPoint globalPos = parentTaskBar()->mapToGlobal(pos());
-    rect.moveTo(globalPos);
-
     NETWinInfo info(QX11Info::connection(),
                     windowId(),
                     (WId) QX11Info::appRootWindow(),
                     NET::WMIconGeometry,
                     0);
-    NETRect nrect;
-    nrect.pos.x = rect.x();
-    nrect.pos.y = rect.y();
-    nrect.size.height = rect.height();
-    nrect.size.width = rect.width();
-    info.setIconGeometry(nrect);
+    NETRect const curr = info.iconGeometry();
+    if (curr.pos.x != geom.x() || curr.pos.y != geom.y()
+            || curr.size.width != geom.width() || curr.size.height != geom.height())
+    {
+        NETRect nrect;
+        nrect.pos.x = geom.x();
+        nrect.pos.y = geom.y();
+        nrect.size.height = geom.height();
+        nrect.size.width = geom.width();
+        info.setIconGeometry(nrect);
+    }
 }
 
 /************************************************
