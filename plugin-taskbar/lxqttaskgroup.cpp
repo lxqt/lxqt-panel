@@ -582,10 +582,10 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
             continue;
 
         // if class is changed the window won't belong to our group any more
-        if (prop2.testFlag(NET::WM2WindowClass) && this != button)
+        if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass) && this != button)
         {
             KWindowInfo info(window, 0, NET::WM2WindowClass);
-            if (info.windowClassName() != mGroupName)
+            if (info.windowClassClass() != mGroupName)
             {
                 //remove this window from this group
                 //Note: can't optimize case when there is only one window in this group
