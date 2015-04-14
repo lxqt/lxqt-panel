@@ -576,9 +576,9 @@ void LxQtTaskButton::setUrgencyHint(bool set)
 /************************************************
 
  ************************************************/
-int LxQtTaskButton::desktopNum() const
+bool LxQtTaskButton::isOnDesktop(int desktop) const
 {
-    return KWindowInfo(mWindow, NET::WMDesktop).desktop();
+    return KWindowInfo(mWindow, NET::WMDesktop).isOnDesktop(desktop);
 }
 
 Qt::Corner LxQtTaskButton::origin() const

@@ -70,7 +70,7 @@ public:
     bool hasUrgencyHint() const { return mUrgencyHint; }
     void setUrgencyHint(bool set);
 
-    int desktopNum() const;
+    bool isOnDesktop(int desktop) const;
     void updateText();
     void updateIcon();
 

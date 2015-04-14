@@ -91,7 +91,7 @@ void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 void LxQtTaskGroup::closeGroup()
 {
     foreach (LxQtTaskButton * button, mButtonHash.values())
-        if (button->desktopNum() == KWindowSystem::currentDesktop() || button->desktopNum() == NET::OnAllDesktops)
+        if (button->isOnDesktop(KWindowSystem::currentDesktop()))
             button->closeApplication();
 }
 
@@ -367,7 +367,7 @@ void LxQtTaskGroup::refreshVisibility()
     foreach(LxQtTaskButton * btn, mButtonHash.values())
     {
         if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
-            btn->setVisible(btn->desktopNum() == KWindowSystem::currentDesktop());
+            btn->setVisible(btn->isOnDesktop(KWindowSystem::currentDesktop()));
         else
             btn->setVisible(true);
     }
@@ -600,8 +600,7 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         {
             if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
             {
-                int desktop = button->desktopNum();
-                button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
+                button->setHidden(button->isOnDesktop(KWindowSystem::currentDesktop()));
                 refreshVisibility();
             }
         }
