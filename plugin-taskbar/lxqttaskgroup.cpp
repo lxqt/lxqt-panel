@@ -118,7 +118,6 @@ LxQtTaskButton * LxQtTaskGroup::addWindow(WId id)
 
     connect(btn, SIGNAL(clicked()), this, SLOT(onChildButtonClicked()));
     refreshVisibility();
-    regroup();
 
     return btn;
 }
@@ -334,7 +333,6 @@ void LxQtTaskGroup::regroup()
 void LxQtTaskGroup::showOnAllDesktopSettingChanged()
 {
     refreshVisibility();
-    regroup();
 }
 
 /************************************************
@@ -377,6 +375,7 @@ void LxQtTaskGroup::refreshVisibility()
     bool is = isVisible();
     bool will = visibleButtonsCount();
     setVisible(will);
+    regroup();
 
     if (is != will)
         emit visibilityChanged(will);
@@ -604,7 +603,6 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
                 int desktop = button->desktopNum();
                 button->setHidden(desktop != NET::OnAllDesktops && desktop != KWindowSystem::currentDesktop());
                 refreshVisibility();
-                regroup();
             }
         }
 
