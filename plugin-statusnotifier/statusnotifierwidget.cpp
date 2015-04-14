@@ -28,6 +28,7 @@
 
 #include "statusnotifierwidget.h"
 #include <QApplication>
+#include "../panel/ilxqtpanelplugin.h"
 
 StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QWidget(parent),
@@ -57,7 +58,7 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
     int slash = serviceAndPath.indexOf('/');
     QString serv = serviceAndPath.left(slash);
     QString path = serviceAndPath.mid(slash);
-    StatusNotifierButton *button = new StatusNotifierButton(serv, path, this);
+    StatusNotifierButton *button = new StatusNotifierButton(serv, path, mPlugin, this);
 
     if (!button->isValid())
         delete button;

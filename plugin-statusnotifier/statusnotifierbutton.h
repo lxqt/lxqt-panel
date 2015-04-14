@@ -29,8 +29,6 @@
 #ifndef STATUSNOTIFIERBUTTON_H
 #define STATUSNOTIFIERBUTTON_H
 
-#include "../panel/ilxqtpanelplugin.h"
-
 #include <QDBusArgument>
 #include <QDBusMessage>
 #include <QDBusInterface>
@@ -51,12 +49,14 @@ template <typename T> inline T qFromUnaligned(const uchar *src)
 }
 #endif
 
+class ILxQtPanelPlugin;
+
 class StatusNotifierButton : public QToolButton
 {
     Q_OBJECT
 
 public:
-    StatusNotifierButton(QString service, QString objectPath, QWidget *parent = 0);
+    StatusNotifierButton(QString service, QString objectPath, ILxQtPanelPlugin* plugin,  QWidget *parent = 0);
     ~StatusNotifierButton();
 
     bool isValid() const { return mValid; }
@@ -80,6 +80,8 @@ private:
     bool mValid;
 
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
+
+    ILxQtPanelPlugin* mPlugin;
 
 protected:
     void contextMenuEvent(QContextMenuEvent * event);

@@ -31,13 +31,16 @@
 #include <QDir>
 #include <QFile>
 #include <dbusmenu-qt5/dbusmenuimporter.h>
+#include "../panel/ilxqtpanelplugin.h"
 
-StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, QWidget *parent)
+
+StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILxQtPanelPlugin* plugin, QWidget *parent)
     : QToolButton(parent),
     mMenu(NULL),
     mStatus(Passive),
     mValid(true),
-    mFallbackIcon(QIcon::fromTheme("application-x-executable"))
+    mFallbackIcon(QIcon::fromTheme("application-x-executable")),
+    mPlugin(plugin)
 {
     interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus(), this);
 
@@ -95,12 +98,18 @@ void StatusNotifierButton::newAttentionIcon()
 void StatusNotifierButton::refetchIcon(Status status)
 {
     QString iconName;
-    if (status == Active)
-        iconName = interface->overlayIconName();
-    else if (status == NeedsAttention)
-        iconName = interface->attentionIconName();
-    else // status == Passive
-        iconName = interface->iconName();
+    switch (status)
+    {
+        case Active:
+            iconName = interface->overlayIconName();
+            break;
+        case NeedsAttention:
+            iconName = interface->attentionIconName();
+            break;
+        case Passive:
+            iconName = interface->iconName();
+            break;
+    }
 
     QIcon nextIcon;
     if (!iconName.isEmpty())
@@ -135,12 +144,18 @@ void StatusNotifierButton::refetchIcon(Status status)
     else
     {
         IconPixmapList iconPixmaps;
-        if (status == Active)
-            iconPixmaps = interface->overlayIconPixmap();
-        else if (status == NeedsAttention)
-            iconPixmaps = interface->attentionIconPixmap();
-        else // status == Passive
-            iconPixmaps = interface->iconPixmap();
+        switch (status)
+        {
+            case Active:
+                iconPixmaps = interface->overlayIconPixmap();
+                break;
+            case NeedsAttention:
+                iconPixmaps = interface->attentionIconPixmap();
+                break;
+            case Passive:
+                iconPixmaps = interface->iconPixmap();
+                break;
+        }
 
 
         if (!iconPixmaps.empty() && !iconPixmaps.first().bytes.isNull())
@@ -157,12 +172,18 @@ void StatusNotifierButton::refetchIcon(Status status)
         }
     }
 
-    if (status == Active)
-        mOverlayIcon = nextIcon;
-    else if (status == NeedsAttention)
-        mAttentionIcon = nextIcon;
-    else // status == Passive
-        mIcon = nextIcon;
+    switch (status)
+    {
+        case Active:
+            mOverlayIcon = nextIcon;
+            break;
+        case NeedsAttention:
+            mAttentionIcon = nextIcon;
+            break;
+        case Passive:
+            mIcon = nextIcon;
+            break;
+    }
 }
 
 void StatusNotifierButton::newToolTip()
@@ -190,8 +211,8 @@ void StatusNotifierButton::newStatus(QString status)
 
 void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
 {
-    mMenu->exec(QCursor::pos());
-    // QWidget::contextMenuEvent(event);
+    //XXX: avoid showing of parent's context menu, we are (optionaly) providing context menu on mouseReleaseEvent
+    //QWidget::contextMenuEvent(event);
 }
 
 void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
@@ -200,6 +221,8 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
         interface->Activate(QCursor::pos().x(), QCursor::pos().y());
     else if (event->button() == Qt::MidButton)
         interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
+    else if (Qt::RightButton == event->button())
+        mMenu->popup(mPlugin->calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
     QToolButton::mouseReleaseEvent(event);
 }
 
