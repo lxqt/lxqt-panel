@@ -31,6 +31,8 @@
 #include <LXQt/Settings>
 
 #include <QDialog>
+#include <QFormLayout>
+#include <QLineEdit>
 
 class QSettings;
 class QAbstractButton;
@@ -57,6 +59,7 @@ private slots:
        Saves settings in conf file.
     */
     void loadSettings();
+    void loadDesktopsNames();
     void dialogButtonsAction(QAbstractButton *btn);
     void rowsChanged(int value);
     void labelTypeChanged(int type);
