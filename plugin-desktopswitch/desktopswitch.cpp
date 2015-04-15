@@ -34,7 +34,6 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 #include <KWindowSystem/KWindowSystem>
-#include <KWindowSystem/NETWM>
 #include <QX11Info>
 #include <cmath>
 
@@ -69,6 +68,9 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
     connect(KWindowSystem::self(), SIGNAL(desktopNamesChanged()), SLOT(onDesktopNamesChanged()));
+
+    connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged),
+            this, &DesktopSwitch::onWindowChanged);
 }
 
 void DesktopSwitch::registerShortcuts()
@@ -105,6 +107,24 @@ void DesktopSwitch::shortcutRegistered()
     if (shortcut->shortcut().isEmpty())
     {
         shortcut->changeShortcut(DEFAULT_SHORTCUT_TEMPLATE.arg(i + 1));
+    }
+}
+
+void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2)
+{
+    if (properties.testFlag(NET::WMState))
+    {
+        KWindowInfo info = KWindowInfo(id, NET::WMDesktop | NET::WMState);
+        int desktop = info.desktop();
+        if (!info.valid()
+            || (info.isOnCurrentDesktop() && info.hasState(NET::DemandsAttention))
+            || info.onAllDesktops())
+            return;
+        else
+        {
+            DesktopSwitchButton *button = (DesktopSwitchButton *) m_buttons->button(desktop - 1);
+            button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+        }
     }
 }
 

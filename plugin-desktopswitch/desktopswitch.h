@@ -32,6 +32,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
 #include <QScopedPointer>
+#include <KWindowSystem/NETWM>
 
 #include "desktopswitchbutton.h"
 
@@ -94,6 +95,7 @@ private slots:
     virtual void settingsChanged();
     void registerShortcuts();
     void shortcutRegistered();
+    void onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2);
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary

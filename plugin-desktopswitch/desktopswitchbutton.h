@@ -49,6 +49,11 @@ public:
 
     DesktopSwitchButton(QWidget * parent, int index, LabelType labelType, const QString &title=QString());
     void update(int index, LabelType labelType,  const QString &title);
+
+    void setUrgencyHint(bool);
+
+private:
+    bool mUrgencyHint;
 };
 
 #endif

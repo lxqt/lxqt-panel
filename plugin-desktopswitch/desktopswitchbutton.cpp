@@ -27,13 +27,15 @@
 
 
 #include <QToolButton>
-#include <QtDebug>
+#include <QStyle>
+#include <QVariant>
 #include <lxqt-globalkeys.h>
 
 #include "desktopswitchbutton.h"
 
 DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, LabelType labelType,  const QString &title)
-    : QToolButton(parent)
+    : QToolButton(parent),
+    mUrgencyHint(false)
 {
     update(index, labelType, title);
 
@@ -57,4 +59,16 @@ void DesktopSwitchButton::update(int index, LabelType labelType, const QString &
     {
         setToolTip(title);
     }
+}
+
+void DesktopSwitchButton::setUrgencyHint(bool urgent)
+{
+    if (mUrgencyHint == urgent)
+        return;
+
+    mUrgencyHint = urgent;
+    setProperty("urgent", urgent);
+    style()->unpolish(this);
+    style()->polish(this);
+    QToolButton::update();
 }
