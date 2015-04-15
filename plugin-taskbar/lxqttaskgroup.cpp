@@ -617,7 +617,19 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
             button->updateIcon();
 
         if (prop.testFlag(NET::WMState))
-            button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
+        {
+            KWindowInfo info{window, NET::WMState};
+            if (info.hasState(NET::SkipTaskbar) && this != button)
+            {
+                //remove this window from this group
+                //Note: can't optimize case when there is only one window in this group
+                //      because mGroupName is a hash key in taskbar
+                emit windowDisowned(window);
+                onWindowRemoved(window);
+                continue;
+            }
+            button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+        }
     }
     return consumed;
 }
