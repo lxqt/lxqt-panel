@@ -61,8 +61,6 @@ LxQtTaskGroup::LxQtTaskGroup(const QString &groupName, QIcon icon, ILxQtPanelPlu
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
     connect(KWindowSystem::self(), SIGNAL(windowRemoved(WId)), this, SLOT(onWindowRemoved(WId)));
     connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), this, SLOT(onActiveWindowChanged(WId)));
-    connect(KWindowSystem::self(), SIGNAL(windowChanged(WId, NET::Properties, NET::Properties2)),
-            SLOT(onWindowChanged(WId, NET::Properties, NET::Properties2)));
 }
 
 /************************************************
@@ -573,8 +571,9 @@ void LxQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
+bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
+    bool consumed{false};
     QVector<LxQtTaskButton *> buttons;
     if (mButtonHash.contains(window))
         buttons.append(mButtonHash.value(window));
@@ -585,6 +584,7 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
 
     foreach (LxQtTaskButton * button, buttons)
     {
+        consumed = true;
         // if class is changed the window won't belong to our group any more
         if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass) && this != button)
         {
@@ -619,4 +619,5 @@ void LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop.testFlag(NET::WMState))
             button->setUrgencyHint(KWindowInfo(window, NET::WMState).hasState(NET::DemandsAttention));
     }
+    return consumed;
 }

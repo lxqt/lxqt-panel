@@ -74,6 +74,8 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     setAcceptDrops(true);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
+    connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
+            , this, &LxQtTaskBar::onWindowChanged);
 }
 
 /************************************************
@@ -223,6 +225,28 @@ void LxQtTaskBar::groupBecomeEmptySlot()
 
  ************************************************/
 
+void LxQtTaskBar::addWindow(WId window, QString const & groupId)
+{
+    LxQtTaskGroup *group = mGroupsHash.value(groupId);
+
+    if (!group)
+    {
+        group = new LxQtTaskGroup(groupId, KWindowSystem::icon(window), mPlugin, this);
+        connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
+        connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
+        connect(group, &LxQtTaskGroup::popupShown, this, &LxQtTaskBar::groupPopupShown);
+        connect(group, SIGNAL(windowDisowned(WId)), this, SLOT(refreshTaskList()));
+
+        mLayout->addWidget(group);
+        mGroupsHash.insert(groupId, group);
+        group->setToolButtonsStyle(mButtonStyle);
+    }
+    group->addWindow(window);
+}
+/************************************************
+
+ ************************************************/
+
 void LxQtTaskBar::refreshTaskList()
 {
     // Just add new windows to groups, deleting is up to the groups
@@ -232,34 +256,35 @@ void LxQtTaskBar::refreshTaskList()
     {
         if (acceptWindow(wnd))
         {
-            KWindowInfo info(wnd, 0, NET::WM2WindowClass);
-
-            LxQtTaskGroup *group = NULL;
-
             // If grouping disabled group behaves like regular button
-            QString id = mGroupingEnabled ? info.windowClassClass() : QString("%1").arg(wnd);
-
-            group = mGroupsHash.value(id);
-
-            if (!group)
-            {
-                group = new LxQtTaskGroup(id, KWindowSystem::icon(wnd), mPlugin, this);
-                connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
-                connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
-                connect(group, &LxQtTaskGroup::popupShown, this, &LxQtTaskBar::groupPopupShown);
-                connect(group, SIGNAL(windowDisowned(WId)), this, SLOT(refreshTaskList()));
-
-                mLayout->addWidget(group);
-                mGroupsHash.insert(id, group);
-                group->setToolButtonsStyle(mButtonStyle);
-            }
-            group->addWindow(wnd);
+            QString id = mGroupingEnabled ? KWindowInfo(wnd, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(wnd);
+            addWindow(wnd, id);
         }
     }
 
     refreshPlaceholderVisibility();
     mLayout->invalidate();
     realign();
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
+{
+    // If grouping disabled group behaves like regular button
+    QString id = mGroupingEnabled ? KWindowInfo(window, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(window);
+    LxQtTaskGroup *group = mGroupsHash.value(id);
+
+    bool consumed{false};
+    if (nullptr != group)
+    {
+        consumed = group->onWindowChanged(window, prop, prop2);
+
+    }
+
+    if (!consumed && acceptWindow(window))
+        addWindow(window, id);
 }
 
 /************************************************
@@ -277,6 +302,7 @@ void LxQtTaskBar::refreshButtonRotation()
         j.value()->setAutoRotation(autoRotate,panelPosition);
     }
 }
+
 /************************************************
 
  ************************************************/

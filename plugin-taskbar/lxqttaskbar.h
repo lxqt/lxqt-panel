@@ -74,19 +74,21 @@ public:
     bool isGroupingEnabled() { return mGroupingEnabled; }
     bool isShowGroupOnHover() { return mShowGroupOnHover; }
 
-public slots:
-    void refreshIconGeometry();
-
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
     virtual void dropEvent(QDropEvent * event);
 
 private slots:
+    void refreshIconGeometry();
     void refreshTaskList();
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
     void groupPopupShown(LxQtTaskGroup * const sender);
+    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+
+private:
+    void addWindow(WId window, QString const & groupId);
 
 private:
     QHash<QString, LxQtTaskGroup*> mGroupsHash;

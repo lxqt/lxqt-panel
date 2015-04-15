@@ -65,6 +65,7 @@ public:
     // if circular is true, then it will go around the list of buttons
     LxQtTaskButton * getNextPrevChildButton(bool next, bool circular);
 
+    bool onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void refreshIconsGeometry();
     void showOnAllDesktopSettingChanged();
     void setAutoRotation(bool value, ILxQtPanel::Position position);
@@ -94,7 +95,6 @@ private slots:
     void onActiveWindowChanged(WId window);
     void onWindowRemoved(WId window);
     void onDesktopChanged(int number);
-    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
     void closeGroup();
 
