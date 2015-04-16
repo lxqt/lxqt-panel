@@ -641,9 +641,11 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
-        int bh = (geometry.height() / baseLines.count()) / 2;
-        for (int i=0; i<baseLines.count(); ++i)
-            baseLines[i] = geometry.top() + (i * 2 + 1) * bh;
+        int bh = geometry.height() / baseLines.count();
+        for (int i = 0, base = geometry.top(); i<baseLines.count(); ++i, base += bh)
+        {
+            baseLines[i] = base;
+        }
     }
 
 #if 0
@@ -686,8 +688,7 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(0, baseLines[c]));
-                    rect.moveLeft(left);
+                    rect.moveTopLeft(QPoint(left, baseLines[c]));
                 }
 
                 rw = qMax(rw, rect.width());
@@ -724,8 +725,7 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(0, baseLines[c]));
-                    rect.moveRight(right);
+                    rect.moveTopRight(QPoint(right, baseLines[c]));
                 }
 
                 rw = qMax(rw, rect.width());
@@ -754,9 +754,9 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
-        int bw = (geometry.width() / baseLines.count()) / 2;
-        for (int i=0; i<baseLines.count(); ++i)
-            baseLines[i] = geometry.left() + (i * 2 + 1) * bw;
+        int bw = geometry.width() / baseLines.count();
+        for (int i = 0, base = geometry.left(); i<baseLines.count(); ++i, base += bw)
+            baseLines[i] = base;
     }
 
 #if 0
@@ -798,8 +798,7 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(baseLines[c], 0));
-                    rect.moveTop(top);
+                    rect.moveTopLeft(QPoint(baseLines[c], top));
                 }
 
                 rh = qMax(rh, rect.height());
@@ -836,8 +835,7 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(baseLines[c], 0));
-                    rect.moveBottom(bottom);
+                    rect.moveBottomLeft(QPoint(baseLines[c], bottom));
                 }
 
                 rh = qMax(rh, rect.height());
