@@ -61,14 +61,19 @@ void DesktopSwitchButton::update(int index, LabelType labelType, const QString &
     }
 }
 
-void DesktopSwitchButton::setUrgencyHint(bool urgent)
+void DesktopSwitchButton::setUrgencyHint(WId id, bool urgent)
 {
-    if (mUrgencyHint == urgent)
-        return;
+    if (urgent)
+        mUrgentWIds.insert(id);
+    else
+        mUrgentWIds.remove(id);
 
-    mUrgencyHint = urgent;
-    setProperty("urgent", urgent);
-    style()->unpolish(this);
-    style()->polish(this);
-    QToolButton::update();
+    if (mUrgencyHint != !mUrgentWIds.empty())
+    {
+        mUrgencyHint = !mUrgentWIds.empty();
+        setProperty("urgent", mUrgencyHint);
+        style()->unpolish(this);
+        style()->polish(this);
+        QToolButton::update();
+    }
 }

@@ -30,7 +30,7 @@
 #define DESKTOPSWITCHBUTTON_H
 
 #include <QToolButton>
-
+#include <QSet>
 
 namespace GlobalKeyShortcut
 {
@@ -50,10 +50,13 @@ public:
     DesktopSwitchButton(QWidget * parent, int index, LabelType labelType, const QString &title=QString());
     void update(int index, LabelType labelType,  const QString &title);
 
-    void setUrgencyHint(bool);
+    void setUrgencyHint(WId, bool);
 
 private:
+
+    // for urgency hint handling
     bool mUrgencyHint;
+    QSet<WId> mUrgentWIds;
 };
 
 #endif

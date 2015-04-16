@@ -116,14 +116,12 @@ void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Pro
     {
         KWindowInfo info = KWindowInfo(id, NET::WMDesktop | NET::WMState);
         int desktop = info.desktop();
-        if (!info.valid()
-            || (info.isOnCurrentDesktop() && info.hasState(NET::DemandsAttention))
-            || info.onAllDesktops())
+        if (!info.valid() || info.onAllDesktops())
             return;
         else
         {
-            DesktopSwitchButton *button = (DesktopSwitchButton *) m_buttons->button(desktop - 1);
-            button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+            DesktopSwitchButton *button = static_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1));
+            button->setUrgencyHint(id, info.hasState(NET::DemandsAttention));
         }
     }
 }
