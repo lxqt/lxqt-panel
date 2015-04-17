@@ -27,15 +27,6 @@ set(SOURCES
     statusnotifierwidget.cpp
 )
 
-set(MOCS
-    statusnotifier.h
-    dbustypes.h
-    statusnotifierbutton.h
-    statusnotifieriteminterface.h
-    statusnotifierwatcher.h
-    statusnotifierwidget.h
-)
-
 qt5_add_dbus_adaptor(SOURCES
     org.kde.StatusNotifierItem.xml
     statusnotifieriteminterface.h

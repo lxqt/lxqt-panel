@@ -26,13 +26,6 @@ set(SOURCES
     xfitman.cpp
 )
 
-set(MOCS
-    lxqttrayplugin.h
-    lxqttray.h
-    trayicon.h
-    xfitman.h
-)
-
 set(LIBRARIES
     ${X11_LIBRARIES}
     ${XCOMPOSITE_LIBRARIES}

@@ -14,13 +14,6 @@ set(SOURCES
     quicklaunchaction.cpp
 )
 
-set(MOCS
-    lxqtquicklaunchplugin.h
-    lxqtquicklaunch.h
-    quicklaunchbutton.h
-    quicklaunchaction.h
-)
-
 set(LIBRARIES
     ${QTXDG_LIBRARIES}
 )

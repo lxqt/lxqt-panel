@@ -33,7 +33,6 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
         set (PLUGIN_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${PROGRAM})
     endif (NOT DEFINED PLUGIN_DIR)
 
-    qt5_wrap_cpp(MOC_SOURCES ${MOCS})
     qt5_add_resources(QRC_SOURCES ${RESOURCES})
     qt5_wrap_ui(UI_SOURCES ${UIS})
     set(QTX_LIBRARIES Qt5::Widgets)

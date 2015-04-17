@@ -12,12 +12,6 @@ set(SOURCES
     domtreeitem.cpp
 )
 
-set(MOCS
-    domplugin.h
-    treewindow.h
-    domtreeitem.h
-)
-
 set(UIS
     treewindow.ui
 )

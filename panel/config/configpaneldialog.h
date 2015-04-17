@@ -33,18 +33,18 @@
 #include <QTimer>
 #include <LXQt/ConfigDialog>
 
-
 class LxQtPanel;
 
 class ConfigPanelDialog : public LxQt::ConfigDialog
 {
     Q_OBJECT
+
 public:
     ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
 };
 
 namespace Ui {
-class ConfigPanelWidget;
+    class ConfigPanelWidget;
 }
 
 class ConfigPanelWidget : public QWidget

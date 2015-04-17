@@ -10,11 +10,6 @@ set(SOURCES
     spacerconfiguration.cpp
 )
 
-set(MOCS
-    spacer.h
-    spacerconfiguration.h
-)
-
 set(UIS
     spacerconfiguration.ui
 )

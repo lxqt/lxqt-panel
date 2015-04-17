@@ -8,10 +8,6 @@ set(SOURCES
     panelscreensaver.cpp
 )
 
-set(MOCS
-    panelscreensaver.h
-)
-
 set(LIBRARIES
     ${LIBRARIES}
     ${LXQT_GLOBALKEYS_LIBRARIES}

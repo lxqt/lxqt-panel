@@ -25,19 +25,6 @@ set(SOURCES
     actions/deviceaction_nothing.cpp
 )
 
-set(MOCS
-    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
-    lxqtmountplugin.h
-    lxqtmountconfiguration.h
-    mountbutton.h
-    menudiskitem.h
-    popup.h
-    actions/deviceaction.h
-    actions/deviceaction_info.h
-    actions/deviceaction_menu.h
-    actions/deviceaction_nothing.h
-)
-
 set(UIS
     lxqtmountconfiguration.ui
 )

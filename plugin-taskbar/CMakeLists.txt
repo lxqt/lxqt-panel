@@ -18,15 +18,6 @@ set(SOURCES
     lxqtgrouppopup.cpp
 )
 
-set(MOCS
-    lxqttaskbar.h
-    lxqttaskbutton.h
-    lxqttaskbarconfiguration.h
-    lxqttaskbarplugin.h
-    lxqttaskgroup.h
-    lxqtgrouppopup.h
-)
-
 set(UIS
     lxqttaskbarconfiguration.ui
 )

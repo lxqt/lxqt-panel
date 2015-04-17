@@ -14,13 +14,6 @@ set(SOURCES
     lxqtworldclockconfigurationmanualformat.cpp
 )
 
-set(MOCS
-    lxqtworldclock.h
-    lxqtworldclockconfiguration.h
-    lxqtworldclockconfigurationtimezones.h
-    lxqtworldclockconfigurationmanualformat.h
-)
-
 set(UIS
     lxqtworldclockconfiguration.ui
     lxqtworldclockconfigurationtimezones.ui

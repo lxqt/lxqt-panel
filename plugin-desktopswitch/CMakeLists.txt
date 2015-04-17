@@ -12,12 +12,6 @@ set(SOURCES
     desktopswitchconfiguration.cpp
 )
 
-set(MOCS
-    desktopswitch.h
-    desktopswitchbutton.h
-    desktopswitchconfiguration.h
-)
-
 set(UIS
     desktopswitchconfiguration.ui
 )

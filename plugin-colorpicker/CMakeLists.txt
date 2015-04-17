@@ -8,10 +8,6 @@ set(SOURCES
     colorpicker.cpp
 )
 
-set(MOCS
-    colorpicker.h
-)
-
 set(UIS "")
 
 set(LIBRARIES

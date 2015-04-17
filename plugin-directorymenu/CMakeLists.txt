@@ -10,11 +10,6 @@ set(SOURCES
     directorymenuconfiguration.cpp
 )
 
-set(MOCS
-    directorymenu.h
-    directorymenuconfiguration.h
-)
-
 set(UIS
     directorymenuconfiguration.ui
 )

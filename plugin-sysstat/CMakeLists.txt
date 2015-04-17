@@ -16,12 +16,6 @@ set(SOURCES
     lxqtsysstatutils.cpp
 )
 
-set(MOCS
-    lxqtsysstat.h
-    lxqtsysstatconfiguration.h
-    lxqtsysstatcolours.h
-)
-
 set(UIS
     lxqtsysstatconfiguration.ui
     lxqtsysstatcolours.ui
