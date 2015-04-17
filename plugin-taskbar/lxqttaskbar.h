@@ -97,6 +97,7 @@ private:
     // Settings
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
+    int mButtonHeight;
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
     bool mAutoRotate;

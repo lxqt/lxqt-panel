@@ -58,7 +58,6 @@ private:
 private slots:
     void saveSettings();
     void dialogButtonsAction(QAbstractButton *btn);
-    void updateControls(int index);
 };
 
 #endif // LXQTTASKBARCONFIGURATION_H

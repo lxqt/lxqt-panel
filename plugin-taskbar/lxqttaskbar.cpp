@@ -62,6 +62,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
+    mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
     realign();
 
     mPlaceHolder->setStyle(mStyle);
@@ -366,6 +367,7 @@ void LxQtTaskBar::settingsChanged()
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks").toBool();
     mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
+    mButtonHeight = mPlugin->settings()->value("buttonHeight", 100).toInt();
     QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
 
     if (s == "ICON")
@@ -408,7 +410,7 @@ void LxQtTaskBar::realign()
     refreshButtonRotation();
 
     ILxQtPanel *panel = mPlugin->panel();
-    QSize maxSize = QSize(mButtonWidth, QWIDGETSIZE_MAX);
+    QSize maxSize = QSize(mButtonWidth, mButtonHeight);
     QSize minSize = QSize(0, 0);
 
     bool rotated = false;
@@ -417,13 +419,6 @@ void LxQtTaskBar::realign()
     {
         mLayout->setRowCount(panel->lineCount());
         mLayout->setColumnCount(0);
-
-        if (mButtonStyle == Qt::ToolButtonIconOnly)
-            // Horizontal + Icons
-            mLayout->setStretch(LxQt::GridLayout::StretchVertical);
-        else
-            // Horizontal + Text
-            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
     }
     else
     {
@@ -433,7 +428,6 @@ void LxQtTaskBar::realign()
         {
             // Vertical + Icons
             mLayout->setColumnCount(panel->lineCount());
-            mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
         }
         else
         {
@@ -442,16 +436,14 @@ void LxQtTaskBar::realign()
             // Vertical + Text
             if (rotated)
             {
-                maxSize.rwidth()  = QWIDGETSIZE_MAX;
+                maxSize.rwidth()  = mButtonHeight;
                 maxSize.rheight() = mButtonWidth;
 
                 mLayout->setColumnCount(panel->lineCount());
-                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
             }
             else
             {
                 mLayout->setColumnCount(1);
-                mLayout->setStretch(LxQt::GridLayout::StretchHorizontal);
             }
         }
     }
