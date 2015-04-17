@@ -55,6 +55,9 @@ class LXQT_PANEL_API LxQtPanel : public QFrame, public ILxQtPanel
 
     Q_PROPERTY(QString position READ qssPosition)
 
+    // for configuration dialog
+    friend class ConfigPanelWidget;
+
 public:
     enum Alignment {
         AlignmentLeft   = -1,

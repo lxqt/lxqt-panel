@@ -2,11 +2,11 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2015 LXQt team
  * Authors:
- *   Marat "Morion" Talipov <morion.self@gmail.com>
+ *   Paulo Lieuthier <paulolieuthier@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -17,7 +17,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
-
+ *
  * You should have received a copy of the GNU Lesser General
  * Public License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -25,28 +25,37 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPANELDIALOG_H
-#define CONFIGPANELDIALOG_H
+#ifndef CONFIGPLUGINSWIDGET_H
+#define CONFIGPLUGINSWIDGET_H
 
-#include "configpanelwidget.h"
-#include "configpluginswidget.h"
 #include "../lxqtpanel.h"
 
-#include <LXQt/ConfigDialog>
+#include <QWidget>
 
-class ConfigPanelDialog : public LxQt::ConfigDialog
+namespace Ui {
+    class ConfigPluginsWidget;
+}
+
+class ConfigPluginsWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
+    ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent = 0);
+    ~ConfigPluginsWidget();
 
-    void showConfigPanelPage();
-    void showConfigPluginsPage();
+signals:
+    void changed();
+
+public slots:
+    void reset();
+
+private slots:
+    void showAddPluginDialog();
 
 private:
-    ConfigPanelWidget *mPanelPage;
-    ConfigPluginsWidget *mPluginsPage;
+    Ui::ConfigPluginsWidget *ui;
+    LxQtPanel *mPanel;
 };
 
-#endif // CONFIGPANELDIALOG_H
+#endif

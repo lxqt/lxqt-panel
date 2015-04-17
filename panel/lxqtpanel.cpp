@@ -607,10 +607,9 @@ int LxQtPanel::findAvailableScreen(LxQtPanel::Position position)
 void LxQtPanel::showConfigDialog()
 {
     if (mConfigDialog.isNull())
-    {
-        mConfigDialog = new ConfigPanelDialog(this, nullptr/*make it top level window*/);
-    }
+        mConfigDialog = new ConfigPanelDialog(this, nullptr /*make it top level window*/);
 
+    mConfigDialog->showConfigPanelPage();
     mConfigDialog->show();
     mConfigDialog->raise();
     mConfigDialog->activateWindow();
@@ -626,27 +625,17 @@ void LxQtPanel::showConfigDialog()
  ************************************************/
 void LxQtPanel::showAddPluginDialog()
 {
-    LxQt::AddPluginDialog *dialog = findChild<LxQt::AddPluginDialog *>();
+    if (mConfigDialog.isNull())
+        mConfigDialog = new ConfigPanelDialog(this, nullptr /*make it top level window*/);
 
-    if (!dialog)
-    {
-        dialog = new LxQt::AddPluginDialog(pluginDesktopDirs(), "LxQtPanel/Plugin", "*", this);
-        dialog->setWindowTitle(tr("Manage Panel Widgets"));
-        dialog->setAttribute(Qt::WA_DeleteOnClose);
-        connect(dialog, SIGNAL(pluginSelected(const LxQt::PluginInfo&)), this, SLOT(addPlugin(const LxQt::PluginInfo&)));
-        connect(this, &LxQtPanel::pluginAdded, dialog, static_cast<void (LxQt::AddPluginDialog::*)(LxQt::PluginData const &)>(&LxQt::AddPluginDialog::pluginAdded));
-        connect(this, &LxQtPanel::pluginRemoved, dialog, static_cast<void (LxQt::AddPluginDialog::*)(LxQt::PluginData const &)>(&LxQt::AddPluginDialog::pluginRemoved));
+    mConfigDialog->showConfigPluginsPage();
+    mConfigDialog->show();
+    mConfigDialog->raise();
+    mConfigDialog->activateWindow();
+    WId wid = mConfigDialog->windowHandle()->winId();
 
-        QList<LxQt::PluginData> pl;
-        for (auto plugin : mPlugins)
-        {
-            pl << LxQt::PluginData(plugin->desktopFile().id(), plugin, plugin->popupMenu());
-        }
-        dialog->setPluginsInUse(pl);
-    }
-
-    dialog->show();
-    KWindowSystem::setOnDesktop(dialog->effectiveWinId(), KWindowSystem::currentDesktop());
+    KWindowSystem::activateWindow(wid);
+    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
 }
 
 

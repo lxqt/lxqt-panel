@@ -4,12 +4,15 @@ set(PRIV_HEADERS
     lxqtpanel.h
     lxqtpanelapplication.h
     lxqtpanellayout.h
-    lxqtpanelpluginconfigdialog.h
-    config/configpaneldialog.h
     plugin.h
     lxqtpanellimits.h
     popupmenu.h
     pluginmoveprocessor.h
+    lxqtpanelpluginconfigdialog.h
+    config/configpaneldialog.h
+    config/configpanelwidget.h
+    config/configpluginswidget.h
+    config/addplugindialog.h
 )
 
 # using LXQt namespace in the public headers.
@@ -24,11 +27,14 @@ set(SOURCES
     lxqtpanel.cpp
     lxqtpanelapplication.cpp
     lxqtpanellayout.cpp
-    lxqtpanelpluginconfigdialog.cpp
-    config/configpaneldialog.cpp
     plugin.cpp
     popupmenu.cpp
     pluginmoveprocessor.cpp
+    lxqtpanelpluginconfigdialog.cpp
+    config/configpaneldialog.cpp
+    config/configpanelwidget.cpp
+    config/configpluginswidget.cpp
+    config/addplugindialog.cpp
 )
 
 set(QRC
@@ -37,7 +43,9 @@ set(QRC
 qt5_add_resources(RESOURCES ${QRC})
 
 set(UI
-    config/configpaneldialog.ui
+    config/configpanelwidget.ui
+    config/configpluginswidget.ui
+    config/addplugindialog.ui
 )
 qt5_wrap_ui(UI_HEADERS ${UI})
 

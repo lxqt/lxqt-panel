@@ -2,11 +2,11 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2015 LXQt team
  * Authors:
- *   Marat "Morion" Talipov <morion.self@gmail.com>
+ *   Paulo Lieuthier <paulolieuthier@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -17,7 +17,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
-
+ *
  * You should have received a copy of the GNU Lesser General
  * Public License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -25,28 +25,35 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPANELDIALOG_H
-#define CONFIGPANELDIALOG_H
-
-#include "configpanelwidget.h"
 #include "configpluginswidget.h"
-#include "../lxqtpanel.h"
+#include "ui_configpluginswidget.h"
+#include "addplugindialog.h"
 
-#include <LXQt/ConfigDialog>
+#include <QPushButton>
 
-class ConfigPanelDialog : public LxQt::ConfigDialog
+ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
+    QWidget(parent),
+    ui(new Ui::ConfigPluginsWidget),
+    mPanel(panel)
 {
-    Q_OBJECT
+    ui->setupUi(this);
 
-public:
-    ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
+    connect(ui->pushButton_addPlugin, &QPushButton::clicked,
+            this, &ConfigPluginsWidget::showAddPluginDialog);
+}
 
-    void showConfigPanelPage();
-    void showConfigPluginsPage();
+ConfigPluginsWidget::~ConfigPluginsWidget()
+{
+    delete ui;
+}
 
-private:
-    ConfigPanelWidget *mPanelPage;
-    ConfigPluginsWidget *mPluginsPage;
-};
+void ConfigPluginsWidget::reset()
+{
 
-#endif // CONFIGPANELDIALOG_H
+}
+
+void ConfigPluginsWidget::showAddPluginDialog()
+{
+    static AddPluginDialog *addPluginDialog = new AddPluginDialog(this);
+    addPluginDialog->exec();
+}

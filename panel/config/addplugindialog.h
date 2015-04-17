@@ -1,12 +1,12 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
  * Authors:
- *   Marat "Morion" Talipov <morion.self@gmail.com>
+ *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,28 +25,35 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPANELDIALOG_H
-#define CONFIGPANELDIALOG_H
 
-#include "configpanelwidget.h"
-#include "configpluginswidget.h"
-#include "../lxqtpanel.h"
+#ifndef LXQT_ADDPLUGINDIALOG_H
+#define LXQT_ADDPLUGINDIALOG_H
 
-#include <LXQt/ConfigDialog>
+#include <LXQt/PluginInfo>
+#include <QDialog>
+#include <QTimer>
 
-class ConfigPanelDialog : public LxQt::ConfigDialog
+#define SEARCH_DELAY 125
+
+namespace Ui {
+    class AddPluginDialog;
+}
+
+class AddPluginDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
-
-    void showConfigPanelPage();
-    void showConfigPluginsPage();
+    AddPluginDialog(QWidget *parent = 0);
+    ~AddPluginDialog();
 
 private:
-    ConfigPanelWidget *mPanelPage;
-    ConfigPluginsWidget *mPluginsPage;
+    Ui::AddPluginDialog *ui;
+    LxQt::PluginInfoList mPlugins;
+    QTimer mSearchTimer;
+
+private slots:
+    void filter();
 };
 
-#endif // CONFIGPANELDIALOG_H
+#endif // LXQT_ADDPLUGINDIALOG_H
