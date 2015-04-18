@@ -243,6 +243,10 @@ void LxQtTaskGroup::onChildButtonClicked()
 void LxQtTaskGroup::setToolButtonsStyle(Qt::ToolButtonStyle style)
 {
     setToolButtonStyle(style);
+    for (auto & button : mButtonHash)
+    {
+        button->setToolButtonStyle(style);
+    }
 }
 
 /************************************************
