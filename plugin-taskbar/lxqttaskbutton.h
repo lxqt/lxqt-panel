@@ -42,14 +42,14 @@ class QMimeData;
 class LxQtTaskGroup;
 class LxQtTaskBar;
 
-class ElidedButtonStyle: public QProxyStyle
+class LeftAlignedTextStyle : public QProxyStyle
 {
+    using QProxyStyle::QProxyStyle;
 public:
-    ElidedButtonStyle(QStyle* style=0): QProxyStyle(style) {}
 
-    void drawItemText(QPainter* painter, const QRect& rect, int flags,
-                      const QPalette & pal, bool enabled, const QString & text,
-                      QPalette::ColorRole textRole = QPalette::NoRole ) const;
+    virtual void drawItemText(QPainter * painter, const QRect & rect, int flags
+            , const QPalette & pal, bool enabled, const QString & text
+            , QPalette::ColorRole textRole = QPalette::NoRole) const override;
 };
 
 

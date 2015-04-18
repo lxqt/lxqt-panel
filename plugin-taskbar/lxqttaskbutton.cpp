@@ -61,12 +61,11 @@ bool LxQtTaskButton::sDraggging = false;
 /************************************************
 
 ************************************************/
-void ElidedButtonStyle::drawItemText(QPainter* painter, const QRect& rect,
-                    int flags, const QPalette & pal, bool enabled,
-                  const QString & text, QPalette::ColorRole textRole) const
+void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, int flags
+            , const QPalette & pal, bool enabled, const QString & text
+            , QPalette::ColorRole textRole) const
 {
-    QString s = painter->fontMetrics().elidedText(text, Qt::ElideRight, rect.width());
-    QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, s, textRole);
+    return QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, text, textRole);
 }
 
 

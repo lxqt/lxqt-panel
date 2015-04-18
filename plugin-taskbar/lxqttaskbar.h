@@ -114,7 +114,7 @@ private:
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
-    ElidedButtonStyle *mStyle;
+    LeftAlignedTextStyle *mStyle;
 };
 
 #endif // LXQTTASKBAR_H

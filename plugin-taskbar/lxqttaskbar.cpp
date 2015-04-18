@@ -57,15 +57,15 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mShowGroupOnHover(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
-    mStyle(new ElidedButtonStyle())
+    mStyle(new LeftAlignedTextStyle())
 {
+    setStyle(mStyle);
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
     mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
     realign();
 
-    mPlaceHolder->setStyle(mStyle);
     mPlaceHolder->setMinimumSize(1, 1);
     mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
