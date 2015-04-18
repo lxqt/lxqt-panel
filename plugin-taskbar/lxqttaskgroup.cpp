@@ -102,6 +102,7 @@ LxQtTaskButton * LxQtTaskGroup::addWindow(WId id)
         return mButtonHash.value(id);
 
     LxQtTaskButton *btn = new LxQtTaskButton(id, parentTaskBar(), mPopup);
+    btn->setToolButtonStyle(toolButtonStyle());
 
     if (btn->isApplicationActive())
     {
