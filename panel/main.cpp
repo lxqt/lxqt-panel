@@ -31,6 +31,7 @@
 #include <QDebug>
 #include <QLibraryInfo>
 #include <QDirIterator>
+#include <QCommandLineParser>
 #include <csignal>
 
 #include "lxqtpanelapplication.h"
@@ -48,65 +49,14 @@ void termSignalHandler(int)
         qApp->quit();
 }
 
-
-void printHelp()
-{
-    QTextStream out(stdout);
-    out << "Usage: lxqt-panel [options]" << endl;
-    out << endl;
-    out << "Start lxde-qt panel and its plugins" << endl;
-    out << endl;
-    out << "Options:" << endl;
-    out << "  -h, --help                    Show help about options" << endl;
-    out << "      --version                 Show version information" << endl;
-    out << "  -c, --configfile=CONFIGFILE   Use alternate configuration file" << endl;
-}
-
-
-void printVersion()
-{
-    QTextStream out(stdout);
-    out << "lxqt-panel " << LXQT_VERSION << endl;
-}
-
-
 int main(int argc, char *argv[])
 {
-    QString configFile;
-    for (int i=1; i < argc; ++i)
-    {
-        QString arg = QString::fromLocal8Bit(argv[i]);
-
-        if (arg == "--help" || arg == "-h")
-        {
-            printHelp();
-            return 0;
-        }
-
-        if (arg == "--version")
-        {
-            printVersion();
-            return 0;
-        }
-
-        if (arg == "-c" || arg.startsWith("--conf"))
-        {
-            if (i+1 < argc)
-            {
-                configFile = QString::fromLocal8Bit(argv[i+1]);
-            }
-        }
-    }
-
-    QScopedPointer<LxQtPanelApplication> app(new LxQtPanelApplication(argc, argv, configFile));
-
+    LxQtPanelApplication app(argc, argv);
 
     // Quit gracefully
     ::signal(SIGTERM, termSignalHandler);
     ::signal(SIGINT,  termSignalHandler);
     ::signal(SIGHUP,  termSignalHandler);
 
-    bool res = app->exec();
-
-    return res;
+    return app.exec();
 }
