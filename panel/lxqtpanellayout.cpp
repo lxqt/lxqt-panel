@@ -642,9 +642,10 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
         int bh = geometry.height() / baseLines.count();
-        for (int i = 0, base = geometry.top(); i<baseLines.count(); ++i, base += bh)
+        int base = geometry.top() + (bh >> 1);
+        for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bh)
         {
-            baseLines[i] = base;
+            *i = base;
         }
     }
 
@@ -688,7 +689,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveTopLeft(QPoint(left, baseLines[c]));
+                    rect.moveCenter(QPoint(0, baseLines[c]));
+                    rect.moveLeft(left);
                 }
 
                 rw = qMax(rw, rect.width());
@@ -725,7 +727,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveTopRight(QPoint(right, baseLines[c]));
+                    rect.moveCenter(QPoint(0, baseLines[c]));
+                    rect.moveRight(right);
                 }
 
                 rw = qMax(rw, rect.width());
@@ -755,8 +758,11 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
         int bw = geometry.width() / baseLines.count();
-        for (int i = 0, base = geometry.left(); i<baseLines.count(); ++i, base += bw)
-            baseLines[i] = base;
+        int base = geometry.left() + (bw >> 1);
+        for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bw)
+        {
+            *i = base;
+        }
     }
 
 #if 0
@@ -798,7 +804,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveTopLeft(QPoint(baseLines[c], top));
+                    rect.moveCenter(QPoint(baseLines[c], 0));
+                    rect.moveTop(top);
                 }
 
                 rh = qMax(rh, rect.height());
@@ -835,7 +842,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveBottomLeft(QPoint(baseLines[c], bottom));
+                    rect.moveCenter(QPoint(baseLines[c], 0));
+                    rect.moveBottom(bottom);
                 }
 
                 rh = qMax(rh, rect.height());
