@@ -75,7 +75,7 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
     connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::onMounted);
     connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::onUnmounted);
     connect(iface, &Solid::StorageAccess::accessibilityChanged, [this] (bool accessible, QString const &) {
-        update();
+        updateMountStatus();
     });
 
     updateMountStatus();
