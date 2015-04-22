@@ -50,7 +50,7 @@ private:
     Solid::Device opticalParent() const;
 
 signals:
-    void error(const QString &msg);
+    void invalid(QString const & udi);
 
 private slots:
     void ejectButtonClicked();

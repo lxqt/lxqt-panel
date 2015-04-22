@@ -86,6 +86,7 @@ Popup::Popup(ILxQtPanelPlugin *plugin, QWidget* parent):
 MenuDiskItem *Popup::addItem(Solid::Device device)
 {
     MenuDiskItem  *item   = new MenuDiskItem(device, this);
+    connect(item, &MenuDiskItem::invalid, this, &Popup::deviceRemoved);
     layout()->addWidget(item);
     item->setVisible(true);
     mDisplayCount++;

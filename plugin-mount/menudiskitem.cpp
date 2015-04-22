@@ -44,7 +44,8 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, QWidget *parent):
     mDiskButtonClicked(false),
     mEjectButtonClicked(false)
 {
-    Q_ASSERT(device.is<Solid::StorageAccess>());
+    Solid::StorageAccess * const iface = device.as<Solid::StorageAccess>();
+    Q_ASSERT(nullptr != iface);
     mDiskButton = new QToolButton(this);
     mDiskButton->setObjectName("DiskButton");
     mDiskButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -65,11 +66,10 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, QWidget *parent):
 
     mEjectButton->setIcon(XdgIcon::fromTheme("media-eject"));
 
-    connect(device.as<Solid::StorageAccess>(), SIGNAL(setupDone(Solid::ErrorType, QVariant, const QString &)),
-              this, SLOT(mounted(Solid::ErrorType, QVariant, const QString &)));
-
-    connect(device.as<Solid::StorageAccess>(), SIGNAL(teardownDone(Solid::ErrorType, QVariant, const QString &)),
-              this, SLOT(unmounted(Solid::ErrorType, QVariant, const QString &)));
+    connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::mounted);
+    connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::unmounted);
+    connect(iface, &Solid::StorageAccess::accessibilityChanged
+            , [this] (bool accessible, QString const & ) { update(); });
 
     update();
 }
@@ -84,6 +84,9 @@ void MenuDiskItem::update()
         mDiskButton->setText(mDevice.description());
 
         setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
+    } else
+    {
+        emit invalid(mDevice.udi());
     }
 }
 
@@ -122,7 +125,6 @@ void MenuDiskItem::mounted(Solid::ErrorType error, QVariant resultData, const QS
             qWarning() << "MenuDiskItem::mounted" << udi << resultData.toString();
         }
     }
-    update();
 }
 
 void MenuDiskItem::ejectButtonClicked()
@@ -157,7 +159,6 @@ void MenuDiskItem::unmounted(Solid::ErrorType error, QVariant resultData, const 
             qWarning() << "MenuDiskItem::unmounted" << udi << resultData.toString();
         }
     }
-    update();
 }
 
 QString MenuDiskItem::DeviceUdi() const
