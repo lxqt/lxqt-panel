@@ -26,76 +26,110 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "menudiskitem.h"
+#include "popup.h"
+
 #include <QDesktopServices>
-#include <QDebug>
 #include <QEvent>
 #include <QHBoxLayout>
-#include <QToolButton>
 #include <QUrl>
+#include <QTimer>
 #include <XdgIcon>
 #include <Solid/StorageAccess>
 #include <Solid/OpticalDrive>
 #include <LXQt/Notification>
+#include <QDebug>
 
-
-MenuDiskItem::MenuDiskItem(Solid::Device device, QWidget *parent):
-    QFrame(parent),
+MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
+    QFrame(popup),
+    mPopup(popup),
     mDevice(device),
+    mDiskButton(nullptr),
+    mEjectButton(nullptr),
     mDiskButtonClicked(false),
     mEjectButtonClicked(false)
 {
     Solid::StorageAccess * const iface = device.as<Solid::StorageAccess>();
     Q_ASSERT(nullptr != iface);
+
     mDiskButton = new QToolButton(this);
     mDiskButton->setObjectName("DiskButton");
     mDiskButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mDiskButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    connect(mDiskButton, SIGNAL(clicked()), this, SLOT(diskButtonClicked()));
+    connect(mDiskButton, &QToolButton::clicked, this, &MenuDiskItem::diskButtonClicked);
 
-    mEjectButton =  new QToolButton(this);
+    mEjectButton = new QToolButton(this);
     mEjectButton->setObjectName("EjectButton");
-    connect(mEjectButton, SIGNAL(clicked()), this, SLOT(ejectButtonClicked()));
+    mEjectButton->setIcon(XdgIcon::fromTheme("media-eject"));
+    connect(mEjectButton, &QToolButton::clicked, this, &MenuDiskItem::ejectButtonClicked);
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(mDiskButton);
     layout->addWidget(mEjectButton);
-    this->setLayout(layout);
-
     layout->setMargin(0);
     layout->setSpacing(0);
+    setLayout(layout);
 
-    mEjectButton->setIcon(XdgIcon::fromTheme("media-eject"));
+    connect(device.as<Solid::StorageAccess>(), &Solid::StorageAccess::setupDone,
+            this, &MenuDiskItem::onMounted);
 
-    connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::mounted);
-    connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::unmounted);
-    connect(iface, &Solid::StorageAccess::accessibilityChanged
-            , [this] (bool accessible, QString const & ) { update(); });
+    connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::onMounted);
+    connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::onUnmounted);
+    connect(iface, &Solid::StorageAccess::accessibilityChanged, [this] (bool accessible, QString const &) {
+        update();
+    });
 
-    update();
+    updateMountStatus();
 }
 
-void MenuDiskItem::update()
+MenuDiskItem::~MenuDiskItem()
 {
+}
+
+void MenuDiskItem::setMountStatus(bool mounted)
+{
+    mEjectButton->setEnabled(mounted);
+}
+
+void MenuDiskItem::updateMountStatus()
+{
+    static const QIcon icon = XdgIcon::fromTheme(mDevice.icon(), QStringLiteral("drive-removable-media"));
+
     if (mDevice.isValid())
     {
-        const QIcon icon = XdgIcon::fromTheme(mDevice.icon(), QStringLiteral("drive-removable-media"));
-
         mDiskButton->setIcon(icon);
         mDiskButton->setText(mDevice.description());
 
         setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
-    } else
-    {
-        emit invalid(mDevice.udi());
+
+        // HACK: This is not very nice
+        QTimer *timer = new QTimer(this);
+        timer->setInterval(800);
+        timer->setSingleShot(true);
+        connect(timer, &QTimer::timeout, [this] {
+            if (!this || !mDevice.isValid())
+                return;
+
+            setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
+        });
+        timer->start();
     }
+    else
+        emit invalid(mDevice.udi());
 }
 
-
-void MenuDiskItem::setMountStatus(bool is_mount)
+Solid::Device MenuDiskItem::opticalParent() const
 {
-    mEjectButton->setEnabled(is_mount);
+    Solid::Device it;
+    if (mDevice.isValid())
+    {
+        it = mDevice;
+        //search for parent drive
+        for (; !it.udi().isEmpty(); it = it.parent())
+            if (it.is<Solid::OpticalDrive>())
+                break;
+    }
+    return it;
 }
-
 
 void MenuDiskItem::diskButtonClicked()
 {
@@ -104,27 +138,9 @@ void MenuDiskItem::diskButtonClicked()
     if (!di->isAccessible())
         di->setup();
     else
-        mounted(Solid::NoError, QString(), mDevice.udi());
+        onMounted(Solid::NoError, QString(), mDevice.udi());
 
-    qobject_cast<QWidget*>(parent())->hide();
-}
-
-void MenuDiskItem::mounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
-{
-    if (mDiskButtonClicked)
-    {
-        mDiskButtonClicked = false;
-
-        if (Solid::NoError == error)
-        {
-            QDesktopServices::openUrl(QUrl(mDevice.as<Solid::StorageAccess>()->filePath()));
-        } else
-        {
-            LxQt::Notification::notify(tr("Removable media/devices manager")
-                    , tr("Mounting of <strong><nobr>\"%1\"</nobr></strong> failed: %2").arg(mDevice.description()).arg(resultData.toString()), mDevice.icon());
-            qWarning() << "MenuDiskItem::mounted" << udi << resultData.toString();
-        }
-    }
+    mPopup->hide();
 }
 
 void MenuDiskItem::ejectButtonClicked()
@@ -132,48 +148,57 @@ void MenuDiskItem::ejectButtonClicked()
     mEjectButtonClicked = true;
     Solid::StorageAccess* di = mDevice.as<Solid::StorageAccess>();
     if (di->isAccessible())
-    {
         di->teardown();
-    } else
-    {
-        unmounted(Solid::NoError, QString(), mDevice.udi());
-    }
+    else
+        onUnmounted(Solid::NoError, QString(), mDevice.udi());
 
-    qobject_cast<QWidget*>(parent())->hide();
+    mPopup->hide();
 }
 
-void MenuDiskItem::unmounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
+void MenuDiskItem::onMounted(Solid::ErrorType error,
+                             QVariant resultData,
+                             const QString &udi)
+{
+    if (mDiskButtonClicked)
+    {
+        mDiskButtonClicked = false;
+
+        if (Solid::NoError == error)
+            QDesktopServices::openUrl(QUrl(mDevice.as<Solid::StorageAccess>()->filePath()));
+        else
+        {
+            QString errorMsg = tr("Mounting of <b><nobr>\"%1\"</nobr></b> failed: %2");
+            errorMsg.arg(mDevice.description());
+            errorMsg.arg(resultData.toString());
+            LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
+        }
+    }
+
+    updateMountStatus();
+}
+
+void MenuDiskItem::onUnmounted(Solid::ErrorType error,
+                               QVariant resultData,
+                               const QString &udi)
 {
     if (mEjectButtonClicked)
     {
         mEjectButtonClicked = false;
+
         if (Solid::NoError == error)
         {
             Solid::Device opt_parent = opticalParent();
             if (!opt_parent.udi().isEmpty())
                 opt_parent.as<Solid::OpticalDrive>()->eject();
-        } else
+        }
+        else
         {
-            LxQt::Notification::notify(tr("Removable media/devices manager")
-                    , tr("Unmounting of <strong><nobr>\"%1\"</nobr></strong> failed: %2").arg(mDevice.description()).arg(resultData.toString()), mDevice.icon());
-            qWarning() << "MenuDiskItem::unmounted" << udi << resultData.toString();
+            QString errorMsg = tr("Unmounting of <strong><nobr>\"%1\"</nobr></strong> failed: %2");
+            errorMsg.arg(mDevice.description());
+            errorMsg.arg(resultData.toString());
+            LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
         }
     }
-}
 
-QString MenuDiskItem::DeviceUdi() const
-{
-    return mDevice.udi();
-}
-
-Solid::Device MenuDiskItem::opticalParent() const
-{
-    Solid::Device it = mDevice;
-    //search for parent drive
-    for ( ; !it.udi().isEmpty(); it = it.parent())
-    {
-        if (it.is<Solid::OpticalDrive>())
-            break;
-    }
-    return it;
+    updateMountStatus();
 }

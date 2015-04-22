@@ -26,24 +26,29 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef POPUP_H
-#define POPUP_H
+#ifndef LXQT_PLUGIN_MOUNT_POPUP_H
+#define LXQT_PLUGIN_MOUNT_POPUP_H
 
+#include "menudiskitem.h"
+
+#include <QLabel>
 #include <QDialog>
-#include "../panel/ilxqtpanelplugin.h"
 #include <Solid/Device>
-
-class MenuDiskItem;
-class QLabel;
 
 class Popup: public QDialog
 {
     Q_OBJECT
+
 public:
-    explicit Popup(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
+    explicit Popup(QWidget* parent = 0);
+    void realign();
 
 public slots:
     void showHide();
+
+private slots:
+    void onDeviceAdded(QString const & udi);
+    void onDeviceRemoved(QString const & udi);
 
 signals:
     void visibilityChanged(bool visible);
@@ -53,18 +58,11 @@ protected:
     void showEvent(QShowEvent *event);
     void hideEvent(QHideEvent *event);
 
-private slots:
-    void deviceRemoved(QString const & udi);
-    void deviceAdded(QString const & udi);
-
 private:
-    MenuDiskItem *addItem(Solid::Device device);
-
-private:
-    void realign();
-    ILxQtPanelPlugin *mPlugin;
     QLabel *mPlaceholder;
     int mDisplayCount;
+
+    void addItem(Solid::Device device);
 };
 
 #endif // POPUP_H

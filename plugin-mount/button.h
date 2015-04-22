@@ -26,21 +26,18 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef MOUNTBUTTON_H
-#define MOUNTBUTTON_H
+#ifndef LXQT_PLUGIN_MOUNT_BUTTON_H
+#define LXQT_PLUGIN_MOUNT_BUTTON_H
 
 #include <QToolButton>
 
 
-class MountButton : public QToolButton
+class Button : public QToolButton
 {
     Q_OBJECT
 public:
-    MountButton(QWidget *parent = 0);
-    ~MountButton();
-
-public slots:
-    void setDown(bool down);
+    Button(QWidget *parent = 0);
+    ~Button();
 };
 
 #endif

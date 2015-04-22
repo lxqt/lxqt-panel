@@ -4,8 +4,9 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2011 Razor team
  * Authors:
+ *   Petr Vanek <petr@scribus.info>
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
@@ -25,30 +26,17 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTMOUNTCONFIGURATION_H
-#define LXQTMOUNTCONFIGURATION_H
+#include "button.h"
+#include <XdgIcon>
 
-#include "../panel/lxqtpanelpluginconfigdialog.h"
-
-
-namespace Ui {
-    class LxQtMountConfiguration;
+Button::Button(QWidget * parent) :
+    QToolButton(parent)
+{
+    setIcon(XdgIcon::fromTheme(QStringLiteral("drive-removable-media")));
+    setToolTip(tr("Removable media/devices manager"));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
-class LxQtMountConfiguration : public LxQtPanelPluginConfigDialog
+Button::~Button()
 {
-    Q_OBJECT
-
-public:
-    explicit LxQtMountConfiguration(QSettings &settings, QWidget *parent = 0);
-    ~LxQtMountConfiguration();
-
-protected slots:
-    virtual void loadSettings();
-    void devAddedChanged(int index);
-
-private:
-    Ui::LxQtMountConfiguration *ui;
-};
-
-#endif // LXQTMOUNTCONFIGURATION_H
+}

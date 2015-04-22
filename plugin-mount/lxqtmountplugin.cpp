@@ -26,83 +26,47 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtmountplugin.h"
-#include "lxqtmountconfiguration.h"
-#include "actions/deviceaction.h"
-#include "popup.h"
-#include "mountbutton.h"
 #include <Solid/DeviceNotifier>
-
 
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mPopup(NULL),
-    mDeviceAction(0)
+    mPopup(nullptr)
 {
-    mButton = new MountButton();
-    connect(mButton, SIGNAL(clicked(bool)), SLOT(buttonClicked()));
+    mButton = new Button;
+    connect(mButton, &QToolButton::clicked, this, &LxQtMountPlugin::buttonClicked);
 
-    mPopup = new Popup(this, mButton);
-    settingsChanged();
-    connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
+    mPopup = new Popup;
+    // HACK: is this the only way to make it calculate its real size?
+    mPopup->show();
+    mPopup->hide();
+    connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
+
+    QTimer::singleShot(0, SIGNAL(realign()));
 }
-
 
 LxQtMountPlugin::~LxQtMountPlugin()
 {
     delete mButton;
-    delete mDeviceAction;
+    delete mPopup;
 }
-
-
-QWidget *LxQtMountPlugin::widget()
-{
-    return mButton;
-}
-
-
-void LxQtMountPlugin::realign()
-{
-    if(mPopup) mPopup->hide();
-}
-
-
-QDialog *LxQtMountPlugin::configureDialog()
-{
-    if(mPopup) mPopup->hide();
-    LxQtMountConfiguration *configWindow = new LxQtMountConfiguration(*settings());
-    configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
-    return configWindow;
-}
-
 
 QIcon LxQtMountPlugin::icon() const
 {
     return mButton->icon();
 }
 
+void LxQtMountPlugin::realign()
+{
+    if (mPopup)
+    {
+        mPopup->hide();
+        mPopup->realign();
+        mPopup->setGeometry(calculatePopupWindowPos(mPopup->size()));
+    }
+}
 
 void LxQtMountPlugin::buttonClicked()
 {
     mPopup->showHide();
-}
-
-
-void LxQtMountPlugin::settingsChanged()
-{
-    QString s = settings()->value("newDeviceAction").toString();
-
-    DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
-
-    if (0 == mDeviceAction || mDeviceAction->Type() != actionId)
-    {
-        delete mDeviceAction;
-        mDeviceAction = DeviceAction::create(actionId, this);
-        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(QString const &))
-                , mDeviceAction, SLOT(deviceAdded(QString const &)));
-
-        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString const &))
-                , mDeviceAction, SLOT(deviceRemoved(QString const &)));
-    }
-
 }
