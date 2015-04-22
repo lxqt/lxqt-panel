@@ -333,7 +333,7 @@ void LxQtTaskGroup::regroup()
 /************************************************
 
  ************************************************/
-void LxQtTaskGroup::showOnAllDesktopSettingChanged()
+void LxQtTaskGroup::showOnlySettingChanged()
 {
     refreshVisibility();
 }
@@ -367,16 +367,16 @@ void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
  ************************************************/
 void LxQtTaskGroup::refreshVisibility()
 {
+    bool will = false;
     foreach(LxQtTaskButton * btn, mButtonHash.values())
     {
-        if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
-            btn->setVisible(btn->isOnDesktop(KWindowSystem::currentDesktop()));
-        else
-            btn->setVisible(true);
+        bool visible = parentTaskBar()->isShowOnlyCurrentDesktopTasks() ? btn->isOnDesktop(KWindowSystem::currentDesktop()) : true;
+        visible &= parentTaskBar()->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
+        btn->setVisible(visible);
+        will |= visible;
     }
 
     bool is = isVisible();
-    bool will = visibleButtonsCount();
     setVisible(will);
     regroup();
 
@@ -607,9 +607,9 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         // window changed virtual desktop
         if (prop.testFlag(NET::WMDesktop))
         {
-            if (parentTaskBar()->isShowOnlyCurrentDesktopTasks())
+            if (parentTaskBar()->isShowOnlyCurrentDesktopTasks()
+                    || parentTaskBar()->isShowOnlyCurrentScreenTasks())
             {
-                button->setHidden(button->isOnDesktop(KWindowSystem::currentDesktop()));
                 refreshVisibility();
             }
         }

@@ -63,16 +63,19 @@ public:
     explicit LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
     virtual ~LxQtTaskBar();
 
-    virtual void settingsChanged();
     void realign();
 
     Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
     int buttonWidth() { return mButtonWidth; }
     bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
     bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
+    bool isShowOnlyCurrentScreenTasks() { return mShowOnlyCurrentScreenTasks; }
     bool isAutoRotate() { return mAutoRotate; }
     bool isGroupingEnabled() { return mGroupingEnabled; }
     bool isShowGroupOnHover() { return mShowGroupOnHover; }
+
+public slots:
+    void settingsChanged();
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
@@ -105,8 +108,6 @@ private:
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
 
-    bool windowOnActiveDesktop(WId window) const;
-    bool windowOnCurrentScreen(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 

@@ -67,7 +67,7 @@ public:
 
     bool onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void refreshIconsGeometry();
-    void showOnAllDesktopSettingChanged();
+    void showOnlySettingChanged();
     void setAutoRotation(bool value, ILxQtPanel::Position position);
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
 

@@ -35,12 +35,11 @@
 #include <QSettings>
 #include <QList>
 #include <QMimeData>
-#include <QDesktopWidget>
 #include <QWheelEvent>
 #include <QFlag>
 #include <QX11Info>
 #include <QDebug>
-#include <QDesktopWidget>
+#include <QTimer>
 
 #include <LXQt/GridLayout>
 #include <XdgIcon>
@@ -77,7 +76,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
-    settingsChanged();
+    QTimer::singleShot(0, this, SLOT(settingsChanged()));
     setAcceptDrops(true);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
@@ -91,40 +90,6 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
 LxQtTaskBar::~LxQtTaskBar()
 {
     delete mStyle;
-}
-
-/************************************************
-
- ************************************************/
-bool LxQtTaskBar::windowOnCurrentScreen(WId window) const
-{
-    if (!mShowOnlyCurrentScreenTasks)
-        return true;
-
-    KWindowInfo info(window, NET::WMDesktop | NET::WMFrameExtents);
-    int desktop = info.desktop();
-    if (desktop == NET::OnAllDesktops)
-        return true;
-
-    QDesktopWidget desc;
-    QRect frame = info.frameGeometry();
-    QPoint midpoint = (frame.topLeft() + frame.bottomRight()) / 2;
-    return desc.screenNumber(midpoint) == desc.screenNumber(this);
-}
-
-/************************************************
-
- ************************************************/
-bool LxQtTaskBar::windowOnActiveDesktop(WId window) const
-{
-    if (!mShowOnlyCurrentDesktopTasks)
-        return true;
-
-    int desktop = KWindowInfo(window, NET::WMDesktop).desktop();
-    if (desktop == NET::OnAllDesktops)
-        return true;
-
-    return desktop == KWindowSystem::currentDesktop();
 }
 
 /************************************************
@@ -289,8 +254,6 @@ void LxQtTaskBar::refreshTaskList()
     }
 
     refreshPlaceholderVisibility();
-    mLayout->invalidate();
-    realign();
 }
 
 /************************************************
@@ -389,8 +352,8 @@ void LxQtTaskBar::settingsChanged()
 {
     bool groupingEnabledOld = mGroupingEnabled;
     bool showOnlyCurrentDesktopTasksOld = mShowOnlyCurrentDesktopTasks;
+    bool showOnlyCurrentScreenTasksOld = mShowOnlyCurrentScreenTasks;
 
-    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks").toBool();
     mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
     mButtonHeight = mPlugin->settings()->value("buttonHeight", 100).toInt();
     QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
@@ -420,9 +383,10 @@ void LxQtTaskBar::settingsChanged()
         mGroupsHash.clear();
     }
 
-    if (showOnlyCurrentDesktopTasksOld != mShowOnlyCurrentDesktopTasks)
+    if (showOnlyCurrentDesktopTasksOld != mShowOnlyCurrentDesktopTasks
+            || showOnlyCurrentScreenTasksOld != mShowOnlyCurrentScreenTasks)
         Q_FOREACH (LxQtTaskGroup *group, mGroupsHash)
-            group->showOnAllDesktopSettingChanged();
+            group->showOnlySettingChanged();
 
     refreshTaskList();
 }
@@ -479,6 +443,9 @@ void LxQtTaskBar::realign()
     mLayout->setDirection(rotated ? LxQt::GridLayout::TopToBottom : LxQt::GridLayout::LeftToRight);
     mLayout->setEnabled(true);
 
+    //our placement on screen could have been changed
+    Q_FOREACH (LxQtTaskGroup *group, mGroupsHash)
+        group->showOnlySettingChanged();
     refreshIconGeometry();
 }
 

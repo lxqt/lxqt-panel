@@ -71,6 +71,7 @@ public:
     void setUrgencyHint(bool set);
 
     bool isOnDesktop(int desktop) const;
+    bool isOnCurrentScreen() const;
     void updateText();
     void updateIcon();
 

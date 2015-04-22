@@ -46,6 +46,7 @@
 #include <QDragEnterEvent>
 #include <QStylePainter>
 #include <QStyleOptionToolButton>
+#include <QDesktopWidget>
 
 #include "lxqttaskbutton.h"
 #include "lxqttaskgroup.h"
@@ -580,6 +581,12 @@ bool LxQtTaskButton::isOnDesktop(int desktop) const
 {
     return KWindowInfo(mWindow, NET::WMDesktop).isOnDesktop(desktop);
 }
+
+bool LxQtTaskButton::isOnCurrentScreen() const
+{
+    return QApplication::desktop()->screenGeometry(parentTaskBar()).intersects(KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry());
+}
+
 
 Qt::Corner LxQtTaskButton::origin() const
 {
