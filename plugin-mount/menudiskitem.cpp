@@ -105,11 +105,12 @@ void MenuDiskItem::updateMountStatus()
         QTimer *timer = new QTimer(this);
         timer->setInterval(800);
         timer->setSingleShot(true);
-        connect(timer, &QTimer::timeout, [this] {
-            if (!this || !mDevice.isValid())
+        connect(timer, &QTimer::timeout, [this, timer] {
+            if (!mDevice.isValid())
                 return;
 
             setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
+            delete timer;
         });
         timer->start();
     }

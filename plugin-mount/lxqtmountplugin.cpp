@@ -42,7 +42,7 @@ LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo)
     mPopup->hide();
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
 
-    QTimer::singleShot(0, SIGNAL(realign()));
+    QTimer::singleShot(0, this, SLOT(realign()));
 }
 
 LxQtMountPlugin::~LxQtMountPlugin()
