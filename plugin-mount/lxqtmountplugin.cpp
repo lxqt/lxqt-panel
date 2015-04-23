@@ -26,12 +26,15 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtmountplugin.h"
+#include "configuration.h"
+
 #include <Solid/DeviceNotifier>
 
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mPopup(nullptr)
+    mPopup(nullptr),
+    mDeviceAction(nullptr)
 {
     mButton = new Button;
     connect(mButton, &QToolButton::clicked, this, &LxQtMountPlugin::buttonClicked);
@@ -51,9 +54,14 @@ LxQtMountPlugin::~LxQtMountPlugin()
     delete mPopup;
 }
 
-QIcon LxQtMountPlugin::icon() const
+QDialog *LxQtMountPlugin::configureDialog()
 {
-    return mButton->icon();
+    if (mPopup)
+        mPopup->hide();
+
+    Configuration *configWindow = new Configuration(*settings());
+    configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
+    return configWindow;
 }
 
 void LxQtMountPlugin::realign()
@@ -69,4 +77,23 @@ void LxQtMountPlugin::realign()
 void LxQtMountPlugin::buttonClicked()
 {
     mPopup->showHide();
+}
+
+void LxQtMountPlugin::settingsChanged()
+{
+    QString s = settings()->value(QStringLiteral(CFG_KEY_ACTION)).toString();
+    DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
+
+    if (mDeviceAction == nullptr || mDeviceAction->Type() != actionId)
+    {
+        delete mDeviceAction;
+        mDeviceAction = DeviceAction::create(actionId, this);
+
+        connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
+                mDeviceAction, &DeviceAction::onDeviceAdded);
+
+        connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
+                mDeviceAction, &DeviceAction::onDeviceRemoved);
+    }
+
 }

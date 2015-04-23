@@ -100,19 +100,6 @@ void MenuDiskItem::updateMountStatus()
         mDiskButton->setText(mDevice.description());
 
         setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
-
-        // HACK: This is not very nice
-        QTimer *timer = new QTimer(this);
-        timer->setInterval(800);
-        timer->setSingleShot(true);
-        connect(timer, &QTimer::timeout, [this, timer] {
-            if (!mDevice.isValid())
-                return;
-
-            setMountStatus(mDevice.as<Solid::StorageAccess>()->isAccessible() || !opticalParent().udi().isEmpty());
-            delete timer;
-        });
-        timer->start();
     }
     else
         emit invalid(mDevice.udi());
@@ -124,7 +111,7 @@ Solid::Device MenuDiskItem::opticalParent() const
     if (mDevice.isValid())
     {
         it = mDevice;
-        //search for parent drive
+        // search for parent drive
         for (; !it.udi().isEmpty(); it = it.parent())
             if (it.is<Solid::OpticalDrive>())
                 break;
@@ -156,9 +143,7 @@ void MenuDiskItem::ejectButtonClicked()
     mPopup->hide();
 }
 
-void MenuDiskItem::onMounted(Solid::ErrorType error,
-                             QVariant resultData,
-                             const QString &udi)
+void MenuDiskItem::onMounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
 {
     if (mDiskButtonClicked)
     {
@@ -174,13 +159,9 @@ void MenuDiskItem::onMounted(Solid::ErrorType error,
             LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
         }
     }
-
-    updateMountStatus();
 }
 
-void MenuDiskItem::onUnmounted(Solid::ErrorType error,
-                               QVariant resultData,
-                               const QString &udi)
+void MenuDiskItem::onUnmounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
 {
     if (mEjectButtonClicked)
     {
@@ -200,6 +181,4 @@ void MenuDiskItem::onUnmounted(Solid::ErrorType error,
             LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
         }
     }
-
-    updateMountStatus();
 }

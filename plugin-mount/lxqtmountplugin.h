@@ -32,6 +32,7 @@
 #include "../panel/lxqtpanel.h"
 #include "button.h"
 #include "popup.h"
+#include "actions/deviceaction.h"
 
 #include <QIcon>
 
@@ -49,28 +50,31 @@ public:
 
     virtual QWidget *widget() { return mButton; }
     virtual QString themeId() const { return QStringLiteral("LxQtMount"); }
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment; }
+    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
 
-    QIcon icon() const;
     Popup *popup() { return mPopup; }
+    QIcon icon() { return mButton->icon(); };
+    QDialog *configureDialog();
 
 public slots:
     void realign();
 
 protected slots:
     void buttonClicked();
+    virtual void settingsChanged();
 
 private:
     Button *mButton;
     Popup *mPopup;
+    DeviceAction *mDeviceAction;
 };
-
 
 class LxQtMountPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
+
 public:
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
     {
