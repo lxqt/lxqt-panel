@@ -28,6 +28,7 @@
 
 #include "lxqtmainmenu.h"
 #include "lxqtmainmenuconfiguration.h"
+#include "../panel/lxqtpanel.h"
 #include <QDebug>
 #include <XdgDesktopFile>
 #include <XmlHelper>
@@ -142,34 +143,9 @@ void LxQtMainMenu::showMenu()
     if (!mMenu)
         return;
 
-    int x=0, y=0;
-
-    switch (panel()->position())
-    {
-        case ILxQtPanel::PositionTop:
-            x = mButton.mapToGlobal(QPoint(0, 0)).x();
-            y = panel()->globalGometry().bottom();
-            break;
-
-        case ILxQtPanel::PositionBottom:
-            x = mButton.mapToGlobal(QPoint(0, 0)).x();
-            y = panel()->globalGometry().top() - mMenu->sizeHint().height();
-            break;
-
-        case ILxQtPanel::PositionLeft:
-            x = panel()->globalGometry().right();
-            y = mButton.mapToGlobal(QPoint(0, 0)).y();
-            break;
-
-        case ILxQtPanel::PositionRight:
-            x = panel()->globalGometry().left() - mMenu->sizeHint().width();
-            y = mButton.mapToGlobal(QPoint(0, 0)).y();
-            break;
-    }
-
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
-    mMenu->exec(QPoint(x, y));
+    mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -275,8 +251,10 @@ void LxQtMainMenu::buildMenu()
     }
 
     menu->installEventFilter(this);
-    connect(menu, SIGNAL(aboutToHide()), &mHideTimer, SLOT(start()));
-    connect(menu, SIGNAL(aboutToShow()), &mHideTimer, SLOT(stop()));
+    connect(menu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(menu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
+    // panel notification (needed in case of auto-hide)
+    connect(menu, &QMenu::aboutToHide, dynamic_cast<LxQtPanel *>(panel()), &LxQtPanel::hidePanel);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
