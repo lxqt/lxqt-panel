@@ -68,6 +68,7 @@ public:
     Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
     int buttonWidth() { return mButtonWidth; }
     bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
+    bool raiseOnCurrentDesktop() { return mRaiseOnCurrentDesktop; }
     bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
     bool isShowOnlyCurrentScreenTasks() { return mShowOnlyCurrentScreenTasks; }
     bool isShowOnlyMinimizedTasks() { return mShowOnlyMinimizedTasks; }
@@ -103,6 +104,7 @@ private:
     int mButtonWidth;
     int mButtonHeight;
     bool mCloseOnMiddleClick;
+    bool mRaiseOnCurrentDesktop;
     bool mShowOnlyCurrentDesktopTasks;
     bool mShowOnlyCurrentScreenTasks;
     bool mShowOnlyMinimizedTasks;

@@ -291,10 +291,17 @@ void LxQtTaskButton::activateWithDraggable()
  ************************************************/
 void LxQtTaskButton::raiseApplication()
 {
-    KWindowInfo info(mWindow, NET::WMDesktop);
-    int winDesktop = info.desktop();
-    if (KWindowSystem::currentDesktop() != winDesktop)
-        KWindowSystem::setCurrentDesktop(winDesktop);
+    KWindowInfo info(mWindow, NET::WMDesktop | NET::WMState | NET::XAWMState);
+    if (parentTaskBar()->raiseOnCurrentDesktop() && info.isMinimized())
+    {
+        KWindowSystem::setOnDesktop(mWindow, KWindowSystem::currentDesktop());
+    }
+    else
+    {
+        int winDesktop = info.desktop();
+        if (KWindowSystem::currentDesktop() != winDesktop)
+            KWindowSystem::setCurrentDesktop(winDesktop);
+    }
     KWindowSystem::activateWindow(mWindow);
 
     setUrgencyHint(false);
