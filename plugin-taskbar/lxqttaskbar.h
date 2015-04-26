@@ -70,6 +70,7 @@ public:
     bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
     bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
     bool isShowOnlyCurrentScreenTasks() { return mShowOnlyCurrentScreenTasks; }
+    bool isShowOnlyMinimizedTasks() { return mShowOnlyMinimizedTasks; }
     bool isAutoRotate() { return mAutoRotate; }
     bool isGroupingEnabled() { return mGroupingEnabled; }
     bool isShowGroupOnHover() { return mShowGroupOnHover; }
@@ -104,6 +105,7 @@ private:
     bool mCloseOnMiddleClick;
     bool mShowOnlyCurrentDesktopTasks;
     bool mShowOnlyCurrentScreenTasks;
+    bool mShowOnlyMinimizedTasks;
     bool mAutoRotate;
     bool mGroupingEnabled;
     bool mShowGroupOnHover;

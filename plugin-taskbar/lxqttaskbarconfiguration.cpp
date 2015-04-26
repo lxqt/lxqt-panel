@@ -53,6 +53,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
         change of state */
     connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByMinimizedCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->buttonHeightSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
@@ -71,6 +72,7 @@ void LxQtTaskbarConfiguration::loadSettings()
 {
     ui->limitByDesktopCB->setChecked(mSettings.value("showOnlyCurrentDesktopTasks", false).toBool());
     ui->limitByScreenCB->setChecked(mSettings.value("showOnlyCurrentScreenTasks", false).toBool());
+    ui->limitByMinimizedCB->setChecked(mSettings.value("showOnlyMinimizedTasks", false).toBool());
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
@@ -85,6 +87,7 @@ void LxQtTaskbarConfiguration::saveSettings()
 {
     mSettings.setValue("showOnlyCurrentDesktopTasks", ui->limitByDesktopCB->isChecked());
     mSettings.setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
+    mSettings.setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
     mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
     mSettings.setValue("buttonHeight", ui->buttonHeightSB->value());

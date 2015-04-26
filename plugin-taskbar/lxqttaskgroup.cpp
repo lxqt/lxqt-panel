@@ -372,6 +372,7 @@ void LxQtTaskGroup::refreshVisibility()
     {
         bool visible = parentTaskBar()->isShowOnlyCurrentDesktopTasks() ? btn->isOnDesktop(KWindowSystem::currentDesktop()) : true;
         visible &= parentTaskBar()->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
+        visible &= parentTaskBar()->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);
         will |= visible;
     }
@@ -579,6 +580,7 @@ void LxQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
     bool consumed{false};
+    bool needsRefreshVisibility{false};
     QVector<LxQtTaskButton *> buttons;
     if (mButtonHash.contains(window))
         buttons.append(mButtonHash.value(window));
@@ -610,7 +612,7 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
             if (parentTaskBar()->isShowOnlyCurrentDesktopTasks()
                     || parentTaskBar()->isShowOnlyCurrentScreenTasks())
             {
-                refreshVisibility();
+                needsRefreshVisibility = true;
             }
         }
 
@@ -634,7 +636,16 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
                 continue;
             }
             button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+
+            if (parentTaskBar()->isShowOnlyMinimizedTasks())
+            {
+                needsRefreshVisibility = true;
+            }
         }
     }
+
+    if (needsRefreshVisibility)
+        refreshVisibility();
+
     return consumed;
 }
