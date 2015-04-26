@@ -4,13 +4,9 @@
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="245"/>
+        <location filename="../lxqtmainmenu.cpp" line="221"/>
         <source>Show/hide main menu</source>
         <translation>Показать/скрыть главное меню</translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation type="vanished">Выход</translation>
     </message>
 </context>
 <context>
