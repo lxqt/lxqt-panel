@@ -56,6 +56,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mCloseOnMiddleClick(true),
+    mRaiseOnCurrentDesktop(true),
     mShowOnlyCurrentDesktopTasks(false),
     mShowOnlyCurrentScreenTasks(false),
     mShowOnlyMinimizedTasks(false),
@@ -371,6 +372,7 @@ void LxQtTaskBar::settingsChanged()
     mShowOnlyMinimizedTasks = mPlugin->settings()->value("showOnlyMinimizedTasks", mShowOnlyMinimizedTasks).toBool();
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
+    mRaiseOnCurrentDesktop = mPlugin->settings()->value("raiseOnCurrentDesktop", false).toBool();
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
     mShowGroupOnHover = mPlugin->settings()->value("showGroupOnHover",true).toBool();
 

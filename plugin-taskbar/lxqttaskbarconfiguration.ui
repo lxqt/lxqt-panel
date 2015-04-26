@@ -42,6 +42,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QCheckBox" name="raiseOnCurrentDesktopCB">
+        <property name="text">
+         <string>Raise minimized windows on current desktop</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QCheckBox" name="middleClickCB">
         <property name="text">
          <string>Close on middle-click</string>

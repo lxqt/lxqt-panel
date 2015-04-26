@@ -54,6 +54,7 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->limitByMinimizedCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->raiseOnCurrentDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->buttonHeightSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
@@ -76,6 +77,7 @@ void LxQtTaskbarConfiguration::loadSettings()
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
+    ui->raiseOnCurrentDesktopCB->setChecked(mSettings.value("raiseOnCurrentDesktop", false).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
     ui->buttonWidthSB->setValue(mSettings.value("buttonWidth", 400).toInt());
     ui->buttonHeightSB->setValue(mSettings.value("buttonHeight", 100).toInt());
@@ -93,6 +95,7 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("buttonHeight", ui->buttonHeightSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
+    mSettings.setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
     mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
     mSettings.setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
 }
