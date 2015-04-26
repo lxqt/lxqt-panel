@@ -72,6 +72,7 @@ public:
 
     bool isOnDesktop(int desktop) const;
     bool isOnCurrentScreen() const;
+    bool isMinimized() const;
     void updateText();
     void updateIcon();
 

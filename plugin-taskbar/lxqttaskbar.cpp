@@ -58,6 +58,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mCloseOnMiddleClick(true),
     mShowOnlyCurrentDesktopTasks(false),
     mShowOnlyCurrentScreenTasks(false),
+    mShowOnlyMinimizedTasks(false),
     mAutoRotate(true),
     mShowGroupOnHover(true),
     mPlugin(plugin),
@@ -353,6 +354,7 @@ void LxQtTaskBar::settingsChanged()
     bool groupingEnabledOld = mGroupingEnabled;
     bool showOnlyCurrentDesktopTasksOld = mShowOnlyCurrentDesktopTasks;
     bool showOnlyCurrentScreenTasksOld = mShowOnlyCurrentScreenTasks;
+    bool showOnlyMinimizedTasksOld = mShowOnlyMinimizedTasks;
 
     mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
     mButtonHeight = mPlugin->settings()->value("buttonHeight", 100).toInt();
@@ -367,6 +369,7 @@ void LxQtTaskBar::settingsChanged()
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
     mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
+    mShowOnlyMinimizedTasks = mPlugin->settings()->value("showOnlyMinimizedTasks", mShowOnlyMinimizedTasks).toBool();
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
@@ -384,7 +387,9 @@ void LxQtTaskBar::settingsChanged()
     }
 
     if (showOnlyCurrentDesktopTasksOld != mShowOnlyCurrentDesktopTasks
-            || showOnlyCurrentScreenTasksOld != mShowOnlyCurrentScreenTasks)
+            || showOnlyCurrentScreenTasksOld != mShowOnlyCurrentScreenTasks
+            || showOnlyMinimizedTasksOld != mShowOnlyMinimizedTasks
+            )
         Q_FOREACH (LxQtTaskGroup *group, mGroupsHash)
             group->showOnlySettingChanged();
 
