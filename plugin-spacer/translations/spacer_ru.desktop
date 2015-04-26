@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LxQtPanel/Plugin
+Name[ru]=Разделитель
+Comment[ru]=Промежуток между виджетами
+
+#TRANSLATIONS_DIR=../translations

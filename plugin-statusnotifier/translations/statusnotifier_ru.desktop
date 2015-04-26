@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LxQtPanel/Plugin
+Name[ru]=Плагин уведомлений
+Comment[ru]=Плагин уведомлений
+
+#TRANSLATIONS_DIR=../translations

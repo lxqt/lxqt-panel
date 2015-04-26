@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LxQtPanel/Plugin
+Name[ru_RU]=Меню папки
+Comment[ru_RU]=Показывает меню, отображающее содержимое папки
+
+#TRANSLATIONS_DIR=../translations
