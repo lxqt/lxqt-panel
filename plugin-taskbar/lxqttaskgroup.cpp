@@ -605,7 +605,7 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
             }
         }
         // window changed virtual desktop
-        if (prop.testFlag(NET::WMDesktop))
+        if (prop.testFlag(NET::WMDesktop) || prop.testFlag(NET::WMGeometry))
         {
             if (parentTaskBar()->isShowOnlyCurrentDesktopTasks()
                     || parentTaskBar()->isShowOnlyCurrentScreenTasks())
