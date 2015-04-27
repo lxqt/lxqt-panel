@@ -207,8 +207,7 @@ void LxQtTaskBar::groupBecomeEmptySlot()
     LxQtTaskGroup *group = qobject_cast<LxQtTaskGroup*>(sender());
     Q_ASSERT(group);
 
-    QString id = mGroupingEnabled ? group->groupName() : QString("%1").arg(group->windowId());
-    mGroupsHash.erase(mGroupsHash.find(id));
+    mGroupsHash.erase(mGroupsHash.find(group->groupName()));
     group->deleteLater();
 }
 
