@@ -35,6 +35,7 @@
 namespace Ui {
     class ConfigPluginsWidget;
 }
+class AddPluginDialog;
 
 class ConfigPluginsWidget : public QWidget
 {
@@ -55,6 +56,7 @@ private slots:
 
 private:
     Ui::ConfigPluginsWidget *ui;
+    QScopedPointer<AddPluginDialog> mAddPluginDialog;
     LxQtPanel *mPanel;
 };
 

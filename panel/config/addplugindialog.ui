@@ -31,7 +31,7 @@
    <item>
     <widget class="QListWidget" name="pluginList">
      <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
      <property name="showDropIndicator" stdset="0">
       <bool>true</bool>
@@ -44,6 +44,9 @@
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="verticalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
      </property>
      <property name="movement">
       <enum>QListView::Static</enum>

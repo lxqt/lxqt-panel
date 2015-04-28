@@ -84,6 +84,8 @@ public:
 
 public slots:
     void realign();
+    void showConfigureDialog();
+    void requestRemove();
 
 signals:
     void startMove();
@@ -115,8 +117,6 @@ private:
 
 private slots:
     void settingsChanged();
-    void showConfigureDialog();
-    void requestRemove();
 
 };
 

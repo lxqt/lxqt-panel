@@ -28,6 +28,8 @@
 #include "configpluginswidget.h"
 #include "ui_configpluginswidget.h"
 #include "addplugindialog.h"
+#include <HtmlDelegate>
+#include "panelpluginsmodel.h"
 
 #include <QPushButton>
 
@@ -38,8 +40,23 @@ ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->pushButton_addPlugin, &QPushButton::clicked,
-            this, &ConfigPluginsWidget::showAddPluginDialog);
+    PanelPluginsModel * plugins = mPanel->mPlugins.data();
+    {
+        QScopedPointer<QItemSelectionModel> m(ui->listView_plugins->selectionModel());
+        QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
+    }
+    ui->listView_plugins->setModel(plugins);
+    ui->listView_plugins->setItemDelegate(new LxQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
+
+    connect(ui->listView_plugins, &QListView::activated, plugins, &PanelPluginsModel::onActivatedIndex);
+
+    connect(ui->pushButton_moveUp, &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginUp);
+    connect(ui->pushButton_moveDown, &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginDown);
+
+    connect(ui->pushButton_addPlugin, &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
+    connect(ui->pushButton_removePlugin, &QToolButton::clicked, plugins, &PanelPluginsModel::onRemovePlugin);
+
+    connect(ui->pushButton_pluginConfig, &QToolButton::clicked, plugins, &PanelPluginsModel::onConfigurePlugin);
 }
 
 ConfigPluginsWidget::~ConfigPluginsWidget()
@@ -54,6 +71,13 @@ void ConfigPluginsWidget::reset()
 
 void ConfigPluginsWidget::showAddPluginDialog()
 {
-    static AddPluginDialog *addPluginDialog = new AddPluginDialog(this);
-    addPluginDialog->exec();
+    if (mAddPluginDialog.isNull())
+    {
+        mAddPluginDialog.reset(new AddPluginDialog);
+        connect(mAddPluginDialog.data(), &AddPluginDialog::pluginSelected,
+                mPanel->mPlugins.data(), &PanelPluginsModel::addPlugin);
+    }
+    mAddPluginDialog->show();
+    mAddPluginDialog->raise();
+    mAddPluginDialog->activateWindow();
 }

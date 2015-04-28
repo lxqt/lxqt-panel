@@ -32,7 +32,6 @@ ConfigPanelDialog::ConfigPanelDialog(LxQtPanel *panel, QWidget *parent):
     mPanelPage(nullptr),
     mPluginsPage(nullptr)
 {
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_DeleteOnClose);
 
     mPanelPage = new ConfigPanelWidget(panel, this);

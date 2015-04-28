@@ -52,7 +52,7 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
 
     mPlugins = LxQt::PluginInfo::search(desktopFilesDirs, QStringLiteral("LxQtPanel/Plugin"), QStringLiteral("*"));
     std::sort(mPlugins.begin(), mPlugins.end(), [](const LxQt::PluginInfo &p1, const LxQt::PluginInfo &p2) {
-        return p1.name() < p2.name() || p1.comment() < p2.comment();
+        return p1.name() < p2.name() || (p1.name() == p2.name() && p1.comment() < p2.comment());
     });
 
     ui->pluginList->setItemDelegate(new LxQt::HtmlDelegate(QSize(32, 32), ui->pluginList));
@@ -66,6 +66,8 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
     connect(ui->searchEdit, &QLineEdit::textEdited,
             &mSearchTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(&mSearchTimer, &QTimer::timeout, this, &AddPluginDialog::filter);
+    connect(ui->pluginList, &QListWidget::doubleClicked, this, &AddPluginDialog::emitPluginSelected);
+    connect(ui->addButton, &QPushButton::clicked, this, &AddPluginDialog::emitPluginSelected);
 }
 
 AddPluginDialog::~AddPluginDialog()
@@ -97,8 +99,20 @@ void AddPluginDialog::filter()
         QListWidgetItem* item = new QListWidgetItem(ui->pluginList);
         item->setText(QString("<b>%1</b><br>\n%2\n").arg(plugin.name(), plugin.comment()));
         item->setIcon(plugin.icon(fallIco));
+        item->setData(INDEX_ROLE, i);
     }
 
     if (pluginCount > 0)
         ui->pluginList->setCurrentRow(curr_item < pluginCount ? curr_item : pluginCount - 1);
 }
+
+void AddPluginDialog::emitPluginSelected()
+{
+    QListWidget* pluginList = ui->pluginList;
+    if (pluginList->currentItem() && pluginList->currentItem()->isSelected())
+    {
+        LxQt::PluginInfo plugin = mPlugins.at(pluginList->currentItem()->data(INDEX_ROLE).toInt());
+        emit pluginSelected(plugin);
+    }
+}
+

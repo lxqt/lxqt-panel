@@ -39,6 +39,7 @@
 
 class QMenu;
 class Plugin;
+class QAbstractItemModel;
 
 namespace LxQt {
 class Settings;
@@ -46,6 +47,7 @@ class PluginInfo;
 }
 class LxQtPanelLayout;
 class ConfigPanelDialog;
+class PanelPluginsModel;
 
 /*! \brief The LxQtPanel class provides a single lxqt-panel.
  */
@@ -57,6 +59,7 @@ class LXQT_PANEL_API LxQtPanel : public QFrame, public ILxQtPanel
 
     // for configuration dialog
     friend class ConfigPanelWidget;
+    friend class ConfigPluginsWidget;
 
 public:
     enum Alignment {
@@ -77,6 +80,7 @@ public:
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }
     QRect globalGometry() const;
+    Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
     QRect calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const;
 
     // For QSS properties ..................
@@ -128,9 +132,6 @@ signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
 
-    void pluginAdded(LxQt::PluginData const & plugin);
-    void pluginRemoved(LxQt::PluginData const & plugin);
-
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
@@ -138,11 +139,11 @@ protected:
 public slots:
     void showConfigDialog();
 private slots:
-    void addPlugin(const LxQt::PluginInfo &desktopFile);
     void showAddPluginDialog();
     void realign();
-    void removePlugin();
+    void pluginAdded(Plugin * plugin, bool saveSetting);
     void pluginMoved(Plugin const * plug);
+    void pluginMovedUp(Plugin * plugin);
     void userRequestForDeletion();
 
 private:
@@ -150,17 +151,12 @@ private:
     LxQt::Settings *mSettings;
     QFrame *LxQtPanelWidget;
     QString mConfigGroup;
-    QList<Plugin*> mPlugins;
-    QList<QString> mPluginsList;
+    QScopedPointer<PanelPluginsModel> mPlugins;
 
     int findAvailableScreen(LxQtPanel::Position position);
     void updateWmStrut();
 
     void loadPlugins();
-    Plugin *loadPlugin(const LxQt::PluginInfo &desktopFile, const QString &settingsGroup);
-    Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
-
-    QString findNewPluginSettingsGroup(const QString &pluginType) const;
 
     int mPanelSize;
     int mIconSize;

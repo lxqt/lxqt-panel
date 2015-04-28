@@ -47,6 +47,9 @@ public:
     AddPluginDialog(QWidget *parent = 0);
     ~AddPluginDialog();
 
+signals:
+    void pluginSelected(const LxQt::PluginInfo &plugin);
+
 private:
     Ui::AddPluginDialog *ui;
     LxQt::PluginInfoList mPlugins;
@@ -54,6 +57,7 @@ private:
 
 private slots:
     void filter();
+    void emitPluginSelected();
 };
 
 #endif // LXQT_ADDPLUGINDIALOG_H
