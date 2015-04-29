@@ -90,7 +90,6 @@ private:
     bool isActiveIndexValid() const;
     void removePlugin(pluginslist_t::iterator plugin);
 
-private:
     pluginslist_t mPlugins;
     LxQtPanel * mPanel;
     QPersistentModelIndex mActive;

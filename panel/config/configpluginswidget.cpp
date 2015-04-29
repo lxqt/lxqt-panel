@@ -28,10 +28,13 @@
 #include "configpluginswidget.h"
 #include "ui_configpluginswidget.h"
 #include "addplugindialog.h"
-#include <HtmlDelegate>
 #include "panelpluginsmodel.h"
+#include "../plugin.h"
+#include "../ilxqtpanelplugin.h"
 
+#include <HtmlDelegate>
 #include <QPushButton>
+#include <QItemSelectionModel>
 
 ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
     QWidget(parent),
@@ -42,21 +45,27 @@ ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
 
     PanelPluginsModel * plugins = mPanel->mPlugins.data();
     {
-        QScopedPointer<QItemSelectionModel> m(ui->listView_plugins->selectionModel());
         QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
     }
     ui->listView_plugins->setModel(plugins);
     ui->listView_plugins->setItemDelegate(new LxQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
 
-    connect(ui->listView_plugins, &QListView::activated, plugins, &PanelPluginsModel::onActivatedIndex);
+    resetButtons();
 
-    connect(ui->pushButton_moveUp, &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginUp);
-    connect(ui->pushButton_moveDown, &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginDown);
+    connect(ui->listView_plugins, &QListView::activated, plugins, &PanelPluginsModel::onActivatedIndex);
+    connect(ui->listView_plugins->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &ConfigPluginsWidget::resetButtons);
+
+    connect(ui->pushButton_moveUp,      &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginUp);
+    connect(ui->pushButton_moveUp,      &QToolButton::clicked, this,    &ConfigPluginsWidget::resetButtons);
+    connect(ui->pushButton_moveDown,    &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginDown);
+    connect(ui->pushButton_moveDown,    &QToolButton::clicked, this,    &ConfigPluginsWidget::resetButtons);
 
     connect(ui->pushButton_addPlugin, &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
     connect(ui->pushButton_removePlugin, &QToolButton::clicked, plugins, &PanelPluginsModel::onRemovePlugin);
 
     connect(ui->pushButton_pluginConfig, &QToolButton::clicked, plugins, &PanelPluginsModel::onConfigurePlugin);
+
 }
 
 ConfigPluginsWidget::~ConfigPluginsWidget()
@@ -80,4 +89,25 @@ void ConfigPluginsWidget::showAddPluginDialog()
     mAddPluginDialog->show();
     mAddPluginDialog->raise();
     mAddPluginDialog->activateWindow();
+}
+
+void ConfigPluginsWidget::resetButtons()
+{
+    PanelPluginsModel *model = mPanel->mPlugins.data();
+    QItemSelectionModel *selectionModel = ui->listView_plugins->selectionModel();
+    bool hasSelection = selectionModel->hasSelection();
+    bool isFirstSelected = selectionModel->isSelected(model->index(0));
+    bool isLastSelected = selectionModel->isSelected(model->index(model->rowCount() - 1));
+
+    bool hasConfigDialog = false;
+    if (hasSelection)
+    {
+        ILxQtPanelPlugin *plugin = model->plugins().at(selectionModel->selectedRows().at(0).row())->iPlugin();
+        hasConfigDialog = plugin->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog);
+    }
+
+    ui->pushButton_removePlugin->setEnabled(hasSelection);
+    ui->pushButton_moveUp->setEnabled(hasSelection && !isFirstSelected);
+    ui->pushButton_moveDown->setEnabled(hasSelection && !isLastSelected);
+    ui->pushButton_pluginConfig->setEnabled(hasSelection && hasConfigDialog);
 }
