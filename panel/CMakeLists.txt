@@ -78,7 +78,7 @@ lxqt_translate_ts(QM_FILES SOURCES
         "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
 )
 
-lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
+lxqt_app_translation_loader(SOURCES ${PROJECT_NAME})
 
 add_executable(${PROJECT}
     ${PUB_HEADERS}
