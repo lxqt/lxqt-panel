@@ -97,4 +97,6 @@ private:
     QPersistentModelIndex mActive;
 };
 
+Q_DECLARE_METATYPE(Plugin const *)
+
 #endif // PANELPLUGINSMODEL_H

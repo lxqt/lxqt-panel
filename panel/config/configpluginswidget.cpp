@@ -106,8 +106,10 @@ void ConfigPluginsWidget::resetButtons()
     bool hasConfigDialog = false;
     if (hasSelection)
     {
-        ILxQtPanelPlugin *plugin = model->plugins().at(selectionModel->selectedRows().at(0).row())->iPlugin();
-        hasConfigDialog = plugin->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog);
+        Plugin const * plugin
+            = ui->listView_plugins->model()->data(selectionModel->currentIndex(), Qt::UserRole).value<Plugin const *>();
+        if (nullptr != plugin)
+            hasConfigDialog = plugin->iPlugin()->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog);
     }
 
     ui->pushButton_removePlugin->setEnabled(hasSelection);

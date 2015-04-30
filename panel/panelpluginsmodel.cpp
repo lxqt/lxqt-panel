@@ -78,6 +78,9 @@ QVariant PanelPluginsModel::data(const QModelIndex & index, int role/* = Qt::Dis
             else
                 ret = plugin.second->desktopFile().icon(XdgIcon::fromTheme("preferences-plugin"));
             break;
+        case Qt::UserRole:
+            ret = QVariant::fromValue(const_cast<Plugin const *>(plugin.second.data()));
+            break;
     }
     return ret;
 }
