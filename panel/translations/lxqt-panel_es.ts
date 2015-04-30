@@ -184,7 +184,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="217"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar automáticamente</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="233"/>
