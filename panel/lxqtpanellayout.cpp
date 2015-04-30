@@ -542,7 +542,11 @@ void LxQtPanelLayout::moveItem(int from, int to, bool withAnimation)
         {
             QLayoutItem *item = fromGrid->takeAt(fromIdx);
             toGrid->addItem(item);
-            toGrid->moveItem(toGrid->count()-1, toIdx);
+            //recalculate position because we removed from one and put to another grid
+            LayoutItemGrid *toGridAux=0;
+            globalIndexToLocal(to, &toGridAux, &toIdx);
+            Q_ASSERT(toGrid == toGridAux); //grid must be the same (if not something is wrong with our logic)
+            toGrid->moveItem(toGridAux->count()-1, toIdx);
         }
     }
 
@@ -999,5 +1003,5 @@ void LxQtPanelLayout::addPlugin(Plugin * plugin)
     //check actual position
     const int pos = indexOf(plugin);
     if (prev_count > pos)
-        moveItem(prev_count, pos, false);
+        moveItem(pos, prev_count, false);
 }
