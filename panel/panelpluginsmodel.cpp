@@ -163,8 +163,8 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
         mPlugins.move(from, to_plugins);
         endMoveRows();
-        mPanel->settings()->setValue(mNamesKey, pluginNames());
         emit pluginMoved(plugin);
+        mPanel->settings()->setValue(mNamesKey, pluginNames());
     }
 }
 
@@ -257,6 +257,8 @@ void PanelPluginsModel::onMovePluginUp()
     //emit signal for layout only in case both plugins are loaded/displayed
     if (!moved_plugin.second.isNull() && !prev_plugin.second.isNull())
         emit pluginMovedUp(moved_plugin.second.data());
+
+    mPanel->settings()->setValue(mNamesKey, pluginNames());
 }
 
 void PanelPluginsModel::onMovePluginDown()
@@ -278,6 +280,8 @@ void PanelPluginsModel::onMovePluginDown()
     //emit signal for layout only in case both plugins are loaded/displayed
     if (!moved_plugin.second.isNull() && !next_plugin.second.isNull())
         emit pluginMovedUp(next_plugin.second.data());
+
+    mPanel->settings()->setValue(mNamesKey, pluginNames());
 }
 
 void PanelPluginsModel::onConfigurePlugin()
