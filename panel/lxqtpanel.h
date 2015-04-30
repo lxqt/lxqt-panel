@@ -141,9 +141,7 @@ public slots:
 private slots:
     void showAddPluginDialog();
     void realign();
-    void pluginAdded(Plugin * plugin, bool saveSetting);
-    void pluginMoved(Plugin const * plug);
-    void pluginMovedUp(Plugin * plugin);
+    void pluginMoved(Plugin * plug);
     void userRequestForDeletion();
 
 private:

@@ -157,7 +157,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     this->layout()->addWidget(LxQtPanelWidget);
 
     mLayout = new LxQtPanelLayout(LxQtPanelWidget);
-    connect(mLayout, SIGNAL(pluginMoved(Plugin const *)), this, SLOT(pluginMoved(Plugin const *)));
+    connect(mLayout, &LxQtPanelLayout::pluginMoved, this, &LxQtPanel::pluginMoved);
     LxQtPanelWidget->setLayout(mLayout);
     mLayout->setLineCount(mLineCount);
 
@@ -243,7 +243,8 @@ void LxQtPanel::saveSettings(bool later)
 
     mSettings->beginGroup(mConfigGroup);
 
-    mSettings->setValue(CFG_KEY_PLUGINS, mPlugins->pluginNames());
+    //Note: save/load of plugin names is completely handled by mPlugins object
+    //mSettings->setValue(CFG_KEY_PLUGINS, mPlugins->pluginNames());
 
     mSettings->setValue(CFG_KEY_PANELSIZE, mPanelSize);
     mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
@@ -324,32 +325,11 @@ void LxQtPanel::loadPlugins()
     names_key += QLatin1String(CFG_KEY_PLUGINS);
     mPlugins.reset(new PanelPluginsModel(this, names_key, pluginDesktopDirs()));
 
-    connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, [this] (Plugin * p) { pluginAdded(p, true); });
-    connect(mPlugins.data(), &PanelPluginsModel::pluginRemoved, [this] { saveSettings(); });
-    connect(mPlugins.data(), &PanelPluginsModel::pluginMovedUp, this, &LxQtPanel::pluginMovedUp);
+    connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, mLayout, &LxQtPanelLayout::addPlugin);
+    connect(mPlugins.data(), &PanelPluginsModel::pluginMovedUp, mLayout, &LxQtPanelLayout::moveUpPlugin);
 
     for (auto const & plugin : mPlugins->plugins())
-        pluginAdded(plugin, false);
-}
-
-/************************************************
-
- ************************************************/
-void LxQtPanel::pluginAdded(Plugin * plugin, bool saveSetting)
-{
-    connect(plugin, &Plugin::startMove, mLayout, &LxQtPanelLayout::startMovePlugin);
-    connect(this, &LxQtPanel::realigned, plugin, &Plugin::realign);
-
-    const int prev_count = mLayout->count();
-    mLayout->addWidget(plugin);
-
-    //check actual position
-    const int pos = mLayout->indexOf(plugin);
-    if (prev_count > pos)
-        mLayout->moveItem(prev_count, pos, false);
-
-    if (saveSetting)
-        saveSettings(true);
+        mLayout->addPlugin(plugin);
 }
 
 /************************************************
@@ -1043,7 +1023,7 @@ QString LxQtPanel::qssPosition() const
 /************************************************
 
  ************************************************/
-void LxQtPanel::pluginMoved(Plugin const * plug)
+void LxQtPanel::pluginMoved(Plugin * plug)
 {
     //get new position of the moved plugin
     bool found{false};
@@ -1063,19 +1043,8 @@ void LxQtPanel::pluginMoved(Plugin const * plug)
         }
     }
     mPlugins->movePlugin(plug, plug_is_before);
-    saveSettings();
 }
 
-
-/************************************************
-
- ************************************************/
-void LxQtPanel::pluginMovedUp(Plugin * plugin)
-{
-    const int i = mLayout->indexOf(plugin);
-    if (0 < i)
-        mLayout->moveItem(i, i - 1, true);
-}
 
 /************************************************
 

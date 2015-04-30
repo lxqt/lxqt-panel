@@ -1,8 +1,8 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * LXQt - a lightweight, Qt based, desktop toolset
+ * http://lxqt.org
  *
  * Copyright: 2015 LXQt team
  *
@@ -59,11 +59,12 @@ public:
      * \param plugin plugin that has been moved
      * \param nameAfter name of plugin that is right after moved plugin
      */
-    void movePlugin(Plugin const * plugin, QString const & nameAfter);
+    void movePlugin(Plugin * plugin, QString const & nameAfter);
 
 signals:
     void pluginAdded(Plugin * plugin);
     void pluginRemoved(Plugin * plugin);
+    void pluginMoved(Plugin * plugin); //plugin can be nullptr in case of move of not loaded plugin
     /*!
      * Emiting only move-up for simplification of using (and problematic layout/list move)
      */
@@ -84,12 +85,13 @@ private:
     typedef QList<QPair <QString/*name*/, QPointer<Plugin> > > pluginslist_t;
 
 private:
-    void loadPlugins(QString const & namesKey, QStringList const & desktopDirs);
+    void loadPlugins(QStringList const & desktopDirs);
     QPointer<Plugin> loadPlugin(LxQt::PluginInfo const & desktopFile, QString const & settingsGroup);
     QString findNewPluginSettingsGroup(const QString &pluginType) const;
     bool isActiveIndexValid() const;
     void removePlugin(pluginslist_t::iterator plugin);
 
+    const QString mNamesKey;
     pluginslist_t mPlugins;
     LxQtPanel * mPanel;
     QPersistentModelIndex mActive;

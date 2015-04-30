@@ -45,10 +45,13 @@ ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
 
     PanelPluginsModel * plugins = mPanel->mPlugins.data();
     {
-        QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
+        QScopedPointer<QItemSelectionModel> m(ui->listView_plugins->selectionModel());
+        ui->listView_plugins->setModel(plugins);
     }
-    ui->listView_plugins->setModel(plugins);
-    ui->listView_plugins->setItemDelegate(new LxQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
+    {
+        QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
+        ui->listView_plugins->setItemDelegate(new LxQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
+    }
 
     resetButtons();
 
@@ -57,15 +60,16 @@ ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
             this, &ConfigPluginsWidget::resetButtons);
 
     connect(ui->pushButton_moveUp,      &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginUp);
-    connect(ui->pushButton_moveUp,      &QToolButton::clicked, this,    &ConfigPluginsWidget::resetButtons);
     connect(ui->pushButton_moveDown,    &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginDown);
-    connect(ui->pushButton_moveDown,    &QToolButton::clicked, this,    &ConfigPluginsWidget::resetButtons);
 
     connect(ui->pushButton_addPlugin, &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
     connect(ui->pushButton_removePlugin, &QToolButton::clicked, plugins, &PanelPluginsModel::onRemovePlugin);
 
     connect(ui->pushButton_pluginConfig, &QToolButton::clicked, plugins, &PanelPluginsModel::onConfigurePlugin);
 
+    connect(plugins, &PanelPluginsModel::pluginAdded, this, &ConfigPluginsWidget::resetButtons);
+    connect(plugins, &PanelPluginsModel::pluginRemoved, this, &ConfigPluginsWidget::resetButtons);
+    connect(plugins, &PanelPluginsModel::pluginMoved, this, &ConfigPluginsWidget::resetButtons);
 }
 
 ConfigPluginsWidget::~ConfigPluginsWidget()

@@ -975,3 +975,29 @@ void LxQtPanelLayout::finishMovePlugin()
         emit pluginMoved(plugin);
     }
 }
+
+/************************************************
+
+ ************************************************/
+void LxQtPanelLayout::moveUpPlugin(Plugin * plugin)
+{
+    const int i = indexOf(plugin);
+    if (0 < i)
+        moveItem(i, i - 1, true);
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtPanelLayout::addPlugin(Plugin * plugin)
+{
+    connect(plugin, &Plugin::startMove, this, &LxQtPanelLayout::startMovePlugin);
+
+    const int prev_count = count();
+    addWidget(plugin);
+
+    //check actual position
+    const int pos = indexOf(plugin);
+    if (prev_count > pos)
+        moveItem(prev_count, pos, false);
+}
