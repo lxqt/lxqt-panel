@@ -30,6 +30,7 @@
 
 #include <QDesktopWidget>
 #include <QVBoxLayout>
+#include <QTimer>
 #include <Solid/StorageAccess>
 #include <Solid/StorageDrive>
 #include <Solid/DeviceNotifier>
@@ -67,9 +68,18 @@ Popup::Popup(QWidget* parent):
     mPlaceholder->hide();
     layout()->addWidget(mPlaceholder);
 
-    for (Solid::Device device : Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess))
-        if (hasRemovableParent(device))
-            addItem(device);
+    //Perform the potential long time operation after object construction
+    //Note: can't use QTimer::singleShot with lambda in pre QT 5.4 code
+    QTimer * aux_timer = new QTimer;
+    connect(aux_timer, &QTimer::timeout, [this, aux_timer]
+        {
+            delete aux_timer; //cleanup
+            for (Solid::Device device : Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess))
+                if (hasRemovableParent(device))
+                    addItem(device);
+        });
+    aux_timer->setSingleShot(true);
+    aux_timer->start(0);
 
     connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
             this, &Popup::onDeviceAdded);
