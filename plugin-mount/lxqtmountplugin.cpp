@@ -40,9 +40,6 @@ LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo)
     connect(mButton, &QToolButton::clicked, this, &LxQtMountPlugin::buttonClicked);
 
     mPopup = new Popup;
-    // HACK: is this the only way to make it calculate its real size?
-    mPopup->show();
-    mPopup->hide();
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
 
     QTimer::singleShot(0, this, SLOT(realign()));
@@ -70,7 +67,7 @@ void LxQtMountPlugin::realign()
     {
         mPopup->hide();
         mPopup->realign();
-        mPopup->setGeometry(calculatePopupWindowPos(mPopup->size()));
+        mPopup->setGeometry(calculatePopupWindowPos(mPopup->sizeHint()));
     }
 }
 
