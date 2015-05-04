@@ -27,6 +27,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "popup.h"
+#include "../panel/ilxqtpanelplugin.h"
 
 #include <QDesktopWidget>
 #include <QVBoxLayout>
@@ -51,8 +52,9 @@ static bool hasRemovableParent(Solid::Device device)
     return false;
 }
 
-Popup::Popup(QWidget* parent):
+Popup::Popup(ILxQtPanelPlugin * plugin, QWidget* parent):
     QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
+    mPlugin(plugin),
     mPlaceholder(nullptr),
     mDisplayCount(0)
 {
@@ -65,7 +67,6 @@ Popup::Popup(QWidget* parent):
 
     mPlaceholder = new QLabel(tr("No devices are available"), this);
     mPlaceholder->setObjectName("NoDiskLabel");
-    mPlaceholder->hide();
     layout()->addWidget(mPlaceholder);
 
     //Perform the potential long time operation after object construction
@@ -168,4 +169,5 @@ void Popup::addItem(Solid::Device device)
 void Popup::realign()
 {
     adjustSize();
+    setGeometry(mPlugin->calculatePopupWindowPos(sizeHint()));
 }

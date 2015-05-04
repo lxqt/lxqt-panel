@@ -35,12 +35,14 @@
 #include <QDialog>
 #include <Solid/Device>
 
+class ILxQtPanelPlugin;
+
 class Popup: public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Popup(QWidget* parent = 0);
+    explicit Popup(ILxQtPanelPlugin * plugin, QWidget* parent = 0);
     void realign();
 
 public slots:
@@ -59,6 +61,7 @@ protected:
     void hideEvent(QHideEvent *event);
 
 private:
+    ILxQtPanelPlugin * mPlugin;
     QLabel *mPlaceholder;
     int mDisplayCount;
 

@@ -60,7 +60,6 @@ public slots:
     void realign();
 
 protected slots:
-    void buttonClicked();
     virtual void settingsChanged();
 
 private:

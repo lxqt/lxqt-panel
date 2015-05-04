@@ -37,12 +37,10 @@ LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo)
     mDeviceAction(nullptr)
 {
     mButton = new Button;
-    connect(mButton, &QToolButton::clicked, this, &LxQtMountPlugin::buttonClicked);
+    mPopup = new Popup(this);
 
-    mPopup = new Popup;
+    connect(mButton, &QToolButton::clicked, mPopup, &Popup::showHide);
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
-
-    QTimer::singleShot(0, this, SLOT(realign()));
 }
 
 LxQtMountPlugin::~LxQtMountPlugin()
@@ -63,17 +61,7 @@ QDialog *LxQtMountPlugin::configureDialog()
 
 void LxQtMountPlugin::realign()
 {
-    if (mPopup)
-    {
-        mPopup->hide();
-        mPopup->realign();
-        mPopup->setGeometry(calculatePopupWindowPos(mPopup->sizeHint()));
-    }
-}
-
-void LxQtMountPlugin::buttonClicked()
-{
-    mPopup->showHide();
+    //nothing to do
 }
 
 void LxQtMountPlugin::settingsChanged()
