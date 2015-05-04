@@ -70,6 +70,7 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mLayout = new LxQt::GridLayout(this);
     setLayout(mLayout);
     mLayout->setMargin(0);
+    mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
     realign();
 
     mPlaceHolder->setMinimumSize(1, 1);
@@ -360,20 +361,11 @@ void LxQtTaskBar::settingsChanged()
     QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
 
     if (s == "ICON")
-    {
         setButtonStyle(Qt::ToolButtonIconOnly);
-        mLayout->setStretch(mPlugin->panel()->isHorizontal() ?
-                            LxQt::GridLayout::StretchVertical :
-                            LxQt::GridLayout::StretchHorizontal);
-    }
+    else if (s == "TEXT")
+        setButtonStyle(Qt::ToolButtonTextOnly);
     else
-    {
-        if (s == "TEXT")
-            setButtonStyle(Qt::ToolButtonTextOnly);
-        else
-            setButtonStyle(Qt::ToolButtonTextBesideIcon);
-        mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
-    }
+        setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
     mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
@@ -451,11 +443,6 @@ void LxQtTaskBar::realign()
             }
         }
     }
-
-    if (mButtonStyle == Qt::ToolButtonIconOnly)
-        mLayout->setStretch(panel->isHorizontal() ?
-                            LxQt::GridLayout::StretchVertical :
-                            LxQt::GridLayout::StretchHorizontal);
 
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
