@@ -54,8 +54,9 @@
 #include "../plugin-mainmenu/lxqtmainmenu.h" // mainmenu
 #include "../plugin-quicklaunch/lxqtquicklaunchplugin.h" // quicklaunch
 #include "../plugin-showdesktop/showdesktop.h" // showdesktop
-#include "../plugin-taskbar/lxqttaskbarplugin.h" // taskbar
+#include "../plugin-spacer/spacer.h" // spacer
 #include "../plugin-statusnotifier/statusnotifier.h" // statusnotifier
+#include "../plugin-taskbar/lxqttaskbarplugin.h" // taskbar
 #include "../plugin-tray/lxqttrayplugin.h" // tray
 #include "../plugin-worldclock/lxqtworldclock.h" // worldclock
 
@@ -197,16 +198,19 @@ namespace
         { QStringLiteral("quicklaunch"), plugin_ptr_t{new LxQtQuickLaunchPluginLibrary} },// quicklaunch
 #endif
 #if defined(WITH_SHOWDESKTOP_PLUGIN)
-        { QStringLiteral("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary} },//showdesktop
+        { QStringLiteral("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary} },// showdesktop
+#endif
+#if defined(WITH_SPACER_PLUGIN)
+        { QStringLiteral("spacer"), plugin_ptr_t{new SpacerPluginLibrary} },// spacer
 #endif
 #if defined(WITH_STATUSNOTIFIER_PLUGIN)
         { QStringLiteral("statusnotifier"), plugin_ptr_t{new StatusNotifierLibrary} },// statusnotifier
 #endif
 #if defined(WITH_TASKBAR_PLUGIN)
-        { QStringLiteral("taskbar"), plugin_ptr_t{new LxQtTaskBarPluginLibrary} },//taskbar
+        { QStringLiteral("taskbar"), plugin_ptr_t{new LxQtTaskBarPluginLibrary} },// taskbar
 #endif
 #if defined(WITH_TRAY_PLUGIN)
-        { QStringLiteral("tray"), plugin_ptr_t{new LxQtTrayPluginLibrary} },//tray
+        { QStringLiteral("tray"), plugin_ptr_t{new LxQtTrayPluginLibrary} },// tray
 #endif
 #if defined(WITH_WORLDCLOCK_PLUGIN)
         { QStringLiteral("worldclock"), plugin_ptr_t{new LxQtWorldClockLibrary} },// worldclock

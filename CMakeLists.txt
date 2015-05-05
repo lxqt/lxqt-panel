@@ -278,6 +278,8 @@ endif(WORLDCLOCK_PLUGIN)
 
 setByDefault(SPACER_PLUGIN Yes)
 if(SPACER_PLUGIN)
+    list(APPEND STATIC_PLUGINS "spacer")
+    add_definitions(-DWITH_SPACER_PLUGIN)
     set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Spacer")
     add_subdirectory(plugin-spacer)
 endif()
