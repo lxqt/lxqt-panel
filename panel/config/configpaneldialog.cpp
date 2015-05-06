@@ -35,11 +35,11 @@ ConfigPanelDialog::ConfigPanelDialog(LxQtPanel *panel, QWidget *parent):
     setAttribute(Qt::WA_DeleteOnClose);
 
     mPanelPage = new ConfigPanelWidget(panel, this);
-    addPage(mPanelPage, tr("Configure Panel"), QStringLiteral("configure"));
+    addPage(mPanelPage, tr("Panel"), QStringLiteral("configure"));
     connect(this, &ConfigPanelDialog::reset, mPanelPage, &ConfigPanelWidget::reset);
 
     mPluginsPage = new ConfigPluginsWidget(panel, this);
-    addPage(mPluginsPage, tr("Manage Widgets"), QStringLiteral("preferences-plugin"));
+    addPage(mPluginsPage, tr("Widgets"), QStringLiteral("preferences-plugin"));
     connect(this, &ConfigPanelDialog::reset, mPluginsPage, &ConfigPluginsWidget::reset);
 
     connect(this, &ConfigPanelDialog::accepted, [panel] {

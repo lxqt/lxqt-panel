@@ -914,12 +914,12 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
     menu.addTitle(QIcon(), tr("Panel"));
 
     menu.addAction(XdgIcon::fromTheme(QStringLiteral("configure")),
-                   tr("Configure Panel..."),
+                   tr("Configure Panel"),
                    this, SLOT(showConfigDialog())
                   );
 
     menu.addAction(XdgIcon::fromTheme("preferences-plugin"),
-                   tr("Manage Panel Widgets..."),
+                   tr("Manage Widgets"),
                    this, SLOT(showAddPluginDialog())
                   );
 
