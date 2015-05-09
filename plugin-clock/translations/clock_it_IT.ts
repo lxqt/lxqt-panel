@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it_IT">
 <context>
+    <name>FirstDayCombo</name>
+    <message>
+        <location filename="../lxqtclockconfiguration.cpp" line="50"/>
+        <source>&lt;locale based&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LxQtClockConfiguration</name>
     <message>
         <source>LxQt Clock Settings</source>
@@ -10,7 +18,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni orologio</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="20"/>
@@ -30,42 +38,47 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
         <source>&amp;Use UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Usa UTC</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato &amp;data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Non mostrare la data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation type="unfinished"></translation>
+        <translation>Prima la &amp;data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
         <source>Show date &amp;after time</source>
-        <translation type="unfinished"></translation>
+        <translation>Prima l&apos;&amp;ora</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
+        <translation>Mostra la data su una seconda riga</translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="107"/>
+        <source>First day of week in calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="110"/>
+        <location filename="../lxqtclockconfiguration.ui" line="124"/>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="116"/>
+        <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota automaticamente se il panello è verticale</translation>
     </message>
     <message>
         <source>&amp;Font</source>
@@ -137,12 +150,12 @@
         <translation type="vanished">Corsivo</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato personalizzato</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.cpp" line="235"/>
+        <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Interpreted sequences of date format are:
 
 d	the day as number without a leading zero (1 to 31)

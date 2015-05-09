@@ -26,83 +26,59 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtmountplugin.h"
-#include "lxqtmountconfiguration.h"
-#include "actions/deviceaction.h"
-#include "popup.h"
-#include "mountbutton.h"
-#include <Solid/DeviceNotifier>
+#include "configuration.h"
 
+#include <Solid/DeviceNotifier>
 
 LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
-    mPopup(NULL),
-    mDeviceAction(0)
+    mPopup(nullptr),
+    mDeviceAction(nullptr)
 {
-    mButton = new MountButton();
-    connect(mButton, SIGNAL(clicked(bool)), SLOT(buttonClicked()));
+    mButton = new Button;
+    mPopup = new Popup(this);
 
-    mPopup = new Popup(this, mButton);
-    settingsChanged();
-    connect(mPopup, SIGNAL(visibilityChanged(bool)), mButton, SLOT(setDown(bool)));
+    connect(mButton, &QToolButton::clicked, mPopup, &Popup::showHide);
+    connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
 }
-
 
 LxQtMountPlugin::~LxQtMountPlugin()
 {
     delete mButton;
-    delete mDeviceAction;
+    delete mPopup;
 }
-
-
-QWidget *LxQtMountPlugin::widget()
-{
-    return mButton;
-}
-
-
-void LxQtMountPlugin::realign()
-{
-    if(mPopup) mPopup->hide();
-}
-
 
 QDialog *LxQtMountPlugin::configureDialog()
 {
-    if(mPopup) mPopup->hide();
-    LxQtMountConfiguration *configWindow = new LxQtMountConfiguration(*settings());
+    if (mPopup)
+        mPopup->hide();
+
+    Configuration *configWindow = new Configuration(*settings());
     configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
     return configWindow;
 }
 
-
-QIcon LxQtMountPlugin::icon() const
+void LxQtMountPlugin::realign()
 {
-    return mButton->icon();
+    //nothing to do
 }
-
-
-void LxQtMountPlugin::buttonClicked()
-{
-    mPopup->showHide();
-}
-
 
 void LxQtMountPlugin::settingsChanged()
 {
-    QString s = settings()->value("newDeviceAction").toString();
-
+    QString s = settings()->value(QStringLiteral(CFG_KEY_ACTION)).toString();
     DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
 
-    if (0 == mDeviceAction || mDeviceAction->Type() != actionId)
+    if (mDeviceAction == nullptr || mDeviceAction->Type() != actionId)
     {
         delete mDeviceAction;
         mDeviceAction = DeviceAction::create(actionId, this);
-        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(QString const &))
-                , mDeviceAction, SLOT(deviceAdded(QString const &)));
 
-        connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString const &))
-                , mDeviceAction, SLOT(deviceRemoved(QString const &)));
+        connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
+                mDeviceAction, &DeviceAction::onDeviceAdded);
+
+        connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
+                mDeviceAction, &DeviceAction::onDeviceRemoved);
     }
 
 }

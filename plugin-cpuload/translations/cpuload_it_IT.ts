@@ -8,7 +8,7 @@
         <translation type="vanished">Carico del processore %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="119"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,22 +50,27 @@
         <translation>Orientamento della barra:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <source>Bar width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Bottom up</source>
         <translation>Dal basso all&apos;alto</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Top down</source>
         <translation>Dall&apos;alto al basso</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="72"/>
         <source>Left to right</source>
         <translation>Da sinistra a destra</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="73"/>
         <source>Right to left</source>
         <translation>Da destra a sinistra</translation>
     </message>

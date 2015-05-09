@@ -33,14 +33,19 @@
 #ifndef LXQTTASKBAR_H
 #define LXQTTASKBAR_H
 
+#include "../panel/ilxqtpanel.h"
+#include "../panel/ilxqtpanelplugin.h"
 #include "lxqttaskbarconfiguration.h"
+#include "lxqttaskgroup.h"
+#include "lxqttaskbutton.h"
+
 #include <QFrame>
 #include <QBoxLayout>
 #include <QHash>
 #include "../panel/ilxqtpanel.h"
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/KWindowInfo>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowInfo>
+#include <KWindowSystem/NETWM>
 
 class LxQtTaskButton;
 class ElidedButtonStyle;
@@ -58,46 +63,65 @@ public:
     explicit LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
     virtual ~LxQtTaskBar();
 
-    virtual void settingsChanged();
     void realign();
 
+    Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
+    int buttonWidth() { return mButtonWidth; }
+    bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
+    bool raiseOnCurrentDesktop() { return mRaiseOnCurrentDesktop; }
+    bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
+    bool isShowOnlyCurrentScreenTasks() { return mShowOnlyCurrentScreenTasks; }
+    bool isShowOnlyMinimizedTasks() { return mShowOnlyMinimizedTasks; }
+    bool isAutoRotate() { return mAutoRotate; }
+    bool isGroupingEnabled() { return mGroupingEnabled; }
+    bool isShowGroupOnHover() { return mShowGroupOnHover; }
+
 public slots:
-    void windowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
-    void activeWindowChanged(WId window = 0);
-    void refreshIconGeometry();
+    void settingsChanged();
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
     virtual void dropEvent(QDropEvent * event);
 
 private slots:
+    void refreshIconGeometry();
     void refreshTaskList();
     void refreshButtonRotation();
-    void refreshButtonVisibility();
+    void refreshPlaceholderVisibility();
+    void groupBecomeEmptySlot();
+    void groupPopupShown(LxQtTaskGroup * const sender);
+    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
 private:
-    QHash<WId, LxQtTaskButton*> mButtonsHash;
+    void addWindow(WId window, QString const & groupId);
+
+private:
+    QHash<QString, LxQtTaskGroup*> mGroupsHash;
     LxQt::GridLayout *mLayout;
+
+    // Settings
     Qt::ToolButtonStyle mButtonStyle;
     int mButtonWidth;
-    LxQtTaskButton* mCheckedBtn;
+    int mButtonHeight;
     bool mCloseOnMiddleClick;
+    bool mRaiseOnCurrentDesktop;
     bool mShowOnlyCurrentDesktopTasks;
+    bool mShowOnlyCurrentScreenTasks;
+    bool mShowOnlyMinimizedTasks;
     bool mAutoRotate;
+    bool mGroupingEnabled;
+    bool mShowGroupOnHover;
 
-    LxQtTaskButton* buttonByWindow(WId window) const;
-    bool windowOnActiveDesktop(WId window) const;
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 
     void wheelEvent(QWheelEvent* event);
     void changeEvent(QEvent* event);
-    void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent *event);
 
     ILxQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
-    ElidedButtonStyle* mStyle;
+    LeftAlignedTextStyle *mStyle;
 };
 
 #endif // LXQTTASKBAR_H

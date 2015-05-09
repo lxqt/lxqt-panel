@@ -1,12 +1,11 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2011 Razor team
+ * Copyright: 2010-2011 Razor team
  * Authors:
- *   Petr Vanek <petr@scribus.info>
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
@@ -26,26 +25,39 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "mountbutton.h"
-#include <XdgIcon>
 
+#ifndef LXQT_ADDPLUGINDIALOG_H
+#define LXQT_ADDPLUGINDIALOG_H
 
-MountButton::MountButton(QWidget * parent) :
-    QToolButton(parent)
-{
-    setIcon(XdgIcon::fromTheme(QStringList() << "device-notifier" << "drive-removable-media-usb" << "drive-removable-media"));
+#include <LXQt/PluginInfo>
+#include <QDialog>
+#include <QTimer>
 
-    setToolTip(tr("Removable media/devices manager"));
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+#define SEARCH_DELAY 125
+
+namespace Ui {
+    class AddPluginDialog;
 }
 
-
-MountButton::~MountButton()
+class AddPluginDialog : public QDialog
 {
-}
+    Q_OBJECT
 
+public:
+    AddPluginDialog(QWidget *parent = 0);
+    ~AddPluginDialog();
 
-void MountButton::setDown(bool down)
-{
-    QToolButton::setDown(down);
-}
+signals:
+    void pluginSelected(const LxQt::PluginInfo &plugin);
+
+private:
+    Ui::AddPluginDialog *ui;
+    LxQt::PluginInfoList mPlugins;
+    QTimer mSearchTimer;
+
+private slots:
+    void filter();
+    void emitPluginSelected();
+};
+
+#endif // LXQT_ADDPLUGINDIALOG_H

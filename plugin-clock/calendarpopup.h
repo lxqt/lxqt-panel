@@ -38,6 +38,7 @@ class CalendarPopup :  public QDialog
 public:
     CalendarPopup(QWidget *parent = 0);
     ~CalendarPopup();
+    void setFirstDayOfWeek(Qt::DayOfWeek wday);
 
     void show();
 

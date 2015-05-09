@@ -28,82 +28,25 @@
 #ifndef CONFIGPANELDIALOG_H
 #define CONFIGPANELDIALOG_H
 
+#include "configpanelwidget.h"
+#include "configpluginswidget.h"
 #include "../lxqtpanel.h"
-#include <QSettings>
-#include <QTimer>
+
 #include <LXQt/ConfigDialog>
-
-
-class LxQtPanel;
 
 class ConfigPanelDialog : public LxQt::ConfigDialog
 {
     Q_OBJECT
-public:
-    static ConfigPanelDialog *exec(LxQtPanel *panel);
 
+public:
     ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
-};
 
-namespace Ui {
-class ConfigPanelWidget;
-}
-
-class ConfigPanelWidget : public QWidget
-{
-    Q_OBJECT
-
-public:
-    explicit ConfigPanelWidget(LxQtPanel *panel, QWidget *parent = 0);
-    ~ConfigPanelWidget();
-
-    int screenNum() const { return mScreenNum; }
-    ILxQtPanel::Position position() const { return mPosition; }
-
-
-signals:
-    void changed();
-
-public slots:
-    void reset();
-
-private slots:
-    void editChanged();
-    void widthTypeChanged();
-    void positionChanged();
-    void pickFontColor();
-    void pickBackgroundColor();
-    void pickBackgroundImage();
+    void showConfigPanelPage();
+    void showConfigPluginsPage();
 
 private:
-    Ui::ConfigPanelWidget *ui;
-    LxQtPanel *mPanel;
-    int mScreenNum;
-    ILxQtPanel::Position mPosition;
-
-    void addPosition(const QString& name, int screen, LxQtPanel::Position position);
-    void fillComboBox_position();
-    void fillComboBox_alignment();
-    int indexForPosition(int screen, ILxQtPanel::Position position);
-    int getMaxLength();
-
-    // new values
-    QColor mFontColor;
-    QColor mBackgroundColor;
-
-    // For reset function
-    int mOldPanelSize;
-    int mOldIconSize;
-    int mOldLineCount;
-    int mOldLength;
-    bool mOldLengthInPercents;
-    LxQtPanel::Alignment mOldAlignment;
-    ILxQtPanel::Position mOldPosition;
-    int mOldScreenNum;
-    QColor mOldFontColor;
-    QColor mOldBackgroundColor;
-    QString mOldBackgroundImage;
-    int mOldOpacity;
+    ConfigPanelWidget *mPanelPage;
+    ConfigPluginsWidget *mPluginsPage;
 };
 
 #endif // CONFIGPANELDIALOG_H

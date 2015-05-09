@@ -12,12 +12,6 @@ set(SOURCES
     lxqtcpuloadconfiguration.cpp
 )
 
-set(MOCS
-    lxqtcpuloadplugin.h
-    lxqtcpuload.h
-    lxqtcpuloadconfiguration.h
-)
-
 set(UIS
     lxqtcpuloadconfiguration.ui
 )

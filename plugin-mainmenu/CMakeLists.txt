@@ -12,12 +12,6 @@ set(SOURCES
     lxqtmainmenuconfiguration.cpp
 )
 
-set(MOCS
-    lxqtmainmenu.h
-    menustyle.h
-    lxqtmainmenuconfiguration.h
-)
-
 set(UIS
     lxqtmainmenuconfiguration.ui
 )

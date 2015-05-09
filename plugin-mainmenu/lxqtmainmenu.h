@@ -95,7 +95,9 @@ private:
 
     bool mLockCascadeChanges;
     QTimer mDelayedPopup;
+    QTimer mHideTimer;
     QKeySequence mShortcutSeq;
+    QString mMenuFile;
 
 protected slots:
 
@@ -114,7 +116,7 @@ class LxQtMainMenuPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new LxQtMainMenu(startupInfo);}
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new LxQtMainMenu(startupInfo);}
 };
 
 #endif

@@ -43,7 +43,7 @@ class LxQtPanelApplication : public LxQt::Application
 {
     Q_OBJECT
 public:
-    explicit LxQtPanelApplication(int& argc, char** argv, const QString &configFile);
+    explicit LxQtPanelApplication(int& argc, char** argv);
     ~LxQtPanelApplication();
 
     int count() { return mPanels.count(); }
@@ -63,6 +63,7 @@ private slots:
     void handleScreenAdded(QScreen* newScreen);
     void screenDestroyed(QObject* screenObj);
     void reloadPanelsAsNeeded();
+    void cleanup();
 
 private:
     LxQt::Settings *mSettings;

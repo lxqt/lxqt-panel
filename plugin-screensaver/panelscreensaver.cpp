@@ -52,15 +52,19 @@ PanelScreenSaver::PanelScreenSaver(const ILxQtPanelPluginStartupInfo &startupInf
     mShortcutKey = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/lock").arg(settings()->group()), tr("Lock Screen"), this);
     if (mShortcutKey)
     {
+        connect(mShortcutKey, &GlobalKeyShortcut::Action::registrationFinished, this, &PanelScreenSaver::shortcutRegistered);
         connect(mShortcutKey, SIGNAL(activated()), mSaver, SLOT(lockScreen()));
+    }
+}
 
+void PanelScreenSaver::shortcutRegistered()
+{
+    if (mShortcutKey->shortcut().isEmpty())
+    {
+        mShortcutKey->changeShortcut(DEFAULT_SHORTCUT);
         if (mShortcutKey->shortcut().isEmpty())
         {
-            mShortcutKey->changeShortcut(DEFAULT_SHORTCUT);
-            if (mShortcutKey->shortcut().isEmpty())
-            {
-                LxQt::Notification::notify(tr("Panel Screensaver: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
-            }
+            LxQt::Notification::notify(tr("Panel Screensaver: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
         }
     }
 }

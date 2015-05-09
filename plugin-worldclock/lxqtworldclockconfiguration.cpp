@@ -519,15 +519,18 @@ void LxQtWorldClockConfiguration::addTimeZone()
     if (mConfigurationTimeZones->updateAndExec() == QDialog::Accepted)
     {
         QString timeZone = mConfigurationTimeZones->timeZone();
-        if (findTimeZone(timeZone) == -1)
+        if (timeZone != QString())
         {
-            int row = ui->timeZonesTW->rowCount();
-            ui->timeZonesTW->setRowCount(row + 1);
-            QTableWidgetItem *item = new QTableWidgetItem(timeZone);
-            ui->timeZonesTW->setItem(row, 0, item);
-            ui->timeZonesTW->setItem(row, 1, new QTableWidgetItem(QString()));
-            if (mDefaultTimeZone.isEmpty())
-                setDefault(row);
+            if (findTimeZone(timeZone) == -1)
+            {
+                int row = ui->timeZonesTW->rowCount();
+                ui->timeZonesTW->setRowCount(row + 1);
+                QTableWidgetItem *item = new QTableWidgetItem(timeZone);
+                ui->timeZonesTW->setItem(row, 0, item);
+                ui->timeZonesTW->setItem(row, 1, new QTableWidgetItem(QString()));
+                if (mDefaultTimeZone.isEmpty())
+                    setDefault(row);
+            }
         }
     }
 
@@ -587,11 +590,14 @@ void LxQtWorldClockConfiguration::editTimeZoneCustomName()
 
     QString oldName = ui->timeZonesTW->item(row, 1)->text();
 
-    bool ok;
-    QString newName = QInputDialog::getText(this, tr("Input custom time zone name"), tr("Custom name"), QLineEdit::Normal, oldName, &ok);
-    if (ok)
+    QInputDialog d(this);
+    d.setWindowTitle(tr("Input custom time zone name"));
+    d.setLabelText(tr("Custom name"));
+    d.setTextValue(oldName);
+    d.setWindowModality(Qt::WindowModal);
+    if (d.exec())
     {
-        ui->timeZonesTW->item(row, 1)->setText(newName);
+        ui->timeZonesTW->item(row, 1)->setText(d.textValue());
 
         saveSettings();
     }

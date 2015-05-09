@@ -57,7 +57,7 @@ QWidget *LxQtCpuLoadPlugin::widget()
 
 QDialog *LxQtCpuLoadPlugin::configureDialog()
 {
-    return new LxQtCpuLoadConfiguration(settings(), mContent);
+    return new LxQtCpuLoadConfiguration(settings());
 }
 
 void LxQtCpuLoadPlugin::settingsChanged()

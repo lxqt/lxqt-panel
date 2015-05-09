@@ -70,6 +70,22 @@
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>Das Lösen von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
     </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="120"/>
+        <location filename="../menudiskitem.cpp" line="155"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Entfernbare Medien-/Geräteverwaltung</translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="121"/>
+        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../menudiskitem.cpp" line="156"/>
+        <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountButton</name>

@@ -2,12 +2,12 @@
  * (c)LGPL2+
  *
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * http://lxqt.org
  *
- * Copyright: 2011 Razor team
+ * Copyright: 2015 LxQt team
  * Authors:
- *   Petr Vanek <petr@scribus.info>
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *  Balázs Béla <balazsbela[at]gmail.com>
+ *  Paulo Lieuthier <paulolieuthier@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -18,7 +18,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
-
+ *
  * You should have received a copy of the GNU Lesser General
  * Public License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -26,21 +26,16 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef MOUNTBUTTON_H
-#define MOUNTBUTTON_H
+#include "statusnotifier.h"
 
-#include <QToolButton>
-
-
-class MountButton : public QToolButton
+StatusNotifier::StatusNotifier(const ILxQtPanelPluginStartupInfo &startupInfo) :
+    QObject(),
+    ILxQtPanelPlugin(startupInfo)
 {
-    Q_OBJECT
-public:
-    MountButton(QWidget *parent = 0);
-    ~MountButton();
+    m_widget = new StatusNotifierWidget(this);
+}
 
-public slots:
-    void setDown(bool down);
-};
-
-#endif
+void StatusNotifier::realign()
+{
+    m_widget->realign();
+}

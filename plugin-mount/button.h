@@ -4,8 +4,9 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2011 Razor team
  * Authors:
+ *   Petr Vanek <petr@scribus.info>
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
@@ -25,30 +26,18 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTMOUNTCONFIGURATION_H
-#define LXQTMOUNTCONFIGURATION_H
+#ifndef LXQT_PLUGIN_MOUNT_BUTTON_H
+#define LXQT_PLUGIN_MOUNT_BUTTON_H
 
-#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <QToolButton>
 
 
-namespace Ui {
-    class LxQtMountConfiguration;
-}
-
-class LxQtMountConfiguration : public LxQtPanelPluginConfigDialog
+class Button : public QToolButton
 {
     Q_OBJECT
-
 public:
-    explicit LxQtMountConfiguration(QSettings &settings, QWidget *parent = 0);
-    ~LxQtMountConfiguration();
-
-protected slots:
-    virtual void loadSettings();
-    void devAddedChanged(int index);
-
-private:
-    Ui::LxQtMountConfiguration *ui;
+    Button(QWidget *parent = 0);
+    ~Button();
 };
 
-#endif // LXQTMOUNTCONFIGURATION_H
+#endif

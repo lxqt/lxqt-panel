@@ -20,17 +20,6 @@ set(SOURCES
     ossengine.cpp
 )
 
-set(MOCS
-    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
-    lxqtvolume.h
-    volumebutton.h
-    volumepopup.h
-    audiodevice.h
-    lxqtvolumeconfiguration.h
-    audioengine.h
-    ossengine.h
-)
-
 set(UIS
     lxqtvolumeconfiguration.ui
 )

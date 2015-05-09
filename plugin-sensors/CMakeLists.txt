@@ -18,12 +18,6 @@ set(SOURCES
     sensors.cpp
 )
 
-set(MOCS
-    lxqtsensorsplugin.h
-    lxqtsensors.h
-    lxqtsensorsconfiguration.h
-)
-
 set(UIS
     lxqtsensorsconfiguration.ui
 )

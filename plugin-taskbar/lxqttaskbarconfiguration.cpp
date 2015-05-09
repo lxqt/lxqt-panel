@@ -48,15 +48,20 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     ui->buttonStyleCB->addItem(tr("Only text"), "Text");
 
     loadSettings();
+
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
-    connect(ui->fAllDesktopsCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->fCurrentDesktopRB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(updateControls(int)));
+    connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByMinimizedCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->raiseOnCurrentDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
     connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
+    connect(ui->buttonHeightSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
     connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
 LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
@@ -66,45 +71,33 @@ LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
 
 void LxQtTaskbarConfiguration::loadSettings()
 {
-    if (mSettings.value("showOnlyCurrentDesktopTasks", false).toBool() == true)
-    {
-        ui->fCurrentDesktopRB->setChecked(true);
-    }
-    else
-    {
-        ui->fAllDesktopsCB->setChecked(true);
-    }
+    ui->limitByDesktopCB->setChecked(mSettings.value("showOnlyCurrentDesktopTasks", false).toBool());
+    ui->limitByScreenCB->setChecked(mSettings.value("showOnlyCurrentScreenTasks", false).toBool());
+    ui->limitByMinimizedCB->setChecked(mSettings.value("showOnlyMinimizedTasks", false).toBool());
 
     ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
     ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
+    ui->raiseOnCurrentDesktopCB->setChecked(mSettings.value("raiseOnCurrentDesktop", false).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
-    updateControls(ui->buttonStyleCB->currentIndex());
-
-    /* Keep buttonWidth loading at the end of this method to prevent errors */
     ui->buttonWidthSB->setValue(mSettings.value("buttonWidth", 400).toInt());
+    ui->buttonHeightSB->setValue(mSettings.value("buttonHeight", 100).toInt());
+    ui->groupingGB->setChecked(mSettings.value("groupingEnabled",true).toBool());
+    ui->showGroupOnHoverCB->setChecked(mSettings.value("showGroupOnHover",true).toBool());
 }
 
 void LxQtTaskbarConfiguration::saveSettings()
 {
-    mSettings.setValue("showOnlyCurrentDesktopTasks", ui->fCurrentDesktopRB->isChecked());
+    mSettings.setValue("showOnlyCurrentDesktopTasks", ui->limitByDesktopCB->isChecked());
+    mSettings.setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
+    mSettings.setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
     mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
     mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
+    mSettings.setValue("buttonHeight", ui->buttonHeightSB->value());
     mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
     mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
-}
-
-void LxQtTaskbarConfiguration::updateControls(int index)
-{
-    if (ui->buttonStyleCB->itemData(index) == "Icon")
-    {
-        ui->buttonWidthSB->setEnabled(false);
-        ui->buttonWidthL->setEnabled(false);
-    }
-    else
-    {
-        ui->buttonWidthSB->setEnabled(true);
-        ui->buttonWidthL->setEnabled(true);
-    }
+    mSettings.setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
+    mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
+    mSettings.setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
 }
 
 void LxQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
@@ -114,12 +107,12 @@ void LxQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
         /* We have to disable signals for buttonWidthSB to prevent errors. Otherwise not all data
           could be restored */
         ui->buttonWidthSB->blockSignals(true);
+        ui->buttonHeightSB->blockSignals(true);
         oldSettings.loadToSettings();
         loadSettings();
         ui->buttonWidthSB->blockSignals(false);
+        ui->buttonHeightSB->blockSignals(false);
     }
     else
-    {
         close();
-    }
 }

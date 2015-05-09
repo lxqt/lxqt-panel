@@ -26,44 +26,40 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include "lxqtmountconfiguration.h"
-#include "ui_lxqtmountconfiguration.h"
+#include "configuration.h"
+#include "ui_configuration.h"
+
 #include <QComboBox>
-#include <QDebug>
+#include <QDialogButtonBox>
 
-#define ACT_SHOW_MENU "showMenu"
-#define ACT_SHOW_INFO "showInfo"
-#define ACT_NOTHING   "nothing"
-
-
-LxQtMountConfiguration::LxQtMountConfiguration(QSettings &settings, QWidget *parent) :
+Configuration::Configuration(QSettings &settings, QWidget *parent) :
     LxQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LxQtMountConfiguration)
+    ui(new Ui::Configuration)
 {
     ui->setupUi(this);
-    ui->devAddedCombo->addItem(tr("Popup menu"), ACT_SHOW_MENU);
-    ui->devAddedCombo->addItem(tr("Show info"),  ACT_SHOW_INFO);
-    ui->devAddedCombo->addItem(tr("Do nothing"), ACT_NOTHING);
+    ui->devAddedCombo->addItem(tr("Popup menu"), QStringLiteral(ACT_SHOW_MENU));
+    ui->devAddedCombo->addItem(tr("Show info"),  QStringLiteral(ACT_SHOW_INFO));
+    ui->devAddedCombo->addItem(tr("Do nothing"), QStringLiteral(ACT_NOTHING));
 
     loadSettings();
-    connect(ui->devAddedCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(devAddedChanged(int)));
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
+    connect(ui->devAddedCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &Configuration::devAddedChanged);
+    connect(ui->buttons, &QDialogButtonBox::clicked, this, &Configuration::dialogButtonsAction);
 }
 
-LxQtMountConfiguration::~LxQtMountConfiguration()
+Configuration::~Configuration()
 {
     delete ui;
 }
 
-
-void LxQtMountConfiguration::loadSettings()
+void Configuration::loadSettings()
 {
-    setComboboxIndexByData(ui->devAddedCombo, settings().value("newDeviceAction", ACT_SHOW_INFO), 1);
+    QVariant value = settings().value(QStringLiteral(CFG_KEY_ACTION), QStringLiteral(ACT_SHOW_INFO));
+    setComboboxIndexByData(ui->devAddedCombo, value, 1);
 }
 
-
-void LxQtMountConfiguration::devAddedChanged(int index)
+void Configuration::devAddedChanged(int index)
 {
     QString s = ui->devAddedCombo->itemData(index).toString();
-    settings().setValue("newDeviceAction", s);
+    settings().setValue(QStringLiteral(CFG_KEY_ACTION), s);
 }

@@ -64,17 +64,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>

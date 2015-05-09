@@ -36,7 +36,7 @@
 #include <sys/ioctl.h>
 #include <errno.h>
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__NetBSD__)
 #include <sys/soundcard.h>
 #elif defined(__linux__) || defined(__Linux__)
 #include <linux/soundcard.h>

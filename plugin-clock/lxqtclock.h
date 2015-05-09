@@ -80,7 +80,7 @@ private:
     QString mDateFormat;
     bool mDateOnNewLine;
     bool mUseUTC;
-    Qt::DayOfWeek mFirstDayOfWeek;
+    int mFirstDayOfWeek;
     bool mAutoRotate;
 
     QDateTime currentDateTime();
@@ -98,7 +98,7 @@ class LxQtClockPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new LxQtClock(startupInfo);}
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new LxQtClock(startupInfo);}
 };
 
 

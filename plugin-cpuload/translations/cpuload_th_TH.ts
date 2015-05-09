@@ -8,7 +8,7 @@
         <translation type="vanished">Cpu โหลด %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="119"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,22 +50,27 @@
         <translation>การจัดเรียง:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <source>Bar width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Bottom up</source>
         <translation>ล่างขึ้นบน</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Top down</source>
         <translation>บนลงล่าง</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="72"/>
         <source>Left to right</source>
         <translation>ซ้ายไปขวา</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="73"/>
         <source>Right to left</source>
         <translation>ขวาไปซ้าย</translation>
     </message>

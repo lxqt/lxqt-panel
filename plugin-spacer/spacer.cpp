@@ -26,7 +26,31 @@
 
 #include "spacer.h"
 #include "spacerconfiguration.h"
+#include <QStyle>
 
+void SpacerWidget::setType(QString const & type)
+{
+    if (type != mType)
+    {
+        mType = type;
+        style()->unpolish(this);
+        style()->polish(this);
+    }
+}
+
+void SpacerWidget::setOrientation(QString const & orientation)
+{
+    if (orientation != mOrientation)
+    {
+        mOrientation = orientation;
+        style()->unpolish(this);
+        style()->polish(this);
+    }
+}
+
+/************************************************
+
+ ************************************************/
 Spacer::Spacer(const ILxQtPanelPluginStartupInfo &startupInfo) :
     QObject()
     , ILxQtPanelPlugin(startupInfo)
@@ -41,6 +65,7 @@ Spacer::Spacer(const ILxQtPanelPluginStartupInfo &startupInfo) :
 void Spacer::settingsChanged()
 {
     mSize = settings()->value("size", 8).toInt();
+    mSpacer.setType(settings()->value("spaceType", SpacerConfiguration::msTypes[0]).toString());
     setSizes();
 }
 
@@ -49,7 +74,7 @@ void Spacer::settingsChanged()
  ************************************************/
 QDialog *Spacer::configureDialog()
 {
-    return new SpacerConfiguration(settings(), &mSpacer);
+    return new SpacerConfiguration(settings());
 }
 
 /************************************************
@@ -59,6 +84,7 @@ void Spacer::setSizes()
 {
     if (panel()->isHorizontal())
     {
+        mSpacer.setOrientation("horizontal");
         mSpacer.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         mSpacer.setFixedWidth(mSize);
         mSpacer.setMinimumHeight(0);
@@ -66,6 +92,7 @@ void Spacer::setSizes()
     }
     else
     {
+        mSpacer.setOrientation("vertical");
         mSpacer.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         mSpacer.setFixedHeight(mSize);
         mSpacer.setMinimumWidth(0);

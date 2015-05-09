@@ -68,17 +68,17 @@
         <translation>Chipsæt funktioner:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Enabled</source>
         <translation>Aktiveret</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Label</source>
         <translation>Identifikation</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Color</source>
         <translation>Farve</translation>
     </message>

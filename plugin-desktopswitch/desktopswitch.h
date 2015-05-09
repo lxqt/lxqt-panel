@@ -31,9 +31,14 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
+#include <QScopedPointer>
+#include <KWindowSystem/NETWM>
+
+#include "desktopswitchbutton.h"
 
 class QSignalMapper;
 class QButtonGroup;
+class NETRootInfo;
 namespace LxQt {
 class GridLayout;
 }
@@ -43,6 +48,9 @@ class DesktopSwitchWidget: public QFrame
     Q_OBJECT
 public:
     DesktopSwitchWidget();
+
+private:
+    int m_mouseWheelThresholdCounter;
 
 protected:
     void wheelEvent(QWheelEvent* e);
@@ -63,21 +71,31 @@ public:
     bool isSeparate() const { return true; }
     void realign();
 
+    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    QDialog *configureDialog();
+
 private:
     QButtonGroup * m_buttons;
+    QList<GlobalKeyShortcut::Action*> m_keys;
     QSignalMapper* m_pSignalMapper;
     int m_desktopCount;
-    QStringList m_desktopNames;
     DesktopSwitchWidget mWidget;
     LxQt::GridLayout *mLayout;
+    int mRows;
+    QScopedPointer<NETRootInfo> mDesktops;
+    DesktopSwitchButton::LabelType mLabelType;
 
-    void setup();
+    void refresh();
 
 private slots:
     void setDesktop(int desktop);
     void onNumberOfDesktopsChanged(int);
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
+    virtual void settingsChanged();
+    void registerShortcuts();
+    void shortcutRegistered();
+    void onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2);
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
@@ -86,7 +104,7 @@ class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new DesktopSwitch(startupInfo);}
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new DesktopSwitch(startupInfo);}
 };
 
 #endif

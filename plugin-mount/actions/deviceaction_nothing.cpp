@@ -25,7 +25,6 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "deviceaction_nothing.h"
 
 DeviceActionNothing::DeviceActionNothing(LxQtMountPlugin *plugin, QObject *parent):
@@ -33,13 +32,10 @@ DeviceActionNothing::DeviceActionNothing(LxQtMountPlugin *plugin, QObject *paren
 {
 }
 
-
 void DeviceActionNothing::doDeviceAdded(Solid::Device device)
 {
 }
 
-
 void DeviceActionNothing::doDeviceRemoved(Solid::Device device)
 {
 }
-

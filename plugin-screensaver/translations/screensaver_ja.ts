@@ -9,7 +9,7 @@
         <translation>スクリーンをロック</translation>
     </message>
     <message>
-        <location filename="../panelscreensaver.cpp" line="62"/>
+        <location filename="../panelscreensaver.cpp" line="67"/>
         <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>スクリーンセーバー: グローバルショートカット &apos;%1&apos; を登録することができません</translation>
     </message>

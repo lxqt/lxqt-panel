@@ -29,8 +29,26 @@
 #define SPACER_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QWidget>
+#include <QFrame>
 
+
+class SpacerWidget : public QFrame
+{
+    Q_OBJECT
+
+    Q_PROPERTY(QString type READ getType)
+    Q_PROPERTY(QString orientation READ getOrientation)
+
+public:
+    const QString& getType() const throw () { return mType; }
+    void setType(QString const & type);
+    const QString& getOrientation() const throw () { return mOrientation; }
+    void setOrientation(QString const & orientation);
+
+private:
+    QString mType;
+    QString mOrientation;
+};
 
 class Spacer :  public QObject, public ILxQtPanelPlugin
 {
@@ -56,17 +74,17 @@ private:
     void setSizes();
 
 private:
-    QWidget mSpacer;
+    SpacerWidget mSpacer;
     int mSize;
 };
 
 class SpacerPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new Spacer(startupInfo);}
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new Spacer(startupInfo);}
 };
 
 #endif

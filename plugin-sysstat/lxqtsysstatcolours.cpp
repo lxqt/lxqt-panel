@@ -38,6 +38,7 @@ LxQtSysStatColours::LxQtSysStatColours(QWidget *parent) :
     ui(new Ui::LxQtSysStatColours),
     mSelectColourMapper(new QSignalMapper(this))
 {
+    setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
     mDefaultColours["grid"]  = QColor("#808080");

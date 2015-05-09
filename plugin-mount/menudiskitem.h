@@ -25,40 +25,47 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef MENUDISKITEM_H
-#define MENUDISKITEM_H
+#ifndef LXQT_PLUGIN_MOUNT_MENUDISKITEM_H
+#define LXQT_PLUGIN_MOUNT_MENUDISKITEM_H
 
 #include <QFrame>
+#include <QToolButton>
 #include <Solid/Device>
 #include <Solid/SolidNamespace>
 
-
-class QToolButton;
+class Popup;
 
 class MenuDiskItem : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit MenuDiskItem(Solid::Device device, QWidget *parent);
-    QString DeviceUdi() const;
+    explicit MenuDiskItem(Solid::Device device, Popup *popup);
+    ~MenuDiskItem();
 
-    void setMountStatus(bool is_mount);
+    QString deviceUdi() const { return mDevice.udi(); }
+    void setMountStatus(bool mounted);
 
 private:
-    void update();
+    void updateMountStatus();
     Solid::Device opticalParent() const;
 
 signals:
-    void error(const QString &msg);
+    void invalid(QString const & udi);
 
 private slots:
-    void ejectButtonClicked();
     void diskButtonClicked();
-    void mounted(Solid::ErrorType error, QVariant resultData, const QString &udi);
-    void unmounted(Solid::ErrorType error, QVariant resultData, const QString &udi);
+    void ejectButtonClicked();
+
+    void onMounted(Solid::ErrorType error,
+                   QVariant resultData,
+                   const QString &udi);
+    void onUnmounted(Solid::ErrorType error,
+                     QVariant resultData,
+                     const QString &udi);
 
 private:
+    Popup *mPopup;
     Solid::Device mDevice;
     QToolButton *mDiskButton;
     QToolButton *mEjectButton;

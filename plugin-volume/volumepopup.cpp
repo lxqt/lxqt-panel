@@ -37,7 +37,7 @@
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QDesktopWidget>
-#include <QProcess>
+#include <QToolTip>
 #include "audioengine.h"
 #include <QDebug>
 
@@ -115,6 +115,9 @@ void VolumePopup::handleSliderValueChanged(int value)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
+    m_volumeSlider->setToolTip(QStringLiteral("%1%").arg(value));
+    dynamic_cast<QWidget&>(*parent()).setToolTip(m_volumeSlider->toolTip()); //parent is the button on panel
+    QToolTip::showText(QCursor::pos(),  m_volumeSlider->toolTip(), m_volumeSlider);
 }
 
 void VolumePopup::handleMuteToggleClicked()
@@ -134,6 +137,8 @@ void VolumePopup::handleDeviceVolumeChanged(int volume)
     // signal emission.
     m_volumeSlider->blockSignals(true);
     m_volumeSlider->setValue(volume);
+    m_volumeSlider->setToolTip(QStringLiteral("%1%").arg(volume));
+    dynamic_cast<QWidget&>(*parent()).setToolTip(m_volumeSlider->toolTip()); //parent is the button on panel
     m_volumeSlider->blockSignals(false);
 
     // emit volumeChanged(percent);
@@ -171,7 +176,7 @@ void VolumePopup::resizeEvent(QResizeEvent *event)
     realign();
 }
 
-void VolumePopup::open(QPoint pos, Qt::Corner anchor)
+void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 {
     m_pos = pos;
     m_anchor = anchor;

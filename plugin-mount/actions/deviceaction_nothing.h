@@ -26,19 +26,19 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef DEVICEACTIONNOTHING_H
-#define DEVICEACTIONNOTHING_H
+#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_NOTHING_H
+#define LXQT_PLUGIN_MOUNT_DEVICEACTION_NOTHING_H
 
-#include <QWidget>
 #include "deviceaction.h"
+#include <QWidget>
 
 class DeviceActionNothing : public DeviceAction
 {
     Q_OBJECT
-public:
-    explicit DeviceActionNothing(LxQtMountPlugin *plugin, QObject *parent=0);
-    virtual ActionId Type() const throw () { return ActionNothing; };
 
+public:
+    explicit DeviceActionNothing(LxQtMountPlugin *plugin, QObject *parent = 0);
+    virtual ActionId Type() const throw () { return ActionNothing; };
 
 protected:
     void doDeviceAdded(Solid::Device device);

@@ -9,7 +9,7 @@
         <translation>Bildschirm sperren</translation>
     </message>
     <message>
-        <location filename="../panelscreensaver.cpp" line="62"/>
+        <location filename="../panelscreensaver.cpp" line="67"/>
         <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Für den Bildschirmschoner kann das globale Tastenkürzel &apos;%1&apos; nicht registriert werden</translation>
     </message>

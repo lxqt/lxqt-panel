@@ -68,17 +68,17 @@
         <translation>คุณสมบัติชิป:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Enabled</source>
         <translation>เปิดใช้</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Label</source>
         <translation>ป้าย</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Color</source>
         <translation>สี</translation>
     </message>

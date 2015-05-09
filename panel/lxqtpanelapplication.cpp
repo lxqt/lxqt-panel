@@ -34,12 +34,31 @@
 #include <QUuid>
 #include <QScreen>
 #include <QWindow>
+#include <QCommandLineParser>
 
-LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString &configFile)
+LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv)
     : LxQt::Application(argc, argv)
 {
+    QCoreApplication::setApplicationName(QStringLiteral("lxqt-panel"));
+    QCoreApplication::setApplicationVersion(LXQT_VERSION);
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QStringLiteral("LXQt panel"));
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    QCommandLineOption configFileOption(QStringList()
+            << QStringLiteral("c") << QStringLiteral("config") << QStringLiteral("configfile"),
+            QCoreApplication::translate("main", "Use alternate configuration file."),
+            QCoreApplication::translate("main", "Configuration file"));
+    parser.addOption(configFileOption);
+
+    parser.process(*this);
+
+    const QString configFile = parser.value(configFileOption);
+
     if (configFile.isEmpty())
-        mSettings = new LxQt::Settings("panel", this);
+        mSettings = new LxQt::Settings(QStringLiteral("panel"), this);
     else
         mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
 
@@ -49,6 +68,8 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
         connect(screen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
     }
     connect(this, &QGuiApplication::screenAdded, this, &LxQtPanelApplication::handleScreenAdded);
+    connect(this, &QCoreApplication::aboutToQuit, this, &LxQtPanelApplication::cleanup);
+
 
     QStringList panels = mSettings->value("panels").toStringList();
 
@@ -65,6 +86,10 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv, const QString
 
 LxQtPanelApplication::~LxQtPanelApplication()
 {
+}
+
+void LxQtPanelApplication::cleanup()
+{
     qDeleteAll(mPanels);
 }
 
@@ -77,7 +102,7 @@ void LxQtPanelApplication::addNewPanel()
     mSettings->setValue("panels", panels);
 
     // Poupup the configuration dialog to allow user configuration right away
-    ConfigPanelDialog::exec(p);
+    p->showConfigDialog();
 }
 
 LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)

@@ -32,17 +32,22 @@
 #include <QFrame>
 #include <QString>
 #include <QTimer>
+#include <QPointer>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
+#include <LXQt/AddPluginDialog>
 
 class QMenu;
 class Plugin;
+class QAbstractItemModel;
 
 namespace LxQt {
 class Settings;
 class PluginInfo;
 }
 class LxQtPanelLayout;
+class ConfigPanelDialog;
+class PanelPluginsModel;
 
 /*! \brief The LxQtPanel class provides a single lxqt-panel.
  */
@@ -51,6 +56,10 @@ class LXQT_PANEL_API LxQtPanel : public QFrame, public ILxQtPanel
     Q_OBJECT
 
     Q_PROPERTY(QString position READ qssPosition)
+
+    // for configuration dialog
+    friend class ConfigPanelWidget;
+    friend class ConfigPluginsWidget;
 
 public:
     enum Alignment {
@@ -71,6 +80,7 @@ public:
     // ILxQtPanel .........................
     ILxQtPanel::Position position() const { return mPosition; }
     QRect globalGometry() const;
+    Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
     QRect calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const;
 
     // For QSS properties ..................
@@ -92,11 +102,15 @@ public:
     QColor backgroundColor() const { return mBackgroundColor; };
     QString backgroundImage() const { return mBackgroundImage; };
     int opacity() const { return mOpacity; };
+    bool hidable() const { return mHidable; }
 
     LxQt::Settings *settings() const { return mSettings; }
 
 public slots:
     void show();
+    void showPanel();
+    void hidePanel();
+    void hidePanelWork();
 
     // Settings
     void setPanelSize(int value, bool save);
@@ -109,6 +123,7 @@ public slots:
     void setBackgroundColor(QColor color, bool save);
     void setBackgroundImage(QString path, bool save);
     void setOpacity(int opacity, bool save);
+    void setHidable(bool hidable, bool save);
 
     void saveSettings(bool later=false);
     void ensureVisible();
@@ -117,20 +132,16 @@ signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
 
-    void pluginAdded(QString id);
-    void pluginRemoved(QString id);
-
 protected:
     bool event(QEvent *event);
     void showEvent(QShowEvent *event);
 
-private slots:
-    void addPlugin(const LxQt::PluginInfo &desktopFile);
+public slots:
     void showConfigDialog();
+private slots:
     void showAddPluginDialog();
     void realign();
-    void removePlugin();
-    void pluginMoved(Plugin const * plug);
+    void pluginMoved(Plugin * plug);
     void userRequestForDeletion();
 
 private:
@@ -138,17 +149,12 @@ private:
     LxQt::Settings *mSettings;
     QFrame *LxQtPanelWidget;
     QString mConfigGroup;
-    QList<Plugin*> mPlugins;
-    QList<QString> mPluginsList;
+    QScopedPointer<PanelPluginsModel> mPlugins;
 
     int findAvailableScreen(LxQtPanel::Position position);
     void updateWmStrut();
 
     void loadPlugins();
-    Plugin *loadPlugin(const LxQt::PluginInfo &desktopFile, const QString &settingsGroup);
-    Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
-
-    QString findNewPluginSettingsGroup(const QString &pluginType) const;
 
     int mPanelSize;
     int mIconSize;
@@ -162,12 +168,16 @@ private:
     ILxQtPanel::Position mPosition;
     int mScreenNum;
     QTimer mDelaySave;
+    bool mHidable;
+    bool mHidden;
+    QTimer mHideTimer;
 
     QColor mFontColor;
     QColor mBackgroundColor;
     QString mBackgroundImage;
     // 0 to 100
     int mOpacity;
+    QPointer<ConfigPanelDialog> mConfigDialog;
 
     void updateStyleSheet();
 };

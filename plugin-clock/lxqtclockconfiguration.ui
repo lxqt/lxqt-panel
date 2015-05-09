@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>330</width>
-    <height>433</height>
+    <height>447</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,6 +99,20 @@
         <property name="text">
          <string>Show date below time on new &amp;line</string>
         </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="firstDayOfWeekL">
+        <property name="text">
+         <string>First day of week in calendar</string>
+        </property>
+        <property name="buddy">
+         <cstring>firstDayOfWeekCB</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="firstDayOfWeekCB">
        </widget>
       </item>
      </layout>

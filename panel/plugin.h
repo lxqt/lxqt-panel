@@ -69,7 +69,7 @@ public:
     QMenu* popupMenu() const;
     ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
 
-    const LxQt::PluginInfo desktopFile() { return mDesktopFile; }
+    const LxQt::PluginInfo desktopFile() const { return mDesktopFile; }
 
     bool isSeparate() const;
     bool isExpandable() const;
@@ -84,6 +84,8 @@ public:
 
 public slots:
     void realign();
+    void showConfigureDialog();
+    void requestRemove();
 
 signals:
     void startMove();
@@ -96,9 +98,9 @@ protected:
     void showEvent(QShowEvent *event);
 
 private:
-    bool loadLib(ILxQtPanelPluginLibrary* pluginLib);
+    bool loadLib(ILxQtPanelPluginLibrary const * pluginLib);
     bool loadModule(const QString &libraryName);
-    ILxQtPanelPluginLibrary* findStaticPlugin(const QString &libraryName);
+    ILxQtPanelPluginLibrary const * findStaticPlugin(const QString &libraryName);
 
     const LxQt::PluginInfo mDesktopFile;
     QByteArray calcSettingsHash();
@@ -115,8 +117,6 @@ private:
 
 private slots:
     void settingsChanged();
-    void showConfigureDialog();
-    void requestRemove();
 
 };
 

@@ -12,12 +12,6 @@ set(SOURCES
     calendarpopup.cpp
 )
 
-set(MOCS
-    lxqtclock.h
-    lxqtclockconfiguration.h
-    calendarpopup.h
-)
-
 set(UIS
     lxqtclockconfiguration.ui
 )

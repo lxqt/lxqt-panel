@@ -68,17 +68,17 @@
         <translation>Cechy chipu:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Enabled</source>
         <translation>Włączone</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Label</source>
         <translation>Etykieta</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
         <source>Color</source>
         <translation>Kolor</translation>
     </message>

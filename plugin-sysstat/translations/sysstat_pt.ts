@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pt">
+<TS version="2.1" language="pt">
 <context>
     <name>LxQtSysStatColours</name>
     <message>
@@ -115,7 +115,7 @@
     <name>LxQtSysStatConfiguration</name>
     <message>
         <source>LxQt SysStat Settings</source>
-        <translation>Definições do LxQt SysStat</translation>
+        <translation type="vanished">Definições do LxQt SysStat</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -124,11 +124,11 @@
     </message>
     <message>
         <source>Update interval</source>
-        <translation>Intervalo de atualização</translation>
+        <translation type="vanished">Intervalo de atualização</translation>
     </message>
     <message>
         <source>Minimal size</source>
-        <translation>Tamanho mínimo</translation>
+        <translation type="vanished">Tamanho mínimo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -142,31 +142,31 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation>Grelha</translation>
+        <translation type="vanished">Grelha</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation>Linhas</translation>
+        <translation type="vanished">Linhas</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation>Cor</translation>
+        <translation type="vanished">Cor</translation>
     </message>
     <message>
         <source>Change ...</source>
-        <translation>Mudar...</translation>
+        <translation type="vanished">Mudar...</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation type="vanished">Título</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation>Etiqueta</translation>
+        <translation type="vanished">Etiqueta</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation>Tipo de letra</translation>
+        <translation type="vanished">Tipo de letra</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation type="vanished">Tipo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
@@ -269,59 +269,59 @@
     </message>
     <message>
         <source>Source</source>
-        <translation>Fonte</translation>
+        <translation type="vanished">Fonte</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation type="vanished">Sistema</translation>
     </message>
     <message>
         <source>User</source>
-        <translation>Utilizador</translation>
+        <translation type="vanished">Utilizador</translation>
     </message>
     <message>
         <source>Nice</source>
-        <translation>Aceitável</translation>
+        <translation type="vanished">Aceitável</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Outras</translation>
+        <translation type="vanished">Outras</translation>
     </message>
     <message>
         <source>Use Frequency</source>
-        <translation>Utilizar frequência</translation>
+        <translation type="vanished">Utilizar frequência</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation>Frequência</translation>
+        <translation type="vanished">Frequência</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation>Aplicações</translation>
+        <translation type="vanished">Aplicações</translation>
     </message>
     <message>
         <source>Buffers</source>
-        <translation>Buffers</translation>
+        <translation type="vanished">Buffers</translation>
     </message>
     <message>
         <source>Cached</source>
-        <translation>Cache</translation>
+        <translation type="vanished">Cache</translation>
     </message>
     <message>
         <source>Used</source>
-        <translation>Utilizado</translation>
+        <translation type="vanished">Utilizado</translation>
     </message>
     <message>
         <source>Received</source>
-        <translation>Recebido</translation>
+        <translation type="vanished">Recebido</translation>
     </message>
     <message>
         <source>Transmitted</source>
-        <translation>Enviado</translation>
+        <translation type="vanished">Enviado</translation>
     </message>
     <message>
         <source>Maximum</source>
-        <translation>Máximo</translation>
+        <translation type="vanished">Máximo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -330,7 +330,7 @@
     </message>
     <message>
         <source>Logarithmic scale</source>
-        <translation>Escala logarítmica</translation>
+        <translation type="vanished">Escala logarítmica</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
@@ -339,31 +339,31 @@
     </message>
     <message>
         <source>Ultra light</source>
-        <translation>Ultra claro</translation>
+        <translation type="vanished">Ultra claro</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Claro</translation>
+        <translation type="vanished">Claro</translation>
     </message>
     <message>
         <source>Ultra black</source>
-        <translation>Ultra escuro</translation>
+        <translation type="vanished">Ultra escuro</translation>
     </message>
     <message>
         <source>Black</source>
-        <translation>Escuro</translation>
+        <translation type="vanished">Escuro</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation>Negrito</translation>
+        <translation type="vanished">Negrito</translation>
     </message>
     <message>
         <source>Demi bold</source>
-        <translation>Semi-negrito</translation>
+        <translation type="vanished">Semi-negrito</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation>Itálico</translation>
+        <translation type="vanished">Itálico</translation>
     </message>
 </context>
 </TS>

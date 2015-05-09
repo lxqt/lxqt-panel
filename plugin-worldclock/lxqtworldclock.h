@@ -74,6 +74,8 @@ private:
     LxQtWorldClockPopup* mPopup;
 
     QTimer *mTimer;
+    int mUpdateInterval;
+    qint64 mLastUpdate;
 
     QStringList mTimeZones;
     QMap<QString, QString> mTimeZoneCustomNames;
@@ -82,7 +84,6 @@ private:
     QString mFormat;
 
     bool mAutoRotate;
-    QString mLastShownText;
     QLabel *mPopupContent;
 
     void restartTimer(int);
@@ -134,7 +135,7 @@ class LxQtWorldClockLibrary: public QObject, public ILxQtPanelPluginLibrary
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
     {
         return new LxQtWorldClock(startupInfo);
     }

@@ -4,14 +4,13 @@
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="314"/>
+        <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
         <translation>メインメニューを表示/隠す</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="339"/>
         <source>Leave</source>
-        <translation>終了</translation>
+        <translation type="vanished">終了</translation>
     </message>
 </context>
 <context>

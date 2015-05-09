@@ -27,43 +27,53 @@
 
 
 #include <QToolButton>
-#include <QtDebug>
+#include <QStyle>
+#include <QVariant>
 #include <lxqt-globalkeys.h>
 
 #include "desktopswitchbutton.h"
 
-DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, const QString &title)
-    : QToolButton(parent)
-    , m_shortcut(0)
-    , mIndex(index)
+DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, LabelType labelType,  const QString &title)
+    : QToolButton(parent),
+    mUrgencyHint(false)
 {
-    setText(QString::number(index + 1));
+    update(index, labelType, title);
+
     setCheckable(true);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    
-    if (!shortcut.isEmpty())
+}
+
+void DesktopSwitchButton::update(int index, LabelType labelType, const QString &title)
+{
+    switch (labelType)
     {
-        QString description = tr("Switch to desktop %1").arg(index + 1);
-        if (!title.isEmpty())
-        {
-            description.append(QString(" (%1)").arg(title));
-        }
-        m_shortcut = GlobalKeyShortcut::Client::instance()->addAction(QString(), path, description, this);
-        if (m_shortcut)
-        {
-            if (m_shortcut->shortcut().isEmpty())
-                m_shortcut->changeShortcut(shortcut);
-            connect(m_shortcut, SIGNAL(activated()), this, SIGNAL(activated()));
-        }
+        case LABEL_TYPE_NAME:
+            setText(title);
+            break;
+
+        default: // LABEL_TYPE_NUMBER
+            setText(QString::number(index + 1));
     }
-    
+
     if (!title.isEmpty())
     {
         setToolTip(title);
     }
 }
 
-void DesktopSwitchButton::unregisterShortcut()
+void DesktopSwitchButton::setUrgencyHint(WId id, bool urgent)
 {
-    GlobalKeyShortcut::Client::instance()->removeAction(QString("/desktop_switch/desktop_%1").arg(mIndex + 1));
+    if (urgent)
+        mUrgentWIds.insert(id);
+    else
+        mUrgentWIds.remove(id);
+
+    if (mUrgencyHint != !mUrgentWIds.empty())
+    {
+        mUrgencyHint = !mUrgentWIds.empty();
+        setProperty("urgent", mUrgencyHint);
+        style()->unpolish(this);
+        style()->polish(this);
+        QToolButton::update();
+    }
 }

@@ -30,7 +30,7 @@
 #define DESKTOPSWITCHBUTTON_H
 
 #include <QToolButton>
-
+#include <QSet>
 
 namespace GlobalKeyShortcut
 {
@@ -40,19 +40,23 @@ class Action;
 class DesktopSwitchButton : public QToolButton
 {
     Q_OBJECT
-    
+
 public:
-    DesktopSwitchButton(QWidget * parent, int index, const QString &path, const QString &shortcut, const QString &title=QString());
+    enum LabelType { // Must match with combobox indexes
+        LABEL_TYPE_NUMBER = 0,
+        LABEL_TYPE_NAME = 1
+    };
 
-public slots:
-    void unregisterShortcut();
+    DesktopSwitchButton(QWidget * parent, int index, LabelType labelType, const QString &title=QString());
+    void update(int index, LabelType labelType,  const QString &title);
 
-signals:
-    void activated();
+    void setUrgencyHint(WId, bool);
 
 private:
-    GlobalKeyShortcut::Action * m_shortcut;
-    int mIndex;
+
+    // for urgency hint handling
+    bool mUrgencyHint;
+    QSet<WId> mUrgentWIds;
 };
 
 #endif

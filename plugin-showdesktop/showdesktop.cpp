@@ -31,8 +31,8 @@
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
 #include <LXQt/Notification>
-#include <KF5/KWindowSystem/KWindowSystem>
-#include <KF5/KWindowSystem/NETWM>
+#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/NETWM>
 #include "showdesktop.h"
 
 // Still needed for lxde/lxqt#338
@@ -48,16 +48,8 @@ ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
     m_key = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show desktop"), this);
     if (m_key)
     {
+        connect(m_key, &GlobalKeyShortcut::Action::registrationFinished, this, &ShowDesktop::shortcutRegistered);
         connect(m_key, SIGNAL(activated()), this, SLOT(toggleShowingDesktop()));
-
-        if (m_key->shortcut().isEmpty())
-        {
-            m_key->changeShortcut(DEFAULT_SHORTCUT);
-            if (m_key->shortcut().isEmpty())
-            {
-                LxQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
-            }
-        }
     }
 
     QAction * act = new QAction(XdgIcon::fromTheme("user-desktop"), tr("Show Desktop"), this);
@@ -65,6 +57,18 @@ ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
 
     mButton.setDefaultAction(act);
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+}
+
+void ShowDesktop::shortcutRegistered()
+{
+    if (m_key->shortcut().isEmpty())
+    {
+        m_key->changeShortcut(DEFAULT_SHORTCUT);
+        if (m_key->shortcut().isEmpty())
+        {
+            LxQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
+        }
+    }
 }
 
 void ShowDesktop::toggleShowingDesktop()

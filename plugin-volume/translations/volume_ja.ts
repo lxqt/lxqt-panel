@@ -4,28 +4,28 @@
 <context>
     <name>LxQtVolume</name>
     <message>
-        <location filename="../lxqtvolume.cpp" line="66"/>
+        <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
         <translation>音量を上げる</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="81"/>
+        <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
         <translation>音量を下げる</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="96"/>
+        <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
         <translation>ミュート/解除</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="113"/>
+        <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>音量制御: このショートカットは登録することができません: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="203"/>
-        <location filename="../lxqtvolume.cpp" line="213"/>
+        <location filename="../lxqtvolume.cpp" line="219"/>
+        <location filename="../lxqtvolume.cpp" line="229"/>
         <source>Volume: %1</source>
         <translation>音量: %1</translation>
     </message>

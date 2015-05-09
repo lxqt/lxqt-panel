@@ -25,13 +25,13 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_MENU_H
+#define LXQT_PLUGIN_MOUNT_DEVICEACTION_MENU_H
 
-#ifndef DEVICEACTIONMENU_H
-#define DEVICEACTIONMENU_H
+#include "deviceaction.h"
 
 #include <QWidget>
 #include <QTimer>
-#include "deviceaction.h"
 
 class Popup;
 
@@ -39,7 +39,7 @@ class DeviceActionMenu : public DeviceAction
 {
     Q_OBJECT
 public:
-    explicit DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent=0);
+    explicit DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent = 0);
     virtual ActionId Type() const throw () { return ActionMenu; }
 
 protected:

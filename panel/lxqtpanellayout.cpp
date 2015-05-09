@@ -542,7 +542,11 @@ void LxQtPanelLayout::moveItem(int from, int to, bool withAnimation)
         {
             QLayoutItem *item = fromGrid->takeAt(fromIdx);
             toGrid->addItem(item);
-            toGrid->moveItem(toGrid->count()-1, toIdx);
+            //recalculate position because we removed from one and put to another grid
+            LayoutItemGrid *toGridAux=0;
+            globalIndexToLocal(to, &toGridAux, &toIdx);
+            Q_ASSERT(toGrid == toGridAux); //grid must be the same (if not something is wrong with our logic)
+            toGrid->moveItem(toGridAux->count()-1, toIdx);
         }
     }
 
@@ -589,16 +593,18 @@ void LxQtPanelLayout::setGeometry(const QRect &geometry)
     if (!mRightGrid->isValid())
         mRightGrid->update();
 
+    QRect my_geometry{geometry};
+    my_geometry -= contentsMargins();
     if (count())
     {
         if (isHorizontal())
-            setGeometryHoriz(geometry);
+            setGeometryHoriz(my_geometry);
         else
-            setGeometryVert(geometry);
+            setGeometryVert(my_geometry);
     }
 
     mAnimate = false;
-    QLayout::setGeometry(geometry);
+    QLayout::setGeometry(my_geometry);
 }
 
 
@@ -639,9 +645,12 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
-        int bh = (geometry.height() / baseLines.count()) / 2;
-        for (int i=0; i<baseLines.count(); ++i)
-            baseLines[i] = geometry.top() + (i * 2 + 1) * bh;
+        int bh = geometry.height() / baseLines.count();
+        int base = geometry.top() + (bh >> 1);
+        for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bh)
+        {
+            *i = base;
+        }
     }
 
 #if 0
@@ -682,7 +691,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(0, baseLines[c]));
                     rect.moveLeft(left);
                 }
@@ -719,7 +729,8 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(0, baseLines[c]));
                     rect.moveRight(right);
                 }
@@ -750,9 +761,12 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     {
-        int bw = (geometry.width() / baseLines.count()) / 2;
-        for (int i=0; i<baseLines.count(); ++i)
-            baseLines[i] = geometry.left() + (i * 2 + 1) * bw;
+        int bw = geometry.width() / baseLines.count();
+        int base = geometry.left() + (bw >> 1);
+        for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bw)
+        {
+            *i = base;
+        }
     }
 
 #if 0
@@ -792,7 +806,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(baseLines[c], 0));
                     rect.moveTop(top);
                 }
@@ -829,7 +844,8 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setSize(info.geometry.size());
+                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     rect.moveCenter(QPoint(baseLines[c], 0));
                     rect.moveBottom(bottom);
                 }
@@ -962,4 +978,30 @@ void LxQtPanelLayout::finishMovePlugin()
         plugin->setAlignment(n<mLeftGrid->count() ? Plugin::AlignLeft : Plugin::AlignRight);
         emit pluginMoved(plugin);
     }
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtPanelLayout::moveUpPlugin(Plugin * plugin)
+{
+    const int i = indexOf(plugin);
+    if (0 < i)
+        moveItem(i, i - 1, true);
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtPanelLayout::addPlugin(Plugin * plugin)
+{
+    connect(plugin, &Plugin::startMove, this, &LxQtPanelLayout::startMovePlugin);
+
+    const int prev_count = count();
+    addWidget(plugin);
+
+    //check actual position
+    const int pos = indexOf(plugin);
+    if (prev_count > pos)
+        moveItem(pos, prev_count, false);
 }

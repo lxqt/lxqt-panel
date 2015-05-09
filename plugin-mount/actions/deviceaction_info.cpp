@@ -25,37 +25,27 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#include "deviceaction_info.h"
 #include "../lxqtmountplugin.h"
+#include "deviceaction_info.h"
+
 #include <LXQt/Notification>
-#include <QDebug>
 
 DeviceActionInfo::DeviceActionInfo(LxQtMountPlugin *plugin, QObject *parent):
     DeviceAction(plugin, parent)
 {
-    qDebug() << Q_FUNC_INFO;
 }
-
 
 void DeviceActionInfo::doDeviceAdded(Solid::Device device)
 {
-    qDebug() << Q_FUNC_INFO;
-
     showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is connected.").arg(device.description()));
 }
 
-
 void DeviceActionInfo::doDeviceRemoved(Solid::Device device)
 {
-    qDebug() << Q_FUNC_INFO;
-
     showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is removed.").arg(device.description()));
 }
-
 
 void DeviceActionInfo::showMessage(const QString &text)
 {
     LxQt::Notification::notify(tr("Removable media/devices manager"), text, mPlugin->icon().name());
 }
-

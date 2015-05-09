@@ -12,11 +12,6 @@ set(SOURCES
     lxqtkbindicatorconfiguration.cpp
 )
 
-set(MOCS
-    lxqtkbindicator.h
-    lxqtkbindicatorconfiguration.h
-)
-
 set(UIS
     lxqtkbindicatorconfiguration.ui
 )

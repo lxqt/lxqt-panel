@@ -66,6 +66,7 @@ protected slots:
     void handleShortcutVolumeUp();
     void handleShortcutVolumeDown();
     void handleShortcutVolumeMute();
+    void shortcutRegistered();
 
 private:
     AudioEngine *m_engine;
@@ -86,7 +87,7 @@ class LxQtVolumePluginLibrary: public QObject, public ILxQtPanelPluginLibrary
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo)
+    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
     {
         return new LxQtVolume(startupInfo);
     }

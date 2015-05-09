@@ -13,10 +13,6 @@ set(SOURCES
     showdesktop.cpp
 )
 
-set(MOCS
-    showdesktop.h
-)
-
 set(LIBRARIES
     ${LIBRARIES}
     ${LXQT_GLOBALKEYS_LIBRARIES}

@@ -2,8 +2,8 @@ set(PLUGIN "mount")
 
 set(HEADERS
     lxqtmountplugin.h
-    lxqtmountconfiguration.h
-    mountbutton.h
+    configuration.h
+    button.h
     menudiskitem.h
     popup.h
     actions/deviceaction.h
@@ -13,10 +13,9 @@ set(HEADERS
 )
 
 set(SOURCES
-    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtmountplugin.cpp
-    lxqtmountconfiguration.cpp
-    mountbutton.cpp
+    configuration.cpp
+    button.cpp
     menudiskitem.cpp
     popup.cpp
     actions/deviceaction.cpp
@@ -25,25 +24,11 @@ set(SOURCES
     actions/deviceaction_nothing.cpp
 )
 
-set(MOCS
-    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.h
-    lxqtmountplugin.h
-    lxqtmountconfiguration.h
-    mountbutton.h
-    menudiskitem.h
-    popup.h
-    actions/deviceaction.h
-    actions/deviceaction_info.h
-    actions/deviceaction_menu.h
-    actions/deviceaction_nothing.h
-)
-
 set(UIS
-    lxqtmountconfiguration.ui
+    configuration.ui
 )
 
 find_package(KF5Solid REQUIRED)
-
 set(LIBRARIES ${QTXDG_LIBRARIES} KF5::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

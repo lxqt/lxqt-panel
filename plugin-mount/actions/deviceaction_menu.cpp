@@ -25,12 +25,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "deviceaction_menu.h"
 #include "../lxqtmountplugin.h"
 #include "../popup.h"
-
-#include <QDebug>
 
 DeviceActionMenu::DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent):
     DeviceAction(plugin, parent)
@@ -39,9 +36,8 @@ DeviceActionMenu::DeviceActionMenu(LxQtMountPlugin *plugin, QObject *parent):
 
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(5000);
-    connect(&mHideTimer, SIGNAL(timeout()), mPopup, SLOT(hide()));
+    connect(&mHideTimer, &QTimer::timeout, mPopup, &Popup::hide);
 }
-
 
 void DeviceActionMenu::doDeviceAdded(Solid::Device device)
 {
@@ -49,9 +45,6 @@ void DeviceActionMenu::doDeviceAdded(Solid::Device device)
     mPopup->show();
 }
 
-
 void DeviceActionMenu::doDeviceRemoved(Solid::Device device)
 {
-
 }
-

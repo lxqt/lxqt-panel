@@ -25,15 +25,14 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "deviceaction.h"
 #include "deviceaction_info.h"
 #include "deviceaction_menu.h"
 #include "deviceaction_nothing.h"
 #include "../menudiskitem.h"
 #include "../lxqtmountplugin.h"
-#include <Solid/StorageAccess>
 
+#include <Solid/StorageAccess>
 
 #define ACT_NOTHING "nothing"
 #define ACT_INFO    "showInfo"
@@ -81,14 +80,14 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
     return ACT_INFO;
 }
 
-void DeviceAction::deviceAdded(QString const & udi)
+void DeviceAction::onDeviceAdded(QString const & udi)
 {
     Solid::Device device(udi);
     if (device.is<Solid::StorageAccess>())
         doDeviceAdded(device);
 }
 
-void DeviceAction::deviceRemoved(QString const & udi)
+void DeviceAction::onDeviceRemoved(QString const & udi)
 {
     Solid::Device device(udi);
     if (device.is<Solid::StorageAccess>())

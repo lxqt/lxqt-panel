@@ -1,19 +1,21 @@
 set(PLUGIN "desktopswitch")
 
 set(HEADERS
-   desktopswitch.h
+    desktopswitch.h
     desktopswitchbutton.h
+    desktopswitchconfiguration.h
 )
 
 set(SOURCES
     desktopswitch.cpp
     desktopswitchbutton.cpp
+    desktopswitchconfiguration.cpp
 )
 
-set(MOCS
-    desktopswitch.h
-    desktopswitchbutton.h
+set(UIS
+    desktopswitchconfiguration.ui
 )
+
 
 set(LIBRARIES ${LIBRARIES} ${LXQT_LIBRARIES} ${LXQT_GLOBALKEYS_LIBRARIES} )
 

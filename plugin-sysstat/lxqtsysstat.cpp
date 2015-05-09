@@ -74,7 +74,7 @@ void LxQtSysStat::lateInit()
 
 QDialog *LxQtSysStat::configureDialog()
 {
-    return new LxQtSysStatConfiguration(settings(), mWidget);
+    return new LxQtSysStatConfiguration(settings());
 }
 
 void LxQtSysStat::realign()

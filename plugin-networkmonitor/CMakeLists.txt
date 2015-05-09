@@ -12,12 +12,6 @@ set(SOURCES
     lxqtnetworkmonitorconfiguration.cpp
 )
 
-set(MOCS
-    lxqtnetworkmonitorplugin.h
-    lxqtnetworkmonitor.h
-    lxqtnetworkmonitorconfiguration.h
-)
-
 set(UIS
     lxqtnetworkmonitorconfiguration.ui
 )

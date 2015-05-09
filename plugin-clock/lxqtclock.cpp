@@ -140,8 +140,6 @@ void LxQtClock::showTime(const QDateTime &now)
         mTimeLabel->setText(QLocale::system().toString(now, mClockFormat));
     }
 
-    mRotatedWidget->adjustContentSize();
-
     mRotatedWidget->update();
 }
 
@@ -157,6 +155,12 @@ void LxQtClock::restartTimer(const QDateTime &now)
 
 void LxQtClock::settingsChanged()
 {
+    mFirstDayOfWeek = settings()->value("firstDayOfWeek", -1).toInt();
+    if (-1 == mFirstDayOfWeek)
+        mCalendarPopup->setFirstDayOfWeek(QLocale::system().firstDayOfWeek());
+    else
+        mCalendarPopup->setFirstDayOfWeek(static_cast<Qt::DayOfWeek>(mFirstDayOfWeek));
+
     mTimeFormat = settings()->value("timeFormat", QLocale::system().timeFormat(QLocale::ShortFormat).toUpper().contains("AP") ? "h:mm AP" : "HH:mm").toString();
 
     mUseUTC = settings()->value("UTC", false).toBool();

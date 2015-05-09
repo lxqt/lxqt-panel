@@ -4,7 +4,7 @@
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="236"/>
+        <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
         <translation>Hauptmenü anzeigen/verstecken</translation>
     </message>

@@ -47,6 +47,9 @@ public:
     explicit SpacerConfiguration(QSettings *settings, QWidget *parent = 0);
     ~SpacerConfiguration();
 
+public:
+    static const QStringList msTypes;
+
 private:
     Ui::SpacerConfiguration *ui;
     QSettings *mSettings;
@@ -59,6 +62,7 @@ private slots:
     void loadSettings();
     void dialogButtonsAction(QAbstractButton *btn);
     void sizeChanged(int value);
+    void typeChanged(QString const & value);
 };
 
 #endif // SPACERCONFIGURATION_H
