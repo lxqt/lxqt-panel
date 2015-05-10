@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.0" language="pl_PL">
 <context>
     <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation type="vanished">Obciążenie CPU %1%</translation>
+        <translation>Obciążenie CPU %1%</translation>
     </message>
     <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
@@ -17,7 +17,7 @@
     <name>LxQtCpuLoadConfiguration</name>
     <message>
         <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">Ustawienia LxQt CPU Load</translation>
+        <translation>Ustawienia LxQt CPU Load</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

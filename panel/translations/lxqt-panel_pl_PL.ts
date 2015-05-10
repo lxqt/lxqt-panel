@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.0" language="pl_PL">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Konfiguruj panel</translation>
+        <translation>Konfiguruj panel</translation>
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="vanished">Rozmiar panelu</translation>
+        <translation>Rozmiar panelu</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="vanished">Rozmiar:</translation>
+        <translation>Rozmiar:</translation>
     </message>
     <message>
         <source>px</source>
-        <translation type="vanished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="vanished">Użyj automatycznego dopasowywania</translation>
+        <translation>Użyj automatycznego dopasowywania</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Długość i położenie panelu</translation>
+        <translation>Długość i położenie panelu</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="vanished">Lewa</translation>
+        <translation>Lewa</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="vanished">Środek</translation>
+        <translation>Środek</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="vanished">Prawa</translation>
+        <translation>Prawa</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="vanished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="vanished">Wyrównanie:</translation>
+        <translation>Wyrównanie:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Długość:</translation>
+        <translation>Długość:</translation>
     </message>
     <message>
         <source>Position:</source>
-        <translation type="vanished">Pozycja:</translation>
+        <translation>Pozycja:</translation>
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="vanished">Górna krawędź pulpitu</translation>
+        <translation>Górna krawędź pulpitu</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">Lewa krawędź pulpitu</translation>
+        <translation>Lewa krawędź pulpitu</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">Prawa krawędź pulpitu</translation>
+        <translation>Prawa krawędź pulpitu</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">Dolna krawędź pulpitu</translation>
+        <translation>Dolna krawędź pulpitu</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">Górna krawędź pulpitu %1</translation>
+        <translation>Górna krawędź pulpitu %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">Lewa krawędź pulpitu %1</translation>
+        <translation>Lewa krawędź pulpitu %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">Prawa krawędź pulpitu %1</translation>
+        <translation>Prawa krawędź pulpitu %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">Dolna krawędź pulpitu %1</translation>
+        <translation>Dolna krawędź pulpitu %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="80"/>
@@ -308,33 +308,33 @@
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation type="vanished">Konfiguruj panel...</translation>
+        <translation>Konfiguruj panel...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Dodaj wtyczkę ...</translation>
+        <translation>Dodaj wtyczkę ...</translation>
     </message>
 </context>
 <context>
     <name>LxQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation type="vanished">Konfiguruj</translation>
+        <translation>Konfiguruj</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="vanished">Przesuń</translation>
+        <translation>Przesuń</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
     <name>LxQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Konfiguruj panel</translation>
+        <translation>Konfiguruj panel</translation>
     </message>
 </context>
 <context>

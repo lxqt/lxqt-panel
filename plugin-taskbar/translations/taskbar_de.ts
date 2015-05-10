@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="480"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Zur Ak&amp;tuellen Arbeitsfläche</translation>
+        <translation>Zur ak&amp;tuellen Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="489"/>
@@ -94,103 +94,75 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="81"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppe</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppe schließen</translation>
     </message>
 </context>
 <context>
     <name>LxQtTaskbarConfiguration</name>
     <message>
-        <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">LxQt Taskmanager Einstellungen</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">Fensterlisteninhalt</translation>
-    </message>
-    <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsverwalter - Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster der akt&amp;uellen Arbeitsfläche anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all des&amp;ktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster aller Arbeits&amp;flächen anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="56"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Fensteranordnun&amp;g</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Popup bei Mauszeiger</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="75"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsbild</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="94"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. Schaltflächenbreite</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="107"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show windows from current desktop</source>
-        <translation type="vanished">Fenster der aktuellen Arbeitsfläche anzeigen</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="120"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>wlcB</source>
-        <translation type="vanished">wlcB</translation>
-    </message>
-    <message>
-        <source>Show windows from all desktops</source>
-        <translation type="vanished">Fenster aller Arbeitsflächen anzeigen</translation>
-    </message>
-    <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">Fensterlisten Erscheinungsbild</translation>
+        <translation>Fenster bei Mittelklick schließen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="84"/>
         <source>Button style</source>
-        <translation>Schaltflächenstiel</translation>
-    </message>
-    <message>
-        <source>Max button width</source>
-        <translation type="vanished">Max. Schaltflächenbreite</translation>
+        <translation>Schaltflächenstil</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

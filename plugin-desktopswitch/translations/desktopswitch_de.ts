@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>DesktopSwitch</name>
     <message>
         <location filename="../desktopswitch.cpp" line="83"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Arbeitsfläche %1 wechseln</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="123"/>
@@ -20,27 +20,27 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbeitsflächenumschalter - Einstellungen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der Zeilen:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="40"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbeitsflächenbezeichnungen:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="58"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Ziffern</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="63"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Namen</translation>
     </message>
 </context>
 </TS>

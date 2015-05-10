@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>LxQtMainMenu</name>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation type="vanished">Verlassen</translation>
+        <translation>Hauptmenü anzeigen/verstecken</translation>
     </message>
 </context>
 <context>
     <name>LxQtMainMenuConfiguration</name>
     <message>
-        <source>LxQt Main Menu settings</source>
-        <translation type="vanished">LxQt Hauptmenü-Einstellungen</translation>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
+        <source>Main Menu settings</source>
+        <translation>Hauptmenü-Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -25,32 +22,19 @@
         <translation>Allgemein</translation>
     </message>
     <message>
-        <source>Show text</source>
-        <translation type="vanished">Text anzeigen</translation>
-    </message>
-    <message>
-        <source>Button text</source>
-        <translation type="vanished">Knopf-Text</translation>
-    </message>
-    <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Schaltflächentext:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="52"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigene Schriftgröße:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="62"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="81"/>
@@ -60,7 +44,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="87"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Menü-Datei:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
@@ -70,17 +54,17 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Keyboard Shortcut</source>
-        <translation>Tastaturkürzel</translation>
+        <translation>Tastenkürzel</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="130"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Klicken Sie auf die Schaltfläche, um ein Tastaturkürzel aufzunehmen:</translation>
+        <translation>Auf die Schaltfläche klicken, um ein Tastenkürzel aufzunehmen:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="55"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurücksetzen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>

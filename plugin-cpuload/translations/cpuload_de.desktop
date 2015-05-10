@@ -9,5 +9,5 @@ Comment=Displays the current CPU load.
 
 
 # Translations
-Comment[de]=Prozesslast-Monitor
-Name[de]=Prozessauslastung
+Comment[de]=Prozessorlast-Monitor
+Name[de]=Prozessorauslastung

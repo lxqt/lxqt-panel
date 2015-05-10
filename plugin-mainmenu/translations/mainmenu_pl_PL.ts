@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.0" language="pl_PL">
 <context>
     <name>LxQtMainMenu</name>
     <message>
@@ -17,7 +17,7 @@
     <name>LxQtMainMenuConfiguration</name>
     <message>
         <source>LxQt Main Menu settings</source>
-        <translation type="vanished">Ustawienia menu LxQt</translation>
+        <translation>Ustawienia menu LxQt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -26,11 +26,11 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation type="vanished">Pokaż tekst</translation>
+        <translation>Pokaż tekst</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="vanished">Tekst</translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
