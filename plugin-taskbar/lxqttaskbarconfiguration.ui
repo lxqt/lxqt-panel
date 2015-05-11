@@ -21,11 +21,24 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QCheckBox" name="limitByDesktopCB">
-        <property name="text">
-         <string>Show only windows from c&amp;urrent desktop</string>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="margin">
+         <number>0</number>
         </property>
-       </widget>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="limitByDesktopCB">
+          <property name="text">
+           <string>Show only windows from desktop</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="showDesktopNumCB"/>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QCheckBox" name="limitByScreenCB">

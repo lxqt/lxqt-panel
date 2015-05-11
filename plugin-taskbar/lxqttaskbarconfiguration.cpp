@@ -30,6 +30,7 @@
 
 #include "lxqttaskbarconfiguration.h"
 #include "ui_lxqttaskbarconfiguration.h"
+#include <KWindowSystem/KWindowSystem>
 
 LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget *parent):
     QDialog(parent),
@@ -47,11 +48,19 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     ui->buttonStyleCB->addItem(tr("Only icon"), "Icon");
     ui->buttonStyleCB->addItem(tr("Only text"), "Text");
 
+    ui->showDesktopNumCB->addItem(tr("Current"), 0);
+    //Note: in KWindowSystem desktops are numbered from 1..N
+    const int desk_cnt = KWindowSystem::numberOfDesktops();
+    for (int i = 1; desk_cnt >= i; ++i)
+        ui->showDesktopNumCB->addItem(QStringLiteral("%1 - %2").arg(i).arg(KWindowSystem::desktopName(i)), i);
+
     loadSettings();
 
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
     connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByDesktopCB, &QCheckBox::stateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);
+    connect(ui->showDesktopNumCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
     connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->limitByMinimizedCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->raiseOnCurrentDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
@@ -71,7 +80,10 @@ LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
 
 void LxQtTaskbarConfiguration::loadSettings()
 {
-    ui->limitByDesktopCB->setChecked(mSettings.value("showOnlyCurrentDesktopTasks", false).toBool());
+    const bool showOnlyOneDesktopTasks = mSettings.value("showOnlyOneDesktopTasks", false).toBool();
+    ui->limitByDesktopCB->setChecked(showOnlyOneDesktopTasks);
+    ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(mSettings.value("showDesktopNum", 0).toInt()));
+    ui->showDesktopNumCB->setEnabled(showOnlyOneDesktopTasks);
     ui->limitByScreenCB->setChecked(mSettings.value("showOnlyCurrentScreenTasks", false).toBool());
     ui->limitByMinimizedCB->setChecked(mSettings.value("showOnlyMinimizedTasks", false).toBool());
 
@@ -87,7 +99,8 @@ void LxQtTaskbarConfiguration::loadSettings()
 
 void LxQtTaskbarConfiguration::saveSettings()
 {
-    mSettings.setValue("showOnlyCurrentDesktopTasks", ui->limitByDesktopCB->isChecked());
+    mSettings.setValue("showOnlyOneDesktopTasks", ui->limitByDesktopCB->isChecked());
+    mSettings.setValue("showDesktopNum", ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
     mSettings.setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
     mSettings.setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
     mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));

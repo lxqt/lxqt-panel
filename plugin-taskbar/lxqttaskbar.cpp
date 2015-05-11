@@ -57,7 +57,8 @@ LxQtTaskBar::LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget *parent) :
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mCloseOnMiddleClick(true),
     mRaiseOnCurrentDesktop(true),
-    mShowOnlyCurrentDesktopTasks(false),
+    mShowOnlyOneDesktopTasks(false),
+    mShowDesktopNum(0),
     mShowOnlyCurrentScreenTasks(false),
     mShowOnlyMinimizedTasks(false),
     mAutoRotate(true),
@@ -352,7 +353,8 @@ void LxQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
 void LxQtTaskBar::settingsChanged()
 {
     bool groupingEnabledOld = mGroupingEnabled;
-    bool showOnlyCurrentDesktopTasksOld = mShowOnlyCurrentDesktopTasks;
+    bool showOnlyOneDesktopTasksOld = mShowOnlyOneDesktopTasks;
+    const int showDesktopNumOld = mShowDesktopNum;
     bool showOnlyCurrentScreenTasksOld = mShowOnlyCurrentScreenTasks;
     bool showOnlyMinimizedTasksOld = mShowOnlyMinimizedTasks;
 
@@ -367,7 +369,8 @@ void LxQtTaskBar::settingsChanged()
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyCurrentDesktopTasks = mPlugin->settings()->value("showOnlyCurrentDesktopTasks", mShowOnlyCurrentDesktopTasks).toBool();
+    mShowOnlyOneDesktopTasks = mPlugin->settings()->value("showOnlyOneDesktopTasks", mShowOnlyOneDesktopTasks).toBool();
+    mShowDesktopNum = mPlugin->settings()->value("showDesktopNum", mShowDesktopNum).toInt();
     mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
     mShowOnlyMinimizedTasks = mPlugin->settings()->value("showOnlyMinimizedTasks", mShowOnlyMinimizedTasks).toBool();
     mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
@@ -387,7 +390,8 @@ void LxQtTaskBar::settingsChanged()
         mGroupsHash.clear();
     }
 
-    if (showOnlyCurrentDesktopTasksOld != mShowOnlyCurrentDesktopTasks
+    if (showOnlyOneDesktopTasksOld != mShowOnlyOneDesktopTasks
+            || (mShowOnlyOneDesktopTasks && showDesktopNumOld != mShowDesktopNum)
             || showOnlyCurrentScreenTasksOld != mShowOnlyCurrentScreenTasks
             || showOnlyMinimizedTasksOld != mShowOnlyMinimizedTasks
             )

@@ -368,11 +368,13 @@ void LxQtTaskGroup::setAutoRotation(bool value, ILxQtPanel::Position position)
 void LxQtTaskGroup::refreshVisibility()
 {
     bool will = false;
+    LxQtTaskBar const * taskbar = parentTaskBar();
+    const int showDesktop = taskbar->showDesktopNum();
     foreach(LxQtTaskButton * btn, mButtonHash.values())
     {
-        bool visible = parentTaskBar()->isShowOnlyCurrentDesktopTasks() ? btn->isOnDesktop(KWindowSystem::currentDesktop()) : true;
-        visible &= parentTaskBar()->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
-        visible &= parentTaskBar()->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
+        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KWindowSystem::currentDesktop() : showDesktop) : true;
+        visible &= taskbar->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
+        visible &= taskbar->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);
         will |= visible;
     }
@@ -609,7 +611,7 @@ bool LxQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         // window changed virtual desktop
         if (prop.testFlag(NET::WMDesktop) || prop.testFlag(NET::WMGeometry))
         {
-            if (parentTaskBar()->isShowOnlyCurrentDesktopTasks()
+            if (parentTaskBar()->isShowOnlyOneDesktopTasks()
                     || parentTaskBar()->isShowOnlyCurrentScreenTasks())
             {
                 needsRefreshVisibility = true;

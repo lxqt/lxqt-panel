@@ -65,16 +65,17 @@ public:
 
     void realign();
 
-    Qt::ToolButtonStyle buttonStyle() { return mButtonStyle; }
-    int buttonWidth() { return mButtonWidth; }
-    bool closeOnMiddleClick() { return mCloseOnMiddleClick; }
-    bool raiseOnCurrentDesktop() { return mRaiseOnCurrentDesktop; }
-    bool isShowOnlyCurrentDesktopTasks() { return mShowOnlyCurrentDesktopTasks; }
-    bool isShowOnlyCurrentScreenTasks() { return mShowOnlyCurrentScreenTasks; }
-    bool isShowOnlyMinimizedTasks() { return mShowOnlyMinimizedTasks; }
-    bool isAutoRotate() { return mAutoRotate; }
-    bool isGroupingEnabled() { return mGroupingEnabled; }
-    bool isShowGroupOnHover() { return mShowGroupOnHover; }
+    Qt::ToolButtonStyle buttonStyle() const { return mButtonStyle; }
+    int buttonWidth() const { return mButtonWidth; }
+    bool closeOnMiddleClick() const { return mCloseOnMiddleClick; }
+    bool raiseOnCurrentDesktop() const { return mRaiseOnCurrentDesktop; }
+    bool isShowOnlyOneDesktopTasks() const { return mShowOnlyOneDesktopTasks; }
+    int showDesktopNum() const { return mShowDesktopNum; }
+    bool isShowOnlyCurrentScreenTasks() const { return mShowOnlyCurrentScreenTasks; }
+    bool isShowOnlyMinimizedTasks() const { return mShowOnlyMinimizedTasks; }
+    bool isAutoRotate() const { return mAutoRotate; }
+    bool isGroupingEnabled() const { return mGroupingEnabled; }
+    bool isShowGroupOnHover() const { return mShowGroupOnHover; }
 
 public slots:
     void settingsChanged();
@@ -105,7 +106,8 @@ private:
     int mButtonHeight;
     bool mCloseOnMiddleClick;
     bool mRaiseOnCurrentDesktop;
-    bool mShowOnlyCurrentDesktopTasks;
+    bool mShowOnlyOneDesktopTasks;
+    int mShowDesktopNum;
     bool mShowOnlyCurrentScreenTasks;
     bool mShowOnlyMinimizedTasks;
     bool mAutoRotate;
