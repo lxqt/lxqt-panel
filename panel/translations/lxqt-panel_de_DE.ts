@@ -284,7 +284,7 @@
         <location filename="../lxqtpanel.cpp" line="951"/>
         <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
-        <translation>Anwendungsmenü</translation>
+        <translation>Leiste</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
