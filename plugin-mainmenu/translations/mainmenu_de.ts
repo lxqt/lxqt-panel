@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="245"/>
+        <location filename="../lxqtmainmenu.cpp" line="221"/>
         <source>Show/hide main menu</source>
         <translation>Hauptmenü anzeigen/verstecken</translation>
     </message>

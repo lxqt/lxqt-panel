@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>FirstDayCombo</name>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Basierend auf lokale Datumseinstellungen&gt;</translation>
     </message>
 </context>
 <context>
@@ -37,16 +37,6 @@
         <translation>&amp;UTC verwenden</translation>
     </message>
     <message>
-        <location filename="../lxqtclockconfiguration.ui" line="50"/>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <location filename="../lxqtclockconfiguration.ui" line="59"/>
-        <source>Date &amp;format</source>
-        <translation>Datums&amp;format</translation>
-    </message>
-    <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
         <translation>&amp;Datum nicht anzeigen</translation>
@@ -69,7 +59,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="107"/>
         <source>First day of week in calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Erster Wochentag im Kalender</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="124"/>
@@ -80,6 +70,16 @@
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>Automatisch d&amp;rehen bei vertikalem Panel</translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="50"/>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="59"/>
+        <source>Date &amp;format</source>
+        <translation>Datums&amp;format</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
