@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>LxQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="187"/>
+        <location filename="../lxqtworldclock.cpp" line="184"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="595"/>
         <source>Custom name</source>
         <translation>Eigener Name</translation>
     </message>
@@ -233,7 +233,7 @@
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="594"/>
         <source>Input custom time zone name</source>
         <translation>Eigenen Zeitzonennamen eingeben</translation>
     </message>
@@ -351,14 +351,20 @@
         <translation>Land</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="115"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="116"/>
         <source>UTC</source>
         <translation>UTC</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="118"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="119"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
         <source>Other</source>
         <translation>Andere</translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
+        <source>Local timezone</source>
+        <translation>Lokale Zeitzone</translation>
     </message>
 </context>
 </TS>
