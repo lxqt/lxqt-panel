@@ -9,5 +9,5 @@ Comment=Displays network status and activity.
 
 
 # Translations
-Comment[it]=Centro di Configurazione LxQt
-Name[it]=Configura moduli di LXDE-Qt
+Comment[it]=Monitor di rete
+Name[it]=MOstra stato e attività della rete
