@@ -42,7 +42,7 @@ public:
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "Tray"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
+    virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment | SingleInstance; }
     void realign();
 
     bool isSeparate() const { return true; }

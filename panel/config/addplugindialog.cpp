@@ -25,8 +25,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "addplugindialog.h"
 #include "ui_addplugindialog.h"
+#include "addplugindialog.h"
+#include "plugin.h"
+#include "ilxqtpanelplugin.h"
+
 #include <LXQt/HtmlDelegate>
 #include <XdgIcon>
 #include <XdgDirs>
@@ -39,9 +42,10 @@
 #define SEARCH_ROLE  Qt::UserRole
 #define INDEX_ROLE   SEARCH_ROLE+1
 
-AddPluginDialog::AddPluginDialog(QWidget *parent):
+AddPluginDialog::AddPluginDialog(PanelPluginsModel *model, QWidget *parent):
     QDialog(parent),
-    ui(new Ui::AddPluginDialog)
+    ui(new Ui::AddPluginDialog),
+    mModel(model)
 {
     ui->setupUi(this);
 
@@ -100,6 +104,14 @@ void AddPluginDialog::filter()
         item->setText(QString("<b>%1</b><br>\n%2\n").arg(plugin.name(), plugin.comment()));
         item->setIcon(plugin.icon(fallIco));
         item->setData(INDEX_ROLE, i);
+
+        // disable single-instances plugins already in use
+        Plugin *p = mModel->pluginByID(plugin.id());
+        if (p && p->iPlugin()->flags().testFlag(ILxQtPanelPlugin::SingleInstance))
+        {
+            item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
+            item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));
+        }
     }
 
     if (pluginCount > 0)

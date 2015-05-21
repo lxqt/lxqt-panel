@@ -78,6 +78,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="singleInstanceNotice">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: grayed rows mean plugins limited to a single instance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer">

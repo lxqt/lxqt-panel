@@ -86,7 +86,7 @@ void ConfigPluginsWidget::showAddPluginDialog()
 {
     if (mAddPluginDialog.isNull())
     {
-        mAddPluginDialog.reset(new AddPluginDialog);
+        mAddPluginDialog.reset(new AddPluginDialog(mPanel->mPlugins.data()));
         connect(mAddPluginDialog.data(), &AddPluginDialog::pluginSelected,
                 mPanel->mPlugins.data(), &PanelPluginsModel::addPlugin);
     }

@@ -54,6 +54,8 @@ public:
 
     QStringList pluginNames() const;
     QList<Plugin *> plugins() const;
+    Plugin *pluginByName(QString name) const;
+    Plugin *pluginByID(QString id) const;
 
     /*!
      * \param plugin plugin that has been moved

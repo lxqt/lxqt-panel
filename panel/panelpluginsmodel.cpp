@@ -107,18 +107,42 @@ QList<Plugin *> PanelPluginsModel::plugins() const
     return std::move(plugins);
 }
 
+Plugin* PanelPluginsModel::pluginByName(QString name) const
+{
+    for (auto const & p : mPlugins)
+        if (p.first == name)
+            return p.second.data();
+    return nullptr;
+}
+
+Plugin* PanelPluginsModel::pluginByID(QString id) const
+{
+    for (auto const & p : mPlugins)
+    {
+        Plugin *plugin = p.second.data();
+        if (plugin->desktopFile().id() == id)
+            return plugin;
+    }
+    return nullptr;
+}
+
 void PanelPluginsModel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
+    Plugin *p = pluginByID(desktopFile.id());
+    if (p && p->iPlugin()->flags().testFlag(ILxQtPanelPlugin::SingleInstance))
+        return;
+
     QString name = findNewPluginSettingsGroup(desktopFile.id());
+
     QPointer<Plugin> plugin = loadPlugin(desktopFile, name);
-    if (!plugin.isNull())
-    {
-        beginInsertRows(QModelIndex(), mPlugins.size(), mPlugins.size());
-        mPlugins.append({name, plugin});
-        endInsertRows();
-        mPanel->settings()->setValue(mNamesKey, pluginNames());
-        emit pluginAdded(plugin.data());
-    }
+    if (plugin.isNull())
+        return;
+
+    beginInsertRows(QModelIndex(), mPlugins.size(), mPlugins.size());
+    mPlugins.append({name, plugin});
+    endInsertRows();
+    mPanel->settings()->setValue(mNamesKey, pluginNames());
+    emit pluginAdded(plugin.data());
 }
 
 void PanelPluginsModel::removePlugin(pluginslist_t::iterator plugin)

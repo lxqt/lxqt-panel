@@ -29,6 +29,7 @@
 #ifndef LXQT_ADDPLUGINDIALOG_H
 #define LXQT_ADDPLUGINDIALOG_H
 
+#include "panelpluginsmodel.h"
 #include <LXQt/PluginInfo>
 #include <QDialog>
 #include <QTimer>
@@ -44,7 +45,7 @@ class AddPluginDialog : public QDialog
     Q_OBJECT
 
 public:
-    AddPluginDialog(QWidget *parent = 0);
+    AddPluginDialog(PanelPluginsModel *model, QWidget *parent = 0);
     ~AddPluginDialog();
 
 signals:
@@ -53,6 +54,7 @@ signals:
 private:
     Ui::AddPluginDialog *ui;
     LxQt::PluginInfoList mPlugins;
+    PanelPluginsModel *mModel;
     QTimer mSearchTimer;
 
 private slots:

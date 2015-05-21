@@ -81,7 +81,8 @@ public:
                                         otherwise plugin prefer left (like main menu).
                                         This flag is used only at the first start, later positions of all
                                         plugins saved in a config, and this saved information is used. */
-        HaveConfigDialog     = 2    ///< The plugin have a configuration dialog.
+        HaveConfigDialog     = 2,   ///< The plugin have a configuration dialog.
+        SingleInstance       = 4    ///< The plugin allows only one instance to run.
     };
 
     Q_DECLARE_FLAGS(Flags, Flag)
