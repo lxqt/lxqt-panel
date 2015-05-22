@@ -35,7 +35,6 @@
 #include <QPointer>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
-#include <LXQt/AddPluginDialog>
 
 class QMenu;
 class Plugin;
