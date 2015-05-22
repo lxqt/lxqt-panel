@@ -1,97 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<TS version="2.0" language="hu">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
-        <source>Configure panel</source>
-        <translation type="vanished">Panelbeállítás</translation>
-    </message>
-    <message>
-        <source>Panel size</source>
-        <translation type="vanished">Panelméret</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="vanished">Méret:</translation>
-    </message>
-    <message>
-        <source>px</source>
-        <translation type="vanished">px</translation>
-    </message>
-    <message>
-        <source>Use automatic sizing</source>
-        <translation type="vanished">Automatikus méretezés</translation>
-    </message>
-    <message>
-        <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Panelhossz és elhelyezkedés</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Balra</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="vanished">Középre</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Jobbra</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="vanished">%</translation>
-    </message>
-    <message>
-        <source>Alignment:</source>
-        <translation type="vanished">Igazítás:</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Hossz:</translation>
-    </message>
-    <message>
-        <source>Position:</source>
-        <translation type="vanished">Pozíció:</translation>
-    </message>
-    <message>
         <source>Top of desktop</source>
-        <translation type="vanished">Az asztal tetején</translation>
+        <translation>Az asztal tetejére</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">Az asztal bal oldalán</translation>
+        <translation>Az asztal bal oldalára</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">Az asztal jobb oldalán</translation>
+        <translation>Az asztal jobb oldalára</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">Az asztal alján</translation>
+        <translation>Az asztal aljára</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">A(z) %1. asztal tetején</translation>
+        <translation>A(z) %1. asztal tetejére</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">A(z) %1. asztal bal oldalán</translation>
+        <translation>A(z) %1. asztal bal oldalára</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">A(z) %1. asztal jobb oldalán</translation>
+        <translation>A(z) %1. asztal jobb oldalára</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">A(z) %1. asztal alján</translation>
+        <translation>A(z) %1. asztal aljára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="80"/>
         <location filename="../config/configpaneldialog.cpp" line="86"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelbeállítás</translation>
     </message>
 </context>
 <context>
@@ -99,178 +47,178 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Panelbeállítás</translation>
+        <translation>Panelbeállítás</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="32"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Méret</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="41"/>
         <source>Size:</source>
-        <translation type="unfinished">Méret:</translation>
+        <translation>Méret:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="48"/>
         <location filename="../config/configpaneldialog.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> pixel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="58"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonméret:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
         <source>Length:</source>
-        <translation type="unfinished">Hossz:</translation>
+        <translation>Hossz:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Negatív pixel érték azt jelöli, hogy mennyivel rövidebb a panel a képernyőnél.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Például -100px érték esetén az 1000px széles képernyőnél a panel hossza 900px.&lt;/i&gt;&lt;/p</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="124"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="129"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>pixel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorszámláló:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Igazítás &amp;&amp; helyzet</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
         <location filename="../config/configpaneldialog.cpp" line="234"/>
         <source>Left</source>
-        <translation type="unfinished">Balra</translation>
+        <translation>Balra</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="187"/>
         <location filename="../config/configpaneldialog.cpp" line="235"/>
         <location filename="../config/configpaneldialog.cpp" line="241"/>
         <source>Center</source>
-        <translation type="unfinished">Középre</translation>
+        <translation>Középre</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="192"/>
         <location filename="../config/configpaneldialog.cpp" line="236"/>
         <source>Right</source>
-        <translation type="unfinished">Jobbra</translation>
+        <translation>Jobbra</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="200"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Igazítás:</translation>
+        <translation>Igazítás:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="210"/>
         <source>Position:</source>
-        <translation type="unfinished">Pozíció:</translation>
+        <translation>Pozíció:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="217"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Automata elrejtés</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="233"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangolás</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni betűszín:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="246"/>
         <source>Custom background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni háttérkép:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="260"/>
         <source>Custom background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni háttérszín:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="351"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Áttetszőség</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="200"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Az asztal tetején</translation>
+        <translation>Az asztal tetejére</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="201"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Az asztal bal oldalán</translation>
+        <translation>Az asztal bal oldalára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="202"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Az asztal jobb oldalán</translation>
+        <translation>Az asztal jobb oldalára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="203"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Az asztal alján</translation>
+        <translation>Az asztal aljára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="212"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">A(z) %1. asztal tetején</translation>
+        <translation>A(z) %1. asztal tetejére</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="213"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">A(z) %1. asztal bal oldalán</translation>
+        <translation>A(z) %1. asztal bal oldalára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="214"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">A(z) %1. asztal jobb oldalán</translation>
+        <translation>A(z) %1. asztal jobb oldalára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="215"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">A(z) %1. asztal alján</translation>
+        <translation>A(z) %1. asztal aljára</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="240"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenn</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="242"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Lenn</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="397"/>
         <location filename="../config/configpaneldialog.cpp" line="411"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Színválasztás</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="431"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Képek (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -278,63 +226,37 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="623"/>
         <source>Add Panel Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelelem hozzáadás</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="951"/>
         <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
-        <translation>Alkalmazásmenü</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel beállítása…</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="978"/>
         <source>Add Panel Widgets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelelem hozzáadás...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="984"/>
         <source>Add Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel hozzáadás</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="991"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configure panel...</source>
-        <translation type="vanished">Panel beállítása…</translation>
+        <translation>Panel törlése</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Bővítmények hozzáadása…</translation>
-    </message>
-</context>
-<context>
-    <name>LxQtPanelPlugin</name>
-    <message>
-        <source>Configure</source>
-        <translation type="vanished">Beállítás</translation>
-    </message>
-    <message>
-        <source>Move</source>
-        <translation type="vanished">Mozgatás</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Eltávolítás</translation>
-    </message>
-</context>
-<context>
-    <name>LxQtPanelPrivate</name>
-    <message>
-        <source>Configure panel</source>
-        <translation type="vanished">Panelbeállítás</translation>
+        <translation>Bővítmények hozzáadása…</translation>
     </message>
 </context>
 <context>
@@ -342,17 +264,17 @@
     <message>
         <location filename="../plugin.cpp" line="395"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; beállítása</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="400"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; mozgatása</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="408"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; törlése</translation>
     </message>
 </context>
 </TS>
