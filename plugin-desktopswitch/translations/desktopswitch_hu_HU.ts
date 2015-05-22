@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="83"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1. asztalra váltás</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="123"/>
@@ -20,27 +20,27 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Asztalváltó beállítás</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorok száma:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="40"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Asztalazonosítók:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="58"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Számok</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="63"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Nevek</translation>
     </message>
 </context>
 </TS>
