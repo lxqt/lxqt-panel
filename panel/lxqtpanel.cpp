@@ -169,7 +169,7 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
     connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
 
-    connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(realign()));
+    connect(QApplication::desktop(), SIGNAL(workAreaResized(int)), this, SLOT(realign()));
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
     connect(LxQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
