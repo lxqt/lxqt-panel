@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1">
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="245"/>
+        <location filename="../lxqtmainmenu.cpp" line="221"/>
         <source>Show/hide main menu</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12,13 +12,13 @@
 <context>
     <name>LxQtMainMenuConfiguration</name>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
-        <source>General</source>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
+        <source>Main Menu settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
+        <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -67,12 +67,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="101"/>
         <source>Choose menu file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="103"/>
         <source>Menu files (*.menu)</source>
         <translation type="unfinished"></translation>
     </message>

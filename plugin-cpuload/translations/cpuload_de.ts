@@ -4,25 +4,17 @@
 <context>
     <name>LxQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">Prozessorauslastung %1%</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozessorauslastung %1%</translation>
     </message>
 </context>
 <context>
     <name>LxQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQt Prozessorauslastung Einstellungen</translation>
-    </message>
-    <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen zur Prozessorlast-Anzeige</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -42,17 +34,17 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation>Sek.</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Anzeigeausrichtung:</translation>
+        <translation>Balkenrichtung:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Balkenbreite:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
