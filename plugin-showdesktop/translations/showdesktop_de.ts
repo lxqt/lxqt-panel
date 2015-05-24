@@ -9,14 +9,14 @@
         <translation>Arbeitsfläche anzeigen</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="69"/>
-        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Das globale Tastaturkürzel zum Arbeitsfläche anzeigen &apos;%1&apos; kann nicht registriert werden</translation>
-    </message>
-    <message>
         <location filename="../showdesktop.cpp" line="55"/>
         <source>Show Desktop</source>
         <translation>Arbeitsfläche anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../showdesktop.cpp" line="69"/>
+        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation>Das globale Tastaturkürzel zum Arbeitsfläche anzeigen &apos;%1&apos; kann nicht registriert werden</translation>
     </message>
 </context>
 </TS>

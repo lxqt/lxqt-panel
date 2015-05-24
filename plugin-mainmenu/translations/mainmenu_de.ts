@@ -67,12 +67,12 @@
         <translation>Zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="101"/>
         <source>Choose menu file</source>
         <translation>Menü-Datei auswählen</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="103"/>
         <source>Menu files (*.menu)</source>
         <translation>Menü-Dateien (*.menu)</translation>
     </message>

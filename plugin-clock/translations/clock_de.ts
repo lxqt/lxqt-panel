@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>FirstDayCombo</name>
     <message>
@@ -37,6 +37,16 @@
         <translation>&amp;UTC verwenden</translation>
     </message>
     <message>
+        <location filename="../lxqtclockconfiguration.ui" line="50"/>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location filename="../lxqtclockconfiguration.ui" line="59"/>
+        <source>Date &amp;format</source>
+        <translation>Datums&amp;format</translation>
+    </message>
+    <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
         <translation>&amp;Datum nicht anzeigen</translation>
@@ -69,17 +79,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Automatisch d&amp;rehen bei vertikalem Panel</translation>
-    </message>
-    <message>
-        <location filename="../lxqtclockconfiguration.ui" line="50"/>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <location filename="../lxqtclockconfiguration.ui" line="59"/>
-        <source>Date &amp;format</source>
-        <translation>Datums&amp;format</translation>
+        <translation>Automatisch d&amp;rehen bei vertikaler Leiste</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>

@@ -115,6 +115,31 @@
         <translation>Allgemein</translation>
     </message>
     <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
+        <source>Show only windows from c&amp;urrent desktop</source>
+        <translation>Nur Fenster der akt&amp;uellen Arbeitsfläche anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="33"/>
+        <source>Show only windows from &amp;panel&apos;s screen</source>
+        <translation>Nur Fenster aus der &amp;Taskleiste anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="40"/>
+        <source>Show only minimized windows</source>
+        <translation>Nur minimierte Fenster anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="47"/>
+        <source>Raise minimized windows on current desktop</source>
+        <translation>Minimierte Fenster auf aktuelle Arbeitsfläche heben</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="54"/>
+        <source>Close on middle-click</source>
+        <translation>Fenster bei Mittelklick schließen</translation>
+    </message>
+    <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="64"/>
         <source>Window &amp;grouping</source>
         <translation>Fensteranordnun&amp;g</translation>
@@ -128,6 +153,11 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Appearance</source>
         <translation>Erscheinungsbild</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="92"/>
+        <source>Button style</source>
+        <translation>Schaltflächenstil</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
@@ -149,36 +179,6 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="154"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="54"/>
-        <source>Close on middle-click</source>
-        <translation>Fenster bei Mittelklick schließen</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
-        <source>Show only windows from c&amp;urrent desktop</source>
-        <translation>Nur Fenster der akt&amp;uellen Arbeitsfläche anzeigen</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="33"/>
-        <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Nur Fenster aus der &amp;Taskleiste anzeigen</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="40"/>
-        <source>Show only minimized windows</source>
-        <translation>Nur minimierte Fenster anzeigen</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="47"/>
-        <source>Raise minimized windows on current desktop</source>
-        <translation>Minimierte Fenster auf aktuelle Arbeitsfläche heben</translation>
-    </message>
-    <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="92"/>
-        <source>Button style</source>
-        <translation>Schaltflächenstil</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

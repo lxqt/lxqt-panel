@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>DesktopSwitch</name>
     <message>
@@ -23,9 +23,9 @@
         <translation>Arbeitsflächenumschalter - Einstellungen</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.ui" line="46"/>
-        <source>Number of rows:</source>
-        <translation>Anzahl der Zeilen:</translation>
+        <location filename="../desktopswitchconfiguration.ui" line="20"/>
+        <source>Rows</source>
+        <translation>Zeilen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
@@ -33,9 +33,9 @@
         <translation>Arbeitsflächenbezeichnungen:</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.ui" line="20"/>
-        <source>Rows</source>
-        <translation>Zeilen</translation>
+        <location filename="../desktopswitchconfiguration.ui" line="46"/>
+        <source>Number of rows:</source>
+        <translation>Anzahl der Zeilen:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>

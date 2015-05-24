@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>AddPluginDialog</name>
     <message>
@@ -55,9 +55,29 @@
         <translation>Größe</translation>
     </message>
     <message>
+        <location filename="../config/configpanelwidget.ui" line="68"/>
+        <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Negative Pixelwerte setzen die Panellänge auf den Wert verfügbare Größe minus angegebener Größe.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Z.B. bei &quot;Länge&quot; gesetzt auf -100px und einer Bildschirmgröße von 1000px hat das Panel eine Größe von 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
         <translation>Größe:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="88"/>
+        <source>Length:</source>
+        <translation>Länge:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="96"/>
+        <source>%</source>
+        <translation>%</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="101"/>
+        <source>px</source>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
@@ -71,26 +91,6 @@
         <translation>Symbolgröße:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="88"/>
-        <source>Length:</source>
-        <translation>Länge:</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="68"/>
-        <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negative Pixelwerte setzen die Panellänge auf den Wert verfügbare Größe minus angegebener Größe.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Z.B. bei &quot;Länge&quot; gesetzt auf -100px und einer Bildschirmgröße von 1000px hat das Panel eine Größe von 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="96"/>
-        <source>%</source>
-        <translation>%</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="101"/>
-        <source>px</source>
-        <translation>px</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
         <translation>Zeilenzahl:</translation>
@@ -99,6 +99,16 @@
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Ausrichtung und Position</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="208"/>
+        <source>Position:</source>
+        <translation>Position:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="218"/>
+        <source>Alignment:</source>
+        <translation>Ausrichtung:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="244"/>
@@ -118,6 +128,11 @@
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Right</source>
         <translation>Rechts</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="284"/>
+        <source>Auto-hide</source>
+        <translation>Automatisch ausblenden</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="303"/>
@@ -143,21 +158,6 @@
         <location filename="../config/configpanelwidget.ui" line="450"/>
         <source>Background image:</source>
         <translation>Hintergrundbild:</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="218"/>
-        <source>Alignment:</source>
-        <translation>Ausrichtung:</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="208"/>
-        <source>Position:</source>
-        <translation>Position:</translation>
-    </message>
-    <message>
-        <location filename="../config/configpanelwidget.ui" line="284"/>
-        <source>Auto-hide</source>
-        <translation>Automatisch ausblenden</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="156"/>
@@ -217,13 +217,13 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="388"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Bilder (*.png *.gif *.jpg)</translation>
+        <source>Pick image</source>
+        <translation>Bild auswählen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="388"/>
-        <source>Pick image</source>
-        <translation>Bild auswählen</translation>
+        <source>Images (*.png *.gif *.jpg)</source>
+        <translation>Bilder (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -234,10 +234,9 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="951"/>
-        <location filename="../lxqtpanel.cpp" line="970"/>
-        <source>Panel</source>
-        <translation>Leiste</translation>
+        <location filename="../config/configpluginswidget.ui" line="84"/>
+        <source>Note: changes made in this page cannot be reset.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -255,12 +254,12 @@
         <location filename="../lxqtpanel.cpp" line="895"/>
         <location filename="../lxqtpanel.cpp" line="914"/>
         <source>Panel</source>
-        <translation>Panel</translation>
+        <translation>Leiste</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="917"/>
         <source>Configure Panel</source>
-        <translation>Panel konfigurieren</translation>
+        <translation>Leiste konfigurieren</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="922"/>
@@ -270,12 +269,12 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="928"/>
         <source>Add Panel</source>
-        <translation>Panel hinzufügen</translation>
+        <translation>Leiste hinzufügen</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="935"/>
         <source>Remove Panel</source>
-        <translation>Panel entfernen</translation>
+        <translation>Leiste entfernen</translation>
     </message>
 </context>
 <context>
