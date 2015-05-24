@@ -4,7 +4,7 @@
 <context>
     <name>LxQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="185"/>
+        <location filename="../lxqtworldclock.cpp" line="184"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -62,6 +62,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
+        <source>&amp;Use 12-hour format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
         <translation type="unfinished"></translation>
@@ -111,25 +116,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
-        <source>IANA id</source>
+        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
+        <source>Location identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="594"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="595"/>
         <source>Custom name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
-        <source>&amp;Use 12-hour format</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
-        <source>Location identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -185,6 +180,11 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
+        <source>IANA id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -315,18 +315,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="115"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="116"/>
         <source>UTC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="118"/>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="126"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="119"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Local timezone</source>
         <translation type="unfinished"></translation>
     </message>

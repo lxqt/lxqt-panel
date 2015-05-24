@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1">
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="83"/>
+        <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="123"/>
-        <location filename="../desktopswitch.cpp" line="133"/>
+        <location filename="../desktopswitch.cpp" line="141"/>
+        <location filename="../desktopswitch.cpp" line="151"/>
         <source>Desktop %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24,22 +24,32 @@
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
-        <source>Number of rows:</source>
+        <source>Rows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.ui" line="40"/>
+        <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.ui" line="58"/>
+        <location filename="../desktopswitchconfiguration.ui" line="46"/>
+        <source>Number of rows:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.ui" line="63"/>
+        <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.ui" line="70"/>
+        <source>Desktop names</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
