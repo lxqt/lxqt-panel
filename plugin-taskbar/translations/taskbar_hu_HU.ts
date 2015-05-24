@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.0" language="hu_HU">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="531"/>
         <source>&amp;Layer</source>
-        <translation>Réte&amp;]</translation>
+        <translation>Réte&amp;g</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="533"/>
@@ -94,85 +94,85 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="81"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Csoport</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Csoport bezárás</translation>
     </message>
 </context>
 <context>
     <name>LxQtTaskbarConfiguration</name>
     <message>
         <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">A LxQt feladatkezelő beállításai</translation>
+        <translation>A LxQt feladatkezelő beállításai</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Az ablaklista tartalma</translation>
+        <translation>Az ablaklista tartalma</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Feladatkezelő beállítása</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Általános</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>A jelenlegi asztal ablakai látszanak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all des&amp;ktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes asztal ablakai létszanak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="56"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ablakcsoportok</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Egérre felbukkanó jelzés</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="75"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjelenés</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="94"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Gomb maximális szélessége</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="107"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> pixel</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation type="vanished">A jelenlegi asztal ablakai</translation>
+        <translation>A jelenlegi asztal ablakai</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation type="vanished">Az összes asztal ablakai</translation>
+        <translation>Az összes asztal ablakai</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="120"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Gombok függőleges panelnál gördülnek</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation type="vanished">Az ablaklista megjelenése</translation>
+        <translation>Az ablaklista megjelenése</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="84"/>
@@ -181,12 +181,12 @@
     </message>
     <message>
         <source>Max button width</source>
-        <translation type="vanished">Max. gombszélesség:</translation>
+        <translation>Max. gombszélesség</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
+        <translation>Középkattintásra bezárul</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

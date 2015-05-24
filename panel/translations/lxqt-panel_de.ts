@@ -234,9 +234,10 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="84"/>
-        <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Hinweis: Änderungen auf dieser Seite können nicht rückgängig gemacht werden.</translation>
+        <location filename="../lxqtpanel.cpp" line="951"/>
+        <location filename="../lxqtpanel.cpp" line="970"/>
+        <source>Panel</source>
+        <translation>Leiste</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>

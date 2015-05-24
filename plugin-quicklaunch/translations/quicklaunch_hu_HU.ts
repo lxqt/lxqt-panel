@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.0" language="hu_HU">
 <context>
     <name>LxQtQuickLaunch</name>
     <message>
@@ -17,7 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="327"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejts ide
+indító ikont</translation>
     </message>
 </context>
 <context>

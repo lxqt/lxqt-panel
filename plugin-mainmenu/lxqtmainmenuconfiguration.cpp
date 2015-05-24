@@ -50,7 +50,7 @@ LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const 
     connect(ui->showTextCB, SIGNAL(toggled(bool)), this, SLOT(showTextChanged(bool)));
     connect(ui->textLE, SIGNAL(textEdited(QString)), this, SLOT(textButtonChanged(QString)));
     connect(ui->chooseMenuFilePB, SIGNAL(clicked()), this, SLOT(chooseMenuFile()));
-    
+
     connect(ui->shortcutEd, SIGNAL(shortcutGrabbed(QString)), this, SLOT(shortcutChanged(QString)));
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), SIGNAL(triggered()), this, SLOT(shortcutReset()));
 
@@ -97,14 +97,17 @@ void LxQtMainMenuConfiguration::showTextChanged(bool value)
 
 void LxQtMainMenuConfiguration::chooseMenuFile()
 {
-    QFileDialog d(this, tr("Choose menu file"), "~", tr("Menu files (*.menu)"));
-    d.setWindowModality(Qt::WindowModal);
-    if (d.exec() && !d.selectedFiles().isEmpty())
-    {
-        QString const & path = d.selectedFiles().front();
-        ui->menuFilePathLE->setText(path);
-        mSettings.setValue("menu_file", path);
-    }
+    QFileDialog *d = new QFileDialog(this,
+                                     tr("Choose menu file"),
+                                     QStringLiteral("/etc/xdg/menus"),
+                                     tr("Menu files (*.menu)"));
+    d->setWindowModality(Qt::WindowModal);
+    d->setAttribute(Qt::WA_DeleteOnClose);
+    connect(d, &QFileDialog::fileSelected, [&] (const QString &file) {
+        ui->menuFilePathLE->setText(file);
+        mSettings.setValue(QStringLiteral("menu_file"), file);
+    });
+    d->show();
 }
 
 void LxQtMainMenuConfiguration::shortcutChanged(const QString &value)

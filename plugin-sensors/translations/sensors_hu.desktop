@@ -6,5 +6,5 @@ Comment=View readings from hardware sensors.
 
 
 # Translations
-Name[hu]=Szenzorok
-Comment[hu]=Megjeleníti a hardver szenzorjainak értékeit.
+Name[hu]=Érzékelők
+Comment[hu]=Megjeleníti a gépbe épített érzékelők értékeit.
