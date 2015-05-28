@@ -108,6 +108,7 @@ LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     mLayout->addWidget(mDateLabel);
 
     mClockTimer = new QTimer(this);
+    mClockTimer->setTimerType(Qt::PreciseTimer);
     connect (mClockTimer, SIGNAL(timeout()), SLOT(updateTime()));
 
     mClockFormat = "hh:mm";
@@ -137,16 +138,16 @@ QDateTime LxQtClock::currentDateTime()
  */
 void LxQtClock::updateTime()
 {
-    QDateTime now = currentDateTime();
+    //XXX: do we need this with PreciseTimer ?
+    if (currentDateTime().time().msec() > 500)
+        restartTimer();
 
-    if (now.time().msec() > 500)
-        restartTimer(now);
-
-    showTime(now);
+    showTime();
 }
 
-void LxQtClock::showTime(const QDateTime &now)
+void LxQtClock::showTime()
 {
+    QDateTime now{currentDateTime()};
     if (mDateOnNewLine)
     {
         mTimeLabel->setText(QLocale::system().toString(now, mTimeFormat));
@@ -162,14 +163,15 @@ void LxQtClock::showTime(const QDateTime &now)
     mRotatedWidget->update();
 }
 
-void LxQtClock::restartTimer(const QDateTime &now)
+void LxQtClock::restartTimer()
 {
     if (mClockTimer->isActive())
         mClockTimer->stop();
     int updateInterval = mClockTimer->interval();
-    int delay = static_cast<int>((updateInterval + 100 /* ms after time change */ - ((now.time().msec() + now.time().second() * 1000) % updateInterval)) % updateInterval);
-    QTimer::singleShot(delay, this, SLOT(updateTime()));
-    QTimer::singleShot(delay, mClockTimer, SLOT(start()));
+    QDateTime now{currentDateTime()};
+    int delay = updateInterval - ((now.time().msec() + now.time().second() * 1000) % updateInterval);
+    QTimer::singleShot(delay, Qt::PreciseTimer, mClockTimer, SLOT(start()));
+    QTimer::singleShot(delay, Qt::PreciseTimer, this, SLOT(updateTime()));
 }
 
 void LxQtClock::settingsChanged()
@@ -210,13 +212,13 @@ void LxQtClock::settingsChanged()
 
     QDateTime now = currentDateTime();
 
-    showTime(now);
+    showTime();
 
     if (mClockTimer->interval() != updateInterval)
     {
         mClockTimer->setInterval(updateInterval);
 
-        restartTimer(now);
+        restartTimer();
     }
 }
 
