@@ -92,8 +92,8 @@ private:
     QScopedPointer<QProxyStyle> mTextStyle;
 
     QDateTime currentDateTime();
-    void showTime(const QDateTime &);
-    void restartTimer(const QDateTime&);
+    void showTime();
+    void restartTimer();
 };
 
 
