@@ -158,7 +158,7 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
         - mPlugins.begin();
     const int to_plugins = from < to ? to - 1 : to;
 
-    if (from != to)
+    if (from != to && from != to_plugins)
     {
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
         mPlugins.move(from, to_plugins);
