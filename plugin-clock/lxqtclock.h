@@ -41,6 +41,12 @@
 class QLabel;
 class QDialog;
 class QTimer;
+class QProxyStyle;
+
+namespace LxQt
+{
+    class GridLayout;
+}
 
 class LxQtClock : public QObject, public ILxQtPanelPlugin
 {
@@ -70,6 +76,7 @@ private:
     QTimer* mClockTimer;
     QWidget *mMainWidget;
     QWidget *mContent;
+    LxQt::GridLayout* mLayout;
     LxQt::RotatedWidget* mRotatedWidget;
     QLabel* mTimeLabel;
     QLabel* mDateLabel;
@@ -82,13 +89,11 @@ private:
     bool mUseUTC;
     int mFirstDayOfWeek;
     bool mAutoRotate;
+    QScopedPointer<QProxyStyle> mTextStyle;
 
     QDateTime currentDateTime();
     void showTime(const QDateTime &);
     void restartTimer(const QDateTime&);
-
-private slots:
-    void updateMinWidth();
 };
 
 
