@@ -265,7 +265,7 @@ void ConfigPanelWidget::editChanged()
     else
     {
         mPanel->setBackgroundColor(QColor(), true);
-        mPanel->setOpacity(-1, true);
+        mPanel->setOpacity(100, true);
     }
 
     QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
