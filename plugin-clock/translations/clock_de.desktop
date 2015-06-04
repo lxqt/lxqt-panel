@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Date & time
-Comment=Displays the current time. Comes with a calendar.
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[de]=Uhr und Kalender
-Name[de]=Uhr
+Name[de]=Uhr und Kalender
+Comment[de]=Zeigt die aktuelle Uhrzeit. Ein Kalender ist auch enthalten.
