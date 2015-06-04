@@ -155,7 +155,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="450"/>
+        <location filename="../config/configpanelwidget.ui" line="435"/>
+        <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background image:</source>
         <translation type="unfinished"></translation>
     </message>
