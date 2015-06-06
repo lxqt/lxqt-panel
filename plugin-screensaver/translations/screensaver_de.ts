@@ -4,22 +4,14 @@
 <context>
     <name>PanelScreenSaver</name>
     <message>
-        <source>Global keyboard shortcut</source>
-        <translation type="vanished">Globales Tastaturkürzel</translation>
-    </message>
-    <message>
-        <source>Panel Screensaver Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Globales Tastenkürzel für Bildschirmschoner: »%1« kann nicht registriert werden</translation>
-    </message>
-    <message>
         <location filename="../panelscreensaver.cpp" line="52"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildschirm sperren</translation>
     </message>
     <message>
         <location filename="../panelscreensaver.cpp" line="67"/>
         <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Für den Bildschirmschoner kann das globale Tastenkürzel &apos;%1&apos; nicht registriert werden</translation>
     </message>
 </context>
 </TS>
