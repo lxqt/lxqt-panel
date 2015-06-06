@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Launch screensaver
-Comment=Activate a screensaver and/or lock the screen
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[de]=Aktiviere einen Bildschirmschoner und/oder sperre den Bildschirm
 Name[de]=Bildschirmschoner
+Comment[de]=Bildschirmschoner aktivieren und/oder Bildschirm sperren
