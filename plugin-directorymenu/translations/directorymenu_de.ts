@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="de">
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <source>Open directory</source>
-        <translation type="vanished">Öffne Ordner</translation>
-    </message>
-    <message>
-        <source>Open in terminal</source>
-        <translation type="vanished">Öffne in Terminal</translation>
-    </message>
-    <message>
         <location filename="../directorymenu.cpp" line="146"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnen</translation>
     </message>
 </context>
 <context>
@@ -22,52 +14,52 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen des Verzeichnismenüs</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsbild</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Basisverzeichnis:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation type="unfinished"></translation>
+        <translation>BasisVerzeichnisName</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Basisverzeichnis auswählen</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../directorymenuconfiguration.cpp" line="123"/>
         <source>Choose Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol auswählen</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="123"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbole (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="132"/>
         <source>Directory Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnismenü</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="132"/>
         <source>An error occurred while loading the icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Laden des Symbols trat ein Fehler auf.</translation>
     </message>
 </context>
 </TS>
