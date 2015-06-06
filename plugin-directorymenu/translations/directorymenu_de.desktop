@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Directory Menu
-Comment=Displays a menu showing the contents of a directory
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[de]=Zeigt ein Menü mit dem Inhalt eines Ordners an
 Name[de]=Ordnermenü
+Comment[de]=Zeigt ein Menü mit dem Inhalt eines Ordners an
