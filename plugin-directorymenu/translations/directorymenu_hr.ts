@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr_HR">
+<TS version="2.1" language="hr">
 <context>
     <name>DirectoryMenu</name>
     <message>
@@ -42,7 +42,7 @@
         <translation type="unfinished">Izaberite osnovni direktorij</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../directorymenuconfiguration.cpp" line="123"/>
         <source>Choose Icon</source>
         <translation type="unfinished">Izaberite ikonu</translation>
     </message>
@@ -52,12 +52,12 @@
         <translation type="unfinished">Ikone (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="132"/>
         <source>Directory Menu</source>
         <translation type="unfinished">Izbornik direktorija</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="132"/>
         <source>An error occurred while loading the icon.</source>
         <translation type="unfinished">Došlo je do greške pri učitavanju ikone.</translation>
     </message>
