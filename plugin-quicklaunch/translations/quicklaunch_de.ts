@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>
-        <translation>Fehler fallen lassen</translation>
+        <translation>Fehler beim fallen lassen</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="220"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Datei/URL »%1« kann momentan nicht in die Schnellstartleiste eingebettet werden.</translation>
+        <translation>Datei/URL &apos;%1&apos; kann momentan nicht in die Schnellstartleiste eingebettet werden.</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="327"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendung/Symbol
+hier fallen lassen</translation>
     </message>
 </context>
 <context>

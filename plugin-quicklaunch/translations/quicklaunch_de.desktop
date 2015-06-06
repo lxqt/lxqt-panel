@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Quick launch
-Comment=Easy access to your favourite applications.
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[de]=Starten Sie Ihre lieblings Anwendungen
 Name[de]=Schnellstarter
+Comment[de]=Starten Sie Ihre Lieblingsanwendungen
