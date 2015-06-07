@@ -4,27 +4,19 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <source>Global keyboard shortcut</source>
-        <translation type="vanished">Globales Tastaturkürzel</translation>
-    </message>
-    <message>
-        <source>Panel Show Desktop Global shortcut: &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Globales Tastenkürzel für Arbeitsfläche anzeigen: »%1« kann nicht registriert werden</translation>
-    </message>
-    <message>
         <location filename="../showdesktop.cpp" line="48"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../showdesktop.cpp" line="69"/>
-        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbeitsfläche anzeigen</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="55"/>
         <source>Show Desktop</source>
-        <translation>Zeige Arbeitsoberfläche</translation>
+        <translation>Arbeitsfläche anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../showdesktop.cpp" line="69"/>
+        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation>Das globale Tastaturkürzel zum Arbeitsfläche anzeigen &apos;%1&apos; kann nicht registriert werden</translation>
     </message>
 </context>
 </TS>
