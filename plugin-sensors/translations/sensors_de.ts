@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.1" language="de">
 <context>
     <name>LxQtSensorsConfiguration</name>
     <message>
-        <source>LxQt Sensors Settings</source>
-        <translation type="vanished">LxQt Sensor Einstellungen</translation>
-    </message>
-    <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensor-Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -20,12 +16,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Aktualisierungs Intervall (Sekunden)</translation>
+        <translation>Aktualisierungsintervall (Sekunden)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Temperaturbalken Breite</translation>
+        <translation>Temperaturbalkenbreite</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
@@ -50,7 +46,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Warnung über zu hohe Temperaturen</translation>
+        <translation>Warnung bei zu hoher Temperatur</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
@@ -60,12 +56,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Erkannte Chips:</translation>
+        <translation>Erkannte Bausteine:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Chip Eigenschaften:</translation>
+        <translation>Bausteineigenschaften:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>
