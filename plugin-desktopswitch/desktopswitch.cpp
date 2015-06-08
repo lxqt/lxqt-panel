@@ -121,7 +121,8 @@ void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Pro
         else
         {
             DesktopSwitchButton *button = static_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1));
-            button->setUrgencyHint(id, info.hasState(NET::DemandsAttention));
+            if(button)
+                button->setUrgencyHint(id, info.hasState(NET::DemandsAttention));
         }
     }
 }
