@@ -28,12 +28,13 @@
 #include "ui_spacerconfiguration.h"
 
 
-const QStringList SpacerConfiguration::msTypes = 
-    (QStringList()
-     << QStringLiteral("lined")
-     << QStringLiteral("dotted")
-     << QStringLiteral("invisible")
-     );
+//Note: strings can't actually be translated here (in static initialization time)
+//      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
+const QStringList SpacerConfiguration::msTypes = {
+    QStringLiteral(QT_TR_NOOP("lined"))
+    , QStringLiteral(QT_TR_NOOP("dotted"))
+    , QStringLiteral(QT_TR_NOOP("invisible"))
+};
 
 SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     : QDialog(parent)
@@ -45,15 +46,17 @@ SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     setObjectName("SpacerConfigurationWindow");
     ui->setupUi(this);
 
-    ui->typeCB->addItems(msTypes);
+    //Note: translation is needed here in runtime (translator is attached already)
+    for (auto const & type : msTypes)
+        ui->typeCB->addItem(tr(type.toStdString().c_str()), type);
 
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
     loadSettings();
 
-    connect(ui->sizeSB, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
-    connect(ui->typeCB, &QComboBox::currentTextChanged, this, &SpacerConfiguration::typeChanged);
+    connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &SpacerConfiguration::sizeChanged);
+    connect(ui->typeCB, static_cast<void (QComboBox::*)(int index)>(&QComboBox::currentIndexChanged), this, &SpacerConfiguration::typeChanged);
 }
 
 SpacerConfiguration::~SpacerConfiguration()
@@ -65,7 +68,6 @@ void SpacerConfiguration::loadSettings()
 {
     ui->sizeSB->setValue(mSettings->value("size", 8).toInt());
     ui->typeCB->setCurrentText(mSettings->value("spaceType", msTypes[0]).toString());
-
 }
 
 void SpacerConfiguration::sizeChanged(int value)
@@ -73,9 +75,9 @@ void SpacerConfiguration::sizeChanged(int value)
     mSettings->setValue("size", value);
 }
 
-void SpacerConfiguration::typeChanged(QString const & value)
+void SpacerConfiguration::typeChanged(int index)
 {
-    mSettings->setValue("spaceType", value);
+    mSettings->setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
 }
 
 void SpacerConfiguration::dialogButtonsAction(QAbstractButton *btn)

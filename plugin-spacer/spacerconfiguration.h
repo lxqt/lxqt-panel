@@ -62,7 +62,7 @@ private slots:
     void loadSettings();
     void dialogButtonsAction(QAbstractButton *btn);
     void sizeChanged(int value);
-    void typeChanged(QString const & value);
+    void typeChanged(int index);
 };
 
 #endif // SPACERCONFIGURATION_H
