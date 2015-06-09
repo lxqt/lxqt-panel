@@ -3,3 +3,4 @@ Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name=Status Notifier Plugin
 Comment=Status Notifier Plugin
+Icon=go-bottom
