@@ -225,6 +225,7 @@ TrayIcon* LxQtTray::findIcon(Window id)
 ************************************************/
 void LxQtTray::setIconSize(QSize iconSize)
 {
+    mIconSize = iconSize;
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
     XChangeProperty(mDisplay,
                     mTrayId,
@@ -234,10 +235,6 @@ void LxQtTray::setIconSize(QSize iconSize)
                     PropModeReplace,
                     (unsigned char*)&size,
                     1);
-
-    mIconSize = iconSize;
-    foreach(TrayIcon* icon, mIcons)
-        icon->setIconSize(mIconSize);
 }
 
 
@@ -384,7 +381,6 @@ void LxQtTray::addIcon(Window winId)
         return;
     }
 
-    icon->setIconSize(mIconSize);
     mIcons.append(icon);
     mLayout->addWidget(icon);
 }
