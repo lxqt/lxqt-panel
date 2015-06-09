@@ -603,8 +603,8 @@ void LxQtPanel::showAddPluginDialog()
 void LxQtPanel::updateStyleSheet()
 {
     QStringList sheet;
-    sheet << QString("Plugin > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
-    sheet << QString("Plugin > * > * { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
+    sheet << QString("Plugin > QAbstractButton, LxQtTray { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
+    sheet << QString("Plugin > * > QAbstractButton, TrayIcon { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
 
     if (mFontColor.isValid())
         sheet << QString("Plugin * { color: " + mFontColor.name() + "; }");
