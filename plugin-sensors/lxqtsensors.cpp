@@ -108,17 +108,16 @@ LxQtSensors::LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent):
     updateSensorReadings();
 
     // Run timer that will be updating sensor readings
-    mUpdateSensorReadingsTimer.setParent(this);
     connect(&mUpdateSensorReadingsTimer, SIGNAL(timeout()), this, SLOT(updateSensorReadings()));
     mUpdateSensorReadingsTimer.start(mSettings->value("updateInterval").toInt() * 1000);
 
     // Run timer that will be showin warning
-    mWarningAboutHighTemperatureTimer.setParent(this);
+    mWarningAboutHighTemperatureTimer.setInterval(500);
     connect(&mWarningAboutHighTemperatureTimer, SIGNAL(timeout()), this,
             SLOT(warningAboutHighTemperature()));
     if (mSettings->value("warningAboutHighTemperature").toBool())
     {
-        mWarningAboutHighTemperatureTimer.start(mWarningAboutHighTemperatureTimerFreq);
+        mWarningAboutHighTemperatureTimer.start();
     }
 }
 
@@ -316,7 +315,8 @@ void LxQtSensors::settingsChanged()
         // Update sensors readings to get the list of high temperature progress bars
         updateSensorReadings();
 
-        mWarningAboutHighTemperatureTimer.start(mWarningAboutHighTemperatureTimerFreq);
+        if (!mWarningAboutHighTemperatureTimer.isActive())
+            mWarningAboutHighTemperatureTimer.start();
     }
     else if (mWarningAboutHighTemperatureTimer.isActive())
     {

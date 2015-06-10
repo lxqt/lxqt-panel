@@ -67,8 +67,6 @@ private:
     QBoxLayout *mLayout;
     QTimer mUpdateSensorReadingsTimer;
     QTimer mWarningAboutHighTemperatureTimer;
-    // How often warning time should fire in ms
-    int mWarningAboutHighTemperatureTimerFreq;
     Sensors mSensors;
     QList<Chip> mDetectedChips;
     QList<ProgressBar*> mTemperatureProgressBars;
