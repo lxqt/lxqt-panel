@@ -255,13 +255,19 @@ void LxQtClock::realign()
     int label_height = mTimeLabel->sizeHint().height();
     min_size.setHeight(mDateOnNewLine ? label_height * 2 : label_height);
     max_size.setHeight(min_size.height());
+
+    const bool changed = mContent->maximumSize() != max_size || mContent->minimumSize() != min_size
+        || mRotatedWidget->origin() != origin;
+
     mContent->setMinimumSize(min_size);
     mContent->setMaximumSize(max_size);
-    mContent->adjustSize();
-
     mRotatedWidget->setOrigin(origin);
-    mRotatedWidget->adjustContentSize();
-    mRotatedWidget->update();
+
+    if (changed)
+    {
+        mRotatedWidget->adjustContentSize();
+        mRotatedWidget->update();
+    }
 }
 
 void LxQtClock::activated(ActivationReason reason)
