@@ -115,85 +115,90 @@
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
-        <source>Show only windows from c&amp;urrent desktop</source>
-        <translation>Nur Fenster der akt&amp;uellen Arbeitsfläche anzeigen</translation>
+        <location filename="../lxqttaskbarconfiguration.ui" line="34"/>
+        <source>Show only windows from desktop</source>
+        <translation>Nur Fenster der Arbeitsfläche anzeigen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="33"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
         <translation>Nur Fenster aus der &amp;Taskleiste anzeigen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="40"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
         <translation>Nur minimierte Fenster anzeigen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
         <translation>Minimierte Fenster auf aktuelle Arbeitsfläche heben</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="54"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="67"/>
         <source>Close on middle-click</source>
         <translation>Fenster bei Mittelklick schließen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="64"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
         <translation>Fensteranordnun&amp;g</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="73"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
         <translation>Popup beim Überfahren mit dem Mauszeiger</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
         <translation>Erscheinungsbild</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="92"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="105"/>
         <source>Button style</source>
         <translation>Schaltflächenstil</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
         <translation>Max. Schaltflächenbreite</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="115"/>
-        <location filename="../lxqttaskbarconfiguration.ui" line="141"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="128"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="128"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
         <translation>Max. Schaltflächenhöhe</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.ui" line="154"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Icon and text</source>
         <translation>Symbol und Text</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Only icon</source>
         <translation>Nur Symbol</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Only text</source>
         <translation>Nur Text</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <source>Current</source>
+        <translation>Aktuell</translation>
     </message>
 </context>
 </TS>
