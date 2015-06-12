@@ -1066,26 +1066,33 @@ void LxQtPanel::userRequestForDeletion()
 
 void LxQtPanel::showPanel()
 {
-    if (mHidable && mHidden)
+    if (mHidable)
     {
-        mHidden = false;
         mHideTimer.stop();
-        realign();
+        if (mHidden)
+        {
+            mHidden = false;
+            realign();
+        }
     }
 }
 
 void LxQtPanel::hidePanel()
 {
-    if (mHidable && !mHidden && !geometry().contains(QCursor::pos()))
-    {
+    if (mHidable && !mHidden)
         mHideTimer.start();
-    }
 }
 
 void LxQtPanel::hidePanelWork()
 {
-    mHidden = true;
-    realign();
+    if (mHidable && !mHidden && !geometry().contains(QCursor::pos()))
+    {
+        mHidden = true;
+        realign();
+    } else
+    {
+        mHideTimer.start();
+    }
 }
 
 void LxQtPanel::setHidable(bool hidable, bool save)
