@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name=Show desktop
-Comment=Minimize all windows and show the desktop
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[de]=Minimiere alle Fenster und zeige den Desktop
-Name[de]=Zeige Desktop
+Name[de]=Arbeitsfläche anzeigen
+Comment[de]=Alle Fenster minimieren und die Arbeitsfläche anzeigen
