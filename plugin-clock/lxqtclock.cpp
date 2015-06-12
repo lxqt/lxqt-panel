@@ -205,8 +205,6 @@ void LxQtClock::settingsChanged()
 
     mDateLabel->setHidden(!mDateOnNewLine);
 
-    realign();
-
     // mDateFormat usually does not contain time portion, but since it's possible to use custom date format - it has to be supported. [Kuzma Shapran]
     int updateInterval = QString(mTimeFormat + " " + mDateFormat).replace(QRegExp("'[^']*'"),"").contains("s") ? 1000 : 60000;
 
@@ -220,6 +218,8 @@ void LxQtClock::settingsChanged()
 
         restartTimer();
     }
+
+    realign();
 }
 
 void LxQtClock::realign()
@@ -255,6 +255,15 @@ void LxQtClock::realign()
     int label_height = mTimeLabel->sizeHint().height();
     min_size.setHeight(mDateOnNewLine ? label_height * 2 : label_height);
     max_size.setHeight(min_size.height());
+    if (mAutoRotate || panel()->isHorizontal())
+    {
+        //set minwidth
+        QFontMetrics metrics{mTimeLabel->font()};
+        int & width = min_size.rwidth();
+        width = metrics.boundingRect(mTimeLabel->text()).width();
+        if (!mDateLabel->isHidden())
+            width = qMax(width, metrics.boundingRect(mDateLabel->text()).width());
+    }
 
     const bool changed = mContent->maximumSize() != max_size || mContent->minimumSize() != min_size
         || mRotatedWidget->origin() != origin;
