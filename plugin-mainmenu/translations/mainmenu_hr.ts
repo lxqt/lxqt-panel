@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr_HR">
+<TS version="2.1" language="hr">
 <context>
     <name>LxQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="245"/>
+        <location filename="../lxqtmainmenu.cpp" line="221"/>
         <source>Show/hide main menu</source>
         <translation type="unfinished">Pokaži/sakrij glavni izbornik</translation>
     </message>
@@ -47,32 +47,27 @@
         <translation type="unfinished">Datoteka izbornika:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
-        <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="103"/>
         <source>Keyboard Shortcut</source>
         <translation type="unfinished">Kratica tipkovnice</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="130"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="122"/>
         <source>Click the button to record shortcut:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="55"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="62"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="108"/>
         <source>Choose menu file</source>
         <translation type="unfinished">Izaberite datoteku izbornika</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="110"/>
         <source>Menu files (*.menu)</source>
         <translation type="unfinished"></translation>
     </message>
