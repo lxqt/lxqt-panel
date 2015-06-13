@@ -26,7 +26,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "audiodevice.h"
-
 #include "audioengine.h"
 
 AudioDevice::AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent) :
@@ -74,7 +73,7 @@ void AudioDevice::setIndex(uint index)
 void AudioDevice::setVolumeNoCommit(int volume)
 {
     if (m_engine)
-        volume = qBound(0, volume, m_engine->volumeMax(this));
+        volume = m_engine->volumeBounded(volume, this);
 
     if (m_volume == volume)
         return;

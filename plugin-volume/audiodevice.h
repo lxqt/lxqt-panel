@@ -59,7 +59,7 @@ public:
     void setName(const QString &name);
     void setDescription(const QString &description);
     void setIndex(uint index);
-    
+
     AudioEngine* engine() { return m_engine; }
 
 public slots:
