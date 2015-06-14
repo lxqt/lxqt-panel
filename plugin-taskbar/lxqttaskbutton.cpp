@@ -339,6 +339,9 @@ void LxQtTaskButton::maximizeApplication()
             KWindowSystem::setState(mWindow, NET::Max);
             break;
     }
+
+    if (!isApplicationActive())
+        raiseApplication();
 }
 
 /************************************************
@@ -347,6 +350,9 @@ void LxQtTaskButton::maximizeApplication()
 void LxQtTaskButton::deMaximizeApplication()
 {
     KWindowSystem::clearState(mWindow, NET::Max);
+
+    if (!isApplicationActive())
+        raiseApplication();
 }
 
 /************************************************
@@ -495,7 +501,7 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     menu.addSeparator();
 
     a = menu.addAction(tr("Ma&ximize"));
-    a->setEnabled(info.actionSupported(NET::ActionMax) && !(state & NET::Max));
+    a->setEnabled(info.actionSupported(NET::ActionMax) && (!(state & NET::Max) || (state & NET::Hidden)));
     a->setData(NET::Max);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
 
