@@ -111,6 +111,10 @@ LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)
     mPanels << panel;
     connect(panel, SIGNAL(deletedByUser(LxQtPanel*)),
             this, SLOT(removePanel(LxQtPanel*)));
+    //reemit signals
+    connect(panel, &LxQtPanel::pluginAdded, this, &LxQtPanelApplication::pluginAdded);
+    connect(panel, &LxQtPanel::pluginRemoved, this, &LxQtPanelApplication::pluginRemoved);
+
     return panel;
 }
 
@@ -210,4 +214,13 @@ void LxQtPanelApplication::removePanel(LxQtPanel* panel)
     mSettings->setValue("panels", panels);
 
     panel->deleteLater();
+}
+
+bool LxQtPanelApplication::isPluginSingletonAndRunnig(QString const & pluginId) const
+{
+    for (auto const & panel : mPanels)
+        if (panel->isPluginSingletonAndRunnig(pluginId))
+            return true;
+
+    return false;
 }

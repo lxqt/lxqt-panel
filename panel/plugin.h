@@ -67,7 +67,7 @@ public:
     void saveSettings();
 
     QMenu* popupMenu() const;
-    ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
+    const ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
 
     const LxQt::PluginInfo desktopFile() const { return mDesktopFile; }
 

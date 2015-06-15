@@ -48,9 +48,14 @@ public:
 
     int count() { return mPanels.count(); }
     LxQt::Settings *settings() { return mSettings; }
+    bool isPluginSingletonAndRunnig(QString const & pluginId) const;
 
 public slots:
     void addNewPanel();
+
+signals:
+    void pluginAdded();
+    void pluginRemoved();
 
 private:
     QList<LxQtPanel*> mPanels;

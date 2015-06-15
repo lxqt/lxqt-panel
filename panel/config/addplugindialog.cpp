@@ -28,7 +28,7 @@
 #include "ui_addplugindialog.h"
 #include "addplugindialog.h"
 #include "plugin.h"
-#include "ilxqtpanelplugin.h"
+#include "../lxqtpanelapplication.h"
 
 #include <LXQt/HtmlDelegate>
 #include <XdgIcon>
@@ -42,10 +42,9 @@
 #define SEARCH_ROLE  Qt::UserRole
 #define INDEX_ROLE   SEARCH_ROLE+1
 
-AddPluginDialog::AddPluginDialog(PanelPluginsModel *model, QWidget *parent):
+AddPluginDialog::AddPluginDialog(QWidget *parent):
     QDialog(parent),
-    ui(new Ui::AddPluginDialog),
-    mModel(model)
+    ui(new Ui::AddPluginDialog)
 {
     ui->setupUi(this);
 
@@ -72,6 +71,11 @@ AddPluginDialog::AddPluginDialog(PanelPluginsModel *model, QWidget *parent):
     connect(&mSearchTimer, &QTimer::timeout, this, &AddPluginDialog::filter);
     connect(ui->pluginList, &QListWidget::doubleClicked, this, &AddPluginDialog::emitPluginSelected);
     connect(ui->addButton, &QPushButton::clicked, this, &AddPluginDialog::emitPluginSelected);
+
+    connect(dynamic_cast<LxQtPanelApplication *>(qApp), &LxQtPanelApplication::pluginAdded
+            , this, &AddPluginDialog::filter);
+    connect(dynamic_cast<LxQtPanelApplication *>(qApp), &LxQtPanelApplication::pluginRemoved
+            , this, &AddPluginDialog::filter);
 }
 
 AddPluginDialog::~AddPluginDialog()
@@ -93,7 +97,7 @@ void AddPluginDialog::filter()
     {
         const LxQt::PluginInfo &plugin = mPlugins.at(i);
 
-        QString s = QString("%1 %2 %3 %4").arg(plugin.name(),
+        QString s = QStringLiteral("%1 %2 %3 %4").arg(plugin.name(),
                                                plugin.comment(),
                                                plugin.value("Name").toString(),
                                                plugin.value("Comment").toString());
@@ -101,17 +105,17 @@ void AddPluginDialog::filter()
             continue;
 
         QListWidgetItem* item = new QListWidgetItem(ui->pluginList);
-        item->setText(QString("<b>%1</b><br>\n%2\n").arg(plugin.name(), plugin.comment()));
-        item->setIcon(plugin.icon(fallIco));
-        item->setData(INDEX_ROLE, i);
-
         // disable single-instances plugins already in use
-        Plugin *p = mModel->pluginByID(plugin.id());
-        if (p && p->iPlugin()->flags().testFlag(ILxQtPanelPlugin::SingleInstance))
+        if (dynamic_cast<LxQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(plugin.id()))
         {
             item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
             item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));
-        }
+            item->setText(QStringLiteral("<b>%1</b><br>%2<br><small>%3</small>")
+                    .arg(plugin.name(), plugin.comment(), tr("(only one instance can run at a time)")));
+        } else
+            item->setText(QStringLiteral("<b>%1</b><br>%2").arg(plugin.name(), plugin.comment()));
+        item->setIcon(plugin.icon(fallIco));
+        item->setData(INDEX_ROLE, i);
     }
 
     if (pluginCount > 0)

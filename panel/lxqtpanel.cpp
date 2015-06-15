@@ -327,6 +327,9 @@ void LxQtPanel::loadPlugins()
 
     connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, mLayout, &LxQtPanelLayout::addPlugin);
     connect(mPlugins.data(), &PanelPluginsModel::pluginMovedUp, mLayout, &LxQtPanelLayout::moveUpPlugin);
+    //reemit signals
+    connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, this, &LxQtPanel::pluginAdded);
+    connect(mPlugins.data(), &PanelPluginsModel::pluginRemoved, this, &LxQtPanel::pluginRemoved);
 
     for (auto const & plugin : mPlugins->plugins())
         mLayout->addPlugin(plugin);
@@ -1107,4 +1110,13 @@ void LxQtPanel::setHidable(bool hidable, bool save)
         saveSettings(true);
 
     realign();
+}
+
+bool LxQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const
+{
+    Plugin const * plugin = mPlugins->pluginByID(pluginId);
+    if (nullptr == plugin)
+        return false;
+    else
+        return plugin->iPlugin()->flags().testFlag(ILxQtPanelPlugin::SingleInstance);
 }

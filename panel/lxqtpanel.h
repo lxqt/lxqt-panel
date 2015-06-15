@@ -105,6 +105,8 @@ public:
 
     LxQt::Settings *settings() const { return mSettings; }
 
+    bool isPluginSingletonAndRunnig(QString const & pluginId) const;
+
 public slots:
     void show();
     void showPanel();
@@ -130,6 +132,8 @@ public slots:
 signals:
     void realigned();
     void deletedByUser(LxQtPanel *self);
+    void pluginAdded();
+    void pluginRemoved();
 
 protected:
     bool event(QEvent *event);

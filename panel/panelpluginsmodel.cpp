@@ -27,6 +27,7 @@
 #include "plugin.h"
 #include "ilxqtpanelplugin.h"
 #include "lxqtpanel.h"
+#include "lxqtpanelapplication.h"
 #include <QPointer>
 #include <XdgIcon>
 #include <LXQt/Settings>
@@ -115,7 +116,7 @@ Plugin* PanelPluginsModel::pluginByName(QString name) const
     return nullptr;
 }
 
-Plugin* PanelPluginsModel::pluginByID(QString id) const
+Plugin const * PanelPluginsModel::pluginByID(QString id) const
 {
     for (auto const & p : mPlugins)
     {
@@ -128,8 +129,7 @@ Plugin* PanelPluginsModel::pluginByID(QString id) const
 
 void PanelPluginsModel::addPlugin(const LxQt::PluginInfo &desktopFile)
 {
-    Plugin *p = pluginByID(desktopFile.id());
-    if (p && p->iPlugin()->flags().testFlag(ILxQtPanelPlugin::SingleInstance))
+    if (dynamic_cast<LxQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(desktopFile.id()))
         return;
 
     QString name = findNewPluginSettingsGroup(desktopFile.id());
