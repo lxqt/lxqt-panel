@@ -53,12 +53,12 @@
     <name>LxQtNetworkMonitorConfiguration</name>
     <message>
         <source>LxQt Network Monitor settings</source>
-        <translation type="vanished">Opciones del Monitor de Redes de LxQt</translation>
+        <translation type="vanished">Configuración del monitor de redes de LxQt</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del monitor de redes</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation>Modem</translation>
+        <translation>Módem</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation>Inalámbrico</translation>
+        <translation>Conexión inalámbrica</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
