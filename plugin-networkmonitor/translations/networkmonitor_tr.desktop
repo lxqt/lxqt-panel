@@ -5,9 +5,6 @@ ServiceTypes=LxQtPanel/Plugin
 Name=Network monitor
 Comment=Displays network status and activity.
 
-
-
-
 # Translations
-Comment[tr]=Not Defteri
-Name[tr]=Ekran not defteri
+Name[tr]=Ağ izleme
+Comment[tr]=Ağ iletişimi izleme ve yönetme
