@@ -24,7 +24,7 @@
  * Boston, MA 02110-1301 USA
  *
  * END_COMMON_COPYRIGHT_HEADER */
- 
+
 #ifndef __LXQT_PANEL_GLOBALS_H__
 #define __LXQT_PANEL_GLOBALS_H__
 

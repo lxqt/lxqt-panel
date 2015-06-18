@@ -34,7 +34,7 @@ class ILxQtPanelPlugin;
 class LxQtCpuLoad: public QFrame
 {
     Q_OBJECT
-    
+
     Q_PROPERTY(QColor fontColor READ getFontColor WRITE setFontColor)
 
 public:
@@ -79,7 +79,7 @@ private:
     int m_timerID;
 
     QFont m_font;
-    
+
     QColor fontColor;
 };
 

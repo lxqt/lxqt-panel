@@ -286,7 +286,7 @@ QDialog *LxQtMainMenu::configureDialog()
 /************************************************
 
  ************************************************/
- 
+
 // functor used to match a QAction by prefix
 struct MatchAction
 {
@@ -294,7 +294,7 @@ struct MatchAction
     bool operator()(QAction* action) { return action->text().startsWith(key_, Qt::CaseInsensitive); }
     QString key_;
 };
- 
+
 bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
 {
     if(obj == &mButton)

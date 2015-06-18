@@ -75,7 +75,7 @@ void DirectoryMenu::showMenu()
     {
         buildMenu(QDir::homePath());
     }
-    
+
 
     int x=0, y=0;
 
@@ -161,7 +161,7 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 			QMenu* subMenu = menu->addMenu(XdgIcon::fromTheme("folder"), mPathStrings.back());
 
     		connect(subMenu, SIGNAL(aboutToShow()), mMenuSignalMapper, SLOT(map()));
-    		mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());	
+    		mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());
     	}
     }
 }
