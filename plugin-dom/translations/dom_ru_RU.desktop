@@ -2,4 +2,4 @@
 Type=Service
 ServiceTypes=LxQtPanel/Plugin
 Name[ru_RU]=Дерево DOM панели.
-Comment[ru_RU]=Показать дерево DOM панели LXDE-Qt.
+Comment[ru_RU]=Показать дерево DOM панели LXQt.
