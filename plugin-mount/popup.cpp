@@ -129,12 +129,6 @@ void Popup::onDeviceRemoved(QString const & udi)
     }
 }
 
-void Popup::resizeEvent(QResizeEvent *event)
-{
-    QWidget::resizeEvent(event);
-    realign();
-}
-
 void Popup::showEvent(QShowEvent *event)
 {
     mPlaceholder->setVisible(mDisplayCount == 0);

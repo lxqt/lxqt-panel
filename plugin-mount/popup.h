@@ -56,7 +56,6 @@ signals:
     void visibilityChanged(bool visible);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
     void showEvent(QShowEvent *event);
     void hideEvent(QHideEvent *event);
 
