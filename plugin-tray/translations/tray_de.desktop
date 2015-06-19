@@ -1,2 +1,3 @@
-Name[de]=Fensterleiste
-Comment[de]=Zugang zu minimierten Anwendungen in der Fensterleiste
+# Translations
+Name[de]=Benachrichtigungsfläche
+Comment[de]=Benachrichtigungen von Anwendungen gem. System Tray Protocol
