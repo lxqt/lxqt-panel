@@ -40,7 +40,6 @@ SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::SpacerConfiguration)
     , mSettings(settings)
-    , mOldSettings(settings)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SpacerConfigurationWindow");
@@ -49,9 +48,6 @@ SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
     //Note: translation is needed here in runtime (translator is attached already)
     for (auto const & type : msTypes)
         ui->typeCB->addItem(tr(type.toStdString().c_str()), type);
-
-
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
     loadSettings();
 
@@ -79,17 +75,3 @@ void SpacerConfiguration::typeChanged(int index)
 {
     mSettings->setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
 }
-
-void SpacerConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
-}
-

@@ -53,14 +53,12 @@ public:
 private:
     Ui::SpacerConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache mOldSettings;
 
 private slots:
     /*
        Saves settings in conf file.
     */
     void loadSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
     void sizeChanged(int value);
     void typeChanged(int index);
 };

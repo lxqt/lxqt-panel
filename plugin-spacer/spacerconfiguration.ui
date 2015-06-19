@@ -59,5 +59,12 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttons</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>SpacerConfiguration</receiver>
+   <slot>close()</slot>
+  </connection>
+ </connections>
 </ui>
