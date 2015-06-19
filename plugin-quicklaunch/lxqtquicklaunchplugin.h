@@ -1,10 +1,11 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * LXQt - a lightweight, Qt based, desktop toolset
+ * http://lxqt.org
  *
- * Copyright: 2013 Razor team
+ * Copyright: 2014-2015 LXQt team
+ *            2013      Razor team
  * Authors:
  *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
@@ -58,7 +59,7 @@ class LxQtQuickLaunchPluginLibrary: public QObject, public ILxQtPanelPluginLibra
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILxQtPanelPluginLibrary)
-public:
+public:   
     ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
     {
         return new LxQtQuickLaunchPlugin(startupInfo);

@@ -1,10 +1,10 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
- * http://lxde.org/
+ * LXQt - a lightweight, Qt based, desktop toolset
+ * http://lxqt.org
  *
- * Copyright: 2013 LXDE-Qt team
+ * Copyright: 2013-2015 LXQt team
  * Authors:
  *   Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *
