@@ -23,6 +23,11 @@
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
+    <message>
+        <location filename="../config/addplugindialog.cpp" line="114"/>
+        <source>(only one instance can run at a time)</source>
+        <translation>(es kann nur eine Instanz gleichzeitig ausgeführt werden)</translation>
+    </message>
 </context>
 <context>
     <name>ConfigPanelDialog</name>
@@ -256,28 +261,28 @@
 <context>
     <name>LxQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="895"/>
-        <location filename="../lxqtpanel.cpp" line="914"/>
+        <location filename="../lxqtpanel.cpp" line="898"/>
+        <location filename="../lxqtpanel.cpp" line="917"/>
         <source>Panel</source>
         <translation>Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="917"/>
+        <location filename="../lxqtpanel.cpp" line="920"/>
         <source>Configure Panel</source>
         <translation>Leiste konfigurieren</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="922"/>
+        <location filename="../lxqtpanel.cpp" line="925"/>
         <source>Manage Widgets</source>
         <translation>Widgets verwalten</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="928"/>
+        <location filename="../lxqtpanel.cpp" line="931"/>
         <source>Add Panel</source>
         <translation>Leiste hinzufügen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="935"/>
+        <location filename="../lxqtpanel.cpp" line="938"/>
         <source>Remove Panel</source>
         <translation>Leiste entfernen</translation>
     </message>
