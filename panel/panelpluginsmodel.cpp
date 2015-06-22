@@ -121,7 +121,7 @@ Plugin const * PanelPluginsModel::pluginByID(QString id) const
     for (auto const & p : mPlugins)
     {
         Plugin *plugin = p.second.data();
-        if (plugin->desktopFile().id() == id)
+        if (plugin && plugin->desktopFile().id() == id)
             return plugin;
     }
     return nullptr;
