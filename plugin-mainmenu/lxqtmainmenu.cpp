@@ -225,6 +225,8 @@ void LxQtMainMenu::settingsChanged()
     }
     mShortcutSeq = QKeySequence(shortcut);
 
+    setMenuFontSize();
+
     realign();
 }
 
@@ -261,11 +263,26 @@ void LxQtMainMenu::buildMenu()
     if(oldMenu)
         delete oldMenu;
 
+    setMenuFontSize();
+}
+
+/************************************************
+
+ ************************************************/
+void LxQtMainMenu::setMenuFontSize()
+{
+    if (!mMenu)
+        return;
+
+    QFont menuFont = mButton.font();
     if(settings()->value("customFont", false).toBool())
     {
-        QFont menuFont = mMenu->font();
+        menuFont = mMenu->font();
         menuFont.setPointSize(settings()->value("customFontSize").toInt());
+    }
 
+    if (mMenu->font() != menuFont)
+    {
         mMenu->setFont(menuFont);
         QList<QMenu*> subMenuList = mMenu->findChildren<QMenu*>();
         foreach (QMenu* subMenu, subMenuList)
