@@ -4,7 +4,7 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LXQt team
+ * Copyright: 2015      LXQt team
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public

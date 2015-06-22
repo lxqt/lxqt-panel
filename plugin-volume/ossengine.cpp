@@ -4,7 +4,7 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2014 LXQt team
+ * Copyright: 2014      LXQt team
  * Authors:
  *   Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *
