@@ -123,6 +123,10 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     LxQt::Translator::translatePlugin(desktopFile.id(), QLatin1String("lxqt-panel"));
 
     setObjectName(mPlugin->themeId() + "Plugin");
+
+    // plugin handle for easy context menu
+    setProperty("NeedsHandle", mPlugin->flags().testFlag(ILxQtPanelPlugin::NeedsHandle));
+
     QString s = mSettings->value("alignment").toString();
 
     // Retrun default value

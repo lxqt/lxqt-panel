@@ -43,7 +43,7 @@ public:
     ~LxQtTaskBarPlugin();
 
     QString themeId() const { return "TaskBar"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog ; }
+    virtual Flags flags() const { return HaveConfigDialog | NeedsHandle; }
 
     QWidget *widget() { return mTaskBar; }
     QDialog *configureDialog();

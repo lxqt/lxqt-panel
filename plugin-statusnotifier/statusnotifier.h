@@ -41,6 +41,7 @@ public:
     bool isSeparate() const { return true; }
     void realign();
     QString themeId() const { return "StatusNotifier"; }
+    virtual Flags flags() const { return SingleInstance | NeedsHandle; }
     QWidget *widget() { return m_widget; }
 
 private:

@@ -43,6 +43,7 @@ public:
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "QuickLaunch"; }
+    virtual Flags flags() const { return NeedsHandle; }
 
     void realign();
 

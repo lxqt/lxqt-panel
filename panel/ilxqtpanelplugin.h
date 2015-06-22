@@ -82,7 +82,8 @@ public:
                                         This flag is used only at the first start, later positions of all
                                         plugins saved in a config, and this saved information is used. */
         HaveConfigDialog     = 2,   ///< The plugin have a configuration dialog.
-        SingleInstance       = 4    ///< The plugin allows only one instance to run.
+        SingleInstance       = 4,   ///< The plugin allows only one instance to run.
+        NeedsHandle          = 8    ///< The plugin needs a handle for the context menu
     };
 
     Q_DECLARE_FLAGS(Flags, Flag)
