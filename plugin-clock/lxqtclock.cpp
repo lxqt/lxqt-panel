@@ -35,7 +35,6 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMouseEvent>
-#include <LXQt/GridLayout>
 
 #include <QDateTime>
 #include <QTimer>
@@ -80,7 +79,8 @@ LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILxQtPanelPlugin(startupInfo),
     mAutoRotate(true),
-    mTextStyle{new DownscaleFontStyle}
+    mTextStyle{new DownscaleFontStyle},
+    mCurrentCharCount(0)
 {
     mMainWidget = new QWidget();
     mRotatedWidget = new LxQt::RotatedWidget(*(new QWidget()), mMainWidget);
@@ -100,12 +100,11 @@ LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     mTimeLabel->setAlignment(Qt::AlignCenter);
     mDateLabel->setAlignment(Qt::AlignCenter);
 
-    mLayout = new LxQt::GridLayout(mContent);
-    mLayout->setContentsMargins(0, 0, 0, 0);
-    mLayout->setStretch(LxQt::GridLayout::StretchHorizontal | LxQt::GridLayout::StretchVertical);
-    mLayout->setColumnCount(1);
-    mLayout->addWidget(mTimeLabel);
-    mLayout->addWidget(mDateLabel);
+    mContent->setLayout(new QVBoxLayout{mContent});
+    mContent->layout()->setContentsMargins(0, 0, 0, 0);
+    mContent->layout()->setSpacing(0);
+    mContent->layout()->addWidget(mTimeLabel);
+    mContent->layout()->addWidget(mDateLabel);
 
     mClockTimer = new QTimer(this);
     mClockTimer->setTimerType(Qt::PreciseTimer);
@@ -148,19 +147,27 @@ void LxQtClock::updateTime()
 void LxQtClock::showTime()
 {
     QDateTime now{currentDateTime()};
+    int new_char_count;
     if (mDateOnNewLine)
     {
-        mTimeLabel->setText(QLocale::system().toString(now, mTimeFormat));
-        mDateLabel->setText(QLocale::system().toString(now, mDateFormat));
+        QString new_time = QLocale::system().toString(now, mTimeFormat);
+        QString new_date = QLocale::system().toString(now, mDateFormat);
+        new_char_count = qMax(new_time.size(), new_date.size());
+        mTimeLabel->setText(new_time);
+        mDateLabel->setText(new_date);
     }
     else
     {
-        mTimeLabel->setText(QLocale::system().toString(now, mClockFormat));
+        QString new_time = QLocale::system().toString(now, mClockFormat);
+        new_char_count = new_time.size();
+        mTimeLabel->setText(new_time);
     }
-    mTimeLabel->adjustSize();
-    mDateLabel->adjustSize();
 
-    mRotatedWidget->update();
+    if (mCurrentCharCount != new_char_count)
+    {
+        mCurrentCharCount = new_char_count;
+        realign();
+    }
 }
 
 void LxQtClock::restartTimer()
@@ -218,16 +225,14 @@ void LxQtClock::settingsChanged()
 
         restartTimer();
     }
-
-    realign();
 }
 
 void LxQtClock::realign()
 {
-    QSize min_size{0, 0};
-    QSize max_size{QWIDGETSIZE_MAX, QWIDGETSIZE_MAX};
+    QSize size{QWIDGETSIZE_MAX, QWIDGETSIZE_MAX};
     Qt::Corner origin = Qt::TopLeftCorner;
-    if (mAutoRotate)
+    if (mAutoRotate || panel()->isHorizontal())
+    {
         switch (panel()->position())
         {
         case ILxQtPanel::PositionTop:
@@ -243,33 +248,26 @@ void LxQtClock::realign()
             origin = Qt::TopRightCorner;
             break;
         }
-    else if (!panel()->isHorizontal())
-    {
-        min_size.setWidth(panel()->globalGometry().width());
-        max_size.setWidth(min_size.width());
-    }
 
-    mLayout->setCellMinimumSize(min_size);
-    mLayout->setCellMaximumSize(max_size);
-
-    int label_height = mTimeLabel->sizeHint().height();
-    min_size.setHeight(mDateOnNewLine ? label_height * 2 : label_height);
-    max_size.setHeight(min_size.height());
-    if (mAutoRotate || panel()->isHorizontal())
-    {
         //set minwidth
         QFontMetrics metrics{mTimeLabel->font()};
-        int & width = min_size.rwidth();
-        width = metrics.boundingRect(mTimeLabel->text()).width();
-        if (!mDateLabel->isHidden())
-            width = qMax(width, metrics.boundingRect(mDateLabel->text()).width());
+        //Note: using a constant string of reasonably wide characters for computing the width
+        //      (not the current text as width of text can differ for each particular string (based on font))
+        size.setWidth(metrics.boundingRect(QString{mCurrentCharCount, 'A'}).width());
+    } else if (!panel()->isHorizontal())
+    {
+        size.setWidth(panel()->globalGometry().width());
     }
 
-    const bool changed = mContent->maximumSize() != max_size || mContent->minimumSize() != min_size
-        || mRotatedWidget->origin() != origin;
+    mTimeLabel->setFixedWidth(size.width());
+    mDateLabel->setFixedWidth(size.width());
 
-    mContent->setMinimumSize(min_size);
-    mContent->setMaximumSize(max_size);
+    int label_height = mTimeLabel->sizeHint().height();
+    size.setHeight(mDateOnNewLine ? label_height * 2 : label_height);
+
+    const bool changed = mContent->maximumSize() != size || mRotatedWidget->origin() != origin;
+
+    mContent->setFixedSize(size);
     mRotatedWidget->setOrigin(origin);
 
     if (changed)

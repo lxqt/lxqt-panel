@@ -43,11 +43,6 @@ class QDialog;
 class QTimer;
 class QProxyStyle;
 
-namespace LxQt
-{
-    class GridLayout;
-}
-
 class LxQtClock : public QObject, public ILxQtPanelPlugin
 {
     Q_OBJECT
@@ -76,7 +71,6 @@ private:
     QTimer* mClockTimer;
     QWidget *mMainWidget;
     QWidget *mContent;
-    LxQt::GridLayout* mLayout;
     LxQt::RotatedWidget* mRotatedWidget;
     QLabel* mTimeLabel;
     QLabel* mDateLabel;
@@ -90,6 +84,7 @@ private:
     int mFirstDayOfWeek;
     bool mAutoRotate;
     QScopedPointer<QProxyStyle> mTextStyle;
+    int mCurrentCharCount;
 
     QDateTime currentDateTime();
     void showTime();
