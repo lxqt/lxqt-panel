@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it_IT">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
@@ -35,10 +35,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">Impostazioni del controllo del volume di LxQt</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">Impostazioni del controllo del volume di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

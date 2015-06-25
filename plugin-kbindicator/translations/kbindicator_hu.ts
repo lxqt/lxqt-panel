@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="hu">
 <context>
-    <name>LxQtKbIndicatorConfiguration</name>
+    <name>LXQtKbIndicatorConfiguration</name>
     <message>
         <location filename="../lxqtkbindicatorconfiguration.ui" line="14"/>
         <source>Keyboard Indicator Settings</source>

@@ -2,9 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="cs_CZ">
 <context>
-    <name>LxQtSensorsConfiguration</name>
+    <name>LXQtSensorsConfiguration</name>
     <message>
-        <source>LxQt Sensors Settings</source>
+        <source>LXQt Sensors Settings</source>
         <translation type="vanished">Nastavení čidel</translation>
     </message>
     <message>

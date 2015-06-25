@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="th_TH">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">Cpu โหลด %1%</translation>
@@ -14,10 +14,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">ค่าตั้ง Cpu โหลด LxQt</translation>
+        <source>LXQt Cpu Load settings</source>
+        <translation type="vanished">ค่าตั้ง Cpu โหลด LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

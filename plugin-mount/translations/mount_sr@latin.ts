@@ -20,7 +20,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtMountConfiguration</name>
+    <name>LXQtMountConfiguration</name>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>
         <source>Removable Media Settings</source>

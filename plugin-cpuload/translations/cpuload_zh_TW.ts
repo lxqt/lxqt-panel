@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_TW">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">CPU使用率 %1%</translation>
@@ -14,10 +14,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQtCPU使用率提示設定</translation>
+        <source>LXQt Cpu Load settings</source>
+        <translation type="vanished">LXQtCPU使用率提示設定</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

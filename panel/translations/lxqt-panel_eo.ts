@@ -274,7 +274,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanel</name>
+    <name>LXQtPanel</name>
     <message>
         <location filename="../lxqtpanel.cpp" line="623"/>
         <source>Add Panel Widgets</source>
@@ -284,7 +284,7 @@
         <location filename="../lxqtpanel.cpp" line="951"/>
         <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
-        <translation>Agordoj de muso por LxQto</translation>
+        <translation>Agordoj de muso por LXQto</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
@@ -316,7 +316,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanelPlugin</name>
+    <name>LXQtPanelPlugin</name>
     <message>
         <source>Configure</source>
         <translation type="vanished">Agordi</translation>
@@ -331,7 +331,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanelPrivate</name>
+    <name>LXQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
         <translation type="vanished">Agordi panelon</translation>

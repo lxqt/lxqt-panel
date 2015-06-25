@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ro_RO">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">Încărcare procesor %1%</translation>
@@ -14,10 +14,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">Setări încărcare procesor LxQt</translation>
+        <source>LXQt Cpu Load settings</source>
+        <translation type="vanished">Setări încărcare procesor LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

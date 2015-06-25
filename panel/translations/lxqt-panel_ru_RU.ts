@@ -195,7 +195,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanel</name>
+    <name>LXQtPanel</name>
     <message>
         <location filename="../lxqtpanel.cpp" line="634"/>
         <source>Manage Panel Widgets</source>

@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ro_RO">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
@@ -31,10 +31,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">Setări control volum LxQt</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">Setări control volum LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

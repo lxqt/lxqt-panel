@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="id_ID">
 <context>
-    <name>LxQtMainMenu</name>
+    <name>LXQtMainMenu</name>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
@@ -10,7 +10,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtMainMenuConfiguration</name>
+    <name>LXQtMainMenuConfiguration</name>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>

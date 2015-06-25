@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fi">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">Suoritinkuorma %1%</translation>
@@ -14,10 +14,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQtin suoritinkuorman asetukset</translation>
+        <source>LXQt Cpu Load settings</source>
+        <translation type="vanished">LXQtin suoritinkuorman asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

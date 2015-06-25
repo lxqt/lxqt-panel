@@ -2,10 +2,10 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pl_PL">
 <context>
-    <name>LxQtSensorsConfiguration</name>
+    <name>LXQtSensorsConfiguration</name>
     <message>
-        <source>LxQt Sensors Settings</source>
-        <translation type="vanished">Ustawienia LxQt Sensors</translation>
+        <source>LXQt Sensors Settings</source>
+        <translation type="vanished">Ustawienia LXQt Sensors</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>

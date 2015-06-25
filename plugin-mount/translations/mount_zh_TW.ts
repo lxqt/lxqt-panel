@@ -20,10 +20,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtMountConfiguration</name>
+    <name>LXQtMountConfiguration</name>
     <message>
-        <source>LxQt Removable media manager settings</source>
-        <translation type="vanished">LxQt可卸除式裝置管理員設定</translation>
+        <source>LXQt Removable media manager settings</source>
+        <translation type="vanished">LXQt可卸除式裝置管理員設定</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>

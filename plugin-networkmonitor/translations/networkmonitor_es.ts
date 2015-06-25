@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="es">
 <context>
-    <name>LxQtNetworkMonitor</name>
+    <name>LXQtNetworkMonitor</name>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
@@ -50,10 +50,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtNetworkMonitorConfiguration</name>
+    <name>LXQtNetworkMonitorConfiguration</name>
     <message>
-        <source>LxQt Network Monitor settings</source>
-        <translation type="vanished">Configuración del monitor de redes de LxQt</translation>
+        <source>LXQt Network Monitor settings</source>
+        <translation type="vanished">Configuración del monitor de redes de LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
