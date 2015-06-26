@@ -16,7 +16,7 @@ set(UIS
 
 set(LIBRARIES
     ${LIBRARIES}
-    ${QTXDG_LIBRARIES}
+    Qt5Xdg
 )
 
 include ("../cmake/BuildPlugin.cmake")

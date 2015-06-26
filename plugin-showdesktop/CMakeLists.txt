@@ -15,8 +15,8 @@ set(SOURCES
 
 set(LIBRARIES
     ${LIBRARIES}
-    ${LXQT_GLOBALKEYS_LIBRARIES}
-    ${QTXDG_LIBRARIES}
+    lxqt-globalkeys
+    Qt5Xdg
     ${XCB_LIBRARIES}
 )
 

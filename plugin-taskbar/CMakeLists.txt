@@ -23,8 +23,8 @@ set(UIS
 )
 
 set(LIBRARIES
-    ${LXQT_LIBRARIES}
-    ${QTXDG_LIBRARIES}
+    lxqt
+    Qt5Xdg
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
