@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">Tecla de atalho global: &quot;%1&quot; não pode ser registada</translation>
@@ -35,10 +35,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">Definições do controlo de volume do LxQt</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">Definições do controlo de volume do LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

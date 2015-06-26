@@ -20,9 +20,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtMountConfiguration</name>
+    <name>LXQtMountConfiguration</name>
     <message>
-        <source>LxQt Removable media manager settings</source>
+        <source>LXQt Removable media manager settings</source>
         <translation type="vanished">Paramètres du gestionnaire de médias amovibles</translation>
     </message>
     <message>

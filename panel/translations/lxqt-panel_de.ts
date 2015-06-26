@@ -259,7 +259,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanel</name>
+    <name>LXQtPanel</name>
     <message>
         <location filename="../lxqtpanel.cpp" line="898"/>
         <location filename="../lxqtpanel.cpp" line="917"/>

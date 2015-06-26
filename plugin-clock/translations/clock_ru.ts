@@ -10,7 +10,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtClockConfiguration</name>
+    <name>LXQtClockConfiguration</name>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>

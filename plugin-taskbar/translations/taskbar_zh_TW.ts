@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_TW">
 <context>
-    <name>LxQtTaskButton</name>
+    <name>LXQtTaskButton</name>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="430"/>
         <source>Application</source>
@@ -90,7 +90,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtTaskGroup</name>
+    <name>LXQtTaskGroup</name>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="81"/>
         <source>Group</source>
@@ -103,10 +103,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtTaskbarConfiguration</name>
+    <name>LXQtTaskbarConfiguration</name>
     <message>
-        <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">LxQt工作管理員設定</translation>
+        <source>LXQt Task Manager Settings</source>
+        <translation type="vanished">LXQt工作管理員設定</translation>
     </message>
     <message>
         <source>Window List Content</source>

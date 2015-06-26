@@ -10,9 +10,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtClockConfiguration</name>
+    <name>LXQtClockConfiguration</name>
     <message>
-        <source>LxQt Clock Settings</source>
+        <source>LXQt Clock Settings</source>
         <translation type="vanished">إعدادات ساعة ريزر</translation>
     </message>
     <message>

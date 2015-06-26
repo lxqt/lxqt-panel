@@ -246,7 +246,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanel</name>
+    <name>LXQtPanel</name>
     <message>
         <location filename="../lxqtpanel.cpp" line="623"/>
         <source>Add Panel Widgets</source>
@@ -284,7 +284,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtPanelPrivate</name>
+    <name>LXQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
         <translation type="vanished">Nastaviť panel</translation>

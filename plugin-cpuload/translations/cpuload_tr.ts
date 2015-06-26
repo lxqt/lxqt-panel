@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="tr">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">İşlemci yükü %1%</translation>
@@ -14,10 +14,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
-        <translation type="vanished">LxQt İşlemci Yükü ayarları</translation>
+        <source>LXQt Cpu Load settings</source>
+        <translation type="vanished">LXQt İşlemci Yükü ayarları</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>

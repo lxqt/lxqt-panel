@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ar">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">إظهار سطح المكتب: ﻻ يمكن تسجيل اختصار لوحة المفاتيح العامُّ `%1`</translation>
@@ -35,7 +35,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>

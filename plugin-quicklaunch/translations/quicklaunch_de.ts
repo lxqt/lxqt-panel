@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
-    <name>LxQtQuickLaunch</name>
+    <name>LXQtQuickLaunch</name>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>

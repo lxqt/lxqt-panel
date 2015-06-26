@@ -2,10 +2,10 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt">
 <context>
-    <name>LxQtKbIndicatorConfiguration</name>
+    <name>LXQtKbIndicatorConfiguration</name>
     <message>
-        <source>LxQt Keyboard Indicator Settings</source>
-        <translation type="vanished">Definições do indicador de teclado do LxQt</translation>
+        <source>LXQt Keyboard Indicator Settings</source>
+        <translation type="vanished">Definições do indicador de teclado do LXQt</translation>
     </message>
     <message>
         <source>&amp;Caps lock</source>

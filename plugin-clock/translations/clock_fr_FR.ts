@@ -10,10 +10,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtClockConfiguration</name>
+    <name>LXQtClockConfiguration</name>
     <message>
-        <source>LxQt Clock Settings</source>
-        <translation type="vanished">Paramètres de l&apos;horloge de LxQt</translation>
+        <source>LXQt Clock Settings</source>
+        <translation type="vanished">Paramètres de l&apos;horloge de LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
