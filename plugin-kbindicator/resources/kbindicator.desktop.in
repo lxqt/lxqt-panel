@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LxQtPanel/Plugin
-Name=Keyboard indicator
-Comment=Keyboard indicator plugin.
+Name=Keyboard state indicator
+Comment=Keyboard state indicator and switcher plugin.
 Icon=input-keyboard
 
 #TRANSLATIONS_DIR=../translations
