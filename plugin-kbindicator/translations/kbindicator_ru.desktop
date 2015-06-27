@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
-Name[ru]=Индикатор раскладки
-Comment[ru]=Плагин, отображающий раскладку.
-
-#TRANSLATIONS_DIR=../translations
