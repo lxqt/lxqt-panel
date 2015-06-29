@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Lungime și &amp;poziție panou</translation>
+        <translation type="vanished">Lungime &amp;&amp; poziție panou</translation>
     </message>
     <message>
         <source>Left</source>
@@ -91,7 +91,7 @@
         <location filename="../config/configpaneldialog.cpp" line="80"/>
         <location filename="../config/configpaneldialog.cpp" line="86"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurează panoul</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="32"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dimensiune</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="41"/>
@@ -115,12 +115,12 @@
         <location filename="../config/configpaneldialog.ui" line="48"/>
         <location filename="../config/configpaneldialog.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"> px</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="58"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dimensiune pictograme:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;p&gt;Pentru valori negative, dimensiunea panoului va fi calculată ca diferenta dintre marimea disponibilă a ecranului și valoarea introdusă.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;De ex. introducând o &quot;lungime&quot; de -100 px si o dimensiune a ecranului de 1000 px, dimensiunea reala a panoului va fi de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="124"/>
@@ -145,12 +145,12 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Număr coloane:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aliniere și poziție</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
@@ -184,32 +184,32 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="217"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auto-ascundere</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="233"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stil</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom font color:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Culoare de font personalizată</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="246"/>
         <source>Custom background image:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imagine de fundal personalizată</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="260"/>
         <source>Custom background color:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Culoare de fundal personalizată</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="351"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opacitate</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="200"/>
@@ -254,23 +254,23 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="240"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sus</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="242"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jos</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="397"/>
         <location filename="../config/configpaneldialog.cpp" line="411"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alege culoare</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="431"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imagini (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -284,27 +284,27 @@
         <location filename="../lxqtpanel.cpp" line="951"/>
         <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
-        <translation>Părăsește</translation>
+        <translation>Panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurează panoul...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="978"/>
         <source>Add Panel Widgets...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Adaugă widget de panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="984"/>
         <source>Add Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Adaugă panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="991"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Îndepărtează panou</translation>
     </message>
     <message>
         <source>Configure panel...</source>
@@ -327,7 +327,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Elimină</translation>
+        <translation type="vanished">Îndepărtează</translation>
     </message>
 </context>
 <context>
@@ -342,17 +342,17 @@
     <message>
         <location filename="../plugin.cpp" line="395"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurează &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="400"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mută &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="408"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Îndepărtează &quot;%1&quot;</translation>
     </message>
 </context>
 </TS>
