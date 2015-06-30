@@ -73,33 +73,7 @@ void ShowDesktop::shortcutRegistered()
 
 void ShowDesktop::toggleShowingDesktop()
 {
-    // Paulo: KWindowSystem is not working for Openbox here, see lxde/lxqt#338
-    // KWindowSystem fix: https://git.reviewboard.kde.org/r/121667
-    // NETRootInfo info(QX11Info::connection(), NET::WMDesktop);
-    // info.setShowingDesktop(!KWindowSystem::showingDesktop());
-
-    const char *atomStr = "_NET_SHOWING_DESKTOP";
-    xcb_intern_atom_cookie_t cookie = xcb_intern_atom(QX11Info::connection(), false, strlen(atomStr), atomStr);
-    xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply(QX11Info::connection(), cookie, 0);
-    xcb_atom_t showing_desktop_atom = reply->atom;
-    free(reply);
-
-    uint32_t data[5] = {
-        uint32_t(KWindowSystem::showingDesktop() ? 0 : 1), 0, 0, 0, 0
-    };
-
-    xcb_client_message_event_t event;
-    event.response_type = XCB_CLIENT_MESSAGE;
-    event.format = 32;
-    event.sequence = 0;
-    event.window = QX11Info::appRootWindow();
-    event.type = showing_desktop_atom;
-    for (int i = 0; i < 5; i++)
-        event.data.data32[i] = data[i];
-
-    xcb_send_event(QX11Info::connection(), false, QX11Info::appRootWindow(),
-                   (XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY),
-                   (const char *) &event);
+    KWindowSystem::setShowingDesktop(!KWindowSystem::showingDesktop());
 }
 
 #undef DEFAULT_SHORTCUT
