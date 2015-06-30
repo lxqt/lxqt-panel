@@ -851,9 +851,8 @@ bool LxQtPanel::event(QEvent *event)
 
         // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
         // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
-        // Let's do it manually
-        NETWinInfo info(QX11Info::connection(), effectiveWinId(), QX11Info::appRootWindow(), NET::WMWindowType, 0);
-        info.setWindowType(NET::Dock);
+        // Let's use KWindowSystem for that
+        KWindowSystem::setType(effectiveWinId(), NET::Dock);
 
         updateWmStrut(); // reserve screen space for the panel
         KWindowSystem::setOnAllDesktops(effectiveWinId(), true);
