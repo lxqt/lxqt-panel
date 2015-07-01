@@ -26,16 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include <QApplication>
-#include <QIcon>
-#include <QDebug>
-#include <QLibraryInfo>
-#include <QDirIterator>
-#include <QCommandLineParser>
-#include <csignal>
-
 #include "lxqtpanelapplication.h"
-#include "lxqtpanel.h"
 
 /*! The lxqt-panel is the panel of LXDE-Qt.
   Usage: lxqt-panel [CONFIG_ID]
@@ -43,20 +34,9 @@
                    (default main)
  */
 
-void termSignalHandler(int)
-{
-    if (qApp)
-        qApp->quit();
-}
-
 int main(int argc, char *argv[])
 {
     LxQtPanelApplication app(argc, argv);
-
-    // Quit gracefully
-    ::signal(SIGTERM, termSignalHandler);
-    ::signal(SIGINT,  termSignalHandler);
-    ::signal(SIGHUP,  termSignalHandler);
 
     return app.exec();
 }

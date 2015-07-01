@@ -37,7 +37,7 @@
 #include <QCommandLineParser>
 
 LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv)
-    : LxQt::Application(argc, argv)
+    : LxQt::Application(argc, argv, true)
 {
     QCoreApplication::setApplicationName(QStringLiteral("lxqt-panel"));
     QCoreApplication::setApplicationVersion(LXQT_VERSION);
