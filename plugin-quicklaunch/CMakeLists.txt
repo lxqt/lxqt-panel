@@ -15,7 +15,7 @@ set(SOURCES
 )
 
 set(LIBRARIES
-    ${QTXDG_LIBRARIES}
+    Qt5Xdg
 )
 
 include_directories(

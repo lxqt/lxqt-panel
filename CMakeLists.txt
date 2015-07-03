@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 project(lxqt-panel)
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
@@ -57,20 +57,13 @@ find_package(Qt5X11Extras REQUIRED)
 find_package(KF5WindowSystem REQUIRED)
 
 find_package(lxqt REQUIRED)
-find_package(Qt5Xdg REQUIRED QUIET)
 find_package(lxqt-globalkeys REQUIRED)
 find_package(lxqt-globalkeys-ui REQUIRED)
 
-include(${LXQT_USE_FILE})
-include(${QTXDG_USE_FILE})
-include(${LXQT_GLOBALKEYS_USE_FILE})
-include(${LXQT_GLOBALKEYS_UI_USE_FILE})
 
 include(LXQtTranslate)
 
 include_directories(
-    ${LXQT_INCLUDE_DIRS}
-    ${QTXDG_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
 )
 

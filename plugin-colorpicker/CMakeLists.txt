@@ -11,8 +11,7 @@ set(SOURCES
 set(UIS "")
 
 set(LIBRARIES
-    ${LXQT_LIBRARIES}
-    ${QTXDG_LIBRARIES}
+    lxqt
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

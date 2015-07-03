@@ -21,7 +21,6 @@ set(UIS
     lxqtsysstatcolours.ui
 )
 
-set(LIBRARIES ${SYSSTAT_LIBRARIES})
-include_directories("${SYSSTAT_INCLUDE_DIRS}")
+set(LIBRARIES sysstat-qt5)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

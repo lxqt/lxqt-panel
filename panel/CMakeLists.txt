@@ -52,8 +52,7 @@ set(UI
 qt5_wrap_ui(UI_HEADERS ${UI})
 
 set(LIBRARIES
-    ${LXQT_LIBRARIES}
-    ${QTXDG_LIBRARIES}
+    lxqt
 )
 
 file(GLOB CONFIG_FILES resources/*.conf)
@@ -69,8 +68,6 @@ project(${PROJECT})
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${LXQT_INCLUDE_DIRS}
-    ${LXQT_INCLUDE_DIRS}/LXQt # FIXME: liblxqt seems to be broken, workaround it.
 )
 
 set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)

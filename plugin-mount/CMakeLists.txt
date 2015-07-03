@@ -29,6 +29,6 @@ set(UIS
 )
 
 find_package(KF5Solid REQUIRED)
-set(LIBRARIES ${QTXDG_LIBRARIES} KF5::Solid)
+set(LIBRARIES Qt5Xdg KF5::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

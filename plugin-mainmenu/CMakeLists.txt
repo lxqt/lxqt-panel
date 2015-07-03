@@ -33,10 +33,9 @@ if(MENU_CACHE_FOUND)
 endif()
 
 set(LIBRARIES
-    ${LXQT_LIBRARIES}
-    ${QTXDG_LIBRARIES}
-    ${LXQT_GLOBALKEYS_LIBRARIES}
-    ${LXQT_GLOBALKEYS_UI_LIBRARIES}
+    lxqt
+    lxqt-globalkeys
+    lxqt-globalkeys-ui
     ${MENU_CACHE_LIBRARIES}
 )
 
