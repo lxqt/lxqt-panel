@@ -39,7 +39,7 @@ void Settings::setShowLayout(bool show)
 
 KeeperType Settings::keeperType() const
 {
-    QString type = m_settings->value("keeper_type", "application").toString();
+    QString type = m_settings->value("keeper_type", "global").toString();
     if(type == "global")
         return KeeperType::Global;
     if(type == "window")
