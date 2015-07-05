@@ -37,6 +37,8 @@ Content::Content(bool layoutEnabled):
     m_layout->setAlignment(Qt::AlignCenter);
     m_layout->installEventFilter(this);
     layout()->addWidget(m_layout);
+
+    m_layout->setEnabled(false);
 }
 
 Content::~Content()
