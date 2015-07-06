@@ -177,13 +177,18 @@ LxQtPanel::LxQtPanel(const QString &configGroup, QWidget *parent) :
     LxQtPanelApplication *app = reinterpret_cast<LxQtPanelApplication*>(qApp);
     mSettings = app->settings();
     readSettings();
-    mHidden = false;//overriding configuration to show it first time
-    QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     // the old position might be on a visible screen
     ensureVisible();
     loadPlugins();
 
     show();
+
+    // show it the first first time, despite setting
+    if (mHidable)
+    {
+      showPanel();
+      QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
+    }
 }
 
 /************************************************
@@ -193,6 +198,11 @@ void LxQtPanel::readSettings()
 {
     // Read settings ......................................
     mSettings->beginGroup(mConfigGroup);
+
+    // Let Hidability be the first thing we read
+    // so that every call to realign() is without side-effect
+    mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
+    mHidden = mHidable;
 
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
@@ -221,9 +231,6 @@ void LxQtPanel::readSettings()
     QString image = mSettings->value(CFG_KEY_BACKGROUNDIMAGE, "").toString();
     if (!image.isEmpty())
         setBackgroundImage(image, false);
-
-    mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
-    mHidden = mHidable;
 
     mSettings->endGroup();
 }
@@ -338,6 +345,11 @@ void LxQtPanel::loadPlugins()
 /************************************************
 
  ************************************************/
+int LxQtPanel::getReserveDimension()
+{
+    return (mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize)) - 1;
+}
+
 void LxQtPanel::setPanelGeometry()
 {
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
@@ -458,8 +470,6 @@ void LxQtPanel::updateWmStrut()
     if(wid == 0 || !isVisible())
         return;
 
-    const QRect wholeScreen = QApplication::desktop()->geometry();
-    // qDebug() << "wholeScreen" << wholeScreen;
     const QRect rect = geometry();
     // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
     // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
@@ -472,7 +482,7 @@ void LxQtPanel::updateWmStrut()
         KWindowSystem::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
-                                        /* Top    */  height(), rect.left(), rect.right(),
+                                        /* Top    */  getReserveDimension(), rect.left(), rect.right(),
                                         /* Bottom */  0, 0, 0
                                        );
         break;
@@ -482,13 +492,13 @@ void LxQtPanel::updateWmStrut()
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
-                                        /* Bottom */  wholeScreen.bottom() - rect.y(), rect.left(), rect.right()
+                                        /* Bottom */  getReserveDimension(), rect.left(), rect.right()
                                        );
         break;
 
     case LxQtPanel::PositionLeft:
         KWindowSystem::setExtendedStrut(wid,
-                                        /* Left   */  width(), rect.top(), rect.bottom(),
+                                        /* Left   */  getReserveDimension(), rect.top(), rect.bottom(),
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
                                         /* Bottom */  0, 0, 0
@@ -499,7 +509,7 @@ void LxQtPanel::updateWmStrut()
     case LxQtPanel::PositionRight:
         KWindowSystem::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
-                                        /* Right  */  wholeScreen.right() - rect.x(), rect.top(), rect.bottom(),
+                                        /* Right  */  getReserveDimension(), rect.top(), rect.bottom(),
                                         /* Top    */  0, 0, 0,
                                         /* Bottom */  0, 0, 0
                                        );

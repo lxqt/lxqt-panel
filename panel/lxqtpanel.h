@@ -160,6 +160,7 @@ private:
     void loadPlugins();
 
     void setPanelGeometry();
+    int getReserveDimension();
 
     int mPanelSize;
     int mIconSize;
