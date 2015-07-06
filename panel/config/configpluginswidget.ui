@@ -108,6 +108,9 @@
       </property>
       <item>
        <widget class="QToolButton" name="pushButton_moveUp">
+        <property name="toolTip">
+         <string>Move up</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
@@ -119,6 +122,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="pushButton_moveDown">
+        <property name="toolTip">
+         <string>Move down</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
@@ -137,6 +143,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="pushButton_addPlugin">
+        <property name="toolTip">
+         <string>Add</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
@@ -148,6 +157,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="pushButton_removePlugin">
+        <property name="toolTip">
+         <string>Remove</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
@@ -166,6 +178,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="pushButton_pluginConfig">
+        <property name="toolTip">
+         <string>Configure</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
