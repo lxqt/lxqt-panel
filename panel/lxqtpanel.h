@@ -159,6 +159,8 @@ private:
 
     void loadPlugins();
 
+    void setPanelGeometry();
+
     int mPanelSize;
     int mIconSize;
     int mLineCount;

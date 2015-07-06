@@ -338,21 +338,8 @@ void LxQtPanel::loadPlugins()
 /************************************************
 
  ************************************************/
-void LxQtPanel::realign()
+void LxQtPanel::setPanelGeometry()
 {
-    if (!isVisible())
-        return;
-#if 0
-    qDebug() << "** Realign *********************";
-    qDebug() << "PanelSize:   " << mPanelSize;
-    qDebug() << "IconSize:      " << mIconSize;
-    qDebug() << "LineCount:     " << mLineCount;
-    qDebug() << "Length:        " << mLength << (mLengthInPercents ? "%" : "px");
-    qDebug() << "Alignment:     " << (mAlignment == 0 ? "center" : (mAlignment < 0 ? "left" : "right"));
-    qDebug() << "Position:      " << positionToStr(mPosition) << "on" << mScreenNum;
-    qDebug() << "Plugins count: " << mPlugins.count();
-#endif
-
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
     QRect rect;
 
@@ -438,6 +425,24 @@ void LxQtPanel::realign()
         setGeometry(rect);
         setFixedSize(rect.size());
     }
+}
+
+void LxQtPanel::realign()
+{
+    if (!isVisible())
+        return;
+#if 0
+    qDebug() << "** Realign *********************";
+    qDebug() << "PanelSize:   " << mPanelSize;
+    qDebug() << "IconSize:      " << mIconSize;
+    qDebug() << "LineCount:     " << mLineCount;
+    qDebug() << "Length:        " << mLength << (mLengthInPercents ? "%" : "px");
+    qDebug() << "Alignment:     " << (mAlignment == 0 ? "center" : (mAlignment < 0 ? "left" : "right"));
+    qDebug() << "Position:      " << positionToStr(mPosition) << "on" << mScreenNum;
+    qDebug() << "Plugins count: " << mPlugins.count();
+#endif
+
+    setPanelGeometry();
 
     // Reserve our space on the screen ..........
     // It's possible that our geometry is not changed, but screen resolution is changed,
@@ -1074,7 +1079,7 @@ void LxQtPanel::showPanel()
         if (mHidden)
         {
             mHidden = false;
-            realign();
+            setPanelGeometry();
         }
     }
 }
@@ -1090,7 +1095,7 @@ void LxQtPanel::hidePanelWork()
     if (mHidable && !mHidden && !geometry().contains(QCursor::pos()))
     {
         mHidden = true;
-        realign();
+        setPanelGeometry();
     } else
     {
         mHideTimer.start();
@@ -1102,8 +1107,7 @@ void LxQtPanel::setHidable(bool hidable, bool save)
     if (mHidable == hidable)
         return;
 
-    mHidable = hidable;
-    mHidden = mHidable;
+    mHidable = mHidden = hidable;
 
     if (save)
         saveSettings(true);
