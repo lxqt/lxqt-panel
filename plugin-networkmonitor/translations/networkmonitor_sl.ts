@@ -58,7 +58,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavitve nadzornika omrežja LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>

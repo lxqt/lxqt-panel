@@ -5,9 +5,6 @@ ServiceTypes=LxQtPanel/Plugin
 Name=Network monitor
 Comment=Displays network status and activity.
 
-
-
-
 # Translations
-Comment[sl]=Nadzornik omrežja
 Name[sl]=Nadzornik omrežja
+Comment[sl]=Nadzornik omrežja
