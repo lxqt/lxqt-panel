@@ -6,47 +6,47 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface réseau</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Transmis</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reçu</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>o</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation type="unfinished"></translation>
+        <translation>Ko</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>Go</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>TiB</source>
-        <translation type="unfinished"></translation>
+        <translation>To</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>PiB</source>
-        <translation type="unfinished"></translation>
+        <translation>Po</translation>
     </message>
 </context>
 <context>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres du moniteur réseau</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
@@ -64,32 +64,32 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation type="unfinished"></translation>
+        <translation>Modem</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
         <source>Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Moniteur</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Réseau</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans-Fil</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icône</translation>
     </message>
 </context>
 </TS>
