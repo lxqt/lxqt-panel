@@ -10,7 +10,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Încărcare procesor</translation>
     </message>
 </context>
 <context>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Setări încărcare procesor</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lățime bară:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;bazat pe localizare&gt;</translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Setări ceas</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="20"/>
@@ -38,47 +38,47 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
         <source>&amp;Use UTC</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Utilizează UTC</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Formatul datei</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Nu afișa data</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Afișează data &amp;înaintea orei</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
         <source>Show date &amp;after time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Afișează data &amp;după timp</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Afișează data pe un &amp;rând nou sub oră</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="107"/>
         <source>First day of week in calendar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Prima zi a săptămânii</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="124"/>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Orientare</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rotire automată când panoul e vertical</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="50"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Format de dată personalizat</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
@@ -123,7 +123,25 @@ will also be treated as text and not be used as an expression.
 
 
 Custom date format:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Secvențe interpretate pentru formatarea datei sunt:
+
+d   numărul zilei fără zero în față  (între 1 și 31)
+dd  numărul zilei cu zero în față (între 01 și 31)
+ddd numele abreviat al zilei (de ex. &apos;Lu&apos; până &apos;Du&apos;).
+dddd    numele lung al zilei (de ex. &apos;Luni&apos; până &apos;Duminică&apos;).
+M   numărul lunii fără zero în față (1-12)
+MM  numărul lunii cu zero în față (01-12)
+MMM numele abreviat și localizat al lunii (de ex. &apos;Ian&apos; - &apos;Dec&apos;).
+MMMM    numele lung și localizat al lunii (de ex. &apos;Ianuarie&apos; - &apos;December&apos;).
+yy  anul ca un număr din 2 cifre (00-99)
+yyyy    anul ca un număr din 4 cifre
+
+Orice alt caracter introdus va fi tratat ca text.
+Orice secvență de caractere intre ghilimele simple (&apos;)
+vor fi la fel tratate ca text si nu vor fi interpretate in expresie.
+
+
+Format de dată personalizat:</translation>
     </message>
 </context>
 </TS>
