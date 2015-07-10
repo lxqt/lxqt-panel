@@ -21,32 +21,32 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
         <source>B</source>
-        <translation></translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation></translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>MiB</source>
-        <translation></translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>GiB</source>
-        <translation></translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>TiB</source>
-        <translation></translation>
+        <translation>Tib</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>PiB</source>
-        <translation></translation>
+        <translation>Pib</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation type="unfinished"></translation>
+        <translation type="Wireless"></translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>

@@ -5,9 +5,6 @@ ServiceTypes=LxQtPanel/Plugin
 Name=Network monitor
 Comment=Displays network status and activity.
 
-
-
-
 # Translations
-Comment[hu]=Alkalmazásmenü
 Name[hu]=Alkalmazásindító alapú menü
+Comment[hu]=Alkalmazásmenü
