@@ -347,7 +347,7 @@ void LxQtPanel::loadPlugins()
  ************************************************/
 int LxQtPanel::getReserveDimension()
 {
-    return (mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize)) - 1;
+    return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
 void LxQtPanel::setPanelGeometry()
