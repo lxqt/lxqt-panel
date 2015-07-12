@@ -250,39 +250,64 @@
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
-        <location filename="../config/configpluginswidget.ui" line="123"/>
-        <location filename="../config/configpluginswidget.ui" line="141"/>
-        <location filename="../config/configpluginswidget.ui" line="152"/>
-        <location filename="../config/configpluginswidget.ui" line="170"/>
+        <source>Move up</source>
+        <translation>Nach oben schieben</translation>
+    </message>
+    <message>
+        <location filename="../config/configpluginswidget.ui" line="115"/>
+        <location filename="../config/configpluginswidget.ui" line="129"/>
+        <location filename="../config/configpluginswidget.ui" line="150"/>
+        <location filename="../config/configpluginswidget.ui" line="164"/>
+        <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
         <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../config/configpluginswidget.ui" line="126"/>
+        <source>Move down</source>
+        <translation>Nach unten schieben</translation>
+    </message>
+    <message>
+        <location filename="../config/configpluginswidget.ui" line="147"/>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <location filename="../config/configpluginswidget.ui" line="182"/>
+        <source>Configure</source>
+        <translation>Konfigurieren</translation>
     </message>
 </context>
 <context>
     <name>LxQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="898"/>
-        <location filename="../lxqtpanel.cpp" line="917"/>
+        <location filename="../lxqtpanel.cpp" line="912"/>
+        <location filename="../lxqtpanel.cpp" line="931"/>
         <source>Panel</source>
         <translation>Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="920"/>
+        <location filename="../lxqtpanel.cpp" line="934"/>
         <source>Configure Panel</source>
         <translation>Leiste konfigurieren</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="925"/>
+        <location filename="../lxqtpanel.cpp" line="939"/>
         <source>Manage Widgets</source>
         <translation>Widgets verwalten</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="931"/>
+        <location filename="../lxqtpanel.cpp" line="945"/>
         <source>Add Panel</source>
         <translation>Leiste hinzufügen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="938"/>
+        <location filename="../lxqtpanel.cpp" line="952"/>
         <source>Remove Panel</source>
         <translation>Leiste entfernen</translation>
     </message>
@@ -290,17 +315,17 @@
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="399"/>
+        <location filename="../plugin.cpp" line="403"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>&quot;%1&quot; konfigurieren</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="404"/>
+        <location filename="../plugin.cpp" line="408"/>
         <source>Move &quot;%1&quot;</source>
         <translation>&quot;%1&quot; verschieben</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="412"/>
+        <location filename="../plugin.cpp" line="416"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>&quot;%1&quot; entfernen</translation>
     </message>
