@@ -40,20 +40,23 @@ Content::Content(bool layoutEnabled):
     box->setSpacing(0);
     setLayout(box);
 
-    m_capsLock = new QLabel("C");
+    m_capsLock = new QLabel(tr("C", "Label for CapsLock indicator"));
     m_capsLock->setObjectName("CapsLockLabel");
     m_capsLock->setAlignment(Qt::AlignCenter);
+    m_capsLock->setToolTip(tr("CapsLock", "Tooltip for CapsLock indicator"));
     m_capsLock->installEventFilter(this);
     layout()->addWidget(m_capsLock);
 
-    m_numLock = new QLabel("N");
+    m_numLock = new QLabel(tr("N", "Label for NumLock indicator"));
     m_numLock->setObjectName("NumLockLabel");
+    m_numLock->setToolTip(tr("NumLock", "Tooltip for NumLock indicator"));
     m_numLock->setAlignment(Qt::AlignCenter);
     m_numLock->installEventFilter(this);
     layout()->addWidget(m_numLock);
 
-    m_scrollLock = new QLabel("S");
+    m_scrollLock = new QLabel(tr("S", "Label for ScrollLock indicator"));
     m_scrollLock->setObjectName("ScrollLockLabel");
+    m_scrollLock->setToolTip(tr("ScrollLock", "Tooltip for ScrollLock indicator"));
     m_scrollLock->setAlignment(Qt::AlignCenter);
     m_scrollLock->installEventFilter(this);
     layout()->addWidget(m_scrollLock);
