@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">blahblahblah</translation>
+        <translation>Tastatur</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
