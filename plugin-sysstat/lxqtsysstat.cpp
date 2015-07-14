@@ -384,11 +384,19 @@ void LxQtSysStatContent::clearLine()
 
 void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float other, float frequencyRate, uint)
 {
-    int y_system = clamp(static_cast<int>(system * 100.0 * frequencyRate)           , 0, 99);
-    int y_user   = clamp(static_cast<int>(user   * 100.0 * frequencyRate) + y_system, 0, 99);
-    int y_nice   = clamp(static_cast<int>(nice   * 100.0 * frequencyRate) + y_user  , 0, 99);
-    int y_other  = clamp(static_cast<int>(other  * 100.0 * frequencyRate) + y_nice  , 0, 99);
-    int y_freq   = clamp(static_cast<int>(         100.0 * frequencyRate)           , 0, 99);
+    int y_system = static_cast<int>(system * 100.0 * frequencyRate);
+    int y_user   = static_cast<int>(user   * 100.0 * frequencyRate);
+    int y_nice   = static_cast<int>(nice   * 100.0 * frequencyRate);
+    int y_other  = static_cast<int>(other  * 100.0 * frequencyRate);
+    int y_freq   = static_cast<int>(         100.0 * frequencyRate);
+
+    setToolTip(tr("<b>CPU</b><br>system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: %5%").arg(y_system).arg(y_user).arg(y_nice).arg(y_other).arg(y_freq));
+
+    y_system = clamp(y_system, 0, 99);
+    y_user   = clamp(y_user + y_system, 0, 99);
+    y_nice   = clamp(y_nice + y_user  , 0, 99);
+    y_other  = clamp(y_other, 0, 99);
+    y_freq   = clamp(y_freq, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -425,10 +433,17 @@ void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
 
 void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float other)
 {
-    int y_system = clamp(static_cast<int>(system * 100.0)           , 0, 99);
-    int y_user   = clamp(static_cast<int>(user   * 100.0) + y_system, 0, 99);
-    int y_nice   = clamp(static_cast<int>(nice   * 100.0) + y_user  , 0, 99);
-    int y_other  = clamp(static_cast<int>(other  * 100.0) + y_nice  , 0, 99);
+    int y_system = static_cast<int>(system * 100.0);
+    int y_user   = static_cast<int>(user   * 100.0);
+    int y_nice   = static_cast<int>(nice   * 100.0);
+    int y_other  = static_cast<int>(other  * 100.0);
+
+    setToolTip(tr("<b>CPU</b><br>system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: n/a").arg(y_system).arg(y_user).arg(y_nice).arg(y_other));
+
+    y_system = clamp(y_system, 0, 99);
+    y_user   = clamp(y_user + y_system, 0, 99);
+    y_nice   = clamp(y_nice + y_user, 0, 99);
+    y_other  = clamp(y_other + y_nice, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -460,9 +475,15 @@ void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
 
 void LxQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
 {
-    int y_apps    = clamp(static_cast<int>(apps    * 100.0)            , 0, 99);
-    int y_buffers = clamp(static_cast<int>(buffers * 100.0) + y_apps   , 0, 99);
-    int y_cached  = clamp(static_cast<int>(cached  * 100.0) + y_buffers, 0, 99);
+    int y_apps    = static_cast<int>(apps    * 100.0);
+    int y_buffers = static_cast<int>(buffers * 100.0);
+    int y_cached  = static_cast<int>(cached  * 100.0);
+
+    setToolTip(tr("<b>Memory</b><br>apps: %1%<br>buffers: %2%<br>cached: %3%").arg(y_apps).arg(y_buffers).arg(y_cached));
+
+    y_apps    = clamp(y_apps, 0, 99);
+    y_buffers = clamp(y_buffers + y_apps, 0, 99);
+    y_cached  = clamp(y_cached + y_buffers, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -489,7 +510,11 @@ void LxQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
 
 void LxQtSysStatContent::swapUpdate(float used)
 {
-    int y_used = clamp(static_cast<int>(used * 100.0), 0, 99);
+    int y_used = static_cast<int>(used * 100.0);
+
+    setToolTip(tr("<b>Swap</b><br>used: %1%").arg(y_used));
+
+    y_used = clamp(y_used, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -514,8 +539,13 @@ void LxQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
         max_value = qLn(max_value * (mLogScaleMax - 1.0) + 1.0) / qLn(2.0) / static_cast<qreal>(mLogScaleSteps);
     }
 
-    int y_min_value = clamp(static_cast<int>(min_value * 100.0)              , 0, 99);
-    int y_max_value = clamp(static_cast<int>(max_value * 100.0) + y_min_value, 0, 99);
+    int y_min_value = static_cast<int>(min_value * 100.0);
+    int y_max_value = static_cast<int>(max_value * 100.0);
+
+    setToolTip(tr("<b>Net</b><br>min: %1%<br>max: %2%").arg(y_min_value).arg(y_max_value));
+
+    y_min_value = clamp(y_min_value, 0, 99);
+    y_max_value = clamp(y_max_value + y_min_value, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
