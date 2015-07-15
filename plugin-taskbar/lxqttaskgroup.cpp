@@ -76,11 +76,15 @@ void LxQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
-    QMenu menu(tr("Group"));
-    QAction *a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"));
+    QMenu * menu = new QMenu(tr("Group"));
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+    QAction *a = menu->addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"));
     connect(a, SIGNAL(triggered()), this, SLOT(closeGroup()));
-    menu.exec(mapToGlobal(event->pos()));
-    mPreventPopup = false;
+    connect(menu, &QMenu::aboutToHide, [this] {
+        mPreventPopup = false;
+    });
+    menu->setGeometry(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
+    menu->show();
 }
 
 /************************************************

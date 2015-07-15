@@ -908,10 +908,10 @@ void LxQtPanel::showEvent(QShowEvent *event)
  ************************************************/
 void LxQtPanel::showPopupMenu(Plugin *plugin)
 {
-    QList<QMenu*> pluginsMenus;
-    PopupMenu menu(tr("Panel"));
+    PopupMenu * menu = new PopupMenu(tr("Panel"), this);
+    menu->setAttribute(Qt::WA_DeleteOnClose);
 
-    menu.setIcon(XdgIcon::fromTheme("configure-toolbars"));
+    menu->setIcon(XdgIcon::fromTheme("configure-toolbars"));
 
     // Plugin Menu ..............................
     if (plugin)
@@ -920,47 +920,51 @@ void LxQtPanel::showPopupMenu(Plugin *plugin)
 
         if (m)
         {
-            menu.addTitle(plugin->windowTitle());
-            menu.addActions(m->actions());
-            pluginsMenus << m;
+            menu->addTitle(plugin->windowTitle());
+            menu->addActions(m->actions());
+            qobject_cast<QObject*>(m)->setParent(menu);
         }
     }
 
     // Panel menu ...............................
 
-    menu.addTitle(QIcon(), tr("Panel"));
+    menu->addTitle(QIcon(), tr("Panel"));
 
-    menu.addAction(XdgIcon::fromTheme(QStringLiteral("configure")),
+    menu->addAction(XdgIcon::fromTheme(QStringLiteral("configure")),
                    tr("Configure Panel"),
                    this, SLOT(showConfigDialog())
                   );
 
-    menu.addAction(XdgIcon::fromTheme("preferences-plugin"),
+    menu->addAction(XdgIcon::fromTheme("preferences-plugin"),
                    tr("Manage Widgets"),
                    this, SLOT(showAddPluginDialog())
                   );
 
     LxQtPanelApplication *a = reinterpret_cast<LxQtPanelApplication*>(qApp);
-    menu.addAction(XdgIcon::fromTheme(QLatin1String("list-add")),
+    menu->addAction(XdgIcon::fromTheme(QLatin1String("list-add")),
                    tr("Add Panel"),
                    a, SLOT(addNewPanel())
                   );
 
     if (a->count() > 1)
     {
-        menu.addAction(XdgIcon::fromTheme(QStringLiteral("list-remove")),
+        menu->addAction(XdgIcon::fromTheme(QStringLiteral("list-remove")),
                        tr("Remove Panel"),
                        this, SLOT(userRequestForDeletion())
                       );
     }
 
 #ifdef DEBUG
-    menu.addSeparator();
-    menu.addAction("Exit (debug only)", qApp, SLOT(quit()));
+    menu->addSeparator();
+    menu->addAction("Exit (debug only)", qApp, SLOT(quit()));
 #endif
 
-    menu.exec(QCursor::pos());
-    qDeleteAll(pluginsMenus);
+    /* Note: in multihead & multipanel setup the QMenu::popup/exec places the window
+     * sometimes wrongly (it seems that this bug is somehow connected to misinterpretation
+     * of QDesktopWidget::availableGeometry)
+     */
+    menu->setGeometry(calculatePopupWindowPos(QCursor::pos(), menu->sizeHint()));
+    menu->show();
 }
 
 Plugin* LxQtPanel::findPlugin(const ILxQtPanelPlugin* iPlugin) const
@@ -975,34 +979,26 @@ Plugin* LxQtPanel::findPlugin(const ILxQtPanelPlugin* iPlugin) const
 /************************************************
 
  ************************************************/
-QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const
+QRect LxQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const
 {
-    Plugin *panel_plugin = findPlugin(plugin);
-    if (nullptr == panel_plugin)
-        return QRect();
-
-    int x=0, y=0;
+    int x = absolutePos.x(), y = absolutePos.y();
 
     switch (position())
     {
     case ILxQtPanel::PositionTop:
-        x = panel_plugin->mapToGlobal(QPoint(0, 0)).x();
         y = globalGometry().bottom();
         break;
 
     case ILxQtPanel::PositionBottom:
-        x = panel_plugin->mapToGlobal(QPoint(0, 0)).x();
         y = globalGometry().top() - windowSize.height();
         break;
 
     case ILxQtPanel::PositionLeft:
         x = globalGometry().right();
-        y = panel_plugin->mapToGlobal(QPoint(0, 0)).y();
         break;
 
     case ILxQtPanel::PositionRight:
         x = globalGometry().left() - windowSize.width();
-        y = panel_plugin->mapToGlobal(QPoint(0, 0)).y();
         break;
     }
 
@@ -1026,6 +1022,18 @@ QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const Q
         res.moveTop(screen.top());
 
     return res;
+}
+
+/************************************************
+
+ ************************************************/
+QRect LxQtPanel::calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const
+{
+    Plugin *panel_plugin = findPlugin(plugin);
+    if (nullptr == panel_plugin)
+        return QRect();
+
+    return calculatePopupWindowPos(panel_plugin->mapToGlobal(QPoint(0, 0)), windowSize);
 }
 
 

@@ -441,7 +441,8 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     KWindowInfo info(mWindow, 0, NET::WM2AllowedActions);
     unsigned long state = KWindowInfo(mWindow, NET::WMState).state();
 
-    QMenu menu(tr("Application"));
+    QMenu * menu = new QMenu(tr("Application"));
+    menu->setAttribute(Qt::WA_DeleteOnClose);
     QAction* a;
 
     /* KDE menu *******
@@ -474,7 +475,7 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     if (deskNum > 1)
     {
         int winDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop();
-        QMenu* deskMenu = menu.addMenu(tr("To &Desktop"));
+        QMenu* deskMenu = menu->addMenu(tr("To &Desktop"));
 
         a = deskMenu->addAction(tr("&All Desktops"));
         a->setData(NET::OnAllDesktops);
@@ -491,58 +492,58 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         }
 
         int curDesk = KWindowSystem::currentDesktop();
-        a = menu.addAction(tr("&To Current Desktop"));
+        a = menu->addAction(tr("&To Current Desktop"));
         a->setData(curDesk);
         a->setEnabled(curDesk != winDesk);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
     }
 
     /********** State menu **********/
-    menu.addSeparator();
+    menu->addSeparator();
 
-    a = menu.addAction(tr("Ma&ximize"));
+    a = menu->addAction(tr("Ma&ximize"));
     a->setEnabled(info.actionSupported(NET::ActionMax) && (!(state & NET::Max) || (state & NET::Hidden)));
     a->setData(NET::Max);
     connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
-        a = menu.addAction(tr("Maximize vertically"));
+        a = menu->addAction(tr("Maximize vertically"));
         a->setEnabled(info.actionSupported(NET::ActionMaxVert) && !((state & NET::MaxVert) || (state & NET::Hidden)));
         a->setData(NET::MaxVert);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
 
-        a = menu.addAction(tr("Maximize horizontally"));
+        a = menu->addAction(tr("Maximize horizontally"));
         a->setEnabled(info.actionSupported(NET::ActionMaxHoriz) && !((state & NET::MaxHoriz) || (state & NET::Hidden)));
         a->setData(NET::MaxHoriz);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
     }
 
-    a = menu.addAction(tr("&Restore"));
+    a = menu->addAction(tr("&Restore"));
     a->setEnabled((state & NET::Hidden) || (state & NET::Max) || (state & NET::MaxHoriz) || (state & NET::MaxVert));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(deMaximizeApplication()));
 
-    a = menu.addAction(tr("Mi&nimize"));
+    a = menu->addAction(tr("Mi&nimize"));
     a->setEnabled(info.actionSupported(NET::ActionMinimize) && !(state & NET::Hidden));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(minimizeApplication()));
 
     if (state & NET::Shaded)
     {
-        a = menu.addAction(tr("Roll down"));
+        a = menu->addAction(tr("Roll down"));
         a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
         connect(a, SIGNAL(triggered(bool)), this, SLOT(unShadeApplication()));
     }
     else
     {
-        a = menu.addAction(tr("Roll up"));
+        a = menu->addAction(tr("Roll up"));
         a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
         connect(a, SIGNAL(triggered(bool)), this, SLOT(shadeApplication()));
     }
 
     /********** Layer menu **********/
-    menu.addSeparator();
+    menu->addSeparator();
 
-    QMenu* layerMenu = menu.addMenu(tr("&Layer"));
+    QMenu* layerMenu = menu->addMenu(tr("&Layer"));
 
     a = layerMenu->addAction(tr("Always on &top"));
     // FIXME: There is no info.actionSupported(NET::ActionKeepAbove)
@@ -563,10 +564,11 @@ void LxQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
 
     /********** Kill menu **********/
-    menu.addSeparator();
-    a = menu.addAction(XdgIcon::fromTheme("process-stop"), tr("&Close"));
+    menu->addSeparator();
+    a = menu->addAction(XdgIcon::fromTheme("process-stop"), tr("&Close"));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(closeApplication()));
-    menu.exec(mapToGlobal(event->pos()));
+    menu->setGeometry(mParentTaskBar->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
+    menu->show();
 }
 
 /************************************************
