@@ -80,6 +80,7 @@ public:
     ILxQtPanel::Position position() const { return mPosition; }
     QRect globalGometry() const;
     Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
+    QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const;
     QRect calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const;
 
     // For QSS properties ..................

@@ -49,7 +49,6 @@
 
 class LxQtTaskButton;
 class ElidedButtonStyle;
-class ILxQtPanelPlugin;
 
 namespace LxQt {
 class GridLayout;
@@ -76,6 +75,7 @@ public:
     bool isAutoRotate() const { return mAutoRotate; }
     bool isGroupingEnabled() const { return mGroupingEnabled; }
     bool isShowGroupOnHover() const { return mShowGroupOnHover; }
+    ILxQtPanel * panel() const { return mPlugin->panel(); }
 
 public slots:
     void settingsChanged();
