@@ -8,7 +8,12 @@ lxqt_translate_desktop(DIRECTORY_FILES
 add_custom_target(desktop_directories_files ALL DEPENDS ${DIRECTORY_FILES})
 #************************************************
 
-install(FILES ${DIRECTORY_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/desktop-directories")
-install(FILES lxqt-applications.menu	DESTINATION "${LXQT_ETC_XDG_DIR}/menus")
+install(FILES
+    ${DIRECTORY_FILES}
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/desktop-directories"
+)
 
-
+install(FILES
+    lxqt-applications.menu
+    DESTINATION "${LXQT_ETC_XDG_DIR}/menus"
+)
