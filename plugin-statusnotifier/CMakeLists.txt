@@ -1,8 +1,6 @@
 set(PLUGIN "statusnotifier")
 
 
-set(QT_USE_QTDBUS 1)
-set(QT_USE_QTXML 1)
 find_package(dbusmenu-qt5 REQUIRED QUIET)
 
 set(HEADERS
