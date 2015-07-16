@@ -1,13 +1,9 @@
 set(PLUGIN "statusnotifier")
 
-include(CheckLibraryExists)
-
-find_package(PkgConfig)
-pkg_check_modules(dbusmenu-qt5 REQUIRED dbusmenu-qt5)
-include_directories(${dbusmenu-qt5_INCLUDE_DIRS})
 
 set(QT_USE_QTDBUS 1)
 set(QT_USE_QTXML 1)
+find_package(dbusmenu-qt5 REQUIRED QUIET)
 
 set(HEADERS
     statusnotifier.h
@@ -35,7 +31,7 @@ qt5_add_dbus_adaptor(SOURCES
 
 set(LIBRARIES
     lxqt
-    ${dbusmenu-qt5_LIBRARIES}
+    dbusmenu-qt5
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
