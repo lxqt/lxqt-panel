@@ -35,6 +35,13 @@
 #include <SysStat/MemStat>
 #include <SysStat/NetStat>
 
+//Note: strings can't actually be translated here (in static initialization time)
+//      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
+const QStringList LxQtSysStatConfiguration::msStatTypes = {
+    QStringLiteral(QT_TR_NOOP("CPU"))
+    , QStringLiteral(QT_TR_NOOP("Memory"))
+    , QStringLiteral(QT_TR_NOOP("Network"))
+};
 
 LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
@@ -42,15 +49,27 @@ LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget 
     mSettings(settings),
     oldSettings(settings),
     mStat(NULL),
-    mLockSaving(false),
     mColoursDialog(NULL)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SysStatConfigurationWindow");
     ui->setupUi(this);
 
+    //Note: translation is needed here in runtime (translator is attached already)
+    for (auto const & type : msStatTypes)
+        ui->typeCOB->addItem(tr(type.toStdString().c_str()), type);
 
     loadSettings();
+
+    connect(ui->typeCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->intervalSB, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->linesSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->titleLE, &QLineEdit::editingFinished, this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->useFrequencyCB, &QCheckBox::toggled, this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->logarithmicCB, &QCheckBox::toggled, this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->sourceCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->useThemeColoursRB, &QRadioButton::toggled, this, &LxQtSysStatConfiguration::saveSettings);
 }
 
 LxQtSysStatConfiguration::~LxQtSysStatConfiguration()
@@ -60,8 +79,6 @@ LxQtSysStatConfiguration::~LxQtSysStatConfiguration()
 
 void LxQtSysStatConfiguration::loadSettings()
 {
-    mLockSaving = true;
-
     ui->intervalSB->setValue(mSettings->value("graph/updateInterval", 1.0).toDouble());
     ui->sizeSB->setValue(mSettings->value("graph/minimalSize", 30).toInt());
 
@@ -69,7 +86,7 @@ void LxQtSysStatConfiguration::loadSettings()
 
     ui->titleLE->setText(mSettings->value("title/label", QString()).toString());
 
-    int typeIndex = ui->typeCOB->findText(mSettings->value("data/type", QString("CPU")).toString());
+    int typeIndex = ui->typeCOB->findData(mSettings->value("data/type", msStatTypes[0]));
     ui->typeCOB->setCurrentIndex((typeIndex >= 0) ? typeIndex : 0);
     on_typeCOB_currentIndexChanged(ui->typeCOB->currentIndex());
 
@@ -86,15 +103,10 @@ void LxQtSysStatConfiguration::loadSettings()
     ui->useThemeColoursRB->setChecked(useThemeColours);
     ui->useCustomColoursRB->setChecked(!useThemeColours);
     ui->customColoursB->setEnabled(!useThemeColours);
-
-    mLockSaving = false;
 }
 
 void LxQtSysStatConfiguration::saveSettings()
 {
-    if (mLockSaving)
-        return;
-
     mSettings->setValue("graph/useThemeColours", ui->useThemeColoursRB->isChecked());
     mSettings->setValue("graph/updateInterval", ui->intervalSB->value());
     mSettings->setValue("graph/minimalSize", ui->sizeSB->value());
@@ -103,7 +115,11 @@ void LxQtSysStatConfiguration::saveSettings()
 
     mSettings->setValue("title/label", ui->titleLE->text());
 
-    mSettings->setValue("data/type", ui->typeCOB->currentText());
+    //Note:
+    // need to make a realy deep copy of the msStatTypes[x] because of SEGFAULTs
+    // occuring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
+    QString type = ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str();
+    mSettings->setValue("data/type", type);
     mSettings->setValue("data/source", ui->sourceCOB->currentText());
 
     mSettings->setValue("cpu/useFrequency", ui->useFrequencyCB->isChecked());
@@ -143,16 +159,16 @@ void LxQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
         break;
     }
 
+    ui->sourceCOB->blockSignals(true);
     ui->sourceCOB->clear();
     ui->sourceCOB->addItems(mStat->sources());
+    ui->sourceCOB->blockSignals(false);
     ui->sourceCOB->setCurrentIndex(0);
 }
 
 void LxQtSysStatConfiguration::on_maximumHS_valueChanged(int value)
 {
-    emit maximumNetSpeedChanged(PluginSysStat::netSpeedToString(value));
-
-    saveSettings();
+    ui->maximumValueL->setText(PluginSysStat::netSpeedToString(value));
 }
 
 void LxQtSysStatConfiguration::coloursChanged()

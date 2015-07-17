@@ -74,7 +74,7 @@ void LxQtSysStat::lateInit()
 
 QDialog *LxQtSysStat::configureDialog()
 {
-    return new LxQtSysStatConfiguration(settings());
+    return new LxQtSysStatConfiguration(settings(), mWidget);
 }
 
 void LxQtSysStat::realign()
@@ -231,7 +231,7 @@ void LxQtSysStatContent::updateSettings(const QSettings *settings)
     mTitleLabel = settings->value("title/label", QString()).toString();
 
     // default to CPU monitoring
-    mDataType = settings->value("data/type", QString("CPU")).toString();
+    mDataType = settings->value("data/type", LxQtSysStatConfiguration::msStatTypes[0]).toString();
 
     mDataSource = settings->value("data/source", QString("cpu")).toString();
 
@@ -300,7 +300,10 @@ void LxQtSysStatContent::updateSettings(const QSettings *settings)
     if (dataTypeChanged)
     {
         if (mStat)
+        {
             mStat->deleteLater();
+            mStat = nullptr;
+        }
 
         if (mDataType == "CPU")
             mStat = new SysStat::CpuStat(this);

@@ -64,6 +64,9 @@ public slots:
 
     void coloursChanged();
 
+public:
+    static const QStringList msStatTypes;
+
 signals:
     void maximumNetSpeedChanged(QString);
 
@@ -75,8 +78,6 @@ private:
     void loadSettings();
 
     SysStat::BaseStat *mStat;
-
-    bool mLockSaving;
 
     LxQtSysStatColours *mColoursDialog;
 };
