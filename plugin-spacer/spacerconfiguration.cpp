@@ -63,7 +63,7 @@ SpacerConfiguration::~SpacerConfiguration()
 void SpacerConfiguration::loadSettings()
 {
     ui->sizeSB->setValue(mSettings->value("size", 8).toInt());
-    ui->typeCB->setCurrentText(mSettings->value("spaceType", msTypes[0]).toString());
+    ui->typeCB->setCurrentIndex(ui->typeCB->findData(mSettings->value("spaceType", msTypes[0]).toString()));
 }
 
 void SpacerConfiguration::sizeChanged(int value)
