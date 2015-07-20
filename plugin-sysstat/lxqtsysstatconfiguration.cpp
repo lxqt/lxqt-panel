@@ -129,7 +129,7 @@ void LxQtSysStatConfiguration::loadSettings()
     ui->typeCOB->setCurrentIndex((typeIndex >= 0) ? typeIndex : 0);
     on_typeCOB_currentIndexChanged(ui->typeCOB->currentIndex());
 
-    int sourceIndex = ui->sourceCOB->findText(mSettings->value("data/source", QString()).toString());
+    int sourceIndex = ui->sourceCOB->findData(mSettings->value("data/source", QString()));
     ui->sourceCOB->setCurrentIndex((sourceIndex >= 0) ? sourceIndex : 0);
 
     ui->useFrequencyCB->setChecked(mSettings->value("cpu/useFrequency", true).toBool());
@@ -159,7 +159,7 @@ void LxQtSysStatConfiguration::saveSettings()
     // occuring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
     QString type = ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str();
     mSettings->setValue("data/type", type);
-    mSettings->setValue("data/source", ui->sourceCOB->currentText());
+    mSettings->setValue("data/source", ui->sourceCOB->itemData(ui->sourceCOB->currentIndex(), Qt::UserRole));
 
     mSettings->setValue("cpu/useFrequency", ui->useFrequencyCB->isChecked());
 
@@ -201,7 +201,7 @@ void LxQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
     ui->sourceCOB->blockSignals(true);
     ui->sourceCOB->clear();
     for (auto const & s : mStat->sources())
-        ui->sourceCOB->addItem(tr(s.toStdString().c_str()));
+        ui->sourceCOB->addItem(tr(s.toStdString().c_str()), s);
     ui->sourceCOB->blockSignals(false);
     ui->sourceCOB->setCurrentIndex(0);
 }
