@@ -37,6 +37,7 @@
 #include <QPainter>
 #include <QResizeEvent>
 #include <QVBoxLayout>
+#include <QCoreApplication>
 
 LxQtSysStat::LxQtSysStat(const ILxQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -619,5 +620,8 @@ void LxQtSysStatContent::paintEvent(QPaintEvent *event)
 
 void LxQtSysStatContent::toolTipInfo(QString const & tooltip)
 {
-    setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3").arg(mDataType).arg(mDataSource).arg(tooltip));
+    setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3")
+            .arg(QCoreApplication::translate("LxQtSysStatConfiguration", mDataType.toStdString().c_str()))
+            .arg(QCoreApplication::translate("LxQtSysStatConfiguration", mDataSource.toStdString().c_str()))
+            .arg(tooltip));
 }

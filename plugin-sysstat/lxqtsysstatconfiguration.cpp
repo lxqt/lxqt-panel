@@ -43,6 +43,45 @@ const QStringList LxQtSysStatConfiguration::msStatTypes = {
     , QStringLiteral(QT_TR_NOOP("Network"))
 };
 
+namespace
+{
+    //Note: workaround for making source strings translatable
+    //  (no need to ever call this function)
+    void localizationWorkaround();
+    auto t = localizationWorkaround;//avoid unused function warning
+    void localizationWorkaround()
+    {
+        const char * loc;
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu1");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu2");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu3");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu4");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu5");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu6");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu7");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu8");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu9");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu11");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu12");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu13");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu14");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu15");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu16");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu17");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu18");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu19");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu20");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu21");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu22");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu23");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu24");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "memory");
+        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "swap");
+        static_cast<void>(t);//avoid unused variable warning
+    }
+}
+
 LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LxQtSysStatConfiguration),
@@ -161,7 +200,8 @@ void LxQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
 
     ui->sourceCOB->blockSignals(true);
     ui->sourceCOB->clear();
-    ui->sourceCOB->addItems(mStat->sources());
+    for (auto const & s : mStat->sources())
+        ui->sourceCOB->addItem(tr(s.toStdString().c_str()));
     ui->sourceCOB->blockSignals(false);
     ui->sourceCOB->setCurrentIndex(0);
 }
