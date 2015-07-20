@@ -393,7 +393,8 @@ void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
     int y_other  = static_cast<int>(other  * 100.0 * frequencyRate);
     int y_freq   = static_cast<int>(         100.0 * frequencyRate);
 
-    setToolTip(tr("<b>CPU</b><br>system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: %5%").arg(y_system).arg(y_user).arg(y_nice).arg(y_other).arg(y_freq));
+    toolTipInfo(tr("system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: %5%", "CPU tooltip information")
+            .arg(y_system).arg(y_user).arg(y_nice).arg(y_other).arg(y_freq));
 
     y_system = clamp(y_system, 0, 99);
     y_user   = clamp(y_user + y_system, 0, 99);
@@ -441,7 +442,8 @@ void LxQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
     int y_nice   = static_cast<int>(nice   * 100.0);
     int y_other  = static_cast<int>(other  * 100.0);
 
-    setToolTip(tr("<b>CPU</b><br>system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: n/a").arg(y_system).arg(y_user).arg(y_nice).arg(y_other));
+    toolTipInfo(tr("system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: n/a", "CPU tooltip information")
+            .arg(y_system).arg(y_user).arg(y_nice).arg(y_other));
 
     y_system = clamp(y_system, 0, 99);
     y_user   = clamp(y_user + y_system, 0, 99);
@@ -482,7 +484,8 @@ void LxQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
     int y_buffers = static_cast<int>(buffers * 100.0);
     int y_cached  = static_cast<int>(cached  * 100.0);
 
-    setToolTip(tr("<b>Memory</b><br>apps: %1%<br>buffers: %2%<br>cached: %3%").arg(y_apps).arg(y_buffers).arg(y_cached));
+    toolTipInfo(tr("apps: %1%<br>buffers: %2%<br>cached: %3%", "Memory tooltip information")
+        .arg(y_apps).arg(y_buffers).arg(y_cached));
 
     y_apps    = clamp(y_apps, 0, 99);
     y_buffers = clamp(y_buffers + y_apps, 0, 99);
@@ -515,7 +518,7 @@ void LxQtSysStatContent::swapUpdate(float used)
 {
     int y_used = static_cast<int>(used * 100.0);
 
-    setToolTip(tr("<b>Swap</b><br>used: %1%").arg(y_used));
+    toolTipInfo(tr("used: %1%", "Swap tooltip information").arg(y_used));
 
     y_used = clamp(y_used, 0, 99);
 
@@ -545,7 +548,7 @@ void LxQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
     int y_min_value = static_cast<int>(min_value * 100.0);
     int y_max_value = static_cast<int>(max_value * 100.0);
 
-    setToolTip(tr("<b>Net</b><br>min: %1%<br>max: %2%").arg(y_min_value).arg(y_max_value));
+    toolTipInfo(tr("min: %1%<br>max: %2%", "Network tooltip information").arg(y_min_value).arg(y_max_value));
 
     y_min_value = clamp(y_min_value, 0, 99);
     y_max_value = clamp(y_max_value + y_min_value, 0, 99);
@@ -612,4 +615,9 @@ void LxQtSysStatContent::paintEvent(QPaintEvent *event)
         qreal y = graphTop + static_cast<qreal>(l + 1) * graphHeight / (static_cast<qreal>(mGridLines + 1));
         p.drawLine(QPointF(0.0, y), QPointF(w, y));
     }
+}
+
+void LxQtSysStatContent::toolTipInfo(QString const & tooltip)
+{
+    setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3").arg(mDataType).arg(mDataSource).arg(tooltip));
 }

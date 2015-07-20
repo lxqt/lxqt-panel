@@ -143,7 +143,8 @@ protected slots:
     void swapUpdate(float used);
     void networkUpdate(unsigned received, unsigned transmitted);
 
-
+private:
+    void toolTipInfo(QString const & tooltip);
 
 private:
     ILxQtPanelPlugin *mPlugin;
