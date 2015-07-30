@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>249</width>
-    <height>390</height>
+    <height>354</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Keyboard state settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QGroupBox" name="leds">
      <property name="title">
-      <string>Leds</string>
+      <string>Lock Indicators</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -45,73 +45,26 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="switchMode">
+    <widget class="QGroupBox" name="showLayout">
      <property name="title">
-      <string/>
+      <string>Keyboard Layout Indicator</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="showLayout">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="text">
-           <string>Show keyboard layout</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="showFlags">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+       <widget class="QLabel" name="policyLabel">
         <property name="text">
-         <string>Show flags instead labels</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Layout mode:</string>
+         <string>Switching policy</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="switchGlobal">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="text">
          <string>Global</string>
         </property>
@@ -122,9 +75,6 @@
       </item>
       <item>
        <widget class="QRadioButton" name="switchWindow">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="text">
          <string>Window</string>
         </property>
@@ -135,9 +85,6 @@
       </item>
       <item>
        <widget class="QRadioButton" name="switchApplication">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="text">
          <string>Application</string>
         </property>
@@ -146,14 +93,14 @@
         </attribute>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="configureLayouts">
-        <property name="text">
-         <string>Configure layouts</string>
-        </property>
-       </widget>
-      </item>
      </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="configureLayouts">
+     <property name="text">
+      <string>Configure layouts</string>
+     </property>
     </widget>
    </item>
    <item>
@@ -175,7 +122,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
+      <set>QDialogButtonBox::Close|QDialogButtonBox::Reset</set>
      </property>
     </widget>
    </item>

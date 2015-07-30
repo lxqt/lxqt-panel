@@ -14,7 +14,7 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
     connect(m_ui->showCaps,   &QCheckBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->showNum,    &QCheckBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->showScroll, &QCheckBox::clicked, this, &KbdStateConfig::save);
-    connect(m_ui->showLayout, &QCheckBox::clicked, this, &KbdStateConfig::save);
+    connect(m_ui->showLayout, &QGroupBox::clicked, this, &KbdStateConfig::save);
 
     connect(m_ui->modes, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
         [this](int){
@@ -22,11 +22,11 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
         }
     );
 
-    connect(m_ui->showLayout, &QCheckBox::stateChanged, [this](int checked){
-        //m_ui->showFlags->setEnabled(checked); //TODO: Country flags support
-        m_ui->switchGlobal->setEnabled(checked);
-        m_ui->switchWindow->setEnabled(checked);
-        m_ui->switchApplication->setEnabled(checked);
+    connect(m_ui->btns, &QDialogButtonBox::clicked, [this](QAbstractButton *btn){
+        if (m_ui->btns->buttonRole(btn) == QDialogButtonBox::ResetRole){
+            Settings::instance().restore();
+            load();
+        }
     });
 
     connect(m_ui->configureLayouts, &QPushButton::clicked, this, &KbdStateConfig::configureLayouts);

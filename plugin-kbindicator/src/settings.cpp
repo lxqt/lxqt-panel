@@ -11,7 +11,10 @@ Settings & Settings::instance()
 }
 
 void Settings::init(QSettings *settings)
-{ m_settings = settings; }
+{
+    m_settings = settings;
+    m_oldSettings.reset(new LxQt::SettingsCache(settings));
+}
 
 bool Settings::showCapLock() const
 { return m_settings->value("show_caps_lock", true).toBool(); }
@@ -39,7 +42,7 @@ void Settings::setShowLayout(bool show)
 
 KeeperType Settings::keeperType() const
 {
-    QString type = m_settings->value("keeper_type", "application").toString();
+    QString type = m_settings->value("keeper_type", "global").toString();
     if(type == "global")
         return KeeperType::Global;
     if(type == "window")
@@ -63,3 +66,6 @@ void Settings::setKeeperType(KeeperType type) const
         break;
     }
 }
+
+void Settings::restore()
+{ m_oldSettings->loadToSettings(); }

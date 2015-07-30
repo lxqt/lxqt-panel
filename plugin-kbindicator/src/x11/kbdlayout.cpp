@@ -85,6 +85,7 @@ public:
 
                 if(sevent->changed & XCB_XKB_STATE_PART_GROUP_STATE){
                     emit m_pub->layoutChanged(sevent->group);
+                    return true;
                 }
 
                 if(sevent->changed & XCB_XKB_STATE_PART_MODIFIER_LOCK){
@@ -105,6 +106,7 @@ public:
         }
 
         emit m_pub->checkState();
+
         return false;
     }
 
