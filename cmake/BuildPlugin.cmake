@@ -33,7 +33,6 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
         set (PLUGIN_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${PROGRAM})
     endif (NOT DEFINED PLUGIN_DIR)
 
-    qt5_add_resources(QRC_SOURCES ${RESOURCES})
     set(QTX_LIBRARIES Qt5::Widgets)
     if(QT_USE_QTXML)
         set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt5::Xml)
@@ -43,7 +42,7 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     endif()
 
     list(FIND STATIC_PLUGINS ${NAME} IS_STATIC)
-    set(SRC ${HEADERS} ${SOURCES} ${MOC_SOURCES} ${${PROJECT_NAME}_QM_FILES} ${QRC_SOURCES} ${UIS} ${DESKTOP_FILES})
+    set(SRC ${HEADERS} ${SOURCES} ${MOC_SOURCES} ${${PROJECT_NAME}_QM_FILES} ${RESOURCES} ${UIS} ${DESKTOP_FILES})
     if (${IS_STATIC} EQUAL -1) # not static
         add_library(${NAME} MODULE ${SRC}) # build dynamically loadable modules
         install(TARGETS ${NAME} DESTINATION ${PLUGIN_DIR}) # install the *.so file

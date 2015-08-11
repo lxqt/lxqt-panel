@@ -39,11 +39,6 @@ set(SOURCES
     config/addplugindialog.cpp
 )
 
-set(QRC
-    ""
-)
-qt5_add_resources(RESOURCES ${QRC})
-
 set(UI
     config/configpanelwidget.ui
     config/configpluginswidget.ui
@@ -91,7 +86,6 @@ add_executable(${PROJECT}
     ${PRIV_HEADERS}
     ${QM_FILES}
     ${SOURCES}
-    ${RESOURCES}
     ${UI}
 )
 
