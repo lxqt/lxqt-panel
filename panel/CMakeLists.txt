@@ -60,10 +60,6 @@ add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
 
 project(${PROJECT})
 
-include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}
-)
-
 set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)
 
 # Translations

@@ -61,10 +61,6 @@ find_package(lxqt-globalkeys-ui REQUIRED)
 
 include(LXQtTranslate)
 
-include_directories(
-    ${Qt5X11Extras_INCLUDE_DIRS}
-)
-
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
