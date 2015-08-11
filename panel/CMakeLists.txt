@@ -49,7 +49,6 @@ set(UI
     config/configpluginswidget.ui
     config/addplugindialog.ui
 )
-qt5_wrap_ui(UI_HEADERS ${UI})
 
 set(LIBRARIES
     lxqt
@@ -93,7 +92,7 @@ add_executable(${PROJECT}
     ${QM_FILES}
     ${SOURCES}
     ${RESOURCES}
-    ${UI_HEADERS}
+    ${UI}
 )
 
 target_link_libraries(${PROJECT}

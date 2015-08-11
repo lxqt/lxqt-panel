@@ -34,7 +34,6 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     endif (NOT DEFINED PLUGIN_DIR)
 
     qt5_add_resources(QRC_SOURCES ${RESOURCES})
-    qt5_wrap_ui(UI_SOURCES ${UIS})
     set(QTX_LIBRARIES Qt5::Widgets)
     if(QT_USE_QTXML)
         set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt5::Xml)

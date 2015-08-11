@@ -44,9 +44,9 @@ include(GNUInstallDirs)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 
 # when cmake >= 3.0.2:
-# set(CMAKE_AUTOUIC ON)
 # set(CMAKE_AUTORCC ON)
 
 find_package(Qt5Widgets REQUIRED)
