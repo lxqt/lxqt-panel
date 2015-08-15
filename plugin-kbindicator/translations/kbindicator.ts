@@ -4,12 +4,48 @@
 <context>
     <name>Content</name>
     <message>
-        <location filename="../src/content.cpp" line="60"/>
+        <location filename="../src/content.cpp" line="17"/>
+        <source>C</source>
+        <comment>Label for CapsLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="20"/>
+        <source>CapsLock</source>
+        <comment>Tooltip for CapsLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="24"/>
+        <source>N</source>
+        <comment>Label for NumLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="26"/>
+        <source>NumLock</source>
+        <comment>Tooltip for NumLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="31"/>
+        <source>S</source>
+        <comment>Label for ScrollLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="33"/>
+        <source>ScrollLock</source>
+        <comment>Tooltip for ScrollLock indicator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/content.cpp" line="63"/>
         <source>Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/content.cpp" line="60"/>
+        <location filename="../src/content.cpp" line="63"/>
         <source>Variant</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18,12 +54,12 @@
     <name>KbdStateConfig</name>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Keyboard indicator settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
-        <source>Leds</source>
+        <source>LEDs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -73,7 +109,7 @@
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="152"/>
-        <source>Configure layouts</source>
+        <source>Configure layouts...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

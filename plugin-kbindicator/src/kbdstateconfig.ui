@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Keyboard indicator settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QGroupBox" name="leds">
      <property name="title">
-      <string>Leds</string>
+      <string>LEDs</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -149,7 +149,7 @@
       <item>
        <widget class="QPushButton" name="configureLayouts">
         <property name="text">
-         <string>Configure layouts</string>
+         <string>Configure layouts...</string>
         </property>
        </widget>
       </item>
