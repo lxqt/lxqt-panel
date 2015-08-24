@@ -290,6 +290,9 @@ void LxQtMainMenu::setMenuFontSize()
             subMenu->setFont(menuFont);
         }
     }
+
+    //icon size the same as the font height
+    mTopMenuStyle.setIconSize(QFontMetrics(menuFont).height());
 }
 
 
@@ -321,6 +324,7 @@ bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         {
             // reset proxy style for the menus so they can apply the new styles
             mTopMenuStyle.setBaseStyle(NULL);
+            setMenuFontSize();
         }
     }
     else if(QMenu* menu = qobject_cast<QMenu*>(obj))
