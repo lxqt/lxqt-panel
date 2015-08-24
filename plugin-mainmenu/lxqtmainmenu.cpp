@@ -321,7 +321,6 @@ bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         {
             // reset proxy style for the menus so they can apply the new styles
             mTopMenuStyle.setBaseStyle(NULL);
-            mMenuStyle.setBaseStyle(NULL);
         }
     }
     else if(QMenu* menu = qobject_cast<QMenu*>(obj))
