@@ -222,7 +222,7 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
     else if (event->button() == Qt::MidButton)
         interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
     else if (Qt::RightButton == event->button())
-        mMenu->popup(mPlugin->calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
+        mMenu->popup(QCursor::pos());
     QToolButton::mouseReleaseEvent(event);
 }
 
