@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hr_HR">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
@@ -10,7 +10,7 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>

@@ -27,8 +27,8 @@
 
 #include "configpaneldialog.h"
 
-ConfigPanelDialog::ConfigPanelDialog(LxQtPanel *panel, QWidget *parent):
-    LxQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent),
+ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
+    LXQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent),
     mPanelPage(nullptr),
     mPluginsPage(nullptr)
 {

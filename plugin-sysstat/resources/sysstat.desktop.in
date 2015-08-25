@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=LxQtPanel/Plugin
+ServiceTypes=LXQtPanel/Plugin
 Name=System Statistics
 Comment=System Statistics plugin.
 Icon=utilities-system-monitor

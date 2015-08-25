@@ -37,7 +37,7 @@
 #include "lxqtpanelglobals.h"
 
 /**
-LxQt panel plugins are standalone sharedlibraries
+LXQt panel plugins are standalone sharedlibraries
 (*.so) located in PLUGIN_DIR (define provided by CMakeLists.txt).
 
 Plugin for the panel is a library written on C++. One more necessary thing
@@ -51,15 +51,15 @@ like translations. Themselves plugins will be installed to
 
 class QDialog;
 
-struct LXQT_PANEL_API ILxQtPanelPluginStartupInfo
+struct LXQT_PANEL_API ILXQtPanelPluginStartupInfo
 {
-    ILxQtPanel *lxqtPanel;
+    ILXQtPanel *lxqtPanel;
     QSettings *settings;
-    const LxQt::PluginInfo *desktopFile;
+    const LXQt::PluginInfo *desktopFile;
 };
 
 
-/** \brief Base abstract class for LxQt panel widgets/plugins.
+/** \brief Base abstract class for LXQt panel widgets/plugins.
 All plugins *must* be inherited from this one.
 
 This class provides some basic API and inherited/implemented
@@ -69,7 +69,7 @@ See <a href=https://github.com/LXDE-Qt/lxde-qt/wiki/How-to-write-the-panel-plugi
 How to write the panel plugin</a> for more information about how to make your plugins.
 **/
 
-class LXQT_PANEL_API ILxQtPanelPlugin
+class LXQT_PANEL_API ILXQtPanelPlugin
 {
 public:
     /**
@@ -99,10 +99,10 @@ public:
     };
 
     /**
-     Constructs a ILxQtPanelPlugin object with the given startupInfo. You do not have to worry
-     about the startupInfo parameters, ILxQtPanelPlugin process the parameters yourself.
+     Constructs a ILXQtPanelPlugin object with the given startupInfo. You do not have to worry
+     about the startupInfo parameters, ILXQtPanelPlugin process the parameters yourself.
      **/
-    ILxQtPanelPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+    ILXQtPanelPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
         mSettings(startupInfo.settings),
         mPanel(startupInfo.lxqtPanel),
         mDesktopFile(startupInfo.desktopFile)
@@ -111,7 +111,7 @@ public:
     /**
      Destroys the object.
      **/
-    virtual ~ILxQtPanelPlugin() {}
+    virtual ~ILXQtPanelPlugin() {}
 
     /**
     Returns the plugin flags.
@@ -139,7 +139,7 @@ public:
     The default implementation returns 0, no dialog;
 
     Note that the flags method has to return HaveConfigDialog flag.
-    To save the settings you should use a ready-to-use ILxQtPanelPlugin::settings() object.
+    To save the settings you should use a ready-to-use ILXQtPanelPlugin::settings() object.
 
     **/
     virtual QDialog *configureDialog() { return 0; }
@@ -154,7 +154,7 @@ public:
 
     /**
     This function is called when the user activates the plugin. reason specifies the reason for activation.
-    ILxQtPanelPlugin::ActivationReason enumerates the various reasons.
+    ILXQtPanelPlugin::ActivationReason enumerates the various reasons.
 
     The default implementation do nothing.
      **/
@@ -171,11 +171,11 @@ public:
     /**
     Returns the panel object.
      **/
-    ILxQtPanel *panel() const { return mPanel; }
+    ILXQtPanel *panel() const { return mPanel; }
 
 
     QSettings *settings() const { return mSettings; }
-    const LxQt::PluginInfo *desktopFile() const { return mDesktopFile; }
+    const LXQt::PluginInfo *desktopFile() const { return mDesktopFile; }
 
     /**
      Helper functions for calculating global screen position of some popup window with windowSize size.
@@ -191,42 +191,42 @@ public:
     virtual bool isExpandable() const { return false; }
 private:
     QSettings *mSettings;
-    ILxQtPanel *mPanel;
-    const LxQt::PluginInfo *mDesktopFile;
+    ILXQtPanel *mPanel;
+    const LXQt::PluginInfo *mDesktopFile;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(ILxQtPanelPlugin::Flags)
+Q_DECLARE_OPERATORS_FOR_FLAGS(ILXQtPanelPlugin::Flags)
 
 /**
 Every plugin must has the loader. You shoul only reimplement instance() method, and return your plugin.
 Example:
 @code
-class LxQtClockPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtClockPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) { return new LxQtClock(startupInfo);}
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) { return new LXQtClock(startupInfo);}
 };
 @endcode
 **/
-class LXQT_PANEL_API ILxQtPanelPluginLibrary
+class LXQT_PANEL_API ILXQtPanelPluginLibrary
 {
 public:
     /**
-     Destroys the ILxQtPanelPluginLibrary object.
+     Destroys the ILXQtPanelPluginLibrary object.
      **/
-    virtual ~ILxQtPanelPluginLibrary() {}
+    virtual ~ILXQtPanelPluginLibrary() {}
 
     /**
     Returns the root component object of the plugin. When the library is finally unloaded, the root component will automatically be deleted.
      **/
-    virtual ILxQtPanelPlugin* instance(const ILxQtPanelPluginStartupInfo &startupInfo) const = 0;
+    virtual ILXQtPanelPlugin* instance(const ILXQtPanelPluginStartupInfo &startupInfo) const = 0;
 };
 
 
-Q_DECLARE_INTERFACE(ILxQtPanelPluginLibrary,
+Q_DECLARE_INTERFACE(ILXQtPanelPluginLibrary,
                     "lxde-qt.org/Panel/PluginInterface/3.0")
 
 #endif // ILXQTPANELPLUGIN_H

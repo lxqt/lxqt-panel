@@ -33,9 +33,9 @@
 #include <QComboBox>
 #include <QDebug>
 
-LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *parent) :
-    LxQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LxQtVolumeConfiguration)
+LXQtVolumeConfiguration::LXQtVolumeConfiguration(QSettings &settings, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::LXQtVolumeConfiguration)
 {
     ui->setupUi(this);
 
@@ -66,12 +66,12 @@ LxQtVolumeConfiguration::LxQtVolumeConfiguration(QSettings &settings, QWidget *p
 #endif
 }
 
-LxQtVolumeConfiguration::~LxQtVolumeConfiguration()
+LXQtVolumeConfiguration::~LXQtVolumeConfiguration()
 {
     delete ui;
 }
 
-void LxQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
+void LXQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
 {
     // preserve the current index, as we change the list
     int tmp_index = settings().value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
@@ -85,7 +85,7 @@ void LxQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
     ui->devAddedCombo->setCurrentIndex(tmp_index);
 }
 
-void LxQtVolumeConfiguration::audioEngineChanged(bool checked)
+void LXQtVolumeConfiguration::audioEngineChanged(bool checked)
 {
     if (!checked)
         return;
@@ -103,37 +103,37 @@ void LxQtVolumeConfiguration::audioEngineChanged(bool checked)
     ui->ignoreMaxVolumeCheckBox->setEnabled(canIgnoreMaxVolume);
 }
 
-void LxQtVolumeConfiguration::sinkSelectionChanged(int index)
+void LXQtVolumeConfiguration::sinkSelectionChanged(int index)
 {
     settings().setValue(SETTINGS_DEVICE, index >= 0 ? index : 0);
 }
 
-void LxQtVolumeConfiguration::showOnClickedChanged(bool state)
+void LXQtVolumeConfiguration::showOnClickedChanged(bool state)
 {
     settings().setValue(SETTINGS_SHOW_ON_LEFTCLICK, state);
 }
 
-void LxQtVolumeConfiguration::muteOnMiddleClickChanged(bool state)
+void LXQtVolumeConfiguration::muteOnMiddleClickChanged(bool state)
 {
     settings().setValue(SETTINGS_MUTE_ON_MIDDLECLICK, state);
 }
 
-void LxQtVolumeConfiguration::mixerLineEditChanged(const QString &command)
+void LXQtVolumeConfiguration::mixerLineEditChanged(const QString &command)
 {
     settings().setValue(SETTINGS_MIXER_COMMAND, command);
 }
 
-void LxQtVolumeConfiguration::stepSpinBoxChanged(int step)
+void LXQtVolumeConfiguration::stepSpinBoxChanged(int step)
 {
     settings().setValue(SETTINGS_STEP, step);
 }
 
-void LxQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
+void LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
 {
     settings().setValue(SETTINGS_IGNORE_MAX_VOLUME, state);
 }
 
-void LxQtVolumeConfiguration::loadSettings()
+void LXQtVolumeConfiguration::loadSettings()
 {
     QString engine = settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower();
     if (engine == "pulseaudio")

@@ -44,7 +44,7 @@ extern "C" {
 #define STATGRAB_NEWER_THAN_0_90 	1
 #endif
 
-LxQtNetworkMonitor::LxQtNetworkMonitor(ILxQtPanelPlugin *plugin, QWidget* parent):
+LXQtNetworkMonitor::LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin)
 {
@@ -66,11 +66,11 @@ LxQtNetworkMonitor::LxQtNetworkMonitor(ILxQtPanelPlugin *plugin, QWidget* parent
     settingsChanged();
 }
 
-LxQtNetworkMonitor::~LxQtNetworkMonitor()
+LXQtNetworkMonitor::~LXQtNetworkMonitor()
 {
 }
 
-void LxQtNetworkMonitor::resizeEvent(QResizeEvent *)
+void LXQtNetworkMonitor::resizeEvent(QResizeEvent *)
 {
     m_stuff.setMinimumWidth(m_pic.width() + 2);
     m_stuff.setMinimumHeight(m_pic.height() + 2);
@@ -79,7 +79,7 @@ void LxQtNetworkMonitor::resizeEvent(QResizeEvent *)
 }
 
 
-void LxQtNetworkMonitor::timerEvent(QTimerEvent *event)
+void LXQtNetworkMonitor::timerEvent(QTimerEvent *event)
 {
     bool matched = false;
 
@@ -129,7 +129,7 @@ void LxQtNetworkMonitor::timerEvent(QTimerEvent *event)
     update();
 }
 
-void LxQtNetworkMonitor::paintEvent(QPaintEvent *)
+void LXQtNetworkMonitor::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
 
@@ -141,7 +141,7 @@ void LxQtNetworkMonitor::paintEvent(QPaintEvent *)
     p.drawPixmap(leftOffset, topOffset, m_pic);
 }
 
-bool LxQtNetworkMonitor::event(QEvent *event)
+bool LXQtNetworkMonitor::event(QEvent *event)
 {
     if (event->type() == QEvent::ToolTip)
     {
@@ -169,14 +169,14 @@ bool LxQtNetworkMonitor::event(QEvent *event)
     return QFrame::event(event);
 }
 
-//void LxQtNetworkMonitor::showConfigureDialog()
+//void LXQtNetworkMonitor::showConfigureDialog()
 //{
-//    LxQtNetworkMonitorConfiguration *confWindow =
-//        this->findChild<LxQtNetworkMonitorConfiguration*>("LxQtNetworkMonitorConfigurationWindow");
+//    LXQtNetworkMonitorConfiguration *confWindow =
+//        this->findChild<LXQtNetworkMonitorConfiguration*>("LXQtNetworkMonitorConfigurationWindow");
 
 //    if (!confWindow)
 //    {
-//        confWindow = new LxQtNetworkMonitorConfiguration(settings(), this);
+//        confWindow = new LXQtNetworkMonitorConfiguration(settings(), this);
 //    }
 
 //    confWindow->show();
@@ -184,7 +184,7 @@ bool LxQtNetworkMonitor::event(QEvent *event)
 //    confWindow->activateWindow();
 //}
 
-void LxQtNetworkMonitor::settingsChanged()
+void LXQtNetworkMonitor::settingsChanged()
 {
     m_iconIndex = mPlugin->settings()->value("icon", 1).toInt();
     m_interface = mPlugin->settings()->value("interface").toString();
@@ -203,7 +203,7 @@ void LxQtNetworkMonitor::settingsChanged()
     m_pic.load(iconName("error"));
 }
 
-QString LxQtNetworkMonitor::convertUnits(double num)
+QString LXQtNetworkMonitor::convertUnits(double num)
 {
     QString unit = tr("B");
     QStringList units = QStringList(tr("KiB")) << tr("MiB") << tr("GiB") << tr("TiB") << tr("PiB");

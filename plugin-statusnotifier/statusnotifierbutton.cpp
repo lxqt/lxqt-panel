@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -34,7 +34,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 
 
-StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILxQtPanelPlugin* plugin, QWidget *parent)
+StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin, QWidget *parent)
     : QToolButton(parent),
     mMenu(NULL),
     mStatus(Passive),

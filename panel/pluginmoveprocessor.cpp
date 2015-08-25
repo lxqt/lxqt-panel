@@ -35,7 +35,7 @@
 /************************************************
 
  ************************************************/
-PluginMoveProcessor::PluginMoveProcessor(LxQtPanelLayout *layout, Plugin *plugin):
+PluginMoveProcessor::PluginMoveProcessor(LXQtPanelLayout *layout, Plugin *plugin):
     QWidget(plugin),
     mLayout(layout),
     mPlugin(plugin)
@@ -108,8 +108,8 @@ void PluginMoveProcessor::mouseMoveEvent(QMouseEvent *event)
     }
 
     bool plugSep = mPlugin->isSeparate();
-    bool prevSep = LxQtPanelLayout::itemIsSeparate(prevItem);
-    bool nextSep = LxQtPanelLayout::itemIsSeparate(nextItem);
+    bool prevSep = LXQtPanelLayout::itemIsSeparate(prevItem);
+    bool nextSep = LXQtPanelLayout::itemIsSeparate(nextItem);
 
     if (!nextItem)
     {
@@ -178,13 +178,13 @@ PluginMoveProcessor::MousePosInfo PluginMoveProcessor::itemByMousePos(const QPoi
             ret.item = item;
             if (mLayout->isHorizontal())
             {
-                ret.after = LxQtPanelLayout::itemIsSeparate(item) ?
+                ret.after = LXQtPanelLayout::itemIsSeparate(item) ?
                         mouse.x() > itemRect.center().x() :
                         mouse.y() > itemRect.center().y() ;
             }
             else
             {
-                ret.after = LxQtPanelLayout::itemIsSeparate(item) ?
+                ret.after = LXQtPanelLayout::itemIsSeparate(item) ?
                         mouse.y() > itemRect.center().y() :
                         mouse.x() > itemRect.center().x() ;
             }

@@ -42,7 +42,7 @@ class QuickLaunchButton;
 class QSettings;
 class QLabel;
 
-namespace LxQt {
+namespace LXQt {
 class GridLayout;
 }
 
@@ -50,13 +50,13 @@ class GridLayout;
 /*! \brief Loader for "quick launcher" icons in the panel.
 \author Petr Vanek <petr@scribus.info>
 */
-class LxQtQuickLaunch : public QFrame
+class LXQtQuickLaunch : public QFrame
 {
     Q_OBJECT
 
 public:
-    LxQtQuickLaunch(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    ~LxQtQuickLaunch();
+    LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    ~LXQtQuickLaunch();
 
     int indexOfButton(QuickLaunchButton* button) const;
     int countOfButtons() const;
@@ -64,8 +64,8 @@ public:
     void realign();
 
 private:
-    LxQt::GridLayout *mLayout;
-    ILxQtPanelPlugin *mPlugin;
+    LXQt::GridLayout *mLayout;
+    ILXQtPanelPlugin *mPlugin;
     QLabel *mPlaceHolder;
 
     void dragEnterEvent(QDragEnterEvent *e);

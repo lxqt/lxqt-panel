@@ -46,15 +46,15 @@ public:
 
 
 class QSettings;
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 class QBoxLayout;
 
-class LxQtSensors : public QFrame
+class LXQtSensors : public QFrame
 {
     Q_OBJECT
 public:
-    LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    ~LxQtSensors();
+    LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    ~LXQtSensors();
 
     void settingsChanged();
     void realign();
@@ -63,7 +63,7 @@ public slots:
     void warningAboutHighTemperature();
 
 private:
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
     QBoxLayout *mLayout;
     QTimer mUpdateSensorReadingsTimer;
     QTimer mWarningAboutHighTemperatureTimer;

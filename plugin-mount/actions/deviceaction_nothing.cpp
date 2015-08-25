@@ -27,7 +27,7 @@
 
 #include "deviceaction_nothing.h"
 
-DeviceActionNothing::DeviceActionNothing(LxQtMountPlugin *plugin, QObject *parent):
+DeviceActionNothing::DeviceActionNothing(LXQtMountPlugin *plugin, QObject *parent):
     DeviceAction(plugin, parent)
 {
 }

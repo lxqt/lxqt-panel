@@ -39,7 +39,7 @@ class DeviceActionInfo : public DeviceAction
 {
     Q_OBJECT
 public:
-    explicit DeviceActionInfo(LxQtMountPlugin *plugin, QObject *parent = 0);
+    explicit DeviceActionInfo(LXQtMountPlugin *plugin, QObject *parent = 0);
     virtual ActionId Type() const throw () { return ActionInfo; }
 
 protected:

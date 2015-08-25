@@ -47,7 +47,7 @@ extern "C" {
 #define BAR_ORIENT_RIGHTLEFT "rightLeft"
 
 
-LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
+LXQtCpuLoad::LXQtCpuLoad(ILXQtPanelPlugin* plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
     m_showText(false),
@@ -55,7 +55,7 @@ LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     m_barOrientation(TopDownBar),
     m_timerID(-1)
 {
-    setObjectName("LxQtCpuLoad");
+    setObjectName("LXQtCpuLoad");
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setSpacing(0);
@@ -79,11 +79,11 @@ LxQtCpuLoad::LxQtCpuLoad(ILxQtPanelPlugin* plugin, QWidget* parent):
     settingsChanged();
 }
 
-LxQtCpuLoad::~LxQtCpuLoad()
+LXQtCpuLoad::~LXQtCpuLoad()
 {
 }
 
-void LxQtCpuLoad::setSizes()
+void LXQtCpuLoad::setSizes()
 {
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
@@ -97,14 +97,14 @@ void LxQtCpuLoad::setSizes()
     }
 }
 
-void LxQtCpuLoad::resizeEvent(QResizeEvent *)
+void LXQtCpuLoad::resizeEvent(QResizeEvent *)
 {
     setSizes();
     update();
 }
 
 
-double LxQtCpuLoad::getLoadCpu() const
+double LXQtCpuLoad::getLoadCpu() const
 {
 #ifdef STATGRAB_NEWER_THAN_0_90
     size_t count;
@@ -115,7 +115,7 @@ double LxQtCpuLoad::getLoadCpu() const
     return (cur->user + cur->kernel + cur->nice);
 }
 
-void LxQtCpuLoad::timerEvent(QTimerEvent *event)
+void LXQtCpuLoad::timerEvent(QTimerEvent *event)
 {
     double avg = getLoadCpu();
     if ( qAbs(m_avg-avg)>1 )
@@ -126,7 +126,7 @@ void LxQtCpuLoad::timerEvent(QTimerEvent *event)
     }
 }
 
-void LxQtCpuLoad::paintEvent ( QPaintEvent * )
+void LXQtCpuLoad::paintEvent ( QPaintEvent * )
 {
     QPainter p(this);
     QPen pen;
@@ -185,7 +185,7 @@ void LxQtCpuLoad::paintEvent ( QPaintEvent * )
 }
 
 
-void LxQtCpuLoad::settingsChanged()
+void LXQtCpuLoad::settingsChanged()
 {
     if (m_timerID != -1)
         killTimer(m_timerID);

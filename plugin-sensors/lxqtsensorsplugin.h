@@ -33,16 +33,16 @@
 #include <QObject>
 
 
-class LxQtSensors;
+class LXQtSensors;
 
-class LxQtSensorsPlugin: public QObject, public ILxQtPanelPlugin
+class LXQtSensorsPlugin: public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    explicit LxQtSensorsPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtSensorsPlugin();
+    explicit LXQtSensorsPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtSensorsPlugin();
 
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
     virtual QString themeId() const { return "Sensors"; }
 
@@ -55,19 +55,19 @@ protected:
     virtual void settingsChanged();
 
 private:
-    LxQtSensors *mWidget;
+    LXQtSensors *mWidget;
 };
 
 
-class LxQtSensorsPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtSensorsPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtSensorsPlugin(startupInfo);
+        return new LXQtSensorsPlugin(startupInfo);
     }
 };
 

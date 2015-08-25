@@ -30,29 +30,29 @@
 #include "lxqtnetworkmonitor.h"
 #include "lxqtnetworkmonitorconfiguration.h"
 
-LxQtNetworkMonitorPlugin::LxQtNetworkMonitorPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtNetworkMonitorPlugin::LXQtNetworkMonitorPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
-    mWidget(new LxQtNetworkMonitor(this))
+    ILXQtPanelPlugin(startupInfo),
+    mWidget(new LXQtNetworkMonitor(this))
 {
 }
 
-LxQtNetworkMonitorPlugin::~LxQtNetworkMonitorPlugin()
+LXQtNetworkMonitorPlugin::~LXQtNetworkMonitorPlugin()
 {
     delete mWidget;
 }
 
-QWidget *LxQtNetworkMonitorPlugin::widget()
+QWidget *LXQtNetworkMonitorPlugin::widget()
 {
     return mWidget;
 }
 
-QDialog *LxQtNetworkMonitorPlugin::configureDialog()
+QDialog *LXQtNetworkMonitorPlugin::configureDialog()
 {
-    return new LxQtNetworkMonitorConfiguration(settings());
+    return new LXQtNetworkMonitorConfiguration(settings());
 }
 
-void LxQtNetworkMonitorPlugin::settingsChanged()
+void LXQtNetworkMonitorPlugin::settingsChanged()
 {
     mWidget->settingsChanged();
 }

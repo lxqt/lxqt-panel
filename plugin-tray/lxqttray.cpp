@@ -66,7 +66,7 @@
 /************************************************
 
  ************************************************/
-LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
+LXQtTray::LXQtTray(ILXQtPanelPlugin *plugin, QWidget *parent):
     QFrame(parent),
     mValid(false),
     mTrayId(0),
@@ -76,7 +76,7 @@ LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
     mPlugin(plugin),
     mDisplay(QX11Info::display())
 {
-    mLayout = new LxQt::GridLayout(this);
+    mLayout = new LXQt::GridLayout(this);
     realign();
     _NET_SYSTEM_TRAY_OPCODE = XfitMan::atom("_NET_SYSTEM_TRAY_OPCODE");
     // Init the selection later just to ensure that no signals are sent until
@@ -88,7 +88,7 @@ LxQtTray::LxQtTray(ILxQtPanelPlugin *plugin, QWidget *parent):
 /************************************************
 
  ************************************************/
-LxQtTray::~LxQtTray()
+LXQtTray::~LXQtTray()
 {
     stopTray();
 }
@@ -97,7 +97,7 @@ LxQtTray::~LxQtTray()
 /************************************************
 
  ************************************************/
-bool LxQtTray::nativeEventFilter(const QByteArray &eventType, void *message, long *)
+bool LXQtTray::nativeEventFilter(const QByteArray &eventType, void *message, long *)
 {
     if (eventType != "xcb_generic_event_t")
         return false;
@@ -148,10 +148,10 @@ bool LxQtTray::nativeEventFilter(const QByteArray &eventType, void *message, lon
 /************************************************
 
  ************************************************/
-void LxQtTray::realign()
+void LXQtTray::realign()
 {
     mLayout->setEnabled(false);
-    ILxQtPanel *panel = mPlugin->panel();
+    ILXQtPanel *panel = mPlugin->panel();
 
     if (panel->isHorizontal())
     {
@@ -170,7 +170,7 @@ void LxQtTray::realign()
 /************************************************
 
  ************************************************/
-void LxQtTray::clientMessageEvent(xcb_generic_event_t *e)
+void LXQtTray::clientMessageEvent(xcb_generic_event_t *e)
 {
     unsigned long opcode;
     unsigned long message_type;
@@ -209,7 +209,7 @@ void LxQtTray::clientMessageEvent(xcb_generic_event_t *e)
 /************************************************
 
  ************************************************/
-TrayIcon* LxQtTray::findIcon(Window id)
+TrayIcon* LXQtTray::findIcon(Window id)
 {
     foreach(TrayIcon* icon, mIcons)
     {
@@ -223,7 +223,7 @@ TrayIcon* LxQtTray::findIcon(Window id)
 /************************************************
 
 ************************************************/
-void LxQtTray::setIconSize(QSize iconSize)
+void LXQtTray::setIconSize(QSize iconSize)
 {
     mIconSize = iconSize;
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
@@ -241,7 +241,7 @@ void LxQtTray::setIconSize(QSize iconSize)
 /************************************************
 
 ************************************************/
-VisualID LxQtTray::getVisual()
+VisualID LXQtTray::getVisual()
 {
     VisualID visualId = 0;
     Display* dsp = mDisplay;
@@ -279,7 +279,7 @@ VisualID LxQtTray::getVisual()
 /************************************************
    freedesktop systray specification
  ************************************************/
-void LxQtTray::startTray()
+void LXQtTray::startTray()
 {
     Display* dsp = mDisplay;
     Window root = QX11Info::appRootWindow();
@@ -357,7 +357,7 @@ void LxQtTray::startTray()
 /************************************************
 
  ************************************************/
-void LxQtTray::stopTray()
+void LXQtTray::stopTray()
 {
     qDeleteAll(mIcons);
     if (mTrayId)
@@ -372,7 +372,7 @@ void LxQtTray::stopTray()
 /************************************************
 
  ************************************************/
-void LxQtTray::addIcon(Window winId)
+void LXQtTray::addIcon(Window winId)
 {
     TrayIcon* icon = new TrayIcon(winId, this);
     if (!icon->isValid())

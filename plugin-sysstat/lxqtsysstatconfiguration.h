@@ -37,22 +37,22 @@
 
 
 namespace Ui {
-    class LxQtSysStatConfiguration;
+    class LXQtSysStatConfiguration;
 }
 
 namespace SysStat {
     class BaseStat;
 }
 
-class LxQtSysStatColours;
+class LXQtSysStatColours;
 
-class LxQtSysStatConfiguration : public QDialog
+class LXQtSysStatConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtSysStatConfiguration(QSettings *settings, QWidget *parent = 0);
-    ~LxQtSysStatConfiguration();
+    explicit LXQtSysStatConfiguration(QSettings *settings, QWidget *parent = 0);
+    ~LXQtSysStatConfiguration();
 
 public slots:
     void saveSettings();
@@ -71,15 +71,15 @@ signals:
     void maximumNetSpeedChanged(QString);
 
 private:
-    Ui::LxQtSysStatConfiguration *ui;
+    Ui::LXQtSysStatConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache oldSettings;
+    LXQt::SettingsCache oldSettings;
 
     void loadSettings();
 
     SysStat::BaseStat *mStat;
 
-    LxQtSysStatColours *mColoursDialog;
+    LXQtSysStatColours *mColoursDialog;
 };
 
 #endif // LXQTSYSSTATCONFIGURATION_H

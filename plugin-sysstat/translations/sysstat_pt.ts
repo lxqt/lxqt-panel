@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt">
 <context>
-    <name>LxQtSysStatColours</name>
+    <name>LXQtSysStatColours</name>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
@@ -112,10 +112,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtSysStatConfiguration</name>
+    <name>LXQtSysStatConfiguration</name>
     <message>
-        <source>LxQt SysStat Settings</source>
-        <translation type="vanished">Definições do LxQt SysStat</translation>
+        <source>LXQt SysStat Settings</source>
+        <translation type="vanished">Definições do LXQt SysStat</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>

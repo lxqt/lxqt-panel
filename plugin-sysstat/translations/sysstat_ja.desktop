@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=LxQtPanel/Plugin
+ServiceTypes=LXQtPanel/Plugin
 Name[ja]=システム統計
 Comment[ja]=システム統計のプラグイン
 

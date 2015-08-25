@@ -34,7 +34,7 @@ public:
     void setKeeperType(KeeperType type) const;
 private:
     QSettings                           *m_settings = 0;
-    QScopedPointer<LxQt::SettingsCache>  m_oldSettings;
+    QScopedPointer<LXQt::SettingsCache>  m_oldSettings;
 };
 
 #endif

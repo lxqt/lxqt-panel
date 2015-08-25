@@ -53,12 +53,12 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
     desktopFilesDirs << QString("%1/%2").arg(XdgDirs::dataHome(), "/lxqt/lxqt-panel");
     desktopFilesDirs << PLUGIN_DESKTOPS_DIR;
 
-    mPlugins = LxQt::PluginInfo::search(desktopFilesDirs, QStringLiteral("LxQtPanel/Plugin"), QStringLiteral("*"));
-    std::sort(mPlugins.begin(), mPlugins.end(), [](const LxQt::PluginInfo &p1, const LxQt::PluginInfo &p2) {
+    mPlugins = LXQt::PluginInfo::search(desktopFilesDirs, QStringLiteral("LXQtPanel/Plugin"), QStringLiteral("*"));
+    std::sort(mPlugins.begin(), mPlugins.end(), [](const LXQt::PluginInfo &p1, const LXQt::PluginInfo &p2) {
         return p1.name() < p2.name() || (p1.name() == p2.name() && p1.comment() < p2.comment());
     });
 
-    ui->pluginList->setItemDelegate(new LxQt::HtmlDelegate(QSize(32, 32), ui->pluginList));
+    ui->pluginList->setItemDelegate(new LXQt::HtmlDelegate(QSize(32, 32), ui->pluginList));
     ui->pluginList->setContextMenuPolicy(Qt::CustomContextMenu);
 
     filter();
@@ -72,9 +72,9 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
     connect(ui->pluginList, &QListWidget::doubleClicked, this, &AddPluginDialog::emitPluginSelected);
     connect(ui->addButton, &QPushButton::clicked, this, &AddPluginDialog::emitPluginSelected);
 
-    connect(dynamic_cast<LxQtPanelApplication *>(qApp), &LxQtPanelApplication::pluginAdded
+    connect(dynamic_cast<LXQtPanelApplication *>(qApp), &LXQtPanelApplication::pluginAdded
             , this, &AddPluginDialog::filter);
-    connect(dynamic_cast<LxQtPanelApplication *>(qApp), &LxQtPanelApplication::pluginRemoved
+    connect(dynamic_cast<LXQtPanelApplication *>(qApp), &LXQtPanelApplication::pluginRemoved
             , this, &AddPluginDialog::filter);
 }
 
@@ -95,7 +95,7 @@ void AddPluginDialog::filter()
     int pluginCount = mPlugins.length();
     for (int i = 0; i < pluginCount; ++i)
     {
-        const LxQt::PluginInfo &plugin = mPlugins.at(i);
+        const LXQt::PluginInfo &plugin = mPlugins.at(i);
 
         QString s = QStringLiteral("%1 %2 %3 %4").arg(plugin.name(),
                                                plugin.comment(),
@@ -106,7 +106,7 @@ void AddPluginDialog::filter()
 
         QListWidgetItem* item = new QListWidgetItem(ui->pluginList);
         // disable single-instances plugins already in use
-        if (dynamic_cast<LxQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(plugin.id()))
+        if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(plugin.id()))
         {
             item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
             item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));
@@ -127,7 +127,7 @@ void AddPluginDialog::emitPluginSelected()
     QListWidget* pluginList = ui->pluginList;
     if (pluginList->currentItem() && pluginList->currentItem()->isSelected())
     {
-        LxQt::PluginInfo plugin = mPlugins.at(pluginList->currentItem()->data(INDEX_ROLE).toInt());
+        LXQt::PluginInfo plugin = mPlugins.at(pluginList->currentItem()->data(INDEX_ROLE).toInt());
         emit pluginSelected(plugin);
     }
 }

@@ -33,15 +33,15 @@
 #include <QToolButton>
 
 
-class DomPlugin: public QObject, public ILxQtPanelPlugin
+class DomPlugin: public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
+    DomPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "Dom"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
 
 private slots:
     void showDialog();
@@ -51,13 +51,13 @@ private:
 
 };
 
-class DomPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class DomPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new DomPlugin(startupInfo);
     }

@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -30,7 +30,7 @@
 #include <QApplication>
 #include "../panel/ilxqtpanelplugin.h"
 
-StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *parent) :
+StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QWidget(parent),
     mPlugin(plugin)
 {
@@ -46,7 +46,7 @@ StatusNotifierWidget::StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *pa
     connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemUnregistered,
             this, &StatusNotifierWidget::itemRemoved);
 
-    setLayout(new LxQt::GridLayout(this));
+    setLayout(new LXQt::GridLayout(this));
     realign();
 
     qDebug() << mWatcher->RegisteredStatusNotifierItems();
@@ -83,10 +83,10 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
 
 void StatusNotifierWidget::realign()
 {
-    LxQt::GridLayout *layout = qobject_cast<LxQt::GridLayout*>(this->layout());
+    LXQt::GridLayout *layout = qobject_cast<LXQt::GridLayout*>(this->layout());
     layout->setEnabled(false);
 
-    ILxQtPanel *panel = mPlugin->panel();
+    ILXQtPanel *panel = mPlugin->panel();
     if (panel->isHorizontal())
     {
         layout->setRowCount(panel->lineCount());

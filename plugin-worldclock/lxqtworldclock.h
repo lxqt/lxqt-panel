@@ -42,19 +42,19 @@
 
 class ActiveLabel;
 class QTimer;
-class LxQtWorldClockPopup;
+class LXQtWorldClockPopup;
 
 
-class LxQtWorldClock : public QObject, public ILxQtPanelPlugin
+class LXQtWorldClock : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtWorldClock();
+    LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtWorldClock();
 
     virtual QWidget *widget() { return mMainWidget; }
     virtual QString themeId() const { return QLatin1String("WorldClock"); }
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     bool isSeparate() const { return true; }
     void activated(ActivationReason reason);
 
@@ -69,9 +69,9 @@ private slots:
 
 private:
     QWidget *mMainWidget;
-    LxQt::RotatedWidget* mRotatedWidget;
+    LXQt::RotatedWidget* mRotatedWidget;
     ActiveLabel *mContent;
-    LxQtWorldClockPopup* mPopup;
+    LXQtWorldClockPopup* mPopup;
 
     QTimer *mTimer;
     int mUpdateInterval;
@@ -112,12 +112,12 @@ protected:
     void mouseReleaseEvent(QMouseEvent* event);
 };
 
-class LxQtWorldClockPopup : public QDialog
+class LXQtWorldClockPopup : public QDialog
 {
     Q_OBJECT
 
 public:
-    LxQtWorldClockPopup(QWidget *parent = 0);
+    LXQtWorldClockPopup(QWidget *parent = 0);
 
     void show();
 
@@ -129,15 +129,15 @@ protected:
 
 };
 
-class LxQtWorldClockLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtWorldClockLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtWorldClock(startupInfo);
+        return new LXQtWorldClock(startupInfo);
     }
 };
 

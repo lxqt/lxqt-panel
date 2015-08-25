@@ -29,20 +29,20 @@
 #include <QAbstractListModel>
 #include <memory>
 
-namespace LxQt
+namespace LXQt
 {
     class PluginInfo;
     struct PluginData;
 }
 
-class LxQtPanel;
+class LXQtPanel;
 class Plugin;
 
 class PanelPluginsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    PanelPluginsModel(LxQtPanel * panel,
+    PanelPluginsModel(LXQtPanel * panel,
                       QString const & namesKey,
                       QStringList const & desktopDirs,
                       QObject * parent = nullptr);
@@ -73,7 +73,7 @@ signals:
     void pluginMovedUp(Plugin * plugin);
 
 public slots:
-    void addPlugin(const LxQt::PluginInfo &desktopFile);
+    void addPlugin(const LXQt::PluginInfo &desktopFile);
     void removePlugin();
 
     // slots for configuration dialog
@@ -88,14 +88,14 @@ private:
 
 private:
     void loadPlugins(QStringList const & desktopDirs);
-    QPointer<Plugin> loadPlugin(LxQt::PluginInfo const & desktopFile, QString const & settingsGroup);
+    QPointer<Plugin> loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup);
     QString findNewPluginSettingsGroup(const QString &pluginType) const;
     bool isActiveIndexValid() const;
     void removePlugin(pluginslist_t::iterator plugin);
 
     const QString mNamesKey;
     pluginslist_t mPlugins;
-    LxQtPanel * mPanel;
+    LXQtPanel * mPanel;
     QPersistentModelIndex mActive;
 };
 

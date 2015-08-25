@@ -409,11 +409,11 @@ void LayoutItemGrid::setHoriz(bool value)
 /************************************************
 
  ************************************************/
-LxQtPanelLayout::LxQtPanelLayout(QWidget *parent) :
+LXQtPanelLayout::LXQtPanelLayout(QWidget *parent) :
     QLayout(parent),
     mLeftGrid(new LayoutItemGrid()),
     mRightGrid(new LayoutItemGrid()),
-    mPosition(ILxQtPanel::PositionBottom),
+    mPosition(ILXQtPanel::PositionBottom),
     mAnimate(false)
 {
     setMargin(0);
@@ -423,7 +423,7 @@ LxQtPanelLayout::LxQtPanelLayout(QWidget *parent) :
 /************************************************
 
  ************************************************/
-LxQtPanelLayout::~LxQtPanelLayout()
+LXQtPanelLayout::~LXQtPanelLayout()
 {
     delete mLeftGrid;
     delete mRightGrid;
@@ -433,7 +433,7 @@ LxQtPanelLayout::~LxQtPanelLayout()
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::addItem(QLayoutItem *item)
+void LXQtPanelLayout::addItem(QLayoutItem *item)
 {
     LayoutItemGrid *grid = mRightGrid;
 
@@ -448,7 +448,7 @@ void LxQtPanelLayout::addItem(QLayoutItem *item)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *gridIndex)
+void LXQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *gridIndex)
 {
     if (index < mLeftGrid->count())
     {
@@ -464,7 +464,7 @@ void LxQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *gridIndex) const
+void LXQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *gridIndex) const
 {
     if (index < mLeftGrid->count())
     {
@@ -481,7 +481,7 @@ void LxQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *
 /************************************************
 
  ************************************************/
-QLayoutItem *LxQtPanelLayout::itemAt(int index) const
+QLayoutItem *LXQtPanelLayout::itemAt(int index) const
 {
     if (index < 0 || index >= count())
         return 0;
@@ -497,7 +497,7 @@ QLayoutItem *LxQtPanelLayout::itemAt(int index) const
 /************************************************
 
  ************************************************/
-QLayoutItem *LxQtPanelLayout::takeAt(int index)
+QLayoutItem *LXQtPanelLayout::takeAt(int index)
 {
     if (index < 0 || index >= count())
         return 0;
@@ -513,7 +513,7 @@ QLayoutItem *LxQtPanelLayout::takeAt(int index)
 /************************************************
 
  ************************************************/
-int LxQtPanelLayout::count() const
+int LXQtPanelLayout::count() const
 {
     return mLeftGrid->count() + mRightGrid->count();
 }
@@ -522,7 +522,7 @@ int LxQtPanelLayout::count() const
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::moveItem(int from, int to, bool withAnimation)
+void LXQtPanelLayout::moveItem(int from, int to, bool withAnimation)
 {
     if (from != to)
     {
@@ -558,7 +558,7 @@ void LxQtPanelLayout::moveItem(int from, int to, bool withAnimation)
 /************************************************
 
  ************************************************/
-QSize LxQtPanelLayout::sizeHint() const
+QSize LXQtPanelLayout::sizeHint() const
 {
     if (!mLeftGrid->isValid())
         mLeftGrid->update();
@@ -585,7 +585,7 @@ QSize LxQtPanelLayout::sizeHint() const
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setGeometry(const QRect &geometry)
+void LXQtPanelLayout::setGeometry(const QRect &geometry)
 {
     if (!mLeftGrid->isValid())
         mLeftGrid->update();
@@ -611,7 +611,7 @@ void LxQtPanelLayout::setGeometry(const QRect &geometry)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setItemGeometry(QLayoutItem *item, const QRect &geometry, bool withAnimation)
+void LXQtPanelLayout::setItemGeometry(QLayoutItem *item, const QRect &geometry, bool withAnimation)
 {
     Plugin *plugin = qobject_cast<Plugin*>(item->widget());
     if (withAnimation && plugin)
@@ -631,7 +631,7 @@ void LxQtPanelLayout::setItemGeometry(QLayoutItem *item, const QRect &geometry, 
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
+void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
 {
     // Calc expFactor for expandable plugins like TaskBar.
     double expFactor;
@@ -654,7 +654,7 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     }
 
 #if 0
-    qDebug() << "** LxQtPanelLayout::setGeometryHoriz **************";
+    qDebug() << "** LXQtPanelLayout::setGeometryHoriz **************";
     qDebug() << "geometry: " << geometry;
 
     qDebug() << "Left grid";
@@ -747,7 +747,7 @@ void LxQtPanelLayout::setGeometryHoriz(const QRect &geometry)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
+void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
 {
     // Calc expFactor for expandable plugins like TaskBar.
     double expFactor;
@@ -770,7 +770,7 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
     }
 
 #if 0
-    qDebug() << "** LxQtPanelLayout::setGeometryVert **************";
+    qDebug() << "** LXQtPanelLayout::setGeometryVert **************";
     qDebug() << "geometry: " << geometry;
 
     qDebug() << "Left grid";
@@ -862,7 +862,7 @@ void LxQtPanelLayout::setGeometryVert(const QRect &geometry)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::invalidate()
+void LXQtPanelLayout::invalidate()
 {
     mLeftGrid->invalidate();
     mRightGrid->invalidate();
@@ -874,7 +874,7 @@ void LxQtPanelLayout::invalidate()
 /************************************************
 
  ************************************************/
-int LxQtPanelLayout::lineCount() const
+int LXQtPanelLayout::lineCount() const
 {
     return mLeftGrid->colCount();
 }
@@ -883,7 +883,7 @@ int LxQtPanelLayout::lineCount() const
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setLineCount(int value)
+void LXQtPanelLayout::setLineCount(int value)
 {
     mLeftGrid->setColCount(value);
     mRightGrid->setColCount(value);
@@ -894,7 +894,7 @@ void LxQtPanelLayout::setLineCount(int value)
 /************************************************
 
  ************************************************/
-int LxQtPanelLayout::lineSize() const
+int LXQtPanelLayout::lineSize() const
 {
     return mLeftGrid->lineSize();
 }
@@ -903,7 +903,7 @@ int LxQtPanelLayout::lineSize() const
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setLineSize(int value)
+void LXQtPanelLayout::setLineSize(int value)
 {
     mLeftGrid->setLineSize(value);
     mRightGrid->setLineSize(value);
@@ -914,7 +914,7 @@ void LxQtPanelLayout::setLineSize(int value)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::setPosition(ILxQtPanel::Position value)
+void LXQtPanelLayout::setPosition(ILXQtPanel::Position value)
 {
     mPosition = value;
     mLeftGrid->setHoriz(isHorizontal());
@@ -925,17 +925,17 @@ void LxQtPanelLayout::setPosition(ILxQtPanel::Position value)
 /************************************************
 
  ************************************************/
-bool LxQtPanelLayout::isHorizontal() const
+bool LXQtPanelLayout::isHorizontal() const
 {
-    return mPosition == ILxQtPanel::PositionTop ||
-            mPosition == ILxQtPanel::PositionBottom;
+    return mPosition == ILXQtPanel::PositionTop ||
+            mPosition == ILXQtPanel::PositionBottom;
 }
 
 
 /************************************************
 
  ************************************************/
-bool LxQtPanelLayout::itemIsSeparate(QLayoutItem *item)
+bool LXQtPanelLayout::itemIsSeparate(QLayoutItem *item)
 {
     if (!item)
         return true;
@@ -951,7 +951,7 @@ bool LxQtPanelLayout::itemIsSeparate(QLayoutItem *item)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::startMovePlugin()
+void LXQtPanelLayout::startMovePlugin()
 {
     Plugin *plugin = qobject_cast<Plugin*>(sender());
     if (plugin)
@@ -968,7 +968,7 @@ void LxQtPanelLayout::startMovePlugin()
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::finishMovePlugin()
+void LXQtPanelLayout::finishMovePlugin()
 {
     PluginMoveProcessor *moveProcessor = qobject_cast<PluginMoveProcessor*>(sender());
     if (moveProcessor)
@@ -983,7 +983,7 @@ void LxQtPanelLayout::finishMovePlugin()
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::moveUpPlugin(Plugin * plugin)
+void LXQtPanelLayout::moveUpPlugin(Plugin * plugin)
 {
     const int i = indexOf(plugin);
     if (0 < i)
@@ -993,9 +993,9 @@ void LxQtPanelLayout::moveUpPlugin(Plugin * plugin)
 /************************************************
 
  ************************************************/
-void LxQtPanelLayout::addPlugin(Plugin * plugin)
+void LXQtPanelLayout::addPlugin(Plugin * plugin)
 {
-    connect(plugin, &Plugin::startMove, this, &LxQtPanelLayout::startMovePlugin);
+    connect(plugin, &Plugin::startMove, this, &LXQtPanelLayout::startMovePlugin);
 
     const int prev_count = count();
     addWidget(plugin);

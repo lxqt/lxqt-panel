@@ -36,7 +36,7 @@
 class VolumeButton;
 class AudioEngine;
 class AudioDevice;
-namespace LxQt {
+namespace LXQt {
 class Notification;
 }
 namespace GlobalKeyShortcut
@@ -44,18 +44,18 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
-class LxQtVolumeConfiguration;
+class LXQtVolumeConfiguration;
 
-class LxQtVolume : public QObject, public ILxQtPanelPlugin
+class LXQtVolume : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LxQtVolume(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtVolume();
+    LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtVolume();
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "Volume"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     void realign();
     QDialog *configureDialog();
 
@@ -76,20 +76,20 @@ private:
     GlobalKeyShortcut::Action *m_keyVolumeUp;
     GlobalKeyShortcut::Action *m_keyVolumeDown;
     GlobalKeyShortcut::Action *m_keyMuteToggle;
-    LxQt::Notification *m_notification;
-    QPointer<LxQtVolumeConfiguration> m_configDialog;
+    LXQt::Notification *m_notification;
+    QPointer<LXQtVolumeConfiguration> m_configDialog;
 };
 
 
-class LxQtVolumePluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtVolumePluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtVolume(startupInfo);
+        return new LXQtVolume(startupInfo);
     }
 };
 

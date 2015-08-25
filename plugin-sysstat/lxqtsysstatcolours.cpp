@@ -33,9 +33,9 @@
 #include <QColorDialog>
 
 
-LxQtSysStatColours::LxQtSysStatColours(QWidget *parent) :
+LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtSysStatColours),
+    ui(new Ui::LXQtSysStatColours),
     mSelectColourMapper(new QSignalMapper(this))
 {
     setWindowModality(Qt::WindowModal);
@@ -84,12 +84,12 @@ LxQtSysStatColours::LxQtSysStatColours(QWidget *parent) :
     connect(mSelectColourMapper, SIGNAL(mapped(const QString &)), SLOT(selectColour(const QString &)));
 }
 
-LxQtSysStatColours::~LxQtSysStatColours()
+LXQtSysStatColours::~LXQtSysStatColours()
 {
     delete ui;
 }
 
-void LxQtSysStatColours::selectColour(const QString &name)
+void LXQtSysStatColours::selectColour(const QString &name)
 {
     QColor color = QColorDialog::getColor(mColours[name], this);
     if (color.isValid())
@@ -101,7 +101,7 @@ void LxQtSysStatColours::selectColour(const QString &name)
     }
 }
 
-void LxQtSysStatColours::setColours(const Colours &colours)
+void LXQtSysStatColours::setColours(const Colours &colours)
 {
     mInitialColours = colours;
     mColours = colours;
@@ -110,7 +110,7 @@ void LxQtSysStatColours::setColours(const Colours &colours)
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
 
-void LxQtSysStatColours::applyColoursToButtons()
+void LXQtSysStatColours::applyColoursToButtons()
 {
     Colours::ConstIterator M = mColours.constEnd();
     for (Colours::ConstIterator I = mColours.constBegin(); I != M; ++I)
@@ -120,7 +120,7 @@ void LxQtSysStatColours::applyColoursToButtons()
     }
 }
 
-void LxQtSysStatColours::on_buttons_clicked(QAbstractButton *button)
+void LXQtSysStatColours::on_buttons_clicked(QAbstractButton *button)
 {
     switch (ui->buttons->standardButton(button))
     {
@@ -150,7 +150,7 @@ void LxQtSysStatColours::on_buttons_clicked(QAbstractButton *button)
     }
 }
 
-void LxQtSysStatColours::restoreDefaults()
+void LXQtSysStatColours::restoreDefaults()
 {
     bool wereTheSame = mColours == mDefaultColours;
 
@@ -160,7 +160,7 @@ void LxQtSysStatColours::restoreDefaults()
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(!wereTheSame);
 }
 
-void LxQtSysStatColours::reset()
+void LXQtSysStatColours::reset()
 {
     bool wereTheSame = mColours == mInitialColours;
 
@@ -170,19 +170,19 @@ void LxQtSysStatColours::reset()
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(!wereTheSame);
 }
 
-void LxQtSysStatColours::apply()
+void LXQtSysStatColours::apply()
 {
     emit coloursChanged();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
 
-LxQtSysStatColours::Colours LxQtSysStatColours::colours() const
+LXQtSysStatColours::Colours LXQtSysStatColours::colours() const
 {
     return mColours;
 }
 
-LxQtSysStatColours::Colours LxQtSysStatColours::defaultColours() const
+LXQtSysStatColours::Colours LXQtSysStatColours::defaultColours() const
 {
     return mDefaultColours;
 }

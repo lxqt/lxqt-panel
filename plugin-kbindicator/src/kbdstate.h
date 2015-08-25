@@ -8,17 +8,17 @@
 
 class QLabel;
 
-class KbdState : public QObject, public ILxQtPanelPlugin
+class KbdState : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    KbdState(const ILxQtPanelPluginStartupInfo &startupInfo);
+    KbdState(const ILXQtPanelPluginStartupInfo &startupInfo);
     virtual ~KbdState();
 
     virtual QString themeId() const
     { return "KbIndicator"; }
 
-    virtual ILxQtPanelPlugin::Flags flags() const
+    virtual ILXQtPanelPlugin::Flags flags() const
     { return PreferRightAlignment | HaveConfigDialog; }
 
     virtual bool isSeparate() const

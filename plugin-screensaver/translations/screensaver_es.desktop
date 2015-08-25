@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=LxQtPanel/Plugin
+ServiceTypes=LXQtPanel/Plugin
 Name=Launch screensaver
 Comment=Activate a screensaver and/or lock the screen
 

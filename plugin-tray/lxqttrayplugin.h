@@ -32,13 +32,13 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
 
-class LxQtTray;
-class LxQtTrayPlugin : public QObject, public ILxQtPanelPlugin
+class LXQtTray;
+class LXQtTrayPlugin : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    explicit LxQtTrayPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtTrayPlugin();
+    explicit LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtTrayPlugin();
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "Tray"; }
@@ -48,19 +48,19 @@ public:
     bool isSeparate() const { return true; }
 
 private:
-    LxQtTray *mWidget;
+    LXQtTray *mWidget;
 
 };
 
-class LxQtTrayPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtTrayPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtTrayPlugin(startupInfo);
+        return new LXQtTrayPlugin(startupInfo);
     }
 };
 

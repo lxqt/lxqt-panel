@@ -32,16 +32,16 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
-class LxQtCpuLoad;
+class LXQtCpuLoad;
 
-class LxQtCpuLoadPlugin: public QObject, public ILxQtPanelPlugin
+class LXQtCpuLoadPlugin: public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    explicit LxQtCpuLoadPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtCpuLoadPlugin();
+    explicit LXQtCpuLoadPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtCpuLoadPlugin();
 
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
     virtual QString themeId() const { return "CpuLoad"; }
 
@@ -53,19 +53,19 @@ protected:
 
 private:
     QWidget *mWidget;
-    LxQtCpuLoad *mContent;
+    LXQtCpuLoad *mContent;
 };
 
 
-class LxQtCpuLoadPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtCpuLoadPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtCpuLoadPlugin(startupInfo);
+        return new LXQtCpuLoadPlugin(startupInfo);
     }
 };
 

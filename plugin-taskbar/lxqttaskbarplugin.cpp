@@ -28,27 +28,27 @@
 
 #include "lxqttaskbarplugin.h"
 
-LxQtTaskBarPlugin::LxQtTaskBarPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtTaskBarPlugin::LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 
 {
-    mTaskBar = new LxQtTaskBar(this);
+    mTaskBar = new LXQtTaskBar(this);
 
 }
 
 
-LxQtTaskBarPlugin::~LxQtTaskBarPlugin()
+LXQtTaskBarPlugin::~LXQtTaskBarPlugin()
 {
     delete mTaskBar;
 }
 
-QDialog *LxQtTaskBarPlugin::configureDialog()
+QDialog *LXQtTaskBarPlugin::configureDialog()
 {
-    return new LxQtTaskbarConfiguration(*(settings()));
+    return new LXQtTaskbarConfiguration(*(settings()));
 }
 
-void LxQtTaskBarPlugin::realign()
+void LXQtTaskBarPlugin::realign()
 {
     mTaskBar->realign();
 }

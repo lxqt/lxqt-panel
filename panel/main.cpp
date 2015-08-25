@@ -36,7 +36,7 @@
 
 int main(int argc, char *argv[])
 {
-    LxQtPanelApplication app(argc, argv);
+    LXQtPanelApplication app(argc, argv);
 
     return app.exec();
 }

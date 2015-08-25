@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -49,14 +49,14 @@ template <typename T> inline T qFromUnaligned(const uchar *src)
 }
 #endif
 
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 
 class StatusNotifierButton : public QToolButton
 {
     Q_OBJECT
 
 public:
-    StatusNotifierButton(QString service, QString objectPath, ILxQtPanelPlugin* plugin,  QWidget *parent = 0);
+    StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin,  QWidget *parent = 0);
     ~StatusNotifierButton();
 
     bool isValid() const { return mValid; }
@@ -81,7 +81,7 @@ private:
 
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 
-    ILxQtPanelPlugin* mPlugin;
+    ILXQtPanelPlugin* mPlugin;
 
 protected:
     void contextMenuEvent(QContextMenuEvent * event);

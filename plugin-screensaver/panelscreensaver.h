@@ -32,7 +32,7 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
 
-namespace LxQt {
+namespace LXQt {
 class ScreenSaver;
 }
 namespace GlobalKeyShortcut
@@ -40,12 +40,12 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
-class PanelScreenSaver : public QObject, public ILxQtPanelPlugin
+class PanelScreenSaver : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    PanelScreenSaver(const ILxQtPanelPluginStartupInfo &startupInfo);
+    PanelScreenSaver(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "PanelScreenSaver"; }
@@ -55,17 +55,17 @@ private slots:
 
 private:
     QToolButton  mButton;
-    LxQt::ScreenSaver * mSaver;
+    LXQt::ScreenSaver * mSaver;
     GlobalKeyShortcut::Action * mShortcutKey;
 };
 
-class PanelScreenSaverLibrary: public QObject, public ILxQtPanelPluginLibrary
+class PanelScreenSaverLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new PanelScreenSaver(startupInfo);
     }

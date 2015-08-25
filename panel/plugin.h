@@ -37,9 +37,9 @@
 
 class QPluginLoader;
 class QSettings;
-class ILxQtPanelPlugin;
-class ILxQtPanelPluginLibrary;
-class LxQtPanel;
+class ILXQtPanelPlugin;
+class ILXQtPanelPluginLibrary;
+class LXQtPanel;
 class QMenu;
 
 
@@ -55,7 +55,7 @@ public:
     };
 
 
-    explicit Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LxQtPanel *panel);
+    explicit Plugin(const LXQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LXQtPanel *panel);
     ~Plugin();
 
     bool isLoaded() const { return mPlugin != 0; }
@@ -67,9 +67,9 @@ public:
     void saveSettings();
 
     QMenu* popupMenu() const;
-    const ILxQtPanelPlugin * iPlugin() const { return mPlugin; }
+    const ILXQtPanelPlugin * iPlugin() const { return mPlugin; }
 
-    const LxQt::PluginInfo desktopFile() const { return mDesktopFile; }
+    const LXQt::PluginInfo desktopFile() const { return mDesktopFile; }
 
     bool isSeparate() const;
     bool isExpandable() const;
@@ -98,19 +98,19 @@ protected:
     void showEvent(QShowEvent *event);
 
 private:
-    bool loadLib(ILxQtPanelPluginLibrary const * pluginLib);
+    bool loadLib(ILXQtPanelPluginLibrary const * pluginLib);
     bool loadModule(const QString &libraryName);
-    ILxQtPanelPluginLibrary const * findStaticPlugin(const QString &libraryName);
+    ILXQtPanelPluginLibrary const * findStaticPlugin(const QString &libraryName);
 
-    const LxQt::PluginInfo mDesktopFile;
+    const LXQt::PluginInfo mDesktopFile;
     QByteArray calcSettingsHash();
     QPluginLoader *mPluginLoader;
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
     QWidget *mPluginWidget;
     Alignment mAlignment;
     QSettings *mSettings;
     QString mSettingsGroup;
-    LxQtPanel *mPanel;
+    LXQtPanel *mPanel;
     QByteArray mSettingsHash;
     static QColor mMoveMarkerColor;
     QString mName;

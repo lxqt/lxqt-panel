@@ -33,14 +33,14 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqttaskbar.h"
 #include <QDebug>
-class LxQtTaskBar;
+class LXQtTaskBar;
 
-class LxQtTaskBarPlugin : public QObject, public ILxQtPanelPlugin
+class LXQtTaskBarPlugin : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LxQtTaskBarPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtTaskBarPlugin();
+    LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtTaskBarPlugin();
 
     QString themeId() const { return "TaskBar"; }
     virtual Flags flags() const { return HaveConfigDialog | NeedsHandle; }
@@ -54,16 +54,16 @@ public:
     bool isSeparate() const { return true; }
     bool isExpandable() const { return true; }
 private:
-    LxQtTaskBar *mTaskBar;
+    LXQtTaskBar *mTaskBar;
 };
 
-class LxQtTaskBarPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtTaskBarPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new LxQtTaskBarPlugin(startupInfo);}
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new LXQtTaskBarPlugin(startupInfo);}
 };
 
 #endif // LXQTTASKBARPLUGIN_H

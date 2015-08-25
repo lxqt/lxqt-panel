@@ -38,12 +38,12 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
-class ShowDesktop :  public QObject, public ILxQtPanelPlugin
+class ShowDesktop :  public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo);
+    ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "ShowDesktop"; }
@@ -58,13 +58,13 @@ private:
     QToolButton mButton;
 };
 
-class ShowDesktopLibrary: public QObject, public ILxQtPanelPluginLibrary
+class ShowDesktopLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new ShowDesktop(startupInfo);
     }

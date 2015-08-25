@@ -29,17 +29,17 @@
 #define LXQTNETWORKMONITOR_H
 #include <QFrame>
 
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 
 /*!
   TODO: How to define cable is not connected?
   */
-class LxQtNetworkMonitor: public QFrame
+class LXQtNetworkMonitor: public QFrame
 {
     Q_OBJECT
 public:
-    LxQtNetworkMonitor(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    ~LxQtNetworkMonitor();
+    LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    ~LXQtNetworkMonitor();
     virtual void settingsChanged();
 
 protected:
@@ -65,7 +65,7 @@ private:
 
     QString m_interface;
     QPixmap m_pic;
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
 };
 
 

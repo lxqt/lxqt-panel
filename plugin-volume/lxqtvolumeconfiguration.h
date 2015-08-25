@@ -59,16 +59,16 @@
 class AudioDevice;
 
 namespace Ui {
-    class LxQtVolumeConfiguration;
+    class LXQtVolumeConfiguration;
 }
 
-class LxQtVolumeConfiguration : public LxQtPanelPluginConfigDialog
+class LXQtVolumeConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtVolumeConfiguration(QSettings &settings, QWidget *parent = 0);
-    ~LxQtVolumeConfiguration();
+    explicit LXQtVolumeConfiguration(QSettings &settings, QWidget *parent = 0);
+    ~LXQtVolumeConfiguration();
 
 public slots:
     void setSinkList(const QList<AudioDevice*> sinks);
@@ -84,7 +84,7 @@ protected slots:
     virtual void loadSettings();
 
 private:
-    Ui::LxQtVolumeConfiguration *ui;
+    Ui::LXQtVolumeConfiguration *ui;
 };
 
 #endif // LXQTVOLUMECONFIGURATION_H

@@ -42,17 +42,17 @@
 #include <QSettings>
 #include <QMenu>
 
-class DirectoryMenu :  public QObject, public ILxQtPanelPlugin
+class DirectoryMenu :  public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo);
+    DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~DirectoryMenu();
 
     virtual QWidget *widget() { return &mButton; }
     virtual QString themeId() const { return "DirectoryMenu"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
     QDialog *configureDialog();
     void settingsChanged();
 
@@ -77,13 +77,13 @@ private:
     std::vector<QString> mPathStrings;
 };
 
-class DirectoryMenuLibrary: public QObject, public ILxQtPanelPluginLibrary
+class DirectoryMenuLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new DirectoryMenu(startupInfo);
     }

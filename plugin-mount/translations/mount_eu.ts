@@ -20,10 +20,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtMountConfiguration</name>
+    <name>LXQtMountConfiguration</name>
     <message>
-        <source>LxQt Removable media manager settings</source>
-        <translation type="vanished">LxQt gailu aldagarrien kudeatzailearen ezarpenak</translation>
+        <source>LXQt Removable media manager settings</source>
+        <translation type="vanished">LXQt gailu aldagarrien kudeatzailearen ezarpenak</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>

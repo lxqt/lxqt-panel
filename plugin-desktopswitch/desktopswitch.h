@@ -39,7 +39,7 @@
 class QSignalMapper;
 class QButtonGroup;
 class NETRootInfo;
-namespace LxQt {
+namespace LXQt {
 class GridLayout;
 }
 
@@ -59,11 +59,11 @@ protected:
 /**
  * @brief Desktop switcher. A very simple one...
  */
-class DesktopSwitch : public QObject, public ILxQtPanelPlugin
+class DesktopSwitch : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo);
+    DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~DesktopSwitch();
 
     QString themeId() const { return "DesktopSwitch"; }
@@ -71,7 +71,7 @@ public:
     bool isSeparate() const { return true; }
     void realign();
 
-    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
     QDialog *configureDialog();
 
 private:
@@ -80,7 +80,7 @@ private:
     QSignalMapper* m_pSignalMapper;
     int m_desktopCount;
     DesktopSwitchWidget mWidget;
-    LxQt::GridLayout *mLayout;
+    LXQt::GridLayout *mLayout;
     int mRows;
     QScopedPointer<NETRootInfo> mDesktops;
     DesktopSwitchButton::LabelType mLabelType;
@@ -98,13 +98,13 @@ private slots:
     void onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2);
 };
 
-class DesktopSwitchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class DesktopSwitchPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new DesktopSwitch(startupInfo);}
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new DesktopSwitch(startupInfo);}
 };
 
 #endif

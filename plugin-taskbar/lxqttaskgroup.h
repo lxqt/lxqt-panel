@@ -40,17 +40,17 @@
 #include <KF5/KWindowSystem/kwindowsystem.h>
 
 class QVBoxLayout;
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 
-class LxQtGroupPopup;
-class LxQtMasterPopup;
+class LXQtGroupPopup;
+class LXQtMasterPopup;
 
-class LxQtTaskGroup: public LxQtTaskButton
+class LXQtTaskGroup: public LXQtTaskButton
 {
     Q_OBJECT
 
 public:
-    LxQtTaskGroup(const QString & groupName, QIcon icon ,ILxQtPanelPlugin * plugin, LxQtTaskBar * parent);
+    LXQtTaskGroup(const QString & groupName, QIcon icon ,ILXQtPanelPlugin * plugin, LXQtTaskBar * parent);
 
     QString groupName() const { return mGroupName; }
 
@@ -58,17 +58,17 @@ public:
     int buttonsCount() const;
     int visibleButtonsCount() const;
 
-    LxQtTaskButton * addWindow(WId id);
-    LxQtTaskButton * checkedButton() const;
+    LXQtTaskButton * addWindow(WId id);
+    LXQtTaskButton * checkedButton() const;
 
     // Returns the next or the previous button in the popup
     // if circular is true, then it will go around the list of buttons
-    LxQtTaskButton * getNextPrevChildButton(bool next, bool circular);
+    LXQtTaskButton * getNextPrevChildButton(bool next, bool circular);
 
     bool onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void refreshIconsGeometry();
     void showOnlySettingChanged();
-    void setAutoRotation(bool value, ILxQtPanel::Position position);
+    void setAutoRotation(bool value, ILXQtPanel::Position position);
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
 
     void setPopupVisible(bool visible = true, bool fast = false);
@@ -101,14 +101,14 @@ private slots:
 signals:
     void groupBecomeEmpty(QString name);
     void visibilityChanged(bool visible);
-    void popupShown(LxQtTaskGroup* sender);
+    void popupShown(LXQtTaskGroup* sender);
     void windowDisowned(WId window);
 
 private:
     QString mGroupName;
-    LxQtGroupPopup * mPopup;
-    LxQtTaskButtonHash mButtonHash;
-    ILxQtPanelPlugin * mPlugin;
+    LXQtGroupPopup * mPopup;
+    LXQtTaskButtonHash mButtonHash;
+    ILXQtPanelPlugin * mPlugin;
     bool mPreventPopup;
 
     QSize recalculateFrameSize();

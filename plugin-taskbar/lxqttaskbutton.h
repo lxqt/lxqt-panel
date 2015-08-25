@@ -39,8 +39,8 @@
 class QPainter;
 class QPalette;
 class QMimeData;
-class LxQtTaskGroup;
-class LxQtTaskBar;
+class LXQtTaskGroup;
+class LXQtTaskBar;
 
 class LeftAlignedTextStyle : public QProxyStyle
 {
@@ -53,15 +53,15 @@ public:
 };
 
 
-class LxQtTaskButton : public QToolButton
+class LXQtTaskButton : public QToolButton
 {
     Q_OBJECT
 
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LxQtTaskButton(const WId window, LxQtTaskBar * taskBar, QWidget *parent = 0);
-    virtual ~LxQtTaskButton();
+    explicit LXQtTaskButton(const WId window, LXQtTaskBar * taskBar, QWidget *parent = 0);
+    virtual ~LXQtTaskButton();
 
     bool isApplicationHidden() const;
     bool isApplicationActive() const;
@@ -77,11 +77,11 @@ public:
     void updateIcon();
 
     Qt::Corner origin() const;
-    virtual void setAutoRotation(bool value, ILxQtPanel::Position position);
+    virtual void setAutoRotation(bool value, ILXQtPanel::Position position);
 
-    LxQtTaskGroup * parentGroup(void) const {return mParentGroup;}
-    void setParentGroup(LxQtTaskGroup * group) {mParentGroup = group;}
-    LxQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
+    LXQtTaskGroup * parentGroup(void) const {return mParentGroup;}
+    void setParentGroup(LXQtTaskGroup * group) {mParentGroup = group;}
+    LXQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
     void refreshIconGeometry(QRect const & geom);
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
@@ -123,8 +123,8 @@ private:
     Qt::Corner mOrigin;
     QPixmap mPixmap;
     bool mDrawPixmap;
-    LxQtTaskGroup * mParentGroup;
-    LxQtTaskBar * mParentTaskBar;
+    LXQtTaskGroup * mParentGroup;
+    LXQtTaskBar * mParentTaskBar;
 
     // Timer for when draggind something into a button (the button's window
     // must be activated so that the use can continue dragging to the window
@@ -138,6 +138,6 @@ signals:
     void dragging(bool executing = false);
 };
 
-typedef QHash<WId,LxQtTaskButton*> LxQtTaskButtonHash;
+typedef QHash<WId,LXQtTaskButton*> LXQtTaskButtonHash;
 
 #endif // LXQTTASKBUTTON_H

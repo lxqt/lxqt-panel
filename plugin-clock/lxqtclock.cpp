@@ -47,7 +47,7 @@
 
 /**
  * @file lxqtclock.cpp
- * @brief implements LxQtclock and LxQtclockgui
+ * @brief implements LXQtclock and LXQtclockgui
  * @author Christopher "VdoP" Regali
  * @author Kuzma Shapran
  */
@@ -75,15 +75,15 @@ public:
 /**
  * @brief constructor
  */
-LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtClock::LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     mAutoRotate(true),
     mTextStyle{new DownscaleFontStyle},
     mCurrentCharCount(0)
 {
     mMainWidget = new QWidget();
-    mRotatedWidget = new LxQt::RotatedWidget(*(new QWidget()), mMainWidget);
+    mRotatedWidget = new LXQt::RotatedWidget(*(new QWidget()), mMainWidget);
     mContent = mRotatedWidget->content();
     mContent->setStyle(mTextStyle.data());
     mTimeLabel = new QLabel(mContent);
@@ -121,12 +121,12 @@ LxQtClock::LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo):
 /**
  * @brief destructor
  */
-LxQtClock::~LxQtClock()
+LXQtClock::~LXQtClock()
 {
     delete mMainWidget;
 }
 
-QDateTime LxQtClock::currentDateTime()
+QDateTime LXQtClock::currentDateTime()
 {
     return QDateTime(mUseUTC ? QDateTime::currentDateTimeUtc() : QDateTime::currentDateTime());
 }
@@ -135,7 +135,7 @@ QDateTime LxQtClock::currentDateTime()
  * @brief updates the time
  * Color and font settings can be configured in Qt CSS
  */
-void LxQtClock::updateTime()
+void LXQtClock::updateTime()
 {
     //XXX: do we need this with PreciseTimer ?
     if (currentDateTime().time().msec() > 500)
@@ -144,7 +144,7 @@ void LxQtClock::updateTime()
     showTime();
 }
 
-void LxQtClock::showTime()
+void LXQtClock::showTime()
 {
     QDateTime now{currentDateTime()};
     int new_char_count;
@@ -170,7 +170,7 @@ void LxQtClock::showTime()
     }
 }
 
-void LxQtClock::restartTimer()
+void LXQtClock::restartTimer()
 {
     if (mClockTimer->isActive())
         mClockTimer->stop();
@@ -181,7 +181,7 @@ void LxQtClock::restartTimer()
     QTimer::singleShot(delay, Qt::PreciseTimer, this, SLOT(updateTime()));
 }
 
-void LxQtClock::settingsChanged()
+void LXQtClock::settingsChanged()
 {
     mFirstDayOfWeek = settings()->value("firstDayOfWeek", -1).toInt();
     if (-1 == mFirstDayOfWeek)
@@ -227,7 +227,7 @@ void LxQtClock::settingsChanged()
     }
 }
 
-void LxQtClock::realign()
+void LXQtClock::realign()
 {
     QSize size{QWIDGETSIZE_MAX, QWIDGETSIZE_MAX};
     Qt::Corner origin = Qt::TopLeftCorner;
@@ -235,16 +235,16 @@ void LxQtClock::realign()
     {
         switch (panel()->position())
         {
-        case ILxQtPanel::PositionTop:
-        case ILxQtPanel::PositionBottom:
+        case ILXQtPanel::PositionTop:
+        case ILXQtPanel::PositionBottom:
             origin = Qt::TopLeftCorner;
             break;
 
-        case ILxQtPanel::PositionLeft:
+        case ILXQtPanel::PositionLeft:
             origin = Qt::BottomLeftCorner;
             break;
 
-        case ILxQtPanel::PositionRight:
+        case ILXQtPanel::PositionRight:
             origin = Qt::TopRightCorner;
             break;
         }
@@ -277,9 +277,9 @@ void LxQtClock::realign()
     }
 }
 
-void LxQtClock::activated(ActivationReason reason)
+void LXQtClock::activated(ActivationReason reason)
 {
-    if (reason != ILxQtPanelPlugin::Trigger)
+    if (reason != ILXQtPanelPlugin::Trigger)
         return;
 
     if (!mCalendarPopup->isVisible())
@@ -294,12 +294,12 @@ void LxQtClock::activated(ActivationReason reason)
     }
 }
 
-QDialog * LxQtClock::configureDialog()
+QDialog * LXQtClock::configureDialog()
 {
-     return new LxQtClockConfiguration(*settings());
+     return new LXQtClockConfiguration(*settings());
 }
 
-bool LxQtClock::eventFilter(QObject *watched, QEvent *event)
+bool LXQtClock::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == mMainWidget)
     {

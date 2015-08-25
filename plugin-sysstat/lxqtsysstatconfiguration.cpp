@@ -37,7 +37,7 @@
 
 //Note: strings can't actually be translated here (in static initialization time)
 //      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
-const QStringList LxQtSysStatConfiguration::msStatTypes = {
+const QStringList LXQtSysStatConfiguration::msStatTypes = {
     QStringLiteral(QT_TR_NOOP("CPU"))
     , QStringLiteral(QT_TR_NOOP("Memory"))
     , QStringLiteral(QT_TR_NOOP("Network"))
@@ -52,39 +52,39 @@ namespace
     void localizationWorkaround()
     {
         const char * loc;
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu1");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu2");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu3");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu4");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu5");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu6");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu7");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu8");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu9");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu11");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu12");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu13");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu14");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu15");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu16");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu17");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu18");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu19");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu20");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu21");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu22");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu23");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "cpu24");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "memory");
-        loc = QT_TRANSLATE_NOOP("LxQtSysStatConfiguration", "swap");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu1");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu2");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu3");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu4");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu5");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu6");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu7");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu8");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu9");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu11");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu12");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu13");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu14");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu15");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu16");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu17");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu18");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu19");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu20");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu21");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu22");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu23");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu24");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "memory");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "swap");
         static_cast<void>(t);//avoid unused variable warning
     }
 }
 
-LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget *parent) :
+LXQtSysStatConfiguration::LXQtSysStatConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtSysStatConfiguration),
+    ui(new Ui::LXQtSysStatConfiguration),
     mSettings(settings),
     oldSettings(settings),
     mStat(NULL),
@@ -100,23 +100,23 @@ LxQtSysStatConfiguration::LxQtSysStatConfiguration(QSettings *settings, QWidget 
 
     loadSettings();
 
-    connect(ui->typeCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->intervalSB, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->linesSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->titleLE, &QLineEdit::editingFinished, this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->useFrequencyCB, &QCheckBox::toggled, this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->logarithmicCB, &QCheckBox::toggled, this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->sourceCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LxQtSysStatConfiguration::saveSettings);
-    connect(ui->useThemeColoursRB, &QRadioButton::toggled, this, &LxQtSysStatConfiguration::saveSettings);
+    connect(ui->typeCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->intervalSB, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->linesSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->titleLE, &QLineEdit::editingFinished, this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->useFrequencyCB, &QCheckBox::toggled, this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->logarithmicCB, &QCheckBox::toggled, this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->sourceCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->useThemeColoursRB, &QRadioButton::toggled, this, &LXQtSysStatConfiguration::saveSettings);
 }
 
-LxQtSysStatConfiguration::~LxQtSysStatConfiguration()
+LXQtSysStatConfiguration::~LXQtSysStatConfiguration()
 {
     delete ui;
 }
 
-void LxQtSysStatConfiguration::loadSettings()
+void LXQtSysStatConfiguration::loadSettings()
 {
     ui->intervalSB->setValue(mSettings->value("graph/updateInterval", 1.0).toDouble());
     ui->sizeSB->setValue(mSettings->value("graph/minimalSize", 30).toInt());
@@ -144,7 +144,7 @@ void LxQtSysStatConfiguration::loadSettings()
     ui->customColoursB->setEnabled(!useThemeColours);
 }
 
-void LxQtSysStatConfiguration::saveSettings()
+void LXQtSysStatConfiguration::saveSettings()
 {
     mSettings->setValue("graph/useThemeColours", ui->useThemeColoursRB->isChecked());
     mSettings->setValue("graph/updateInterval", ui->intervalSB->value());
@@ -168,7 +168,7 @@ void LxQtSysStatConfiguration::saveSettings()
     mSettings->setValue("net/logarithmicScaleSteps", ui->logScaleSB->value());
 }
 
-void LxQtSysStatConfiguration::on_buttons_clicked(QAbstractButton *btn)
+void LXQtSysStatConfiguration::on_buttons_clicked(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {
@@ -179,7 +179,7 @@ void LxQtSysStatConfiguration::on_buttons_clicked(QAbstractButton *btn)
         close();
 }
 
-void LxQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
+void LXQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
 {
     if (mStat)
         mStat->deleteLater();
@@ -206,14 +206,14 @@ void LxQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
     ui->sourceCOB->setCurrentIndex(0);
 }
 
-void LxQtSysStatConfiguration::on_maximumHS_valueChanged(int value)
+void LXQtSysStatConfiguration::on_maximumHS_valueChanged(int value)
 {
     ui->maximumValueL->setText(PluginSysStat::netSpeedToString(value));
 }
 
-void LxQtSysStatConfiguration::coloursChanged()
+void LXQtSysStatConfiguration::coloursChanged()
 {
-    const LxQtSysStatColours::Colours &colours = mColoursDialog->colours();
+    const LXQtSysStatColours::Colours &colours = mColoursDialog->colours();
 
     mSettings->setValue("grid/colour",  colours["grid"].name());
     mSettings->setValue("title/colour", colours["title"].name());
@@ -233,17 +233,17 @@ void LxQtSysStatConfiguration::coloursChanged()
     mSettings->setValue("net/transmittedColour", colours["netTransmitted"].name());
 }
 
-void LxQtSysStatConfiguration::on_customColoursB_clicked()
+void LXQtSysStatConfiguration::on_customColoursB_clicked()
 {
     if (!mColoursDialog)
     {
-        mColoursDialog = new LxQtSysStatColours(this);
+        mColoursDialog = new LXQtSysStatColours(this);
         connect(mColoursDialog, SIGNAL(coloursChanged()), SLOT(coloursChanged()));
     }
 
-    LxQtSysStatColours::Colours colours;
+    LXQtSysStatColours::Colours colours;
 
-    const LxQtSysStatColours::Colours &defaultColours = mColoursDialog->defaultColours();
+    const LXQtSysStatColours::Colours &defaultColours = mColoursDialog->defaultColours();
 
     colours["grid"]  = QColor(mSettings->value("grid/colour",  defaultColours["grid"] .name()).toString());
     colours["title"] = QColor(mSettings->value("title/colour", defaultColours["title"].name()).toString());

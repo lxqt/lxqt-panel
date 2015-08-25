@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="cs">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
@@ -35,9 +35,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
+        <source>LXQt Volume Control Settings</source>
         <translation type="vanished">Nastavení ovládání hlasitosti</translation>
     </message>
     <message>

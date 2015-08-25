@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LxQtSysStatColours</class>
- <widget class="QDialog" name="LxQtSysStatColours">
+ <class>LXQtSysStatColours</class>
+ <widget class="QDialog" name="LXQtSysStatColours">
   <property name="geometry">
    <rect>
     <x>0</x>

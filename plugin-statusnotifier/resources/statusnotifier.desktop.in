@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=LxQtPanel/Plugin
+ServiceTypes=LXQtPanel/Plugin
 Name=Status Notifier Plugin
 Comment=Status Notifier Plugin
 Icon=go-bottom

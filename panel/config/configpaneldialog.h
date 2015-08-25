@@ -34,12 +34,12 @@
 
 #include <LXQt/ConfigDialog>
 
-class ConfigPanelDialog : public LxQt::ConfigDialog
+class ConfigPanelDialog : public LXQt::ConfigDialog
 {
     Q_OBJECT
 
 public:
-    ConfigPanelDialog(LxQtPanel *panel, QWidget *parent = 0);
+    ConfigPanelDialog(LXQtPanel *panel, QWidget *parent = 0);
 
     void showConfigPanelPage();
     void showConfigPluginsPage();

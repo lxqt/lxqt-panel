@@ -43,12 +43,12 @@ class QDialog;
 class QTimer;
 class QProxyStyle;
 
-class LxQtClock : public QObject, public ILxQtPanelPlugin
+class LXQtClock : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LxQtClock(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtClock();
+    LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtClock();
 
     virtual Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     QString themeId() const { return "Clock"; }
@@ -71,7 +71,7 @@ private:
     QTimer* mClockTimer;
     QWidget *mMainWidget;
     QWidget *mContent;
-    LxQt::RotatedWidget* mRotatedWidget;
+    LXQt::RotatedWidget* mRotatedWidget;
     QLabel* mTimeLabel;
     QLabel* mDateLabel;
     QString mClockFormat;
@@ -92,13 +92,13 @@ private:
 };
 
 
-class LxQtClockPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtClockPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new LxQtClock(startupInfo);}
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new LXQtClock(startupInfo);}
 };
 
 

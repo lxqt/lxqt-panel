@@ -37,11 +37,11 @@
 #define DEFAULT_SHORTCUT "Control+Alt+L"
 
 
-PanelScreenSaver::PanelScreenSaver(const ILxQtPanelPluginStartupInfo &startupInfo) :
+PanelScreenSaver::PanelScreenSaver(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
-    mSaver = new LxQt::ScreenSaver(this);
+    mSaver = new LXQt::ScreenSaver(this);
 
     QList<QAction*> actions = mSaver->availableActions();
     if (!actions.empty())
@@ -64,7 +64,7 @@ void PanelScreenSaver::shortcutRegistered()
         mShortcutKey->changeShortcut(DEFAULT_SHORTCUT);
         if (mShortcutKey->shortcut().isEmpty())
         {
-            LxQt::Notification::notify(tr("Panel Screensaver: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
+            LXQt::Notification::notify(tr("Panel Screensaver: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
         }
     }
 }

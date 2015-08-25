@@ -37,9 +37,9 @@
 #include <QInputDialog>
 
 
-LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QWidget *parent) :
+LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtWorldClockConfiguration),
+    ui(new Ui::LXQtWorldClockConfiguration),
     mSettings(settings),
     mOldSettings(settings),
     mLockCascadeSettingChanges(false),
@@ -88,12 +88,12 @@ LxQtWorldClockConfiguration::LxQtWorldClockConfiguration(QSettings *settings, QW
     loadSettings();
 }
 
-LxQtWorldClockConfiguration::~LxQtWorldClockConfiguration()
+LXQtWorldClockConfiguration::~LXQtWorldClockConfiguration()
 {
     delete ui;
 }
 
-void LxQtWorldClockConfiguration::loadSettings()
+void LXQtWorldClockConfiguration::loadSettings()
 {
     mLockCascadeSettingChanges = true;
 
@@ -236,7 +236,7 @@ void LxQtWorldClockConfiguration::loadSettings()
     mLockCascadeSettingChanges = false;
 }
 
-void LxQtWorldClockConfiguration::saveSettings()
+void LXQtWorldClockConfiguration::saveSettings()
 {
     if (mLockCascadeSettingChanges)
         return;
@@ -383,7 +383,7 @@ void LxQtWorldClockConfiguration::saveSettings()
     mSettings->setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
 }
 
-void LxQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *button)
+void LXQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *button)
 {
     if (ui->buttons->buttonRole(button) == QDialogButtonBox::ResetRole)
     {
@@ -394,7 +394,7 @@ void LxQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *button)
         close();
 }
 
-void LxQtWorldClockConfiguration::timeFormatChanged(int index)
+void LXQtWorldClockConfiguration::timeFormatChanged(int index)
 {
     bool longTimeFormatSelected = index == 1;
     bool customTimeFormatSelected = index == 2;
@@ -402,20 +402,20 @@ void LxQtWorldClockConfiguration::timeFormatChanged(int index)
     ui->timezoneGB->setEnabled(!longTimeFormatSelected);
 }
 
-void LxQtWorldClockConfiguration::dateGroupToggled(bool dateIsChecked)
+void LXQtWorldClockConfiguration::dateGroupToggled(bool dateIsChecked)
 {
     bool customDateFormatSelected = ui->dateFormatCB->currentIndex() == ui->dateFormatCB->count() - 1;
     ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
 }
 
-void LxQtWorldClockConfiguration::dateFormatChanged(int index)
+void LXQtWorldClockConfiguration::dateFormatChanged(int index)
 {
     bool customDateFormatSelected = index == ui->dateFormatCB->count() - 1;
     bool dateIsChecked = ui->dateGB->isChecked();
     ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
 }
 
-void LxQtWorldClockConfiguration::advancedFormatToggled(bool on)
+void LXQtWorldClockConfiguration::advancedFormatToggled(bool on)
 {
     bool longTimeFormatSelected = ui->timeFormatCB->currentIndex() == 1;
     ui->timeGB->setEnabled(!on);
@@ -423,11 +423,11 @@ void LxQtWorldClockConfiguration::advancedFormatToggled(bool on)
     ui->dateGB->setEnabled(!on);
 }
 
-void LxQtWorldClockConfiguration::customiseManualFormatClicked()
+void LXQtWorldClockConfiguration::customiseManualFormatClicked()
 {
     if (!mConfigurationManualFormat)
     {
-        mConfigurationManualFormat = new LxQtWorldClockConfigurationManualFormat(this);
+        mConfigurationManualFormat = new LXQtWorldClockConfigurationManualFormat(this);
         connect(mConfigurationManualFormat, SIGNAL(manualFormatChanged()), this, SLOT(manualFormatChanged()));
     }
 
@@ -440,13 +440,13 @@ void LxQtWorldClockConfiguration::customiseManualFormatClicked()
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::manualFormatChanged()
+void LXQtWorldClockConfiguration::manualFormatChanged()
 {
     mManualFormat = mConfigurationManualFormat->manualFormat();
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::updateTimeZoneButtons()
+void LXQtWorldClockConfiguration::updateTimeZoneButtons()
 {
     QList<QTableWidgetItem*> selectedItems = ui->timeZonesTW->selectedItems();
     int selectedCount = selectedItems.count() / 2;
@@ -502,7 +502,7 @@ void LxQtWorldClockConfiguration::updateTimeZoneButtons()
     ui->moveDownPB->setEnabled(canMoveDown);
 }
 
-int LxQtWorldClockConfiguration::findTimeZone(const QString& timeZone)
+int LXQtWorldClockConfiguration::findTimeZone(const QString& timeZone)
 {
     QList<QTableWidgetItem*> items = ui->timeZonesTW->findItems(timeZone, Qt::MatchExactly);
     foreach (QTableWidgetItem* item, items)
@@ -511,10 +511,10 @@ int LxQtWorldClockConfiguration::findTimeZone(const QString& timeZone)
     return -1;
 }
 
-void LxQtWorldClockConfiguration::addTimeZone()
+void LXQtWorldClockConfiguration::addTimeZone()
 {
     if (!mConfigurationTimeZones)
-        mConfigurationTimeZones = new LxQtWorldClockConfigurationTimeZones(this);
+        mConfigurationTimeZones = new LXQtWorldClockConfigurationTimeZones(this);
 
     if (mConfigurationTimeZones->updateAndExec() == QDialog::Accepted)
     {
@@ -537,7 +537,7 @@ void LxQtWorldClockConfiguration::addTimeZone()
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::removeTimeZone()
+void LXQtWorldClockConfiguration::removeTimeZone()
 {
     foreach (QTableWidgetItem *item, ui->timeZonesTW->selectedItems())
         if (item->column() == 0)
@@ -553,7 +553,7 @@ void LxQtWorldClockConfiguration::removeTimeZone()
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::setBold(QTableWidgetItem *item, bool value)
+void LXQtWorldClockConfiguration::setBold(QTableWidgetItem *item, bool value)
 {
     if (item)
     {
@@ -563,19 +563,19 @@ void LxQtWorldClockConfiguration::setBold(QTableWidgetItem *item, bool value)
     }
 }
 
-void LxQtWorldClockConfiguration::setBold(int row, bool value)
+void LXQtWorldClockConfiguration::setBold(int row, bool value)
 {
     setBold(ui->timeZonesTW->item(row, 0), value);
     setBold(ui->timeZonesTW->item(row, 1), value);
 }
 
-void LxQtWorldClockConfiguration::setDefault(int row)
+void LXQtWorldClockConfiguration::setDefault(int row)
 {
     setBold(row, true);
     mDefaultTimeZone = ui->timeZonesTW->item(row, 0)->text();
 }
 
-void LxQtWorldClockConfiguration::setTimeZoneAsDefault()
+void LXQtWorldClockConfiguration::setTimeZoneAsDefault()
 {
     setBold(findTimeZone(mDefaultTimeZone), false);
 
@@ -584,7 +584,7 @@ void LxQtWorldClockConfiguration::setTimeZoneAsDefault()
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::editTimeZoneCustomName()
+void LXQtWorldClockConfiguration::editTimeZoneCustomName()
 {
     int row = ui->timeZonesTW->selectedItems()[0]->row();
 
@@ -603,7 +603,7 @@ void LxQtWorldClockConfiguration::editTimeZoneCustomName()
     }
 }
 
-void LxQtWorldClockConfiguration::moveTimeZoneUp()
+void LXQtWorldClockConfiguration::moveTimeZoneUp()
 {
     int m = ui->timeZonesTW->rowCount();
     bool skipTop = true;
@@ -636,7 +636,7 @@ void LxQtWorldClockConfiguration::moveTimeZoneUp()
     saveSettings();
 }
 
-void LxQtWorldClockConfiguration::moveTimeZoneDown()
+void LXQtWorldClockConfiguration::moveTimeZoneDown()
 {
     int m = ui->timeZonesTW->rowCount();
     bool skipBottom = true;

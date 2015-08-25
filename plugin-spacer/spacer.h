@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *
  * This program or library is free software; you can redistribute it
@@ -50,19 +50,19 @@ private:
     QString mOrientation;
 };
 
-class Spacer :  public QObject, public ILxQtPanelPlugin
+class Spacer :  public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    Spacer(const ILxQtPanelPluginStartupInfo &startupInfo);
+    Spacer(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mSpacer; }
     virtual QString themeId() const { return "Spacer"; }
 
     bool isSeparate() const { return true; }
 
-    virtual ILxQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
     QDialog *configureDialog();
 
     virtual void realign();
@@ -78,13 +78,13 @@ private:
     int mSize;
 };
 
-class SpacerPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class SpacerPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const { return new Spacer(startupInfo);}
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new Spacer(startupInfo);}
 };
 
 #endif

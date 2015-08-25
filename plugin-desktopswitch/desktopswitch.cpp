@@ -43,9 +43,9 @@
 
 #define DEFAULT_SHORTCUT_TEMPLATE QStringLiteral("Control+F%1")
 
-DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
+DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
     m_desktopCount(KWindowSystem::numberOfDesktops()),
     mRows(-1),
@@ -55,7 +55,7 @@ DesktopSwitch::DesktopSwitch(const ILxQtPanelPluginStartupInfo &startupInfo) :
     m_buttons = new QButtonGroup(this);
     connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
 
-    mLayout = new LxQt::GridLayout(&mWidget);
+    mLayout = new LXQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
 
     settingsChanged();

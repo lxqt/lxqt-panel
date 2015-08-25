@@ -39,22 +39,22 @@
 class TrayIcon;
 class QSize;
 
-namespace LxQt {
+namespace LXQt {
 class GridLayout;
 }
 
 /**
  * @brief This makes our trayplugin
  */
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 
-class LxQtTray: public QFrame, QAbstractNativeEventFilter
+class LXQtTray: public QFrame, QAbstractNativeEventFilter
 {
     Q_OBJECT
     Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize)
 public:
-    LxQtTray(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    ~LxQtTray();
+    LXQtTray(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    ~LXQtTray();
 
 
     QSize iconSize() const { return mIconSize; }
@@ -92,8 +92,8 @@ private:
     int mDamageEvent;
     int mDamageError;
     QSize mIconSize;
-    LxQt::GridLayout *mLayout;
-    ILxQtPanelPlugin *mPlugin;
+    LXQt::GridLayout *mLayout;
+    ILXQtPanelPlugin *mPlugin;
     Atom _NET_SYSTEM_TRAY_OPCODE;
     Display* mDisplay;
 };

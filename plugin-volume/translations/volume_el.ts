@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="el">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">Εμφάνιση επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης &quot;%1&quot;</translation>
@@ -35,9 +35,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
+        <source>LXQt Volume Control Settings</source>
         <translation>Ρυθμίσεις ελέγχου έντασης ήχου του LXQt</translation>
     </message>
     <message>

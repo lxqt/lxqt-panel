@@ -47,20 +47,20 @@
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/NETWM>
 
-class LxQtTaskButton;
+class LXQtTaskButton;
 class ElidedButtonStyle;
 
-namespace LxQt {
+namespace LXQt {
 class GridLayout;
 }
 
-class LxQtTaskBar : public QFrame
+class LXQtTaskBar : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit LxQtTaskBar(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    virtual ~LxQtTaskBar();
+    explicit LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    virtual ~LXQtTaskBar();
 
     void realign();
 
@@ -75,7 +75,7 @@ public:
     bool isAutoRotate() const { return mAutoRotate; }
     bool isGroupingEnabled() const { return mGroupingEnabled; }
     bool isShowGroupOnHover() const { return mShowGroupOnHover; }
-    ILxQtPanel * panel() const { return mPlugin->panel(); }
+    ILXQtPanel * panel() const { return mPlugin->panel(); }
 
 public slots:
     void settingsChanged();
@@ -90,15 +90,15 @@ private slots:
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
-    void groupPopupShown(LxQtTaskGroup * const sender);
+    void groupPopupShown(LXQtTaskGroup * const sender);
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
 
 private:
     void addWindow(WId window, QString const & groupId);
 
 private:
-    QHash<QString, LxQtTaskGroup*> mGroupsHash;
-    LxQt::GridLayout *mLayout;
+    QHash<QString, LXQtTaskGroup*> mGroupsHash;
+    LXQt::GridLayout *mLayout;
 
     // Settings
     Qt::ToolButtonStyle mButtonStyle;
@@ -121,7 +121,7 @@ private:
     void changeEvent(QEvent* event);
     void resizeEvent(QResizeEvent *event);
 
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
     LeftAlignedTextStyle *mStyle;
 };

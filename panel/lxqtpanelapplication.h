@@ -34,20 +34,20 @@
 
 class QScreen;
 
-class LxQtPanel;
-namespace LxQt {
+class LXQtPanel;
+namespace LXQt {
 class Settings;
 }
 
-class LxQtPanelApplication : public LxQt::Application
+class LXQtPanelApplication : public LXQt::Application
 {
     Q_OBJECT
 public:
-    explicit LxQtPanelApplication(int& argc, char** argv);
-    ~LxQtPanelApplication();
+    explicit LXQtPanelApplication(int& argc, char** argv);
+    ~LXQtPanelApplication();
 
     int count() { return mPanels.count(); }
-    LxQt::Settings *settings() { return mSettings; }
+    LXQt::Settings *settings() { return mSettings; }
     bool isPluginSingletonAndRunnig(QString const & pluginId) const;
 
 public slots:
@@ -58,12 +58,12 @@ signals:
     void pluginRemoved();
 
 private:
-    QList<LxQtPanel*> mPanels;
+    QList<LXQtPanel*> mPanels;
 
-    LxQtPanel* addPanel(const QString &name);
+    LXQtPanel* addPanel(const QString &name);
 
 private slots:
-    void removePanel(LxQtPanel* panel);
+    void removePanel(LXQtPanel* panel);
 
     void handleScreenAdded(QScreen* newScreen);
     void screenDestroyed(QObject* screenObj);
@@ -71,7 +71,7 @@ private slots:
     void cleanup();
 
 private:
-    LxQt::Settings *mSettings;
+    LXQt::Settings *mSettings;
 };
 
 

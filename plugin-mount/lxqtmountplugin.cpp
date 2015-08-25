@@ -30,9 +30,9 @@
 
 #include <Solid/DeviceNotifier>
 
-LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     mPopup(nullptr),
     mDeviceAction(nullptr)
 {
@@ -43,13 +43,13 @@ LxQtMountPlugin::LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo)
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
 }
 
-LxQtMountPlugin::~LxQtMountPlugin()
+LXQtMountPlugin::~LXQtMountPlugin()
 {
     delete mButton;
     delete mPopup;
 }
 
-QDialog *LxQtMountPlugin::configureDialog()
+QDialog *LXQtMountPlugin::configureDialog()
 {
     if (mPopup)
         mPopup->hide();
@@ -59,12 +59,12 @@ QDialog *LxQtMountPlugin::configureDialog()
     return configWindow;
 }
 
-void LxQtMountPlugin::realign()
+void LXQtMountPlugin::realign()
 {
     //nothing to do
 }
 
-void LxQtMountPlugin::settingsChanged()
+void LXQtMountPlugin::settingsChanged()
 {
     QString s = settings()->value(QStringLiteral(CFG_KEY_ACTION)).toString();
     DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);

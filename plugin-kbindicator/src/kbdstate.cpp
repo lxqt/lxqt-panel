@@ -6,9 +6,9 @@
 #include "kbdstateconfig.h"
 #include <LXQt/lxqtsettings.h>
 
-KbdState::KbdState(const ILxQtPanelPluginStartupInfo &startupInfo):
+KbdState::KbdState(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     m_content(m_watcher.isLayoutEnabled())
 {
     Settings::instance().init(settings());

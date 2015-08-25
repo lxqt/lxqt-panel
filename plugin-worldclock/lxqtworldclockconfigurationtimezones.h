@@ -35,18 +35,18 @@
 
 
 namespace Ui {
-    class LxQtWorldClockConfigurationTimeZones;
+    class LXQtWorldClockConfigurationTimeZones;
 }
 
 class QTreeWidgetItem;
 
-class LxQtWorldClockConfigurationTimeZones : public QDialog
+class LXQtWorldClockConfigurationTimeZones : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtWorldClockConfigurationTimeZones(QWidget *parent = NULL);
-    ~LxQtWorldClockConfigurationTimeZones();
+    explicit LXQtWorldClockConfigurationTimeZones(QWidget *parent = NULL);
+    ~LXQtWorldClockConfigurationTimeZones();
 
     int updateAndExec();
 
@@ -57,7 +57,7 @@ public slots:
     void itemDoubleClicked(QTreeWidgetItem*,int);
 
 private:
-    Ui::LxQtWorldClockConfigurationTimeZones *ui;
+    Ui::LXQtWorldClockConfigurationTimeZones *ui;
 
     QString mTimeZone;
 

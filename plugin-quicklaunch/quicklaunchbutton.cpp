@@ -89,7 +89,7 @@ QHash<QString,QString> QuickLaunchButton::settingsMap()
 
 void QuickLaunchButton::this_customContextMenuRequested(const QPoint & pos)
 {
-    LxQtQuickLaunch *panel = qobject_cast<LxQtQuickLaunch*>(parent());
+    LXQtQuickLaunch *panel = qobject_cast<LXQtQuickLaunch*>(parent());
 
     mMoveLeftAct->setEnabled( panel && panel->indexOfButton(this) > 0);
     mMoveRightAct->setEnabled(panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);

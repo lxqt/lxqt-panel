@@ -38,7 +38,7 @@
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
 
-VolumeButton::VolumeButton(ILxQtPanelPlugin *plugin, QWidget* parent):
+VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
         m_panel(plugin->panel()),

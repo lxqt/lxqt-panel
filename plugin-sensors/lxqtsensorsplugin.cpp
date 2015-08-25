@@ -30,39 +30,39 @@
 #include "lxqtsensorsconfiguration.h"
 
 
-LxQtSensorsPlugin::LxQtSensorsPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtSensorsPlugin::LXQtSensorsPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
-    mWidget(new LxQtSensors(this))
+    ILXQtPanelPlugin(startupInfo),
+    mWidget(new LXQtSensors(this))
 {
 }
 
 
-LxQtSensorsPlugin::~LxQtSensorsPlugin()
+LXQtSensorsPlugin::~LXQtSensorsPlugin()
 {
     delete mWidget;
 }
 
 
-QWidget *LxQtSensorsPlugin::widget()
+QWidget *LXQtSensorsPlugin::widget()
 {
     return mWidget;
 }
 
 
-QDialog *LxQtSensorsPlugin::configureDialog()
+QDialog *LXQtSensorsPlugin::configureDialog()
 {
-    return new LxQtSensorsConfiguration(settings());
+    return new LXQtSensorsConfiguration(settings());
 }
 
 
-void LxQtSensorsPlugin::realign()
+void LXQtSensorsPlugin::realign()
 {
     mWidget->realign();
 }
 
 
-void LxQtSensorsPlugin::settingsChanged()
+void LXQtSensorsPlugin::settingsChanged()
 {
     mWidget->settingsChanged();
 }

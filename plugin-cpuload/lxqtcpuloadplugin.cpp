@@ -32,12 +32,12 @@
 
 #include <QVBoxLayout>
 
-LxQtCpuLoadPlugin::LxQtCpuLoadPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtCpuLoadPlugin::LXQtCpuLoadPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
     mWidget = new QWidget();
-    mContent = new LxQtCpuLoad(this, mWidget);
+    mContent = new LXQtCpuLoad(this, mWidget);
     QVBoxLayout *layout = new QVBoxLayout(mWidget);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
@@ -45,22 +45,22 @@ LxQtCpuLoadPlugin::LxQtCpuLoadPlugin(const ILxQtPanelPluginStartupInfo &startupI
     layout->setStretchFactor(mContent, 1);
 }
 
-LxQtCpuLoadPlugin::~LxQtCpuLoadPlugin()
+LXQtCpuLoadPlugin::~LXQtCpuLoadPlugin()
 {
     delete mWidget;
 }
 
-QWidget *LxQtCpuLoadPlugin::widget()
+QWidget *LXQtCpuLoadPlugin::widget()
 {
     return mWidget;
 }
 
-QDialog *LxQtCpuLoadPlugin::configureDialog()
+QDialog *LXQtCpuLoadPlugin::configureDialog()
 {
-    return new LxQtCpuLoadConfiguration(settings());
+    return new LXQtCpuLoadConfiguration(settings());
 }
 
-void LxQtCpuLoadPlugin::settingsChanged()
+void LXQtCpuLoadPlugin::settingsChanged()
 {
     mContent->settingsChanged();
 }

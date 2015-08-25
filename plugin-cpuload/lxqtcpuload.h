@@ -29,9 +29,9 @@
 #define LXQTCPULOAD_H
 #include <QLabel>
 
-class ILxQtPanelPlugin;
+class ILXQtPanelPlugin;
 
-class LxQtCpuLoad: public QFrame
+class LXQtCpuLoad: public QFrame
 {
     Q_OBJECT
 
@@ -48,8 +48,8 @@ public:
         LeftToRightBar  //! Bar begins at left edge and grows to the right
     };
 
-    LxQtCpuLoad(ILxQtPanelPlugin *plugin, QWidget* parent = 0);
-    ~LxQtCpuLoad();
+    LXQtCpuLoad(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    ~LXQtCpuLoad();
 
 
     void settingsChanged();
@@ -66,7 +66,7 @@ private:
     double getLoadCpu() const;
     void setSizes();
 
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
     QWidget m_stuff;
 
     //! average load

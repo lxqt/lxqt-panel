@@ -43,12 +43,12 @@ class QEvent;
 class Plugin;
 class LayoutItemGrid;
 
-class LXQT_PANEL_API LxQtPanelLayout : public QLayout
+class LXQT_PANEL_API LXQtPanelLayout : public QLayout
 {
     Q_OBJECT
 public:
-    explicit LxQtPanelLayout(QWidget *parent);
-    ~LxQtPanelLayout();
+    explicit LXQtPanelLayout(QWidget *parent);
+    ~LXQtPanelLayout();
 
     void addItem(QLayoutItem *item);
     QLayoutItem *itemAt(int index) const;
@@ -70,8 +70,8 @@ public:
     int lineSize() const;
     void setLineSize(int value);
 
-    ILxQtPanel::Position position() const { return mPosition; }
-    void setPosition(ILxQtPanel::Position value);
+    ILXQtPanel::Position position() const { return mPosition; }
+    void setPosition(ILXQtPanel::Position value);
 
     static bool itemIsSeparate(QLayoutItem *item);
 signals:
@@ -87,7 +87,7 @@ private:
     mutable QSize mMinPluginSize;
     LayoutItemGrid *mLeftGrid;
     LayoutItemGrid *mRightGrid;
-    ILxQtPanel::Position mPosition;
+    ILXQtPanel::Position mPosition;
     bool mAnimate;
 
 

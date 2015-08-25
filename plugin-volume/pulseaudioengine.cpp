@@ -275,7 +275,7 @@ void PulseAudioEngine::setupSubscription()
 void PulseAudioEngine::handleContextStateChanged()
 {
     if (m_contextState == PA_CONTEXT_FAILED || m_contextState == PA_CONTEXT_TERMINATED) {
-        qWarning("LxQt-Volume: Context connection failed or terminated lets try to reconnect");
+        qWarning("LXQt-Volume: Context connection failed or terminated lets try to reconnect");
         m_reconnectionTimer.start();
     }
 }

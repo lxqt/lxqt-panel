@@ -30,7 +30,7 @@
 
 #include <LXQt/Notification>
 
-DeviceActionInfo::DeviceActionInfo(LxQtMountPlugin *plugin, QObject *parent):
+DeviceActionInfo::DeviceActionInfo(LXQtMountPlugin *plugin, QObject *parent):
     DeviceAction(plugin, parent)
 {
 }
@@ -47,5 +47,5 @@ void DeviceActionInfo::doDeviceRemoved(Solid::Device device)
 
 void DeviceActionInfo::showMessage(const QString &text)
 {
-    LxQt::Notification::notify(tr("Removable media/devices manager"), text, mPlugin->icon().name());
+    LXQt::Notification::notify(tr("Removable media/devices manager"), text, mPlugin->icon().name());
 }

@@ -34,7 +34,7 @@
 class XdgDesktopFile;
 
 
-/*! \brief Special action representation for LxQtQuickLaunch plugin.
+/*! \brief Special action representation for LXQtQuickLaunch plugin.
 It supports XDG desktop files or "legacy" launching of specified apps.
 All process management is handled internally.
 \author Petr Vanek <petr@scribus.info>

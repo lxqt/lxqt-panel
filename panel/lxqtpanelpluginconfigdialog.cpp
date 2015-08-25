@@ -36,7 +36,7 @@
 /************************************************
 
  ************************************************/
-LxQtPanelPluginConfigDialog::LxQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent) :
+LXQtPanelPluginConfigDialog::LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent) :
     QDialog(parent),
     mSettings(settings),
     mOldSettings(settings)
@@ -47,7 +47,7 @@ LxQtPanelPluginConfigDialog::LxQtPanelPluginConfigDialog(QSettings &settings, QW
 /************************************************
 
  ************************************************/
-LxQtPanelPluginConfigDialog::~LxQtPanelPluginConfigDialog()
+LXQtPanelPluginConfigDialog::~LXQtPanelPluginConfigDialog()
 {
 }
 
@@ -55,7 +55,7 @@ LxQtPanelPluginConfigDialog::~LxQtPanelPluginConfigDialog()
 /************************************************
 
  ************************************************/
-QSettings& LxQtPanelPluginConfigDialog::settings() const
+QSettings& LXQtPanelPluginConfigDialog::settings() const
 {
     return mSettings;
 }
@@ -65,7 +65,7 @@ QSettings& LxQtPanelPluginConfigDialog::settings() const
 /************************************************
 
  ************************************************/
-void LxQtPanelPluginConfigDialog::dialogButtonsAction(QAbstractButton *btn)
+void LXQtPanelPluginConfigDialog::dialogButtonsAction(QAbstractButton *btn)
 {
     QDialogButtonBox *box = qobject_cast<QDialogButtonBox*>(btn->parent());
 
@@ -84,7 +84,7 @@ void LxQtPanelPluginConfigDialog::dialogButtonsAction(QAbstractButton *btn)
 /************************************************
 
  ************************************************/
-void LxQtPanelPluginConfigDialog::setComboboxIndexByData(QComboBox *comboBox, const QVariant &data, int defaultIndex) const
+void LXQtPanelPluginConfigDialog::setComboboxIndexByData(QComboBox *comboBox, const QVariant &data, int defaultIndex) const
 {
     int index = comboBox ->findData(data);
     if (index < 0)

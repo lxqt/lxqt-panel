@@ -38,21 +38,21 @@
 #include <LXQt/Settings>
 
 namespace Ui {
-    class LxQtClockConfiguration;
+    class LXQtClockConfiguration;
 }
 
-class LxQtClockConfiguration : public QDialog
+class LXQtClockConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtClockConfiguration(QSettings &settings, QWidget *parent = 0);
-    ~LxQtClockConfiguration();
+    explicit LXQtClockConfiguration(QSettings &settings, QWidget *parent = 0);
+    ~LXQtClockConfiguration();
 
 private:
-    Ui::LxQtClockConfiguration *ui;
+    Ui::LXQtClockConfiguration *ui;
     QSettings &mSettings;
-    LxQt::SettingsCache oldSettings;
+    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

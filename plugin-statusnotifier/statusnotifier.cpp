@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -28,9 +28,9 @@
 
 #include "statusnotifier.h"
 
-StatusNotifier::StatusNotifier(const ILxQtPanelPluginStartupInfo &startupInfo) :
+StatusNotifier::StatusNotifier(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
     m_widget = new StatusNotifierWidget(this);
 }

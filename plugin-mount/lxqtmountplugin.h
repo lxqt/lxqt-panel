@@ -40,17 +40,17 @@
 \author Petr Vanek <petr@scribus.info>
 */
 
-class LxQtMountPlugin : public QObject, public ILxQtPanelPlugin
+class LXQtMountPlugin : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 
 public:
-    LxQtMountPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtMountPlugin();
+    LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtMountPlugin();
 
     virtual QWidget *widget() { return mButton; }
-    virtual QString themeId() const { return QStringLiteral("LxQtMount"); }
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    virtual QString themeId() const { return QStringLiteral("LXQtMount"); }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
 
     Popup *popup() { return mPopup; }
     QIcon icon() { return mButton->icon(); };
@@ -68,16 +68,16 @@ private:
     DeviceAction *mDeviceAction;
 };
 
-class LxQtMountPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtMountPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtMountPlugin(startupInfo);
+        return new LXQtMountPlugin(startupInfo);
     }
 };
 

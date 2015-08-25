@@ -34,7 +34,7 @@
 
 #include <QDebug>
 
-PanelPluginsModel::PanelPluginsModel(LxQtPanel * panel,
+PanelPluginsModel::PanelPluginsModel(LXQtPanel * panel,
                                      QString const & namesKey,
                                      QStringList const & desktopDirs,
                                      QObject * parent/* = nullptr*/)
@@ -127,9 +127,9 @@ Plugin const * PanelPluginsModel::pluginByID(QString id) const
     return nullptr;
 }
 
-void PanelPluginsModel::addPlugin(const LxQt::PluginInfo &desktopFile)
+void PanelPluginsModel::addPlugin(const LXQt::PluginInfo &desktopFile)
 {
-    if (dynamic_cast<LxQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(desktopFile.id()))
+    if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(desktopFile.id()))
         return;
 
     QString name = findNewPluginSettingsGroup(desktopFile.id());
@@ -211,7 +211,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
             continue;
         }
 
-        LxQt::PluginInfoList list = LxQt::PluginInfo::search(desktopDirs, "LxQtPanel/Plugin", QString("%1.desktop").arg(type));
+        LXQt::PluginInfoList list = LXQt::PluginInfo::search(desktopDirs, "LXQtPanel/Plugin", QString("%1.desktop").arg(type));
         if( !list.count())
         {
             qWarning() << QString("Plugin \"%1\" not found.").arg(type);
@@ -226,12 +226,12 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
     }
 }
 
-QPointer<Plugin> PanelPluginsModel::loadPlugin(LxQt::PluginInfo const & desktopFile, QString const & settingsGroup)
+QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup)
 {
     std::unique_ptr<Plugin> plugin(new Plugin(desktopFile, mPanel->settings()->fileName(), settingsGroup, mPanel));
     if (plugin->isLoaded())
     {
-        connect(mPanel, &LxQtPanel::realigned, plugin.get(), &Plugin::realign);
+        connect(mPanel, &LXQtPanel::realigned, plugin.get(), &Plugin::realign);
         connect(plugin.get(), &Plugin::remove,
                 this, static_cast<void (PanelPluginsModel::*)()>(&PanelPluginsModel::removePlugin));
         return plugin.release();
@@ -314,7 +314,7 @@ void PanelPluginsModel::onConfigurePlugin()
         return;
 
     Plugin * const plugin = mPlugins[mActive.row()].second.data();
-    if (nullptr != plugin && (ILxQtPanelPlugin::HaveConfigDialog & plugin->iPlugin()->flags()))
+    if (nullptr != plugin && (ILXQtPanelPlugin::HaveConfigDialog & plugin->iPlugin()->flags()))
         plugin->showConfigureDialog();
 }
 

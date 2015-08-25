@@ -59,9 +59,9 @@
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 
-LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     mMenu(0),
     mShortcut(0),
     mLockCascadeChanges(false)
@@ -73,14 +73,14 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
 
     mDelayedPopup.setSingleShot(true);
     mDelayedPopup.setInterval(250);
-    connect(&mDelayedPopup, &QTimer::timeout, this, &LxQtMainMenu::showHideMenu);
+    connect(&mDelayedPopup, &QTimer::timeout, this, &LXQtMainMenu::showHideMenu);
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(250);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     mButton.installEventFilter(this);
 
-    connect(&mButton, &QToolButton::clicked, this, &LxQtMainMenu::showHideMenu);
+    connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
     settingsChanged();
 
@@ -92,7 +92,7 @@ LxQtMainMenu::LxQtMainMenu(const ILxQtPanelPluginStartupInfo &startupInfo):
 /************************************************
 
  ************************************************/
-LxQtMainMenu::~LxQtMainMenu()
+LXQtMainMenu::~LXQtMainMenu()
 {
     mButton.removeEventFilter(this);
 #ifdef HAVE_MENU_CACHE
@@ -108,7 +108,7 @@ LxQtMainMenu::~LxQtMainMenu()
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::showHideMenu()
+void LXQtMainMenu::showHideMenu()
 {
 
     if (mMenu && (mMenu->isVisible() || mHideTimer.isActive()))
@@ -120,7 +120,7 @@ void LxQtMainMenu::showHideMenu()
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString &newShortcut)
+void LXQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString &newShortcut)
 {
     if (!newShortcut.isEmpty())
     {
@@ -138,7 +138,7 @@ void LxQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::showMenu()
+void LXQtMainMenu::showMenu()
 {
     if (!mMenu)
         return;
@@ -150,16 +150,16 @@ void LxQtMainMenu::showMenu()
 
 #ifdef HAVE_MENU_CACHE
 // static
-void LxQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
+void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
 {
-    reinterpret_cast<LxQtMainMenu*>(user_data)->buildMenu();
+    reinterpret_cast<LXQtMainMenu*>(user_data)->buildMenu();
 }
 #endif
 
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::settingsChanged()
+void LXQtMainMenu::settingsChanged()
 {
     if (mLockCascadeChanges)
         return;
@@ -196,7 +196,7 @@ void LxQtMainMenu::settingsChanged()
             buildMenu();
         mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
 #else
-        mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LxQt");
+        mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LXQt");
         mXdgMenu.setLogDir(mLogDir);
 
         bool res = mXdgMenu.read(mMenuFile);
@@ -234,7 +234,7 @@ void LxQtMainMenu::settingsChanged()
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::buildMenu()
+void LXQtMainMenu::buildMenu()
 {
 #ifdef HAVE_MENU_CACHE
     XdgCachedMenu* menu = new XdgCachedMenu(mMenuCache, &mButton);
@@ -256,7 +256,7 @@ void LxQtMainMenu::buildMenu()
     connect(menu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(menu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
     // panel notification (needed in case of auto-hide)
-    connect(menu, &QMenu::aboutToHide, dynamic_cast<LxQtPanel *>(panel()), &LxQtPanel::hidePanel);
+    connect(menu, &QMenu::aboutToHide, dynamic_cast<LXQtPanel *>(panel()), &LXQtPanel::hidePanel);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
@@ -269,7 +269,7 @@ void LxQtMainMenu::buildMenu()
 /************************************************
 
  ************************************************/
-void LxQtMainMenu::setMenuFontSize()
+void LXQtMainMenu::setMenuFontSize()
 {
     if (!mMenu)
         return;
@@ -299,9 +299,9 @@ void LxQtMainMenu::setMenuFontSize()
 /************************************************
 
  ************************************************/
-QDialog *LxQtMainMenu::configureDialog()
+QDialog *LXQtMainMenu::configureDialog()
 {
-    return new LxQtMainMenuConfiguration(*settings(), DEFAULT_SHORTCUT);
+    return new LXQtMainMenuConfiguration(*settings(), DEFAULT_SHORTCUT);
 }
 /************************************************
 
@@ -315,7 +315,7 @@ struct MatchAction
     QString key_;
 };
 
-bool LxQtMainMenu::eventFilter(QObject *obj, QEvent *event)
+bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
 {
     if(obj == &mButton)
     {

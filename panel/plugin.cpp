@@ -65,7 +65,7 @@ QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 /************************************************
 
  ************************************************/
-Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LxQtPanel *panel) :
+Plugin::Plugin(const LXQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LXQtPanel *panel) :
     QFrame(panel),
     mDesktopFile(desktopFile),
     mPluginLoader(0),
@@ -76,7 +76,7 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     mPanel(panel)
 {
 
-    mSettings = new LxQt::Settings(settingsFile, QSettings::IniFormat, this);
+    mSettings = new LXQt::Settings(settingsFile, QSettings::IniFormat, this);
     connect(mSettings, SIGNAL(settingsChanged()), this, SLOT(settingsChanged()));
     mSettings->beginGroup(settingsGroup);
 
@@ -90,7 +90,7 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     dirs << PLUGIN_DIR;
 
     bool found = false;
-    if(ILxQtPanelPluginLibrary const * pluginLib = findStaticPlugin(desktopFile.id()))
+    if(ILXQtPanelPluginLibrary const * pluginLib = findStaticPlugin(desktopFile.id()))
     {
         // this is a static plugin
         found = true;
@@ -120,19 +120,19 @@ Plugin::Plugin(const LxQt::PluginInfo &desktopFile, const QString &settingsFile,
     }
 
     // Load plugin translations
-    LxQt::Translator::translatePlugin(desktopFile.id(), QLatin1String("lxqt-panel"));
+    LXQt::Translator::translatePlugin(desktopFile.id(), QLatin1String("lxqt-panel"));
 
     setObjectName(mPlugin->themeId() + "Plugin");
 
     // plugin handle for easy context menu
-    setProperty("NeedsHandle", mPlugin->flags().testFlag(ILxQtPanelPlugin::NeedsHandle));
+    setProperty("NeedsHandle", mPlugin->flags().testFlag(ILXQtPanelPlugin::NeedsHandle));
 
     QString s = mSettings->value("alignment").toString();
 
     // Retrun default value
     if (s.isEmpty())
     {
-        mAlignment = (mPlugin->flags().testFlag(ILxQtPanelPlugin::PreferRightAlignment)) ?
+        mAlignment = (mPlugin->flags().testFlag(ILXQtPanelPlugin::PreferRightAlignment)) ?
                     Plugin::AlignRight :
                     Plugin::AlignLeft;
     }
@@ -184,22 +184,22 @@ void Plugin::setAlignment(Plugin::Alignment alignment)
 namespace
 {
     //helper types for static plugins storage & binary search
-    typedef std::unique_ptr<ILxQtPanelPluginLibrary> plugin_ptr_t;
+    typedef std::unique_ptr<ILXQtPanelPluginLibrary> plugin_ptr_t;
     typedef std::pair<QString, plugin_ptr_t > plugin_pair_t;
 
     //NOTE: Please keep the plugins sorted by name while adding new plugins.
     static plugin_pair_t const static_plugins[] = {
 #if defined(WITH_CLOCK_PLUGIN)
-        { QStringLiteral("clock"), plugin_ptr_t{new LxQtClockPluginLibrary} },// clock
+        { QStringLiteral("clock"), plugin_ptr_t{new LXQtClockPluginLibrary} },// clock
 #endif
 #if defined(WITH_DESKTOPSWITCH_PLUGIN)
         { QStringLiteral("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary} },// desktopswitch
 #endif
 #if defined(WITH_MAINMENU_PLUGIN)
-        { QStringLiteral("mainmenu"), plugin_ptr_t{new LxQtMainMenuPluginLibrary} },// mainmenu
+        { QStringLiteral("mainmenu"), plugin_ptr_t{new LXQtMainMenuPluginLibrary} },// mainmenu
 #endif
 #if defined(WITH_QUICKLAUNCH_PLUGIN)
-        { QStringLiteral("quicklaunch"), plugin_ptr_t{new LxQtQuickLaunchPluginLibrary} },// quicklaunch
+        { QStringLiteral("quicklaunch"), plugin_ptr_t{new LXQtQuickLaunchPluginLibrary} },// quicklaunch
 #endif
 #if defined(WITH_SHOWDESKTOP_PLUGIN)
         { QStringLiteral("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary} },// showdesktop
@@ -211,13 +211,13 @@ namespace
         { QStringLiteral("statusnotifier"), plugin_ptr_t{new StatusNotifierLibrary} },// statusnotifier
 #endif
 #if defined(WITH_TASKBAR_PLUGIN)
-        { QStringLiteral("taskbar"), plugin_ptr_t{new LxQtTaskBarPluginLibrary} },// taskbar
+        { QStringLiteral("taskbar"), plugin_ptr_t{new LXQtTaskBarPluginLibrary} },// taskbar
 #endif
 #if defined(WITH_TRAY_PLUGIN)
-        { QStringLiteral("tray"), plugin_ptr_t{new LxQtTrayPluginLibrary} },// tray
+        { QStringLiteral("tray"), plugin_ptr_t{new LXQtTrayPluginLibrary} },// tray
 #endif
 #if defined(WITH_WORLDCLOCK_PLUGIN)
-        { QStringLiteral("worldclock"), plugin_ptr_t{new LxQtWorldClockLibrary} },// worldclock
+        { QStringLiteral("worldclock"), plugin_ptr_t{new LXQtWorldClockLibrary} },// worldclock
 #endif
     };
     static constexpr plugin_pair_t const * const plugins_begin = static_plugins;
@@ -234,7 +234,7 @@ namespace
     static assert_helper h;
 }
 
-ILxQtPanelPluginLibrary const * Plugin::findStaticPlugin(const QString &libraryName)
+ILXQtPanelPluginLibrary const * Plugin::findStaticPlugin(const QString &libraryName)
 {
     // find a static plugin library by name -> binary search
     plugin_pair_t const * plugin = std::lower_bound(plugins_begin, plugins_end, libraryName
@@ -245,9 +245,9 @@ ILxQtPanelPluginLibrary const * Plugin::findStaticPlugin(const QString &libraryN
 }
 
 // load a plugin from a library
-bool Plugin::loadLib(ILxQtPanelPluginLibrary const * pluginLib)
+bool Plugin::loadLib(ILXQtPanelPluginLibrary const * pluginLib)
 {
-    ILxQtPanelPluginStartupInfo startupInfo;
+    ILXQtPanelPluginStartupInfo startupInfo;
     startupInfo.settings = mSettings;
     startupInfo.desktopFile = &mDesktopFile;
     startupInfo.lxqtPanel = mPanel;
@@ -255,7 +255,7 @@ bool Plugin::loadLib(ILxQtPanelPluginLibrary const * pluginLib)
     mPlugin = pluginLib->instance(startupInfo);
     if (!mPlugin)
     {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILxQtPanelPlugin.").arg(mPluginLoader->fileName());
+        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILXQtPanelPlugin.").arg(mPluginLoader->fileName());
         return false;
     }
 
@@ -286,10 +286,10 @@ bool Plugin::loadModule(const QString &libraryName)
         return false;
     }
 
-    ILxQtPanelPluginLibrary* pluginLib= qobject_cast<ILxQtPanelPluginLibrary*>(obj);
+    ILXQtPanelPluginLibrary* pluginLib= qobject_cast<ILXQtPanelPluginLibrary*>(obj);
     if (!pluginLib)
     {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin is not a ILxQtPanelPluginLibrary.").arg(mPluginLoader->fileName());
+        qWarning() << QString("Can't load plugin \"%1\". Plugin is not a ILXQtPanelPluginLibrary.").arg(mPluginLoader->fileName());
         delete obj;
         return false;
     }
@@ -356,11 +356,11 @@ void Plugin::mousePressEvent(QMouseEvent *event)
     switch (event->button())
     {
     case Qt::LeftButton:
-        mPlugin->activated(ILxQtPanelPlugin::Trigger);
+        mPlugin->activated(ILXQtPanelPlugin::Trigger);
         break;
 
     case Qt::MidButton:
-        mPlugin->activated(ILxQtPanelPlugin::MiddleClick);
+        mPlugin->activated(ILXQtPanelPlugin::MiddleClick);
         break;
 
     default:
@@ -374,7 +374,7 @@ void Plugin::mousePressEvent(QMouseEvent *event)
  ************************************************/
 void Plugin::mouseDoubleClickEvent(QMouseEvent*)
 {
-    mPlugin->activated(ILxQtPanelPlugin::DoubleClick);
+    mPlugin->activated(ILXQtPanelPlugin::DoubleClick);
 }
 
 
@@ -396,7 +396,7 @@ QMenu *Plugin::popupMenu() const
     QString name = this->name().replace("&", "&&");
     QMenu* menu = new QMenu(windowTitle());
 
-    if (mPlugin->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog))
+    if (mPlugin->flags().testFlag(ILXQtPanelPlugin::HaveConfigDialog))
     {
         QAction* configAction = new QAction(
             XdgIcon::fromTheme(QStringLiteral("preferences-other")),

@@ -33,9 +33,9 @@
 
 #include <QFileDialog>
 
-LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent) :
+LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtMainMenuConfiguration),
+    ui(new Ui::LXQtMainMenuConfiguration),
     mSettings(settings),
     mOldSettings(settings),
     mDefaultShortcut(defaultShortcut)
@@ -65,12 +65,12 @@ LxQtMainMenuConfiguration::LxQtMainMenuConfiguration(QSettings &settings, const 
     connect(ui->customFontSizeSB, SIGNAL(valueChanged(int)), this, SLOT(customFontSizeChanged(int)));
 }
 
-LxQtMainMenuConfiguration::~LxQtMainMenuConfiguration()
+LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
 {
     delete ui;
 }
 
-void LxQtMainMenuConfiguration::loadSettings()
+void LXQtMainMenuConfiguration::loadSettings()
 {
     ui->showTextCB->setChecked(mSettings.value("showText", false).toBool());
     ui->textLE->setText(mSettings.value("text", "").toString());
@@ -84,7 +84,7 @@ void LxQtMainMenuConfiguration::loadSettings()
     ui->shortcutEd->setText(mSettings.value("shortcut", "Alt+F1").toString());
 
     ui->customFontCB->setChecked(mSettings.value("customFont", false).toBool());
-    LxQt::Settings lxqtSettings("lxqt"); //load system font size as init value
+    LXQt::Settings lxqtSettings("lxqt"); //load system font size as init value
     QFont systemFont;
     lxqtSettings.beginGroup(QLatin1String("Qt"));
     systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
@@ -92,17 +92,17 @@ void LxQtMainMenuConfiguration::loadSettings()
     ui->customFontSizeSB->setValue(mSettings.value("customFontSize", systemFont.pointSize()).toInt());
 }
 
-void LxQtMainMenuConfiguration::textButtonChanged(const QString &value)
+void LXQtMainMenuConfiguration::textButtonChanged(const QString &value)
 {
     mSettings.setValue("text", value);
 }
 
-void LxQtMainMenuConfiguration::showTextChanged(bool value)
+void LXQtMainMenuConfiguration::showTextChanged(bool value)
 {
     mSettings.setValue("showText", value);
 }
 
-void LxQtMainMenuConfiguration::chooseMenuFile()
+void LXQtMainMenuConfiguration::chooseMenuFile()
 {
     QFileDialog *d = new QFileDialog(this,
                                      tr("Choose menu file"),
@@ -116,18 +116,18 @@ void LxQtMainMenuConfiguration::chooseMenuFile()
     d->show();
 }
 
-void LxQtMainMenuConfiguration::shortcutChanged(const QString &value)
+void LXQtMainMenuConfiguration::shortcutChanged(const QString &value)
 {
     ui->shortcutEd->setText(value);
     mSettings.setValue("shortcut", value);
 }
 
-void LxQtMainMenuConfiguration::shortcutReset()
+void LXQtMainMenuConfiguration::shortcutReset()
 {
     shortcutChanged(mDefaultShortcut);
 }
 
-void LxQtMainMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
+void LXQtMainMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {
@@ -140,12 +140,12 @@ void LxQtMainMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
     }
 }
 
-void LxQtMainMenuConfiguration::customFontChanged(bool value)
+void LXQtMainMenuConfiguration::customFontChanged(bool value)
 {
     mSettings.setValue("customFont", value);
 }
 
-void LxQtMainMenuConfiguration::customFontSizeChanged(int value)
+void LXQtMainMenuConfiguration::customFontSizeChanged(int value)
 {
     mSettings.setValue("customFontSize", value);
 }

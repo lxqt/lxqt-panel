@@ -49,45 +49,45 @@
 #define DEFAULT_DOWN_SHORTCUT "XF86AudioLowerVolume"
 #define DEFAULT_MUTE_SHORTCUT "XF86AudioMute"
 
-LxQtVolume::LxQtVolume(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
-        ILxQtPanelPlugin(startupInfo),
+        ILXQtPanelPlugin(startupInfo),
         m_engine(0),
         m_defaultSinkIndex(0),
         m_defaultSink(0)
 {
     m_volumeButton = new VolumeButton(this);
 
-    m_notification = new LxQt::Notification("", this);
+    m_notification = new LXQt::Notification("", this);
 
     m_keyVolumeUp = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/up").arg(settings()->group()), tr("Increase sound volume"), this);
     if (m_keyVolumeUp)
     {
-        connect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        connect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
         connect(m_keyVolumeUp, SIGNAL(activated()), this, SLOT(handleShortcutVolumeUp()));
     }
     m_keyVolumeDown = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/down").arg(settings()->group()), tr("Decrease sound volume"), this);
     if (m_keyVolumeDown)
     {
-        connect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        connect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
         connect(m_keyVolumeDown, SIGNAL(activated()), this, SLOT(handleShortcutVolumeDown()));
     }
     m_keyMuteToggle = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/mute").arg(settings()->group()), tr("Mute/unmute sound volume"), this);
     if (m_keyMuteToggle)
     {
-        connect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        connect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
         connect(m_keyMuteToggle, SIGNAL(activated()), this, SLOT(handleShortcutVolumeMute()));
     }
 
     settingsChanged();
 }
 
-LxQtVolume::~LxQtVolume()
+LXQtVolume::~LXQtVolume()
 {
     delete m_volumeButton;
 }
 
-void LxQtVolume::shortcutRegistered()
+void LXQtVolume::shortcutRegistered()
 {
     GlobalKeyShortcut::Action * const shortcut = qobject_cast<GlobalKeyShortcut::Action*>(sender());
 
@@ -95,7 +95,7 @@ void LxQtVolume::shortcutRegistered()
 
     if (shortcut == m_keyVolumeUp)
     {
-        disconnect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        disconnect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
 
         if (m_keyVolumeUp->shortcut().isEmpty())
         {
@@ -107,7 +107,7 @@ void LxQtVolume::shortcutRegistered()
         }
     } else if (shortcut == m_keyVolumeDown)
     {
-        disconnect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        disconnect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
 
         if (m_keyVolumeDown->shortcut().isEmpty())
         {
@@ -119,7 +119,7 @@ void LxQtVolume::shortcutRegistered()
         }
     } else if (shortcut == m_keyMuteToggle)
     {
-        disconnect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LxQtVolume::shortcutRegistered);
+        disconnect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
 
         if (m_keyMuteToggle->shortcut().isEmpty())
         {
@@ -138,10 +138,10 @@ void LxQtVolume::shortcutRegistered()
     }
 
     m_notification->setTimeout(1000);
-    m_notification->setUrgencyHint(LxQt::Notification::UrgencyLow);
+    m_notification->setUrgencyHint(LXQt::Notification::UrgencyLow);
 }
 
-void LxQtVolume::setAudioEngine(AudioEngine *engine)
+void LXQtVolume::setAudioEngine(AudioEngine *engine)
 {
     if (m_engine) {
         if (m_engine->backendName() == engine->backendName())
@@ -161,7 +161,7 @@ void LxQtVolume::setAudioEngine(AudioEngine *engine)
 }
 
 
-void LxQtVolume::settingsChanged()
+void LXQtVolume::settingsChanged()
 {
     QString engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString();
     qDebug() << "settingsChanged" << engineName;
@@ -205,13 +205,13 @@ void LxQtVolume::settingsChanged()
     }
 }
 
-void LxQtVolume::updateConfigurationSinkList()
+void LXQtVolume::updateConfigurationSinkList()
 {
     if (m_engine && m_configDialog)
         m_configDialog->setSinkList(m_engine->sinks());
 }
 
-void LxQtVolume::handleShortcutVolumeUp()
+void LXQtVolume::handleShortcutVolumeUp()
 {
     if (m_defaultSink)
     {
@@ -221,7 +221,7 @@ void LxQtVolume::handleShortcutVolumeUp()
     }
 }
 
-void LxQtVolume::handleShortcutVolumeDown()
+void LXQtVolume::handleShortcutVolumeDown()
 {
     if (m_defaultSink)
     {
@@ -231,26 +231,26 @@ void LxQtVolume::handleShortcutVolumeDown()
     }
 }
 
-void LxQtVolume::handleShortcutVolumeMute()
+void LXQtVolume::handleShortcutVolumeMute()
 {
     if (m_defaultSink)
         m_defaultSink->toggleMute();
 }
 
-QWidget *LxQtVolume::widget()
+QWidget *LXQtVolume::widget()
 {
     return m_volumeButton;
 }
 
-void LxQtVolume::realign()
+void LXQtVolume::realign()
 {
 }
 
-QDialog *LxQtVolume::configureDialog()
+QDialog *LXQtVolume::configureDialog()
 {
 	if(!m_configDialog)
 	{
-		m_configDialog = new LxQtVolumeConfiguration(*settings());
+		m_configDialog = new LXQtVolumeConfiguration(*settings());
 		m_configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
 
 		if (m_engine)

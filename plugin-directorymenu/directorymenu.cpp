@@ -37,9 +37,9 @@
 
 #include <XdgIcon>
 
-DirectoryMenu::DirectoryMenu(const ILxQtPanelPluginStartupInfo &startupInfo) :
+DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     mMenu(0),
     mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
@@ -81,22 +81,22 @@ void DirectoryMenu::showMenu()
 
     switch (panel()->position())
     {
-        case ILxQtPanel::PositionTop:
+        case ILXQtPanel::PositionTop:
             x = mButton.mapToGlobal(QPoint(0, 0)).x();
             y = panel()->globalGometry().bottom();
             break;
 
-        case ILxQtPanel::PositionBottom:
+        case ILXQtPanel::PositionBottom:
             x = mButton.mapToGlobal(QPoint(0, 0)).x();
             y = panel()->globalGometry().top() - mMenu->sizeHint().height();
             break;
 
-        case ILxQtPanel::PositionLeft:
+        case ILXQtPanel::PositionLeft:
             x = panel()->globalGometry().right();
             y = mButton.mapToGlobal(QPoint(0, 0)).y();
             break;
 
-        case ILxQtPanel::PositionRight:
+        case ILXQtPanel::PositionRight:
             x = panel()->globalGometry().left() - mMenu->sizeHint().width();
             y = mButton.mapToGlobal(QPoint(0, 0)).y();
             break;

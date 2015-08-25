@@ -52,13 +52,13 @@ static bool hasRemovableParent(Solid::Device device)
     return false;
 }
 
-Popup::Popup(ILxQtPanelPlugin * plugin, QWidget* parent):
+Popup::Popup(ILXQtPanelPlugin * plugin, QWidget* parent):
     QDialog(parent,  Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     mPlugin(plugin),
     mPlaceholder(nullptr),
     mDisplayCount(0)
 {
-    setObjectName("LxQtMountPopup");
+    setObjectName("LXQtMountPopup");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setLayout(new QVBoxLayout(this));
     layout()->setMargin(0);

@@ -35,7 +35,7 @@
 #include "plugin.h"
 #include "lxqtpanelglobals.h"
 
-class LxQtPanelLayout;
+class LXQtPanelLayout;
 class QLayoutItem;
 
 
@@ -43,7 +43,7 @@ class LXQT_PANEL_API PluginMoveProcessor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PluginMoveProcessor(LxQtPanelLayout *layout, Plugin *plugin);
+    explicit PluginMoveProcessor(LXQtPanelLayout *layout, Plugin *plugin);
     ~PluginMoveProcessor();
 
     Plugin *plugin() const { return mPlugin; }
@@ -80,7 +80,7 @@ private:
         bool after;
     };
 
-    LxQtPanelLayout *mLayout;
+    LXQtPanelLayout *mLayout;
     Plugin *mPlugin;
     int mDestIndex;
 

@@ -32,9 +32,9 @@
 #include "ui_lxqttaskbarconfiguration.h"
 #include <KWindowSystem/KWindowSystem>
 
-LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget *parent):
+LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(QSettings &settings, QWidget *parent):
     QDialog(parent),
-    ui(new Ui::LxQtTaskbarConfiguration),
+    ui(new Ui::LXQtTaskbarConfiguration),
     mSettings(settings),
     oldSettings(settings)
 {
@@ -73,12 +73,12 @@ LxQtTaskbarConfiguration::LxQtTaskbarConfiguration(QSettings &settings, QWidget 
     connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
 }
 
-LxQtTaskbarConfiguration::~LxQtTaskbarConfiguration()
+LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
 {
     delete ui;
 }
 
-void LxQtTaskbarConfiguration::loadSettings()
+void LXQtTaskbarConfiguration::loadSettings()
 {
     const bool showOnlyOneDesktopTasks = mSettings.value("showOnlyOneDesktopTasks", false).toBool();
     ui->limitByDesktopCB->setChecked(showOnlyOneDesktopTasks);
@@ -97,7 +97,7 @@ void LxQtTaskbarConfiguration::loadSettings()
     ui->showGroupOnHoverCB->setChecked(mSettings.value("showGroupOnHover",true).toBool());
 }
 
-void LxQtTaskbarConfiguration::saveSettings()
+void LXQtTaskbarConfiguration::saveSettings()
 {
     mSettings.setValue("showOnlyOneDesktopTasks", ui->limitByDesktopCB->isChecked());
     mSettings.setValue("showDesktopNum", ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
@@ -113,7 +113,7 @@ void LxQtTaskbarConfiguration::saveSettings()
     mSettings.setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
 }
 
-void LxQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
+void LXQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {

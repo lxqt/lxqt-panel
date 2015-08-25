@@ -36,8 +36,8 @@
 #include <QWindow>
 #include <QCommandLineParser>
 
-LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv)
-    : LxQt::Application(argc, argv, true)
+LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
+    : LXQt::Application(argc, argv, true)
 {
     QCoreApplication::setApplicationName(QStringLiteral("lxqt-panel"));
     QCoreApplication::setApplicationVersion(LXQT_VERSION);
@@ -58,17 +58,17 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv)
     const QString configFile = parser.value(configFileOption);
 
     if (configFile.isEmpty())
-        mSettings = new LxQt::Settings(QStringLiteral("panel"), this);
+        mSettings = new LXQt::Settings(QStringLiteral("panel"), this);
     else
-        mSettings = new LxQt::Settings(configFile, QSettings::IniFormat, this);
+        mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 
     // This is a workaround for Qt 5 bug #40681.
     Q_FOREACH(QScreen* screen, screens())
     {
-        connect(screen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
+        connect(screen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
     }
-    connect(this, &QGuiApplication::screenAdded, this, &LxQtPanelApplication::handleScreenAdded);
-    connect(this, &QCoreApplication::aboutToQuit, this, &LxQtPanelApplication::cleanup);
+    connect(this, &QGuiApplication::screenAdded, this, &LXQtPanelApplication::handleScreenAdded);
+    connect(this, &QCoreApplication::aboutToQuit, this, &LXQtPanelApplication::cleanup);
 
 
     QStringList panels = mSettings->value("panels").toStringList();
@@ -84,19 +84,19 @@ LxQtPanelApplication::LxQtPanelApplication(int& argc, char** argv)
     }
 }
 
-LxQtPanelApplication::~LxQtPanelApplication()
+LXQtPanelApplication::~LXQtPanelApplication()
 {
 }
 
-void LxQtPanelApplication::cleanup()
+void LXQtPanelApplication::cleanup()
 {
     qDeleteAll(mPanels);
 }
 
-void LxQtPanelApplication::addNewPanel()
+void LXQtPanelApplication::addNewPanel()
 {
     QString name("panel_" + QUuid::createUuid().toString());
-    LxQtPanel *p = addPanel(name);
+    LXQtPanel *p = addPanel(name);
     QStringList panels = mSettings->value("panels").toStringList();
     panels << name;
     mSettings->setValue("panels", panels);
@@ -105,37 +105,37 @@ void LxQtPanelApplication::addNewPanel()
     p->showConfigDialog();
 }
 
-LxQtPanel* LxQtPanelApplication::addPanel(const QString& name)
+LXQtPanel* LXQtPanelApplication::addPanel(const QString& name)
 {
-    LxQtPanel *panel = new LxQtPanel(name);
+    LXQtPanel *panel = new LXQtPanel(name);
     mPanels << panel;
-    connect(panel, SIGNAL(deletedByUser(LxQtPanel*)),
-            this, SLOT(removePanel(LxQtPanel*)));
+    connect(panel, SIGNAL(deletedByUser(LXQtPanel*)),
+            this, SLOT(removePanel(LXQtPanel*)));
     //reemit signals
-    connect(panel, &LxQtPanel::pluginAdded, this, &LxQtPanelApplication::pluginAdded);
-    connect(panel, &LxQtPanel::pluginRemoved, this, &LxQtPanelApplication::pluginRemoved);
+    connect(panel, &LXQtPanel::pluginAdded, this, &LXQtPanelApplication::pluginAdded);
+    connect(panel, &LXQtPanel::pluginRemoved, this, &LXQtPanelApplication::pluginRemoved);
 
     return panel;
 }
 
-void LxQtPanelApplication::handleScreenAdded(QScreen* newScreen)
+void LXQtPanelApplication::handleScreenAdded(QScreen* newScreen)
 {
-    // qDebug() << "LxQtPanelApplication::handleScreenAdded" << newScreen;
-    connect(newScreen, &QScreen::destroyed, this, &LxQtPanelApplication::screenDestroyed);
+    // qDebug() << "LXQtPanelApplication::handleScreenAdded" << newScreen;
+    connect(newScreen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
 }
 
-void LxQtPanelApplication::reloadPanelsAsNeeded()
+void LXQtPanelApplication::reloadPanelsAsNeeded()
 {
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
     // Here we try to re-create the missing panels which are deleted in
-    // LxQtPanelApplication::screenDestroyed().
+    // LXQtPanelApplication::screenDestroyed().
 
-    // qDebug() << "LxQtPanelApplication::reloadPanelsAsNeeded()";
+    // qDebug() << "LXQtPanelApplication::reloadPanelsAsNeeded()";
     QStringList names = mSettings->value("panels").toStringList();
     Q_FOREACH(const QString& name, names)
     {
         bool found = false;
-        Q_FOREACH(LxQtPanel* panel, mPanels)
+        Q_FOREACH(LXQtPanel* panel, mPanels)
         {
             if(panel->name() == name)
             {
@@ -153,7 +153,7 @@ void LxQtPanelApplication::reloadPanelsAsNeeded()
     qApp->setQuitOnLastWindowClosed(true);
 }
 
-void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
+void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
 {
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
     // With this very dirty workaround, we can fix lxde/lxde-qt bug #204, #205, and #206.
@@ -182,7 +182,7 @@ void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
     QScreen* screen = static_cast<QScreen*>(screenObj);
     bool reloadNeeded = false;
     qApp->setQuitOnLastWindowClosed(false);
-    Q_FOREACH(LxQtPanel* panel, mPanels)
+    Q_FOREACH(LXQtPanel* panel, mPanels)
     {
         QWindow* panelWindow = panel->windowHandle();
         if(panelWindow && panelWindow->screen() == screen)
@@ -203,7 +203,7 @@ void LxQtPanelApplication::screenDestroyed(QObject* screenObj)
         qApp->setQuitOnLastWindowClosed(true);
 }
 
-void LxQtPanelApplication::removePanel(LxQtPanel* panel)
+void LXQtPanelApplication::removePanel(LXQtPanel* panel)
 {
     Q_ASSERT(mPanels.contains(panel));
 
@@ -216,7 +216,7 @@ void LxQtPanelApplication::removePanel(LxQtPanel* panel)
     panel->deleteLater();
 }
 
-bool LxQtPanelApplication::isPluginSingletonAndRunnig(QString const & pluginId) const
+bool LXQtPanelApplication::isPluginSingletonAndRunnig(QString const & pluginId) const
 {
     for (auto const & panel : mPanels)
         if (panel->isPluginSingletonAndRunnig(pluginId))

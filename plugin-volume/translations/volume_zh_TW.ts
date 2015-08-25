@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_TW">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">顯示桌面:全域快捷鍵&apos;%1&apos;無法被註冊</translation>
@@ -35,10 +35,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">LxQt音量調整設定</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">LXQt音量調整設定</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

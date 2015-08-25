@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LxQtVolumeConfiguration</class>
- <widget class="QDialog" name="LxQtVolumeConfiguration">
+ <class>LXQtVolumeConfiguration</class>
+ <widget class="QDialog" name="LXQtVolumeConfiguration">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -134,7 +134,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>accepted()</signal>
-   <receiver>LxQtVolumeConfiguration</receiver>
+   <receiver>LXQtVolumeConfiguration</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -150,7 +150,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
-   <receiver>LxQtVolumeConfiguration</receiver>
+   <receiver>LXQtVolumeConfiguration</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

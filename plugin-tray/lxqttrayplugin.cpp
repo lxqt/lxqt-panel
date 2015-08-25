@@ -29,24 +29,24 @@
 #include "lxqttrayplugin.h"
 #include "lxqttray.h"
 
-LxQtTrayPlugin::LxQtTrayPlugin(const ILxQtPanelPluginStartupInfo &startupInfo) :
+LXQtTrayPlugin::LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
-    mWidget(new LxQtTray(this))
+    ILXQtPanelPlugin(startupInfo),
+    mWidget(new LXQtTray(this))
 {
 }
 
-LxQtTrayPlugin::~LxQtTrayPlugin()
+LXQtTrayPlugin::~LXQtTrayPlugin()
 {
     delete mWidget;
 }
 
-QWidget *LxQtTrayPlugin::widget()
+QWidget *LXQtTrayPlugin::widget()
 {
     return mWidget;
 }
 
-void LxQtTrayPlugin::realign()
+void LXQtTrayPlugin::realign()
 {
     mWidget->realign();
 }

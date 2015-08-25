@@ -36,7 +36,7 @@
 #include <QPushButton>
 #include <QItemSelectionModel>
 
-ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
+ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
     QWidget(parent),
     ui(new Ui::ConfigPluginsWidget),
     mPanel(panel)
@@ -50,7 +50,7 @@ ConfigPluginsWidget::ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent) :
     }
     {
         QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
-        ui->listView_plugins->setItemDelegate(new LxQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
+        ui->listView_plugins->setItemDelegate(new LXQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
     }
 
     resetButtons();
@@ -109,7 +109,7 @@ void ConfigPluginsWidget::resetButtons()
         Plugin const * plugin
             = ui->listView_plugins->model()->data(selectionModel->currentIndex(), Qt::UserRole).value<Plugin const *>();
         if (nullptr != plugin)
-            hasConfigDialog = plugin->iPlugin()->flags().testFlag(ILxQtPanelPlugin::HaveConfigDialog);
+            hasConfigDialog = plugin->iPlugin()->flags().testFlag(ILXQtPanelPlugin::HaveConfigDialog);
     }
 
     ui->pushButton_removePlugin->setEnabled(hasSelection);

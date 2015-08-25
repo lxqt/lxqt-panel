@@ -48,11 +48,11 @@ public:
     ~AddPluginDialog();
 
 signals:
-    void pluginSelected(const LxQt::PluginInfo &plugin);
+    void pluginSelected(const LXQt::PluginInfo &plugin);
 
 private:
     Ui::AddPluginDialog *ui;
-    LxQt::PluginInfoList mPlugins;
+    LXQt::PluginInfoList mPlugins;
     QTimer mSearchTimer;
 
 private slots:

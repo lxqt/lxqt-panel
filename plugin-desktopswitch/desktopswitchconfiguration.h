@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *
  * This program or library is free software; you can redistribute it
@@ -52,7 +52,7 @@ public:
 private:
     Ui::DesktopSwitchConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
 
 private slots:
     /*

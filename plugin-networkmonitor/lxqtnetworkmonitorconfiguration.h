@@ -38,21 +38,21 @@ class QAbstractButton;
 
 namespace Ui
 {
-class LxQtNetworkMonitorConfiguration;
+class LXQtNetworkMonitorConfiguration;
 }
 
-class LxQtNetworkMonitorConfiguration : public QDialog
+class LXQtNetworkMonitorConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent = 0);
-    ~LxQtNetworkMonitorConfiguration();
+    explicit LXQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent = 0);
+    ~LXQtNetworkMonitorConfiguration();
 
 private:
-    Ui::LxQtNetworkMonitorConfiguration *ui;
+    Ui::LXQtNetworkMonitorConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
 
 private slots:
     /*

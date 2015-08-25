@@ -34,24 +34,24 @@
 #include <QLabel>
 
 
-class LxQtSysStatTitle;
-class LxQtSysStatContent;
-class LxQtPanel;
+class LXQtSysStatTitle;
+class LXQtSysStatContent;
+class LXQtPanel;
 
 namespace SysStat {
     class BaseStat;
 }
 
-class LxQtSysStat : public QObject, public ILxQtPanelPlugin
+class LXQtSysStat : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LxQtSysStat(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtSysStat();
+    LXQtSysStat(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtSysStat();
 
     virtual QWidget *widget() { return mWidget; }
     virtual QString themeId() const { return "SysStat"; }
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual bool isSeparate() const { return true; }
 
     QDialog *configureDialog();
@@ -64,17 +64,17 @@ protected slots:
 
 private:
     QWidget *mWidget;
-    LxQtSysStatTitle *mFakeTitle;
-    LxQtSysStatContent *mContent;
+    LXQtSysStatTitle *mFakeTitle;
+    LXQtSysStatContent *mContent;
     QSize mSize;
 };
 
-class LxQtSysStatTitle : public QLabel
+class LXQtSysStatTitle : public QLabel
 {
     Q_OBJECT
 public:
-    LxQtSysStatTitle(QWidget *parent = NULL);
-    ~LxQtSysStatTitle();
+    LXQtSysStatTitle(QWidget *parent = NULL);
+    ~LXQtSysStatTitle();
 
 protected:
     bool event(QEvent *e);
@@ -83,7 +83,7 @@ signals:
     void fontChanged(QFont);
 };
 
-class LxQtSysStatContent : public QWidget
+class LXQtSysStatContent : public QWidget
 {
     Q_OBJECT
 
@@ -102,8 +102,8 @@ class LxQtSysStatContent : public QWidget
     Q_PROPERTY(QColor netTransmittedColor READ netTransmittedColour WRITE setNetTransmittedColour)
 
 public:
-    LxQtSysStatContent(ILxQtPanelPlugin *plugin, QWidget *parent = NULL);
-    ~LxQtSysStatContent();
+    LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = NULL);
+    ~LXQtSysStatContent();
 
     void updateSettings(const QSettings *);
 
@@ -147,7 +147,7 @@ private:
     void toolTipInfo(QString const & tooltip);
 
 private:
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
 
     SysStat::BaseStat *mStat;
 
@@ -212,15 +212,15 @@ private:
 };
 
 
-class LxQtSysStatLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtSysStatLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtSysStat(startupInfo);
+        return new LXQtSysStat(startupInfo);
     }
 };
 

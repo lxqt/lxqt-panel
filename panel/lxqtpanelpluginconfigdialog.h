@@ -36,12 +36,12 @@
 
 class QComboBox;
 
-class LXQT_PANEL_API LxQtPanelPluginConfigDialog : public QDialog
+class LXQT_PANEL_API LXQtPanelPluginConfigDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit LxQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent = 0);
-    virtual ~LxQtPanelPluginConfigDialog();
+    explicit LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent = 0);
+    virtual ~LXQtPanelPluginConfigDialog();
 
     QSettings& settings() const;
 
@@ -57,7 +57,7 @@ protected:
 
 private:
     QSettings &mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
 
 };
 

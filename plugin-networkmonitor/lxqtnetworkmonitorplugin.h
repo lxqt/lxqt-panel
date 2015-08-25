@@ -32,16 +32,16 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
-class LxQtNetworkMonitor;
+class LXQtNetworkMonitor;
 
-class LxQtNetworkMonitorPlugin: public QObject, public ILxQtPanelPlugin
+class LXQtNetworkMonitorPlugin: public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    explicit LxQtNetworkMonitorPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtNetworkMonitorPlugin();
+    explicit LXQtNetworkMonitorPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtNetworkMonitorPlugin();
 
-    virtual ILxQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
     virtual QString themeId() const { return "NetworkMonitor"; }
 
@@ -52,19 +52,19 @@ protected:
     virtual void settingsChanged();
 
 private:
-    LxQtNetworkMonitor *mWidget;
+    LXQtNetworkMonitor *mWidget;
 };
 
 
-class LxQtNetworkMonitorPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtNetworkMonitorPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtNetworkMonitorPlugin(startupInfo);
+        return new LXQtNetworkMonitorPlugin(startupInfo);
     }
 };
 

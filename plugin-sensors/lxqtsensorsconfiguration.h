@@ -37,21 +37,21 @@
 
 
 namespace Ui {
-    class LxQtSensorsConfiguration;
+    class LXQtSensorsConfiguration;
 }
 
-class LxQtSensorsConfiguration : public QDialog
+class LXQtSensorsConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtSensorsConfiguration(QSettings *settings, QWidget *parent = 0);
-    ~LxQtSensorsConfiguration();
+    explicit LXQtSensorsConfiguration(QSettings *settings, QWidget *parent = 0);
+    ~LXQtSensorsConfiguration();
 
 private:
-    Ui::LxQtSensorsConfiguration *ui;
+    Ui::LXQtSensorsConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache oldSettings;
+    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

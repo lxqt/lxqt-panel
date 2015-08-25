@@ -33,7 +33,7 @@
 #include <QDialogButtonBox>
 
 Configuration::Configuration(QSettings &settings, QWidget *parent) :
-    LxQtPanelPluginConfigDialog(settings, parent),
+    LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::Configuration)
 {
     ui->setupUi(this);

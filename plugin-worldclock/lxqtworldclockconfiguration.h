@@ -38,28 +38,28 @@
 
 
 namespace Ui {
-    class LxQtWorldClockConfiguration;
+    class LXQtWorldClockConfiguration;
 }
 
-class LxQtWorldClockConfigurationTimeZones;
-class LxQtWorldClockConfigurationManualFormat;
+class LXQtWorldClockConfigurationTimeZones;
+class LXQtWorldClockConfigurationManualFormat;
 class QTableWidgetItem;
 
-class LxQtWorldClockConfiguration : public QDialog
+class LXQtWorldClockConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtWorldClockConfiguration(QSettings *settings, QWidget *parent = NULL);
-    ~LxQtWorldClockConfiguration();
+    explicit LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent = NULL);
+    ~LXQtWorldClockConfiguration();
 
 public slots:
     void saveSettings();
 
 private:
-    Ui::LxQtWorldClockConfiguration *ui;
+    Ui::LXQtWorldClockConfiguration *ui;
     QSettings *mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
 
     /*
       Read settings from conf file and put data into controls.
@@ -92,8 +92,8 @@ private:
 
     bool mLockCascadeSettingChanges;
 
-    LxQtWorldClockConfigurationTimeZones *mConfigurationTimeZones;
-    LxQtWorldClockConfigurationManualFormat *mConfigurationManualFormat;
+    LXQtWorldClockConfigurationTimeZones *mConfigurationTimeZones;
+    LXQtWorldClockConfigurationManualFormat *mConfigurationManualFormat;
 
     QString mManualFormat;
 

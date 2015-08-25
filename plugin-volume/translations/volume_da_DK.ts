@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="da_DK">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">Vis Skrivebord: Global genvej &apos;%1&apos; kan ikke registreres</translation>
@@ -35,10 +35,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">Indstillinger for LxQt Lydstyrkekontrol</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">Indstillinger for LXQt Lydstyrkekontrol</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

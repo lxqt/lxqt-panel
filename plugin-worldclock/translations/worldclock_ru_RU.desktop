@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-ServiceTypes=LxQtPanel/Plugin
+ServiceTypes=LXQtPanel/Plugin
 Name[ru_RU]=Мировое время
 Comment[ru_RU]=Плагин мирового времени.
 

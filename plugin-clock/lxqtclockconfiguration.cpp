@@ -75,9 +75,9 @@ namespace
     };
 }
 
-LxQtClockConfiguration::LxQtClockConfiguration(QSettings &settings, QWidget *parent) :
+LXQtClockConfiguration::LXQtClockConfiguration(QSettings &settings, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtClockConfiguration),
+    ui(new Ui::LXQtClockConfiguration),
     mSettings(settings),
     oldSettings(settings),
     mOldIndex(1)
@@ -109,20 +109,20 @@ LxQtClockConfiguration::LxQtClockConfiguration(QSettings &settings, QWidget *par
     connect(ui->firstDayOfWeekCB, SIGNAL(activated(int)), SLOT(saveSettings()));
 }
 
-LxQtClockConfiguration::~LxQtClockConfiguration()
+LXQtClockConfiguration::~LXQtClockConfiguration()
 {
     delete ui;
 }
 
 static int currentYear = QDate::currentDate().year();
 
-void LxQtClockConfiguration::addDateFormat(const QString &format)
+void LXQtClockConfiguration::addDateFormat(const QString &format)
 {
     if (ui->dateFormatCOB->findData(QVariant(format)) == -1)
         ui->dateFormatCOB->addItem(QDate(currentYear, 1, 1).toString(format), QVariant(format));
 }
 
-void LxQtClockConfiguration::createDateFormats()
+void LXQtClockConfiguration::createDateFormats()
 {
     ui->dateFormatCOB->clear();
 
@@ -200,7 +200,7 @@ void LxQtClockConfiguration::createDateFormats()
         ui->dateFormatCOB->addItem(QString("Custom (%1) ...").arg(QDate(currentYear, 1, 1).toString(mCustomDateFormat)), QVariant(mCustomDateFormat));
 }
 
-void LxQtClockConfiguration::loadSettings()
+void LXQtClockConfiguration::loadSettings()
 {
     QString systemDateLocale = QLocale::system().dateFormat(QLocale::ShortFormat).toUpper();
     QString systemTimeLocale = QLocale::system().timeFormat(QLocale::ShortFormat).toUpper();
@@ -237,7 +237,7 @@ void LxQtClockConfiguration::loadSettings()
     ui->firstDayOfWeekCB->setCurrentIndex(dynamic_cast<FirstDayCombo&>(*(ui->firstDayOfWeekCB->model())).findIndex(mSettings.value("firstDayOfWeek", -1).toInt()));
 }
 
-void LxQtClockConfiguration::saveSettings()
+void LXQtClockConfiguration::saveSettings()
 {
     QString timeFormat(ui->ampmClockCB->isChecked() ? "h:mm AP" : "HH:mm");
 
@@ -263,7 +263,7 @@ void LxQtClockConfiguration::saveSettings()
     mSettings.setValue("firstDayOfWeek", dynamic_cast<QStandardItemModel&>(*ui->firstDayOfWeekCB->model()).item(ui->firstDayOfWeekCB->currentIndex(), 0)->data(Qt::UserRole));
 }
 
-void LxQtClockConfiguration::dialogButtonsAction(QAbstractButton *btn)
+void LXQtClockConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {
@@ -276,7 +276,7 @@ void LxQtClockConfiguration::dialogButtonsAction(QAbstractButton *btn)
     }
 }
 
-void LxQtClockConfiguration::dateFormatActivated(int index)
+void LXQtClockConfiguration::dateFormatActivated(int index)
 {
     if (index == ui->dateFormatCOB->count() - 1)
     {

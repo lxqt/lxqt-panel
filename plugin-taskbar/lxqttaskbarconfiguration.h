@@ -34,21 +34,21 @@
 #include <LXQt/Settings>
 
 namespace Ui {
-    class LxQtTaskbarConfiguration;
+    class LXQtTaskbarConfiguration;
 }
 
-class LxQtTaskbarConfiguration : public QDialog
+class LXQtTaskbarConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtTaskbarConfiguration(QSettings &settings, QWidget *parent = 0);
-    ~LxQtTaskbarConfiguration();
+    explicit LXQtTaskbarConfiguration(QSettings &settings, QWidget *parent = 0);
+    ~LXQtTaskbarConfiguration();
 
 private:
-    Ui::LxQtTaskbarConfiguration *ui;
+    Ui::LXQtTaskbarConfiguration *ui;
     QSettings &mSettings;
-    LxQt::SettingsCache oldSettings;
+    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.

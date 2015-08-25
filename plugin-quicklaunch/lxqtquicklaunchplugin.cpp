@@ -29,24 +29,24 @@
 #include "lxqtquicklaunch.h"
 
 
-LxQtQuickLaunchPlugin::LxQtQuickLaunchPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtQuickLaunchPlugin::LXQtQuickLaunchPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
-    mWidget(new LxQtQuickLaunch(this))
+    ILXQtPanelPlugin(startupInfo),
+    mWidget(new LXQtQuickLaunch(this))
 {
 }
 
-LxQtQuickLaunchPlugin::~LxQtQuickLaunchPlugin()
+LXQtQuickLaunchPlugin::~LXQtQuickLaunchPlugin()
 {
     delete mWidget;
 }
 
-QWidget *LxQtQuickLaunchPlugin::widget()
+QWidget *LXQtQuickLaunchPlugin::widget()
 {
     return mWidget;
 }
 
-void LxQtQuickLaunchPlugin::realign()
+void LXQtQuickLaunchPlugin::realign()
 {
     mWidget->realign();
 }

@@ -32,14 +32,14 @@
 #include <QObject>
 
 
-class LxQtQuickLaunch;
+class LXQtQuickLaunch;
 
-class LxQtQuickLaunchPlugin: public QObject, public ILxQtPanelPlugin
+class LXQtQuickLaunchPlugin: public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    explicit LxQtQuickLaunchPlugin(const ILxQtPanelPluginStartupInfo &startupInfo);
-    ~LxQtQuickLaunchPlugin();
+    explicit LXQtQuickLaunchPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtQuickLaunchPlugin();
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "QuickLaunch"; }
@@ -50,19 +50,19 @@ public:
     bool isSeparate() const { return true; }
 
 private:
-    LxQtQuickLaunch *mWidget;
+    LXQtQuickLaunch *mWidget;
 };
 
 
-class LxQtQuickLaunchPluginLibrary: public QObject, public ILxQtPanelPluginLibrary
+class LXQtQuickLaunchPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LxQtQuickLaunchPlugin(startupInfo);
+        return new LXQtQuickLaunchPlugin(startupInfo);
     }
 };
 #endif // LXQTQUICKLAUNCHPLUGIN_H

@@ -38,9 +38,9 @@ extern "C" {
 #define STATGRAB_NEWER_THAN_0_90 	1
 #endif
 
-LxQtNetworkMonitorConfiguration::LxQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent) :
+LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtNetworkMonitorConfiguration),
+    ui(new Ui::LXQtNetworkMonitorConfiguration),
     mSettings(settings),
     mOldSettings(settings)
 {
@@ -55,18 +55,18 @@ LxQtNetworkMonitorConfiguration::LxQtNetworkMonitorConfiguration(QSettings *sett
     loadSettings();
 }
 
-LxQtNetworkMonitorConfiguration::~LxQtNetworkMonitorConfiguration()
+LXQtNetworkMonitorConfiguration::~LXQtNetworkMonitorConfiguration()
 {
     delete ui;
 }
 
-void LxQtNetworkMonitorConfiguration::saveSettings()
+void LXQtNetworkMonitorConfiguration::saveSettings()
 {
     mSettings->setValue("icon", ui->iconCB->currentIndex());
     mSettings->setValue("interface", ui->interfaceCB->currentText());
 }
 
-void LxQtNetworkMonitorConfiguration::loadSettings()
+void LXQtNetworkMonitorConfiguration::loadSettings()
 {
     ui->iconCB->setCurrentIndex(mSettings->value("icon", 1).toInt());
 
@@ -85,7 +85,7 @@ void LxQtNetworkMonitorConfiguration::loadSettings()
     ui->interfaceCB->setCurrentIndex(qMax(qMin(0, count - 1), ui->interfaceCB->findText(interface)));
 }
 
-void LxQtNetworkMonitorConfiguration::dialogButtonsAction(QAbstractButton *btn)
+void LXQtNetworkMonitorConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {

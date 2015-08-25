@@ -42,23 +42,23 @@
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
-class LxQtGroupPopup: public QFrame
+class LXQtGroupPopup: public QFrame
 {
     Q_OBJECT
 
 public:
-    LxQtGroupPopup(LxQtTaskGroup *group);
-    ~LxQtGroupPopup();
+    LXQtGroupPopup(LXQtTaskGroup *group);
+    ~LXQtGroupPopup();
 
     void hide(bool fast = false);
     void show();
 
     // Layout
-    int indexOf(LxQtTaskButton *button) { return layout()->indexOf(button); }
+    int indexOf(LXQtTaskButton *button) { return layout()->indexOf(button); }
     int count() { return layout()->count(); }
     QLayoutItem * itemAt(int i) { return layout()->itemAt(i); }
     int spacing() { return layout()->spacing(); }
-    void addButton(LxQtTaskButton* button) { layout()->addWidget(button); }
+    void addButton(LXQtTaskButton* button) { layout()->addWidget(button); }
     void removeWidget(QWidget *button) { layout()->removeWidget(button); }
 
 protected:
@@ -71,7 +71,7 @@ protected:
     void closeTimerSlot();
 
 private:
-    LxQtTaskGroup *mGroup;
+    LXQtTaskGroup *mGroup;
     QTimer mCloseTimer;
 };
 

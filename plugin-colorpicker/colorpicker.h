@@ -62,11 +62,11 @@ private:
 };
 
 
-class ColorPicker : public QObject, public ILxQtPanelPlugin
+class ColorPicker : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo);
+    ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~ColorPicker();
 
     virtual QWidget *widget() { return &mWidget; }
@@ -80,13 +80,13 @@ private:
     ColorPickerWidget mWidget;
 };
 
-class ColorPickerLibrary: public QObject, public ILxQtPanelPluginLibrary
+class ColorPickerLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new ColorPicker(startupInfo);
     }

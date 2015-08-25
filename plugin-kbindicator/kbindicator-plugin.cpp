@@ -2,16 +2,16 @@
 #include "src/kbdstate.h"
 #include "../panel/ilxqtpanelplugin.h"
 
-class LxQtKbIndicatorPlugin: public QObject, public ILxQtPanelPluginLibrary
+class LXQtKbIndicatorPlugin: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    virtual ~LxQtKbIndicatorPlugin()
+    virtual ~LXQtKbIndicatorPlugin()
     {}
 
-    virtual ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    virtual ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     { return new KbdState(startupInfo); }
 };
 

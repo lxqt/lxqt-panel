@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -32,11 +32,11 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include "statusnotifierwidget.h"
 
-class StatusNotifier : public QObject, public ILxQtPanelPlugin
+class StatusNotifier : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    StatusNotifier(const ILxQtPanelPluginStartupInfo &startupInfo);
+    StatusNotifier(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     bool isSeparate() const { return true; }
     void realign();
@@ -48,13 +48,13 @@ private:
     StatusNotifierWidget *m_widget;
 };
 
-class StatusNotifierLibrary : public QObject, public ILxQtPanelPluginLibrary
+class StatusNotifierLibrary : public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
 //     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILxQtPanelPluginLibrary)
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILxQtPanelPlugin *instance(const ILxQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
         return new StatusNotifier(startupInfo);
     }

@@ -32,7 +32,7 @@
 #include <QSettings>
 #include <Solid/Device>
 
-class LxQtMountPlugin;
+class LXQtMountPlugin;
 
 class DeviceAction: public QObject
 {
@@ -49,7 +49,7 @@ public:
     virtual ~DeviceAction();
     virtual ActionId Type() const throw () = 0;
 
-    static DeviceAction *create(ActionId id, LxQtMountPlugin *plugin, QObject *parent = 0);
+    static DeviceAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = 0);
     static ActionId stringToActionId(const QString &string, ActionId defaultValue);
     static QString actionIdToString(ActionId id);
 
@@ -58,11 +58,11 @@ public slots:
     void onDeviceRemoved(QString const & udi);
 
 protected:
-    explicit DeviceAction(LxQtMountPlugin *plugin, QObject *parent = 0);
+    explicit DeviceAction(LXQtMountPlugin *plugin, QObject *parent = 0);
     virtual void doDeviceAdded(Solid::Device device) = 0;
     virtual void doDeviceRemoved(Solid::Device device) = 0;
 
-    LxQtMountPlugin *mPlugin;
+    LXQtMountPlugin *mPlugin;
 };
 
 #endif // DEVICEACTION_H

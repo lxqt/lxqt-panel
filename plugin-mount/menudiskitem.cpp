@@ -152,7 +152,7 @@ void MenuDiskItem::onMounted(Solid::ErrorType error, QVariant resultData, const 
         {
             QString errorMsg = tr("Mounting of <b><nobr>\"%1\"</nobr></b> failed: %2");
             errorMsg = errorMsg.arg(mDevice.description()).arg(resultData.toString());
-            LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
+            LXQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
         }
     }
 }
@@ -173,7 +173,7 @@ void MenuDiskItem::onUnmounted(Solid::ErrorType error, QVariant resultData, cons
         {
             QString errorMsg = tr("Unmounting of <strong><nobr>\"%1\"</nobr></strong> failed: %2");
             errorMsg = errorMsg.arg(mDevice.description()).arg(resultData.toString());
-            LxQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
+            LXQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, mDevice.icon());
         }
     }
 }

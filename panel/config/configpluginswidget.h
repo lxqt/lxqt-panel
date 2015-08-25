@@ -42,7 +42,7 @@ class ConfigPluginsWidget : public QWidget
     Q_OBJECT
 
 public:
-    ConfigPluginsWidget(LxQtPanel *panel, QWidget* parent = 0);
+    ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent = 0);
     ~ConfigPluginsWidget();
 
 signals:
@@ -58,7 +58,7 @@ private slots:
 private:
     Ui::ConfigPluginsWidget *ui;
     QScopedPointer<AddPluginDialog> mAddPluginDialog;
-    LxQtPanel *mPanel;
+    LXQtPanel *mPanel;
 };
 
 #endif

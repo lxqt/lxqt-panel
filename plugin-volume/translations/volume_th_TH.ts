@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="th_TH">
 <context>
-    <name>LxQtVolume</name>
+    <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="vanished">แสดงพื้นโต๊ะ: ไม่สามารถตั้ง &apos;%1&apos; เป็นปุ่มลัดส่วนกลางได้</translation>
@@ -35,10 +35,10 @@
     </message>
 </context>
 <context>
-    <name>LxQtVolumeConfiguration</name>
+    <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">ค่าตั้งควบคุมระดับเสียง LxQt</translation>
+        <source>LXQt Volume Control Settings</source>
+        <translation type="vanished">ค่าตั้งควบคุมระดับเสียง LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>

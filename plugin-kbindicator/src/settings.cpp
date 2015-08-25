@@ -13,7 +13,7 @@ Settings & Settings::instance()
 void Settings::init(QSettings *settings)
 {
     m_settings = settings;
-    m_oldSettings.reset(new LxQt::SettingsCache(settings));
+    m_oldSettings.reset(new LXQt::SettingsCache(settings));
 }
 
 bool Settings::showCapLock() const

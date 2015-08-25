@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="el">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation>Φορτίο επεξεργαστή %1%</translation>
@@ -14,9 +14,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
+        <source>LXQt Cpu Load settings</source>
         <translation type="vanished">Ρυθμίσεις φορτίου ΚΜΕ</translation>
     </message>
     <message>

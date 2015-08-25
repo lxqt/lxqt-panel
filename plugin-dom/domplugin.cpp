@@ -31,9 +31,9 @@
 #include <XdgIcon>
 
 
-DomPlugin::DomPlugin(const ILxQtPanelPluginStartupInfo &startupInfo):
+DomPlugin::DomPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mButton.setIcon(XdgIcon::fromTheme("preferences-plugin"));

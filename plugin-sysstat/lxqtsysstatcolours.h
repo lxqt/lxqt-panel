@@ -37,20 +37,20 @@
 
 
 namespace Ui {
-    class LxQtSysStatColours;
+    class LXQtSysStatColours;
 }
 
 class QSignalMapper;
 class QAbstractButton;
 class QPushButton;
 
-class LxQtSysStatColours : public QDialog
+class LXQtSysStatColours : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtSysStatColours(QWidget *parent = NULL);
-    ~LxQtSysStatColours();
+    explicit LXQtSysStatColours(QWidget *parent = NULL);
+    ~LXQtSysStatColours();
 
     typedef QMap<QString, QColor> Colours;
 
@@ -73,7 +73,7 @@ public slots:
     void apply();
 
 private:
-    Ui::LxQtSysStatColours *ui;
+    Ui::LXQtSysStatColours *ui;
 
     QSignalMapper *mSelectColourMapper;
     QMap<QString, QPushButton*> mShowColourMap;

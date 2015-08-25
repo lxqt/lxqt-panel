@@ -35,7 +35,7 @@
 #include <QPalette>
 
 
-LxQtSensors::LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent):
+LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
     mSettings(plugin->settings())
@@ -122,12 +122,12 @@ LxQtSensors::LxQtSensors(ILxQtPanelPlugin *plugin, QWidget* parent):
 }
 
 
-LxQtSensors::~LxQtSensors()
+LXQtSensors::~LXQtSensors()
 {
 }
 
 
-void LxQtSensors::updateSensorReadings()
+void LXQtSensors::updateSensorReadings()
 {
     QString tooltip;
 
@@ -232,7 +232,7 @@ void LxQtSensors::updateSensorReadings()
 }
 
 
-void LxQtSensors::warningAboutHighTemperature()
+void LXQtSensors::warningAboutHighTemperature()
 {
     // Iterator for temperature progress bars
     QSet<ProgressBar*>::iterator temperatureProgressBarsIt =
@@ -261,7 +261,7 @@ void LxQtSensors::warningAboutHighTemperature()
 }
 
 
-void LxQtSensors::settingsChanged()
+void LXQtSensors::settingsChanged()
 {
     mUpdateSensorReadingsTimer.setInterval(mSettings->value("updateInterval").toInt() * 1000);
 
@@ -331,9 +331,9 @@ void LxQtSensors::settingsChanged()
 }
 
 
-void LxQtSensors::realign()
+void LXQtSensors::realign()
 {
-    // Default values for LxQtPanel::PositionBottom or LxQtPanel::PositionTop
+    // Default values for LXQtPanel::PositionBottom or LXQtPanel::PositionTop
     Qt::Orientation cur_orient = Qt::Vertical;
     Qt::LayoutDirection cur_layout_dir = Qt::LeftToRight;
 
@@ -348,11 +348,11 @@ void LxQtSensors::realign()
 
     switch (mPlugin->panel()->position())
     {
-    case ILxQtPanel::PositionLeft:
+    case ILXQtPanel::PositionLeft:
         cur_orient = Qt::Horizontal;
         break;
 
-    case ILxQtPanel::PositionRight:
+    case ILXQtPanel::PositionRight:
         cur_orient = Qt::Horizontal;
         cur_layout_dir = Qt::RightToLeft;
         break;
@@ -380,14 +380,14 @@ void LxQtSensors::realign()
 }
 
 
-double LxQtSensors::celsiusToFahrenheit(double celsius)
+double LXQtSensors::celsiusToFahrenheit(double celsius)
 {
     // Fahrenheit = 32 * (9/5) * Celsius
     return 32 + 1.8 * celsius;
 }
 
 
-void LxQtSensors::initDefaultSettings()
+void LXQtSensors::initDefaultSettings()
 {
     if (!mSettings->contains("updateInterval"))
     {

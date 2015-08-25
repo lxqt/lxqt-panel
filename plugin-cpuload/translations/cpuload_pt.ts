@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt">
 <context>
-    <name>LxQtCpuLoad</name>
+    <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
         <translation type="vanished">Carga do cpu %1%</translation>
@@ -14,9 +14,9 @@
     </message>
 </context>
 <context>
-    <name>LxQtCpuLoadConfiguration</name>
+    <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LxQt Cpu Load settings</source>
+        <source>LXQt Cpu Load settings</source>
         <translation type="vanished">Definições da Carga do cpu</translation>
     </message>
     <message>

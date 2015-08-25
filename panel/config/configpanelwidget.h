@@ -33,7 +33,7 @@
 #include <QTimer>
 #include <LXQt/ConfigDialog>
 
-class LxQtPanel;
+class LXQtPanel;
 
 namespace Ui {
     class ConfigPanelWidget;
@@ -44,11 +44,11 @@ class ConfigPanelWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ConfigPanelWidget(LxQtPanel *panel, QWidget *parent = 0);
+    explicit ConfigPanelWidget(LXQtPanel *panel, QWidget *parent = 0);
     ~ConfigPanelWidget();
 
     int screenNum() const { return mScreenNum; }
-    ILxQtPanel::Position position() const { return mPosition; }
+    ILXQtPanel::Position position() const { return mPosition; }
 
 signals:
     void changed();
@@ -66,14 +66,14 @@ private slots:
 
 private:
     Ui::ConfigPanelWidget *ui;
-    LxQtPanel *mPanel;
+    LXQtPanel *mPanel;
     int mScreenNum;
-    ILxQtPanel::Position mPosition;
+    ILXQtPanel::Position mPosition;
 
-    void addPosition(const QString& name, int screen, LxQtPanel::Position position);
+    void addPosition(const QString& name, int screen, LXQtPanel::Position position);
     void fillComboBox_position();
     void fillComboBox_alignment();
-    int indexForPosition(int screen, ILxQtPanel::Position position);
+    int indexForPosition(int screen, ILXQtPanel::Position position);
     int getMaxLength();
 
     // new values
@@ -86,8 +86,8 @@ private:
     int mOldLineCount;
     int mOldLength;
     bool mOldLengthInPercents;
-    LxQtPanel::Alignment mOldAlignment;
-    ILxQtPanel::Position mOldPosition;
+    LXQtPanel::Alignment mOldAlignment;
+    ILXQtPanel::Position mOldPosition;
     bool mOldHidable;
     int mOldScreenNum;
     QColor mOldFontColor;

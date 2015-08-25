@@ -40,9 +40,9 @@
 #include <QWheelEvent>
 
 
-LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
+LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
-    ILxQtPanelPlugin(startupInfo),
+    ILXQtPanelPlugin(startupInfo),
     mPopup(NULL),
     mTimer(new QTimer(this)),
     mUpdateInterval(1),
@@ -52,7 +52,7 @@ LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
 {
     mMainWidget = new QWidget();
     mContent = new ActiveLabel();
-    mRotatedWidget = new LxQt::RotatedWidget(*mContent, mMainWidget);
+    mRotatedWidget = new LXQt::RotatedWidget(*mContent, mMainWidget);
 
     mRotatedWidget->setTransferWheelEvent(true);
 
@@ -72,12 +72,12 @@ LxQtWorldClock::LxQtWorldClock(const ILxQtPanelPluginStartupInfo &startupInfo):
     connect(mContent, SIGNAL(wheelScrolled(int)), SLOT(wheelScrolled(int)));
 }
 
-LxQtWorldClock::~LxQtWorldClock()
+LXQtWorldClock::~LXQtWorldClock()
 {
     delete mMainWidget;
 }
 
-void LxQtWorldClock::timeout()
+void LXQtWorldClock::timeout()
 {
     QDateTime now = QDateTime::currentDateTime();
     qint64 nowMsec = now.toMSecsSinceEpoch();
@@ -97,13 +97,13 @@ void LxQtWorldClock::timeout()
     updatePopupContent();
 }
 
-void LxQtWorldClock::restartTimer(int updateInterval)
+void LXQtWorldClock::restartTimer(int updateInterval)
 {
     mUpdateInterval = updateInterval;
     mTimer->start(qMin(100, updateInterval));
 }
 
-void LxQtWorldClock::settingsChanged()
+void LXQtWorldClock::settingsChanged()
 {
     QSettings *_settings = settings();
 
@@ -295,12 +295,12 @@ void LxQtWorldClock::settingsChanged()
     timeout();
 }
 
-QDialog *LxQtWorldClock::configureDialog()
+QDialog *LXQtWorldClock::configureDialog()
 {
-    return new LxQtWorldClockConfiguration(settings());
+    return new LXQtWorldClockConfiguration(settings());
 }
 
-void LxQtWorldClock::wheelScrolled(int delta)
+void LXQtWorldClock::wheelScrolled(int delta)
 {
     if (mTimeZones.count() > 1)
     {
@@ -309,12 +309,12 @@ void LxQtWorldClock::wheelScrolled(int delta)
     }
 }
 
-void LxQtWorldClock::activated(ActivationReason reason)
+void LXQtWorldClock::activated(ActivationReason reason)
 {
     switch (reason)
     {
-    case ILxQtPanelPlugin::Trigger:
-    case ILxQtPanelPlugin::MiddleClick:
+    case ILXQtPanelPlugin::Trigger:
+    case ILXQtPanelPlugin::MiddleClick:
         break;
 
     default:
@@ -323,10 +323,10 @@ void LxQtWorldClock::activated(ActivationReason reason)
 
     if (!mPopup)
     {
-        mPopup = new LxQtWorldClockPopup(mContent);
+        mPopup = new LXQtWorldClockPopup(mContent);
         connect(mPopup, SIGNAL(deactivated()), SLOT(deletePopup()));
 
-        if (reason == ILxQtPanelPlugin::Trigger)
+        if (reason == ILXQtPanelPlugin::Trigger)
         {
             mPopup->setObjectName(QLatin1String("WorldClockCalendar"));
 
@@ -364,21 +364,21 @@ void LxQtWorldClock::activated(ActivationReason reason)
     }
 }
 
-void LxQtWorldClock::deletePopup()
+void LXQtWorldClock::deletePopup()
 {
     mPopupContent = NULL;
     mPopup->deleteLater();
     mPopup = NULL;
 }
 
-QString LxQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
+QString LXQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
 {
     QTimeZone timeZone(timeZoneName.toLatin1());
     QDateTime tzNow = datetime.toTimeZone(timeZone);
     return tzNow.toString(preformat(mFormat, timeZone, tzNow));
 }
 
-void LxQtWorldClock::updatePopupContent()
+void LXQtWorldClock::updatePopupContent()
 {
     if (mPopupContent)
     {
@@ -403,13 +403,13 @@ void LxQtWorldClock::updatePopupContent()
     }
 }
 
-bool LxQtWorldClock::formatHasTimeZone(QString format)
+bool LXQtWorldClock::formatHasTimeZone(QString format)
 {
     format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
     return format.toLower().contains(QLatin1String("t"));
 }
 
-QString LxQtWorldClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
+QString LXQtWorldClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
 {
     QString result = format;
     int from = 0;
@@ -489,21 +489,21 @@ QString LxQtWorldClock::preformat(const QString &format, const QTimeZone &timeZo
     return result;
 }
 
-void LxQtWorldClock::realign()
+void LXQtWorldClock::realign()
 {
     if (mAutoRotate)
         switch (panel()->position())
         {
-        case ILxQtPanel::PositionTop:
-        case ILxQtPanel::PositionBottom:
+        case ILXQtPanel::PositionTop:
+        case ILXQtPanel::PositionBottom:
             mRotatedWidget->setOrigin(Qt::TopLeftCorner);
             break;
 
-        case ILxQtPanel::PositionLeft:
+        case ILXQtPanel::PositionLeft:
             mRotatedWidget->setOrigin(Qt::BottomLeftCorner);
             break;
 
-        case ILxQtPanel::PositionRight:
+        case ILXQtPanel::PositionRight:
             mRotatedWidget->setOrigin(Qt::TopRightCorner);
             break;
         }
@@ -541,20 +541,20 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
     QLabel::mouseReleaseEvent(event);
 }
 
-LxQtWorldClockPopup::LxQtWorldClockPopup(QWidget *parent) :
+LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setLayout(new QHBoxLayout(this));
     layout()->setMargin(1);
 }
 
-void LxQtWorldClockPopup::show()
+void LXQtWorldClockPopup::show()
 {
     QDialog::show();
     activateWindow();
 }
 
-bool LxQtWorldClockPopup::event(QEvent *event)
+bool LXQtWorldClockPopup::event(QEvent *event)
 {
     if (event->type() == QEvent::WindowDeactivate)
         emit deactivated();

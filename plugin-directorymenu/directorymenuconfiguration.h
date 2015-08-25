@@ -54,7 +54,7 @@ public:
 private:
     Ui::DirectoryMenuConfiguration *ui;
     QSettings &mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
     QDir mBaseDirectory;
     QString mIcon;
     QIcon mDefaultIcon;

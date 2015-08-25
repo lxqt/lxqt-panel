@@ -39,16 +39,16 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 
-using namespace LxQt;
+using namespace LXQt;
 
 struct ScreenPosition
 {
     int screen;
-    ILxQtPanel::Position position;
+    ILXQtPanel::Position position;
 };
 Q_DECLARE_METATYPE(ScreenPosition)
 
-ConfigPanelWidget::ConfigPanelWidget(LxQtPanel *panel, QWidget *parent) :
+ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ConfigPanelWidget),
     mPanel(panel)
@@ -153,10 +153,10 @@ void ConfigPanelWidget::fillComboBox_position()
     int screenCount = QApplication::desktop()->screenCount();
     if (screenCount == 1)
     {
-        addPosition(tr("Top of desktop"), 0, LxQtPanel::PositionTop);
-        addPosition(tr("Left of desktop"), 0, LxQtPanel::PositionLeft);
-        addPosition(tr("Right of desktop"), 0, LxQtPanel::PositionRight);
-        addPosition(tr("Bottom of desktop"), 0, LxQtPanel::PositionBottom);
+        addPosition(tr("Top of desktop"), 0, LXQtPanel::PositionTop);
+        addPosition(tr("Left of desktop"), 0, LXQtPanel::PositionLeft);
+        addPosition(tr("Right of desktop"), 0, LXQtPanel::PositionRight);
+        addPosition(tr("Bottom of desktop"), 0, LXQtPanel::PositionBottom);
     }
     else
     {
@@ -165,10 +165,10 @@ void ConfigPanelWidget::fillComboBox_position()
             if (screenNum)
                 ui->comboBox_position->insertSeparator(9999);
 
-            addPosition(tr("Top of desktop %1").arg(screenNum +1), screenNum, LxQtPanel::PositionTop);
-            addPosition(tr("Left of desktop %1").arg(screenNum +1), screenNum, LxQtPanel::PositionLeft);
-            addPosition(tr("Right of desktop %1").arg(screenNum +1), screenNum, LxQtPanel::PositionRight);
-            addPosition(tr("Bottom of desktop %1").arg(screenNum +1), screenNum, LxQtPanel::PositionBottom);
+            addPosition(tr("Top of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionTop);
+            addPosition(tr("Left of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionLeft);
+            addPosition(tr("Right of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionRight);
+            addPosition(tr("Bottom of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionBottom);
         }
     }
 }
@@ -179,13 +179,13 @@ void ConfigPanelWidget::fillComboBox_position()
  ************************************************/
 void ConfigPanelWidget::fillComboBox_alignment()
 {
-    ui->comboBox_alignment->setItemData(0, QVariant(LxQtPanel::AlignmentLeft));
-    ui->comboBox_alignment->setItemData(1, QVariant(LxQtPanel::AlignmentCenter));
-    ui->comboBox_alignment->setItemData(2,  QVariant(LxQtPanel::AlignmentRight));
+    ui->comboBox_alignment->setItemData(0, QVariant(LXQtPanel::AlignmentLeft));
+    ui->comboBox_alignment->setItemData(1, QVariant(LXQtPanel::AlignmentCenter));
+    ui->comboBox_alignment->setItemData(2,  QVariant(LXQtPanel::AlignmentRight));
 
 
-    if (mPosition   == ILxQtPanel::PositionTop ||
-        mPosition   == ILxQtPanel::PositionBottom)
+    if (mPosition   == ILXQtPanel::PositionTop ||
+        mPosition   == ILXQtPanel::PositionBottom)
     {
         ui->comboBox_alignment->setItemText(0, tr("Left"));
         ui->comboBox_alignment->setItemText(1, tr("Center"));
@@ -203,9 +203,9 @@ void ConfigPanelWidget::fillComboBox_alignment()
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::addPosition(const QString& name, int screen, LxQtPanel::Position position)
+void ConfigPanelWidget::addPosition(const QString& name, int screen, LXQtPanel::Position position)
 {
-    if (LxQtPanel::canPlacedOn(screen, position))
+    if (LXQtPanel::canPlacedOn(screen, position))
         ui->comboBox_position->addItem(name, QVariant::fromValue((ScreenPosition){screen, position}));
 }
 
@@ -213,7 +213,7 @@ void ConfigPanelWidget::addPosition(const QString& name, int screen, LxQtPanel::
 /************************************************
  *
  ************************************************/
-int ConfigPanelWidget::indexForPosition(int screen, ILxQtPanel::Position position)
+int ConfigPanelWidget::indexForPosition(int screen, ILXQtPanel::Position position)
 {
     for (int i = 0; i < ui->comboBox_position->count(); i++)
     {
@@ -247,7 +247,7 @@ void ConfigPanelWidget::editChanged()
                       ui->comboBox_lenghtType->currentIndex() == 0,
                       true);
 
-    LxQtPanel::Alignment align = LxQtPanel::Alignment(
+    LXQtPanel::Alignment align = LXQtPanel::Alignment(
         ui->comboBox_alignment->itemData(
             ui->comboBox_alignment->currentIndex()
         ).toInt());
@@ -304,8 +304,8 @@ int ConfigPanelWidget::getMaxLength()
 {
     QDesktopWidget* dw = QApplication::desktop();
 
-    if (mPosition == ILxQtPanel::PositionTop ||
-        mPosition == ILxQtPanel::PositionBottom)
+    if (mPosition == ILXQtPanel::PositionTop ||
+        mPosition == ILXQtPanel::PositionBottom)
         return dw->screenGeometry(mScreenNum).width();
     else
         return dw->screenGeometry(mScreenNum).height();
@@ -320,10 +320,10 @@ void ConfigPanelWidget::positionChanged()
     ScreenPosition sp = ui->comboBox_position->itemData(
         ui->comboBox_position->currentIndex()).value<ScreenPosition>();
 
-        bool updateAlig = (sp.position == ILxQtPanel::PositionTop ||
-        sp.position == ILxQtPanel::PositionBottom) !=
-        (mPosition   == ILxQtPanel::PositionTop ||
-        mPosition   == ILxQtPanel::PositionBottom);
+        bool updateAlig = (sp.position == ILXQtPanel::PositionTop ||
+        sp.position == ILXQtPanel::PositionBottom) !=
+        (mPosition   == ILXQtPanel::PositionTop ||
+        mPosition   == ILXQtPanel::PositionBottom);
 
         int oldMax = getMaxLength();
         mPosition = sp.position;

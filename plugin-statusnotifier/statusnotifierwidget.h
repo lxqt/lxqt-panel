@@ -4,7 +4,7 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://lxqt.org
  *
- * Copyright: 2015 LxQt team
+ * Copyright: 2015 LXQt team
  * Authors:
  *  Balázs Béla <balazsbela[at]gmail.com>
  *  Paulo Lieuthier <paulolieuthier@gmail.com>
@@ -41,7 +41,7 @@ class StatusNotifierWidget : public QWidget
     Q_OBJECT
 
 public:
-    StatusNotifierWidget(ILxQtPanelPlugin *plugin, QWidget *parent = 0);
+    StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = 0);
 
 signals:
 
@@ -52,7 +52,7 @@ public slots:
     void realign();
 
 private:
-    ILxQtPanelPlugin *mPlugin;
+    ILXQtPanelPlugin *mPlugin;
     StatusNotifierWatcher *mWatcher;
 
     QHash<QString, StatusNotifierButton*> mServices;

@@ -40,17 +40,17 @@ class QMenu;
 class Plugin;
 class QAbstractItemModel;
 
-namespace LxQt {
+namespace LXQt {
 class Settings;
 class PluginInfo;
 }
-class LxQtPanelLayout;
+class LXQtPanelLayout;
 class ConfigPanelDialog;
 class PanelPluginsModel;
 
-/*! \brief The LxQtPanel class provides a single lxqt-panel.
+/*! \brief The LXQtPanel class provides a single lxqt-panel.
  */
-class LXQT_PANEL_API LxQtPanel : public QFrame, public ILxQtPanel
+class LXQT_PANEL_API LXQtPanel : public QFrame, public ILXQtPanel
 {
     Q_OBJECT
 
@@ -67,8 +67,8 @@ public:
         AlignmentRight  =  1
     };
 
-    LxQtPanel(const QString &configGroup, QWidget *parent = 0);
-    virtual ~LxQtPanel();
+    LXQtPanel(const QString &configGroup, QWidget *parent = 0);
+    virtual ~LXQtPanel();
 
     QString name() { return mConfigGroup; }
 
@@ -76,19 +76,19 @@ public:
 
     void showPopupMenu(Plugin *plugin = 0);
 
-    // ILxQtPanel .........................
-    ILxQtPanel::Position position() const { return mPosition; }
+    // ILXQtPanel .........................
+    ILXQtPanel::Position position() const { return mPosition; }
     QRect globalGometry() const;
-    Plugin *findPlugin(const ILxQtPanelPlugin *iPlugin) const;
+    Plugin *findPlugin(const ILXQtPanelPlugin *iPlugin) const;
     QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const;
-    QRect calculatePopupWindowPos(const ILxQtPanelPlugin *plugin, const QSize &windowSize) const;
+    QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const;
 
     // For QSS properties ..................
     QString qssPosition() const;
 
-    static bool canPlacedOn(int screenNum, LxQtPanel::Position position);
-    static QString positionToStr(ILxQtPanel::Position position);
-    static ILxQtPanel::Position strToPosition(const QString &str, ILxQtPanel::Position defaultValue);
+    static bool canPlacedOn(int screenNum, LXQtPanel::Position position);
+    static QString positionToStr(ILXQtPanel::Position position);
+    static ILXQtPanel::Position strToPosition(const QString &str, ILXQtPanel::Position defaultValue);
 
     // Settings
     int panelSize() const { return mPanelSize; }
@@ -96,7 +96,7 @@ public:
     int lineCount() const { return mLineCount; }
     int length() const { return mLength; }
     bool lengthInPercents() const { return mLengthInPercents; }
-    LxQtPanel::Alignment alignment() const { return mAlignment; }
+    LXQtPanel::Alignment alignment() const { return mAlignment; }
     int screenNum() const { return mScreenNum; }
     QColor fontColor() const { return mFontColor; };
     QColor backgroundColor() const { return mBackgroundColor; };
@@ -104,7 +104,7 @@ public:
     int opacity() const { return mOpacity; };
     bool hidable() const { return mHidable; }
 
-    LxQt::Settings *settings() const { return mSettings; }
+    LXQt::Settings *settings() const { return mSettings; }
 
     bool isPluginSingletonAndRunnig(QString const & pluginId) const;
 
@@ -119,8 +119,8 @@ public slots:
     void setIconSize(int value, bool save);
     void setLineCount(int value, bool save);
     void setLength(int length, bool inPercents, bool save);
-    void setPosition(int screen, ILxQtPanel::Position position, bool save);
-    void setAlignment(LxQtPanel::Alignment value, bool save);
+    void setPosition(int screen, ILXQtPanel::Position position, bool save);
+    void setAlignment(LXQtPanel::Alignment value, bool save);
     void setFontColor(QColor color, bool save);
     void setBackgroundColor(QColor color, bool save);
     void setBackgroundImage(QString path, bool save);
@@ -132,7 +132,7 @@ public slots:
 
 signals:
     void realigned();
-    void deletedByUser(LxQtPanel *self);
+    void deletedByUser(LXQtPanel *self);
     void pluginAdded();
     void pluginRemoved();
 
@@ -149,13 +149,13 @@ private slots:
     void userRequestForDeletion();
 
 private:
-    LxQtPanelLayout* mLayout;
-    LxQt::Settings *mSettings;
-    QFrame *LxQtPanelWidget;
+    LXQtPanelLayout* mLayout;
+    LXQt::Settings *mSettings;
+    QFrame *LXQtPanelWidget;
     QString mConfigGroup;
     QScopedPointer<PanelPluginsModel> mPlugins;
 
-    int findAvailableScreen(LxQtPanel::Position position);
+    int findAvailableScreen(LXQtPanel::Position position);
     void updateWmStrut();
 
     void loadPlugins();
@@ -172,7 +172,7 @@ private:
 
     Alignment mAlignment;
 
-    ILxQtPanel::Position mPosition;
+    ILXQtPanel::Position mPosition;
     int mScreenNum;
     QTimer mDelaySave;
     bool mHidable;

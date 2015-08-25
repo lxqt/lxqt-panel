@@ -30,9 +30,9 @@
 #include <QHBoxLayout>
 
 
-ColorPicker::ColorPicker(const ILxQtPanelPluginStartupInfo &startupInfo) :
+ColorPicker::ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
     realign();
 }

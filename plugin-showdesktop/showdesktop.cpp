@@ -41,9 +41,9 @@
 
 #define DEFAULT_SHORTCUT "Control+Alt+D"
 
-ShowDesktop::ShowDesktop(const ILxQtPanelPluginStartupInfo &startupInfo) :
+ShowDesktop::ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
-    ILxQtPanelPlugin(startupInfo)
+    ILXQtPanelPlugin(startupInfo)
 {
     m_key = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show desktop"), this);
     if (m_key)
@@ -66,7 +66,7 @@ void ShowDesktop::shortcutRegistered()
         m_key->changeShortcut(DEFAULT_SHORTCUT);
         if (m_key->shortcut().isEmpty())
         {
-            LxQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
+            LXQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
         }
     }
 }

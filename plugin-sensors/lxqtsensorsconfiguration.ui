@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LxQtSensorsConfiguration</class>
- <widget class="QDialog" name="LxQtSensorsConfiguration">
+ <class>LXQtSensorsConfiguration</class>
+ <widget class="QDialog" name="LXQtSensorsConfiguration">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -207,7 +207,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>accepted()</signal>
-   <receiver>LxQtSensorsConfiguration</receiver>
+   <receiver>LXQtSensorsConfiguration</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -223,7 +223,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
-   <receiver>LxQtSensorsConfiguration</receiver>
+   <receiver>LXQtSensorsConfiguration</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

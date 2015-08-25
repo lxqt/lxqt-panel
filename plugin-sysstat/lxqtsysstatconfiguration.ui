@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LxQtSysStatConfiguration</class>
- <widget class="QDialog" name="LxQtSysStatConfiguration">
+ <class>LXQtSysStatConfiguration</class>
+ <widget class="QDialog" name="LXQtSysStatConfiguration">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -396,7 +396,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>accepted()</signal>
-   <receiver>LxQtSysStatConfiguration</receiver>
+   <receiver>LXQtSysStatConfiguration</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -412,7 +412,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
-   <receiver>LxQtSysStatConfiguration</receiver>
+   <receiver>LXQtSysStatConfiguration</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -34,9 +34,9 @@
 #include <QStringList>
 
 
-LxQtSensorsConfiguration::LxQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
+LXQtSensorsConfiguration::LXQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LxQtSensorsConfiguration),
+    ui(new Ui::LXQtSensorsConfiguration),
     mSettings(settings),
     oldSettings(settings)
 {
@@ -63,13 +63,13 @@ LxQtSensorsConfiguration::LxQtSensorsConfiguration(QSettings *settings, QWidget 
 }
 
 
-LxQtSensorsConfiguration::~LxQtSensorsConfiguration()
+LXQtSensorsConfiguration::~LXQtSensorsConfiguration()
 {
     delete ui;
 }
 
 
-void LxQtSensorsConfiguration::loadSettings()
+void LXQtSensorsConfiguration::loadSettings()
 {
     ui->updateIntervalSB->setValue(mSettings->value("updateInterval").toInt());
     ui->tempBarWidthSB->setValue(mSettings->value("tempBarWidth").toInt());
@@ -102,7 +102,7 @@ void LxQtSensorsConfiguration::loadSettings()
 }
 
 
-void LxQtSensorsConfiguration::saveSettings()
+void LXQtSensorsConfiguration::saveSettings()
 {
     mSettings->setValue("updateInterval", ui->updateIntervalSB->value());
     mSettings->setValue("tempBarWidth", ui->tempBarWidthSB->value());
@@ -154,7 +154,7 @@ void LxQtSensorsConfiguration::saveSettings()
 }
 
 
-void LxQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
+void LXQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
 {
     if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {
@@ -168,7 +168,7 @@ void LxQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
 }
 
 
-void LxQtSensorsConfiguration::changeProgressBarColor()
+void LXQtSensorsConfiguration::changeProgressBarColor()
 {
     QAbstractButton* btn = qobject_cast<QAbstractButton*>(sender());
 
@@ -186,12 +186,12 @@ void LxQtSensorsConfiguration::changeProgressBarColor()
     }
     else
     {
-        qDebug() << "LxQtSensorsConfiguration::changeProgressBarColor():" << "invalid button cast";
+        qDebug() << "LXQtSensorsConfiguration::changeProgressBarColor():" << "invalid button cast";
     }
 }
 
 
-void LxQtSensorsConfiguration::detectedChipSelected(int index)
+void LXQtSensorsConfiguration::detectedChipSelected(int index)
 {
     mSettings->beginGroup("chips");
     QStringList chipNames = mSettings->childGroups();

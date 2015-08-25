@@ -37,21 +37,21 @@ class QSettings;
 class QAbstractButton;
 
 namespace Ui {
-    class LxQtMainMenuConfiguration;
+    class LXQtMainMenuConfiguration;
 }
 
-class LxQtMainMenuConfiguration : public QDialog
+class LXQtMainMenuConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LxQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent = 0);
-    ~LxQtMainMenuConfiguration();
+    explicit LXQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent = 0);
+    ~LXQtMainMenuConfiguration();
 
 private:
-    Ui::LxQtMainMenuConfiguration *ui;
+    Ui::LXQtMainMenuConfiguration *ui;
     QSettings &mSettings;
-    LxQt::SettingsCache mOldSettings;
+    LXQt::SettingsCache mOldSettings;
     QString mDefaultShortcut;
 
 private slots:
