@@ -61,4 +61,3 @@ else()
 endif()
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
-
