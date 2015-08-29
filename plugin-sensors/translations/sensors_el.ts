@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="el_GR">
+<TS version="2.1" language="el">
 <context>
     <name>LxQtSensorsConfiguration</name>
     <message>
@@ -10,7 +10,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις αισθητήρων</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Ανιχνευμένα </translation>
+        <translation>Ανιχνευμένα κυκλώματα:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Χαρακτηριστικά κυκλώματος</translation>
+        <translation>Χαρακτηριστικά κυκλώματος:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="212"/>

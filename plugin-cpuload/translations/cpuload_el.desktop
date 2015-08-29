@@ -9,5 +9,6 @@ Comment=Displays the current CPU load.
 
 
 # Translations
-Comment[el_GR]=Εμφανίζει την τρέχουσα χρήση ΚΜΕ.
-Name[el_GR]=Επόπτης ΚΜΕ
+Name[el]=Επόπτης του επεξεργαστή
+Comment[el]=Εμφανίζει το φορτίο του επεξεργαστή.
+

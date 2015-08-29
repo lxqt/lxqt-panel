@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="el_GR">
+<TS version="2.1" language="el">
 <context>
     <name>LxQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation type="vanished">Φορτίο ΚΜΕ %1%</translation>
+        <translation>Φορτίο επεξεργαστή %1%</translation>
     </message>
     <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Φορτίο επεξεργαστή %1%</translation>
     </message>
 </context>
 <context>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις του Φορτίου επεξεργαστή</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Προσανατολισμός γραμμής:</translation>
+        <translation>Προσανατολισμός ράβδου:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Πλάτος ράβδου:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>

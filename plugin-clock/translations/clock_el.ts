@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="el_GR">
+<TS version="2.1" language="el">
 <context>
     <name>FirstDayCombo</name>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;locale based&gt;</translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="14"/>
         <source>Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις του ρολογιού</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="20"/>
@@ -38,47 +38,47 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
         <source>&amp;Use UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Χρήση της UTC</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="59"/>
         <source>Date &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation>Μορφή &amp;ημερομηνίας</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="76"/>
         <source>&amp;Do not show date</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Να μην εμφανίζεται η ημερομηνία</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση της ημερομηνίας &amp;πριν την ώρα</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
         <source>Show date &amp;after time</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση της ημερομηνίας &amp;μετά την ώρα</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση της ημερομηνίας κάτω από την ώρα σε νέα &amp;γραμμή</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="107"/>
         <source>First day of week in calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Η πρώτη ημέρα της εβδομάδας στο ημερολόγιο</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="124"/>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσανατολισμός</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη περιστρο&amp;φή όταν ο πίνακας είναι τοποθετημένος κατακόρυφα</translation>
     </message>
     <message>
         <source>&amp;Font</source>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή προσαρμοσμένης μορφής ημερομηνίας</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
@@ -175,7 +175,25 @@ will also be treated as text and not be used as an expression.
 
 
 Custom date format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι ερμηνευόμενες ακολουθίες της μορφής της ημερομηνίας είναι:
+
+d	η ημέρα ως αριθμός δίχως το αρχικό μηδενικό (1 ως 31)
+dd	η ημέρα ως αριθμός με το αρχικό μηδενικό (01 ως 31)
+ddd	η συντομογραφημένη τοπικοποιημένη ονομασία της ημέρας (π.χ. «Δευ» ως «Κυρ»).
+dddd	η μακριά τοπικοποιημένη ονομασία της ημέρας (π.χ. «Δευτέρα» ως «Κυριακή»).
+M	ο μήνας ως αριθμός δίχως το αρχικό μηδενικό (1-12)
+MM	ο μήνας ως αριθμός με το αρχικό μηδενικό (01-12)
+MMM	η συντομογραφημένη τοπικοποιημένη ονομασία του μήνα (π.χ. «Ιαν» ως «Δεκ»).
+MMMM	η μακριά τοπικοποιημένη ονομασία του μήνα (π.χ. «Ιανουάριος» ως «Δεκέμβριος»).
+yy	το έτος ως διψήφιος αριθμός (00-99)
+yyyy	το έτος ως τετραψήφιος αριθμός
+
+Όλοι οι λοιποί χαρακτήρες εισόδου θα διαχειριστούν ως κείμενο.
+Οποιαδήποτε ακολουθία χαρακτήρων που εγκλείονται σε μονά εισαγωγικά (&apos;)
+θα διαχειρίζονται επίσης ως κείμενο και δεν θα χρησιμοποιούνται ως έκφραση.
+
+
+Προσαρμοσμένη μορφή ημερομηνίας:</translation>
     </message>
 </context>
 </TS>

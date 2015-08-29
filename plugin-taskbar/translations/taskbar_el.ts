@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="el_GR">
+<TS version="2.1" language="el">
 <context>
     <name>LxQtTaskButton</name>
     <message>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="531"/>
         <source>&amp;Layer</source>
-        <translation>Στ&amp;ρώμα</translation>
+        <translation>Στ&amp;ρώση</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="533"/>
@@ -94,94 +94,94 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="81"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Ομάδα</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείσιμο της ομάδας</translation>
     </message>
 </context>
 <context>
     <name>LxQtTaskbarConfiguration</name>
     <message>
         <source>LxQt Task Manager Settings</source>
-        <translation type="vanished">Ρυθμίσεις διαχειριστή εργασιών LxQt</translation>
+        <translation>Ρυθμίσεις του διαχειριστή εργασιών LXQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Περιεχόμενο λίστας παραθύρου</translation>
+        <translation>Περιεχόμενο της λίστας των παραθύρων</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις του διαχειριστή εργασιών</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Γενικά</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση των παραθύρων της &amp;τρέχουσας επιφάνειας εργασίας</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all des&amp;ktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση των παραθύρων &amp;όλων των επιφανειών εργασίας</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="56"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Ομα&amp;δοποίηση των παραθύρων</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση αναδυόμενου κατά το πέρασμα του ποντικιού </translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="75"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="94"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγιστο πλάτος κουμπιού</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="107"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> εικ</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation type="vanished">Εμφάνιση παραθύρων από την τρέχουσα επιφάνεια εργασίας</translation>
+        <translation>Εμφάνιση των παραθύρων της τρέχουσας επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation type="vanished">Εμφάνιση παραθύρων από όλες τις επιφάνειες εργασίας</translation>
+        <translation>Εμφάνιση παραθύρων όλων των επιφανειών εργασίας</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="120"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αυτόματη περιστροφή των κουμπιών όταν ο πίνακας είναι τοποθετημένος κάθετα</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation type="vanished">Εμφάνιση λίστας παραθύρων</translation>
+        <translation>Εμφάνιση της λίστας των παραθύρων</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="84"/>
         <source>Button style</source>
-        <translation>Στυλ πλήκτρου</translation>
+        <translation>Ύφος του πλήκτρου</translation>
     </message>
     <message>
         <source>Max button width</source>
-        <translation type="vanished">Μέγιστο πλάτος πλήκτρου</translation>
+        <translation>Μέγιστο πλάτος πλήκτρου</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="46"/>

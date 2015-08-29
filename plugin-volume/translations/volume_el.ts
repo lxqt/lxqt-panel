@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="el_GR">
+<TS version="2.1" language="el">
 <context>
     <name>LxQtVolume</name>
     <message>
@@ -10,40 +10,40 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Αύξηση της έντασης του ήχου</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Μείωση της έντασης του ήχου</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Σίγαση/αποσίγαση της έντασης του ήχου</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις μπόρεσαν να καταχωρηθούν: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="219"/>
         <location filename="../lxqtvolume.cpp" line="229"/>
         <source>Volume: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ένταση: %1</translation>
     </message>
 </context>
 <context>
     <name>LxQtVolumeConfiguration</name>
     <message>
         <source>LxQt Volume Control Settings</source>
-        <translation type="vanished">Ρυθμίσεις ελέγχου έντασης ήχου LxQt</translation>
+        <translation>Ρυθμίσεις ελέγχου έντασης ήχου του LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις του ελέγχου έντασης του ήχου</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
@@ -101,12 +101,12 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκτέλεση του μίκτη</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Μίκτης</translation>
     </message>
 </context>
 </TS>
