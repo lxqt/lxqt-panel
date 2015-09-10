@@ -86,7 +86,6 @@ private:
     QMenu* mMenu;
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
-    MenuStyle mMenuStyle;
 
 #ifdef HAVE_MENU_CACHE
     MenuCache* mMenuCache;

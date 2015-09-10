@@ -184,7 +184,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="217"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi automaticamente</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="233"/>
@@ -289,7 +289,7 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
-        <translation>Configura pannello...</translation>
+        <translation>Configura panello...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="978"/>
