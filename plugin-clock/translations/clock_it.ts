@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.1" language="it">
 <context>
     <name>FirstDayCombo</name>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;basato su locale&gt;</translation>
     </message>
 </context>
 <context>
@@ -63,12 +63,12 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="100"/>
         <source>Show date below time on new &amp;line</source>
-        <translation>Mostra la data su una seconda riga</translation>
+        <translation>Mostra la data su una &amp;seconda riga</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="107"/>
         <source>First day of week in calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Primo giorno della settimana</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="124"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Ruota automaticamente se il panello è verticale</translation>
+        <translation>&amp;Ruota automaticamente se il panello è verticale</translation>
     </message>
     <message>
         <source>&amp;Font</source>

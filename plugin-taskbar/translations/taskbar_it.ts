@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.1" language="it">
 <context>
     <name>LXQtTaskButton</name>
     <message>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="81"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppo</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi gruppo</translation>
     </message>
 </context>
 <context>
@@ -120,42 +120,42 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generali</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra finestre del &amp;desktop attuale</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all des&amp;ktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra finestre di &amp;tutti desktop</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="56"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ragruppa finestre della stessa applicazione</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra popup al passaggio del mouse </translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="75"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Aspetto</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="94"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Larghezza massima del pulsante</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="107"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation>px</translation>
     </message>
     <message>
         <source>Taskbar Contents</source>
@@ -198,7 +198,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Close on middle-click</source>
-        <translation>Chiudi con un clic del tasto centrale</translation>
+        <translation>Chiudi con un click del tasto centrale</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

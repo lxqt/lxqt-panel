@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.1" language="it">
 <context>
     <name>LXQtMainMenu</name>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
-        <translation>Mostra/nascondi menu principale</translation>
+        <translation>Mostra/nascondi menù principale</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -35,7 +35,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Impostazioni del menu principale di LXQt</translation>
+        <translation>Impostazioni del menù principale di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="81"/>
         <source>Menu file</source>
-        <translation>File del menu</translation>
+        <translation>File del menù</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="87"/>
         <source>Menu file:</source>
-        <translation>File del menu:</translation>
+        <translation>File del menù:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Choose menu file</source>
-        <translation>Scegli il file del menu</translation>
+        <translation>Scegli il file del menù</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Menu files (*.menu)</source>
-        <translation>File del menu (*.menu)</translation>
+        <translation>File del menù (*.menu)</translation>
     </message>
 </context>
 </TS>

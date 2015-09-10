@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.1" language="it">
 <context>
     <name>PanelScreenSaver</name>
     <message>
@@ -10,12 +10,12 @@
     <message>
         <location filename="../panelscreensaver.cpp" line="52"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocca schermo</translation>
     </message>
     <message>
         <location filename="../panelscreensaver.cpp" line="67"/>
         <source>Panel Screensaver: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>La scorciatoia globale per lo screensaver: &apos;%1&apos; non può essere registrata</translation>
     </message>
 </context>
 </TS>
