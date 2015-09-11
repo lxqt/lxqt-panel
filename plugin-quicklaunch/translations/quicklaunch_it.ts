@@ -2,11 +2,11 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it">
 <context>
-    <name>LxQtQuickLaunch</name>
+    <name>LXQtQuickLaunch</name>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>
-        <translation>Errore di spostamento</translation>
+        <translation>Errore di trascinamento</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="220"/>
