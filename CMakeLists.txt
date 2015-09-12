@@ -140,6 +140,12 @@ if(MAINMENU_PLUGIN)
     add_subdirectory(plugin-mainmenu)
 endif()
 
+setByDefault(ADVANCEDMENU_PLUGIN Yes)
+if(ADVANCEDMENU_PLUGIN)
+    set(ENABLED_PLUGINS ${ENABLED_PLUGINS} "Advanced application menu")
+    add_subdirectory(plugin-advancedmenu)
+endif()
+
 setByDefault(MOUNT_PLUGIN Yes)
 if(MOUNT_PLUGIN)
     list(APPEND ENABLED_PLUGINS "Mount")
