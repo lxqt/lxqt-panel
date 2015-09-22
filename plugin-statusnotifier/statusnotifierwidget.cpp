@@ -53,6 +53,11 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
 
 }
 
+StatusNotifierWidget::~StatusNotifierWidget()
+{
+    delete mWatcher;
+}
+
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 {
     int slash = serviceAndPath.indexOf('/');

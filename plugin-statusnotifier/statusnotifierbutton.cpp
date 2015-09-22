@@ -36,7 +36,7 @@
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin, QWidget *parent)
     : QToolButton(parent),
-    mMenu(NULL),
+    mMenu(nullptr),
     mStatus(Passive),
     mValid(true),
     mFallbackIcon(QIcon::fromTheme("application-x-executable")),
@@ -75,6 +75,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
 
 StatusNotifierButton::~StatusNotifierButton()
 {
+    delete interface;
 }
 
 void StatusNotifierButton::newIcon()
@@ -221,7 +222,7 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
         interface->Activate(QCursor::pos().x(), QCursor::pos().y());
     else if (event->button() == Qt::MidButton)
         interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
-    else if (Qt::RightButton == event->button())
+    else if (Qt::RightButton == event->button() && nullptr != mMenu)
         mMenu->popup(QCursor::pos());
     QToolButton::mouseReleaseEvent(event);
 }
