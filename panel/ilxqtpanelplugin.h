@@ -40,7 +40,7 @@
 LXQt panel plugins are standalone sharedlibraries
 (*.so) located in PLUGIN_DIR (define provided by CMakeLists.txt).
 
-Plugin for the panel is a library written on C++. One more necessary thing
+Plugin for the panel is a library written in C++. One more necessary thing
 is a .desktop file describing this plugin. The same may be additional files,
 like translations. Themselves plugins will be installed to
 /usr/local/lib/lxqt-panel or /usr/lib/lxqt-panel (dependent on cmake option
@@ -64,23 +64,20 @@ All plugins *must* be inherited from this one.
 
 This class provides some basic API and inherited/implemented
 plugins GUIs will be responsible on the functionality itself.
-
-See <a href=https://github.com/LXDE-Qt/lxde-qt/wiki/How-to-write-the-panel-plugin>
-How to write the panel plugin</a> for more information about how to make your plugins.
 **/
 
 class LXQT_PANEL_API ILXQtPanelPlugin
 {
 public:
     /**
-      This enum describes the properties of an plugin.
+      This enum describes the properties of a plugin.
      **/
     enum Flag {
         NoFlags              = 0,   ///< It does not have any properties set.
-        PreferRightAlignment = 1,   /**< The plugin is prefer right alignment (for example the clock plugin);
-                                        otherwise plugin prefer left (like main menu).
+        PreferRightAlignment = 1,   /**< The plugin prefers right alignment (for example the clock plugin);
+                                        otherwise the plugin prefers left alignment (like main menu).
                                         This flag is used only at the first start, later positions of all
-                                        plugins saved in a config, and this saved information is used. */
+                                        plugins are saved in a config, and this saved information is used. */
         HaveConfigDialog     = 2,   ///< The plugin have a configuration dialog.
         SingleInstance       = 4,   ///< The plugin allows only one instance to run.
         NeedsHandle          = 8    ///< The plugin needs a handle for the context menu
@@ -99,8 +96,8 @@ public:
     };
 
     /**
-     Constructs a ILXQtPanelPlugin object with the given startupInfo. You do not have to worry
-     about the startupInfo parameters, ILXQtPanelPlugin process the parameters yourself.
+     Constructs an ILXQtPanelPlugin object with the given startupInfo. You do not have to worry
+     about the startupInfo parameters, ILXQtPanelPlugin processes the parameters itself.
      **/
     ILXQtPanelPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
         mSettings(startupInfo.settings),
@@ -121,20 +118,20 @@ public:
 
     /**
     Returns the string that is used in the theme QSS file.
-    If you retuns "WorldClock" string, theme author may write something like `#WorldClock { border: 1px solid red; }`
-    to set custom border for the your plugin.
+    If you return "WorldClock" string, theme author may write something like `#WorldClock { border: 1px solid red; }`
+    to set a custom border for your plugin.
     **/
     virtual QString themeId() const = 0;
 
     /**
-     From users point of view plugin is a some visual widget on the panel. This function retuns pointer to it.
-     This method called only once, so you are free to return pointer on class member, or create widget on the fly.
+     From the user's point of view, your plugin is some visual widget on the panel. This function returns a pointer to it.
+     This method is called only once, so you are free to return the pointer on a class member, or create the widget on the fly.
      **/
     virtual QWidget *widget() = 0;
 
     /**
     Returns the plugin settings dialog. Reimplement this function if your plugin has it.
-    The panel does not take ownership of the dialog, it would probably a good idea to set Qt::WA_DeleteOnClose
+    The panel does not take ownership of the dialog, it is probably a good idea to set Qt::WA_DeleteOnClose
     attribute for the dialog.
     The default implementation returns 0, no dialog;
 
@@ -208,7 +205,7 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(ILXQtPanelPlugin::Flags)
 
 /**
-Every plugin must has the loader. You shoul only reimplement instance() method, and return your plugin.
+Every plugin must have the ILXQtPanelPluginLibrary loader. You should only reimplement the instance() method which should return your plugin.
 Example:
 @code
 class LXQtClockPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
