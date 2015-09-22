@@ -28,6 +28,7 @@
 #include "colorpicker.h"
 #include <QMouseEvent>
 #include <QHBoxLayout>
+#include <QScreen>
 
 
 ColorPicker::ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo) :
@@ -82,7 +83,7 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
         return;
 
     WId id = QApplication::desktop()->winId();
-    QPixmap pixmap = QPixmap::grabWindow(id, event->globalX(), event->globalY(), 1, 1);
+    QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, event->globalX(), event->globalY(), 1, 1);
 
     QImage img = pixmap.toImage();
     QColor col = QColor(img.pixel(0,0));

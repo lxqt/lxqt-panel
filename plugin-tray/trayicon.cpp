@@ -33,6 +33,7 @@
 #include <QPainter>
 #include <QBitmap>
 #include <QStyle>
+#include <QScreen>
 
 #include "../panel/lxqtpanel.h"
 #include "trayicon.h"
@@ -311,8 +312,8 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
 
         XClearArea(mDisplay, (Window)winId(), 0, 0, attr.width, attr.height, False);
         // for some unknown reason, XGetImage failed. try another less efficient method.
-        // QPixmap::grabWindow uses XCopyArea() internally.
-        image = QPixmap::grabWindow(mIconId).toImage();
+        // QScreen::grabWindow uses XCopyArea() internally.
+        image = qApp->primaryScreen()->grabWindow(mIconId).toImage();
     }
 
 //    qDebug() << "Paint icon **************************************";
