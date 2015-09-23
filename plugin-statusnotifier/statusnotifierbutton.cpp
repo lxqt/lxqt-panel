@@ -38,39 +38,39 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     : QToolButton(parent),
     mMenu(nullptr),
     mStatus(Passive),
-    mValid(true),
     mFallbackIcon(QIcon::fromTheme("application-x-executable")),
     mPlugin(plugin)
 {
-    interface = new org::kde::StatusNotifierItem(service, objectPath, QDBusConnection::sessionBus(), this);
+    interface = new SniAsync(service, objectPath, QDBusConnection::sessionBus(), this);
 
-    QString menuPath = interface->menu().path();
-    if (!menuPath.isEmpty())
-    {
-        mMenu = (new DBusMenuImporter(service, interface->menu().path(), this))->menu();
-        dynamic_cast<QObject &>(*mMenu).setParent(this);
-        mMenu->setObjectName(QStringLiteral("StatusNotifierMenu"));
-    }
+    connect(interface, &SniAsync::NewIcon, this, &StatusNotifierButton::newIcon);
+    connect(interface, &SniAsync::NewOverlayIcon, this, &StatusNotifierButton::newOverlayIcon);
+    connect(interface, &SniAsync::NewAttentionIcon, this, &StatusNotifierButton::newAttentionIcon);
+    connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
+    connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
 
-    // HACK: sni-qt creates some invalid items (like one for konversarion 1.5)
-    if (interface->title().isEmpty() && interface->id().isEmpty())
-        mValid = false;
+    interface->propertyGetAsync<QDBusObjectPath>(QStringLiteral("Menu"), [this] (QDBusObjectPath path) {
+        if (!path.path().isEmpty())
+        {
+            mMenu = (new DBusMenuImporter(interface->service(), path.path(), this))->menu();
+            dynamic_cast<QObject &>(*mMenu).setParent(this);
+            mMenu->setObjectName(QStringLiteral("StatusNotifierMenu"));
+        }
+    });
 
-    if (mValid)
-    {
-        newToolTip();
+    interface->propertyGetAsync<QString>(QStringLiteral("Status"), [this] (QString status) {
+        newStatus(status);
+    });
+
+    interface->propertyGetAsync<QString>(QStringLiteral("IconThemePath"), [this] (QString value) {
+        mThemePath = value;
+        //do the logic of icons after we've got the theme path
         refetchIcon(Active);
         refetchIcon(Passive);
         refetchIcon(NeedsAttention);
-        newStatus(interface->status());
-        resetIcon();
+    });
 
-        connect(interface, SIGNAL(NewIcon()), this, SLOT(newIcon()));
-        connect(interface, SIGNAL(NewOverlayIcon()), this, SLOT(newOverlayIcon()));
-        connect(interface, SIGNAL(NewAttentionIcon()), this, SLOT(newAttentionIcon()));
-        connect(interface, SIGNAL(NewToolTip()), this, SLOT(newToolTip()));
-        connect(interface, SIGNAL(NewStatus(QString)), this, SLOT(newStatus(QString)));
-    }
+    newToolTip();
 }
 
 StatusNotifierButton::~StatusNotifierButton()
@@ -81,116 +81,133 @@ StatusNotifierButton::~StatusNotifierButton()
 void StatusNotifierButton::newIcon()
 {
     refetchIcon(Passive);
-    resetIcon();
 }
 
 void StatusNotifierButton::newOverlayIcon()
 {
     refetchIcon(Active);
-    resetIcon();
 }
 
 void StatusNotifierButton::newAttentionIcon()
 {
     refetchIcon(NeedsAttention);
-    resetIcon();
 }
 
 void StatusNotifierButton::refetchIcon(Status status)
 {
-    QString iconName;
-    switch (status)
+    QString nameProperty, pixmapProperty;
+    if (status == Active)
     {
-        case Active:
-            iconName = interface->overlayIconName();
-            break;
-        case NeedsAttention:
-            iconName = interface->attentionIconName();
-            break;
-        case Passive:
-            iconName = interface->iconName();
-            break;
+        nameProperty = QStringLiteral("OverlayIconName");
+        pixmapProperty = QStringLiteral("OverlayIconPixmap");
+    }
+    else if (status == NeedsAttention)
+    {
+        nameProperty = QStringLiteral("AttentionIconName");
+        pixmapProperty = QStringLiteral("AttentionIconPixmap");
+    }
+    else // status == Passive
+    {
+        nameProperty = QStringLiteral("IconName");
+        pixmapProperty = QStringLiteral("IconPixmap");
     }
 
-    QIcon nextIcon;
-    if (!iconName.isEmpty())
-    {
-        if (QIcon::hasThemeIcon(iconName))
-            nextIcon = QIcon::fromTheme(iconName);
-        else
+    interface->propertyGetAsync<QString>(nameProperty, [this, status, pixmapProperty] (QString iconName) {
+        QIcon nextIcon;
+        if (!iconName.isEmpty())
         {
-            QDir themeDir(interface->iconThemePath());
-            if (themeDir.exists())
+            if (QIcon::hasThemeIcon(iconName))
+                nextIcon = QIcon::fromTheme(iconName);
+            else
             {
-                if (themeDir.exists(iconName + ".png"))
-                    nextIcon.addFile(themeDir.filePath(iconName + ".png"));
-
-                if (themeDir.cd("hicolor") || (themeDir.cd("icons") && themeDir.cd("hicolor")))
+                QDir themeDir(mThemePath);
+                if (themeDir.exists())
                 {
-                    QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                    foreach (QString dir, sizes)
+                    if (themeDir.exists(iconName + ".png"))
+                        nextIcon.addFile(themeDir.filePath(iconName + ".png"));
+
+                    if (themeDir.cd("hicolor") || (themeDir.cd("icons") && themeDir.cd("hicolor")))
                     {
-                        QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                        foreach (QString innerDir, dirs)
+                        QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+                        foreach (QString dir, sizes)
                         {
-                            QString file = themeDir.absolutePath() + "/" + dir + "/" + innerDir + "/" + iconName + ".png";
-                            if (QFile::exists(file))
-                                nextIcon.addFile(file);
+                            QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+                            foreach (QString innerDir, dirs)
+                            {
+                                QString file = themeDir.absolutePath() + "/" + dir + "/" + innerDir + "/" + iconName + ".png";
+                                if (QFile::exists(file))
+                                    nextIcon.addFile(file);
+                            }
                         }
                     }
                 }
             }
+
+            switch (status)
+            {
+                case Active:
+                    mOverlayIcon = nextIcon;
+                    break;
+                case NeedsAttention:
+                    mAttentionIcon = nextIcon;
+                    break;
+                case Passive:
+                    mIcon = nextIcon;
+                    break;
+            }
+
+            resetIcon();
         }
-    }
-    else
-    {
-        IconPixmapList iconPixmaps;
-        switch (status)
+        else
         {
-            case Active:
-                iconPixmaps = interface->overlayIconPixmap();
-                break;
-            case NeedsAttention:
-                iconPixmaps = interface->attentionIconPixmap();
-                break;
-            case Passive:
-                iconPixmaps = interface->iconPixmap();
-                break;
+            interface->propertyGetAsync<IconPixmapList>(pixmapProperty, [this, status, pixmapProperty] (IconPixmapList iconPixmaps) {
+                QIcon nextIcon;
+
+                if (!iconPixmaps.empty() && !iconPixmaps.first().bytes.isNull())
+                {
+                    IconPixmap iconPixmap = iconPixmaps.first();
+                    QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
+                    const uchar *end = image.constBits() + image.byteCount();
+                    uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
+                    for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
+                        qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
+
+                    QPixmap pixmap = QPixmap::fromImage(image);
+                    nextIcon = QIcon(pixmap);
+                }
+
+                switch (status)
+                {
+                    case Active:
+                        mOverlayIcon = nextIcon;
+                        break;
+                    case NeedsAttention:
+                        mAttentionIcon = nextIcon;
+                        break;
+                    case Passive:
+                        mIcon = nextIcon;
+                        break;
+                }
+
+                resetIcon();
+            });
         }
-
-
-        if (!iconPixmaps.empty() && !iconPixmaps.first().bytes.isNull())
-        {
-            IconPixmap iconPixmap = iconPixmaps.first();
-            QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
-            const uchar *end = image.constBits() + image.byteCount();
-            uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
-            for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
-                qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
-
-            QPixmap pixmap = QPixmap::fromImage(image);
-            nextIcon = QIcon(pixmap);
-        }
-    }
-
-    switch (status)
-    {
-        case Active:
-            mOverlayIcon = nextIcon;
-            break;
-        case NeedsAttention:
-            mAttentionIcon = nextIcon;
-            break;
-        case Passive:
-            mIcon = nextIcon;
-            break;
-    }
+    });
 }
 
 void StatusNotifierButton::newToolTip()
 {
-    QString toolTipTitle = interface->toolTip().title;
-    setToolTip(toolTipTitle.isEmpty() ? interface->title() : toolTipTitle);
+    interface->propertyGetAsync<ToolTip>(QStringLiteral("ToolTip"), [this] (ToolTip tooltip) {
+        QString toolTipTitle = tooltip.title;
+        if (!toolTipTitle.isEmpty())
+            setToolTip(toolTipTitle);
+        else
+            interface->propertyGetAsync<QString>(QStringLiteral("Title"), [this] (QString title) {
+                // we should get here only in case the ToolTip.title was empty
+                if (!title.isEmpty())
+                    setToolTip(title);
+            });
+    });
 }
 
 void StatusNotifierButton::newStatus(QString status)
@@ -222,8 +239,14 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
         interface->Activate(QCursor::pos().x(), QCursor::pos().y());
     else if (event->button() == Qt::MidButton)
         interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
-    else if (Qt::RightButton == event->button() && nullptr != mMenu)
-        mMenu->popup(QCursor::pos());
+    else if (Qt::RightButton == event->button())
+    {
+        if (mMenu)
+            mMenu->popup(QCursor::pos());
+        else
+            interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
+    }
+
     QToolButton::mouseReleaseEvent(event);
 }
 

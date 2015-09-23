@@ -60,26 +60,15 @@ StatusNotifierWidget::~StatusNotifierWidget()
 
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 {
-    //postpone the logic to not block DBus response
-    //XXX: 200ms is because some application (e.g. quassel) doesn't respond to our
-    //queries (Title, Menu, Id...) until it gets response for it's IsStatusNotifierHostRegistered
-    //Which in turn is not responded from our side if we are quering the application.
-    QTimer::singleShot(200, [this, serviceAndPath] () {
-        int slash = serviceAndPath.indexOf('/');
-        QString serv = serviceAndPath.left(slash);
-        QString path = serviceAndPath.mid(slash);
-        StatusNotifierButton *button = new StatusNotifierButton(serv, path, mPlugin, this);
+    int slash = serviceAndPath.indexOf('/');
+    QString serv = serviceAndPath.left(slash);
+    QString path = serviceAndPath.mid(slash);
+    StatusNotifierButton *button = new StatusNotifierButton(serv, path, mPlugin, this);
 
-        if (!button->isValid())
-            delete button;
-        else
-        {
-            mServices.insert(serviceAndPath, button);
-            layout()->addWidget(button);
-            layout()->setAlignment(button, Qt::AlignCenter);
-            button->show();
-        }
-    });
+    mServices.insert(serviceAndPath, button);
+    layout()->addWidget(button);
+    layout()->setAlignment(button, Qt::AlignCenter);
+    button->show();
 }
 
 void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)

@@ -10,6 +10,7 @@ set(HEADERS
     statusnotifieriteminterface.h
     statusnotifierwatcher.h
     statusnotifierwidget.h
+    sniasync.h
 )
 
 set(SOURCES
@@ -19,6 +20,7 @@ set(SOURCES
     statusnotifieriteminterface.cpp
     statusnotifierwatcher.cpp
     statusnotifierwidget.cpp
+    sniasync.cpp
 )
 
 qt5_add_dbus_adaptor(SOURCES

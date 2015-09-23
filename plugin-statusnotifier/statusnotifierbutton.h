@@ -37,7 +37,7 @@
 #include <QWheelEvent>
 #include <QMenu>
 
-#include "statusnotifieriteminterface.h"
+#include "sniasync.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
 template <typename T> inline T qFromUnaligned(const uchar *src)
@@ -59,8 +59,6 @@ public:
     StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin,  QWidget *parent = 0);
     ~StatusNotifierButton();
 
-    bool isValid() const { return mValid; }
-
     enum Status
     {
         Passive, Active, NeedsAttention
@@ -74,11 +72,11 @@ public slots:
     void newStatus(QString status);
 
 private:
-    org::kde::StatusNotifierItem *interface;
+    SniAsync *interface;
     QMenu *mMenu;
     Status mStatus;
-    bool mValid;
 
+    QString mThemePath;
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 
     ILXQtPanelPlugin* mPlugin;
