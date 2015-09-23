@@ -161,19 +161,25 @@ void StatusNotifierButton::refetchIcon(Status status)
         else
         {
             interface->propertyGetAsync<IconPixmapList>(pixmapProperty, [this, status, pixmapProperty] (IconPixmapList iconPixmaps) {
+                if (iconPixmaps.empty())
+                    return;
+
                 QIcon nextIcon;
 
-                if (!iconPixmaps.empty() && !iconPixmaps.first().bytes.isNull())
+                for (IconPixmap iconPixmap: iconPixmaps)
                 {
-                    IconPixmap iconPixmap = iconPixmaps.first();
-                    QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width, iconPixmap.height, QImage::Format_ARGB32);
-                    const uchar *end = image.constBits() + image.byteCount();
-                    uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
-                    for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
-                        qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
+                    if (!iconPixmap.bytes.isNull())
+                    {
+                        QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width,
+                                     iconPixmap.height, QImage::Format_ARGB32);
 
-                    QPixmap pixmap = QPixmap::fromImage(image);
-                    nextIcon = QIcon(pixmap);
+                        const uchar *end = image.constBits() + image.byteCount();
+                        uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
+                        for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
+                            qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);
+
+                        nextIcon.addPixmap(QPixmap::fromImage(image));
+                    }
                 }
 
                 switch (status)
