@@ -32,6 +32,7 @@
 #include <QFile>
 #include <dbusmenu-qt5/dbusmenuimporter.h>
 #include "../panel/ilxqtpanelplugin.h"
+#include "sniasync.h"
 
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin, QWidget *parent)
@@ -49,7 +50,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
     connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
 
-    interface->propertyGetAsync<QDBusObjectPath>(QStringLiteral("Menu"), [this] (QDBusObjectPath path) {
+    interface->propertyGetAsync(QStringLiteral("Menu"), [this] (QDBusObjectPath path) {
         if (!path.path().isEmpty())
         {
             mMenu = (new DBusMenuImporter(interface->service(), path.path(), this))->menu();
@@ -58,11 +59,11 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
         }
     });
 
-    interface->propertyGetAsync<QString>(QStringLiteral("Status"), [this] (QString status) {
+    interface->propertyGetAsync(QStringLiteral("Status"), [this] (QString status) {
         newStatus(status);
     });
 
-    interface->propertyGetAsync<QString>(QStringLiteral("IconThemePath"), [this] (QString value) {
+    interface->propertyGetAsync(QStringLiteral("IconThemePath"), [this] (QString value) {
         mThemePath = value;
         //do the logic of icons after we've got the theme path
         refetchIcon(Active);
@@ -112,7 +113,7 @@ void StatusNotifierButton::refetchIcon(Status status)
         pixmapProperty = QStringLiteral("IconPixmap");
     }
 
-    interface->propertyGetAsync<QString>(nameProperty, [this, status, pixmapProperty] (QString iconName) {
+    interface->propertyGetAsync(nameProperty, [this, status, pixmapProperty] (QString iconName) {
         QIcon nextIcon;
         if (!iconName.isEmpty())
         {
@@ -160,7 +161,7 @@ void StatusNotifierButton::refetchIcon(Status status)
         }
         else
         {
-            interface->propertyGetAsync<IconPixmapList>(pixmapProperty, [this, status, pixmapProperty] (IconPixmapList iconPixmaps) {
+            interface->propertyGetAsync(pixmapProperty, [this, status, pixmapProperty] (IconPixmapList iconPixmaps) {
                 if (iconPixmaps.empty())
                     return;
 
@@ -203,12 +204,12 @@ void StatusNotifierButton::refetchIcon(Status status)
 
 void StatusNotifierButton::newToolTip()
 {
-    interface->propertyGetAsync<ToolTip>(QStringLiteral("ToolTip"), [this] (ToolTip tooltip) {
+    interface->propertyGetAsync(QStringLiteral("ToolTip"), [this] (ToolTip tooltip) {
         QString toolTipTitle = tooltip.title;
         if (!toolTipTitle.isEmpty())
             setToolTip(toolTipTitle);
         else
-            interface->propertyGetAsync<QString>(QStringLiteral("Title"), [this] (QString title) {
+            interface->propertyGetAsync(QStringLiteral("Title"), [this] (QString title) {
                 // we should get here only in case the ToolTip.title was empty
                 if (!title.isEmpty())
                     setToolTip(title);

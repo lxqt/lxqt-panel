@@ -37,8 +37,6 @@
 #include <QWheelEvent>
 #include <QMenu>
 
-#include "sniasync.h"
-
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
 template <typename T> inline T qFromUnaligned(const uchar *src)
 {
@@ -50,6 +48,7 @@ template <typename T> inline T qFromUnaligned(const uchar *src)
 #endif
 
 class ILXQtPanelPlugin;
+class SniAsync;
 
 class StatusNotifierButton : public QToolButton
 {

@@ -31,15 +31,32 @@
 #include <functional>
 #include "statusnotifieriteminterface.h"
 
+template<typename> struct remove_class_type; // undefined
+template<typename C, typename R, typename... ArgTypes>
+struct  remove_class_type<R (C::*)(ArgTypes...)> { using type = R(ArgTypes...); };
+template<typename C, typename R, typename... ArgTypes>
+struct remove_class_type<R (C::*)(ArgTypes...) const> { using type = R(ArgTypes...); };
+
+template <typename> struct lambda_signature; //undefined
+template <typename L>
+struct lambda_signature : public remove_class_type<decltype(&L::operator())> {};
+
+template <typename> struct is_valid_signature : public std::false_type {};
+template <typename Arg>
+struct is_valid_signature<void (Arg)> : public std::true_type {};
+template <typename L>
+struct is_valid_lambda : public is_valid_signature<typename lambda_signature<L>::type> {};
+
 class SniAsync : public QObject
 {
     Q_OBJECT
 public:
     SniAsync(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
 
-    template <typename T>
-    inline void propertyGetAsync(QString const &name, std::function<void (T)> finished)
+    template <typename F>
+    inline void propertyGetAsync(QString const &name, F finished)
     {
+        static_assert(is_valid_lambda<F>::value, "need lambda [] (Arg) -> void");
         connect(new QDBusPendingCallWatcher{asyncPropGet(name), this},
                 &QDBusPendingCallWatcher::finished,
                 [this, finished, name] (QDBusPendingCallWatcher * call)
@@ -47,7 +64,7 @@ public:
                     QDBusPendingReply<QVariant> reply = *call;
                     if (reply.isError())
                         qDebug() << "Error on DBus request:" << reply.error();
-                    finished(qdbus_cast<T>(reply.value()));
+                    finished(qdbus_cast<typename std::function<typename lambda_signature<F>::type>::argument_type>(reply.value()));
                     call->deleteLater();
                 }
         );
