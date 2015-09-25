@@ -123,6 +123,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     mAlignment(AlignmentLeft),
     mPosition(ILXQtPanel::PositionBottom),
     mScreenNum(0), //whatever (avoid conditional on uninitialized value)
+    mActualScreenNum(0),
     mHidable(false),
     mHidden(false)
 {
@@ -213,7 +214,8 @@ void LXQtPanel::readSettings()
               mSettings->value(CFG_KEY_PERCENT, true).toBool(),
               false);
 
-    setPosition(mSettings->value(CFG_KEY_SCREENNUM, QApplication::desktop()->primaryScreen()).toInt(),
+    mScreenNum = mSettings->value(CFG_KEY_SCREENNUM, QApplication::desktop()->primaryScreen()).toInt();
+    setPosition(mScreenNum,
                 strToPosition(mSettings->value(CFG_KEY_POSITION).toString(), PositionBottom),
                 false);
 
@@ -283,6 +285,8 @@ void LXQtPanel::ensureVisible()
 {
     if (!canPlacedOn(mScreenNum, mPosition))
         setPosition(findAvailableScreen(mPosition), mPosition, true);
+    else
+        mActualScreenNum = mScreenNum;
 
     // the screen size might be changed, let's update the reserved screen space.
     updateWmStrut();
@@ -352,7 +356,7 @@ int LXQtPanel::getReserveDimension()
 
 void LXQtPanel::setPanelGeometry()
 {
-    const QRect currentScreen = QApplication::desktop()->screenGeometry(mScreenNum);
+    const QRect currentScreen = QApplication::desktop()->screenGeometry(mActualScreenNum);
     QRect rect;
 
     if (isHorizontal())
@@ -731,7 +735,7 @@ void LXQtPanel::setPosition(int screen, ILXQtPanel::Position position, bool save
             mPosition == position)
         return;
 
-    mScreenNum = screen;
+    mActualScreenNum = screen;
     mPosition = position;
     mLayout->setPosition(mPosition);
 

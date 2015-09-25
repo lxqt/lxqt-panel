@@ -173,7 +173,8 @@ private:
     Alignment mAlignment;
 
     ILXQtPanel::Position mPosition;
-    int mScreenNum;
+    int mScreenNum; //!< configured screen (user preference)
+    int mActualScreenNum; //!< panel currently shown at (if the configured screen is not available)
     QTimer mDelaySave;
     bool mHidable;
     bool mHidden;
