@@ -7,6 +7,7 @@ set(PRIV_HEADERS
     lxqtpanelapplication.h
     lxqtpanellayout.h
     plugin.h
+    pluginsettings.h
     lxqtpanellimits.h
     popupmenu.h
     pluginmoveprocessor.h
@@ -32,6 +33,7 @@ set(SOURCES
     lxqtpanelapplication.cpp
     lxqtpanellayout.cpp
     plugin.cpp
+    pluginsettings.cpp
     popupmenu.cpp
     pluginmoveprocessor.cpp
     lxqtpanelpluginconfigdialog.cpp

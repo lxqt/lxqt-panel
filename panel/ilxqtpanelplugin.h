@@ -35,6 +35,7 @@
 #include <LXQt/PluginInfo>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
+#include "pluginsettings.h"
 
 /**
 LXQt panel plugins are standalone sharedlibraries
@@ -54,7 +55,7 @@ class QDialog;
 struct LXQT_PANEL_API ILXQtPanelPluginStartupInfo
 {
     ILXQtPanel *lxqtPanel;
-    QSettings *settings;
+    PluginSettings *settings;
     const LXQt::PluginInfo *desktopFile;
 };
 
@@ -171,7 +172,7 @@ public:
     ILXQtPanel *panel() const { return mPanel; }
 
 
-    QSettings *settings() const { return mSettings; }
+    PluginSettings *settings() const { return mSettings; }
     const LXQt::PluginInfo *desktopFile() const { return mDesktopFile; }
 
     /**
@@ -197,7 +198,7 @@ public:
     virtual bool isSeparate() const { return false;  }
     virtual bool isExpandable() const { return false; }
 private:
-    QSettings *mSettings;
+    PluginSettings *mSettings;
     ILXQtPanel *mPanel;
     const LXQt::PluginInfo *mDesktopFile;
 };

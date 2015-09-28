@@ -105,7 +105,7 @@ public:
     LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = NULL);
     ~LXQtSysStatContent();
 
-    void updateSettings(const QSettings *);
+    void updateSettings(const PluginSettings *);
 
 #undef QSS_COLOUR
 #define QSS_COLOUR(GETNAME, SETNAME) \

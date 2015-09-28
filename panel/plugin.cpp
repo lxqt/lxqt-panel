@@ -41,7 +41,6 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QApplication>
-#include <QCryptographicHash>
 #include <memory>
 
 #include <LXQt/Settings>
@@ -75,22 +74,17 @@ QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 /************************************************
 
  ************************************************/
-Plugin::Plugin(const LXQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LXQtPanel *panel) :
+Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, const QString &settingsGroup, LXQtPanel *panel) :
     QFrame(panel),
     mDesktopFile(desktopFile),
     mPluginLoader(0),
     mPlugin(0),
     mPluginWidget(0),
     mAlignment(AlignLeft),
-    mSettingsGroup(settingsGroup),
     mPanel(panel)
 {
-
-    mSettings = new LXQt::Settings(settingsFile, QSettings::IniFormat, this);
+    mSettings = new PluginSettings(settings, settingsGroup);
     connect(mSettings, SIGNAL(settingsChanged()), this, SLOT(settingsChanged()));
-    mSettings->beginGroup(settingsGroup);
-
-    mSettingsHash = calcSettingsHash();
 
     setWindowTitle(desktopFile.name());
     mName = desktopFile.name();
@@ -309,30 +303,9 @@ bool Plugin::loadModule(const QString &libraryName)
 /************************************************
 
  ************************************************/
-QByteArray Plugin::calcSettingsHash()
-{
-    QCryptographicHash hash(QCryptographicHash::Md5);
-    QStringList keys = mSettings->allKeys();
-    foreach (const QString &key, keys)
-    {
-        hash.addData(key.toUtf8());
-        hash.addData(mSettings->value(key).toByteArray());
-    }
-    return hash.result();
-}
-
-
-/************************************************
-
- ************************************************/
 void Plugin::settingsChanged()
 {
-    QByteArray hash = calcSettingsHash();
-    if (mSettingsHash != hash)
-    {
-        mSettingsHash = hash;
-        mPlugin->settingsChanged();
-    }
+    mPlugin->settingsChanged();
 }
 
 

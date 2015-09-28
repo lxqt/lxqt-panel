@@ -55,7 +55,7 @@ LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
     mLayout = new LXQt::GridLayout(this);
     setLayout(mLayout);
 
-    QSettings *settings = mPlugin->settings();
+    PluginSettings *settings = mPlugin->settings();
     int count = settings->beginReadArray("apps");
 
     QString desktop;
@@ -290,7 +290,7 @@ void LXQtQuickLaunch::buttonMoveRight()
 
 void LXQtQuickLaunch::saveSettings()
 {
-    QSettings *settings = mPlugin->settings();
+    PluginSettings *settings = mPlugin->settings();
     settings->remove("apps");
     settings->beginWriteArray("apps");
     int i = 0;

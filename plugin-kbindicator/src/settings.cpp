@@ -30,16 +30,15 @@
 Settings::Settings()
 {}
 
-Settings & Settings::instance()
+Settings &Settings::instance()
 {
     static Settings _instance;
     return _instance;
 }
 
-void Settings::init(QSettings *settings)
+void Settings::init(PluginSettings *settings)
 {
     m_settings = settings;
-    m_oldSettings.reset(new LXQt::SettingsCache(settings));
 }
 
 bool Settings::showCapLock() const
@@ -94,4 +93,4 @@ void Settings::setKeeperType(KeeperType type) const
 }
 
 void Settings::restore()
-{ m_oldSettings->loadToSettings(); }
+{ m_settings->loadFromCache(); }

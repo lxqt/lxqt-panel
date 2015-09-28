@@ -38,7 +38,7 @@
 #include "ui_directorymenuconfiguration.h"
 
 
-DirectoryMenuConfiguration::DirectoryMenuConfiguration(QSettings *settings, QWidget *parent) :
+DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DirectoryMenuConfiguration),
     mBaseDirectory(QDir::homePath()),

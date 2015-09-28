@@ -32,7 +32,7 @@
 #include <QComboBox>
 #include <QDialogButtonBox>
 
-Configuration::Configuration(QSettings *settings, QWidget *parent) :
+Configuration::Configuration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::Configuration)
 {

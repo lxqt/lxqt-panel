@@ -30,7 +30,7 @@
 #define LXQTSYSSTATCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 #include <QAbstractButton>
 #include <QMap>
 
@@ -49,7 +49,7 @@ class LXQtSysStatConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtSysStatConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtSysStatConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtSysStatConfiguration();
 
 public slots:
@@ -69,6 +69,7 @@ signals:
 
 private:
     Ui::LXQtSysStatConfiguration *ui;
+
     SysStat::BaseStat *mStat;
     LXQtSysStatColours *mColoursDialog;
 

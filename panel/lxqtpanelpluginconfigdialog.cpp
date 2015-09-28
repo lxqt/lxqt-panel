@@ -36,10 +36,9 @@
 /************************************************
 
  ************************************************/
-LXQtPanelPluginConfigDialog::LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent) :
+LXQtPanelPluginConfigDialog::LXQtPanelPluginConfigDialog(PluginSettings &settings, QWidget *parent) :
     QDialog(parent),
-    mSettings(settings),
-    mOldSettings(settings)
+    mSettings(settings)
 {
 }
 
@@ -55,7 +54,7 @@ LXQtPanelPluginConfigDialog::~LXQtPanelPluginConfigDialog()
 /************************************************
 
  ************************************************/
-QSettings& LXQtPanelPluginConfigDialog::settings() const
+PluginSettings& LXQtPanelPluginConfigDialog::settings() const
 {
     return mSettings;
 }
@@ -71,7 +70,7 @@ void LXQtPanelPluginConfigDialog::dialogButtonsAction(QAbstractButton *btn)
 
     if (box && box->buttonRole(btn) == QDialogButtonBox::ResetRole)
     {
-        mOldSettings.loadToSettings();
+        mSettings.loadFromCache();
         loadSettings();
     }
     else

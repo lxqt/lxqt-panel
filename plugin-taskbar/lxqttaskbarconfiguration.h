@@ -29,7 +29,7 @@
 #define LXQTTASKBARCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 #include <QAbstractButton>
 
 namespace Ui {
@@ -41,7 +41,7 @@ class LXQtTaskbarConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtTaskbarConfiguration();
 
 private:

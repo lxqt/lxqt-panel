@@ -37,7 +37,7 @@
 #include <QInputDialog>
 
 
-LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent) :
+LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtWorldClockConfiguration),
     mLockCascadeSettingChanges(false),

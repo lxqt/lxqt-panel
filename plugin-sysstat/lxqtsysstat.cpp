@@ -213,7 +213,7 @@ void LXQtSysStatContent::updateTitleFontPixelHeight()
     }
 }
 
-void LXQtSysStatContent::updateSettings(const QSettings *settings)
+void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
 {
     double old_updateInterval = mUpdateInterval;
     int old_minimalSize = mMinimalSize;

@@ -31,7 +31,8 @@
 #define DIRECTORYMENUCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
+
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QLocale>
@@ -47,7 +48,7 @@ class DirectoryMenuConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit DirectoryMenuConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit DirectoryMenuConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~DirectoryMenuConfiguration();
 
 private:

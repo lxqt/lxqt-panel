@@ -31,8 +31,8 @@
 
 #include <QAbstractButton>
 #include <QDialog>
-#include <LXQt/Settings>
 #include "lxqtpanelglobals.h"
+#include "pluginsettings.h"
 
 class QComboBox;
 
@@ -40,11 +40,11 @@ class LXQT_PANEL_API LXQtPanelPluginConfigDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent = nullptr);
-    explicit LXQtPanelPluginConfigDialog(QSettings *settings, QWidget *parent = nullptr) : LXQtPanelPluginConfigDialog(*settings, parent) {}
+    explicit LXQtPanelPluginConfigDialog(PluginSettings &settings, QWidget *parent = nullptr);
+    explicit LXQtPanelPluginConfigDialog(PluginSettings *settings, QWidget *parent = nullptr) : LXQtPanelPluginConfigDialog(*settings, parent) {}
     virtual ~LXQtPanelPluginConfigDialog();
 
-    QSettings& settings() const;
+    PluginSettings &settings() const;
 
 protected slots:
     /*
@@ -57,8 +57,7 @@ protected:
     void setComboboxIndexByData(QComboBox *comboBox, const QVariant &data, int defaultIndex = 0) const;
 
 private:
-    QSettings &mSettings;
-    LXQt::SettingsCache mOldSettings;
+    PluginSettings &mSettings;
 
 };
 

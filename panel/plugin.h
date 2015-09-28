@@ -32,8 +32,10 @@
 #include <QFrame>
 #include <QString>
 #include <LXQt/PluginInfo>
+#include <LXQt/Settings>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
+#include "pluginsettings.h"
 
 class QPluginLoader;
 class QSettings;
@@ -55,14 +57,14 @@ public:
     };
 
 
-    explicit Plugin(const LXQt::PluginInfo &desktopFile, const QString &settingsFile, const QString &settingsGroup, LXQtPanel *panel);
+    explicit Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, const QString &settingsGroup, LXQtPanel *panel);
     ~Plugin();
 
     bool isLoaded() const { return mPlugin != 0; }
     Alignment alignment() const { return mAlignment; }
     void setAlignment(Alignment alignment);
 
-    QString settingsGroup() const { return mSettingsGroup; }
+    QString settingsGroup() const { return mSettings->group(); }
 
     void saveSettings();
 
@@ -103,15 +105,12 @@ private:
     ILXQtPanelPluginLibrary const * findStaticPlugin(const QString &libraryName);
 
     const LXQt::PluginInfo mDesktopFile;
-    QByteArray calcSettingsHash();
     QPluginLoader *mPluginLoader;
     ILXQtPanelPlugin *mPlugin;
     QWidget *mPluginWidget;
     Alignment mAlignment;
-    QSettings *mSettings;
-    QString mSettingsGroup;
+    PluginSettings *mSettings;
     LXQtPanel *mPanel;
-    QByteArray mSettingsHash;
     static QColor mMoveMarkerColor;
     QString mName;
 

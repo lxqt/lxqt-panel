@@ -29,6 +29,7 @@
 #define LXQTVOLUMECONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
+#include "../panel/pluginsettings.h"
 
 #include <QList>
 
@@ -67,7 +68,7 @@ class LXQtVolumeConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtVolumeConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit LXQtVolumeConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtVolumeConfiguration();
 
 public slots:

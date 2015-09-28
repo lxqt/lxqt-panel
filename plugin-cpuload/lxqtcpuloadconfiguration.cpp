@@ -33,7 +33,7 @@
 #define BAR_ORIENT_LEFTRIGHT "leftRight"
 #define BAR_ORIENT_RIGHTLEFT "rightLeft"
 
-LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(QSettings *settings, QWidget *parent) :
+LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtCpuLoadConfiguration)
 {

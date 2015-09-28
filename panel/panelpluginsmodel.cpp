@@ -228,7 +228,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
 
 QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup)
 {
-    std::unique_ptr<Plugin> plugin(new Plugin(desktopFile, mPanel->settings()->fileName(), settingsGroup, mPanel));
+    std::unique_ptr<Plugin> plugin(new Plugin(desktopFile, mPanel->settings(), settingsGroup, mPanel));
     if (plugin->isLoaded())
     {
         connect(mPanel, &LXQtPanel::realigned, plugin.get(), &Plugin::realign);

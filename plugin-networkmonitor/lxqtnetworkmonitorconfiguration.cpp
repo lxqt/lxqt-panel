@@ -38,7 +38,7 @@ extern "C" {
 #define STATGRAB_NEWER_THAN_0_90 	1
 #endif
 
-LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent) :
+LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtNetworkMonitorConfiguration)
 {

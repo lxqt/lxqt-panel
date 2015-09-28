@@ -36,7 +36,7 @@ const QStringList SpacerConfiguration::msTypes = {
     , QLatin1String(QT_TR_NOOP("invisible"))
 };
 
-SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent) :
+SpacerConfiguration::SpacerConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::SpacerConfiguration)
 {

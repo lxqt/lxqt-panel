@@ -30,7 +30,7 @@
 #define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 #include <QAbstractButton>
 #include <QFont>
 #include <QMap>
@@ -48,7 +48,7 @@ class LXQtWorldClockConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtWorldClockConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtWorldClockConfiguration();
 
 public slots:

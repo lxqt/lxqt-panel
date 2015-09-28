@@ -30,9 +30,8 @@
 #define LXQTMAINMENUCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 
-class QSettings;
 class QAbstractButton;
 
 namespace Ui {
@@ -48,10 +47,10 @@ class LXQtMainMenuConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtMainMenuConfiguration(QSettings *settings,
-                                          GlobalKeyShortcut::Action *shortcut,
-                                          const QString &defaultShortcut,
-                                          QWidget *parent = nullptr);
+    explicit LXQtMainMenuConfiguration(PluginSettings *settings,
+                                       GlobalKeyShortcut::Action *shortcut,
+                                       const QString &defaultShortcut,
+                                       QWidget *parent = nullptr);
     ~LXQtMainMenuConfiguration();
 
 private:

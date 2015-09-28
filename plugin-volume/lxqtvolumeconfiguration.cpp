@@ -33,7 +33,7 @@
 #include <QComboBox>
 #include <QDebug>
 
-LXQtVolumeConfiguration::LXQtVolumeConfiguration(QSettings *settings, QWidget *parent) :
+LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtVolumeConfiguration)
 {

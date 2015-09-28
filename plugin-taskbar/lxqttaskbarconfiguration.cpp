@@ -32,7 +32,7 @@
 #include "ui_lxqttaskbarconfiguration.h"
 #include <KWindowSystem/KWindowSystem>
 
-LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(QSettings *settings, QWidget *parent):
+LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtTaskbarConfiguration)
 {

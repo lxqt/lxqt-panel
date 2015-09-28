@@ -112,7 +112,7 @@ void LXQtWorldClock::restartTimer()
 
 void LXQtWorldClock::settingsChanged()
 {
-    QSettings *_settings = settings();
+    PluginSettings *_settings = settings();
 
     QString oldFormat = mFormat;
 

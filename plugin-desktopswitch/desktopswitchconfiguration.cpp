@@ -29,7 +29,7 @@
 #include <KWindowSystem>
 #include <QTimer>
 
-DesktopSwitchConfiguration::DesktopSwitchConfiguration(QSettings *settings, QWidget *parent) :
+DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DesktopSwitchConfiguration)
 {

@@ -29,11 +29,11 @@
 #define DESKTOPSWITCHCERCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
+
 #include <QFormLayout>
 #include <QLineEdit>
 
-class QSettings;
 class QAbstractButton;
 
 namespace Ui {
@@ -45,7 +45,7 @@ class DesktopSwitchConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit DesktopSwitchConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~DesktopSwitchConfiguration();
 
 private:

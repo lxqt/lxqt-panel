@@ -30,7 +30,7 @@
 #define LXQTCPULOADCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 
 class QSettings;
 class QAbstractButton;
@@ -44,7 +44,7 @@ class LXQtCpuLoadConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtCpuLoadConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtCpuLoadConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtCpuLoadConfiguration();
 
 private:

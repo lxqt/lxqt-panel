@@ -30,7 +30,8 @@
 #define LXQTCLOCKCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
+
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QLocale>
@@ -45,7 +46,7 @@ class LXQtClockConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtClockConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit LXQtClockConfiguration(PluginSettings *settings, QWidget *parent = 0);
     ~LXQtClockConfiguration();
 
 private:

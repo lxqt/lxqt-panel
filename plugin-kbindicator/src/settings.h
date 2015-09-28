@@ -27,8 +27,7 @@
 #ifndef _SETTINGS_H_
 #define _SETTINGS_H_
 
-#include <LXQt/Settings>
-class QSettings;
+#include "../panel/pluginsettings.h"
 
 enum class KeeperType
 {
@@ -39,11 +38,12 @@ enum class KeeperType
 
 class Settings
 {
+
 public:
     Settings();
-    static Settings & instance();
+    static Settings &instance();
 
-    void init(QSettings *settings);
+    void init(PluginSettings *settings);
 
 public:
     bool showCapLock() const;
@@ -52,15 +52,16 @@ public:
     bool showLayout() const;
     KeeperType keeperType() const;
     void restore();
+
 public:
     void setShowCapLock(bool show);
     void setShowNumLock(bool show);
     void setShowScrollLock(bool show);
     void setShowLayout(bool show);
     void setKeeperType(KeeperType type) const;
+
 private:
-    QSettings                           *m_settings = 0;
-    QScopedPointer<LXQt::SettingsCache>  m_oldSettings;
+    PluginSettings *m_settings;
 };
 
 #endif

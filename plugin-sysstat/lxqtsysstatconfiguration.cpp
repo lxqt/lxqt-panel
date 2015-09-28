@@ -83,7 +83,7 @@ namespace
     }
 }
 
-LXQtSysStatConfiguration::LXQtSysStatConfiguration(QSettings *settings, QWidget *parent) :
+LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtSysStatConfiguration),
     mStat(NULL),

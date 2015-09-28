@@ -33,7 +33,6 @@
 #include "lxqtclockconfiguration.h"
 #include "ui_lxqtclockconfiguration.h"
 
-
 namespace
 {
     class FirstDayCombo : public QStandardItemModel
@@ -75,7 +74,7 @@ namespace
     };
 }
 
-LXQtClockConfiguration::LXQtClockConfiguration(QSettings *settings, QWidget *parent) :
+LXQtClockConfiguration::LXQtClockConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtClockConfiguration),
     mOldIndex(1)
