@@ -47,7 +47,6 @@ public:
     ~LXQtPanelApplication();
 
     int count() { return mPanels.count(); }
-    LXQt::Settings *settings() { return mSettings; }
     bool isPluginSingletonAndRunnig(QString const & pluginId) const;
 
 public slots:

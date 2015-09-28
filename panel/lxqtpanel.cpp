@@ -35,7 +35,6 @@
 #include "popupmenu.h"
 #include "plugin.h"
 #include "panelpluginsmodel.h"
-#include <LXQt/Settings>
 #include <LXQt/PluginInfo>
 
 #include <QScreen>
@@ -112,8 +111,9 @@ QString LXQtPanel::positionToStr(ILXQtPanel::Position position)
 /************************************************
 
  ************************************************/
-LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
+LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidget *parent) :
     QFrame(parent),
+    mSettings(settings),
     mConfigGroup(configGroup),
     mPlugins{nullptr},
     mPanelSize(0),
@@ -175,8 +175,6 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
-    LXQtPanelApplication *app = reinterpret_cast<LXQtPanelApplication*>(qApp);
-    mSettings = app->settings();
     readSettings();
     // the old position might be on a visible screen
     ensureVisible();

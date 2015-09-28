@@ -33,6 +33,7 @@
 #include <QString>
 #include <QTimer>
 #include <QPointer>
+#include <LXQt/Settings>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 
@@ -59,6 +60,8 @@ class LXQT_PANEL_API LXQtPanel : public QFrame, public ILXQtPanel
     // for configuration dialog
     friend class ConfigPanelWidget;
     friend class ConfigPluginsWidget;
+    friend class ConfigPanelDialog;
+    friend class PanelPluginsModel;
 
 public:
     enum Alignment {
@@ -67,7 +70,7 @@ public:
         AlignmentRight  =  1
     };
 
-    LXQtPanel(const QString &configGroup, QWidget *parent = 0);
+    LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidget *parent = 0);
     virtual ~LXQtPanel();
 
     QString name() { return mConfigGroup; }
@@ -103,8 +106,6 @@ public:
     QString backgroundImage() const { return mBackgroundImage; };
     int opacity() const { return mOpacity; };
     bool hidable() const { return mHidable; }
-
-    LXQt::Settings *settings() const { return mSettings; }
 
     bool isPluginSingletonAndRunnig(QString const & pluginId) const;
 
@@ -142,6 +143,7 @@ protected:
 
 public slots:
     void showConfigDialog();
+
 private slots:
     void showAddPluginDialog();
     void realign();
@@ -188,6 +190,9 @@ private:
     QPointer<ConfigPanelDialog> mConfigDialog;
 
     void updateStyleSheet();
+
+    // settings should be kept private for security
+    LXQt::Settings *settings() const { return mSettings; }
 };
 
 

@@ -107,11 +107,11 @@ void LXQtPanelApplication::addNewPanel()
 
 LXQtPanel* LXQtPanelApplication::addPanel(const QString& name)
 {
-    LXQtPanel *panel = new LXQtPanel(name);
+    LXQtPanel *panel = new LXQtPanel(name, mSettings);
     mPanels << panel;
-    connect(panel, SIGNAL(deletedByUser(LXQtPanel*)),
-            this, SLOT(removePanel(LXQtPanel*)));
-    //reemit signals
+
+    // reemit signals
+    connect(panel, &LXQtPanel::deletedByUser, this, &LXQtPanelApplication::removePanel);
     connect(panel, &LXQtPanel::pluginAdded, this, &LXQtPanelApplication::pluginAdded);
     connect(panel, &LXQtPanel::pluginRemoved, this, &LXQtPanelApplication::pluginRemoved);
 
