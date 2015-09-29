@@ -2,7 +2,6 @@ set(PLUGIN "statusnotifier")
 
 
 find_package(dbusmenu-qt5 REQUIRED QUIET)
-include_directories(${dbusmenu-qt5_INCLUDE_DIRS})
 
 set(HEADERS
     statusnotifier.h
