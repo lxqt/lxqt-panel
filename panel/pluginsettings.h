@@ -49,10 +49,8 @@ public:
     void remove(const QString &key);
     bool contains(const QString &key) const;
 
-    int beginReadArray(const QString &prefix);
-    void beginWriteArray(const QString &prefix, int size = -1);
-    void endArray();
-    void setArrayIndex(int i);
+    QList<QMap<QString, QVariant> > readArray(const QString &prefix);
+    void setArray(const QString &prefix, const QList<QMap<QString, QVariant> > &hashList);
 
     void clear();
     void sync();

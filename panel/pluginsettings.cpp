@@ -70,32 +70,40 @@ bool PluginSettings::contains(const QString &key) const
     return ret;
 }
 
-int PluginSettings::beginReadArray(const QString &prefix)
+QList<QMap<QString, QVariant> > PluginSettings::readArray(const QString& prefix)
 {
     mSettings->beginGroup(mGroup);
-    int ret = mSettings->beginReadArray(prefix);
-    mSettings->endGroup();
-    return ret;
-}
-
-void PluginSettings::beginWriteArray(const QString &prefix, int size)
-{
-    mSettings->beginGroup(mGroup);
-    mSettings->beginWriteArray(prefix, size);
-    mSettings->endGroup();
-}
-
-void PluginSettings::endArray()
-{
-    mSettings->beginGroup(mGroup);
+    QList<QMap<QString, QVariant> > array;
+    int size = mSettings->beginReadArray(prefix);
+    for (int i = 0; i < size; ++i)
+    {
+        mSettings->setArrayIndex(i);
+        QMap<QString, QVariant> hash;
+        for (const QString &key : mSettings->childKeys())
+            hash[key] = mSettings->value(key);
+        array << hash;
+    }
     mSettings->endArray();
     mSettings->endGroup();
+    return array;
 }
 
-void PluginSettings::setArrayIndex(int i)
+void PluginSettings::setArray(const QString &prefix, const QList<QMap<QString, QVariant> > &hashList)
 {
     mSettings->beginGroup(mGroup);
-    mSettings->setArrayIndex(i);
+    mSettings->beginWriteArray(prefix);
+    int size = hashList.size();
+    for (int i = 0; i < size; ++i)
+    {
+        mSettings->setArrayIndex(i);
+        QMapIterator<QString, QVariant> it(hashList.at(i));
+        while (it.hasNext())
+        {
+            it.next();
+            mSettings->setValue(it.key(), it.value());
+        }
+    }
+    mSettings->endArray();
     mSettings->endGroup();
 }
 

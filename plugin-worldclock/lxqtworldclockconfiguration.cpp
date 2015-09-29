@@ -208,22 +208,23 @@ void LXQtWorldClockConfiguration::loadSettings()
 
     ui->timeZonesTW->setRowCount(0);
 
-    int size = settings().beginReadArray(QLatin1String("timeZones"));
-    for (int i = 0; i < size; ++i)
+    QList<QMap<QString, QVariant> > list = settings().readArray(QLatin1String("timeZones"));
+    int i = 0;
+    for (const auto &map : list)
     {
-        settings().setArrayIndex(i);
         ui->timeZonesTW->setRowCount(ui->timeZonesTW->rowCount() + 1);
 
-        QString timeZoneName = settings().value(QLatin1String("timeZone"), QString()).toString();
+        QString timeZoneName = map.value(QLatin1String("timeZone"), QString()).toString();
         if (mDefaultTimeZone.isEmpty())
             mDefaultTimeZone = timeZoneName;
 
         ui->timeZonesTW->setItem(i, 0, new QTableWidgetItem(timeZoneName));
-        ui->timeZonesTW->setItem(i, 1, new QTableWidgetItem(settings().value(QLatin1String("customName"), QString()).toString()));
+        ui->timeZonesTW->setItem(i, 1, new QTableWidgetItem(map.value(QLatin1String("customName"),
+                                                                      QString()).toString()));
 
         setBold(i, mDefaultTimeZone == timeZoneName);
+        ++i;
     }
-    settings().endArray();
 
     ui->timeZonesTW->resizeColumnsToContents();
 
@@ -359,25 +360,20 @@ void LXQtWorldClockConfiguration::saveSettings()
 
     settings().setValue(QLatin1String("customFormat"), mManualFormat);
 
-
     settings().remove(QLatin1String("timeZones"));
-
+    QList<QMap<QString, QVariant> > array;
     int size = ui->timeZonesTW->rowCount();
-    settings().beginWriteArray(QLatin1String("timeZones"), size);
     for (int i = 0; i < size; ++i)
     {
-        settings().setArrayIndex(i);
-        settings().setValue(QLatin1String("timeZone"), ui->timeZonesTW->item(i, 0)->text());
-        settings().setValue(QLatin1String("customName"), ui->timeZonesTW->item(i, 1)->text());
+        QMap<QString, QVariant> map;
+        map[QLatin1String("timeZone")] = ui->timeZonesTW->item(i, 0)->text();
+        map[QLatin1String("customName")] = ui->timeZonesTW->item(i, 1)->text();
+        array << map;
     }
-    settings().endArray();
+    settings().setArray(QLatin1String("timeZones"), array);
 
     settings().setValue(QLatin1String("defaultTimeZone"), mDefaultTimeZone);
-
-
     settings().setValue(QLatin1String("useAdvancedManualFormat"), ui->advancedManualGB->isChecked());
-
-
     settings().setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
 }
 

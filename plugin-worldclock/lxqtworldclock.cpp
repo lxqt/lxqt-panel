@@ -118,15 +118,15 @@ void LXQtWorldClock::settingsChanged()
 
     mTimeZones.clear();
 
-    int size = _settings->beginReadArray(QLatin1String("timeZones"));
-    for (int i = 0; i < size; ++i)
+    QList<QMap<QString, QVariant> > array = _settings->readArray(QLatin1String("timeZones"));
+    for (const auto &map : array)
     {
-        _settings->setArrayIndex(i);
-        QString timeZoneName = _settings->value(QLatin1String("timeZone"), QString()).toString();
+        QString timeZoneName = map.value(QLatin1String("timeZone"), QString()).toString();
         mTimeZones.append(timeZoneName);
-        mTimeZoneCustomNames[timeZoneName] = _settings->value(QLatin1String("customName"), QString()).toString();
+        mTimeZoneCustomNames[timeZoneName] = map.value(QLatin1String("customName"),
+                                                       QString()).toString();
     }
-    _settings->endArray();
+
     if (mTimeZones.isEmpty())
         mTimeZones.append(QLatin1String("local"));
 
