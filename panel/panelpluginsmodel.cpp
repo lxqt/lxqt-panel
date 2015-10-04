@@ -246,9 +246,12 @@ QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType)
     groups.sort();
 
     // Generate new section name
-    for (int i = 2; true; ++i)
-        if (!groups.contains(QStringLiteral("%1%2").arg(pluginType).arg(i)))
-            return QStringLiteral("%1%2").arg(pluginType).arg(i);
+    if (!groups.contains(QStringLiteral("%1").arg(pluginType)))
+        return QStringLiteral("%1").arg(pluginType);
+    else
+        for (int i = 2; true; ++i)
+            if (!groups.contains(QStringLiteral("%1%2").arg(pluginType).arg(i)))
+                return QStringLiteral("%1%2").arg(pluginType).arg(i);
 }
 
 void PanelPluginsModel::onActivatedIndex(QModelIndex const & index)
