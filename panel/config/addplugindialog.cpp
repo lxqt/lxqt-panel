@@ -97,10 +97,11 @@ void AddPluginDialog::filter()
     {
         const LXQt::PluginInfo &plugin = mPlugins.at(i);
 
-        QString s = QStringLiteral("%1 %2 %3 %4").arg(plugin.name(),
+        QString s = QStringLiteral("%1 %2 %3 %4 %5").arg(plugin.name(),
                                                plugin.comment(),
                                                plugin.value("Name").toString(),
-                                               plugin.value("Comment").toString());
+                                               plugin.value("Comment").toString(),
+                                               plugin.id());
         if (!s.contains(ui->searchEdit->text(), Qt::CaseInsensitive))
             continue;
 
@@ -110,10 +111,10 @@ void AddPluginDialog::filter()
         {
             item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
             item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));
-            item->setText(QStringLiteral("<b>%1</b><br>%2<br><small>%3</small>")
-                    .arg(plugin.name(), plugin.comment(), tr("(only one instance can run at a time)")));
+            item->setText(QStringLiteral("<b>%1</b> (%2)<br>%3<br><small>%4</small>")
+                    .arg(plugin.name(), plugin.id(), plugin.comment(), tr("(only one instance can run at a time)")));
         } else
-            item->setText(QStringLiteral("<b>%1</b><br>%2").arg(plugin.name(), plugin.comment()));
+            item->setText(QStringLiteral("<b>%1</b> (%2)<br>%3").arg(plugin.name(), plugin.id(), plugin.comment()));
         item->setIcon(plugin.icon(fallIco));
         item->setData(INDEX_ROLE, i);
     }
