@@ -119,9 +119,6 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, const QString &settingsFile,
         return;
     }
 
-    // Load plugin translations
-    LXQt::Translator::translatePlugin(desktopFile.id(), QLatin1String("lxqt-panel"));
-
     setObjectName(mPlugin->themeId() + "Plugin");
 
     // plugin handle for easy context menu
