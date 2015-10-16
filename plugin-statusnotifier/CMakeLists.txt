@@ -1,7 +1,7 @@
 set(PLUGIN "statusnotifier")
 
 
-find_package(dbusmenu-qt5 REQUIRED QUIET)
+find_package(dbusmenu-qt5 REQUIRED)
 
 set(HEADERS
     statusnotifier.h
@@ -30,7 +30,6 @@ qt5_add_dbus_adaptor(SOURCES
 )
 
 set(LIBRARIES
-    lxqt
     dbusmenu-qt5
 )
 
