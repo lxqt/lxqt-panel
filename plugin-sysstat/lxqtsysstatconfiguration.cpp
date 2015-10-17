@@ -62,6 +62,7 @@ namespace
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu7");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu8");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu9");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu10");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu11");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu12");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu13");
