@@ -53,6 +53,7 @@ namespace
     {
         const char * loc;
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu");
+        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu0");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu1");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu2");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu3");
@@ -76,7 +77,6 @@ namespace
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu21");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu22");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu23");
-        loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu24");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "memory");
         loc = QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "swap");
         static_cast<void>(t);//avoid unused variable warning
