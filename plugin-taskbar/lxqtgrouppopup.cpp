@@ -67,12 +67,11 @@ LXQtGroupPopup::~LXQtGroupPopup()
 void LXQtGroupPopup::dropEvent(QDropEvent *event)
 {
     qlonglong temp;
-    WId window;
     QDataStream stream(event->mimeData()->data(LXQtTaskButton::mimeDataFormat()));
     stream >> temp;
-    window = (WId) temp;
+    WId window = (WId) temp;
 
-    LXQtTaskButton *button;
+    LXQtTaskButton *button = nullptr;
     int oldIndex(0);
     // get current position of the button being dragged
     for (int i = 0; i < layout()->count(); i++)
@@ -86,29 +85,32 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
         }
     }
 
-    int newIndex = -1;
-    // find the new position to place it in
-    for (int i = 0; i < oldIndex && newIndex == -1; i++)
+    if (button != nullptr)
     {
-        QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 > event->pos().y())
-            newIndex = i;
-    }
-    const int size = layout()->count();
-    for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
-    {
-        QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 < event->pos().y())
-            newIndex = i;
-    }
+        int newIndex = -1;
+        // find the new position to place it in
+        for (int i = 0; i < oldIndex && newIndex == -1; i++)
+        {
+            QWidget *w = layout()->itemAt(i)->widget();
+            if (w && w->pos().y() + w->height() / 2 > event->pos().y())
+                newIndex = i;
+        }
+        const int size = layout()->count();
+        for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
+        {
+            QWidget *w = layout()->itemAt(i)->widget();
+            if (w && w->pos().y() + w->height() / 2 < event->pos().y())
+                newIndex = i;
+        }
 
-    if (newIndex == -1 || newIndex == oldIndex)
-        return;
+        if (newIndex == -1 || newIndex == oldIndex)
+            return;
 
-    QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
-    l->takeAt(oldIndex);
-    l->insertWidget(newIndex, button);
-    l->invalidate();
+        QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
+        l->takeAt(oldIndex);
+        l->insertWidget(newIndex, button);
+        l->invalidate();
+    }
 }
 
 void LXQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
