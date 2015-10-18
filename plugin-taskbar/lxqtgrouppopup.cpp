@@ -67,12 +67,11 @@ LXQtGroupPopup::~LXQtGroupPopup()
 void LXQtGroupPopup::dropEvent(QDropEvent *event)
 {
     qlonglong temp;
-    WId window;
     QDataStream stream(event->mimeData()->data(LXQtTaskButton::mimeDataFormat()));
     stream >> temp;
-    window = (WId) temp;
+    WId window = (WId) temp;
 
-    LXQtTaskButton *button;
+    LXQtTaskButton *button = nullptr;
     int oldIndex(0);
     // get current position of the button being dragged
     for (int i = 0; i < layout()->count(); i++)
@@ -85,6 +84,9 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
             break;
         }
     }
+
+    if (button == nullptr)
+        return;
 
     int newIndex = -1;
     // find the new position to place it in
@@ -109,6 +111,7 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
     l->takeAt(oldIndex);
     l->insertWidget(newIndex, button);
     l->invalidate();
+
 }
 
 void LXQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
