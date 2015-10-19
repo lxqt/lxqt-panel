@@ -85,32 +85,33 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
         }
     }
 
-    if (button != nullptr)
+    if (button == nullptr)
+        return;
+
+    int newIndex = -1;
+    // find the new position to place it in
+    for (int i = 0; i < oldIndex && newIndex == -1; i++)
     {
-        int newIndex = -1;
-        // find the new position to place it in
-        for (int i = 0; i < oldIndex && newIndex == -1; i++)
-        {
-            QWidget *w = layout()->itemAt(i)->widget();
-            if (w && w->pos().y() + w->height() / 2 > event->pos().y())
-                newIndex = i;
-        }
-        const int size = layout()->count();
-        for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
-        {
-            QWidget *w = layout()->itemAt(i)->widget();
-            if (w && w->pos().y() + w->height() / 2 < event->pos().y())
-                newIndex = i;
-        }
-
-        if (newIndex == -1 || newIndex == oldIndex)
-            return;
-
-        QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
-        l->takeAt(oldIndex);
-        l->insertWidget(newIndex, button);
-        l->invalidate();
+        QWidget *w = layout()->itemAt(i)->widget();
+        if (w && w->pos().y() + w->height() / 2 > event->pos().y())
+            newIndex = i;
     }
+    const int size = layout()->count();
+    for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
+    {
+        QWidget *w = layout()->itemAt(i)->widget();
+        if (w && w->pos().y() + w->height() / 2 < event->pos().y())
+            newIndex = i;
+    }
+
+    if (newIndex == -1 || newIndex == oldIndex)
+        return;
+
+    QVBoxLayout * l = qobject_cast<QVBoxLayout *>(layout());
+    l->takeAt(oldIndex);
+    l->insertWidget(newIndex, button);
+    l->invalidate();
+
 }
 
 void LXQtGroupPopup::dragEnterEvent(QDragEnterEvent *event)
