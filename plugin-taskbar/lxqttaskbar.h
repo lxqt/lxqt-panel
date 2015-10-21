@@ -42,11 +42,13 @@
 #include <QFrame>
 #include <QBoxLayout>
 #include <QMap>
+#include <lxqt-globalkeys.h>
 #include "../panel/ilxqtpanel.h"
 #include <KWindowSystem/KWindowSystem>
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/NETWM>
 
+class QSignalMapper;
 class LXQtTaskButton;
 class ElidedButtonStyle;
 
@@ -102,6 +104,9 @@ private slots:
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void onWindowAdded(WId window);
     void onWindowRemoved(WId window);
+    void registerShortcuts();
+    void shortcutRegistered();
+    void activateTask(int pos);
 
 private:
     typedef QMap<WId, LXQtTaskGroup*> windowMap_t;
@@ -114,6 +119,8 @@ private:
 private:
     QMap<WId, LXQtTaskGroup*> mKnownWindows; //!< Ids of known windows (mapping to buttons/groups)
     LXQt::GridLayout *mLayout;
+    QList<GlobalKeyShortcut::Action*> mKeys;
+    QSignalMapper *mSignalMapper;
 
     // Settings
     Qt::ToolButtonStyle mButtonStyle;

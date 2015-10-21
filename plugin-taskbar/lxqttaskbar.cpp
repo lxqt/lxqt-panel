@@ -31,6 +31,7 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QSignalMapper>
 #include <QToolButton>
 #include <QSettings>
 #include <QList>
@@ -41,6 +42,7 @@
 #include <QDebug>
 #include <QTimer>
 
+#include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 #include <XdgIcon>
 
@@ -54,6 +56,7 @@ using namespace LXQt;
 ************************************************/
 LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
+    mSignalMapper(new QSignalMapper(this)),
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mCloseOnMiddleClick(true),
     mRaiseOnCurrentDesktop(true),
@@ -83,6 +86,9 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
 
     QTimer::singleShot(0, this, SLOT(settingsChanged()));
     setAcceptDrops(true);
+
+    connect(mSignalMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &LXQtTaskBar::activateTask);
+    QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
@@ -616,4 +622,68 @@ void LXQtTaskBar::changeEvent(QEvent* event)
         mStyle->setBaseStyle(NULL);
 
     QFrame::changeEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtTaskBar::registerShortcuts()
+{
+    // Register shortcuts to switch to the task
+    // mPlaceHolder is always at position 0
+    // tasks are at positions 1..10
+    GlobalKeyShortcut::Action * gshortcut;
+    QString path;
+    QString description;
+    for (int i = 1; i <= 10; ++i)
+    {
+        path = QString("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i);
+        description = tr("Activate task %1").arg(i);
+
+        gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QStringLiteral(), path, description, this);
+
+        if (nullptr != gshortcut)
+        {
+            mKeys << gshortcut;
+            connect(gshortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtTaskBar::shortcutRegistered);
+            connect(gshortcut, &GlobalKeyShortcut::Action::activated, mSignalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+            mSignalMapper->setMapping(gshortcut, i);
+        }
+    }
+}
+
+void LXQtTaskBar::shortcutRegistered()
+{
+    GlobalKeyShortcut::Action * const shortcut = qobject_cast<GlobalKeyShortcut::Action*>(sender());
+
+    disconnect(shortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtTaskBar::shortcutRegistered);
+
+    const int i = mKeys.indexOf(shortcut);
+    Q_ASSERT(-1 != i);
+
+    if (shortcut->shortcut().isEmpty())
+    {
+        // Shortcuts come in order they were registered
+        // starting from index 0
+        const int key = (i + 1) % 10;
+        shortcut->changeShortcut(QStringLiteral("Meta+%1").arg(key));
+    }
+}
+
+void LXQtTaskBar::activateTask(int pos)
+{
+    for (int i = 1; i < mLayout->count(); ++i)
+    {
+        QWidget * o = mLayout->itemAt(i)->widget();
+        LXQtTaskGroup * g = qobject_cast<LXQtTaskGroup *>(o);
+        if (g && g->isVisible())
+        {
+            pos--;
+            if (pos == 0)
+            {
+                g->raiseApplication();
+                break;
+            }
+        }
+    }
 }
