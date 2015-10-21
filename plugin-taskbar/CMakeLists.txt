@@ -24,6 +24,7 @@ set(UIS
 
 set(LIBRARIES
     lxqt
+    lxqt-globalkeys
     Qt5Xdg
 )
 
