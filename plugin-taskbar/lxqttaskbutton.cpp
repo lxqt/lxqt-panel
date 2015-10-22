@@ -157,31 +157,31 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
  ************************************************/
 void LXQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (event->mimeData()->hasFormat(mimeDataFormat()))
+    if (!event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        event->ignore();
-        return;
+        mDNDTimer->start();
     }
-
-    mDNDTimer->start();
 
     // It must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
     // on the other hand drop and dragmove events of parent widget won't be called
-    event->accept();
+    event->acceptProposedAction();
     QToolButton::dragEnterEvent(event);
 }
 
 void LXQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     mDNDTimer->stop();
-    event->ignore();
     QToolButton::dragLeaveEvent(event);
 }
 
 void LXQtTaskButton::dropEvent(QDropEvent *event)
 {
     mDNDTimer->stop();
-    event->ignore();
+    if (event->mimeData()->hasFormat(mimeDataFormat()))
+        emit dropped(event);
+    else
+        event->ignore();
+    setAttribute(Qt::WA_UnderMouse, false);
     QToolButton::dropEvent(event);
 }
 

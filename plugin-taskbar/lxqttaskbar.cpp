@@ -156,46 +156,55 @@ void LXQtTaskBar::dropEvent(QDropEvent* event)
         event->ignore();
         return;
     }
+    buttonDropped(nullptr, event);
+    QWidget::dropEvent(event);
+}
 
+/************************************************
+
+ ************************************************/
+void LXQtTaskBar::buttonDropped(LXQtTaskGroup * dst, QDropEvent* event)
+{
     QString data;
     QDataStream stream(event->mimeData()->data(LXQtTaskGroup::mimeDataFormat()));
     stream >> data;
 
-    LXQtTaskGroup *group = mGroupsHash.value(data, NULL);
-    if (!group)
+    LXQtTaskGroup *src_group = mGroupsHash.value(data, nullptr);
+    if (!src_group)
     {
         qDebug() << "Dropped invalid";
         return;
     }
 
-    int droppedIndex = mLayout->indexOf(group);
-    int newPos = -1;
+    const int src_index = mLayout->indexOf(src_group);
     const int size = mLayout->count();
-    if (mPlugin->panel()->isHorizontal())
+    //dst is nullptr in case the drop occured on empty space in taskbar
+    int dst_index;
+    if (nullptr == dst)
     {
-        for (int i = 0; i < droppedIndex && newPos == -1; i++)
-            if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 > event->pos().x())
-                newPos = i;
-
-        for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
-            if (mLayout->itemAt(i)->widget()->x() + mLayout->itemAt(i)->widget()->width() / 2 < event->pos().x())
-                newPos = i;
-    }
-    else
+        //moving to the end (dst_index will always be lower than src_index)
+        dst_index = size;
+    } else
     {
-        for (int i = 0; i < droppedIndex && newPos == -1; i++)
-            if (mLayout->itemAt(i)->widget()->y() + mLayout->itemAt(i)->widget()->height() / 2 > event->pos().y())
-                newPos = i;
-
-        for (int i = size - 1; i > droppedIndex && newPos == -1; i--)
-            if (mLayout->itemAt(i)->widget()->y() + mLayout->itemAt(i)->widget()->height() / 2 < event->pos().y())
-                newPos = i;
+        dst_index = mLayout->indexOf(dst);
+        if (mPlugin->panel()->isHorizontal())
+        {
+            if (dst->rect().center().x() < event->pos().x())
+                ++dst_index;
+        } else
+        {
+            if (dst->rect().center().y() < event->pos().y())
+                ++dst_index;
+        }
     }
 
-    if (newPos == -1 || droppedIndex == newPos)
+    if (dst_index == src_index)
         return;
 
-    mLayout->moveItem(droppedIndex, newPos);
+    //moving lower index to higher one => consider as the QList::move => insert(to, takeAt(from))
+    if (src_index < dst_index)
+        --dst_index;
+    mLayout->moveItem(src_index, dst_index);
     mLayout->invalidate();
 
     QWidget::dropEvent(event);
@@ -229,6 +238,9 @@ void LXQtTaskBar::addWindow(WId window, QString const & groupId)
         connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
         connect(group, &LXQtTaskGroup::popupShown, this, &LXQtTaskBar::groupPopupShown);
         connect(group, SIGNAL(windowDisowned(WId)), this, SLOT(refreshTaskList()));
+        connect(group, &LXQtTaskButton::dropped, this, [this] (QDropEvent * event) {
+            buttonDropped(qobject_cast<LXQtTaskGroup *>(sender()), event);
+        });
 
         mLayout->addWidget(group);
         mGroupsHash.insert(groupId, group);

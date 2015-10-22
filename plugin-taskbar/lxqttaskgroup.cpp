@@ -555,8 +555,8 @@ void LXQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
     if (!event->mimeData()->hasFormat(mimeDataFormat()))
     {
         setPopupVisible(true);
-        LXQtTaskButton::dragEnterEvent(event);
     }
+    LXQtTaskButton::dragEnterEvent(event);
 }
 
 /************************************************

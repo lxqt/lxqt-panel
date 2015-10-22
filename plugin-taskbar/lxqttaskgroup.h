@@ -73,8 +73,6 @@ public:
 
     void setPopupVisible(bool visible = true, bool fast = false);
 
-    static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskgroup"); }
-
 protected:
     QMimeData * mimeData();
 
