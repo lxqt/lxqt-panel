@@ -550,7 +550,6 @@ void LXQtTaskGroup::enterEvent(QEvent *event)
  ************************************************/
 void LXQtTaskGroup::dragEnterEvent(QDragEnterEvent *event)
 {
-    sDraggging = true;
     // only show the popup if we aren't dragging a taskgroup
     if (!event->mimeData()->hasFormat(mimeDataFormat()))
     {
@@ -568,8 +567,6 @@ void LXQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
     // do not close the popup
     if (!sDraggging)
         setPopupVisible(false);
-    else
-        sDraggging = false;
     LXQtTaskButton::dragLeaveEvent(event);
 }
 
