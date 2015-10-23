@@ -140,8 +140,10 @@ bool LXQtTaskBar::acceptWindow(WId window) const
 void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 {
     if (event->mimeData()->hasFormat(LXQtTaskGroup::mimeDataFormat()))
+    {
         event->acceptProposedAction();
-    else
+        buttonMove(nullptr, LXQtTaskGroup::mimeDataData(event->mimeData()), event->pos());
+    } else
         event->ignore();
     QWidget::dragEnterEvent(event);
 }
@@ -149,27 +151,19 @@ void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 /************************************************
 
  ************************************************/
-void LXQtTaskBar::dropEvent(QDropEvent* event)
+void LXQtTaskBar::dragMoveEvent(QDragMoveEvent * event)
 {
-    if (!event->mimeData()->hasFormat(LXQtTaskGroup::mimeDataFormat()))
-    {
-        event->ignore();
-        return;
-    }
-    buttonDropped(nullptr, event);
-    QWidget::dropEvent(event);
+    //we don't get any dragMoveEvents if dragEnter wasn't accepted
+    buttonMove(nullptr, LXQtTaskGroup::mimeDataData(event->mimeData()), event->pos());
+    QWidget::dragMoveEvent(event);
 }
 
 /************************************************
 
  ************************************************/
-void LXQtTaskBar::buttonDropped(LXQtTaskGroup * dst, QDropEvent* event)
+void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, QString const & srcWindow, QPoint const & pos)
 {
-    QString data;
-    QDataStream stream(event->mimeData()->data(LXQtTaskGroup::mimeDataFormat()));
-    stream >> data;
-
-    LXQtTaskGroup *src_group = mGroupsHash.value(data, nullptr);
+    LXQtTaskGroup *src_group = mGroupsHash.value(srcWindow, nullptr);
     if (!src_group)
     {
         qDebug() << "Dropped invalid";
@@ -178,36 +172,49 @@ void LXQtTaskBar::buttonDropped(LXQtTaskGroup * dst, QDropEvent* event)
 
     const int src_index = mLayout->indexOf(src_group);
     const int size = mLayout->count();
+    Q_ASSERT(0 < size);
     //dst is nullptr in case the drop occured on empty space in taskbar
     int dst_index;
     if (nullptr == dst)
     {
-        //moving to the end (dst_index will always be lower than src_index)
+        //moving based on taskbar (not signaled by button)
+        QRect occupied = mLayout->occupiedGeometry();
+        QRect last_empty_row{occupied};
+        if (mPlugin->panel()->isHorizontal())
+        {
+            last_empty_row.setTopLeft(mLayout->itemAt(size - 1)->geometry().topRight());
+        } else
+        {
+            last_empty_row.setTopLeft(mLayout->itemAt(size - 1)->geometry().bottomLeft());
+        }
+
+        if (occupied.contains(pos) && !last_empty_row.contains(pos))
+            return;
+
         dst_index = size;
     } else
     {
+        //moving based on signal from child button
         dst_index = mLayout->indexOf(dst);
         if (mPlugin->panel()->isHorizontal())
         {
-            if (dst->rect().center().x() < event->pos().x())
+            if (dst->rect().center().x() < pos.x())
                 ++dst_index;
         } else
         {
-            if (dst->rect().center().y() < event->pos().y())
+            if (dst->rect().center().y() < pos.y())
                 ++dst_index;
         }
     }
 
-    if (dst_index == src_index)
-        return;
-
     //moving lower index to higher one => consider as the QList::move => insert(to, takeAt(from))
     if (src_index < dst_index)
         --dst_index;
-    mLayout->moveItem(src_index, dst_index);
-    mLayout->invalidate();
 
-    QWidget::dropEvent(event);
+    if (dst_index == src_index)
+        return;
+
+    mLayout->moveItem(src_index, dst_index, true);
 }
 
 /************************************************
@@ -238,8 +245,8 @@ void LXQtTaskBar::addWindow(WId window, QString const & groupId)
         connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
         connect(group, &LXQtTaskGroup::popupShown, this, &LXQtTaskBar::groupPopupShown);
         connect(group, SIGNAL(windowDisowned(WId)), this, SLOT(refreshTaskList()));
-        connect(group, &LXQtTaskButton::dropped, this, [this] (QDropEvent * event) {
-            buttonDropped(qobject_cast<LXQtTaskGroup *>(sender()), event);
+        connect(group, &LXQtTaskButton::dragging, this, [this] (QString const & mimeWindow, QPoint const & pos) {
+            buttonMove(qobject_cast<LXQtTaskGroup *>(sender()), mimeWindow, pos);
         });
 
         mLayout->addWidget(group);

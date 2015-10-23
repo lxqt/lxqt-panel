@@ -85,6 +85,7 @@ public:
 
     void refreshIconGeometry(QRect const & geom);
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
+    static QString mimeDataData(QMimeData const * mime);
     /*! \return true if this buttom received DragEnter event (and no DragLeave event yet)
      * */
     bool hasDragAndDropHover() const;
@@ -104,6 +105,7 @@ public slots:
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent * event);
     virtual void dragLeaveEvent(QDragLeaveEvent *event);
     virtual void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
@@ -134,8 +136,8 @@ private slots:
     void activateWithDraggable();
 
 signals:
-    void dropped(QDropEvent * event);
-    void dragging(bool executing = false);
+    void dropped(QString const & mimeWindow, QPoint const & pos);
+    void dragging(QString const & mimeWindow, QPoint const & pos);
 };
 
 typedef QHash<WId,LXQtTaskButton*> LXQtTaskButtonHash;

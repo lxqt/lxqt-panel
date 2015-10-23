@@ -82,7 +82,7 @@ public slots:
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
-    virtual void dropEvent(QDropEvent * event);
+    virtual void dragMoveEvent(QDragMoveEvent * event);
 
 private slots:
     void refreshIconGeometry();
@@ -95,7 +95,7 @@ private slots:
 
 private:
     void addWindow(WId window, QString const & groupId);
-    void buttonDropped(LXQtTaskGroup * dst, QDropEvent * event);
+    void buttonMove(LXQtTaskGroup * dst, QString const & srcWindow, QPoint const & pos);
 
 private:
     QHash<QString, LXQtTaskGroup*> mGroupsHash;

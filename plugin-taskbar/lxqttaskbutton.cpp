@@ -73,6 +73,17 @@ void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, 
 /************************************************
 
 ************************************************/
+QString LXQtTaskButton::mimeDataData(QMimeData const * mime)
+{
+    QString data;
+    QDataStream stream(mime->data(mimeDataFormat()));
+    stream >> data;
+    return data;
+}
+
+/************************************************
+
+************************************************/
 LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
@@ -157,15 +168,28 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
  ************************************************/
 void LXQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (!event->mimeData()->hasFormat(mimeDataFormat()))
+    // It must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
+    // on the other hand drop and dragmove events of parent widget won't be called
+    event->acceptProposedAction();
+    if (event->mimeData()->hasFormat(mimeDataFormat()))
+    {
+        emit dragging(mimeDataData(event->mimeData()), event->pos());
+        setAttribute(Qt::WA_UnderMouse, false);
+    } else
     {
         mDNDTimer->start();
     }
 
-    // It must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
-    // on the other hand drop and dragmove events of parent widget won't be called
-    event->acceptProposedAction();
     QToolButton::dragEnterEvent(event);
+}
+
+void LXQtTaskButton::dragMoveEvent(QDragMoveEvent * event)
+{
+    if (event->mimeData()->hasFormat(mimeDataFormat()))
+    {
+        emit dragging(mimeDataData(event->mimeData()), event->pos());
+        setAttribute(Qt::WA_UnderMouse, false);
+    }
 }
 
 void LXQtTaskButton::dragLeaveEvent(QDragLeaveEvent *event)
@@ -178,10 +202,10 @@ void LXQtTaskButton::dropEvent(QDropEvent *event)
 {
     mDNDTimer->stop();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
-        emit dropped(event);
-    else
-        event->ignore();
-    setAttribute(Qt::WA_UnderMouse, false);
+    {
+        emit dropped(mimeDataData(event->mimeData()), event->pos());
+        setAttribute(Qt::WA_UnderMouse, false);
+    }
     QToolButton::dropEvent(event);
 }
 
