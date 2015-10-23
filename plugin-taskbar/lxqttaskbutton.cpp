@@ -265,12 +265,8 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData());
-
-    //fixme when vertical panel, pixmap is empty
-    QPixmap pixmap = grab();
-    drag->setPixmap(pixmap);
-    drag->setHotSpot(QPoint(mapTo(this, event->pos())));
-
+    QIcon ico = icon();
+    drag->setPixmap(ico.pixmap(ico.actualSize({32, 32})));
     sDraggging = true;
     drag->exec();
 
