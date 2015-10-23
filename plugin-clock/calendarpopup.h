@@ -42,9 +42,6 @@ public:
 
     void show();
 
-protected:
-    virtual bool event(QEvent* );
-
 private:
     QCalendarWidget *cal;
 };

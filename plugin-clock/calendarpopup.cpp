@@ -30,7 +30,7 @@
 #include <QEvent>
 
 CalendarPopup::CalendarPopup(QWidget *parent):
-    QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
+    QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setLayout(new QHBoxLayout(this));
     layout()->setMargin(1);
@@ -49,14 +49,6 @@ void CalendarPopup::show()
     cal->setSelectedDate(QDate::currentDate());
     activateWindow();
     QDialog::show();
-}
-
-bool CalendarPopup::event(QEvent *event)
-{
-    if (event->type() == QEvent::WindowDeactivate)
-        hide();
-
-    return QDialog::event(event);
 }
 
 void CalendarPopup::setFirstDayOfWeek(Qt::DayOfWeek wday)
