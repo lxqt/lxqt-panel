@@ -556,7 +556,7 @@ void LXQtWorldClockPopup::show()
 
 bool LXQtWorldClockPopup::event(QEvent *event)
 {
-    if (event->type() == QEvent::WindowDeactivate)
+    if (event->type() == QEvent::Close)
         emit deactivated();
 
     return QDialog::event(event);
