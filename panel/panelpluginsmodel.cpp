@@ -96,7 +96,7 @@ QStringList PanelPluginsModel::pluginNames() const
     QStringList names;
     for (auto const & p : mPlugins)
         names.append(p.first);
-    return std::move(names);
+    return names;
 }
 
 QList<Plugin *> PanelPluginsModel::plugins() const
@@ -105,7 +105,7 @@ QList<Plugin *> PanelPluginsModel::plugins() const
     for (auto const & p : mPlugins)
         if (!p.second.isNull())
             plugins.append(p.second.data());
-    return std::move(plugins);
+    return plugins;
 }
 
 Plugin* PanelPluginsModel::pluginByName(QString name) const
