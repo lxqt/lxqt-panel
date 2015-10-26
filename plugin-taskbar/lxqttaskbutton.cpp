@@ -255,7 +255,20 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData());
     QIcon ico = icon();
-    drag->setPixmap(ico.pixmap(ico.actualSize({32, 32})));
+    QPixmap img = ico.pixmap(ico.actualSize({32, 32}));
+    drag->setPixmap(img);
+    switch (parentTaskBar()->panel()->position())
+    {
+        case ILXQtPanel::PositionLeft:
+        case ILXQtPanel::PositionTop:
+            drag->setHotSpot({0, 0});
+            break;
+        case ILXQtPanel::PositionRight:
+        case ILXQtPanel::PositionBottom:
+            drag->setHotSpot(img.rect().bottomRight());
+            break;
+    }
+
     sDraggging = true;
     drag->exec();
 
