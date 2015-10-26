@@ -163,13 +163,13 @@ void LXQtTaskBar::dragMoveEvent(QDragMoveEvent * event)
  ************************************************/
 void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint const & pos)
 {
-    if (!src)
+    int src_index;
+    if (!src || -1 == (src_index = mLayout->indexOf(src)))
     {
         qDebug() << "Dropped invalid";
         return;
     }
 
-    const int src_index = mLayout->indexOf(src);
     const int size = mLayout->count();
     Q_ASSERT(0 < size);
     //dst is nullptr in case the drop occured on empty space in taskbar
