@@ -73,17 +73,6 @@ void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, 
 /************************************************
 
 ************************************************/
-QString LXQtTaskButton::mimeDataData(QMimeData const * mime)
-{
-    QString data;
-    QDataStream stream(mime->data(mimeDataFormat()));
-    stream >> data;
-    return data;
-}
-
-/************************************************
-
-************************************************/
 LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget *parent) :
     QToolButton(parent),
     mWindow(window),
@@ -173,7 +162,7 @@ void LXQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
     event->acceptProposedAction();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dragging(mimeDataData(event->mimeData()), event->pos());
+        emit dragging(event->source(), event->pos());
         setAttribute(Qt::WA_UnderMouse, false);
     } else
     {
@@ -187,7 +176,7 @@ void LXQtTaskButton::dragMoveEvent(QDragMoveEvent * event)
 {
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dragging(mimeDataData(event->mimeData()), event->pos());
+        emit dragging(event->source(), event->pos());
         setAttribute(Qt::WA_UnderMouse, false);
     }
 }
@@ -203,7 +192,7 @@ void LXQtTaskButton::dropEvent(QDropEvent *event)
     mDNDTimer->stop();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dropped(mimeDataData(event->mimeData()), event->pos());
+        emit dropped(event->source(), event->pos());
         setAttribute(Qt::WA_UnderMouse, false);
     }
     QToolButton::dropEvent(event);

@@ -95,7 +95,7 @@ private slots:
 
 private:
     void addWindow(WId window, QString const & groupId);
-    void buttonMove(LXQtTaskGroup * dst, QString const & srcWindow, QPoint const & pos);
+    void buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint const & pos);
 
 private:
     QHash<QString, LXQtTaskGroup*> mGroupsHash;
