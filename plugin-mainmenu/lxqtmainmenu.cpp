@@ -63,8 +63,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     mMenu(0),
-    mShortcut(0),
-    mLockCascadeChanges(false)
+    mShortcut(0)
 {
 #ifdef HAVE_MENU_CACHE
     mMenuCache = NULL;
@@ -84,8 +83,18 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     settingsChanged();
 
-    connect(mShortcut, SIGNAL(activated()), &mDelayedPopup, SLOT(start()));
-    connect(mShortcut, SIGNAL(shortcutChanged(QString,QString)), this, SLOT(shortcutChanged(QString,QString)));
+    mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show/hide main menu"), this);
+    if (mShortcut)
+    {
+        connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
+            if (mShortcut->shortcut().isEmpty())
+                mShortcut->changeShortcut(DEFAULT_SHORTCUT);
+            else
+                mShortcutSeq = QKeySequence(mShortcut->shortcut());
+        });
+        connect(mShortcut, SIGNAL(activated()), &mDelayedPopup, SLOT(start()));
+        connect(mShortcut, SIGNAL(shortcutChanged(QString,QString)), this, SLOT(shortcutChanged(QString,QString)));
+    }
 }
 
 
@@ -124,13 +133,8 @@ void LXQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString
 {
     if (!newShortcut.isEmpty())
     {
-        mLockCascadeChanges = true;
-
-        settings()->setValue("dialog/shortcut", newShortcut);
-        settings()->sync();
         mShortcutSeq = QKeySequence(newShortcut);
 
-        mLockCascadeChanges = false;
     }
 }
 
@@ -161,9 +165,6 @@ void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
  ************************************************/
 void LXQtMainMenu::settingsChanged()
 {
-    if (mLockCascadeChanges)
-        return;
-
     if (settings()->value("showText", false).toBool())
     {
         mButton.setText(settings()->value("text", "Start").toString());
@@ -212,18 +213,6 @@ void LXQtMainMenu::settingsChanged()
         }
 #endif
     }
-
-    QString shortcut = settings()->value("shortcut", DEFAULT_SHORTCUT).toString();
-    if (shortcut.isEmpty())
-        shortcut = DEFAULT_SHORTCUT;
-
-    if (!mShortcut)
-        mShortcut = GlobalKeyShortcut::Client::instance()->addAction(shortcut, QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show/hide main menu"), this);
-    else if (mShortcut->shortcut() != shortcut)
-    {
-        mShortcut->changeShortcut(shortcut);
-    }
-    mShortcutSeq = QKeySequence(shortcut);
 
     setMenuFontSize();
 
@@ -301,7 +290,7 @@ void LXQtMainMenu::setMenuFontSize()
  ************************************************/
 QDialog *LXQtMainMenu::configureDialog()
 {
-    return new LXQtMainMenuConfiguration(*settings(), DEFAULT_SHORTCUT);
+    return new LXQtMainMenuConfiguration(*settings(), mShortcut, DEFAULT_SHORTCUT);
 }
 /************************************************
 

@@ -40,12 +40,16 @@ namespace Ui {
     class LXQtMainMenuConfiguration;
 }
 
+namespace GlobalKeyShortcut {
+    class Action;
+}
+
 class LXQtMainMenuConfiguration : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtMainMenuConfiguration(QSettings &settings, const QString &defaultShortcut, QWidget *parent = 0);
+    explicit LXQtMainMenuConfiguration(QSettings &settings, GlobalKeyShortcut::Action * shortcut, const QString &defaultShortcut, QWidget *parent = 0);
     ~LXQtMainMenuConfiguration();
 
 private:
@@ -53,8 +57,11 @@ private:
     QSettings &mSettings;
     LXQt::SettingsCache mOldSettings;
     QString mDefaultShortcut;
+    GlobalKeyShortcut::Action * mShortcut;
 
 private slots:
+    void globalShortcutChanged(const QString &oldShortcut, const QString &newShortcut);
+    void shortcutChanged(const QString &value);
     /*
       Saves settings in conf file.
     */
@@ -63,7 +70,6 @@ private slots:
     void textButtonChanged(const QString &value);
     void showTextChanged(bool value);
     void chooseMenuFile();
-    void shortcutChanged(const QString &value);
     void shortcutReset();
     void customFontChanged(bool value);
     void customFontSizeChanged(int value);

@@ -95,7 +95,6 @@ private:
     XdgMenu mXdgMenu;
 #endif
 
-    bool mLockCascadeChanges;
     QTimer mDelayedPopup;
     QTimer mHideTimer;
     QKeySequence mShortcutSeq;
