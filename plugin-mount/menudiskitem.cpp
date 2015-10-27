@@ -89,7 +89,9 @@ void MenuDiskItem::setMountStatus(bool mounted)
 
 void MenuDiskItem::updateMountStatus()
 {
-    static const QIcon icon = XdgIcon::fromTheme(mDevice.icon(), QStringLiteral("drive-removable-media"));
+    //Note: don't use the QStringLiteral here as it is causing a SEGFAULT in static finalization time
+    //(the string is released upon our *.so removal, but the reference is still in held in libqtxdg...)
+    static const QIcon icon = XdgIcon::fromTheme(mDevice.icon(), QLatin1String("drive-removable-media"));
 
     if (mDevice.isValid())
     {
