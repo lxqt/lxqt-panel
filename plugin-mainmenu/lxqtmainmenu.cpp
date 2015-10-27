@@ -89,11 +89,8 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
         connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
             if (mShortcut->shortcut().isEmpty())
                 mShortcut->changeShortcut(DEFAULT_SHORTCUT);
-            else
-                mShortcutSeq = QKeySequence(mShortcut->shortcut());
         });
-        connect(mShortcut, SIGNAL(activated()), &mDelayedPopup, SLOT(start()));
-        connect(mShortcut, SIGNAL(shortcutChanged(QString,QString)), this, SLOT(shortcutChanged(QString,QString)));
+        connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] { if (!mHideTimer.isActive()) mDelayedPopup.start(); });
     }
 }
 
@@ -119,25 +116,11 @@ LXQtMainMenu::~LXQtMainMenu()
  ************************************************/
 void LXQtMainMenu::showHideMenu()
 {
-
-    if (mMenu && (mMenu->isVisible() || mHideTimer.isActive()))
+    if (mMenu && mMenu->isVisible())
         mMenu->hide();
     else
         showMenu();
 }
-
-/************************************************
-
- ************************************************/
-void LXQtMainMenu::shortcutChanged(const QString &/*oldShortcut*/, const QString &newShortcut)
-{
-    if (!newShortcut.isEmpty())
-    {
-        mShortcutSeq = QKeySequence(newShortcut);
-
-    }
-}
-
 
 /************************************************
 
@@ -322,8 +305,9 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         {
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-            if(mShortcutSeq == QKeySequence(keyEvent->modifiers() + keyEvent->key()))
+            if (keyEvent->modifiers() & ~Qt::ShiftModifier)
             {
+                mHideTimer.start();
                 mMenu->hide(); // close the app menu
                 return true;
             }
