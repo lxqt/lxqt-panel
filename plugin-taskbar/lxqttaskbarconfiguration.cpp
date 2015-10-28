@@ -52,7 +52,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(QSettings &settings, QWidget 
     //Note: in KWindowSystem desktops are numbered from 1..N
     const int desk_cnt = KWindowSystem::numberOfDesktops();
     for (int i = 1; desk_cnt >= i; ++i)
-        ui->showDesktopNumCB->addItem(QStringLiteral("%1 - %2").arg(i).arg(KWindowSystem::desktopName(i)), i);
+        ui->showDesktopNumCB->addItem(QString("%1 - %2").arg(i).arg(KWindowSystem::desktopName(i)), i);
 
     loadSettings();
 

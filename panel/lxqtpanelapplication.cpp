@@ -39,16 +39,16 @@
 LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     : LXQt::Application(argc, argv, true)
 {
-    QCoreApplication::setApplicationName(QStringLiteral("lxqt-panel"));
+    QCoreApplication::setApplicationName(QLatin1String("lxqt-panel"));
     QCoreApplication::setApplicationVersion(LXQT_VERSION);
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(QStringLiteral("LXQt panel"));
+    parser.setApplicationDescription(QLatin1String("LXQt panel"));
     parser.addHelpOption();
     parser.addVersionOption();
 
     QCommandLineOption configFileOption(QStringList()
-            << QStringLiteral("c") << QStringLiteral("config") << QStringLiteral("configfile"),
+            << QLatin1String("c") << QLatin1String("config") << QLatin1String("configfile"),
             QCoreApplication::translate("main", "Use alternate configuration file."),
             QCoreApplication::translate("main", "Configuration file"));
     parser.addOption(configFileOption);
@@ -58,7 +58,7 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     const QString configFile = parser.value(configFileOption);
 
     if (configFile.isEmpty())
-        mSettings = new LXQt::Settings(QStringLiteral("panel"), this);
+        mSettings = new LXQt::Settings(QLatin1String("panel"), this);
     else
         mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 

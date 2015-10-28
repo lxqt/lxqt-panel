@@ -49,7 +49,7 @@ public:
     ~LXQtMountPlugin();
 
     virtual QWidget *widget() { return mButton; }
-    virtual QString themeId() const { return QStringLiteral("LXQtMount"); }
+    virtual QString themeId() const { return QLatin1String("LXQtMount"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
 
     Popup *popup() { return mPopup; }

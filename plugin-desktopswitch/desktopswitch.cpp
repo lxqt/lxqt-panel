@@ -41,7 +41,7 @@
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
 
-#define DEFAULT_SHORTCUT_TEMPLATE QStringLiteral("Control+F%1")
+static const QString DEFAULT_SHORTCUT_TEMPLATE("Control+F%1");
 
 DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -84,7 +84,7 @@ void DesktopSwitch::registerShortcuts()
         path = QString("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
         description = tr("Switch to desktop %1").arg(i + 1);
 
-        gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QStringLiteral(), path, description, this);
+        gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QString(), path, description, this);
         if (nullptr != gshortcut)
         {
             m_keys << gshortcut;
