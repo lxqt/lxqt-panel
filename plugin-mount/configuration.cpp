@@ -37,9 +37,9 @@ Configuration::Configuration(QSettings &settings, QWidget *parent) :
     ui(new Ui::Configuration)
 {
     ui->setupUi(this);
-    ui->devAddedCombo->addItem(tr("Popup menu"), QStringLiteral(ACT_SHOW_MENU));
-    ui->devAddedCombo->addItem(tr("Show info"),  QStringLiteral(ACT_SHOW_INFO));
-    ui->devAddedCombo->addItem(tr("Do nothing"), QStringLiteral(ACT_NOTHING));
+    ui->devAddedCombo->addItem(tr("Popup menu"), QLatin1String(ACT_SHOW_MENU));
+    ui->devAddedCombo->addItem(tr("Show info"),  QLatin1String(ACT_SHOW_INFO));
+    ui->devAddedCombo->addItem(tr("Do nothing"), QLatin1String(ACT_NOTHING));
 
     loadSettings();
     connect(ui->devAddedCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
@@ -54,12 +54,12 @@ Configuration::~Configuration()
 
 void Configuration::loadSettings()
 {
-    QVariant value = settings().value(QStringLiteral(CFG_KEY_ACTION), QStringLiteral(ACT_SHOW_INFO));
+    QVariant value = settings().value(QLatin1String(CFG_KEY_ACTION), QLatin1String(ACT_SHOW_INFO));
     setComboboxIndexByData(ui->devAddedCombo, value, 1);
 }
 
 void Configuration::devAddedChanged(int index)
 {
     QString s = ui->devAddedCombo->itemData(index).toString();
-    settings().setValue(QStringLiteral(CFG_KEY_ACTION), s);
+    settings().setValue(QLatin1String(CFG_KEY_ACTION), s);
 }

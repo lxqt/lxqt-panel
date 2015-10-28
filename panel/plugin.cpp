@@ -199,34 +199,34 @@ namespace
     // to be not stripped (as unused/unreferenced) in static linking time
     static plugin_tuple_t const static_plugins[] = {
 #if defined(WITH_CLOCK_PLUGIN)
-        std::make_tuple(QStringLiteral("clock"), plugin_ptr_t{new LXQtClockPluginLibrary}, loadPluginTranslation_clock_helper),// clock
+        std::make_tuple(QLatin1String("clock"), plugin_ptr_t{new LXQtClockPluginLibrary}, loadPluginTranslation_clock_helper),// clock
 #endif
 #if defined(WITH_DESKTOPSWITCH_PLUGIN)
-        std::make_tuple(QStringLiteral("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary}, loadPluginTranslation_desktopswitch_helper),// desktopswitch
+        std::make_tuple(QLatin1String("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary}, loadPluginTranslation_desktopswitch_helper),// desktopswitch
 #endif
 #if defined(WITH_MAINMENU_PLUGIN)
-        std::make_tuple(QStringLiteral("mainmenu"), plugin_ptr_t{new LXQtMainMenuPluginLibrary}, loadPluginTranslation_mainmenu_helper),// mainmenu
+        std::make_tuple(QLatin1String("mainmenu"), plugin_ptr_t{new LXQtMainMenuPluginLibrary}, loadPluginTranslation_mainmenu_helper),// mainmenu
 #endif
 #if defined(WITH_QUICKLAUNCH_PLUGIN)
-        std::make_tuple(QStringLiteral("quicklaunch"), plugin_ptr_t{new LXQtQuickLaunchPluginLibrary}, loadPluginTranslation_quicklaunch_helper),// quicklaunch
+        std::make_tuple(QLatin1String("quicklaunch"), plugin_ptr_t{new LXQtQuickLaunchPluginLibrary}, loadPluginTranslation_quicklaunch_helper),// quicklaunch
 #endif
 #if defined(WITH_SHOWDESKTOP_PLUGIN)
-        std::make_tuple(QStringLiteral("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary}, loadPluginTranslation_showdesktop_helper),// showdesktop
+        std::make_tuple(QLatin1String("showdesktop"), plugin_ptr_t{new ShowDesktopLibrary}, loadPluginTranslation_showdesktop_helper),// showdesktop
 #endif
 #if defined(WITH_SPACER_PLUGIN)
-        std::make_tuple(QStringLiteral("spacer"), plugin_ptr_t{new SpacerPluginLibrary}, loadPluginTranslation_spacer_helper),// spacer
+        std::make_tuple(QLatin1String("spacer"), plugin_ptr_t{new SpacerPluginLibrary}, loadPluginTranslation_spacer_helper),// spacer
 #endif
 #if defined(WITH_STATUSNOTIFIER_PLUGIN)
-        std::make_tuple(QStringLiteral("statusnotifier"), plugin_ptr_t{new StatusNotifierLibrary}, loadPluginTranslation_statusnotifier_helper),// statusnotifier
+        std::make_tuple(QLatin1String("statusnotifier"), plugin_ptr_t{new StatusNotifierLibrary}, loadPluginTranslation_statusnotifier_helper),// statusnotifier
 #endif
 #if defined(WITH_TASKBAR_PLUGIN)
-        std::make_tuple(QStringLiteral("taskbar"), plugin_ptr_t{new LXQtTaskBarPluginLibrary}, loadPluginTranslation_taskbar_helper),// taskbar
+        std::make_tuple(QLatin1String("taskbar"), plugin_ptr_t{new LXQtTaskBarPluginLibrary}, loadPluginTranslation_taskbar_helper),// taskbar
 #endif
 #if defined(WITH_TRAY_PLUGIN)
-        std::make_tuple(QStringLiteral("tray"), plugin_ptr_t{new LXQtTrayPluginLibrary}, loadPluginTranslation_tray_helper),// tray
+        std::make_tuple(QLatin1String("tray"), plugin_ptr_t{new LXQtTrayPluginLibrary}, loadPluginTranslation_tray_helper),// tray
 #endif
 #if defined(WITH_WORLDCLOCK_PLUGIN)
-        std::make_tuple(QStringLiteral("worldclock"), plugin_ptr_t{new LXQtWorldClockLibrary}, loadPluginTranslation_worldclock_helper),// worldclock
+        std::make_tuple(QLatin1String("worldclock"), plugin_ptr_t{new LXQtWorldClockLibrary}, loadPluginTranslation_worldclock_helper),// worldclock
 #endif
     };
     static constexpr plugin_tuple_t const * const plugins_begin = static_plugins;
@@ -408,7 +408,7 @@ QMenu *Plugin::popupMenu() const
     if (mPlugin->flags().testFlag(ILXQtPanelPlugin::HaveConfigDialog))
     {
         QAction* configAction = new QAction(
-            XdgIcon::fromTheme(QStringLiteral("preferences-other")),
+            XdgIcon::fromTheme(QLatin1String("preferences-other")),
             tr("Configure \"%1\"").arg(name), menu);
         menu->addAction(configAction);
         connect(configAction, SIGNAL(triggered()), this, SLOT(showConfigureDialog()));
@@ -421,7 +421,7 @@ QMenu *Plugin::popupMenu() const
     menu->addSeparator();
 
     QAction* removeAction = new QAction(
-        XdgIcon::fromTheme(QStringLiteral("list-remove")),
+        XdgIcon::fromTheme(QLatin1String("list-remove")),
         tr("Remove \"%1\"").arg(name), menu);
     menu->addAction(removeAction);
     connect(removeAction, SIGNAL(triggered()), this, SLOT(requestRemove()));

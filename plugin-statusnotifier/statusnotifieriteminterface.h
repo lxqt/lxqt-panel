@@ -133,28 +133,28 @@ public Q_SLOTS: // METHODS
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(x) << QVariant::fromValue(y);
-        return asyncCallWithArgumentList(QStringLiteral("Activate"), argumentList);
+        return asyncCallWithArgumentList(QLatin1String("Activate"), argumentList);
     }
 
     inline QDBusPendingReply<> ContextMenu(int x, int y)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(x) << QVariant::fromValue(y);
-        return asyncCallWithArgumentList(QStringLiteral("ContextMenu"), argumentList);
+        return asyncCallWithArgumentList(QLatin1String("ContextMenu"), argumentList);
     }
 
     inline QDBusPendingReply<> Scroll(int delta, const QString &orientation)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(delta) << QVariant::fromValue(orientation);
-        return asyncCallWithArgumentList(QStringLiteral("Scroll"), argumentList);
+        return asyncCallWithArgumentList(QLatin1String("Scroll"), argumentList);
     }
 
     inline QDBusPendingReply<> SecondaryActivate(int x, int y)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(x) << QVariant::fromValue(y);
-        return asyncCallWithArgumentList(QStringLiteral("SecondaryActivate"), argumentList);
+        return asyncCallWithArgumentList(QLatin1String("SecondaryActivate"), argumentList);
     }
 
 Q_SIGNALS: // SIGNALS

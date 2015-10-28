@@ -57,7 +57,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(QSettings &settings, Global
     connect(ui->chooseMenuFilePB, SIGNAL(clicked()), this, SLOT(chooseMenuFile()));
     connect(ui->menuFilePathLE, &QLineEdit::textChanged, [this] (QString const & file)
         {
-            mSettings.setValue(QStringLiteral("menu_file"), file);
+            mSettings.setValue(QLatin1String("menu_file"), file);
         });
 
     connect(ui->shortcutEd, SIGNAL(shortcutGrabbed(QString)), this, SLOT(shortcutChanged(QString)));
@@ -110,7 +110,7 @@ void LXQtMainMenuConfiguration::chooseMenuFile()
 {
     QFileDialog *d = new QFileDialog(this,
                                      tr("Choose menu file"),
-                                     QStringLiteral("/etc/xdg/menus"),
+                                     QLatin1String("/etc/xdg/menus"),
                                      tr("Menu files (*.menu)"));
     d->setWindowModality(Qt::WindowModal);
     d->setAttribute(Qt::WA_DeleteOnClose);

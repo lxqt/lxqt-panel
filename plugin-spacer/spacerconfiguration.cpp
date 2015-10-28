@@ -31,9 +31,9 @@
 //Note: strings can't actually be translated here (in static initialization time)
 //      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
 const QStringList SpacerConfiguration::msTypes = {
-    QStringLiteral(QT_TR_NOOP("lined"))
-    , QStringLiteral(QT_TR_NOOP("dotted"))
-    , QStringLiteral(QT_TR_NOOP("invisible"))
+    QLatin1String(QT_TR_NOOP("lined"))
+    , QLatin1String(QT_TR_NOOP("dotted"))
+    , QLatin1String(QT_TR_NOOP("invisible"))
 };
 
 SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)

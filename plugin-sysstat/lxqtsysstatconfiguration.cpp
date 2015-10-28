@@ -38,9 +38,9 @@
 //Note: strings can't actually be translated here (in static initialization time)
 //      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
 const QStringList LXQtSysStatConfiguration::msStatTypes = {
-    QStringLiteral(QT_TR_NOOP("CPU"))
-    , QStringLiteral(QT_TR_NOOP("Memory"))
-    , QStringLiteral(QT_TR_NOOP("Network"))
+    QLatin1String(QT_TR_NOOP("CPU"))
+    , QLatin1String(QT_TR_NOOP("Memory"))
+    , QLatin1String(QT_TR_NOOP("Network"))
 };
 
 namespace

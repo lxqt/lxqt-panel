@@ -42,7 +42,7 @@ SniAsync::SniAsync(const QString &service, const QString &path, const QDBusConne
 
 QDBusPendingReply<QDBusVariant> SniAsync::asyncPropGet(QString const & property)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(mSni.service(), mSni.path(), QStringLiteral("org.freedesktop.DBus.Properties"), QStringLiteral("Get"));
+    QDBusMessage msg = QDBusMessage::createMethodCall(mSni.service(), mSni.path(), QLatin1String("org.freedesktop.DBus.Properties"), QLatin1String("Get"));
     msg << mSni.interface() << property;
     return mSni.connection().asyncCall(msg);
 }

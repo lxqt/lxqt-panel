@@ -620,7 +620,7 @@ void LXQtSysStatContent::paintEvent(QPaintEvent *event)
 
 void LXQtSysStatContent::toolTipInfo(QString const & tooltip)
 {
-    setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3")
+    setToolTip(QString("<b>%1(%2)</b><br>%3")
             .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataType.toStdString().c_str()))
             .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataSource.toStdString().c_str()))
             .arg(tooltip));
