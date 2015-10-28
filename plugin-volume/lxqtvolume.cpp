@@ -155,17 +155,19 @@ void LXQtVolume::setAudioEngine(AudioEngine *engine)
     }
 
     m_engine = engine;
-    connect(m_engine, SIGNAL(sinkListChanged()), this, SLOT(updateConfigurationSinkList()));
+    connect(m_engine, &AudioEngine::sinkListChanged, this, &LXQtVolume::handleSinkListChanged);
 
-    updateConfigurationSinkList();
+    handleSinkListChanged();
 }
 
 
 void LXQtVolume::settingsChanged()
 {
+    m_defaultSinkIndex = settings()->value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
     QString engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString();
     qDebug() << "settingsChanged" << engineName;
-    if (!m_engine || m_engine->backendName() != engineName) {
+    const bool new_engine = !m_engine || m_engine->backendName() != engineName;
+    if (new_engine) {
 #if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
         if (engineName == QLatin1String("PulseAudio"))
             setAudioEngine(new PulseAudioEngine(this));
@@ -194,21 +196,25 @@ void LXQtVolume::settingsChanged()
     m_volumeButton->setMixerCommand(settings()->value(SETTINGS_MIXER_COMMAND, SETTINGS_DEFAULT_MIXER_COMMAND).toString());
     m_volumeButton->volumePopup()->setSliderStep(settings()->value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
 
-    m_defaultSinkIndex = settings()->value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
-    if (m_engine && m_engine->sinks().count() > 0) {
-        m_defaultSinkIndex = qBound(0, m_defaultSinkIndex, m_engine->sinks().count()-1);
-
-        m_defaultSink = m_engine->sinks().at(m_defaultSinkIndex);
-        m_volumeButton->volumePopup()->setDevice(m_defaultSink);
-
-        m_engine->setIgnoreMaxVolume(settings()->value(SETTINGS_IGNORE_MAX_VOLUME, SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
-    }
+    if (!new_engine)
+        handleSinkListChanged();
 }
 
-void LXQtVolume::updateConfigurationSinkList()
+void LXQtVolume::handleSinkListChanged()
 {
-    if (m_engine && m_configDialog)
-        m_configDialog->setSinkList(m_engine->sinks());
+    if (m_engine)
+    {
+        if (m_engine->sinks().count() > 0)
+        {
+            m_defaultSink = m_engine->sinks().at(qBound(0, m_defaultSinkIndex, m_engine->sinks().count()-1));
+            m_volumeButton->volumePopup()->setDevice(m_defaultSink);
+
+            m_engine->setIgnoreMaxVolume(settings()->value(SETTINGS_IGNORE_MAX_VOLUME, SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
+        }
+
+        if (m_configDialog)
+            m_configDialog->setSinkList(m_engine->sinks());
+    }
 }
 
 void LXQtVolume::handleShortcutVolumeUp()

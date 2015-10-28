@@ -56,7 +56,8 @@ public:
 
     int volumeMax(AudioDevice */*device*/) const { return m_maximumVolume; }
 
-    void requestSinkInfoUpdate(AudioDevice *device);
+    void requestSinkInfoUpdate(uint32_t idx);
+    void removeSink(uint32_t idx);
     void addOrUpdateSink(const pa_sink_info *info);
 
     pa_context_state_t contextState() const { return m_contextState; }
@@ -65,13 +66,13 @@ public:
 
 public slots:
     void commitDeviceVolume(AudioDevice *device);
-    void retrieveSinkInfo(AudioDevice *device);
+    void retrieveSinkInfo(uint32_t idx);
     void setMute(AudioDevice *device, bool state);
     void setContextState(pa_context_state_t state);
     void setIgnoreMaxVolume(bool ignore);
 
 signals:
-    void sinkInfoChanged(AudioDevice *device);
+    void sinkInfoChanged(uint32_t idx);
     void contextStateChanged(pa_context_state_t state);
     void readyChanged(bool ready);
 

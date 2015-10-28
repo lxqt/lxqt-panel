@@ -62,7 +62,7 @@ public:
     void setAudioEngine(AudioEngine *engine);
 protected slots:
     virtual void settingsChanged();
-    void updateConfigurationSinkList();
+    void handleSinkListChanged();
     void handleShortcutVolumeUp();
     void handleShortcutVolumeDown();
     void handleShortcutVolumeMute();
