@@ -50,20 +50,20 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
     connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
 
-    interface->propertyGetAsync(QStringLiteral("Menu"), [this] (QDBusObjectPath path) {
+    interface->propertyGetAsync(QLatin1String("Menu"), [this] (QDBusObjectPath path) {
         if (!path.path().isEmpty())
         {
             mMenu = (new DBusMenuImporter(interface->service(), path.path(), this))->menu();
             dynamic_cast<QObject &>(*mMenu).setParent(this);
-            mMenu->setObjectName(QStringLiteral("StatusNotifierMenu"));
+            mMenu->setObjectName(QLatin1String("StatusNotifierMenu"));
         }
     });
 
-    interface->propertyGetAsync(QStringLiteral("Status"), [this] (QString status) {
+    interface->propertyGetAsync(QLatin1String("Status"), [this] (QString status) {
         newStatus(status);
     });
 
-    interface->propertyGetAsync(QStringLiteral("IconThemePath"), [this] (QString value) {
+    interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
         mThemePath = value;
         //do the logic of icons after we've got the theme path
         refetchIcon(Active);
@@ -99,18 +99,18 @@ void StatusNotifierButton::refetchIcon(Status status)
     QString nameProperty, pixmapProperty;
     if (status == Active)
     {
-        nameProperty = QStringLiteral("OverlayIconName");
-        pixmapProperty = QStringLiteral("OverlayIconPixmap");
+        nameProperty = QLatin1String("OverlayIconName");
+        pixmapProperty = QLatin1String("OverlayIconPixmap");
     }
     else if (status == NeedsAttention)
     {
-        nameProperty = QStringLiteral("AttentionIconName");
-        pixmapProperty = QStringLiteral("AttentionIconPixmap");
+        nameProperty = QLatin1String("AttentionIconName");
+        pixmapProperty = QLatin1String("AttentionIconPixmap");
     }
     else // status == Passive
     {
-        nameProperty = QStringLiteral("IconName");
-        pixmapProperty = QStringLiteral("IconPixmap");
+        nameProperty = QLatin1String("IconName");
+        pixmapProperty = QLatin1String("IconPixmap");
     }
 
     interface->propertyGetAsync(nameProperty, [this, status, pixmapProperty] (QString iconName) {
@@ -204,12 +204,12 @@ void StatusNotifierButton::refetchIcon(Status status)
 
 void StatusNotifierButton::newToolTip()
 {
-    interface->propertyGetAsync(QStringLiteral("ToolTip"), [this] (ToolTip tooltip) {
+    interface->propertyGetAsync(QLatin1String("ToolTip"), [this] (ToolTip tooltip) {
         QString toolTipTitle = tooltip.title;
         if (!toolTipTitle.isEmpty())
             setToolTip(toolTipTitle);
         else
-            interface->propertyGetAsync(QStringLiteral("Title"), [this] (QString title) {
+            interface->propertyGetAsync(QLatin1String("Title"), [this] (QString title) {
                 // we should get here only in case the ToolTip.title was empty
                 if (!title.isEmpty())
                     setToolTip(title);
@@ -220,9 +220,9 @@ void StatusNotifierButton::newToolTip()
 void StatusNotifierButton::newStatus(QString status)
 {
     Status newStatus;
-    if (status == QStringLiteral("Passive"))
+    if (status == QLatin1String("Passive"))
         newStatus = Passive;
-    else if (status == QStringLiteral("Active"))
+    else if (status == QLatin1String("Active"))
         newStatus = Active;
     else
         newStatus = NeedsAttention;

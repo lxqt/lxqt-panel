@@ -932,7 +932,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
 
     menu->addTitle(QIcon(), tr("Panel"));
 
-    menu->addAction(XdgIcon::fromTheme(QStringLiteral("configure")),
+    menu->addAction(XdgIcon::fromTheme(QLatin1String("configure")),
                    tr("Configure Panel"),
                    this, SLOT(showConfigDialog())
                   );
@@ -950,7 +950,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
 
     if (a->count() > 1)
     {
-        menu->addAction(XdgIcon::fromTheme(QStringLiteral("list-remove")),
+        menu->addAction(XdgIcon::fromTheme(QLatin1String("list-remove")),
                        tr("Remove Panel"),
                        this, SLOT(userRequestForDeletion())
                       );

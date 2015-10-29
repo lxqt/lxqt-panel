@@ -66,7 +66,7 @@ void LXQtMountPlugin::realign()
 
 void LXQtMountPlugin::settingsChanged()
 {
-    QString s = settings()->value(QStringLiteral(CFG_KEY_ACTION)).toString();
+    QString s = settings()->value(QLatin1String(CFG_KEY_ACTION)).toString();
     DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
 
     if (mDeviceAction == nullptr || mDeviceAction->Type() != actionId)

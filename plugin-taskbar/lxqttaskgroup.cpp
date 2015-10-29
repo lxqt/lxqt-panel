@@ -329,7 +329,7 @@ void LXQtTaskGroup::regroup()
     {
         QString t = QString("%1 - %2 windows").arg(mGroupName).arg(cont);
         setText(t);
-        setToolTip(parentTaskBar()->isShowGroupOnHover() ? QStringLiteral() : t);
+        setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
         setWindowId(0);
     }
 }
