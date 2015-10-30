@@ -472,6 +472,7 @@ void LXQtPanel::updateWmStrut()
     if(wid == 0 || !isVisible())
         return;
 
+    const QRect wholeScreen = QApplication::desktop()->geometry();
     const QRect rect = geometry();
     // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
     // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
@@ -484,7 +485,7 @@ void LXQtPanel::updateWmStrut()
         KWindowSystem::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
-                                        /* Top    */  getReserveDimension(), rect.left(), rect.right(),
+                                        /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
                                         /* Bottom */  0, 0, 0
                                        );
         break;
@@ -494,13 +495,13 @@ void LXQtPanel::updateWmStrut()
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
-                                        /* Bottom */  getReserveDimension(), rect.left(), rect.right()
+                                        /* Bottom */  wholeScreen.bottom() - rect.bottom() + getReserveDimension(), rect.left(), rect.right()
                                        );
         break;
 
     case LXQtPanel::PositionLeft:
         KWindowSystem::setExtendedStrut(wid,
-                                        /* Left   */  getReserveDimension(), rect.top(), rect.bottom(),
+                                        /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
                                         /* Bottom */  0, 0, 0
@@ -511,7 +512,7 @@ void LXQtPanel::updateWmStrut()
     case LXQtPanel::PositionRight:
         KWindowSystem::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
-                                        /* Right  */  getReserveDimension(), rect.top(), rect.bottom(),
+                                        /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
                                         /* Top    */  0, 0, 0,
                                         /* Bottom */  0, 0, 0
                                        );
