@@ -112,7 +112,7 @@ void DesktopSwitch::shortcutRegistered()
 
 void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2)
 {
-    if (properties.testFlag(NET::WMState))
+    if (properties.testFlag(NET::WMState) && isWindowHighlightable(id))
     {
         KWindowInfo info = KWindowInfo(id, NET::WMDesktop | NET::WMState);
         int desktop = info.desktop();
@@ -163,6 +163,43 @@ void DesktopSwitch::refresh()
         mWidget.layout()->removeWidget(b);
         delete b;
     }
+}
+
+bool DesktopSwitch::isWindowHighlightable(WId window)
+{
+    // this method was borrowed from the taskbar plugin
+    QFlags<NET::WindowTypeMask> ignoreList;
+    ignoreList |= NET::DesktopMask;
+    ignoreList |= NET::DockMask;
+    ignoreList |= NET::SplashMask;
+    ignoreList |= NET::ToolbarMask;
+    ignoreList |= NET::MenuMask;
+    ignoreList |= NET::PopupMenuMask;
+    ignoreList |= NET::NotificationMask;
+
+    KWindowInfo info(window, NET::WMWindowType | NET::WMState, NET::WM2TransientFor);
+    if (!info.valid())
+        return false;
+
+    if (NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
+        return false;
+
+    if (info.state() & NET::SkipTaskbar)
+        return false;
+
+    // WM_TRANSIENT_FOR hint not set - normal window
+    WId transFor = info.transientFor();
+    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
+        return true;
+
+    info = KWindowInfo(transFor, NET::WMWindowType);
+
+    QFlags<NET::WindowTypeMask> normalFlag;
+    normalFlag |= NET::NormalMask;
+    normalFlag |= NET::DialogMask;
+    normalFlag |= NET::UtilityMask;
+
+    return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
 DesktopSwitch::~DesktopSwitch()

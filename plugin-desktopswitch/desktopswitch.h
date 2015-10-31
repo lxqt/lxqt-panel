@@ -86,6 +86,7 @@ private:
     DesktopSwitchButton::LabelType mLabelType;
 
     void refresh();
+    bool isWindowHighlightable(WId window);
 
 private slots:
     void setDesktop(int desktop);
