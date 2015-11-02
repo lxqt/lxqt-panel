@@ -1,57 +1,35 @@
-.TH lxqt-panel "1" "September 2012" "LXQt\ 0.5.0" "LXQt\ Module"
+.TH lxqt-panel "1" "2015-11-05" "LXQt 0.10.0" "LXQt Desktop Panel Module"
 .SH NAME
-lxqt-panel \- Panel of \fBLXQt\fR: the faster and lighter QT Desktop Environment
+lxqt-panel \- Desktop panel for \fBLXQt\fR: The Lightweight Qt Desktop Environment
 .SH SYNOPSIS
 .B lxqt-panel
 .br
 .SH DESCRIPTION
-This module adds a panel to the desktop.
-.P
-.P
-The \fBLXQt modules\fR are desktop independent tools, 
-and operate as daemons for the local user for desktop specific operations. 
-.P
-\fBLXQt\fR is an advanced, easy-to-use, and fast desktop environment based on Qt
-technologies, ships several core desktop components, all of which are optional:
-.P
- * Panel \fI(this)\fR
- * Desktop
- * Application launcher
- * Settings center
- * Session handler
- * Polkit handler
- * SSH password access
- * Display manager handler
-.P
-These components perform similar actions to those available in other desktop
-environments, and their name is self-descriptive.  They are usually not launched
-by hand but automatically, when choosing a \fBLXQt\fR session in the Display
-Manager.
+This module adds a panel, with optional plugins, to the desktop.
 .SH BEHAVIOR
-The module can be run standard alone, and also autostarted at logon. Show a bar panel 
-by default in bottom of desktop.
+The panel can be run independently of \fBLXQt\fR, autostarted at logon, and have
+multiple instances. A horizontal bottom panel shows by default on the desktop,
+but the alignment, size, autohide, transparency (requires compositor), and other
+attributes are user configurable.
 .P
-The panel works with plugins, each component are a plugin, like the menu or the volume icon.
+The panel is comprised of plugins which provide a visual widget; like the menu,
+clock, or volume. They can be added or removed in the panel Widget settings.
 .P
-Several plugins are loaded by default, the desktop menu and windows workspaces can also managed here.
+Several plugins are loaded by default; the desktop menu and windows workspaces
+are also managed here.
 .SH CONFIGURATIONS
-By right clickin over there show config setting options for each plugins and also panel itsefl.
-.SH AUTOSTART
-The module only are showed on \fBLXQt\fR desktop environment, but you can create an autostart action 
-for you preferred desktop environment.
+Right-click over any plugin to reach the panel Configure settings option, or
+that of each respective plugin.
 .SH "REPORTING BUGS"
 Report bugs to https://github.com/LXDE/LXQt/issues
 .SH "SEE ALSO"
-\fBLXQt\fR it has been tailored for users who value simplicity, speed, and
-an intuitive interface, also intended for less powerful machines. See:
-.\" any module must refers to session app, for more info on start it
+.\" any module must refer to the session application, for module overview and initiation
+\fBstartlxqt.1\fR  LXQt session initialization and launch script (e.g. in \fB.xinitrc\fR)
 .P
-\fBlxqt-session.1\fR  LXQt for manage LXQt complete environment
+\fBlxqt-session.1\fR  LXQt \fIoverview\fR and complete session environment
 .P
-\fBstart-lxqt.1\fR  LXQt display management independient starup.
+\fBlxqt-config-session.1\fR  LXQt default and autostart applications settings,
+plus environment settings
 .P
-\fBlxqt-config.1\fR  LXQt config center application for performing settings
+\fBlxqt-config.1\fR  LXQt settings Configuration Center interface
 .P
-.SH AUTHOR
-This manual page was created by \fBPICCORO Lenz McKAY\fR \fI<mckaygerhard@gmail.com>\fR
-for \fBLXQt\fR project and VENENUX GNU/Linux but can be used by others.

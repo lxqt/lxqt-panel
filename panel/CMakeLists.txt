@@ -97,3 +97,8 @@ target_link_libraries(${PROJECT}
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES ${CONFIG_FILES} DESTINATION ${LXQT_ETC_XDG_DIR}/lxqt)
 install(FILES ${PUB_HEADERS} DESTINATION include/lxqt)
+install(FILES
+    man/lxqt-panel.1
+    DESTINATION "${CMAKE_INSTALL_MANDIR}/man1"
+    COMPONENT Runtime
+)
