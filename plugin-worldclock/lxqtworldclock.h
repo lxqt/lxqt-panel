@@ -75,7 +75,6 @@ private:
 
     QTimer *mTimer;
     int mUpdateInterval;
-    qint64 mLastUpdate;
 
     QStringList mTimeZones;
     QMap<QString, QString> mTimeZoneCustomNames;
@@ -86,12 +85,13 @@ private:
     bool mAutoRotate;
     QLabel *mPopupContent;
 
-    void restartTimer(int);
+    void restartTimer();
 
     QString formatDateTime(const QDateTime &datetime, const QString &timeZoneName);
     void updatePopupContent();
     bool formatHasTimeZone(QString format);
     QString preformat(const QString &format, const QTimeZone &timeZone, const QDateTime& dateTime);
+    void setTimeText();
 };
 
 
