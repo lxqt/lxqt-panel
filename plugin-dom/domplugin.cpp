@@ -51,6 +51,7 @@ void DomPlugin::showDialog()
         dialog->setAttribute(Qt::WA_DeleteOnClose);
     }
 
+    willShowWindow(dialog);
     dialog->show();
     dialog->activateWindow();
 }

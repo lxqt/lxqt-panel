@@ -48,6 +48,7 @@ class PluginInfo;
 class LXQtPanelLayout;
 class ConfigPanelDialog;
 class PanelPluginsModel;
+class WindowNotifier;
 
 /*! \brief The LXQtPanel class provides a single lxqt-panel.
  */
@@ -85,6 +86,7 @@ public:
     Plugin *findPlugin(const ILXQtPanelPlugin *iPlugin) const;
     QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const override;
     QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const override;
+    void willShowWindow(QWidget * w) override;
 
     // For QSS properties ..................
     QString qssPosition() const;
@@ -156,6 +158,7 @@ private:
     QFrame *LXQtPanelWidget;
     QString mConfigGroup;
     QScopedPointer<PanelPluginsModel> mPlugins;
+    QScopedPointer<WindowNotifier> mStandaloneWindows; //!< object for storing info if some standalone window is shown (for preventing hide)
 
     int findAvailableScreen(LXQtPanel::Position position);
     void updateWmStrut();

@@ -32,6 +32,7 @@
 #include "lxqtpanelglobals.h"
 
 class ILXQtPanelPlugin;
+class QWidget;
 
 /**
  **/
@@ -74,6 +75,17 @@ public:
      **/
     virtual QRect calculatePopupWindowPos(const QPoint &absolutePos, const QSize &windowSize) const = 0;
     virtual QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const = 0;
+
+    /*!
+     * \brief By calling this function plugin (or any other object) notifies the panel
+     * about showing a (standalone) window/menu -> panel needs this to avoid "hiding" in case any
+     * standalone window is shown. The widget must be shown later than this notification call because
+     * panel need to observe it's show/hide/close events.
+     *
+     * \param w the shown window
+     *
+     */
+    virtual void willShowWindow(QWidget * w) = 0;
 };
 
 #endif // ILXQTPANEL_H

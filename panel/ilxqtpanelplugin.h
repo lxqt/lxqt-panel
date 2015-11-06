@@ -186,6 +186,16 @@ public:
         return mPanel->calculatePopupWindowPos(this, windowSize);
     }
 
+    /*!
+     * \brief By calling this function plugin notifies the panel about showing a (standalone) window/menu.
+     *
+     * \param w the shown window
+     *
+     */
+    inline void willShowWindow(QWidget * w)
+    {
+        mPanel->willShowWindow(w);
+    }
 
     virtual bool isSeparate() const { return false;  }
     virtual bool isExpandable() const { return false; }

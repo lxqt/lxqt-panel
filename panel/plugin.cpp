@@ -477,6 +477,7 @@ void Plugin::showConfigureDialog()
     if (!dialog)
         return;
 
+    mPanel->willShowWindow(dialog);
     dialog->show();
     dialog->raise();
     dialog->activateWindow();

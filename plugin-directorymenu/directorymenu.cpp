@@ -102,6 +102,7 @@ void DirectoryMenu::showMenu()
             break;
     }
 
+    willShowWindow(mMenu);
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());

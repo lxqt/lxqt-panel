@@ -356,6 +356,7 @@ void LXQtWorldClock::activated(ActivationReason reason)
         mPopup->adjustSize();
         mPopup->setGeometry(calculatePopupWindowPos(mPopup->size()));
 
+        willShowWindow(mPopup);
         mPopup->show();
     }
     else

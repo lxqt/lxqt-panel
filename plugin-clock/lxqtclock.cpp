@@ -286,6 +286,7 @@ void LXQtClock::activated(ActivationReason reason)
     {
         QRect pos = calculatePopupWindowPos(mCalendarPopup->size());
         mCalendarPopup->move(pos.topLeft());
+        willShowWindow(mCalendarPopup);
         mCalendarPopup->show();
     }
     else

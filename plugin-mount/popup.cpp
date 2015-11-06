@@ -90,7 +90,12 @@ Popup::Popup(ILXQtPanelPlugin * plugin, QWidget* parent):
 
 void Popup::showHide()
 {
-    setVisible(isHidden());
+    if (isHidden())
+    {
+        mPlugin->willShowWindow(this);
+        show();
+    } else
+        close();
 }
 
 void Popup::onDeviceAdded(QString const & udi)

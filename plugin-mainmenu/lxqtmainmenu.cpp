@@ -130,6 +130,7 @@ void LXQtMainMenu::showMenu()
     if (!mMenu)
         return;
 
+    willShowWindow(mMenu);
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
@@ -227,8 +228,6 @@ void LXQtMainMenu::buildMenu()
     menu->installEventFilter(this);
     connect(menu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(menu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
-    // panel notification (needed in case of auto-hide)
-    connect(menu, &QMenu::aboutToHide, dynamic_cast<LXQtPanel *>(panel()), &LXQtPanel::hidePanel);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;

@@ -35,6 +35,7 @@
 #include "popupmenu.h"
 #include "plugin.h"
 #include "panelpluginsmodel.h"
+#include "windownotifier.h"
 #include <LXQt/PluginInfo>
 
 #include <QScreen>
@@ -116,6 +117,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mSettings(settings),
     mConfigGroup(configGroup),
     mPlugins{nullptr},
+    mStandaloneWindows{new WindowNotifier},
     mPanelSize(0),
     mIconSize(0),
     mLineCount(0),
@@ -174,6 +176,9 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
+
+    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, this, &LXQtPanel::showPanel);
+    connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
     // the old position might be on a visible screen
@@ -589,6 +594,7 @@ void LXQtPanel::showConfigDialog()
         mConfigDialog = new ConfigPanelDialog(this, nullptr /*make it top level window*/);
 
     mConfigDialog->showConfigPanelPage();
+    mStandaloneWindows->observeWindow(mConfigDialog.data());
     mConfigDialog->show();
     mConfigDialog->raise();
     mConfigDialog->activateWindow();
@@ -608,6 +614,7 @@ void LXQtPanel::showAddPluginDialog()
         mConfigDialog = new ConfigPanelDialog(this, nullptr /*make it top level window*/);
 
     mConfigDialog->showConfigPluginsPage();
+    mStandaloneWindows->observeWindow(mConfigDialog.data());
     mConfigDialog->show();
     mConfigDialog->raise();
     mConfigDialog->activateWindow();
@@ -967,6 +974,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
      * of QDesktopWidget::availableGeometry)
      */
     menu->setGeometry(calculatePopupWindowPos(QCursor::pos(), menu->sizeHint()));
+    willShowWindow(menu);
     menu->show();
 }
 
@@ -1043,6 +1051,14 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
 /************************************************
 
  ************************************************/
+void LXQtPanel::willShowWindow(QWidget * w)
+{
+    mStandaloneWindows->observeWindow(w);
+}
+
+/************************************************
+
+ ************************************************/
 QString LXQtPanel::qssPosition() const
 {
     return positionToStr(position());
@@ -1113,7 +1129,10 @@ void LXQtPanel::hidePanel()
 
 void LXQtPanel::hidePanelWork()
 {
-    if (mHidable && !mHidden && !geometry().contains(QCursor::pos()))
+    if (mHidable && !mHidden
+            && !geometry().contains(QCursor::pos())
+            && !mStandaloneWindows->isAnyWindowShown()
+            )
     {
         mHidden = true;
         setPanelGeometry();
