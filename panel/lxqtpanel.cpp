@@ -1123,23 +1123,17 @@ void LXQtPanel::showPanel()
 
 void LXQtPanel::hidePanel()
 {
-    if (mHidable && !mHidden)
+    if (mHidable && !mHidden
+            && !geometry().contains(QCursor::pos())
+            && !mStandaloneWindows->isAnyWindowShown()
+       )
         mHideTimer.start();
 }
 
 void LXQtPanel::hidePanelWork()
 {
-    if (mHidable && !mHidden
-            && !geometry().contains(QCursor::pos())
-            && !mStandaloneWindows->isAnyWindowShown()
-            )
-    {
-        mHidden = true;
-        setPanelGeometry();
-    } else
-    {
-        mHideTimer.start();
-    }
+    mHidden = true;
+    setPanelGeometry();
 }
 
 void LXQtPanel::setHidable(bool hidable, bool save)
@@ -1147,7 +1141,7 @@ void LXQtPanel::setHidable(bool hidable, bool save)
     if (mHidable == hidable)
         return;
 
-    mHidable = mHidden = hidable;
+    mHidable = hidable;
 
     if (save)
         saveSettings(true);
