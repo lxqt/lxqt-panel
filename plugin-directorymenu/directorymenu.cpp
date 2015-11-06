@@ -58,11 +58,11 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
 DirectoryMenu::~DirectoryMenu()
 {
-	if(mMenu)
-	{
-		delete mMenu;
-		mMenu = 0;
-	}
+    if(mMenu)
+    {
+        delete mMenu;
+        mMenu = 0;
+    }
 }
 
 void DirectoryMenu::showMenu()
@@ -110,59 +110,59 @@ void DirectoryMenu::showMenu()
 
 void DirectoryMenu::buildMenu(const QString& path)
 {
-	if(mMenu)
-	{
-		delete mMenu;
-		mMenu = 0;
-	}
+    if(mMenu)
+    {
+        delete mMenu;
+        mMenu = 0;
+    }
 
-	mPathStrings.clear();
+    mPathStrings.clear();
 
-	mMenu = new QMenu();
+    mMenu = new QMenu();
 
-	addActions(mMenu, path);
+    addActions(mMenu, path);
 }
 
 void DirectoryMenu::openDirectory(const QString& path)
 {
-	QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
+    QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
 }
 
 void DirectoryMenu::addMenu(QString path)
 {
-	QSignalMapper* sender = (QSignalMapper* )QObject::sender();
-	QMenu* parentMenu = (QMenu*) sender->mapping(path);
+    QSignalMapper* sender = (QSignalMapper* )QObject::sender();
+    QMenu* parentMenu = (QMenu*) sender->mapping(path);
 
-	if(parentMenu->isEmpty())
-	{
-		addActions(parentMenu, path);
-	}
+    if(parentMenu->isEmpty())
+    {
+        addActions(parentMenu, path);
+    }
 }
 
 void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 {
-	mPathStrings.push_back(path);
+    mPathStrings.push_back(path);
 
-	QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open"));
-	connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
-	mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
+    QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open"));
+    connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
+    mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
 
-	menu->addSeparator();
+    menu->addSeparator();
 
-	QDir dir(path);
-	QFileInfoList list = dir.entryInfoList();
+    QDir dir(path);
+    QFileInfoList list = dir.entryInfoList();
 
-	foreach (const QFileInfo& entry, list)
+    foreach (const QFileInfo& entry, list)
     {
-    	if(entry.isDir() && !entry.isHidden())
-    	{
-			mPathStrings.push_back(entry.fileName());
+        if(entry.isDir() && !entry.isHidden())
+        {
+            mPathStrings.push_back(entry.fileName());
 
-			QMenu* subMenu = menu->addMenu(XdgIcon::fromTheme("folder"), mPathStrings.back());
+            QMenu* subMenu = menu->addMenu(XdgIcon::fromTheme("folder"), mPathStrings.back());
 
-    		connect(subMenu, SIGNAL(aboutToShow()), mMenuSignalMapper, SLOT(map()));
-    		mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());
-    	}
+            connect(subMenu, SIGNAL(aboutToShow()), mMenuSignalMapper, SLOT(map()));
+            mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());
+        }
     }
 }
 
