@@ -104,8 +104,7 @@ void DirectoryMenu::showMenu()
 
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
-    mButton.activateWindow();
-    mMenu->exec(QPoint(x, y));
+    mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
 }
 
 void DirectoryMenu::buildMenu(const QString& path)

@@ -249,7 +249,7 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
     else if (Qt::RightButton == event->button())
     {
         if (mMenu)
-            mMenu->popup(QCursor::pos());
+            mMenu->popup(mPlugin->calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
         else
             interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
     }
