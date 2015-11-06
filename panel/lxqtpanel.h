@@ -80,11 +80,11 @@ public:
     void showPopupMenu(Plugin *plugin = 0);
 
     // ILXQtPanel .........................
-    ILXQtPanel::Position position() const { return mPosition; }
-    QRect globalGometry() const;
+    ILXQtPanel::Position position() const override { return mPosition; }
+    QRect globalGometry() const override;
     Plugin *findPlugin(const ILXQtPanelPlugin *iPlugin) const;
-    QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const;
-    QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const;
+    QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const override;
+    QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const override;
 
     // For QSS properties ..................
     QString qssPosition() const;
@@ -95,8 +95,8 @@ public:
 
     // Settings
     int panelSize() const { return mPanelSize; }
-    int iconSize() const { return mIconSize; }
-    int lineCount() const { return mLineCount; }
+    int iconSize() const override { return mIconSize; }
+    int lineCount() const override { return mLineCount; }
     int length() const { return mLength; }
     bool lengthInPercents() const { return mLengthInPercents; }
     LXQtPanel::Alignment alignment() const { return mAlignment; }
@@ -138,8 +138,8 @@ signals:
     void pluginRemoved();
 
 protected:
-    bool event(QEvent *event);
-    void showEvent(QShowEvent *event);
+    bool event(QEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 public slots:
     void showConfigDialog();
