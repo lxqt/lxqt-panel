@@ -127,6 +127,10 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     mHidable(false),
     mHidden(false)
 {
+    //Qt::FramelessWindowHint = Produces a borderless window. The user cannot
+    //move or resize a borderless window via the window system. On X11, ...
+    //Qt::WindowStaysOnTopHint = Informs the window system that the window
+    //should stay on top of all other windows. Note that on ...
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
 
     // NOTE: by PCMan:
@@ -142,13 +146,25 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     flags |= Qt::WindowDoesNotAcceptFocus;
 
     setWindowFlags(flags);
+    //Adds _NET_WM_WINDOW_TYPE_DOCK to the window's _NET_WM_WINDOW_TYPE X11 window property. See http://standards.freedesktop.org/wm-spec/ for more details.
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
+    //Enables tooltips for inactive windows.
     setAttribute(Qt::WA_AlwaysShowToolTips);
+    //Indicates that the widget should have a translucent background, i.e., any non-opaque regions of the widgets will be translucent because the widget will have an alpha channel. Setting this ...
     setAttribute(Qt::WA_TranslucentBackground);
+    //Allows data from drag and drop operations to be dropped onto the widget (see QWidget::setAcceptDrops()).
     setAttribute(Qt::WA_AcceptDrops);
 
     setWindowTitle("LXQt Panel");
     setObjectName(QString("LXQtPanel %1").arg(configGroup));
+
+    //Create the basic layout for the panel. This is only the layout that will
+    // hold the Plugins later. It is not yet the taskbar or whatever.
+    //TEST If we can omit an extra QGridLayout and an extra QFrame
+    // Currently, we have LXQtPanel (inherits QFrame) -> QGridLayout -> QFrame -> LXQtPanelLayout
+    // Could it be possible to do LXQtPanel (inherits QFrame) -> LXQtPanelLayout ???
+    //Okay, currently we need the "BackgroundWidget" because it is used in the Qt-Stylesheet that
+    // will be set when we change the background-color.
 
     LXQtPanelWidget = new QFrame(this);
     LXQtPanelWidget->setObjectName("BackgroundWidget");
@@ -162,10 +178,23 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     LXQtPanelWidget->setLayout(mLayout);
     mLayout->setLineCount(mLineCount);
 
+    //Avoid null pointer exception
+    /*
+    LXQtPanelWidget = new QFrame(this);
+    LXQtPanelWidget->setObjectName("Just for avoiding null pointer exception later");
+    //New version, shorter, more succinct, smarter, better
+    mLayout = new LXQtPanelLayout(this);
+    connect(mLayout, &LXQtPanelLayout::pluginMoved, this, &LXQtPanel::pluginMoved);
+    this->setLayout(mLayout);
+    mLayout->setLineCount(mLineCount);
+    */
+
+    //Configure the QTimer mDelaySave which handles delayed saving of settings.
     mDelaySave.setSingleShot(true);
     mDelaySave.setInterval(SETTINGS_SAVE_DELAY);
     connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
 
+    //Configre the QTimer mHideTimer which handles delayed hiding of the panel.
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
     connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
@@ -175,13 +204,20 @@ LXQtPanel::LXQtPanel(const QString &configGroup, QWidget *parent) :
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
+    //Read the (global) LXQtSettings from the LXQtPanelApplication instance
+    // and read the settings that are  relevant for LXQtPanel
     LXQtPanelApplication *app = reinterpret_cast<LXQtPanelApplication*>(qApp);
     mSettings = app->settings();
     readSettings();
-    // the old position might be on a visible screen
+
+    //The position shall be on a visible screen. If it is not, move the panel
+    // to another screen.
     ensureVisible();
+
+    //Load the Plugins that are used in this panel
     loadPlugins();
 
+    //Show the panel on all desktops
     show();
 
     // show it the first first time, despite setting
