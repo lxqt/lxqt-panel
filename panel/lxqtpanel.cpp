@@ -129,6 +129,12 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHidable(false),
     mHidden(false)
 {
+    //You can find information about the flags and widget attributes in your
+    //Qt documentation or at http://doc.qt.io/qt-5/qt.html
+    //Qt::FramelessWindowHint = Produces a borderless window. The user cannot
+    //move or resize a borderless window via the window system. On X11, ...
+    //Qt::WindowStaysOnTopHint = Informs the window system that the window
+    //should stay on top of all other windows. Note that on ...
     Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
 
     // NOTE: by PCMan:
@@ -144,14 +150,19 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     flags |= Qt::WindowDoesNotAcceptFocus;
 
     setWindowFlags(flags);
+    //Adds _NET_WM_WINDOW_TYPE_DOCK to the window's _NET_WM_WINDOW_TYPE X11 window property. See http://standards.freedesktop.org/wm-spec/ for more details.
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
+    //Enables tooltips for inactive windows.
     setAttribute(Qt::WA_AlwaysShowToolTips);
+    //Indicates that the widget should have a translucent background, i.e., any non-opaque regions of the widgets will be translucent because the widget will have an alpha channel. Setting this ...
     setAttribute(Qt::WA_TranslucentBackground);
+    //Allows data from drag and drop operations to be dropped onto the widget (see QWidget::setAcceptDrops()).
     setAttribute(Qt::WA_AcceptDrops);
 
     setWindowTitle("LXQt Panel");
     setObjectName(QString("LXQtPanel %1").arg(configGroup));
 
+    //LXQtPanel (inherits QFrame) -> lav (QGridLayout) -> LXQtPanelWidget (QFrame) -> LXQtPanelLayout
     LXQtPanelWidget = new QFrame(this);
     LXQtPanelWidget->setObjectName("BackgroundWidget");
     LXQtPanelWidget->setAutoFillBackground(true);
@@ -182,13 +193,14 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
-    // the old position might be on a visible screen
+
     ensureVisible();
+
     loadPlugins();
 
     show();
 
-    // show it the first first time, despite setting
+    // show it the first time, despite setting
     if (mHidable)
     {
       showPanel();
@@ -529,8 +541,8 @@ void LXQtPanel::updateWmStrut()
 
 /************************************************
   The panel can't be placed on boundary of two displays.
-  This function checks, is the panel can be placed on the display
-  @displayNum on @position.
+  This function checks if the panel can be placed on the display
+  @screenNum on @position.
  ************************************************/
 bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
 {

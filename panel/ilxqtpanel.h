@@ -40,49 +40,73 @@ class LXQT_PANEL_API ILXQtPanel
 {
 public:
     /**
-    Specifies the position of the panel on screen.
-    **/
+     * @brief Specifies the position of the panel on screen.
+     */
     enum Position{
-        PositionBottom, //! The bottom side of the screen.
-        PositionTop,    //! The top side of the screen.
-        PositionLeft,   //! The left side of the screen.
-        PositionRight   //! The right side of the screen.
+        PositionBottom, //!< The bottom side of the screen.
+        PositionTop,    //!< The top side of the screen.
+        PositionLeft,   //!< The left side of the screen.
+        PositionRight   //!< The right side of the screen.
     };
 
     /**
-     This property holds position of the panel.
-     Possible values for this property are described by the Position enum
-     **/
+     * @brief Returns the position of the panel. Possible values for the
+     * return value are described by the Position enum.
+     */
     virtual Position position() const = 0;
 
+    /**
+     * @brief Returns the edge length of the icons that are shown on the panel
+     * in pixels. The icons are square.
+     */
     virtual int iconSize() const = 0;
+    /**
+     * @brief Returns the number of lines/rows of this panel.
+     */
     virtual int lineCount() const = 0;
 
     /**
-     Helper functions for eazy direction checking.
-     Retuns true if panel on the top or bottom of the screen; otherwise returns false.
-     **/
+     * @brief Helper function for convenient direction/alignment checking.
+     * @return True if the panel is on the top or the bottom of the
+     * screen; otherwise returns false.
+     */
     bool isHorizontal() const { return position() == PositionBottom || position() == PositionTop; }
 
     /**
-     Returns global screen coordinates of the panel. You no need to use mapToGlobal.
-     **/
+     * @brief Helper method that returns the global screen coordinates of the
+     * panel, so you do not need to use QWidget::mapToGlobal() by yourself.
+     * @return The QRect where the panel is located in global screen
+     * coordinates.
+     */
     virtual QRect globalGometry() const = 0;
 
     /**
-     Helper functions for calculating global screen position of some popup window with windowSize size.
-     If you need to show some popup window, you can use it, to get global screen position for the new window.
-     **/
+     * @brief Helper method for calculating the global screen position of a
+     * popup window with size windowSize.
+     * @param absolutePos Contains the global screen coordinates where the
+     * popup should be appear, i.e. the point where the user has clicked.
+     * @param windowSize The size that the window will occupy.
+     * @return The global screen position where the popup window can be shown.
+     */
     virtual QRect calculatePopupWindowPos(const QPoint &absolutePos, const QSize &windowSize) const = 0;
+    /**
+     * @brief Helper method for calculating the global screen position of a
+     * popup window with size windowSize. The parameter plugin should be a
+     * plugin
+     * @param plugin Plugin that the popup window will belong to. The position
+     * will be calculated according to the position of the plugin in the panel.
+     * @param windowSize The size that the window will occupy.
+     * @return The global screen position where the popup window can be shown.
+     */
     virtual QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const = 0;
 
     /*!
-     * \brief By calling this function plugin (or any other object) notifies the panel
-     * about showing a (standalone) window/menu -> panel needs this to avoid "hiding" in case any
-     * standalone window is shown. The widget must be shown later than this notification call because
-     * panel need to observe it's show/hide/close events.
+     * \brief By calling this function, a plugin (or any other object) notifies the panel
+     * about showing a (standalone) window/menu -> the panel needs this to avoid "hiding" in case any
+     * standalone window is shown. The widget/window must be shown later than this notification call because
+     * the panel needs to observe its show/hide/close events.
      *
-     * \param w the shown window
+     * \param w the window that will be shown
      *
      */
     virtual void willShowWindow(QWidget * w) = 0;
