@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu">
+<TS version="2.1" language="hu">
 <context>
     <name>LXQtMainMenu</name>
     <message>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="130"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Billentyű nyomása a megjegyzéshez...</translation>
+        <translation>Billentyű nyomása a megjegyzéshez:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="55"/>

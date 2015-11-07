@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu">
+<TS version="2.1" language="hu">
 <context>
     <name>LXQtTaskButton</name>
     <message>
@@ -125,12 +125,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation>A jelenlegi asztal ablakai látszanak</translation>
+        <translation>A &amp;jelenlegi asztal ablakai látszanak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="36"/>
         <source>Show windows from all des&amp;ktops</source>
-        <translation>Az összes asztal ablakai létszanak</translation>
+        <translation>Az összes asztal abla&amp;kja látszik</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="56"/>

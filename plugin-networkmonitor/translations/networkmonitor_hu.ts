@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu">
+<TS version="2.1" language="hu">
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation type="unfinished"></translation>
+        <translation>Modem</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation type="Wireless"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
