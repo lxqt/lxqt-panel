@@ -44,6 +44,8 @@ class QuickLaunchAction : public QAction
     Q_OBJECT
 
 public:
+    enum ActionType { ActionLegacy, ActionXdg, ActionXdgDirectory, ActionFile };
+
     /*! Constructor for "legacy" launchers.
         \warning The XDG way is preferred this is only for older or non-standard apps
         \param name a name to display in tooltip
@@ -57,6 +59,7 @@ public:
     /*! Constructor for XDG desktop handlers.
      */
     QuickLaunchAction(const XdgDesktopFile * xdg, QWidget * parent);
+
     /*! Constructor for regular files
      */
     QuickLaunchAction(const QString & fileName, QWidget * parent);
@@ -64,17 +67,25 @@ public:
     //! Returns true if the action is valid (contains all required properties).
     bool isValid() { return m_valid; }
 
+    //! Returns the type of the action
+    ActionType type() { return m_type; }
+
+    //! Returns the "subactions" of this action if it's type is ActionXdgDirectory
+    QList<QuickLaunchAction*> subActions() { return m_subActions; }
+
     QHash<QString, QString> settingsMap() { return m_settingsMap; }
 
 public slots:
     void execAction();
 
 private:
-    enum ActionType { ActionLegacy, ActionXdg, ActionFile };
     ActionType m_type;
     QString m_data;
     bool m_valid;
     QHash<QString, QString> m_settingsMap;
+
+    // For directories
+    QList<QuickLaunchAction*> m_subActions;
 };
 
 #endif

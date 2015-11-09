@@ -41,14 +41,14 @@
 
 QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, QWidget * parent)
     : QToolButton(parent),
-      mAct(act)
+      mAct(act),
+      mDirectoryMenu(new QMenu(this)),
+      mContextMenu(new QMenu(this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAcceptDrops(true);
 
-    setDefaultAction(mAct);
     mAct->setParent(this);
-
     mMoveLeftAct = new QAction(XdgIcon::fromTheme("go-previous"), tr("Move left"), this);
     connect(mMoveLeftAct, SIGNAL(triggered()), this, SIGNAL(movedLeft()));
 
@@ -59,13 +59,29 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, QWidget * parent)
     mDeleteAct = new QAction(XdgIcon::fromTheme("dialog-close"), tr("Remove from quicklaunch"), this);
     connect(mDeleteAct, SIGNAL(triggered()), this, SLOT(selfRemove()));
     addAction(mDeleteAct);
-    mMenu = new QMenu(this);
-    mMenu->addAction(mAct);
-    mMenu->addSeparator();
-    mMenu->addAction(mMoveLeftAct);
-    mMenu->addAction(mMoveRightAct);
-    mMenu->addSeparator();
-    mMenu->addAction(mDeleteAct);
+
+    if (mAct->type() == QuickLaunchAction::ActionXdgDirectory)
+    {
+        setIcon(mAct->icon());
+        connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked()));
+        foreach (QuickLaunchAction *action, mAct->subActions())
+        {
+            QAction *qaction = qobject_cast<QAction*>(action);
+            mDirectoryMenu->addAction(qaction);
+            mContextMenu->addAction(qaction);
+        }
+    }
+    else
+    {
+        setDefaultAction(mAct);
+        mContextMenu->addAction(mAct);
+    }
+
+    mContextMenu->addSeparator();
+    mContextMenu->addAction(mMoveLeftAct);
+    mContextMenu->addAction(mMoveRightAct);
+    mContextMenu->addSeparator();
+    mContextMenu->addAction(mDeleteAct);
 
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -91,11 +107,15 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & pos)
 {
     LXQtQuickLaunch *panel = qobject_cast<LXQtQuickLaunch*>(parent());
 
-    mMoveLeftAct->setEnabled( panel && panel->indexOfButton(this) > 0);
+    mMoveLeftAct->setEnabled(panel && panel->indexOfButton(this) > 0);
     mMoveRightAct->setEnabled(panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);
-    mMenu->popup(mapToGlobal(pos));
+    mContextMenu->popup(mapToGlobal(pos));
 }
 
+void QuickLaunchButton::onClicked()
+{
+    mDirectoryMenu->exec(QCursor::pos());
+}
 
 void QuickLaunchButton::selfRemove()
 {
