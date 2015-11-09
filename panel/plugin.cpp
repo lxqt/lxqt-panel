@@ -42,6 +42,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QCryptographicHash>
+#include <QLibrary>
 #include <memory>
 
 #include <LXQt/Settings>
@@ -281,6 +282,12 @@ bool Plugin::loadLib(ILXQtPanelPluginLibrary const * pluginLib)
 bool Plugin::loadModule(const QString &libraryName)
 {
     mPluginLoader = new QPluginLoader(libraryName);
+    //Note: we use the PreventUnloadHint to avoid static finalization order bugs
+    //e.g. - https://bugreports.qt.io/browse/QTBUG-49061
+    //     - warning "QThreadStorage: Thread 0x12a5980 exited after QThreadStorage 2 destroyed"
+    //Possible drawback in memory usage: the dynamic library is not unloaded should the plugin
+    //be removed from the panel
+    mPluginLoader->setLoadHints(mPluginLoader->loadHints() | QLibrary::PreventUnloadHint);
 
     if (!mPluginLoader->load())
     {
