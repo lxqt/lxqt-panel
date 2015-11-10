@@ -34,13 +34,14 @@
 #include <QMimeData>
 #include <QToolButton>
 
+class ILXQtPanelPlugin;
 
 class QuickLaunchButton : public QToolButton
 {
     Q_OBJECT
 
 public:
-    QuickLaunchButton(QuickLaunchAction * act, QWidget* parent = 0);
+    QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin * plugin, QWidget* parent = 0);
     ~QuickLaunchButton();
 
     QHash<QString,QString> settingsMap();
@@ -61,6 +62,7 @@ protected:
 
 private:
     QuickLaunchAction *mAct;
+    ILXQtPanelPlugin * mPlugin;
     QAction *mDeleteAct;
     QAction *mMoveLeftAct;
     QAction *mMoveRightAct;

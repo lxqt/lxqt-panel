@@ -158,7 +158,7 @@ void LXQtQuickLaunch::realign()
 void LXQtQuickLaunch::addButton(QuickLaunchAction* action)
 {
     mLayout->setEnabled(false);
-    QuickLaunchButton* btn = new QuickLaunchButton(action, this);
+    QuickLaunchButton* btn = new QuickLaunchButton(action, mPlugin, this);
     mLayout->addWidget(btn);
 
     connect(btn, SIGNAL(switchButtons(QuickLaunchButton*,QuickLaunchButton*)), this, SLOT(switchButtons(QuickLaunchButton*,QuickLaunchButton*)));
