@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>DesktopSwitch</name>
     <message>
         <location filename="../desktopswitch.cpp" line="83"/>
         <source>Switch to desktop %1</source>
-        <translation>Cambia al desktop %1</translation>
+        <translation>Passa al desktop %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="123"/>

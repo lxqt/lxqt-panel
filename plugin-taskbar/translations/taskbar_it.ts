@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtTaskButton</name>
     <message>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="517"/>
         <source>Roll down</source>
-        <translation>&amp;Srotola</translation>
+        <translation>Srotola</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="523"/>
         <source>Roll up</source>
-        <translation>&amp;Arrotola</translation>
+        <translation>Arrotola</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="531"/>
@@ -106,11 +106,11 @@
     <name>LXQtTaskbarConfiguration</name>
     <message>
         <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">Impostazioni del Task Manager di LXQt</translation>
+        <translation>Impostazioni del Task Manager di LXQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Mostra finestre</translation>
+        <translation>Contenuti dell&apos;elenco finestre</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Generali</translation>
+        <translation>Generale</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="26"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="65"/>
         <source>Show popup on mouse hover </source>
-        <translation>Mostra popup al passaggio del mouse </translation>
+        <translation>Mostra popup al passaggio del puntatore </translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="75"/>
@@ -159,23 +159,23 @@
     </message>
     <message>
         <source>Taskbar Contents</source>
-        <translation type="vanished">Contenuti della barra</translation>
+        <translation>Contenuti della barra</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation type="vanished">Mostra finestre del desktop corrente</translation>
+        <translation>Mostra finestre del desktop corrente</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation type="vanished">Mostra finestre da tutti i desktop</translation>
+        <translation>Mostra finestre da tutti i desktop</translation>
     </message>
     <message>
         <source>Taskbar Appearance</source>
-        <translation type="vanished">Aspetto</translation>
+        <translation>Aspetto</translation>
     </message>
     <message>
         <source>Minimum button width</source>
-        <translation type="vanished">Larghezza minima dei pulsanti</translation>
+        <translation>Larghezza minima dei pulsanti</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="120"/>
@@ -184,7 +184,7 @@
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation type="vanished">Aspetto delle finestre</translation>
+        <translation>Aspetto delle finestre</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="84"/>
@@ -193,12 +193,12 @@
     </message>
     <message>
         <source>Max button width</source>
-        <translation type="vanished">Larghezza massima dei pulsanti</translation>
+        <translation>Larghezza massima dei pulsanti</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Close on middle-click</source>
-        <translation>Chiudi con un click del tasto centrale</translation>
+        <translation>Chiudi con un clic del tasto centrale</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
