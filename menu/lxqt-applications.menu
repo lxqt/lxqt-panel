@@ -138,6 +138,9 @@
 				<Category>System</Category>
 				<Not><Category>Settings</Category></Not>
 				<Not><Category>PackageManager</Category></Not>
+				<Not><Category>X-Leave</Category></Not>
+				<Not><Category>Screensaver</Category></Not>
+				<Not><Filename>lxqt-about.desktop</Filename></Not>
 			</And>
 		</Include>
 	</Menu>	 <!-- End System Tools -->
