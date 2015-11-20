@@ -283,7 +283,10 @@ void LXQtWorldClock::settingsChanged()
             update_interval = 3600000;
 
         if (update_interval != mUpdateInterval)
+        {
+            mUpdateInterval = update_interval;
             restartTimer();
+        }
     }
 
     bool autoRotate = settings()->value(QLatin1String("autoRotate"), true).toBool();
