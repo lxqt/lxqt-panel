@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;настройки локали&gt;</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="33"/>
         <source>12 &amp;hour style</source>
-        <translation>12 &amp;часовой формат</translation>
+        <translation>12-&amp;часовой формат</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="107"/>
         <source>First day of week in calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Первый день недели в календаре</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="124"/>
@@ -111,11 +111,11 @@ Custom date format:</source>
 
 d	день как число без ноля перед ним (от 1 до 31)
 dd	день как число с нолём перед ним (от 01 до 31)
-ddd	аббревиат́ура названия дня недели (от «Пн» к «Вс»).
+ddd	аббревиатура названия дня недели (от «Пн» к «Вс»).
 dddd	полное название дня недели (от «Понедельник» к «Воскресенье»).
 M	месяц как число без ноля перед ним (от 1 до 12)
 MM	месяц как число с нолём перед ним (от 01 до 12)
-MMM	аббревиат́ура названия месяца (от «Янв» до «Дек»).
+MMM	аббревиатура названия месяца (от «Янв» до «Дек»).
 MMMM	полное название месяца (от «Январь» до «Декабрь»).
 yy	год как двухразрядное число (00-99)
 yyyy	год как четырёхразрядное число

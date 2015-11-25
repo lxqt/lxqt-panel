@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.0" language="ru">
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>
-        <translation>Ошибка бросания</translation>
+        <translation>Ошибка при перетаскивании</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="220"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Файл/URL-адрес &apos;%1&apos;  не может быть встроен в быстрый запуск сейчас</translation>
+        <translation>Файл/URL-адрес &apos;%1&apos; сейчас не может быть встроен в быстрый запуск</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="327"/>
         <source>Drop application
 icons here</source>
-        <translation>Бросьте значки
+        <translation>Перетащите значки
 приложений сюда</translation>
     </message>
 </context>

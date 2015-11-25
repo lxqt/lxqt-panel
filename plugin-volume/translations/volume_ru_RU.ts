@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.0" language="ru_RU">
 <context>
     <name>LXQtVolume</name>
     <message>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Разрешить громкость выше 100% (0Дб)</translation>
+        <translation>Разрешить громкость выше 100% (0дБ)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="92"/>

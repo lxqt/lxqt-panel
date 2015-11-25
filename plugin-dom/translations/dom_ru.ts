@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.0" language="ru">
 <context>
     <name>TreeWindow</name>
     <message>
@@ -22,17 +22,17 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Все свойства</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation type="unfinished"></translation>
+        <translation>Строковое значение</translation>
     </message>
 </context>
 </TS>
