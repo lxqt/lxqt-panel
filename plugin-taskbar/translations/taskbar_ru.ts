@@ -31,17 +31,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="503"/>
         <source>Ma&amp;ximize</source>
-        <translation>Р&amp;аспахнуть</translation>
+        <translation>Р&amp;азвернуть</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="510"/>
         <source>Maximize vertically</source>
-        <translation>Распахнуть по вертикали</translation>
+        <translation>Развернуть по вертикали</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="515"/>
         <source>Maximize horizontally</source>
-        <translation>Распахнуть по горизонтали</translation>
+        <translation>Развернуть по горизонтали</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="521"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>Always on &amp;top</source>
-        <translation>Всегда на &amp;верху</translation>
+        <translation>Всегда на&amp;верху</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="553"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation>Показать всплывающее окно при наведении мыши </translation>
+        <translation>Показывать всплывающее окно при наведении мыши </translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="96"/>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="67"/>
         <source>Close on middle-click</source>
-        <translation>Закрыть по щелчку средней кнопки мыши</translation>
+        <translation>Закрывать по щелчку средней кнопки мыши</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>

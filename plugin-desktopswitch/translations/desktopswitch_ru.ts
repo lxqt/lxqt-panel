@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="83"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished">Переключиться на рабочий стол %1</translation>
+        <translation>Переключиться на рабочий стол %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="123"/>
@@ -19,7 +19,7 @@
     <name>DesktopSwitchButton</name>
     <message>
         <source>Switch to desktop %1</source>
-        <translation type="vanished">Переключиться на рабочий стол %1</translation>
+        <translation>Переключиться на рабочий стол %1</translation>
     </message>
 </context>
 <context>
@@ -27,27 +27,27 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки переключения рабочих столов</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество рядов:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="40"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Метки рабочих столов:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="58"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Числа</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="63"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Имена</translation>
     </message>
 </context>
 </TS>

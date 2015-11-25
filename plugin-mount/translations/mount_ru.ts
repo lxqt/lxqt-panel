@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Настройки съёмных устройств</translation>
+        <translation>Настройки отключаемых устройств</translation>
     </message>
     <message>
         <location filename="../lxqtmountconfiguration.ui" line="20"/>
@@ -58,17 +58,17 @@
         <location filename="../menudiskitem.cpp" line="120"/>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Диспетчер отключаемых медиа/устройств</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="121"/>
         <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка при подключении &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt;: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="156"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка при отключении &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt;: %2</translation>
     </message>
 </context>
 <context>

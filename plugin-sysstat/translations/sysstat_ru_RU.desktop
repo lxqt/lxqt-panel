@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name[ru_RU]=Системная статистика
-Comment[ru_RU]=Плагин системной статистики.
-
-#TRANSLATIONS_DIR=../translations

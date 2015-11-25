@@ -75,7 +75,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Разрешить громкость выше 100% (0Дб)</translation>
+        <translation>Разрешить громкость выше 100% (0дБ)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="92"/>

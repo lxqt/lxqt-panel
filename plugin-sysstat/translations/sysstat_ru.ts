@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Приоритет</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
