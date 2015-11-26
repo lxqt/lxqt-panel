@@ -161,7 +161,7 @@ void XdgCachedMenu::handleMouseMoveEvent(QMouseEvent *event)
 
     QList<QUrl> urls;
     char* desktop_file = menu_cache_item_get_file_path(a->item());
-    urls << QUrl(desktop_file);
+    urls << QUrl(QString("file://%1").arg(desktop_file));
     g_free(desktop_file);
 
     QMimeData *mimeData = new QMimeData();
