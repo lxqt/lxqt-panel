@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="184"/>
+        <location filename="../lxqtworldclock.cpp" line="191"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -282,11 +282,11 @@
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;the timezone short display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;the timezone long display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;b&gt;Note:&lt;/b&gt; Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/p&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
         <translation>&lt;h1&gt;Syntax für eigenes Datums-/Zeitformat &lt;/h1&gt;
-&lt;p&gt;Ein Datumsmuster ist eine Zeichenkette, in der bestimmte Zeichenfolgen durch Datums- und Zeitangaben eines Kalenders ersetzt werden.&lt;/p&gt;
-&lt;p&gt;In der unten angegebenen Tabelle sind die Zeichenfolgen angegeben, für die eine Ersetzung vorgenommen wird. Dabei können einzelne Zeichen mehrfach angegeben werden, um die Bedeutung zu verändern. Beispielsweise wird y zur Darstellung des Jahres benutzt. Dabei produziert &apos;yy&apos; z.B. &apos;99&apos;, und &apos;yyyy&apos; produziert dann &apos;1999&apos;. Bei den meisten numerischen Feldern bestimmt die Anzahl der Zeichen die Feldbreite. Beispielsweise bei h, das zur Darstellung der Stunden dient, könnte &apos;h&apos; eine &apos;5&apos; produzieren, aber &apos;hh&apos; ergäbe &apos;05&apos;. Bei einigen Zeichen wird durch die Anzahl bestimmt, ob die abgekürzte oder ausgeschriebene Form benutzt werden soll.&lt;/p&gt;
+&lt;p&gt;Ein Datumsmuster ist eine Zeichenkette, in der bestimmte Zeichenfolgen durch Datums- und Zeitangaben eines Kalenders ersetzt werden, um Kalenderdaten zu formatieren oder generieren.&lt;/p&gt;
+&lt;p&gt;In der unten angegebenen Tabelle sind die Zeichenfolgen angegeben, für die eine Ersetzung vorgenommen wird. Dabei können einzelne Zeichen mehrfach angegeben werden, wodurch sich deren Bedeutung verändert. Beispielsweise wird y zur Darstellung des Jahres benutzt. Dabei produziert &apos;yy&apos; z.B. &apos;99&apos;, und &apos;yyyy&apos; produziert dann &apos;1999&apos;. Bei den meisten numerischen Feldern bestimmt die Anzahl der Zeichen die Feldbreite. Beispielsweise bei h, das zur Darstellung der Stunden dient, könnte &apos;h&apos; eine &apos;5&apos; produzieren, aber &apos;hh&apos; ergäbe &apos;05&apos;. Bei einigen Zeichen wird durch die Anzahl bestimmt, ob die abgekürzte oder ausgeschriebene Form benutzt werden soll oder andere Alternativen geboten.&lt;/p&gt;
 &lt;p&gt;Zwei Hochkommas werden durch ein einzelnes Hochkomma ersetzt, sowohl innerhalb als auch außerhalb Hochkommas. Text innerhalb einfacher Hochkommas wird nicht ersetzt (abgesehen von zwei aufeinander folgenden Hochkommas). Ansonsten sind alle ASCII-Zeichen von a bis z und A bis Z reservierte Zeichen und müssen in Hochkommas stehen, wenn sie für sich selbst stehen sollen. Außerdem könnten bestimmte Satzzeichen zukünftig als Variablen aufgefasst werden (z.B. könnte &quot;:&quot; als Trennzeichen zwischen Zeitbestandteilen und &apos;/&apos; als Datumstrenner interpretiert werden, welche durch entsprechende lokale Zeichen in der Anzeige ersetzt werden).&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
 &lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Code&lt;/th&gt;&lt;th&gt;Bedeutung&lt;/th&gt;&lt;/tr&gt;
@@ -313,13 +313,13 @@
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;oder&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;AM/PM-Anzeige nutzen. &lt;b&gt;A/AP&lt;/b&gt; wird durch &quot;AM&quot; oder &quot;PM&quot; ersetzt.&lt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;oder&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;am/pm-Anzeige nutzen. &lt;b&gt;a/ap&lt;/b&gt; wird durch &quot;am&quot; oder &quot;pm&quot; ersetzt.&lt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Zeitzone (z.B. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Offset zu UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Zeitlicher Versatz zu UTC&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;Zeitzone IANA-ID&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;Zeitzone abgekürzt&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Zeitzone kurz&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Zeitzone lang&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Eigener Name für die Zeitzone. Dieser kann im Reiter &apos;Zeitzonen&apos; gesetzt werden.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;b&gt;Hinweis:&lt;/b&gt; Jedes Zeichen, das nicht in den Bereichen [&apos;a&apos;..&apos;z&apos;] und [&apos;A&apos;..&apos;Z&apos;] liegt, wird als in Hochkommas eingeschlossener Text behandelt. Zeichen wie &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; und &apos;@&apos; erscheinen im resultierenden Text auch wenn sie nicht in Hochkommas eingeschlossen sind. Das Hochkomma wird als Fluchtzeichen verwendet. Zwei aufeinander folgende Hochkommas repräsentieren ein &apos;echtes&apos; Hochkomma.&lt;/p&gt;
+&lt;br /&gt;&lt;b&gt;Hinweis:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Jedes Zeichen, das nicht in den Bereichen [&apos;a&apos;..&apos;z&apos;] und [&apos;A&apos;..&apos;Z&apos;] liegt, wird als in Hochkommas eingeschlossener Text behandelt. Zeichen wie &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; und &apos;@&apos; erscheinen im resultierenden Text auch wenn sie nicht in Hochkommas eingeschlossen sind. Das Hochkomma wird als Fluchtzeichen verwendet. Zwei aufeinander folgende Hochkommas repräsentieren ein &apos;echtes&apos; Hochkomma.&lt;/li&gt;&lt;li&gt;Das minimale Aktualisierungsintervall beträgt 1 s. Wenn bei der Zeit z oder zzz konfiguriert wurde, wird die konfigurierte Zeit in Millisekunden ausgegeben, aber nicht auf Millisekunden-Basis aktualisiert (Leistungsabfall wird vermieden).&lt;/li&gt;&lt;ul&gt;
 </translation>
     </message>
 </context>
