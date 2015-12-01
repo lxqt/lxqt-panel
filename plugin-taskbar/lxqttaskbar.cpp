@@ -85,6 +85,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
             , this, &LXQtTaskBar::onWindowChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 }
 
 /************************************************
@@ -260,18 +261,26 @@ void LXQtTaskBar::addWindow(WId window, QString const & groupId)
 
 void LXQtTaskBar::refreshTaskList()
 {
+    QList<WId> new_list;
     // Just add new windows to groups, deleting is up to the groups
-    QList<WId> tmp = KWindowSystem::stackingOrder();
-
-    Q_FOREACH (WId wnd, tmp)
+    for (auto const wnd: KWindowSystem::stackingOrder())
     {
         if (acceptWindow(wnd))
         {
+            new_list << wnd;
             // If grouping disabled group behaves like regular button
             QString id = mGroupingEnabled ? KWindowInfo(wnd, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(wnd);
             addWindow(wnd, id);
         }
     }
+
+    //emulate windowRemoved if known window not reported by KWindowSystem
+    for (auto const & wid: mKnownWindows)
+    {
+        if (0 > new_list.indexOf(wid))
+            emit windowRemoved(wid);
+    }
+    mKnownWindows.swap(new_list);
 
     refreshPlaceholderVisibility();
 }
@@ -294,6 +303,19 @@ void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Propert
 
     if (!consumed && acceptWindow(window))
         addWindow(window, id);
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtTaskBar::onWindowRemoved(WId window)
+{
+    auto const pos = mKnownWindows.indexOf(window);
+    if (0 <= pos)
+    {
+        mKnownWindows.removeAt(pos);
+        emit windowRemoved(window);
+    }
 }
 
 /************************************************

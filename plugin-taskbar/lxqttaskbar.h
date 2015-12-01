@@ -80,6 +80,9 @@ public:
 public slots:
     void settingsChanged();
 
+signals:
+    void windowRemoved(WId window);
+
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
     virtual void dragMoveEvent(QDragMoveEvent * event);
@@ -92,6 +95,7 @@ private slots:
     void groupBecomeEmptySlot();
     void groupPopupShown(LXQtTaskGroup * const sender);
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+    void onWindowRemoved(WId window);
 
 private:
     void addWindow(WId window, QString const & groupId);
@@ -99,6 +103,7 @@ private:
 
 private:
     QHash<QString, LXQtTaskGroup*> mGroupsHash;
+    QList<WId> mKnownWindows; //!< Ids of known windows (for emulating windowRemoved in case WId of app changes)
     LXQt::GridLayout *mLayout;
 
     // Settings
