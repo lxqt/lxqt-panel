@@ -59,8 +59,8 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, QIcon icon, ILXQtPanelPlu
 
     connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked(bool)));
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(windowRemoved(WId)), this, SLOT(onWindowRemoved(WId)));
     connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), this, SLOT(onActiveWindowChanged(WId)));
+    connect(parent, &LXQtTaskBar::windowRemoved, this, &LXQtTaskGroup::onWindowRemoved);
 }
 
 /************************************************

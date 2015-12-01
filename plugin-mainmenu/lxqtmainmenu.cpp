@@ -149,6 +149,7 @@ void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
  ************************************************/
 void LXQtMainMenu::settingsChanged()
 {
+    mButton.setIcon(QIcon{settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()});
     if (settings()->value("showText", false).toBool())
     {
         mButton.setText(settings()->value("text", "Start").toString());

@@ -69,6 +69,7 @@ private slots:
     void dialogButtonsAction(QAbstractButton *btn);
     void textButtonChanged(const QString &value);
     void showTextChanged(bool value);
+    void chooseIcon();
     void chooseMenuFile();
     void shortcutReset();
     void customFontChanged(bool value);
