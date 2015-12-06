@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>ConfigPanelDialog</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Configura il pannello</translation>
+        <translation>Configura il pannello</translation>
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="vanished">Dimensione pannello</translation>
+        <translation>Dimensione pannello</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="vanished">Dimensione:</translation>
+        <translation>Dimensione:</translation>
     </message>
     <message>
         <source>px</source>
-        <translation type="vanished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="vanished">Usa dimensionamento automatico</translation>
+        <translation>Usa dimensionamento automatico</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Lunghezza e posizione del pannello</translation>
+        <translation>Lunghezza e posizione del pannello</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="vanished">Sinistra</translation>
+        <translation>Sinistra</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="vanished">Centro</translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="vanished">Destra</translation>
+        <translation>Destra</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="vanished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="vanished">Allineamento:</translation>
+        <translation>Allineamento:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Lunghezza:</translation>
+        <translation>Lunghezza:</translation>
     </message>
     <message>
         <source>Position:</source>
-        <translation type="vanished">Posizione:</translation>
+        <translation>Posizione:</translation>
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="vanished">Alto del desktop</translation>
+        <translation>Alto del desktop</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">Sinistra del desktop</translation>
+        <translation>Sinistra del desktop</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">Destra del desktop</translation>
+        <translation>Destra del desktop</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">Basso del desktop</translation>
+        <translation>Basso del desktop</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">Alto del desktop %1</translation>
+        <translation>Alto del desktop %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">Sinistra del desktop %1</translation>
+        <translation>Sinistra del desktop %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">Destra del desktop %1</translation>
+        <translation>Destra del desktop %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">Basso del desktop %1</translation>
+        <translation>Basso del desktop %1</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="80"/>
@@ -194,17 +194,17 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom font color:</source>
-        <translation>Colore carattere personalizzato:</translation>
+        <translation>Colore del carattere personalizzato:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="246"/>
         <source>Custom background image:</source>
-        <translation>Immagine sfondo:</translation>
+        <translation>Immagine di sfondo:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="260"/>
         <source>Custom background color:</source>
-        <translation>Colore sfondo personalizzato:</translation>
+        <translation>Colore di sfondo personalizzato:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="351"/>
@@ -265,7 +265,7 @@
         <location filename="../config/configpaneldialog.cpp" line="397"/>
         <location filename="../config/configpaneldialog.cpp" line="411"/>
         <source>Pick color</source>
-        <translation>Scegli  colore</translation>
+        <translation>Scegli il colore</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="431"/>
@@ -309,33 +309,33 @@
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation type="vanished">Configura pannello...</translation>
+        <translation>Configura pannello...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Aggiungi plugin...</translation>
+        <translation>Aggiungi plugin...</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation type="vanished">Configura</translation>
+        <translation>Configura</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="vanished">Sposta</translation>
+        <translation>Sposta</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Rimuovi</translation>
+        <translation>Rimuovi</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Configura pannello</translation>
+        <translation>Configura pannello</translation>
     </message>
 </context>
 <context>

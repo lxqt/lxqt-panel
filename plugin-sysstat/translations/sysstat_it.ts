@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtSysStatColours</name>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Colori delle statistiche</translation>
+        <translation>Colori delle statistiche di sistema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -33,22 +33,22 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Cambia ...</translation>
+        <translation>Cambia...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation>&amp;Titolo</translation>
+        <translation>T&amp;itolo</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation></translation>
+        <translation>&amp;Nice</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation></translation>
+        <translation>&amp;Buffer</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation></translation>
+        <translation>Dati</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation>&amp;Grandezza minimale</translation>
+        <translation>&amp;Dimensione minima</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
@@ -156,12 +156,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation>&amp;Linee griglia</translation>
+        <translation>&amp;Linee della griglia</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Larghezza minimale se il pannello è orizzontale.&lt;/p&gt;&lt;p&gt;Altezza minimale se il pannello è verticale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Larghezza minima se il pannello è orizzontale.&lt;/p&gt;&lt;p&gt;Altezza minima se il pannello è verticale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="290"/>
         <source>CPU</source>
-        <translation></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="295"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation></translation>
+        <translation>XXX KBs</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
