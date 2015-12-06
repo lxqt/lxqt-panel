@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtMainMenu</name>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="245"/>
         <source>Show/hide main menu</source>
-        <translation>Mostra/nascondi menù principale</translation>
+        <translation>Mostra/nascondi il menu principale</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation type="vanished">Esci</translation>
+        <translation>Esci</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
         <source>LXQt Main Menu settings</source>
-        <translation type="vanished">Impostazioni del menu principale di LXQt</translation>
+        <translation>Impostazioni del menu principale di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Generali</translation>
+        <translation>Generale</translation>
     </message>
     <message>
         <source>Show text</source>
-        <translation type="vanished">Mostra testo</translation>
+        <translation>Mostra testo</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="vanished">Testo del pulsante</translation>
+        <translation>Testo del pulsante</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Impostazioni del menù principale di LXQt</translation>
+        <translation>Impostazioni del menu principale di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Button text:</source>
-        <translation>Testo pulsante:</translation>
+        <translation>Testo del pulsante:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="52"/>
         <source>Custom font size:</source>
-        <translation>Dimensione carattere personalizzato:</translation>
+        <translation>Dimensione personalizzata del carattere:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="62"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="81"/>
         <source>Menu file</source>
-        <translation>File del menù</translation>
+        <translation>File del menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="87"/>
         <source>Menu file:</source>
-        <translation>File del menù:</translation>
+        <translation>File del menu:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="101"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Choose menu file</source>
-        <translation>Scegli il file del menù</translation>
+        <translation>Scegli il file del menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="100"/>
         <source>Menu files (*.menu)</source>
-        <translation>File del menù (*.menu)</translation>
+        <translation>File del menu (*.menu)</translation>
     </message>
 </context>
 </TS>

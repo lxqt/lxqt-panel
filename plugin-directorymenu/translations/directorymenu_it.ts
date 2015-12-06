@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>DirectoryMenu</name>
     <message>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="122"/>
         <source>Choose Icon</source>
-        <translation>Seleziona icona</translation>
+        <translation>Scegli icona</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="123"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="131"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Errore caricando l&apos;icona.</translation>
+        <translation>Errore durante il caricamento dell&apos;icona.</translation>
     </message>
 </context>
 </TS>

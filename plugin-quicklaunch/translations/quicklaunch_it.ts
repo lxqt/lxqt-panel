@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="219"/>
         <source>Drop Error</source>
-        <translation>Errore di trascinamento</translation>
+        <translation>Errore di rilascio</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="220"/>
@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="327"/>
         <source>Drop application
 icons here</source>
-        <translation>Trascina applicazioni
-dal menù qui</translation>
+        <translation>Rilascia qui le icone
+delle applicazioni</translation>
     </message>
 </context>
 <context>

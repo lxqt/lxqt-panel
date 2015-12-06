@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation type="vanished">Carico del processore %1%</translation>
+        <translation>Carico del processore %1%</translation>
     </message>
     <message>
         <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished">Carico del processore %1%</translation>
+        <translation>Carico del processore %1%</translation>
     </message>
 </context>
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
         <source>LXQt Cpu Load settings</source>
-        <translation type="vanished">Impostazioni del carico del processore di LXQt</translation>
+        <translation>Impostazioni del carico del processore di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Impostazioni di carica del processore</translation>
+        <translation>Impostazioni del carico del processore</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>

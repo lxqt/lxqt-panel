@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.0" language="it">
 <context>
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
+        <translation>Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>Alza volume</translation>
+        <translation>Aumenta il volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation>Abbassa volume</translation>
+        <translation>Riduci il volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Muta/smuta audio</translation>
+        <translation>Silenzia/rimuovi silenzio per il volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
@@ -38,7 +38,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Impostazioni del controllo del volume di LXQt</translation>
+        <translation>Impostazioni del controllo del volume di LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Muta al click centrale del mouse</translation>
+        <translation>Silenzia al clic centrale del mouse</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Mostra al click del mouse</translation>
+        <translation>Mostra al clic del mouse</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="92"/>
         <source>Volume adjust step</source>
-        <translation>Valore di regolazione del volume</translation>
+        <translation>Passo di regolazione del volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="111"/>
