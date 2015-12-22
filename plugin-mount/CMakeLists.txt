@@ -13,6 +13,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    ${PROJECT_SOURCE_DIR}/panel/lxqtpanelpluginconfigdialog.cpp
     lxqtmountplugin.cpp
     configuration.cpp
     button.cpp
