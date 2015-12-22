@@ -125,7 +125,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
         <source>Length:</source>
-        <translation>Longueur :</translation>
+        <translation>Longueur:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation>Nombre de rangées</translation>
+        <translation>Nombre de rangées:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
@@ -289,12 +289,12 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
-        <translation>Configurer le tableau de bord</translation>
+        <translation>Configurer le tableau de bord...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="978"/>
         <source>Add Panel Widgets...</source>
-        <translation>Ajouter des widgets au tableau de bord</translation>
+        <translation>Ajouter des widgets au tableau de bord...</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="984"/>
@@ -308,7 +308,7 @@
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation>Configurer le tableau de bord...</translation>
+        <translation type="vanished">Configurer le tableau de bord...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
