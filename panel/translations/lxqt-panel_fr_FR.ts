@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Longueur :</translation>
+        <translation type="vanished">Longueur:</translation>
     </message>
     <message>
         <source>Position:</source>
