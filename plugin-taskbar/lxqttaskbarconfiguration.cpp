@@ -32,11 +32,9 @@
 #include "ui_lxqttaskbarconfiguration.h"
 #include <KWindowSystem/KWindowSystem>
 
-LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(QSettings &settings, QWidget *parent):
-    QDialog(parent),
-    ui(new Ui::LXQtTaskbarConfiguration),
-    mSettings(settings),
-    oldSettings(settings)
+LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(QSettings *settings, QWidget *parent):
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::LXQtTaskbarConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("TaskbarConfigurationWindow");
@@ -80,52 +78,35 @@ LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
 
 void LXQtTaskbarConfiguration::loadSettings()
 {
-    const bool showOnlyOneDesktopTasks = mSettings.value("showOnlyOneDesktopTasks", false).toBool();
+    const bool showOnlyOneDesktopTasks = settings().value("showOnlyOneDesktopTasks", false).toBool();
     ui->limitByDesktopCB->setChecked(showOnlyOneDesktopTasks);
-    ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(mSettings.value("showDesktopNum", 0).toInt()));
+    ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(settings().value("showDesktopNum", 0).toInt()));
     ui->showDesktopNumCB->setEnabled(showOnlyOneDesktopTasks);
-    ui->limitByScreenCB->setChecked(mSettings.value("showOnlyCurrentScreenTasks", false).toBool());
-    ui->limitByMinimizedCB->setChecked(mSettings.value("showOnlyMinimizedTasks", false).toBool());
+    ui->limitByScreenCB->setChecked(settings().value("showOnlyCurrentScreenTasks", false).toBool());
+    ui->limitByMinimizedCB->setChecked(settings().value("showOnlyMinimizedTasks", false).toBool());
 
-    ui->autoRotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
-    ui->middleClickCB->setChecked(mSettings.value("closeOnMiddleClick", true).toBool());
-    ui->raiseOnCurrentDesktopCB->setChecked(mSettings.value("raiseOnCurrentDesktop", false).toBool());
-    ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(mSettings.value("buttonStyle", "IconText")));
-    ui->buttonWidthSB->setValue(mSettings.value("buttonWidth", 400).toInt());
-    ui->buttonHeightSB->setValue(mSettings.value("buttonHeight", 100).toInt());
-    ui->groupingGB->setChecked(mSettings.value("groupingEnabled",true).toBool());
-    ui->showGroupOnHoverCB->setChecked(mSettings.value("showGroupOnHover",true).toBool());
+    ui->autoRotateCB->setChecked(settings().value("autoRotate", true).toBool());
+    ui->middleClickCB->setChecked(settings().value("closeOnMiddleClick", true).toBool());
+    ui->raiseOnCurrentDesktopCB->setChecked(settings().value("raiseOnCurrentDesktop", false).toBool());
+    ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(settings().value("buttonStyle", "IconText")));
+    ui->buttonWidthSB->setValue(settings().value("buttonWidth", 400).toInt());
+    ui->buttonHeightSB->setValue(settings().value("buttonHeight", 100).toInt());
+    ui->groupingGB->setChecked(settings().value("groupingEnabled",true).toBool());
+    ui->showGroupOnHoverCB->setChecked(settings().value("showGroupOnHover",true).toBool());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
 {
-    mSettings.setValue("showOnlyOneDesktopTasks", ui->limitByDesktopCB->isChecked());
-    mSettings.setValue("showDesktopNum", ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
-    mSettings.setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
-    mSettings.setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
-    mSettings.setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
-    mSettings.setValue("buttonWidth", ui->buttonWidthSB->value());
-    mSettings.setValue("buttonHeight", ui->buttonHeightSB->value());
-    mSettings.setValue("autoRotate", ui->autoRotateCB->isChecked());
-    mSettings.setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
-    mSettings.setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
-    mSettings.setValue("groupingEnabled",ui->groupingGB->isChecked());
-    mSettings.setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
-}
-
-void LXQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        /* We have to disable signals for buttonWidthSB to prevent errors. Otherwise not all data
-          could be restored */
-        ui->buttonWidthSB->blockSignals(true);
-        ui->buttonHeightSB->blockSignals(true);
-        oldSettings.loadToSettings();
-        loadSettings();
-        ui->buttonWidthSB->blockSignals(false);
-        ui->buttonHeightSB->blockSignals(false);
-    }
-    else
-        close();
+    settings().setValue("showOnlyOneDesktopTasks", ui->limitByDesktopCB->isChecked());
+    settings().setValue("showDesktopNum", ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
+    settings().setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
+    settings().setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
+    settings().setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
+    settings().setValue("buttonWidth", ui->buttonWidthSB->value());
+    settings().setValue("buttonHeight", ui->buttonHeightSB->value());
+    settings().setValue("autoRotate", ui->autoRotateCB->isChecked());
+    settings().setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
+    settings().setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
+    settings().setValue("groupingEnabled",ui->groupingGB->isChecked());
+    settings().setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
 }

@@ -29,9 +29,8 @@
 #ifndef LXQTCPULOADCONFIGURATION_H
 #define LXQTCPULOADCONFIGURATION_H
 
+#include "../panel/lxqtpanelpluginconfigdialog.h"
 #include <LXQt/Settings>
-
-#include <QDialog>
 
 class QSettings;
 class QAbstractButton;
@@ -40,18 +39,16 @@ namespace Ui {
     class LXQtCpuLoadConfiguration;
 }
 
-class LXQtCpuLoadConfiguration : public QDialog
+class LXQtCpuLoadConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtCpuLoadConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit LXQtCpuLoadConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~LXQtCpuLoadConfiguration();
 
 private:
     Ui::LXQtCpuLoadConfiguration *ui;
-    QSettings *mSettings;
-    LXQt::SettingsCache mOldSettings;
 
     /*
       Fills Bar orientation combobox
@@ -63,7 +60,6 @@ private slots:
       Saves settings in conf file.
     */
     void loadSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
     void showTextChanged(bool value);
     void barWidthChanged(int value);
     void updateIntervalChanged(double value);

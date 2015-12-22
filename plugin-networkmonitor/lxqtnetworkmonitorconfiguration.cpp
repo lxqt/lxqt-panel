@@ -39,10 +39,8 @@ extern "C" {
 #endif
 
 LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(QSettings *settings, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::LXQtNetworkMonitorConfiguration),
-    mSettings(settings),
-    mOldSettings(settings)
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::LXQtNetworkMonitorConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("NetworkMonitorConfigurationWindow");
@@ -62,13 +60,13 @@ LXQtNetworkMonitorConfiguration::~LXQtNetworkMonitorConfiguration()
 
 void LXQtNetworkMonitorConfiguration::saveSettings()
 {
-    mSettings->setValue("icon", ui->iconCB->currentIndex());
-    mSettings->setValue("interface", ui->interfaceCB->currentText());
+    settings().setValue("icon", ui->iconCB->currentIndex());
+    settings().setValue("interface", ui->interfaceCB->currentText());
 }
 
 void LXQtNetworkMonitorConfiguration::loadSettings()
 {
-    ui->iconCB->setCurrentIndex(mSettings->value("icon", 1).toInt());
+    ui->iconCB->setCurrentIndex(settings().value("icon", 1).toInt());
 
     int count;
 #ifdef STATGRAB_NEWER_THAN_0_90
@@ -81,20 +79,6 @@ void LXQtNetworkMonitorConfiguration::loadSettings()
     for (int ix = 0; ix < count; ix++)
         ui->interfaceCB->addItem(stats[ix].interface_name);
 
-    QString interface = mSettings->value("interface").toString();
+    QString interface = settings().value("interface").toString();
     ui->interfaceCB->setCurrentIndex(qMax(qMin(0, count - 1), ui->interfaceCB->findText(interface)));
 }
-
-void LXQtNetworkMonitorConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
-}
-

@@ -29,12 +29,10 @@
 #ifndef LXQTSYSSTATCONFIGURATION_H
 #define LXQTSYSSTATCONFIGURATION_H
 
+#include "../panel/lxqtpanelpluginconfigdialog.h"
 #include <LXQt/Settings>
-
-#include <QDialog>
 #include <QAbstractButton>
 #include <QMap>
-
 
 namespace Ui {
     class LXQtSysStatConfiguration;
@@ -46,12 +44,12 @@ namespace SysStat {
 
 class LXQtSysStatColours;
 
-class LXQtSysStatConfiguration : public QDialog
+class LXQtSysStatConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtSysStatConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit LXQtSysStatConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~LXQtSysStatConfiguration();
 
 public slots:
@@ -60,7 +58,6 @@ public slots:
     void on_typeCOB_currentIndexChanged(int);
     void on_maximumHS_valueChanged(int);
     void on_customColoursB_clicked();
-    void on_buttons_clicked(QAbstractButton *);
 
     void coloursChanged();
 
@@ -72,14 +69,10 @@ signals:
 
 private:
     Ui::LXQtSysStatConfiguration *ui;
-    QSettings *mSettings;
-    LXQt::SettingsCache oldSettings;
+    SysStat::BaseStat *mStat;
+    LXQtSysStatColours *mColoursDialog;
 
     void loadSettings();
-
-    SysStat::BaseStat *mStat;
-
-    LXQtSysStatColours *mColoursDialog;
 };
 
 #endif // LXQTSYSSTATCONFIGURATION_H

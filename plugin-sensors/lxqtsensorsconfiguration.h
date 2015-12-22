@@ -28,30 +28,27 @@
 #ifndef LXQTSENSORSCONFIGURATION_H
 #define LXQTSENSORSCONFIGURATION_H
 
+#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <LXQt/Settings>
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QDateTime>
-#include <QDialog>
 #include <QLocale>
-#include <LXQt/Settings>
-
 
 namespace Ui {
     class LXQtSensorsConfiguration;
 }
 
-class LXQtSensorsConfiguration : public QDialog
+class LXQtSensorsConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtSensorsConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit LXQtSensorsConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~LXQtSensorsConfiguration();
 
 private:
     Ui::LXQtSensorsConfiguration *ui;
-    QSettings *mSettings;
-    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.
@@ -63,7 +60,6 @@ private slots:
       Saves settings in conf file.
     */
     void saveSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
     void changeProgressBarColor();
     void detectedChipSelected(int index);
 };

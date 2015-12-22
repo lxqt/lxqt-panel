@@ -36,10 +36,9 @@ const QStringList SpacerConfiguration::msTypes = {
     , QLatin1String(QT_TR_NOOP("invisible"))
 };
 
-SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::SpacerConfiguration)
-    , mSettings(settings)
+SpacerConfiguration::SpacerConfiguration(QSettings *settings, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::SpacerConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SpacerConfigurationWindow");
@@ -62,16 +61,16 @@ SpacerConfiguration::~SpacerConfiguration()
 
 void SpacerConfiguration::loadSettings()
 {
-    ui->sizeSB->setValue(mSettings->value("size", 8).toInt());
-    ui->typeCB->setCurrentIndex(ui->typeCB->findData(mSettings->value("spaceType", msTypes[0]).toString()));
+    ui->sizeSB->setValue(settings().value("size", 8).toInt());
+    ui->typeCB->setCurrentIndex(ui->typeCB->findData(settings().value("spaceType", msTypes[0]).toString()));
 }
 
 void SpacerConfiguration::sizeChanged(int value)
 {
-    mSettings->setValue("size", value);
+    settings().setValue("size", value);
 }
 
 void SpacerConfiguration::typeChanged(int index)
 {
-    mSettings->setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
+    settings().setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
 }

@@ -29,30 +29,27 @@
 #ifndef LXQTCLOCKCONFIGURATION_H
 #define LXQTCLOCKCONFIGURATION_H
 
-#include <QDialog>
+#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <LXQt/Settings>
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QLocale>
 #include <QDateTime>
 
-#include <LXQt/Settings>
-
 namespace Ui {
     class LXQtClockConfiguration;
 }
 
-class LXQtClockConfiguration : public QDialog
+class LXQtClockConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtClockConfiguration(QSettings &settings, QWidget *parent = 0);
+    explicit LXQtClockConfiguration(QSettings *settings, QWidget *parent = 0);
     ~LXQtClockConfiguration();
 
 private:
     Ui::LXQtClockConfiguration *ui;
-    QSettings &mSettings;
-    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.
@@ -69,7 +66,6 @@ private slots:
       Saves settings in conf file.
     */
     void saveSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
     void dateFormatActivated(int);
 
 private:

@@ -75,11 +75,9 @@ namespace
     };
 }
 
-LXQtClockConfiguration::LXQtClockConfiguration(QSettings &settings, QWidget *parent) :
-    QDialog(parent),
+LXQtClockConfiguration::LXQtClockConfiguration(QSettings *settings, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtClockConfiguration),
-    mSettings(settings),
-    oldSettings(settings),
     mOldIndex(1)
 {
     setAttribute(Qt::WA_DeleteOnClose);
@@ -205,21 +203,21 @@ void LXQtClockConfiguration::loadSettings()
     QString systemDateLocale = QLocale::system().dateFormat(QLocale::ShortFormat).toUpper();
     QString systemTimeLocale = QLocale::system().timeFormat(QLocale::ShortFormat).toUpper();
 
-    QString timeFormat = mSettings.value("timeFormat", systemTimeLocale.contains("AP") ? "h:mm AP" : "HH:mm").toString();
+    QString timeFormat = settings().value("timeFormat", systemTimeLocale.contains("AP") ? "h:mm AP" : "HH:mm").toString();
 
     ui->showSecondsCB->setChecked(timeFormat.indexOf("ss") > -1);
 
     ui->ampmClockCB->setChecked(timeFormat.toUpper().indexOf("AP") > -1);
 
-    ui->useUtcCB->setChecked(mSettings.value("UTC", false).toBool());
+    ui->useUtcCB->setChecked(settings().value("UTC", false).toBool());
 
     ui->dontShowDateRB->setChecked(true);
-    ui->showDateBeforeTimeRB->setChecked(mSettings.value("showDate", "no").toString().toLower() == "before");
-    ui->showDateAfterTimeRB->setChecked(mSettings.value("showDate", "no").toString().toLower() == "after");
-    ui->showDateBelowTimeRB->setChecked(mSettings.value("showDate", "no").toString().toLower() == "below");
+    ui->showDateBeforeTimeRB->setChecked(settings().value("showDate", "no").toString().toLower() == "before");
+    ui->showDateAfterTimeRB->setChecked(settings().value("showDate", "no").toString().toLower() == "after");
+    ui->showDateBelowTimeRB->setChecked(settings().value("showDate", "no").toString().toLower() == "below");
 
-    mCustomDateFormat = mSettings.value("customDateFormat", QString()).toString();
-    QString dateFormat = mSettings.value("dateFormat", QLocale::system().dateFormat(QLocale::ShortFormat)).toString();
+    mCustomDateFormat = settings().value("customDateFormat", QString()).toString();
+    QString dateFormat = settings().value("dateFormat", QLocale::system().dateFormat(QLocale::ShortFormat)).toString();
 
     createDateFormats();
 
@@ -233,8 +231,8 @@ void LXQtClockConfiguration::loadSettings()
     }
     mOldIndex = ui->dateFormatCOB->currentIndex();
 
-    ui->autorotateCB->setChecked(mSettings.value("autoRotate", true).toBool());
-    ui->firstDayOfWeekCB->setCurrentIndex(dynamic_cast<FirstDayCombo&>(*(ui->firstDayOfWeekCB->model())).findIndex(mSettings.value("firstDayOfWeek", -1).toInt()));
+    ui->autorotateCB->setChecked(settings().value("autoRotate", true).toBool());
+    ui->firstDayOfWeekCB->setCurrentIndex(dynamic_cast<FirstDayCombo&>(*(ui->firstDayOfWeekCB->model())).findIndex(settings().value("firstDayOfWeek", -1).toInt()));
 }
 
 void LXQtClockConfiguration::saveSettings()
@@ -244,36 +242,23 @@ void LXQtClockConfiguration::saveSettings()
     if (ui->showSecondsCB->isChecked())
         timeFormat.insert(timeFormat.indexOf("mm") + 2, ":ss");
 
-    mSettings.setValue("timeFormat", timeFormat);
+    settings().setValue("timeFormat", timeFormat);
 
-    mSettings.setValue("UTC", ui->useUtcCB->isChecked());
+    settings().setValue("UTC", ui->useUtcCB->isChecked());
 
-    mSettings.setValue("showDate",
+    settings().setValue("showDate",
         ui->showDateBeforeTimeRB->isChecked() ? "before" :
         (ui->showDateAfterTimeRB->isChecked() ? "after" :
         (ui->showDateBelowTimeRB->isChecked() ? "below" : "no" )));
 
-    mSettings.setValue("customDateFormat", mCustomDateFormat);
+    settings().setValue("customDateFormat", mCustomDateFormat);
     if (ui->dateFormatCOB->currentIndex() == (ui->dateFormatCOB->count() - 1))
-        mSettings.setValue("dateFormat", mCustomDateFormat);
+        settings().setValue("dateFormat", mCustomDateFormat);
     else
-        mSettings.setValue("dateFormat", ui->dateFormatCOB->itemData(ui->dateFormatCOB->currentIndex()));
+        settings().setValue("dateFormat", ui->dateFormatCOB->itemData(ui->dateFormatCOB->currentIndex()));
 
-    mSettings.setValue("autoRotate", ui->autorotateCB->isChecked());
-    mSettings.setValue("firstDayOfWeek", dynamic_cast<QStandardItemModel&>(*ui->firstDayOfWeekCB->model()).item(ui->firstDayOfWeekCB->currentIndex(), 0)->data(Qt::UserRole));
-}
-
-void LXQtClockConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        oldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
+    settings().setValue("autoRotate", ui->autorotateCB->isChecked());
+    settings().setValue("firstDayOfWeek", dynamic_cast<QStandardItemModel&>(*ui->firstDayOfWeekCB->model()).item(ui->firstDayOfWeekCB->currentIndex(), 0)->data(Qt::UserRole));
 }
 
 void LXQtClockConfiguration::dateFormatActivated(int index)

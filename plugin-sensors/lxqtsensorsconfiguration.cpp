@@ -35,10 +35,8 @@
 
 
 LXQtSensorsConfiguration::LXQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::LXQtSensorsConfiguration),
-    mSettings(settings),
-    oldSettings(settings)
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::LXQtSensorsConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SensorsConfigurationWindow");
@@ -71,10 +69,10 @@ LXQtSensorsConfiguration::~LXQtSensorsConfiguration()
 
 void LXQtSensorsConfiguration::loadSettings()
 {
-    ui->updateIntervalSB->setValue(mSettings->value("updateInterval").toInt());
-    ui->tempBarWidthSB->setValue(mSettings->value("tempBarWidth").toInt());
+    ui->updateIntervalSB->setValue(settings().value("updateInterval").toInt());
+    ui->tempBarWidthSB->setValue(settings().value("tempBarWidth").toInt());
 
-    if (mSettings->value("useFahrenheitScale").toBool())
+    if (settings().value("useFahrenheitScale").toBool())
     {
         ui->fahrenheitTempScaleRB->setChecked(true);
     }
@@ -82,14 +80,14 @@ void LXQtSensorsConfiguration::loadSettings()
     // In case of reloading settings we have to clear GUI elements
     ui->detectedChipsCB->clear();
 
-    mSettings->beginGroup("chips");
-    QStringList chipNames = mSettings->childGroups();
+    settings().beginGroup("chips");
+    QStringList chipNames = settings().childGroups();
 
     for (int i = 0; i < chipNames.size(); ++i)
     {
         ui->detectedChipsCB->addItem(chipNames[i]);
     }
-    mSettings->endGroup();
+    settings().endGroup();
 
     // Load feature for the first chip if exist
     if (chipNames.size() > 0)
@@ -98,26 +96,26 @@ void LXQtSensorsConfiguration::loadSettings()
     }
 
     ui->warningAboutHighTemperatureChB->setChecked(
-            mSettings->value("warningAboutHighTemperature").toBool());
+            settings().value("warningAboutHighTemperature").toBool());
 }
 
 
 void LXQtSensorsConfiguration::saveSettings()
 {
-    mSettings->setValue("updateInterval", ui->updateIntervalSB->value());
-    mSettings->setValue("tempBarWidth", ui->tempBarWidthSB->value());
+    settings().setValue("updateInterval", ui->updateIntervalSB->value());
+    settings().setValue("tempBarWidth", ui->tempBarWidthSB->value());
 
     if (ui->fahrenheitTempScaleRB->isChecked())
     {
-        mSettings->setValue("useFahrenheitScale", true);
+        settings().setValue("useFahrenheitScale", true);
     }
     else
     {
-        mSettings->setValue("useFahrenheitScale", false);
+        settings().setValue("useFahrenheitScale", false);
     }
 
-    mSettings->beginGroup("chips");
-    QStringList chipNames = mSettings->childGroups();
+    settings().beginGroup("chips");
+    QStringList chipNames = settings().childGroups();
 
     if (chipNames.size())
     {
@@ -125,48 +123,33 @@ void LXQtSensorsConfiguration::saveSettings()
         QPushButton* colorButton = NULL;
         QCheckBox* enabledCheckbox = NULL;
 
-        mSettings->beginGroup(chipNames[ui->detectedChipsCB->currentIndex()]);
+        settings().beginGroup(chipNames[ui->detectedChipsCB->currentIndex()]);
 
-        chipFeatureLabels = mSettings->childGroups();
+        chipFeatureLabels = settings().childGroups();
         for (int j = 0; j < chipFeatureLabels.size(); ++j)
         {
-            mSettings->beginGroup(chipFeatureLabels[j]);
+            settings().beginGroup(chipFeatureLabels[j]);
 
             enabledCheckbox = qobject_cast<QCheckBox*>(ui->chipFeaturesT->cellWidget(j, 0));
             // We know what we are doing so we don't have to check if enabledCheckbox == 0
-            mSettings->setValue("enabled", enabledCheckbox->isChecked());
+            settings().setValue("enabled", enabledCheckbox->isChecked());
 
             colorButton = qobject_cast<QPushButton*>(ui->chipFeaturesT->cellWidget(j, 2));
             // We know what we are doing so we don't have to check if colorButton == 0
-            mSettings->setValue(
+            settings().setValue(
                     "color",
                     colorButton->palette().color(QPalette::Normal, QPalette::Button).name());
 
-            mSettings->endGroup();
+            settings().endGroup();
         }
-        mSettings->endGroup();
+        settings().endGroup();
 
     }
-    mSettings->endGroup();
+    settings().endGroup();
 
-    mSettings->setValue("warningAboutHighTemperature",
+    settings().setValue("warningAboutHighTemperature",
                        ui->warningAboutHighTemperatureChB->isChecked());
 }
-
-
-void LXQtSensorsConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        oldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
-}
-
 
 void LXQtSensorsConfiguration::changeProgressBarColor()
 {
@@ -193,8 +176,8 @@ void LXQtSensorsConfiguration::changeProgressBarColor()
 
 void LXQtSensorsConfiguration::detectedChipSelected(int index)
 {
-    mSettings->beginGroup("chips");
-    QStringList chipNames = mSettings->childGroups();
+    settings().beginGroup("chips");
+    QStringList chipNames = settings().childGroups();
     QStringList chipFeatureLabels;
     QPushButton* colorButton = NULL;
     QCheckBox* enabledCheckbox = NULL;
@@ -213,16 +196,16 @@ void LXQtSensorsConfiguration::detectedChipSelected(int index)
         ui->chipFeaturesT->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->chipFeaturesT->setHorizontalHeaderLabels(chipFeaturesLabels);
 
-        mSettings->beginGroup(chipNames[index]);
-        chipFeatureLabels = mSettings->childGroups();
+        settings().beginGroup(chipNames[index]);
+        chipFeatureLabels = settings().childGroups();
         for (int j = 0; j < chipFeatureLabels.size(); ++j)
         {
-            mSettings->beginGroup(chipFeatureLabels[j]);
+            settings().beginGroup(chipFeatureLabels[j]);
 
             ui->chipFeaturesT->insertRow(j);
 
             enabledCheckbox = new QCheckBox(ui->chipFeaturesT);
-            enabledCheckbox->setChecked(mSettings->value("enabled").toBool());
+            enabledCheckbox->setChecked(settings().value("enabled").toBool());
             // Connect here after the setChecked call because we don't want to send signal
             connect(enabledCheckbox, SIGNAL(stateChanged(int)), this, SLOT(saveSettings()));
             ui->chipFeaturesT->setCellWidget(j, 0, enabledCheckbox);
@@ -235,18 +218,18 @@ void LXQtSensorsConfiguration::detectedChipSelected(int index)
             connect(colorButton, SIGNAL(clicked()), this, SLOT(changeProgressBarColor()));
             QPalette pal = colorButton->palette();
             pal.setColor(QPalette::Normal, QPalette::Button,
-                         QColor(mSettings->value("color").toString()));
+                         QColor(settings().value("color").toString()));
             colorButton->setPalette(pal);
             ui->chipFeaturesT->setCellWidget(j, 2, colorButton);
 
-            mSettings->endGroup();
+            settings().endGroup();
         }
-        mSettings->endGroup();
+        settings().endGroup();
     }
     else
     {
         qDebug() << "Invalid chip index: " << index;
     }
 
-    mSettings->endGroup();
+    settings().endGroup();
 }

@@ -28,27 +28,24 @@
 #ifndef LXQTTASKBARCONFIGURATION_H
 #define LXQTTASKBARCONFIGURATION_H
 
-#include <QDialog>
-#include <QAbstractButton>
-
+#include "../panel/lxqtpanelpluginconfigdialog.h"
 #include <LXQt/Settings>
+#include <QAbstractButton>
 
 namespace Ui {
     class LXQtTaskbarConfiguration;
 }
 
-class LXQtTaskbarConfiguration : public QDialog
+class LXQtTaskbarConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarConfiguration(QSettings &settings, QWidget *parent = 0);
+    explicit LXQtTaskbarConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~LXQtTaskbarConfiguration();
 
 private:
     Ui::LXQtTaskbarConfiguration *ui;
-    QSettings &mSettings;
-    LXQt::SettingsCache oldSettings;
 
     /*
       Read settings from conf file and put data into controls.
@@ -57,7 +54,6 @@ private:
 
 private slots:
     void saveSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
 };
 
 #endif // LXQTTASKBARCONFIGURATION_H

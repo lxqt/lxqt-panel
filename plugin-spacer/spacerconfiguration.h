@@ -28,9 +28,8 @@
 #ifndef SPACERCONFIGURATION_H
 #define SPACERCONFIGURATION_H
 
+#include "../panel/lxqtpanelpluginconfigdialog.h"
 #include <LXQt/Settings>
-
-#include <QDialog>
 
 class QSettings;
 class QAbstractButton;
@@ -39,12 +38,12 @@ namespace Ui {
     class SpacerConfiguration;
 }
 
-class SpacerConfiguration : public QDialog
+class SpacerConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit SpacerConfiguration(QSettings *settings, QWidget *parent = 0);
+    explicit SpacerConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~SpacerConfiguration();
 
 public:
@@ -52,7 +51,6 @@ public:
 
 private:
     Ui::SpacerConfiguration *ui;
-    QSettings *mSettings;
 
 private slots:
     /*

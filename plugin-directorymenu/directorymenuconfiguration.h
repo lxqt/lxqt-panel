@@ -30,31 +30,28 @@
 #ifndef DIRECTORYMENUCONFIGURATION_H
 #define DIRECTORYMENUCONFIGURATION_H
 
-#include <QDialog>
+#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <LXQt/Settings>
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QLocale>
 #include <QDateTime>
 #include <QDir>
 
-#include <LXQt/Settings>
-
 namespace Ui {
     class DirectoryMenuConfiguration;
 }
 
-class DirectoryMenuConfiguration : public QDialog
+class DirectoryMenuConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit DirectoryMenuConfiguration(QSettings &settings, QWidget *parent = 0);
+    explicit DirectoryMenuConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~DirectoryMenuConfiguration();
 
 private:
     Ui::DirectoryMenuConfiguration *ui;
-    QSettings &mSettings;
-    LXQt::SettingsCache mOldSettings;
     QDir mBaseDirectory;
     QString mIcon;
     QIcon mDefaultIcon;
@@ -69,7 +66,6 @@ private slots:
       Saves settings in conf file.
     */
     void saveSettings();
-    void dialogButtonsAction(QAbstractButton *btn);
     void showDirectoryDialog();
     void showIconDialog();
 

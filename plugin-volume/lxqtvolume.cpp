@@ -254,14 +254,14 @@ void LXQtVolume::realign()
 
 QDialog *LXQtVolume::configureDialog()
 {
-	if(!m_configDialog)
-	{
-		m_configDialog = new LXQtVolumeConfiguration(*settings());
-		m_configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    if (!m_configDialog)
+    {
+        m_configDialog = new LXQtVolumeConfiguration(settings());
+        m_configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
 
-		if (m_engine)
-		   m_configDialog->setSinkList(m_engine->sinks());
-	}
+        if (m_engine)
+           m_configDialog->setSinkList(m_engine->sinks());
+    }
     return m_configDialog;
 }
 

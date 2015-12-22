@@ -38,13 +38,11 @@
 
 
 LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent) :
-    QDialog(parent),
+    LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtWorldClockConfiguration),
-    mSettings(settings),
-    mOldSettings(settings),
     mLockCascadeSettingChanges(false),
-    mConfigurationTimeZones(NULL),
-    mConfigurationManualFormat(NULL)
+    mConfigurationTimeZones(nullptr),
+    mConfigurationManualFormat(nullptr)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QLatin1String("WorldClockConfigurationWindow"));
@@ -99,10 +97,10 @@ void LXQtWorldClockConfiguration::loadSettings()
 
     bool longTimeFormatSelected = false;
 
-    QString formatType = mSettings->value(QLatin1String("formatType"), QString()).toString();
-    QString dateFormatType = mSettings->value(QLatin1String("dateFormatType"), QString()).toString();
-    bool advancedManual = mSettings->value(QLatin1String("useAdvancedManualFormat"), false).toBool();
-    mManualFormat = mSettings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
+    QString formatType = settings().value(QLatin1String("formatType"), QString()).toString();
+    QString dateFormatType = settings().value(QLatin1String("dateFormatType"), QString()).toString();
+    bool advancedManual = settings().value(QLatin1String("useAdvancedManualFormat"), false).toBool();
+    mManualFormat = settings().value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
 
     // backward compatibility
     if (formatType == QLatin1String("custom"))
@@ -137,9 +135,9 @@ void LXQtWorldClockConfiguration::loadSettings()
     else // if (formatType == QLatin1String("custom-timeonly"))
         ui->timeFormatCB->setCurrentIndex(2);
 
-    ui->timeShowSecondsCB->setChecked(mSettings->value(QLatin1String("timeShowSeconds"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->timePadHourCB->setChecked(mSettings->value(QLatin1String("timePadHour"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->timeAMPMCB->setChecked(mSettings->value(QLatin1String("timeAMPM"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->timeShowSecondsCB->setChecked(settings().value(QLatin1String("timeShowSeconds"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->timePadHourCB->setChecked(settings().value(QLatin1String("timePadHour"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->timeAMPMCB->setChecked(settings().value(QLatin1String("timeAMPM"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
 
     bool customTimeFormatSelected = ui->timeFormatCB->currentIndex() == ui->timeFormatCB->count() - 1;
     ui->timeCustomW->setEnabled(customTimeFormatSelected);
@@ -147,9 +145,9 @@ void LXQtWorldClockConfiguration::loadSettings()
     ui->timezoneGB->setEnabled(!longTimeFormatSelected);
 
     // timezone
-    ui->timezoneGB->setChecked(mSettings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected);
+    ui->timezoneGB->setChecked(settings().value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected);
 
-    QString timezonePosition = mSettings->value(QLatin1String("timezonePosition"), QString()).toString();
+    QString timezonePosition = settings().value(QLatin1String("timezonePosition"), QString()).toString();
     if (timezonePosition == QLatin1String("above"))
         ui->timezonePositionCB->setCurrentIndex(1);
     else if (timezonePosition == QLatin1String("before"))
@@ -159,7 +157,7 @@ void LXQtWorldClockConfiguration::loadSettings()
     else // if (timezonePosition == QLatin1String("below"))
         ui->timezonePositionCB->setCurrentIndex(0);
 
-    QString timezoneFormatType = mSettings->value(QLatin1String("timezoneFormatType"), QString()).toString();
+    QString timezoneFormatType = settings().value(QLatin1String("timezoneFormatType"), QString()).toString();
     if (timezoneFormatType == QLatin1String("short"))
         ui->timezoneFormatCB->setCurrentIndex(0);
     else if (timezoneFormatType == QLatin1String("long"))
@@ -172,10 +170,10 @@ void LXQtWorldClockConfiguration::loadSettings()
         ui->timezoneFormatCB->setCurrentIndex(4);
 
     // date
-    bool dateIsChecked = mSettings->value(QLatin1String("showDate"), false).toBool();
+    bool dateIsChecked = settings().value(QLatin1String("showDate"), false).toBool();
     ui->dateGB->setChecked(dateIsChecked);
 
-    QString datePosition = mSettings->value(QLatin1String("datePosition"), QString()).toString();
+    QString datePosition = settings().value(QLatin1String("datePosition"), QString()).toString();
     if (datePosition == QLatin1String("above"))
         ui->datePositionCB->setCurrentIndex(1);
     else if (datePosition == QLatin1String("before"))
@@ -194,10 +192,10 @@ void LXQtWorldClockConfiguration::loadSettings()
     else // if (dateFormatType == QLatin1String("custom"))
         ui->dateFormatCB->setCurrentIndex(3);
 
-    ui->dateShowYearCB->setChecked(mSettings->value(QLatin1String("dateShowYear"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->dateShowDoWCB->setChecked(mSettings->value(QLatin1String("dateShowDoW"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->datePadDayCB->setChecked(mSettings->value(QLatin1String("datePadDay"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->dateLongNamesCB->setChecked(mSettings->value(QLatin1String("dateLongNames"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->dateShowYearCB->setChecked(settings().value(QLatin1String("dateShowYear"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->dateShowDoWCB->setChecked(settings().value(QLatin1String("dateShowDoW"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->datePadDayCB->setChecked(settings().value(QLatin1String("datePadDay"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->dateLongNamesCB->setChecked(settings().value(QLatin1String("dateLongNames"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
 
     bool customDateFormatSelected = ui->dateFormatCB->currentIndex() == ui->dateFormatCB->count() - 1;
     ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
@@ -206,31 +204,31 @@ void LXQtWorldClockConfiguration::loadSettings()
     ui->advancedManualGB->setChecked(advancedManual);
 
 
-    mDefaultTimeZone = mSettings->value("defaultTimeZone", QString()).toString();
+    mDefaultTimeZone = settings().value("defaultTimeZone", QString()).toString();
 
     ui->timeZonesTW->setRowCount(0);
 
-    int size = mSettings->beginReadArray(QLatin1String("timeZones"));
+    int size = settings().beginReadArray(QLatin1String("timeZones"));
     for (int i = 0; i < size; ++i)
     {
-        mSettings->setArrayIndex(i);
+        settings().setArrayIndex(i);
         ui->timeZonesTW->setRowCount(ui->timeZonesTW->rowCount() + 1);
 
-        QString timeZoneName = mSettings->value(QLatin1String("timeZone"), QString()).toString();
+        QString timeZoneName = settings().value(QLatin1String("timeZone"), QString()).toString();
         if (mDefaultTimeZone.isEmpty())
             mDefaultTimeZone = timeZoneName;
 
         ui->timeZonesTW->setItem(i, 0, new QTableWidgetItem(timeZoneName));
-        ui->timeZonesTW->setItem(i, 1, new QTableWidgetItem(mSettings->value(QLatin1String("customName"), QString()).toString()));
+        ui->timeZonesTW->setItem(i, 1, new QTableWidgetItem(settings().value(QLatin1String("customName"), QString()).toString()));
 
         setBold(i, mDefaultTimeZone == timeZoneName);
     }
-    mSettings->endArray();
+    settings().endArray();
 
     ui->timeZonesTW->resizeColumnsToContents();
 
 
-    ui->autorotateCB->setChecked(mSettings->value("autoRotate", true).toBool());
+    ui->autorotateCB->setChecked(settings().value("autoRotate", true).toBool());
 
 
     mLockCascadeSettingChanges = false;
@@ -256,13 +254,13 @@ void LXQtWorldClockConfiguration::saveSettings()
         formatType = QLatin1String("custom-timeonly");
         break;
     }
-    mSettings->setValue(QLatin1String("formatType"), formatType);
+    settings().setValue(QLatin1String("formatType"), formatType);
 
-    mSettings->setValue(QLatin1String("timeShowSeconds"), ui->timeShowSecondsCB->isChecked());
-    mSettings->setValue(QLatin1String("timePadHour"), ui->timePadHourCB->isChecked());
-    mSettings->setValue(QLatin1String("timeAMPM"), ui->timeAMPMCB->isChecked());
+    settings().setValue(QLatin1String("timeShowSeconds"), ui->timeShowSecondsCB->isChecked());
+    settings().setValue(QLatin1String("timePadHour"), ui->timePadHourCB->isChecked());
+    settings().setValue(QLatin1String("timeAMPM"), ui->timeAMPMCB->isChecked());
 
-    mSettings->setValue(QLatin1String("showTimezone"), ui->timezoneGB->isChecked());
+    settings().setValue(QLatin1String("showTimezone"), ui->timezoneGB->isChecked());
 
     QString timezonePosition;
     switch (ui->timezonePositionCB->currentIndex())
@@ -283,7 +281,7 @@ void LXQtWorldClockConfiguration::saveSettings()
         timezonePosition = QLatin1String("after");
         break;
     }
-    mSettings->setValue(QLatin1String("timezonePosition"), timezonePosition);
+    settings().setValue(QLatin1String("timezonePosition"), timezonePosition);
 
     QString timezoneFormatType;
     switch (ui->timezoneFormatCB->currentIndex())
@@ -308,9 +306,9 @@ void LXQtWorldClockConfiguration::saveSettings()
         timezoneFormatType = QLatin1String("iana");
         break;
     }
-    mSettings->setValue(QLatin1String("timezoneFormatType"), timezoneFormatType);
+    settings().setValue(QLatin1String("timezoneFormatType"), timezoneFormatType);
 
-    mSettings->setValue(QLatin1String("showDate"), ui->dateGB->isChecked());
+    settings().setValue(QLatin1String("showDate"), ui->dateGB->isChecked());
 
     QString datePosition;
     switch (ui->datePositionCB->currentIndex())
@@ -331,7 +329,7 @@ void LXQtWorldClockConfiguration::saveSettings()
         datePosition = QLatin1String("after");
         break;
     }
-    mSettings->setValue(QLatin1String("datePosition"), datePosition);
+    settings().setValue(QLatin1String("datePosition"), datePosition);
 
     QString dateFormatType;
     switch (ui->dateFormatCB->currentIndex())
@@ -352,46 +350,35 @@ void LXQtWorldClockConfiguration::saveSettings()
         dateFormatType = QLatin1String("custom");
         break;
     }
-    mSettings->setValue(QLatin1String("dateFormatType"), dateFormatType);
+    settings().setValue(QLatin1String("dateFormatType"), dateFormatType);
 
-    mSettings->setValue(QLatin1String("dateShowYear"), ui->dateShowYearCB->isChecked());
-    mSettings->setValue(QLatin1String("dateShowDoW"), ui->dateShowDoWCB->isChecked());
-    mSettings->setValue(QLatin1String("datePadDay"), ui->datePadDayCB->isChecked());
-    mSettings->setValue(QLatin1String("dateLongNames"), ui->dateLongNamesCB->isChecked());
+    settings().setValue(QLatin1String("dateShowYear"), ui->dateShowYearCB->isChecked());
+    settings().setValue(QLatin1String("dateShowDoW"), ui->dateShowDoWCB->isChecked());
+    settings().setValue(QLatin1String("datePadDay"), ui->datePadDayCB->isChecked());
+    settings().setValue(QLatin1String("dateLongNames"), ui->dateLongNamesCB->isChecked());
 
-    mSettings->setValue(QLatin1String("customFormat"), mManualFormat);
+    settings().setValue(QLatin1String("customFormat"), mManualFormat);
 
 
-    mSettings->remove(QLatin1String("timeZones"));
+    settings().remove(QLatin1String("timeZones"));
 
     int size = ui->timeZonesTW->rowCount();
-    mSettings->beginWriteArray(QLatin1String("timeZones"), size);
+    settings().beginWriteArray(QLatin1String("timeZones"), size);
     for (int i = 0; i < size; ++i)
     {
-        mSettings->setArrayIndex(i);
-        mSettings->setValue(QLatin1String("timeZone"), ui->timeZonesTW->item(i, 0)->text());
-        mSettings->setValue(QLatin1String("customName"), ui->timeZonesTW->item(i, 1)->text());
+        settings().setArrayIndex(i);
+        settings().setValue(QLatin1String("timeZone"), ui->timeZonesTW->item(i, 0)->text());
+        settings().setValue(QLatin1String("customName"), ui->timeZonesTW->item(i, 1)->text());
     }
-    mSettings->endArray();
+    settings().endArray();
 
-    mSettings->setValue(QLatin1String("defaultTimeZone"), mDefaultTimeZone);
-
-
-    mSettings->setValue(QLatin1String("useAdvancedManualFormat"), ui->advancedManualGB->isChecked());
+    settings().setValue(QLatin1String("defaultTimeZone"), mDefaultTimeZone);
 
 
-    mSettings->setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
-}
+    settings().setValue(QLatin1String("useAdvancedManualFormat"), ui->advancedManualGB->isChecked());
 
-void LXQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *button)
-{
-    if (ui->buttons->buttonRole(button) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-        close();
+
+    settings().setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
 }
 
 void LXQtWorldClockConfiguration::timeFormatChanged(int index)

@@ -301,7 +301,7 @@ void LXQtClock::activated(ActivationReason reason)
 
 QDialog * LXQtClock::configureDialog()
 {
-     return new LXQtClockConfiguration(*settings());
+     return new LXQtClockConfiguration(settings());
 }
 
 bool LXQtClock::eventFilter(QObject *watched, QEvent *event)

@@ -273,7 +273,7 @@ void LXQtMainMenu::setMenuFontSize()
  ************************************************/
 QDialog *LXQtMainMenu::configureDialog()
 {
-    return new LXQtMainMenuConfiguration(*settings(), mShortcut, DEFAULT_SHORTCUT);
+    return new LXQtMainMenuConfiguration(settings(), mShortcut, DEFAULT_SHORTCUT);
 }
 /************************************************
 

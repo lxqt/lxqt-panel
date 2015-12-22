@@ -54,7 +54,7 @@ QDialog *LXQtMountPlugin::configureDialog()
     if (mPopup)
         mPopup->hide();
 
-    Configuration *configWindow = new Configuration(*settings());
+    Configuration *configWindow = new Configuration(settings());
     configWindow->setAttribute(Qt::WA_DeleteOnClose, true);
     return configWindow;
 }

@@ -38,11 +38,9 @@
 #include "ui_directorymenuconfiguration.h"
 
 
-DirectoryMenuConfiguration::DirectoryMenuConfiguration(QSettings &settings, QWidget *parent) :
-    QDialog(parent),
+DirectoryMenuConfiguration::DirectoryMenuConfiguration(QSettings *settings, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DirectoryMenuConfiguration),
-    mSettings(settings),
-    mOldSettings(settings),
     mBaseDirectory(QDir::homePath()),
     mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
@@ -66,10 +64,10 @@ DirectoryMenuConfiguration::~DirectoryMenuConfiguration()
 
 void DirectoryMenuConfiguration::loadSettings()
 {
-    mBaseDirectory.setPath(mSettings.value("baseDirectory", QDir::homePath()).toString());
+    mBaseDirectory.setPath(settings().value("baseDirectory", QDir::homePath()).toString());
     ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
-    mIcon = mSettings.value("icon", QString()).toString();
+    mIcon = settings().value("icon", QString()).toString();
     if(!mIcon.isNull())
     {
         QIcon buttonIcon = QIcon(mIcon);
@@ -85,21 +83,8 @@ void DirectoryMenuConfiguration::loadSettings()
 
 void DirectoryMenuConfiguration::saveSettings()
 {
-    mSettings.setValue("baseDirectory", mBaseDirectory.absolutePath());
-    mSettings.setValue("icon", mIcon);
-}
-
-void DirectoryMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
+    settings().setValue("baseDirectory", mBaseDirectory.absolutePath());
+    settings().setValue("icon", mIcon);
 }
 
 void DirectoryMenuConfiguration::showDirectoryDialog()

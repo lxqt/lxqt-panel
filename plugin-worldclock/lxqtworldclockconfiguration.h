@@ -29,13 +29,11 @@
 #ifndef LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
 #define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
 
+#include "../panel/lxqtpanelpluginconfigdialog.h"
 #include <LXQt/Settings>
-
-#include <QDialog>
 #include <QAbstractButton>
 #include <QFont>
 #include <QMap>
-
 
 namespace Ui {
     class LXQtWorldClockConfiguration;
@@ -45,12 +43,12 @@ class LXQtWorldClockConfigurationTimeZones;
 class LXQtWorldClockConfigurationManualFormat;
 class QTableWidgetItem;
 
-class LXQtWorldClockConfiguration : public QDialog
+class LXQtWorldClockConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent = NULL);
+    explicit LXQtWorldClockConfiguration(QSettings *settings, QWidget *parent = nullptr);
     ~LXQtWorldClockConfiguration();
 
 public slots:
@@ -58,8 +56,6 @@ public slots:
 
 private:
     Ui::LXQtWorldClockConfiguration *ui;
-    QSettings *mSettings;
-    LXQt::SettingsCache mOldSettings;
 
     /*
       Read settings from conf file and put data into controls.
@@ -67,11 +63,6 @@ private:
     void loadSettings();
 
 private slots:
-    /*
-      Saves settings in conf file.
-    */
-    void dialogButtonsAction(QAbstractButton *);
-
     void timeFormatChanged(int);
     void dateGroupToggled(bool);
     void dateFormatChanged(int);

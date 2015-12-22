@@ -34,11 +34,9 @@
 
 #include <QFileDialog>
 
-LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(QSettings &settings, GlobalKeyShortcut::Action * shortcut, const QString &defaultShortcut, QWidget *parent) :
-    QDialog(parent),
+LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(QSettings *settings, GlobalKeyShortcut::Action * shortcut, const QString &defaultShortcut, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtMainMenuConfiguration),
-    mSettings(settings),
-    mOldSettings(settings),
     mDefaultShortcut(defaultShortcut),
     mShortcut(shortcut)
 {
@@ -57,14 +55,14 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(QSettings &settings, Global
     connect(ui->showTextCB, SIGNAL(toggled(bool)), this, SLOT(showTextChanged(bool)));
     connect(ui->textLE, SIGNAL(textEdited(QString)), this, SLOT(textButtonChanged(QString)));
     connect(ui->chooseMenuFilePB, SIGNAL(clicked()), this, SLOT(chooseMenuFile()));
-    connect(ui->menuFilePathLE, &QLineEdit::textChanged, [this] (QString const & file)
+    connect(ui->menuFilePathLE, &QLineEdit::textChanged, [&] (QString const & file)
         {
-            mSettings.setValue(QLatin1String("menu_file"), file);
+            this->settings().setValue(QLatin1String("menu_file"), file);
         });
     connect(ui->iconPB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseIcon);
-    connect(ui->iconLE, &QLineEdit::textChanged, [this] (QString const & path)
+    connect(ui->iconLE, &QLineEdit::textChanged, [&] (QString const & path)
         {
-            mSettings.setValue(QLatin1String("icon"), path);
+            this->settings().setValue(QLatin1String("icon"), path);
         });
 
     connect(ui->shortcutEd, SIGNAL(shortcutGrabbed(QString)), this, SLOT(shortcutChanged(QString)));
@@ -83,11 +81,11 @@ LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
 
 void LXQtMainMenuConfiguration::loadSettings()
 {
-    ui->iconLE->setText(mSettings.value("icon", QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
-    ui->showTextCB->setChecked(mSettings.value("showText", false).toBool());
-    ui->textLE->setText(mSettings.value("text", "").toString());
+    ui->iconLE->setText(settings().value("icon", QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
+    ui->showTextCB->setChecked(settings().value("showText", false).toBool());
+    ui->textLE->setText(settings().value("text", "").toString());
 
-    QString menuFile = mSettings.value("menu_file", "").toString();
+    QString menuFile = settings().value("menu_file", "").toString();
     if (menuFile.isEmpty())
     {
         menuFile = XdgMenu::getMenuFileName();
@@ -95,24 +93,24 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->menuFilePathLE->setText(menuFile);
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 
-    ui->customFontCB->setChecked(mSettings.value("customFont", false).toBool());
+    ui->customFontCB->setChecked(settings().value("customFont", false).toBool());
     LXQt::Settings lxqtSettings("lxqt"); //load system font size as init value
     QFont systemFont;
     lxqtSettings.beginGroup(QLatin1String("Qt"));
     systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
     lxqtSettings.endGroup();
-    ui->customFontSizeSB->setValue(mSettings.value("customFontSize", systemFont.pointSize()).toInt());
+    ui->customFontSizeSB->setValue(settings().value("customFontSize", systemFont.pointSize()).toInt());
 }
 
 
 void LXQtMainMenuConfiguration::textButtonChanged(const QString &value)
 {
-    mSettings.setValue("text", value);
+    settings().setValue("text", value);
 }
 
 void LXQtMainMenuConfiguration::showTextChanged(bool value)
 {
-    mSettings.setValue("showText", value);
+    settings().setValue("showText", value);
 }
 
 void LXQtMainMenuConfiguration::chooseIcon()
@@ -159,25 +157,12 @@ void LXQtMainMenuConfiguration::shortcutReset()
     shortcutChanged(mDefaultShortcut);
 }
 
-void LXQtMainMenuConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
-}
-
 void LXQtMainMenuConfiguration::customFontChanged(bool value)
 {
-    mSettings.setValue("customFont", value);
+    settings().setValue("customFont", value);
 }
 
 void LXQtMainMenuConfiguration::customFontSizeChanged(int value)
 {
-    mSettings.setValue("customFontSize", value);
+    settings().setValue("customFontSize", value);
 }

@@ -29,11 +29,9 @@
 #include <KWindowSystem>
 #include <QTimer>
 
-DesktopSwitchConfiguration::DesktopSwitchConfiguration(QSettings *settings, QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::DesktopSwitchConfiguration)
-    , mSettings(settings)
-    , mOldSettings(settings)
+DesktopSwitchConfiguration::DesktopSwitchConfiguration(QSettings *settings, QWidget *parent) :
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::DesktopSwitchConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("DesktopSwitchConfigurationWindow");
@@ -56,8 +54,8 @@ DesktopSwitchConfiguration::~DesktopSwitchConfiguration()
 
 void DesktopSwitchConfiguration::loadSettings()
 {
-    ui->rowsSB->setValue(mSettings->value("rows", 1).toInt());
-    ui->labelTypeCB->setCurrentIndex(mSettings->value("labelType", 0).toInt());
+    ui->rowsSB->setValue(settings().value("rows", 1).toInt());
+    ui->labelTypeCB->setCurrentIndex(settings().value("labelType", 0).toInt());
 }
 
 void DesktopSwitchConfiguration::loadDesktopsNames()
@@ -79,24 +77,11 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
 
 void DesktopSwitchConfiguration::rowsChanged(int value)
 {
-    mSettings->setValue("rows", value);
+    settings().setValue("rows", value);
 }
 
 void DesktopSwitchConfiguration::labelTypeChanged(int type)
 {
-    mSettings->setValue("labelType", type);
-}
-
-void DesktopSwitchConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
+    settings().setValue("labelType", type);
 }
 

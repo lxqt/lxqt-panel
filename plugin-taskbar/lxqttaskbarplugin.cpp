@@ -45,7 +45,7 @@ LXQtTaskBarPlugin::~LXQtTaskBarPlugin()
 
 QDialog *LXQtTaskBarPlugin::configureDialog()
 {
-    return new LXQtTaskbarConfiguration(*(settings()));
+    return new LXQtTaskbarConfiguration(settings());
 }
 
 void LXQtTaskBarPlugin::realign()

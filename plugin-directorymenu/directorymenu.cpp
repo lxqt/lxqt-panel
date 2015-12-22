@@ -168,7 +168,7 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 
 QDialog* DirectoryMenu::configureDialog()
 {
-     return new DirectoryMenuConfiguration(*settings());
+     return new DirectoryMenuConfiguration(settings());
 }
 
 void DirectoryMenu::settingsChanged()

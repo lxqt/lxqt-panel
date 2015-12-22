@@ -34,10 +34,8 @@
 #define BAR_ORIENT_RIGHTLEFT "rightLeft"
 
 LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(QSettings *settings, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::LXQtCpuLoadConfiguration),
-    mSettings(settings),
-    mOldSettings(settings)
+    LXQtPanelPluginConfigDialog(settings, parent),
+    ui(new Ui::LXQtCpuLoadConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("CpuLoadConfigurationWindow");
@@ -75,54 +73,40 @@ void LXQtCpuLoadConfiguration::fillBarOrientations()
 
 void LXQtCpuLoadConfiguration::loadSettings()
 {
-    ui->showTextCB->setChecked(mSettings->value("showText", false).toBool());
-    ui->barWidthSB->setValue(mSettings->value("barWidth", 20).toInt());
-    ui->updateIntervalSpinBox->setValue(mSettings->value("updateInterval", 1000).toInt() / 1000.0);
+    ui->showTextCB->setChecked(settings().value("showText", false).toBool());
+    ui->barWidthSB->setValue(settings().value("barWidth", 20).toInt());
+    ui->updateIntervalSpinBox->setValue(settings().value("updateInterval", 1000).toInt() / 1000.0);
 
     int boIndex = ui->barOrientationCOB->findData(
-            mSettings->value("barOrientation", BAR_ORIENT_BOTTOMUP));
+            settings().value("barOrientation", BAR_ORIENT_BOTTOMUP));
     boIndex = (boIndex < 0) ? 1 : boIndex;
     ui->barOrientationCOB->setCurrentIndex(boIndex);
 
-//	QString menuFile = mSettings->value("menu_file", "").toString();
+//	QString menuFile = settings().value("menu_file", "").toString();
 //	if (menuFile.isEmpty())
 //	{
 //		menuFile = XdgMenu::getMenuFileName();
 //	}
 //	ui->menuFilePathLE->setText(menuFile);
-//	ui->shortcutEd->setKeySequence(mSettings->value("shortcut", "Alt+F1").toString());
+//	ui->shortcutEd->setKeySequence(settings().value("shortcut", "Alt+F1").toString());
 }
 
 void LXQtCpuLoadConfiguration::showTextChanged(bool value)
 {
-    mSettings->setValue("showText", value);
+    settings().setValue("showText", value);
 }
 
 void LXQtCpuLoadConfiguration::barWidthChanged(int value)
 {
-    mSettings->setValue("barWidth", value);
+    settings().setValue("barWidth", value);
 }
 
 void LXQtCpuLoadConfiguration::updateIntervalChanged(double value)
 {
-    mSettings->setValue("updateInterval", value*1000);
+    settings().setValue("updateInterval", value*1000);
 }
 
 void LXQtCpuLoadConfiguration::barOrientationChanged(int index)
 {
-    mSettings->setValue("barOrientation", ui->barOrientationCOB->itemData(index).toString());
+    settings().setValue("barOrientation", ui->barOrientationCOB->itemData(index).toString());
 }
-
-void LXQtCpuLoadConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    if (ui->buttons->buttonRole(btn) == QDialogButtonBox::ResetRole)
-    {
-        mOldSettings.loadToSettings();
-        loadSettings();
-    }
-    else
-    {
-        close();
-    }
-}
-
