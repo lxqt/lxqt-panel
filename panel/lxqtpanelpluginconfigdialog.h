@@ -40,7 +40,8 @@ class LXQT_PANEL_API LXQtPanelPluginConfigDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent = 0);
+    explicit LXQtPanelPluginConfigDialog(QSettings &settings, QWidget *parent = nullptr);
+    explicit LXQtPanelPluginConfigDialog(QSettings *settings, QWidget *parent = nullptr) : LXQtPanelPluginConfigDialog(*settings, parent) {}
     virtual ~LXQtPanelPluginConfigDialog();
 
     QSettings& settings() const;
