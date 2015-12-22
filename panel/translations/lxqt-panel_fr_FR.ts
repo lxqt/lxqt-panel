@@ -91,7 +91,7 @@
         <location filename="../config/configpaneldialog.cpp" line="80"/>
         <location filename="../config/configpaneldialog.cpp" line="86"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurer le tableau de bord</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="32"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Taille</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="41"/>
@@ -115,12 +115,12 @@
         <location filename="../config/configpaneldialog.ui" line="48"/>
         <location filename="../config/configpaneldialog.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">px</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="58"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Taille d'icône</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="65"/>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="110"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Une valeur négative de pixel définit la longueur du tableau de bord de façon à ce que ceux-ci s'adaptent en fonction de l'écran.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Longueur&quot; valeur à -100px, taille de l'écran 1000px, la taille réelle du tableau de bord sera 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="124"/>
@@ -145,12 +145,12 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="140"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nombre de rangées</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="172"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alignement &amp;&amp; position</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="182"/>
@@ -184,32 +184,32 @@
     <message>
         <location filename="../config/configpaneldialog.ui" line="217"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Masquage automatique</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="233"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Style</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="239"/>
         <source>Custom font color:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Couleur de police personnalisée:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="246"/>
         <source>Custom background image:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Couleur d'arrière-plan personnalisé:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="260"/>
         <source>Custom background color:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Couleur d'arrière-plan personnalisé:</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.ui" line="351"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opacité</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="200"/>
@@ -254,23 +254,23 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="240"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Haut</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="242"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bas</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="397"/>
         <location filename="../config/configpaneldialog.cpp" line="411"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Choisir une couleur</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="431"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Images (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -278,33 +278,33 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="623"/>
         <source>Add Panel Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ajouter des widgets au tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="951"/>
         <location filename="../lxqtpanel.cpp" line="970"/>
         <source>Panel</source>
-        <translation>Bloc-notes</translation>
+        <translation>Tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="973"/>
         <source>Configure Panel...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurer le tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="978"/>
         <source>Add Panel Widgets...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ajouter des widgets au tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="984"/>
         <source>Add Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ajouter un tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="991"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Supprimer le tableau de bord</translation>
     </message>
     <message>
         <source>Configure panel...</source>
@@ -342,17 +342,17 @@
     <message>
         <location filename="../plugin.cpp" line="395"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Configurer &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="400"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Déplacer &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="408"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Supprimer &quot;%1&quot;</translation>
     </message>
 </context>
 </TS>
