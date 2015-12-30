@@ -34,7 +34,7 @@
 #include <QStringList>
 
 
-LXQtSensorsConfiguration::LXQtSensorsConfiguration(QSettings *settings, QWidget *parent) :
+LXQtSensorsConfiguration::LXQtSensorsConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtSensorsConfiguration)
 {

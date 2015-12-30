@@ -54,7 +54,12 @@ public:
 
     void clear();
     void sync();
+
     QStringList allKeys() const;
+    QStringList childGroups() const;
+
+    void beginGroup(const QString &subGroup);
+    void endGroup();
 
     void loadFromCache();
 
@@ -65,6 +70,10 @@ private:
     LXQt::Settings *mSettings;
     LXQt::SettingsCache mOldSettings;
     QString mGroup;
+
+    QStringList mSubGroups;
+
+    QString prefix() const;
 };
 
 #endif

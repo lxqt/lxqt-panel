@@ -29,7 +29,7 @@
 #define LXQTSENSORSCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <LXQt/Settings>
+#include "../panel/pluginsettings.h"
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QDateTime>
@@ -44,7 +44,7 @@ class LXQtSensorsConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtSensorsConfiguration(QSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtSensorsConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtSensorsConfiguration();
 
 private:

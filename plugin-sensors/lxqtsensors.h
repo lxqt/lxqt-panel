@@ -29,6 +29,7 @@
 #define LXQTSENSORS_H
 
 #include "sensors.h"
+#include "../panel/pluginsettings.h"
 #include <QFrame>
 #include <QProgressBar>
 #include <QSet>
@@ -74,7 +75,7 @@ private:
     QSet<ProgressBar*> mHighTemperatureProgressBars;
     double celsiusToFahrenheit(double celsius);
     void initDefaultSettings();
-    QSettings *mSettings;
+    PluginSettings *mSettings;
 };
 
 

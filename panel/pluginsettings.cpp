@@ -42,7 +42,7 @@ PluginSettings::~PluginSettings()
 
 QVariant PluginSettings::value(const QString &key, const QVariant &defaultValue) const
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + prefix());
     QVariant value = mSettings->value(key, defaultValue);
     mSettings->endGroup();
     return value;
@@ -50,21 +50,21 @@ QVariant PluginSettings::value(const QString &key, const QVariant &defaultValue)
 
 void PluginSettings::setValue(const QString &key, const QVariant &value)
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + prefix());
     mSettings->setValue(key, value);
     mSettings->endGroup();
 }
 
 void PluginSettings::remove(const QString &key)
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + prefix());
     mSettings->remove(key);
     mSettings->endGroup();
 }
 
 bool PluginSettings::contains(const QString &key) const
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + prefix());
     bool ret = mSettings->contains(key);
     mSettings->endGroup();
     return ret;
@@ -72,7 +72,7 @@ bool PluginSettings::contains(const QString &key) const
 
 QList<QMap<QString, QVariant> > PluginSettings::readArray(const QString& prefix)
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + this->prefix());
     QList<QMap<QString, QVariant> > array;
     int size = mSettings->beginReadArray(prefix);
     for (int i = 0; i < size; ++i)
@@ -90,7 +90,7 @@ QList<QMap<QString, QVariant> > PluginSettings::readArray(const QString& prefix)
 
 void PluginSettings::setArray(const QString &prefix, const QList<QMap<QString, QVariant> > &hashList)
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + this->prefix());
     mSettings->beginWriteArray(prefix);
     int size = hashList.size();
     for (int i = 0; i < size; ++i)
@@ -124,10 +124,29 @@ void PluginSettings::sync()
 
 QStringList PluginSettings::allKeys() const
 {
-    mSettings->beginGroup(mGroup);
+    mSettings->beginGroup(mGroup + "/" + prefix());
     QStringList keys = mSettings->allKeys();
     mSettings->endGroup();
     return keys;
+}
+
+QStringList PluginSettings::childGroups() const
+{
+    mSettings->beginGroup(mGroup + "/" + prefix());
+    QStringList groups = mSettings->childGroups();
+    mSettings->endGroup();
+    return groups;
+}
+
+void PluginSettings::beginGroup(const QString &subGroup)
+{
+    mSubGroups.append(subGroup);
+}
+
+void PluginSettings::endGroup()
+{
+    if (!mSubGroups.empty())
+        mSubGroups.removeLast();
 }
 
 void PluginSettings::loadFromCache()
@@ -135,4 +154,11 @@ void PluginSettings::loadFromCache()
     mSettings->beginGroup(mGroup);
     mOldSettings.loadToSettings();
     mSettings->endGroup();
+}
+
+QString PluginSettings::prefix() const
+{
+    if (!mSubGroups.empty())
+        return mSubGroups.join('/');
+    return QString();
 }
