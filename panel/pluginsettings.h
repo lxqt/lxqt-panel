@@ -31,8 +31,9 @@
 #include <QObject>
 #include <QString>
 #include <LXQt/Settings>
+#include "lxqtpanelglobals.h"
 
-class PluginSettings : public QObject
+class LXQT_PANEL_API PluginSettings : public QObject
 {
     Q_OBJECT
 
