@@ -117,7 +117,7 @@ bool TrayIcon::init()
     set_attr.border_pixel = 0;
     mask = CWColormap|CWBackPixel|CWBorderPixel;
 
-    mWindowId = XCreateWindow(dsp, this->winId(), 0, 0, mIconSize.width(), mIconSize.height(),
+    mWindowId = XCreateWindow(dsp, this->winId(), 0, 0, mIconSize.width() * metric(PdmDevicePixelRatio), mIconSize.height() * metric(PdmDevicePixelRatio),
                               0, attr.depth, InputOutput, visual, mask, &set_attr);
 
 
@@ -184,8 +184,9 @@ bool TrayIcon::init()
     XMapWindow(dsp, mIconId);
     XMapRaised(dsp, mWindowId);
 
-    XResizeWindow(dsp, mWindowId, mIconSize.width(), mIconSize.height());
-    XResizeWindow(dsp, mIconId, mIconSize.width(), mIconSize.height());
+    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
+    XResizeWindow(dsp, mWindowId, req_size.width(), req_size.height());
+    XResizeWindow(dsp, mIconId, req_size.width(), req_size.height());
 
     return true;
 }
@@ -234,11 +235,12 @@ void TrayIcon::setIconSize(QSize iconSize)
 {
     mIconSize = iconSize;
 
+    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
     if (mWindowId)
-        xfitMan().resizeWindow(mWindowId, mIconSize.width(), mIconSize.height());
+        xfitMan().resizeWindow(mWindowId, req_size.width(), req_size.height());
 
     if (mIconId)
-        xfitMan().resizeWindow(mIconId,   mIconSize.width(), mIconSize.height());
+        xfitMan().resizeWindow(mIconId, req_size.width(), req_size.height());
 }
 
 
