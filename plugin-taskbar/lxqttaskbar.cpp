@@ -290,19 +290,29 @@ void LXQtTaskBar::refreshTaskList()
  ************************************************/
 void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
-    // If grouping disabled group behaves like regular button
-    QString id = mGroupingEnabled ? KWindowInfo(window, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(window);
-    LXQtTaskGroup *group = mGroupsHash.value(id);
-
     bool consumed{false};
-    if (nullptr != group)
+    //should the WindowClass change, we need to check each group
+    if (mGroupingEnabled && prop2.testFlag(NET::WM2WindowClass))
     {
-        consumed = group->onWindowChanged(window, prop, prop2);
-
+        for (auto i = mGroupsHash.begin(), i_e = mGroupsHash.end(); i != i_e; )
+        {
+            consumed |= (*i++)->onWindowChanged(window, prop, prop2);
+        }
     }
+    if (!consumed)
+    {
+        // If grouping disabled group behaves like regular button
+        QString id = mGroupingEnabled ? KWindowInfo(window, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(window);
+        LXQtTaskGroup *group = mGroupsHash.value(id);
 
-    if (!consumed && acceptWindow(window))
-        addWindow(window, id);
+        if (nullptr != group)
+        {
+            consumed = group->onWindowChanged(window, prop, prop2);
+        }
+
+        if (!consumed && acceptWindow(window))
+            addWindow(window, id);
+    }
 }
 
 /************************************************
