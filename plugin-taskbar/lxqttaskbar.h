@@ -41,7 +41,7 @@
 
 #include <QFrame>
 #include <QBoxLayout>
-#include <QHash>
+#include <QMap>
 #include "../panel/ilxqtpanel.h"
 #include <KWindowSystem/KWindowSystem>
 #include <KWindowSystem/KWindowInfo>
@@ -81,29 +81,34 @@ public slots:
     void settingsChanged();
 
 signals:
-    void windowRemoved(WId window);
+    void buttonRotationRefreshed(bool autoRotate, ILXQtPanel::Position position);
+    void buttonStyleRefreshed(Qt::ToolButtonStyle buttonStyle);
+    void refreshIconGeometry();
+    void showOnlySettingChanged();
+    void popupShown(LXQtTaskGroup* sender);
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent * event);
     virtual void dragMoveEvent(QDragMoveEvent * event);
 
 private slots:
-    void refreshIconGeometry();
     void refreshTaskList();
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
-    void groupPopupShown(LXQtTaskGroup * const sender);
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void onWindowRemoved(WId window);
 
 private:
-    void addWindow(WId window, QString const & groupId);
+    typedef QMap<WId, LXQtTaskGroup*> windowMap_t;
+
+private:
+    void addWindow(WId window);
+    windowMap_t::iterator removeWindow(windowMap_t::iterator pos);
     void buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint const & pos);
 
 private:
-    QHash<QString, LXQtTaskGroup*> mGroupsHash;
-    QList<WId> mKnownWindows; //!< Ids of known windows (for emulating windowRemoved in case WId of app changes)
+    QMap<WId, LXQtTaskGroup*> mKnownWindows; //!< Ids of known windows (mapping to buttons/groups)
     LXQt::GridLayout *mLayout;
 
     // Settings

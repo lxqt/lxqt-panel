@@ -40,6 +40,7 @@
 #include <QMenu>
 #include <XdgIcon>
 #include <KF5/KWindowSystem/KWindowSystem>
+#include <functional>
 
 /************************************************
 
@@ -60,7 +61,11 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, QIcon icon, ILXQtPanelPlu
     connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked(bool)));
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
     connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), this, SLOT(onActiveWindowChanged(WId)));
-    connect(parent, &LXQtTaskBar::windowRemoved, this, &LXQtTaskGroup::onWindowRemoved);
+    connect(parent, &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
+    connect(parent, &LXQtTaskBar::refreshIconGeometry, this, &LXQtTaskGroup::refreshIconsGeometry);
+    connect(parent, &LXQtTaskBar::buttonStyleRefreshed, this, &LXQtTaskGroup::setToolButtonsStyle);
+    connect(parent, &LXQtTaskBar::showOnlySettingChanged, this, &LXQtTaskGroup::refreshVisibility);
+    connect(parent, &LXQtTaskBar::popupShown, this, &LXQtTaskGroup::groupPopupShown);
 }
 
 /************************************************
@@ -338,14 +343,6 @@ void LXQtTaskGroup::regroup()
 /************************************************
 
  ************************************************/
-void LXQtTaskGroup::showOnlySettingChanged()
-{
-    refreshVisibility();
-}
-
-/************************************************
-
- ************************************************/
 void LXQtTaskGroup::recalculateFrameIfVisible()
 {
     if (mPopup->isVisible())
@@ -594,21 +591,17 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
     if (window == windowId())
         buttons.append(this);
 
-    foreach (LXQtTaskButton * button, buttons)
+    if (!buttons.isEmpty())
     {
         consumed = true;
         // if class is changed the window won't belong to our group any more
-        if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass) && this != button)
+        if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass))
         {
             KWindowInfo info(window, 0, NET::WM2WindowClass);
             if (info.windowClassClass() != mGroupName)
             {
-                //remove this window from this group
-                //Note: can't optimize case when there is only one window in this group
-                //      because mGroupName is a hash key in taskbar
-                emit windowDisowned(window);
+                consumed = false;
                 onWindowRemoved(window);
-                continue;
             }
         }
         // window changed virtual desktop
@@ -622,25 +615,21 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         }
 
         if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
-            button->updateText();
+            std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateText));
 
         // XXX: we are setting window icon geometry -> don't need to handle NET::WMIconGeometry
         if (prop.testFlag(NET::WMIcon))
-            button->updateIcon();
+            std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateIcon));
 
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
-            if (info.hasState(NET::SkipTaskbar) && this != button)
+            if (info.hasState(NET::SkipTaskbar))
             {
-                //remove this window from this group
-                //Note: can't optimize case when there is only one window in this group
-                //      because mGroupName is a hash key in taskbar
-                emit windowDisowned(window);
+                consumed = false;
                 onWindowRemoved(window);
-                continue;
             }
-            button->setUrgencyHint(info.hasState(NET::DemandsAttention));
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, info.hasState(NET::DemandsAttention)));
 
             if (parentTaskBar()->isShowOnlyMinimizedTasks())
             {
@@ -653,4 +642,14 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         refreshVisibility();
 
     return consumed;
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtTaskGroup::groupPopupShown(LXQtTaskGroup * const sender)
+{
+    //close all popups (should they be visible because of close delay)
+    if (this != sender && isVisible())
+            setPopupVisible(false, true/*fast*/);
 }
