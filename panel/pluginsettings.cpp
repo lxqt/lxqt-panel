@@ -33,7 +33,7 @@ PluginSettings::PluginSettings(LXQt::Settings* settings, const QString &group, Q
     mOldSettings(settings),
     mGroup(group)
 {
-    connect(settings, &LXQt::Settings::settingsChanged, this, &PluginSettings::settingsChanged);
+    connect(settings, &LXQt::Settings::settingsChangedFromExternal, this, &PluginSettings::settingsChanged);
 }
 
 PluginSettings::~PluginSettings()
@@ -53,6 +53,7 @@ void PluginSettings::setValue(const QString &key, const QVariant &value)
     mSettings->beginGroup(mGroup + "/" + prefix());
     mSettings->setValue(key, value);
     mSettings->endGroup();
+    emit settingsChanged();
 }
 
 void PluginSettings::remove(const QString &key)
@@ -60,6 +61,7 @@ void PluginSettings::remove(const QString &key)
     mSettings->beginGroup(mGroup + "/" + prefix());
     mSettings->remove(key);
     mSettings->endGroup();
+    emit settingsChanged();
 }
 
 bool PluginSettings::contains(const QString &key) const
@@ -105,6 +107,7 @@ void PluginSettings::setArray(const QString &prefix, const QList<QMap<QString, Q
     }
     mSettings->endArray();
     mSettings->endGroup();
+    emit settingsChanged();
 }
 
 void PluginSettings::clear()
@@ -112,6 +115,7 @@ void PluginSettings::clear()
     mSettings->beginGroup(mGroup);
     mSettings->clear();
     mSettings->endGroup();
+    emit settingsChanged();
 }
 
 void PluginSettings::sync()
@@ -120,6 +124,7 @@ void PluginSettings::sync()
     mSettings->sync();
     mOldSettings.loadFromSettings();
     mSettings->endGroup();
+    emit settingsChanged();
 }
 
 QStringList PluginSettings::allKeys() const
