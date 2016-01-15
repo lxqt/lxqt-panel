@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 project(lxqt-panel)
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
+option(PULL_TRANSLATIONS "Pull translations" ON)
 
 # additional cmake files
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)

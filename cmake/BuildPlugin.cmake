@@ -17,6 +17,12 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
             ${NAME}
         INSTALL_DIR
             ${LXQT_TRANSLATIONS_DIR}/${PROGRAM}/${NAME}
+        PULL_TRANSLATIONS
+            ${PULL_TRANSLATIONS}
+        CLEAN_TRANSLATIONS
+            ${CLEAN_TRANSLATIONS}
+        REPO_SUBDIR
+            "${PROGRAM}/plugin-${NAME}"
     )
 
     #lxqt_translate_to(QM_FILES ${CMAKE_INSTALL_FULL_DATAROOTDIR}/lxqt/${PROGRAM}/${PROJECT_NAME})

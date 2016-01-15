@@ -79,6 +79,12 @@ lxqt_translate_ts(QM_FILES SOURCES
         ${UI}
     INSTALL_DIR
         "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
+    PULL_TRANSLATIONS
+        ${PULL_TRANSLATIONS}
+    CLEAN_TRANSLATIONS
+        ${CLEAN_TRANSLATIONS}
+    REPO_SUBDIR
+        "${PROJECT_NAME}/panel"
 )
 
 lxqt_app_translation_loader(SOURCES ${PROJECT_NAME})
