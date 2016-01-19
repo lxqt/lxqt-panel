@@ -254,9 +254,15 @@ void LXQtTaskGroup::onChildButtonClicked()
 void LXQtTaskGroup::setToolButtonsStyle(Qt::ToolButtonStyle style)
 {
     setToolButtonStyle(style);
+
+    // do not set icons-only style in the buttons in the group,
+    // as they'll be indistinguishable
+    Qt::ToolButtonStyle styleInPopup = style;
+    if (style == Qt::ToolButtonIconOnly)
+        styleInPopup = Qt::ToolButtonTextBesideIcon;
     for (auto & button : mButtonHash)
     {
-        button->setToolButtonStyle(style);
+        button->setToolButtonStyle(styleInPopup);
     }
 }
 
