@@ -59,6 +59,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
         {
             this->settings().setValue(QLatin1String("menu_file"), file);
         });
+    connect(ui->iconCB, &QCheckBox::toggled, [this] (bool value) { this->settings().setValue("ownIcon", value); });
     connect(ui->iconPB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseIcon);
     connect(ui->iconLE, &QLineEdit::textChanged, [&] (QString const & path)
         {
@@ -81,6 +82,7 @@ LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
 
 void LXQtMainMenuConfiguration::loadSettings()
 {
+    ui->iconCB->setChecked(settings().value("ownIcon", false).toBool());
     ui->iconLE->setText(settings().value("icon", QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
     ui->showTextCB->setChecked(settings().value("showText", false).toBool());
     ui->textLE->setText(settings().value("text", "").toString());

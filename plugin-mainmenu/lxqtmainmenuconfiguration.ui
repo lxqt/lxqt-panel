@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>477</width>
-    <height>325</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,17 +30,24 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QLabel" name="iconL">
+       <widget class="QCheckBox" name="iconCB">
         <property name="text">
          <string>Icon:</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="iconLE"/>
+       <widget class="QLineEdit" name="iconLE">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item row="0" column="2">
        <widget class="QPushButton" name="iconPB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -206,6 +213,38 @@
     <hint type="destinationlabel">
      <x>313</x>
      <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>iconCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>iconLE</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>284</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>iconCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>iconPB</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>53</y>
     </hint>
    </hints>
   </connection>

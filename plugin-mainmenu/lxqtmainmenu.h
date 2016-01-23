@@ -79,6 +79,7 @@ protected:
 
 private:
     void setMenuFontSize();
+    void setButtonIcon();
 
 private:
     QToolButton mButton;

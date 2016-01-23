@@ -149,7 +149,7 @@ void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
  ************************************************/
 void LXQtMainMenu::settingsChanged()
 {
-    mButton.setIcon(QIcon{settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()});
+    setButtonIcon();
     if (settings()->value("showText", false).toBool())
     {
         mButton.setText(settings()->value("text", "Start").toString());
@@ -271,6 +271,23 @@ void LXQtMainMenu::setMenuFontSize()
 /************************************************
 
  ************************************************/
+void LXQtMainMenu::setButtonIcon()
+{
+    if (settings()->value("ownIcon", false).toBool())
+    {
+        mButton.setIcon(QIcon{settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()});
+    } else
+    {
+        mButton.setIcon(QIcon{});
+        mButton.style()->unpolish(&mButton);
+        mButton.style()->polish(&mButton);
+    }
+}
+
+
+/************************************************
+
+ ************************************************/
 QDialog *LXQtMainMenu::configureDialog()
 {
     return new LXQtMainMenuConfiguration(settings(), mShortcut, DEFAULT_SHORTCUT);
@@ -297,6 +314,7 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             // reset proxy style for the menus so they can apply the new styles
             mTopMenuStyle.setBaseStyle(NULL);
             setMenuFontSize();
+            setButtonIcon();
         }
     }
     else if(QMenu* menu = qobject_cast<QMenu*>(obj))
