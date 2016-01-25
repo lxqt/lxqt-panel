@@ -74,13 +74,10 @@ public:
     bool isOnCurrentScreen() const;
     bool isMinimized() const;
     void updateText();
-    void updateIcon();
 
     Qt::Corner origin() const;
     virtual void setAutoRotation(bool value, ILXQtPanel::Position position);
 
-    LXQtTaskGroup * parentGroup(void) const {return mParentGroup;}
-    void setParentGroup(LXQtTaskGroup * group) {mParentGroup = group;}
     LXQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
     void refreshIconGeometry(QRect const & geom);
@@ -101,6 +98,8 @@ public slots:
     void setApplicationLayer();
 
     void setOrigin(Qt::Corner);
+
+    void updateIcon();
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);
@@ -126,7 +125,6 @@ private:
     Qt::Corner mOrigin;
     QPixmap mPixmap;
     bool mDrawPixmap;
-    LXQtTaskGroup * mParentGroup;
     LXQtTaskBar * mParentTaskBar;
     ILXQtPanelPlugin * mPlugin;
 

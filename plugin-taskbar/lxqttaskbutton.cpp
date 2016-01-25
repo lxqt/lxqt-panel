@@ -32,6 +32,8 @@
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
+#include <LXQt/Settings>
+
 #include <QDebug>
 #include <XdgIcon>
 #include <QTimer>
@@ -99,6 +101,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
     mDNDTimer->setSingleShot(true);
     mDNDTimer->setInterval(700);
     connect(mDNDTimer, SIGNAL(timeout()), this, SLOT(activateWithDraggable()));
+    connect(LXQt::Settings::globalSettings(), SIGNAL(iconThemeChanged()), this, SLOT(updateIcon()));
 }
 
 /************************************************
@@ -124,10 +127,15 @@ void LXQtTaskButton::updateText()
  ************************************************/
 void LXQtTaskButton::updateIcon()
 {
-    QIcon ico;
-    QPixmap pix = KWindowSystem::icon(mWindow);
-    ico.addPixmap(pix);
-    setIcon(!pix.isNull() ? ico : XdgIcon::defaultApplicationIcon());
+    QIcon ico = XdgIcon::fromTheme(QString::fromUtf8(KWindowInfo{mWindow, 0, NET::WM2WindowClass}.windowClassClass()).toLower());
+    if (ico.isNull())
+    {
+        QIcon win_ico(KWindowSystem::icon(mWindow));
+        setIcon(win_ico.isNull() ? XdgIcon::defaultApplicationIcon() : win_ico);
+    } else
+    {
+        setIcon(ico);
+    }
 }
 
 /************************************************

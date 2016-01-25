@@ -45,17 +45,17 @@
 /************************************************
 
  ************************************************/
-LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, QIcon icon, LXQtTaskBar *parent)
-    : LXQtTaskButton(0, parent, parent),
+LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *parent)
+    : LXQtTaskButton(window, parent, parent),
     mGroupName(groupName),
     mPopup(new LXQtGroupPopup(this)),
-    mPreventPopup(false)
+    mPreventPopup(false),
+    mSingleButton(true)
 {
     Q_ASSERT(parent);
 
     setObjectName(groupName);
     setText(groupName);
-    setIcon(icon);
 
     connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked(bool)));
     connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
@@ -74,7 +74,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 {
     setPopupVisible(false, true);
     mPreventPopup = true;
-    if (windowId())
+    if (mSingleButton)
     {
         LXQtTaskButton::contextMenuEvent(event);
         return;
@@ -118,8 +118,6 @@ LXQtTaskButton * LXQtTaskGroup::addWindow(WId id)
         btn->setChecked(true);
         setChecked(true);
     }
-
-    btn->setParentGroup(this);
 
     mButtonHash.insert(id, btn);
     mPopup->addButton(btn);
@@ -290,7 +288,7 @@ int LXQtTaskGroup::visibleButtonsCount() const
  ************************************************/
 void LXQtTaskGroup::draggingTimerTimeout()
 {
-    if (windowId())
+    if (mSingleButton)
         setPopupVisible(false);
 }
 
@@ -316,6 +314,7 @@ void LXQtTaskGroup::regroup()
 
     if (cont == 1)
     {
+        mSingleButton = true;
         // Get first visible button
         LXQtTaskButton * button = NULL;
         foreach (LXQtTaskButton *btn, mButtonHash.values())
@@ -338,10 +337,10 @@ void LXQtTaskGroup::regroup()
         hide();
     else
     {
+        mSingleButton = false;
         QString t = QString("%1 - %2 windows").arg(mGroupName).arg(cont);
         setText(t);
         setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
-        setWindowId(0);
     }
 }
 
@@ -412,7 +411,7 @@ QMimeData * LXQtTaskGroup::mimeData()
  ************************************************/
 void LXQtTaskGroup::setPopupVisible(bool visible, bool fast)
 {
-    if (visible && !mPreventPopup && 0 == windowId())
+    if (visible && !mPreventPopup && !mSingleButton)
     {
         if (!mPopup->isVisible())
         {
@@ -437,7 +436,7 @@ void LXQtTaskGroup::refreshIconsGeometry()
     QRect rect = geometry();
     rect.moveTo(mapToGlobal(QPoint(0, 0)));
 
-    if (windowId())
+    if (mSingleButton)
     {
         refreshIconGeometry(rect);
         return;
@@ -592,7 +591,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
     if (mButtonHash.contains(window))
         buttons.append(mButtonHash.value(window));
 
-    // If group contains only one window properties must be changed also on button group
+    // If group is based on that window properties must be changed also on button group
     if (window == windowId())
         buttons.append(this);
 
@@ -623,7 +622,8 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateText));
 
         // XXX: we are setting window icon geometry -> don't need to handle NET::WMIconGeometry
-        if (prop.testFlag(NET::WMIcon))
+        // Icon of the button can be based on windowClass
+        if (prop.testFlag(NET::WMIcon) || prop2.testFlag(NET::WM2WindowClass))
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateIcon));
 
         if (prop.testFlag(NET::WMState))

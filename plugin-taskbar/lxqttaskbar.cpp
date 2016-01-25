@@ -270,7 +270,7 @@ void LXQtTaskBar::addWindow(WId window)
 
     if (!group)
     {
-        group = new LXQtTaskGroup(group_id, KWindowSystem::icon(window), this);
+        group = new LXQtTaskGroup(group_id, window, this);
         connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
         connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
         connect(group, &LXQtTaskGroup::popupShown, this, &LXQtTaskBar::popupShown);

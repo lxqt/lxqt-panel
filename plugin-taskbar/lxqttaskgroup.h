@@ -50,7 +50,7 @@ class LXQtTaskGroup: public LXQtTaskButton
     Q_OBJECT
 
 public:
-    LXQtTaskGroup(const QString & groupName, QIcon icon, LXQtTaskBar * parent);
+    LXQtTaskGroup(const QString & groupName, WId window, LXQtTaskBar * parent);
 
     QString groupName() const { return mGroupName; }
 
@@ -108,6 +108,7 @@ private:
     LXQtGroupPopup * mPopup;
     LXQtTaskButtonHash mButtonHash;
     bool mPreventPopup;
+    bool mSingleButton; //!< flag if this group should act as a "standard" button (no groupping or only one "shown" window in group)
 
     QSize recalculateFrameSize();
     QPoint recalculateFramePosition();
