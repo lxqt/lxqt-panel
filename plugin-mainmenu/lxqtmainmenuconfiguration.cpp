@@ -117,9 +117,11 @@ void LXQtMainMenuConfiguration::showTextChanged(bool value)
 
 void LXQtMainMenuConfiguration::chooseIcon()
 {
+    QFileInfo f{ui->iconLE->text()};
+    QDir dir = f.dir();
     QFileDialog *d = new QFileDialog(this,
                                      tr("Choose icon file"),
-                                     QLatin1String(LXQT_GRAPHICS_DIR),
+                                     !f.filePath().isEmpty() && dir.exists() ? dir.path() : QLatin1String(LXQT_GRAPHICS_DIR),
                                      tr("Images (*.svg *.png)"));
     d->setWindowModality(Qt::WindowModal);
     d->setAttribute(Qt::WA_DeleteOnClose);
