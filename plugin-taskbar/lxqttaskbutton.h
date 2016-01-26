@@ -117,6 +117,8 @@ protected:
     virtual QMimeData * mimeData();
     static bool sDraggging;
 
+    inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
+
 private:
     WId mWindow;
     bool mUrgencyHint;
@@ -126,6 +128,7 @@ private:
     bool mDrawPixmap;
     LXQtTaskGroup * mParentGroup;
     LXQtTaskBar * mParentTaskBar;
+    ILXQtPanelPlugin * mPlugin;
 
     // Timer for when draggind something into a button (the button's window
     // must be activated so that the use can continue dragging to the window

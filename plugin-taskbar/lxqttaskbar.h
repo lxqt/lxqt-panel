@@ -75,7 +75,8 @@ public:
     bool isAutoRotate() const { return mAutoRotate; }
     bool isGroupingEnabled() const { return mGroupingEnabled; }
     bool isShowGroupOnHover() const { return mShowGroupOnHover; }
-    ILXQtPanel * panel() const { return mPlugin->panel(); }
+    inline ILXQtPanel * panel() const { return mPlugin->panel(); }
+    inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
 public slots:
     void settingsChanged();

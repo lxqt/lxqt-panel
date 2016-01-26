@@ -45,11 +45,10 @@
 /************************************************
 
  ************************************************/
-LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, QIcon icon, ILXQtPanelPlugin * plugin, LXQtTaskBar *parent)
+LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, QIcon icon, LXQtTaskBar *parent)
     : LXQtTaskButton(0, parent, parent),
     mGroupName(groupName),
     mPopup(new LXQtGroupPopup(this)),
-    mPlugin(plugin),
     mPreventPopup(false)
 {
     Q_ASSERT(parent);
@@ -88,8 +87,8 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
     connect(menu, &QMenu::aboutToHide, [this] {
         mPreventPopup = false;
     });
-    menu->setGeometry(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
-    mPlugin->willShowWindow(menu);
+    menu->setGeometry(plugin()->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
+    plugin()->willShowWindow(menu);
     menu->show();
 }
 
@@ -354,7 +353,7 @@ void LXQtTaskGroup::recalculateFrameIfVisible()
     if (mPopup->isVisible())
     {
         recalculateFrameSize();
-        if (mPlugin->panel()->position() == ILXQtPanel::PositionBottom)
+        if (plugin()->panel()->position() == ILXQtPanel::PositionBottom)
             recalculateFramePosition();
     }
 }
@@ -422,7 +421,7 @@ void LXQtTaskGroup::setPopupVisible(bool visible, bool fast)
             recalculateFramePosition();
         }
 
-        mPlugin->willShowWindow(mPopup);
+        plugin()->willShowWindow(mPopup);
         mPopup->show();
         emit popupShown(this);
     }
@@ -447,7 +446,7 @@ void LXQtTaskGroup::refreshIconsGeometry()
     foreach(LXQtTaskButton *but, mButtonHash.values())
     {
         but->refreshIconGeometry(rect);
-        but->setIconSize(QSize(mPlugin->panel()->iconSize(), mPlugin->panel()->iconSize()));
+        but->setIconSize(QSize(plugin()->panel()->iconSize(), plugin()->panel()->iconSize()));
     }
 }
 
@@ -476,7 +475,7 @@ QSize LXQtTaskGroup::recalculateFrameSize()
 int LXQtTaskGroup::recalculateFrameHeight() const
 {
     int cont = visibleButtonsCount();
-    int h = !mPlugin->panel()->isHorizontal() && parentTaskBar()->isAutoRotate() ? width() : height();
+    int h = !plugin()->panel()->isHorizontal() && parentTaskBar()->isAutoRotate() ? width() : height();
     return cont * h + (cont + 1) * mPopup->spacing();
 }
 
@@ -489,7 +488,7 @@ int LXQtTaskGroup::recalculateFrameWidth() const
     int minimum = 300;
     int hh = width();
 
-    if (!mPlugin->panel()->isHorizontal() && !parentTaskBar()->isAutoRotate())
+    if (!plugin()->panel()->isHorizontal() && !parentTaskBar()->isAutoRotate())
         hh = height();
 
     if (hh < minimum)
@@ -505,7 +504,7 @@ QPoint LXQtTaskGroup::recalculateFramePosition()
 {
     // Set position
     int x_offset = 0, y_offset = 0;
-    switch (mPlugin->panel()->position())
+    switch (plugin()->panel()->position())
     {
     case ILXQtPanel::PositionTop:
         y_offset += height();

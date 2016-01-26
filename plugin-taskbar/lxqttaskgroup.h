@@ -50,7 +50,7 @@ class LXQtTaskGroup: public LXQtTaskButton
     Q_OBJECT
 
 public:
-    LXQtTaskGroup(const QString & groupName, QIcon icon ,ILXQtPanelPlugin * plugin, LXQtTaskBar * parent);
+    LXQtTaskGroup(const QString & groupName, QIcon icon, LXQtTaskBar * parent);
 
     QString groupName() const { return mGroupName; }
 
@@ -107,7 +107,6 @@ private:
     QString mGroupName;
     LXQtGroupPopup * mPopup;
     LXQtTaskButtonHash mButtonHash;
-    ILXQtPanelPlugin * mPlugin;
     bool mPreventPopup;
 
     QSize recalculateFrameSize();

@@ -80,6 +80,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
     mOrigin(Qt::TopLeftCorner),
     mDrawPixmap(false),
     mParentTaskBar(taskbar),
+    mPlugin(mParentTaskBar->plugin()),
     mDNDTimer(new QTimer(this))
 {
     Q_ASSERT(taskbar);
@@ -590,6 +591,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     a = menu->addAction(XdgIcon::fromTheme("process-stop"), tr("&Close"));
     connect(a, SIGNAL(triggered(bool)), this, SLOT(closeApplication()));
     menu->setGeometry(mParentTaskBar->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
+    mPlugin->willShowWindow(menu);
     menu->show();
 }
 
