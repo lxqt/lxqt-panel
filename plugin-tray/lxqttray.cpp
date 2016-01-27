@@ -374,14 +374,9 @@ void LXQtTray::stopTray()
  ************************************************/
 void LXQtTray::addIcon(Window winId)
 {
-    TrayIcon* icon = new TrayIcon(winId, this);
-    if (!icon->isValid())
-    {
-        delete icon;
-        return;
-    }
-
+    TrayIcon* icon = new TrayIcon(winId, mIconSize, this);
     mIcons.append(icon);
     mLayout->addWidget(icon);
+    connect(icon, &QObject::destroyed, [this] (QObject * icon) { mIcons.removeAll(qobject_cast<TrayIcon*>(icon)); });
 }
 
