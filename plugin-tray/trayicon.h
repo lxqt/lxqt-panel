@@ -52,6 +52,7 @@ public:
 
     Window iconId() { return mIconId; }
     Window windowId() { return mWindowId; }
+    void windowDestroyed(Window w);
 
     QSize iconSize() const { return mIconSize; }
     void setIconSize(QSize iconSize);

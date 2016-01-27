@@ -125,6 +125,7 @@ bool LXQtTray::nativeEventFilter(const QByteArray &eventType, void *message, lon
             icon = findIcon(event_window);
             if (icon)
             {
+                icon->windowDestroyed(event_window);
                 mIcons.removeAll(icon);
                 delete icon;
             }

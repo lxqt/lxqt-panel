@@ -376,6 +376,17 @@ void TrayIcon::draw(QPaintEvent* /*event*/)
 /************************************************
 
  ************************************************/
+void TrayIcon::windowDestroyed(Window w)
+{
+    //damage is destroyed if it's parent window was destroyed
+    if (mIconId == w)
+        mDamage = 0;
+}
+
+
+/************************************************
+
+ ************************************************/
 bool TrayIcon::isXCompositeAvailable()
 {
     int eventBase, errorBase;
