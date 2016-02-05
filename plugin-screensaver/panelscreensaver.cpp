@@ -33,6 +33,7 @@
 #include <lxqt-globalkeys.h>
 
 #include "panelscreensaver.h"
+#include "../panel/pluginsettings.h"
 
 #define DEFAULT_SHORTCUT "Control+Alt+L"
 

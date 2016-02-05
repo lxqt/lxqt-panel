@@ -30,12 +30,8 @@
 #define ILXQTPANELPLUGIN_H
 
 #include <QtPlugin>
-#include <qwindowdefs.h> // For XEvent
-#include <QSettings>
-#include <LXQt/PluginInfo>
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
-#include "pluginsettings.h"
 
 /**
 LXQt panel plugins are standalone sharedlibraries
@@ -51,6 +47,11 @@ like translations. Themselves plugins will be installed to
 **/
 
 class QDialog;
+class PluginSettings;
+namespace LXQt
+{
+    class PluginInfo;
+}
 
 struct LXQT_PANEL_API ILXQtPanelPluginStartupInfo
 {

@@ -31,6 +31,7 @@
 #include <XdgMenu>
 #include <XdgIcon>
 #include <lxqt-globalkeys.h>
+#include <LXQt/Settings>
 
 #include <QFileDialog>
 

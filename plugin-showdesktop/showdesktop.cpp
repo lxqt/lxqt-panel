@@ -34,6 +34,7 @@
 #include <KWindowSystem/KWindowSystem>
 #include <KWindowSystem/NETWM>
 #include "showdesktop.h"
+#include "../panel/pluginsettings.h"
 
 // Still needed for lxde/lxqt#338
 #include <X11/Xlib.h>

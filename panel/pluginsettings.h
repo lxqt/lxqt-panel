@@ -30,19 +30,37 @@
 
 #include <QObject>
 #include <QString>
-#include <LXQt/Settings>
+#include <QVariant>
 #include "lxqtpanelglobals.h"
 
+namespace LXQt
+{
+    class Settings;
+}
+class PluginSettingsFactory;
+class PluginSettingsPrivate;
+
+/*!
+ * \brief
+ * Settings for particular plugin. This object/class can be used similarly as \sa QSettings.
+ * Object cannot be constructed direcly (it is the panel's responsibility to construct it for each plugin).
+ *
+ *
+ * \note
+ * We are relying here on so called "back linking" (calling a function defined in executable
+ * back from an external library)...
+ */
 class LXQT_PANEL_API PluginSettings : public QObject
 {
     Q_OBJECT
 
+    //for instantiation
+    friend class PluginSettingsFactory;
+
 public:
-    explicit PluginSettings(LXQt::Settings *settings, const QString &group, QObject *parent = nullptr);
     ~PluginSettings();
 
-    QString group() const
-    { return mGroup; }
+    QString group() const;
 
     QVariant value(const QString &key, const QVariant &defaultValue = QVariant()) const;
     void setValue(const QString &key, const QVariant &value);
@@ -68,13 +86,11 @@ signals:
     void settingsChanged();
 
 private:
-    LXQt::Settings *mSettings;
-    LXQt::SettingsCache mOldSettings;
-    QString mGroup;
+    explicit PluginSettings(LXQt::Settings *settings, const QString &group, QObject *parent = nullptr);
 
-    QStringList mSubGroups;
-
-    QString prefix() const;
+private:
+    QScopedPointer<PluginSettingsPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(PluginSettings)
 };
 
 #endif

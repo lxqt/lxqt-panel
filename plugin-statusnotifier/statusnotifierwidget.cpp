@@ -28,6 +28,7 @@
 
 #include "statusnotifierwidget.h"
 #include <QApplication>
+#include <QDebug>
 #include "../panel/ilxqtpanelplugin.h"
 
 StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent) :

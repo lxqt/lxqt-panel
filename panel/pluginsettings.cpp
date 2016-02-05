@@ -26,14 +26,50 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "pluginsettings.h"
+#include "pluginsettings_p.h"
+#include <LXQt/Settings>
+
+class PluginSettingsPrivate
+{
+public:
+    PluginSettingsPrivate(LXQt::Settings* settings, const QString &group)
+        : mSettings(settings)
+        , mOldSettings(settings)
+        , mGroup(group)
+    {
+    }
+
+    QString prefix() const;
+    inline QString fullPrefix() const
+    {
+        return mGroup + "/" + prefix();
+    }
+
+    LXQt::Settings *mSettings;
+    LXQt::SettingsCache mOldSettings;
+    QString mGroup;
+    QStringList mSubGroups;
+};
+
+QString PluginSettingsPrivate::prefix() const
+{
+    if (!mSubGroups.empty())
+        return mSubGroups.join('/');
+    return QString();
+}
 
 PluginSettings::PluginSettings(LXQt::Settings* settings, const QString &group, QObject *parent)
-    : QObject(parent),
-    mSettings(settings),
-    mOldSettings(settings),
-    mGroup(group)
+    : QObject(parent)
+    , d_ptr(new PluginSettingsPrivate{settings, group})
 {
-    connect(settings, &LXQt::Settings::settingsChangedFromExternal, this, &PluginSettings::settingsChanged);
+    Q_D(PluginSettings);
+    connect(d->mSettings, &LXQt::Settings::settingsChangedFromExternal, this, &PluginSettings::settingsChanged);
+}
+
+QString PluginSettings::group() const
+{
+    Q_D(const PluginSettings);
+    return d->mGroup;
 }
 
 PluginSettings::~PluginSettings()
@@ -42,128 +78,139 @@ PluginSettings::~PluginSettings()
 
 QVariant PluginSettings::value(const QString &key, const QVariant &defaultValue) const
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    QVariant value = mSettings->value(key, defaultValue);
-    mSettings->endGroup();
+    Q_D(const PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    QVariant value = d->mSettings->value(key, defaultValue);
+    d->mSettings->endGroup();
     return value;
 }
 
 void PluginSettings::setValue(const QString &key, const QVariant &value)
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    mSettings->setValue(key, value);
-    mSettings->endGroup();
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    d->mSettings->setValue(key, value);
+    d->mSettings->endGroup();
     emit settingsChanged();
 }
 
 void PluginSettings::remove(const QString &key)
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    mSettings->remove(key);
-    mSettings->endGroup();
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    d->mSettings->remove(key);
+    d->mSettings->endGroup();
     emit settingsChanged();
 }
 
 bool PluginSettings::contains(const QString &key) const
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    bool ret = mSettings->contains(key);
-    mSettings->endGroup();
+    Q_D(const PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    bool ret = d->mSettings->contains(key);
+    d->mSettings->endGroup();
     return ret;
 }
 
 QList<QMap<QString, QVariant> > PluginSettings::readArray(const QString& prefix)
 {
-    mSettings->beginGroup(mGroup + "/" + this->prefix());
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
     QList<QMap<QString, QVariant> > array;
-    int size = mSettings->beginReadArray(prefix);
+    int size = d->mSettings->beginReadArray(prefix);
     for (int i = 0; i < size; ++i)
     {
-        mSettings->setArrayIndex(i);
+        d->mSettings->setArrayIndex(i);
         QMap<QString, QVariant> hash;
-        for (const QString &key : mSettings->childKeys())
-            hash[key] = mSettings->value(key);
+        for (const QString &key : d->mSettings->childKeys())
+            hash[key] = d->mSettings->value(key);
         array << hash;
     }
-    mSettings->endArray();
-    mSettings->endGroup();
+    d->mSettings->endArray();
+    d->mSettings->endGroup();
     return array;
 }
 
 void PluginSettings::setArray(const QString &prefix, const QList<QMap<QString, QVariant> > &hashList)
 {
-    mSettings->beginGroup(mGroup + "/" + this->prefix());
-    mSettings->beginWriteArray(prefix);
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    d->mSettings->beginWriteArray(prefix);
     int size = hashList.size();
     for (int i = 0; i < size; ++i)
     {
-        mSettings->setArrayIndex(i);
+        d->mSettings->setArrayIndex(i);
         QMapIterator<QString, QVariant> it(hashList.at(i));
         while (it.hasNext())
         {
             it.next();
-            mSettings->setValue(it.key(), it.value());
+            d->mSettings->setValue(it.key(), it.value());
         }
     }
-    mSettings->endArray();
-    mSettings->endGroup();
+    d->mSettings->endArray();
+    d->mSettings->endGroup();
     emit settingsChanged();
 }
 
 void PluginSettings::clear()
 {
-    mSettings->beginGroup(mGroup);
-    mSettings->clear();
-    mSettings->endGroup();
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->mGroup);
+    d->mSettings->clear();
+    d->mSettings->endGroup();
     emit settingsChanged();
 }
 
 void PluginSettings::sync()
 {
-    mSettings->beginGroup(mGroup);
-    mSettings->sync();
-    mOldSettings.loadFromSettings();
-    mSettings->endGroup();
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->mGroup);
+    d->mSettings->sync();
+    d->mOldSettings.loadFromSettings();
+    d->mSettings->endGroup();
     emit settingsChanged();
 }
 
 QStringList PluginSettings::allKeys() const
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    QStringList keys = mSettings->allKeys();
-    mSettings->endGroup();
+    Q_D(const PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    QStringList keys = d->mSettings->allKeys();
+    d->mSettings->endGroup();
     return keys;
 }
 
 QStringList PluginSettings::childGroups() const
 {
-    mSettings->beginGroup(mGroup + "/" + prefix());
-    QStringList groups = mSettings->childGroups();
-    mSettings->endGroup();
+    Q_D(const PluginSettings);
+    d->mSettings->beginGroup(d->fullPrefix());
+    QStringList groups = d->mSettings->childGroups();
+    d->mSettings->endGroup();
     return groups;
 }
 
 void PluginSettings::beginGroup(const QString &subGroup)
 {
-    mSubGroups.append(subGroup);
+    Q_D(PluginSettings);
+    d->mSubGroups.append(subGroup);
 }
 
 void PluginSettings::endGroup()
 {
-    if (!mSubGroups.empty())
-        mSubGroups.removeLast();
+    Q_D(PluginSettings);
+    if (!d->mSubGroups.empty())
+        d->mSubGroups.removeLast();
 }
 
 void PluginSettings::loadFromCache()
 {
-    mSettings->beginGroup(mGroup);
-    mOldSettings.loadToSettings();
-    mSettings->endGroup();
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->mGroup);
+    d->mOldSettings.loadToSettings();
+    d->mSettings->endGroup();
 }
 
-QString PluginSettings::prefix() const
+PluginSettings* PluginSettingsFactory::create(LXQt::Settings *settings, const QString &group, QObject *parent/* = nullptr*/)
 {
-    if (!mSubGroups.empty())
-        return mSubGroups.join('/');
-    return QString();
+    return new PluginSettings{settings, group, parent};
 }

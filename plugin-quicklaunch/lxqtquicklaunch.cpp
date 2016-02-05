@@ -36,13 +36,13 @@
 #include <QFileInfo>
 #include <QLabel>
 #include <QMessageBox>
-#include <QSettings>
 #include <QToolButton>
 #include <QUrl>
-#include <QSettings>
+#include <QDebug>
 #include <XdgDesktopFile>
 #include <XdgIcon>
 #include <LXQt/GridLayout>
+#include "../panel/pluginsettings.h"
 
 
 LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :

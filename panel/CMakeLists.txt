@@ -7,7 +7,7 @@ set(PRIV_HEADERS
     lxqtpanelapplication.h
     lxqtpanellayout.h
     plugin.h
-    pluginsettings.h
+    pluginsettings_p.h
     lxqtpanellimits.h
     popupmenu.h
     pluginmoveprocessor.h
@@ -21,6 +21,7 @@ set(PRIV_HEADERS
 # using LXQt namespace in the public headers.
 set(PUB_HEADERS
     lxqtpanelglobals.h
+    pluginsettings.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
 )

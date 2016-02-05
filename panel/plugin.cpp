@@ -28,6 +28,7 @@
 
 #include "plugin.h"
 #include "ilxqtpanelplugin.h"
+#include "pluginsettings_p.h"
 #include "lxqtpanel.h"
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -83,7 +84,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
     mAlignment(AlignLeft),
     mPanel(panel)
 {
-    mSettings = new PluginSettings(settings, settingsGroup);
+    mSettings = PluginSettingsFactory::create(settings, settingsGroup);
     connect(mSettings, SIGNAL(settingsChanged()), this, SLOT(settingsChanged()));
 
     setWindowTitle(desktopFile.name());
