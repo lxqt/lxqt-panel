@@ -81,7 +81,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
-    settingsChanged();
+    QTimer::singleShot(0, [this] { settingsChanged(); });
 
     mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show/hide main menu"), this);
     if (mShortcut)
@@ -279,7 +279,6 @@ void LXQtMainMenu::setButtonIcon()
     } else
     {
         mButton.setIcon(QIcon{});
-        mButton.style()->unpolish(&mButton);
         mButton.style()->polish(&mButton);
     }
 }
