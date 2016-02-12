@@ -33,8 +33,7 @@ void SpacerWidget::setType(QString const & type)
     if (type != mType)
     {
         mType = type;
-        style()->unpolish(this);
-        style()->polish(this);
+        setStyle(style());
     }
 }
 
@@ -43,8 +42,7 @@ void SpacerWidget::setOrientation(QString const & orientation)
     if (orientation != mOrientation)
     {
         mOrientation = orientation;
-        style()->unpolish(this);
-        style()->polish(this);
+        setStyle(style());
     }
 }
 

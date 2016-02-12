@@ -64,7 +64,12 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mHideTimer.setInterval(250);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    mButton.installEventFilter(this);
+    //Notes:
+    //1. installing event filter to parent widget to avoid infinite loop
+    //   (while setting icon we also need to set the style)
+    //2. delaying of installEventFilter because in c-tor mButton has no parent widget
+    //   (parent is assigned in panel's logic after widget() call)
+    QTimer::singleShot(0, [this] { Q_ASSERT(mButton.parentWidget()); mButton.parentWidget()->installEventFilter(this); });
 
     connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
@@ -87,7 +92,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
  ************************************************/
 LXQtMainMenu::~LXQtMainMenu()
 {
-    mButton.removeEventFilter(this);
+    mButton.parentWidget()->removeEventFilter(this);
 #ifdef HAVE_MENU_CACHE
     if(mMenuCache)
     {
@@ -266,7 +271,7 @@ void LXQtMainMenu::setButtonIcon()
     } else
     {
         mButton.setIcon(QIcon{});
-        mButton.style()->polish(&mButton);
+        mButton.setStyle(mButton.style());
     }
 }
 
@@ -292,7 +297,7 @@ struct MatchAction
 
 bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
 {
-    if(obj == &mButton)
+    if(obj == mButton.parentWidget())
     {
         // the application is given a new QStyle
         if(event->type() == QEvent::StyleChange)
