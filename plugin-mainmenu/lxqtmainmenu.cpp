@@ -29,33 +29,20 @@
 #include "lxqtmainmenu.h"
 #include "lxqtmainmenuconfiguration.h"
 #include "../panel/lxqtpanel.h"
-#include <QDebug>
-#include <XdgDesktopFile>
-#include <XmlHelper>
-#include <QSettings>
-#include <QFileInfo>
 #include <QAction>
 #include <QTimer>
 #include <QMessageBox>
 #include <QEvent>
 #include <QKeyEvent>
-#include <LXQt/PowerManager>
-#include <LXQt/ScreenSaver>
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
 #include <KWindowSystem/KWindowSystem>
 
-#include <XdgIcon>
-#include <XdgDesktopFile>
 #include <XdgMenuWidget>
 
 #ifdef HAVE_MENU_CACHE
 #include "xdgcachedmenu.h"
 #endif
-
-#include <QPixmap>
-#include <QStack>
-#include <QCursor>
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 
