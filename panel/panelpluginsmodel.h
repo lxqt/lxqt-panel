@@ -77,11 +77,10 @@ public slots:
     void removePlugin();
 
     // slots for configuration dialog
-    void onActivatedIndex(QModelIndex const & index);
-    void onMovePluginUp();
-    void onMovePluginDown();
-    void onConfigurePlugin();
-    void onRemovePlugin();
+    void onMovePluginUp(QModelIndex const & index);
+    void onMovePluginDown(QModelIndex const & index);
+    void onConfigurePlugin(QModelIndex const & index);
+    void onRemovePlugin(QModelIndex const & index);
 
 private:
     typedef QList<QPair <QString/*name*/, QPointer<Plugin> > > pluginslist_t;
@@ -90,13 +89,12 @@ private:
     void loadPlugins(QStringList const & desktopDirs);
     QPointer<Plugin> loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup);
     QString findNewPluginSettingsGroup(const QString &pluginType) const;
-    bool isActiveIndexValid() const;
+    bool isIndexValid(QModelIndex const & index) const;
     void removePlugin(pluginslist_t::iterator plugin);
 
     const QString mNamesKey;
     pluginslist_t mPlugins;
     LXQtPanel * mPanel;
-    QPersistentModelIndex mActive;
 };
 
 Q_DECLARE_METATYPE(Plugin const *)

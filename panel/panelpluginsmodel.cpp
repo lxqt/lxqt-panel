@@ -155,7 +155,6 @@ void PanelPluginsModel::removePlugin(pluginslist_t::iterator plugin)
         beginRemoveRows(QModelIndex(), row, row);
         mPlugins.erase(plugin);
         endRemoveRows();
-        mActive = mPlugins.isEmpty() ? QModelIndex() : createIndex(mPlugins.size() > row ? row : row - 1, 0);
         emit pluginRemoved(p); // p can be nullptr
         mPanel->settings()->setValue(mNamesKey, pluginNames());
         if (nullptr != p)
@@ -261,23 +260,18 @@ QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType)
     }
 }
 
-void PanelPluginsModel::onActivatedIndex(QModelIndex const & index)
+bool PanelPluginsModel::isIndexValid(QModelIndex const & index) const
 {
-    mActive = index;
+    return index.isValid() && QModelIndex() == index.parent()
+        && 0 == index.column() && mPlugins.size() > index.row();
 }
 
-bool PanelPluginsModel::isActiveIndexValid() const
+void PanelPluginsModel::onMovePluginUp(QModelIndex const & index)
 {
-    return mActive.isValid() && QModelIndex() == mActive.parent()
-        && 0 == mActive.column() && mPlugins.size() > mActive.row();
-}
-
-void PanelPluginsModel::onMovePluginUp()
-{
-    if (!isActiveIndexValid())
+    if (!isIndexValid(index))
         return;
 
-    const int row = mActive.row();
+    const int row = index.row();
     if (0 >= row)
         return; //can't move up
 
@@ -295,12 +289,12 @@ void PanelPluginsModel::onMovePluginUp()
     mPanel->settings()->setValue(mNamesKey, pluginNames());
 }
 
-void PanelPluginsModel::onMovePluginDown()
+void PanelPluginsModel::onMovePluginDown(QModelIndex const & index)
 {
-    if (!isActiveIndexValid())
+    if (!isIndexValid(index))
         return;
 
-    const int row = mActive.row();
+    const int row = index.row();
     if (mPlugins.size() <= row + 1)
         return; //can't move down
 
@@ -318,22 +312,22 @@ void PanelPluginsModel::onMovePluginDown()
     mPanel->settings()->setValue(mNamesKey, pluginNames());
 }
 
-void PanelPluginsModel::onConfigurePlugin()
+void PanelPluginsModel::onConfigurePlugin(QModelIndex const & index)
 {
-    if (!isActiveIndexValid())
+    if (!isIndexValid(index))
         return;
 
-    Plugin * const plugin = mPlugins[mActive.row()].second.data();
+    Plugin * const plugin = mPlugins[index.row()].second.data();
     if (nullptr != plugin && (ILXQtPanelPlugin::HaveConfigDialog & plugin->iPlugin()->flags()))
         plugin->showConfigureDialog();
 }
 
-void PanelPluginsModel::onRemovePlugin()
+void PanelPluginsModel::onRemovePlugin(QModelIndex const & index)
 {
-    if (!isActiveIndexValid())
+    if (!isIndexValid(index))
         return;
 
-    auto plugin = mPlugins.begin() + mActive.row();
+    auto plugin = mPlugins.begin() + index.row();
     if (plugin->second.isNull())
         removePlugin(std::move(plugin));
     else

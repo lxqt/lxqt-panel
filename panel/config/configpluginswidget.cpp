@@ -55,17 +55,16 @@ ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
 
     resetButtons();
 
-    connect(ui->listView_plugins, &QListView::activated, plugins, &PanelPluginsModel::onActivatedIndex);
     connect(ui->listView_plugins->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &ConfigPluginsWidget::resetButtons);
 
-    connect(ui->pushButton_moveUp,      &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginUp);
-    connect(ui->pushButton_moveDown,    &QToolButton::clicked, plugins, &PanelPluginsModel::onMovePluginDown);
+    connect(ui->pushButton_moveUp,      &QToolButton::clicked, [this, plugins] { plugins->onMovePluginUp(ui->listView_plugins->currentIndex()); });
+    connect(ui->pushButton_moveDown,    &QToolButton::clicked, [this, plugins] { plugins->onMovePluginDown(ui->listView_plugins->currentIndex()); });
 
     connect(ui->pushButton_addPlugin, &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
-    connect(ui->pushButton_removePlugin, &QToolButton::clicked, plugins, &PanelPluginsModel::onRemovePlugin);
+    connect(ui->pushButton_removePlugin, &QToolButton::clicked, [this, plugins] { plugins->onRemovePlugin(ui->listView_plugins->currentIndex()); });
 
-    connect(ui->pushButton_pluginConfig, &QToolButton::clicked, plugins, &PanelPluginsModel::onConfigurePlugin);
+    connect(ui->pushButton_pluginConfig, &QToolButton::clicked, [this, plugins] { plugins->onConfigurePlugin(ui->listView_plugins->currentIndex()); });
 
     connect(plugins, &PanelPluginsModel::pluginAdded, this, &ConfigPluginsWidget::resetButtons);
     connect(plugins, &PanelPluginsModel::pluginRemoved, this, &ConfigPluginsWidget::resetButtons);
