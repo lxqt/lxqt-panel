@@ -76,6 +76,7 @@ void LXQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
     // preserve the current index, as we change the list
     int tmp_index = settings().value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
 
+    const bool old_block = ui->devAddedCombo->blockSignals(true);
     ui->devAddedCombo->clear();
 
     foreach (const AudioDevice *dev, sinks) {
@@ -83,6 +84,7 @@ void LXQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
     }
 
     ui->devAddedCombo->setCurrentIndex(tmp_index);
+    ui->devAddedCombo->blockSignals(old_block);
 }
 
 void LXQtVolumeConfiguration::audioEngineChanged(bool checked)
