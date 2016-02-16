@@ -106,7 +106,7 @@ void LXQtWorldClock::restartTimer()
     mTimer->setInterval(mUpdateInterval);
 
     int delay = static_cast<int>((mUpdateInterval - (static_cast<long long>(QTime::currentTime().msecsSinceStartOfDay()) % mUpdateInterval)) % mUpdateInterval);
-    QTimer::singleShot(delay, Qt::PreciseTimer, [this] { setTimeText(); });
+    QTimer::singleShot(delay, Qt::PreciseTimer, this, &LXQtWorldClock::setTimeText);
     QTimer::singleShot(delay, Qt::PreciseTimer, mTimer, SLOT(start()));
 }
 
