@@ -644,9 +644,10 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
 
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    const int bh = geometry.height() / baseLines.count();
+    const int base_center = bh >> 1;
     {
-        int bh = geometry.height() / baseLines.count();
-        int base = geometry.top() + (bh >> 1);
+        int base = geometry.top();
         for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bh)
         {
             *i = base;
@@ -691,9 +692,13 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    const int height = qMin(info.geometry.height(), geometry.height());
+                    rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(0, baseLines[c]));
+                    if (height < bh)
+                        rect.moveCenter(QPoint(0, baseLines[c] + base_center));
+                    else
+                        rect.moveTop(baseLines[c]);
                     rect.moveLeft(left);
                 }
 
@@ -729,9 +734,13 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    const int height = qMin(info.geometry.height(), geometry.height());
+                    rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(0, baseLines[c]));
+                    if (height < bh)
+                        rect.moveCenter(QPoint(0, baseLines[c] + base_center));
+                    else
+                        rect.moveTop(baseLines[c]);
                     rect.moveRight(right);
                 }
 
@@ -760,9 +769,10 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
 
     // Calc baselines for plugins like button.
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    const int bw = geometry.width() / baseLines.count();
+    const int base_center = bw >> 1;
     {
-        int bw = geometry.width() / baseLines.count();
-        int base = geometry.left() + (bw >> 1);
+        int base = geometry.left();
         for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bw)
         {
             *i = base;
@@ -807,8 +817,12 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(baseLines[c], 0));
+                    const int width = qMin(info.geometry.width(), geometry.width());
+                    rect.setWidth(width);
+                    if (width < bw)
+                        rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
+                    else
+                        rect.moveLeft(baseLines[c]);
                     rect.moveTop(top);
                 }
 
@@ -845,8 +859,12 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
-                    rect.moveCenter(QPoint(baseLines[c], 0));
+                    const int width = qMin(info.geometry.width(), geometry.width());
+                    rect.setWidth(width);
+                    if (width < bw)
+                        rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
+                    else
+                        rect.moveLeft(baseLines[c]);
                     rect.moveBottom(bottom);
                 }
 
