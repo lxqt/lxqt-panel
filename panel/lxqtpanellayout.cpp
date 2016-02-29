@@ -646,6 +646,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bh = geometry.height() / baseLines.count();
     const int base_center = bh >> 1;
+    const int height_remain = 0 < bh ? geometry.height() % baseLines.size() : 0;
     {
         int base = geometry.top();
         for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bh)
@@ -673,6 +674,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     for (int r=0; r<mLeftGrid->rowCount(); ++r)
     {
         int rw = 0;
+        int remain = height_remain;
         for (int c=0; c<mLeftGrid->usedColCount(); ++c)
         {
             const LayoutItemInfo &info = mLeftGrid->itemInfo(r, c);
@@ -692,7 +694,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    const int height = qMin(info.geometry.height(), geometry.height());
+                    const int height = qMin(qMin(info.geometry.height(), geometry.height()), bh + (0 < remain-- ? 1 : 0));
                     rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     if (height < bh)
@@ -714,6 +716,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     for (int r=mRightGrid->rowCount()-1; r>=0; --r)
     {
         int rw = 0;
+        int remain = height_remain;
         for (int c=0; c<mRightGrid->usedColCount(); ++c)
         {
             const LayoutItemInfo &info = mRightGrid->itemInfo(r, c);
@@ -734,7 +737,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    const int height = qMin(info.geometry.height(), geometry.height());
+                    const int height = qMin(qMin(info.geometry.height(), geometry.height()), bh + (0 < remain-- ? 1 : 0));
                     rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     if (height < bh)
@@ -771,6 +774,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bw = geometry.width() / baseLines.count();
     const int base_center = bw >> 1;
+    const int width_remain = 0 < bw ? geometry.width() % baseLines.size() : 0;
     {
         int base = geometry.left();
         for (auto i = baseLines.begin(), i_e = baseLines.end(); i_e != i; ++i, base += bw)
@@ -797,6 +801,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     for (int r=0; r<mLeftGrid->rowCount(); ++r)
     {
         int rh = 0;
+        int remain = width_remain;
         for (int c=0; c<mLeftGrid->usedColCount(); ++c)
         {
             const LayoutItemInfo &info = mLeftGrid->itemInfo(r, c);
@@ -817,7 +822,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    const int width = qMin(info.geometry.width(), geometry.width());
+                    const int width = qMin(qMin(info.geometry.width(), geometry.width()), bw + (0 < remain-- ? 1 : 0));
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
@@ -839,6 +844,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     for (int r=mRightGrid->rowCount()-1; r>=0; --r)
     {
         int rh = 0;
+        int remain = width_remain;
         for (int c=0; c<mRightGrid->usedColCount(); ++c)
         {
             const LayoutItemInfo &info = mRightGrid->itemInfo(r, c);
@@ -859,7 +865,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    const int width = qMin(info.geometry.width(), geometry.width());
+                    const int width = qMin(qMin(info.geometry.width(), geometry.width()), bw + (0 < remain-- ? 1 : 0));
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
