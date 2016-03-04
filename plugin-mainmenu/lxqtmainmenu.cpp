@@ -34,6 +34,9 @@
 #include <QMessageBox>
 #include <QEvent>
 #include <QKeyEvent>
+#include <QResizeEvent>
+#include <QWidgetAction>
+#include <QLineEdit>
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
 #include <KWindowSystem/KWindowSystem>
@@ -50,7 +53,8 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     mMenu(0),
-    mShortcut(0)
+    mShortcut(0),
+    mSearch{new QWidgetAction{this}}
 {
 #ifdef HAVE_MENU_CACHE
     mMenuCache = NULL;
@@ -84,6 +88,14 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
         });
         connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] { if (!mHideTimer.isActive()) mDelayedPopup.start(); });
     }
+
+    QLineEdit * edit = new QLineEdit;
+    edit->setClearButtonEnabled(true);
+    edit->setPlaceholderText(tr("Search..."));
+
+    connect(edit, &QLineEdit::textChanged, this, &LXQtMainMenu::searchTextChanged);
+
+    mSearch->setDefaultWidget(edit);
 }
 
 
@@ -93,6 +105,10 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 LXQtMainMenu::~LXQtMainMenu()
 {
     mButton.parentWidget()->removeEventFilter(this);
+    if (mMenu)
+    {
+        mMenu->removeAction(mSearch);
+    }
 #ifdef HAVE_MENU_CACHE
     if(mMenuCache)
     {
@@ -126,6 +142,7 @@ void LXQtMainMenu::showMenu()
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
+    mSearch->defaultWidget()->setFocus();
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -196,6 +213,36 @@ void LXQtMainMenu::settingsChanged()
     realign();
 }
 
+static bool filterMenu(QMenu * menu, QString const & filter)
+{
+    bool has_visible = false;
+    for (auto const & action : menu->actions())
+    {
+        if (QMenu * sub_menu = action->menu())
+        {
+            action->setVisible(filterMenu(sub_menu, filter)/*recursion*/);
+            has_visible |= action->isVisible();
+        } else if (nullptr != qobject_cast<QWidgetAction *>(action))
+        {
+            //our searching widget
+            has_visible = true;
+        } else if (!action->isSeparator())
+        {
+            //real menu action -> app
+            action->setVisible(action->text().contains(filter, Qt::CaseInsensitive) || action->toolTip().contains(filter, Qt::CaseInsensitive));
+            has_visible |= action->isVisible();
+        }
+    }
+    return has_visible;
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtMainMenu::searchTextChanged(QString const & text)
+{
+    filterMenu(mMenu, text);
+}
 
 /************************************************
 
@@ -221,6 +268,9 @@ void LXQtMainMenu::buildMenu()
     menu->installEventFilter(this);
     connect(menu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(menu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
+
+    menu->addSeparator();
+    menu->addAction(mSearch);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
@@ -333,6 +383,31 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                     it = std::find_if(actions.begin(), it, MatchAction(key));
                 if(it != actions.end())
                     menu->setActiveAction(*it);
+            }
+        }
+
+        if (obj == mMenu)
+        {
+            if (event->type() == QEvent::Resize)
+            {
+                QResizeEvent * e = dynamic_cast<QResizeEvent *>(event);
+                if (e->oldSize().isValid() && e->oldSize() != e->size())
+                {
+                    mMenu->move(calculatePopupWindowPos(e->size()).topLeft());
+                }
+            } else if (event->type() == QEvent::KeyPress)
+            {
+                QKeyEvent * e = dynamic_cast<QKeyEvent*>(event);
+                if (Qt::Key_Escape == e->key())
+                {
+                    QLineEdit * edit = qobject_cast<QLineEdit *>(mSearch->defaultWidget());
+                    if (!edit->text().isEmpty())
+                    {
+                        edit->setText(QString());
+                        //filter out this to not close the menu
+                        return true;
+                    }
+                }
             }
         }
     }

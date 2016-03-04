@@ -47,6 +47,7 @@
 
 
 class QMenu;
+class QWidgetAction;
 class LXQtBar;
 
 namespace LXQt {
@@ -87,6 +88,7 @@ private:
     QMenu* mMenu;
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
+    QWidgetAction * mSearch;
 
 #ifdef HAVE_MENU_CACHE
     MenuCache* mMenuCache;
@@ -108,6 +110,7 @@ protected slots:
 private slots:
     void showMenu();
     void showHideMenu();
+    void searchTextChanged(QString const & text);
 };
 
 class LXQtMainMenuPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
