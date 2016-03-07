@@ -75,6 +75,7 @@ public:
     bool isAutoRotate() const { return mAutoRotate; }
     bool isGroupingEnabled() const { return mGroupingEnabled; }
     bool isShowGroupOnHover() const { return mShowGroupOnHover; }
+    bool isIconByClass() const { return mIconByClass; }
     inline ILXQtPanel * panel() const { return mPlugin->panel(); }
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
@@ -86,6 +87,7 @@ signals:
     void buttonStyleRefreshed(Qt::ToolButtonStyle buttonStyle);
     void refreshIconGeometry();
     void showOnlySettingChanged();
+    void iconByClassChanged();
     void popupShown(LXQtTaskGroup* sender);
 
 protected:
@@ -125,6 +127,7 @@ private:
     bool mAutoRotate;
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
+    bool mIconByClass;
 
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);

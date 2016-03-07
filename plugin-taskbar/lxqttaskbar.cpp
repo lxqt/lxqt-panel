@@ -63,6 +63,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mShowOnlyMinimizedTasks(false),
     mAutoRotate(true),
     mShowGroupOnHover(true),
+    mIconByClass(false),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
     mStyle(new LeftAlignedTextStyle())
@@ -412,6 +413,7 @@ void LXQtTaskBar::settingsChanged()
     const int showDesktopNumOld = mShowDesktopNum;
     bool showOnlyCurrentScreenTasksOld = mShowOnlyCurrentScreenTasks;
     bool showOnlyMinimizedTasksOld = mShowOnlyMinimizedTasks;
+    const bool iconByClassOld = mIconByClass;
 
     mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
     mButtonHeight = mPlugin->settings()->value("buttonHeight", 100).toInt();
@@ -433,6 +435,7 @@ void LXQtTaskBar::settingsChanged()
     mRaiseOnCurrentDesktop = mPlugin->settings()->value("raiseOnCurrentDesktop", false).toBool();
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
     mShowGroupOnHover = mPlugin->settings()->value("showGroupOnHover",true).toBool();
+    mIconByClass = mPlugin->settings()->value("iconByClass", false).toBool();
 
     // Delete all groups if grouping feature toggled and start over
     if (groupingEnabledOld != mGroupingEnabled)
@@ -455,6 +458,8 @@ void LXQtTaskBar::settingsChanged()
             || showOnlyMinimizedTasksOld != mShowOnlyMinimizedTasks
             )
         emit showOnlySettingChanged();
+    if (iconByClassOld != mIconByClass)
+        emit iconByClassChanged();
 
     refreshTaskList();
 }

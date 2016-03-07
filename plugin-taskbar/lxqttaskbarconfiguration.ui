@@ -168,6 +168,13 @@
         </property>
        </widget>
       </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QCheckBox" name="iconByClassCB">
+        <property name="text">
+         <string>Use icons by WindowClass, if available</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

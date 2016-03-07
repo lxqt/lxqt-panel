@@ -69,6 +69,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->iconByClassCB, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
@@ -93,6 +94,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->buttonHeightSB->setValue(settings().value("buttonHeight", 100).toInt());
     ui->groupingGB->setChecked(settings().value("groupingEnabled",true).toBool());
     ui->showGroupOnHoverCB->setChecked(settings().value("showGroupOnHover",true).toBool());
+    ui->iconByClassCB->setChecked(settings().value("iconByClass", false).toBool());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
@@ -109,4 +111,5 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
     settings().setValue("groupingEnabled",ui->groupingGB->isChecked());
     settings().setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
+    settings().setValue("iconByClass",ui->iconByClassCB->isChecked());
 }
