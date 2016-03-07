@@ -64,6 +64,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
     layout->addWidget (&mLineEdit);
 
 
+    mButton.setAutoRaise(true);
     mButton.setIcon(XdgIcon::fromTheme("color-picker", "kcolorchooser"));
 
     mCapturing = false;

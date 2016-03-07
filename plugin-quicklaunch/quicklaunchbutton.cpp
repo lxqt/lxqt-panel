@@ -47,6 +47,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAcceptDrops(true);
+    setAutoRaise(true);
 
     setDefaultAction(mAct);
     mAct->setParent(this);

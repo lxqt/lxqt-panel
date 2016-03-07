@@ -26,7 +26,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include <QButtonGroup>
-#include <QToolButton>
 #include <QWheelEvent>
 #include <QtDebug>
 #include <QSignalMapper>

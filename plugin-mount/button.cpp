@@ -37,6 +37,7 @@ Button::Button(QWidget * parent) :
     setIcon(XdgIcon::fromTheme(QLatin1String("drive-removable-media")));
     setToolTip(tr("Removable media/devices manager"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setAutoRaise(true);
 }
 
 Button::~Button()

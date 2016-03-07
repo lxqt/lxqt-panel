@@ -45,6 +45,7 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         m_showOnClick(true),
         m_muteOnMiddleClick(true)
 {
+    setAutoRaise(true);
     // initial icon for button. It will be replaced after devices scan.
     // In the worst case - no soundcard/pulse - is found it remains
     // in the button but at least the button is not blank ("invisible")

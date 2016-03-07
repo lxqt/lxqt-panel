@@ -67,6 +67,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(250);
 
+    mButton.setAutoRaise(true);
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     //Notes:
     //1. installing event filter to parent widget to avoid infinite loop
