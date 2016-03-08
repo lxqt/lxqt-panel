@@ -111,7 +111,7 @@ LXQtTaskButton * LXQtTaskGroup::addWindow(WId id)
         return mButtonHash.value(id);
 
     LXQtTaskButton *btn = new LXQtTaskButton(id, parentTaskBar(), mPopup);
-    btn->setToolButtonStyle(toolButtonStyle());
+    btn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon); // Grouped windows should always show text
 
     if (btn->isApplicationActive())
     {
