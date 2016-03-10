@@ -630,13 +630,15 @@ void LXQtTaskBar::changeEvent(QEvent* event)
 void LXQtTaskBar::registerShortcuts()
 {
     // Register shortcuts to switch to the task
+    // mPlaceHolder is always at position 0
+    // tasks are at positions 1..10
     GlobalKeyShortcut::Action * gshortcut;
     QString path;
     QString description;
-    for (int i = 0; i < 10; ++i)
+    for (int i = 1; i <= 10; ++i)
     {
-        path = QString("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i + 1);
-        description = tr("Activate task %1").arg(i + 1);
+        path = QString("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i);
+        description = tr("Activate task %1").arg(i);
 
         gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QStringLiteral(), path, description, this);
 
@@ -661,23 +663,20 @@ void LXQtTaskBar::shortcutRegistered()
 
     if (shortcut->shortcut().isEmpty())
     {
-        shortcut->changeShortcut(QStringLiteral("Meta+%1").arg(i + 1));
+        // Shortcuts come in order they were registered
+        // starting from index 0
+        const int key = (i + 1) % 10;
+        shortcut->changeShortcut(QStringLiteral("Meta+%1").arg(key));
     }
 }
 
 void LXQtTaskBar::activateTask(int pos)
 {
-    for (int i = 0; i < mLayout->count(); i++)
+    if (pos < mLayout->count())
     {
-        QWidget * o = mLayout->itemAt(i)->widget();
+        QWidget * o = mLayout->itemAt(pos)->widget();
         LXQtTaskGroup * g = qobject_cast<LXQtTaskGroup *>(o);
-        if (!g)
-            continue;
-        if(pos == 0)
-        {
+        if (g)
             g->raiseApplication();
-            break;
-        }
-        pos--;        
     }
 }
