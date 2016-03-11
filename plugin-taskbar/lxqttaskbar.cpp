@@ -56,7 +56,7 @@ using namespace LXQt;
 ************************************************/
 LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
-    m_pSignalMapper(new QSignalMapper(this)),
+    mSignalMapper(new QSignalMapper(this)),
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
     mCloseOnMiddleClick(true),
     mRaiseOnCurrentDesktop(true),
@@ -87,8 +87,8 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QTimer::singleShot(0, this, SLOT(settingsChanged()));
     setAcceptDrops(true);
 
-    connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(activateTask(int)));
-    QTimer::singleShot(0, this, SLOT(registerShortcuts()));
+    connect(mSignalMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &LXQtTaskBar::activateTask);
+    QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
@@ -644,10 +644,10 @@ void LXQtTaskBar::registerShortcuts()
 
         if (nullptr != gshortcut)
         {
-            m_keys << gshortcut;
+            mKeys << gshortcut;
             connect(gshortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtTaskBar::shortcutRegistered);
-            connect(gshortcut, SIGNAL(activated()), m_pSignalMapper, SLOT(map()));
-            m_pSignalMapper->setMapping(gshortcut, i);
+            connect(gshortcut, &GlobalKeyShortcut::Action::activated, mSignalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+            mSignalMapper->setMapping(gshortcut, i);
         }
     }
 }
@@ -658,7 +658,7 @@ void LXQtTaskBar::shortcutRegistered()
 
     disconnect(shortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtTaskBar::shortcutRegistered);
 
-    const int i = m_keys.indexOf(shortcut);
+    const int i = mKeys.indexOf(shortcut);
     Q_ASSERT(-1 != i);
 
     if (shortcut->shortcut().isEmpty())

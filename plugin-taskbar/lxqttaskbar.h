@@ -97,7 +97,6 @@ protected:
     virtual void dragMoveEvent(QDragMoveEvent * event);
 
 private slots:
-    void shortcutRegistered();
     void refreshTaskList();
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
@@ -105,8 +104,9 @@ private slots:
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void onWindowAdded(WId window);
     void onWindowRemoved(WId window);
-    void activateTask(int pos);
     void registerShortcuts();
+    void shortcutRegistered();
+    void activateTask(int pos);
 
 private:
     typedef QMap<WId, LXQtTaskGroup*> windowMap_t;
@@ -119,8 +119,8 @@ private:
 private:
     QMap<WId, LXQtTaskGroup*> mKnownWindows; //!< Ids of known windows (mapping to buttons/groups)
     LXQt::GridLayout *mLayout;
-    QList<GlobalKeyShortcut::Action*> m_keys;
-    QSignalMapper* m_pSignalMapper;
+    QList<GlobalKeyShortcut::Action*> mKeys;
+    QSignalMapper *mSignalMapper;
 
     // Settings
     Qt::ToolButtonStyle mButtonStyle;
