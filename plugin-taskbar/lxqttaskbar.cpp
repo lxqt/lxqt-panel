@@ -672,11 +672,18 @@ void LXQtTaskBar::shortcutRegistered()
 
 void LXQtTaskBar::activateTask(int pos)
 {
-    if (pos < mLayout->count())
+    for (int i = 1; i < mLayout->count(); ++i)
     {
-        QWidget * o = mLayout->itemAt(pos)->widget();
+        QWidget * o = mLayout->itemAt(i)->widget();
         LXQtTaskGroup * g = qobject_cast<LXQtTaskGroup *>(o);
-        if (g)
-            g->raiseApplication();
+		if (g && g->isVisible())
+		{
+			pos--;
+			if (pos == 0)
+			{
+				g->raiseApplication();
+				break;
+			}
+		}
     }
 }
