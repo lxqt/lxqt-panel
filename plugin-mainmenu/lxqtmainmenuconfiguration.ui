@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>477</width>
-    <height>335</height>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -164,6 +164,36 @@
     </spacer>
    </item>
    <item>
+    <widget class="QGroupBox" name="searchGB">
+     <property name="title">
+      <string>Search</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="filterMenuCB">
+        <property name="text">
+         <string>Filter menu entries</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="filterShowCB">
+        <property name="text">
+         <string>Show matching entries, max visible items:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="filterShowMaxItemsSB">
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QDialogButtonBox" name="buttons">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -245,6 +275,22 @@
     <hint type="destinationlabel">
      <x>431</x>
      <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filterShowCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>filterShowMaxItemsSB</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>374</y>
     </hint>
    </hints>
   </connection>

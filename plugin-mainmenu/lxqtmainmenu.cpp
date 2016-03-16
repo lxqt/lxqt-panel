@@ -29,6 +29,7 @@
 #include "lxqtmainmenu.h"
 #include "lxqtmainmenuconfiguration.h"
 #include "../panel/lxqtpanel.h"
+#include "actionview.h"
 #include <QAction>
 #include <QTimer>
 #include <QMessageBox>
@@ -54,7 +55,11 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     ILXQtPanelPlugin(startupInfo),
     mMenu(0),
     mShortcut(0),
-    mSearch{new QWidgetAction{this}}
+    mSearchEditAction{new QWidgetAction{this}},
+    mSearchViewAction{new QWidgetAction{this}},
+    mMakeDirtyAction{new QAction(this)},
+    mFilterMenu(true),
+    mFilterShow(true)
 {
 #ifdef HAVE_MENU_CACHE
     mMenuCache = NULL;
@@ -78,12 +83,16 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
-    QLineEdit * edit = new QLineEdit;
-    edit->setClearButtonEnabled(true);
-    edit->setPlaceholderText(tr("Search..."));
-    connect(edit, &QLineEdit::textChanged, this, &LXQtMainMenu::searchTextChanged);
-    mSearch->setDefaultWidget(edit);
-
+    mSearchView = new ActionView;
+    mSearchView->setVisible(false);
+    connect(mSearchView, &QAbstractItemView::activated, this, &LXQtMainMenu::showHideMenu);
+    mSearchViewAction->setDefaultWidget(mSearchView);
+    mSearchEdit = new QLineEdit;
+    mSearchEdit->setClearButtonEnabled(true);
+    mSearchEdit->setPlaceholderText(tr("Search..."));
+    connect(mSearchEdit, &QLineEdit::textChanged, this, &LXQtMainMenu::searchTextChanged);
+    connect(mSearchEdit, &QLineEdit::returnPressed, mSearchView, &ActionView::activateCurrent);
+    mSearchEditAction->setDefaultWidget(mSearchEdit);
     QTimer::singleShot(0, [this] { settingsChanged(); });
 
     mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show/hide main menu"), this);
@@ -106,7 +115,8 @@ LXQtMainMenu::~LXQtMainMenu()
     mButton.parentWidget()->removeEventFilter(this);
     if (mMenu)
     {
-        mMenu->removeAction(mSearch);
+        mMenu->removeAction(mSearchEditAction);
+        mMenu->removeAction(mSearchViewAction);
     }
 #ifdef HAVE_MENU_CACHE
     if(mMenuCache)
@@ -141,7 +151,8 @@ void LXQtMainMenu::showMenu()
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
-    mSearch->defaultWidget()->setFocus();
+    if (mFilterMenu || mFilterShow)
+        mSearchEdit->setFocus();
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -209,6 +220,14 @@ void LXQtMainMenu::settingsChanged()
 
     setMenuFontSize();
 
+    //clear the search to not leaving the menu in wrong state
+    mSearchEdit->setText(QString{});
+    mFilterMenu = settings()->value("filterMenu", true).toBool();
+    mFilterShow = settings()->value("filterShow", true).toBool();
+    mSearchEdit->setVisible(mFilterMenu || mFilterShow);
+    mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
+    mSearchView->setMaxItemsToShow(settings()->value("filterShowMaxItems", 10).toInt());
+
     realign();
 }
 
@@ -240,7 +259,19 @@ static bool filterMenu(QMenu * menu, QString const & filter)
  ************************************************/
 void LXQtMainMenu::searchTextChanged(QString const & text)
 {
-    filterMenu(mMenu, text);
+    if (mFilterMenu)
+        filterMenu(mMenu, text);
+    if (mFilterShow)
+    {
+        const bool shown = !text.isEmpty();
+        if (shown)
+            mSearchView->setFilter(text);
+        mSearchView->setVisible(shown);
+        mSearchViewAction->setVisible(shown);
+        //TODO: how to force the menu to recalculate it's size in a more elegant way?
+        mMenu->addAction(mMakeDirtyAction);
+        mMenu->removeAction(mMakeDirtyAction);
+    }
 }
 
 /************************************************
@@ -248,10 +279,13 @@ void LXQtMainMenu::searchTextChanged(QString const & text)
  ************************************************/
 void LXQtMainMenu::setSearchFocus(QAction *action)
 {
-    if(action == mSearch)
-      mSearch->defaultWidget()->setFocus();
-    else
-      mSearch->defaultWidget()->clearFocus();
+    if (mFilterMenu || mFilterShow)
+    {
+        if(action == mSearchEditAction)
+            mSearchEdit->setFocus();
+        else
+            mSearchEdit->clearFocus();
+    }
 }
 
 /************************************************
@@ -281,9 +315,14 @@ void LXQtMainMenu::buildMenu()
 
     menu->addSeparator();
     if(mMenu)
-      mMenu->removeAction(mSearch);
-    menu->addAction(mSearch);
+    {
+      mMenu->removeAction(mSearchEditAction);
+      mMenu->removeAction(mSearchViewAction);
+    }
+    menu->addAction(mSearchViewAction);
+    menu->addAction(mSearchEditAction);
     connect(menu, &QMenu::hovered, this, &LXQtMainMenu::setSearchFocus);
+    mSearchView->fillActions(menu);
 
     QMenu *oldMenu = mMenu;
     mMenu = menu;
@@ -316,10 +355,14 @@ void LXQtMainMenu::setMenuFontSize()
         {
             subMenu->setFont(menuFont);
         }
+        mSearchEdit->setFont(menuFont);
+        mSearchView->setFont(menuFont);
     }
 
     //icon size the same as the font height
-    mTopMenuStyle.setIconSize(QFontMetrics(menuFont).height());
+    const int icon_size = QFontMetrics(menuFont).height();
+    mTopMenuStyle.setIconSize(icon_size);
+    mSearchView->setIconSize(QSize{icon_size, icon_size});
 }
 
 
@@ -413,10 +456,9 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                 QKeyEvent * e = dynamic_cast<QKeyEvent*>(event);
                 if (Qt::Key_Escape == e->key())
                 {
-                    QLineEdit * edit = qobject_cast<QLineEdit *>(mSearch->defaultWidget());
-                    if (edit && !edit->text().isEmpty())
+                    if (!mSearchEdit->text().isEmpty())
                     {
-                        edit->setText(QString());
+                        mSearchEdit->setText(QString{});
                         //filter out this to not close the menu
                         return true;
                     }

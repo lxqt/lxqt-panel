@@ -74,6 +74,19 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->customFontSizeSB, SIGNAL(valueChanged(int)), this, SLOT(customFontSizeChanged(int)));
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
+
+    connect(ui->filterMenuCB, &QCheckBox::toggled, [this] (bool enabled)
+        {
+            this->settings().setValue("filterMenu", enabled);
+        });
+    connect(ui->filterShowCB, &QCheckBox::toggled, [this] (bool enabled)
+        {
+            this->settings().setValue("filterShow", enabled);
+        });
+    connect(ui->filterShowMaxItemsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
+        {
+            this->settings().setValue("filterShowMaxItems", value);
+        });
 }
 
 LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
@@ -103,6 +116,11 @@ void LXQtMainMenuConfiguration::loadSettings()
     systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
     lxqtSettings.endGroup();
     ui->customFontSizeSB->setValue(settings().value("customFontSize", systemFont.pointSize()).toInt());
+    ui->filterMenuCB->setChecked(settings().value("filterMenu", true).toBool());
+    const bool filter_show = settings().value("filterShow", true).toBool();
+    ui->filterShowCB->setChecked(filter_show);
+    ui->filterShowMaxItemsSB->setEnabled(filter_show);
+    ui->filterShowMaxItemsSB->setValue(settings().value("filterShowMaxItems", 10).toInt());
 }
 
 

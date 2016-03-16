@@ -1,12 +1,14 @@
 set(PLUGIN "mainmenu")
 
 set(HEADERS
+    actionview.h
     lxqtmainmenu.h
     menustyle.h
     lxqtmainmenuconfiguration.h
 )
 
 set(SOURCES
+    actionview.cpp
     lxqtmainmenu.cpp
     menustyle.cpp
     lxqtmainmenuconfiguration.cpp

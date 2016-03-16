@@ -48,6 +48,8 @@
 
 class QMenu;
 class QWidgetAction;
+class QLineEdit;
+class ActionView;
 class LXQtBar;
 
 namespace LXQt {
@@ -88,7 +90,13 @@ private:
     QMenu* mMenu;
     GlobalKeyShortcut::Action *mShortcut;
     MenuStyle mTopMenuStyle;
-    QWidgetAction * mSearch;
+    QWidgetAction * mSearchEditAction;
+    QLineEdit * mSearchEdit;
+    QWidgetAction * mSearchViewAction;
+    ActionView * mSearchView;
+    QAction * mMakeDirtyAction;
+    bool mFilterMenu;
+    bool mFilterShow;
 
 #ifdef HAVE_MENU_CACHE
     MenuCache* mMenuCache;
