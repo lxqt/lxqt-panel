@@ -152,7 +152,10 @@ void LXQtMainMenu::showMenu()
     // Solution is to execute menu 1ms later using timer
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
     if (mFilterMenu || mFilterShow)
+    {
+        mSearchEdit->setReadOnly(false);
         mSearchEdit->setFocus();
+    }
 }
 
 #ifdef HAVE_MENU_CACHE
@@ -322,6 +325,11 @@ void LXQtMainMenu::buildMenu()
     menu->addAction(mSearchViewAction);
     menu->addAction(mSearchEditAction);
     connect(menu, &QMenu::hovered, this, &LXQtMainMenu::setSearchFocus);
+    //Note: setting readOnly to true to avoid wake-ups upon the Qt's internal "blink" cursor timer
+    //(if the readOnly is not set, the "blink" timer is active also in case the menu is not shown ->
+    //QWidgetLineControl::updateNeeded is performed w/o any need)
+    //https://bugreports.qt.io/browse/QTBUG-52021
+    connect(menu, &QMenu::aboutToHide, [this] { mSearchEdit->setReadOnly(true); });
     mSearchView->fillActions(menu);
 
     QMenu *oldMenu = mMenu;
