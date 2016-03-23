@@ -184,8 +184,9 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
     connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
 
-    connect(QApplication::desktop(), SIGNAL(workAreaResized(int)), this, SLOT(realign()));
-    connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
+    connect(QApplication::desktop(), &QDesktopWidget::resized, this, &LXQtPanel::ensureVisible);
+    connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, &LXQtPanel::ensureVisible);
+
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
@@ -304,8 +305,8 @@ void LXQtPanel::ensureVisible()
     else
         mActualScreenNum = mScreenNum;
 
-    // the screen size might be changed, let's update the reserved screen space.
-    updateWmStrut();
+    // the screen size might be changed
+    realign();
 }
 
 
