@@ -127,7 +127,9 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mScreenNum(0), //whatever (avoid conditional on uninitialized value)
     mActualScreenNum(0),
     mHidable(false),
-    mHidden(false)
+    mHidden(false),
+    mJustCreated(true),
+    mAnimation(NULL)
 {
     //You can find information about the flags and widget attributes in your
     //Qt documentation or at http://doc.qt.io/qt-5/qt.html
@@ -315,6 +317,8 @@ void LXQtPanel::ensureVisible()
 LXQtPanel::~LXQtPanel()
 {
     mLayout->setEnabled(false);
+    if (mAnimation)
+        delete mAnimation;
     // do not save settings because of "user deleted panel" functionality saveSettings();
 }
 
@@ -370,7 +374,7 @@ int LXQtPanel::getReserveDimension()
     return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
-void LXQtPanel::setPanelGeometry()
+void LXQtPanel::setPanelGeometry(bool animate)
 {
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mActualScreenNum);
     QRect rect;
@@ -378,7 +382,7 @@ void LXQtPanel::setPanelGeometry()
     if (isHorizontal())
     {
         // Horiz panel ***************************
-        rect.setHeight(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
@@ -409,14 +413,24 @@ void LXQtPanel::setPanelGeometry()
 
         // Vert .......................
         if (mPosition == ILXQtPanel::PositionTop)
-            rect.moveTop(currentScreen.top());
+        {
+            if (mHidden && !mJustCreated)
+                rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE);
+            else
+                rect.moveTop(currentScreen.top());
+        }
         else
-            rect.moveBottom(currentScreen.bottom());
+        {
+            if (mHidden && !mJustCreated)
+                rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE);
+            else
+                rect.moveBottom(currentScreen.bottom());
+        }
     }
     else
     {
         // Vert panel ***************************
-        rect.setWidth(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
@@ -447,15 +461,42 @@ void LXQtPanel::setPanelGeometry()
 
         // Horiz ......................
         if (mPosition == ILXQtPanel::PositionLeft)
-            rect.moveLeft(currentScreen.left());
+        {
+            if (mHidden && !mJustCreated)
+                rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE);
+            else
+                rect.moveLeft(currentScreen.left());
+        }
         else
-            rect.moveRight(currentScreen.right());
+        {
+            if (mHidden && !mJustCreated)
+                rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE);
+            else
+                rect.moveRight(currentScreen.right());
+        }
     }
+    mJustCreated = false;
     mLayout->setMargin(mHidden ? PANEL_HIDE_MARGIN : 0);
     if (rect != geometry())
     {
-        setGeometry(rect);
-        setFixedSize(rect.size());
+        if (animate)
+        {
+            if (!mAnimation)
+            {
+                mAnimation = new QPropertyAnimation(this, "geometry");
+                mAnimation->setDuration(150);
+                mAnimation->setEasingCurve(QEasingCurve::Linear);
+            }
+            mAnimation->setStartValue(geometry());
+            mAnimation->setEndValue(rect);
+            setFixedSize(rect.size());
+            mAnimation->start();
+        }
+        else
+        {
+            setGeometry(rect);
+            setFixedSize(rect.size());
+        }
     }
 }
 
@@ -1129,7 +1170,7 @@ void LXQtPanel::showPanel()
         if (mHidden)
         {
             mHidden = false;
-            setPanelGeometry();
+            setPanelGeometry(true);
         }
     }
 }
@@ -1149,7 +1190,7 @@ void LXQtPanel::hidePanelWork()
         if (!mStandaloneWindows->isAnyWindowShown())
         {
             mHidden = true;
-            setPanelGeometry();
+            setPanelGeometry(true);
         } else
         {
             mHideTimer.start();

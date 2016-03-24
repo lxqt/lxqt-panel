@@ -32,6 +32,7 @@
 #include <QFrame>
 #include <QString>
 #include <QTimer>
+#include <QPropertyAnimation>
 #include <QPointer>
 #include <LXQt/Settings>
 #include "ilxqtpanel.h"
@@ -489,10 +490,10 @@ private:
 
     /**
      * @brief Calculates and sets the geometry (i.e. the position and the size
-     * on the screen) of the panel. Considers alignment, position and if the
-     * panel is hidden.
+     * on the screen) of the panel. Considers alignment, position, if the panel
+     * is hidden and if its geometry should be set with animation.
      */
-    void setPanelGeometry();
+    void setPanelGeometry(bool animate = false);
     /**
      * @brief Calculates the height of the panel if it is horizontal or the
      * width if the panel is vertical. Considers if the panel is hidden and
@@ -596,6 +597,10 @@ private:
      */
     bool mHidden;
     /**
+     * @brief Is this the first time the panel geometry is set?
+     */
+    bool mJustCreated;
+    /**
      * @brief QTimer for hiding the panel. When the cursor leaves the panel
      * area, this timer will be started. After this timer has timed out, the
      * panel will actually be hidden.
@@ -619,6 +624,11 @@ private:
      * sure to test this pointer for validity because it is lazily loaded.
      */
     QPointer<ConfigPanelDialog> mConfigDialog;
+
+    /**
+     * @brief The animation used for showing/hiding an auto-hiding panel.
+     */
+    QPropertyAnimation *mAnimation;
 
     /**
      * @brief Updates the style sheet for the panel. First, the stylesheet is
