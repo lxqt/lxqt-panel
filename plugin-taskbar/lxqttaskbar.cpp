@@ -86,6 +86,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(KWindowSystem::self(), SIGNAL(stackingOrderChanged()), SLOT(refreshTaskList()));
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
             , this, &LXQtTaskBar::onWindowChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::windowAdded, this, &LXQtTaskBar::onWindowAdded);
     connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 }
 
@@ -333,14 +334,16 @@ void LXQtTaskBar::refreshTaskList()
  ************************************************/
 void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 {
-    bool consumed{false};
     auto i = mKnownWindows.find(window);
     if (mKnownWindows.end() != i)
-        consumed |= (*i)->onWindowChanged(window, prop, prop2);
-    if (!consumed && acceptWindow(window))
-    {
+        (*i)->onWindowChanged(window, prop, prop2);
+}
+
+void LXQtTaskBar::onWindowAdded(WId window)
+{
+    auto const pos = mKnownWindows.find(window);
+    if (mKnownWindows.end() == pos && acceptWindow(window))
         addWindow(window);
-    }
 }
 
 /************************************************

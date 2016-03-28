@@ -100,6 +100,7 @@ private slots:
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
     void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+    void onWindowAdded(WId window);
     void onWindowRemoved(WId window);
 
 private:
