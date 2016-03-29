@@ -70,6 +70,7 @@ signals:
 private slots:
     void startTray();
     void stopTray();
+    void onIconDestroyed(QObject * icon);
 
 private:
     VisualID getVisual();
