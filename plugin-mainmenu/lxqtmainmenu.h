@@ -95,8 +95,10 @@ private:
     QWidgetAction * mSearchViewAction;
     ActionView * mSearchView;
     QAction * mMakeDirtyAction;
-    bool mFilterMenu;
-    bool mFilterShow;
+    bool mFilterMenu; //!< searching should perform hiding nonmatching items in menu
+    bool mFilterShow; //!< searching should list matching items in top menu
+    bool mFilterShowHideMenu; //!< while searching all (original) menu entries should be hidden
+    bool mHeavyMenuChanges; //!< flag for filtering some mMenu events while heavy changes are performed
 
 #ifdef HAVE_MENU_CACHE
     MenuCache* mMenuCache;

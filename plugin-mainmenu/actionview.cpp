@@ -57,7 +57,16 @@ namespace
     class DelayedIconDelegate : public QStyledItemDelegate
     {
     public:
-        using QStyledItemDelegate::QStyledItemDelegate;
+        DelayedIconDelegate(QObject * parent = nullptr)
+            : QStyledItemDelegate(parent)
+            , mMaxItemWidth(300)
+        {
+        }
+
+        void setMaxItemWidth(int max)
+        {
+            mMaxItemWidth = max;
+        }
 
         virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override
         {
@@ -72,8 +81,12 @@ namespace
                 const_cast<QAbstractItemModel *>(index.model())->setData(index, cached_action->icon(), Qt::DecorationRole);
             }
 #endif
-            return QStyledItemDelegate::sizeHint(option, index);
+            QSize s = QStyledItemDelegate::sizeHint(option, index);
+            s.setWidth(qMin(mMaxItemWidth, s.width()));
+            return s;
         }
+    private:
+        int mMaxItemWidth;
     };
 
 }
@@ -159,6 +172,11 @@ void ActionView::setFilter(QString const & filter)
 void ActionView::setMaxItemsToShow(int max)
 {
     mMaxItemsToShow = max;
+}
+
+void ActionView::setMaxItemWidth(int max)
+{
+    dynamic_cast<DelayedIconDelegate *>(itemDelegate())->setMaxItemWidth(max);
 }
 
 void ActionView::activateCurrent()

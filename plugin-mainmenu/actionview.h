@@ -61,6 +61,9 @@ public:
     /*! \brief Set the maximum number of items/results to show
      */
     void setMaxItemsToShow(int max);
+    /*! \brief Set the maximum width of item to show
+     */
+    void setMaxItemWidth(int max);
 
 public slots:
     /*! \brief Trigger action on currently active item

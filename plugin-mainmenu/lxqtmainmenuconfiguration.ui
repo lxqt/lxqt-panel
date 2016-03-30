@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>477</width>
-    <height>440</height>
+    <width>481</width>
+    <height>501</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -169,24 +169,58 @@
       <string>Search</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="filterMenuCB">
+      <item row="2" column="1">
+       <widget class="QLabel" name="filterShowMaxWidthL">
         <property name="text">
-         <string>Filter menu entries</string>
+         <string>max. item width:</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QCheckBox" name="filterShowCB">
         <property name="text">
-         <string>Show matching entries, max visible items:</string>
+         <string>Show matching entries:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="filterShowMaxItemsSB">
+        <property name="maximum">
+         <number>20</number>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="filterShowMaxItemsSB">
+       <widget class="QLabel" name="filterShowMaxItemsL">
+        <property name="text">
+         <string>Maximum visible items:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <widget class="QCheckBox" name="filterMenuCB">
+        <property name="text">
+         <string>Filter menu entries</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QSpinBox" name="filterShowMaxWidthSB">
+        <property name="suffix">
+         <string> px</string>
+        </property>
+        <property name="minimum">
+         <number>40</number>
+        </property>
         <property name="maximum">
-         <number>20</number>
+         <number>1000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="2">
+       <widget class="QCheckBox" name="filterShowHideMenuCB">
+        <property name="text">
+         <string>Hide menu entries while searching</string>
         </property>
        </widget>
       </item>
@@ -291,6 +325,70 @@
     <hint type="destinationlabel">
      <x>393</x>
      <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filterShowCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>filterShowMaxItemsL</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filterShowCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>filterShowMaxWidthSB</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>352</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>378</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filterShowCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>filterShowMaxWidthL</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>352</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>378</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filterShowCB</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>filterShowHideMenuCB</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>437</y>
     </hint>
    </hints>
   </connection>

@@ -87,6 +87,14 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
         {
             this->settings().setValue("filterShowMaxItems", value);
         });
+    connect(ui->filterShowMaxWidthSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
+        {
+            this->settings().setValue("filterShowMaxWidth", value);
+        });
+    connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, [this] (bool enabled)
+        {
+            this->settings().setValue("filterShowHideMenu", enabled);
+        });
 }
 
 LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
@@ -119,8 +127,14 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->filterMenuCB->setChecked(settings().value("filterMenu", true).toBool());
     const bool filter_show = settings().value("filterShow", true).toBool();
     ui->filterShowCB->setChecked(filter_show);
+    ui->filterShowMaxItemsL->setEnabled(filter_show);
     ui->filterShowMaxItemsSB->setEnabled(filter_show);
     ui->filterShowMaxItemsSB->setValue(settings().value("filterShowMaxItems", 10).toInt());
+    ui->filterShowMaxWidthL->setEnabled(filter_show);
+    ui->filterShowMaxWidthSB->setEnabled(filter_show);
+    ui->filterShowMaxWidthSB->setValue(settings().value("filterShowMaxWidth", 300).toInt());
+    ui->filterShowHideMenuCB->setEnabled(filter_show);
+    ui->filterShowHideMenuCB->setChecked(settings().value("filterShowHideMenu", true).toBool());
 }
 
 
