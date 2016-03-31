@@ -155,7 +155,10 @@ void LXQtMainMenu::showMenu()
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
     if (mFilterMenu || mFilterShow)
     {
+        //Note: part of the workadound for https://bugreports.qt.io/browse/QTBUG-52021
         mSearchEdit->setReadOnly(false);
+        //the setReadOnly also changes the cursor, override it back to normal
+        mSearchEdit->unsetCursor();
         mSearchEdit->setFocus();
     }
 }
@@ -230,8 +233,11 @@ void LXQtMainMenu::settingsChanged()
     mFilterMenu = settings()->value("filterMenu", true).toBool();
     mFilterShow = settings()->value("filterShow", true).toBool();
     mFilterShowHideMenu = settings()->value("filterShowHideMenu", true).toBool();
-    mSearchEdit->setVisible(mFilterMenu || mFilterShow);
-    mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
+    if (mMenu)
+    {
+        mSearchEdit->setVisible(mFilterMenu || mFilterShow);
+        mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
+    }
     mSearchView->setMaxItemsToShow(settings()->value("filterShowMaxItems", 10).toInt());
     mSearchView->setMaxItemWidth(settings()->value("filterShowMaxWidth", 300).toInt());
 
@@ -351,6 +357,8 @@ void LXQtMainMenu::buildMenu()
     //QWidgetLineControl::updateNeeded is performed w/o any need)
     //https://bugreports.qt.io/browse/QTBUG-52021
     connect(menu, &QMenu::aboutToHide, [this] { mSearchEdit->setReadOnly(true); });
+    mSearchEdit->setVisible(mFilterMenu || mFilterShow);
+    mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
     mSearchView->fillActions(menu);
 
     QMenu *oldMenu = mMenu;
