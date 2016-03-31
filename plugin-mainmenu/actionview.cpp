@@ -146,6 +146,24 @@ void ActionView::addAction(QAction * action)
     mModel->appendRow(item);
 }
 
+bool ActionView::existsAction(QAction const * action) const
+{
+    bool exists = false;
+    for (int row = mModel->rowCount() - 1; 0 <= row; --row)
+    {
+        const QModelIndex index = mModel->index(row, 0);
+        if (action->text() == mModel->data(index, Qt::DisplayRole)
+                && action->toolTip() == mModel->data(index, Qt::ToolTipRole)
+                )
+        {
+            exists = true;
+            break;
+        }
+
+    }
+    return exists;
+}
+
 void ActionView::fillActions(QMenu * menu)
 {
     clear();
@@ -238,7 +256,8 @@ void ActionView::fillActionsRecursive(QMenu * menu)
                 && !action->isSeparator())
         {
             //real menu action -> app
-            addAction(action);
+            if (!existsAction(action))
+                addAction(action);
         }
     }
 }

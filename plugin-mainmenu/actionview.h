@@ -52,6 +52,11 @@ public:
     /*! \brief Add action proxy to the underlying model
      */
     void addAction(QAction * action);
+    /*! \brief Check if action already exists in the view/model.
+     *
+     * \note The equality is evaluated just on text() & toolTip()
+     */
+    bool existsAction(QAction const * action) const;
     /*! \brief Fill the view with all actions from \param menu
      */
     void fillActions(QMenu * menu);
