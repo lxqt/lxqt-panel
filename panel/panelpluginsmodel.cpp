@@ -173,17 +173,41 @@ void PanelPluginsModel::removePlugin()
 void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
 {
     //merge list of plugins (try to preserve original position)
+    //subtract mPlugin.begin() from the found Plugins to get the model index
     const int from =
         std::find_if(mPlugins.begin(), mPlugins.end(), [plugin] (pluginslist_t::const_reference obj) { return plugin == obj.second.data(); })
         - mPlugins.begin();
     const int to =
         std::find_if(mPlugins.begin(), mPlugins.end(), [nameAfter] (pluginslist_t::const_reference obj) { return nameAfter == obj.first; })
         - mPlugins.begin();
+    /* 'from' is the current position of the Plugin to be moved ("moved Plugin"),
+     * 'to' is the position of the Plugin behind the one that is being moved
+     * ("behind Plugin"). There are several cases to distinguish:
+     * 1. from > to: The moved Plugin had been behind the behind Plugin before
+     * and is moved to the front of the behind Plugin. The moved Plugin will
+     * be inserted at position 'to', the behind Plugin and all the following
+     * Plugins (until the former position of the moved Plugin) will increment
+     * their indexes.
+     * 2. from < to: The moved Plugin had already been located before the
+     * behind Plugin. In this case, the move operation only reorders the
+     * Plugins before the behind Plugin. All the Plugins between the moved
+     * Plugin and the behind Plugin will decrement their index. Therefore, the
+     * movedPlugin will not be at position 'to' but rather on position 'to-1'.
+     * 3. from == to: This does not make sense, we catch this case to prevent
+     * errors.
+     * 4. from == to-1: The moved Plugin has not moved because it had already
+     * been located in front of the behind Plugin.
+     */
     const int to_plugins = from < to ? to - 1 : to;
 
     if (from != to && from != to_plugins)
     {
+        /* Although the new position of the moved Plugin will be 'to-1' if
+         * from < to, we insert 'to' here. This is exactly how it is done
+         * in the Qt documentation.
+         */
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
+        // For the QList::move method, use the right position
         mPlugins.move(from, to_plugins);
         endMoveRows();
         emit pluginMoved(plugin);
