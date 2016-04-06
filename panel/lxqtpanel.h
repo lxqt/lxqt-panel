@@ -642,6 +642,11 @@ private:
     QPropertyAnimation *mAnimation;
 
     /**
+     * @brief Flag for providing the configuration options in panel's context menu
+     */
+    bool mLockPanel;
+
+    /**
      * @brief Updates the style sheet for the panel. First, the stylesheet is
      * created from the preferences. Then, it is set via
      * QWidget::setStyleSheet().

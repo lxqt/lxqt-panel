@@ -73,6 +73,7 @@
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
 #define CFG_KEY_ANIMATION          "animation-duration"
+#define CFG_KEY_LOCKPANEL          "lockPanel"
 
 /************************************************
  Returns the Position by the string.
@@ -130,7 +131,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHidable(false),
     mHidden(false),
     mAnimationTime(0),
-    mAnimation(nullptr)
+    mAnimation(nullptr),
+    mLockPanel(false)
 {
     //You can find information about the flags and widget attributes in your
     //Qt documentation or at http://doc.qt.io/qt-5/qt.html
@@ -256,6 +258,8 @@ void LXQtPanel::readSettings()
     if (!image.isEmpty())
         setBackgroundImage(image, false);
 
+    mLockPanel = mSettings->value(CFG_KEY_LOCKPANEL, false).toBool();
+
     mSettings->endGroup();
 }
 
@@ -296,6 +300,8 @@ void LXQtPanel::saveSettings(bool later)
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
     mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
+
+    mSettings->setValue(CFG_KEY_LOCKPANEL, mLockPanel);
 
     mSettings->endGroup();
 }
@@ -1015,7 +1021,11 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
         if (m)
         {
             menu->addTitle(plugin->windowTitle());
-            menu->addActions(m->actions());
+            for (auto const & action : m->actions())
+            {
+                action->setDisabled(mLockPanel);
+                menu->addAction(action);
+            }
             qobject_cast<QObject*>(m)->setParent(menu);
         }
     }
@@ -1027,16 +1037,16 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
     menu->addAction(XdgIcon::fromTheme(QLatin1String("configure")),
                    tr("Configure Panel"),
                    this, SLOT(showConfigDialog())
-                  );
+                  )->setDisabled(mLockPanel);
 
     menu->addAction(XdgIcon::fromTheme("preferences-plugin"),
                    tr("Manage Widgets"),
                    this, SLOT(showAddPluginDialog())
-                  );
+                  )->setDisabled(mLockPanel);
 
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     menu->addAction(XdgIcon::fromTheme(QLatin1String("list-add")),
-                   tr("Add Panel"),
+                   tr("Add New Panel"),
                    a, SLOT(addNewPanel())
                   );
 
@@ -1045,8 +1055,13 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
         menu->addAction(XdgIcon::fromTheme(QLatin1String("list-remove")),
                        tr("Remove Panel"),
                        this, SLOT(userRequestForDeletion())
-                      );
+                      )->setDisabled(mLockPanel);
     }
+
+    QAction * act_lock = menu->addAction(tr("Lock This Panel"));
+    act_lock->setCheckable(true);
+    act_lock->setChecked(mLockPanel);
+    connect(act_lock, &QAction::triggered, [this] { mLockPanel = !mLockPanel; saveSettings(false); });
 
 #ifdef DEBUG
     menu->addSeparator();
