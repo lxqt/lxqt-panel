@@ -63,7 +63,10 @@ include(LXQtTranslate)
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
-add_definitions(-DPLUGIN_DIR=\"${PLUGIN_DIR}\")
+add_definitions(
+    -DPLUGIN_DIR=\"${PLUGIN_DIR}\"
+    -DQT_USE_QSTRINGBUILDER
+)
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 #########################################################################
