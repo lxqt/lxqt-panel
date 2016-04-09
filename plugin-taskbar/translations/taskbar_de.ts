@@ -4,87 +4,87 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="438"/>
+        <location filename="../lxqttaskbutton.cpp" line="477"/>
         <source>Application</source>
         <translation>Anwendung</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="471"/>
+        <location filename="../lxqttaskbutton.cpp" line="511"/>
         <source>To &amp;Desktop</source>
         <translation>Zur Arb&amp;eitsfläche</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="473"/>
+        <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Alle Arbeitsflächen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="481"/>
+        <location filename="../lxqttaskbutton.cpp" line="521"/>
         <source>Desktop &amp;%1</source>
         <translation>Arbeitsfläche &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="488"/>
+        <location filename="../lxqttaskbutton.cpp" line="528"/>
         <source>&amp;To Current Desktop</source>
         <translation>Zur ak&amp;tuellen Arbeitsfläche</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="497"/>
+        <location filename="../lxqttaskbutton.cpp" line="537"/>
         <source>Ma&amp;ximize</source>
         <translation>Ma&amp;ximieren</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="504"/>
+        <location filename="../lxqttaskbutton.cpp" line="544"/>
         <source>Maximize vertically</source>
         <translation>Vertikal maximieren</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="509"/>
+        <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>Maximize horizontally</source>
         <translation>Horizontal maximieren</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="515"/>
+        <location filename="../lxqttaskbutton.cpp" line="555"/>
         <source>&amp;Restore</source>
         <translation>&amp;Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="519"/>
+        <location filename="../lxqttaskbutton.cpp" line="559"/>
         <source>Mi&amp;nimize</source>
         <translation>Mi&amp;nimieren</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="525"/>
+        <location filename="../lxqttaskbutton.cpp" line="565"/>
         <source>Roll down</source>
         <translation>Herunterrollen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="531"/>
+        <location filename="../lxqttaskbutton.cpp" line="571"/>
         <source>Roll up</source>
         <translation>Hochrollen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="539"/>
+        <location filename="../lxqttaskbutton.cpp" line="579"/>
         <source>&amp;Layer</source>
         <translation>&amp;Ebene</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="541"/>
+        <location filename="../lxqttaskbutton.cpp" line="581"/>
         <source>Always on &amp;top</source>
         <translation>Immer &amp;oben</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="547"/>
+        <location filename="../lxqttaskbutton.cpp" line="587"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="553"/>
+        <location filename="../lxqttaskbutton.cpp" line="593"/>
         <source>Always on &amp;bottom</source>
         <translation>Immer &amp;unten</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="561"/>
+        <location filename="../lxqttaskbutton.cpp" line="601"/>
         <source>&amp;Close</source>
         <translation>&amp;Schließen</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="79"/>
+        <location filename="../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
         <translation>Gruppe</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="80"/>
+        <location filename="../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
         <translation>Gruppe schließen</translation>
     </message>
@@ -181,22 +181,27 @@
         <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="174"/>
+        <source>Use icons by WindowClass, if available</source>
+        <translation>Fensterklassensymbole verwenden, falls vorhanden</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
         <source>Icon and text</source>
         <translation>Symbol und Text</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Only icon</source>
         <translation>Nur Symbol</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only text</source>
         <translation>Nur Text</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
         <translation>Aktuell</translation>
     </message>
