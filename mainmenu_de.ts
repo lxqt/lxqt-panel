@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
+    <name>LXQtMainMenu</name>
+    <message>
+        <location filename="../lxqtmainmenu.cpp" line="94"/>
+        <source>Search...</source>
+        <translation>Suchen...</translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenu.cpp" line="100"/>
+        <source>Show/hide main menu</source>
+        <translation>Hauptmenü anzeigen/verstecken</translation>
+    </message>
+</context>
+<context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
