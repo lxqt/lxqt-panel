@@ -91,13 +91,13 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mSearchViewAction->setDefaultWidget(mSearchView);
     mSearchEdit = new QLineEdit;
     mSearchEdit->setClearButtonEnabled(true);
-    mSearchEdit->setPlaceholderText(tr("Search..."));
+    mSearchEdit->setPlaceholderText(LXQtMainMenu::tr("Search..."));
     connect(mSearchEdit, &QLineEdit::textChanged, this, &LXQtMainMenu::searchTextChanged);
     connect(mSearchEdit, &QLineEdit::returnPressed, mSearchView, &ActionView::activateCurrent);
     mSearchEditAction->setDefaultWidget(mSearchEdit);
     QTimer::singleShot(0, [this] { settingsChanged(); });
 
-    mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show/hide main menu"), this);
+    mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), LXQtMainMenu::tr("Show/hide main menu"), this);
     if (mShortcut)
     {
         connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
