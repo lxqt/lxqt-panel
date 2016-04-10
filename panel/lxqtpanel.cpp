@@ -72,6 +72,7 @@
 #define CFG_KEY_OPACITY            "opacity"
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
+#define CFG_KEY_ANIMATION          "animation-duration"
 
 /************************************************
  Returns the Position by the string.
@@ -128,6 +129,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mActualScreenNum(0),
     mHidable(false),
     mHidden(false),
+    mAnimationTime(0),
     mAnimation(nullptr)
 {
     //You can find information about the flags and widget attributes in your
@@ -222,6 +224,8 @@ void LXQtPanel::readSettings()
     mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
     mHidden = mHidable;
 
+    mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
+
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
     setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt(), false);
@@ -290,6 +294,7 @@ void LXQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
+    mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
 
     mSettings->endGroup();
 }
@@ -481,9 +486,9 @@ void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
             if (mAnimation == nullptr)
             {
                 mAnimation = new QPropertyAnimation(this, "geometry");
-                mAnimation->setDuration(150);
                 mAnimation->setEasingCurve(QEasingCurve::Linear);
             }
+            mAnimation->setDuration(mAnimationTime);
             mAnimation->setStartValue(geometry());
             mAnimation->setEndValue(rect);
             setFixedSize(rect.size());
@@ -1167,7 +1172,7 @@ void LXQtPanel::showPanel(bool firstTime)
         if (mHidden)
         {
             mHidden = false;
-            setPanelGeometry(true, firstTime);
+            setPanelGeometry(mAnimationTime > 0, firstTime);
         }
     }
 }
@@ -1187,7 +1192,7 @@ void LXQtPanel::hidePanelWork()
         if (!mStandaloneWindows->isAnyWindowShown())
         {
             mHidden = true;
-            setPanelGeometry(true, false);
+            setPanelGeometry(mAnimationTime > 0, false);
         } else
         {
             mHideTimer.start();
@@ -1206,6 +1211,17 @@ void LXQtPanel::setHidable(bool hidable, bool save)
         saveSettings(true);
 
     realign();
+}
+
+void LXQtPanel::setAnimationTime(int animationTime, bool save)
+{
+    if (mAnimationTime == animationTime)
+        return;
+
+    mAnimationTime = animationTime;
+
+    if (save)
+        saveSettings(true);
 }
 
 bool LXQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const

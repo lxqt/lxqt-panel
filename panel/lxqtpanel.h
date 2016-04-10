@@ -219,6 +219,7 @@ public:
     QString backgroundImage() const { return mBackgroundImage; }
     int opacity() const { return mOpacity; }
     bool hidable() const { return mHidable; }
+    int animationTime() const { return mAnimationTime; }
 
     /*!
      * \brief Checks if a given Plugin is running and has the
@@ -293,6 +294,7 @@ public slots:
     void setBackgroundImage(QString path, bool save); //!< \sa setPanelSize()
     void setOpacity(int opacity, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
+    void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
 
     /**
      * @brief Saves the current configuration, i.e. writes the current
@@ -607,6 +609,12 @@ private:
      * \sa mHidable, mHidden, showPanel(), hidePanel(), hidePanelWork()
      */
     QTimer mHideTimer;
+    /**
+     * @brief Stores the duration of auto-hide animation.
+     *
+     * \sa mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     */
+    int mAnimationTime;
 
     QColor mFontColor; //!< Font color that is used in the style sheet.
     QColor mBackgroundColor; //!< Background color that is used in the style sheet.
