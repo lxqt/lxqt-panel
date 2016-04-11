@@ -27,6 +27,7 @@
 
 
 #include "lxqtpanelapplication.h"
+#include "lxqtpanelapplication_p.h"
 #include "lxqtpanel.h"
 #include "config/configpaneldialog.h"
 #include <LXQt/Settings>
@@ -36,9 +37,20 @@
 #include <QWindow>
 #include <QCommandLineParser>
 
-LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
-    : LXQt::Application(argc, argv, true)
+LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
+    : mSettings(0),
+      q_ptr(q)
 {
+}
+
+
+LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
+    : LXQt::Application(argc, argv, true),
+    d_ptr(new LXQtPanelApplicationPrivate(this))
+
+{
+    Q_D(LXQtPanelApplication);
+
     QCoreApplication::setApplicationName(QLatin1String("lxqt-panel"));
     QCoreApplication::setApplicationVersion(LXQT_VERSION);
 
@@ -58,9 +70,9 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     const QString configFile = parser.value(configFileOption);
 
     if (configFile.isEmpty())
-        mSettings = new LXQt::Settings(QLatin1String("panel"), this);
+        d->mSettings = new LXQt::Settings(QLatin1String("panel"), this);
     else
-        mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
+        d->mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 
     // This is a workaround for Qt 5 bug #40681.
     Q_FOREACH(QScreen* screen, screens())
@@ -71,7 +83,7 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     connect(this, &QCoreApplication::aboutToQuit, this, &LXQtPanelApplication::cleanup);
 
 
-    QStringList panels = mSettings->value("panels").toStringList();
+    QStringList panels = d->mSettings->value("panels").toStringList();
 
     if (panels.isEmpty())
     {
@@ -86,6 +98,7 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
 LXQtPanelApplication::~LXQtPanelApplication()
 {
+    delete d_ptr;
 }
 
 void LXQtPanelApplication::cleanup()
@@ -95,11 +108,13 @@ void LXQtPanelApplication::cleanup()
 
 void LXQtPanelApplication::addNewPanel()
 {
+    Q_D(LXQtPanelApplication);
+
     QString name("panel_" + QUuid::createUuid().toString());
     LXQtPanel *p = addPanel(name);
-    QStringList panels = mSettings->value("panels").toStringList();
+    QStringList panels = d->mSettings->value("panels").toStringList();
     panels << name;
-    mSettings->setValue("panels", panels);
+    d->mSettings->setValue("panels", panels);
 
     // Poupup the configuration dialog to allow user configuration right away
     p->showConfigDialog();
@@ -107,7 +122,9 @@ void LXQtPanelApplication::addNewPanel()
 
 LXQtPanel* LXQtPanelApplication::addPanel(const QString& name)
 {
-    LXQtPanel *panel = new LXQtPanel(name, mSettings);
+    Q_D(LXQtPanelApplication);
+
+    LXQtPanel *panel = new LXQtPanel(name, d->mSettings);
     mPanels << panel;
 
     // reemit signals
@@ -126,12 +143,14 @@ void LXQtPanelApplication::handleScreenAdded(QScreen* newScreen)
 
 void LXQtPanelApplication::reloadPanelsAsNeeded()
 {
+    Q_D(LXQtPanelApplication);
+
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
     // Here we try to re-create the missing panels which are deleted in
     // LXQtPanelApplication::screenDestroyed().
 
     // qDebug() << "LXQtPanelApplication::reloadPanelsAsNeeded()";
-    QStringList names = mSettings->value("panels").toStringList();
+    QStringList names = d->mSettings->value("panels").toStringList();
     Q_FOREACH(const QString& name, names)
     {
         bool found = false;
@@ -205,13 +224,14 @@ void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
 
 void LXQtPanelApplication::removePanel(LXQtPanel* panel)
 {
+    Q_D(LXQtPanelApplication);
     Q_ASSERT(mPanels.contains(panel));
 
     mPanels.removeAll(panel);
 
-    QStringList panels = mSettings->value("panels").toStringList();
+    QStringList panels = d->mSettings->value("panels").toStringList();
     panels.removeAll(panel->name());
-    mSettings->setValue("panels", panels);
+    d->mSettings->setValue("panels", panels);
 
     panel->deleteLater();
 }

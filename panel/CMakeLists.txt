@@ -5,6 +5,7 @@ set(PRIV_HEADERS
     windownotifier.h
     lxqtpanel.h
     lxqtpanelapplication.h
+    lxqtpanelapplication_p.h
     lxqtpanellayout.h
     plugin.h
     pluginsettings_p.h
