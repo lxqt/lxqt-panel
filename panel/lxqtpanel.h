@@ -243,11 +243,11 @@ public slots:
      * Stops the QTimer mHideTimer. This it NOT the same as QWidget::show()
      * because hiding the panel in LXQt is done by making it very thin. So
      * this method in fact restores the original size of the panel.
-     * \param firstTime flag if the panel is shown for the first time.
+     * \param animate flag for the panel show-up animation disabling (\sa mAnimationTime).
      *
      * \sa mHidable, mHidden, mHideTimer, hidePanel(), hidePanelWork()
      */
-    void showPanel(bool firstTime = false);
+    void showPanel(bool animate);
     /**
      * @brief Hides the panel (delayed) by starting the QTimer mHideTimer.
      * When this timer times out, hidePanelWork() will be called. So this
@@ -496,9 +496,8 @@ private:
      * on the screen) of the panel. Considers alignment, position, if the panel
      * is hidden and if its geometry should be set with animation.
      * \param animate flag if showing/hiding the panel should be animated.
-     * \param firstTime flag if the panel geometry is set for the first time.
      */
-    void setPanelGeometry(bool animate = false, bool firstTime = false);
+    void setPanelGeometry(bool animate = false);
     /**
      * @brief Calculates the height of the panel if it is horizontal or the
      * width if the panel is vertical. Considers if the panel is hidden and
@@ -635,7 +634,7 @@ private:
     /**
      * @brief The animation used for showing/hiding an auto-hiding panel.
      */
-    QPropertyAnimation *mAnimation;
+    QVariantAnimation *mAnimation;
 
     /**
      * @brief Updates the style sheet for the panel. First, the stylesheet is

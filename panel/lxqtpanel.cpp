@@ -187,7 +187,6 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
     connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
 
-    connect(QApplication::desktop(), SIGNAL(workAreaResized(int)), this, SLOT(realign()));
     connect(QApplication::desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(ensureVisible()));
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
@@ -206,8 +205,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     // show it the first time, despite setting
     if (mHidable)
     {
-      showPanel(true);
-      QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
+        showPanel(true);
+        QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     }
 }
 
@@ -377,10 +376,11 @@ int LXQtPanel::getReserveDimension()
     return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
-void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
+void LXQtPanel::setPanelGeometry(bool animate)
 {
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mActualScreenNum);
     QRect rect;
+    QSize fix_size;
 
     if (isHorizontal())
     {
@@ -396,7 +396,10 @@ void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
                 rect.setWidth(mLength);
         }
 
-        rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
+        //rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
+        fix_size = rect.size();
+        if (mHidden)
+            rect.setHeight(PANEL_HIDE_SIZE);
 
         // Horiz ......................
         switch (mAlignment)
@@ -416,19 +419,9 @@ void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
 
         // Vert .......................
         if (mPosition == ILXQtPanel::PositionTop)
-        {
-            if (mHidden && !firstTime)
-                rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE);
-            else
-                rect.moveTop(currentScreen.top());
-        }
+            rect.moveTop(currentScreen.top());
         else
-        {
-            if (mHidden && !firstTime)
-                rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE);
-            else
-                rect.moveBottom(currentScreen.bottom());
-        }
+            rect.moveBottom(currentScreen.bottom());
     }
     else
     {
@@ -444,7 +437,10 @@ void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
                 rect.setHeight(mLength);
         }
 
-        rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
+        //rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
+        fix_size = rect.size();
+        if (mHidden)
+            rect.setWidth(PANEL_HIDE_SIZE);
 
         // Vert .......................
         switch (mAlignment)
@@ -464,34 +460,37 @@ void LXQtPanel::setPanelGeometry(bool animate, bool firstTime)
 
         // Horiz ......................
         if (mPosition == ILXQtPanel::PositionLeft)
-        {
-            if (mHidden && !firstTime)
-                rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE);
-            else
-                rect.moveLeft(currentScreen.left());
-        }
+            rect.moveLeft(currentScreen.left());
         else
-        {
-            if (mHidden && !firstTime)
-                rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE);
-            else
-                rect.moveRight(currentScreen.right());
-        }
+            rect.moveRight(currentScreen.right());
     }
-    mLayout->setMargin(mHidden ? PANEL_HIDE_MARGIN : 0);
     if (rect != geometry())
     {
+        LXQtPanelWidget->setFixedSize(fix_size);
         if (animate)
         {
             if (mAnimation == nullptr)
             {
-                mAnimation = new QPropertyAnimation(this, "geometry");
+                mAnimation = new QVariantAnimation;
                 mAnimation->setEasingCurve(QEasingCurve::Linear);
+                connect(mAnimation, &QVariantAnimation::valueChanged, [this] (const QVariant & value)
+                {
+                    const QRect rect = value.toRect();
+                    setFixedSize(rect.size());
+                    setGeometry(rect);
+                });
+                connect(mAnimation, &QAbstractAnimation::finished, [this]
+                {
+                    if (mHidden)
+                        mLayout->setContentsMargins(PANEL_HIDE_SIZE, PANEL_HIDE_SIZE, PANEL_HIDE_SIZE, PANEL_HIDE_SIZE);
+                });
             }
+
             mAnimation->setDuration(mAnimationTime);
             mAnimation->setStartValue(geometry());
             mAnimation->setEndValue(rect);
-            setFixedSize(rect.size());
+            if (!mHidden)
+                mLayout->setContentsMargins(0, 0, 0, 0);
             mAnimation->start();
         }
         else
@@ -943,7 +942,7 @@ bool LXQtPanel::event(QEvent *event)
         event->ignore();
         //no break intentionally
     case QEvent::Enter:
-        showPanel();
+        showPanel(mAnimationTime > 0);
         break;
 
     case QEvent::Leave:
@@ -1164,7 +1163,7 @@ void LXQtPanel::userRequestForDeletion()
     emit deletedByUser(this);
 }
 
-void LXQtPanel::showPanel(bool firstTime)
+void LXQtPanel::showPanel(bool animate)
 {
     if (mHidable)
     {
@@ -1172,7 +1171,7 @@ void LXQtPanel::showPanel(bool firstTime)
         if (mHidden)
         {
             mHidden = false;
-            setPanelGeometry(mAnimationTime > 0, firstTime);
+            setPanelGeometry(mAnimationTime > 0 && animate);
         }
     }
 }
@@ -1192,7 +1191,7 @@ void LXQtPanel::hidePanelWork()
         if (!mStandaloneWindows->isAnyWindowShown())
         {
             mHidden = true;
-            setPanelGeometry(mAnimationTime > 0, false);
+            setPanelGeometry(mAnimationTime > 0);
         } else
         {
             mHideTimer.start();
