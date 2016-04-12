@@ -36,6 +36,8 @@ public:
 
     LXQt::Settings *mSettings;
 
+    ILXQtPanel::Position computeNewPanelPosition(const LXQtPanel *p, const int screenNum);
+
 private:
     LXQtPanelApplication *const q_ptr;
 };

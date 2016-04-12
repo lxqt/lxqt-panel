@@ -44,6 +44,33 @@ LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q
 }
 
 
+ILXQtPanel::Position LXQtPanelApplicationPrivate::computeNewPanelPosition(const LXQtPanel *p, const int screenNum)
+{
+    Q_Q(LXQtPanelApplication);
+    QVector<bool> screenPositions(4, false); // false means not occupied
+
+    for (int i = 0; i < q->mPanels.size(); ++i) {
+        if (p != q->mPanels.at(i)) {
+            // We are not the newly added one
+            if (screenNum == q->mPanels.at(i)->screenNum()) { // Panels on the same screen
+                int p = static_cast<int> (q->mPanels.at(i)->position());
+                screenPositions[p] = true; // occupied
+            }
+        }
+    }
+
+    int availablePosition = 0;
+
+    for (int i = 0; i < 4; ++i) { // Bottom, Top, Left, Right
+        if (!screenPositions[i]) {
+            availablePosition = i;
+            break;
+        }
+    }
+
+    return static_cast<ILXQtPanel::Position> (availablePosition);
+}
+
 LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     : LXQt::Application(argc, argv, true),
     d_ptr(new LXQtPanelApplicationPrivate(this))
@@ -111,7 +138,11 @@ void LXQtPanelApplication::addNewPanel()
     Q_D(LXQtPanelApplication);
 
     QString name("panel_" + QUuid::createUuid().toString());
+
     LXQtPanel *p = addPanel(name);
+    int screenNum = p->screenNum();
+    ILXQtPanel::Position newPanelPosition = d->computeNewPanelPosition(p, screenNum);
+    p->setPosition(screenNum, newPanelPosition, true);
     QStringList panels = d->mSettings->value("panels").toStringList();
     panels << name;
     d->mSettings->setValue("panels", panels);
