@@ -150,7 +150,6 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
     {
         QGridLayout* layout = new QGridLayout(this);
         layout->setSpacing(0);
-        layout->setMargin(0);
         layout->setContentsMargins(0, 0, 0, 0);
         setLayout(layout);
         layout->addWidget(mPluginWidget, 0, 0);
