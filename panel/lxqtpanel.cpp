@@ -72,6 +72,7 @@
 #define CFG_KEY_OPACITY            "opacity"
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
+#define CFG_KEY_ANIMATION          "animation-duration"
 
 /************************************************
  Returns the Position by the string.
@@ -127,7 +128,9 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mScreenNum(0), //whatever (avoid conditional on uninitialized value)
     mActualScreenNum(0),
     mHidable(false),
-    mHidden(false)
+    mHidden(false),
+    mAnimationTime(0),
+    mAnimation(nullptr)
 {
     //You can find information about the flags and widget attributes in your
     //Qt documentation or at http://doc.qt.io/qt-5/qt.html
@@ -167,7 +170,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     LXQtPanelWidget->setObjectName("BackgroundWidget");
     LXQtPanelWidget->setAutoFillBackground(true);
     QGridLayout* lav = new QGridLayout();
-    lav->setMargin(0);
+    lav->setContentsMargins(0, 0, 0, 0);
     setLayout(lav);
     this->layout()->addWidget(LXQtPanelWidget);
 
@@ -189,7 +192,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
-    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, this, &LXQtPanel::showPanel);
+    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, [this] { showPanel(true); });
     connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
@@ -203,8 +206,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     // show it the first time, despite setting
     if (mHidable)
     {
-      showPanel();
-      QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
+        showPanel(false);
+        QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     }
 }
 
@@ -220,6 +223,8 @@ void LXQtPanel::readSettings()
     // so that every call to realign() is without side-effect
     mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
     mHidden = mHidable;
+
+    mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
 
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
@@ -289,6 +294,7 @@ void LXQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
+    mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
 
     mSettings->endGroup();
 }
@@ -315,6 +321,7 @@ void LXQtPanel::ensureVisible()
 LXQtPanel::~LXQtPanel()
 {
     mLayout->setEnabled(false);
+    delete mAnimation;
     // do not save settings because of "user deleted panel" functionality saveSettings();
 }
 
@@ -370,7 +377,7 @@ int LXQtPanel::getReserveDimension()
     return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
-void LXQtPanel::setPanelGeometry()
+void LXQtPanel::setPanelGeometry(bool animate)
 {
     const QRect currentScreen = QApplication::desktop()->screenGeometry(mActualScreenNum);
     QRect rect;
@@ -378,7 +385,7 @@ void LXQtPanel::setPanelGeometry()
     if (isHorizontal())
     {
         // Horiz panel ***************************
-        rect.setHeight(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
@@ -409,14 +416,24 @@ void LXQtPanel::setPanelGeometry()
 
         // Vert .......................
         if (mPosition == ILXQtPanel::PositionTop)
-            rect.moveTop(currentScreen.top());
+        {
+            if (mHidden)
+                rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE - 1);
+            else
+                rect.moveTop(currentScreen.top());
+        }
         else
-            rect.moveBottom(currentScreen.bottom());
+        {
+            if (mHidden)
+                rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE + 1);
+            else
+                rect.moveBottom(currentScreen.bottom());
+        }
     }
     else
     {
         // Vert panel ***************************
-        rect.setWidth(mHidden ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
@@ -447,16 +464,69 @@ void LXQtPanel::setPanelGeometry()
 
         // Horiz ......................
         if (mPosition == ILXQtPanel::PositionLeft)
-            rect.moveLeft(currentScreen.left());
+        {
+            if (mHidden)
+                rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE - 1);
+            else
+                rect.moveLeft(currentScreen.left());
+        }
         else
-            rect.moveRight(currentScreen.right());
+        {
+            if (mHidden)
+                rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE + 1);
+            else
+                rect.moveRight(currentScreen.right());
+        }
     }
-    mLayout->setMargin(mHidden ? PANEL_HIDE_MARGIN : 0);
     if (rect != geometry())
     {
-        setGeometry(rect);
         setFixedSize(rect.size());
+        if (animate)
+        {
+            if (mAnimation == nullptr)
+            {
+                mAnimation = new QPropertyAnimation(this, "geometry");
+                mAnimation->setEasingCurve(QEasingCurve::Linear);
+                //Note: for hiding, the margins are set after animation is finished
+                connect(mAnimation, &QAbstractAnimation::finished, [this] { if (mHidden) setMargins(); });
+            }
+            mAnimation->setDuration(mAnimationTime);
+            mAnimation->setStartValue(geometry());
+            mAnimation->setEndValue(rect);
+            //Note: for showing-up, the margins are removed instantly
+            if (!mHidden)
+                setMargins();
+            mAnimation->start();
+        }
+        else
+        {
+            setMargins();
+            setGeometry(rect);
+        }
     }
+}
+
+void LXQtPanel::setMargins()
+{
+    if (mHidden)
+    {
+        if (isHorizontal())
+        {
+            if (mPosition == ILXQtPanel::PositionTop)
+                mLayout->setContentsMargins(0, 0, 0, PANEL_HIDE_SIZE);
+            else
+                mLayout->setContentsMargins(0, PANEL_HIDE_SIZE, 0, 0);
+        }
+        else
+        {
+            if (mPosition == ILXQtPanel::PositionLeft)
+                mLayout->setContentsMargins(0, 0, PANEL_HIDE_SIZE, 0);
+            else
+                mLayout->setContentsMargins(PANEL_HIDE_SIZE, 0, 0, 0);
+        }
+    }
+    else
+        mLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 void LXQtPanel::realign()
@@ -900,7 +970,7 @@ bool LXQtPanel::event(QEvent *event)
         event->ignore();
         //no break intentionally
     case QEvent::Enter:
-        showPanel();
+        showPanel(mAnimationTime > 0);
         break;
 
     case QEvent::Leave:
@@ -1121,7 +1191,7 @@ void LXQtPanel::userRequestForDeletion()
     emit deletedByUser(this);
 }
 
-void LXQtPanel::showPanel()
+void LXQtPanel::showPanel(bool animate)
 {
     if (mHidable)
     {
@@ -1129,7 +1199,7 @@ void LXQtPanel::showPanel()
         if (mHidden)
         {
             mHidden = false;
-            setPanelGeometry();
+            setPanelGeometry(mAnimationTime > 0 && animate);
         }
     }
 }
@@ -1149,7 +1219,7 @@ void LXQtPanel::hidePanelWork()
         if (!mStandaloneWindows->isAnyWindowShown())
         {
             mHidden = true;
-            setPanelGeometry();
+            setPanelGeometry(mAnimationTime > 0);
         } else
         {
             mHideTimer.start();
@@ -1168,6 +1238,17 @@ void LXQtPanel::setHidable(bool hidable, bool save)
         saveSettings(true);
 
     realign();
+}
+
+void LXQtPanel::setAnimationTime(int animationTime, bool save)
+{
+    if (mAnimationTime == animationTime)
+        return;
+
+    mAnimationTime = animationTime;
+
+    if (save)
+        saveSettings(true);
 }
 
 bool LXQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const

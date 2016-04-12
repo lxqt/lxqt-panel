@@ -89,6 +89,7 @@ private:
     LXQtPanel::Alignment mOldAlignment;
     ILXQtPanel::Position mOldPosition;
     bool mOldHidable;
+    int mOldAnimation;
     int mOldScreenNum;
     QColor mOldFontColor;
     QColor mOldBackgroundColor;

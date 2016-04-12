@@ -32,6 +32,7 @@
 #include <QFrame>
 #include <QString>
 #include <QTimer>
+#include <QPropertyAnimation>
 #include <QPointer>
 #include <LXQt/Settings>
 #include "ilxqtpanel.h"
@@ -218,6 +219,7 @@ public:
     QString backgroundImage() const { return mBackgroundImage; }
     int opacity() const { return mOpacity; }
     bool hidable() const { return mHidable; }
+    int animationTime() const { return mAnimationTime; }
 
     /*!
      * \brief Checks if a given Plugin is running and has the
@@ -241,10 +243,11 @@ public slots:
      * Stops the QTimer mHideTimer. This it NOT the same as QWidget::show()
      * because hiding the panel in LXQt is done by making it very thin. So
      * this method in fact restores the original size of the panel.
+     * \param animate flag for the panel show-up animation disabling (\sa mAnimationTime).
      *
      * \sa mHidable, mHidden, mHideTimer, hidePanel(), hidePanelWork()
      */
-    void showPanel();
+    void showPanel(bool animate);
     /**
      * @brief Hides the panel (delayed) by starting the QTimer mHideTimer.
      * When this timer times out, hidePanelWork() will be called. So this
@@ -291,6 +294,7 @@ public slots:
     void setBackgroundImage(QString path, bool save); //!< \sa setPanelSize()
     void setOpacity(int opacity, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
+    void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
 
     /**
      * @brief Saves the current configuration, i.e. writes the current
@@ -489,10 +493,16 @@ private:
 
     /**
      * @brief Calculates and sets the geometry (i.e. the position and the size
-     * on the screen) of the panel. Considers alignment, position and if the
-     * panel is hidden.
+     * on the screen) of the panel. Considers alignment, position, if the panel
+     * is hidden and if its geometry should be set with animation.
+     * \param animate flag if showing/hiding the panel should be animated.
      */
-    void setPanelGeometry();
+    void setPanelGeometry(bool animate = false);
+    /**
+     * @brief Sets the contents margins of the panel according to its position
+     * and hiddenness. All margins are zero for visible panels.
+     */
+    void setMargins();
     /**
      * @brief Calculates the height of the panel if it is horizontal or the
      * width if the panel is vertical. Considers if the panel is hidden and
@@ -603,6 +613,12 @@ private:
      * \sa mHidable, mHidden, showPanel(), hidePanel(), hidePanelWork()
      */
     QTimer mHideTimer;
+    /**
+     * @brief Stores the duration of auto-hide animation.
+     *
+     * \sa mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     */
+    int mAnimationTime;
 
     QColor mFontColor; //!< Font color that is used in the style sheet.
     QColor mBackgroundColor; //!< Background color that is used in the style sheet.
@@ -619,6 +635,11 @@ private:
      * sure to test this pointer for validity because it is lazily loaded.
      */
     QPointer<ConfigPanelDialog> mConfigDialog;
+
+    /**
+     * @brief The animation used for showing/hiding an auto-hiding panel.
+     */
+    QPropertyAnimation *mAnimation;
 
     /**
      * @brief Updates the style sheet for the panel. First, the stylesheet is

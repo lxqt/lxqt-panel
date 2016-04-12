@@ -416,7 +416,7 @@ LXQtPanelLayout::LXQtPanelLayout(QWidget *parent) :
     mPosition(ILXQtPanel::PositionBottom),
     mAnimate(false)
 {
-    setMargin(0);
+    setContentsMargins(0, 0, 0, 0);
 }
 
 
