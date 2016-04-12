@@ -45,6 +45,7 @@
 #include <QString>
 #include <QDesktopWidget>
 #include <QMenu>
+#include <QMessageBox>
 #include <XdgIcon>
 #include <XdgDirs>
 
@@ -1194,6 +1195,15 @@ void LXQtPanel::pluginMoved(Plugin * plug)
  ************************************************/
 void LXQtPanel::userRequestForDeletion()
 {
+    const QMessageBox::StandardButton ret
+        = QMessageBox::warning(this, tr("Remove Panel") ,
+            tr("Removing a panel can not be undone.\nDo you want to remove this panel?"),
+            QMessageBox::Yes | QMessageBox::No);
+
+    if (ret != QMessageBox::Yes) {
+        return;
+    }
+
     mSettings->beginGroup(mConfigGroup);
     QStringList plugins = mSettings->value("plugins").toStringList();
     mSettings->endGroup();
