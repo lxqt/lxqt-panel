@@ -165,11 +165,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
 Plugin::~Plugin()
 {
     delete mPlugin;
-    if (mPluginLoader)
-    {
-        mPluginLoader->unload();
-        delete mPluginLoader;
-    }
+    delete mPluginLoader;
 }
 
 void Plugin::setAlignment(Plugin::Alignment alignment)
