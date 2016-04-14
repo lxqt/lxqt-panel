@@ -69,7 +69,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 #endif
 
     mDelayedPopup.setSingleShot(true);
-    mDelayedPopup.setInterval(250);
+    mDelayedPopup.setInterval(100);
     connect(&mDelayedPopup, &QTimer::timeout, this, &LXQtMainMenu::showHideMenu);
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(250);
@@ -104,7 +104,12 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
             if (mShortcut->shortcut().isEmpty())
                 mShortcut->changeShortcut(DEFAULT_SHORTCUT);
         });
-        connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] { if (!mHideTimer.isActive()) mDelayedPopup.start(); });
+        connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] {
+            if (!mHideTimer.isActive())
+                // Delay this a little -- if we don't do this, the focus is not on the search field.
+                // See <https://github.com/lxde/lxqt-panel/pull/131> and <https://github.com/lxde/lxqt-panel/pull/312>.
+                mDelayedPopup.start();
+        });
     }
 }
 
