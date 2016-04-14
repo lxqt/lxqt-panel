@@ -40,7 +40,6 @@
 #include "ossengine.h"
 
 #include <QMessageBox>
-#include <QtDebug>
 #include <XdgIcon>
 #include <lxqt-globalkeys.h>
 #include <LXQt/Notification>
@@ -165,7 +164,6 @@ void LXQtVolume::settingsChanged()
 {
     m_defaultSinkIndex = settings()->value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
     QString engineName = settings()->value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString();
-    qDebug() << "settingsChanged" << engineName;
     const bool new_engine = !m_engine || m_engine->backendName() != engineName;
     if (new_engine) {
 #if defined(USE_PULSEAUDIO) && defined(USE_ALSA)
