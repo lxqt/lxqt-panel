@@ -35,9 +35,7 @@
 class QScreen;
 
 class LXQtPanel;
-namespace LXQt {
-class Settings;
-}
+class LXQtPanelApplicationPrivate;
 
 /*!
  * \brief The LXQtPanelApplication class inherits from LXQt::Application and
@@ -174,7 +172,11 @@ private:
      * $HOME/.config/lxqt/panel.conf (on Unix systems). This behaviour can be
      * changed with the -c command line option.
      */
-    LXQt::Settings *mSettings;
+
+    LXQtPanelApplicationPrivate *const d_ptr;
+
+    Q_DECLARE_PRIVATE(LXQtPanelApplication)
+    Q_DISABLE_COPY(LXQtPanelApplication)
 };
 
 
