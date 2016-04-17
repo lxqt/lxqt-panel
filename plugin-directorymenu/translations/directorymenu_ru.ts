@@ -32,27 +32,27 @@
         <translation>Значок:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation>Выберите начальную папку</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation>Выберите значок</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Значки (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation>Меню папки</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Произошла ошибка при загрузке значка.</translation>
     </message>
