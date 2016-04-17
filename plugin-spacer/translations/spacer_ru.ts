@@ -18,5 +18,20 @@
         <source>Space type:</source>
         <translation>Тип разделителя:</translation>
     </message>
+    <message>
+        <location filename="../spacerconfiguration.cpp" line="34"/>
+        <source>lined</source>
+        <translation>линия</translation>
+    </message>
+    <message>
+        <location filename="../spacerconfiguration.cpp" line="35"/>
+        <source>dotted</source>
+        <translation>точками</translation>
+    </message>
+    <message>
+        <location filename="../spacerconfiguration.cpp" line="36"/>
+        <source>invisible</source>
+        <translation>невидимый</translation>
+    </message>
 </context>
 </TS>
