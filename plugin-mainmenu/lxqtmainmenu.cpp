@@ -418,12 +418,11 @@ void LXQtMainMenu::setButtonIcon()
 {
     if (settings()->value("ownIcon", false).toBool())
     {
-        mButton.setIcon(QIcon{settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()});
+        mButton.setStyleSheet(QString("#MainMenu { qproperty-icon: url(%1); }")
+                .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()));
     } else
     {
-        mButton.setIcon(QIcon{});
-        QEvent e{QEvent::ThemeChange};
-        QApplication::sendEvent(this, &e);
+        mButton.setStyleSheet(QString());
     }
 }
 
