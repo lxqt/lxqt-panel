@@ -26,14 +26,15 @@
 
 #include "spacer.h"
 #include "spacerconfiguration.h"
-#include <QStyle>
+#include <QApplication>
 
 void SpacerWidget::setType(QString const & type)
 {
     if (type != mType)
     {
         mType = type;
-        setStyle(style());
+        QEvent e{QEvent::ThemeChange};
+        QApplication::sendEvent(this, &e);
     }
 }
 
@@ -42,7 +43,8 @@ void SpacerWidget::setOrientation(QString const & orientation)
     if (orientation != mOrientation)
     {
         mOrientation = orientation;
-        setStyle(style());
+        QEvent e{QEvent::ThemeChange};
+        QApplication::sendEvent(this, &e);
     }
 }
 

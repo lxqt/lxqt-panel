@@ -41,6 +41,7 @@
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
 #include <KWindowSystem/KWindowSystem>
+#include <QApplication>
 
 #include <XdgMenuWidget>
 
@@ -421,7 +422,8 @@ void LXQtMainMenu::setButtonIcon()
     } else
     {
         mButton.setIcon(QIcon{});
-        mButton.setStyle(mButton.style());
+        QEvent e{QEvent::ThemeChange};
+        QApplication::sendEvent(this, &e);
     }
 }
 
