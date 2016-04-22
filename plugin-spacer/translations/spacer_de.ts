@@ -6,7 +6,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="12"/>
         <source>Spacer Settings</source>
-        <translation>Leerraum Einstellungen</translation>
+        <translation>Leerraum-Einstellungen</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="18"/>
