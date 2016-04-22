@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="100"/>
         <source>Show/hide main menu</source>
-        <translation>Hauptmenü anzeigen/verstecken</translation>
+        <translation>Hauptmenü anzeigen/ausblenden</translation>
     </message>
 </context>
 <context>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Auf die Schaltfläche klicken, um ein Tastenkürzel aufzunehmen:</translation>
+        <translation>Klicken Sie auf die Schaltfläche, um ein Tastenkürzel aufzunehmen:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="196"/>
         <source>Maximum visible items:</source>
-        <translation>Max. sichtbare Einträge:</translation>
+        <translation>Maximal sichtbare Einträge:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="203"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="223"/>
         <source>Hide menu entries while searching</source>
-        <translation>Menüeinträge beim Suchen verstecken</translation>
+        <translation>Menüeinträge beim Suchen ausblenden</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="71"/>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation>Symbol wählen</translation>
+        <translation>Symbol auswählen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="158"/>
