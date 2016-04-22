@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Entfernbare Medien - Einstellungen</translation>
+        <translation>Einstellungen für entfernbare Medien</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
