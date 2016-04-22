@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Einstellungen zur Prozessorlast-Anzeige</translation>
+        <translation>Einstellungen zur Prozessorauslastung</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -49,22 +49,22 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Bottom up</source>
-        <translation>von unten nach oben</translation>
+        <translation>Von unten nach oben</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Top down</source>
-        <translation>von oben nach unten</translation>
+        <translation>Von oben nach unten</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="72"/>
         <source>Left to right</source>
-        <translation>von links nach rechts</translation>
+        <translation>Von links nach rechts</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="73"/>
         <source>Right to left</source>
-        <translation>von rechts nach links</translation>
+        <translation>Von rechts nach links</translation>
     </message>
 </context>
 </TS>
