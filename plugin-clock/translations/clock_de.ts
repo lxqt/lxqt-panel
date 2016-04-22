@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="50"/>
         <source>&lt;locale based&gt;</source>
-        <translation>&lt;Basierend auf lokale Datumseinstellungen&gt;</translation>
+        <translation>&lt;Basierend auf dem Gebietsschema&gt;</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="33"/>
         <source>12 &amp;hour style</source>
-        <translation>12 Stunden U&amp;hr-Stil</translation>
+        <translation>12-Stunden-U&amp;hr-Stil</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="40"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="86"/>
         <source>Show date &amp;before time</source>
-        <translation>Datum &amp;vor Zeit anzeigen</translation>
+        <translation>Datum &amp;vor Uhrzeit anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="93"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../lxqtclockconfiguration.ui" line="130"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Automatisch d&amp;rehen bei vertikaler Leiste</translation>
+        <translation>Bei vertikaler Leiste automatisch d&amp;rehen</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
         <source>Input custom date format</source>
-        <translation>Eigenes Datumsformat</translation>
+        <translation>Eigenes Datumsformat eingeben</translation>
     </message>
     <message>
         <location filename="../lxqtclockconfiguration.cpp" line="284"/>
