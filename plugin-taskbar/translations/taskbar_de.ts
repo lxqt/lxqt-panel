@@ -107,7 +107,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Anwendungsverwalter - Einstellungen</translation>
+        <translation>Anwendungsverwalter-Einstellungen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -137,17 +137,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="67"/>
         <source>Close on middle-click</source>
-        <translation>Fenster bei Mittelklick schließen</translation>
+        <translation>Bei Mittelklick schließen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation>Fensteranordnun&amp;g</translation>
+        <translation>Fenster&amp;gruppierung</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation>Popup beim Überfahren mit dem Mauszeiger</translation>
+        <translation>Popup beim Überfahren mit dem Mauszeiger anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="96"/>
@@ -162,7 +162,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
-        <translation>Max. Schaltflächenbreite</translation>
+        <translation>Maximale Schaltflächenbreite</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="128"/>
@@ -173,17 +173,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation>Max. Schaltflächenhöhe</translation>
+        <translation>Maximale Schaltflächenhöhe</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
+        <translation>Bei vertikaler Leiste Schaltflächen automatisch d&amp;rehen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Fensterklassensymbole verwenden, falls vorhanden</translation>
+        <translation>Symbole nach Fensterklasse verwenden, falls vorhanden</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
