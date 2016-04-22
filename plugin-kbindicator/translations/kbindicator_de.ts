@@ -45,7 +45,7 @@
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation>Layout</translation>
+        <translation>Belegung</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Tastaturstatus - Einstellungen</translation>
+        <translation>Tastaturstatus-Einstellungen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Tastatur-Layout anzeigen</translation>
+        <translation>Tastaturbelegung anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Layout konfigurieren</translation>
+        <translation>Belegungen konfigurieren</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
