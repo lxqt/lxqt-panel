@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Lautstärkeeinstellung: Die folgenden Tastaturkürzel konnten nicht registriert werden: %1</translation>
+        <translation>Lautstärkeeinstellung: Die folgenden Tastenkürzel konnten nicht registriert werden: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="219"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Stummschaltung per Mittelklick</translation>
+        <translation>Bei Mittelklick stummschalten</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
