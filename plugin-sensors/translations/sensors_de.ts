@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>Blinken der Verlaufsbalken bei zu hoher Temperatur</translation>
+        <translation>Blinkende Fortschrittsbalken bei zu hoher Temperatur</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
