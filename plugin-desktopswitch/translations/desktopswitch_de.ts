@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Arbeitsflächenumschalter - Einstellungen</translation>
+        <translation>Arbeitsflächenumschalter-Einstellungen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
