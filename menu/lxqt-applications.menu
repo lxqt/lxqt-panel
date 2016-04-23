@@ -20,7 +20,7 @@
 		<Include>
 			<And>
 				<Category>Utility</Category>
-	<!-- Accessibility spec must have either the Utility or Settings
+			 <!-- Accessibility spec must have either the Utility or Settings
 			 category, and we display an accessibility submenu already for
 			 the ones that do not have Settings, so don't display accessibility
 			 applications here -->
@@ -159,6 +159,7 @@
 		</Include>
 		</Menu> <!-- End Other -->
 
+	<!-- Settings -->
 	<Menu>
 		<Name>DesktopSettings</Name>
 		<Directory>lxde-settings.directory</Directory>
@@ -203,7 +204,7 @@
 		</Layout>
 	</Menu> <!-- End Settings -->
 
-		<!-- Leave -->
+	<!-- Leave -->
 	<Menu>
 		<Name>X-Leave</Name>
 		<Directory>lxqt-leave.directory</Directory>
