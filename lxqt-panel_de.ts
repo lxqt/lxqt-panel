@@ -24,7 +24,7 @@
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="114"/>
+        <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
         <translation>(es kann nur eine Instanz gleichzeitig ausgeführt werden)</translation>
     </message>
@@ -106,132 +106,148 @@
         <translation>Ausrichtung und Position</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="208"/>
+        <location filename="../config/configpanelwidget.ui" line="224"/>
+        <location filename="../config/configpanelwidget.ui" line="250"/>
+        <source>Zero means no animation</source>
+        <translation>Null bedeutet keine Animation</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="227"/>
+        <source> ms</source>
+        <translation> ms</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="240"/>
         <source>Position:</source>
         <translation>Position:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="218"/>
+        <location filename="../config/configpanelwidget.ui" line="253"/>
+        <source>Animation duration:</source>
+        <translation>Animationsdauer:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="260"/>
         <source>Alignment:</source>
         <translation>Ausrichtung:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="244"/>
-        <location filename="../config/configpanelwidget.cpp" line="190"/>
+        <location filename="../config/configpanelwidget.ui" line="284"/>
+        <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="249"/>
-        <location filename="../config/configpanelwidget.cpp" line="191"/>
-        <location filename="../config/configpanelwidget.cpp" line="197"/>
+        <location filename="../config/configpanelwidget.ui" line="289"/>
+        <location filename="../config/configpanelwidget.cpp" line="196"/>
+        <location filename="../config/configpanelwidget.cpp" line="202"/>
         <source>Center</source>
         <translation>Mitte</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="254"/>
-        <location filename="../config/configpanelwidget.cpp" line="192"/>
+        <location filename="../config/configpanelwidget.ui" line="294"/>
+        <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="284"/>
+        <location filename="../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
         <translation>Automatisch ausblenden</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="303"/>
+        <location filename="../config/configpanelwidget.ui" line="314"/>
         <source>Custom styling</source>
         <translation>Eigener Stil</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="324"/>
+        <location filename="../config/configpanelwidget.ui" line="335"/>
         <source>Font color:</source>
         <translation>Schriftfarbe:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="364"/>
+        <location filename="../config/configpanelwidget.ui" line="375"/>
         <source>Background color:</source>
         <translation>Hintergrundfarbe:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="403"/>
+        <location filename="../config/configpanelwidget.ui" line="414"/>
         <source>Background opacity:</source>
         <translation>Deckkraft:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="435"/>
+        <location filename="../config/configpanelwidget.ui" line="446"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;Für Transparenzeffekt wird Compositing benötigt.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="463"/>
+        <location filename="../config/configpanelwidget.ui" line="474"/>
         <source>Background image:</source>
         <translation>Hintergrundbild:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="156"/>
+        <location filename="../config/configpanelwidget.cpp" line="161"/>
         <source>Top of desktop</source>
         <translation>Oben auf der Arbeitsfläche</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="157"/>
+        <location filename="../config/configpanelwidget.cpp" line="162"/>
         <source>Left of desktop</source>
         <translation>Links auf der Arbeitsfläche</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="158"/>
+        <location filename="../config/configpanelwidget.cpp" line="163"/>
         <source>Right of desktop</source>
         <translation>Rechts auf der Arbeitsfläche</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="159"/>
+        <location filename="../config/configpanelwidget.cpp" line="164"/>
         <source>Bottom of desktop</source>
         <translation>Unten auf der Arbeitsfläche</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="168"/>
+        <location filename="../config/configpanelwidget.cpp" line="173"/>
         <source>Top of desktop %1</source>
         <translation>Oben auf Arbeitsfläche %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="169"/>
+        <location filename="../config/configpanelwidget.cpp" line="174"/>
         <source>Left of desktop %1</source>
         <translation>Links auf Arbeitsfläche %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="170"/>
+        <location filename="../config/configpanelwidget.cpp" line="175"/>
         <source>Right of desktop %1</source>
         <translation>Rechts auf Arbeitsfläche %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="171"/>
+        <location filename="../config/configpanelwidget.cpp" line="176"/>
         <source>Bottom of desktop %1</source>
         <translation>Unten auf Arbeitsfläche %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="196"/>
+        <location filename="../config/configpanelwidget.cpp" line="201"/>
         <source>Top</source>
         <translation>Oben</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="198"/>
+        <location filename="../config/configpanelwidget.cpp" line="203"/>
         <source>Bottom</source>
         <translation>Unten</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="354"/>
-        <location filename="../config/configpanelwidget.cpp" line="370"/>
+        <location filename="../config/configpanelwidget.cpp" line="360"/>
+        <location filename="../config/configpanelwidget.cpp" line="376"/>
         <source>Pick color</source>
         <translation>Farbe auswählen</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="388"/>
+        <location filename="../config/configpanelwidget.cpp" line="394"/>
         <source>Pick image</source>
         <translation>Bild auswählen</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="388"/>
+        <location filename="../config/configpanelwidget.cpp" line="394"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Bilder (*.png *.gif *.jpg)</translation>
     </message>
@@ -286,28 +302,41 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="912"/>
-        <location filename="../lxqtpanel.cpp" line="931"/>
+        <location filename="../lxqtpanel.cpp" line="1012"/>
+        <location filename="../lxqtpanel.cpp" line="1036"/>
         <source>Panel</source>
         <translation>Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="934"/>
+        <location filename="../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
         <translation>Leiste konfigurieren</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="939"/>
+        <location filename="../lxqtpanel.cpp" line="1044"/>
         <source>Manage Widgets</source>
         <translation>Widgets verwalten</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="945"/>
-        <source>Add Panel</source>
-        <translation>Leiste hinzufügen</translation>
+        <location filename="../lxqtpanel.cpp" line="1050"/>
+        <source>Add New Panel</source>
+        <translation>Neue Leiste hinzufügen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="952"/>
+        <location filename="../lxqtpanel.cpp" line="1062"/>
+        <source>Lock This Panel</source>
+        <translation>Diese Leiste sperren</translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="1200"/>
+        <source>Removing a panel can not be undone.
+Do you want to remove this panel?</source>
+        <translation>Das Entfernen einer Leiste kann nicht rückgängig gemacht werden.
+Soll die Leiste entfernt werden?</translation>
+    </message>
+    <message>
+        <location filename="../lxqtpanel.cpp" line="1057"/>
+        <location filename="../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
         <translation>Leiste entfernen</translation>
     </message>
@@ -315,17 +344,17 @@
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="403"/>
+        <location filename="../plugin.cpp" line="381"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>&quot;%1&quot; konfigurieren</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="408"/>
+        <location filename="../plugin.cpp" line="386"/>
         <source>Move &quot;%1&quot;</source>
         <translation>&quot;%1&quot; verschieben</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="416"/>
+        <location filename="../plugin.cpp" line="394"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>&quot;%1&quot; entfernen</translation>
     </message>
@@ -333,12 +362,12 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="52"/>
+        <location filename="../lxqtpanelapplication.cpp" line="91"/>
         <source>Use alternate configuration file.</source>
         <translation>Alternative Konfigurationsdatei verwenden.</translation>
     </message>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="53"/>
+        <location filename="../lxqtpanelapplication.cpp" line="92"/>
         <source>Configuration file</source>
         <translation>Konfigurationsdatei</translation>
     </message>
