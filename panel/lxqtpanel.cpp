@@ -193,6 +193,12 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(QApplication::desktop(), &QDesktopWidget::resized, this, &LXQtPanel::ensureVisible);
     connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, &LXQtPanel::ensureVisible);
 
+    // connecting to QDesktopWidget::workAreaResized shouldn't be necessary,
+    // as we've already connceted to QDesktopWidget::resized, but it actually
+    // is. Read mode on https://github.com/lxde/lxqt-panel/pull/310
+    connect(QApplication::desktop(), &QDesktopWidget::workAreaResized,
+            this, &LXQtPanel::ensureVisible);
+
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
