@@ -73,6 +73,10 @@ public:
     ILXQtPanel::Position position() const { return mPosition; }
     void setPosition(ILXQtPanel::Position value);
 
+    /*! \brief Force the layout to re-read items/plugins "static" configuration
+     */
+    void rebuild();
+
     static bool itemIsSeparate(QLayoutItem *item);
 signals:
     void pluginMoved(Plugin * plugin);

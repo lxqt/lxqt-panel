@@ -196,6 +196,17 @@ public:
         mPanel->willShowWindow(w);
     }
 
+    /*!
+     * \brief By calling this function, a plugin notifies the panel about change of it's "static"
+     * configuration
+     *
+     * \sa isSeparate(), isExpandable
+     */
+    inline void pluginFlagsChanged()
+    {
+        mPanel->pluginFlagsChanged(this);
+    }
+
     virtual bool isSeparate() const { return false;  }
     virtual bool isExpandable() const { return false; }
 private:

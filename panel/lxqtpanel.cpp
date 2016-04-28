@@ -1225,6 +1225,14 @@ void LXQtPanel::willShowWindow(QWidget * w)
 /************************************************
 
  ************************************************/
+void LXQtPanel::pluginFlagsChanged(const ILXQtPanelPlugin * /*plugin*/)
+{
+    mLayout->rebuild();
+}
+
+/************************************************
+
+ ************************************************/
 QString LXQtPanel::qssPosition() const
 {
     return positionToStr(position());

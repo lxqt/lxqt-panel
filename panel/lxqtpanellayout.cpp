@@ -946,6 +946,16 @@ void LXQtPanelLayout::setLineCount(int value)
 /************************************************
 
  ************************************************/
+void LXQtPanelLayout::rebuild()
+{
+    mLeftGrid->rebuild();
+    mRightGrid->rebuild();
+}
+
+
+/************************************************
+
+ ************************************************/
 int LXQtPanelLayout::lineSize() const
 {
     return mLeftGrid->lineSize();

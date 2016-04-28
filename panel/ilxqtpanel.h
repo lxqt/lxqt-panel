@@ -110,6 +110,16 @@ public:
      *
      */
     virtual void willShowWindow(QWidget * w) = 0;
+
+    /*!
+     * \brief By calling this function, a plugin notifies the panel about change of it's "static"
+     * configuration
+     *
+     * \param plugin the changed plugin
+     *
+     * \sa ILXQtPanelPlugin::isSeparate(), ILXQtPanelPlugin::isExpandable
+     */
+    virtual void pluginFlagsChanged(const ILXQtPanelPlugin * plugin) = 0;
 };
 
 #endif // ILXQTPANEL_H
