@@ -4,7 +4,7 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../directorymenu.cpp" line="146"/>
+        <location filename="../../../directorymenu.cpp" line="146"/>
         <source>Open</source>
         <translation>Άνοιγμα</translation>
     </message>
@@ -12,52 +12,52 @@
 <context>
     <name>DirectoryMenuConfiguration</name>
     <message>
-        <location filename="../directorymenuconfiguration.ui" line="14"/>
+        <location filename="../../../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
         <translation>Ρυθμίσεις μενού καταλόγου</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.ui" line="20"/>
+        <location filename="../../../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
         <translation>Εμφάνιση</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.ui" line="26"/>
+        <location filename="../../../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
         <translation>Βασικός κατάλογος:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.ui" line="39"/>
+        <location filename="../../../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
         <translation>Όνομα βασικού καταλόγου</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.ui" line="46"/>
+        <location filename="../../../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
         <translation>Εικονίδιο:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Base Directory</source>
         <translation>Επιλέξτε τον βασικό κατάλογο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="122"/>
         <source>Choose Icon</source>
         <translation>Επιλέξτε το εικονίδιο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Εικονίδια (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
         <source>Directory Menu</source>
         <translation>Μενού καταλόγου</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Παρουσιάστηκε ένα σφάλμα κατά την φόρτωση του εικονιδίου.</translation>
     </message>
