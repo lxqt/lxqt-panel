@@ -52,6 +52,8 @@ SpacerConfiguration::SpacerConfiguration(PluginSettings *settings, QWidget *pare
 
     connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &SpacerConfiguration::sizeChanged);
     connect(ui->typeCB, static_cast<void (QComboBox::*)(int index)>(&QComboBox::currentIndexChanged), this, &SpacerConfiguration::typeChanged);
+    //Note: if there will be more than 2 radio buttons for width/size type, this simple setting logic will break
+    connect(ui->sizeExpandRB, &QAbstractButton::toggled, this, &SpacerConfiguration::widthTypeChanged);
 }
 
 SpacerConfiguration::~SpacerConfiguration()
@@ -63,6 +65,10 @@ void SpacerConfiguration::loadSettings()
 {
     ui->sizeSB->setValue(settings().value("size", 8).toInt());
     ui->typeCB->setCurrentIndex(ui->typeCB->findData(settings().value("spaceType", msTypes[0]).toString()));
+    const bool expandable = settings().value("expandable", false).toBool();
+    ui->sizeExpandRB->setChecked(expandable);
+    ui->sizeFixedRB->setChecked(!expandable);
+    ui->sizeSB->setDisabled(expandable);
 }
 
 void SpacerConfiguration::sizeChanged(int value)
@@ -73,4 +79,9 @@ void SpacerConfiguration::sizeChanged(int value)
 void SpacerConfiguration::typeChanged(int index)
 {
     settings().setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
+}
+
+void SpacerConfiguration::widthTypeChanged(bool expandableChecked)
+{
+    settings().setValue("expandable", expandableChecked);
 }

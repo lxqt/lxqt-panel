@@ -61,6 +61,7 @@ public:
     virtual QString themeId() const override { return "Spacer"; }
 
     bool isSeparate() const override { return true; }
+    bool isExpandable() const override { return mExpandable; }
 
     virtual ILXQtPanelPlugin::Flags flags() const override { return HaveConfigDialog; }
     QDialog *configureDialog() override;
@@ -76,6 +77,7 @@ private:
 private:
     SpacerWidget mSpacer;
     int mSize;
+    int mExpandable;
 };
 
 class SpacerPluginLibrary: public QObject, public ILXQtPanelPluginLibrary

@@ -58,6 +58,7 @@ private slots:
     void loadSettings();
     void sizeChanged(int value);
     void typeChanged(int index);
+    void widthTypeChanged(bool expandableChecked);
 };
 
 #endif // SPACERCONFIGURATION_H
