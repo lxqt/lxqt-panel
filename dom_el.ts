@@ -4,33 +4,33 @@
 <context>
     <name>TreeWindow</name>
     <message>
-        <location filename="../treewindow.ui" line="14"/>
+        <location filename="../../../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
         <translation>Δέντρο πίνακα DOM</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="63"/>
-        <location filename="../treewindow.ui" line="96"/>
+        <location filename="../../../treewindow.ui" line="63"/>
+        <location filename="../../../treewindow.ui" line="96"/>
         <source>Property</source>
         <translation>Ιδιότητα</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="68"/>
+        <location filename="../../../treewindow.ui" line="68"/>
         <source>Value</source>
         <translation>Τιμή</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="76"/>
+        <location filename="../../../treewindow.ui" line="76"/>
         <source>All properties</source>
         <translation>Όλες οι ιδιότητες</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="101"/>
+        <location filename="../../../treewindow.ui" line="101"/>
         <source>Type</source>
         <translation>Τύπος</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="106"/>
+        <location filename="../../../treewindow.ui" line="106"/>
         <source>String value</source>
         <translation>Τιμή συμβολοσειράς</translation>
     </message>

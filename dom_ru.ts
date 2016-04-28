@@ -4,33 +4,33 @@
 <context>
     <name>TreeWindow</name>
     <message>
-        <location filename="../treewindow.ui" line="14"/>
+        <location filename="../../../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
         <translation>Дерево DOM панели</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="63"/>
-        <location filename="../treewindow.ui" line="96"/>
+        <location filename="../../../treewindow.ui" line="63"/>
+        <location filename="../../../treewindow.ui" line="96"/>
         <source>Property</source>
         <translation>Свойство</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="68"/>
+        <location filename="../../../treewindow.ui" line="68"/>
         <source>Value</source>
         <translation>Значение</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="76"/>
+        <location filename="../../../treewindow.ui" line="76"/>
         <source>All properties</source>
         <translation>Все свойства</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="101"/>
+        <location filename="../../../treewindow.ui" line="101"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="106"/>
+        <location filename="../../../treewindow.ui" line="106"/>
         <source>String value</source>
         <translation>Строковое значение</translation>
     </message>

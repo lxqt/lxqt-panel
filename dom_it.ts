@@ -4,33 +4,33 @@
 <context>
     <name>TreeWindow</name>
     <message>
-        <location filename="../treewindow.ui" line="14"/>
+        <location filename="../../../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
         <translation>Pannello dell&apos;albero DOM</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="63"/>
-        <location filename="../treewindow.ui" line="96"/>
+        <location filename="../../../treewindow.ui" line="63"/>
+        <location filename="../../../treewindow.ui" line="96"/>
         <source>Property</source>
         <translation>Proprietà</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="68"/>
+        <location filename="../../../treewindow.ui" line="68"/>
         <source>Value</source>
         <translation>Valore</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="76"/>
+        <location filename="../../../treewindow.ui" line="76"/>
         <source>All properties</source>
         <translation>Tutte le proprietà</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="101"/>
+        <location filename="../../../treewindow.ui" line="101"/>
         <source>Type</source>
         <translation>Tipo</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="106"/>
+        <location filename="../../../treewindow.ui" line="106"/>
         <source>String value</source>
         <translation>Valore della stringa</translation>
     </message>

@@ -4,33 +4,33 @@
 <context>
     <name>TreeWindow</name>
     <message>
-        <location filename="../treewindow.ui" line="14"/>
+        <location filename="../../../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="63"/>
-        <location filename="../treewindow.ui" line="96"/>
+        <location filename="../../../treewindow.ui" line="63"/>
+        <location filename="../../../treewindow.ui" line="96"/>
         <source>Property</source>
         <translation type="unfinished">Svojstvo</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="68"/>
+        <location filename="../../../treewindow.ui" line="68"/>
         <source>Value</source>
         <translation type="unfinished">Vrijednost</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="76"/>
+        <location filename="../../../treewindow.ui" line="76"/>
         <source>All properties</source>
         <translation type="unfinished">Sva svojstva</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="101"/>
+        <location filename="../../../treewindow.ui" line="101"/>
         <source>Type</source>
         <translation type="unfinished">Vrsta</translation>
     </message>
     <message>
-        <location filename="../treewindow.ui" line="106"/>
+        <location filename="../../../treewindow.ui" line="106"/>
         <source>String value</source>
         <translation type="unfinished"></translation>
     </message>
