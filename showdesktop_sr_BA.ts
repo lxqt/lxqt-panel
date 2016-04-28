@@ -12,17 +12,17 @@
         <translation type="vanished">Глобална пречица приказа површи за панел: „%1“ не може бити регистрована</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="48"/>
+        <location filename="../../../showdesktop.cpp" line="48"/>
         <source>Show desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="69"/>
+        <location filename="../../../showdesktop.cpp" line="69"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="55"/>
+        <location filename="../../../showdesktop.cpp" line="55"/>
         <source>Show Desktop</source>
         <translation>Прикажи радну површ</translation>
     </message>
