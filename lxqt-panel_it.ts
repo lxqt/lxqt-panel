@@ -4,22 +4,22 @@
 <context>
     <name>AddPluginDialog</name>
     <message>
-        <location filename="../config/addplugindialog.ui" line="14"/>
+        <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
         <translation>Aggiungi elementi</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="22"/>
+        <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
         <translation>Cerca:</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="98"/>
+        <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="105"/>
+        <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
@@ -118,134 +118,134 @@
 <context>
     <name>ConfigPanelWidget</name>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="20"/>
+        <location filename="../../../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
         <translation>Configura panello</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="44"/>
+        <location filename="../../../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
         <translation>Dimensione</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="81"/>
+        <location filename="../../../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
         <translation>Dimensione:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="109"/>
-        <location filename="../config/configpanelwidget.ui" line="153"/>
+        <location filename="../../../config/configpanelwidget.ui" line="109"/>
+        <location filename="../../../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="166"/>
+        <location filename="../../../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
         <translation>Dimensione icone:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="88"/>
+        <location filename="../../../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
         <translation>Lunghezza:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="68"/>
+        <location filename="../../../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;Valori negativi impongano una lunghezza del panello di quel numero di pixel meno dello spazio disponibile. &lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esempio: -100px e schermo di 1280px = 1180px&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="96"/>
+        <location filename="../../../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="101"/>
+        <location filename="../../../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
         <translation>px</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <location filename="../../../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
         <translation>Numero righe:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="202"/>
+        <location filename="../../../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Allineamento e posizione</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.ui" line="250"/>
+        <location filename="../../../config/configpanelwidget.ui" line="224"/>
+        <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>Zero means no animation</source>
         <translation>Zero significa nessuna animazione</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="227"/>
+        <location filename="../../../config/configpanelwidget.ui" line="227"/>
         <source> ms</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="253"/>
+        <location filename="../../../config/configpanelwidget.ui" line="253"/>
         <source>Animation duration:</source>
         <translation>Durata animazione:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="284"/>
+        <location filename="../../../config/configpanelwidget.ui" line="284"/>
         <source>Left</source>
         <translation>Sinistra</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="289"/>
+        <location filename="../../../config/configpanelwidget.ui" line="289"/>
         <source>Center</source>
         <translation>Centro</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="294"/>
+        <location filename="../../../config/configpanelwidget.ui" line="294"/>
         <source>Right</source>
         <translation>Destra</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="314"/>
+        <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source>Custom styling</source>
         <translation>Aspetto personalizzato</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="335"/>
+        <location filename="../../../config/configpanelwidget.ui" line="335"/>
         <source>Font color:</source>
         <translation>Colore carattere:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="375"/>
+        <location filename="../../../config/configpanelwidget.ui" line="375"/>
         <source>Background color:</source>
         <translation>Colore sfondo:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="414"/>
+        <location filename="../../../config/configpanelwidget.ui" line="414"/>
         <source>Background opacity:</source>
         <translation>Trasparenza:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="446"/>
+        <location filename="../../../config/configpanelwidget.ui" line="446"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;E&apos; necessario un compositor per la trasparenza&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="474"/>
+        <location filename="../../../config/configpanelwidget.ui" line="474"/>
         <source>Background image:</source>
         <translation>Immagine sfondo:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="260"/>
+        <location filename="../../../config/configpanelwidget.ui" line="260"/>
         <source>Alignment:</source>
         <translation>Allineamento:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="240"/>
+        <location filename="../../../config/configpanelwidget.ui" line="240"/>
         <source>Position:</source>
         <translation>Posizione:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="214"/>
+        <location filename="../../../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
         <translation>Nascondi automaticamente</translation>
     </message>
@@ -321,46 +321,46 @@
 <context>
     <name>ConfigPluginsWidget</name>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="14"/>
+        <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
         <translation>Configura elementi</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="84"/>
+        <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
         <translation>Nota: Modifiche fatte in questa finestra non possono essere annullate.</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="112"/>
+        <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
         <translation>Sposta sù</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="115"/>
-        <location filename="../config/configpluginswidget.ui" line="129"/>
-        <location filename="../config/configpluginswidget.ui" line="150"/>
-        <location filename="../config/configpluginswidget.ui" line="164"/>
-        <location filename="../config/configpluginswidget.ui" line="185"/>
+        <location filename="../../../config/configpluginswidget.ui" line="115"/>
+        <location filename="../../../config/configpluginswidget.ui" line="129"/>
+        <location filename="../../../config/configpluginswidget.ui" line="150"/>
+        <location filename="../../../config/configpluginswidget.ui" line="164"/>
+        <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="126"/>
+        <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
         <translation>Sposta giù</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="147"/>
+        <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
         <translation>Rimuovi</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="182"/>
+        <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
         <translation>Configura</translation>
     </message>
@@ -372,33 +372,33 @@
         <translation>Aggiungi elementi</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1012"/>
-        <location filename="../lxqtpanel.cpp" line="1036"/>
+        <location filename="../../../lxqtpanel.cpp" line="1012"/>
+        <location filename="../../../lxqtpanel.cpp" line="1036"/>
         <source>Panel</source>
         <translation>Panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1039"/>
+        <location filename="../../../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
         <translation>Configura panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1044"/>
+        <location filename="../../../lxqtpanel.cpp" line="1044"/>
         <source>Manage Widgets</source>
         <translation>Configura elementi</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1050"/>
+        <location filename="../../../lxqtpanel.cpp" line="1050"/>
         <source>Add New Panel</source>
         <translation>Aggiungi nuovo panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1062"/>
+        <location filename="../../../lxqtpanel.cpp" line="1062"/>
         <source>Lock This Panel</source>
         <translation>Blocca questo panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1200"/>
+        <location filename="../../../lxqtpanel.cpp" line="1200"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>La rimozione di un panello non può essere annullato.
@@ -418,8 +418,8 @@ Vuoi veramente rimuovere questo panello?</translation>
         <translation>Aggiungi panello</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1057"/>
-        <location filename="../lxqtpanel.cpp" line="1199"/>
+        <location filename="../../../lxqtpanel.cpp" line="1057"/>
+        <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
         <translation>Rimuovi panello</translation>
     </message>
@@ -457,17 +457,17 @@ Vuoi veramente rimuovere questo panello?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="385"/>
+        <location filename="../../../plugin.cpp" line="385"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Configura &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="390"/>
+        <location filename="../../../plugin.cpp" line="390"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Sposta &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="398"/>
+        <location filename="../../../plugin.cpp" line="398"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Rimuovi &quot;%1&quot;</translation>
     </message>
@@ -475,12 +475,12 @@ Vuoi veramente rimuovere questo panello?</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="52"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="52"/>
         <source>Use alternate configuration file.</source>
         <translation>Usa file di configurazione alternativo.</translation>
     </message>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="53"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="53"/>
         <source>Configuration file</source>
         <translation>File di configurazione</translation>
     </message>
