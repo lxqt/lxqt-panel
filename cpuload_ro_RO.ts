@@ -8,7 +8,7 @@
         <translation type="vanished">Încărcare procesor %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation type="unfinished">Încărcare procesor</translation>
     </message>
@@ -20,57 +20,57 @@
         <translation type="vanished">Setări încărcare procesor LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
         <translation type="unfinished">Setări încărcare procesor</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
         <translation>Afișează text</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
         <translation>Interval de actualizare</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
         <translation>sec</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
         <translation>Orientare bară:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
         <translation type="unfinished">Lățime bară:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Bottom up</source>
         <translation>De jos în sus</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Top down</source>
         <translation>De sus în jos</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
         <source>Left to right</source>
         <translation>De la stânga la dreapta</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
         <source>Right to left</source>
         <translation>De la dreapta la stânga</translation>
     </message>

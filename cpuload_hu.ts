@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation>CPU load %1%</translation>
     </message>
@@ -12,57 +12,57 @@
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
         <translation>CPU jelző beállítás</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
         <translation>Általános</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
         <translation>Szöveg megjelenítése</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
         <translation>Frissítési köz:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
         <translation> mp</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
         <translation>Sáv irány:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
         <translation>Sáv szélesség:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Bottom up</source>
         <translation>Felfele</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Top down</source>
         <translation>Lefele</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
         <source>Left to right</source>
         <translation>Jobbra</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
         <source>Right to left</source>
         <translation>Balra</translation>
     </message>
