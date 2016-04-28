@@ -57,18 +57,18 @@ class Spacer :  public QObject, public ILXQtPanelPlugin
 public:
     Spacer(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() { return &mSpacer; }
-    virtual QString themeId() const { return "Spacer"; }
+    virtual QWidget *widget() override { return &mSpacer; }
+    virtual QString themeId() const override { return "Spacer"; }
 
-    bool isSeparate() const { return true; }
+    bool isSeparate() const override { return true; }
 
-    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
-    QDialog *configureDialog();
+    virtual ILXQtPanelPlugin::Flags flags() const override { return HaveConfigDialog; }
+    QDialog *configureDialog() override;
 
-    virtual void realign();
+    virtual void realign() override;
 
 private slots:
-    virtual void settingsChanged();
+    virtual void settingsChanged() override;
 
 private:
     void setSizes();
