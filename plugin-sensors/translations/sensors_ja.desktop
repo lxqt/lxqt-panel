@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Name=Sensors
+Comment=View readings from hardware sensors.
+
+
+# Translations
+Name[ja]=センサー
+Comment[ja]=ハードウェアセンサからの測定値を表示します

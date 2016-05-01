@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Name=Clock
+Comment=Clock and calendar
+
+#TRANSLATIONS_DIR=../translations
+
+
+# Translations

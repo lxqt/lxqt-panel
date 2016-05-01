@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Name[ja]=世界時計
+Comment[ja]=世界時計のウィジェットです
+
+#TRANSLATIONS_DIR=../translations

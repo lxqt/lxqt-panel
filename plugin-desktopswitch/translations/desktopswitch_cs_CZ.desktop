@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Name=Desktop switcher
+Comment=Allows easy switching between virtual desktops.
+
+#TRANSLATIONS_DIR=../translations
+
+
+# Translations
+Comment[cs_CZ]=Povolit přepínání virtuálních pracovních ploch
+Name[cs_CZ]=Přepínání pracovních ploch
