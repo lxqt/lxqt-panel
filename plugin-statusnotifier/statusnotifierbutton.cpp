@@ -33,7 +33,25 @@
 #include <dbusmenu-qt5/dbusmenuimporter.h>
 #include "../panel/ilxqtpanelplugin.h"
 #include "sniasync.h"
+#include <XdgIcon>
 
+namespace
+{
+    /*! \brief specialized DBusMenuImporter to correctly create actions' icons based
+     * on name
+     */
+    class MenuImporter : public DBusMenuImporter
+    {
+    public:
+        using DBusMenuImporter::DBusMenuImporter;
+
+    protected:
+        virtual QIcon iconForName(const QString & name) override
+        {
+            return XdgIcon::fromTheme(name);
+        }
+    };
+}
 
 StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin, QWidget *parent)
     : QToolButton(parent),
@@ -54,7 +72,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     interface->propertyGetAsync(QLatin1String("Menu"), [this] (QDBusObjectPath path) {
         if (!path.path().isEmpty())
         {
-            mMenu = (new DBusMenuImporter(interface->service(), path.path(), this))->menu();
+            mMenu = (new MenuImporter{interface->service(), path.path(), this})->menu();
             dynamic_cast<QObject &>(*mMenu).setParent(this);
             mMenu->setObjectName(QLatin1String("StatusNotifierMenu"));
         }
