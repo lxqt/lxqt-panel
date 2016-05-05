@@ -103,7 +103,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
     else {
         // this plugin is a dynamically loadable module
         QString baseName = QString("lib%1.so").arg(desktopFile.id());
-        foreach(QString dirName, dirs)
+        foreach(const QString &dirName, dirs)
         {
             QFileInfo fi(QDir(dirName), baseName);
             if (fi.exists())

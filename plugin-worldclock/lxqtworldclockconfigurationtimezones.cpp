@@ -106,7 +106,7 @@ int LXQtWorldClockConfigurationTimeZones::updateAndExec()
 
     QMap<QString, QTreeWidgetItem*> parentItems;
 
-    foreach(QByteArray ba, QTimeZone::availableTimeZoneIds())
+    foreach(const QByteArray &ba, QTimeZone::availableTimeZoneIds())
     {
         QTimeZone timeZone(ba);
         QString ianaId(ba);

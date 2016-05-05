@@ -188,7 +188,7 @@ void LXQtQuickLaunch::dropEvent(QDropEvent *e)
 {
     const QMimeData *mime = e->mimeData();
 
-    foreach (QUrl url, mime->urls().toSet())
+    foreach (const QUrl &url, mime->urls().toSet())
     {
         QString fileName(url.isLocalFile() ? url.toLocalFile() : url.url());
         QFileInfo fi(fileName);
