@@ -31,9 +31,9 @@
 //Note: strings can't actually be translated here (in static initialization time)
 //      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
 const QStringList SpacerConfiguration::msTypes = {
-    QLatin1String(QT_TR_NOOP("lined"))
-    , QLatin1String(QT_TR_NOOP("dotted"))
-    , QLatin1String(QT_TR_NOOP("invisible"))
+    QStringLiteral(QT_TR_NOOP("lined"))
+    , QStringLiteral(QT_TR_NOOP("dotted"))
+    , QStringLiteral(QT_TR_NOOP("invisible"))
 };
 
 SpacerConfiguration::SpacerConfiguration(PluginSettings *settings, QWidget *parent) :
@@ -41,7 +41,7 @@ SpacerConfiguration::SpacerConfiguration(PluginSettings *settings, QWidget *pare
     ui(new Ui::SpacerConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("SpacerConfigurationWindow");
+    setObjectName(QStringLiteral("SpacerConfigurationWindow"));
     ui->setupUi(this);
 
     //Note: translation is needed here in runtime (translator is attached already)
@@ -63,9 +63,9 @@ SpacerConfiguration::~SpacerConfiguration()
 
 void SpacerConfiguration::loadSettings()
 {
-    ui->sizeSB->setValue(settings().value("size", 8).toInt());
-    ui->typeCB->setCurrentIndex(ui->typeCB->findData(settings().value("spaceType", msTypes[0]).toString()));
-    const bool expandable = settings().value("expandable", false).toBool();
+    ui->sizeSB->setValue(settings().value(QStringLiteral("size"), 8).toInt());
+    ui->typeCB->setCurrentIndex(ui->typeCB->findData(settings().value(QStringLiteral("spaceType"), msTypes[0]).toString()));
+    const bool expandable = settings().value(QStringLiteral("expandable"), false).toBool();
     ui->sizeExpandRB->setChecked(expandable);
     ui->sizeFixedRB->setChecked(!expandable);
     ui->sizeSB->setDisabled(expandable);
@@ -73,15 +73,15 @@ void SpacerConfiguration::loadSettings()
 
 void SpacerConfiguration::sizeChanged(int value)
 {
-    settings().setValue("size", value);
+    settings().setValue(QStringLiteral("size"), value);
 }
 
 void SpacerConfiguration::typeChanged(int index)
 {
-    settings().setValue("spaceType", ui->typeCB->itemData(index, Qt::UserRole));
+    settings().setValue(QStringLiteral("spaceType"), ui->typeCB->itemData(index, Qt::UserRole));
 }
 
 void SpacerConfiguration::widthTypeChanged(bool expandableChecked)
 {
-    settings().setValue("expandable", expandableChecked);
+    settings().setValue(QStringLiteral("expandable"), expandableChecked);
 }

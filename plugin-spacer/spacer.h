@@ -58,7 +58,7 @@ public:
     Spacer(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() override { return &mSpacer; }
-    virtual QString themeId() const override { return "Spacer"; }
+    virtual QString themeId() const override { return QStringLiteral("Spacer"); }
 
     bool isSeparate() const override { return true; }
     bool isExpandable() const override { return mExpandable; }

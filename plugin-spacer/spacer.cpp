@@ -65,10 +65,10 @@ Spacer::Spacer(const ILXQtPanelPluginStartupInfo &startupInfo) :
  ************************************************/
 void Spacer::settingsChanged()
 {
-    mSize = settings()->value("size", 8).toInt();
+    mSize = settings()->value(QStringLiteral("size"), 8).toInt();
     const bool old_expandable = mExpandable;
-    mExpandable = settings()->value("expandable", false).toBool();
-    mSpacer.setType(settings()->value("spaceType", SpacerConfiguration::msTypes[0]).toString());
+    mExpandable = settings()->value(QStringLiteral("expandable"), false).toBool();
+    mSpacer.setType(settings()->value(QStringLiteral("spaceType"), SpacerConfiguration::msTypes[0]).toString());
     setSizes();
     if (old_expandable != mExpandable)
         pluginFlagsChanged();
@@ -92,12 +92,12 @@ void Spacer::setSizes()
         mSpacer.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         mSpacer.setMinimumSize({1, 1});
         mSpacer.setMaximumSize({QWIDGETSIZE_MAX, QWIDGETSIZE_MAX});
-        mSpacer.setOrientation(panel()->isHorizontal() ? "horizontal" : "vertical");
+        mSpacer.setOrientation(panel()->isHorizontal() ? QStringLiteral("horizontal") : QStringLiteral("vertical"));
     } else
     {
         if (panel()->isHorizontal())
         {
-            mSpacer.setOrientation("horizontal");
+            mSpacer.setOrientation(QStringLiteral("horizontal"));
             mSpacer.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
             mSpacer.setFixedWidth(mSize);
             mSpacer.setMinimumHeight(0);
@@ -105,7 +105,7 @@ void Spacer::setSizes()
         }
         else
         {
-            mSpacer.setOrientation("vertical");
+            mSpacer.setOrientation(QStringLiteral("vertical"));
             mSpacer.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             mSpacer.setFixedHeight(mSize);
             mSpacer.setMinimumWidth(0);
