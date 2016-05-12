@@ -169,6 +169,7 @@ Plugin::~Plugin()
 {
     delete mPlugin;
     delete mPluginLoader;
+    delete mSettings;
 }
 
 void Plugin::setAlignment(Plugin::Alignment alignment)

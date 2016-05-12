@@ -118,6 +118,7 @@ class LayoutItemGrid
 {
 public:
     explicit LayoutItemGrid();
+    ~LayoutItemGrid();
 
     void addItem(QLayoutItem *item);
     int count() const { return mItems.count(); }
@@ -186,6 +187,11 @@ LayoutItemGrid::LayoutItemGrid()
     mLineSize = 0;
     mHoriz = true;
     clear();
+}
+
+LayoutItemGrid::~LayoutItemGrid()
+{
+    qDeleteAll(mItems);
 }
 
 

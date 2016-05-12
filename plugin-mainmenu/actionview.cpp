@@ -103,7 +103,9 @@ ActionView::ActionView(QWidget * parent /*= nullptr*/)
     setSelectionBehavior(SelectRows);
     setSelectionMode(SingleSelection);
 
-    setStyle(new SingleActivateStyle);
+    SingleActivateStyle * s = new SingleActivateStyle;
+    s->setParent(this);
+    setStyle(s);
     mProxy->setSourceModel(mModel);
     mProxy->setDynamicSortFilter(true);
     mProxy->setFilterRole(FilterRole);
