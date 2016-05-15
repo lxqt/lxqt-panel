@@ -15,6 +15,7 @@ pkg_check_modules(XRENDER REQUIRED xrender)
 set(HEADERS
     lxqttrayplugin.h
     lxqttray.h
+    lxqttrayconfiguration.h
     trayicon.h
     xfitman.h
 )
@@ -22,6 +23,7 @@ set(HEADERS
 set(SOURCES
     lxqttrayplugin.cpp
     lxqttray.cpp
+    lxqttrayconfiguration.cpp
     trayicon.cpp
     xfitman.cpp
 )
@@ -33,6 +35,10 @@ set(LIBRARIES
     ${XRENDER_LIBRARIES}
     ${XCB_LIBRARIES}
     ${XCB_DAMAGE_LIBRARIES}
+)
+
+set(UIS
+    lxqttrayconfiguration.ui
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

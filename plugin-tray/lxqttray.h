@@ -63,6 +63,9 @@ public:
     bool nativeEventFilter(const QByteArray &eventType, void *message, long *);
 
     void realign();
+    
+    void enableForcedIconSize(QSize iconSize);
+    void disableForcedIconSize();
 
 signals:
     void iconSizeChanged(int iconSize);
@@ -97,6 +100,13 @@ private:
     ILXQtPanelPlugin *mPlugin;
     Atom _NET_SYSTEM_TRAY_OPCODE;
     Display* mDisplay;
+    
+    // HACK to avoid having an unique global size policy for icons
+    /** This code is here to act as a customizable 'qproperty-iconSize' for
+     * system tray icons, as it seems this property isn't honored in CSS sheets.
+     */
+    bool mForceIconSize;
+    QSize mForcedIconSize;
 };
 
 

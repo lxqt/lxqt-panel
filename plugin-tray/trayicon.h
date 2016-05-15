@@ -71,7 +71,9 @@ private:
     QSize mIconSize;
     Damage mDamage;
     Display* mDisplay;
-
+    bool mForceIconSize;
+    QSize mForcedIconSize;
+    
     static bool isXCompositeAvailable();
 };
 
