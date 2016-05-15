@@ -30,6 +30,7 @@
 #define LXQTTRAYPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
+#include "lxqttrayconfiguration.h"
 #include <QObject>
 
 class LXQtTray;
@@ -42,13 +43,17 @@ public:
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "Tray"; }
-    virtual Flags flags() const { return  PreferRightAlignment | SingleInstance | NeedsHandle; }
+    virtual Flags flags() const { return  PreferRightAlignment | SingleInstance | NeedsHandle | HaveConfigDialog; }
     void realign();
 
     bool isSeparate() const { return true; }
-
+    QDialog * configureDialog();
+    
+    void settingsChanged();
+    
 private:
     LXQtTray *mWidget;
+    int mIconSize;
 
 };
 

@@ -392,4 +392,3 @@ void LXQtTray::addIcon(Window winId)
     mLayout->addWidget(icon);
     connect(icon, &QObject::destroyed, this, &LXQtTray::onIconDestroyed);
 }
-
