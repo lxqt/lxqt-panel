@@ -68,7 +68,12 @@ void LXQtTrayPlugin::settingsChanged()
     bool useCustomSize = settings()->value("useCustomTrayIconSize", false).toBool();
     if(useCustomSize) {
         mIconSize = settings()->value("customTrayIconSize", TRAY_ICON_SIZE_DEFAULT).toInt();
-        std::cout << "Updating with " << mIconSize << std::endl;
+        mWidget->enableForcedIconSize(QSize(mIconSize, mIconSize));
     }
-    mWidget->setIconSize(QSize(mIconSize, mIconSize));
+    else
+        mWidget->disableForcedIconSize();
+    
+    // does this help ?
+    realign();
+//     mWidget->setIconSize(QSize(mIconSize, mIconSize));
 }

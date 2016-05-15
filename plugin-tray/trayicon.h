@@ -58,6 +58,9 @@ public:
     void setIconSize(QSize iconSize);
 
     QSize sizeHint() const;
+    
+    void enableForcedIconSize(QSize size);
+    void disableForcedIconSize();
 
 protected:
     bool event(QEvent *event);
@@ -71,7 +74,9 @@ private:
     QSize mIconSize;
     Damage mDamage;
     Display* mDisplay;
-
+    bool mForceIconSize;
+    QSize mForcedIconSize;
+    
     static bool isXCompositeAvailable();
 };
 

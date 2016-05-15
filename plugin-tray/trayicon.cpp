@@ -25,6 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <iostream>
 
 // Warning: order of those include is important.
 #include <QDebug>
@@ -75,7 +76,9 @@ TrayIcon::TrayIcon(Window iconId, QSize const & iconSize, QWidget* parent):
     mWindowId(0),
     mIconSize(iconSize),
     mDamage(0),
-    mDisplay(QX11Info::display())
+    mDisplay(QX11Info::display()),
+    mForceIconSize(false),
+    mForcedIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT)
 {
     // NOTE:
     // it's a good idea to save the return value of QX11Info::display().
@@ -244,14 +247,33 @@ QSize TrayIcon::sizeHint() const
  ************************************************/
 void TrayIcon::setIconSize(QSize iconSize)
 {
-    mIconSize = iconSize;
+    // Allow to have a tray-only icon size
+    if(mForceIconSize)
+        mIconSize = mForcedIconSize;
+    else
+        mIconSize = iconSize;
 
-    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
+    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};    
+    std::cout << "TrayIcon::setIconSize(" << req_size.width() << ")" << std::endl;
     if (mWindowId)
         xfitMan().resizeWindow(mWindowId, req_size.width(), req_size.height());
 
     if (mIconId)
         xfitMan().resizeWindow(mIconId, req_size.width(), req_size.height());
+}
+
+void TrayIcon::enableForcedIconSize(QSize iconSize)
+{
+    mForceIconSize = true;
+    mForcedIconSize = iconSize;
+    
+    // do a refresh NOW
+    setIconSize(iconSize);
+}
+
+void TrayIcon::disableForcedIconSize()
+{
+    mForceIconSize = false;
 }
 
 
