@@ -58,9 +58,6 @@ public:
     void setIconSize(QSize iconSize);
 
     QSize sizeHint() const;
-    
-    void enableForcedIconSize(QSize size);
-    void disableForcedIconSize();
 
 protected:
     bool event(QEvent *event);

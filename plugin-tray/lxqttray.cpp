@@ -30,7 +30,7 @@
 
 *********************************************************************/
 
-#include <iostream>
+#include <QWidget>
 
 #include <QApplication>
 #include <QDebug>
@@ -237,7 +237,6 @@ void LXQtTray::setIconSize(QSize iconSize)
         mIconSize = iconSize;
     
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
-    std::cout << "LXQtTray::setIconSize(" << size << ")" << std::endl;
     XChangeProperty(mDisplay,
                     mTrayId,
                     XfitMan::atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
@@ -260,8 +259,14 @@ void LXQtTray::enableForcedIconSize(QSize iconSize)
     // and iterate over the existing icons
     foreach(TrayIcon* i, mIcons)
     {
-        i->enableForcedIconSize(iconSize);
+        i->setIconSize(iconSize);
     }
+    
+    QStringList sheet;
+    sheet << QString("LXQtTray { qproperty-iconSize : %1px %1px; }").arg(iconSize.width());
+    sheet << QString("TrayIcon { qproperty-iconSize : %1px %1px; }").arg(iconSize.width());
+    
+    setStyleSheet(sheet.join("\n"));
     
     mLayout->invalidate();
     mLayout->update();
@@ -271,10 +276,13 @@ void LXQtTray::disableForcedIconSize()
 {
     mForceIconSize = false;
     
-    foreach(TrayIcon* i, mIcons)
+    /*foreach(TrayIcon* i, mIcons)
     {
         i->disableForcedIconSize();
-    }
+    }*/
+    
+    setStyleSheet("");
+    
     mLayout->invalidate();
     mLayout->update();
 }
@@ -428,8 +436,6 @@ void LXQtTray::onIconDestroyed(QObject * icon)
 void LXQtTray::addIcon(Window winId)
 {
     TrayIcon* icon = new TrayIcon(winId, mIconSize, this);
-    if(mForceIconSize)
-        icon->enableForcedIconSize(mForcedIconSize);
     mIcons.append(icon);
     mLayout->addWidget(icon);
     connect(icon, &QObject::destroyed, this, &LXQtTray::onIconDestroyed);

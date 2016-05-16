@@ -55,9 +55,7 @@ void LXQtTrayPlugin::realign()
 {
     mWidget->realign();
 }
-/************************************************
 
- ************************************************/
 QDialog * LXQtTrayPlugin::configureDialog()
 {
      return new LXQtTrayConfiguration(settings());
@@ -73,7 +71,4 @@ void LXQtTrayPlugin::settingsChanged()
     else
         mWidget->disableForcedIconSize();
     
-    // does this help ?
-    realign();
-//     mWidget->setIconSize(QSize(mIconSize, mIconSize));
 }
