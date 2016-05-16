@@ -30,6 +30,8 @@
 
 *********************************************************************/
 
+#include <QWidget>
+
 #include <QApplication>
 #include <QDebug>
 #include <QTimer>
@@ -74,7 +76,9 @@ LXQtTray::LXQtTray(ILXQtPanelPlugin *plugin, QWidget *parent):
     mDamageError(0),
     mIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT),
     mPlugin(plugin),
-    mDisplay(QX11Info::display())
+    mDisplay(QX11Info::display()),
+    mForceIconSize(false),
+    mForcedIconSize(TRAY_ICON_SIZE_DEFAULT, TRAY_ICON_SIZE_DEFAULT)
 {
     mLayout = new LXQt::GridLayout(this);
     realign();
@@ -226,7 +230,12 @@ TrayIcon* LXQtTray::findIcon(Window id)
 ************************************************/
 void LXQtTray::setIconSize(QSize iconSize)
 {
-    mIconSize = iconSize;
+    // Allow to have a tray-only icon size
+    if(mForceIconSize)
+        mIconSize = mForcedIconSize;
+    else
+        mIconSize = iconSize;
+    
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
     XChangeProperty(mDisplay,
                     mTrayId,
@@ -238,6 +247,40 @@ void LXQtTray::setIconSize(QSize iconSize)
                     1);
 }
 
+
+void LXQtTray::enableForcedIconSize(QSize iconSize)
+{
+    mForceIconSize = true;
+    mForcedIconSize = iconSize;
+    
+    // do a refresh
+    setIconSize(iconSize);
+    
+    // and iterate over the existing icons
+    foreach(TrayIcon* i, mIcons)
+    {
+        i->setIconSize(iconSize);
+    }
+    
+    QStringList sheet;
+    sheet << QString("LXQtTray { qproperty-iconSize : %1px %1px; }").arg(iconSize.width());
+    sheet << QString("TrayIcon { qproperty-iconSize : %1px %1px; }").arg(iconSize.width());
+    
+    setStyleSheet(sheet.join("\n"));
+    
+    mLayout->invalidate();
+    mLayout->update();
+}
+
+void LXQtTray::disableForcedIconSize()
+{
+    mForceIconSize = false;
+    
+    setStyleSheet("");
+    
+    mLayout->invalidate();
+    mLayout->update();
+}
 
 /************************************************
 
@@ -392,4 +435,3 @@ void LXQtTray::addIcon(Window winId)
     mLayout->addWidget(icon);
     connect(icon, &QObject::destroyed, this, &LXQtTray::onIconDestroyed);
 }
-
