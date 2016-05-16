@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>309</width>
-    <height>144</height>
+    <height>137</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Tray Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -28,30 +28,31 @@
        </widget>
       </item>
       <item>
-       <widget class="QSplitter" name="splitter">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <widget class="QLabel" name="iconSizeL">
-         <property name="text">
-          <string>Icon size</string>
-         </property>
-        </widget>
-        <widget class="QSpinBox" name="iconSizeSB">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>1107</height>
-          </size>
-         </property>
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="minimum">
-          <number>5</number>
-         </property>
-        </widget>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="iconSizeL">
+          <property name="text">
+           <string>Icon size</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="iconSizeSB">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>1107</height>
+           </size>
+          </property>
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

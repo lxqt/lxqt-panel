@@ -25,7 +25,6 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <iostream>
 
 // Warning: order of those include is important.
 #include <QDebug>
@@ -247,14 +246,14 @@ void TrayIcon::setIconSize(QSize iconSize)
 {
     mIconSize = iconSize;
 
-    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};    
-    std::cout << "TrayIcon::setIconSize(" << req_size.width() << ")" << std::endl;
+    const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
     if (mWindowId)
         xfitMan().resizeWindow(mWindowId, req_size.width(), req_size.height());
 
     if (mIconId)
         xfitMan().resizeWindow(mIconId, req_size.width(), req_size.height());
 }
+
 
 /************************************************
 
