@@ -21,6 +21,10 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
             ${PULL_TRANSLATIONS}
         CLEAN_TRANSLATIONS
             ${CLEAN_TRANSLATIONS}
+        TRANSLATIONS_REPO
+            ${TRANSLATIONS_REPO}
+        TRANSLATIONS_REFSPEC
+            ${TRANSLATIONS_REFSPEC}
         REPO_SUBDIR
             "${PROGRAM}/plugin-${NAME}"
     )
