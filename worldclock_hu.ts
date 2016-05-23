@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../../../lxqtworldclock.cpp" line="185"/>
+        <location filename="../../../lxqtworldclock.cpp" line="191"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="594"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Custom name</source>
         <translation>Egyedi</translation>
     </message>
@@ -228,12 +228,12 @@
         <translation>Függöleges panelnél görgetés</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="105"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="594"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="577"/>
         <source>Input custom time zone name</source>
         <translation>Egyéb időzóna név</translation>
     </message>
@@ -282,7 +282,7 @@
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;the timezone short display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;the timezone long display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;b&gt;Note:&lt;/b&gt; Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/p&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -315,18 +315,18 @@
         <translation>Ország</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="115"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="116"/>
         <source>UTC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="118"/>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="126"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="119"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
         <source>Other</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Local timezone</source>
         <translation>Helyi idő</translation>
     </message>

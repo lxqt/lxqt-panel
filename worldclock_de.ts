@@ -123,7 +123,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="595"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Custom name</source>
         <translation>Eigener Name</translation>
     </message>
@@ -228,12 +228,12 @@
         <translation>&amp;Bei senkrechter Leiste automatisch drehen</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="105"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="594"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="577"/>
         <source>Input custom time zone name</source>
         <translation>Eigenen Zeitzonennamen eingeben</translation>
     </message>
