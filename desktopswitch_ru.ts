@@ -23,6 +23,11 @@
         <translation>Настройки переключения рабочих столов</translation>
     </message>
     <message>
+        <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
         <translation>Количество рядов:</translation>
@@ -33,9 +38,8 @@
         <translation>Метки рабочих столов:</translation>
     </message>
     <message>
-        <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Rows</source>
-        <translation>Ряды</translation>
+        <translation type="vanished">Ряды</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="54"/>
