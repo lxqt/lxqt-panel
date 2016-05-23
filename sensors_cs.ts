@@ -68,17 +68,17 @@
         <translation>Vlastnosti čipů:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
         <translation>Povoleno</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
         <translation>Štítek</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>

@@ -68,17 +68,17 @@
         <translation>Chips caracteristicas:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
         <translation>Habilitado</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>

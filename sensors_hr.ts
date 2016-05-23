@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hr_HR">
+<TS version="2.1" language="hr_HR">
 <context>
     <name>LXQtSensorsConfiguration</name>
     <message>
@@ -64,17 +64,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
         <translation type="unfinished">Omogućeno</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtsensorsconfiguration.cpp" line="212"/>
+        <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Color</source>
         <translation type="unfinished">Boja</translation>
     </message>
