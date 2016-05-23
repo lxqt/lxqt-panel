@@ -8,7 +8,7 @@
         <translation type="vanished">Uporaba CPE: %1 %</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
         <translation type="unfinished"></translation>
     </message>
@@ -55,22 +55,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Od spodaj navzgor</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Od zgoraj navzdol</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Iz leve proti desni</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Iz desne proti levi</translation>
     </message>

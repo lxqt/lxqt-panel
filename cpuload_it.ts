@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it">
+<TS version="2.1" language="it">
 <context>
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation>Carico del processore %1%</translation>
+        <translation type="vanished">Carico del processore %1%</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
         <translation>Carico del processore %1%</translation>
     </message>
@@ -17,7 +17,7 @@
     <name>LXQtCpuLoadConfiguration</name>
     <message>
         <source>LXQt Cpu Load settings</source>
-        <translation>Impostazioni del carico del processore di LXQt</translation>
+        <translation type="vanished">Impostazioni del carico del processore di LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
@@ -55,22 +55,22 @@
         <translation>Larghezza barra:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Dal basso all&apos;alto</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Dall&apos;alto al basso</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Da sinistra a destra</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Da destra a sinistra</translation>
     </message>

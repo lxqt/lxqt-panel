@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
         <translation>CPU load %1%</translation>
     </message>
@@ -47,22 +47,22 @@
         <translation>Sáv szélesség:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Felfele</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Lefele</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Jobbra</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Balra</translation>
     </message>

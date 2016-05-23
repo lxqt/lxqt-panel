@@ -8,7 +8,7 @@
         <translation type="vanished">Obciążenie CPU %1%</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
         <translation>Obciążenie procesora %1%</translation>
     </message>
@@ -55,22 +55,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Z dołu do góry</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Z góry na dół</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Lewo na prawo</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Prawo na lewo</translation>
     </message>

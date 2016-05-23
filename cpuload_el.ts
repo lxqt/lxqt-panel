@@ -5,10 +5,10 @@
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation>Φορτίο επεξεργαστή %1%</translation>
+        <translation type="vanished">Φορτίο επεξεργαστή %1%</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="124"/>
+        <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
         <translation>Φορτίο επεξεργαστή %1%</translation>
     </message>
@@ -55,22 +55,22 @@
         <translation>Πλάτος ράβδου:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>Κάτω προς τα πάνω</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>Πάνω προς τα κάτω</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Αριστερά προς δεξιά</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Δεξιά προς αριστερά</translation>
     </message>
