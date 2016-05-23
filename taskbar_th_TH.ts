@@ -4,87 +4,87 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="430"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="477"/>
         <source>Application</source>
         <translation>โปรแกรม</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="463"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="511"/>
         <source>To &amp;Desktop</source>
         <translation>ไปยัง &amp;พ&amp;ื&amp;้นโต๊ะ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="465"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="513"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;ท&amp;ุกพื้นโต๊ะ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="473"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="521"/>
         <source>Desktop &amp;%1</source>
         <translation>พื้นโต๊ะ &amp;%1</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="480"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="528"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;ไปยังพื้นโต๊ะปัจจุบัน</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="489"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="537"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;ขยายแผ่</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="496"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="544"/>
         <source>Maximize vertically</source>
         <translation>ขยายแผ่ทางแนวตั้ง</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="501"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="549"/>
         <source>Maximize horizontally</source>
         <translation>ขยายแผ่ทางแนวนอน</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="507"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="555"/>
         <source>&amp;Restore</source>
         <translation>&amp;ค&amp;ืนสภาพ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="511"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="559"/>
         <source>Mi&amp;nimize</source>
         <translation>&amp;ย&amp;่อเก็บ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="517"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="565"/>
         <source>Roll down</source>
         <translation>ม้วนลง</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="523"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="571"/>
         <source>Roll up</source>
         <translation>ม้วนขึ้น</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="531"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="579"/>
         <source>&amp;Layer</source>
         <translation>&amp;ลำดับชั้น</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="533"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="581"/>
         <source>Always on &amp;top</source>
         <translation>ด้าน&amp;หน้าเสมอ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="539"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="587"/>
         <source>&amp;Normal</source>
         <translation>&amp;ปกติ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="545"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="593"/>
         <source>Always on &amp;bottom</source>
         <translation>ด้านหลัง&amp;งเสมอ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="553"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="601"/>
         <source>&amp;Close</source>
         <translation>ปิ&amp;ด</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../../../lxqttaskgroup.cpp" line="81"/>
+        <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskgroup.cpp" line="82"/>
+        <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,38 +123,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="26"/>
-        <source>Show windows from c&amp;urrent desktop</source>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
+        <source>Show only windows from desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="36"/>
-        <source>Show windows from all des&amp;ktops</source>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
+        <source>Show only windows from &amp;panel&apos;s screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="56"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
+        <source>Show only minimized windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
+        <source>Raise minimized windows on current desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="65"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="75"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="94"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="107"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
+        <source>Maximum button height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
+        <source>Use icons by WindowClass, if available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -166,7 +187,7 @@
         <translation type="vanished">แสดงหน้าต่างจากทุกพื้นโต๊ะ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="120"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation type="unfinished"></translation>
     </message>
@@ -175,7 +196,7 @@
         <translation type="vanished">ลักษณะรายการหน้าต่าง</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="84"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
         <source>Button style</source>
         <translation>รูปแบบปุ่ม</translation>
     </message>
@@ -184,24 +205,29 @@
         <translation type="vanished">ความกว้างปุ่มขนาดสูงสุด</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
         <source>Close on middle-click</source>
         <translation>ปิดด้วยการคลิกปุ่มกลาง</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../../../lxqttaskbarconfiguration.cpp" line="45"/>
         <source>Icon and text</source>
         <translation>ไอคอนและข้อความ</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../../../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Only icon</source>
         <translation>ไอคอนเท่านั้น</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../../../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only text</source>
         <translation>ข้อความเท่านั้น</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
+        <source>Current</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
