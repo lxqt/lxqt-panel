@@ -4,48 +4,48 @@
 <context>
     <name>Content</name>
     <message>
-        <location filename="../../../src/content.cpp" line="17"/>
+        <location filename="../../../src/content.cpp" line="43"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
         <translation>C</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="20"/>
+        <location filename="../../../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
         <translation>CapsLock</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="24"/>
+        <location filename="../../../src/content.cpp" line="50"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
         <translation>N</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="26"/>
+        <location filename="../../../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
         <translation>NumLock</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="31"/>
+        <location filename="../../../src/content.cpp" line="57"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="33"/>
+        <location filename="../../../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
         <translation>ScrollLock</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="63"/>
+        <location filename="../../../src/content.cpp" line="90"/>
         <source>Layout</source>
         <translation>Kiosztás</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="63"/>
+        <location filename="../../../src/content.cpp" line="90"/>
         <source>Variant</source>
         <translation>Változat</translation>
     </message>
@@ -53,14 +53,22 @@
 <context>
     <name>KbdStateConfig</name>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard indicator settings</source>
-        <translation>Billentyűzetjelző beállítás</translation>
+        <translation type="vanished">Billentyűzetjelző beállítás</translation>
+    </message>
+    <message>
+        <source>LEDs</source>
+        <translation type="vanished">LED-ek</translation>
+    </message>
+    <message>
+        <location filename="../../../src/kbdstateconfig.ui" line="14"/>
+        <source>Keyboard state settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="20"/>
-        <source>LEDs</source>
-        <translation>LED-ek</translation>
+        <source>Lock Indicators</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="26"/>
@@ -78,39 +86,50 @@
         <translation>Scroll Lock be</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="74"/>
+        <location filename="../../../src/kbdstateconfig.ui" line="50"/>
+        <source>Keyboard Layout Indicator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../src/kbdstateconfig.ui" line="62"/>
+        <source>Switching policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../src/kbdstateconfig.ui" line="102"/>
+        <source>Configure layouts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show keyboard layout</source>
-        <translation>Billentyűzet kiosztás be</translation>
+        <translation type="vanished">Billentyűzet kiosztás be</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="99"/>
         <source>Show flags instead labels</source>
-        <translation>Betű helyett zászló</translation>
+        <translation type="vanished">Betű helyett zászló</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="106"/>
         <source>Layout mode:</source>
-        <translation>KIjelző mód:</translation>
+        <translation type="vanished">KIjelző mód:</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="116"/>
+        <location filename="../../../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
         <translation>Globális</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="129"/>
+        <location filename="../../../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
         <translation>Ablak</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="142"/>
+        <location filename="../../../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="152"/>
         <source>Configure layouts...</source>
-        <translation>Kijelzés beállítása...</translation>
+        <translation type="vanished">Kijelzés beállítása...</translation>
     </message>
 </context>
 </TS>
