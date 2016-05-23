@@ -344,17 +344,17 @@ Do you want to remove this panel?</source>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../../../plugin.cpp" line="381"/>
+        <location filename="../../../plugin.cpp" line="385"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Настроить «%1»</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="386"/>
+        <location filename="../../../plugin.cpp" line="390"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Переместить «%1»</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="394"/>
+        <location filename="../../../plugin.cpp" line="398"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Удалить «%1»</translation>
     </message>

@@ -344,17 +344,17 @@ Soll die Leiste entfernt werden?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../../../plugin.cpp" line="381"/>
+        <location filename="../../../plugin.cpp" line="385"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>&quot;%1&quot; konfigurieren</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="386"/>
+        <location filename="../../../plugin.cpp" line="390"/>
         <source>Move &quot;%1&quot;</source>
         <translation>&quot;%1&quot; verschieben</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="394"/>
+        <location filename="../../../plugin.cpp" line="398"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>&quot;%1&quot; entfernen</translation>
     </message>
