@@ -4,7 +4,7 @@
 <context>
     <name>Button</name>
     <message>
-        <location filename="../../../button.cpp" line="36"/>
+        <location filename="../../../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
         <translation>Entfernbare Medien-/Geräteverwaltung</translation>
     </message>
@@ -63,18 +63,18 @@
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="153"/>
+        <location filename="../../../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
         <translation>Das Einbinden von &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ist fehlgeschlagen: %2</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="155"/>
-        <location filename="../../../menudiskitem.cpp" line="176"/>
+        <location filename="../../../menudiskitem.cpp" line="157"/>
+        <location filename="../../../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
         <translation>Entfernbare Medien-/Geräteverwaltung</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="174"/>
+        <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>Das Lösen von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
     </message>

@@ -2,19 +2,60 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pl_PL">
 <context>
+    <name>Button</name>
+    <message>
+        <location filename="../../../button.cpp" line="38"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Menedżer nośników wymiennych</translation>
+    </message>
+</context>
+<context>
+    <name>Configuration</name>
+    <message>
+        <location filename="../../../configuration.ui" line="14"/>
+        <source>Removable Media Settings</source>
+        <translation type="unfinished">Ustawienia nośników wymiennych</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="20"/>
+        <source>Behaviour</source>
+        <translation type="unfinished">Zachowanie</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="26"/>
+        <source>When a device is connected :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="40"/>
+        <source>Popup menu</source>
+        <translation type="unfinished">Pokaż listę</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="41"/>
+        <source>Show info</source>
+        <translation type="unfinished">Pokaż informacje</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="42"/>
+        <source>Do nothing</source>
+        <translation type="unfinished">Nic nierób</translation>
+    </message>
+</context>
+<context>
     <name>DeviceActionInfo</name>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
         <translation>Nośnik &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; jest podłączony.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="53"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
         <translation>Nośnik &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; jest odłączony.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="59"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
         <translation>Menedżer nośników wymiennych</translation>
     </message>
@@ -26,34 +67,28 @@
         <translation type="vanished">Ustawienia menedżera nośników wymiennych</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Ustawienia nośników wymiennych</translation>
+        <translation type="vanished">Ustawienia nośników wymiennych</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Zachowanie</translation>
+        <translation type="vanished">Zachowanie</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
-        <translation>Kiedy nośnik jest podłączony</translation>
+        <translation type="vanished">Kiedy nośnik jest podłączony</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation>Pokaż listę</translation>
+        <translation type="vanished">Pokaż listę</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
-        <translation>Pokaż informacje</translation>
+        <translation type="vanished">Pokaż informacje</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
-        <translation>Nic nierób</translation>
+        <translation type="vanished">Nic nierób</translation>
     </message>
 </context>
 <context>
@@ -67,18 +102,18 @@
         <translation type="vanished">Kliknij aby wysunąć ten dysk.</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="120"/>
         <location filename="../../../menudiskitem.cpp" line="155"/>
+        <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../menudiskitem.cpp" line="157"/>
+        <location filename="../../../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
         <translation type="unfinished">Menedżer nośników wymiennych</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="121"/>
-        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../menudiskitem.cpp" line="156"/>
+        <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,9 +121,8 @@
 <context>
     <name>MountButton</name>
     <message>
-        <location filename="../../../mountbutton.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Menedżer nośników wymiennych</translation>
+        <translation type="vanished">Menedżer nośników wymiennych</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>

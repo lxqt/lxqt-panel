@@ -2,19 +2,60 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>Button</name>
+    <message>
+        <location filename="../../../button.cpp" line="38"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Gestionnaire de médias/périphériques amovibles</translation>
+    </message>
+</context>
+<context>
+    <name>Configuration</name>
+    <message>
+        <location filename="../../../configuration.ui" line="14"/>
+        <source>Removable Media Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="20"/>
+        <source>Behaviour</source>
+        <translation type="unfinished">Comportement</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="26"/>
+        <source>When a device is connected :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="40"/>
+        <source>Popup menu</source>
+        <translation type="unfinished">Menu pop-up</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="41"/>
+        <source>Show info</source>
+        <translation type="unfinished">Montrer les informations</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="42"/>
+        <source>Do nothing</source>
+        <translation type="unfinished">Ne rien faire</translation>
+    </message>
+</context>
+<context>
     <name>DeviceActionInfo</name>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
         <translation type="unfinished">Le périphérique &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;est connecté.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="53"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
         <translation type="unfinished">Le périphérique &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a été retiré.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="59"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
         <translation type="unfinished">Gestionnaire de médias/périphériques amovibles</translation>
     </message>
@@ -26,34 +67,24 @@
         <translation type="vanished">Paramètres du gestionnaire de médias amovibles</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="14"/>
-        <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Comportement</translation>
+        <translation type="vanished">Comportement</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
-        <translation>Quand un périphérique est connecté </translation>
+        <translation type="vanished">Quand un périphérique est connecté </translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation>Menu pop-up</translation>
+        <translation type="vanished">Menu pop-up</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
-        <translation>Montrer les informations</translation>
+        <translation type="vanished">Montrer les informations</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
-        <translation>Ne rien faire</translation>
+        <translation type="vanished">Ne rien faire</translation>
     </message>
 </context>
 <context>
@@ -67,18 +98,18 @@
         <translation type="vanished">Cliquez pour éjecter ce disque.</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="120"/>
         <location filename="../../../menudiskitem.cpp" line="155"/>
+        <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../menudiskitem.cpp" line="157"/>
+        <location filename="../../../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
         <translation type="unfinished">Gestionnaire de médias/périphériques amovibles</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="121"/>
-        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../menudiskitem.cpp" line="156"/>
+        <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,9 +117,8 @@
 <context>
     <name>MountButton</name>
     <message>
-        <location filename="../../../mountbutton.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Gestionnaire de médias/périphériques amovibles</translation>
+        <translation type="vanished">Gestionnaire de médias/périphériques amovibles</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>

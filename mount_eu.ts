@@ -2,19 +2,60 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="eu">
 <context>
+    <name>Button</name>
+    <message>
+        <location filename="../../../button.cpp" line="38"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">Eduki/gailu aldagarrien kudeatzailea</translation>
+    </message>
+</context>
+<context>
+    <name>Configuration</name>
+    <message>
+        <location filename="../../../configuration.ui" line="14"/>
+        <source>Removable Media Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="20"/>
+        <source>Behaviour</source>
+        <translation type="unfinished">Portaera</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.ui" line="26"/>
+        <source>When a device is connected :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="40"/>
+        <source>Popup menu</source>
+        <translation type="unfinished">Laster-menua</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="41"/>
+        <source>Show info</source>
+        <translation type="unfinished">Erakutsi informazioa</translation>
+    </message>
+    <message>
+        <location filename="../../../configuration.cpp" line="42"/>
+        <source>Do nothing</source>
+        <translation type="unfinished">Ez egin ezer</translation>
+    </message>
+</context>
+<context>
     <name>DeviceActionInfo</name>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
         <translation type="unfinished">&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua konektatuta.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="53"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
         <translation type="unfinished">&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua kenduta.</translation>
     </message>
     <message>
-        <location filename="../../../actions/deviceaction_info.cpp" line="59"/>
+        <location filename="../../../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
         <translation type="unfinished">Eduki/gailu aldagarrien kudeatzailea</translation>
     </message>
@@ -26,34 +67,24 @@
         <translation type="vanished">LXQt gailu aldagarrien kudeatzailearen ezarpenak</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="14"/>
-        <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Portaera</translation>
+        <translation type="vanished">Portaera</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.ui" line="26"/>
         <source>When a device is connected </source>
-        <translation>Gailu bat konektatzean</translation>
+        <translation type="vanished">Gailu bat konektatzean</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation>Laster-menua</translation>
+        <translation type="vanished">Laster-menua</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="45"/>
         <source>Show info</source>
-        <translation>Erakutsi informazioa</translation>
+        <translation type="vanished">Erakutsi informazioa</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmountconfiguration.cpp" line="46"/>
         <source>Do nothing</source>
-        <translation>Ez egin ezer</translation>
+        <translation type="vanished">Ez egin ezer</translation>
     </message>
 </context>
 <context>
@@ -67,18 +98,18 @@
         <translation type="vanished">Klikatu diskoa egozteko.</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="120"/>
         <location filename="../../../menudiskitem.cpp" line="155"/>
+        <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../menudiskitem.cpp" line="157"/>
+        <location filename="../../../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
         <translation type="unfinished">Eduki/gailu aldagarrien kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../../../menudiskitem.cpp" line="121"/>
-        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../menudiskitem.cpp" line="156"/>
+        <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,9 +117,8 @@
 <context>
     <name>MountButton</name>
     <message>
-        <location filename="../../../mountbutton.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Eduki/gailu aldagarrien kudeatzailea</translation>
+        <translation type="vanished">Eduki/gailu aldagarrien kudeatzailea</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
