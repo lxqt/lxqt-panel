@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="219"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>Drop Error</source>
         <translation>Problem dodawania</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="220"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Plik/URL &apos;%1&apos; nie może zostać umiesczony na pasku szybkiego uruchamiania</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="327"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
         <translation>Upuść ikonę aplikacji tutaj</translation>
@@ -23,17 +23,17 @@ icons here</source>
 <context>
     <name>QuickLaunchButton</name>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="52"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
         <translation>Przesuń w lewo</translation>
     </message>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="55"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
         <translation>Przesuń w prawo</translation>
     </message>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="59"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
         <translation>Usuń z paska szybkiego uruchamiania</translation>
     </message>

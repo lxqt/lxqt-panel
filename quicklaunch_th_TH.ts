@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="219"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>Drop Error</source>
         <translation>การหย่อนขัดข้อง</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="220"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>แฟ้ม/URL &apos;%1&apos; ไม่สามารถฝังตัวไปยังตัวเรียกโปรแกรมด่วนได้ในตอนนี้</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="327"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
         <translation type="unfinished"></translation>
@@ -23,17 +23,17 @@ icons here</source>
 <context>
     <name>QuickLaunchButton</name>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="52"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
         <translation>ย้ายไปทางซ้าย</translation>
     </message>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="55"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
         <translation>ย้ายไปทางขวา</translation>
     </message>
     <message>
-        <location filename="../../../quicklaunchbutton.cpp" line="59"/>
+        <location filename="../../../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
         <translation>ลบออกจากตัวเรียกโปรแกรมด่วน</translation>
     </message>
