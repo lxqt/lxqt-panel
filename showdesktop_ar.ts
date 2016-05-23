@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../showdesktop.cpp" line="69"/>
+        <location filename="../../../showdesktop.cpp" line="70"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>إظهار سطح المكتب: ﻻ يمكن تسجيل اختصار لوحة المفاتيح العامُّ `%1`</translation>
     </message>
