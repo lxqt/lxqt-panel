@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it">
+<TS version="2.1" language="it">
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
@@ -53,7 +53,7 @@
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
         <source>LXQt Network Monitor settings</source>
-        <translation>Impostazioni del monitor di rete di LXQt</translation>
+        <translation type="vanished">Impostazioni del monitor di rete di LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
