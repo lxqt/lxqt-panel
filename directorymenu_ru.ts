@@ -27,6 +27,11 @@
         <translation>Начальная папка:</translation>
     </message>
     <message>
+        <location filename="../../../directorymenuconfiguration.ui" line="39"/>
+        <source>BaseDirectoryName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
         <translation>Значок:</translation>

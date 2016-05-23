@@ -37,27 +37,27 @@
         <translation>Ikon:</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation>Aapkönyvtár kijelölés</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation>Ikon kijelölés</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Ikomok (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation>Könyvtármenü</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Az ikon betöltése sikertelen.</translation>
     </message>

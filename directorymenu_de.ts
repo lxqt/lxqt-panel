@@ -37,27 +37,27 @@
         <translation>Symbol:</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation>Basisverzeichnis auswählen</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation>Symbol auswählen</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Symbole (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="132"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation>Verzeichnismenü</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="132"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Beim Laden des Symbols trat ein Fehler auf.</translation>
     </message>
