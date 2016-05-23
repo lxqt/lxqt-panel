@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu">
+<TS version="2.1" language="hu">
 <context>
     <name>LXQtVolume</name>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="63"/>
+        <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
         <translation>Hangosítás</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="69"/>
+        <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
         <translation>Halkítás</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="75"/>
+        <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
         <translation>Némítás/megszólaltatás</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="136"/>
+        <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Hangerőszabályozó: A %1 gyorsbillentyű regisztrálhatatlan</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="219"/>
-        <location filename="../../../lxqtvolume.cpp" line="229"/>
+        <location filename="../../../lxqtvolume.cpp" line="223"/>
+        <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
         <translation>Hangerő: %1</translation>
     </message>
@@ -91,14 +91,18 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
         <translation>Keverő futtatása</translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="55"/>
+        <location filename="../../../volumepopup.cpp" line="54"/>
+        <source>Mi&amp;xer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mixer</source>
-        <translation>Keverő</translation>
+        <translation type="vanished">Keverő</translation>
     </message>
 </context>
 </TS>

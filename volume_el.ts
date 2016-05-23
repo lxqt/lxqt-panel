@@ -8,28 +8,28 @@
         <translation type="vanished">Εμφάνιση επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="63"/>
+        <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
         <translation>Αύξηση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="69"/>
+        <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
         <translation>Μείωση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="75"/>
+        <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
         <translation>Σίγαση/αποσίγαση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="136"/>
+        <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις μπόρεσαν να καταχωρηθούν: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="219"/>
-        <location filename="../../../lxqtvolume.cpp" line="229"/>
+        <location filename="../../../lxqtvolume.cpp" line="223"/>
+        <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
         <translation>Ένταση: %1</translation>
     </message>
@@ -38,7 +38,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation>Ρυθμίσεις ελέγχου έντασης ήχου του LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις ελέγχου έντασης ήχου του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
@@ -99,14 +99,18 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
         <translation>Εκτέλεση του μίκτη</translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="55"/>
+        <location filename="../../../volumepopup.cpp" line="54"/>
+        <source>Mi&amp;xer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mixer</source>
-        <translation>Μίκτης</translation>
+        <translation type="vanished">Μίκτης</translation>
     </message>
 </context>
 </TS>

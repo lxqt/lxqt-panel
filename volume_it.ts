@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it">
+<TS version="2.1" language="it">
 <context>
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
+        <translation type="vanished">Mostra desktop: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="63"/>
+        <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
         <translation>Aumenta il volume</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="69"/>
+        <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
         <translation>Riduci il volume</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="75"/>
+        <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
         <translation>Silenzia/rimuovi silenzio per il volume</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="136"/>
+        <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Controllo volume: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="219"/>
-        <location filename="../../../lxqtvolume.cpp" line="229"/>
+        <location filename="../../../lxqtvolume.cpp" line="223"/>
+        <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
         <translation>Volume: %1</translation>
     </message>
@@ -38,7 +38,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation>Impostazioni del controllo del volume di LXQt</translation>
+        <translation type="vanished">Impostazioni del controllo del volume di LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
@@ -99,14 +99,18 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
         <translation>Avvia mixer</translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="55"/>
+        <location filename="../../../volumepopup.cpp" line="54"/>
+        <source>Mi&amp;xer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mixer</source>
-        <translation>Mixer</translation>
+        <translation type="vanished">Mixer</translation>
     </message>
 </context>
 </TS>

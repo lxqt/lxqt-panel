@@ -8,28 +8,28 @@
         <translation type="vanished">Montrer le bureau : le raccourci global &apos;%1&apos; ne peut pas être défini</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="63"/>
+        <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="69"/>
+        <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="75"/>
+        <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="136"/>
+        <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="219"/>
-        <location filename="../../../lxqtvolume.cpp" line="229"/>
+        <location filename="../../../lxqtvolume.cpp" line="223"/>
+        <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -95,13 +95,13 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="55"/>
-        <source>Mixer</source>
+        <location filename="../../../volumepopup.cpp" line="54"/>
+        <source>Mi&amp;xer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
