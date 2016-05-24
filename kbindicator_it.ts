@@ -7,47 +7,47 @@
         <location filename="../../../src/content.cpp" line="43"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>M</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Blocco maiuscolo</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="50"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Blocco numeri</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="57"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Blocco scorrimento</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappatura</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="90"/>
         <source>Variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Variante</translation>
     </message>
 </context>
 <context>
@@ -55,76 +55,57 @@
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation type="unfinished"></translation>
+        <translation>Indicatori di blocco</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra blocco maiuscolo</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra blocco numeri</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra blocco scorrimento</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra mappatura</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="69"/>
-        <source>Global</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="79"/>
-        <source>Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../src/kbdstateconfig.ui" line="89"/>
-        <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambio mappatura</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LXQtKbIndicatorConfiguration</name>
-    <message>
-        <source>Keyboard Indicator Settings</source>
-        <translation type="vanished">Indicatori</translation>
+        <translation>Configura la mappatura</translation>
     </message>
     <message>
-        <source>Caps Lock</source>
-        <translation type="vanished">Blocco maiuscolo</translation>
+        <location filename="../../../src/kbdstateconfig.ui" line="69"/>
+        <source>Global</source>
+        <translation>Globale</translation>
     </message>
     <message>
-        <source>Num Lock</source>
-        <translation type="vanished">Blocco numeri</translation>
+        <location filename="../../../src/kbdstateconfig.ui" line="79"/>
+        <source>Window</source>
+        <translation>Finestra</translation>
     </message>
     <message>
-        <source>Scroll Lock</source>
-        <translation type="vanished">Blocco scorrimento</translation>
+        <location filename="../../../src/kbdstateconfig.ui" line="89"/>
+        <source>Application</source>
+        <translation>Applicazione</translation>
     </message>
 </context>
 </TS>
