@@ -76,32 +76,6 @@ void DirectoryMenu::showMenu()
         buildMenu(QDir::homePath());
     }
 
-
-    int x=0, y=0;
-
-    switch (panel()->position())
-    {
-        case ILXQtPanel::PositionTop:
-            x = mButton.mapToGlobal(QPoint(0, 0)).x();
-            y = panel()->globalGometry().bottom();
-            break;
-
-        case ILXQtPanel::PositionBottom:
-            x = mButton.mapToGlobal(QPoint(0, 0)).x();
-            y = panel()->globalGometry().top() - mMenu->sizeHint().height();
-            break;
-
-        case ILXQtPanel::PositionLeft:
-            x = panel()->globalGometry().right();
-            y = mButton.mapToGlobal(QPoint(0, 0)).y();
-            break;
-
-        case ILXQtPanel::PositionRight:
-            x = panel()->globalGometry().left() - mMenu->sizeHint().width();
-            y = mButton.mapToGlobal(QPoint(0, 0)).y();
-            break;
-    }
-
     willShowWindow(mMenu);
     // Just using Qt`s activateWindow() won't work on some WMs like Kwin.
     // Solution is to execute menu 1ms later using timer
