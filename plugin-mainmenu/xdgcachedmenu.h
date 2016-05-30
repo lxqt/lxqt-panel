@@ -48,6 +48,7 @@ private Q_SLOTS:
 
 private:
     QPoint mDragStartPosition;
+    guint32 menu_cache_desktop_env_flag_;
 };
 
 class XdgCachedMenuAction: public QAction

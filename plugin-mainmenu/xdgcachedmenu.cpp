@@ -73,6 +73,7 @@ XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(paren
 {
     // qDebug() << "CREATE MENU FROM CACHE" << menuCache;
     MenuCacheDir* dir = menu_cache_get_root_dir(menuCache);
+    menu_cache_desktop_env_flag_ = menu_cache_get_desktop_env_flag(menuCache, "LXQt:X-LXQt:LXQT:X-LXQT");
     addMenuItems(this, dir);
     connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
 }
@@ -95,15 +96,25 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
     }
     else
     {
+      bool appVisible = type == MENU_CACHE_TYPE_APP
+          && menu_cache_app_get_is_visible(MENU_CACHE_APP(item),
+                                           menu_cache_desktop_env_flag_);
+      bool dirVisible = type == MENU_CACHE_TYPE_DIR
+          && menu_cache_dir_is_visible(MENU_CACHE_DIR(item));
+
+      if(!appVisible && !dirVisible)
+        continue;
+
       XdgCachedMenuAction* action = new XdgCachedMenuAction(item, menu);
       menu->addAction(action);
+
       if(type == MENU_CACHE_TYPE_APP)
         connect(action, SIGNAL(triggered(bool)), SLOT(onItemTrigerred()));
       else if(type == MENU_CACHE_TYPE_DIR)
       {
         XdgCachedMenu* submenu = new XdgCachedMenu(menu);
         action->setMenu(submenu);
-        addMenuItems(submenu, (MenuCacheDir*)item);
+        addMenuItems(submenu, MENU_CACHE_DIR(item));
       }
     }
   }
