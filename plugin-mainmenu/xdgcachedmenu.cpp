@@ -73,7 +73,12 @@ XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(paren
 {
     // qDebug() << "CREATE MENU FROM CACHE" << menuCache;
     MenuCacheDir* dir = menu_cache_get_root_dir(menuCache);
-    menu_cache_desktop_env_flag_ = menu_cache_get_desktop_env_flag(menuCache, "LXQt:X-LXQt:LXQT:X-LXQT");
+
+    // get current desktop name or fallback to LXQt
+    const char *xdgDesktop = getenv("XDG_CURRENT_DESKTOP");
+    const char *desktop = (xdgDesktop != NULL && *xdgDesktop != '\0') ? xdgDesktop : "LXQt:X-LXQt:LXQT:X-LXQT";
+    menu_cache_desktop_ = menu_cache_get_desktop_env_flag(menuCache, desktop);
+
     addMenuItems(this, dir);
     connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
 }
@@ -98,7 +103,7 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
     {
       bool appVisible = type == MENU_CACHE_TYPE_APP
           && menu_cache_app_get_is_visible(MENU_CACHE_APP(item),
-                                           menu_cache_desktop_env_flag_);
+                                           menu_cache_desktop_);
       bool dirVisible = type == MENU_CACHE_TYPE_DIR
           && menu_cache_dir_is_visible(MENU_CACHE_DIR(item));
 
