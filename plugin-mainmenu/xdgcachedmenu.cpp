@@ -120,13 +120,6 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
         XdgCachedMenu* submenu = new XdgCachedMenu(menu);
         action->setMenu(submenu);
         addMenuItems(submenu, MENU_CACHE_DIR(item));
-
-        if(submenu->actions().count() == 0)
-        {
-          menu->removeAction(action);
-          action->deleteLater();
-          submenu->deleteLater();
-        }
       }
     }
   }
