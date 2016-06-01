@@ -132,7 +132,10 @@ void AlsaEngine::discoverDevices()
     int cardNum = -1;
 
     while (1) {
-        error = snd_card_next(&cardNum);
+        if ((error = snd_card_next(&cardNum)) < 0) {
+            qWarning("Can't get the next card number: %s\n", snd_strerror(error));
+            break;
+        }
 
         if (cardNum < 0)
             break;
