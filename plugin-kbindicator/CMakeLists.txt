@@ -36,7 +36,8 @@ pkg_check_modules(XKB_COMMON_X11 QUIET xkbcommon-x11)
 if(XKB_COMMON_X11_FOUND)
     message(STATUS "XkbCommon X11 was found")
     find_package(Qt5 COMPONENTS X11Extras Xml)
-    pkg_check_modules(XCB_XCB xcb-xkb)
+    pkg_check_modules(XCB xcb)
+    pkg_check_modules(XCB_XKB xcb-xkb)
 
     set(HEADERS
         ${HEADERS}
@@ -51,7 +52,8 @@ if(XKB_COMMON_X11_FOUND)
     set(LIBRARIES
         ${LIBRARIES}
         ${XKB_COMMON_X11_LIBRARIES}
-        ${XCB_XCB_LIBRARIES}
+        ${XCB_LIBRARIES}
+        ${XCB_XKB_LIBRARIES}
         Qt5::Xml
     )
 
