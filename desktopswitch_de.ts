@@ -23,13 +23,9 @@
         <translation>Arbeitsflächenumschalter - Einstellungen</translation>
     </message>
     <message>
-        <source>Rows</source>
-        <translation type="vanished">Zeilen</translation>
-    </message>
-    <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsbild</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="39"/>
