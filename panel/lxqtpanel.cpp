@@ -1164,7 +1164,13 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
 {
     Plugin *panel_plugin = findPlugin(plugin);
     if (nullptr == panel_plugin)
+    {
+        qWarning() << Q_FUNC_INFO << "Wrong logic? Unable to find Plugin* for" << plugin << "known plugins follow...";
+        for (auto const & plug : mPlugins->plugins())
+            qWarning() << plug->iPlugin() << plug;
+
         return QRect();
+    }
 
     return calculatePopupWindowPos(panel_plugin->mapToGlobal(QPoint(0, 0)), windowSize);
 }
