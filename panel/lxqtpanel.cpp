@@ -1080,11 +1080,10 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
 
 Plugin* LXQtPanel::findPlugin(const ILXQtPanelPlugin* iPlugin) const
 {
-    Plugin *plugin = nullptr;
-    for (Plugin *plug : mPlugins->plugins())
+    for (auto const & plug : mPlugins->plugins())
         if (plug->iPlugin() == iPlugin)
-            plugin = plug;
-    return plugin;
+            return plug;
+    return nullptr;
 }
 
 /************************************************
