@@ -639,6 +639,7 @@ void LXQtPanelLayout::setItemGeometry(QLayoutItem *item, const QRect &geometry, 
  ************************************************/
 void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
 {
+    const bool visual_h_reversed = parentWidget() && parentWidget()->isRightToLeft();
     // Calc expFactor for expandable plugins like TaskBar.
     double expFactor;
     {
@@ -711,6 +712,8 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
 
                 rw = qMax(rw, rect.width());
+                if (visual_h_reversed)
+                    rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
             }
         }
@@ -754,6 +757,8 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
 
                 rw = qMax(rw, rect.width());
+                if (visual_h_reversed)
+                    rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
             }
         }
@@ -767,6 +772,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
  ************************************************/
 void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
 {
+    const bool visual_h_reversed = parentWidget() && parentWidget()->isRightToLeft();
     // Calc expFactor for expandable plugins like TaskBar.
     double expFactor;
     {
@@ -838,6 +844,8 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
 
                 rh = qMax(rh, rect.height());
+                if (visual_h_reversed)
+                    rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
             }
         }
@@ -881,6 +889,8 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
 
                 rh = qMax(rh, rect.height());
+                if (visual_h_reversed)
+                    rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
             }
         }
