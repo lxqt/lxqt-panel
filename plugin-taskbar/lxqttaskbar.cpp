@@ -202,7 +202,6 @@ void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint co
                 last_empty_row.setTopLeft(last_item_geometry.topLeft());
             }
         }
-qDebug() << occupied << last_empty_row << pos << occupied.contains(pos) << last_empty_row.contains(pos);
         if (occupied.contains(pos) && !last_empty_row.contains(pos))
             return;
 
