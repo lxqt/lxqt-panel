@@ -182,14 +182,27 @@ void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint co
         //moving based on taskbar (not signaled by button)
         QRect occupied = mLayout->occupiedGeometry();
         QRect last_empty_row{occupied};
+        const QRect last_item_geometry = mLayout->itemAt(size - 1)->geometry();
         if (mPlugin->panel()->isHorizontal())
         {
-            last_empty_row.setTopLeft(mLayout->itemAt(size - 1)->geometry().topRight());
+            if (isRightToLeft())
+            {
+                last_empty_row.setTopRight(last_item_geometry.topLeft());
+            } else
+            {
+                last_empty_row.setTopLeft(last_item_geometry.topRight());
+            }
         } else
         {
-            last_empty_row.setTopLeft(mLayout->itemAt(size - 1)->geometry().bottomLeft());
+            if (isRightToLeft())
+            {
+                last_empty_row.setTopRight(last_item_geometry.topRight());
+            } else
+            {
+                last_empty_row.setTopLeft(last_item_geometry.topLeft());
+            }
         }
-
+qDebug() << occupied << last_empty_row << pos << occupied.contains(pos) << last_empty_row.contains(pos);
         if (occupied.contains(pos) && !last_empty_row.contains(pos))
             return;
 
@@ -198,15 +211,25 @@ void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint co
     {
         //moving based on signal from child button
         dst_index = mLayout->indexOf(dst);
+        int xy_center, xy_pos;
         if (mPlugin->panel()->isHorizontal())
         {
-            if (dst->rect().center().x() < pos.x())
-                ++dst_index;
+            xy_center = dst->rect().center().x();
+            xy_pos = pos.x();
         } else
         {
-            if (dst->rect().center().y() < pos.y())
-                ++dst_index;
+            xy_center = dst->rect().center().y();
+            xy_pos = pos.y();
         }
+        if (isRightToLeft())
+        {
+            //change the sign (effectively changes the lowerthan to greaterthan in the next condition)
+            xy_center = -xy_center;
+            xy_pos = -xy_pos;
+        }
+        //check if the new possition is after the middle of dest button
+        if (xy_center < xy_pos)
+            ++dst_index;
     }
 
     //moving lower index to higher one => consider as the QList::move => insert(to, takeAt(from))
