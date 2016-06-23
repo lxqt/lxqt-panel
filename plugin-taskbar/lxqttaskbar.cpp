@@ -210,32 +210,27 @@ void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint co
     {
         //moving based on signal from child button
         dst_index = mLayout->indexOf(dst);
-        int xy_center, xy_pos;
-        if (mPlugin->panel()->isHorizontal())
-        {
-            xy_center = dst->rect().center().x();
-            xy_pos = pos.x();
-        } else
-        {
-            xy_center = dst->rect().center().y();
-            xy_pos = pos.y();
-        }
-        if (isRightToLeft())
-        {
-            //change the sign (effectively changes the lowerthan to greaterthan in the next condition)
-            xy_center = -xy_center;
-            xy_pos = -xy_pos;
-        }
-        //check if the new possition is after the middle of dest button
-        if (xy_center < xy_pos)
-            ++dst_index;
     }
 
     //moving lower index to higher one => consider as the QList::move => insert(to, takeAt(from))
     if (src_index < dst_index)
-        --dst_index;
+    {
+        if (size == dst_index
+                || src_index + 1 != dst_index)
+        {
+            --dst_index;
+        } else
+        {
+            //switching positions of next standing
+            const int tmp_index = src_index;
+            src_index = dst_index;
+            dst_index = tmp_index;
+        }
+    }
 
-    if (dst_index == src_index)
+    if (dst_index == src_index
+            || mLayout->animatedMoveInProgress()
+       )
         return;
 
     mLayout->moveItem(src_index, dst_index, true);
