@@ -105,14 +105,6 @@
 <context>
     <name>LXQtTaskbarConfiguration</name>
     <message>
-        <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">Impostazioni del Task Manager di LXQt</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">Contenuti dell&apos;elenco finestre</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
         <translation>Impostazioni della barra applicazioni</translation>
@@ -123,37 +115,29 @@
         <translation>Generale</translation>
     </message>
     <message>
-        <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="vanished">Mostra finestre del &amp;desktop attuale</translation>
-    </message>
-    <message>
-        <source>Show windows from all des&amp;ktops</source>
-        <translation type="vanished">Mostra finestre di &amp;tutti desktop</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra solo finestre del desktop</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra solo finestre dello &amp;schermo del panello</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra solo finestre minimizzate</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Alza finestre minimizzate sul desktop attuale</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation>&amp;Ragruppa finestre della stessa applicazione</translation>
+        <translation>&amp;Raggruppa finestre della stessa applicazione</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
@@ -179,32 +163,12 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Altezza massima del pulsante</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Taskbar Contents</source>
-        <translation type="vanished">Contenuti della barra</translation>
-    </message>
-    <message>
-        <source>Show windows from current desktop</source>
-        <translation type="vanished">Mostra finestre del desktop corrente</translation>
-    </message>
-    <message>
-        <source>Show windows from all desktops</source>
-        <translation type="vanished">Mostra finestre da tutti i desktop</translation>
-    </message>
-    <message>
-        <source>Taskbar Appearance</source>
-        <translation type="vanished">Aspetto</translation>
-    </message>
-    <message>
-        <source>Minimum button width</source>
-        <translation type="vanished">Larghezza minima dei pulsanti</translation>
+        <translation>Usa icone della classe della finestra se disponibile</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
@@ -212,17 +176,9 @@
         <translation>Ruota &amp;automaticamente se il panello è verticale</translation>
     </message>
     <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">Aspetto delle finestre</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
         <source>Button style</source>
         <translation>Stile dei pulsanti</translation>
-    </message>
-    <message>
-        <source>Max button width</source>
-        <translation type="vanished">Larghezza massima dei pulsanti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
@@ -247,7 +203,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>attuale</translation>
     </message>
 </context>
 </TS>
