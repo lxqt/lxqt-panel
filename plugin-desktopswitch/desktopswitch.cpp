@@ -253,13 +253,13 @@ void DesktopSwitch::realign()
     {
         mLayout->setRowCount(mRows);
         mLayout->setColumnCount(0);
-        mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, NET::DesktopLayoutCornerTopLeft);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }
     else
     {
         mLayout->setColumnCount(mRows);
         mLayout->setRowCount(0);
-        mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, NET::DesktopLayoutCornerTopLeft);
+        mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }
     mLayout->setEnabled(true);
 }
