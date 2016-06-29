@@ -1027,7 +1027,6 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
                 action->setDisabled(mLockPanel);
                 menu->addAction(action);
             }
-            qobject_cast<QObject*>(m)->setParent(menu);
         }
     }
 
