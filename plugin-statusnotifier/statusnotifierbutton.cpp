@@ -73,7 +73,6 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
         if (!path.path().isEmpty())
         {
             mMenu = (new MenuImporter{interface->service(), path.path(), this})->menu();
-            dynamic_cast<QObject &>(*mMenu).setParent(this);
             mMenu->setObjectName(QLatin1String("StatusNotifierMenu"));
         }
     });
