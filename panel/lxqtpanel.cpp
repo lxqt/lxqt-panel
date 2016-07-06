@@ -330,6 +330,7 @@ LXQtPanel::~LXQtPanel()
 {
     mLayout->setEnabled(false);
     delete mAnimation;
+    delete mConfigDialog.data();
     // do not save settings because of "user deleted panel" functionality saveSettings();
 }
 
