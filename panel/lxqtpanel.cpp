@@ -1025,9 +1025,11 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
             menu->addTitle(plugin->windowTitle());
             for (auto const & action : m->actions())
             {
+                action->setParent(menu);
                 action->setDisabled(mLockPanel);
                 menu->addAction(action);
             }
+            delete m;
         }
     }
 
