@@ -6,145 +6,126 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="95"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>ابحث...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="101"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation type="vanished">مغادرة</translation>
+        <translation>أظهر/أخفِ القائمة الرّئيسيّة</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
-        <source>LXQt Main Menu settings</source>
-        <translation type="vanished">إعدادات قائمة ريزر الرئيسيَّة</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>العامّ</translation>
-    </message>
-    <message>
-        <source>Show text</source>
-        <translation type="vanished">إظهار النَّصّ</translation>
-    </message>
-    <message>
-        <source>Button text</source>
-        <translation type="vanished">نصُّ الزُّرّ</translation>
+        <translation>عامّ</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات القائمة الرّئيسيّة</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>الأيقونة:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>نصّ الزّرّ:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>حجم خطّ مخصّص:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>معدود!</translatorcomment>
+        <translation> من النّقاط</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>ملفُّ القائمة</translation>
+        <translation>ملفّ القوائم</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفّ القوائم:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>البحث</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>أقصى عرض للعنصر:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>أظهر المدخلات المُطابقة:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>أقصى عدد للعناصر الظاهرة:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>رشّح مدخلات القائمة</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> بكسل</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
+        <translation>أخفِ مدخلات القائمة أثناء البحث</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>اختصار المفاتيح</translation>
+        <translation>اختصار سطح المكتب</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>اضغط المفتاح لتسجيل الاختصار</translation>
+        <translation>انقر الزّرّ لتسجيل اختصار:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="71"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>صفّر</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر ملفّ أيقونة</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>صور (‎*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
         <source>Choose menu file</source>
-        <translation>اختيار ملفِّ القائمة</translation>
+        <translation>اختر ملفّ القوائم</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="172"/>
         <source>Menu files (*.menu)</source>
-        <translation>ملفَّات القائمة (*.menu)</translation>
+        <translation>ملفّات القوائم (‎*.menu)</translation>
     </message>
 </context>
 </TS>
