@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ar">
+<TS version="2.1" language="en_US">
 <context>
     <name>DesktopSwitch</name>
     <message>
         <location filename="../../../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>بدّل إلى سطح المكتب %1</translation>
     </message>
     <message>
         <location filename="../../../desktopswitch.cpp" line="141"/>
@@ -20,37 +20,37 @@
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات مبدّل سطح المكتب</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>عدد الصّفوف:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>ملصقات أسطح المكتب:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>المظهر</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>أرقام</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>أسماء</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="70"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>أسماء أسطح المكتب</translation>
     </message>
 </context>
 </TS>
