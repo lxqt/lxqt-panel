@@ -31,6 +31,7 @@
 
 #include <QFrame>
 #include <QString>
+#include <QPointer>
 #include <LXQt/PluginInfo>
 #include <LXQt/Settings>
 #include "ilxqtpanel.h"
@@ -113,6 +114,7 @@ private:
     LXQtPanel *mPanel;
     static QColor mMoveMarkerColor;
     QString mName;
+    QPointer<QDialog> mConfigDialog; //!< plugin's config dialog (if any)
 
 private slots:
     void settingsChanged();
