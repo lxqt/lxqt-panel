@@ -42,6 +42,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QWindow>
 #include <memory>
 
 #include <LXQt/Settings>
@@ -447,6 +448,10 @@ void Plugin::showConfigureDialog()
     mConfigDialog->show();
     mConfigDialog->raise();
     mConfigDialog->activateWindow();
+
+    WId wid = mConfigDialog->windowHandle()->winId();
+    KWindowSystem::activateWindow(wid);
+    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
 }
 
 
