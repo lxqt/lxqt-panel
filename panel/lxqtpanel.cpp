@@ -1056,7 +1056,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
     if (a->count() > 1)
     {
         menu->addAction(XdgIcon::fromTheme(QLatin1String("list-remove")),
-                       tr("Remove Panel"),
+                       tr("Remove Panel", "Menu Item"),
                        this, SLOT(userRequestForDeletion())
                       )->setDisabled(mLockPanel);
     }
@@ -1197,7 +1197,7 @@ void LXQtPanel::pluginMoved(Plugin * plug)
 void LXQtPanel::userRequestForDeletion()
 {
     const QMessageBox::StandardButton ret
-        = QMessageBox::warning(this, tr("Remove Panel") ,
+        = QMessageBox::warning(this, tr("Remove Panel", "Dialog Title") ,
             tr("Removing a panel can not be undone.\nDo you want to remove this panel?"),
             QMessageBox::Yes | QMessageBox::No);
 
