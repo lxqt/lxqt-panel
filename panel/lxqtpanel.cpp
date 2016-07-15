@@ -314,7 +314,7 @@ void LXQtPanel::saveSettings(bool later)
 void LXQtPanel::ensureVisible()
 {
     if (!canPlacedOn(mScreenNum, mPosition))
-        setPosition(findAvailableScreen(mPosition), mPosition, true);
+        setPosition(findAvailableScreen(mPosition), mPosition, false);
     else
         mActualScreenNum = mScreenNum;
 
@@ -838,7 +838,10 @@ void LXQtPanel::setPosition(int screen, ILXQtPanel::Position position, bool save
     mLayout->setPosition(mPosition);
 
     if (save)
+    {
+        mScreenNum = screen;
         saveSettings(true);
+    }
 
     // Qt 5 adds a new class QScreen and add API for setting the screen of a QWindow.
     // so we had better use it. However, without this, our program should still work
