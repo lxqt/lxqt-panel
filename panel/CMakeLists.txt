@@ -64,6 +64,11 @@ add_definitions(-DCOMPILE_LXQT_PANEL)
 set(PLUGIN_DESKTOPS_DIR "${CMAKE_INSTALL_FULL_DATAROOTDIR}/lxqt/${PROJECT}")
 add_definitions(-DPLUGIN_DESKTOPS_DIR=\"${PLUGIN_DESKTOPS_DIR}\")
 
+if (WITH_SCREENSAVER_FALLBACK)
+    message(STATUS "Building with conversion of deprecated 'screensaver' plugin")
+    add_definitions(-DWITH_SCREENSAVER_FALLBACK "-DLXQT_LOCK_DESKTOP=\"${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications/lxqt-lockscreen.desktop\"")
+endif ()
+
 project(${PROJECT})
 
 set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)

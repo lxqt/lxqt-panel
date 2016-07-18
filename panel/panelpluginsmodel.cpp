@@ -233,6 +233,25 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
             qWarning() << QString("Section \"%1\" not found in %2.").arg(name, mPanel->settings()->fileName());
             continue;
         }
+#ifdef WITH_SCREENSAVER_FALLBACK
+        if (QStringLiteral("screensaver") == type)
+        {
+            //plugin-screensaver was dropped
+            //convert settings to plugin-quicklaunch
+            const QString & lock_desktop = QStringLiteral(LXQT_LOCK_DESKTOP);
+            qWarning().noquote() << "Found deprecated plugin of type 'screensaver', migrating to 'quicklaunch' with '" << lock_desktop << '\'';
+            type = QStringLiteral("quicklaunch");
+            LXQt::Settings * settings = mPanel->settings();
+            settings->beginGroup(name);
+            settings->remove(QString{});//remove all existing keys
+            settings->setValue(QStringLiteral("type"), type);
+            settings->beginWriteArray(QStringLiteral("apps"), 1);
+            settings->setArrayIndex(0);
+            settings->setValue(QStringLiteral("desktop"), lock_desktop);
+            settings->endArray();
+            settings->endGroup();
+        }
+#endif
 
         LXQt::PluginInfoList list = LXQt::PluginInfo::search(desktopDirs, "LXQtPanel/Plugin", QString("%1.desktop").arg(type));
         if( !list.count())
