@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name=Application menu
-Comment=A menu of all your applications.
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[ar]=بادئ التطبيقات المعتمد على قائمة
-Name[ar]=قائمة التطبيقات
+Comment[ar]=قائمة لكلّ تطبيقاتك
+Name[ar]=قائمة التّطبيقات
