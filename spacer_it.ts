@@ -21,17 +21,17 @@
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation type="unfinished"></translation>
+        <translation>linea</translation>
     </message>
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation type="unfinished"></translation>
+        <translation>puntini</translation>
     </message>
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation type="unfinished"></translation>
+        <translation>invisibile</translation>
     </message>
 </context>
 </TS>
