@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Gestore dei supporti/dispositivi rimovibili</translation>
+        <translation>Gestore dei supporti/dispositivi rimovibili</translation>
     </message>
 </context>
 <context>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../../../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished">Impostazioni dispositivi rimovibili</translation>
+        <translation>Impostazioni dispositivi rimovibili</translation>
     </message>
     <message>
         <location filename="../../../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">Comportamento</translation>
+        <translation>Comportamento</translation>
     </message>
     <message>
         <location filename="../../../configuration.ui" line="26"/>
         <source>When a device is connected :</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando viene connesso un dispositivo :</translation>
     </message>
     <message>
         <location filename="../../../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation type="unfinished">Menu a comparsa</translation>
+        <translation>Menu a comparsa</translation>
     </message>
     <message>
         <location filename="../../../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation type="unfinished">Mostra informazioni</translation>
+        <translation>Mostra informazioni</translation>
     </message>
     <message>
         <location filename="../../../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Non fare nulla</translation>
+        <translation>Non fare nulla</translation>
     </message>
 </context>
 <context>
@@ -62,49 +62,13 @@
 </context>
 <context>
     <name>LXQtMountConfiguration</name>
-    <message>
-        <source>LXQt Removable media manager settings</source>
-        <translation type="vanished">Impostazioni del gestore dei dispositivi rimovibili di LXQt</translation>
-    </message>
-    <message>
-        <source>Removable Media Settings</source>
-        <translation type="vanished">Impostazioni dispositivi rimovibili</translation>
-    </message>
-    <message>
-        <source>Behaviour</source>
-        <translation type="vanished">Comportamento</translation>
-    </message>
-    <message>
-        <source>When a device is connected </source>
-        <translation type="vanished">Quando un dispositivo è connesso </translation>
-    </message>
-    <message>
-        <source>Popup menu</source>
-        <translation type="vanished">Menu a comparsa</translation>
-    </message>
-    <message>
-        <source>Show info</source>
-        <translation type="vanished">Mostra informazioni</translation>
-    </message>
-    <message>
-        <source>Do nothing</source>
-        <translation type="vanished">Non fare nulla</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <source>Click to access this device from other applications.</source>
-        <translation type="vanished">Fai clic per accedere al dispositivo da altre applicazioni.</translation>
-    </message>
-    <message>
-        <source>Click to eject this disc.</source>
-        <translation type="vanished">Fai clic per espellere il disco.</translation>
-    </message>
-    <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Accesso a &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; non riuscito: %2</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="157"/>
@@ -113,32 +77,9 @@
         <translation>Gestore dei supporti/dispositivi rimovibili</translation>
     </message>
     <message>
-        <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="vanished">Montaggio di &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; non riuscito: %2</translation>
-    </message>
-    <message>
         <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>Smontaggio di &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; non riuscito: %2</translation>
-    </message>
-</context>
-<context>
-    <name>MountButton</name>
-    <message>
-        <source>Removable media/devices manager</source>
-        <translation type="vanished">Gestore dei supporti/dispositivi rimovibili</translation>
-    </message>
-    <message>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="vanished">Il dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; è connesso.</translation>
-    </message>
-    <message>
-        <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="vanished">Il dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; è stato rimosso.</translation>
-    </message>
-    <message>
-        <source>No devices Available.</source>
-        <translation type="vanished">Nessun dispositivo disponibile.</translation>
     </message>
 </context>
 <context>
