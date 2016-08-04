@@ -3,6 +3,7 @@ project(lxqt-panel)
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
 option(PULL_TRANSLATIONS "Pull translations" ON)
+option(WITH_SCREENSAVER_FALLBACK "Include support for converting the deprecated 'screensaver' plugin to 'quicklaunch'. This requires the lxqt-leave (lxqt-session) to be installed in runtime." ON)
 
 # additional cmake files
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -154,12 +155,6 @@ if(QUICKLAUNCH_PLUGIN)
     add_definitions(-DWITH_QUICKLAUNCH_PLUGIN)
     list(APPEND ENABLED_PLUGINS "Quicklaunch")
     add_subdirectory(plugin-quicklaunch)
-endif()
-
-setByDefault(SCREENSAVER_PLUGIN Yes)
-if(SCREENSAVER_PLUGIN)
-    list(APPEND ENABLED_PLUGINS "Screensaver")
-    add_subdirectory(plugin-screensaver)
 endif()
 
 setByDefault(SENSORS_PLUGIN Yes)
