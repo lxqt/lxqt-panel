@@ -5,24 +5,24 @@
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation type="vanished">Vytížení procesoru %1%</translation>
+        <translation>Vytížení procesoru %1%</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytížení procesoru %1%</translation>
     </message>
 </context>
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
         <source>LXQt Cpu Load settings</source>
-        <translation type="vanished">Nastavení vytížení procesoru v LXQtu</translation>
+        <translation>Nastavení vytížení procesoru v LXQtu</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení vytížení procesoru</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Šířka pruhu:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
