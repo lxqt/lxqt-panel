@@ -5,45 +5,45 @@
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
+        <translation>Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýšit hlasitost zvuku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Snížit hlasitost zvuku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Ztlunit/Zrušit ztlumení hlasitosti zvuku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ovládání hlasitosti: Následující klávesové zkratky nelze zapsat: %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="223"/>
         <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlasitost: %1</translation>
     </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Nastavení ovládání hlasitosti</translation>
+        <translation>Nastavení ovládání hlasitosti</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení ovládání hlasitosti</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="20"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
@@ -101,12 +101,12 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit směšovač</translation>
     </message>
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Směšovač</translation>
     </message>
 </context>
 </TS>
