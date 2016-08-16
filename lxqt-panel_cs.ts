@@ -6,129 +6,129 @@
     <message>
         <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat přídavné moduly</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat:</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat doplněk</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(současně může běžet jen jedna instance)</translation>
     </message>
 </context>
 <context>
     <name>ConfigPanelDialog</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Nastavit panel</translation>
+        <translation>Nastavit panel</translation>
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="vanished">Velikost panelu</translation>
+        <translation>Velikost panelu</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="vanished">Velikost:</translation>
+        <translation>Velikost:</translation>
     </message>
     <message>
         <source>px</source>
-        <translation type="vanished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="vanished">Použít automatickou velikost</translation>
+        <translation>Použít automatickou velikost</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Délka &amp;a poloha panelu</translation>
+        <translation>Délka &amp;a poloha panelu</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="vanished">Zarovnat vlevo</translation>
+        <translation>Zarovnat vlevo</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="vanished">Zarovnat na střed</translation>
+        <translation>Zarovnat na střed</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="vanished">Zarovnat vpravo</translation>
+        <translation>Zarovnat vpravo</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="vanished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="vanished">Zarovnání:</translation>
+        <translation>Zarovnání:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Délka:</translation>
+        <translation>Délka:</translation>
     </message>
     <message>
         <source>Position:</source>
-        <translation type="vanished">Poloha:</translation>
+        <translation>Poloha:</translation>
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="vanished">Horní strana pracovní plochy</translation>
+        <translation>Horní strana pracovní plochy</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">Levá strana pracovní plochy</translation>
+        <translation>Levá strana pracovní plochy</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">Pravá strana pracovní plochy</translation>
+        <translation>Pravá strana pracovní plochy</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">Dolní strana pracovní plochy</translation>
+        <translation>Dolní strana pracovní plochy</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">Horní strana pracovní plochy %1</translation>
+        <translation>Horní strana pracovní plochy %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">Levá strana pracovní plochy %1</translation>
+        <translation>Levá strana pracovní plochy %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">Pravá strana pracovní plochy %1</translation>
+        <translation>Pravá strana pracovní plochy %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">Dolní strana pracovní plochy %1</translation>
+        <translation>Dolní strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit panel</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Panel</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Doplňky</translation>
     </message>
 </context>
 <context>
@@ -136,33 +136,33 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Nastavit panel</translation>
+        <translation>Nastavit panel</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Velikost:</translation>
+        <translation>Velikost:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="109"/>
         <location filename="../../../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Velikost ikony:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">Délka:</translation>
+        <translation>Délka:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="68"/>
@@ -172,168 +172,168 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet řádků:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Zarovnání a poloha</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="224"/>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nula znamená žádnou animaci</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="227"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="253"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Doba trvání animace:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="284"/>
         <location filename="../../../config/configpanelwidget.cpp" line="195"/>
         <source>Left</source>
-        <translation type="unfinished">Zarovnat vlevo</translation>
+        <translation>Vlevo</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="289"/>
         <location filename="../../../config/configpanelwidget.cpp" line="196"/>
         <location filename="../../../config/configpanelwidget.cpp" line="202"/>
         <source>Center</source>
-        <translation type="unfinished">Zarovnat na střed</translation>
+        <translation>Na střed</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="294"/>
         <location filename="../../../config/configpanelwidget.cpp" line="197"/>
         <source>Right</source>
-        <translation type="unfinished">Zarovnat vpravo</translation>
+        <translation>Vpravo</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastní styl</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="335"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva písma:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="375"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva pozadí:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="414"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Neprůhlednost pozadí:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="446"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Pro průhlednost panelu se požaduje slučování.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="474"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázek na pozadí:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="260"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Zarovnání:</translation>
+        <translation>Zarovnání:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="240"/>
         <source>Position:</source>
-        <translation type="unfinished">Poloha:</translation>
+        <translation>Poloha:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt automaticky</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="161"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Horní strana pracovní plochy</translation>
+        <translation>Horní strana pracovní plochy</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="162"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Levá strana pracovní plochy</translation>
+        <translation>Levá strana pracovní plochy</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="163"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Pravá strana pracovní plochy</translation>
+        <translation>Pravá strana pracovní plochy</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="164"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Dolní strana pracovní plochy</translation>
+        <translation>Dolní strana pracovní plochy</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="173"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">Horní strana pracovní plochy %1</translation>
+        <translation>Horní strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="174"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">Levá strana pracovní plochy %1</translation>
+        <translation>Levá strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="175"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">Pravá strana pracovní plochy %1</translation>
+        <translation>Pravá strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="176"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">Dolní strana pracovní plochy %1</translation>
+        <translation>Dolní strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="201"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahoře</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="203"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Dole</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="360"/>
         <location filename="../../../config/configpanelwidget.cpp" line="376"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat barvu</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat obrázek</translation>
     </message>
 </context>
 <context>
@@ -341,17 +341,17 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit přídavné moduly</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Změny provedené na této stránce nelze vrátit zpět.</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout nahoru</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="115"/>
@@ -360,27 +360,27 @@
         <location filename="../../../config/configpluginswidget.ui" line="164"/>
         <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Posunout dolů</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Nastavit</translation>
+        <translation>Nastavit</translation>
     </message>
 </context>
 <context>
@@ -394,64 +394,65 @@
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1044"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Spravovat doplňky</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1050"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat nový panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1062"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknout tento panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1200"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranění panelu nelze vrátit zpět
+Chcete tento panel odstranit?</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1057"/>
         <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit panel</translation>
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation type="vanished">Nastavit panel...</translation>
+        <translation>Nastavit panel...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Přidat přídavné moduly...</translation>
+        <translation>Přidat přídavné moduly...</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation type="vanished">Nastavit</translation>
+        <translation>Nastavit</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="vanished">Přesunout</translation>
+        <translation>Přesunout</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Nastavit panel</translation>
+        <translation>Nastavit panel</translation>
     </message>
 </context>
 <context>
@@ -459,17 +460,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../plugin.cpp" line="385"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../../plugin.cpp" line="390"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../../plugin.cpp" line="398"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -477,12 +478,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít náhradní soubor s nastavením.</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor s nastavením</translation>
     </message>
 </context>
 </TS>
