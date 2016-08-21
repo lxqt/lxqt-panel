@@ -6,114 +6,114 @@
     <message>
         <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη πρόσθετων</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση:</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη γραφικού συστατικού</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείσιμο</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(δεν επιτρέπονται περισσότερες από μια εκτελέσεις ταυτόχρονα)</translation>
     </message>
 </context>
 <context>
     <name>ConfigPanelDialog</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Διαμόρφωση πίνακα</translation>
+        <translation>Διαμόρφωση του πίνακα</translation>
     </message>
     <message>
         <source>Panel size</source>
-        <translation type="vanished">Μέγεθος πίνακα</translation>
+        <translation>Μέγεθος του πίνακα</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="vanished">Μέγεθος:</translation>
+        <translation>Μέγεθος:</translation>
     </message>
     <message>
         <source>px</source>
-        <translation type="vanished">px</translation>
+        <translation>εικ</translation>
     </message>
     <message>
         <source>Use automatic sizing</source>
-        <translation type="vanished">Χρήση αυτόματου μεγέθους</translation>
+        <translation>Χρήση του αυτόματου μεγέθους</translation>
     </message>
     <message>
         <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Μήκος &amp;&amp; θέση πίνακα</translation>
+        <translation>Μήκος &amp;&amp; θέση του πίνακα</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="vanished">Αριστερά</translation>
+        <translation>Αριστερά</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="vanished">Κέντρο</translation>
+        <translation>Κέντρο</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="vanished">Δεξιά</translation>
+        <translation>Δεξιά</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="vanished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="vanished">Στοίχιση:</translation>
+        <translation>Στοίχιση:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="vanished">Μήκος:</translation>
+        <translation>Μήκος:</translation>
     </message>
     <message>
         <source>Position:</source>
-        <translation type="vanished">Θέση:</translation>
+        <translation>Θέση:</translation>
     </message>
     <message>
         <source>Top of desktop</source>
-        <translation type="vanished">Επάνω στην επιφάνεια εργασίας</translation>
+        <translation>Στην κορυφή της επιφάνεια εργασίας</translation>
     </message>
     <message>
         <source>Left of desktop</source>
-        <translation type="vanished">Αριστερά στην επιφάνεια εργασίας</translation>
+        <translation>Στα αριστερά της επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Right of desktop</source>
-        <translation type="vanished">Δεξιά στην επιφάνεια εργασίας</translation>
+        <translation>Στα δεξιά της επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Bottom of desktop</source>
-        <translation type="vanished">Κάτω στην επιφάνεια εργασίας</translation>
+        <translation>Στη βάση της επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Top of desktop %1</source>
-        <translation type="vanished">Επάνω στην επιφάνεια εργασίας %1</translation>
+        <translation>Στην κορυφή της επιφάνειας εργασίας %1</translation>
     </message>
     <message>
         <source>Left of desktop %1</source>
-        <translation type="vanished">Αριστερά στην επιφάνεια εργασίας %1</translation>
+        <translation>Στα αριστερά της επιφάνειας εργασίας %1</translation>
     </message>
     <message>
         <source>Right of desktop %1</source>
-        <translation type="vanished">Δεξιά στην επιφάνεια εργασίας %1</translation>
+        <translation>Στα δεξιά της επιφάνειας εργασίας %1</translation>
     </message>
     <message>
         <source>Bottom of desktop %1</source>
-        <translation type="vanished">Κάτω στην επιφάνεια εργασίας %1</translation>
+        <translation>Στη βάση της επιφάνειας εργασίας %1</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="31"/>
@@ -123,12 +123,12 @@
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Πίνακας</translation>
+        <translation>Πίνακας</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Γραφικά συστατικά</translation>
     </message>
 </context>
 <context>
@@ -193,17 +193,17 @@
         <location filename="../../../config/configpanelwidget.ui" line="224"/>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μηδέν σημαίνει χωρίς τέχνασμα κίνησης</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="227"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="253"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Διάρκεια του τεχνάσματος κίνησης:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="284"/>
@@ -227,32 +227,32 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσαρμοσμένη τεχνοτροπία</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="335"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρώμα γραμματοσειράς:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="375"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρώμα φόντου:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="414"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδιαφάνεια παρασκηνίου:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="446"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Για την διαφάνεια του πίνακα απαιτείται το χαρακτηριστικό γραφικών σύνθεσης.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="474"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Εικόνα παρασκηνίου:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="260"/>
@@ -271,23 +271,23 @@
     </message>
     <message>
         <source>Styling</source>
-        <translation type="vanished">Ύφος</translation>
+        <translation>Τεχνοτροπία</translation>
     </message>
     <message>
         <source>Custom font color:</source>
-        <translation type="vanished">Προσαρμοσμένο χρώμα γραμματοσειράς:</translation>
+        <translation>Προσαρμοσμένο χρώμα γραμματοσειράς:</translation>
     </message>
     <message>
         <source>Custom background image:</source>
-        <translation type="vanished">Προσαρμοσμένη εικόνα ταπετσαρίας:</translation>
+        <translation>Προσαρμοσμένη εικόνα παρασκηνίου:</translation>
     </message>
     <message>
         <source>Custom background color:</source>
-        <translation type="vanished">Προσαρμοσμένο χρώμα ταπετσαρίας:</translation>
+        <translation>Προσαρμοσμένο χρώμα παρασκηνίου:</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="vanished">Αδιαφάνεια</translation>
+        <translation>Αδιαφάνεια</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="161"/>
@@ -353,7 +353,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή εικόνας</translation>
     </message>
 </context>
 <context>
@@ -361,17 +361,17 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαμόρφωση των πρόσθετων</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: δεν είναι δυνατή η επαναφορά των αλλαγών αυτής της σελίδας.</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετακίνηση πάνω</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="115"/>
@@ -380,34 +380,34 @@
         <location filename="../../../config/configpluginswidget.ui" line="164"/>
         <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετακίνηση κάτω</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Αφαίρεση</translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Διαμόρφωση</translation>
+        <translation>Διαμόρφωση</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanel</name>
     <message>
         <source>Add Panel Widgets</source>
-        <translation type="vanished">Προσθήκη γραφικών συστατικών στον πίνακα</translation>
+        <translation>Προσθήκη γραφικών συστατικών του πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1012"/>
@@ -418,40 +418,41 @@
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
-        <translation type="unfinished">Διαμόρφωση του πίνακα</translation>
+        <translation>Διαμόρφωση του πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1044"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαχείριση των γραφικών συστατικών</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1050"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέου πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1062"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείδωμα του πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1200"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Η αφαίρεση ενός πίνακα δεν μπορεί να αναιρεθεί.
+Θέλετε να αφαιρέσετε τον πίνακα;</translation>
     </message>
     <message>
         <source>Configure Panel...</source>
-        <translation type="vanished">Διαμόρφωση του πίνακα...</translation>
+        <translation>Διαμόρφωση του πίνακα...</translation>
     </message>
     <message>
         <source>Add Panel Widgets...</source>
-        <translation type="vanished">Προσθήκη γραφικών συστατικών στον πίνακα...</translation>
+        <translation>Προσθήκη γραφικών συστατικών του πίνακα...</translation>
     </message>
     <message>
         <source>Add Panel</source>
-        <translation type="vanished">Προσθήκη πίνακα</translation>
+        <translation>Προσθήκη πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1057"/>
@@ -461,33 +462,33 @@ Do you want to remove this panel?</source>
     </message>
     <message>
         <source>Configure panel...</source>
-        <translation type="vanished">Διαμόρφωση του πίνακα...</translation>
+        <translation>Διαμόρφωση του πίνακα...</translation>
     </message>
     <message>
         <source>Add plugins ...</source>
-        <translation type="vanished">Προσθήκη πρόσθετων...</translation>
+        <translation>Προσθήκη πρόσθετων ...</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPlugin</name>
     <message>
         <source>Configure</source>
-        <translation type="vanished">Διαμόρφωση</translation>
+        <translation>Διαμόρφωση</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="vanished">Μετακίνηση</translation>
+        <translation>Μετακίνηση</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Αφαίρεση</translation>
+        <translation>Αφαίρεση</translation>
     </message>
 </context>
 <context>
     <name>LXQtPanelPrivate</name>
     <message>
         <source>Configure panel</source>
-        <translation type="vanished">Διαμόρφωση του πίνακα</translation>
+        <translation>Διαμόρφωση του πίνακα</translation>
     </message>
 </context>
 <context>
@@ -513,12 +514,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση ενός εναλλακτικού αρχείου διαμόρφωσης.</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχείο διαμόρφωσης</translation>
     </message>
 </context>
 </TS>
