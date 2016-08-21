@@ -11,12 +11,12 @@
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
-        <translation>Στάλθηκαν %1</translation>
+        <translation>Διαβιβασμένα %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
-        <translation>Λήφθηκαν %1</translation>
+        <translation>Ειλημμένα %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="208"/>
@@ -53,7 +53,7 @@
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
         <source>LXQt Network Monitor settings</source>
-        <translation type="vanished">Ρυθμίσεις επίβλεψης δικτύου LXQt</translation>
+        <translation>Ρυθμίσεις της επίβλεψης δικτύου του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation>Μόντεμ</translation>
+        <translation>Αποδιαμορφωτής</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="65"/>
