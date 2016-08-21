@@ -5,7 +5,7 @@
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Εμφάνιση επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης &quot;%1&quot;</translation>
+        <translation>Εμφάνιση της επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης «%1»</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="62"/>
@@ -38,7 +38,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Ρυθμίσεις ελέγχου έντασης ήχου του LXQt</translation>
+        <translation>Ρυθμίσεις του ελέγχου έντασης του ήχου LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
@@ -106,11 +106,11 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>Μί&amp;κτης</translation>
     </message>
     <message>
         <source>Mixer</source>
-        <translation type="vanished">Μίκτης</translation>
+        <translation>Μίκτης</translation>
     </message>
 </context>
 </TS>
