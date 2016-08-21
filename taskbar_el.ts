@@ -106,11 +106,11 @@
     <name>LXQtTaskbarConfiguration</name>
     <message>
         <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">Ρυθμίσεις του διαχειριστή εργασιών LXQt</translation>
+        <translation>Ρυθμίσεις του διαχειριστή εργασιών LXQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Περιεχόμενο της λίστας των παραθύρων</translation>
+        <translation>Περιεχόμενο της λίστας των παραθύρων</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
@@ -124,31 +124,31 @@
     </message>
     <message>
         <source>Show windows from c&amp;urrent desktop</source>
-        <translation type="vanished">Εμφάνιση των παραθύρων της &amp;τρέχουσας επιφάνειας εργασίας</translation>
+        <translation>Εμφάνιση των παραθύρων της &amp;τρέχουσας επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Show windows from all des&amp;ktops</source>
-        <translation type="vanished">Εμφάνιση των παραθύρων &amp;όλων των επιφανειών εργασίας</translation>
+        <translation>Εμφάνιση των παραθύρων &amp;όλων των επιφανειών εργασίας</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση μόνο των παραθύρων της επιφάνειας εργασίας</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση μόνο των παραθύρων της οθόνης του &amp;πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση μόνο των ελαχιστοποιημένων παραθύρων</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανύψωση των ελαχιστοποιημένων παραθύρων στην τρέχουσα επιφάνεια εργασίας </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
@@ -179,20 +179,20 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγιστο ύψος του κουμπιού</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση των εικονιδίων από την κλάση Παραθύρου, αν είναι διαθέσιμα</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation type="vanished">Εμφάνιση των παραθύρων της τρέχουσας επιφάνειας εργασίας</translation>
+        <translation>Εμφάνιση των παραθύρων της τρέχουσας επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation type="vanished">Εμφάνιση παραθύρων όλων των επιφανειών εργασίας</translation>
+        <translation>Εμφάνιση παραθύρων όλων των επιφανειών εργασίας</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
@@ -201,7 +201,7 @@
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation type="vanished">Εμφάνιση της λίστας των παραθύρων</translation>
+        <translation>Εμφάνιση της λίστας των παραθύρων</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
@@ -210,7 +210,7 @@
     </message>
     <message>
         <source>Max button width</source>
-        <translation type="vanished">Μέγιστο πλάτος πλήκτρου</translation>
+        <translation>Μέγιστο πλάτος πλήκτρου</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Τρέχον</translation>
     </message>
 </context>
 </TS>
