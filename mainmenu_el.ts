@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="95"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="101"/>
@@ -15,14 +15,14 @@
     </message>
     <message>
         <source>Leave</source>
-        <translation type="vanished">Έξοδος</translation>
+        <translation>Αποχώρηση</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
         <source>LXQt Main Menu settings</source>
-        <translation type="vanished">Ρυθμίσεις κυρίως μενού LXQt</translation>
+        <translation>Ρυθμίσεις του κυρίως μενού του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -31,11 +31,11 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation type="vanished">Εμφάνιση κειμένου</translation>
+        <translation>Εμφάνιση κειμένου</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation type="vanished">Κείμενο κουμπιού</translation>
+        <translation>Κείμενο κουμπιού</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Εικονίδιο:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation> pt</translation>
+        <translation> σημ</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
@@ -75,41 +75,41 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>μέγ. πλάτος αντικειμένου:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση των ταιριαστών καταχωρήσεων:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγιστος αριθμός ορατών αντικείμενων:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Φιλτράρισμα καταχωρήσεων του μενού</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> εικ</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη των καταχωρήσεων του μενού κατά την αναζήτηση</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="vanished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -129,12 +129,12 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε το αρχείο του εικονιδίου</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Εικόνες (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
