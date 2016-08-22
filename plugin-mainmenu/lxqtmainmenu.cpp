@@ -374,6 +374,7 @@ void LXQtMainMenu::buildMenu()
     if(oldMenu)
         delete oldMenu;
 
+    searchTextChanged(mSearchEdit->text());
     setMenuFontSize();
 }
 
