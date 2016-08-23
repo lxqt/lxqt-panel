@@ -443,7 +443,7 @@ void Plugin::showConfigureDialog()
     if (!mConfigDialog)
         return;
 
-    connect(this, &Plugin::destroyed, mConfigDialog, &QWidget::close);
+    connect(this, &Plugin::destroyed, mConfigDialog.data(), &QWidget::close);
     mPanel->willShowWindow(mConfigDialog);
     mConfigDialog->show();
     mConfigDialog->raise();
