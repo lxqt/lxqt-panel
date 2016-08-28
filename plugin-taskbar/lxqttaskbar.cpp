@@ -676,14 +676,14 @@ void LXQtTaskBar::activateTask(int pos)
     {
         QWidget * o = mLayout->itemAt(i)->widget();
         LXQtTaskGroup * g = qobject_cast<LXQtTaskGroup *>(o);
-		if (g && g->isVisible())
-		{
-			pos--;
-			if (pos == 0)
-			{
-				g->raiseApplication();
-				break;
-			}
-		}
+        if (g && g->isVisible())
+        {
+            pos--;
+            if (pos == 0)
+            {
+                g->raiseApplication();
+                break;
+            }
+        }
     }
 }
