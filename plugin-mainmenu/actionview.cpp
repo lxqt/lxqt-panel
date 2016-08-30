@@ -146,6 +146,7 @@ void ActionView::addAction(QAction * action)
     item->setData(all, FilterRole);
 
     mModel->appendRow(item);
+    connect(action, &QObject::destroyed, this, &ActionView::onActionDestroyed);
 }
 
 bool ActionView::existsAction(QAction const * action) const
@@ -233,15 +234,14 @@ void ActionView::onActivated(QModelIndex const & index)
 
 void ActionView::onActionDestroyed()
 {
-    QAction * const action = qobject_cast<QAction *>(sender());
+    QObject * const action = sender();
     Q_ASSERT(nullptr != action);
-    for (int i = mModel->rowCount(); 0 <= i; --i)
+    for (int i = mModel->rowCount() - 1; 0 <= i; --i)
     {
         QStandardItem * item = mModel->item(i);
-        if (action == item->data(ActionRole).value<QAction *>())
+        if (action == item->data(ActionRole).value<QObject *>())
         {
             mModel->removeRow(i);
-            delete item;
             break;
         }
     }
