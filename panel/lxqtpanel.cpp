@@ -171,7 +171,6 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     //LXQtPanel (inherits QFrame) -> lav (QGridLayout) -> LXQtPanelWidget (QFrame) -> LXQtPanelLayout
     LXQtPanelWidget = new QFrame(this);
     LXQtPanelWidget->setObjectName("BackgroundWidget");
-    LXQtPanelWidget->setAutoFillBackground(true);
     QGridLayout* lav = new QGridLayout();
     lav->setContentsMargins(0, 0, 0, 0);
     setLayout(lav);
