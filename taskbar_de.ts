@@ -142,7 +142,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation>Fensteranordnun&amp;g</translation>
+        <translation>Fenster&amp;gruppierung</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
