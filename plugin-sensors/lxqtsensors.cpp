@@ -158,8 +158,10 @@ void LXQtSensors::updateSensorReadings()
                 minTemp = features[j].getValue(SENSORS_SUBFEATURE_TEMP_MIN);
                 curTemp = features[j].getValue(SENSORS_SUBFEATURE_TEMP_INPUT);
 
+                double temp_to_check = maxTemp == 0.0 ? critTemp : maxTemp;
+
                 // Check if temperature is too high
-                if (curTemp >= maxTemp)
+                if (temp_to_check != 0.0 && curTemp >= temp_to_check)
                 {
                     if (warn_high)
                     {
@@ -189,6 +191,7 @@ void LXQtSensors::updateSensorReadings()
                 {
                     tooltip += "C)";
                 }
+
 
                 // Set maximum temperature
                 (*temperatureProgressBarsIt)->setMaximum(critTemp);
