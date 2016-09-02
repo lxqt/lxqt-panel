@@ -34,6 +34,7 @@
 #include <QMessageBox>
 #include <QPalette>
 
+static constexpr double DEFAULT_MAX = 200; // 200 Celsius
 
 LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
     QFrame(parent),
@@ -142,6 +143,7 @@ void LXQtSensors::updateSensorReadings()
         mTemperatureProgressBars.begin();
     const bool use_fahrenheit = mSettings->value("useFahrenheitScale").toBool();
     const bool warn_high = mSettings->value("warningAboutHighTemperature").toBool();
+    const double default_max = use_fahrenheit ? celsiusToFahrenheit(DEFAULT_MAX) : DEFAULT_MAX;
 
     for (int i = 0; i < mDetectedChips.size(); ++i)
     {
@@ -194,7 +196,7 @@ void LXQtSensors::updateSensorReadings()
 
 
                 // Set maximum temperature
-                (*temperatureProgressBarsIt)->setMaximum(critTemp);
+                (*temperatureProgressBarsIt)->setMaximum(critTemp == 0.0 ? default_max : critTemp);
                 // Set minimum temperature
                 (*temperatureProgressBarsIt)->setMinimum(minTemp);
                 // Set current temperature
