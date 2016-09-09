@@ -343,6 +343,10 @@ void LXQtMainMenu::buildMenu()
     mMenu = new XdgMenuWidget(mXdgMenu, "", &mButton);
 #endif
     mMenu->setObjectName("TopLevelMainMenu");
+    // Note: the QWidget::ensurePolished() workarounds problem with transparent
+    // QLineEdit (mSearchEditAction) in menu with Breeze style
+    // https://bugs.kde.org/show_bug.cgi?id=368048
+    mMenu->ensurePolished();
     mMenu->setStyle(&mTopMenuStyle);
 
     mMenu->addSeparator();
