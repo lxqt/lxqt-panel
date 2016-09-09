@@ -454,8 +454,6 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         // the application is given a new QStyle
         if(event->type() == QEvent::StyleChange)
         {
-            // reset proxy style for the menus so they can apply the new styles
-            mTopMenuStyle.setBaseStyle(NULL);
             setMenuFontSize();
             setButtonIcon();
         }
