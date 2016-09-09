@@ -331,48 +331,44 @@ void LXQtMainMenu::setSearchFocus(QAction *action)
  ************************************************/
 void LXQtMainMenu::buildMenu()
 {
+    if(mMenu)
+    {
+        mMenu->removeAction(mSearchEditAction);
+        mMenu->removeAction(mSearchViewAction);
+        delete mMenu;
+    }
 #ifdef HAVE_MENU_CACHE
-    XdgCachedMenu* menu = new XdgCachedMenu(mMenuCache, &mButton);
+    mMenu = new XdgCachedMenu(mMenuCache, &mButton);
 #else
-    XdgMenuWidget *menu = new XdgMenuWidget(mXdgMenu, "", &mButton);
+    mMenu = new XdgMenuWidget(mXdgMenu, "", &mButton);
 #endif
-    menu->setObjectName("TopLevelMainMenu");
-    menu->setStyle(&mTopMenuStyle);
+    mMenu->setObjectName("TopLevelMainMenu");
+    mMenu->setStyle(&mTopMenuStyle);
 
-    menu->addSeparator();
+    mMenu->addSeparator();
 
-    Q_FOREACH(QAction* action, menu->actions())
+    Q_FOREACH(QAction* action, mMenu->actions())
     {
         if (action->menu())
             action->menu()->installEventFilter(this);
     }
 
-    menu->installEventFilter(this);
-    connect(menu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(menu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
+    mMenu->installEventFilter(this);
+    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
-    menu->addSeparator();
-    if(mMenu)
-    {
-      mMenu->removeAction(mSearchEditAction);
-      mMenu->removeAction(mSearchViewAction);
-    }
-    menu->addAction(mSearchViewAction);
-    menu->addAction(mSearchEditAction);
-    connect(menu, &QMenu::hovered, this, &LXQtMainMenu::setSearchFocus);
+    mMenu->addSeparator();
+    mMenu->addAction(mSearchViewAction);
+    mMenu->addAction(mSearchEditAction);
+    connect(mMenu, &QMenu::hovered, this, &LXQtMainMenu::setSearchFocus);
     //Note: setting readOnly to true to avoid wake-ups upon the Qt's internal "blink" cursor timer
     //(if the readOnly is not set, the "blink" timer is active also in case the menu is not shown ->
     //QWidgetLineControl::updateNeeded is performed w/o any need)
     //https://bugreports.qt.io/browse/QTBUG-52021
-    connect(menu, &QMenu::aboutToHide, [this] { mSearchEdit->setReadOnly(true); });
+    connect(mMenu, &QMenu::aboutToHide, [this] { mSearchEdit->setReadOnly(true); });
     mSearchEdit->setVisible(mFilterMenu || mFilterShow);
     mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
-    mSearchView->fillActions(menu);
-
-    QMenu *oldMenu = mMenu;
-    mMenu = menu;
-    if(oldMenu)
-        delete oldMenu;
+    mSearchView->fillActions(mMenu);
 
     searchTextChanged(mSearchEdit->text());
     setMenuFontSize();
