@@ -32,11 +32,11 @@ As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio
 ### Compiling source code
 
 The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, lxmenu-data, [liblxqt](https://github.com/lxde/liblxqt) and [lxqt-globalkeys](https://github.com/lxde/lxqt-globalkeys).   
+Several plugins or features thereof are optional and need additional runtime dependencies. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxde/libsysstat) (plugin-sysstat). All of them are enabled by default and have to be disabled by CMake variables as required, see below.   
 In addition CMake is a mandatory build dependency. Git is optionally needed to pull latest VCS checkouts. The localization files were outsourced to repository [lxqt-l10n](https://github.com/lxde/lxqt-l10n) so the corresponding dependencies are needed, too. Please refer to this repository's `README.md` for further information.   
-That aside a couple of components are optional make dependencies which means certain plugins or features will automatically be built only when the respective prerequisite is available but omitted otherwise. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxde/libsysstat) (plugin-sysstat).
 
 Code configuration is handled by CMake. CMake variable `CMAKE_INSTALL_PREFIX` has to be set to `/usr` on most operating systems, depending on the way library paths are dealt with on 64bit systems variables like CMAKE_INSTALL_LIBDIR may have to be set as well.   
-Plugins and features are by default built automatically depending on available prerequisites. (Not) building particular plugins can be enforced by boolean CMake variables `<plugin>_PLUGIN` where the plugin is referred by its technical term like e. g. in `SYSSTAT_PLUGIN`.
+By default all available plugins and features thereof are built and CMake fails when dependencies aren't met. Building particular plugins can be disabled by boolean CMake variables `<plugin>_PLUGIN` where the plugin is referred by its technical term like e. g. in `SYSSTAT_PLUGIN`. Alsa and PulseAudio support in plugin-volume can be disabled by boolean CMake variables `VOLUME_USE_ALSA` and `VOLUME_USE_PULSEAUDIO`.   
 
 To build run `make`, to install `make install` which accepts variable `DESTDIR` as usual.   
 
