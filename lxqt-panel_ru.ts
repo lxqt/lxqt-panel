@@ -4,27 +4,27 @@
 <context>
     <name>AddPluginDialog</name>
     <message>
-        <location filename="../../../config/addplugindialog.ui" line="14"/>
+        <location filename="src/config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
         <translation>Добавить плагины</translation>
     </message>
     <message>
-        <location filename="../../../config/addplugindialog.ui" line="22"/>
+        <location filename="src/config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
         <translation>Найти:</translation>
     </message>
     <message>
-        <location filename="../../../config/addplugindialog.ui" line="98"/>
+        <location filename="src/config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
         <translation>Добавить виджет</translation>
     </message>
     <message>
-        <location filename="../../../config/addplugindialog.ui" line="105"/>
+        <location filename="src/config/addplugindialog.ui" line="105"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../../../config/addplugindialog.cpp" line="115"/>
+        <location filename="src/config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
         <translation>(только одна копия может быть запущена за раз)</translation>
     </message>
@@ -32,17 +32,17 @@
 <context>
     <name>ConfigPanelDialog</name>
     <message>
-        <location filename="../../../config/configpaneldialog.cpp" line="31"/>
+        <location filename="src/config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="../../../config/configpaneldialog.cpp" line="38"/>
+        <location filename="src/config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="../../../config/configpaneldialog.cpp" line="42"/>
+        <location filename="src/config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
         <translation>Виджеты</translation>
     </message>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Автоматически скрывать</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="262"/>
@@ -150,12 +150,12 @@
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ноль означает отсутствие задержки</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать с задержкой:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
@@ -281,46 +281,46 @@
 <context>
     <name>ConfigPluginsWidget</name>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="14"/>
+        <location filename="src/config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
         <translation>Настроить плагины</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="84"/>
+        <location filename="src/config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
         <translation>Примечание: изменения, сделанные на этой странице, нельзя сбросить.</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="112"/>
+        <location filename="src/config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
         <translation>Переместить выше</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="115"/>
-        <location filename="../../../config/configpluginswidget.ui" line="129"/>
-        <location filename="../../../config/configpluginswidget.ui" line="150"/>
-        <location filename="../../../config/configpluginswidget.ui" line="164"/>
-        <location filename="../../../config/configpluginswidget.ui" line="185"/>
+        <location filename="src/config/configpluginswidget.ui" line="115"/>
+        <location filename="src/config/configpluginswidget.ui" line="129"/>
+        <location filename="src/config/configpluginswidget.ui" line="150"/>
+        <location filename="src/config/configpluginswidget.ui" line="164"/>
+        <location filename="src/config/configpluginswidget.ui" line="185"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="126"/>
+        <location filename="src/config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
         <translation>Переместить ниже</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="147"/>
+        <location filename="src/config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="161"/>
+        <location filename="src/config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../../../config/configpluginswidget.ui" line="182"/>
+        <location filename="src/config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
         <translation>Настроить</translation>
     </message>
