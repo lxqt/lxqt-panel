@@ -25,7 +25,7 @@
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Внешний вид</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="46"/>
