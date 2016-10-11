@@ -122,7 +122,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Mostra solo finestre dello &amp;schermo del panello</translation>
+        <translation>Mostra solo finestre dello &amp;schermo del pannello</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
