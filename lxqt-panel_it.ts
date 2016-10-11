@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Aggiungi elementi</translation>
+        <translation>Aggiungi elemento</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="22"/>
@@ -26,109 +26,25 @@
     <message>
         <location filename="../../../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(può essere in esecuzione una istanza sola)</translation>
     </message>
 </context>
 <context>
     <name>ConfigPanelDialog</name>
     <message>
-        <source>Configure panel</source>
-        <translation type="vanished">Configura il pannello</translation>
-    </message>
-    <message>
-        <source>Panel size</source>
-        <translation type="vanished">Dimensione pannello</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="vanished">Dimensione:</translation>
-    </message>
-    <message>
-        <source>px</source>
-        <translation type="vanished">px</translation>
-    </message>
-    <message>
-        <source>Use automatic sizing</source>
-        <translation type="vanished">Usa dimensionamento automatico</translation>
-    </message>
-    <message>
-        <source>Panel length &amp;&amp; position</source>
-        <translation type="vanished">Lunghezza e posizione del pannello</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Sinistra</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="vanished">Centro</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Destra</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="vanished">%</translation>
-    </message>
-    <message>
-        <source>Alignment:</source>
-        <translation type="vanished">Allineamento:</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Lunghezza:</translation>
-    </message>
-    <message>
-        <source>Position:</source>
-        <translation type="vanished">Posizione:</translation>
-    </message>
-    <message>
-        <source>Top of desktop</source>
-        <translation type="vanished">Alto del desktop</translation>
-    </message>
-    <message>
-        <source>Left of desktop</source>
-        <translation type="vanished">Sinistra del desktop</translation>
-    </message>
-    <message>
-        <source>Right of desktop</source>
-        <translation type="vanished">Destra del desktop</translation>
-    </message>
-    <message>
-        <source>Bottom of desktop</source>
-        <translation type="vanished">Basso del desktop</translation>
-    </message>
-    <message>
-        <source>Top of desktop %1</source>
-        <translation type="vanished">Alto del desktop %1</translation>
-    </message>
-    <message>
-        <source>Left of desktop %1</source>
-        <translation type="vanished">Sinistra del desktop %1</translation>
-    </message>
-    <message>
-        <source>Right of desktop %1</source>
-        <translation type="vanished">Destra del desktop %1</translation>
-    </message>
-    <message>
-        <source>Bottom of desktop %1</source>
-        <translation type="vanished">Basso del desktop %1</translation>
-    </message>
-    <message>
         <location filename="../../../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Configura panello</translation>
+        <translation>Configura pannello</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Panello</translation>
+        <translation>Pannello</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementi</translation>
     </message>
 </context>
 <context>
@@ -136,7 +52,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>Configura panello</translation>
+        <translation>Configura pannello</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="44"/>
@@ -167,7 +83,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Valori negativi impongano una lunghezza del panello di quel numero di pixel meno dello spazio disponibile. &lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esempio: -100px e schermo di 1280px = 1180px&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Valori negativi impongano una lunghezza del pannello di quel numero di pixel meno dello spazio disponibile. &lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esempio: -100px e schermo di 1280px = 1180px&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="96"/>
@@ -270,26 +186,6 @@
         <translation>Nascondi automaticamente</translation>
     </message>
     <message>
-        <source>Styling</source>
-        <translation type="vanished">Aspetto</translation>
-    </message>
-    <message>
-        <source>Custom font color:</source>
-        <translation type="vanished">Colore del carattere personalizzato:</translation>
-    </message>
-    <message>
-        <source>Custom background image:</source>
-        <translation type="vanished">Immagine di sfondo:</translation>
-    </message>
-    <message>
-        <source>Custom background color:</source>
-        <translation type="vanished">Colore di sfondo personalizzato:</translation>
-    </message>
-    <message>
-        <source>Opacity</source>
-        <translation type="vanished">Trasparenza</translation>
-    </message>
-    <message>
         <location filename="../../../config/configpanelwidget.cpp" line="161"/>
         <source>Top of desktop</source>
         <translation>Alto del desktop</translation>
@@ -353,7 +249,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Scegli immagine</translation>
     </message>
 </context>
 <context>
@@ -406,19 +302,15 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <source>Add Panel Widgets</source>
-        <translation type="vanished">Aggiungi elementi</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtpanel.cpp" line="1012"/>
         <location filename="../../../lxqtpanel.cpp" line="1036"/>
         <source>Panel</source>
-        <translation>Panello</translation>
+        <translation>Pannello</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
-        <translation>Configura panello</translation>
+        <translation>Configura pannello</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1044"/>
@@ -428,68 +320,25 @@
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1050"/>
         <source>Add New Panel</source>
-        <translation>Aggiungi nuovo panello</translation>
+        <translation>Aggiungi nuovo pannello</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1062"/>
         <source>Lock This Panel</source>
-        <translation>Blocca questo panello</translation>
+        <translation>Blocca questo pannello</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1200"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La rimozione di un panello non può essere annullato.
-Vuoi veramente rimuovere questo panello?</translation>
-    </message>
-    <message>
-        <source>Configure Panel...</source>
-        <translation type="vanished">Configura panello...</translation>
-    </message>
-    <message>
-        <source>Add Panel Widgets...</source>
-        <translatorcomment>Call them &quot;plugins&quot; better?</translatorcomment>
-        <translation type="vanished">Aggiungi elementi...</translation>
-    </message>
-    <message>
-        <source>Add Panel</source>
-        <translation type="vanished">Aggiungi panello</translation>
+        <translation>La rimozione di un pannello non può essere annullato.
+Vuoi veramente rimuovere questo pannello?</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1057"/>
         <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
-        <translation>Rimuovi panello</translation>
-    </message>
-    <message>
-        <source>Configure panel...</source>
-        <translation type="vanished">Configura pannello...</translation>
-    </message>
-    <message>
-        <source>Add plugins ...</source>
-        <translation type="vanished">Aggiungi plugin...</translation>
-    </message>
-</context>
-<context>
-    <name>LXQtPanelPlugin</name>
-    <message>
-        <source>Configure</source>
-        <translation type="vanished">Configura</translation>
-    </message>
-    <message>
-        <source>Move</source>
-        <translation type="vanished">Sposta</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Rimuovi</translation>
-    </message>
-</context>
-<context>
-    <name>LXQtPanelPrivate</name>
-    <message>
-        <source>Configure panel</source>
-        <translation type="vanished">Configura pannello</translation>
+        <translation>Rimuovi pannello</translation>
     </message>
 </context>
 <context>
