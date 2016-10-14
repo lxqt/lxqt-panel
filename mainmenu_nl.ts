@@ -6,23 +6,20 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="95"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="101"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation type="vanished">Verlaten</translation>
+        <translation>Toon/verberg hoofdmenu</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
-        <source>LXQt Main Menu settings</source>
-        <translation type="vanished">Instellingen van hoofdmenu van LXQt</translation>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
+        <source>Main Menu settings</source>
+        <translation>Instellingen van hoofdmenu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -30,37 +27,24 @@
         <translation>Algemeen</translation>
     </message>
     <message>
-        <source>Show text</source>
-        <translation type="vanished">Tekst weergeven</translation>
-    </message>
-    <message>
-        <source>Button text</source>
-        <translation type="vanished">Knoptekst</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictogram:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Knoptekst:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aangepaste lettergrootte:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
@@ -70,46 +54,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
-        <source>max. item width:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
-        <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
-        <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
-        <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
-        <source> px</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
-        <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
+        <translation>Menubestand:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -122,19 +67,54 @@
         <translation>Klik op de knop om de sneltoets vast te leggen:</translation>
     </message>
     <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
+        <source>Search</source>
+        <translation>Zoeken</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
+        <source>max. item width:</source>
+        <translation>max. elementbreedte:</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
+        <source>Show matching entries:</source>
+        <translation>Toon overeenkomende onderdelen:</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
+        <source>Maximum visible items:</source>
+        <translation>Maximaal aantal zichtbare elementen:</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
+        <source>Filter menu entries</source>
+        <translation>Menu-onderdelen filteren</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
+        <source> px</source>
+        <translation> px</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
+        <source>Hide menu entries while searching</source>
+        <translation>Menu-onderdelen verbergen tijdens het zoeken</translation>
+    </message>
+    <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="71"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Terugzetten</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies pictogrambestand</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingen (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
