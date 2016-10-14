@@ -58,7 +58,7 @@
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation>Netwerkmonitorinstellingen</translation>
+        <translation>Instellingen van Netwerkbewaker</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="20"/>
