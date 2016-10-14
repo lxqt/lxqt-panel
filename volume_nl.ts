@@ -4,56 +4,48 @@
 <context>
     <name>LXQtVolume</name>
     <message>
-        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Bureaublad weergeven: systeembrede sneltoets &apos;%1&apos; kan niet worden geregistreerd</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Geluidssterkte verhogen</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Geluidssterkte verlagen</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Demp/ontdemp de geluidssterkte</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Geluidssterktebeheer: de volgende sneltoetsen kunnen niet worden geregistreerd: %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="223"/>
         <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Geluidssterkte: %1</translation>
     </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Instellingen voor volumebeheer van LXQt</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Instellingen van geluidssterktebeheer</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Apparaat om te beheren</translation>
+        <translation>Te beheren apparaat</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="28"/>
         <source>Alsa</source>
-        <translation>Alsa</translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="35"/>
@@ -63,7 +55,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
@@ -78,17 +70,17 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Tonen bij muisklik</translation>
+        <translation>Toon bij muisklik</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Volume hoger dan 100% toestaan (0dB)</translation>
+        <translation>Sta geluidssterktes toe boven 100% (0dB)</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="92"/>
         <source>Volume adjust step</source>
-        <translation>Trap voor bijstellen van volume</translation>
+        <translation>Bijstellingsstappen voor geluidssterkte</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="111"/>
@@ -101,12 +93,12 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengpaneel starten</translation>
     </message>
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mengpaneel</translation>
     </message>
 </context>
 </TS>
