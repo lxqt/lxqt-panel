@@ -4,25 +4,17 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">Cpu-belasting %1%</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Processorbelasting %1%</translation>
     </message>
 </context>
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LXQt Cpu Load settings</source>
-        <translation type="vanished">Instellingen voor CPU-belasting van LXQt</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Instellingen van Processorbelasting</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -32,7 +24,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Tekst weergeven</translation>
+        <translation>Toon tekst</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
@@ -42,27 +34,27 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation>sec</translation>
+        <translation> sec</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Balkoriëntatie:</translation>
+        <translation>Balkrichting:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Balkbreedte:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>Van beneden naar boven</translation>
+        <translation>Van onder naar boven</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation>Van boven naar beneden</translation>
+        <translation>Van boven naar onder</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
