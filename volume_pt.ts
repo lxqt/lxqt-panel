@@ -10,28 +10,28 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuir volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Silenciar/restaurar volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Controlo de volume: os seguintes atalhos não podem ser registados: %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="223"/>
         <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume: %1</translation>
     </message>
 </context>
 <context>
@@ -43,7 +43,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Definições do Controlo de volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="20"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
@@ -101,12 +101,12 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar gestor de som</translation>
     </message>
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gestor de som</translation>
     </message>
 </context>
 </TS>
