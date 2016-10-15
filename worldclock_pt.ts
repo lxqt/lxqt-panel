@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtworldclock.cpp" line="191"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d de MMM de yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Definições do relógio mundial</translation>
+        <translation>Definições do Relógio mundial</translation>
     </message>
     <message>
         <source>&amp;Short, time only</source>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Utilizar como pré-&amp;definido</translation>
+        <translation>Utilizar como pa&amp;drão</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="486"/>
@@ -189,7 +189,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Pos&amp;ição:</translation>
+        <translation>Po&amp;sição:</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="261"/>
@@ -249,17 +249,17 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>&amp;Rodar automaticamente se o painel estiver na vertical</translation>
+        <translation>&amp;Rodar automaticamente se o painel for vertical</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d de MMM de yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.cpp" line="577"/>
         <source>Input custom time zone name</source>
-        <translation>Escreva o nome do fuso horário personalizado</translation>
+        <translation>Digite o nome do fuso horário</translation>
     </message>
 </context>
 <context>
@@ -308,7 +308,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Sintaxe personalizada para data e hora&lt;/h1&gt;
+&lt;p&gt;Um padrão de data é uma cadeia de caracteres, em que algumas cadeias de caracteres são substituídas pela hora e data de uma calendário, ou utilizadas para gerar os dados de um calendário.&lt;/p&gt;
+&lt;p&gt;A tabela abaixo contém os caracteres utilizados nos padrões, de modo a que sejam exibidos os formatos apropriados a uma configuração regional específica, tais como yyyy para o ano. Pode utilizar combinações de caracters, sempre que o desejar. Por exemplo, se utilizar y para representar o ano, &apos;yy&apos; mostra &apos;99&apos; enquanto que &apos;yyyy&apos; mostra &apos;1999&apos;. Para a maioria dos campos numéricos, o número de caracteres especifica a largura do campo. Por exemplo, se h for a hora, &apos;h&apos; mostra &apos;5&apos; enquanto que &apos;hh&apos; mostra &apos;05&apos;. Para alguns caracteres, o seu número determina se será exibido o formato abreviado ou completo, mas poderá optar por outras opções utilizando os códigos abaixo.&lt;/p&gt;
+&lt;p&gt;Dois apóstrofos representam um apóstrofo literal, estejam eles dentro ou fora de outros apóstrofos. O texto introduzido entre apóstrofos não será interpretado (exceto se existirem dois apóstrofos adjacentes). Caso contrário, todos os caracteres ASCII entre &apos;a&apos; e &apos;z&apos; ou &apos;A&apos; e &apos;Z&apos; estão reservados para caracteres de sintaxe e necessitam de apóstorfos se a sua ideia for a de os apresentar como caracteres literais. Adicionalmente, alguns caracteres ASCII de pontuação poderã ser variáveis no futuro (por exemplo &quot;:&quot; será interpretado como separador de horas e &quot;/&quot; como separador de datas e serão substituídos pelos caracteres epecíficos de cada uma das configurações regionais.&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Significado&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;o número do dia sem o zero inicial (1 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;o número do dia com o zero inicial (01 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;o nome abrevidado do dia (seg a dom).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;o nome completo do dia (segunda-feira a domingo)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;o número do mês sem o zero inicial (1 a 12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;o número do mês com o zero inicial (01 a 12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;o nome abreviado do mês (jan a dez)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;o nome completo do mês (janeiro a dezembro)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;o ano na forma de dois dígitos (00 a 99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;o ano na forma de quatro dígitos&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;a hora sem o zero inicial (0 a 23 ou 1 a 12 com a opção AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;a hora com o zero inicial (00 a 23 ou 01 a 12 com a opção AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;a hora sem o zero inicial (0 a 23, mesmo se com a opção AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;a hora sem o zero inicial (00 a 23, mesmo se com a opção AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;os minutos sem o zero inicial (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;os minutos com o zero inicial (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;os segundos sem o zero inicial (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;os segundos com o zero inicial (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;os milissegundos sem o zero inicial (0 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;os milissegundos com o zero inicial (000 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;ou&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;para mostrar AM/PM. &lt;b&gt;A/AP&lt;/b&gt; será substituído por &quot;AM&quot; ou &quot;PM&quot;&lt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;ou&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;para mostrar am/pm. &lt;b&gt;a/ap&lt;/b&gt; será substituído por &quot;am&quot; ou &quot;pm&quot;&lt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;o fuso horário (por exemplo: &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;o desvio da UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;o identificador IANA do fuso horário&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;a abreviatura do fuso horário&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;o nome abreviado do fuso horário&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;o nome completo do fuso horário&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;o nome personalizado do fuso horario. Pode mudar o nome no separador &apos;Fusos horários&apos; nas configurações&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br /&gt; &lt;b&gt;Notas:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;quaisquer caracteres existentes no padrão que não estejam no intervalo [&apos;a&apos;..&apos;z&apos;] ou [&apos;A&apos;..&apos;Z&apos;] serão tratados como texto. Por exemplo, os caracteres &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; e &apos;@&apos; aparecerão como texto mesmo se não estiverem entre apóstrofos. O apóstrofo é utilizado para fazer o &apos;escape&apos; de letras. Dois apóstrofos de uma linha, tanto dentro como fora de uma sequência entre apóstrofos, representam um apóstrofo &apos;real&apos;.&lt;/li&gt;&lt;li&gt;O intervalo mínimo entre atualizações é de 1 segundo. Se utilizar z ou zzz como formato, a hora será mostrada com a fração dos milissegundos, mas não será atualizado na base de milissegundos (por motivos de desempenho).&lt;/li&gt;&lt;ul&gt;</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Custom Date/Time Format Syntax&lt;/h1&gt;
@@ -427,7 +461,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Local timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuso horário local</translation>
     </message>
 </context>
 </TS>
