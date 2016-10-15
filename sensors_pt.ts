@@ -10,7 +10,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Definições de Sensores</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="30"/>
