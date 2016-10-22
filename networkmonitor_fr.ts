@@ -26,7 +26,7 @@
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation>Ko</translation>
+        <translation>ko</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="209"/>
@@ -54,12 +54,12 @@
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation>Paramètres du moniteur réseau</translation>
+        <translation>Paramètrage du moniteur réseau</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Généraux</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="35"/>
