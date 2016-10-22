@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr_FR">
+<TS version="2.1" language="fr">
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
@@ -17,7 +17,8 @@
         <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Déposer ici
+les icônes d&apos;application</translation>
     </message>
 </context>
 <context>
