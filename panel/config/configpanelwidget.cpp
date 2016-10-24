@@ -76,6 +76,7 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     mOldHidable = mPanel->hidable();
 
     mOldAnimation = mPanel->animationTime();
+    mOldShowDelay = mPanel->showDelay();
 
     ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
     ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
@@ -101,6 +102,7 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
     connect(ui->checkBox_hidable,           SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
     connect(ui->spinBox_animation,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_showDelay,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
 
     connect(ui->checkBox_customFontColor,   SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
     connect(ui->pushButton_customFontColor, SIGNAL(clicked(bool)),          this, SLOT(pickFontColor()));
@@ -127,6 +129,7 @@ void ConfigPanelWidget::reset()
     ui->checkBox_hidable->setChecked(mOldHidable);
 
     ui->spinBox_animation->setValue(mOldAnimation);
+    ui->spinBox_showDelay->setValue(mOldShowDelay);
 
     fillComboBox_alignment();
     ui->comboBox_alignment->setCurrentIndex(mOldAlignment + 1);
@@ -261,6 +264,7 @@ void ConfigPanelWidget::editChanged()
     mPanel->setPosition(mScreenNum, mPosition, true);
     mPanel->setHidable(ui->checkBox_hidable->isChecked(), true);
     mPanel->setAnimationTime(ui->spinBox_animation->value(), true);
+    mPanel->setShowDelay(ui->spinBox_showDelay->value(), true);
 
     mPanel->setFontColor(ui->checkBox_customFontColor->isChecked() ? mFontColor : QColor(), true);
     if (ui->checkBox_customBgColor->isChecked())

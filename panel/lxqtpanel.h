@@ -220,6 +220,7 @@ public:
     int opacity() const { return mOpacity; }
     bool hidable() const { return mHidable; }
     int animationTime() const { return mAnimationTime; }
+    int showDelay() const { return mShowDelay; }
 
     /*!
      * \brief Checks if a given Plugin is running and has the
@@ -234,20 +235,42 @@ public:
 public slots:
     /**
      * @brief Shows the QWidget and makes it visible on all desktops. This
-     * method is NOT related to showPanel(), hidePanel() and hidePanelWork()
-     * which handle the LXQt hiding by resizing the panel.
+     * method is NOT related to showPanel(), showPanelWork(), doShowPanel(),
+     * hidePanel() and hidePanelWork() which handle the LXQt hiding by resizing
+     * the panel.
      */
     void show();
     /**
+     * @brief Shows the panel (delayed) by starting the QTimer mShowTimer.
+     * When this timer times out, showPanelWork() will be called. So this
+     * method is called when the cursor hovers the panel area but the panel
+     * will be shown later. This methods cancel (stops) a previous QTimer
+     * mHideTimer.
+     *
+     * \sa mHidable, mHidden, mShowTimer, mShowDelay, showPanelWork(), hidePanel()
+     */
+    void showPanel();
+    /**
+     * @brief Actually starts the action to show the panel. Will be invoked
+     * when the QTimer mShowTimer times out. That timer will be started by
+     * showPanel. This is NOT the same as QWidget::show() because hiding the
+     * panel in LXQt is done by making it very thin. So this method in fact
+     * calls the restoration of the original size of the panel (actually
+     * done by doShowPanel()).
+     *
+     * \sa mHidable, mHidden, mShowTimer, mShowDelay, showPanel(), doShowPanel()
+     */
+    void showPanelWork();
+    /**
      * @brief Shows the panel (immediately) after it had been hidden before.
-     * Stops the QTimer mHideTimer. This it NOT the same as QWidget::show()
-     * because hiding the panel in LXQt is done by making it very thin. So
-     * this method in fact restores the original size of the panel.
+     * This it NOT the same as QWidget::show() because hiding the panel in LXQt
+     * is done by making it very thin. So this method in fact restores the
+     * original size of the panel.
      * \param animate flag for the panel show-up animation disabling (\sa mAnimationTime).
      *
-     * \sa mHidable, mHidden, mHideTimer, hidePanel(), hidePanelWork()
+     * \sa mHidable, mHidden, mShowTimer, mShowDelay, showPanel(), showPanelWork()
      */
-    void showPanel(bool animate);
+    void doShowPanel(bool animate);
     /**
      * @brief Hides the panel (delayed) by starting the QTimer mHideTimer.
      * When this timer times out, hidePanelWork() will be called. So this
@@ -259,7 +282,7 @@ public slots:
     void hidePanel();
     /**
      * @brief Actually hides the panel. Will be invoked when the QTimer
-     * mHideTimer times out. That timer will be started by showPanel(). This
+     * mHideTimer times out. That timer will be started by hidePanel(). This
      * is NOT the same as QWidget::hide() because hiding the panel in LXQt is
      * done by making the panel very thin. So this method in fact makes the
      * panel very thin while the QWidget stays visible.
@@ -295,6 +318,7 @@ public slots:
     void setOpacity(int opacity, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
     void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
+    void setShowDelay(int showDelay, bool save); //!< \sa setPanelSize()
 
     /**
      * @brief Saves the current configuration, i.e. writes the current
@@ -614,11 +638,27 @@ private:
      */
     QTimer mHideTimer;
     /**
+     * @brief QTimer for showing the panel. When the cursor is over the hidden
+     * panel area, this timer will be started. If the cursor leaves the hidden
+     * panel area, this timer will be stopped and reset. After this timer has
+     * timed out, the panel will actually be shown.
+     *
+     * \sa mHidable, mHidden, showPanel(), showPanelWork(), doShowPanel()
+     */
+    QTimer mShowTimer;
+    /**
      * @brief Stores the duration of auto-hide animation.
      *
      * \sa mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
      */
     int mAnimationTime;
+    /**
+     * @brief Stores the duration of waiting time before actually restoring the
+     * panel.
+     *
+     * \sa mHidden, showPanel(), showPanelWork(), doShowPanel()
+     */
+    int mShowDelay;
 
     QColor mFontColor; //!< Font color that is used in the style sheet.
     QColor mBackgroundColor; //!< Background color that is used in the style sheet.

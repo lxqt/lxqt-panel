@@ -90,6 +90,7 @@ private:
     ILXQtPanel::Position mOldPosition;
     bool mOldHidable;
     int mOldAnimation;
+    int mOldShowDelay;
     int mOldScreenNum;
     QColor mOldFontColor;
     QColor mOldBackgroundColor;

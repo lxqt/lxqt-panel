@@ -74,6 +74,7 @@
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
 #define CFG_KEY_ANIMATION          "animation-duration"
+#define CFG_KEY_SHOW_DELAY         "show-delay"
 #define CFG_KEY_LOCKPANEL          "lockPanel"
 
 /************************************************
@@ -133,6 +134,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHidden(false),
     mAnimationTime(0),
     mAnimation(nullptr),
+    mShowDelay(0),
     mLockPanel(false)
 {
     //You can find information about the flags and widget attributes in your
@@ -201,10 +203,14 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
 
-    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, [this] { showPanel(true); });
+    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, [this] { doShowPanel(true); });
     connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
+
+    mShowTimer.setSingleShot(true);
+    mShowTimer.setInterval(mShowDelay);
+    connect(&mShowTimer, SIGNAL(timeout()), this, SLOT(showPanelWork()));
 
     ensureVisible();
 
@@ -215,7 +221,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     // show it the first time, despite setting
     if (mHidable)
     {
-        showPanel(false);
+        doShowPanel(false);
         QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     }
 }
@@ -234,6 +240,7 @@ void LXQtPanel::readSettings()
     mHidden = mHidable;
 
     mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
+    mShowDelay = mSettings->value(CFG_KEY_SHOW_DELAY, mShowDelay).toInt();
 
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
@@ -306,6 +313,7 @@ void LXQtPanel::saveSettings(bool later)
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
     mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
+    mSettings->setValue(CFG_KEY_SHOW_DELAY, mShowDelay);
 
     mSettings->setValue(CFG_KEY_LOCKPANEL, mLockPanel);
 
@@ -987,7 +995,7 @@ bool LXQtPanel::event(QEvent *event)
         event->ignore();
         //no break intentionally
     case QEvent::Enter:
-        showPanel(mAnimationTime > 0);
+        showPanel();
         break;
 
     case QEvent::Leave:
@@ -1226,25 +1234,41 @@ void LXQtPanel::userRequestForDeletion()
     emit deletedByUser(this);
 }
 
-void LXQtPanel::showPanel(bool animate)
+void LXQtPanel::showPanel()
 {
     if (mHidable)
     {
         mHideTimer.stop();
+
         if (mHidden)
-        {
-            mHidden = false;
-            setPanelGeometry(mAnimationTime > 0 && animate);
-        }
+            mShowTimer.start();
+    }
+}
+
+void LXQtPanel::showPanelWork()
+{
+    if (geometry().contains(QCursor::pos()))
+        doShowPanel(true);
+}
+
+void LXQtPanel::doShowPanel(bool animate)
+{
+    if (mHidden)
+    {
+        mHidden = false;
+        setPanelGeometry(mAnimationTime > 0 && animate);
     }
 }
 
 void LXQtPanel::hidePanel()
 {
-    if (mHidable && !mHidden
-            && !mStandaloneWindows->isAnyWindowShown()
-       )
-        mHideTimer.start();
+    if (mHidable)
+    {
+        mShowTimer.stop();
+
+        if (!mHidden && !mStandaloneWindows->isAnyWindowShown())
+            mHideTimer.start();
+    }
 }
 
 void LXQtPanel::hidePanelWork()
@@ -1281,6 +1305,18 @@ void LXQtPanel::setAnimationTime(int animationTime, bool save)
         return;
 
     mAnimationTime = animationTime;
+
+    if (save)
+        saveSettings(true);
+}
+
+void LXQtPanel::setShowDelay(int showDelay, bool save)
+{
+    if (mShowDelay == showDelay)
+        return;
+
+    mShowDelay = showDelay;
+    mShowTimer.setInterval(mShowDelay);
 
     if (save)
         saveSettings(true);
