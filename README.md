@@ -5,7 +5,7 @@
 `lxqt-panel` represents the taskbar of LXQt.
 
 The elements available in lxqt-panel are called "plugin" technically. This applies e. g. to the source code where they reside in directories `./plugin-<plugin>` like `plugin-mainmenu`. In contrast to this they are called "widgets" by the configuration GUI so far. Also, a more descriptive term is used to refer to distinct plugins within the GUI. E. g. the aforementioned `plugin-mainmenu` is called "Application menu" that way.   
-Configuration dialogue "Add Plugins", see [below](https://github.com/pmattern/lxqt-panel/tree/readme#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.   
+Configuration dialogue "Add Plugins", see [below](https://github.com/lxde/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.   
 Notes on some of the plugins, sorted by terms used within the GUI in alphabetical order, technical term in parenthesis:
 
 #### Date & time (plugin-clock) / World clock (plugin-worldclock)
