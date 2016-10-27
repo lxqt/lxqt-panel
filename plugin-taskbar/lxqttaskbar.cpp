@@ -298,8 +298,9 @@ void LXQtTaskBar::addWindow(WId window)
         });
 
         mLayout->addWidget(group);
-        group->setToolButtonsStyle(mButtonStyle);
     }
+
+    group->setToolButtonsStyle(mButtonStyle);
 
     mKnownWindows[window] = group;
     group->addWindow(window);
