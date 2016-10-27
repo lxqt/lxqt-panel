@@ -111,7 +111,7 @@ LXQtTaskButton * LXQtTaskGroup::addWindow(WId id)
         return mButtonHash.value(id);
 
     LXQtTaskButton *btn = new LXQtTaskButton(id, parentTaskBar(), mPopup);
-    btn->setToolButtonStyle(toolButtonStyle());
+    btn->setToolButtonStyle(popupButtonStyle());
 
     if (btn->isApplicationActive())
     {
@@ -248,15 +248,22 @@ void LXQtTaskGroup::onChildButtonClicked()
 /************************************************
 
  ************************************************/
+Qt::ToolButtonStyle LXQtTaskGroup::popupButtonStyle() const
+{
+    // do not set icons-only style in the buttons in the group,
+    // as they'll be indistinguishable
+    const Qt::ToolButtonStyle style = toolButtonStyle();
+    return style == Qt::ToolButtonIconOnly ? Qt::ToolButtonTextBesideIcon : style;
+}
+
+/************************************************
+
+ ************************************************/
 void LXQtTaskGroup::setToolButtonsStyle(Qt::ToolButtonStyle style)
 {
     setToolButtonStyle(style);
 
-    // do not set icons-only style in the buttons in the group,
-    // as they'll be indistinguishable
-    Qt::ToolButtonStyle styleInPopup = style;
-    if (style == Qt::ToolButtonIconOnly)
-        styleInPopup = Qt::ToolButtonTextBesideIcon;
+    const Qt::ToolButtonStyle styleInPopup = popupButtonStyle();
     for (auto & button : mButtonHash)
     {
         button->setToolButtonStyle(styleInPopup);

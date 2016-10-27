@@ -66,6 +66,7 @@ public:
 
     bool onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
     void setAutoRotation(bool value, ILXQtPanel::Position position);
+    Qt::ToolButtonStyle popupButtonStyle() const;
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
 
     void setPopupVisible(bool visible = true, bool fast = false);
