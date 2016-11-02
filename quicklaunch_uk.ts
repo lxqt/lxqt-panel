@@ -11,13 +11,14 @@
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Не вдається додати &quot;%1&quot; до швидкого запуску</translation>
+        <translation>Файл/URL &apos;%1&apos; зараз не вдається додати до швидкого запуску</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Тут значок програми
+розміщення</translation>
     </message>
 </context>
 <context>
@@ -30,7 +31,7 @@ icons here</source>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>Посунути враворуч</translation>
+        <translation>Посунути праворуч</translation>
     </message>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="62"/>
