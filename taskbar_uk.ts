@@ -94,12 +94,12 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Група</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Замкнути групу</translation>
     </message>
 </context>
 <context>
@@ -115,68 +115,68 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування менеджера завдань</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Загальне</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати тільки вікна з стільниці</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати тільки вікна з екрану &amp;панелі</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати тільки мінімізовані вікна</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Розгорнути мінімізовані вікна на поточній стільниці</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Групування &amp;вікон</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Показати вигулькні повідомлення при русі мишки</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Вигляд</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальний розмір кнопки</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> пт</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальна висота кнопки</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати значки по WindowClass, якщо доступні</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -189,7 +189,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто&amp;повертати кнопки коли панель є вертикальна</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Поточне</translation>
     </message>
 </context>
 </TS>
