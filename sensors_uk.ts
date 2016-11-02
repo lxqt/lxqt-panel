@@ -10,7 +10,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування сенсорів</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="30"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Виявлені мікросхеми:</translation>
+        <translation>Виявлені чіпи:</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="175"/>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation>Позначка</translation>
+        <translation>Мітка</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
