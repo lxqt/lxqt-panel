@@ -64,6 +64,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mAutoRotate(true),
     mShowGroupOnHover(true),
     mIconByClass(false),
+    mCycleOnWheelScroll(true),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
     mStyle(new LeftAlignedTextStyle())
@@ -456,6 +457,7 @@ void LXQtTaskBar::settingsChanged()
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
     mShowGroupOnHover = mPlugin->settings()->value("showGroupOnHover",true).toBool();
     mIconByClass = mPlugin->settings()->value("iconByClass", false).toBool();
+    mCycleOnWheelScroll = mPlugin->settings()->value("cycleOnWheelScroll", true).toBool();
 
     // Delete all groups if grouping feature toggled and start over
     if (groupingEnabledOld != mGroupingEnabled)
@@ -546,6 +548,9 @@ void LXQtTaskBar::realign()
  ************************************************/
 void LXQtTaskBar::wheelEvent(QWheelEvent* event)
 {
+    if (!mCycleOnWheelScroll)
+        return QFrame::wheelEvent(event);
+
     static int threshold = 0;
     threshold += abs(event->delta());
     if (threshold < 300)

@@ -70,6 +70,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->iconByClassCB, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->cycleOnWheelScroll, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
@@ -95,6 +96,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->groupingGB->setChecked(settings().value("groupingEnabled",true).toBool());
     ui->showGroupOnHoverCB->setChecked(settings().value("showGroupOnHover",true).toBool());
     ui->iconByClassCB->setChecked(settings().value("iconByClass", false).toBool());
+    ui->cycleOnWheelScroll->setChecked(settings().value("cycleOnWheelScroll", true).toBool());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
@@ -112,4 +114,5 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue("groupingEnabled",ui->groupingGB->isChecked());
     settings().setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
     settings().setValue("iconByClass",ui->iconByClassCB->isChecked());
+    settings().setValue("cycleOnWheelScroll",ui->cycleOnWheelScroll->isChecked());
 }

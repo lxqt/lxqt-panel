@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>401</width>
-    <height>484</height>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,19 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
-        <property name="margin">
+        <property name="spacing">
          <number>0</number>
         </property>
-        <property name="spacing">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -65,6 +74,13 @@
        <widget class="QCheckBox" name="middleClickCB">
         <property name="text">
          <string>Close on middle-click</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="cycleOnWheelScroll">
+        <property name="text">
+         <string>Cycle windows on wheel scrolling</string>
         </property>
        </widget>
       </item>

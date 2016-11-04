@@ -129,6 +129,7 @@ private:
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
     bool mIconByClass;
+    bool mCycleOnWheelScroll; //!< flag for processing the wheelEvent
 
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
