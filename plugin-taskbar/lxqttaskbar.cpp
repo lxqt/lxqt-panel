@@ -549,7 +549,7 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
     static int threshold = 0;
     threshold += abs(event->delta());
     if (threshold < 300)
-        return;
+        return QFrame::wheelEvent(event);
     else
         threshold = 0;
 
@@ -572,7 +572,7 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
     }
 
     if (list.isEmpty())
-        return;
+        return QFrame::wheelEvent(event);
 
     if (!group)
         group = list.at(0);
@@ -588,6 +588,7 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
         int idx = (list.indexOf(group) + delta + list.count()) % list.count();
         group = list.at(idx);
     }
+    QFrame::wheelEvent(event);
 }
 
 /************************************************
