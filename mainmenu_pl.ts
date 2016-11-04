@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.1" language="pl">
 <context>
     <name>LXQtMainMenu</name>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="95"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="101"/>
         <source>Show/hide main menu</source>
-        <translation>Pokaż/ukryj menu</translation>
+        <translation>Pokaż/ukryj główne menu</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Ustawienia Menu</translation>
+        <translation>Ustawienia Głównego Menu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -75,37 +75,37 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyszukiwanie</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>szerokość maksymalna:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokazuj pasujące elementy:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Widoczne pozycje (max):</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtruj pozycje menu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj pozycje menu podczas wyszukiwania</translation>
     </message>
     <message>
         <source>...</source>
@@ -129,12 +129,12 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz plik ikony</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrazy (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
