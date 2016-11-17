@@ -24,7 +24,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <QDebug>
 #include <QObject>
+#include <QX11Info>
 #include "src/kbdstate.h"
 #include "../panel/ilxqtpanelplugin.h"
 
@@ -38,7 +40,14 @@ public:
     {}
 
     virtual ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
-    { return new KbdState(startupInfo); }
+    {
+        // Currently only X11 supported
+        if (!QX11Info::connection()) {
+            qWarning() << "Currently kbindicator plugin supports X11 only. Skipping.";
+            return nullptr;
+        }
+        return new KbdState(startupInfo);
+    }
 };
 
 #include "kbindicator-plugin.moc"
