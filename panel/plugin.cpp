@@ -259,7 +259,7 @@ bool Plugin::loadLib(ILXQtPanelPluginLibrary const * pluginLib)
     mPlugin = pluginLib->instance(startupInfo);
     if (!mPlugin)
     {
-        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILXQtPanelPlugin.").arg(mPluginLoader->fileName());
+        qWarning() << QString("Can't load plugin \"%1\". Plugin can't build ILXQtPanelPlugin.").arg(mDesktopFile.id());
         return false;
     }
 
