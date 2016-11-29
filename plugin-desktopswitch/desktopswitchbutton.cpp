@@ -51,6 +51,12 @@ void DesktopSwitchButton::update(int index, LabelType labelType, const QString &
             setText(title);
             break;
 
+        // A blank space was used in NONE Label Type as it uses less space
+        // for each desktop button at the panel
+        case LABEL_TYPE_NONE:
+            setText(QStringLiteral(" "));
+            break;
+
         default: // LABEL_TYPE_NUMBER
             setText(QString::number(index + 1));
     }
