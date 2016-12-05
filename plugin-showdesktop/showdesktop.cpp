@@ -35,10 +35,6 @@
 #include "showdesktop.h"
 #include "../panel/pluginsettings.h"
 
-// Still needed for lxde/lxqt#338
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
-
 #define DEFAULT_SHORTCUT "Control+Alt+D"
 
 ShowDesktop::ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo) :
