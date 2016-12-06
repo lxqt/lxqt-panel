@@ -29,38 +29,27 @@ set(UIS
 set(LIBRARIES
 )
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(XKB_COMMON REQUIRED xkbcommon)
-pkg_check_modules(XKB_COMMON_X11 QUIET xkbcommon-x11)
+find_package(XCB REQUIRED COMPONENTS xkbcommon-x11 xkbcommon xcb xcb-xkb)
+find_package(Qt5 REQUIRED COMPONENTS X11Extras Xml)
 
-if(XKB_COMMON_X11_FOUND)
-    message(STATUS "XkbCommon X11 was found")
-    include_directories(${XKB_COMMON_X11_INCLUDE_DIRS})
-    find_package(Qt5 COMPONENTS X11Extras Xml)
-    pkg_check_modules(XCB xcb)
-    pkg_check_modules(XCB_XKB xcb-xkb)
+include_directories(${XCB_INCLUDE_DIRS})
 
-    set(HEADERS
-        ${HEADERS}
-        src/x11/kbdlayout.h
-    )
+set(HEADERS
+    ${HEADERS}
+    src/x11/kbdlayout.h
+)
 
-    set(SOURCES
-        ${SOURCES}
-        src/x11/kbdlayout.cpp
-    )
+set(SOURCES
+    ${SOURCES}
+    src/x11/kbdlayout.cpp
+)
 
-    set(LIBRARIES
-        ${LIBRARIES}
-        ${XKB_COMMON_X11_LIBRARIES}
-        ${XCB_LIBRARIES}
-        ${XCB_XKB_LIBRARIES}
-        Qt5::Xml
-    )
+set(LIBRARIES
+    ${LIBRARIES}
+    ${XCB_LIBRARIES}
+    Qt5::Xml
+)
 
-    add_definitions(-DX11_ENABLED)
-else()
-    message(FATAL_ERROR "No XkbCommon backend(X11) found!")
-endif()
+add_definitions(-DX11_ENABLED)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

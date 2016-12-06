@@ -2,10 +2,8 @@ set(PLUGIN "tray")
 
 include(CheckLibraryExists)
 
+find_package(XCB REQUIRED COMPONENTS xcb xcb-util xcb-damage)
 find_package(PkgConfig)
-pkg_check_modules(XCB REQUIRED xcb)
-pkg_check_modules(XCB_UTIL REQUIRED xcb-util)
-pkg_check_modules(XCB_DAMAGE REQUIRED xcb-damage)
 
 find_package(X11 REQUIRED)
 pkg_check_modules(XCOMPOSITE REQUIRED xcomposite)
@@ -32,7 +30,6 @@ set(LIBRARIES
     ${XDAMAGE_LIBRARIES}
     ${XRENDER_LIBRARIES}
     ${XCB_LIBRARIES}
-    ${XCB_DAMAGE_LIBRARIES}
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
