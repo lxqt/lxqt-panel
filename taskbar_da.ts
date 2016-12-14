@@ -11,7 +11,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="511"/>
         <source>To &amp;Desktop</source>
-        <translation>Til skrivebor&amp;d</translation>
+        <translation>Til &amp;skrivebord</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="513"/>
@@ -36,17 +36,17 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="544"/>
         <source>Maximize vertically</source>
-        <translation>Maksimer vertikalt</translation>
+        <translation>Maksimer lodret</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="549"/>
         <source>Maximize horizontally</source>
-        <translation>Maksimer horisontalt</translation>
+        <translation>Maksimer vandret</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="555"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Gendan</translation>
+        <translation>&amp;Genskab</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="559"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="581"/>
         <source>Always on &amp;top</source>
-        <translation>Al&amp;tid øverst</translation>
+        <translation>Altid &amp;øverst</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="587"/>
@@ -94,124 +94,96 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppe</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk gruppe</translation>
     </message>
 </context>
 <context>
     <name>LXQtTaskbarConfiguration</name>
     <message>
-        <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">LXQt Opgavehåndtering Indstillinger</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">Indhold af vinduesliste</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Indstillinger for opgavehåndtering</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generelt</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis kun vinduer fra skrivebord</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis kun vinduer fra &amp;panelets skærm</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis kun minimeret vinduer</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Løft minimerede vinduer på aktuelt skrivebord</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Vindues&amp;gruppering</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Vis pop-op når markøren er over </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Udseende</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimum knapbredde</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimum knaphøjde</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show windows from current desktop</source>
-        <translation type="vanished">Vis vinduer fra aktuelle skrivebord</translation>
+        <translation>Brug ikoner af WindowClass, hvis tilgængeligt</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rotér automatisk knapper når panelet er lodret</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
         <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>wlcB</source>
-        <translation type="vanished">wlcB</translation>
-    </message>
-    <message>
-        <source>Show windows from all desktops</source>
-        <translation type="vanished">Vis vinduer fra alle skriveborde</translation>
-    </message>
-    <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">Udseende af Vinduesliste</translation>
+        <translation>Luk ved midterklik</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
         <source>Button style</source>
         <translation>Knapstil</translation>
-    </message>
-    <message>
-        <source>Max button width</source>
-        <translation type="vanished">Maks knapbredde</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="45"/>
@@ -231,7 +203,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuelt</translation>
     </message>
 </context>
 </TS>
