@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>Netværksinterface &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Netværksgrænseflade &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitor.cpp" line="162"/>
@@ -52,13 +52,9 @@
 <context>
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
-        <source>LXQt Network Monitor settings</source>
-        <translation type="vanished">Indstillinger for LXQt Netværksmonitor</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Indstillinger for netværksovervågning</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="20"/>
