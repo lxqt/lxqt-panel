@@ -4,13 +4,9 @@
 <context>
     <name>LXQtSensorsConfiguration</name>
     <message>
-        <source>LXQt Sensors Settings</source>
-        <translation type="vanished">Indstillinger for LXQt Sensorer</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Indstillinger for sensorer</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="30"/>
@@ -25,7 +21,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Temperaturbjælke bredde</translation>
+        <translation>Temperaturbjælkens bredde</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="104"/>
@@ -45,7 +41,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>Blink statuslinjer når temperaturen er for høj</translation>
+        <translation>Blink forløbslinjer når temperaturen er for høj</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="138"/>
@@ -60,12 +56,12 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Fundne chipsæt:</translation>
+        <translation>Fundne chips:</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Chipsæt funktioner:</translation>
+        <translation>Chip-funktioner:</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
@@ -75,7 +71,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation>Identifikation</translation>
+        <translation>Etiket</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.cpp" line="195"/>
