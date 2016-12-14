@@ -4,25 +4,17 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">CPU belastning %1%</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU-belastning %1%</translation>
     </message>
 </context>
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LXQt Cpu Load settings</source>
-        <translation type="vanished">LXQt CPU-belastning indstillinger</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU belastningsindstillinger</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -42,7 +34,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation>sek</translation>
+        <translation>sek.</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
@@ -52,7 +44,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bjælkens bredde:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
