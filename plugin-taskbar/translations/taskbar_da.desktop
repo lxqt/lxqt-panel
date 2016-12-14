@@ -3,10 +3,10 @@ Type=Service
 ServiceTypes=LXQtPanel/Plugin
 Name=Task manager
 Comment=Switch between running applications
+Icon=window-duplicate
 
 #TRANSLATIONS_DIR=../translations
 
-
 # Translations
-Comment[da]=Skifter imellem kørende programmer
-Name[da]=Programadministrator
+Name[da]=Opgavehåndtering
+Comment[da]=Skift imellem kørende programmer

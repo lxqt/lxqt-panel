@@ -5,6 +5,8 @@ Name=Sensors
 Comment=View readings from hardware sensors.
 
 
+#TRANSLATIONS_DIR=../translations
+
 # Translations
 Name[da]=Sensorer
-Comment[da]=Vis målinger fra hardware-sensorer (I øjeblikket lm_sensors)
+Comment[da]=Vis målinger fra hardware-sensorer
