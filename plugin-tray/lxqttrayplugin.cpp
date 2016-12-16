@@ -25,15 +25,20 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <iostream>
 
 #include "lxqttrayplugin.h"
 #include "lxqttray.h"
 
+#define TRAY_ICON_SIZE_DEFAULT 24
+
 LXQtTrayPlugin::LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo),
-    mWidget(new LXQtTray(this))
+    mWidget(new LXQtTray(this)),
+    mIconSize(TRAY_ICON_SIZE_DEFAULT)
 {
+    settingsChanged();
 }
 
 LXQtTrayPlugin::~LXQtTrayPlugin()
@@ -51,4 +56,19 @@ void LXQtTrayPlugin::realign()
     mWidget->realign();
 }
 
+QDialog * LXQtTrayPlugin::configureDialog()
+{
+     return new LXQtTrayConfiguration(settings());
+}
 
+void LXQtTrayPlugin::settingsChanged()
+{
+    bool useCustomSize = settings()->value("useCustomTrayIconSize", false).toBool();
+    if(useCustomSize) {
+        mIconSize = settings()->value("customTrayIconSize", TRAY_ICON_SIZE_DEFAULT).toInt();
+        mWidget->enableForcedIconSize(QSize(mIconSize, mIconSize));
+    }
+    else
+        mWidget->disableForcedIconSize();
+    
+}
