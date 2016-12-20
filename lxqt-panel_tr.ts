@@ -6,27 +6,27 @@
     <message>
         <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Eklenti Ekle</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ara:</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Gereç Ekle</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(aynı anda yalnızca bir örnek çalışabilir)</translation>
     </message>
 </context>
 <context>
@@ -118,17 +118,17 @@
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Paneli Yapılandır</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Not Defteri</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Gereçler</translation>
     </message>
 </context>
 <context>
@@ -136,204 +136,204 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Paneli yapılandır</translation>
+        <translation>Paneli yapılandır</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Boyut</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Boyut:</translation>
+        <translation>Boyut:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="109"/>
         <location filename="../../../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge boyutu:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">Uzunluk:</translation>
+        <translation>Uzunluk:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Negatif piksel değerleri panel uzunluğunu kullanılabilir ekran genişliğinden girilen piksel değeri kadar az kısaltır.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Örn: &quot;Uzunluk&quot; -100px, ekran boyutu 1000px ise gerçek panel boyutu 900px olacaktır.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Satır sayısı:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Hizalama &amp;&amp; konumu</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="224"/>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıfır animasyon yok anlamına gelir</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="227"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="253"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Animasyon süresi:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="284"/>
         <location filename="../../../config/configpanelwidget.cpp" line="195"/>
         <source>Left</source>
-        <translation type="unfinished">Sol</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="289"/>
         <location filename="../../../config/configpanelwidget.cpp" line="196"/>
         <location filename="../../../config/configpanelwidget.cpp" line="202"/>
         <source>Center</source>
-        <translation type="unfinished">Merkez</translation>
+        <translation>Merkez</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="294"/>
         <location filename="../../../config/configpanelwidget.cpp" line="197"/>
         <source>Right</source>
-        <translation type="unfinished">Sağ</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel biçemlendirme</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="335"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazıtipi rengi:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="375"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arkaplan rengi:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="414"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arkaplan matlığı:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="446"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Panel şeffaflığı için karışım gerekli.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="474"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arkaplan resmi:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="260"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Yerleştirme:</translation>
+        <translation>Hizalama:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="240"/>
         <source>Position:</source>
-        <translation type="unfinished">Konum:</translation>
+        <translation>Konum:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik Gizle</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="161"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Masasüstünün üst kısmı</translation>
+        <translation>Ekranın Üstünde</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="162"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Masaüstünün sol kısmı</translation>
+        <translation>Ekranın Solunda</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="163"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Masaüstünün sağ kısmı</translation>
+        <translation>Ekranın Sağında</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="164"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Masaüstünün alt kısmı</translation>
+        <translation>Ekranın Altında</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="173"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">Masaüstünün üst kısmı %1</translation>
+        <translation>%1 Ekranın Üstünde</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="174"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">Masaüstünün sol kısmı %1</translation>
+        <translation>%1 Ekranın Solunda</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="175"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">Masaüstünün sağ kısmı %1</translation>
+        <translation>%1 Ekranın Sağında</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="176"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">Masaüstünün alt kısmı %1</translation>
+        <translation>%1 Ekranın Altında</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="201"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="203"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="360"/>
         <location filename="../../../config/configpanelwidget.cpp" line="376"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk seç</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Resimler(*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="394"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim seç</translation>
     </message>
 </context>
 <context>
@@ -341,17 +341,17 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Eklentileri Yapılandır</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Not: Bu sayfada yapılan değişiklikler geri alınamaz.</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Yukarı taşı</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="115"/>
@@ -360,27 +360,27 @@
         <location filename="../../../config/configpluginswidget.ui" line="164"/>
         <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşağı taşı</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Sil</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Yapılandır</translation>
+        <translation>Yapılandır</translation>
     </message>
 </context>
 <context>
@@ -389,39 +389,40 @@
         <location filename="../../../lxqtpanel.cpp" line="1012"/>
         <location filename="../../../lxqtpanel.cpp" line="1036"/>
         <source>Panel</source>
-        <translation>Not Defteri</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1039"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Paneli Yapılandır</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1044"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Gereçleri Yönet</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1050"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Panel Ekle</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1062"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu Paneli Kilitle</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1200"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir paneli silme eylemi geri alınamaz.
+Paneli silmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1057"/>
         <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Paneli Sil</translation>
     </message>
     <message>
         <source>Configure panel...</source>
@@ -459,17 +460,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../plugin.cpp" line="385"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; ögesini yapılandır</translation>
     </message>
     <message>
         <location filename="../../../plugin.cpp" line="390"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; ögesini taşı</translation>
     </message>
     <message>
         <location filename="../../../plugin.cpp" line="398"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; ögesini sil</translation>
     </message>
 </context>
 <context>
@@ -477,12 +478,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer yapılandırma dosyasını kullanın.</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapılandırma dosyası</translation>
     </message>
 </context>
 </TS>
