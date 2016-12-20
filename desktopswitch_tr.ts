@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstü %1</translation>
     </message>
     <message>
         <location filename="../../../desktopswitch.cpp" line="141"/>
@@ -20,37 +20,37 @@
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstü Değiştirme Ayarları</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Satır sayısı:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstü etiketi:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Rakam</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="70"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstü adı</translation>
     </message>
 </context>
 </TS>
