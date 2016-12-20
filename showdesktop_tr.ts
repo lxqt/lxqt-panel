@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../showdesktop.cpp" line="48"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstünü göster</translation>
     </message>
     <message>
         <location filename="../../../showdesktop.cpp" line="70"/>
