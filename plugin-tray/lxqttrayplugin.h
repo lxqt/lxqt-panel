@@ -30,7 +30,9 @@
 #define LXQTTRAYPLUGIN_H
 
 #include "../panel/ilxqtpanelplugin.h"
+#include <QDebug>
 #include <QObject>
+#include <QX11Info>
 
 class LXQtTray;
 class LXQtTrayPlugin : public QObject, public ILXQtPanelPlugin
@@ -60,6 +62,11 @@ class LXQtTrayPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
+        // Currently only X11 supported
+        if (!QX11Info::connection()) {
+            qWarning() << "Currently tray plugin supports X11 only. Skipping.";
+            return nullptr;
+        }
         return new LXQtTrayPlugin(startupInfo);
     }
 };
