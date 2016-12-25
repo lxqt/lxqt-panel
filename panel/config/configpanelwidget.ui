@@ -234,7 +234,26 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="2" column="3">
+       <widget class="QSpinBox" name="spinBox_showDelay">
+        <property name="enabled">
+         <bool>false</bool>
+        </property> 
+        <property name="toolTip">
+         <string>Zero means no delay</string>
+        </property>
+        <property name="suffix">
+         <string> ms</string>
+        </property>
+        <property name="maximum">
+         <number>2000</number>
+        </property>
+        <property name="singleStep">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <widget class="QLabel" name="label_position">
         <property name="text">
          <string>Position:</string>
@@ -251,6 +270,19 @@
         </property>
         <property name="text">
          <string>Animation duration:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="label_showDelay">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Zero means no delay</string>
+        </property>
+        <property name="text">
+         <string>Delayed restoring:</string>
         </property>
        </widget>
       </item>
@@ -296,7 +328,7 @@
         </item>
        </widget>
       </item>
-      <item row="2" column="1" colspan="3">
+      <item row="3" column="1" colspan="3">
        <widget class="QComboBox" name="comboBox_position"/>
       </item>
      </layout>
@@ -665,6 +697,38 @@
     <hint type="destinationlabel">
      <x>319</x>
      <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_hidable</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_showDelay</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_hidable</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox_showDelay</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>242</y>
     </hint>
    </hints>
   </connection>
