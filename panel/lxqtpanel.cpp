@@ -46,6 +46,7 @@
 #include <QDesktopWidget>
 #include <QMenu>
 #include <QMessageBox>
+#include <QDropEvent>
 #include <XdgIcon>
 #include <XdgDirs>
 
@@ -991,7 +992,8 @@ bool LXQtPanel::event(QEvent *event)
         break;
     }
     case QEvent::DragEnter:
-        event->ignore();
+        dynamic_cast<QDropEvent *>(event)->setDropAction(Qt::IgnoreAction);
+        event->accept();
         //no break intentionally
     case QEvent::Enter:
         mShowDelayTimer.start();
