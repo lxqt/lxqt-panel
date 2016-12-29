@@ -46,6 +46,7 @@
 #include <QDesktopWidget>
 #include <QMenu>
 #include <QMessageBox>
+#include <QDropEvent>
 #include <XdgIcon>
 #include <XdgDirs>
 
@@ -74,6 +75,7 @@
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
 #define CFG_KEY_ANIMATION          "animation-duration"
+#define CFG_KEY_SHOW_DELAY         "show-delay"
 #define CFG_KEY_LOCKPANEL          "lockPanel"
 
 /************************************************
@@ -189,6 +191,10 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
     connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
 
+    mShowDelayTimer.setSingleShot(true);
+    mShowDelayTimer.setInterval(PANEL_SHOW_DELAY);
+    connect(&mShowDelayTimer, &QTimer::timeout, [this] { showPanel(mAnimationTime > 0); });
+
     connect(QApplication::desktop(), &QDesktopWidget::resized, this, &LXQtPanel::ensureVisible);
     connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, &LXQtPanel::ensureVisible);
 
@@ -234,6 +240,7 @@ void LXQtPanel::readSettings()
     mHidden = mHidable;
 
     mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
+    mShowDelayTimer.setInterval(mSettings->value(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval()).toInt());
 
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
@@ -306,6 +313,7 @@ void LXQtPanel::saveSettings(bool later)
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
     mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
+    mSettings->setValue(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval());
 
     mSettings->setValue(CFG_KEY_LOCKPANEL, mLockPanel);
 
@@ -984,14 +992,16 @@ bool LXQtPanel::event(QEvent *event)
         break;
     }
     case QEvent::DragEnter:
-        event->ignore();
+        dynamic_cast<QDropEvent *>(event)->setDropAction(Qt::IgnoreAction);
+        event->accept();
         //no break intentionally
     case QEvent::Enter:
-        showPanel(mAnimationTime > 0);
+        mShowDelayTimer.start();
         break;
 
     case QEvent::Leave:
     case QEvent::DragLeave:
+        mShowDelayTimer.stop();
         hidePanel();
         break;
 
@@ -1281,6 +1291,17 @@ void LXQtPanel::setAnimationTime(int animationTime, bool save)
         return;
 
     mAnimationTime = animationTime;
+
+    if (save)
+        saveSettings(true);
+}
+
+void LXQtPanel::setShowDelay(int showDelay, bool save)
+{
+    if (mShowDelayTimer.interval() == showDelay)
+        return;
+
+    mShowDelayTimer.setInterval(showDelay);
 
     if (save)
         saveSettings(true);
