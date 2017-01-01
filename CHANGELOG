@@ -1,7 +1,28 @@
 
-lxqt-panel-0.11.0 / 2016-09-24
+lxqt-panel-0.11.1 / 2017-01-01
 ==============================
 
+  * Show Auto-Hiding Panels with Delay (#387)
+  * Enabling testing on weston (#380)
+  * Update *da.desktop files
+  * plugin-showdesktop: Cleanup left behind XCB artifacts
+  * plugin-kbindicator: Use FindXCB CMake module
+  * plugin-tray: Use the FindXCB CMake module
+  * Use the new lxqt-build-tools CMake modules (FindMenuCache)
+  * plugin-desktopswitch: Add LABEL_TYPE_NONE
+  * Add/Update Portugese translations
+  * taskbar: Add "cycle on wheel" configuration
+  * taskbar: Forward wheelEvent
+  * Add/Update french desktop entries
+  * taskbar: Set toolButtonStyle for popup correctly
+  * Fix faulty link in README.md
+  * Remove arbitrary limit of taskbar button width
+  * Remove cpack (#371)
+
+0.11.0 / 2016-09-24
+===================
+
+  * Release 0.11.0: Add changelog
   * Update README.md: Reflect changes introduced in 1c22479
   * CMakeLists: Fail for unmet dependencies
   * mainmenu: Remove setting base style in StyleChange
