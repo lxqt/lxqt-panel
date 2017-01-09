@@ -80,18 +80,14 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
     return ACT_INFO;
 }
 
-void DeviceAction::onDeviceAdded(QString const & udi)
+void DeviceAction::onDeviceAdded(Solid::Device device)
 {
-    Solid::Device device(udi);
-    if (device.is<Solid::StorageAccess>())
-        doDeviceAdded(device);
+    doDeviceAdded(device);
 }
 
-void DeviceAction::onDeviceRemoved(QString const & udi)
+void DeviceAction::onDeviceRemoved(Solid::Device device)
 {
-    Solid::Device device(udi);
-    if (device.is<Solid::StorageAccess>())
-        doDeviceRemoved(device);
+    doDeviceRemoved(device);
 }
 
 DeviceAction::ActionId DeviceAction::stringToActionId(const QString &string, ActionId defaultValue)

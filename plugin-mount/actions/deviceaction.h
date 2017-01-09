@@ -54,8 +54,8 @@ public:
     static QString actionIdToString(ActionId id);
 
 public slots:
-    void onDeviceAdded(QString const & udi);
-    void onDeviceRemoved(QString const & udi);
+    void onDeviceAdded(Solid::Device device);
+    void onDeviceRemoved(Solid::Device device);
 
 protected:
     explicit DeviceAction(LXQtMountPlugin *plugin, QObject *parent = 0);

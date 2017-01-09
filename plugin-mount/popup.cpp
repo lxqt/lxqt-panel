@@ -131,6 +131,8 @@ void Popup::onDeviceRemoved(QString const & udi)
         --mDisplayCount;
         if (mDisplayCount == 0)
             mPlaceholder->show();
+
+        emit deviceRemoved(Solid::Device{udi});
     }
 }
 
@@ -163,6 +165,8 @@ void Popup::addItem(Solid::Device device)
 
     if (isVisible())
         realign();
+
+    emit deviceAdded(device);
 }
 
 void Popup::realign()

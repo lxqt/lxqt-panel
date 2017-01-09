@@ -54,6 +54,16 @@ private slots:
 
 signals:
     void visibilityChanged(bool visible);
+    /*!
+     * \brief Signal emitted when new device added into the popup
+     * (device which we are interested in)
+     */
+    void deviceAdded(Solid::Device device);
+    /*!
+     * \brief Signal emitted when device is removed from the popup
+     * (device which we are interested in)
+     */
+    void deviceRemoved(Solid::Device device);
 
 protected:
     void showEvent(QShowEvent *event);
