@@ -155,11 +155,12 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
         layout->addWidget(mPluginWidget, 0, 0);
     }
 
+    saveSettings();
+
     // delay the connection to settingsChanged to avoid conflicts
     // while the plugin is still being initialized
     connect(mSettings, &PluginSettings::settingsChanged,
             this, &Plugin::settingsChanged);
-    saveSettings();
 }
 
 
