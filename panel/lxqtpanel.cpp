@@ -388,7 +388,10 @@ void LXQtPanel::loadPlugins()
     connect(mPlugins.data(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
 
     for (auto const & plugin : mPlugins->plugins())
+    {
         mLayout->addPlugin(plugin);
+        connect(plugin, &Plugin::dragLeft, [this] { mShowDelayTimer.stop(); hidePanel(); });
+    }
 }
 
 /************************************************

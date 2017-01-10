@@ -81,6 +81,8 @@ public:
 
     QString name() const { return mName; }
 
+    virtual bool eventFilter(QObject * watched, QEvent * event);
+
     // For QSS properties ..................
     static QColor moveMarkerColor() { return mMoveMarkerColor; }
     static void setMoveMarkerColor(QColor color) { mMoveMarkerColor = color; }
@@ -93,6 +95,11 @@ public slots:
 signals:
     void startMove();
     void remove();
+    /*!
+     * \brief Signal emitted when this widget or some of its children
+     * get the DragLeave event delivered.
+     */
+    void dragLeft();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
@@ -104,6 +111,8 @@ private:
     bool loadLib(ILXQtPanelPluginLibrary const * pluginLib);
     bool loadModule(const QString &libraryName);
     ILXQtPanelPluginLibrary const * findStaticPlugin(const QString &libraryName);
+    void watchWidgets(QObject * const widget);
+    void unwatchWidgets(QObject * const widget);
 
     const LXQt::PluginInfo mDesktopFile;
     QPluginLoader *mPluginLoader;

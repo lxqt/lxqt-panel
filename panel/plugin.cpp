@@ -268,6 +268,7 @@ bool Plugin::loadLib(ILXQtPanelPluginLibrary const * pluginLib)
     if (mPluginWidget)
     {
         mPluginWidget->setObjectName(mPlugin->themeId());
+        watchWidgets(mPluginWidget);
     }
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     return true;
@@ -301,6 +302,34 @@ bool Plugin::loadModule(const QString &libraryName)
     return loadLib(pluginLib);
 }
 
+/************************************************
+
+ ************************************************/
+void Plugin::watchWidgets(QObject * const widget)
+{
+    // the QWidget might not be fully constructed yet, but we can rely on the isWidgetType()
+    if (!widget->isWidgetType())
+        return;
+    widget->installEventFilter(this);
+    // watch also children (recursive)
+    for (auto const & child : widget->children())
+    {
+        watchWidgets(child);
+    }
+}
+
+/************************************************
+
+ ************************************************/
+void Plugin::unwatchWidgets(QObject * const widget)
+{
+    widget->removeEventFilter(this);
+    // unwatch also children (recursive)
+    for (auto const & child : widget->children())
+    {
+        unwatchWidgets(child);
+    }
+}
 
 /************************************************
 
@@ -422,6 +451,28 @@ bool Plugin::isExpandable() const
     return mPlugin->isExpandable();
 }
 
+
+/************************************************
+
+ ************************************************/
+bool Plugin::eventFilter(QObject * watched, QEvent * event)
+{
+    switch (event->type())
+    {
+        case QEvent::DragLeave:
+            emit dragLeft();
+            break;
+        case QEvent::ChildAdded:
+            watchWidgets(dynamic_cast<QChildEvent *>(event)->child());
+            break;
+        case QEvent::ChildRemoved:
+            unwatchWidgets(dynamic_cast<QChildEvent *>(event)->child());
+            break;
+        default:
+            break;
+    }
+    return false;
+}
 
 /************************************************
 
