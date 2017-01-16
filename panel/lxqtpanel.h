@@ -218,6 +218,7 @@ public:
     QColor backgroundColor() const { return mBackgroundColor; }
     QString backgroundImage() const { return mBackgroundImage; }
     int opacity() const { return mOpacity; }
+    int reserveSpace() const { return mReserveSpace; }
     bool hidable() const { return mHidable; }
     int animationTime() const { return mAnimationTime; }
     int showDelay() const { return mShowDelayTimer.interval(); }
@@ -294,6 +295,7 @@ public slots:
     void setBackgroundColor(QColor color, bool save); //!< \sa setPanelSize()
     void setBackgroundImage(QString path, bool save); //!< \sa setPanelSize()
     void setOpacity(int opacity, bool save); //!< \sa setPanelSize()
+    void setReserveSpace(bool reserveSpace, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
     void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
     void setShowDelay(int showDelay, bool save); //!< \sa setPanelSize()
@@ -637,6 +639,14 @@ private:
      * of a background image.
      */
     int mOpacity;
+    /*!
+     * \brief Flag if the panel should reserve the space under it as not usable
+     * for "normal" windows. Usable for not 100% wide/hight or hiddable panels,
+     * if user wants maximized windows go under the panel.
+     *
+     * \sa updateWmStrut()
+     */
+    bool mReserveSpace;
 
     /**
      * @brief Pointer to the current ConfigPanelDialog if there is any. Make

@@ -87,6 +87,7 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     mBackgroundColor = mOldBackgroundColor;
     mOldBackgroundImage = mPanel->backgroundImage();
     mOldOpacity = mPanel->opacity();
+    mOldReserveSpace = mPanel->reserveSpace();
 
     // reset configurations from file
     reset();
@@ -112,6 +113,8 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     connect(ui->lineEdit_customBgImage,     SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
     connect(ui->pushButton_customBgImage,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
     connect(ui->slider_opacity,             &QSlider::valueChanged,         this, &ConfigPanelWidget::editChanged);
+
+    connect(ui->checkBox_reserveSpace, &QAbstractButton::toggled, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
 }
 
 
@@ -144,6 +147,7 @@ void ConfigPanelWidget::reset()
     ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mOldBackgroundColor.name()));
     ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
     ui->slider_opacity->setValue(mOldOpacity);
+    ui->checkBox_reserveSpace->setChecked(mOldReserveSpace);
 
     ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
     ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());

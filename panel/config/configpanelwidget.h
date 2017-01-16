@@ -96,6 +96,7 @@ private:
     QColor mOldBackgroundColor;
     QString mOldBackgroundImage;
     int mOldOpacity;
+    bool mOldReserveSpace;
 };
 
 #endif

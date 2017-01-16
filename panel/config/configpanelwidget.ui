@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>397</height>
+    <width>382</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -322,6 +322,16 @@
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QCheckBox" name="checkBox_reserveSpace">
+        <property name="toolTip">
+         <string>Don't allow maximized windows go under the panel window</string>
+        </property>
+        <property name="text">
+         <string>Reserve space on display</string>
+        </property>
        </widget>
       </item>
      </layout>

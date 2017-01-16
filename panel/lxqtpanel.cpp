@@ -72,6 +72,7 @@
 #define CFG_KEY_BACKGROUNDCOLOR    "background-color"
 #define CFG_KEY_BACKGROUNDIMAGE    "background-image"
 #define CFG_KEY_OPACITY            "opacity"
+#define CFG_KEY_RESERVESPACE       "reserve-space"
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
 #define CFG_KEY_ANIMATION          "animation-duration"
@@ -134,6 +135,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mHidable(false),
     mHidden(false),
     mAnimationTime(0),
+    mReserveSpace(true),
     mAnimation(nullptr),
     mLockPanel(false)
 {
@@ -263,6 +265,7 @@ void LXQtPanel::readSettings()
         setFontColor(color, true);
 
     setOpacity(mSettings->value(CFG_KEY_OPACITY, 100).toInt(), true);
+    mReserveSpace = mSettings->value(CFG_KEY_RESERVESPACE, true).toBool();
     color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
     if (color.isValid())
         setBackgroundColor(color, true);
@@ -310,6 +313,7 @@ void LXQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
     mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
     mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
+    mSettings->setValue(CFG_KEY_RESERVESPACE, mReserveSpace);
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
     mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
@@ -585,51 +589,62 @@ void LXQtPanel::updateWmStrut()
     if(wid == 0 || !isVisible())
         return;
 
-    const QRect wholeScreen = QApplication::desktop()->geometry();
-    const QRect rect = geometry();
-    // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
-    // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
-    // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
-    // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
-    // At least openbox is implemented like this.
-    switch (mPosition)
+    if (mReserveSpace)
     {
-    case LXQtPanel::PositionTop:
-        KWindowSystem::setExtendedStrut(wid,
-                                        /* Left   */  0, 0, 0,
-                                        /* Right  */  0, 0, 0,
-                                        /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
-                                        /* Bottom */  0, 0, 0
-                                       );
-        break;
+        const QRect wholeScreen = QApplication::desktop()->geometry();
+        const QRect rect = geometry();
+        // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+        // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
+        // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
+        // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
+        // At least openbox is implemented like this.
+        switch (mPosition)
+        {
+        case LXQtPanel::PositionTop:
+            KWindowSystem::setExtendedStrut(wid,
+                                            /* Left   */  0, 0, 0,
+                                            /* Right  */  0, 0, 0,
+                                            /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
+                                            /* Bottom */  0, 0, 0
+                                           );
+            break;
 
-    case LXQtPanel::PositionBottom:
+        case LXQtPanel::PositionBottom:
+            KWindowSystem::setExtendedStrut(wid,
+                                            /* Left   */  0, 0, 0,
+                                            /* Right  */  0, 0, 0,
+                                            /* Top    */  0, 0, 0,
+                                            /* Bottom */  wholeScreen.bottom() - rect.bottom() + getReserveDimension(), rect.left(), rect.right()
+                                           );
+            break;
+
+        case LXQtPanel::PositionLeft:
+            KWindowSystem::setExtendedStrut(wid,
+                                            /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
+                                            /* Right  */  0, 0, 0,
+                                            /* Top    */  0, 0, 0,
+                                            /* Bottom */  0, 0, 0
+                                           );
+
+            break;
+
+        case LXQtPanel::PositionRight:
+            KWindowSystem::setExtendedStrut(wid,
+                                            /* Left   */  0, 0, 0,
+                                            /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
+                                            /* Top    */  0, 0, 0,
+                                            /* Bottom */  0, 0, 0
+                                           );
+            break;
+    }
+    } else
+    {
         KWindowSystem::setExtendedStrut(wid,
                                         /* Left   */  0, 0, 0,
                                         /* Right  */  0, 0, 0,
                                         /* Top    */  0, 0, 0,
-                                        /* Bottom */  wholeScreen.bottom() - rect.bottom() + getReserveDimension(), rect.left(), rect.right()
-                                       );
-        break;
-
-    case LXQtPanel::PositionLeft:
-        KWindowSystem::setExtendedStrut(wid,
-                                        /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
-                                        /* Right  */  0, 0, 0,
-                                        /* Top    */  0, 0, 0,
                                         /* Bottom */  0, 0, 0
                                        );
-
-        break;
-
-    case LXQtPanel::PositionRight:
-        KWindowSystem::setExtendedStrut(wid,
-                                        /* Left   */  0, 0, 0,
-                                        /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
-                                        /* Top    */  0, 0, 0,
-                                        /* Bottom */  0, 0, 0
-                                       );
-        break;
     }
 }
 
@@ -947,6 +962,23 @@ void LXQtPanel::setOpacity(int opacity, bool save)
 
     if (save)
         saveSettings(true);
+}
+
+
+/************************************************
+ *
+ ************************************************/
+void LXQtPanel::setReserveSpace(bool reserveSpace, bool save)
+{
+    if (mReserveSpace == reserveSpace)
+        return;
+
+    mReserveSpace = reserveSpace;
+
+    if (save)
+        saveSettings(true);
+
+    updateWmStrut();
 }
 
 
