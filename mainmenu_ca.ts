@@ -119,7 +119,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
         <source>Choose menu file</source>
-        <translation>Triel el fitxer del menú</translation>
+        <translation>Trieu el fitxer del menú</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="172"/>
