@@ -262,7 +262,7 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Nota: els canvis que es facin en aquesta pàgina no es poden reiniciar.</translation>
+        <translation>Nota: els canvis que es facin en aquesta pàgina no es poden restablir.</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
