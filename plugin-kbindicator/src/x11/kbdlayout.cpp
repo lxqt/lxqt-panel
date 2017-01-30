@@ -33,8 +33,15 @@
 
 #include <xkbcommon/xkbcommon-x11.h>
 #include <xcb/xcb.h>
+
+// Note: We need to override "explicit" as this is a C++ keyword. But it is
+// used as variable name in xkb.h. This is causing a failure in C++ compile
+// time.
+// Similar bug here: https://bugs.freedesktop.org/show_bug.cgi?id=74080
 #define explicit _explicit
 #include <xcb/xkb.h>
+#undef explicit
+
 #include "../kbdinfo.h"
 #include "../controls.h"
 
