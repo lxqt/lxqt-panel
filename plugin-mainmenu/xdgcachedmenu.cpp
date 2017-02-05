@@ -59,7 +59,7 @@ void XdgCachedMenuAction::updateIcon()
 {
     if(icon().isNull())
     {
-        QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item_));
+        QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item_), QIcon::fromTheme("unknown"));
         setIcon(icon);
     }
 }
