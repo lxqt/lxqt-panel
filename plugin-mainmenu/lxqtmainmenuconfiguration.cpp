@@ -77,10 +77,12 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
 
     connect(ui->filterMenuCB, &QCheckBox::toggled, [this] (bool enabled)
         {
+            ui->filterClearCB->setEnabled(enabled || ui->filterShowCB->isChecked());
             this->settings().setValue("filterMenu", enabled);
         });
     connect(ui->filterShowCB, &QCheckBox::toggled, [this] (bool enabled)
         {
+            ui->filterClearCB->setEnabled(enabled || ui->filterMenuCB->isChecked());
             this->settings().setValue("filterShow", enabled);
         });
     connect(ui->filterShowMaxItemsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
@@ -94,6 +96,10 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, [this] (bool enabled)
         {
             this->settings().setValue("filterShowHideMenu", enabled);
+        });
+    connect(ui->filterClearCB, &QCheckBox::toggled, [this] (bool enabled)
+        {
+            this->settings().setValue("filterClear", enabled);
         });
 }
 
@@ -124,7 +130,8 @@ void LXQtMainMenuConfiguration::loadSettings()
     systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
     lxqtSettings.endGroup();
     ui->customFontSizeSB->setValue(settings().value("customFontSize", systemFont.pointSize()).toInt());
-    ui->filterMenuCB->setChecked(settings().value("filterMenu", true).toBool());
+    const bool filter_menu = settings().value("filterMenu", true).toBool();
+    ui->filterMenuCB->setChecked(filter_menu);
     const bool filter_show = settings().value("filterShow", true).toBool();
     ui->filterShowCB->setChecked(filter_show);
     ui->filterShowMaxItemsL->setEnabled(filter_show);
@@ -135,6 +142,8 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->filterShowMaxWidthSB->setValue(settings().value("filterShowMaxWidth", 300).toInt());
     ui->filterShowHideMenuCB->setEnabled(filter_show);
     ui->filterShowHideMenuCB->setChecked(settings().value("filterShowHideMenu", true).toBool());
+    ui->filterClearCB->setChecked(settings().value("filterClear", false).toBool());
+    ui->filterClearCB->setEnabled(filter_menu || filter_show);
 }
 
 

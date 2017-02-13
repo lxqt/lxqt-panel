@@ -61,6 +61,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mMakeDirtyAction{new QAction{this}},
     mFilterMenu(true),
     mFilterShow(true),
+    mFilterClear(false),
     mFilterShowHideMenu(true),
     mHeavyMenuChanges(false)
 {
@@ -163,6 +164,10 @@ void LXQtMainMenu::showMenu()
     mMenu->popup(calculatePopupWindowPos(mMenu->sizeHint()).topLeft());
     if (mFilterMenu || mFilterShow)
     {
+        if (mFilterClear && !mSearchEdit->text().isEmpty())
+        {
+            mSearchEdit->setText(QString{});
+        }
         //Note: part of the workadound for https://bugreports.qt.io/browse/QTBUG-52021
         mSearchEdit->setReadOnly(false);
         //the setReadOnly also changes the cursor, override it back to normal
@@ -240,6 +245,7 @@ void LXQtMainMenu::settingsChanged()
     mSearchEdit->setText(QString{});
     mFilterMenu = settings()->value("filterMenu", true).toBool();
     mFilterShow = settings()->value("filterShow", true).toBool();
+    mFilterClear = settings()->value("filterClear", false).toBool();
     mFilterShowHideMenu = settings()->value("filterShowHideMenu", true).toBool();
     if (mMenu)
     {
