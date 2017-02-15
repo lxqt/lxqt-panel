@@ -126,7 +126,8 @@ void TrayIcon::init()
     set_attr.border_pixel = 0;
     mask = CWColormap|CWBackPixel|CWBorderPixel;
 
-    mWindowId = XCreateWindow(dsp, this->winId(), 0, 0, mIconSize.width() * metric(PdmDevicePixelRatio), mIconSize.height() * metric(PdmDevicePixelRatio),
+    const QRect icon_geom = iconGeometry();
+    mWindowId = XCreateWindow(dsp, this->winId(), icon_geom.x(), icon_geom.y(), icon_geom.width() * metric(PdmDevicePixelRatio), icon_geom.height() * metric(PdmDevicePixelRatio),
                               0, attr.depth, InputOutput, visual, mask, &set_attr);
 
 
@@ -197,7 +198,6 @@ void TrayIcon::init()
     XMapRaised(dsp, mWindowId);
 
     const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
-    XResizeWindow(dsp, mWindowId, req_size.width(), req_size.height());
     XResizeWindow(dsp, mIconId, req_size.width(), req_size.height());
 }
 
