@@ -196,6 +196,9 @@ void TrayIcon::init()
     XMapWindow(dsp, mIconId);
     XMapRaised(dsp, mWindowId);
 
+    QRect rectangle = iconGeometry();
+    XMoveWindow(QX11Info::display(), mWindowId, rectangle.left(), rectangle.top());
+
     const QSize req_size{mIconSize * metric(PdmDevicePixelRatio)};
     XResizeWindow(dsp, mWindowId, req_size.width(), req_size.height());
     XResizeWindow(dsp, mIconId, req_size.width(), req_size.height());
