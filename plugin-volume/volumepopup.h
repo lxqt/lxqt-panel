@@ -29,10 +29,21 @@
 #define VOLUMEPOPUP_H
 
 #include <QDialog>
+#include <QSlider>
 
-class QSlider;
 class QPushButton;
 class AudioDevice;
+
+class Slider : public QSlider
+{
+    Q_OBJECT
+public:
+    Slider(Qt::Orientation orientation, QWidget *parent = 0)
+        : QSlider(orientation, parent){}
+
+protected:
+    void wheelEvent(QWheelEvent *event);
+};
 
 class VolumePopup : public QDialog
 {
@@ -74,7 +85,7 @@ private:
     void realign();
     void updateStockIcon();
 
-    QSlider *m_volumeSlider;
+    Slider *m_volumeSlider;
     QPushButton *m_mixerButton;
     QPushButton *m_muteToggleButton;
     QPoint m_pos;
