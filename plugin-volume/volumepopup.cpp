@@ -31,7 +31,6 @@
 
 #include <XdgIcon>
 
-#include <QSlider>
 #include <QStyleOptionButton>
 #include <QPushButton>
 #include <QVBoxLayout>
