@@ -209,7 +209,7 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
 
     pa_volume_t v = pa_cvolume_avg(&(info->volume));
     // convert real volume to percentage
-    dev->setVolumeNoCommit(((double)v * 100.0) / m_maximumVolume);
+    dev->setVolumeNoCommit(qRound((static_cast<double>(v) * 100.0) / m_maximumVolume));
 
     if (newSink) {
         //keep the sinks sorted by index()
