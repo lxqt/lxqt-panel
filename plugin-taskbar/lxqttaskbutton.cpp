@@ -68,7 +68,8 @@ void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, 
             , const QPalette & pal, bool enabled, const QString & text
             , QPalette::ColorRole textRole) const
 {
-    return QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, text, textRole);
+    QString txt = QFontMetrics(painter->font()).elidedText(text, Qt::ElideRight, rect.width());
+    return QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, txt, textRole);
 }
 
 
