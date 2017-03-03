@@ -30,7 +30,9 @@
 AlsaDevice::AlsaDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent) :
     AudioDevice(t, engine, parent),
     m_mixer(0),
-    m_elem(0)
+    m_elem(0),
+    m_volumeMin(0),
+    m_volumeMax(100)
 {
 }
 
@@ -59,4 +61,10 @@ void AlsaDevice::setCardName(const QString &cardName)
 
     m_cardName = cardName;
     emit cardNameChanged();
+}
+
+void AlsaDevice::setVolumeMinMax(long volumeMin, long volumeMax)
+{
+    m_volumeMin = volumeMin;
+    m_volumeMax = volumeMax;
 }
