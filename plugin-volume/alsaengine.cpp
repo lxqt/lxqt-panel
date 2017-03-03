@@ -200,16 +200,8 @@ void AlsaEngine::discoverDevices()
 
                     // set the range of volume to 0-100
                     snd_mixer_selem_set_playback_volume_range(mixerElem, 0, 100);
-                    long value;
-                    snd_mixer_selem_get_playback_volume(mixerElem, (snd_mixer_selem_channel_id_t)0, &value);
-                    // qDebug() << dev->name() << "initial volume" << value;
-                    dev->setVolumeNoCommit(value);
 
-                    if (snd_mixer_selem_has_playback_switch(mixerElem)) {
-                        int mute;
-                        snd_mixer_selem_get_playback_switch(mixerElem, (snd_mixer_selem_channel_id_t)0, &mute);
-                        dev->setMuteNoCommit(!(bool)mute);
-                    }
+                    updateDevice(dev);
 
                     // register event callback
                     snd_mixer_elem_set_callback(mixerElem, alsa_elem_event_callback);
