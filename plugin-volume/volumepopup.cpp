@@ -183,9 +183,7 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event)
 {
-    int delta = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep;
-    m_volumeSlider->setValue(m_volumeSlider->value() + delta * m_volumeSlider->singleStep());
-    QTimer::singleShot(0, this, [this] {QToolTip::showText(QCursor::pos(),  m_volumeSlider->toolTip());});
+    m_volumeSlider->event(reinterpret_cast<QEvent*>(event));
 }
 
 void VolumePopup::setDevice(AudioDevice *device)

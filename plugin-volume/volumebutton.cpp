@@ -119,8 +119,7 @@ void VolumeButton::mouseReleaseEvent(QMouseEvent *event)
 
 void VolumeButton::mouseMoveEvent(QMouseEvent *event)
 {
-    if (!toolTip().isEmpty())
-        QToolTip::showText(event->globalPos(), toolTip());
+    QToolTip::showText(event->globalPos(), toolTip());
     QToolButton::mouseMoveEvent(event);
 }
 
