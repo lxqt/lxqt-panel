@@ -67,6 +67,7 @@ protected:
     void dropEvent(QDropEvent * event);
     void leaveEvent(QEvent * event);
     void enterEvent(QEvent * event);
+    void paintEvent(QPaintEvent * event);
 
     void closeTimerSlot();
 

@@ -34,6 +34,8 @@
 #include <QDrag>
 #include <QMimeData>
 #include <QLayout>
+#include <QPainter>
+#include <QStyleOption>
 #include <QDebug>
 
 /************************************************
@@ -50,6 +52,7 @@ LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
     setAcceptDrops(true);
     setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
     setAttribute(Qt::WA_AlwaysShowToolTips);
+    setAttribute(Qt::WA_TranslucentBackground);
 
     setLayout(new QVBoxLayout);
     layout()->setSpacing(3);
@@ -140,6 +143,14 @@ void LXQtGroupPopup::leaveEvent(QEvent *event)
 void LXQtGroupPopup::enterEvent(QEvent *event)
 {
     mCloseTimer.stop();
+}
+
+void LXQtGroupPopup::paintEvent(QPaintEvent *event)
+{
+    QPainter p(this);
+    QStyleOption opt;
+    opt.initFrom(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
 void LXQtGroupPopup::hide(bool fast)
