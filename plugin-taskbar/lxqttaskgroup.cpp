@@ -490,17 +490,12 @@ int LXQtTaskGroup::recalculateFrameHeight() const
  ************************************************/
 int LXQtTaskGroup::recalculateFrameWidth() const
 {
-    // FIXME: 300?
-    int minimum = 300;
-    int hh = width();
-
-    if (!plugin()->panel()->isHorizontal() && !parentTaskBar()->isAutoRotate())
-        hh = height();
-
-    if (hh < minimum)
-        hh = minimum;
-
-    return hh;
+    const QFontMetrics fm = fontMetrics();
+    int max = 100 * fm.width (' '); // elide after the max width
+    int txtWidth = 0;
+    foreach (LXQtTaskButton *btn, mButtonHash.values())
+        txtWidth = qMax(fm.width(btn->text()), txtWidth);
+    return iconSize().width() + qMin(txtWidth, max) + 30/* give enough room to margins and borders*/;
 }
 
 /************************************************
