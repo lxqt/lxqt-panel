@@ -59,10 +59,10 @@ signals:
     void stockIconChanged(const QString &iconName);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event);
-    bool event(QEvent * event);
+    void resizeEvent(QResizeEvent *event) override;
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    bool event(QEvent * event) override;
 
 private slots:
     void handleSliderValueChanged(int value);

@@ -54,10 +54,10 @@ public slots:
     void showVolumeSlider();
 
 protected:
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event);
-    void wheelEvent(QWheelEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 private slots:
     void toggleVolumeSlider();
