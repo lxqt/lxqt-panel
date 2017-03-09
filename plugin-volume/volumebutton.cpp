@@ -33,6 +33,7 @@
 #include <QSlider>
 #include <QMouseEvent>
 #include <QProcess>
+#include <QToolTip>
 
 #include <XdgIcon>
 #include "../panel/ilxqtpanel.h"
@@ -46,6 +47,7 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         m_muteOnMiddleClick(true)
 {
     setAutoRaise(true);
+    setMouseTracking(true);
     // initial icon for button. It will be replaced after devices scan.
     // In the worst case - no soundcard/pulse - is found it remains
     // in the button but at least the button is not blank ("invisible")
@@ -91,6 +93,20 @@ void VolumeButton::enterEvent(QEvent *event)
         showVolumeSlider();
 
     m_popupHideTimer.stop();
+}
+
+void VolumeButton::mouseMoveEvent(QMouseEvent *event)
+{
+    // moving the tooltip must be achieved by chaging the text
+    // (hide/show - won't work because of the internal hide delay)
+    QString tooltip = toolTip();
+    if (!tooltip.isEmpty())
+    {
+        *(tooltip.rbegin()) = 'X';
+        QToolTip::showText(event->globalPos(), tooltip);
+        QToolTip::showText(event->globalPos(), toolTip());
+    }
+    QToolButton::mouseMoveEvent(event);
 }
 
 void VolumeButton::leaveEvent(QEvent *event)

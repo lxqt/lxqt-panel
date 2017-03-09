@@ -107,9 +107,7 @@ void VolumePopup::handleSliderValueChanged(int value)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
-    m_volumeSlider->setToolTip(QString("%1%").arg(value));
-    dynamic_cast<QWidget&>(*parent()).setToolTip(m_volumeSlider->toolTip()); //parent is the button on panel
-    QToolTip::showText(QCursor::pos(),  m_volumeSlider->toolTip(), m_volumeSlider);
+    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip()); });
 }
 
 void VolumePopup::handleMuteToggleClicked()
