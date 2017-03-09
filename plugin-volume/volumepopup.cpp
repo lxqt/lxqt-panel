@@ -61,6 +61,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     // the volume slider shows 0-100 and volumes of all devices
     // should be converted to percentages.
     m_volumeSlider->setRange(0, 100);
+    m_volumeSlider->installEventFilter(this);
 
     m_muteToggleButton = new QPushButton(this);
     m_muteToggleButton->setIcon(XdgIcon::fromTheme(QStringList() << "audio-volume-muted"));
@@ -88,6 +89,20 @@ bool VolumePopup::event(QEvent *event)
         hide();
     }
     return QDialog::event(event);
+}
+
+bool VolumePopup::eventFilter(QObject * watched, QEvent * event)
+{
+    if (watched == m_volumeSlider)
+    {
+        if (event->type() == QEvent::Wheel)
+        {
+            handleWheelEvent(dynamic_cast<QWheelEvent *>(event));
+            return true;
+        }
+        return false;
+    }
+    return QDialog::eventFilter(watched, event);
 }
 
 void VolumePopup::enterEvent(QEvent *event)
