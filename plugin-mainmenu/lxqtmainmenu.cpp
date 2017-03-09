@@ -293,6 +293,18 @@ static void showHideMenuEntries(QMenu * menu, bool show)
     }
 }
 
+static void setTranslucentMenus(QMenu * menu)
+{
+    menu->setAttribute(Qt::WA_TranslucentBackground);
+    for (auto const & action : menu->actions())
+    {
+        if (QMenu * sub_menu = action->menu())
+        {
+            setTranslucentMenus(sub_menu);
+        }
+    }
+}
+
 /************************************************
 
  ************************************************/
@@ -349,6 +361,7 @@ void LXQtMainMenu::buildMenu()
     mMenu = new XdgMenuWidget(mXdgMenu, "", &mButton);
 #endif
     mMenu->setObjectName("TopLevelMainMenu");
+    setTranslucentMenus(mMenu);
     // Note: the QWidget::ensurePolished() workarounds problem with transparent
     // QLineEdit (mSearchEditAction) in menu with Breeze style
     // https://bugs.kde.org/show_bug.cgi?id=368048
