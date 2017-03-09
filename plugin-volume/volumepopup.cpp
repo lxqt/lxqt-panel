@@ -40,6 +40,7 @@
 #include <QToolTip>
 #include "audioengine.h"
 #include <QDebug>
+#include <QWheelEvent>
 
 VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
@@ -177,7 +178,8 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event)
 {
-    m_volumeSlider->event(reinterpret_cast<QEvent*>(event));
+    m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
+            + (event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_volumeSlider->singleStep()));
 }
 
 void VolumePopup::setDevice(AudioDevice *device)
