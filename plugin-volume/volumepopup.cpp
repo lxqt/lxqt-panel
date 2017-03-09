@@ -31,7 +31,6 @@
 
 #include <XdgIcon>
 
-#include <QSlider>
 #include <QStyleOptionButton>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -40,6 +39,13 @@
 #include <QToolTip>
 #include "audioengine.h"
 #include <QDebug>
+
+void Slider::wheelEvent(QWheelEvent *event)
+{
+    int delta = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep;
+    setValue(value() + delta * singleStep());
+    QTimer::singleShot(0, this, [this] {QToolTip::showText(QCursor::pos(), toolTip());});
+}
 
 VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
@@ -54,7 +60,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_mixerButton->setText(tr("Mi&xer"));
     m_mixerButton->setAutoDefault(false);
 
-    m_volumeSlider = new QSlider(Qt::Vertical, this);
+    m_volumeSlider = new Slider(Qt::Vertical, this);
     m_volumeSlider->setTickPosition(QSlider::TicksBothSides);
     m_volumeSlider->setTickInterval(10);
     // the volume slider shows 0-100 and volumes of all devices

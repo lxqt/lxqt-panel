@@ -58,6 +58,7 @@ protected:
     void leaveEvent(QEvent *event);
     void wheelEvent(QWheelEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
     void toggleVolumeSlider();
