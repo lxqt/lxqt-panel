@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Panel
+TryExec=lxqt-panel
+Exec=lxqt-panel
+OnlyShowIn=LXQt;
+X-LXQt-Module=true
