@@ -135,9 +135,8 @@ void StatusNotifierButton::refetchIcon(Status status)
         QIcon nextIcon;
         if (!iconName.isEmpty())
         {
-            if (QIcon::hasThemeIcon(iconName))
-                nextIcon = QIcon::fromTheme(iconName);
-            else
+            nextIcon = QIcon::fromTheme(iconName);
+            if (nextIcon.isNull())
             {
                 QDir themeDir(mThemePath);
                 if (themeDir.exists())
