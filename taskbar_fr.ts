@@ -115,73 +115,78 @@
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
         <translation>Afficher uniquement les fenêtres du bureau</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
         <translation>Afficher uniquement les fenêtres de l&apos;écran du &amp;panneau</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
         <translation>Afficher uniquement les fenêtres minimisées</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
         <translation>Relever les fenêtres  réduites du bureau actuel</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
+        <source>Cycle windows on wheel scrolling</source>
+        <translation>Cycle de fenêtres sur le défilement de la roulette</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
         <translation>&amp;Groupement de fenêtres</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
         <translation>Afficher un pop-up lorsque la souris survole</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
         <translation>Apparence</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
         <translation>Largeur maximale des boutons</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="144"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
         <translation>Hauteur maximale des boutons</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
         <translation>Utilisez les icônes par WindowClass, si disponible</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>&amp;Rotation automatique des boutons lorsque le tableau est vertical</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
         <source>Button style</source>
         <translation>Style de boutons</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
         <translation>Fermer d&apos;un clic du milieu</translation>
     </message>
