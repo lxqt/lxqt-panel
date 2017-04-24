@@ -53,7 +53,8 @@ LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
         ILXQtPanelPlugin(startupInfo),
         m_engine(0),
         m_defaultSinkIndex(0),
-        m_defaultSink(0)
+        m_defaultSink(0),
+        m_allwaysShowNotifications(SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS)
 {
     m_volumeButton = new VolumeButton(this);
 
@@ -146,7 +147,13 @@ void LXQtVolume::setAudioEngine(AudioEngine *engine)
         if (m_engine->backendName() == engine->backendName())
             return;
 
-        m_volumeButton->volumePopup()->setDevice(0);
+        if (m_defaultSink)
+        {
+            disconnect(m_defaultSink, nullptr, this, nullptr);
+            disconnect(m_defaultSink, nullptr, this, nullptr);
+            m_defaultSink = nullptr;
+        }
+        m_volumeButton->volumePopup()->setDevice(m_defaultSink);
 
         disconnect(m_engine, 0, 0, 0);
         delete m_engine;
@@ -193,6 +200,7 @@ void LXQtVolume::settingsChanged()
     m_volumeButton->setMuteOnMiddleClick(settings()->value(SETTINGS_MUTE_ON_MIDDLECLICK, SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
     m_volumeButton->setMixerCommand(settings()->value(SETTINGS_MIXER_COMMAND, SETTINGS_DEFAULT_MIXER_COMMAND).toString());
     m_volumeButton->volumePopup()->setSliderStep(settings()->value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
+    m_allwaysShowNotifications = settings()->value(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS, SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool();
 
     if (!new_engine)
         handleSinkListChanged();
@@ -206,6 +214,8 @@ void LXQtVolume::handleSinkListChanged()
         {
             m_defaultSink = m_engine->sinks().at(qBound(0, m_defaultSinkIndex, m_engine->sinks().count()-1));
             m_volumeButton->volumePopup()->setDevice(m_defaultSink);
+            connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
+            connect(m_defaultSink, &AudioDevice::muteChanged, this, [this] { LXQtVolume::showNotification(false); });
 
             m_engine->setIgnoreMaxVolume(settings()->value(SETTINGS_IGNORE_MAX_VOLUME, SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
         }
@@ -220,8 +230,7 @@ void LXQtVolume::handleShortcutVolumeUp()
     if (m_defaultSink)
     {
         m_defaultSink->setVolume(m_defaultSink->volume() + settings()->value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
-        m_notification->setSummary(tr("Volume: %1").arg(QString::number(m_defaultSink->volume())));
-        m_notification->update();
+        showNotification(true);
     }
 }
 
@@ -230,15 +239,17 @@ void LXQtVolume::handleShortcutVolumeDown()
     if (m_defaultSink)
     {
         m_defaultSink->setVolume(m_defaultSink->volume() - settings()->value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
-        m_notification->setSummary(tr("Volume: %1").arg(QString::number(m_defaultSink->volume())));
-        m_notification->update();
+        showNotification(true);
     }
 }
 
 void LXQtVolume::handleShortcutVolumeMute()
 {
     if (m_defaultSink)
+    {
         m_defaultSink->toggleMute();
+        showNotification(true);
+    }
 }
 
 QWidget *LXQtVolume::widget()
@@ -261,6 +272,21 @@ QDialog *LXQtVolume::configureDialog()
            m_configDialog->setSinkList(m_engine->sinks());
     }
     return m_configDialog;
+}
+
+void LXQtVolume::showNotification(bool forceShow) const
+{
+    if (forceShow || m_allwaysShowNotifications)
+    {
+        if (Q_LIKELY(m_defaultSink))
+        {
+            if (m_defaultSink->mute())
+                m_notification->setSummary(tr("Volume: muted"));
+            else
+                m_notification->setSummary(tr("Volume: %1").arg(QString::number(m_defaultSink->volume())));
+            m_notification->update();
+        }
+    }
 }
 
 #undef DEFAULT_UP_SHORTCUT

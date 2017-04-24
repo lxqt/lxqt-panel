@@ -40,6 +40,7 @@
 #define SETTINGS_STEP                   "volumeAdjustStep"
 #define SETTINGS_IGNORE_MAX_VOLUME      "ignoreMaxVolume"
 #define SETTINGS_AUDIO_ENGINE           "audioEngine"
+#define SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS "allwaysShowNotifications"
 
 #define SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK      true
 #define SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK    true
@@ -56,6 +57,8 @@
     #define SETTINGS_DEFAULT_AUDIO_ENGINE       "Oss"
 #endif
 #define SETTINGS_DEFAULT_IGNORE_MAX_VOLUME      false
+#define SETTINGS_DEFAULT_IGNORE_MAX_VOLUME      false
+#define SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS false
 
 class AudioDevice;
 
@@ -80,6 +83,7 @@ public slots:
     void mixerLineEditChanged(const QString &command);
     void stepSpinBoxChanged(int step);
     void ignoreMaxVolumeCheckBoxChanged(bool state);
+    void allwaysShowNotificationsCheckBoxChanged(bool state);
 
 protected slots:
     virtual void loadSettings();

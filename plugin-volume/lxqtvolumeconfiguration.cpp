@@ -48,6 +48,8 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, QWidg
     connect(ui->mixerLineEdit, SIGNAL(textChanged(QString)), this, SLOT(mixerLineEditChanged(QString)));
     connect(ui->stepSpinBox, SIGNAL(valueChanged(int)), this, SLOT(stepSpinBoxChanged(int)));
     connect(ui->ignoreMaxVolumeCheckBox, SIGNAL(toggled(bool)), this, SLOT(ignoreMaxVolumeCheckBoxChanged(bool)));
+    connect(ui->allwaysShowNotificationsCheckBox, &QAbstractButton::toggled, this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
+
 
     // currently, this option is only supported by the pulse audio backend
     if(!ui->pulseAudioRadioButton->isChecked())
@@ -135,6 +137,11 @@ void LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
     settings().setValue(SETTINGS_IGNORE_MAX_VOLUME, state);
 }
 
+void LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged(bool state)
+{
+    settings().setValue(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS, state);
+}
+
 void LXQtVolumeConfiguration::loadSettings()
 {
     QString engine = settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower();
@@ -151,5 +158,6 @@ void LXQtVolumeConfiguration::loadSettings()
     ui->mixerLineEdit->setText(settings().value(SETTINGS_MIXER_COMMAND, SETTINGS_DEFAULT_MIXER_COMMAND).toString());
     ui->stepSpinBox->setValue(settings().value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
     ui->ignoreMaxVolumeCheckBox->setChecked(settings().value(SETTINGS_IGNORE_MAX_VOLUME, SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
+    ui->allwaysShowNotificationsCheckBox->setChecked(settings().value(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS, SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool());
 }
 

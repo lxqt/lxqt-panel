@@ -67,6 +67,7 @@ protected slots:
     void handleShortcutVolumeDown();
     void handleShortcutVolumeMute();
     void shortcutRegistered();
+    void showNotification(bool forceShow) const;
 
 private:
     AudioEngine *m_engine;
@@ -78,6 +79,7 @@ private:
     GlobalKeyShortcut::Action *m_keyMuteToggle;
     LXQt::Notification *m_notification;
     QPointer<LXQtVolumeConfiguration> m_configDialog;
+    bool m_allwaysShowNotifications;
 };
 
 
