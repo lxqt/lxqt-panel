@@ -6,110 +6,90 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="95"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ieškoti...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="101"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation type="vanished">Išeiti</translation>
+        <translation>Rodyti/slėpti pagrindinį meniu</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
-        <source>LXQt Main Menu settings</source>
-        <translation type="vanished">LXQt pagrindinio meniu nuostatos</translation>
-    </message>
-    <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Pagrindinės</translation>
-    </message>
-    <message>
-        <source>Show text</source>
-        <translation type="vanished">Rodyti tekstą</translation>
-    </message>
-    <message>
-        <source>Button text</source>
-        <translation type="vanished">Mygtuko tekstas</translation>
+        <translation>Bendra</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagrindinio meniu nustatymai</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Piktograma:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mygtuko tekstas:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tinkintas šrifto dydis:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> taškų</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>Meniu rinkmena</translation>
+        <translation>Meniu failas</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Meniu failas:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Paieška</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Didžiausias elemento plotis:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti atitinkančius įrašus:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Daugiausia matomų elementų:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtruoti meniu įrašus</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> pikselių</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
+        <translation>Slėpti meniu įrašus, kol ieškoma</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -119,22 +99,22 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Norėdami pakeisti klavišą, spragtelėkite</translation>
+        <translation>Spustelėkite mygtuką, kad įrašytumėte spartųjį klavišą:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="71"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Atstatyti</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasirinkite piktogramos failą</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Paveikslai (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
