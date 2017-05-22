@@ -6,12 +6,12 @@
     <message>
         <location filename="../../../showdesktop.cpp" line="48"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti darbalaukį</translation>
     </message>
     <message>
-        <location filename="../../../showdesktop.cpp" line="70"/>
+        <location filename="../../../showdesktop.cpp" line="69"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Rodyti darbalaukį: globalusis klavišas „%1“ negali būti registruojamas</translation>
+        <translation>Rodyti darbalaukį: Visuotinis spartusis klavišas &quot;%1&quot; negali būti užregistruotas</translation>
     </message>
     <message>
         <location filename="../../../showdesktop.cpp" line="55"/>
