@@ -16,52 +16,52 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="513"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;visus darbalaukius</translation>
+        <translation>&amp;Visus darbalaukius</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="521"/>
         <source>Desktop &amp;%1</source>
-        <translation>&amp;%1 darbalaukį</translation>
+        <translation>Darbalaukį &amp;%1</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="528"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;Į dabartinį darbalaukį</translation>
+        <translation>Į &amp;esamą darbalaukį</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="537"/>
         <source>Ma&amp;ximize</source>
-        <translation>&amp;Išdidinti</translation>
+        <translation>Iš&amp;skleisti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="544"/>
         <source>Maximize vertically</source>
-        <translation>Išdidinti vertikaliai</translation>
+        <translation>Išskleisti vertikaliai</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="549"/>
         <source>Maximize horizontally</source>
-        <translation>Išdidinti horizontaliai</translation>
+        <translation>Išskleisti horizontaliai</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="555"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Atstatyti</translation>
+        <translation>&amp;Atkurti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="559"/>
         <source>Mi&amp;nimize</source>
-        <translation>&amp;Nuleisti</translation>
+        <translation>Sus&amp;kleisti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="565"/>
         <source>Roll down</source>
-        <translation>Išvynioti</translation>
+        <translation>Užraityti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="571"/>
         <source>Roll up</source>
-        <translation>Suvynioti</translation>
+        <translation>Nuraityti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="579"/>
@@ -71,17 +71,17 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="581"/>
         <source>Always on &amp;top</source>
-        <translation>Visada &amp;viršuje</translation>
+        <translation>Visada vi&amp;ršuje</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="587"/>
         <source>&amp;Normal</source>
-        <translation>Įpras&amp;tas</translation>
+        <translation>&amp;Normalus</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="593"/>
         <source>Always on &amp;bottom</source>
-        <translation>Visada vi&amp;ršuje</translation>
+        <translation>Visada a&amp;pačioje</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="601"/>
@@ -94,130 +94,106 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupė</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Užverti grupę</translation>
     </message>
 </context>
 <context>
     <name>LXQtTaskbarConfiguration</name>
     <message>
-        <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">LXQt užduočių tvarkutyvės nuostatos</translation>
-    </message>
-    <message>
-        <source>Window List Content</source>
-        <translation type="vanished">Langų sąrašo turinys</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Užduočių tvarkytuvės nustatymai</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Bendra</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti tik langus iš darbalaukio</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti tik langus iš &amp;skydelio ekrano</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti tik suskleistus langus</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Suskleistus langus iškelti esamame darbalaukyje</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
+        <source>Close on middle-click</source>
+        <translation>Užverti, spustelėjus viduriniu pelės mygtuku</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Langų &amp;grupavimas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Užvedus pelę, rodyti iškylantįjį langą</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Išvaizda</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
+        <source>Button style</source>
+        <translation>Mygtukų stilius</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Didžiausias mygtuko plotis</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> pikselių</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
-        <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show windows from current desktop</source>
-        <translation type="vanished">Rodyti tik šio darbalaukio langus</translation>
-    </message>
-    <message>
-        <source>Show windows from all desktops</source>
-        <translation type="vanished">Rodyti visų darbalaukių langus</translation>
+        <translation>Didžiausias mygtuko aukštis</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatiškai &amp;pasukti mygtukus, jei skydelis vertikalus</translation>
     </message>
     <message>
-        <source>Window List Appearance</source>
-        <translation type="vanished">Langų sąrašo išvaizda</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
-        <source>Button style</source>
-        <translation>Mygtuko stilius</translation>
-    </message>
-    <message>
-        <source>Max button width</source>
-        <translation type="vanished">Didžiausias leidžiamas plotis</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
-        <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
+        <source>Use icons by WindowClass, if available</source>
+        <translation>Jei prieinama, naudoti WindowClass piktogramas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="45"/>
         <source>Icon and text</source>
-        <translation>Ženkliukas ir tekstas</translation>
+        <translation>Piktograma ir tekstas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Only icon</source>
-        <translation>Tik ženkliukas</translation>
+        <translation>Tik piktograma</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="47"/>
@@ -227,7 +203,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Esamo</translation>
     </message>
 </context>
 </TS>
