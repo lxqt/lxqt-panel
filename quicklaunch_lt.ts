@@ -6,18 +6,19 @@
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>Drop Error</source>
-        <translation>Tempimo klaida</translation>
+        <translation>Vilkimo klaida</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Failo/URL „%1“ šiuo metu negalima patalpinti greitajame paleidime</translation>
+        <translation>Failas/URL &quot;%1&quot; dabar negali būti įtaisytas į spartųjį paleidimą</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Vilkite programų
+piktogramas čia</translation>
     </message>
 </context>
 <context>
@@ -25,17 +26,17 @@ icons here</source>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation>Perkelti į kairę</translation>
+        <translation>Perkelti kairėn</translation>
     </message>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>Perkelti į dešinę</translation>
+        <translation>Perkelti dešinėn</translation>
     </message>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Pašalinti</translation>
+        <translation>Šalinti iš sparčiojo paleidimo</translation>
     </message>
 </context>
 </TS>
