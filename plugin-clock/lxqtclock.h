@@ -37,7 +37,7 @@
 #include <LXQt/RotatedWidget>
 
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqtworldclockconfiguration.h"
+#include "lxqtclockconfiguration.h"
 
 
 class ActiveLabel;

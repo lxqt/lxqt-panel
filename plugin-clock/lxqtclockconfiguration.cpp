@@ -27,12 +27,12 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include "lxqtworldclockconfiguration.h"
+#include "lxqtclockconfiguration.h"
 
-#include "ui_lxqtworldclockconfiguration.h"
+#include "ui_lxqtclockconfiguration.h"
 
-#include "lxqtworldclockconfigurationtimezones.h"
-#include "lxqtworldclockconfigurationmanualformat.h"
+#include "lxqtclockconfigurationtimezones.h"
+#include "lxqtclockconfigurationmanualformat.h"
 
 #include <QInputDialog>
 

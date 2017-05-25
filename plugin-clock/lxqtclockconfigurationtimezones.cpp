@@ -29,9 +29,9 @@
 
 #include <QTimeZone>
 
-#include "lxqtworldclockconfigurationtimezones.h"
+#include "lxqtclockconfigurationtimezones.h"
 
-#include "ui_lxqtworldclockconfigurationtimezones.h"
+#include "ui_lxqtclockconfigurationtimezones.h"
 
 
 LXQtWorldClockConfigurationTimeZones::LXQtWorldClockConfigurationTimeZones(QWidget *parent) :

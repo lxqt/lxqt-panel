@@ -1,23 +1,23 @@
-set(PLUGIN "worldclock")
+set(PLUGIN "clock")
 
 set(HEADERS
-    lxqtworldclock.h
-    lxqtworldclockconfiguration.h
-    lxqtworldclockconfigurationtimezones.h
-    lxqtworldclockconfigurationmanualformat.h
+    lxqtclock.h
+    lxqtclockconfiguration.h
+    lxqtclockconfigurationtimezones.h
+    lxqtclockconfigurationmanualformat.h
 )
 
 set(SOURCES
-    lxqtworldclock.cpp
-    lxqtworldclockconfiguration.cpp
-    lxqtworldclockconfigurationtimezones.cpp
-    lxqtworldclockconfigurationmanualformat.cpp
+    lxqtclock.cpp
+    lxqtclockconfiguration.cpp
+    lxqtclockconfigurationtimezones.cpp
+    lxqtclockconfigurationmanualformat.cpp
 )
 
 set(UIS
-    lxqtworldclockconfiguration.ui
-    lxqtworldclockconfigurationtimezones.ui
-    lxqtworldclockconfigurationmanualformat.ui
+    lxqtclockconfiguration.ui
+    lxqtclockconfigurationtimezones.ui
+    lxqtclockconfigurationmanualformat.ui
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

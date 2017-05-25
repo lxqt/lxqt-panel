@@ -26,7 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "lxqtworldclock.h"
+#include "lxqtclock.h"
 
 #include <QCalendarWidget>
 #include <QDate>
