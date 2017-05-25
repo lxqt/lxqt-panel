@@ -193,7 +193,7 @@ namespace
     // to be not stripped (as unused/unreferenced) in static linking time
     static plugin_tuple_t const static_plugins[] = {
 #if defined(WITH_CLOCK_PLUGIN)
-        std::make_tuple(QLatin1String("clock"), plugin_ptr_t{new LXQtWorldClockLibrary}, loadPluginTranslation_clock_helper),// clock
+        std::make_tuple(QLatin1String("clock"), plugin_ptr_t{new LXQtClockLibrary}, loadPluginTranslation_clock_helper),// clock
 #endif
 #if defined(WITH_DESKTOPSWITCH_PLUGIN)
         std::make_tuple(QLatin1String("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary}, loadPluginTranslation_desktopswitch_helper),// desktopswitch

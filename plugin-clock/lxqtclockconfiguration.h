@@ -36,26 +36,26 @@
 #include <QMap>
 
 namespace Ui {
-    class LXQtWorldClockConfiguration;
+    class LXQtClockConfiguration;
 }
 
-class LXQtWorldClockConfigurationTimeZones;
-class LXQtWorldClockConfigurationManualFormat;
+class LXQtClockConfigurationTimeZones;
+class LXQtClockConfigurationManualFormat;
 class QTableWidgetItem;
 
-class LXQtWorldClockConfiguration : public LXQtPanelPluginConfigDialog
+class LXQtClockConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtWorldClockConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtWorldClockConfiguration();
+    explicit LXQtClockConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
+    ~LXQtClockConfiguration();
 
 public slots:
     void saveSettings();
 
 private:
-    Ui::LXQtWorldClockConfiguration *ui;
+    Ui::LXQtClockConfiguration *ui;
 
     /*
       Read settings from conf file and put data into controls.
@@ -83,8 +83,8 @@ private:
 
     bool mLockCascadeSettingChanges;
 
-    LXQtWorldClockConfigurationTimeZones *mConfigurationTimeZones;
-    LXQtWorldClockConfigurationManualFormat *mConfigurationManualFormat;
+    LXQtClockConfigurationTimeZones *mConfigurationTimeZones;
+    LXQtClockConfigurationManualFormat *mConfigurationManualFormat;
 
     QString mManualFormat;
 

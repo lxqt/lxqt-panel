@@ -34,9 +34,9 @@
 #include "ui_lxqtclockconfigurationmanualformat.h"
 
 
-LXQtWorldClockConfigurationManualFormat::LXQtWorldClockConfigurationManualFormat(QWidget *parent) :
+LXQtClockConfigurationManualFormat::LXQtClockConfigurationManualFormat(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LXQtWorldClockConfigurationManualFormat)
+    ui(new Ui::LXQtClockConfigurationManualFormat)
 {
     setObjectName("WorldClockConfigurationManualFormatWindow");
     setWindowModality(Qt::WindowModal);
@@ -45,17 +45,17 @@ LXQtWorldClockConfigurationManualFormat::LXQtWorldClockConfigurationManualFormat
     connect(ui->manualFormatPTE, SIGNAL(textChanged()), this, SIGNAL(manualFormatChanged()));
 }
 
-LXQtWorldClockConfigurationManualFormat::~LXQtWorldClockConfigurationManualFormat()
+LXQtClockConfigurationManualFormat::~LXQtClockConfigurationManualFormat()
 {
     delete ui;
 }
 
-void LXQtWorldClockConfigurationManualFormat::setManualFormat(const QString& text)
+void LXQtClockConfigurationManualFormat::setManualFormat(const QString& text)
 {
     ui->manualFormatPTE->setPlainText(text);
 }
 
-QString LXQtWorldClockConfigurationManualFormat::manualFormat() const
+QString LXQtClockConfigurationManualFormat::manualFormat() const
 {
     return ui->manualFormatPTE->toPlainText();
 }

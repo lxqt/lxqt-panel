@@ -42,15 +42,15 @@
 
 class ActiveLabel;
 class QTimer;
-class LXQtWorldClockPopup;
+class LXQtClockPopup;
 
 
-class LXQtWorldClock : public QObject, public ILXQtPanelPlugin
+class LXQtClock : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtWorldClock();
+    LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~LXQtClock();
 
     virtual QWidget *widget() { return mMainWidget; }
     virtual QString themeId() const { return QLatin1String("WorldClock"); }
@@ -72,7 +72,7 @@ private:
     QWidget *mMainWidget;
     LXQt::RotatedWidget* mRotatedWidget;
     ActiveLabel *mContent;
-    LXQtWorldClockPopup* mPopup;
+    LXQtClockPopup* mPopup;
 
     QTimer *mTimer;
     int mUpdateInterval;
@@ -112,12 +112,12 @@ protected:
     void mouseReleaseEvent(QMouseEvent* event);
 };
 
-class LXQtWorldClockPopup : public QDialog
+class LXQtClockPopup : public QDialog
 {
     Q_OBJECT
 
 public:
-    LXQtWorldClockPopup(QWidget *parent = 0);
+    LXQtClockPopup(QWidget *parent = 0);
 
     void show();
 
@@ -129,7 +129,7 @@ protected:
 
 };
 
-class LXQtWorldClockLibrary: public QObject, public ILXQtPanelPluginLibrary
+class LXQtClockLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
@@ -137,7 +137,7 @@ class LXQtWorldClockLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
     {
-        return new LXQtWorldClock(startupInfo);
+        return new LXQtClock(startupInfo);
     }
 };
 

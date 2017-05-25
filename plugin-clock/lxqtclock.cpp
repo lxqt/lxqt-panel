@@ -40,7 +40,7 @@
 #include <QWheelEvent>
 
 
-LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
+LXQtClock::LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     mPopup(NULL),
@@ -72,19 +72,19 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     connect(mContent, SIGNAL(wheelScrolled(int)), SLOT(wheelScrolled(int)));
 }
 
-LXQtWorldClock::~LXQtWorldClock()
+LXQtClock::~LXQtClock()
 {
     delete mMainWidget;
 }
 
-void LXQtWorldClock::timeout()
+void LXQtClock::timeout()
 {
     if (QDateTime{}.time().msec() > 500)
         restartTimer();
     setTimeText();
 }
 
-void LXQtWorldClock::setTimeText()
+void LXQtClock::setTimeText()
 {
     QDateTime now = QDateTime::currentDateTime();
     QString timeZoneName = mActiveTimeZone;
@@ -100,17 +100,17 @@ void LXQtWorldClock::setTimeText()
     }
 }
 
-void LXQtWorldClock::restartTimer()
+void LXQtClock::restartTimer()
 {
     mTimer->stop();
     mTimer->setInterval(mUpdateInterval);
 
     int delay = static_cast<int>((mUpdateInterval - (static_cast<long long>(QTime::currentTime().msecsSinceStartOfDay()) % mUpdateInterval)) % mUpdateInterval);
-    QTimer::singleShot(delay, Qt::PreciseTimer, this, &LXQtWorldClock::setTimeText);
+    QTimer::singleShot(delay, Qt::PreciseTimer, this, &LXQtClock::setTimeText);
     QTimer::singleShot(delay, Qt::PreciseTimer, mTimer, SLOT(start()));
 }
 
-void LXQtWorldClock::settingsChanged()
+void LXQtClock::settingsChanged()
 {
     PluginSettings *_settings = settings();
 
@@ -306,12 +306,12 @@ void LXQtWorldClock::settingsChanged()
     setTimeText();
 }
 
-QDialog *LXQtWorldClock::configureDialog()
+QDialog *LXQtClock::configureDialog()
 {
-    return new LXQtWorldClockConfiguration(settings());
+    return new LXQtClockConfiguration(settings());
 }
 
-void LXQtWorldClock::wheelScrolled(int delta)
+void LXQtClock::wheelScrolled(int delta)
 {
     if (mTimeZones.count() > 1)
     {
@@ -320,7 +320,7 @@ void LXQtWorldClock::wheelScrolled(int delta)
     }
 }
 
-void LXQtWorldClock::activated(ActivationReason reason)
+void LXQtClock::activated(ActivationReason reason)
 {
     switch (reason)
     {
@@ -334,7 +334,7 @@ void LXQtWorldClock::activated(ActivationReason reason)
 
     if (!mPopup)
     {
-        mPopup = new LXQtWorldClockPopup(mContent);
+        mPopup = new LXQtClockPopup(mContent);
         connect(mPopup, SIGNAL(deactivated()), SLOT(deletePopup()));
 
         if (reason == ILXQtPanelPlugin::Trigger)
@@ -376,21 +376,21 @@ void LXQtWorldClock::activated(ActivationReason reason)
     }
 }
 
-void LXQtWorldClock::deletePopup()
+void LXQtClock::deletePopup()
 {
     mPopupContent = NULL;
     mPopup->deleteLater();
     mPopup = NULL;
 }
 
-QString LXQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
+QString LXQtClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
 {
     QTimeZone timeZone(timeZoneName.toLatin1());
     QDateTime tzNow = datetime.toTimeZone(timeZone);
     return tzNow.toString(preformat(mFormat, timeZone, tzNow));
 }
 
-void LXQtWorldClock::updatePopupContent()
+void LXQtClock::updatePopupContent()
 {
     if (mPopupContent)
     {
@@ -415,13 +415,13 @@ void LXQtWorldClock::updatePopupContent()
     }
 }
 
-bool LXQtWorldClock::formatHasTimeZone(QString format)
+bool LXQtClock::formatHasTimeZone(QString format)
 {
     format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
     return format.toLower().contains(QLatin1String("t"));
 }
 
-QString LXQtWorldClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
+QString LXQtClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
 {
     QString result = format;
     int from = 0;
@@ -501,7 +501,7 @@ QString LXQtWorldClock::preformat(const QString &format, const QTimeZone &timeZo
     return result;
 }
 
-void LXQtWorldClock::realign()
+void LXQtClock::realign()
 {
     if (mAutoRotate)
         switch (panel()->position())
@@ -553,20 +553,20 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
     QLabel::mouseReleaseEvent(event);
 }
 
-LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
+LXQtClockPopup::LXQtClockPopup(QWidget *parent) :
     QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setLayout(new QHBoxLayout(this));
     layout()->setMargin(1);
 }
 
-void LXQtWorldClockPopup::show()
+void LXQtClockPopup::show()
 {
     QDialog::show();
     activateWindow();
 }
 
-bool LXQtWorldClockPopup::event(QEvent *event)
+bool LXQtClockPopup::event(QEvent *event)
 {
     if (event->type() == QEvent::Close)
         emit deactivated();

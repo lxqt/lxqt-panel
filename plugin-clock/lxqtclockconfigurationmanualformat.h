@@ -35,18 +35,18 @@
 
 
 namespace Ui {
-    class LXQtWorldClockConfigurationManualFormat;
+    class LXQtClockConfigurationManualFormat;
 }
 
 class QTreeWidgetItem;
 
-class LXQtWorldClockConfigurationManualFormat : public QDialog
+class LXQtClockConfigurationManualFormat : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtWorldClockConfigurationManualFormat(QWidget *parent = NULL);
-    ~LXQtWorldClockConfigurationManualFormat();
+    explicit LXQtClockConfigurationManualFormat(QWidget *parent = NULL);
+    ~LXQtClockConfigurationManualFormat();
 
     void setManualFormat(const QString&);
 
@@ -56,7 +56,7 @@ signals:
     void manualFormatChanged();
 
 private:
-    Ui::LXQtWorldClockConfigurationManualFormat *ui;
+    Ui::LXQtClockConfigurationManualFormat *ui;
 };
 
 #endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H

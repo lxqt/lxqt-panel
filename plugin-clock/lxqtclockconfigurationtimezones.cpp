@@ -34,9 +34,9 @@
 #include "ui_lxqtclockconfigurationtimezones.h"
 
 
-LXQtWorldClockConfigurationTimeZones::LXQtWorldClockConfigurationTimeZones(QWidget *parent) :
+LXQtClockConfigurationTimeZones::LXQtClockConfigurationTimeZones(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LXQtWorldClockConfigurationTimeZones)
+    ui(new Ui::LXQtClockConfigurationTimeZones)
 {
     setObjectName("WorldClockConfigurationTimeZonesWindow");
     setWindowModality(Qt::WindowModal);
@@ -46,17 +46,17 @@ LXQtWorldClockConfigurationTimeZones::LXQtWorldClockConfigurationTimeZones(QWidg
     connect(ui->timeZonesTW, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), SLOT(itemDoubleClicked(QTreeWidgetItem*,int)));
 }
 
-LXQtWorldClockConfigurationTimeZones::~LXQtWorldClockConfigurationTimeZones()
+LXQtClockConfigurationTimeZones::~LXQtClockConfigurationTimeZones()
 {
     delete ui;
 }
 
-QString LXQtWorldClockConfigurationTimeZones::timeZone()
+QString LXQtClockConfigurationTimeZones::timeZone()
 {
     return mTimeZone;
 }
 
-void LXQtWorldClockConfigurationTimeZones::itemSelectionChanged()
+void LXQtClockConfigurationTimeZones::itemSelectionChanged()
 {
     QList<QTreeWidgetItem*> items = ui->timeZonesTW->selectedItems();
     if (!items.empty())
@@ -65,13 +65,13 @@ void LXQtWorldClockConfigurationTimeZones::itemSelectionChanged()
         mTimeZone.clear();
 }
 
-void LXQtWorldClockConfigurationTimeZones::itemDoubleClicked(QTreeWidgetItem* /*item*/, int /*column*/)
+void LXQtClockConfigurationTimeZones::itemDoubleClicked(QTreeWidgetItem* /*item*/, int /*column*/)
 {
     if (!mTimeZone.isEmpty())
         accept();
 }
 
-QTreeWidgetItem* LXQtWorldClockConfigurationTimeZones::makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems)
+QTreeWidgetItem* LXQtClockConfigurationTimeZones::makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems)
 {
     if (parts.length() == 1)
         return 0;
@@ -98,7 +98,7 @@ QTreeWidgetItem* LXQtWorldClockConfigurationTimeZones::makeSureParentsExist(cons
     return newItem;
 }
 
-int LXQtWorldClockConfigurationTimeZones::updateAndExec()
+int LXQtClockConfigurationTimeZones::updateAndExec()
 {
     QDateTime now = QDateTime::currentDateTime();
 
