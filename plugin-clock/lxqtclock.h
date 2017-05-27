@@ -26,8 +26,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PANEL_WORLDCLOCK_H
-#define LXQT_PANEL_WORLDCLOCK_H
+#ifndef LXQT_PANEL_CLOCK_H
+#define LXQT_PANEL_CLOCK_H
 
 #include <QTimeZone>
 
@@ -141,4 +141,4 @@ public:
     }
 };
 
-#endif // LXQT_PANEL_WORLDCLOCK_H
+#endif // LXQT_PANEL_CLOCK_H

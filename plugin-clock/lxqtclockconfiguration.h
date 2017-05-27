@@ -26,8 +26,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
-#define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
+#ifndef LXQT_PANEL_CLOCK_CONFIGURATION_H
+#define LXQT_PANEL_CLOCK_CONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -94,4 +94,4 @@ private:
     int findTimeZone(const QString& timeZone);
 };
 
-#endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_H
+#endif // LXQT_PANEL_CLOCK_CONFIGURATION_H
