@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>World Clock Settings</string>
+   <string>Clock Settings</string>
   </property>
   <layout class="QVBoxLayout" name="_6">
    <item>
@@ -374,7 +374,7 @@
             <item>
              <widget class="QPushButton" name="customisePB">
               <property name="text">
-               <string>&amp;Customise ...</string>
+               <string>&amp;Customize...</string>
               </property>
              </widget>
             </item>
@@ -428,7 +428,7 @@
          </attribute>
          <column>
           <property name="text">
-           <string>IANA id</string>
+           <string>IANA ID</string>
           </property>
          </column>
          <column>
@@ -443,7 +443,7 @@
          <item>
           <widget class="QPushButton" name="addPB">
            <property name="text">
-            <string>&amp;Add ...</string>
+            <string>&amp;Add...</string>
            </property>
           </widget>
          </item>
@@ -473,7 +473,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Edit custom name ...</string>
+            <string>&amp;Edit custom name...</string>
            </property>
           </widget>
          </item>
