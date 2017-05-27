@@ -67,7 +67,7 @@ private slots:
     void dateGroupToggled(bool);
     void dateFormatChanged(int);
     void advancedFormatToggled(bool);
-    void customiseManualFormatClicked();
+    void customizeManualFormatClicked();
     void manualFormatChanged();
 
     void updateTimeZoneButtons();

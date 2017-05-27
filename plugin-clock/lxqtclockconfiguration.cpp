@@ -65,7 +65,7 @@ LXQtClockConfiguration::LXQtClockConfiguration(PluginSettings *settings, QWidget
     connect(ui->datePadDayCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->dateLongNamesCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->advancedManualGB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->customisePB, SIGNAL(clicked()), SLOT(customiseManualFormatClicked()));
+    connect(ui->customizePB, SIGNAL(clicked()), SLOT(customizeManualFormatClicked()));
 
 
     connect(ui->timeFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(timeFormatChanged(int)));
@@ -406,7 +406,7 @@ void LXQtClockConfiguration::advancedFormatToggled(bool on)
     ui->dateGB->setEnabled(!on);
 }
 
-void LXQtClockConfiguration::customiseManualFormatClicked()
+void LXQtClockConfiguration::customizeManualFormatClicked()
 {
     if (!mConfigurationManualFormat)
     {

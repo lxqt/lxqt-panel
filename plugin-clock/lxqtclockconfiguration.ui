@@ -345,42 +345,47 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="advancedManualGB">
-         <property name="title">
-          <string>Ad&amp;vanced manual format</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
+        <layout class="QHBoxLayout" name="advancedManual">
+         <item>
+          <widget class="QCheckBox" name="advancedManualGB">
+           <property name="text">
+            <string>Ad&amp;vanced manual format</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="customizePB">
+           <property name="text">
+            <string>Customize...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="autorotateCB">
+         <property name="text">
+          <string>Auto&amp;rotate when the panel is vertical</string>
          </property>
          <property name="checked">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <spacer name="_3">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="customisePB">
-              <property name="text">
-               <string>&amp;Customize...</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
         </widget>
        </item>
        <item>
@@ -504,43 +509,13 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>1</width>
-             <height>0</height>
+             <width>13</width>
+             <height>13</height>
             </size>
            </property>
           </spacer>
          </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="generalT">
-      <attribute name="title">
-       <string>&amp;General</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QCheckBox" name="autorotateCB">
-         <property name="text">
-          <string>Auto&amp;rotate when the panel is vertical</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
