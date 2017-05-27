@@ -68,6 +68,9 @@ private slots:
     void deletePopup();
     void setTimeText();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
 private:
     QWidget *mMainWidget;
     LXQt::RotatedWidget* mRotatedWidget;
@@ -82,6 +85,7 @@ private:
     QString mDefaultTimeZone;
     QString mActiveTimeZone;
     QString mFormat;
+    QString mToolTipFormat;
 
     bool mAutoRotate;
     QLabel *mPopupContent;

@@ -64,6 +64,8 @@ LXQtClock::LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     mContent->setAlignment(Qt::AlignCenter);
 
+    mMainWidget->installEventFilter(this);
+
     settingsChanged();
 
     mTimer->setTimerType(Qt::PreciseTimer);
@@ -521,6 +523,19 @@ void LXQtClock::realign()
         }
     else
         mRotatedWidget->setOrigin(Qt::TopLeftCorner);
+}
+
+bool LXQtClock::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == mMainWidget)
+    {
+        if (event->type() == QEvent::ToolTip)
+            mMainWidget->setToolTip(QDateTime::currentDateTime().toString(Qt::DefaultLocaleLongDate));
+
+        return false;
+    }
+
+    return false;
 }
 
 ActiveLabel::ActiveLabel(QWidget *parent) :
