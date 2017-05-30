@@ -60,6 +60,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     mFallbackIcon(QIcon::fromTheme("application-x-executable")),
     mPlugin(plugin)
 {
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAutoRaise(true);
     interface = new SniAsync(service, objectPath, QDBusConnection::sessionBus(), this);
 

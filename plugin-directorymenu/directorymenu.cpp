@@ -46,7 +46,8 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mOpenDirectorySignalMapper = new QSignalMapper(this);
     mMenuSignalMapper = new QSignalMapper(this);
 
-    mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mButton.setAutoRaise(true);
     mButton.setIcon(XdgIcon::fromTheme("folder"));
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));

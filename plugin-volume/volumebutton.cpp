@@ -46,6 +46,7 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         m_showOnClick(true),
         m_muteOnMiddleClick(true)
 {
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAutoRaise(true);
     setMouseTracking(true);
     // initial icon for button. It will be replaced after devices scan.

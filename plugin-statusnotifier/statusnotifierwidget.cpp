@@ -68,7 +68,6 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 
     mServices.insert(serviceAndPath, button);
     layout()->addWidget(button);
-    layout()->setAlignment(button, Qt::AlignCenter);
     button->show();
 }
 
