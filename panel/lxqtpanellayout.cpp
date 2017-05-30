@@ -701,7 +701,10 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    const int height = qMin(qMin(info.geometry.height(), geometry.height()), bh + (0 < remain-- ? 1 : 0));
+                    int height = bh + (0 < remain-- ? 1 : 0);
+                    if (!info.item->expandingDirections().testFlag(Qt::Orientation::Vertical))
+                        height = qMin(info.geometry.height(), height);
+                    height = qMin(geometry.height(), height);
                     rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     if (height < bh)
@@ -746,7 +749,10 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 }
                 else
                 {
-                    const int height = qMin(qMin(info.geometry.height(), geometry.height()), bh + (0 < remain-- ? 1 : 0));
+                    int height = bh + (0 < remain-- ? 1 : 0);
+                    if (!info.item->expandingDirections().testFlag(Qt::Orientation::Vertical))
+                        height = qMin(info.geometry.height(), height);
+                    height = qMin(geometry.height(), height);
                     rect.setHeight(height);
                     rect.setWidth(qMin(info.geometry.width(), geometry.width()));
                     if (height < bh)
@@ -834,7 +840,10 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    const int width = qMin(qMin(info.geometry.width(), geometry.width()), bw + (0 < remain-- ? 1 : 0));
+                    int width = bw + (0 < remain-- ? 1 : 0);
+                    if (!info.item->expandingDirections().testFlag(Qt::Orientation::Horizontal))
+                        width = qMin(info.geometry.width(), width);
+                    width = qMin(geometry.width(), width);
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
@@ -879,7 +888,10 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 else
                 {
                     rect.setHeight(qMin(info.geometry.height(), geometry.height()));
-                    const int width = qMin(qMin(info.geometry.width(), geometry.width()), bw + (0 < remain-- ? 1 : 0));
+                    int width = bw + (0 < remain-- ? 1 : 0);
+                    if (!info.item->expandingDirections().testFlag(Qt::Orientation::Horizontal))
+                        width = qMin(info.geometry.width(), width);
+                    width = qMin(geometry.width(), width);
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
