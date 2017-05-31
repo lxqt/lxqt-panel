@@ -344,6 +344,16 @@ void LXQtMainMenu::setSearchFocus(QAction *action)
     }
 }
 
+static void menuInstallEventFilter(QMenu * menu, QObject * watcher)
+{
+    for (auto const & action : const_cast<QList<QAction *> const &&>(menu->actions()))
+    {
+        if (action->menu())
+            menuInstallEventFilter(action->menu(), watcher); // recursion
+    }
+    menu->installEventFilter(watcher);
+}
+
 /************************************************
 
  ************************************************/
@@ -370,13 +380,7 @@ void LXQtMainMenu::buildMenu()
 
     mMenu->addSeparator();
 
-    Q_FOREACH(QAction* action, mMenu->actions())
-    {
-        if (action->menu())
-            action->menu()->installEventFilter(this);
-    }
-
-    mMenu->installEventFilter(this);
+    menuInstallEventFilter(mMenu, this);
     connect(mMenu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
