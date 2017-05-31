@@ -110,6 +110,13 @@ public:
      *
      */
     virtual void willShowWindow(QWidget * w) = 0;
+
+    /*!
+     * \brief This function checks if the cursor is not inside panel and then hides an auto-hide panel
+     * after stopping its delayed show timer.
+     *
+     */
+    virtual void hideOnCursorLeave() = 0;
 };
 
 #endif // ILXQTPANEL_H

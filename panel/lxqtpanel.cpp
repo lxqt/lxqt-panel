@@ -1298,6 +1298,15 @@ void LXQtPanel::hidePanel()
         mHideTimer.start();
 }
 
+void LXQtPanel::hideOnCursorLeave()
+{
+    if (!geometry().contains(QCursor::pos(), true))
+    {
+        mShowDelayTimer.stop();
+        hidePanel();
+    }
+}
+
 void LXQtPanel::hidePanelWork()
 {
     if (!geometry().contains(QCursor::pos()))

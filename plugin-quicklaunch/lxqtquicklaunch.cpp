@@ -184,6 +184,13 @@ void LXQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
 }
 
 
+void LXQtQuickLaunch::dragLeaveEvent(QDragLeaveEvent *e)
+{
+    QFrame::dragLeaveEvent(e);
+    mPlugin->panel()->hideOnCursorLeave();
+}
+
+
 void LXQtQuickLaunch::dropEvent(QDropEvent *e)
 {
     const QMimeData *mime = e->mimeData();

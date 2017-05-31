@@ -69,6 +69,7 @@ private:
     QLabel *mPlaceHolder;
 
     void dragEnterEvent(QDragEnterEvent *e);
+    void dragLeaveEvent(QDragLeaveEvent *e);
     void dropEvent(QDropEvent *e);
 
     void saveSettings();
