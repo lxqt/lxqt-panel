@@ -10,40 +10,40 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="62"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiększ głośność dźwięku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="68"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmniejsz głośność dźwięku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="74"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Wycisz/cofnij wyciszenie dźwięku</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="135"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrola głośności: Nie można zarejestrować następujących skrótów klawiszowych: %1</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="223"/>
         <location filename="../../../lxqtvolume.cpp" line="233"/>
         <source>Volume: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Głośność: %1</translation>
     </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Ustawienia regulacji poziomu dźwięku LXQt</translation>
+        <translation type="vanished">Ustawienia regulacji głośności dźwięku LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia kontroli głośności</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="20"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Wycisz na klikniecie środkowym przyciskiem myszy</translation>
+        <translation>Wycisz na kliknięcie środkowym przyciskiem myszy</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="70"/>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Pozwól poziom dźwięku powyżej 100% (0db)</translation>
+        <translation>Pozwól na poziom dźwięku powyżej 100% (0db)</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="92"/>
         <source>Volume adjust step</source>
-        <translation>Stopień regulowania poziomu dźwięku</translation>
+        <translation>Rozmiar kroku przy zmianie głośności</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="111"/>
@@ -101,12 +101,12 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="53"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Uruchom mikser</translation>
     </message>
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>Mi&amp;kser</translation>
     </message>
 </context>
 </TS>
