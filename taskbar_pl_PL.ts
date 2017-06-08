@@ -94,48 +94,48 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupa</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij grupę</translation>
     </message>
 </context>
 <context>
     <name>LXQtTaskbarConfiguration</name>
     <message>
         <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">Ustawienia listy zadań LXQt</translation>
+        <translation>Ustawienia menedżera zadań LXQt</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Zawartość listy zadań</translation>
+        <translation>Zawartość listy okien</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia menedżera zadan</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokazuj tylko okna pulpitu</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pokazuj tylko okna z ekranu z tym panelem</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokazuj tylko zminimalizowane okna</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
@@ -145,38 +145,38 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Grupowanie okien</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
+        <translation>Pokazuj podgląd przy przyłożeniu kursora</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Wygląd</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksymalna szerokość przycisku</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksymalna wysokość przycisku</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Używaj ikon z WindowClass, jeśli dostępne</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -189,7 +189,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatycznie ob&amp;racaj przyciski, jeżeli panel jest pionowy</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecny</translation>
     </message>
 </context>
 </TS>
