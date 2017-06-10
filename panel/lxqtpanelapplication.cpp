@@ -79,10 +79,14 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     Q_D(LXQtPanelApplication);
 
     QCoreApplication::setApplicationName(QLatin1String("lxqt-panel"));
-    QCoreApplication::setApplicationVersion(LXQT_VERSION);
+    const QString VERINFO = QStringLiteral(LXQT_PANEL_VERSION
+                                           "\nliblxqt   " LXQT_VERSION
+                                           "\nQt        " QT_VERSION_STR);
+
+    QCoreApplication::setApplicationVersion(VERINFO);
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(QLatin1String("LXQt panel"));
+    parser.setApplicationDescription(QLatin1String("LXQt Panel"));
     parser.addHelpOption();
     parser.addVersionOption();
 
