@@ -47,12 +47,12 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Orientacja paska stanu</translation>
+        <translation>Położenie paska stanu:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerokość paska:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
