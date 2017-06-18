@@ -6,18 +6,18 @@
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>Drop Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd upuszczania</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation type="unfinished"></translation>
+        <translation>Plik/adres &apos;%1&apos; nie może zostać umieszczony w Szybkim uruchamianiu teraz</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Upuść ikony aplikacji tutaj</translation>
     </message>
 </context>
 <context>
