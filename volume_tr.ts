@@ -45,17 +45,17 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="28"/>
         <source>Alsa</source>
-        <translation type="unfinished"></translation>
+        <translation>Alsa</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="35"/>
         <source>PulseAudio</source>
-        <translation type="unfinished"></translation>
+        <translation>PulseAudio</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
