@@ -48,7 +48,7 @@
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Güzel</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="97"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tamponlar</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="249"/>
@@ -152,12 +152,12 @@
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation type="unfinished"></translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="124"/>
@@ -177,12 +177,12 @@
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation type="unfinished"></translation>
+        <translation>XXX KBs</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo&amp;garitmik ölçek</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="248"/>
