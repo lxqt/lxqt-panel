@@ -35,8 +35,8 @@
 #include <QDebug>
 
 XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
-    QAction(parent),
-    item_(menu_cache_item_ref(item))
+    QAction{parent}
+    , iconName_{QString::fromUtf8(menu_cache_item_get_icon(item))}
 {
     QString title = QString::fromUtf8(menu_cache_item_get_name(item));
     title = title.replace('&', QLatin1String("&&")); // & is reserved for mnemonics
@@ -47,19 +47,18 @@ XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
         QString comment = QString::fromUtf8(menu_cache_item_get_comment(item));
         setToolTip(comment);
     }
-}
-
-XdgCachedMenuAction::~XdgCachedMenuAction()
-{
-  if(item_)
-    menu_cache_item_unref(item_);
+    if (char * file_path = menu_cache_item_get_file_path(item))
+    {
+        filePath_ = QString::fromUtf8(file_path);
+        g_free(file_path);
+    }
 }
 
 void XdgCachedMenuAction::updateIcon()
 {
     if(icon().isNull())
     {
-        QIcon icon = XdgIcon::fromTheme(menu_cache_item_get_icon(item_), QIcon::fromTheme("unknown"));
+        QIcon icon = XdgIcon::fromTheme(iconName_, QIcon::fromTheme("unknown"));
         setIcon(icon);
     }
 }
@@ -134,9 +133,7 @@ void XdgCachedMenu::onItemTrigerred()
 {
     XdgCachedMenuAction* action = static_cast<XdgCachedMenuAction*>(sender());
     XdgDesktopFile df;
-    char* desktop_file = menu_cache_item_get_file_path(action->item());
-    df.load(desktop_file);
-    g_free(desktop_file);
+    df.load(action->filePath());
     df.startDetached();
 }
 
@@ -181,9 +178,7 @@ void XdgCachedMenu::handleMouseMoveEvent(QMouseEvent *event)
         return;
 
     QList<QUrl> urls;
-    char* desktop_file = menu_cache_item_get_file_path(a->item());
-    urls << QUrl(QString("file://%1").arg(desktop_file));
-    g_free(desktop_file);
+    urls << QUrl(QString("file://%1").arg(a->filePath()));
 
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
