@@ -265,7 +265,10 @@ QDialog *LXQtVolume::configureDialog()
 {
     if (!m_configDialog)
     {
-        m_configDialog = new LXQtVolumeConfiguration(settings());
+        const bool oss_available = (m_engine && m_engine->backendName() == QLatin1String("Oss"))
+            ? m_engine->sinks().size() > 0
+            : OssEngine().sinks().size() > 0;
+        m_configDialog = new LXQtVolumeConfiguration(settings(), oss_available);
         m_configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
 
         if (m_engine)
