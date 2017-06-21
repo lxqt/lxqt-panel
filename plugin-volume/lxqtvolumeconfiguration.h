@@ -71,7 +71,7 @@ class LXQtVolumeConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit LXQtVolumeConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
+    explicit LXQtVolumeConfiguration(PluginSettings *settings, bool ossAvailable, QWidget *parent = nullptr);
     ~LXQtVolumeConfiguration();
 
 public slots:

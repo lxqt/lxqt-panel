@@ -33,14 +33,13 @@
 #include <QComboBox>
 #include <QDebug>
 
-LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, QWidget *parent) :
+LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool ossAvailable, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtVolumeConfiguration)
 {
     ui->setupUi(this);
 
     loadSettings();
-    connect(ui->ossRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
     connect(ui->devAddedCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(sinkSelectionChanged(int)));
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
     connect(ui->showOnClickCheckBox, SIGNAL(toggled(bool)), this, SLOT(showOnClickedChanged(bool)));
@@ -55,6 +54,10 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, QWidg
     if(!ui->pulseAudioRadioButton->isChecked())
         ui->ignoreMaxVolumeCheckBox->setEnabled(false);
 
+    if (ossAvailable)
+        connect(ui->ossRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+    else
+        ui->ossRadioButton->setVisible(false);
 #ifdef USE_PULSEAUDIO
     connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
 #else
