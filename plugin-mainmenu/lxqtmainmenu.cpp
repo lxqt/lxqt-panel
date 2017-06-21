@@ -128,6 +128,7 @@ LXQtMainMenu::~LXQtMainMenu()
     {
         mMenu->removeAction(mSearchEditAction);
         mMenu->removeAction(mSearchViewAction);
+        delete mMenu;
     }
 #ifdef HAVE_MENU_CACHE
     if(mMenuCache)
@@ -218,8 +219,11 @@ void LXQtMainMenu::settingsChanged()
             menu_cache_unref(mMenuCache);
         }
         mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
-        if (menu_cache_get_root_dir(mMenuCache))
+        if (MenuCacheDir * root = menu_cache_dup_root_dir(mMenuCache))
+        {
+            menu_cache_item_unref(MENU_CACHE_ITEM(root));
             buildMenu();
+        }
         mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
 #else
         mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LXQt");
