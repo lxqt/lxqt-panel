@@ -37,6 +37,7 @@
 int main(int argc, char *argv[])
 {
     LXQtPanelApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     return app.exec();
 }
