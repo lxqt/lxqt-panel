@@ -2,89 +2,97 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>LXQtTaskBar</name>
+    <message>
+        <location filename="../../../lxqttaskbar.cpp" line="641"/>
+        <source>Activate task %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="477"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="478"/>
         <source>Application</source>
         <translation>Приложение</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="511"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="512"/>
         <source>To &amp;Desktop</source>
         <translation>&amp;На рабочий стол</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="513"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="514"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Все рабочие столы</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="521"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="522"/>
         <source>Desktop &amp;%1</source>
         <translation>Рабочий стол &amp;%1</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="528"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="529"/>
         <source>&amp;To Current Desktop</source>
         <translation>На &amp;текущий рабочий стол</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="537"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="538"/>
         <source>Ma&amp;ximize</source>
         <translation>Р&amp;азвернуть</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="544"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="545"/>
         <source>Maximize vertically</source>
         <translation>Развернуть по вертикали</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="549"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="550"/>
         <source>Maximize horizontally</source>
         <translation>Развернуть по горизонтали</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="555"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="556"/>
         <source>&amp;Restore</source>
         <translation>&amp;Восстановить</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="559"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="560"/>
         <source>Mi&amp;nimize</source>
         <translation>&amp;Свернуть</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="565"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="566"/>
         <source>Roll down</source>
         <translation>Развернуть из заголовока</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="571"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="572"/>
         <source>Roll up</source>
         <translation>Свернуть в заголовок</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="579"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="580"/>
         <source>&amp;Layer</source>
         <translation>&amp;Положение</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="581"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="582"/>
         <source>Always on &amp;top</source>
         <translation>Всегда на&amp;верху</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="587"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="588"/>
         <source>&amp;Normal</source>
         <translation>&amp;Обычное</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="593"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="594"/>
         <source>Always on &amp;bottom</source>
         <translation>Всегда в&amp;низу</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="601"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="602"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
@@ -115,73 +123,78 @@
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="46"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
         <translation>Показывать окна только с экрана &amp;панели</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="53"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
         <translation>Показывать только свёрнутые окна</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="60"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
         <translation>Разворачивать свёрнутые окна на текущем рабочем столе</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="77"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
+        <source>Cycle windows on wheel scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
         <translation>&amp;Группировка окон</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="86"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
         <translation>Показывать всплывающее окно при наведении мыши </translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="96"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
         <translation>Внешний вид</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="115"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
         <translation>Максимальная ширина кнопки</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="128"/>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="154"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="144"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
         <translation> пикс</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="141"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
         <translation>Максимальная высота кнопки</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="174"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
         <translation>Использовать значки WindowClass, если доступно</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="105"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
         <source>Button style</source>
         <translation>Стиль кнопок</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="34"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
         <translation>Показывать окна только с рабочего стола</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="167"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>Авто&amp;поворот кнопок, когда панель вертикальна</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="67"/>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
         <translation>Закрывать по щелчку средней кнопки мыши</translation>
     </message>
