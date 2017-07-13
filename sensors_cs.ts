@@ -5,7 +5,7 @@
     <name>LXQtSensorsConfiguration</name>
     <message>
         <source>LXQt Sensors Settings</source>
-        <translation>Nastavení čidel</translation>
+        <translation type="vanished">Nastavení čidel</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="14"/>

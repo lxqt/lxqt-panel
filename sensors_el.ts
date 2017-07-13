@@ -5,7 +5,7 @@
     <name>LXQtSensorsConfiguration</name>
     <message>
         <source>LXQt Sensors Settings</source>
-        <translation>Ρυθμίσεις αισθητήρων του LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις αισθητήρων του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="14"/>
