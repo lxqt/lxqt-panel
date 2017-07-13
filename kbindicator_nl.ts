@@ -11,10 +11,9 @@
         <translation>A</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Etiket voor CapsLock-indicator</comment>
-        <translation>A</translation>
+        <translation type="vanished">A</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="50"/>
@@ -24,10 +23,9 @@
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Etiket voor NumLock-indicator</comment>
-        <translation>1</translation>
+        <translation type="vanished">1</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="57"/>
@@ -37,10 +35,27 @@
         <translation>R</translation>
     </message>
     <message>
-        <location filename="../../../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Etiket voor ScrollLock-indicator</comment>
-        <translation>Schuiven</translation>
+        <translation type="vanished">Schuiven</translation>
+    </message>
+    <message>
+        <location filename="../../../src/content.cpp" line="46"/>
+        <source>CapsLock</source>
+        <comment>Tooltip for CapsLock indicator</comment>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <location filename="../../../src/content.cpp" line="52"/>
+        <source>NumLock</source>
+        <comment>Tooltip for NumLock indicator</comment>
+        <translation type="unfinished">1</translation>
+    </message>
+    <message>
+        <location filename="../../../src/content.cpp" line="59"/>
+        <source>ScrollLock</source>
+        <comment>Tooltip for ScrollLock indicator</comment>
+        <translation type="unfinished">Schuiven</translation>
     </message>
     <message>
         <location filename="../../../src/content.cpp" line="90"/>

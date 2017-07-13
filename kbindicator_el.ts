@@ -54,11 +54,11 @@
     <name>KbdStateConfig</name>
     <message>
         <source>Dialog</source>
-        <translation>Διάλογος</translation>
+        <translation type="vanished">Διάλογος</translation>
     </message>
     <message>
         <source>Leds</source>
-        <translation>Φωτεινοί δίοδοι</translation>
+        <translation type="vanished">Φωτεινοί δίοδοι</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="26"/>
@@ -77,15 +77,15 @@
     </message>
     <message>
         <source>Show keyboard layout</source>
-        <translation>Εμφάνιση της διάταξης του πληκτρολογίου</translation>
+        <translation type="vanished">Εμφάνιση της διάταξης του πληκτρολογίου</translation>
     </message>
     <message>
         <source>Show flags instead labels</source>
-        <translation>Εμφάνιση της σημαίας αντί της ετικέτας</translation>
+        <translation type="vanished">Εμφάνιση της σημαίας αντί της ετικέτας</translation>
     </message>
     <message>
         <source>Layout mode:</source>
-        <translation>Λειτουργία της διάταξης:</translation>
+        <translation type="vanished">Λειτουργία της διάταξης:</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="14"/>
