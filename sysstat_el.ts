@@ -194,137 +194,137 @@
         <translation>Δίκτυο</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="55"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
         <translation>επεξεργαστής</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="56"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
         <translation>επεξεργαστής0</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="57"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
         <translation>επεξεργαστής1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="58"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
         <translation>επεξεργαστής2</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="59"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
         <translation>επεξεργαστής3</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="60"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
         <translation>επεξεργαστής4</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="61"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
         <translation>επεξεργαστής5</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="62"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
         <translation>επεξεργαστής6</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="63"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
         <translation>επεξεργαστής7</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="64"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
         <translation>επεξεργαστής8</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="65"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
         <translation>επεξεργαστής9</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="66"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
         <translation>επεξεργαστής10</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="67"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
         <translation>επεξεργαστής11</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="68"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
         <translation>επεξεργαστής12</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="69"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
         <translation>επεξεργαστής13</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
         <translation>επεξεργαστής14</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
         <translation>επεξεργαστής15</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
         <translation>επεξεργαστής16</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
         <translation>επεξεργαστής17</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="74"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
         <translation>επεξεργαστής18</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="75"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
         <translation>επεξεργαστής19</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="76"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
         <translation>επεξεργαστής20</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="77"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
         <translation>επεξεργαστής21</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="78"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
         <translation>επεξεργαστής22</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="79"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
         <translation>επεξεργαστής23</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="80"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
         <translation>Μνήμη</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="81"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
         <translation>swap</translation>
     </message>

@@ -234,137 +234,137 @@
         <translation>Netwerk</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="55"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
         <translation>CPU</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="56"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
         <translation>CPU0</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="57"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
         <translation>CPU1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="58"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
         <translation>CPU2</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="59"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
         <translation>CPU3</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="60"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
         <translation>CPU4</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="61"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
         <translation>CPU5</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="62"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
         <translation>CPU6</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="63"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
         <translation>CPU7</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="64"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
         <translation>CPU8</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="65"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
         <translation>CPU9</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="66"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
         <translation>CPU10</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="67"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
         <translation>CPU11</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="68"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
         <translation>CPU12</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="69"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
         <translation>CPU13</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="70"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
         <translation>CPU14</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="71"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
         <translation>CPU15</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="72"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
         <translation>CPU16</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="73"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
         <translation>CPU17</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="74"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
         <translation>CPU18</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="75"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
         <translation>CPU19</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="76"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
         <translation>CPU20</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="77"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
         <translation>CPU21</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="78"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
         <translation>CPU22</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="79"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
         <translation>CPU23</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="80"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
         <translation>geheugen</translation>
     </message>
     <message>
-        <location filename="../../../lxqtsysstatconfiguration.cpp" line="81"/>
+        <location filename="../../../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
         <translation>wisselgeheugen</translation>
     </message>
