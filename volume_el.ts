@@ -5,31 +5,35 @@
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Εμφάνιση της επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης «%1»</translation>
+        <translation type="vanished">Εμφάνιση της επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης «%1»</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="62"/>
+        <location filename="../../../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
         <translation>Αύξηση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="68"/>
+        <location filename="../../../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
         <translation>Μείωση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="74"/>
+        <location filename="../../../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
         <translation>Σίγαση/αποσίγαση της έντασης του ήχου</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="135"/>
+        <location filename="../../../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις μπόρεσαν να καταχωρηθούν: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="223"/>
-        <location filename="../../../lxqtvolume.cpp" line="233"/>
+        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <source>Volume: muted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1</source>
         <translation>Ένταση: %1</translation>
     </message>
@@ -38,7 +42,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation>Ρυθμίσεις του ελέγχου έντασης του ήχου LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις του ελέγχου έντασης του ήχου LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
@@ -86,12 +90,17 @@
         <translation>Να επιτρέπεται ένταση πάνω από 100% (0dB)</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="92"/>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
+        <source>Always notify about volume changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>Βήμα προσαρμογής έντασης</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="111"/>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>Εξωτερικός μίκτης</translation>
     </message>
@@ -99,18 +108,18 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="53"/>
+        <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
         <translation>Εκτέλεση του μίκτη</translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
         <translation>Μί&amp;κτης</translation>
     </message>
     <message>
         <source>Mixer</source>
-        <translation>Μίκτης</translation>
+        <translation type="vanished">Μίκτης</translation>
     </message>
 </context>
 </TS>

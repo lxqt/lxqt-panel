@@ -8,28 +8,32 @@
         <translation type="vanished">顯示桌面:全域快捷鍵&apos;%1&apos;無法被註冊</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="62"/>
+        <location filename="../../../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="68"/>
+        <location filename="../../../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="74"/>
+        <location filename="../../../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="135"/>
+        <location filename="../../../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="223"/>
-        <location filename="../../../lxqtvolume.cpp" line="233"/>
+        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <source>Volume: muted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,12 +90,17 @@
         <translation>允許音量超過 100% (0dB)</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="92"/>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
+        <source>Always notify about volume changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>音量調整步驟</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="111"/>
+        <location filename="../../../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>外掛音量調整程式</translation>
     </message>
@@ -99,12 +108,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="53"/>
+        <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../../../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
         <translation type="unfinished"></translation>
     </message>
