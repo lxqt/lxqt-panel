@@ -53,7 +53,7 @@
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
         <source>LXQt Network Monitor settings</source>
-        <translation>Ρυθμίσεις της επίβλεψης δικτύου του LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις της επίβλεψης δικτύου του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>

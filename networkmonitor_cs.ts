@@ -53,7 +53,7 @@
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
         <source>LXQt Network Monitor settings</source>
-        <translation>Nastavení sledování sítě</translation>
+        <translation type="vanished">Nastavení sledování sítě</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="14"/>
