@@ -4,12 +4,12 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../../../lxqtmainmenu.cpp" line="95"/>
+        <location filename="../../../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
         <translation>Szukaj...</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenu.cpp" line="101"/>
+        <location filename="../../../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
         <translation>Pokaż/ukryj główne menu</translation>
     </message>
@@ -73,39 +73,44 @@
         <translation>Plik menu:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
         <translation>Wyszukiwanie</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="175"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>max. item width:</source>
         <translation>szerokość maksymalna:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="182"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
         <translation>Pokazuj pasujące elementy:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="196"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
         <translation>Widoczne pozycje (max):</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="203"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
         <translation>Filtruj pozycje menu</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.ui" line="223"/>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
         <translation>Ukryj pozycje menu podczas wyszukiwania</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
+        <source>Clear search upon showing menu</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
@@ -127,22 +132,22 @@
         <translation>Zresetuj</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="156"/>
+        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="165"/>
         <source>Choose icon file</source>
         <translation>Wybierz plik ikony</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="158"/>
+        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="167"/>
         <source>Images (*.svg *.png)</source>
         <translation>Obrazy (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="170"/>
+        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Choose menu file</source>
         <translation>Wybierz plik menu</translation>
     </message>
     <message>
-        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="172"/>
+        <location filename="../../../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Menu files (*.menu)</source>
         <translation>Pliki menu (*.menu)</translation>
     </message>
