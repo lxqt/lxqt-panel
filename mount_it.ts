@@ -61,9 +61,6 @@
     </message>
 </context>
 <context>
-    <name>LXQtMountConfiguration</name>
-    </context>
-<context>
     <name>MenuDiskItem</name>
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>

@@ -64,42 +64,42 @@
     <name>LXQtMountConfiguration</name>
     <message>
         <source>LXQt Removable media manager settings</source>
-        <translation>Ρυθμίσεις του διαχειριστή των αφαιρούμενων μέσων του LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις του διαχειριστή των αφαιρούμενων μέσων του LXQt</translation>
     </message>
     <message>
         <source>Removable Media Settings</source>
-        <translation>Ρυθμίσεις των αφαιρούμενων μέσων</translation>
+        <translation type="vanished">Ρυθμίσεις των αφαιρούμενων μέσων</translation>
     </message>
     <message>
         <source>Behaviour</source>
-        <translation>Συμπεριφορά</translation>
+        <translation type="vanished">Συμπεριφορά</translation>
     </message>
     <message>
         <source>When a device is connected </source>
-        <translation>Όταν μια συσκευή συνδέεται </translation>
+        <translation type="vanished">Όταν μια συσκευή συνδέεται </translation>
     </message>
     <message>
         <source>Popup menu</source>
-        <translation>Αναδυόμενο μενού</translation>
+        <translation type="vanished">Αναδυόμενο μενού</translation>
     </message>
     <message>
         <source>Show info</source>
-        <translation>Εμφάνιση πληροφοριών</translation>
+        <translation type="vanished">Εμφάνιση πληροφοριών</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Καμία ενέργεια</translation>
+        <translation type="vanished">Καμία ενέργεια</translation>
     </message>
 </context>
 <context>
     <name>MenuDiskItem</name>
     <message>
         <source>Click to access this device from other applications.</source>
-        <translation>Κάντε κλικ για προσπέλαση της συσκευής από άλλες εφαρμογές.</translation>
+        <translation type="vanished">Κάντε κλικ για προσπέλαση της συσκευής από άλλες εφαρμογές.</translation>
     </message>
     <message>
         <source>Click to eject this disc.</source>
-        <translation>Κάντε κλικ για την εξαγωγή του δίσκου.</translation>
+        <translation type="vanished">Κάντε κλικ για την εξαγωγή του δίσκου.</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Mounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Η προσάρτηση του &lt;strong&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/strong&gt; απέτυχε: %2</translation>
+        <translation type="vanished">Η προσάρτηση του &lt;strong&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/strong&gt; απέτυχε: %2</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="176"/>
@@ -126,19 +126,19 @@
     <name>MountButton</name>
     <message>
         <source>Removable media/devices manager</source>
-        <translation>Διαχειριστής των αφαιρούμενων μέσων/συσκευών</translation>
+        <translation type="vanished">Διαχειριστής των αφαιρούμενων μέσων/συσκευών</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Συνδέθηκε η συσκευή &lt;b&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/b&gt;.</translation>
+        <translation type="vanished">Συνδέθηκε η συσκευή &lt;b&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Αφαιρέθηκε η συσκευή &lt;b&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/b&gt;.</translation>
+        <translation type="vanished">Αφαιρέθηκε η συσκευή &lt;b&gt;&lt;nobr&gt;«%1»&lt;/nobr&gt;&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>No devices Available.</source>
-        <translation>Καμία διαθέσιμη συσκευή.</translation>
+        <translation type="vanished">Καμία διαθέσιμη συσκευή.</translation>
     </message>
 </context>
 <context>

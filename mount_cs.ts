@@ -64,38 +64,38 @@
     <name>LXQtMountConfiguration</name>
     <message>
         <source>LXQt Removable media manager settings</source>
-        <translation>Nastavení správce odstranitelných zařízení</translation>
+        <translation type="vanished">Nastavení správce odstranitelných zařízení</translation>
     </message>
     <message>
         <source>Behaviour</source>
-        <translation>Chování</translation>
+        <translation type="vanished">Chování</translation>
     </message>
     <message>
         <source>When a device is connected </source>
-        <translation>Když je zařízení zapojeno</translation>
+        <translation type="vanished">Když je zařízení zapojeno</translation>
     </message>
     <message>
         <source>Popup menu</source>
-        <translation>Ukázat vyskakovací nabídku</translation>
+        <translation type="vanished">Ukázat vyskakovací nabídku</translation>
     </message>
     <message>
         <source>Show info</source>
-        <translation>Ukázat informace</translation>
+        <translation type="vanished">Ukázat informace</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Nedělat nic</translation>
+        <translation type="vanished">Nedělat nic</translation>
     </message>
 </context>
 <context>
     <name>MenuDiskItem</name>
     <message>
         <source>Click to access this device from other applications.</source>
-        <translation>Klepněte pro přistoupení k tomuto zařízení z jiných aplikací.</translation>
+        <translation type="vanished">Klepněte pro přistoupení k tomuto zařízení z jiných aplikací.</translation>
     </message>
     <message>
         <source>Click to eject this disc.</source>
-        <translation>Klepněte pro vysunutí tohoto disku.</translation>
+        <translation type="vanished">Klepněte pro vysunutí tohoto disku.</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
@@ -118,19 +118,19 @@
     <name>MountButton</name>
     <message>
         <source>Removable media/devices manager</source>
-        <translation>Správce odstranitelných nosičů/zařízení</translation>
+        <translation type="vanished">Správce odstranitelných nosičů/zařízení</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je zapojeno.</translation>
+        <translation type="vanished">Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je zapojeno.</translation>
     </message>
     <message>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je odstraněno.</translation>
+        <translation type="vanished">Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je odstraněno.</translation>
     </message>
     <message>
         <source>No devices Available.</source>
-        <translation>Nejsou dostupná žádná zařízení.</translation>
+        <translation type="vanished">Nejsou dostupná žádná zařízení.</translation>
     </message>
 </context>
 <context>
