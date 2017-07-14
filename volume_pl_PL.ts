@@ -30,7 +30,7 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="284"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Głośność: wyciszono</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="286"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Zawsze informuj o zmianie głośności</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
