@@ -113,7 +113,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation type="unfinished"></translation>
+        <translation>ID IANA</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="201"/>
