@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Activa la tasca %1</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Recorre les finestres amb el desplaçament del ratolí</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Utilitza les icones per WindowClass, si estigués disponible</translation>
+        <translation>Utilitza les icones de classe de finestra, si estigués disponible</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="45"/>
