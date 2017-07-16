@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation>Perjungti į darbalaukį %1 </translation>
+        <translation>Perjungti į darbalaukį %1</translation>
     </message>
     <message>
         <location filename="../../../desktopswitch.cpp" line="141"/>
