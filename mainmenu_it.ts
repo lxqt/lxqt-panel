@@ -84,7 +84,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation>px</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulisci campo di ricerca dopo azione</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
