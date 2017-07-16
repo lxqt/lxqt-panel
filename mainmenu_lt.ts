@@ -94,7 +94,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodant meniu, išvalyti paiešką</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
