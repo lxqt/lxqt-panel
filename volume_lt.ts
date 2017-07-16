@@ -26,7 +26,7 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="284"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Garsis: nutildytas</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="286"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Visada pranešti apie garsio pakeitimus</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
