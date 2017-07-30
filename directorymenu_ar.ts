@@ -4,7 +4,7 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../../../directorymenu.cpp" line="146"/>
+        <location filename="../../../directorymenu.cpp" line="121"/>
         <source>Open</source>
         <translation>افتح</translation>
     </message>
@@ -37,27 +37,27 @@
         <translation>الأيقونة:</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation>اختر الدّليل الأساس</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation>اختر أيقونة</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>صور (‎*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation>قائمة الأدلّة</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation>حدث خطأ أثناء تحميل الأيقونة.</translation>
     </message>

@@ -4,7 +4,7 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../../../directorymenu.cpp" line="146"/>
+        <location filename="../../../directorymenu.cpp" line="121"/>
         <source>Open</source>
         <translation type="unfinished">Otvori</translation>
     </message>
@@ -37,27 +37,27 @@
         <translation type="unfinished">Ikona:</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation type="unfinished">Izaberite osnovni direktorij</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation type="unfinished">Izaberite ikonu</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation type="unfinished">Ikone (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="132"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation type="unfinished">Izbornik direktorija</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="132"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation type="unfinished">Došlo je do greške pri učitavanju ikone.</translation>
     </message>

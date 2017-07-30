@@ -4,7 +4,7 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../../../directorymenu.cpp" line="146"/>
+        <location filename="../../../directorymenu.cpp" line="121"/>
         <source>Open</source>
         <translation>Otwarty</translation>
     </message>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../../../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-       <translation type="unfinished"></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../directorymenuconfiguration.ui" line="46"/>
@@ -37,27 +37,27 @@
         <translation>Ikona:</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="92"/>
         <source>Choose Base Directory</source>
         <translation>Wybierz katalog bazowy</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="122"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Choose Icon</source>
         <translation>Wybierz ikonę</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="123"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Pliki ikon (*.png *.pm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>Directory Menu</source>
         <translation>Menu katalogu</translation>
     </message>
     <message>
-        <location filename="../../../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Wystąpił błąd podczas ładowania ikony.</translation>
     </message>

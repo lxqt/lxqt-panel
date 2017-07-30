@@ -4,7 +4,7 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../../../directorymenu.cpp" line="120"/>
+        <location filename="../../../directorymenu.cpp" line="121"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
