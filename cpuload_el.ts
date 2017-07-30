@@ -5,7 +5,7 @@
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation>Φόρτος του επεξεργαστή %1%</translation>
+        <translation type="vanished">Φόρτος του επεξεργαστή %1%</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
@@ -17,7 +17,7 @@
     <name>LXQtCpuLoadConfiguration</name>
     <message>
         <source>LXQt Cpu Load settings</source>
-        <translation>Ρυθμίσεις φόρτου επεξεργαστή του LXQt</translation>
+        <translation type="vanished">Ρυθμίσεις φόρτου επεξεργαστή του LXQt</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>

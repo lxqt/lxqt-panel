@@ -5,7 +5,7 @@
     <name>LXQtCpuLoad</name>
     <message>
         <source>Cpu load %1%</source>
-        <translation>Vytížení procesoru %1%</translation>
+        <translation type="vanished">Vytížení procesoru %1%</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
@@ -17,7 +17,7 @@
     <name>LXQtCpuLoadConfiguration</name>
     <message>
         <source>LXQt Cpu Load settings</source>
-        <translation>Nastavení vytížení procesoru v LXQtu</translation>
+        <translation type="vanished">Nastavení vytížení procesoru v LXQtu</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
