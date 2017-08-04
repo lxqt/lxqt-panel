@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.1" language="pl">
 <context>
     <name>LXQtTaskBar</name>
     <message>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="556"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Odzyskaj</translation>
+        <translation>P&amp;rzywróć</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="560"/>
@@ -148,7 +148,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Unoś zminimalizowane okna na obecnym pulpicie</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
@@ -163,7 +163,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
-        <translation>Pokazuj podgląd przy przyłożeniu kursora</translation>
+        <translation>Pokazuj podgląd przy przyłożeniu kursora </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
