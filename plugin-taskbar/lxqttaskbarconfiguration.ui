@@ -99,7 +99,7 @@
       <item>
        <widget class="QCheckBox" name="showGroupOnHoverCB">
         <property name="text">
-         <string>Show popup on mouse hover </string>
+         <string>Show popup on mouse hover</string>
         </property>
        </widget>
       </item>
