@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl-PL">
+<TS version="2.1" language="pl">
 <context>
     <name>LXQtWorldClock</name>
     <message>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrót</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="431"/>
