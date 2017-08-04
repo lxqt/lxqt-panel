@@ -48,7 +48,7 @@
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nice</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="97"/>
@@ -375,19 +375,19 @@
         <location filename="../../../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>system: %1%&lt;br&gt;użytkownik: %2%&lt;br&gt;nice: %3%&lt;br&gt;inne: %4%&lt;br&gt;częst.: %5%</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>system: %1%&lt;br&gt;użytkownik: %2%&lt;br&gt;nice: %3%&lt;br&gt;inne: %4%&lt;br&gt;częst.: n/a</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>aplikacje: %1%&lt;br&gt;bufory: %2%&lt;br&gt;w pamięci podr.: %3%</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="522"/>
