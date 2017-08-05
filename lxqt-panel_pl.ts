@@ -380,7 +380,7 @@
         <location filename="../../../config/configpluginswidget.ui" line="164"/>
         <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
