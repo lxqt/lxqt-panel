@@ -153,9 +153,8 @@
         <translation>&amp;Raggruppa finestre della stessa applicazione</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
-        <translation>Mostra popup al passaggio del puntatore </translation>
+        <translation type="vanished">Mostra popup al passaggio del puntatore </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -187,6 +186,11 @@
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>Ruota &amp;automaticamente se il panello è verticale</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>

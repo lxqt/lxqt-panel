@@ -158,7 +158,7 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
-        <source>Show popup on mouse hover </source>
+        <source>Show popup on mouse hover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

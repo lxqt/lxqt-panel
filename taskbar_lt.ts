@@ -159,8 +159,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Užvedus pelę, rodyti iškylantįjį langą </translation>
+        <translation type="vanished">Užvedus pelę, rodyti iškylantįjį langą </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

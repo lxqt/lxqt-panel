@@ -170,8 +170,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Εμφάνιση αναδυόμενου κατά το πέρασμα του ποντικιού </translation>
+        <translation type="vanished">Εμφάνιση αναδυόμενου κατά το πέρασμα του ποντικιού </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

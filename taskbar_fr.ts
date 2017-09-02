@@ -153,9 +153,8 @@
         <translation>&amp;Groupement de fenêtres</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
-        <translation>Afficher un pop-up lorsque la souris survole</translation>
+        <translation type="vanished">Afficher un pop-up lorsque la souris survole</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -187,6 +186,11 @@
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
         <translation>&amp;Rotation automatique des boutons lorsque le tableau est vertical</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>

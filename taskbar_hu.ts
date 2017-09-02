@@ -170,8 +170,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Egérre felbukkanó jelzés</translation>
+        <translation type="vanished">Egérre felbukkanó jelzés</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

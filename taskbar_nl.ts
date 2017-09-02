@@ -162,8 +162,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Toon opduikvenster bij erboven zweven met muis</translation>
+        <translation type="vanished">Toon opduikvenster bij erboven zweven met muis</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

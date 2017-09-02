@@ -133,11 +133,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
-        <source>Show popup on mouse hover </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
         <translation type="unfinished"></translation>
@@ -191,6 +186,11 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

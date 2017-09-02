@@ -162,8 +162,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Показати вигулькні повідомлення при русі мишки</translation>
+        <translation type="vanished">Показати вигулькні повідомлення при русі мишки</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

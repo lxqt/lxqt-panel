@@ -153,9 +153,8 @@
         <translation>Vindues&amp;gruppering</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
-        <translation>Vis pop-op når markøren er over </translation>
+        <translation type="vanished">Vis pop-op når markøren er over </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -192,6 +191,11 @@
         <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
         <translation>Luk ved midterklik</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>

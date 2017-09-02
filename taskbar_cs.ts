@@ -162,8 +162,12 @@
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show popup on mouse hover </source>
-        <translation>Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
+        <translation type="vanished">Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>

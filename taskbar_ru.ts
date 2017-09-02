@@ -148,9 +148,8 @@
         <translation>&amp;Группировка окон</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover </source>
-        <translation>Показывать всплывающее окно при наведении мыши </translation>
+        <translation type="vanished">Показывать всплывающее окно при наведении мыши </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -187,6 +186,11 @@
         <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
         <translation>Показывать окна только с рабочего стола</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
+        <source>Show popup on mouse hover</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
