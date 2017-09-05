@@ -160,7 +160,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Užvedus pelę, rodyti iškylantįjį langą</translation>
     </message>
     <message>
         <source>Show popup on mouse hover </source>
