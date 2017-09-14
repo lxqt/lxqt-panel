@@ -68,8 +68,6 @@ extern void * loadPluginTranslation_statusnotifier_helper;
 extern void * loadPluginTranslation_taskbar_helper;
 #include "../plugin-tray/lxqttrayplugin.h" // tray
 extern void * loadPluginTranslation_tray_helper;
-#include "../plugin-worldclock/lxqtworldclock.h" // worldclock
-extern void * loadPluginTranslation_worldclock_helper;
 
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 
@@ -195,7 +193,7 @@ namespace
     // to be not stripped (as unused/unreferenced) in static linking time
     static plugin_tuple_t const static_plugins[] = {
 #if defined(WITH_CLOCK_PLUGIN)
-        std::make_tuple(QLatin1String("clock"), plugin_ptr_t{new LXQtClockPluginLibrary}, loadPluginTranslation_clock_helper),// clock
+        std::make_tuple(QLatin1String("clock"), plugin_ptr_t{new LXQtClockLibrary}, loadPluginTranslation_clock_helper),// clock
 #endif
 #if defined(WITH_DESKTOPSWITCH_PLUGIN)
         std::make_tuple(QLatin1String("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary}, loadPluginTranslation_desktopswitch_helper),// desktopswitch
@@ -220,9 +218,6 @@ namespace
 #endif
 #if defined(WITH_TRAY_PLUGIN)
         std::make_tuple(QLatin1String("tray"), plugin_ptr_t{new LXQtTrayPluginLibrary}, loadPluginTranslation_tray_helper),// tray
-#endif
-#if defined(WITH_WORLDCLOCK_PLUGIN)
-        std::make_tuple(QLatin1String("worldclock"), plugin_ptr_t{new LXQtWorldClockLibrary}, loadPluginTranslation_worldclock_helper),// worldclock
 #endif
     };
     static constexpr plugin_tuple_t const * const plugins_begin = static_plugins;

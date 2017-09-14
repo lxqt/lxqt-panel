@@ -4,11 +4,9 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2010-2013 Razor team
+ * Copyright: 2012-2013 Razor team
+ *            2014 LXQt team
  * Authors:
- *   Christopher "VdoP" Regali
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
- *   Maciej Płaza <plaza.maciej@gmail.com>
  *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
@@ -28,20 +26,24 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTCLOCK_H
-#define LXQTCLOCK_H
+#ifndef LXQT_PANEL_CLOCK_H
+#define LXQT_PANEL_CLOCK_H
+
+#include <QTimeZone>
+
+#include <QDialog>
+#include <QLabel>
+
+#include <LXQt/RotatedWidget>
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtclockconfiguration.h"
-#include "calendarpopup.h"
-#include <LXQt/RotatedWidget>
 
-#include <QString>
 
-class QLabel;
-class QDialog;
+class ActiveLabel;
 class QTimer;
-class QProxyStyle;
+class LXQtClockPopup;
+
 
 class LXQtClock : public QObject, public ILXQtPanelPlugin
 {
@@ -50,56 +52,97 @@ public:
     LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~LXQtClock();
 
-    virtual Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
-    QString themeId() const { return "Clock"; }
-    QWidget *widget() { return mMainWidget; }
-    QDialog *configureDialog();
-    void settingsChanged();
-
-    void activated(ActivationReason reason);
+    virtual QWidget *widget() { return mMainWidget; }
+    virtual QString themeId() const { return QLatin1String("WorldClock"); }
+    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     bool isSeparate() const { return true; }
+    void activated(ActivationReason reason);
 
-    void realign();
+    virtual void settingsChanged();
+    virtual void realign();
+    QDialog *configureDialog();
 
-public slots:
-    void updateTime();
+private slots:
+    void timeout();
+    void wheelScrolled(int);
+    void deletePopup();
+    void setTimeText();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
 private:
-    QTimer* mClockTimer;
     QWidget *mMainWidget;
-    QWidget *mContent;
     LXQt::RotatedWidget* mRotatedWidget;
-    QLabel* mTimeLabel;
-    QLabel* mDateLabel;
-    QString mClockFormat;
-    QString mToolTipFormat;
-    CalendarPopup* mCalendarPopup;
-    QString mTimeFormat;
-    QString mDateFormat;
-    bool mDateOnNewLine;
-    bool mUseUTC;
-    int mFirstDayOfWeek;
-    bool mAutoRotate;
-    QScopedPointer<QProxyStyle> mTextStyle;
-    int mCurrentCharCount;
+    ActiveLabel *mContent;
+    LXQtClockPopup* mPopup;
 
-    QDateTime currentDateTime();
-    void showTime();
+    QTimer *mTimer;
+    int mUpdateInterval;
+
+    QStringList mTimeZones;
+    QMap<QString, QString> mTimeZoneCustomNames;
+    QString mDefaultTimeZone;
+    QString mActiveTimeZone;
+    QString mFormat;
+    QString mToolTipFormat;
+
+    bool mAutoRotate;
+    QLabel *mPopupContent;
+
     void restartTimer();
+
+    QString formatDateTime(const QDateTime &datetime, const QString &timeZoneName);
+    void updatePopupContent();
+    bool formatHasTimeZone(QString format);
+    QString preformat(const QString &format, const QTimeZone &timeZone, const QDateTime& dateTime);
 };
 
 
-class LXQtClockPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
+class ActiveLabel : public QLabel
+{
+Q_OBJECT
+
+public:
+    explicit ActiveLabel(QWidget * = NULL);
+
+signals:
+    void wheelScrolled(int);
+    void leftMouseButtonClicked();
+    void middleMouseButtonClicked();
+
+protected:
+    void wheelEvent(QWheelEvent *);
+    void mouseReleaseEvent(QMouseEvent* event);
+};
+
+class LXQtClockPopup : public QDialog
 {
     Q_OBJECT
-    // Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
-    Q_INTERFACES(ILXQtPanelPluginLibrary)
+
 public:
-    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new LXQtClock(startupInfo);}
+    LXQtClockPopup(QWidget *parent = 0);
+
+    void show();
+
+signals:
+    void deactivated();
+
+protected:
+    virtual bool event(QEvent* );
+
 };
 
+class LXQtClockLibrary: public QObject, public ILXQtPanelPluginLibrary
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    Q_INTERFACES(ILXQtPanelPluginLibrary)
+public:
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
+    {
+        return new LXQtClock(startupInfo);
+    }
+};
 
-#endif
+#endif // LXQT_PANEL_CLOCK_H

@@ -3,17 +3,21 @@ set(PLUGIN "clock")
 set(HEADERS
     lxqtclock.h
     lxqtclockconfiguration.h
-    calendarpopup.h
+    lxqtclockconfigurationtimezones.h
+    lxqtclockconfigurationmanualformat.h
 )
 
 set(SOURCES
     lxqtclock.cpp
     lxqtclockconfiguration.cpp
-    calendarpopup.cpp
+    lxqtclockconfigurationtimezones.cpp
+    lxqtclockconfigurationmanualformat.cpp
 )
 
 set(UIS
     lxqtclockconfiguration.ui
+    lxqtclockconfigurationtimezones.ui
+    lxqtclockconfigurationmanualformat.ui
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

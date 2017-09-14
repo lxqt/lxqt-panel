@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LXQtWorldClockConfigurationTimeZones</class>
- <widget class="QDialog" name="LXQtWorldClockConfigurationTimeZones">
+ <class>LXQtClockConfigurationTimeZones</class>
+ <widget class="QDialog" name="LXQtClockConfigurationTimeZones">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -71,7 +71,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>accepted()</signal>
-   <receiver>LXQtWorldClockConfigurationTimeZones</receiver>
+   <receiver>LXQtClockConfigurationTimeZones</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -87,7 +87,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
-   <receiver>LXQtWorldClockConfigurationTimeZones</receiver>
+   <receiver>LXQtClockConfigurationTimeZones</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

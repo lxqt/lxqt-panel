@@ -27,36 +27,35 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H
-#define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H
+#include <QTimeZone>
 
-#include <QDialog>
-#include <QAbstractButton>
+#include "lxqtclockconfigurationmanualformat.h"
+
+#include "ui_lxqtclockconfigurationmanualformat.h"
 
 
-namespace Ui {
-    class LXQtWorldClockConfigurationManualFormat;
+LXQtClockConfigurationManualFormat::LXQtClockConfigurationManualFormat(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::LXQtClockConfigurationManualFormat)
+{
+    setObjectName("WorldClockConfigurationManualFormatWindow");
+    setWindowModality(Qt::WindowModal);
+    ui->setupUi(this);
+
+    connect(ui->manualFormatPTE, SIGNAL(textChanged()), this, SIGNAL(manualFormatChanged()));
 }
 
-class QTreeWidgetItem;
-
-class LXQtWorldClockConfigurationManualFormat : public QDialog
+LXQtClockConfigurationManualFormat::~LXQtClockConfigurationManualFormat()
 {
-    Q_OBJECT
+    delete ui;
+}
 
-public:
-    explicit LXQtWorldClockConfigurationManualFormat(QWidget *parent = NULL);
-    ~LXQtWorldClockConfigurationManualFormat();
+void LXQtClockConfigurationManualFormat::setManualFormat(const QString& text)
+{
+    ui->manualFormatPTE->setPlainText(text);
+}
 
-    void setManualFormat(const QString&);
-
-    QString manualFormat() const;
-
-signals:
-    void manualFormatChanged();
-
-private:
-    Ui::LXQtWorldClockConfigurationManualFormat *ui;
-};
-
-#endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H
+QString LXQtClockConfigurationManualFormat::manualFormat() const
+{
+    return ui->manualFormatPTE->toPlainText();
+}

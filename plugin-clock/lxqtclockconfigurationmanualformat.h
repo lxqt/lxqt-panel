@@ -4,9 +4,10 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2014 LXQt team
+ * Copyright: 2012 Razor team
+ *            2014 LXQt team
  * Authors:
- *   Paulo Lieuthier <paulolieuthier@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,25 +26,37 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CALENDARPOPUP_H
-#define CALENDARPOPUP_H
+
+#ifndef LXQT_PANEL_CLOCK_CONFIGURATION_MANUAL_FORMAT_H
+#define LXQT_PANEL_CLOCK_CONFIGURATION_MANUAL_FORMAT_H
 
 #include <QDialog>
-#include <QCalendarWidget>
+#include <QAbstractButton>
 
-class CalendarPopup :  public QDialog
+
+namespace Ui {
+    class LXQtClockConfigurationManualFormat;
+}
+
+class QTreeWidgetItem;
+
+class LXQtClockConfigurationManualFormat : public QDialog
 {
     Q_OBJECT
 
 public:
-    CalendarPopup(QWidget *parent = 0);
-    ~CalendarPopup();
-    void setFirstDayOfWeek(Qt::DayOfWeek wday);
+    explicit LXQtClockConfigurationManualFormat(QWidget *parent = NULL);
+    ~LXQtClockConfigurationManualFormat();
 
-    void show();
+    void setManualFormat(const QString&);
+
+    QString manualFormat() const;
+
+signals:
+    void manualFormatChanged();
 
 private:
-    QCalendarWidget *cal;
+    Ui::LXQtClockConfigurationManualFormat *ui;
 };
 
-#endif // CALENDARPOPUP_H
+#endif // LXQT_PANEL_CLOCK_CONFIGURATION_MANUAL_FORMAT_H

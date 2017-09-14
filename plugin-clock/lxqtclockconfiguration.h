@@ -4,9 +4,9 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2011 Razor team
+ * Copyright: 2012 Razor team
  * Authors:
- *   Maciej Płaza <plaza.maciej@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -26,28 +26,33 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQTCLOCKCONFIGURATION_H
-#define LXQTCLOCKCONFIGURATION_H
+#ifndef LXQT_PANEL_CLOCK_CONFIGURATION_H
+#define LXQT_PANEL_CLOCK_CONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
-
 #include <QAbstractButton>
-#include <QButtonGroup>
-#include <QLocale>
-#include <QDateTime>
+#include <QFont>
+#include <QMap>
 
 namespace Ui {
     class LXQtClockConfiguration;
 }
+
+class LXQtClockConfigurationTimeZones;
+class LXQtClockConfigurationManualFormat;
+class QTableWidgetItem;
 
 class LXQtClockConfiguration : public LXQtPanelPluginConfigDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtClockConfiguration(PluginSettings *settings, QWidget *parent = 0);
+    explicit LXQtClockConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtClockConfiguration();
+
+public slots:
+    void saveSettings();
 
 private:
     Ui::LXQtClockConfiguration *ui;
@@ -57,23 +62,36 @@ private:
     */
     void loadSettings();
 
-    /*
-      Creates a date formats consistent with the region read from locale.
-    */
-    void createDateFormats();
-
 private slots:
-    /*
-      Saves settings in conf file.
-    */
-    void saveSettings();
-    void dateFormatActivated(int);
+    void timeFormatChanged(int);
+    void dateGroupToggled(bool);
+    void dateFormatChanged(int);
+    void advancedFormatToggled(bool);
+    void customizeManualFormatClicked();
+    void manualFormatChanged();
+
+    void updateTimeZoneButtons();
+    void addTimeZone();
+    void removeTimeZone();
+    void setTimeZoneAsDefault();
+    void editTimeZoneCustomName();
+    void moveTimeZoneUp();
+    void moveTimeZoneDown();
 
 private:
-    int mOldIndex;
-    QString mCustomDateFormat;
+    QString mDefaultTimeZone;
 
-    void addDateFormat(const QString &format);
+    bool mLockCascadeSettingChanges;
+
+    LXQtClockConfigurationTimeZones *mConfigurationTimeZones;
+    LXQtClockConfigurationManualFormat *mConfigurationManualFormat;
+
+    QString mManualFormat;
+
+    void setDefault(int);
+    void setBold(QTableWidgetItem*, bool);
+    void setBold(int row, bool value);
+    int findTimeZone(const QString& timeZone);
 };
 
-#endif // LXQTCLOCKCONFIGURATION_H
+#endif // LXQT_PANEL_CLOCK_CONFIGURATION_H

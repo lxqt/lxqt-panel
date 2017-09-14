@@ -4,9 +4,10 @@
  * LXDE-Qt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
- * Copyright: 2014 LXQt team
+ * Copyright: 2012 Razor team
+ *            2014 LXQt team
  * Authors:
- *   Paulo Lieuthier <paulolieuthier@gmail.com>
+ *   Kuzma Shapran <kuzma.shapran@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,33 +26,42 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "calendarpopup.h"
-#include <QHBoxLayout>
-#include <QEvent>
 
-CalendarPopup::CalendarPopup(QWidget *parent):
-    QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
-{
-    setLayout(new QHBoxLayout(this));
-    layout()->setMargin(1);
+#ifndef LXQT_PANEL_CLOCK_CONFIGURATION_TIMEZONES_H
+#define LXQT_PANEL_CLOCK_CONFIGURATION_TIMEZONES_H
 
-    cal = new QCalendarWidget(this);
-    layout()->addWidget(cal);
-    adjustSize();
+#include <QDialog>
+#include <QAbstractButton>
+
+
+namespace Ui {
+    class LXQtClockConfigurationTimeZones;
 }
 
-CalendarPopup::~CalendarPopup()
-{
-}
+class QTreeWidgetItem;
 
-void CalendarPopup::show()
+class LXQtClockConfigurationTimeZones : public QDialog
 {
-    cal->setSelectedDate(QDate::currentDate());
-    activateWindow();
-    QDialog::show();
-}
+    Q_OBJECT
 
-void CalendarPopup::setFirstDayOfWeek(Qt::DayOfWeek wday)
-{
-    cal->setFirstDayOfWeek(wday);
-}
+public:
+    explicit LXQtClockConfigurationTimeZones(QWidget *parent = NULL);
+    ~LXQtClockConfigurationTimeZones();
+
+    int updateAndExec();
+
+    QString timeZone();
+
+public slots:
+    void itemSelectionChanged();
+    void itemDoubleClicked(QTreeWidgetItem*,int);
+
+private:
+    Ui::LXQtClockConfigurationTimeZones *ui;
+
+    QString mTimeZone;
+
+    QTreeWidgetItem* makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems);
+};
+
+#endif // LXQT_PANEL_CLOCK_CONFIGURATION_TIMEZONES_H

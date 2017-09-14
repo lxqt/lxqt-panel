@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LXQtPanel/Plugin
-Name=Date & time
-Comment=Displays the current time. Comes with a calendar.
-Icon=preferences-system-time
+Name=Clock
+Comment=Clock plugin.
+Icon=clock
 
 #TRANSLATIONS_DIR=../translations
