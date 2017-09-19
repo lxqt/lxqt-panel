@@ -66,7 +66,7 @@ private slots:
     void timeout();
     void wheelScrolled(int);
     void deletePopup();
-    void setTimeText();
+    void updateTimeText();
 
 private:
     QWidget *mMainWidget;
@@ -86,8 +86,11 @@ private:
     bool mAutoRotate;
     QLabel *mPopupContent;
 
+    QDateTime mShownTime;
+
     void restartTimer();
 
+    void setTimeText();
     QString formatDateTime(const QDateTime &datetime, const QString &timeZoneName);
     void updatePopupContent();
     bool formatHasTimeZone(QString format);

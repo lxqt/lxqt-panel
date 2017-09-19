@@ -81,32 +81,78 @@ void LXQtWorldClock::timeout()
 {
     if (QDateTime{}.time().msec() > 500)
         restartTimer();
-    setTimeText();
+    updateTimeText();
 }
 
-void LXQtWorldClock::setTimeText()
+void LXQtWorldClock::updateTimeText()
 {
     QDateTime now = QDateTime::currentDateTime();
     QString timeZoneName = mActiveTimeZone;
     if (timeZoneName == QLatin1String("local"))
         timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+    QTimeZone timeZone(timeZoneName.toLatin1());
+    QDateTime tzNow = now.toTimeZone(timeZone);
 
-    QString time_text = formatDateTime(now, timeZoneName);
-    if (mContent->text() != time_text)
+    bool isUpToDate(true);
+    if (!mShownTime.isValid()) // first time or forced update
     {
-        mContent->setText(time_text);
+        isUpToDate = false;
+        if (mUpdateInterval < 60000)
+            mShownTime = tzNow.addSecs(-tzNow.time().msec()); // s
+        else if (mUpdateInterval < 3600000)
+            mShownTime = tzNow.addSecs(-tzNow.time().second()); // m
+        else
+            mShownTime = tzNow.addSecs(-tzNow.time().minute() * 60 - tzNow.time().second()); // h
+    }
+    else
+    {
+        qint64 diff = mShownTime.secsTo(tzNow);
+        if (mUpdateInterval < 60000)
+        {
+            if (diff < 0 || diff >= 1)
+            {
+                isUpToDate = false;
+                mShownTime = tzNow.addSecs(-tzNow.time().msec());
+            }
+        }
+        else if (mUpdateInterval < 3600000)
+        {
+            if (diff < 0 || diff >= 60)
+            {
+                isUpToDate = false;
+                mShownTime = tzNow.addSecs(-tzNow.time().second());
+            }
+        }
+        else if (diff < 0 || diff >= 3600)
+        {
+            isUpToDate = false;
+            mShownTime = tzNow.addSecs(-tzNow.time().minute() * 60 - tzNow.time().second());
+        }
+    }
+
+    if (!isUpToDate)
+    {
+        mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
         mRotatedWidget->update();
         updatePopupContent();
     }
 }
 
+void LXQtWorldClock::setTimeText()
+{
+    mShownTime = QDateTime(); // force an update
+    updateTimeText();
+}
+
 void LXQtWorldClock::restartTimer()
 {
     mTimer->stop();
-    mTimer->setInterval(mUpdateInterval);
+    // check the time every second even if the clock doesn't show seconds
+    // because otherwise, the shown time might be vey wrong after resume
+    mTimer->setInterval(1000);
 
-    int delay = static_cast<int>((mUpdateInterval - (static_cast<long long>(QTime::currentTime().msecsSinceStartOfDay()) % mUpdateInterval)) % mUpdateInterval);
-    QTimer::singleShot(delay, Qt::PreciseTimer, this, &LXQtWorldClock::setTimeText);
+    int delay = static_cast<int>(1000 - (static_cast<long long>(QTime::currentTime().msecsSinceStartOfDay()) % 1000));
+    QTimer::singleShot(delay, Qt::PreciseTimer, this, &LXQtWorldClock::updateTimeText);
     QTimer::singleShot(delay, Qt::PreciseTimer, mTimer, SLOT(start()));
 }
 
