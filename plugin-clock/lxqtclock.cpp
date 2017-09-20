@@ -44,6 +44,32 @@
 #include <QPainter>
 
 #include <QDebug>
+#include <LXQt/Notification>
+
+static void notifyAboutDeprecation(PluginSettings * settings)
+{
+    // this is called only from LXQtClock c-tor...so just from main thread, no locking needed
+    // Note: we get/store the "dont_show" in section of particular instance of clock => this is not 100% valid
+    // for al possible changes of panel configuration, but we can live with this
+    static bool notification_done = settings->value(QLatin1String("dont_show_deprecation"), false).toBool();
+    if (!notification_done)
+    {
+        LXQt::Notification * notification = new LXQt::Notification{LXQtClock::tr("Date&Time (clock) plugin is deprecated")};
+        notification->setBody(LXQtClock::tr("The <strong>clock</strong> plugin is deprecated and will be removed in future version of LXQt. Consider"
+                    " replacing it with <strong>worldclock</strong>.<br/>"));
+        notification->setActions({LXQtClock::tr("don't show this again")});
+        notification->setTimeout(5000);
+        QObject::connect(notification, &LXQt::Notification::actionActivated, settings, [notification, settings] (int actionNumber) -> void
+                {
+                    if (actionNumber == 0)
+                        settings->setValue(QLatin1String("dont_show_deprecation"), true);
+                    notification->close();
+                });
+        QObject::connect(notification, &LXQt::Notification::notificationClosed, notification, &QObject::deleteLater);
+        notification->update();
+        notification_done = true;
+    }
+}
 
 /**
  * @file lxqtclock.cpp
@@ -82,6 +108,8 @@ LXQtClock::LXQtClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mTextStyle{new DownscaleFontStyle},
     mCurrentCharCount(0)
 {
+    QTimer::singleShot(0, this, [this] { notifyAboutDeprecation(settings()); });
+
     mMainWidget = new QWidget();
     mRotatedWidget = new LXQt::RotatedWidget(*(new QWidget()), mMainWidget);
     mContent = mRotatedWidget->content();
