@@ -387,7 +387,12 @@ void LXQtTray::onIconDestroyed(QObject * icon)
  ************************************************/
 void LXQtTray::addIcon(Window winId)
 {
-    TrayIcon* icon = new TrayIcon(winId, mIconSize, this);
+    // decline to add an icon for a window we already manage
+    TrayIcon *icon = findIcon(winId);
+    if(icon)
+        return;
+
+    icon = new TrayIcon(winId, mIconSize, this);
     mIcons.append(icon);
     mLayout->addWidget(icon);
     connect(icon, &QObject::destroyed, this, &LXQtTray::onIconDestroyed);
