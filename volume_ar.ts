@@ -24,12 +24,12 @@
         <translation>التّحكّم بالصّوت: تعذّر تسجيل الاختصارات الآتية: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="286"/>
+        <location filename="../../../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1</source>
         <translation>المستوى: %1</translation>
     </message>

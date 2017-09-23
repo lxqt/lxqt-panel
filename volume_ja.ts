@@ -24,12 +24,12 @@
         <translation>音量制御: このショートカットは登録することができません: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="286"/>
+        <location filename="../../../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1</source>
         <translation>音量: %1</translation>
     </message>
