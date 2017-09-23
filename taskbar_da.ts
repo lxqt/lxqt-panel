@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiver opgave %1</translation>
     </message>
 </context>
 <context>
@@ -145,16 +145,12 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemløb vinduer når der rulles med hjulet</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
         <translation>Vindues&amp;gruppering</translation>
-    </message>
-    <message>
-        <source>Show popup on mouse hover </source>
-        <translation type="vanished">Vis pop-op når markøren er over </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -195,7 +191,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis pop op når musen holdes over</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
