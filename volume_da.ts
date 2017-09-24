@@ -26,7 +26,7 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Lydstyrke: på lydløs</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Giv altid besked når lydstyrken ændres</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
