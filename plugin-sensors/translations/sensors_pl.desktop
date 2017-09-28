@@ -6,5 +6,5 @@ Comment=View readings from hardware sensors.
 
 
 # Translations
-Name[pl_PL]=Czujniki
-Comment[pl_PL]=Pokaż wskazania z czujników (aktualnie lm_sensors)
+Name[pl]=Czujniki
+Comment[pl]=Wyświetla wskazania z czujników sprzętowych.

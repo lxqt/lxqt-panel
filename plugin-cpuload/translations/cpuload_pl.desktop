@@ -9,5 +9,5 @@ Comment=Displays the current CPU load.
 
 
 # Translations
-Comment[pl_PL]=Monitor obciążenia CPU
-Name[pl_PL]=Obciążenie CPU
+Comment[pl]=Wyświetla obecne obciążenie CPU
+Name[pl]=Obciążenie CPU
