@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="cs">
+<TS version="2.0" language="cs">
 <context>
     <name>AddPluginDialog</name>
     <message>
@@ -167,7 +167,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Záporná hodnota obrazových bodů nastaví délku panelu na menší počet obrazových bodů, než je dostupného místa na obrazovce.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Např. Délka nastavená na -100 px, velikost obrazovky je 1000 px, potom skutečná délka panelu bude 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="96"/>
