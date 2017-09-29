@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="cs">
+<TS version="2.0" language="cs">
 <context>
     <name>LXQtTaskBar</name>
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -114,11 +114,11 @@
     <name>LXQtTaskbarConfiguration</name>
     <message>
         <source>LXQt Task Manager Settings</source>
-        <translation type="vanished">Nastavení správce úkolů</translation>
+        <translation>Nastavení správce úkolů</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation type="vanished">Obsah seznamu oken</translation>
+        <translation>Obsah seznamu oken</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
@@ -153,7 +153,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Kroužit okny při otáčení kolečka myši</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
@@ -163,11 +163,11 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
     </message>
     <message>
         <source>Show popup on mouse hover </source>
-        <translation type="vanished">Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
+        <translation>Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -197,11 +197,11 @@
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation type="vanished">Ukázat okna z nynější plochy</translation>
+        <translation>Ukázat okna z nynější plochy</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation type="vanished">Ukázat okna ze všech ploch</translation>
+        <translation>Ukázat okna ze všech ploch</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
@@ -210,7 +210,7 @@
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation type="vanished">Vzhled seznamu oken</translation>
+        <translation>Vzhled seznamu oken</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
@@ -219,7 +219,7 @@
     </message>
     <message>
         <source>Max button width</source>
-        <translation type="vanished">Největší šířka tlačítka</translation>
+        <translation>Největší šířka tlačítka</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
