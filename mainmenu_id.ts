@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="id_ID">
+<TS version="2.0" language="id">
 <context>
     <name>LXQtMainMenu</name>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan/sembunyikan menu utama</translation>
     </message>
 </context>
 <context>
@@ -19,117 +19,117 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Umum</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Menu Utama</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Teks tombol:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukuran fonta kustom:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas menu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas menu:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Cari</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>lebar item maks.:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan entri yang cocok:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Keterlihatan item maksimal:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter entri menu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan entri menu saat pencarian</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Bersihkan pencarian pada menu yang ditampilkan</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Pintasan Papan Tik</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik tombol untuk merekam pintasan:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="71"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Atur ulang</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="165"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih berkas ikon</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="167"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gambar (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Choose menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih berkas menu</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas menu (*.menu)</translation>
     </message>
 </context>
 </TS>
