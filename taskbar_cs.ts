@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="cs">
+<TS version="2.1" language="cs">
 <context>
     <name>LXQtTaskBar</name>
     <message>
@@ -114,11 +114,11 @@
     <name>LXQtTaskbarConfiguration</name>
     <message>
         <source>LXQt Task Manager Settings</source>
-        <translation>Nastavení správce úkolů</translation>
+        <translation type="vanished">Nastavení správce úkolů</translation>
     </message>
     <message>
         <source>Window List Content</source>
-        <translation>Obsah seznamu oken</translation>
+        <translation type="vanished">Obsah seznamu oken</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Show popup on mouse hover </source>
-        <translation>Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
+        <translation type="vanished">Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
@@ -197,11 +197,11 @@
     </message>
     <message>
         <source>Show windows from current desktop</source>
-        <translation>Ukázat okna z nynější plochy</translation>
+        <translation type="vanished">Ukázat okna z nynější plochy</translation>
     </message>
     <message>
         <source>Show windows from all desktops</source>
-        <translation>Ukázat okna ze všech ploch</translation>
+        <translation type="vanished">Ukázat okna ze všech ploch</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
@@ -210,7 +210,7 @@
     </message>
     <message>
         <source>Window List Appearance</source>
-        <translation>Vzhled seznamu oken</translation>
+        <translation type="vanished">Vzhled seznamu oken</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
@@ -219,7 +219,7 @@
     </message>
     <message>
         <source>Max button width</source>
-        <translation>Největší šířka tlačítka</translation>
+        <translation type="vanished">Největší šířka tlačítka</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
