@@ -106,148 +106,174 @@
         <translation>المحاذاة والمكان</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="224"/>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
+        <source>A&amp;uto-hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="262"/>
+        <location filename="../../../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
         <translation>يعني الصّفر لا تأثير حركة</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="227"/>
+        <location filename="../../../config/configpanelwidget.ui" line="288"/>
+        <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
         <translation> م‌ث</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="240"/>
+        <location filename="../../../config/configpanelwidget.ui" line="301"/>
+        <location filename="../../../config/configpanelwidget.ui" line="311"/>
+        <source>Zero means no delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="304"/>
+        <source>Show with delay:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="330"/>
+        <source>Don&apos;t allow maximized windows go under the panel window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="333"/>
+        <source>Reserve space on display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
         <translation>المكان:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="253"/>
+        <location filename="../../../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>مدّة تأثير الحركة:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="260"/>
+        <location filename="../../../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
         <translation>المحاذاة:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="284"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="195"/>
+        <location filename="../../../config/configpanelwidget.ui" line="219"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="202"/>
         <source>Left</source>
         <translation>اليسار</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="289"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="196"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="202"/>
+        <location filename="../../../config/configpanelwidget.ui" line="224"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="203"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="209"/>
         <source>Center</source>
         <translation>الوسط</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="294"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="197"/>
+        <location filename="../../../config/configpanelwidget.ui" line="229"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="204"/>
         <source>Right</source>
         <translation>اليمين</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
-        <translation>أخفِ آليًّا</translation>
+        <translation type="vanished">أخفِ آليًّا</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="314"/>
+        <location filename="../../../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
         <translation>نمط مخصّص</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="335"/>
+        <location filename="../../../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
         <translation>لون الخطّ:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="375"/>
+        <location filename="../../../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
         <translation>لون الخلفيّة:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="414"/>
+        <location filename="../../../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
         <translation>شفافيّة الخلفيّة:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="446"/>
+        <location filename="../../../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;التّراكب مطلوب لشفافيّة اللوحة.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="474"/>
+        <location filename="../../../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
         <translation>صورة الخلفيّة:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="161"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="168"/>
         <source>Top of desktop</source>
         <translation>أعلى سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="162"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="169"/>
         <source>Left of desktop</source>
         <translation>يسار سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="163"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="170"/>
         <source>Right of desktop</source>
         <translation>يمين سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="164"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="171"/>
         <source>Bottom of desktop</source>
         <translation>أدنى سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="173"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="180"/>
         <source>Top of desktop %1</source>
         <translation>أعلى سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="174"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="181"/>
         <source>Left of desktop %1</source>
         <translation>يسار سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="175"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="182"/>
         <source>Right of desktop %1</source>
         <translation>يمين سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="176"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="183"/>
         <source>Bottom of desktop %1</source>
         <translation>أدنى سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="201"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="208"/>
         <source>Top</source>
         <translation>الأعلى</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="203"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="210"/>
         <source>Bottom</source>
         <translation>الأسفل</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="360"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="376"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="368"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="384"/>
         <source>Pick color</source>
         <translation>اختر لونًا</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="394"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="402"/>
         <source>Pick image</source>
         <translation>اختر صورة</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="394"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="402"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>صور (‎*.png *.gif *.jpg)</translation>
     </message>
@@ -302,60 +328,70 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1012"/>
-        <location filename="../../../lxqtpanel.cpp" line="1036"/>
+        <location filename="../../../lxqtpanel.cpp" line="1066"/>
+        <location filename="../../../lxqtpanel.cpp" line="1091"/>
         <source>Panel</source>
         <translation>اللوحة</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1039"/>
+        <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Configure Panel</source>
         <translation>اضبط اللوحة</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1044"/>
+        <location filename="../../../lxqtpanel.cpp" line="1099"/>
         <source>Manage Widgets</source>
         <translation>أدر الودجات</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1050"/>
+        <location filename="../../../lxqtpanel.cpp" line="1105"/>
         <source>Add New Panel</source>
         <translation>أضف لوحة جديدة</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1062"/>
+        <location filename="../../../lxqtpanel.cpp" line="1112"/>
+        <source>Remove Panel</source>
+        <comment>Menu Item</comment>
+        <translation type="unfinished">أزل اللوحة</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtpanel.cpp" line="1117"/>
         <source>Lock This Panel</source>
         <translation>اقفل هذه اللوحة</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1200"/>
+        <location filename="../../../lxqtpanel.cpp" line="1259"/>
+        <source>Remove Panel</source>
+        <comment>Dialog Title</comment>
+        <translation type="unfinished">أزل اللوحة</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtpanel.cpp" line="1260"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>إزالة اللوحة إجراء لا عودة فيه.
 أتريد إزالة هذه اللوحة؟</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1057"/>
-        <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
         <translatorcomment>هذه تظهر في مكانين، أمر وعنوان نافذة، اقسمهما!</translatorcomment>
-        <translation>أزل اللوحة</translation>
+        <translation type="vanished">أزل اللوحة</translation>
     </message>
 </context>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../../../plugin.cpp" line="385"/>
+        <location filename="../../../plugin.cpp" line="416"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>اضبط &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="390"/>
+        <location filename="../../../plugin.cpp" line="421"/>
         <source>Move &quot;%1&quot;</source>
         <translation>انقل &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="398"/>
+        <location filename="../../../plugin.cpp" line="429"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>أزل &quot;%1&quot;</translation>
     </message>
@@ -363,12 +399,12 @@ Do you want to remove this panel?</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
         <translation>استخدم ملفّ ضبط بديل.</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
         <translation>ملفّ الضّبط</translation>
     </message>

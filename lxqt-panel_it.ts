@@ -398,12 +398,12 @@ Vuoi veramente rimuovere questo pannello?</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
         <translation>Usa file di configurazione alternativo.</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
         <translation>File di configurazione</translation>
     </message>

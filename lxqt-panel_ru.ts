@@ -75,21 +75,21 @@
         <translation>&lt;p&gt;Отрицательное число пикселей устанавливает длину панели на это количество пикселей меньше, чем доступное место экрана.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Например, «Длина» выставлена на -100 пикс, размер экрана 1000 пикс, тогда реальная длина панели будет 900 пикс.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="284"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="195"/>
+        <location filename="../../../config/configpanelwidget.ui" line="219"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="202"/>
         <source>Left</source>
         <translation>Слева</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="289"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="196"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="202"/>
+        <location filename="../../../config/configpanelwidget.ui" line="224"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="203"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="209"/>
         <source>Center</source>
         <translation>По центру</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="294"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="197"/>
+        <location filename="../../../config/configpanelwidget.ui" line="229"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="204"/>
         <source>Right</source>
         <translation>Справа</translation>
     </message>
@@ -120,60 +120,86 @@
         <translation>Выравнивание &amp;&amp; расположение</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="224"/>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
+        <source>A&amp;uto-hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="262"/>
+        <location filename="../../../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
         <translation>Ноль означает отсутствие анимации</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="227"/>
+        <location filename="../../../config/configpanelwidget.ui" line="288"/>
+        <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
         <translation> мс</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="253"/>
+        <location filename="../../../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>Длительность анимации:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="260"/>
+        <location filename="../../../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
         <translation>Выравнивание:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="314"/>
+        <location filename="../../../config/configpanelwidget.ui" line="301"/>
+        <location filename="../../../config/configpanelwidget.ui" line="311"/>
+        <source>Zero means no delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="304"/>
+        <source>Show with delay:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="330"/>
+        <source>Don&apos;t allow maximized windows go under the panel window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="333"/>
+        <source>Reserve space on display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
         <translation>Пользовательский стиль</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="335"/>
+        <location filename="../../../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
         <translation>Цвет шрифта:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="414"/>
+        <location filename="../../../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
         <translation>Непрозрачность фона:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="446"/>
+        <location filename="../../../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;Композиция необходима для прозрачности панели.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="474"/>
+        <location filename="../../../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
         <translation>Фоновое изображение:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="375"/>
+        <location filename="../../../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
         <translation>Цвет фона:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="214"/>
         <source>Auto-hide</source>
-        <translation>Автоматически скрывать</translation>
+        <translation type="vanished">Автоматически скрывать</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="88"/>
@@ -181,73 +207,73 @@
         <translation>Длина:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.ui" line="240"/>
+        <location filename="../../../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
         <translation>Расположение:</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="161"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="168"/>
         <source>Top of desktop</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="162"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="169"/>
         <source>Left of desktop</source>
         <translation>Слева</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="163"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="170"/>
         <source>Right of desktop</source>
         <translation>Справа</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="164"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="171"/>
         <source>Bottom of desktop</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="173"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="180"/>
         <source>Top of desktop %1</source>
         <translation>Вверху %1 рабочего стола</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="174"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="181"/>
         <source>Left of desktop %1</source>
         <translation>Слева на %1 рабочем столе</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="175"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="182"/>
         <source>Right of desktop %1</source>
         <translation>Справа на %1 рабочем столе</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="176"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="183"/>
         <source>Bottom of desktop %1</source>
         <translation>Внизу %1 рабочего стола</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="201"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="208"/>
         <source>Top</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="203"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="210"/>
         <source>Bottom</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="360"/>
-        <location filename="../../../config/configpanelwidget.cpp" line="376"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="368"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="384"/>
         <source>Pick color</source>
         <translation>Выбрать цвет</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="394"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="402"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Изображения (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../../../config/configpanelwidget.cpp" line="394"/>
+        <location filename="../../../config/configpanelwidget.cpp" line="402"/>
         <source>Pick image</source>
         <translation>Выберите изображение</translation>
     </message>
@@ -302,59 +328,69 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1012"/>
-        <location filename="../../../lxqtpanel.cpp" line="1036"/>
+        <location filename="../../../lxqtpanel.cpp" line="1066"/>
+        <location filename="../../../lxqtpanel.cpp" line="1091"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1039"/>
+        <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1044"/>
+        <location filename="../../../lxqtpanel.cpp" line="1099"/>
         <source>Manage Widgets</source>
         <translation>Управление виджетами</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1050"/>
+        <location filename="../../../lxqtpanel.cpp" line="1105"/>
         <source>Add New Panel</source>
         <translation>Добавить новую панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1062"/>
+        <location filename="../../../lxqtpanel.cpp" line="1112"/>
+        <source>Remove Panel</source>
+        <comment>Menu Item</comment>
+        <translation type="unfinished">Удалить панель</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtpanel.cpp" line="1117"/>
         <source>Lock This Panel</source>
         <translation>Закрепить эту панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1200"/>
+        <location filename="../../../lxqtpanel.cpp" line="1259"/>
+        <source>Remove Panel</source>
+        <comment>Dialog Title</comment>
+        <translation type="unfinished">Удалить панель</translation>
+    </message>
+    <message>
+        <location filename="../../../lxqtpanel.cpp" line="1260"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Удаление панели не может быть отменено.
 Вы хотите удалить эту панель?</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1057"/>
-        <location filename="../../../lxqtpanel.cpp" line="1199"/>
         <source>Remove Panel</source>
-        <translation>Удалить панель</translation>
+        <translation type="vanished">Удалить панель</translation>
     </message>
 </context>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../../../plugin.cpp" line="385"/>
+        <location filename="../../../plugin.cpp" line="416"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Настроить «%1»</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="390"/>
+        <location filename="../../../plugin.cpp" line="421"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Переместить «%1»</translation>
     </message>
     <message>
-        <location filename="../../../plugin.cpp" line="398"/>
+        <location filename="../../../plugin.cpp" line="429"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Удалить «%1»</translation>
     </message>
@@ -362,12 +398,12 @@ Do you want to remove this panel?</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="91"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
         <translation>Использовать альтернативный файл настроек.</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanelapplication.cpp" line="92"/>
+        <location filename="../../../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
         <translation>Файл настроек</translation>
     </message>
