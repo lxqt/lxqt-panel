@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="id">
+<TS version="2.1" language="id">
 <context>
     <name>Button</name>
     <message>
@@ -64,11 +64,11 @@
     <name>MenuDiskItem</name>
     <message>
         <source>Click to access this device from other applications.</source>
-        <translation>Klik untuk mengakses perangkat ini dari aplikasi lain.</translation>
+        <translation type="vanished">Klik untuk mengakses perangkat ini dari aplikasi lain.</translation>
     </message>
     <message>
         <source>Click to eject this disc.</source>
-        <translation>Klik untuk mengeluarkan disk ini.</translation>
+        <translation type="vanished">Klik untuk mengeluarkan disk ini.</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
