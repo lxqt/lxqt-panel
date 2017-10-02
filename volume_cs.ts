@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="cs">
+<TS version="2.1" language="cs">
 <context>
     <name>LXQtVolume</name>
     <message>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
+        <translation type="vanished">Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="63"/>
@@ -28,12 +28,12 @@
         <translation>Ovládání hlasitosti: Následující klávesové zkratky nelze zapsat: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
         <translation>Hlasitost: Ztlumeno</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="286"/>
+        <location filename="../../../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1</source>
         <translation>Hlasitost: %1</translation>
     </message>
@@ -42,7 +42,7 @@
     <name>LXQtVolumeConfiguration</name>
     <message>
         <source>LXQt Volume Control Settings</source>
-        <translation>Nastavení ovládání hlasitosti</translation>
+        <translation type="vanished">Nastavení ovládání hlasitosti</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="id">
+<TS version="2.1" language="id">
 <context>
     <name>LXQtVolume</name>
     <message>
@@ -24,12 +24,12 @@
         <translation>Kontrol Volume: Pintasan berikut ini tidak dapat didaftarkan: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="284"/>
+        <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
         <translation>Volume: bisu</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="286"/>
+        <location filename="../../../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1</source>
         <translation>Volume: %1</translation>
     </message>
