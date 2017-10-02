@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="cs">
+<TS version="2.1" language="cs">
 <context>
     <name>LXQtMainMenu</name>
     <message>
@@ -15,14 +15,14 @@
     </message>
     <message>
         <source>Leave</source>
-        <translation>Opustit</translation>
+        <translation type="vanished">Opustit</translation>
     </message>
 </context>
 <context>
     <name>LXQtMainMenuConfiguration</name>
     <message>
         <source>LXQt Main Menu settings</source>
-        <translation>Nastavení hlavní nabídky</translation>
+        <translation type="vanished">Nastavení hlavní nabídky</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -31,11 +31,11 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation>Ukázat text</translation>
+        <translation type="vanished">Ukázat text</translation>
     </message>
     <message>
         <source>Button text</source>
-        <translation>Text</translation>
+        <translation type="vanished">Text</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
