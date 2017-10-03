@@ -108,13 +108,13 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;utomatiškai slėpti</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="262"/>
         <location filename="../../../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Nulis, reiškia be jokios animacijos</translation>
+        <translation>Nulis reiškia be jokios animacijos</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="288"/>
@@ -126,22 +126,22 @@
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nulis reiškia be delsos</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti po delsos:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Neleisti išskleistiems langams palįsti po skydelio langu</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Rezervuoti vietą ekrane</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="237"/>
@@ -352,7 +352,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Šalinti skydelį</translation>
+        <translation>Šalinti skydelį</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
@@ -363,7 +363,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Šalinti skydelį</translation>
+        <translation>Šalinti skydelį</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
