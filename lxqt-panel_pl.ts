@@ -228,28 +228,28 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;utomatyczne ukrywanie</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero oznacza brak oczekiwanai</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż z opóźnieniem:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie pozwalaj na wyświetlanie zmaksymalizowanych okien pod oknem panelu</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Rezerwuj przestrzeń na ekranie</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="349"/>
@@ -460,7 +460,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Usuń panel</translation>
+        <translation>Usuń panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
@@ -471,7 +471,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Usuń panel</translation>
+        <translation>Usuń panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
