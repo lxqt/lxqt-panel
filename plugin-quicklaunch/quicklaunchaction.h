@@ -66,8 +66,14 @@ public:
 
     QHash<QString, QString> settingsMap() { return m_settingsMap; }
 
+    /*! Returns list of additional actions to present for user (in menu).
+     * Currently there are only "Addtitional application actions" for the ActionXdg type
+     * (the [Desktop Action %s] in .desktop files)
+     */
+    QList<QAction *> addtitionalActions() const { return m_addtitionalActions; }
+
 public slots:
-    void execAction();
+    void execAction(QString additionalAction = QString{});
 
 private:
     enum ActionType { ActionLegacy, ActionXdg, ActionFile };
@@ -75,6 +81,7 @@ private:
     QString m_data;
     bool m_valid;
     QHash<QString, QString> m_settingsMap;
+    QList<QAction *> m_addtitionalActions;
 };
 
 #endif

@@ -64,6 +64,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     addAction(mDeleteAct);
     mMenu = new QMenu(this);
     mMenu->addAction(mAct);
+    mMenu->addActions(mAct->addtitionalActions());
     mMenu->addSeparator();
     mMenu->addAction(mMoveLeftAct);
     mMenu->addAction(mMoveRightAct);
