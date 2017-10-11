@@ -56,7 +56,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
         setIcon(QIcon(icon));
 
     setData(exec);
-    connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
+    connect(this, &QAction::triggered, this, [this] { execAction(); });
 }
 
 QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
@@ -77,7 +77,16 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
     setIcon(xdg->icon(XdgIcon::defaultApplicationIcon()));
 
     setData(xdg->fileName());
-    connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
+    connect(this, &QAction::triggered, this, [this] { execAction(); });
+
+    // populate the additional actions
+    for (auto const & action : const_cast<const QStringList &&>(xdg->actions()))
+    {
+        QAction * act = new QAction{xdg->actionIcon(action), xdg->actionName(action), this};
+        act->setData(action);
+        connect(act, &QAction::triggered, [this, act] { execAction(act->data().toString()); });
+        m_addtitionalActions.push_back(act);
+    }
 }
 
 QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
@@ -103,10 +112,10 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
         setIcon(mi.icon());
     }
 
-    connect(this, SIGNAL(triggered()), this, SLOT(execAction()));
+    connect(this, &QAction::triggered, this, [this] { execAction(); });
 }
 
-void QuickLaunchAction::execAction()
+void QuickLaunchAction::execAction(QString additionalAction)
 {
     QString exec(data().toString());
     qDebug() << "execAction" << exec;
@@ -119,7 +128,12 @@ void QuickLaunchAction::execAction()
         {
             XdgDesktopFile xdg;
             if(xdg.load(exec))
-                xdg.startDetached();
+            {
+                if (additionalAction.isEmpty())
+                    xdg.startDetached();
+                else
+                    xdg.actionActivate(additionalAction, QStringList{});
+            }
             break;
         }
         case ActionFile:
