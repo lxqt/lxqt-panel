@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="125"/>
         <source>CPU load %1%</source>
-        <translation>Càrrega de la CPU %1%</translation>
+        <translation>%1% de càrrega de la CPU</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>De sota a amunt</translation>
+        <translation>De baix a dalt</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
