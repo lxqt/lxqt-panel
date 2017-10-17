@@ -108,7 +108,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Oculta a&amp;utomàticament</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="262"/>
@@ -126,22 +126,22 @@
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero significa cap retard</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra-ho amb un retard:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>No permetis que les finestres maximitzades vagin sota de la finestra del plafó</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Reserva espai a la pantalla</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="237"/>
@@ -352,7 +352,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Suprimeix el plafó</translation>
+        <translation>Suprimeix el plafó</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
@@ -363,7 +363,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Suprimeix el plafó</translation>
+        <translation>Supressió del plafó</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
