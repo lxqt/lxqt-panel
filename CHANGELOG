@@ -1,7 +1,93 @@
 
-lxqt-panel-0.11.1 / 2017-01-01
+lxqt-panel-0.12.0 / 2017-10-21
 ==============================
 
+  * Set patch version
+  * quicklaunch: Show popup menu aligned to clicked button
+  * quicklaunch: Add "Desktop Action" support
+  * l10n: Update Polish translation
+  * Fix Danish spelling
+  * plugin-tray: Fix dupe icon display error
+  * Don't export github templates
+  * Use worldclock by default instead of clock.
+  * clock: Show deprecation message on startup/add
+  * Fix clock text update
+  * Avoid calling text() in MatchAction on a QAction == 0
+  * volume: Do check for OSS availability in run-time
+  * Update Polish .desktop entry
+  * Remove space from end of "Show popup on mouse hover " string
+  * Updated Lithuanian translation
+  * Add/update Lithuanian translation
+  * Update directorymenu_it.desktop
+  * mainmenu: Don't hold the references for menu-cache
+  * mainmenu: Fix menu-cache usage
+  * set Qt::AA_UseHighDpiPixmaps to true
+  * l10n: Updated Polish translation
+  * Improved lxqt-panel version display
+  * Added default CMAKE_BUILD_TYPE and LXQT_PANEL_PATCH_VERSION
+  * plugins: Make widgets/buttons use whole space
+  * LXQtPanelLayout: Honor item's expanding size policy
+  * mainmenu: Install eventFiler for all (sub)menus
+  * volume: Add all changes notifications (configurable)
+  * Fixes a FTBFS in superbuild mode
+  * Added merged autostart and menu to CMakeLists.txt
+  * Updated *_da.desktop files and removed *_da_DK.desktop files
+  * translation: Add Portugese directories
+  * Update desktop entries and Replace fr_FR by fr
+  * Merge pull request #45 from lxde/menu-comment
+  * lxqt-applications.menu: remove accidentally added topics from "System Tools"
+  * Update Greek translation (el) Remove country variant from language code
+  * Rename LxQt to LXQt everywhere
+  * CMake: Adds Runtime and Devel install COMPONENTs
+  * Coding style changes
+  * Adds double quotes to everything that may break
+  * Use GNUINnstallDirs
+  * Updates the build system to use the Targets infrastructure
+  * Place LXQt About over Preferences in the main menu
+  * Added italian translation in menu
+  * Added german translation for the settings directory.
+  * Drops hardcoded /etc/xdg paths
+  * menu: hungarian translations added
+  * Add Russian translation
+  * Restore the old preferences menu layout of razor-qt.
+  * Updated german translation, replaced Qt4 by Qt in all xsession/translations
+  * add lxqt-leave directory files
+  * use LXQt-specific menu file
+  * Updates translations infrastructure
+  * Update the required minimum cmake version
+  * remove dead template lines switch OnlyShowIn from Razor -> LXQt stringchanges LxQt -> LXQt
+  * Support lxqt-session and add necessary xdg autostart desktop entry files.
+  * Fit the task group to its contents
+  * mainmenu: Add "true" translucency support
+  * Show "unknown" when an icon is missing
+  * volume: Force step for wheel over popup slider
+  * volume: Always show tooltip over button
+  * volume: Force configured step for wheel over button
+  * volume: Use "override" keyword
+  * Enable translucency for taskbar group popup
+  * tray: Move tray icon window into correct place
+  * taskbar: Elide texts of buttons when needed
+  * volume: Fix calculating of alsa volume
+  * volume: Remove duplicated code
+  * volume: Fix reporting of pulse volume
+  * sysstat: Fix saving of network maximum speed
+  * mainmenu: Redesign config dialog
+  * mainmenu: Clear search upon show (configurable)
+  * plugin-kbindicator: Undef the "explicit" workaround
+  * plugin-sysstat: Avoid "set but unused var" warning
+  * panel: Make space reserve on display configurable
+  * panel: Add wrong logic warning
+  * panel: Hide correctly upon the DragLeave
+  * plugin-mount: Fix firing the actions
+  * plugin-mount: Notify just on "real" add/remove
+  * plugin: Save settings before signal connect
+  * taskbar: Add Meta+1..9 shortcuts to raise windows
+  * Bump year
+
+0.11.1 / 2017-01-01
+===================
+
+  * Release 0.11.1: Update changelog
   * Show Auto-Hiding Panels with Delay (#387)
   * Enabling testing on weston (#380)
   * Update *da.desktop files
