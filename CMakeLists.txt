@@ -86,7 +86,7 @@ include("cmake/BuildPlugin.cmake")
 set(ENABLED_PLUGINS) # list of enabled plugins
 set(STATIC_PLUGINS) # list of statically linked plugins
 
-setByDefault(CLOCK_PLUGIN Yes)
+setByDefault(CLOCK_PLUGIN No)
 if(CLOCK_PLUGIN)
     list(APPEND STATIC_PLUGINS "clock")
     add_definitions(-DWITH_CLOCK_PLUGIN)
