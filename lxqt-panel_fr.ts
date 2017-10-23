@@ -160,12 +160,12 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas autoriser les fenêtres agrandies d&apos;aller sous le panneau</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Réserver de l&apos;espace pour l&apos;affichage</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="349"/>
@@ -206,10 +206,6 @@
         <location filename="../../../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
         <translation>Position :</translation>
-    </message>
-    <message>
-        <source>Auto-hide</source>
-        <translation type="vanished">Masquage automatique</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="168"/>
