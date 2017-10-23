@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer la tâche %1</translation>
     </message>
 </context>
 <context>
@@ -153,10 +153,6 @@
         <translation>&amp;Groupement de fenêtres</translation>
     </message>
     <message>
-        <source>Show popup on mouse hover </source>
-        <translation type="vanished">Afficher un pop-up lorsque la souris survole</translation>
-    </message>
-    <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
         <translation>Apparence</translation>
@@ -190,7 +186,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher une bulle au survol de la souris</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
