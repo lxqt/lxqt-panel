@@ -132,9 +132,13 @@ void LXQtWorldClock::updateTimeText()
 
     if (!isUpToDate)
     {
+        const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
+        if (old_size != mContent->sizeHint())
+            mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
         updatePopupContent();
+
     }
 }
 
