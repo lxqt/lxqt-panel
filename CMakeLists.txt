@@ -133,6 +133,7 @@ endif()
 
 setByDefault(KBINDICATOR_PLUGIN Yes)
 if(KBINDICATOR_PLUGIN)
+    find_package(xkbcommon-x11 REQUIRED)
     list(APPEND ENABLED_PLUGINS "Keyboard Indicator")
     add_subdirectory(plugin-kbindicator)
 endif(KBINDICATOR_PLUGIN)
