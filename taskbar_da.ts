@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation>Aktiver opgave %1</translation>
+        <translation>Aktivér opgave %1</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="529"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;Til aktuelt skrivebord</translation>
+        <translation>&amp;Til nuværende skrivebord</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="538"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Løft minimerede vinduer på aktuelt skrivebord</translation>
+        <translation>Løft minimerede vinduer på nuværende skrivebord</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation>Aktuelt</translation>
+        <translation>Nuværende</translation>
     </message>
 </context>
 </TS>
