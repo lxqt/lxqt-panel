@@ -65,7 +65,7 @@
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Montering af &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; fejlede: %2</translation>
+        <translation>Montering af &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; mislykkedes: %2</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="157"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../../../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Afmontering af &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; fejlede: %2</translation>
+        <translation>Afmontering af &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; mislykkedes: %2</translation>
     </message>
 </context>
 <context>
