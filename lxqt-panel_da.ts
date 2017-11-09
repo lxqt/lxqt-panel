@@ -190,7 +190,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Komposition kræves for panelet kan være gennemsigtigt.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Komposition kræves for at panelet kan være gennemsigtigt.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="509"/>
