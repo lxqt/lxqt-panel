@@ -78,7 +78,7 @@ public:
      * @return The QRect where the panel is located in global screen
      * coordinates.
      */
-    virtual QRect globalGometry() const = 0;
+    virtual QRect globalGeometry() const = 0;
 
     /**
      * @brief Helper method for calculating the global screen position of a

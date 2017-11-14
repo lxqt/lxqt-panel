@@ -985,7 +985,7 @@ void LXQtPanel::setReserveSpace(bool reserveSpace, bool save)
 /************************************************
 
  ************************************************/
-QRect LXQtPanel::globalGometry() const
+QRect LXQtPanel::globalGeometry() const
 {
     return QRect(mapToGlobal(QPoint(0, 0)), this->size());
 }
@@ -1151,19 +1151,19 @@ QRect LXQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const
     switch (position())
     {
     case ILXQtPanel::PositionTop:
-        y = globalGometry().bottom();
+        y = globalGeometry().bottom();
         break;
 
     case ILXQtPanel::PositionBottom:
-        y = globalGometry().top() - windowSize.height();
+        y = globalGeometry().top() - windowSize.height();
         break;
 
     case ILXQtPanel::PositionLeft:
-        x = globalGometry().right();
+        x = globalGeometry().right();
         break;
 
     case ILXQtPanel::PositionRight:
-        x = globalGometry().left() - windowSize.width();
+        x = globalGeometry().left() - windowSize.width();
         break;
     }
 

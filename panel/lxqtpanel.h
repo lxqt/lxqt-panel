@@ -142,7 +142,7 @@ public:
 
     // ILXQtPanel overrides ........
     ILXQtPanel::Position position() const override { return mPosition; }
-    QRect globalGometry() const override;
+    QRect globalGeometry() const override;
     QRect calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const override;
     QRect calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const QSize &windowSize) const override;
     void willShowWindow(QWidget * w) override;

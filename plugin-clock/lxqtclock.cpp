@@ -288,7 +288,7 @@ void LXQtClock::realign()
         size.setWidth(metrics.boundingRect(QString{mCurrentCharCount, 'A'}).width());
     } else if (!panel()->isHorizontal())
     {
-        size.setWidth(panel()->globalGometry().width());
+        size.setWidth(panel()->globalGeometry().width());
     }
 
     mTimeLabel->setFixedWidth(size.width());
