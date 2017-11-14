@@ -987,7 +987,8 @@ void LXQtPanel::setReserveSpace(bool reserveSpace, bool save)
  ************************************************/
 QRect LXQtPanel::globalGeometry() const
 {
-    return QRect(mapToGlobal(QPoint(0, 0)), this->size());
+    // panel is the the top-most widget/window, no calculation needed
+    return geometry();
 }
 
 
@@ -1204,7 +1205,8 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
         return QRect();
     }
 
-    return calculatePopupWindowPos(panel_plugin->mapToGlobal(QPoint(0, 0)), windowSize);
+    // Note: assuming there are not contentMargins around the "BackgroundWidget" (LXQtPanelWidget)
+    return calculatePopupWindowPos(globalGeometry().topLeft() + panel_plugin->geometry().topLeft(), windowSize);
 }
 
 
