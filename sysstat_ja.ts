@@ -33,7 +33,7 @@
         <location filename="../../../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../../../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>変更する</translation>
+        <translation>変更する ...</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="47"/>
@@ -356,7 +356,7 @@
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>色を指定する</translation>
+        <translation>色を指定する ...</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="222"/>
