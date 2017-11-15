@@ -56,7 +56,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>検出されたチップ</translation>
+        <translation>検出されたチップ:</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="175"/>
