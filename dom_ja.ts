@@ -22,17 +22,17 @@
     <message>
         <location filename="../../../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのプロパティ</translation>
     </message>
     <message>
         <location filename="../../../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>タイプ</translation>
     </message>
     <message>
         <location filename="../../../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation type="unfinished"></translation>
+        <translation>値</translation>
     </message>
 </context>
 </TS>
