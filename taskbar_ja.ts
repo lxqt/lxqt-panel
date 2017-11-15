@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>アクティブなタスク %1</translation>
     </message>
 </context>
 <context>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>グループ</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>グループを閉じる</translation>
     </message>
 </context>
 <context>
