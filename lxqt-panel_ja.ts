@@ -6,22 +6,22 @@
     <message>
         <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグインの追加</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>検索:</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィジェットの追加</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../../../config/addplugindialog.cpp" line="115"/>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">パネル</translation>
+        <translation>パネル</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィジェット</translation>
     </message>
 </context>
 <context>
@@ -115,7 +115,7 @@
         <location filename="../../../config/configpanelwidget.ui" line="288"/>
         <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="265"/>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>自動的に隠す(&amp;u)</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
@@ -155,12 +155,12 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>表示の遅延:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>最大化したウィンドウをパネルの後ろに配置することを許可しない</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
@@ -170,22 +170,22 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>スタイルのカスタマイズ</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>フォントの色:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景色:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景の不透明度:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="481"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景の画像:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="208"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">場所:</translation>
+        <translation>場所:</translation>
     </message>
     <message>
         <source>Styling</source>
@@ -291,7 +291,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.cpp" line="402"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の選択</translation>
     </message>
 </context>
 <context>
@@ -299,17 +299,17 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグインの設定</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: このページでの変更はリセットされません。</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>上に移動</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="115"/>
@@ -318,27 +318,27 @@
         <location filename="../../../config/configpluginswidget.ui" line="164"/>
         <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>下に移動</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
 </context>
 <context>
@@ -356,40 +356,41 @@
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Configure Panel</source>
-        <translation type="unfinished">パネルを設定</translation>
+        <translation>パネルを設定</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1099"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>ウェジェットの管理</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1105"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいパネルの追加</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">パネルを削除</translation>
+        <translation>パネルを削除</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルのロック</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">パネルを削除</translation>
+        <translation>パネルを削除</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルの削除は完了していません。
+このパネルを削除しますか?</translation>
     </message>
     <message>
         <source>Configure Panel...</source>
@@ -431,12 +432,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>代替の設定ファイルを使用する。</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの設定</translation>
     </message>
 </context>
 </TS>
