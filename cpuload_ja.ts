@@ -44,7 +44,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>バーの幅:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
