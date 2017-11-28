@@ -64,7 +64,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_volumeSlider->installEventFilter(this);
 
     m_muteToggleButton = new QPushButton(this);
-    m_muteToggleButton->setIcon(XdgIcon::fromTheme(QStringList() << "audio-volume-muted"));
+    m_muteToggleButton->setIcon(XdgIcon::fromTheme(QLatin1String("audio-volume-muted-panel")));
     m_muteToggleButton->setCheckable(true);
     m_muteToggleButton->setAutoDefault(false);
 
@@ -171,6 +171,7 @@ void VolumePopup::updateStockIcon()
     else
         iconName = "audio-volume-high";
 
+    iconName.append(QLatin1String("-panel"));
     m_muteToggleButton->setIcon(XdgIcon::fromTheme(iconName));
     emit stockIconChanged(iconName);
 }
