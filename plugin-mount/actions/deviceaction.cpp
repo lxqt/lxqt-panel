@@ -42,8 +42,9 @@
 #define ACT_INFO_UPPER      QString(ACT_INFO).toUpper()
 #define ACT_MENU_UPPER      QString(ACT_MENU).toUpper()
 
-DeviceAction::DeviceAction(LXQtMountPlugin *plugin, QObject *parent):
-    mPlugin(plugin)
+DeviceAction::DeviceAction(LXQtMountPlugin *plugin, QObject *parent)
+    : QObject(parent)
+    , mPlugin(plugin)
 {
 }
 
