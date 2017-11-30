@@ -33,6 +33,7 @@
 #include <QHelpEvent>
 #include <QMimeData>
 #include <QDebug>
+#include <memory>
 
 XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
     QAction{parent}
@@ -92,7 +93,10 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
   GSList* list = menu_cache_dir_list_children(dir);
   for(GSList * l = list; l; l = l->next)
   {
-    MenuCacheItem* item = (MenuCacheItem*)l->data;
+    // Note: C++14 is needed for usage of the std::make_unique
+    //auto guard = std::make_unique(static_cast<MenuCacheItem *>(l->data), menu_cache_item_unref);
+    std::unique_ptr<MenuCacheItem, gboolean (*)(MenuCacheItem* item)> guard{static_cast<MenuCacheItem *>(l->data), menu_cache_item_unref};
+    MenuCacheItem* item = guard.get();
     MenuCacheType type = menu_cache_item_get_type(item);
 
     if(type == MENU_CACHE_TYPE_SEP)
@@ -123,7 +127,6 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
         addMenuItems(submenu, MENU_CACHE_DIR(item));
       }
     }
-    menu_cache_item_unref(item);
   }
   if (list)
       g_slist_free(list);
