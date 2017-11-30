@@ -74,7 +74,7 @@ void LXQtMountPlugin::settingsChanged()
     if (mDeviceAction == nullptr || mDeviceAction->Type() != actionId)
     {
         delete mDeviceAction;
-        mDeviceAction = DeviceAction::create(actionId, this);
+        mDeviceAction = DeviceAction::create(actionId, this, this);
 
         connect(mPopup, &Popup::deviceAdded, mDeviceAction, &DeviceAction::onDeviceAdded);
         connect(mPopup, &Popup::deviceRemoved, mDeviceAction, &DeviceAction::onDeviceRemoved);
