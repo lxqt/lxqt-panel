@@ -23,11 +23,15 @@ set(SOURCES
     sniasync.cpp
 )
 
-qt5_add_dbus_adaptor(SOURCES
+qt5_add_dbus_adaptor(DBUS_SOURCES
     org.kde.StatusNotifierItem.xml
     statusnotifieriteminterface.h
     StatusNotifierItemInterface
 )
+
+set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
+
+list(APPEND SOURCES "${DBUS_SOURCES}")
 
 set(LIBRARIES
     dbusmenu-qt5
