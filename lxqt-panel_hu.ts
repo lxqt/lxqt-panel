@@ -108,40 +108,40 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;utomata elrejtés</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="262"/>
         <location filename="../../../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nulla esetén nincs animáció</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="288"/>
         <location filename="../../../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nulla esetén nincs várakozás</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Láthatósági késleltetés:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>A maximalizált ablakok a panel alá nem lóghatnak</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>A kijelzőn tartalékterület marad</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="237"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Animáció tartam:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="208"/>
@@ -346,30 +346,31 @@
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1105"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Új panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Panel törlés</translation>
+        <translation>Panel törlés</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>A panel zárolása</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Panel törlés</translation>
+        <translation>Panel törlés</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>A panel törlésa végleges.
+Valóban töröljük?</translation>
     </message>
     <message>
         <source>Add Panel</source>
