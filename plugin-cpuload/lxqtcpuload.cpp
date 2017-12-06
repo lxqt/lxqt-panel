@@ -51,6 +51,7 @@ extern "C" {
 LXQtCpuLoad::LXQtCpuLoad(ILXQtPanelPlugin* plugin, QWidget* parent):
     QFrame(parent),
     mPlugin(plugin),
+    m_avg(0),
     m_showText(false),
     m_barWidth(20),
     m_barOrientation(TopDownBar),
@@ -82,6 +83,7 @@ LXQtCpuLoad::LXQtCpuLoad(ILXQtPanelPlugin* plugin, QWidget* parent):
 
 LXQtCpuLoad::~LXQtCpuLoad()
 {
+  sg_shutdown();
 }
 
 void LXQtCpuLoad::setSizes()
