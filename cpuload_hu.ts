@@ -34,7 +34,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation> mp</translation>
+        <translation>mp</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
