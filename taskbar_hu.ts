@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A %1 feladat indítása</translation>
     </message>
 </context>
 <context>
@@ -141,27 +141,27 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak az asztal ablakjai látszanak</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak a &amp;panel képernyőjének ablakjai látszanak</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak minimalizált ablakok látszanak</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>A minimalizált ablakok kirakása az aktuális asztalra</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Az ablakok körbe görgetése</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Egérre felugró ablak</translation>
     </message>
     <message>
         <source>Show popup on mouse hover </source>
@@ -196,12 +196,12 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Gomb maximális magassága</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonok az ablakosztályokból, ha vannak</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -214,7 +214,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Gombok függőleges panelnál gördülnek</translation>
+        <translation>Gombok függőleges panelnál gö&amp;rdülnek</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
@@ -223,7 +223,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="121"/>
         <source>Button style</source>
-        <translation>Gombstílus:</translation>
+        <translation>Gombstílus</translation>
     </message>
     <message>
         <source>Max button width</source>
@@ -252,7 +252,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostani</translation>
     </message>
 </context>
 </TS>
