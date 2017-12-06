@@ -26,7 +26,7 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangerő: néma</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>A hangerőváltozásról mindig értesít</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ke&amp;verő</translation>
     </message>
     <message>
         <source>Mixer</source>
