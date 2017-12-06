@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtworldclock.cpp" line="237"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Óra bevezető nullával</translation>
+        <translation>Óra bevezető nu&amp;llával</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="116"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>&amp;Hely</translation>
+        <translation>&amp;Hely:</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="138"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>H&amp;ely</translation>
+        <translation>H&amp;ely:</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="261"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="316"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>Haladó kézi forma</translation>
+        <translation>Haladó ké&amp;zi alak</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="377"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>Hozzá&amp;ad</translation>
+        <translation>Hozzá&amp;ad ...</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="456"/>
@@ -200,12 +200,12 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Alapértelmez</translation>
+        <translation>Ala&amp;pértelmezett</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>Névsz&amp;erkesztés</translation>
+        <translation>Névsz&amp;erkesztés ...</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="486"/>
@@ -225,12 +225,12 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Függöleges panelnél görgetés</translation>
+        <translation>Függöleges panelnél gö&amp;rgetés</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.cpp" line="577"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="116"/>
         <source>UTC</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="119"/>
