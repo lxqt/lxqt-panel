@@ -21,17 +21,17 @@
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation type="unfinished"></translation>
+        <translation>vonalas</translation>
     </message>
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation type="unfinished"></translation>
+        <translation>pontozott</translation>
     </message>
     <message>
         <location filename="../../../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation type="unfinished"></translation>
+        <translation>láthatatlan</translation>
     </message>
 </context>
 </TS>
