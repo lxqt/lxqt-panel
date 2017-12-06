@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Keres...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="102"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation>.pont</translation>
+        <translation> pont</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
@@ -75,42 +75,42 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Keres</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>max. tétel szélesség:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyezések:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximálisan látható tételek:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Szűrő menü elemek</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Kereséskor menü elrejtése</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Törölje a keresést a menüből</translation>
     </message>
     <message>
         <source>...</source>
@@ -134,12 +134,12 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="165"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonfájl választás</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="167"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Képek (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="179"/>
