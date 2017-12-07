@@ -63,12 +63,12 @@
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Billentyűállapot beállítás</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelzőállapotok</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="26"/>
@@ -88,17 +88,17 @@
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Billentyűkiosztás jelző</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Őrváltó</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiosztásbeállítás</translation>
     </message>
     <message>
         <source>Show keyboard layout</source>
