@@ -55,7 +55,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Saját betűnagyság:</translation>
+        <translation>Egyéni betűméret:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
