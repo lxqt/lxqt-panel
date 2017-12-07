@@ -225,7 +225,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Függöleges panelnél gö&amp;rgetés</translation>
+        <translation>Függőleges panelnél gö&amp;rgetés</translation>
     </message>
     <message>
         <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
