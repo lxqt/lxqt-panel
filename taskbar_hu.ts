@@ -19,7 +19,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="512"/>
         <source>To &amp;Desktop</source>
-        <translation>Erre az asztal&amp;ra</translation>
+        <translation>Asztal&amp;ra</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="514"/>
