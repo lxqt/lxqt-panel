@@ -84,7 +84,7 @@
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation></translation>
+        <translation>Drótnélküli</translation>
     </message>
     <message>
         <location filename="../../../lxqtnetworkmonitorconfiguration.ui" line="95"/>
