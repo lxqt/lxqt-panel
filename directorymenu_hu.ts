@@ -49,7 +49,7 @@
     <message>
         <location filename="../../../directorymenuconfiguration.cpp" line="108"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation>Ikomok (*.png *.xpm *.jpg)</translation>
+        <translation>Ikonok (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
         <location filename="../../../directorymenuconfiguration.cpp" line="117"/>
