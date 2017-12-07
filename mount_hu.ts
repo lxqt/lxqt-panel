@@ -24,7 +24,7 @@
     <message>
         <location filename="../../../configuration.ui" line="26"/>
         <source>When a device is connected :</source>
-        <translation>Csatlakozáskor:</translation>
+        <translation>Csatlakoztatáskor:</translation>
     </message>
     <message>
         <location filename="../../../configuration.cpp" line="40"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../../../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhetőeszköz-kezelő</translation>
+        <translation>Cserélhetőeszköz kezelő</translation>
     </message>
 </context>
 <context>
@@ -65,13 +65,13 @@
     <message>
         <location filename="../../../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>A &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; csatolása sikertelen: %2</translation>
+        <translation>A &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; felcsatolása sikertelen: %2</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="157"/>
         <location filename="../../../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhetőeszköz-kezelő</translation>
+        <translation>Cserélhetőeszköz kezelő</translation>
     </message>
     <message>
         <location filename="../../../menudiskitem.cpp" line="176"/>
