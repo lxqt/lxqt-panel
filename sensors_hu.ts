@@ -41,7 +41,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>A mutatósáv  túl nagy hőfoknál villog</translation>
+        <translation>A mutatósáv túl nagy hőfoknál villog</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="138"/>
