@@ -196,137 +196,137 @@
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation type="unfinished"></translation>
+        <translation>memória</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation type="unfinished"></translation>
+        <translation>lapozóhely</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatconfiguration.ui" line="286"/>
@@ -375,31 +375,31 @@
         <location filename="../../../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;más: %4%&lt;br&gt;freq: %5%</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;más: %4%&lt;br&gt;freq: n/a</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="522"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>haznált: %1%</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstat.cpp" line="552"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>
