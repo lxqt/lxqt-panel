@@ -369,7 +369,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>A panel törlésa végleges.
+        <translation>A panel törlése végleges.
 Valóban töröljük?</translation>
     </message>
     <message>
