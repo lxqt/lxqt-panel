@@ -110,7 +110,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar pesquisa ao mostrar o menu</translation>
     </message>
     <message>
         <source>...</source>
