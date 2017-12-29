@@ -212,7 +212,7 @@ void LXQtTray::clientMessageEvent(xcb_generic_event_t *e)
  ************************************************/
 TrayIcon* LXQtTray::findIcon(Window id)
 {
-    foreach(TrayIcon* icon, mIcons)
+    for(TrayIcon* icon : qAsConst(mIcons))
     {
         if (icon->iconId() == id || icon->windowId() == id)
             return icon;

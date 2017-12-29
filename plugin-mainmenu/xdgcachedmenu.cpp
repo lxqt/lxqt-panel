@@ -193,7 +193,8 @@ void XdgCachedMenu::handleMouseMoveEvent(QMouseEvent *event)
 
 void XdgCachedMenu::onAboutToShow()
 {
-    Q_FOREACH(QAction* action, actions())
+    const auto actionList = actions();
+    for(QAction* action : actionList)
     {
         if(action->inherits("XdgCachedMenuAction"))
         {

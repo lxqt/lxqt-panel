@@ -84,7 +84,7 @@ void LXQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
     const bool old_block = ui->devAddedCombo->blockSignals(true);
     ui->devAddedCombo->clear();
 
-    foreach (const AudioDevice *dev, sinks) {
+    for (const AudioDevice *dev : qAsConst(sinks)) {
         ui->devAddedCombo->addItem(dev->description(), dev->index());
     }
 

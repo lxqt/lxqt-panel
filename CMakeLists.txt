@@ -47,11 +47,13 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5DBus REQUIRED)
-find_package(Qt5LinguistTools REQUIRED)
-find_package(Qt5Xml REQUIRED)
-find_package(Qt5X11Extras REQUIRED)
+set(REQUIRED_QT_VERSION "5.7.1")
+
+find_package(Qt5Widgets ${REQUIRED_QT_VERSION} REQUIRED)
+find_package(Qt5DBus ${REQUIRED_QT_VERSION} REQUIRED)
+find_package(Qt5LinguistTools ${REQUIRED_QT_VERSION} REQUIRED)
+find_package(Qt5Xml ${REQUIRED_QT_VERSION} REQUIRED)
+find_package(Qt5X11Extras ${REQUIRED_QT_VERSION} REQUIRED)
 find_package(KF5WindowSystem REQUIRED)
 
 find_package(lxqt REQUIRED)
@@ -71,6 +73,7 @@ set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(
     -DPLUGIN_DIR=\"${PLUGIN_DIR}\"
     -DQT_USE_QSTRINGBUILDER
+    -DQT_NO_FOREACH
 )
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 

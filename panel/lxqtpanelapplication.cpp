@@ -106,7 +106,8 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
         d->mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 
     // This is a workaround for Qt 5 bug #40681.
-    Q_FOREACH(QScreen* screen, screens())
+    const auto allScreens = screens();
+    for(QScreen* screen : allScreens)
     {
         connect(screen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
     }
@@ -121,7 +122,7 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
         panels << "panel1";
     }
 
-    Q_FOREACH(QString i, panels)
+    for(const QString& i : qAsConst(panels))
     {
         addPanel(i);
     }
@@ -185,11 +186,11 @@ void LXQtPanelApplication::reloadPanelsAsNeeded()
     // LXQtPanelApplication::screenDestroyed().
 
     // qDebug() << "LXQtPanelApplication::reloadPanelsAsNeeded()";
-    QStringList names = d->mSettings->value("panels").toStringList();
-    Q_FOREACH(const QString& name, names)
+    const QStringList names = d->mSettings->value("panels").toStringList();
+    for(const QString& name : names)
     {
         bool found = false;
-        Q_FOREACH(LXQtPanel* panel, mPanels)
+        for(LXQtPanel* panel : qAsConst(mPanels))
         {
             if(panel->name() == name)
             {
@@ -236,7 +237,7 @@ void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
     QScreen* screen = static_cast<QScreen*>(screenObj);
     bool reloadNeeded = false;
     qApp->setQuitOnLastWindowClosed(false);
-    Q_FOREACH(LXQtPanel* panel, mPanels)
+    for(LXQtPanel* panel : qAsConst(mPanels))
     {
         QWindow* panelWindow = panel->windowHandle();
         if(panelWindow && panelWindow->screen() == screen)

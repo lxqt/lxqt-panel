@@ -97,7 +97,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
  ************************************************/
 void LXQtTaskGroup::closeGroup()
 {
-    foreach (LXQtTaskButton * button, mButtonHash.values())
+    for (LXQtTaskButton *button : qAsConst(mButtonHash) )
         if (button->isOnDesktop(KWindowSystem::currentDesktop()))
             button->closeApplication();
 }
@@ -133,7 +133,7 @@ LXQtTaskButton * LXQtTaskGroup::addWindow(WId id)
  ************************************************/
 LXQtTaskButton * LXQtTaskGroup::checkedButton() const
 {
-    foreach (LXQtTaskButton* button, mButtonHash.values())
+    for (LXQtTaskButton* button : qAsConst(mButtonHash))
         if (button->isChecked())
             return button;
 
@@ -192,7 +192,7 @@ LXQtTaskButton * LXQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
 void LXQtTaskGroup::onActiveWindowChanged(WId window)
 {
     LXQtTaskButton *button = mButtonHash.value(window, nullptr);
-    foreach (LXQtTaskButton *btn, mButtonHash.values())
+    for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         btn->setChecked(false);
 
     if (button)
@@ -284,7 +284,7 @@ int LXQtTaskGroup::buttonsCount() const
 int LXQtTaskGroup::visibleButtonsCount() const
 {
     int i = 0;
-    foreach (LXQtTaskButton *btn, mButtonHash.values())
+    for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         if (btn->isVisibleTo(mPopup))
             i++;
     return i;
@@ -324,7 +324,7 @@ void LXQtTaskGroup::regroup()
         mSingleButton = true;
         // Get first visible button
         LXQtTaskButton * button = NULL;
-        foreach (LXQtTaskButton *btn, mButtonHash.values())
+        for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         {
             if (btn->isVisibleTo(mPopup))
             {
@@ -369,7 +369,7 @@ void LXQtTaskGroup::recalculateFrameIfVisible()
  ************************************************/
 void LXQtTaskGroup::setAutoRotation(bool value, ILXQtPanel::Position position)
 {
-    foreach (LXQtTaskButton *button, mButtonHash.values())
+    for (LXQtTaskButton *button : qAsConst(mButtonHash))
         button->setAutoRotation(false, position);
 
     LXQtTaskButton::setAutoRotation(value, position);
@@ -383,7 +383,7 @@ void LXQtTaskGroup::refreshVisibility()
     bool will = false;
     LXQtTaskBar const * taskbar = parentTaskBar();
     const int showDesktop = taskbar->showDesktopNum();
-    foreach(LXQtTaskButton * btn, mButtonHash.values())
+    for(LXQtTaskButton * btn : qAsConst(mButtonHash))
     {
         bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KWindowSystem::currentDesktop() : showDesktop) : true;
         visible &= taskbar->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
@@ -449,7 +449,7 @@ void LXQtTaskGroup::refreshIconsGeometry()
         return;
     }
 
-    foreach(LXQtTaskButton *but, mButtonHash.values())
+    for(LXQtTaskButton *but : qAsConst(mButtonHash))
     {
         but->refreshIconGeometry(rect);
         but->setIconSize(QSize(plugin()->panel()->iconSize(), plugin()->panel()->iconSize()));
@@ -493,7 +493,7 @@ int LXQtTaskGroup::recalculateFrameWidth() const
     const QFontMetrics fm = fontMetrics();
     int max = 100 * fm.width (' '); // elide after the max width
     int txtWidth = 0;
-    foreach (LXQtTaskButton *btn, mButtonHash.values())
+    for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         txtWidth = qMax(fm.width(btn->text()), txtWidth);
     return iconSize().width() + qMin(txtWidth, max) + 30/* give enough room to margins and borders*/;
 }
