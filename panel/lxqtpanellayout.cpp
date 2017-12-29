@@ -220,7 +220,7 @@ void LayoutItemGrid::rebuild()
 {
     clear();
 
-    foreach(QLayoutItem *item, mItems)
+    for(QLayoutItem *item : qAsConst(mItems))
     {
         doAddToGrid(item);
     }

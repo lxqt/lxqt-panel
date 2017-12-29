@@ -1267,10 +1267,10 @@ void LXQtPanel::userRequestForDeletion()
     }
 
     mSettings->beginGroup(mConfigGroup);
-    QStringList plugins = mSettings->value("plugins").toStringList();
+    const QStringList plugins = mSettings->value("plugins").toStringList();
     mSettings->endGroup();
 
-    Q_FOREACH(QString i, plugins)
+    for(const QString& i : plugins)
         if (!i.isEmpty())
             mSettings->remove(i);
 

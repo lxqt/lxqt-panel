@@ -125,9 +125,9 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
     menu->addSeparator();
 
     QDir dir(path);
-    QFileInfoList list = dir.entryInfoList();
+    const QFileInfoList list = dir.entryInfoList();
 
-    foreach (const QFileInfo& entry, list)
+    for (const QFileInfo& entry : list)
     {
         if(entry.isDir() && !entry.isHidden())
         {

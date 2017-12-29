@@ -149,10 +149,10 @@ void StatusNotifierButton::refetchIcon(Status status)
                     if (themeDir.cd("hicolor") || (themeDir.cd("icons") && themeDir.cd("hicolor")))
                     {
                         const QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                        foreach (const QString &dir, sizes)
+                        for (const QString &dir : sizes)
                         {
                             const QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
-                            foreach (const QString &innerDir, dirs)
+                            for (const QString &innerDir : dirs)
                             {
                                 QString file = themeDir.absolutePath() + "/" + dir + "/" + innerDir + "/" + iconName + ".png";
                                 if (QFile::exists(file))

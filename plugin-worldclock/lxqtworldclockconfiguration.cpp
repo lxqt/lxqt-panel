@@ -488,7 +488,7 @@ void LXQtWorldClockConfiguration::updateTimeZoneButtons()
 int LXQtWorldClockConfiguration::findTimeZone(const QString& timeZone)
 {
     QList<QTableWidgetItem*> items = ui->timeZonesTW->findItems(timeZone, Qt::MatchExactly);
-    foreach (QTableWidgetItem* item, items)
+    for (const QTableWidgetItem* item : qAsConst(items))
         if (item->column() == 0)
             return item->row();
     return -1;
@@ -522,7 +522,8 @@ void LXQtWorldClockConfiguration::addTimeZone()
 
 void LXQtWorldClockConfiguration::removeTimeZone()
 {
-    foreach (QTableWidgetItem *item, ui->timeZonesTW->selectedItems())
+    const auto selectedItems = ui->timeZonesTW->selectedItems();
+    for (const QTableWidgetItem *item : selectedItems)
         if (item->column() == 0)
         {
             if (item->text() == mDefaultTimeZone)

@@ -70,7 +70,7 @@ int AlsaEngine::volumeMax(AudioDevice *device) const
 
 AlsaDevice *AlsaEngine::getDeviceByAlsaElem(snd_mixer_elem_t *elem) const
 {
-    foreach (AudioDevice *device, m_sinks) {
+    for (AudioDevice *device : qAsConst(m_sinks)) {
         AlsaDevice *dev = qobject_cast<AlsaDevice*>(device);
         if (!dev || !dev->element())
             continue;

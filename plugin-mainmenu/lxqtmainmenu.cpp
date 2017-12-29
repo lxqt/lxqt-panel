@@ -423,8 +423,8 @@ void LXQtMainMenu::setMenuFontSize()
     if (mMenu->font() != menuFont)
     {
         mMenu->setFont(menuFont);
-        QList<QMenu*> subMenuList = mMenu->findChildren<QMenu*>();
-        foreach (QMenu* subMenu, subMenuList)
+        const QList<QMenu*> subMenuList = mMenu->findChildren<QMenu*>();
+        for (QMenu* const subMenu : subMenuList)
         {
             subMenu->setFont(menuFont);
         }
