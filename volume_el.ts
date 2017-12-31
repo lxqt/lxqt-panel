@@ -30,7 +30,7 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ένταση: σε σίγαση</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ειδοποίηση πάντα σε αλλαγές στην ένταση</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
