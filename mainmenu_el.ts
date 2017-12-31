@@ -110,7 +110,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκαθάριση της αναζήτησης μετά από εμφάνιση του μενού</translation>
     </message>
     <message>
         <source>...</source>
