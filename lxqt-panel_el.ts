@@ -228,28 +228,28 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυ&amp;τόματη απόκρυψη</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Μηδέν σημαίνει χωρίς καθυστέρηση</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση με καθυστέρηση:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Να μην επιτρέπεται στα μεγιστοποιημένα παράθυρα να καταλαμβάνουν τον χώρο κάτω από το πλαίσιο του πίνακα</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Δέσμευση χώρου στην απεικόνιση</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="349"/>
@@ -460,7 +460,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1112"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Αφαίρεση πίνακα</translation>
+        <translation>Αφαίρεση πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1117"/>
@@ -471,7 +471,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1259"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Αφαίρεση πίνακα</translation>
+        <translation>Αφαίρεση πίνακα</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1260"/>
