@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="641"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενεργοποίηση της εργασίας %1</translation>
     </message>
 </context>
 <context>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Εναλλαγή παραθύρων κατά την περιστροφή της ρόδας του ποντικιού</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση αναδυόμενου στο πέρασμα του ποντικιού</translation>
     </message>
     <message>
         <source>Show popup on mouse hover </source>
@@ -252,7 +252,8 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation>Τρέχον</translation>
+        <translatorcomment>Επιφάνεια εργασίας</translatorcomment>
+        <translation>Τρέχουσα</translation>
     </message>
 </context>
 </TS>
