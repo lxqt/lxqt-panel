@@ -60,6 +60,10 @@ void XdgCachedMenuAction::updateIcon()
     if(icon().isNull())
     {
         QIcon icon = XdgIcon::fromTheme(iconName_, QIcon::fromTheme("unknown"));
+        // Some themes may lack the "unknown" icon; checking null prevents 
+        // infinite recursion (setIcon->dataChanged->updateIcon->setIcon)
+        if (icon.isNull())
+            return;
         setIcon(icon);
     }
 }
