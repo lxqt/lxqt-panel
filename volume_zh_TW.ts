@@ -34,7 +34,7 @@
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
-        <source>Volume: %1</source>
+        <source>Volume: %1%</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

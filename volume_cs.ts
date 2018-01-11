@@ -34,8 +34,12 @@
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
+        <source>Volume: %1%</source>
+        <translation type="unfinished">Hlasitost: %1%</translation>
+    </message>
+    <message>
         <source>Volume: %1</source>
-        <translation>Hlasitost: %1</translation>
+        <translation type="vanished">Hlasitost: %1</translation>
     </message>
 </context>
 <context>
