@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../../../lxqttaskbar.cpp" line="641"/>
+        <location filename="../../../lxqttaskbar.cpp" line="644"/>
         <source>Activate task %1</source>
         <translation>アクティブなタスク %1</translation>
     </message>
