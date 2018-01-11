@@ -60,7 +60,9 @@ LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
     QString execname;
     QString exec;
     QString icon;
-    for (const QMap<QString, QVariant> &app : mPlugin->settings()->readArray("apps"))
+
+    const auto apps = mPlugin->settings()->readArray("apps");
+    for (const QMap<QString, QVariant> &app : apps)
     {
         desktop = app.value("desktop", "").toString();
         file = app.value("file", "").toString();

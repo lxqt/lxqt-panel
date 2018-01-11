@@ -122,7 +122,8 @@ public:
                 }
 
                 if(sevent->changed & XCB_XKB_STATE_PART_MODIFIER_LOCK){
-                    for(Controls cnt: m_modifiers.keys()){
+                    for(auto i = m_modifiers.cbegin() ; i != m_modifiers.cend(); ++i) {
+                        const auto& cnt = i.key();
                         bool oldState = m_modifiers[cnt];
                         bool newState = xkb_state_led_name_is_active(m_state, modName(cnt));
                         if(oldState != newState){
@@ -233,8 +234,8 @@ private:
             xkb_state_unref(m_state);
         m_state = xkb_x11_state_new_from_device(m_keymap, m_connection, m_deviceId);
 
-        for(Controls cnt: m_modifiers.keys()){
-            m_modifiers[cnt] = xkb_state_led_name_is_active(m_state, modName(cnt));
+        for(auto i = m_modifiers.cbegin(); i != m_modifiers.cend(); ++i) {
+            m_modifiers[i.key()] = xkb_state_led_name_is_active(m_state, modName(i.key()));
         }
         emit m_pub->keyboardChanged();
     }

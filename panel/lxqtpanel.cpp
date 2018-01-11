@@ -391,7 +391,8 @@ void LXQtPanel::loadPlugins()
     connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, this, &LXQtPanel::pluginAdded);
     connect(mPlugins.data(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
 
-    for (auto const & plugin : mPlugins->plugins())
+    const auto plugins = mPlugins->plugins();
+    for (auto const & plugin : plugins)
     {
         mLayout->addPlugin(plugin);
         connect(plugin, &Plugin::dragLeft, [this] { mShowDelayTimer.stop(); hidePanel(); });
@@ -1077,7 +1078,8 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
         if (m)
         {
             menu->addTitle(plugin->windowTitle());
-            for (auto const & action : m->actions())
+            const auto actions = m->actions();
+            for (auto const & action : actions)
             {
                 action->setParent(menu);
                 action->setDisabled(mLockPanel);
@@ -1136,7 +1138,8 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
 
 Plugin* LXQtPanel::findPlugin(const ILXQtPanelPlugin* iPlugin) const
 {
-    for (auto const & plug : mPlugins->plugins())
+    const auto plugins = mPlugins->plugins();
+    for (auto const & plug : plugins)
         if (plug->iPlugin() == iPlugin)
             return plug;
     return nullptr;
@@ -1199,7 +1202,8 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
     if (nullptr == panel_plugin)
     {
         qWarning() << Q_FUNC_INFO << "Wrong logic? Unable to find Plugin* for" << plugin << "known plugins follow...";
-        for (auto const & plug : mPlugins->plugins())
+        const auto plugins = mPlugins->plugins();
+        for (auto const & plug : plugins)
             qWarning() << plug->iPlugin() << plug;
 
         return QRect();

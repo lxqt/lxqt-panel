@@ -75,7 +75,8 @@ Popup::Popup(ILXQtPanelPlugin * plugin, QWidget* parent):
     connect(aux_timer, &QTimer::timeout, [this, aux_timer]
         {
             delete aux_timer; //cleanup
-            for (Solid::Device device : Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess))
+            const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess);
+            for (const Solid::Device& device : Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess))
                 if (hasRemovableParent(device))
                     addItem(device);
         });
