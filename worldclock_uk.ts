@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../../../lxqtworldclock.cpp" line="237"/>
+        <location filename="../../../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;ГГ:хх:сс&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ддд, д МММ рррр&apos;&lt;br/&gt;&apos;ЧЗ&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../../../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="578"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="579"/>
         <source>Custom name</source>
         <translation>Власна назва</translation>
     </message>
@@ -233,7 +233,7 @@
         <translation>&apos;&lt;b&gt;&apos;ГГ:хх:сс&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ддд, д МММ рррр&apos;&lt;br/&gt;&apos;ЧЗ&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="577"/>
+        <location filename="../../../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Input custom time zone name</source>
         <translation>Введіть назву власної назви часової зони</translation>
     </message>
@@ -316,18 +316,18 @@
         <translation>Країна</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="116"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
         <translation>UTC</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="119"/>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="127"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Other</source>
         <translation>Інше</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
+        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
         <translation>Локальна часова зона</translation>
     </message>
