@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="212"/>
         <source>Drop Error</source>
         <translation>ドロップエラー</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>ファイル/URL &apos;%1&apos; は現在、クイック起動に埋め込むことができません</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="319"/>
         <source>Drop application
 icons here</source>
         <translation>アプリケーションアイコンを

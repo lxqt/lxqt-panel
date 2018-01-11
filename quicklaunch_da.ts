@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="212"/>
         <source>Drop Error</source>
         <translation>Fejl ved slip</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Filen/URL&apos;en &apos;%1&apos; kan ikke indlejres i hurtigstart på nuværende tidspunkt</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="319"/>
         <source>Drop application
 icons here</source>
         <translation>Slip programikoner her</translation>

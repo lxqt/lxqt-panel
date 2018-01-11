@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="212"/>
         <source>Drop Error</source>
         <translation>Σφάλμα εναπόθεσης</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Το αρχείο/η διεύθυνση &quot;%1&quot; δεν μπορεί να ενσωματωθεί για την ώρα στη γρήγορη εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="320"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="319"/>
         <source>Drop application
 icons here</source>
         <translation>Εναποθέστε εδώ
