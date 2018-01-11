@@ -8,7 +8,7 @@
         <translation type="vanished">Завантаження Cpu %1%</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuload.cpp" line="125"/>
+        <location filename="../../../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
         <translation>Завантаження Cpu %1%</translation>
     </message>
