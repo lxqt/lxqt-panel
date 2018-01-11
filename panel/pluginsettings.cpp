@@ -122,7 +122,8 @@ QList<QMap<QString, QVariant> > PluginSettings::readArray(const QString& prefix)
     {
         d->mSettings->setArrayIndex(i);
         QMap<QString, QVariant> hash;
-        for (const QString &key : d->mSettings->childKeys())
+        const auto keys = d->mSettings->childKeys();
+        for (const QString &key : keys)
             hash[key] = d->mSettings->value(key);
         array << hash;
     }

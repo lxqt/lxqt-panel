@@ -188,7 +188,8 @@ void LXQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
 
     ui->sourceCOB->blockSignals(true);
     ui->sourceCOB->clear();
-    for (auto const & s : mStat->sources())
+    const auto sources = mStat->sources();
+    for (auto const & s : sources)
         ui->sourceCOB->addItem(tr(s.toStdString().c_str()), s);
     ui->sourceCOB->blockSignals(false);
     ui->sourceCOB->setCurrentIndex(0);

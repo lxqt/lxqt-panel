@@ -265,7 +265,8 @@ void LXQtMainMenu::settingsChanged()
 static bool filterMenu(QMenu * menu, QString const & filter)
 {
     bool has_visible = false;
-    for (auto const & action : menu->actions())
+    const auto actions = menu->actions();
+    for (auto const & action : actions)
     {
         if (QMenu * sub_menu = action->menu())
         {
@@ -288,7 +289,8 @@ static bool filterMenu(QMenu * menu, QString const & filter)
 static void showHideMenuEntries(QMenu * menu, bool show)
 {
     //show/hide the top menu entries
-    for (auto const & action : menu->actions())
+    const auto actions = menu->actions();
+    for (auto const & action : actions)
     {
         if (nullptr == qobject_cast<QWidgetAction *>(action))
         {
@@ -300,7 +302,8 @@ static void showHideMenuEntries(QMenu * menu, bool show)
 static void setTranslucentMenus(QMenu * menu)
 {
     menu->setAttribute(Qt::WA_TranslucentBackground);
-    for (auto const & action : menu->actions())
+    const auto actions = menu->actions();
+    for (auto const & action : actions)
     {
         if (QMenu * sub_menu = action->menu())
         {

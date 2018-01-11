@@ -334,7 +334,8 @@ void LXQtTaskBar::refreshTaskList()
 {
     QList<WId> new_list;
     // Just add new windows to groups, deleting is up to the groups
-    for (auto const wnd: KWindowSystem::stackingOrder())
+    const auto wnds = KWindowSystem::stackingOrder();
+    for (auto const wnd: wnds)
     {
         if (acceptWindow(wnd))
         {

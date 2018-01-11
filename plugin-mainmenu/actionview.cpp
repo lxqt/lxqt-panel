@@ -249,7 +249,8 @@ void ActionView::onActionDestroyed()
 
 void ActionView::fillActionsRecursive(QMenu * menu)
 {
-    for (auto const & action : menu->actions())
+    const auto actions = menu->actions();
+    for (auto const & action : actions)
     {
         if (QMenu * sub_menu = action->menu())
         {
