@@ -95,6 +95,8 @@ public slots:
     void unShadeApplication();
     void closeApplication();
     void moveApplicationToDesktop();
+    void moveApplication();
+    void resizeApplication();
     void setApplicationLayer();
 
     void setOrigin(Qt::Corner);

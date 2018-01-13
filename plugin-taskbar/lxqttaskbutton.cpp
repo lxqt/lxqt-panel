@@ -464,6 +464,42 @@ void LXQtTaskButton::moveApplicationToDesktop()
 /************************************************
 
  ************************************************/
+void LXQtTaskButton::moveApplication()
+{
+    KWindowInfo info(mWindow, NET::WMDesktop);
+    if (!info.isOnCurrentDesktop())
+        KWindowSystem::setCurrentDesktop(info.desktop());
+    if (isMinimized())
+        KWindowSystem::unminimizeWindow(mWindow);
+    KWindowSystem::forceActiveWindow(mWindow);
+    const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
+    int X = g.center().x();
+    int Y = g.center().y();
+    QCursor::setPos(X, Y);
+    NETRootInfo(QX11Info::connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::Move);
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtTaskButton::resizeApplication()
+{
+    KWindowInfo info(mWindow, NET::WMDesktop);
+    if (!info.isOnCurrentDesktop())
+        KWindowSystem::setCurrentDesktop(info.desktop());
+    if (isMinimized())
+        KWindowSystem::unminimizeWindow(mWindow);
+    KWindowSystem::forceActiveWindow(mWindow);
+    const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
+    int X = g.bottomRight().x();
+    int Y = g.bottomRight().y();
+    QCursor::setPos(X, Y);
+    NETRootInfo(QX11Info::connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::BottomRight);
+}
+
+/************************************************
+
+ ************************************************/
 void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 {
     if (event->modifiers().testFlag(Qt::ControlModifier))
@@ -531,6 +567,15 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         a->setEnabled(curDesk != winDesk);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
     }
+
+    /********** Move/Resize **********/
+    menu->addSeparator();
+    a = menu->addAction(tr("&Move"));
+    a->setEnabled(info.actionSupported(NET::ActionMove) && !(state & NET::Max) && !(state & NET::FullScreen));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplication);
+    a = menu->addAction(tr("Resi&ze"));
+    a->setEnabled(info.actionSupported(NET::ActionResize) && !(state & NET::Max) && !(state & NET::FullScreen));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::resizeApplication);
 
     /********** State menu **********/
     menu->addSeparator();
