@@ -55,7 +55,6 @@ DomTreeItem::DomTreeItem(QTreeWidgetItem *parent, QWidget *widget):
 void DomTreeItem::init()
 {
     QStringList hierarcy = widgetClassHierarcy();
-
     for (int i=0; i<hierarcy.count(); ++i)
     {
         QString iconName = QString(":" + hierarcy.at(i)).toLower();
@@ -67,7 +66,6 @@ void DomTreeItem::init()
     }
 
     QString text = widgetText();
-
     if (!text.isEmpty())
         text = " \"" + text + "\"";
 
@@ -77,16 +75,14 @@ void DomTreeItem::init()
                 widgetClassName(),
                 text));
     setText(1, hierarcy.join(" :: "));
-
     fill();
 }
 
 
 void DomTreeItem::fill()
 {
-    QList<QWidget*> widgets = mWidget->findChildren<QWidget*>();
-
-    foreach (QWidget *w, widgets)
+    const QList<QWidget*> widgets = mWidget->findChildren<QWidget*>();
+    for (QWidget *w : widgets)
     {
         if (w->parentWidget() != mWidget)
             continue;
