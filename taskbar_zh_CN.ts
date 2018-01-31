@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="644"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>激活任务 %1</translation>
     </message>
 </context>
 <context>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="512"/>
         <source>To &amp;Desktop</source>
-        <translation>到&amp;桌面</translation>
+        <translation>转到桌面(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="514"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;全部桌面</translation>
+        <translation>全部桌面(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="522"/>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="529"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;到当前桌面</translation>
+        <translation>转到当前桌面(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="538"/>
         <source>Ma&amp;ximize</source>
-        <translation>最&amp;大化</translation>
+        <translation>最大化(&amp;X)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="545"/>
@@ -54,12 +54,12 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="556"/>
         <source>&amp;Restore</source>
-        <translation>&amp;恢复</translation>
+        <translation>恢复(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="560"/>
         <source>Mi&amp;nimize</source>
-        <translation>最&amp;小化</translation>
+        <translation>最小化(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="566"/>
@@ -74,27 +74,27 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="580"/>
         <source>&amp;Layer</source>
-        <translation>&amp;层</translation>
+        <translation>层(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="582"/>
         <source>Always on &amp;top</source>
-        <translation>总在&amp;顶层</translation>
+        <translation>总在顶层(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="588"/>
         <source>&amp;Normal</source>
-        <translation>&amp;正常</translation>
+        <translation>正常(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="594"/>
         <source>Always on &amp;bottom</source>
-        <translation>总在&amp;底层</translation>
+        <translation>总在底层(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="602"/>
         <source>&amp;Close</source>
-        <translation>&amp;关闭</translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>组</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭组</translation>
     </message>
 </context>
 <context>
@@ -123,73 +123,73 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>任务管理器设置</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>常规</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>只显示此桌面上的窗口</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>只显示面板屏幕上的窗口(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>只显示最小化的窗口</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>提升当前桌面的最小化窗口</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>转动鼠标滚轮切换窗口</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口分组(&amp;G)</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标移过弹出菜单</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>外观</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>最大按钮宽度</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="144"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>最大按钮高度</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>如果可用，使用 WindowClass 提供的图标</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>纵置面板时自动旋转按钮(&amp;R)</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>当前桌面</translation>
     </message>
 </context>
 </TS>
