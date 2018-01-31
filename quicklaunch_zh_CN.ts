@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="212"/>
         <source>Drop Error</source>
-        <translation>出现错误</translation>
+        <translation>拖放错误</translation>
     </message>
     <message>
         <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
@@ -17,7 +17,7 @@
         <location filename="../../../lxqtquicklaunch.cpp" line="319"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>移动应用程序图标至此</translation>
     </message>
 </context>
 <context>
