@@ -10,7 +10,7 @@
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU 负载 %1%</translation>
     </message>
 </context>
 <context>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU 负载设置</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>更新间隔：</translation>
+        <translation>更新间隔:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>状态栏方向：</translation>
+        <translation>状态栏方向:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>状态栏宽度:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
