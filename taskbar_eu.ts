@@ -12,87 +12,97 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="478"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="514"/>
         <source>Application</source>
         <translation>Aplikazioa</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="512"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="548"/>
         <source>To &amp;Desktop</source>
         <translation>&amp;Mahaigainera</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="514"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="550"/>
         <source>&amp;All Desktops</source>
         <translation>Mahaigain &amp;guztiak</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="522"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="558"/>
         <source>Desktop &amp;%1</source>
         <translation>&amp;%1 mahaigaina</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="529"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="565"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;Uneko mahaigainera</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="538"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="573"/>
+        <source>&amp;Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbutton.cpp" line="576"/>
+        <source>Resi&amp;ze</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbutton.cpp" line="583"/>
         <source>Ma&amp;ximize</source>
         <translation>Maximizatu</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="545"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="590"/>
         <source>Maximize vertically</source>
         <translation>Maximizatu bertikalki</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="550"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="595"/>
         <source>Maximize horizontally</source>
         <translation>Maximizatu horizontalki</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="556"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="601"/>
         <source>&amp;Restore</source>
         <translation>&amp;Leheneratu</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="560"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="605"/>
         <source>Mi&amp;nimize</source>
         <translation>Minimizatu</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="566"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="611"/>
         <source>Roll down</source>
         <translation>Zabaldu</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="572"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="617"/>
         <source>Roll up</source>
         <translation>Bildu</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="580"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="625"/>
         <source>&amp;Layer</source>
         <translation>&amp;Geruza</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="582"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="627"/>
         <source>Always on &amp;top</source>
         <translation>Beti &amp;goian</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="588"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="633"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normala</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="594"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="639"/>
         <source>Always on &amp;bottom</source>
         <translation>Beti &amp;behean</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="602"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="647"/>
         <source>&amp;Close</source>
         <translation>&amp;Itxi</translation>
     </message>

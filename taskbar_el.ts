@@ -12,87 +12,97 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="478"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="514"/>
         <source>Application</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="512"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="548"/>
         <source>To &amp;Desktop</source>
         <translation>Στην επι&amp;φάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="514"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="550"/>
         <source>&amp;All Desktops</source>
         <translation>Ό&amp;λες οι επιφάνειες εργασίας</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="522"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="558"/>
         <source>Desktop &amp;%1</source>
         <translation>Επιφάνεια εργασίας &amp;%1</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="529"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="565"/>
         <source>&amp;To Current Desktop</source>
         <translation>Στ&amp;ην τρέχουσα επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="538"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="573"/>
+        <source>&amp;Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbutton.cpp" line="576"/>
+        <source>Resi&amp;ze</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../lxqttaskbutton.cpp" line="583"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;Μεγιστοποίηση</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="545"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="590"/>
         <source>Maximize vertically</source>
         <translation>Μεγιστοποίηση κάθετα</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="550"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="595"/>
         <source>Maximize horizontally</source>
         <translation>Μεγιστοποίηση οριζόντια</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="556"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="601"/>
         <source>&amp;Restore</source>
         <translation>&amp;Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="560"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="605"/>
         <source>Mi&amp;nimize</source>
         <translation>Ελα&amp;χιστοποίηση</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="566"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="611"/>
         <source>Roll down</source>
         <translation>Κύλιση κάτω</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="572"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="617"/>
         <source>Roll up</source>
         <translation>Κύλιση επάνω</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="580"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="625"/>
         <source>&amp;Layer</source>
         <translation>Στ&amp;ρώση</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="582"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="627"/>
         <source>Always on &amp;top</source>
         <translation>Πάντα ε&amp;πάνω</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="588"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="633"/>
         <source>&amp;Normal</source>
         <translation>Κα&amp;νονικό</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="594"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="639"/>
         <source>Always on &amp;bottom</source>
         <translation>Πάντα &amp;κάτω</translation>
     </message>
     <message>
-        <location filename="../../../lxqttaskbutton.cpp" line="602"/>
+        <location filename="../../../lxqttaskbutton.cpp" line="647"/>
         <source>&amp;Close</source>
         <translation>Κλεί&amp;σιμο</translation>
     </message>
