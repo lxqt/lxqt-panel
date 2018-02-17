@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="212"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
         <translation>Ejtési hiba</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="213"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>A(z) „%1” fájl vagy URL nem ágyazható be a Gyorsindítóba</translation>
     </message>
     <message>
-        <location filename="../../../lxqtquicklaunch.cpp" line="319"/>
+        <location filename="../../../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
         <translation>Ejts ide
