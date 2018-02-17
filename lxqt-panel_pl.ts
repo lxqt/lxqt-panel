@@ -436,45 +436,45 @@
         <translation type="vanished">DOdaj Widgety</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1066"/>
-        <location filename="../../../lxqtpanel.cpp" line="1091"/>
+        <location filename="../../../lxqtpanel.cpp" line="1068"/>
+        <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1094"/>
+        <location filename="../../../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
         <translation>Konfiguruj Panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1099"/>
+        <location filename="../../../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
         <translation>Zarządzaj widżetami</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1105"/>
+        <location filename="../../../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
         <translation>Dodaj nowy panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1112"/>
+        <location filename="../../../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Usuń panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1117"/>
+        <location filename="../../../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
         <translation>Zablokuj ten panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1259"/>
+        <location filename="../../../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Usuń panel</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1260"/>
+        <location filename="../../../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Usunięcie panelu nie może zostać cofnięte.

@@ -4,27 +4,27 @@
 <context>
     <name>AddPluginDialog</name>
     <message>
-        <location filename="src/config/addplugindialog.ui" line="14"/>
+        <location filename="../../../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
         <translation>Добавить плагины</translation>
     </message>
     <message>
-        <location filename="src/config/addplugindialog.ui" line="22"/>
+        <location filename="../../../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
         <translation>Найти:</translation>
     </message>
     <message>
-        <location filename="src/config/addplugindialog.ui" line="98"/>
+        <location filename="../../../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
         <translation>Добавить виджет</translation>
     </message>
     <message>
-        <location filename="src/config/addplugindialog.ui" line="105"/>
+        <location filename="../../../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="src/config/addplugindialog.cpp" line="115"/>
+        <location filename="../../../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
         <translation>(только одна копия может быть запущена за раз)</translation>
     </message>
@@ -32,17 +32,17 @@
 <context>
     <name>ConfigPanelDialog</name>
     <message>
-        <location filename="src/config/configpaneldialog.cpp" line="31"/>
+        <location filename="../../../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="src/config/configpaneldialog.cpp" line="38"/>
+        <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="src/config/configpaneldialog.cpp" line="42"/>
+        <location filename="../../../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
         <translation>Виджеты</translation>
     </message>
@@ -281,46 +281,46 @@
 <context>
     <name>ConfigPluginsWidget</name>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="14"/>
+        <location filename="../../../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
         <translation>Настроить плагины</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="84"/>
+        <location filename="../../../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
         <translation>Примечание: изменения, сделанные на этой странице, нельзя сбросить.</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="112"/>
+        <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
         <translation>Переместить выше</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="115"/>
-        <location filename="src/config/configpluginswidget.ui" line="129"/>
-        <location filename="src/config/configpluginswidget.ui" line="150"/>
-        <location filename="src/config/configpluginswidget.ui" line="164"/>
-        <location filename="src/config/configpluginswidget.ui" line="185"/>
+        <location filename="../../../config/configpluginswidget.ui" line="115"/>
+        <location filename="../../../config/configpluginswidget.ui" line="129"/>
+        <location filename="../../../config/configpluginswidget.ui" line="150"/>
+        <location filename="../../../config/configpluginswidget.ui" line="164"/>
+        <location filename="../../../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="126"/>
+        <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
         <translation>Переместить ниже</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="147"/>
+        <location filename="../../../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="161"/>
+        <location filename="../../../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="src/config/configpluginswidget.ui" line="182"/>
+        <location filename="../../../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
         <translation>Настроить</translation>
     </message>
@@ -328,45 +328,45 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1066"/>
-        <location filename="../../../lxqtpanel.cpp" line="1091"/>
+        <location filename="../../../lxqtpanel.cpp" line="1068"/>
+        <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1094"/>
+        <location filename="../../../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1099"/>
+        <location filename="../../../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
         <translation>Управление виджетами</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1105"/>
+        <location filename="../../../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
         <translation>Добавить новую панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1112"/>
+        <location filename="../../../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation type="unfinished">Удалить панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1117"/>
+        <location filename="../../../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
         <translation>Закрепить эту панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1259"/>
+        <location filename="../../../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation type="unfinished">Удалить панель</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1260"/>
+        <location filename="../../../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Удаление панели не может быть отменено.

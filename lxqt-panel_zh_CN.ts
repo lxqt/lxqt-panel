@@ -408,45 +408,45 @@
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1066"/>
-        <location filename="../../../lxqtpanel.cpp" line="1091"/>
+        <location filename="../../../lxqtpanel.cpp" line="1068"/>
+        <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
         <translation>qxkb</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1094"/>
+        <location filename="../../../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
         <translation>配置面板</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1099"/>
+        <location filename="../../../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
         <translation>管理小部件</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1105"/>
+        <location filename="../../../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
         <translation>新增面板</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1112"/>
+        <location filename="../../../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>删除面板</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1117"/>
+        <location filename="../../../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
         <translation>锁定此面板</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1259"/>
+        <location filename="../../../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>删除面板</translation>
     </message>
     <message>
-        <location filename="../../../lxqtpanel.cpp" line="1260"/>
+        <location filename="../../../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>删除面板不可撤销。
