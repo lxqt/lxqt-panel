@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<TS version="2.0" language="lt">
 <context>
     <name>LXQtTaskBar</name>
     <message>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="573"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Perkelti</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="576"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Keisti dy&amp;dį</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="583"/>
@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Show popup on mouse hover </source>
-        <translation type="vanished">Užvedus pelę, rodyti iškylantįjį langą </translation>
+        <translation>Užvedus pelę, rodyti iškylantįjį langą </translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
