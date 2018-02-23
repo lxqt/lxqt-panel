@@ -123,7 +123,7 @@
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">LXQt滑鼠設定</translation>
+        <translation type="unfinished">面板</translation>
     </message>
     <message>
         <location filename="../../../config/configpaneldialog.cpp" line="42"/>
@@ -411,7 +411,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1068"/>
         <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation>LXQt滑鼠設定</translation>
+        <translation>面板</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1097"/>
