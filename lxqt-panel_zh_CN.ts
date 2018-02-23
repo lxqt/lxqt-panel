@@ -411,7 +411,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1068"/>
         <location filename="../../../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation>qxkb</translation>
+        <translation>面板</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1097"/>
