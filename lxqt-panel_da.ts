@@ -144,28 +144,28 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul &amp;automatisk</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nul betyder ingen forsinkelse</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis med forsinkelse:</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillad ikke maksimerede vinduer at gå under panel-vinduet</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Reserver plads på skærm</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="349"/>
@@ -352,7 +352,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Fjern panel</translation>
+        <translation>Fjern panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1120"/>
@@ -363,7 +363,7 @@
         <location filename="../../../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Fjern panel</translation>
+        <translation>Fjern panel</translation>
     </message>
     <message>
         <location filename="../../../lxqtpanel.cpp" line="1266"/>
