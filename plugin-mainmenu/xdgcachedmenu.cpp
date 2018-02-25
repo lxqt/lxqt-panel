@@ -58,6 +58,7 @@ void XdgCachedMenuAction::updateIcon()
 {
     if(icon().isNull())
     {
+        // workaround https://bugreports.qt.io/browse/QTBUG-63187
         bool isSvg = (iconName_.endsWith(QLatin1String(".svg"), Qt::CaseInsensitive) ||
                       iconName_.endsWith(QLatin1String(".svgz"), Qt::CaseInsensitive));
 
