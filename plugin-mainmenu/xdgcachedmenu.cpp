@@ -58,7 +58,13 @@ void XdgCachedMenuAction::updateIcon()
 {
     if(icon().isNull())
     {
-        QIcon icon = QIcon::fromTheme(iconName_, QIcon::fromTheme("unknown"));
+        // Note: We don't use the QIcon::fromTheme(const QString &name
+        // , const QIcon &fallback) overload because of "availableSizes()"
+        // check in it, see https://bugreports.qt.io/browse/QTBUG-63187
+        QIcon icon = QIcon::fromTheme(iconName_);
+
+        if (icon.isNull())
+            icon = QIcon::fromTheme("unknown");
         // Some themes may lack the "unknown" icon; checking null prevents 
         // infinite recursion (setIcon->dataChanged->updateIcon->setIcon)
         if (icon.isNull())
