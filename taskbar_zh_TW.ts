@@ -133,7 +133,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>工作管理員設定</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>僅顯示桌面上的視窗</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
@@ -153,12 +153,12 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>僅顯示最小化視窗</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>在當前桌面展開最小化的視窗</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
@@ -178,23 +178,23 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>外觀</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>最大按鈕寬度</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="144"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation>像素</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>最大按鈕高度</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
