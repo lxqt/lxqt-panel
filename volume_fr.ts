@@ -26,16 +26,12 @@
     <message>
         <location filename="../../../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>éteint</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolume.cpp" line="289"/>
-        <source>Volume: %1%</source>
-        <translation type="unfinished">Volume : %1%</translation>
-    </message>
-    <message>
         <source>Volume: %1</source>
-        <translation type="vanished">Volume : %1</translation>
+        <translation>Volume : %1</translation>
     </message>
 </context>
 <context>
@@ -88,7 +84,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Toujours notifier un changement de volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
