@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -110,8 +110,8 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
             if (!mHideTimer.isActive())
                 // Delay this a little -- if we don't do this, search field
                 // won't be able to capture focus
-                // See <https://github.com/lxde/lxqt-panel/pull/131> and
-                // <https://github.com/lxde/lxqt-panel/pull/312>
+                // See <https://github.com/lxqt/lxqt-panel/pull/131> and
+                // <https://github.com/lxqt/lxqt-panel/pull/312>
                 mDelayedPopup.start();
         });
     }

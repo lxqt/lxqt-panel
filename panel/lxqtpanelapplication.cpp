@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -211,7 +211,7 @@ void LXQtPanelApplication::reloadPanelsAsNeeded()
 void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
 {
     // NOTE by PCMan: This is a workaround for Qt 5 bug #40681.
-    // With this very dirty workaround, we can fix lxde/lxde-qt bug #204, #205, and #206.
+    // With this very dirty workaround, we can fix lxqt/lxqt bug #204, #205, and #206.
     // Qt 5 has two new regression bugs which breaks lxqt-panel in a multihead environment.
     // #40681: Regression bug: QWidget::winId() returns old value and QEvent::WinIdChange event is not emitted sometimes. (multihead setup)
     // #40791: Regression: QPlatformWindow, QWindow, and QWidget::winId() are out of sync.

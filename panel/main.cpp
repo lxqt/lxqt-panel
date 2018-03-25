@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -28,7 +28,7 @@
 
 #include "lxqtpanelapplication.h"
 
-/*! The lxqt-panel is the panel of LXDE-Qt.
+/*! The lxqt-panel is the panel of LXQt.
   Usage: lxqt-panel [CONFIG_ID]
     CONFIG_ID      Section name in config file ~/.config/lxqt-panel/panel.conf
                    (default main)
