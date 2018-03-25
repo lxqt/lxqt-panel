@@ -5,13 +5,13 @@
 `lxqt-panel` represents the taskbar of LXQt.
 
 The elements available in lxqt-panel are called "plugin" technically. This applies e. g. to the source code where they reside in directories `./plugin-<plugin>` like `plugin-mainmenu`. In contrast to this they are called "widgets" by the configuration GUI so far. Also, a more descriptive term is used to refer to distinct plugins within the GUI. E. g. the aforementioned `plugin-mainmenu` is called "Application menu" that way.
-Configuration dialogue "Add Plugins", see [below](https://github.com/lxde/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.
+Configuration dialogue "Add Plugins", see [below](https://github.com/lxqt/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.
 Notes on some of the plugins, sorted by terms used within the GUI in alphabetical order, technical term in parenthesis:
 
 #### Date & time (plugin-clock) / World clock (plugin-worldclock)
 
 Both provide clock and calendar functionality. plugin-worldclock can display various time zones in addition but lacks a tooltip displaying current date und time upon hovering.
-These plugins will probably be merged into one, see https://github.com/lxde/lxqt/issues/312.
+These plugins will probably be merged into one, see https://github.com/lxqt/lxqt/issues/312.
 
 #### Quick launch (plugin-quicklaunch)
 
@@ -19,21 +19,21 @@ A plugin to launch applications from the panel. By default it is empty and displ
 
 #### Status Notifier Plugin (plugin-statusnotifier) / System Tray (plugin-tray)
 
-Both provide a notification area within the panel, that is an area where arbitrary applications can place informational icons. This is frequently used e. g. by chat or mail clients to inform about incoming messages or tools configuring the network to inform about connections. (So it's some kind of counterpart to the desktop notifications displayed by [lxqt-notificationd](https://github.com/lxde/lxqt-notificationd)).
+Both provide a notification area within the panel, that is an area where arbitrary applications can place informational icons. This is frequently used e. g. by chat or mail clients to inform about incoming messages or tools configuring the network to inform about connections. (So it's some kind of counterpart to the desktop notifications displayed by [lxqt-notificationd](https://github.com/lxqt/lxqt-notificationd)).
 The difference between the two plugins is a technical one. **plugin-tray** is implementing the so-called [System Tray Protocol](https://www.freedesktop.org/wiki/Specifications/systemtray-spec). It's a specification that has been around for years but has some serious technical limitations and in particular won't work under Wayland. **plugin-statusnotifier** on the other hand is implementing the so-called [StatusNotifierItem (SNI)](https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem) specification which can be considered a successor of the System Tray Protocol.
 Both plugins are maintained in parallel as not all relevant applications are compatible with SNI so far. In particular both Qt 4 and all GTK applications need some kind of wrapper to deal with it. Both plugins can be used in parallel without any issue, applications supporting both specifications will normally chose to display their icons in plugin-statusnotifier.
 
 #### Volume control (plugin-volume)
 
-As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio can be used as backend. The plugin itself is providing a control to adjust the main volume only but it allows for launching specific UIs of the backend in use like e. g. [pavucontrol-qt](https://github.com/lxde/pavucontrol-qt) to adjust PulseAudio.
+As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio can be used as backend. The plugin itself is providing a control to adjust the main volume only but it allows for launching specific UIs of the backend in use like e. g. [pavucontrol-qt](https://github.com/lxqt/pavucontrol-qt) to adjust PulseAudio.
 
 ## Installation
 
 ### Compiling source code
 
-The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, lxmenu-data, [liblxqt](https://github.com/lxde/liblxqt) and [lxqt-globalkeys](https://github.com/lxde/lxqt-globalkeys).
-Several plugins or features thereof are optional and need additional runtime dependencies. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxde/libsysstat) (plugin-sysstat). All of them are enabled by default and have to be disabled by CMake variables as required, see below.
-In addition CMake is a mandatory build dependency. Git is optionally needed to pull latest VCS checkouts. The localization files were outsourced to repository [lxqt-l10n](https://github.com/lxde/lxqt-l10n) so the corresponding dependencies are needed, too. Please refer to this repository's `README.md` for further information.
+The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, lxmenu-data, [liblxqt](https://github.com/lxqt/liblxqt) and [lxqt-globalkeys](https://github.com/lxqt/lxqt-globalkeys).
+Several plugins or features thereof are optional and need additional runtime dependencies. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxqt/libsysstat) (plugin-sysstat). All of them are enabled by default and have to be disabled by CMake variables as required, see below.
+In addition CMake is a mandatory build dependency. Git is optionally needed to pull latest VCS checkouts. The localization files were outsourced to repository [lxqt-l10n](https://github.com/lxqt/lxqt-l10n) so the corresponding dependencies are needed, too. Please refer to this repository's `README.md` for further information.
 
 Code configuration is handled by CMake. CMake variable `CMAKE_INSTALL_PREFIX` has to be set to `/usr` on most operating systems, depending on the way library paths are dealt with on 64bit systems variables like CMAKE_INSTALL_LIBDIR may have to be set as well.
 By default all available plugins and features thereof are built and CMake fails when dependencies aren't met. Building particular plugins can be disabled by boolean CMake variables `<plugin>_PLUGIN` where the plugin is referred by its technical term like e. g. in `SYSSTAT_PLUGIN`. Alsa and PulseAudio support in plugin-volume can be disabled by boolean CMake variables `VOLUME_USE_ALSA` and `VOLUME_USE_PULSEAUDIO`.
@@ -48,7 +48,7 @@ Official binary packages are provided by all major Linux distributions like Arch
 
 ### Launching
 
-The panel is run as a daemon-like [LXQt Module](https://github.com/lxde/lxqt-session#lxqt-modules) the launch of which can be adjusted in section "Basic Settings" of configuration dialogue [LXQt Session Settings](https://github.com/lxde/lxqt-session#lxqt-session-settings) of [lxqt-session](https://github.com/lxde/lxqt-session).
+The panel is run as a daemon-like [LXQt Module](https://github.com/lxqt/lxqt-session#lxqt-modules) the launch of which can be adjusted in section "Basic Settings" of configuration dialogue [LXQt Session Settings](https://github.com/lx/lxqt-session#lxqt-session-settings) of [lxqt-session](https://github.com/lxqt/lxqt-session).
 
 ### Customizing
 

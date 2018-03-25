@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2012 Razor team
@@ -213,7 +213,7 @@ Example:
 class LXQtClockPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "lxde-qt.org/Panel/PluginInterface/3.0")
+    Q_PLUGIN_METADATA(IID "lxqt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) { return new LXQtClock(startupInfo);}
@@ -236,6 +236,6 @@ public:
 
 
 Q_DECLARE_INTERFACE(ILXQtPanelPluginLibrary,
-                    "lxde-qt.org/Panel/PluginInterface/3.0")
+                    "lxqt.org/Panel/PluginInterface/3.0")
 
 #endif // ILXQTPANELPLUGIN_H

@@ -1,7 +1,7 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
  * (c)LGPL2+
  *
- * LXDE-Qt - a lightweight, Qt based, desktop toolset
+ * LXQt - a lightweight, Qt based, desktop toolset
  * http://razor-qt.org
  *
  * Copyright: 2010-2011 Razor team
@@ -202,7 +202,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
 
     // connecting to QDesktopWidget::workAreaResized shouldn't be necessary,
     // as we've already connceted to QDesktopWidget::resized, but it actually
-    // is. Read mode on https://github.com/lxde/lxqt-panel/pull/310
+    // is. Read mode on https://github.com/lxqt/lxqt-panel/pull/310
     connect(QApplication::desktop(), &QDesktopWidget::workAreaResized,
             this, &LXQtPanel::ensureVisible);
 
