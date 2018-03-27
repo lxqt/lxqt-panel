@@ -2,7 +2,7 @@
  * (c)LGPL2+
  *
  * LXQt - a lightweight, Qt based, desktop toolset
- * http://razor-qt.org
+ * https://lxqt.org
  *
  * Copyright: 2010-2011 Razor team
  * Authors:
@@ -140,7 +140,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mLockPanel(false)
 {
     //You can find information about the flags and widget attributes in your
-    //Qt documentation or at http://doc.qt.io/qt-5/qt.html
+    //Qt documentation or at https://doc.qt.io/qt-5/qt.html
     //Qt::FramelessWindowHint = Produces a borderless window. The user cannot
     //move or resize a borderless window via the window system. On X11, ...
     //Qt::WindowStaysOnTopHint = Informs the window system that the window
@@ -160,7 +160,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     flags |= Qt::WindowDoesNotAcceptFocus;
 
     setWindowFlags(flags);
-    //Adds _NET_WM_WINDOW_TYPE_DOCK to the window's _NET_WM_WINDOW_TYPE X11 window property. See http://standards.freedesktop.org/wm-spec/ for more details.
+    //Adds _NET_WM_WINDOW_TYPE_DOCK to the window's _NET_WM_WINDOW_TYPE X11 window property. See https://standards.freedesktop.org/wm-spec/ for more details.
     setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     //Enables tooltips for inactive windows.
     setAttribute(Qt::WA_AlwaysShowToolTips);
@@ -594,7 +594,7 @@ void LXQtPanel::updateWmStrut()
     {
         const QRect wholeScreen = QApplication::desktop()->geometry();
         const QRect rect = geometry();
-        // NOTE: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+        // NOTE: https://standards.freedesktop.org/wm-spec/wm-spec-latest.html
         // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
         // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
         // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
