@@ -24,8 +24,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <LXQt/Globals>
+
 #include <QDebug>
 #include <QProcess>
+
 #include "kbdstateconfig.h"
 #include "ui_kbdstateconfig.h"
 #include "settings.h"
@@ -106,5 +109,5 @@ void KbdStateConfig::save()
 
 void KbdStateConfig::configureLayouts()
 {
-    QProcess::startDetached(QLatin1String("lxqt-config-input"));
+    QProcess::startDetached(QL1S("lxqt-config-input --show-page \"Keyboard Layout\""));
 }
