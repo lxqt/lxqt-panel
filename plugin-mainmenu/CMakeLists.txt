@@ -20,7 +20,7 @@ set(UIS
 
 
 # optionally use libmenu-cache to generate the application menu
-if(NOT WITHOUT_MENU_CACHE)
+if(USE_MENU_CACHE)
     find_package(MenuCache "0.3.3")
 endif()
 
