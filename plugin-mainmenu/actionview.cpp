@@ -28,6 +28,8 @@
 #include "actionview.h"
 #ifdef HAVE_MENU_CACHE
     #include "xdgcachedmenu.h"
+#else
+    #include <XdgAction>
 #endif
 
 #include <QAction>
@@ -70,15 +72,25 @@ namespace
 
         virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override
         {
-            //the XdgCachedMenuAction does load the icon upon showing its menu
-#ifdef HAVE_MENU_CACHE
             QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
+            //the XdgCachedMenuAction/XdgAction does load the icon upon showing its menu
+#ifdef HAVE_MENU_CACHE
             if (icon.isNull())
             {
                 XdgCachedMenuAction * cached_action = qobject_cast<XdgCachedMenuAction *>(qvariant_cast<QAction *>(index.data(ActionView::ActionRole)));
                 Q_ASSERT(nullptr != cached_action);
                 cached_action->updateIcon();
                 const_cast<QAbstractItemModel *>(index.model())->setData(index, cached_action->icon(), Qt::DecorationRole);
+            }
+#else
+            if (icon.isNull())
+            {
+                XdgAction * action = qobject_cast<XdgAction *>(qvariant_cast<QAction *>(index.data(ActionView::ActionRole)));
+                if (action != nullptr)
+                {
+                  action->updateIcon();
+                  const_cast<QAbstractItemModel *>(index.model())->setData(index, action->icon(), Qt::DecorationRole);
+                }
             }
 #endif
             QSize s = QStyledItemDelegate::sizeHint(option, index);
