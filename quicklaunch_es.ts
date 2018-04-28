@@ -17,7 +17,8 @@
         <location filename="../../../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Soltar iconos de
+aplicaciones aquí</translation>
     </message>
 </context>
 <context>
@@ -35,7 +36,7 @@ icons here</source>
     <message>
         <location filename="../../../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Quitar de quicklaunch</translation>
+        <translation>Quitar del lanzador rápido</translation>
     </message>
 </context>
 </TS>
