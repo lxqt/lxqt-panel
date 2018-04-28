@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar al escritorio %1</translation>
     </message>
     <message>
         <location filename="../../../desktopswitch.cpp" line="141"/>
@@ -20,37 +20,37 @@
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del cambiador de escritorio</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de filas:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquetas de escritorio:</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombres</translation>
     </message>
     <message>
         <location filename="../../../desktopswitchconfiguration.ui" line="70"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombres de escritorio</translation>
     </message>
 </context>
 </TS>
