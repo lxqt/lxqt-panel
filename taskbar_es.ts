@@ -6,7 +6,7 @@
     <message>
         <location filename="../../../lxqttaskbar.cpp" line="644"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar la tarea %1</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="573"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mover</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="576"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar el tamaño</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="583"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="601"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Restauar</translation>
+        <translation>&amp;Restaurar</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="605"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="611"/>
         <source>Roll down</source>
-        <translation>Desplegar</translation>
+        <translation>Desenrollar</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbutton.cpp" line="617"/>
@@ -112,12 +112,12 @@
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupo</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskgroup.cpp" line="85"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar el grupo</translation>
     </message>
 </context>
 <context>
@@ -133,73 +133,73 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del Administrador de tareas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar solo ventanas del escritorio</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar solo ventanas de la pantalla del &amp;panel</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar solo ventanas minimizadas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevar ventanas minimizadas del escritorio actual</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotar las ventanas con la rueda del ratón</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;grupación de ventanas</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar mensaje de ayuda al mover el ratón encima</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Ancho máximo del botón</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="144"/>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Alto máximo del botón</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar iconos de WindowClass, si está disponible</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rotar automáticamente los botones cuando el panel esté vertical</translation>
     </message>
     <message>
         <source>Window List Appearance</source>
@@ -250,7 +250,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Actual</translation>
     </message>
 </context>
 </TS>
