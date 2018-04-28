@@ -6,17 +6,17 @@
     <message>
         <location filename="../../../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar escritorio</translation>
     </message>
     <message>
         <location filename="../../../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Mostrar Escritorio: Atajo global &apos;%1&apos; no puede ser registrado</translation>
+        <translation>Mostrar escritorio: el atajo global &apos;%1&apos; no puede ser registrado</translation>
     </message>
     <message>
         <location filename="../../../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>Mostrar Escritorio</translation>
+        <translation>Mostrar escritorio</translation>
     </message>
 </context>
 </TS>
