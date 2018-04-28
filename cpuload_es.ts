@@ -10,7 +10,7 @@
     <message>
         <location filename="../../../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Carga de la CPU %1%</translation>
     </message>
 </context>
 <context>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de la carga de CPU</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Intervalo de actualización</translation>
+        <translation>Intervalo de actualización:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -52,27 +52,27 @@
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ancho de la barra:</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>De Abajo hacia Arriba</translation>
+        <translation>De abajo hacia arriba</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation>De Arriba hacia Abajo</translation>
+        <translation>De arriba hacia abajo</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation>De Izquierda a Derecha</translation>
+        <translation>De izquierda a derecha</translation>
     </message>
     <message>
         <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation>De Derecha a Izquierda</translation>
+        <translation>De derecha a izquierda</translation>
     </message>
 </context>
 </TS>
