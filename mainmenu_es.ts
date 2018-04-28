@@ -6,12 +6,12 @@
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar...</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar/ocultar el menú principal</translation>
     </message>
     <message>
         <source>Leave</source>
@@ -40,27 +40,27 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del menú principal</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Icono:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto del botón:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de fuente personalizado:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
@@ -70,47 +70,47 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivo de menú:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>ancho máximo del elemento:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar entradas coincidentes:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número máximo de elementos visibles:</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar las entradas del menú</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar las entradas del menú al buscar</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrar la búsqueda al cerrar el menú</translation>
     </message>
     <message>
         <source>...</source>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>Atajos del teclado</translation>
+        <translation>Atajo del teclado</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="146"/>
@@ -129,22 +129,22 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="71"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="165"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Elija un archivo de icono</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="167"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imágenes (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Choose menu file</source>
-        <translation>Escoger un archivo de menú</translation>
+        <translation>Escoja un archivo de menú</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.cpp" line="181"/>
