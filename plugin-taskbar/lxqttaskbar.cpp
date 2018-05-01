@@ -362,7 +362,12 @@ void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Propert
 {
     auto i = mKnownWindows.find(window);
     if (mKnownWindows.end() != i)
-        (*i)->onWindowChanged(window, prop, prop2);
+    {
+        if (!(*i)->onWindowChanged(window, prop, prop2) && acceptWindow(window))
+        { // window is removed from a group because of class change, so we should add it again
+            addWindow(window);
+        }
+    }
 }
 
 void LXQtTaskBar::onWindowAdded(WId window)

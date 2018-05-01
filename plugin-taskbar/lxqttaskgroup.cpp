@@ -585,8 +585,7 @@ void LXQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 
  ************************************************/
 bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
-{
-    bool consumed{false};
+{ // returns true if the class is preserved
     bool needsRefreshVisibility{false};
     QVector<LXQtTaskButton *> buttons;
     if (mButtonHash.contains(window))
@@ -598,15 +597,14 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
 
     if (!buttons.isEmpty())
     {
-        consumed = true;
         // if class is changed the window won't belong to our group any more
         if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass))
         {
             KWindowInfo info(window, 0, NET::WM2WindowClass);
             if (info.windowClassClass() != mGroupName)
             {
-                consumed = false;
                 onWindowRemoved(window);
+                return false;
             }
         }
         // window changed virtual desktop
@@ -631,10 +629,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         {
             KWindowInfo info{window, NET::WMState};
             if (info.hasState(NET::SkipTaskbar))
-            {
-                consumed = false;
                 onWindowRemoved(window);
-            }
             std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, info.hasState(NET::DemandsAttention)));
 
             if (parentTaskBar()->isShowOnlyMinimizedTasks())
@@ -647,7 +642,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
     if (needsRefreshVisibility)
         refreshVisibility();
 
-    return consumed;
+    return true;
 }
 
 /************************************************
