@@ -69,6 +69,7 @@ set(LXQT_PANEL_PATCH_VERSION 0)
 set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
 add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 
+include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
