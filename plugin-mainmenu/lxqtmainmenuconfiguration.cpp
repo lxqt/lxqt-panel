@@ -33,6 +33,7 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/Settings>
 
+#include <QAction>
 #include <QFileDialog>
 
 LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, GlobalKeyShortcut::Action * shortcut, const QString &defaultShortcut, QWidget *parent) :
