@@ -199,7 +199,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Usar iconos de WindowClass, si está disponible</translation>
+        <translation>Usar iconos de WindowClass, si están disponibles</translation>
     </message>
     <message>
         <source>Show windows from current desktop</source>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../../../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Cerrar con el boton central</translation>
+        <translation>Cerrar con el botón central</translation>
     </message>
     <message>
         <location filename="../../../lxqttaskbarconfiguration.cpp" line="45"/>
