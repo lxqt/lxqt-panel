@@ -48,7 +48,7 @@
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>Prioridad</translation>
+        <translation>&amp;Prioridad</translation>
     </message>
     <message>
         <location filename="../../../lxqtsysstatcolours.ui" line="97"/>
