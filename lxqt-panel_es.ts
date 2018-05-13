@@ -167,7 +167,7 @@
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Un largo negativo en píxeles configura el largo del panel a esa cantidad de píxeles menos que el espacio disponible en la pantalla.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.j. &quot;Largo&quot; configurado a -100px, el tamaño de la pantalla es 1000px, entonces el largo real del panel será de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Un largo negativo en píxeles configura el largo del panel a esa cantidad de píxeles menos que el espacio disponible en la pantalla.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;P. ej. &quot;Largo&quot; configurado a -100px, el tamaño de la pantalla es 1000px, entonces el largo real del panel será de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="96"/>
@@ -193,7 +193,7 @@
         <location filename="../../../config/configpanelwidget.ui" line="262"/>
         <location filename="../../../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Cero indica no usar animaciones</translation>
+        <translation>Cero equivale a no usar animaciones</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="288"/>
@@ -234,7 +234,7 @@
         <location filename="../../../config/configpanelwidget.ui" line="301"/>
         <location filename="../../../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>Cero indica sin demora</translation>
+        <translation>Cero equivale a sin demora</translation>
     </message>
     <message>
         <location filename="../../../config/configpanelwidget.ui" line="304"/>
@@ -397,7 +397,7 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Mover arriba</translation>
+        <translation>Mover hacia arriba</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="115"/>
@@ -411,7 +411,7 @@
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Mover abajo</translation>
+        <translation>Mover hacia abajo</translation>
     </message>
     <message>
         <location filename="../../../config/configpluginswidget.ui" line="147"/>
