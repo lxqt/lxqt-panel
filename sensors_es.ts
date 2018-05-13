@@ -45,12 +45,12 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>Parpadeo en las barras de progreso cuando la temperatura es demasiado alta</translation>
+        <translation>Hacer titilar las barras cuando la temperatura sea demasiado alta</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Advertencia cuando la temperatura sea alta</translation>
+        <translation>Avisar cuando la temperatura sea alta</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="152"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Chips detectado:</translation>
+        <translation>Chips detectados:</translation>
     </message>
     <message>
         <location filename="../../../lxqtsensorsconfiguration.ui" line="175"/>
