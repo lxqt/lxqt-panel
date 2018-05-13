@@ -77,12 +77,12 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Silenciar con click central</translation>
+        <translation>Silenciar haciendo clic con el botón central</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Mostrar con un click</translation>
+        <translation>Mostrar al hacer clic con el ratón</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="77"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Tamaño del ajuste de volumen</translation>
+        <translation>Paso del ajuste de volumen</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="118"/>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>Lanzar el mezclador</translation>
+        <translation>Ejecuta el mezclador</translation>
     </message>
     <message>
         <location filename="../../../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation>Mezclador</translation>
+        <translation>&amp;Mezclador</translation>
     </message>
 </context>
 </TS>
