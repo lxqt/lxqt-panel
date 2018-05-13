@@ -65,7 +65,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>Archivo del menú</translation>
+        <translation>Archivo de menú</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="111"/>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>Atajo del teclado</translation>
+        <translation>Atajo de teclado</translation>
     </message>
     <message>
         <location filename="../../../lxqtmainmenuconfiguration.ui" line="146"/>
