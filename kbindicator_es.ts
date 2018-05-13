@@ -90,7 +90,7 @@
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Configurar distribuciones</translation>
+        <translation>Configurar las distribuciones</translation>
     </message>
     <message>
         <location filename="../../../src/kbdstateconfig.ui" line="69"/>
