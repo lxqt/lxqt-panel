@@ -230,10 +230,10 @@ void LXQtMainMenu::settingsChanged()
         mXdgMenu.setLogDir(mLogDir);
 
         bool res = mXdgMenu.read(mMenuFile);
-        connect(&mXdgMenu, SIGNAL(changed()), this, SLOT(buildMenu()));
+        connect(&mXdgMenu, &XdgMenu::changed, this, &LXQtMainMenu::buildMenu);
         if (res)
         {
-            QTimer::singleShot(1000, this, SLOT(buildMenu()));
+            QTimer::singleShot(1000, this, &LXQtMainMenu::buildMenu);
         }
         else
         {
