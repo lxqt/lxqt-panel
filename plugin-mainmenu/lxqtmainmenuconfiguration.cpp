@@ -50,13 +50,13 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     ui->chooseMenuFilePB->setIcon(folder);
     ui->iconPB->setIcon(folder);
 
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
+    connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtMainMenuConfiguration::dialogButtonsAction);
 
     loadSettings();
 
-    connect(ui->showTextCB, SIGNAL(toggled(bool)), this, SLOT(showTextChanged(bool)));
-    connect(ui->textLE, SIGNAL(textEdited(QString)), this, SLOT(textButtonChanged(QString)));
-    connect(ui->chooseMenuFilePB, SIGNAL(clicked()), this, SLOT(chooseMenuFile()));
+    connect(ui->showTextCB, &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::showTextChanged);
+    connect(ui->textLE, &QLineEdit::textEdited, this, &LXQtMainMenuConfiguration::textButtonChanged);
+    connect(ui->chooseMenuFilePB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseMenuFile);
     connect(ui->menuFilePathLE, &QLineEdit::textChanged, [&] (QString const & file)
         {
             this->settings().setValue(QLatin1String("menu_file"), file);
@@ -68,11 +68,11 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
             this->settings().setValue(QLatin1String("icon"), path);
         });
 
-    connect(ui->shortcutEd, SIGNAL(shortcutGrabbed(QString)), this, SLOT(shortcutChanged(QString)));
-    connect(ui->shortcutEd->addMenuAction(tr("Reset")), SIGNAL(triggered()), this, SLOT(shortcutReset()));
+    connect(ui->shortcutEd, &ShortcutSelector::shortcutGrabbed, this, &LXQtMainMenuConfiguration::shortcutChanged);
+    connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtMainMenuConfiguration::shortcutReset);
 
-    connect(ui->customFontCB, SIGNAL(toggled(bool)), this, SLOT(customFontChanged(bool)));
-    connect(ui->customFontSizeSB, SIGNAL(valueChanged(int)), this, SLOT(customFontSizeChanged(int)));
+    connect(ui->customFontCB, &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::customFontChanged);
+    connect(ui->customFontSizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtMainMenuConfiguration::customFontSizeChanged);
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
 

@@ -75,7 +75,7 @@ void XdgCachedMenuAction::updateIcon()
 
 XdgCachedMenu::XdgCachedMenu(QWidget* parent): QMenu(parent)
 {
-    connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
+    connect(this, &QMenu::aboutToShow, this, &XdgCachedMenu::onAboutToShow);
 }
 
 XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(parent)
@@ -90,7 +90,7 @@ XdgCachedMenu::XdgCachedMenu(MenuCache* menuCache, QWidget* parent): QMenu(paren
 
     addMenuItems(this, dir);
     menu_cache_item_unref(MENU_CACHE_ITEM(dir));
-    connect(this, SIGNAL(aboutToShow()), SLOT(onAboutToShow()));
+    connect(this, &QMenu::aboutToShow, this, &XdgCachedMenu::onAboutToShow);
 }
 
 XdgCachedMenu::~XdgCachedMenu()
@@ -128,7 +128,7 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
       menu->addAction(action);
 
       if(type == MENU_CACHE_TYPE_APP)
-        connect(action, SIGNAL(triggered(bool)), SLOT(onItemTrigerred()));
+        connect(action, &QAction::triggered, this, &XdgCachedMenu::onItemTrigerred);
       else if(type == MENU_CACHE_TYPE_DIR)
       {
         XdgCachedMenu* submenu = new XdgCachedMenu(menu);
