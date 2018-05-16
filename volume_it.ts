@@ -28,18 +28,14 @@
         <translation>Controllo volume: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="287"/>
+        <location filename="../../../lxqtvolume.cpp" line="284"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume: silenziato</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="289"/>
-        <source>Volume: %1%</source>
-        <translation type="unfinished">Volume: %1%</translation>
-    </message>
-    <message>
+        <location filename="../../../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1</source>
-        <translation type="vanished">Volume: %1</translation>
+        <translation>Volume: %1</translation>
     </message>
 </context>
 <context>
@@ -96,7 +92,7 @@
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Notifica sempre i cambiamenti di volume</translation>
     </message>
     <message>
         <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
@@ -119,7 +115,7 @@
     <message>
         <location filename="../../../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>Mi&amp;xer</translation>
     </message>
     <message>
         <source>Mixer</source>
