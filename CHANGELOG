@@ -1,7 +1,48 @@
 
-lxqt-panel-0.12.0 / 2017-10-21
+lxqt-panel-0.13.0 / 2018-05-21
 ==============================
 
+  *  Remove spurious newline
+  * Remove spurious newline
+  * Spanish translation update
+  * mainmenu: Use new signal/slot connection notation
+  * lxqtmainmenuconfiguration.cpp: include QAction explicitely
+  * CMake: Prevent in-source builds
+  * Fix task button removal on class change
+  * plugin-kbindicator: Go directly to the Keyboard Layout config page
+  * Update XdgAction icons appropriately
+  * Introduce option USE_MENU_CACHE, default OFF
+  * fixed razor-qt -> lxqt and http -> https
+  * Fixed mentions of LXDE
+  * mainmenu: Don't use "fallback" QIcon::fromTheme
+  * mainmenu: Use the QIcon::fromTheme()
+  * Set the initial task button text (and icon) correctly (#454)
+  * Update Simplified Chinese translations (#456)
+  * Fix worldclock in panel.conf
+  * Move and Resize items in task-button context menu
+  * Drop missed foreach
+  * Prevent possible container detachments
+  * Drop Qt foreach
+  * avoid infinite recursion when no icon avaible.
+  * pavucontrol should be pavucontrol-qt
+  * cpuload: Do proper cleanup
+  * cmake: Handle CMP0071
+  * taskbar: Avoid conditionals on unintialized values
+  * mount: Fix leak
+  * mainmenu: Fix posible leaks in menu-cache usage
+  * move panel config to /usr/share/lxqt
+  * lxqtpanel: Fix wrongly positioned popups
+  * ixlqtpanel: Fix typo Gometry -> Geometry
+  * plugin-volume: Use a specific icon for the panel
+  * Use the new FindXKBCommon CMake module
+  * plugin-volume: Add % to value for notification
+  * worldclock: Fix widget size updating (#438)
+  * Fix stupid whitespace.
+
+0.12.0 / 2017-10-21
+===================
+
+  * Release 0.12.0: Update changelog
   * Set patch version
   * quicklaunch: Show popup menu aligned to clicked button
   * quicklaunch: Add "Desktop Action" support
@@ -34,7 +75,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Updated *_da.desktop files and removed *_da_DK.desktop files
   * translation: Add Portugese directories
   * Update desktop entries and Replace fr_FR by fr
-  * Merge pull request #45 from lxqt/menu-comment
+  * Merge pull request #45 from lxde/menu-comment
   * lxqt-applications.menu: remove accidentally added topics from "System Tools"
   * Update Greek translation (el) Remove country variant from language code
   * Rename LxQt to LXQt everywhere
@@ -382,7 +423,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Provide esperanto translation for networkmonitor
   * Correct translation for esperanto desktop file
   * Add turkish translation
-  * Fix lxqt/lxqt#684: activate window on some options
+  * Fix lxde/lxqt#684: activate window on some options
   * plugins: unified handling for single instance plugins across all panels
   * plugins: flag to limit plugins to single instances
   * plugin-volume: handle maximum volume proportionally
@@ -437,7 +478,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Create cpuload_hr.ts
   * Hungarian translations added, modified
   * plugin-mainmenu: fix crash on changing menu file
-  * Fixes lxqt/lxqt#647, FTBFS
+  * Fixes lxde/lxqt#647, FTBFS
   * Update networkmonitor_it.desktop
   * Update networkmonitor_it_IT.desktop
   * Update networkmonitor_it_IT.desktop
@@ -584,8 +625,8 @@ lxqt-panel-0.12.0 / 2017-10-21
   * panel: connected cleanup to signal aboutToQuit
   * Style/headers cleanups in Sensors plugin
   * Updated polish translations
-  * Add support for "local" timezone. Fixes lxqt/lxqt#519
-  * Simplify update timeout. Fixes lxqt/lxqt#525
+  * Add support for "local" timezone. Fixes lxde/lxqt#519
+  * Simplify update timeout. Fixes lxde/lxqt#525
   * plugin-mount: switch from liblxqt-mount to KF5Solid
   * Style cleanups in ColorPicker, DOM, Mount and QuickLaunch plugins
   * added separate list of configured plugins to not delete them from configuration in case plugin not found
@@ -597,13 +638,13 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Add some debug code to benchmark the loading time of each plugin during panel startup.
   * Make some frequently used plugins "statically-linked" to speed up loading. * The static plugins are: clock, desktopswitch, mainmenu, quicklaunch, showdesktop, taskbar, tray, and worldclock.
   * Add missing libxcb linkage to showdesktop and tray plugins since they still uses xcb.
-  * remove KF5/ prefix from includes as done in lxqt/liblxqt/pull/36
+  * remove KF5/ prefix from includes     as done in lxde/liblxqt/pull/36
 
 0.9.0 / 2015-02-05
 ==================
 
   * Change the delay of main menu popup from 500 ms to 250 ms.
-  * Try to fix lxqt/lxqt#459, lxqt/lxqt##142, and lxqt/lxqt#401 at the same time. * Delay showing the menu when it's activated by shortcut key to workaround keyboard focus related issues. * Code cleanup. Remove unnecessary keyboard event hacks.
+  * Try to fix lxde/lxqt#459, lxde/lxqt##142, and lxde/lxqt#401 at the same time. * Delay showing the menu when it's activated by shortcut key to workaround keyboard focus related issues. * Code cleanup. Remove unnecessary keyboard event hacks.
   * Revert "Fix mainmenu's focus"
   * Add icons to the panel plugins
   * Add missing action icons to the panel popup menu
@@ -627,16 +668,16 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Makes the Show Desktop shortcut work again
   * Remove plugin settings from panel settings file when plugin is removed
   * Portuguese language update
-  * Rename some text. See lxqt/lxqt#416
+  * Rename some text. See lxde/lxqt#416
   * Cleanup of CMakes, using GNUInstallDirs now
   * Updates translations sources
   * Unify plugin files naming
-  * Support custom time zone names (as per request in https://github.com/lxqt/lxqt/issues/312#issuecomment-68588776 )
+  * Support custom time zone names (as per request in https://github.com/lxde/lxqt/issues/312#issuecomment-68588776 )
   * Rewrite worldclock's configuration
   * - Reverse wrong placed translations.
   * - Update brazilian portuguese desktop translation
   * Toggle lock keys' state on click on keyboard indicator
-  * Use xcb on Show Desktop plugin. This is related to lxqt/lxqt#338
+  * Use xcb on Show Desktop plugin. This is related to lxde/lxqt#338
   * Add QX11Extras to cmake include dir
   * - Unify naming for a unique lxqt. No more suffixes
   * Network Monitor plugin: fix faulty German translation
@@ -647,7 +688,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Commit from LXDE Pootle server by user LStranger.: 391 of 391 strings translated (0 need review).
   * Add keyboard navigation to main menu
   * Reorganization of mainmenu's configuration panel
-  * Fixes lxqt/lxqt#318 configurable font size in mainmenu
+  * Fixes lxde/lxqt#318 configurable font size in mainmenu
   * Commit from LXDE Pootle server by user flywheel.: 262 of 264 strings translated (2 need review).
   * Update taskbar buttons' icons on event
   * Add KDevelop project file type to .gitignore
@@ -669,10 +710,10 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Custom font color handling. Fixes #101.
   * Panel background configuration
   * Commit from LXDE Pootle server by user H.Humpel.: 124 of 305 strings translated (0 need review).
-  * Reset statistics widget only when size changes. Fixes lxqt/lxqt#353
+  * Reset statistics widget only when size changes. Fixes lxde/lxde-qt#353
   * Relax limits on size and update frequency
   * Set the systray plugin free form liblxqt's XfitMan
-  * Fix segfault on i3 when changing workspaces. Fixes lxqt/lxqt#240
+  * Fix segfault on i3 when changing workspaces. Fixes lxde/lxde-qt#240
   * Commit from LXDE Pootle server by user rago1975.: 65 of 65 strings translated (0 need review).
   * Fixes an FTBFS on openSuse
   * Commit from LXDE Pootle server by user JSonic.: 391 of 391 strings translated (0 need review).
@@ -683,10 +724,10 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Commit from LXDE Pootle server by user rago1975.: 39 of 39 strings translated (0 need review).
   * Commit from LXDE Pootle server by user KlemenKosir.: 360 of 356 strings translated (0 need review).
   * Fixes translations not being loaded.
-  * Fixes lxqt/lxqt#325. Drop .desktop files on quicklaunch
+  * Fixes lxde/lxde-qt#325. Drop .desktop files on quicklaunch
   * Update Russian translation
   * Fix taskbar window filter
-  * Reset calendar's selected date when showing. Fixes lxqt/lxqt#322
+  * Reset calendar's selected date when showing. Fixes lxde/lxde-qt#322
   * worldclock: get rid of ICU
   * CMakeLists.txt cleanup
   * Commented line that was causing high CPU and memory usage
@@ -702,9 +743,9 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Load the plugins translations
   * Adapt to the translation infrastructure
   * Fix plugin title in context menu
-  * Allow opening more than one plugin configuration panel. Fixes lxqt/lxqt#60
-  * Make Removable Media's panel be closable with ESC. Fixes lxqt/lxqt#126
-  * Needed for lxqt/lxqt#140 and #54
+  * Allow opening more than one plugin configuration panel. Fixes lxde/lxde-qt#60
+  * Make Removable Media's panel be closable with ESC. Fixes lxde/lxde-qt#126
+  * Needed for lxde/lxde-qt#140 and #54
   * Make version detection work with Qt4
   * Fixes bug that resets panel configuration on panel deletion
   * Make calendar dialog hide when it loses focus
@@ -713,20 +754,20 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Prevent infinite repainting
   * Keep layout direction linked to rotation
   * Update copyright info
-  * Fix lxqt/lxqt#61
+  * Fix lxde/lxde-qt#61
   * Fix iterator type
-  * Fix lxqt/lxqt#279
+  * Fix lxde/lxde-qt#279
   * Avoid using XdgDesktopFileCache which loads the whole cache just to get info for several files. This can speed up startup of lxqt-panel.
   * Adapts to the new libqtxdg XdgMimeType class
   * Removes "Set from theme" panel size button
   * Commit from LXDE Pootle server by user dforsi.: 57 of 57 strings translated (0 need review).
   * Commit from LXDE Pootle server by user psokol.: 16 of 32 strings translated (0 need review).
   * Fix incorrect handling of work area and WM_STRUT which cause incorrect popup menu places.
-  * Workaround for Qt 5 bug #40681 by monitoring QScreen::destroyed() and re-create affected panels manually. * This closes lxqt/lxqt bug #204, #205, and #206 at the same time. * Store the result of QX11Info::display() and avoid repeated calls to the methods.   (When called during the primary screen being destroyed, QX11Info::display() crashes.)
-  * Force re-creation of the panel window when screen count is changed to workaround Qt bug 40681. * Fix lxqt/lxqt bug #204, #205, and fix incorrect WM_STRUT & WM_STRUT_PARTIAL X window properties.
+  * Workaround for Qt 5 bug #40681 by monitoring QScreen::destroyed() and re-create affected panels manually. * This closes lxde/lxde-qt bug #204, #205, and #206 at the same time. * Store the result of QX11Info::display() and avoid repeated calls to the methods.   (When called during the primary screen being destroyed, QX11Info::display() crashes.)
+  * Force re-creation of the panel window when screen count is changed to workaround Qt bug 40681. * Fix lxde/lxde-qt bug #204, #205, and fix incorrect WM_STRUT & WM_STRUT_PARTIAL X window properties.
   * Use the edge of the whole screen instead of that of individual monitors when setting strut as specified in the xdg EWMH spec.
   * Fix incorrect _NET_WM_STRUT settings under multi-head environment.
-  * Do not activate the panel on mouse click. This closes lxqt/lxqt bug # 161.
+  * Do not activate the panel on mouse click. This closes lxde/lxde-qt bug # 161.
   * Replace Qt5 only API QWidget::grab() with QWidget::render() when compiled with Qt4.
   * Always use percentage (0-100) for the volume of audio devices.
   * Delete invalid slot.
@@ -742,7 +783,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Apply the new QStyles correctly to the main menu when the style is changed.
   * Fix bug #14: ilxqtpanel.h misses its dependency on lxqtpanelglobals.h.
   * Add missing xcb packages to CMakeLists.txt.
-  * Try to fix lxqt bug #208: Volume applet slider closes immediately after touching. * Do not hide the volume popup when realign(). * Activate the popup window, and hide the popup when it's deactivated. * Fix the timeout handling in VolumeButton.
+  * Try to fix lxde-qt bug #208: Volume applet slider closes immediately after touching. * Do not hide the volume popup when realign(). * Activate the popup window, and hide the popup when it's deactivated. * Fix the timeout handling in VolumeButton.
   * Update the sink list in the config dialog of volume control plugin when changing audio engine.
   * Fix the incorrect default value of audio backend of volume control plugin.
   * Properly include sysstat directories
