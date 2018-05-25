@@ -85,21 +85,13 @@ message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 # Plugin system
 # You can enable/disable building of the plugin using cmake options.
-#    cmake -DCLOCK_PLUGIN=Yes .. # Enable clock plugin
-#    cmake -DCLOCK_PLUGIN=No ..  # Disable clock plugin
+#    cmake -DWORLDCLOCK_PLUGIN=Yes .. # Enable worldclock plugin
+#    cmake -DWORLDCLOCK_PLUGIN=No ..  # Disable worldclock plugin
 
 include("cmake/BuildPlugin.cmake")
 
 set(ENABLED_PLUGINS) # list of enabled plugins
 set(STATIC_PLUGINS) # list of statically linked plugins
-
-setByDefault(CLOCK_PLUGIN Yes)
-if(CLOCK_PLUGIN)
-    list(APPEND STATIC_PLUGINS "clock")
-    add_definitions(-DWITH_CLOCK_PLUGIN)
-    list(APPEND ENABLED_PLUGINS "Clock")
-    add_subdirectory(plugin-clock)
-endif()
 
 setByDefault(COLORPICKER_PLUGIN Yes)
 if(COLORPICKER_PLUGIN)
