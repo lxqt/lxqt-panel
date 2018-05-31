@@ -159,7 +159,7 @@
       <item row="2" column="1">
        <widget class="QLabel" name="filterShowMaxWidthL">
         <property name="text">
-         <string>max. item width:</string>
+         <string>Max. item width:</string>
         </property>
        </widget>
       </item>
