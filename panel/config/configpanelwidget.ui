@@ -170,7 +170,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="label_lineCount">
            <property name="text">
-            <string>Rows count:</string>
+            <string>Rows:</string>
            </property>
           </widget>
          </item>
