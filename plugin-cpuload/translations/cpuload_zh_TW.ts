@@ -4,11 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <source>Cpu load %1%</source>
-        <translation type="vanished">CPU使用率 %1%</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtcpuload.cpp" line="127"/>
+        <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16,61 +12,57 @@
 <context>
     <name>LXQtCpuLoadConfiguration</name>
     <message>
-        <source>LXQt Cpu Load settings</source>
-        <translation type="vanished">LXQtCPU使用率提示設定</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="14"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="20"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
         <translation>顯示文字</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
         <translation>更新間隔</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
         <translation>進度條方向</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>由下至上</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>由上至下</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>由左至右</translation>
     </message>
     <message>
-        <location filename="../../../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>由右至左</translation>
     </message>
