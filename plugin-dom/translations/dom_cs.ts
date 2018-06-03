@@ -4,33 +4,33 @@
 <context>
     <name>TreeWindow</name>
     <message>
-        <location filename="../../../treewindow.ui" line="14"/>
+        <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
         <translation>Strom DOM panelu</translation>
     </message>
     <message>
-        <location filename="../../../treewindow.ui" line="63"/>
-        <location filename="../../../treewindow.ui" line="96"/>
+        <location filename="../treewindow.ui" line="63"/>
+        <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
         <translation>Vlastnictví</translation>
     </message>
     <message>
-        <location filename="../../../treewindow.ui" line="68"/>
+        <location filename="../treewindow.ui" line="68"/>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
     <message>
-        <location filename="../../../treewindow.ui" line="76"/>
+        <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
         <translation>Všechny vlastnosti</translation>
     </message>
     <message>
-        <location filename="../../../treewindow.ui" line="101"/>
+        <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../../treewindow.ui" line="106"/>
+        <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
         <translation>Hodnota řetězce</translation>
     </message>
