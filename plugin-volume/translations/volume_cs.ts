@@ -4,107 +4,95 @@
 <context>
     <name>LXQtVolume</name>
     <message>
-        <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="vanished">Ukázat plochu: Celkovou zkratku &apos;%1&apos; nelze zapsat</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtvolume.cpp" line="63"/>
+        <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
         <translation>Zvýšit hlasitost zvuku</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="69"/>
+        <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
         <translation>Snížit hlasitost zvuku</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="75"/>
+        <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
         <translation>Ztlunit/Zrušit ztlumení hlasitosti zvuku</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="136"/>
+        <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Ovládání hlasitosti: Následující klávesové zkratky nelze zapsat: %1</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="287"/>
+        <location filename="../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
         <translation>Hlasitost: Ztlumeno</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1%</source>
         <translation type="unfinished">Hlasitost: %1%</translation>
-    </message>
-    <message>
-        <source>Volume: %1</source>
-        <translation type="vanished">Hlasitost: %1</translation>
     </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>
     <message>
-        <source>LXQt Volume Control Settings</source>
-        <translation type="vanished">Nastavení ovládání hlasitosti</translation>
-    </message>
-    <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="14"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
         <translation>Nastavení ovládání hlasitosti</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="20"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
         <translation>Zařízení k ovládání</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="28"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>Alsa</source>
         <translation>Alsa</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="35"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
         <source>PulseAudio</source>
         <translation>PulseAudio</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="42"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
         <translation>OSS</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="57"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
         <source>Behavior</source>
         <translation>Chování</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="63"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
         <translation>Ztlumit při klepnutí prostředním tlačítkem</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="70"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
         <translation>Ukázat při klepnutí myší</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="77"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>Povolit hlasitost přes 100% (0dB)</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
         <translation>Vždy upozornit na změny hlasitosti</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="99"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>Krok úpravy hlasitosti</translation>
     </message>
     <message>
-        <location filename="../../../lxqtvolumeconfiguration.ui" line="118"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>Vnější směšovač</translation>
     </message>
@@ -112,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../../../volumepopup.cpp" line="54"/>
+        <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
         <translation>Spustit směšovač</translation>
     </message>
     <message>
-        <location filename="../../../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Směšovač</translation>
     </message>
