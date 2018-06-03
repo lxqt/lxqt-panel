@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../../../lxqtworldclock.cpp" line="241"/>
+        <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation></translation>
     </message>
@@ -12,228 +12,228 @@
 <context>
     <name>LXQtWorldClockConfiguration</name>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="14"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
         <translation>Configuración de Reloj mundial</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="24"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
         <translation>&amp;Formato de presentación</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="30"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
         <translation>Hora</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="39"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
         <translation>F&amp;ormato:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="50"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="176"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="272"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
         <translation>Corto</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="55"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="181"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="277"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
         <translation>Largo</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="60"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="287"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
         <translation>Personalizado</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="89"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
         <translation>Mostrar los segundos</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="96"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
         <translation>Rellenar la &amp;hora con ceros</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="116"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
         <translation>Zona horar&amp;ia</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="128"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
         <translation>&amp;Posición:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="138"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
         <translation>For&amp;mato:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="149"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="238"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
         <translation>Abajo</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="154"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="243"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
         <translation>Arriba</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="159"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="248"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="248"/>
         <source>Before</source>
         <translation>Antes</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="164"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="253"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="164"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="253"/>
         <source>After</source>
         <translation>Después</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="186"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
         <translation>Desviación de UTC</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="191"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
         <translation>Abreviatura</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="431"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
         <translation>Identificador de IANA</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="201"/>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="579"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="579"/>
         <source>Custom name</source>
         <translation>Nombre personalizado</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="103"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
         <translation>&amp;Usar formato de 12 horas</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="196"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
         <translation>Identificador de ubicación</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="212"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
         <translation>Fecha</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="227"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
         <translation>Po&amp;sición:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="261"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
         <translation>Fo&amp;rmato:</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="282"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
         <translation>ISO 8601</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="316"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
         <translation>Mostrar el año</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="323"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
         <translation>Mostrar el día de la semana</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="330"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
         <translation>Rellen&amp;ar el día con ceros</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="337"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
         <translation>Nombres &amp;completos de meses y días de la semana</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="350"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
         <translation>Formato manual a&amp;vanzado</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="377"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
         <translation>Personalizar...</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="403"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
         <translation>&amp;Zonas horarias</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="446"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
         <translation>&amp;Añadir...</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="456"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
         <translation>&amp;Eliminar</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="466"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
         <translation>Establecer como pre&amp;definido</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="476"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
         <translation>&amp;Editar el nombre personalizado...</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="486"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
         <translation>Mover hacia arriba</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="496"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
         <translation>Mover hacia abajo</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="519"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
         <translation>&amp;General</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.ui" line="525"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>&amp;Rotar automáticamente cuando el panel esté vertical</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="103"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfiguration.cpp" line="578"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Input custom time zone name</source>
         <translation>Introduzca el nombre personalizado de la zona horaria</translation>
     </message>
@@ -241,12 +241,12 @@
 <context>
     <name>LXQtWorldClockConfigurationManualFormat</name>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
+        <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Time Zones</source>
         <translation>Zonas horarias del Reloj mundial</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
+        <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
         <source>&lt;h1&gt;Custom Date/Time Format Syntax&lt;/h1&gt;
 &lt;p&gt;A date pattern is a string of characters, where specific strings of characters are replaced with date and time data from a calendar when formatting or used to generate data for a calendar when parsing.&lt;/p&gt;
 &lt;p&gt;The Date Field Symbol Table below contains the characters used in patterns to show the appropriate formats for a given locale, such as yyyy for the year. Characters may be used multiple times. For example, if y is used for the year, &apos;yy&apos; might produce &apos;99&apos;, whereas &apos;yyyy&apos; produces &apos;1999&apos;. For most numerical fields, the number of characters specifies the field width. For example, if h is the hour, &apos;h&apos; might produce &apos;5&apos;, but &apos;hh&apos; produces &apos;05&apos;. For some characters, the count specifies whether an abbreviated or full form should be used, but may have other choices, as given below.&lt;/p&gt;
@@ -326,43 +326,43 @@
 <context>
     <name>LXQtWorldClockConfigurationTimeZones</name>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.ui" line="14"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
         <translation>Zonas horarias del Reloj mundial</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.ui" line="36"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
         <translation>Zona horaria</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.ui" line="41"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.ui" line="46"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
         <source>Comment</source>
         <translation>Comentario</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.ui" line="51"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.ui" line="51"/>
         <source>Country</source>
         <translation>País</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
         <translation>UTC</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Other</source>
         <translation>Otra</translation>
     </message>
     <message>
-        <location filename="../../../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
+        <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
         <translation>Zona horaria local</translation>
     </message>
