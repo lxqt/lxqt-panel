@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 project(lxqt-panel)
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
-option(PULL_TRANSLATIONS "Pull translations" ON)
 option(WITH_SCREENSAVER_FALLBACK "Include support for converting the deprecated 'screensaver' plugin to 'quicklaunch'. This requires the lxqt-leave (lxqt-session) to be installed in runtime." ON)
 # plugin-mainmenu
 option(USE_MENU_CACHE "Use menu-cached (no noticable penalty even on a 2004 single core pentium if not used)" OFF)
