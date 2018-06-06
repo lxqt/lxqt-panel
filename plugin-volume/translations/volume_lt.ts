@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="lt">
+<context>
+    <name>LXQtVolume</name>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="63"/>
+        <source>Increase sound volume</source>
+        <translation>Pagarsinti</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="69"/>
+        <source>Decrease sound volume</source>
+        <translation>Tildyti</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="75"/>
+        <source>Mute/unmute sound volume</source>
+        <translation>Nutildyti/įjungti garsį</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="136"/>
+        <source>Volume Control: The following shortcuts can not be registered: %1</source>
+        <translation>Garsio reguliavimas: Šie spartieji klavišai negali būti užregistruoti: %1</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="287"/>
+        <source>Volume: muted</source>
+        <translation>Garsis: nutildytas</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="289"/>
+        <source>Volume: %1%</source>
+        <translation>Garsis: %1%</translation>
+    </message>
+</context>
+<context>
+    <name>LXQtVolumeConfiguration</name>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
+        <source>Volume Control Settings</source>
+        <translation>Garsio reguliavimo nustatymai</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
+        <source>Device to control</source>
+        <translation>Įrenginys, kurį valdyti</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
+        <source>Alsa</source>
+        <translation>Alsa</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
+        <source>PulseAudio</source>
+        <translation>PulseAudio</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
+        <source>OSS</source>
+        <translation>OSS</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
+        <source>Behavior</source>
+        <translation>Elgsena</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
+        <source>Mute on middle click</source>
+        <translation>Nutildyti, spustelėjus vidurinį pelės mygtuką</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
+        <source>Show on mouse click</source>
+        <translation>Rodyti, spustelėjus pele</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
+        <source>Allow volume beyond 100% (0dB)</source>
+        <translation>Leisti garsį virš 100% (0dB)</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <source>Always notify about volume changes</source>
+        <translation>Visada pranešti apie garsio pakeitimus</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
+        <source>Volume adjust step</source>
+        <translation>Garsio reguliavimo žingsnis</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
+        <source>External Mixer</source>
+        <translation>Išorinis maišiklis</translation>
+    </message>
+</context>
+<context>
+    <name>VolumePopup</name>
+    <message>
+        <location filename="../volumepopup.cpp" line="54"/>
+        <source>Launch mixer</source>
+        <translation>Paleisti maišiklį</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="55"/>
+        <source>Mi&amp;xer</source>
+        <translation>Maiši&amp;klis</translation>
+    </message>
+</context>
+</TS>
