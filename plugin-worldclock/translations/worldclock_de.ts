@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>12-St&amp;undenformat benutzen</translation>
+        <translation>12-St&amp;unden-Format benutzen</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
