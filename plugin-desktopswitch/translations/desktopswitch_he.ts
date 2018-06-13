@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation></translation>
+        <translation>מעבר לשולחן עבודה %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
         <location filename="../desktopswitch.cpp" line="151"/>
         <source>Desktop %1</source>
-        <translation></translation>
+        <translation>שולחן עבודה %1</translation>
     </message>
 </context>
 <context>
@@ -20,42 +20,42 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation></translation>
+        <translation>הגדרות מעבר שולחן עבודה</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation></translation>
+        <translation>מספר שורות:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation></translation>
+        <translation>תוויות שולחנות עבודה:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation></translation>
+        <translation>מראה</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation></translation>
+        <translation>מספרים</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation></translation>
+        <translation>שמות</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation></translation>
+        <translation>אין</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation></translation>
+        <translation>שמות שולחנות עבודה</translation>
     </message>
 </context>
 </TS>
