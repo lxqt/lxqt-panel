@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>搜尋...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
