@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">可卸除式裝置管理員</translation>
+        <translation>可卸除式裝置管理員</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">行為</translation>
+        <translation>行為</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation type="unfinished">彈出選單</translation>
+        <translation>彈出式選單</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation type="unfinished">顯示訊息</translation>
+        <translation>顯示資訊</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation type="unfinished">什麼都不做</translation>
+        <translation>什麼都不做</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished">裝置 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 已連接。</translation>
+        <translation>裝置 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 已連接。</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished">裝置 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 已卸除。</translation>
+        <translation>裝置 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 已卸除。</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">可卸除式裝置管理員</translation>
+        <translation>可卸除式裝置管理員</translation>
     </message>
 </context>
 <context>
@@ -65,18 +65,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>掛載 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 失敗：%2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">可卸除式裝置管理員</translation>
+        <translation>可卸除式裝置管理員</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>卸載 &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; 失敗：%2</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation type="unfinished"></translation>
+        <translation>沒有可用裝置</translation>
     </message>
 </context>
 </TS>
