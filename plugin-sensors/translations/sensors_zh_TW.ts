@@ -61,7 +61,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>晶片資訊</translation>
+        <translation>晶片資訊：</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
