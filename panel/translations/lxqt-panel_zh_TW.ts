@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>搜尋:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
