@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>感應器設定</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
