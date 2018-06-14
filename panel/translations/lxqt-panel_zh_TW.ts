@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>新增插件</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>新增小工具</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(一次只能執行一個項目)</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>配置面板</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">面板</translation>
+        <translation>面板</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>小工具</translation>
     </message>
 </context>
 <context>
@@ -52,226 +52,226 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">設定面板</translation>
+        <translation>配置面板</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">尺寸：</translation>
+        <translation>大小：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> 像素</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>圖示大小：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">長度：</translation>
+        <translation>長度：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;設定面板長度為負數像素值代表少於螢幕長度多少像素。&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例如：設定長度為-100像素，螢幕長度為1000像素，實際面板長度將為900像素。&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>像素</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation type="unfinished"></translation>
+        <translation>列數：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>對齊和位置</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>零代表無動畫</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> 毫秒</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>動畫長度：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="202"/>
         <source>Left</source>
-        <translation type="unfinished">向左</translation>
+        <translation>向左</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="203"/>
         <location filename="../config/configpanelwidget.cpp" line="209"/>
         <source>Center</source>
-        <translation type="unfinished">中間</translation>
+        <translation>中間</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="204"/>
         <source>Right</source>
-        <translation type="unfinished">向右</translation>
+        <translation>向右</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>自動隱藏 (&amp;u)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>零代表無延遲</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>顯示有延遲：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>不允許最大化視窗在面板視窗的下面</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>在螢幕上保留空間</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>自訂樣式</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>字型顏色：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景顏色：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景不透明度：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;面板透明度需要合成&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>背景圖片：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished">對齊：</translation>
+        <translation>對齊：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">位置 : </translation>
+        <translation>位置 :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="168"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">桌面頂端</translation>
+        <translation>桌面頂端</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="169"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">桌面左方</translation>
+        <translation>桌面左方</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="170"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">桌面右方</translation>
+        <translation>桌面右方</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="171"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">桌面底端</translation>
+        <translation>桌面底端</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">桌面頂端 %1</translation>
+        <translation>桌面頂端 %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="181"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">桌面左方 %1</translation>
+        <translation>桌面左方 %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">桌面右方 %1</translation>
+        <translation>桌面右方 %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">桌面底端 %1</translation>
+        <translation>桌面底端 %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>頂端</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="210"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>底端</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="368"/>
         <location filename="../config/configpanelwidget.cpp" line="384"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇顏色</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>圖片 (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>選擇圖片</translation>
     </message>
 </context>
 <context>
@@ -279,17 +279,17 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>配置插件</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>註解：此頁的更動無法被重置。</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>向上移動</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -298,27 +298,27 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>向下移動</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>新增</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">設定</translation>
+        <translation>配置</translation>
     </message>
 </context>
 <context>
@@ -332,40 +332,41 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>配置面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>管理小工具</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>新增面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished"></translation>
+        <translation>移除面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>鎖定此面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished"></translation>
+        <translation>移除面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>移除面板是不可回復的。
+你想移除此面板嗎？</translation>
     </message>
 </context>
 <context>
@@ -373,17 +374,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>配置 &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>移動 &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>移除 &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -391,12 +392,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用替代的配置檔案。</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>配置檔案</translation>
     </message>
 </context>
 </TS>
