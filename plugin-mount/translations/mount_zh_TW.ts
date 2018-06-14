@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>可卸除式裝置設定</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected :</source>
-        <translation type="unfinished"></translation>
+        <translation>裝置連接時:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
