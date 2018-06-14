@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>更新間隔</translation>
+        <translation>更新間隔：</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>進度條方向</translation>
+        <translation>進度條方向：</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
