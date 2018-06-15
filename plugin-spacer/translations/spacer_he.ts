@@ -6,32 +6,32 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="12"/>
         <source>Spacer Settings</source>
-        <translation></translation>
+        <translation>הגדרות מרווח</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="18"/>
         <source>Space width:</source>
-        <translation></translation>
+        <translation>רוחב הרווח:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="38"/>
         <source>Space type:</source>
-        <translation></translation>
+        <translation>סוג רווח:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation></translation>
+        <translation>בקו</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation></translation>
+        <translation>בנקודות</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation></translation>
+        <translation>מוסתר</translation>
     </message>
 </context>
 </TS>
