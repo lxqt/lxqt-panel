@@ -6,22 +6,22 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation></translation>
+        <translation>מנשק רשת &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
-        <translation></translation>
+        <translation>נשלחו %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
-        <translation></translation>
+        <translation>התקבלו %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
         <source>B</source>
-        <translation></translation>
+        <translation>ב׳</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
@@ -54,42 +54,42 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation></translation>
+        <translation>הגדרות צג רשת</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation></translation>
+        <translation>כללי</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
         <source>Interface</source>
-        <translation></translation>
+        <translation>מנשק</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation></translation>
+        <translation>מודם</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
         <source>Monitor</source>
-        <translation></translation>
+        <translation>צג</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
         <source>Network</source>
-        <translation></translation>
+        <translation>רשת</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation></translation>
+        <translation>אלחוטי</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
         <source>Icon</source>
-        <translation></translation>
+        <translation>סמל</translation>
     </message>
 </context>
 </TS>
