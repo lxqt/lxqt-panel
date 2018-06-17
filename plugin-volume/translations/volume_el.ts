@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις μπόρεσαν να καταχωρηθούν: %1</translation>
+        <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις δεν μπόρεσαν να καταχωρηθούν: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="287"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Βήμα προσαρμογής έντασης</translation>
+        <translation>Βήμα προσαρμογής της έντασης</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
