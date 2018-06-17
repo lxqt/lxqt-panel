@@ -126,12 +126,12 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Null bedeutet keine Verzögerung</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige mit Verzögerung:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Platz auf Bildschirm reservieren</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
