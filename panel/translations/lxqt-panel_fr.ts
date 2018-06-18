@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>Une valeur négative définit la longueur du tableau de bord légèrement inférieure à l&apos;espace disponible de l&apos;écran.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Ex. &quot;Longueur&quot; fixée à -100px avec une taille de l&apos;écran 1000px donne une taille réelle du tableau de bord de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Une valeur négative définit la longueur du tableau de bord légèrement inférieure à l&apos;espace disponible de l&apos;écran.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Ex. &quot;Longueur&quot; fixée à -100px avec une taille de l&apos;écran 1000px donne une taille réelle du tableau de bord de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
