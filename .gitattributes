@@ -13,6 +13,7 @@
 .*~                 export-ignore
 .kdev4              export-ignore
 .translation_update export-ignore
+
 /build              export-ignore
 /temp               export-ignore
 /tmp                export-ignore
