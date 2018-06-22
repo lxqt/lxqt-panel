@@ -108,7 +108,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Automatisch verbergen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -348,7 +348,7 @@
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Leiste entfernen</translation>
+        <translation>Leiste entfernen</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -359,7 +359,7 @@
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Leiste entfernen</translation>
+        <translation>Leiste entfernen</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
