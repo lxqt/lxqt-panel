@@ -60,9 +60,8 @@
         <translation>пикс</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>Количество строк:</translation>
+        <translation type="vanished">Количество строк:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -140,6 +139,11 @@
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>Длительность анимации:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
