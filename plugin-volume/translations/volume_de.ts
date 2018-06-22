@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1%</source>
-        <translation type="unfinished">Lautstärke: %1%</translation>
+        <translation>Lautstärke: %1%</translation>
     </message>
 </context>
 <context>
