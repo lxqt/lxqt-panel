@@ -136,7 +136,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Panel nicht durch maximierte Fenster verdecken.</translation>
+        <translation>Panel nicht durch maximierte Fenster verdecken</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
