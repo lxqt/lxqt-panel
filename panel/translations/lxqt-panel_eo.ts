@@ -96,11 +96,6 @@
         <translation type="unfinished">rastr</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
-        <source>Rows count:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation type="unfinished"></translation>
@@ -120,6 +115,11 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
