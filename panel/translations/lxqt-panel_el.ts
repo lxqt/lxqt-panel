@@ -124,7 +124,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Γραμμές:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -184,7 +184,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation>Χρώμα φόντου:</translation>
+        <translation>Χρώμα παρασκηνίου:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
