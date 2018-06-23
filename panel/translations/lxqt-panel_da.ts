@@ -96,9 +96,8 @@
         <translation>px</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>Række antal:</translation>
+        <translation type="vanished">Række antal:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -121,6 +120,11 @@
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>Animationens varighed:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>

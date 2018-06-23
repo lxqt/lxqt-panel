@@ -96,11 +96,6 @@
         <translation>像素</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
-        <source>Rows count:</source>
-        <translation>列數：</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>對齊和位置</translation>
@@ -121,6 +116,11 @@
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>動畫長度：</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>

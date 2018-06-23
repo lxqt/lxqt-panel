@@ -96,9 +96,8 @@
         <translation>Symbolgröße:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>Aantal rijen:</translation>
+        <translation type="vanished">Aantal rijen:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -157,6 +156,11 @@
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
         <translation>Uitlijning:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>

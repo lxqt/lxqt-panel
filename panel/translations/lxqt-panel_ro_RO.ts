@@ -96,9 +96,8 @@
         <translation type="unfinished">px</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation type="unfinished">Număr coloane:</translation>
+        <translation type="obsolete">Număr coloane:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -120,6 +119,11 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

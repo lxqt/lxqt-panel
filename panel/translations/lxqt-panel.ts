@@ -96,11 +96,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
-        <source>Rows count:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation type="unfinished"></translation>
@@ -156,6 +151,11 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

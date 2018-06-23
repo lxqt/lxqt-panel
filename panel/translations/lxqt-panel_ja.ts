@@ -96,9 +96,8 @@
         <translation>ピクセル</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>列の数</translation>
+        <translation type="vanished">列の数</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -120,6 +119,11 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

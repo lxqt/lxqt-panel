@@ -96,9 +96,8 @@
         <translation>пт</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>Кількість рядків:</translation>
+        <translation type="vanished">Кількість рядків:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -121,6 +120,11 @@
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>Тривалість анімації:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>

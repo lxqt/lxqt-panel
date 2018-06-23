@@ -96,9 +96,8 @@
         <translation>px</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>Nombre de rangées :</translation>
+        <translation type="vanished">Nombre de rangées :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -121,6 +120,11 @@
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
         <translation>Durée de l&apos;animation :</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
