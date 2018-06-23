@@ -63,8 +63,12 @@
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <source>Max. item width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>max. item width:</source>
-        <translation>maks. bredde for objekt:</translation>
+        <translation type="vanished">maks. bredde for objekt:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>

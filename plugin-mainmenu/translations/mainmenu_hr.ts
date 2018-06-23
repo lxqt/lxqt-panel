@@ -73,7 +73,7 @@
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
-        <source>max. item width:</source>
+        <source>Max. item width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
