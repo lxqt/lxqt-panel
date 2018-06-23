@@ -96,9 +96,8 @@
         <translation>גודל סמלים:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows count:</source>
-        <translation>ספירת שורות:</translation>
+        <translation type="vanished">ספירת שורות:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -157,6 +156,11 @@
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
         <translation>יישור:</translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="173"/>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
