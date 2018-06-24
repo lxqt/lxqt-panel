@@ -29,7 +29,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BasisVerzeichnisName</translation>
+        <translation>BasisVerzeichnisname</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
