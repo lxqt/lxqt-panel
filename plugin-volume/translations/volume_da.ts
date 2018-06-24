@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
         <source>Behavior</source>
-        <translation>Adfærd</translation>
+        <translation>Opførsel</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
