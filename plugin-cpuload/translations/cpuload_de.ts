@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Balkenrichtung:</translation>
+        <translation>Balkenausrichtung:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
