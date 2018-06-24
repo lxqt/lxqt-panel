@@ -11,12 +11,12 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="18"/>
         <source>Space width:</source>
-        <translation>Abstandhalter Breite:</translation>
+        <translation>Abstandsbreite:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="38"/>
         <source>Space type:</source>
-        <translation>Abstandhalter Typ:</translation>
+        <translation>Abstandstyp:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
