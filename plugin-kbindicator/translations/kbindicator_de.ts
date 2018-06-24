@@ -14,7 +14,7 @@
         <location filename="../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>Großbuchstaben</translation>
+        <translation>Feststelltaste für Großbuchstaben</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
@@ -27,7 +27,7 @@
         <location filename="../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>Ziffern</translation>
+        <translation>Feststelltaste des Ziffernblocks</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
@@ -40,12 +40,12 @@
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>Rollen</translation>
+        <translation>Feststelltaste für Rollen</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation>Layout</translation>
+        <translation>Belegung</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
@@ -68,22 +68,22 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Feststelltaste anzeigen</translation>
+        <translation>Feststelltaste für Großbuchstaben anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>NumLock-Taste anzeigen</translation>
+        <translation>Feststelltaste des Ziffernblocks anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Rollen-Taste anzeigen</translation>
+        <translation>Feststelltaste für Rollen anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Tastatur-Layout anzeigen</translation>
+        <translation>Indikator der Tastaturbelegung</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Layout konfigurieren</translation>
+        <translation>Belegungen konfigurieren</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
