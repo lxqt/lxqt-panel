@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>Vis kun minimeret vinduer</translation>
+        <translation>Vis kun minimerede vinduer</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Brug ikoner af WindowClass, hvis tilgængeligt</translation>
+        <translation>Brug ikoner fra WindowClass, hvis tilgængeligt</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
