@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Rows count:</source>
-        <translation type="vanished">Række antal:</translation>
+        <translation>Rækker:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -357,7 +357,7 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
-        <translation>Lås dette panel</translation>
+        <translation>Lås panelet</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1265"/>
@@ -370,7 +370,7 @@
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Fjernelse af et panel kan ikke fortrydes.
-Vil du fjerne dette panel?</translation>
+Vil du fjerne panelet?</translation>
     </message>
 </context>
 <context>
