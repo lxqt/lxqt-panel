@@ -135,7 +135,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Panel nicht durch maximierte Fenster verdecken</translation>
+        <translation>Leiste nicht durch maximierte Fenster verdecken</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
@@ -199,7 +199,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation>Deckkraft:</translation>
+        <translation>Hintergrunddeckkraft:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
