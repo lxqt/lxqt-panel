@@ -42,12 +42,12 @@
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation></translation>
+        <translation>פריסה</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Variant</source>
-        <translation></translation>
+        <translation>הגוון</translation>
     </message>
 </context>
 <context>
@@ -55,57 +55,57 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation></translation>
+        <translation>הגדרות מצב מקלדת</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation></translation>
+        <translation>מחווני נעילה</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation></translation>
+        <translation>הצגת Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation></translation>
+        <translation>הצגת Num Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation></translation>
+        <translation>הצגת Scroll Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation></translation>
+        <translation>מחוון פריסות מקלדת</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation></translation>
+        <translation>מדיניות החלפה</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation></translation>
+        <translation>הגדרת פריסות</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation></translation>
+        <translation>גלובלי</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation></translation>
+        <translation>חלון</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation></translation>
+        <translation>יישום</translation>
     </message>
 </context>
 </TS>
