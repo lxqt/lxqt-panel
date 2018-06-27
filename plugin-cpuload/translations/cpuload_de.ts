@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Allgemein</translation>
+        <translation>Allgemeines</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
