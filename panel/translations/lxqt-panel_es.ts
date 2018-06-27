@@ -39,7 +39,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation>Panel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
@@ -331,7 +331,7 @@
         <location filename="../lxqtpanel.cpp" line="1068"/>
         <location filename="../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation>Panel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
