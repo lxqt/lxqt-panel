@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Allgemein</translation>
+        <translation>Allgemeines</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -49,12 +49,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>Menü-Datei</translation>
+        <translation>Menüdatei</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation>Menü-Datei:</translation>
+        <translation>Menüdatei:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Auf die Schaltfläche klicken, um ein Tastenkürzel aufzunehmen:</translation>
+        <translation>Drücke die Schaltfläche, um ein Tastenkürzel aufzunehmen:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>Menüeinträge beim Suchen verstecken</translation>
+        <translation>Menüeinträge beim Suchen verbergen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>Symbol wählen</translation>
+        <translation>Symboldatei wählen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
@@ -128,12 +128,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>Menü-Datei auswählen</translation>
+        <translation>Menüdatei auswählen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
         <source>Menu files (*.menu)</source>
-        <translation>Menü-Dateien (*.menu)</translation>
+        <translation>Menüdateien (*.menu)</translation>
     </message>
 </context>
 </TS>
