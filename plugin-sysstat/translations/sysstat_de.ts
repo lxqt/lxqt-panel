@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation>Graph</translation>
+        <translation>Diagramm</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
@@ -121,7 +121,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation>Graph</translation>
+        <translation>Diagramm</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
@@ -216,12 +216,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>auswählen...</translation>
+        <translation type="unfinished">auswählen...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation>Prozessor</translation>
+        <translation type="unfinished">Prozessor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
