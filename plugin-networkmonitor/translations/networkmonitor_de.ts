@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Allgemein</translation>
+        <translation>Allgemeines</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
