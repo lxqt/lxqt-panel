@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>&amp;Sekunden anzeigen</translation>
+        <translation>Sek&amp;unden anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>&amp;Zeitzone</translation>
+        <translation>Z&amp;eitzone</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>&amp;Format:</translation>
+        <translation>For&amp;mat:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
@@ -135,12 +135,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>&amp;Position:</translation>
+        <translation>Po&amp;sition:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation>&amp;Format:</translation>
+        <translation>Fo&amp;rmat:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>&amp;Tag mit führender Null</translation>
+        <translation>T&amp;ag mit führender Null</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
@@ -359,7 +359,7 @@
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Other</source>
-        <translation>Weiteres</translation>
+        <translation>Sonstiges</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
