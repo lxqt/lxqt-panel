@@ -6,22 +6,22 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Plugins</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisa:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar painel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Suspender Automaticamente</translation>
+        <translation>Painel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho do ícone:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
@@ -115,12 +115,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Duração da animação:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Linhas:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
