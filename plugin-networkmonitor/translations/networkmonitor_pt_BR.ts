@@ -21,12 +21,12 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
         <source>B</source>
-        <translation>Byte</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation>KByte</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
