@@ -6,17 +6,17 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation></translation>
+        <translation>צבעי סטטיסטיקת מערכת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation></translation>
+        <translation>תרשים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation></translation>
+        <translation>&amp;רשת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -33,17 +33,17 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation></translation>
+        <translation>שינוי…</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation></translation>
+        <translation>&amp;כותרת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation></translation>
+        <translation>מעבד</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
@@ -53,62 +53,62 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation></translation>
+        <translation>&amp;אחר</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation></translation>
+        <translation>ת&amp;דירות</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation></translation>
+        <translation>מ&amp;ערכת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation></translation>
+        <translation>מ&amp;שתמש</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation></translation>
+        <translation>זיכרון</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation></translation>
+        <translation>במ&amp;טמון</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation></translation>
+        <translation>החל&amp;פה</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation></translation>
+        <translation>יי&amp;שומים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation></translation>
+        <translation>&amp;חוצצים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
         <source>Network</source>
-        <translation></translation>
+        <translation>רשת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation></translation>
+        <translation>הת&amp;קבלו</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation></translation>
+        <translation>&amp;נשלחו</translation>
     </message>
 </context>
 <context>
@@ -116,67 +116,67 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation></translation>
+        <translation>הגדרות סטטיסטיקת מערכת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation></translation>
+        <translation>תרשים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation></translation>
+        <translation>גודל מז&amp;ערי</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation></translation>
+        <translation>ה&amp;פרש בין עדכונים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation></translation>
+        <translation>&amp;כותרת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation></translation>
+        <translation>&amp;קווי רשת</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;רוחב מזערי אם הלוח הוא אופקי.&lt;/p&gt;&lt;p&gt;גובה מזערי אם הלוח הוא אנכי.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation></translation>
+        <translation> פיקסלים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation></translation>
+        <translation> שנ׳</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation></translation>
+        <translation>נתונים</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation></translation>
+        <translation>שימוש בת&amp;דירות</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation></translation>
+        <translation>מ&amp;רבי</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation></translation>
+        <translation>XXX ק״ב/שנ׳</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
