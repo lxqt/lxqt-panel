@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivovat úlohu %1</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;Na nynější plochu</translation>
+        <translation>&amp;Na stávající plochu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>%Přesunout</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>%Změnit velikost</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
