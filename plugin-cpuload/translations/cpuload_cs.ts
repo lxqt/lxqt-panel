@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Nastavení vytížení procesoru</translation>
+        <translation>Nastavení zobrazování vytížení procesoru</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Ukázat text</translation>
+        <translation>Zobrazovat text</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
