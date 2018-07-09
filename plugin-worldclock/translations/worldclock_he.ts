@@ -14,113 +14,113 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation></translation>
+        <translation>הגדרות שעון עולמי</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation></translation>
+        <translation>תבנית ת&amp;צוגה</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation></translation>
+        <translation>&amp;שעה</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation></translation>
+        <translation>ת&amp;בנית:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation></translation>
+        <translation>קצרה</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation></translation>
+        <translation>ארוכה</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation></translation>
+        <translation>התאמה אישית</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation></translation>
+        <translation>הצגת ש&amp;ניות</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation></translation>
+        <translation>&amp;ריפוד השעה באפס</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation></translation>
+        <translation>א&amp;זור זמן</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation></translation>
+        <translation>&amp;מיקום:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation></translation>
+        <translation>ת&amp;בנית:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
-        <translation></translation>
+        <translation>מתחת</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
-        <translation></translation>
+        <translation>מעל</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="248"/>
         <source>Before</source>
-        <translation></translation>
+        <translation>לפני</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="164"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="253"/>
         <source>After</source>
-        <translation></translation>
+        <translation>אחרי</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation></translation>
+        <translation>מרחק מ־UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation></translation>
+        <translation>קיצור</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation></translation>
+        <translation>מזהה IANA</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="579"/>
         <source>Custom name</source>
-        <translation></translation>
+        <translation>שם בהתאמה אישית</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
