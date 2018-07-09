@@ -352,7 +352,7 @@
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Odstranit panel</translation>
+        <translation>Odstranit panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -363,7 +363,7 @@
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Odstranit panel</translation>
+        <translation>Odstranit panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
