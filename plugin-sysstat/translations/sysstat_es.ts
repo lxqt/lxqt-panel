@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation>Rejilla</translation>
+        <translation>&amp;Cuadrícula</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
