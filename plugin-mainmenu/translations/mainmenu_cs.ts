@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation>Hledat...</translation>
+        <translation>Hledat…</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. šířka prvku:</translation>
     </message>
     <message>
         <source>max. item width:</source>
