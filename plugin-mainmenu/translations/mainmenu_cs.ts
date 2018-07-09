@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Max. šířka prvku:</translation>
+        <translation>Max. šířka položky:</translation>
     </message>
     <message>
         <source>max. item width:</source>
