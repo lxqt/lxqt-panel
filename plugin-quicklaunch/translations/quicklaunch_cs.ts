@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Soubor/URL &apos;%1&apos; nyní nelze vložit do rychlého spuštění</translation>
+        <translation>Soubor/URL „%1“ nyní nelze vložit do rychlého spuštění</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
