@@ -47,7 +47,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/br&gt; está conectado.</translation>
+        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; está conectado.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
