@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Mostrar el escritorio: el atajo global &apos;%1&apos; no puede ser registrado</translation>
+        <translation>Mostrar el escritorio: El atajo global &apos;%1&apos; no puede ser registrado</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
