@@ -6,17 +6,17 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="12"/>
         <source>Spacer Settings</source>
-        <translation>Nastavení prázdného místa</translation>
+        <translation>Nastavení výplně</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="18"/>
         <source>Space width:</source>
-        <translation>Šířka prázdného místa:</translation>
+        <translation>Šířka výplně:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="38"/>
         <source>Space type:</source>
-        <translation>Typ prázdného místa:</translation>
+        <translation>Typ výplně:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
