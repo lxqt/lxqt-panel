@@ -33,7 +33,7 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Změnit...</translation>
+        <translation>Změnit…</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
@@ -53,7 +53,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation>&amp;Jiné</translation>
+        <translation>&amp;Ostatní</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation>&amp;Systém</translation>
+        <translation>S&amp;ystém</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation>&amp;Typ</translation>
+        <translation>T&amp;yp</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation>Zpráva</translation>
+        <translation>Paměť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
@@ -236,127 +236,127 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation>CPU</translation>
+        <translation>Procesor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation>CPU0</translation>
+        <translation>jádro0</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
-        <translation>CPU1</translation>
+        <translation>jádro1</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
-        <translation>CPU2</translation>
+        <translation>jádro2</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
-        <translation>CPU3</translation>
+        <translation>jádro3</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
-        <translation>CPU4</translation>
+        <translation>jádro4</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
-        <translation>CPU5</translation>
+        <translation>jádro5</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
-        <translation>CPU6</translation>
+        <translation>jádro6</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
-        <translation>CPU7</translation>
+        <translation>jádro7</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
-        <translation>CPU8</translation>
+        <translation>jádro8</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation>CPU9</translation>
+        <translation>jádro8</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation>CPU10</translation>
+        <translation>jádro10</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation>CPU11</translation>
+        <translation>jádro11</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation>CPU12</translation>
+        <translation>jádro12</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation>CPU13</translation>
+        <translation>jádro13</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation>CPU14</translation>
+        <translation>jádro14</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation>CPU15</translation>
+        <translation>jádro15</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation>CPU16</translation>
+        <translation>jádro16</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation>CPU17</translation>
+        <translation>jádro17</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation>CPU18</translation>
+        <translation>jádro18</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation>CPU19</translation>
+        <translation>jádro19</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation>CPU20</translation>
+        <translation>jádro20</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation>CPU21</translation>
+        <translation>jádro21</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation>CPU22</translation>
+        <translation>jádro22</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation>CPU23</translation>
+        <translation>jádro23</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
