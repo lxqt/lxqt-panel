@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Ztlunit/Zrušit ztlumení hlasitosti zvuku</translation>
+        <translation>Ztlumit/Zrušit ztlumení hlasitosti zvuku</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1%</source>
-        <translation type="unfinished">Hlasitost: %1%</translation>
+        <translation>Hlasitost: %1%</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>Alsa</source>
-        <translation>Alsa</translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Povolit hlasitost přes 100% (0dB)</translation>
+        <translation>Povolit hlasitost přes 100% (0 dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Krok úpravy hlasitosti</translation>
+        <translation>Délka kroku úpravy hlasitosti</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
