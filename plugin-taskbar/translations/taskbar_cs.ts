@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Current</source>
-        <translation>Nynější</translation>
+        <translation>Stavající</translation>
     </message>
 </context>
 </TS>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce odstranitelných nosičů/zařízení</translation>
+        <translation>Správce vyjímatelných nosičů/zařízení</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>Ukázat vyskakovací nabídku</translation>
+        <translation>Zobrazit vyskakovací nabídku</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
