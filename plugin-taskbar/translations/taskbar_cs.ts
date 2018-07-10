@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation>Aktivovat úlohu %1</translation>
+        <translation>Uvést v činnost úlohu %1</translation>
     </message>
 </context>
 <context>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>%Změnit velikost</translation>
+        <translation>&amp;Změnit velikost</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
