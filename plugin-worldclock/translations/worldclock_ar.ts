@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation type="unfinished"></translation>
+        <translation>الإختصار</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation type="unfinished"></translation>
+        <translation>معرّف الموقع</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
@@ -155,7 +155,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation type="unfinished"></translation>
+        <translation>إظهار السنة</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation type="unfinished"></translation>
+        <translation>أسماء طويلة للأشهر و الأيام و الأسابيع</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
