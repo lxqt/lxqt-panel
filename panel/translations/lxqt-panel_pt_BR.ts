@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(apenas uma instância aberta de cada vez)</translation>
     </message>
 </context>
 <context>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widgets</translation>
     </message>
 </context>
 <context>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Configurar painel</translation>
+        <translation>Configurar painel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
@@ -62,13 +62,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Tamanho:</translation>
+        <translation>Tamanho:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -78,39 +78,39 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">Comprimento:</translation>
+        <translation>Comprimento:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Valor negativo de pixel configura o comprimento do painel a partir da quantia de pixels especificado, menos o espaço disponível na tela.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por exemplo: &quot;Comprimento&quot; vale -100px, tamanho da tela vale 1000px, então o tamanho real do painel será de 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhamento e posição</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero desativa animação</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
@@ -126,20 +126,20 @@
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="202"/>
         <source>Left</source>
-        <translation type="unfinished">Esquerda</translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="203"/>
         <location filename="../config/configpanelwidget.cpp" line="209"/>
         <source>Center</source>
-        <translation type="unfinished">Centro</translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="204"/>
         <source>Right</source>
-        <translation type="unfinished">Direita</translation>
+        <translation>Direita</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
@@ -150,128 +150,128 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero desativa atraso</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir com atraso:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Não permitir que janelas maximizadas fiquem abaixo da janela do painel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Reserve espaço na tela</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo personalizado</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor da fonte:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de fundo:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacidade do fundo:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Painel transparente requer composição.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem de fundo:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Alinhamento:</translation>
+        <translation>Alinhamento:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">Posição:</translation>
+        <translation>Posição:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="168"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Na parte superior da área de trabalho</translation>
+        <translation>Topo da área de trabalho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="169"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">À esquerda da área de trabalho</translation>
+        <translation>Esquerda da área de trabalho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="170"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">À direita da área de trabalho</translation>
+        <translation>Direita da área de trabalho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="171"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Na parte inferior da área de trabalho</translation>
+        <translation>Base da área de trabalho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">Na parte superior da área de trabalho %1</translation>
+        <translation>Topo da área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="181"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">A esquerda da área de trabalho %1</translation>
+        <translation>Esquerda da área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">À direita da área de trabalho %1</translation>
+        <translation>Direita da área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">Na parte inferior da área de trabalho %1</translation>
+        <translation>Base da área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Topo</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="210"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Base</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="368"/>
         <location filename="../config/configpanelwidget.cpp" line="384"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecionar cor</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagens (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecionar imagem</translation>
     </message>
 </context>
 <context>
@@ -279,17 +279,17 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar plugins</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: quaisquer mudanças feitas nesta página, não poderão ser restauradas.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover acima</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -298,27 +298,27 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover abaixo</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Configurar</translation>
+        <translation>Configurar</translation>
     </message>
 </context>
 <context>
@@ -332,40 +332,41 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar widgets</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar novo painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished"></translation>
+        <translation>Remover painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Travar painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished"></translation>
+        <translation>Remover painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Remoção de um painel não pode ser defeito.
+Deseja remover este painel?</translation>
     </message>
 </context>
 <context>
@@ -373,17 +374,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -391,12 +392,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar outro arquivo de configuração.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivo de configuração</translation>
     </message>
 </context>
 </TS>
