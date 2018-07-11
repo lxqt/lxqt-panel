@@ -34,7 +34,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;Na stávající plochu</translation>
+        <translation>Na s&amp;távající plochu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>Mi&amp;nimize</source>
-        <translation>&amp;Zmenšit</translation>
+        <translation>Zme&amp;nšit</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Nastavení správce úkolů</translation>
+        <translation>Nastavení správce úloh</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -150,12 +150,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Zvětšit zmenšená okna na nynější ploše</translation>
+        <translation>Zvětšit zmenšená okna na stávající ploše</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Kroužit okny při otáčení kolečka myši</translation>
+        <translation>Přepínat okna otáčením kolečka myši</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
@@ -191,7 +191,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Použít ikony podle tříd oken, je-li dostupné</translation>
+        <translation>Použít ikony podle tříd oken, pokud je dostupné</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
