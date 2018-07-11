@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Nastavení hodin, na kterých je uveden místní čas v různých časových pásmech</translation>
+        <translation>Nastavení hodin zobrazujících místní čas v různých časových pásmech</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
@@ -49,7 +49,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Vlastní</translation>
+        <translation>Určený uživatelem</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>&amp;Hodiny s nulou na začátku</translation>
+        <translation>Zarovnat &amp;hodiny nulou na začátku</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>&amp;Formát:</translation>
+        <translation>For&amp;mát:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
@@ -113,19 +113,19 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation>IANA-ID</translation>
+        <translation>IANA identif.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="579"/>
         <source>Custom name</source>
-        <translation>Vlastní název</translation>
+        <translation>Uživatelem určený název</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>&amp;Použít dvanáctihodinový formát</translation>
+        <translation>Po&amp;užít dvanáctihodinový formát</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
@@ -140,12 +140,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>&amp;Poloha</translation>
+        <translation>&amp;Poloha:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation>F&amp;ormát:</translation>
+        <translation>Fo&amp;rmát:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
@@ -165,12 +165,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>&amp;Den s nulou na začátku</translation>
+        <translation>Z&amp;arovnat den nulou na začátku</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>&amp;Dlouhé názvy měsíců a dnů v týdnu</translation>
+        <translation>D&amp;louhé názvy měsíců a dnů v týdnu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
@@ -190,12 +190,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Přidat…</translation>
+        <translation>Přid&amp;at…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation>&amp;Odstranit</translation>
+        <translation>Odst&amp;ranit</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
@@ -205,12 +205,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>&amp;Upravit vlastní název…</translation>
+        <translation>Upravit uživatelem určený náz&amp;ev…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Posunout &amp;nahoru</translation>
+        <translation>Posunout nahor&amp;u</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Input custom time zone name</source>
-        <translation>Zadat vlastní název časového pásma</translation>
+        <translation>Zadat uživatelem určený název časového pásma</translation>
     </message>
 </context>
 <context>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>Časová pásma světového času</translation>
+        <translation>Časová pásma ze kterých ukazovat místní čas</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>Časová pásma světového času</translation>
+        <translation>Časová pásma ze kterých ukazovat místní čas</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
