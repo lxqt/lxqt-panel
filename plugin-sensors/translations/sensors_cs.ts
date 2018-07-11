@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>Běžné</translation>
+        <translation>Společné</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
@@ -61,7 +61,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Vlastnosti čipů:</translation>
+        <translation>Funkce čipů:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
