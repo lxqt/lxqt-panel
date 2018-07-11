@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Max. šířka položky:</translation>
+        <translation>Největší šířka položky:</translation>
     </message>
     <message>
         <source>max. item width:</source>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Nejvíce viditelných položek:</translation>
+        <translation>Nejvýše viditelných položek:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>Skrýt položky nabídky během hledání</translation>
+        <translation>Při hledání skrýt položky nabídky</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
