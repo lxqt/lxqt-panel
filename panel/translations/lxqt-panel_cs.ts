@@ -396,7 +396,7 @@ Chcete tento panel odstranit?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>Použít náhradní soubor s nastavením.</translation>
+        <translation>Použít jiný soubor s nastavením.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
