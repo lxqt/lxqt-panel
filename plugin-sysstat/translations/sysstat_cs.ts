@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>Vyrovnávací paměť</translation>
+        <translation>&amp;Vyrovnávací paměť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation>P&amp;osláno</translation>
+        <translation>&amp;Odesláno</translation>
     </message>
 </context>
 <context>
@@ -121,7 +121,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation>Nákres</translation>
+        <translation>Graf</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation>Čáry mřížky</translation>
+        <translation>Čáry &amp;mřížky</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>Použít &amp;kmitočet</translation>
+        <translation>Použít &amp;frekvenci</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
@@ -211,7 +211,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>Použít &amp;vlastní barvy</translation>
+        <translation>Po&amp;užít vlastní barvy</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation>Procesor</translation>
+        <translation>procesor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;Jiné: %4%&lt;br&gt;Kmitočet: %5%</translation>
+        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;Jiné: %4%&lt;br&gt;Kmitočet: n/a</translation>
+        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
