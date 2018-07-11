@@ -6,7 +6,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä työpöytä</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
