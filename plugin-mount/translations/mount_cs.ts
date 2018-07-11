@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Nastavení odstranitelných nosičů</translation>
+        <translation>Nastavení vyjímatelných nosičů</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce odstranitelných nosičů/zařízení</translation>
+        <translation>Správce vyjímatelných médií/zařízení</translation>
     </message>
 </context>
 <context>
@@ -71,12 +71,12 @@
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce odstranitelných nosičů/zařízení</translation>
+        <translation>Správce vyjímatelných médií/zařízení</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Odpojení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; se nezdařilo: %2</translation>
+        <translation>Odpojení &lt;strong&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/strong&gt; se nezdařilo: %2</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation>Nejsou dostupná žádná zařízení</translation>
+        <translation>Nejsou k dispozici žádná zařízení</translation>
     </message>
 </context>
 </TS>
