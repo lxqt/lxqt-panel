@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Nastavení nabídky k adresáři</translation>
+        <translation>Nastavení nabídky složky</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Základní adresář:</translation>
+        <translation>Základní složka:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>Název základního adresáře</translation>
+        <translation>Název základní složky</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation>Vybrat základní adresář</translation>
+        <translation>Vybrat základní složku</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation>Nabídka k adresáři</translation>
+        <translation>Nabídka složky</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
