@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Suurenna äänenvoimakkuutta</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Pienennä äänenvoimakkuutta</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Äänenvoimakkuus: mykistetty</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="289"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa mikseri</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
