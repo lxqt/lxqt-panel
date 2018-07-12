@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
-        <translation>Přeneseno %1</translation>
+        <translation>Odesláno %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
