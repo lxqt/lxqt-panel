@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Nastavení hodin zobrazujících místní čas v různých časových pásmech</translation>
+        <translation>Nastavení hodin zobrazujících místní čas z různých časových pásem</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
@@ -49,17 +49,17 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Určený uživatelem</translation>
+        <translation>Vlastní</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>&amp;Ukázat sekundy</translation>
+        <translation>&amp;Ukazovat sekundy</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Zarovnat &amp;hodiny nulou na začátku</translation>
+        <translation>Zarovnávat zobrazení &amp;hodin nulou na začátku</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>Po&amp;užít dvanáctihodinový formát</translation>
+        <translation>Po&amp;užívat dvanáctihodinový formát</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
@@ -155,17 +155,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation>Ukázat &amp;rok</translation>
+        <translation>Ukazovat &amp;rok</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Ukázat den v &amp;týdnu</translation>
+        <translation>Ukazovat den v &amp;týdnu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>Z&amp;arovnat den nulou na začátku</translation>
+        <translation>Z&amp;arovnávat zobrazení dne v měsíci nulou na začátku</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>&amp;Natočit automaticky, když je panel svisle</translation>
+        <translation>Při svisle orientovaném panelu &amp;natočit tak, aby bylo vodorovně</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
