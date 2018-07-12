@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation>Uvést v činnost úlohu %1</translation>
+        <translation>Aktivovat úlohu %1</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>Application</source>
-        <translation>Program</translation>
+        <translation>Aplikace</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation>%Přesunout</translation>
+        <translation>&amp;Přesunout</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
@@ -49,27 +49,27 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation>Zvě&amp;tšit</translation>
+        <translation>Ma&amp;ximalizovat</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
         <source>Maximize vertically</source>
-        <translation>Zvětšit svisle</translation>
+        <translation>Maximalizovat ve svislém směru</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Maximize horizontally</source>
-        <translation>Zvětšit vodorovně</translation>
+        <translation>Maximalizovat ve vodorovném směru</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="600"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Obnovit</translation>
+        <translation>&amp;Obnovit předchozí velikost</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>Mi&amp;nimize</source>
-        <translation>Zme&amp;nšit</translation>
+        <translation>Mi&amp;nimalizovat</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
-        <translation>Skupina</translation>
+        <translation>Seskupit</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>Zobrazovat pouze minimalizovaná okna</translation>
+        <translation>Ukazovat pouze minimalizovaná okna</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Zavřít kliknutím prostředním tlačítkem</translation>
+        <translation>Zavírat kliknutím prostředním tlačítkem</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
