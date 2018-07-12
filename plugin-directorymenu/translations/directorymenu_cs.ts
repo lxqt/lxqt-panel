@@ -44,7 +44,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Icon</source>
-        <translation>Vybrat ikonu</translation>
+        <translation>Zvolit ikonu</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
