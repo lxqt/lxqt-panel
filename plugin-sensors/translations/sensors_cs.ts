@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>Blikat proužky ukazujícími nárůst teploty, když je teplota příliš vysoká</translation>
+        <translation>Když teplota příliš stoupne, blikat proužky ukazujícími nárůst teploty</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
-        <translation>Povoleno</translation>
+        <translation>Zapnouto</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
