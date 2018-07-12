@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Při panelu o&amp;rientovaném svisle otočit tlačítka tak, aby byla vodorovně</translation>
+        <translation>Při svisle o&amp;rientovaném panelu otočit tlačítka tak, aby byla vodorovně</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
