@@ -89,17 +89,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Always on &amp;top</source>
-        <translation>Vždy &amp;nahoře</translation>
+        <translation>Vždy &amp;navrchu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="632"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Obvyklé</translation>
+        <translation>&amp;Normální</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Always on &amp;bottom</source>
-        <translation>Vždy &amp;dole</translation>
+        <translation>Vždy &amp;naspodu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="646"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Nastavení správce úloh</translation>
+        <translation>Nastavení Správce úloh</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -135,37 +135,37 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Ukázat jen okna z pracovní plochy</translation>
+        <translation>Ukazovat pouze okna z dané plochy</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Ukázat jen okna z obrazovky s &amp;panelem</translation>
+        <translation>Ukazovat pouze okna z obrazovky, na které se daný &amp;panel nachází</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>Ukázat jen zmenšená okna</translation>
+        <translation>Zobrazovat pouze minimalizovaná okna</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Zvětšit zmenšená okna na stávající ploše</translation>
+        <translation>Vyzdvihnout minimalizovaná okna stávající plochy</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Přepínat okna otáčením kolečka myši</translation>
+        <translation>Přepínat mezi okny otáčením kolečka myši</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation>&amp;Seskupení oken</translation>
+        <translation>&amp;Seskupování oken</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation>Ukázat vyskakovací okno při přejetí ukazovátka myši</translation>
+        <translation>Při najetí ukazatelem myši zobrazit vyskakovací okno</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation>Největší šířka tlačítka</translation>
+        <translation>Šířka tlačítka maximálně</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="144"/>
@@ -186,17 +186,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation>Největší výška tlačítka</translation>
+        <translation>Výška tlačítka maximálně</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Použít ikony podle tříd oken, pokud je dostupné</translation>
+        <translation>Použít ikony podle třídy okna (pokud je k dispozici)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>&amp;Natočit tlačítka automaticky, když je panel svisle</translation>
+        <translation>Při panelu o&amp;rientovaném svisle otočit tlačítka tak, aby byla vodorovně</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Zavřít klepnutím prostředním tlačítkem</translation>
+        <translation>Zavřít kliknutím prostředním tlačítkem</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Current</source>
-        <translation>Stavající</translation>
+        <translation>Stávající</translation>
     </message>
 </context>
 </TS>
