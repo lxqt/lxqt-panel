@@ -6,27 +6,27 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>Zvýšit hlasitost zvuku</translation>
+        <translation>Zesílit zvuk</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation>Snížit hlasitost zvuku</translation>
+        <translation>Zeslabit zvuk</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Ztlumit/Zrušit ztlumení hlasitosti zvuku</translation>
+        <translation>Ztlumit/zrušit ztlumení zvuku</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Ovládání hlasitosti: Následující klávesové zkratky nelze zapsat: %1</translation>
+        <translation>Ovládání hlasitosti: Následující klávesové zkratky nelze zaregistrovat: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation>Hlasitost: Ztlumeno</translation>
+        <translation>Hlasitost: ztlumeno</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="289"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Zařízení k ovládání</translation>
+        <translation>Ovládané zařízení</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -69,17 +69,17 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Ztlumit při klepnutí prostředním tlačítkem</translation>
+        <translation>Ztlumit kliknutím prostředním tlačítkem</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Ukázat při klepnutí myší</translation>
+        <translation>Ukázat při kliknutí</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Povolit hlasitost přes 100% (0 dB)</translation>
+        <translation>Umožnit nastavit hlasitost přes 100% (0 dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Délka kroku úpravy hlasitosti</translation>
+        <translation>Hlasitost měnit v krocích o velikosti</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
-        <translation>Vnější směšovač</translation>
+        <translation>Externí směšovač</translation>
     </message>
 </context>
 <context>
