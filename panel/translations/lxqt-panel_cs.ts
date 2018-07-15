@@ -102,7 +102,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Zarovnání a poloha</translation>
+        <translation>Zarovnání &amp;a poloha</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -369,7 +369,7 @@
         <location filename="../lxqtpanel.cpp" line="1266"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Odstranění panelu nelze vrátit zpět
+        <translation>Odstranění panelu nelze vrátit zpět.
 Chcete tento panel odstranit?</translation>
     </message>
 </context>
