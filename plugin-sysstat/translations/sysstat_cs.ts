@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="24"/>
         <source>Graph</source>
-        <translation>Nákres</translation>
+        <translation>Graf</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="30"/>
@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Přednost</translation>
+        <translation>Před&amp;nost</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="97"/>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation>&amp;Kmitočet</translation>
+        <translation>&amp;Frekvence</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="124"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Programy</translation>
+        <translation>&amp;Aplikace</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="222"/>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation>&amp;Nejmenší velikost</translation>
+        <translation>&amp;Minimální velikost</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation>&amp;Název</translation>
+        <translation>&amp;Nadpis</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nejmenší šířka, je-li panel vodorovně.&lt;/p&gt;&lt;p&gt;Nejmenší výška, je-li panel svisle.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nejmenší šířka, pokud je panel vodorovně.&lt;/p&gt;&lt;p&gt;Nejmenší výška, pokud svisle.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
