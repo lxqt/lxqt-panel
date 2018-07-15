@@ -171,7 +171,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>&amp;Nejvyšší hodnota</translation>
+        <translation>&amp;Maximum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
