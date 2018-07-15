@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce vyjímatelných nosičů/zařízení</translation>
+        <translation>Správa vyjímatelných médií/zařízení</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Nastavení vyjímatelných nosičů</translation>
+        <translation>Nastavení vyjímatelných médií</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je připojeno.</translation>
+        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; je připojeno.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je odstraněno.</translation>
+        <translation>Zařízení &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; je odebráno.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce vyjímatelných médií/zařízení</translation>
+        <translation>Správa vyjímatelných médií/zařízení</translation>
     </message>
 </context>
 <context>
@@ -65,13 +65,13 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Připojení &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; se nezdařilo: %2</translation>
+        <translation>Připojení &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; se nezdařilo: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Správce vyjímatelných médií/zařízení</translation>
+        <translation>Správa vyjímatelných médií/zařízení</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
