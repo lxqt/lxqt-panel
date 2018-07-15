@@ -17,7 +17,7 @@
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation>Zde upusťte
+        <translation>Sem přetáhněte
 ikonu programu</translation>
     </message>
 </context>
@@ -26,12 +26,12 @@ ikonu programu</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation>Přesunout vlevo</translation>
+        <translation>Posunout vlevo</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>Přesunout vpravo</translation>
+        <translation>Posunout vpravo</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
