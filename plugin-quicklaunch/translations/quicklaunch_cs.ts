@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
-        <translation>Problém s upuštěním</translation>
+        <translation>Problém s upuštěním sem</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
@@ -18,7 +18,7 @@
         <source>Drop application
 icons here</source>
         <translation>Sem přetáhněte
-ikonu programu</translation>
+ikonu aplikace</translation>
     </message>
 </context>
 <context>
@@ -36,7 +36,7 @@ ikonu programu</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Odstranit z rychlého spuštění</translation>
+        <translation>Odebrat z rychlého spuštění</translation>
     </message>
 </context>
 </TS>
