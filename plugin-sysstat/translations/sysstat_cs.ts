@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Barvy systémové statistiky</translation>
+        <translation>Barvy systémových statistik</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="24"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>&amp;Vyrovnávací paměť</translation>
+        <translation>&amp;Uloženo v mezipaměti</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolors.ui" line="195"/>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Nastavení systémové statistiky</translation>
+        <translation>Nastavení systémových statistik</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>&amp;Maximum</translation>
+        <translation>Ma&amp;ximum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -211,12 +211,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colors</source>
-        <translation>Po&amp;užít vlastní barvy</translation>
+        <translation>Po&amp;užít uživatelem určené barvy</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom color ...</source>
-        <translation>Vlastní barva...</translation>
+        <translation>Uživatelem určená barva...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation>Paměť</translation>
+        <translation>paměť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
@@ -375,31 +375,31 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: %5%</translation>
+        <translation>systém: %1%&lt;br&gt;uživatel: %2%&lt;br&gt;přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>Systém: %1%&lt;br&gt;Uživatel: %2%&lt;br&gt;Přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: n/a</translation>
+        <translation>systém: %1%&lt;br&gt;uživatel: %2%&lt;br&gt;přednost: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvence: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>Programy: %1%&lt;br&gt;Vyrovnávací paměti: %2%&lt;br&gt;Uloženo ve vyrovnávací paměti: %3%</translation>
+        <translation>aplikace: %1%&lt;br&gt;vyrovnávací paměti: %2%&lt;br&gt;uloženo v mezipaměti: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation>Použito: %1%</translation>
+        <translation>použito: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="552"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation>Nejméně: %1%&lt;br&gt;Nejvíce: %2%</translation>
+        <translation>nejméně: %1%&lt;br&gt;nejvíce: %2%</translation>
     </message>
 </context>
 </TS>
