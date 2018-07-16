@@ -6,32 +6,32 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>زِد مستوى الصّوت</translation>
+        <translation>زِد مستوى الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation>أنقص مستوى الصّوت</translation>
+        <translation>أنقِص مستوى الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>اكتم/أزل كتم الصّوت</translation>
+        <translation>اكتم/ألغِ كتم الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>التّحكّم بالصّوت : تعذّر تسجيل الاختصارات الآتية : %1</translation>
+        <translation>التحكم بالصوت: تعذر تسجيل الاختصارات الآتية: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="287"/>
         <source>Volume: muted</source>
-        <translation>الصوت : مكتوم</translation>
+        <translation>الصوت: مكتوم</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1%</source>
-        <translation>مستوى الصوت : %1%</translation>
+        <translation>المستوى: %1٪</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>إعدادات التّحكّم في الصّوت</translation>
+        <translation>إعدادات التحكم بالصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>الجهاز الذي تود التّحكّم فيه</translation>
+        <translation>الجهاز للتحكّم به</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -64,27 +64,27 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
         <source>Behavior</source>
-        <translation>السّلوك</translation>
+        <translation>السلوك</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>اكتم عند النّقر بالوسط</translation>
+        <translation>اكتم بالنقر بالوسط</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>أظهر عند النّقر بالوسط</translation>
+        <translation>اعر بالنقر بالوسط</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>اسمح بارتفاع المستوى عن 100% (0dB)</translation>
+        <translation>اسمح بارتفاع المستوى عن ١٠٠٪ (٠ديسيبيل)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>أخطِرني دوما بتغييرات مستوى الصوت</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
