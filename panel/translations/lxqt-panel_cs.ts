@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Přidat přídavné moduly</translation>
+        <translation>Přidat zásuvné moduly</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Přidat doplněk</translation>
+        <translation>Přidat ovládací prvek</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(spuštěná může být jen jedna instance naráz)</translation>
+        <translation>(spuštěná může být pouze jedna instance naráz)</translation>
     </message>
 </context>
 <context>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation>Doplňky</translation>
+        <translation>Ovládací prvky</translation>
     </message>
 </context>
 <context>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Záporná hodnota obrazových bodů nastaví délku panelu na menší počet obrazových bodů, než je dostupného místa na obrazovce.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Např. Délka nastavená na -100 px, velikost obrazovky je 1000 px, potom skutečná délka panelu bude 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Záporná hodnota obrazových bodů nastaví délku panelu na velikost dostupného místa na obrazovce mínus právě tato hodnota.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Tedy např. při délce nastavené na -100 px a velikosti obrazovky 1000 px, bude skutečná délka panelu 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -148,7 +148,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;utomaticky skrýt</translation>
+        <translation>A&amp;utomaticky skrývat</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Pro průhlednost panelu se požaduje slučování.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Panel může být průhledný pouze pokud je k vykreslování používán kompozitor.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -283,12 +283,12 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Nastavit přídavné moduly</translation>
+        <translation>Nastavit zásuvné moduly</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Poznámka: Změny provedené na této stránce nelze vrátit zpět.</translation>
+        <translation>Poznámka: Změny provedené na této stránce nelze vrátit do výchozích hodnot.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -341,7 +341,7 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation>Spravovat doplňky</translation>
+        <translation>Spravovat ovládací prvky</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
@@ -370,7 +370,7 @@
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Odstranění panelu nelze vrátit zpět.
-Chcete tento panel odstranit?</translation>
+Opravdu chcete tento panel odstranit?</translation>
     </message>
 </context>
 <context>
