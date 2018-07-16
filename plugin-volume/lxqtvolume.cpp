@@ -283,10 +283,7 @@ void LXQtVolume::showNotification(bool forceShow) const
     {
         if (Q_LIKELY(m_defaultSink))
         {
-            if (m_defaultSink->mute())
-                m_notification->setSummary(tr("Volume: muted"));
-            else
-                m_notification->setSummary(tr("Volume: %1%").arg(QString::number(m_defaultSink->volume())));
+            m_notification->setSummary(tr("Volume: %1%%2").arg(QString::number(m_defaultSink->volume())).arg(m_defaultSink->mute() ? tr("(muted)") : ""));
             m_notification->update();
         }
     }

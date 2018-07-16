@@ -114,7 +114,6 @@ void AudioDevice::setVolume(int volume)
         return;
 
     setVolumeNoCommit(volume);
-    setMute(false);
 
     if (m_engine)
         m_engine->commitDeviceVolume(this);
