@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>فعّل المهمة %1</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>Application</source>
-        <translation>التّطبيق</translation>
+        <translation>التطبيق</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;كلّ أسطح المكتب</translation>
+        <translation>&amp;كل أسطح المكتب</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
@@ -34,37 +34,37 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>إ&amp;لى سطح المكتب الحاليّ</translation>
+        <translation>إ&amp;لى سطح المكتب الحالي</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>ا&amp;نقل</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;غيّر المقاس</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation>ك&amp;بّر</translation>
+        <translation>&amp;كبّر</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
         <source>Maximize vertically</source>
-        <translation>كبّر رأسيًّا</translation>
+        <translation>كبّر رأسيا</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Maximize horizontally</source>
-        <translation>كبّر أفقيًّا</translation>
+        <translation>كبّر أفقيا</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="600"/>
         <source>&amp;Restore</source>
-        <translation>ا&amp;ستعد</translation>
+        <translation>ا&amp;ستعِد</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
@@ -84,27 +84,27 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Layer</source>
-        <translation>ال&amp;طّبقة</translation>
+        <translation>ال&amp;طبقة</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Always on &amp;top</source>
-        <translation>&amp;فوق الكلّ دائمًا</translation>
+        <translation>&amp;فوق الكل دائما</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="632"/>
         <source>&amp;Normal</source>
-        <translation>&amp;عاديّ</translation>
+        <translation>&amp;عادي</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Always on &amp;bottom</source>
-        <translation>&amp;تحت الكلّ دائمًا</translation>
+        <translation>&amp;تحت الكل دائما</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="646"/>
         <source>&amp;Close</source>
-        <translation>أ&amp;غلق</translation>
+        <translation>أ&amp;غلِق</translation>
     </message>
 </context>
 <context>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
-        <translation>أغلق المجموعة</translation>
+        <translation>أغلِق المجموعة</translation>
     </message>
 </context>
 <context>
@@ -125,52 +125,52 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>إعدادات مدير المهامّ</translation>
+        <translation>إعدادات مدير المهام</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>عامّ</translation>
+        <translation>عام</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>أظهر فقط النّوافذ في سطح المكتب</translation>
+        <translation>اعرض فقط النوافذ في سطح المكتب</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>أظهر النّوافذ في شاشة اللو&amp;حة فقط</translation>
+        <translation>اعرض النوافذ في شاشة اللو&amp;حة فقط</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>أظهر النّوافذ المصغّرة فقط</translation>
+        <translation>اعرض النوافذ المصغّرة فقط</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>كبّر النّوافذ المصغّرة في سطح المكتب الحاليّ</translation>
+        <translation>كبّر النوافذ المصغّرة في سطح المكتب الحالي</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>أغلق بالنّقر بالوسط</translation>
+        <translation>أغلِق بالنقر بالوسط</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>عجلة الفأرة تُبدّل بين النوافذ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation>ت&amp;جميع النّوافذ</translation>
+        <translation>&amp;جمّع النوافذ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>اعرض منبثقة عند مرور الفأرة</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
