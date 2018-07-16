@@ -29,7 +29,7 @@
 #include "lxqtsysstatconfiguration.h"
 #include "ui_lxqtsysstatconfiguration.h"
 #include "lxqtsysstatutils.h"
-#include "lxqtsysstatcolours.h"
+#include "lxqtsysstatcolors.h"
 
 #include <SysStat/CpuStat>
 #include <SysStat/MemStat>
@@ -86,7 +86,7 @@ LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWi
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtSysStatConfiguration),
     mStat(NULL),
-    mColoursDialog(NULL)
+    mColorsDialog(NULL)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SysStatConfigurationWindow");
@@ -107,7 +107,7 @@ LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWi
     connect(ui->maximumHS, &QSlider::valueChanged, this, &LXQtSysStatConfiguration::saveSettings);
     connect(ui->logarithmicCB, &QCheckBox::toggled, this, &LXQtSysStatConfiguration::saveSettings);
     connect(ui->sourceCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LXQtSysStatConfiguration::saveSettings);
-    connect(ui->useThemeColoursRB, &QRadioButton::toggled, this, &LXQtSysStatConfiguration::saveSettings);
+    connect(ui->useThemeColorsRB, &QRadioButton::toggled, this, &LXQtSysStatConfiguration::saveSettings);
 }
 
 LXQtSysStatConfiguration::~LXQtSysStatConfiguration()
@@ -137,15 +137,15 @@ void LXQtSysStatConfiguration::loadSettings()
     ui->logarithmicCB->setChecked(settings().value("net/logarithmicScale", true).toBool());
     ui->logScaleSB->setValue(settings().value("net/logarithmicScaleSteps", 4).toInt());
 
-    bool useThemeColours = settings().value("graph/useThemeColours", true).toBool();
-    ui->useThemeColoursRB->setChecked(useThemeColours);
-    ui->useCustomColoursRB->setChecked(!useThemeColours);
-    ui->customColoursB->setEnabled(!useThemeColours);
+    bool useThemeColors = settings().value("graph/useThemeColors", true).toBool();
+    ui->useThemeColorsRB->setChecked(useThemeColors);
+    ui->useCustomColorsRB->setChecked(!useThemeColors);
+    ui->customColorsB->setEnabled(!useThemeColors);
 }
 
 void LXQtSysStatConfiguration::saveSettings()
 {
-    settings().setValue("graph/useThemeColours", ui->useThemeColoursRB->isChecked());
+    settings().setValue("graph/useThemeColors", ui->useThemeColorsRB->isChecked());
     settings().setValue("graph/updateInterval", ui->intervalSB->value());
     settings().setValue("graph/minimalSize", ui->sizeSB->value());
 
@@ -200,58 +200,58 @@ void LXQtSysStatConfiguration::on_maximumHS_valueChanged(int value)
     ui->maximumValueL->setText(PluginSysStat::netSpeedToString(value));
 }
 
-void LXQtSysStatConfiguration::coloursChanged()
+void LXQtSysStatConfiguration::colorsChanged()
 {
-    const LXQtSysStatColours::Colours &colours = mColoursDialog->colours();
+    const LXQtSysStatColors::Colors &colors = mColorsDialog->colors();
 
-    settings().setValue("grid/colour",  colours["grid"].name());
-    settings().setValue("title/colour", colours["title"].name());
+    settings().setValue("grid/color",  colors["grid"].name());
+    settings().setValue("title/color", colors["title"].name());
 
-    settings().setValue("cpu/systemColour",    colours["cpuSystem"].name());
-    settings().setValue("cpu/userColour",      colours["cpuUser"].name());
-    settings().setValue("cpu/niceColour",      colours["cpuNice"].name());
-    settings().setValue("cpu/otherColour",     colours["cpuOther"].name());
-    settings().setValue("cpu/frequencyColour", colours["cpuFrequency"].name());
+    settings().setValue("cpu/systemColor",    colors["cpuSystem"].name());
+    settings().setValue("cpu/userColor",      colors["cpuUser"].name());
+    settings().setValue("cpu/niceColor",      colors["cpuNice"].name());
+    settings().setValue("cpu/otherColor",     colors["cpuOther"].name());
+    settings().setValue("cpu/frequencyColor", colors["cpuFrequency"].name());
 
-    settings().setValue("mem/appsColour",    colours["memApps"].name());
-    settings().setValue("mem/buffersColour", colours["memBuffers"].name());
-    settings().setValue("mem/cachedColour",  colours["memCached"].name());
-    settings().setValue("mem/swapColour",    colours["memSwap"].name());
+    settings().setValue("mem/appsColor",    colors["memApps"].name());
+    settings().setValue("mem/buffersColor", colors["memBuffers"].name());
+    settings().setValue("mem/cachedColor",  colors["memCached"].name());
+    settings().setValue("mem/swapColor",    colors["memSwap"].name());
 
-    settings().setValue("net/receivedColour",    colours["netReceived"].name());
-    settings().setValue("net/transmittedColour", colours["netTransmitted"].name());
+    settings().setValue("net/receivedColor",    colors["netReceived"].name());
+    settings().setValue("net/transmittedColor", colors["netTransmitted"].name());
 }
 
-void LXQtSysStatConfiguration::on_customColoursB_clicked()
+void LXQtSysStatConfiguration::on_customColorsB_clicked()
 {
-    if (!mColoursDialog)
+    if (!mColorsDialog)
     {
-        mColoursDialog = new LXQtSysStatColours(this);
-        connect(mColoursDialog, SIGNAL(coloursChanged()), SLOT(coloursChanged()));
+        mColorsDialog = new LXQtSysStatColors(this);
+        connect(mColorsDialog, SIGNAL(colorsChanged()), SLOT(colorsChanged()));
     }
 
-    LXQtSysStatColours::Colours colours;
+    LXQtSysStatColors::Colors colors;
 
-    const LXQtSysStatColours::Colours &defaultColours = mColoursDialog->defaultColours();
+    const LXQtSysStatColors::Colors &defaultColors = mColorsDialog->defaultColors();
 
-    colours["grid"]  = QColor(settings().value("grid/colour",  defaultColours["grid"] .name()).toString());
-    colours["title"] = QColor(settings().value("title/colour", defaultColours["title"].name()).toString());
+    colors["grid"]  = QColor(settings().value("grid/color",  defaultColors["grid"] .name()).toString());
+    colors["title"] = QColor(settings().value("title/color", defaultColors["title"].name()).toString());
 
-    colours["cpuSystem"]    = QColor(settings().value("cpu/systemColour",    defaultColours["cpuSystem"]   .name()).toString());
-    colours["cpuUser"]      = QColor(settings().value("cpu/userColour",      defaultColours["cpuUser"]     .name()).toString());
-    colours["cpuNice"]      = QColor(settings().value("cpu/niceColour",      defaultColours["cpuNice"]     .name()).toString());
-    colours["cpuOther"]     = QColor(settings().value("cpu/otherColour",     defaultColours["cpuOther"]    .name()).toString());
-    colours["cpuFrequency"] = QColor(settings().value("cpu/frequencyColour", defaultColours["cpuFrequency"].name()).toString());
+    colors["cpuSystem"]    = QColor(settings().value("cpu/systemColor",    defaultColors["cpuSystem"]   .name()).toString());
+    colors["cpuUser"]      = QColor(settings().value("cpu/userColor",      defaultColors["cpuUser"]     .name()).toString());
+    colors["cpuNice"]      = QColor(settings().value("cpu/niceColor",      defaultColors["cpuNice"]     .name()).toString());
+    colors["cpuOther"]     = QColor(settings().value("cpu/otherColor",     defaultColors["cpuOther"]    .name()).toString());
+    colors["cpuFrequency"] = QColor(settings().value("cpu/frequencyColor", defaultColors["cpuFrequency"].name()).toString());
 
-    colours["memApps"]    = QColor(settings().value("mem/appsColour",    defaultColours["memApps"]   .name()).toString());
-    colours["memBuffers"] = QColor(settings().value("mem/buffersColour", defaultColours["memBuffers"].name()).toString());
-    colours["memCached"]  = QColor(settings().value("mem/cachedColour",  defaultColours["memCached"] .name()).toString());
-    colours["memSwap"]    = QColor(settings().value("mem/swapColour",    defaultColours["memSwap"]   .name()).toString());
+    colors["memApps"]    = QColor(settings().value("mem/appsColor",    defaultColors["memApps"]   .name()).toString());
+    colors["memBuffers"] = QColor(settings().value("mem/buffersColor", defaultColors["memBuffers"].name()).toString());
+    colors["memCached"]  = QColor(settings().value("mem/cachedColor",  defaultColors["memCached"] .name()).toString());
+    colors["memSwap"]    = QColor(settings().value("mem/swapColor",    defaultColors["memSwap"]   .name()).toString());
 
-    colours["netReceived"]    = QColor(settings().value("net/receivedColour",    defaultColours["netReceived"]   .name()).toString());
-    colours["netTransmitted"] = QColor(settings().value("net/transmittedColour", defaultColours["netTransmitted"].name()).toString());
+    colors["netReceived"]    = QColor(settings().value("net/receivedColor",    defaultColors["netReceived"]   .name()).toString());
+    colors["netTransmitted"] = QColor(settings().value("net/transmittedColor", defaultColors["netTransmitted"].name()).toString());
 
-    mColoursDialog->setColours(colours);
+    mColorsDialog->setColors(colors);
 
-    mColoursDialog->exec();
+    mColorsDialog->exec();
 }

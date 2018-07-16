@@ -87,19 +87,19 @@ class LXQtSysStatContent : public QWidget
 {
     Q_OBJECT
 
-    Q_PROPERTY(QColor gridColor           READ gridColour           WRITE setGridColour)
-    Q_PROPERTY(QColor titleColor          READ titleColour          WRITE setTitleColour)
-    Q_PROPERTY(QColor cpuSystemColor      READ cpuSystemColour      WRITE setCpuSystemColour)
-    Q_PROPERTY(QColor cpuUserColor        READ cpuUserColour        WRITE setCpuUserColour)
-    Q_PROPERTY(QColor cpuNiceColor        READ cpuNiceColour        WRITE setCpuNiceColour)
-    Q_PROPERTY(QColor cpuOtherColor       READ cpuOtherColour       WRITE setCpuOtherColour)
-    Q_PROPERTY(QColor frequencyColor      READ frequencyColour      WRITE setFrequencyColour)
-    Q_PROPERTY(QColor memAppsColor        READ memAppsColour        WRITE setMemAppsColour)
-    Q_PROPERTY(QColor memBuffersColor     READ memBuffersColour     WRITE setMemBuffersColour)
-    Q_PROPERTY(QColor memCachedColor      READ memCachedColour      WRITE setMemCachedColour)
-    Q_PROPERTY(QColor swapUsedColor       READ swapUsedColour       WRITE setSwapUsedColour)
-    Q_PROPERTY(QColor netReceivedColor    READ netReceivedColour    WRITE setNetReceivedColour)
-    Q_PROPERTY(QColor netTransmittedColor READ netTransmittedColour WRITE setNetTransmittedColour)
+    Q_PROPERTY(QColor gridColor           READ gridColor           WRITE setGridColor)
+    Q_PROPERTY(QColor titleColor          READ titleColor          WRITE setTitleColor)
+    Q_PROPERTY(QColor cpuSystemColor      READ cpuSystemColor      WRITE setCpuSystemColor)
+    Q_PROPERTY(QColor cpuUserColor        READ cpuUserColor        WRITE setCpuUserColor)
+    Q_PROPERTY(QColor cpuNiceColor        READ cpuNiceColor        WRITE setCpuNiceColor)
+    Q_PROPERTY(QColor cpuOtherColor       READ cpuOtherColor       WRITE setCpuOtherColor)
+    Q_PROPERTY(QColor frequencyColor      READ frequencyColor      WRITE setFrequencyColor)
+    Q_PROPERTY(QColor memAppsColor        READ memAppsColor        WRITE setMemAppsColor)
+    Q_PROPERTY(QColor memBuffersColor     READ memBuffersColor     WRITE setMemBuffersColor)
+    Q_PROPERTY(QColor memCachedColor      READ memCachedColor      WRITE setMemCachedColor)
+    Q_PROPERTY(QColor swapUsedColor       READ swapUsedColor       WRITE setSwapUsedColor)
+    Q_PROPERTY(QColor netReceivedColor    READ netReceivedColor    WRITE setNetReceivedColor)
+    Q_PROPERTY(QColor netTransmittedColor READ netTransmittedColor WRITE setNetTransmittedColor)
 
 public:
     LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = NULL);
@@ -109,8 +109,8 @@ public:
 
 #undef QSS_COLOUR
 #define QSS_COLOUR(GETNAME, SETNAME) \
-    QColor GETNAME##Colour() const; \
-    void SETNAME##Colour(QColor value);
+    QColor GETNAME##Color() const; \
+    void SETNAME##Color(QColor value);
 
     QSS_COLOUR(grid,           setGrid)
     QSS_COLOUR(title,          setTitle)
@@ -151,26 +151,26 @@ private:
 
     SysStat::BaseStat *mStat;
 
-    typedef struct ColourPalette
+    typedef struct ColorPalette
     {
-        QColor gridColour;
+        QColor gridColor;
 
-        QColor titleColour;
+        QColor titleColor;
 
-        QColor cpuSystemColour;
-        QColor cpuUserColour;
-        QColor cpuNiceColour;
-        QColor cpuOtherColour;
-        QColor frequencyColour;
+        QColor cpuSystemColor;
+        QColor cpuUserColor;
+        QColor cpuNiceColor;
+        QColor cpuOtherColor;
+        QColor frequencyColor;
 
-        QColor memAppsColour;
-        QColor memBuffersColour;
-        QColor memCachedColour;
-        QColor swapUsedColour;
+        QColor memAppsColor;
+        QColor memBuffersColor;
+        QColor memCachedColor;
+        QColor swapUsedColor;
 
-        QColor netReceivedColour;
-        QColor netTransmittedColour;
-    } ColourPalette;
+        QColor netReceivedColor;
+        QColor netTransmittedColor;
+    } ColorPalette;
 
     double mUpdateInterval;
     int mMinimalSize;
@@ -194,11 +194,11 @@ private:
     qreal mLogScaleMax;
 
 
-    bool mUseThemeColours;
-    ColourPalette mThemeColours;
-    ColourPalette mSettingsColours;
-    ColourPalette mColours;
-    QColor mNetBothColour;
+    bool mUseThemeColors;
+    ColorPalette mThemeColors;
+    ColorPalette mSettingsColors;
+    ColorPalette mColors;
+    QColor mNetBothColor;
 
 
     int mHistoryOffset;
@@ -207,7 +207,7 @@ private:
 
     void clearLine();
 
-    void mixNetColours();
+    void mixNetColors();
     void updateTitleFontPixelHeight();
 };
 

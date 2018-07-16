@@ -42,7 +42,7 @@ namespace SysStat {
     class BaseStat;
 }
 
-class LXQtSysStatColours;
+class LXQtSysStatColors;
 
 class LXQtSysStatConfiguration : public LXQtPanelPluginConfigDialog
 {
@@ -57,9 +57,9 @@ public slots:
 
     void on_typeCOB_currentIndexChanged(int);
     void on_maximumHS_valueChanged(int);
-    void on_customColoursB_clicked();
+    void on_customColorsB_clicked();
 
-    void coloursChanged();
+    void colorsChanged();
 
 public:
     static const QStringList msStatTypes;
@@ -71,7 +71,7 @@ private:
     Ui::LXQtSysStatConfiguration *ui;
 
     SysStat::BaseStat *mStat;
-    LXQtSysStatColours *mColoursDialog;
+    LXQtSysStatColors *mColorsDialog;
 
     void loadSettings();
 };
