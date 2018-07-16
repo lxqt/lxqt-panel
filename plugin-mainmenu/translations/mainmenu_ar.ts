@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation>ابحث...</translation>
+        <translation>ابحث…</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
-        <translation>أظهر/أخفِ القائمة الرّئيسيّة</translation>
+        <translation>اعرض/أخفِ القائمة الرئيسية</translation>
     </message>
 </context>
 <context>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>عامّ</translation>
+        <translation>عام</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>إعدادات القائمة الرّئيسيّة</translation>
+        <translation>إعدادات القائمة الرئيسية</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -34,28 +34,28 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>نصّ الزّرّ:</translation>
+        <translation>نص الزرّ:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>حجم خطّ مخصّص:</translation>
+        <translation>حجم خط مخصّص:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
         <translatorcomment>معدود!</translatorcomment>
-        <translation> من النّقاط</translation>
+        <translation> من النقاط</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>ملفّ القوائم</translation>
+        <translation>ملف القوائم</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation>ملفّ القوائم:</translation>
+        <translation>ملف القوائم:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>أقصى عرض للعنصر:</translation>
     </message>
     <message>
         <source>max. item width:</source>
