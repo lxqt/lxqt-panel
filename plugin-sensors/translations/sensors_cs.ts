@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Obnovovací interval (v sekundách)</translation>
+        <translation>Interval obnovování (v sekundách)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
