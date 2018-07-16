@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Ukázat plochu: Celkovou zkratku „%1“ nelze zapsat</translation>
+        <translation>Ukázat plochu: Globální zkratku „%1“ nelze zapsat</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
