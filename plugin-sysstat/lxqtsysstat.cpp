@@ -247,9 +247,9 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     mNetRealMaximumSpeed = static_cast<qreal>(static_cast<int64_t>(1) << mNetMaximumSpeed);
 
 
-    mSettingsColors.gridColor = QColor(settings->value("grid/colour", "#c0c0c0").toString());
+    mSettingsColors.gridColor = QColor(settings->value("grid/color", "#c0c0c0").toString());
 
-    mSettingsColors.titleColor = QColor(settings->value("title/colour", "#ffffff").toString());
+    mSettingsColors.titleColor = QColor(settings->value("title/color", "#ffffff").toString());
 
     mSettingsColors.cpuSystemColor = QColor(settings->value("cpu/systemColor",    "#800000").toString());
     mSettingsColors.cpuUserColor   = QColor(settings->value("cpu/userColor",      "#000080").toString());

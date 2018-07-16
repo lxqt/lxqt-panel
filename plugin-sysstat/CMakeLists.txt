@@ -5,20 +5,20 @@ find_package(SysStat-Qt5 REQUIRED)
 set(HEADERS
     lxqtsysstat.h
     lxqtsysstatconfiguration.h
-    lxqtsysstatcolours.h
+    lxqtsysstatcolors.h
     lxqtsysstatutils.h
 )
 
 set(SOURCES
     lxqtsysstat.cpp
     lxqtsysstatconfiguration.cpp
-    lxqtsysstatcolours.cpp
+    lxqtsysstatcolors.cpp
     lxqtsysstatutils.cpp
 )
 
 set(UIS
     lxqtsysstatconfiguration.ui
-    lxqtsysstatcolours.ui
+    lxqtsysstatcolors.ui
 )
 
 set(LIBRARIES sysstat-qt5)

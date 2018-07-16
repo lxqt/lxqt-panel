@@ -4,109 +4,109 @@
 <context>
     <name>LXQtSysStatColors</name>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="14"/>
+        <location filename="../lxqtsysstatcolors.ui" line="14"/>
         <source>System Statistics Colors</source>
         <translation>צבעי סטטיסטיקת מערכת</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="24"/>
+        <location filename="../lxqtsysstatcolors.ui" line="24"/>
         <source>Graph</source>
         <translation>תרשים</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="30"/>
+        <location filename="../lxqtsysstatcolors.ui" line="30"/>
         <source>&amp;Grid</source>
         <translation>&amp;רשת</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="40"/>
-        <location filename="../lxqtsysstatcolours.ui" line="57"/>
-        <location filename="../lxqtsysstatcolours.ui" line="73"/>
-        <location filename="../lxqtsysstatcolours.ui" line="90"/>
-        <location filename="../lxqtsysstatcolours.ui" line="117"/>
-        <location filename="../lxqtsysstatcolours.ui" line="144"/>
-        <location filename="../lxqtsysstatcolours.ui" line="151"/>
-        <location filename="../lxqtsysstatcolours.ui" line="178"/>
-        <location filename="../lxqtsysstatcolours.ui" line="205"/>
-        <location filename="../lxqtsysstatcolours.ui" line="232"/>
-        <location filename="../lxqtsysstatcolours.ui" line="239"/>
-        <location filename="../lxqtsysstatcolours.ui" line="265"/>
-        <location filename="../lxqtsysstatcolours.ui" line="282"/>
+        <location filename="../lxqtsysstatcolors.ui" line="40"/>
+        <location filename="../lxqtsysstatcolors.ui" line="57"/>
+        <location filename="../lxqtsysstatcolors.ui" line="73"/>
+        <location filename="../lxqtsysstatcolors.ui" line="90"/>
+        <location filename="../lxqtsysstatcolors.ui" line="117"/>
+        <location filename="../lxqtsysstatcolors.ui" line="144"/>
+        <location filename="../lxqtsysstatcolors.ui" line="151"/>
+        <location filename="../lxqtsysstatcolors.ui" line="178"/>
+        <location filename="../lxqtsysstatcolors.ui" line="205"/>
+        <location filename="../lxqtsysstatcolors.ui" line="232"/>
+        <location filename="../lxqtsysstatcolors.ui" line="239"/>
+        <location filename="../lxqtsysstatcolors.ui" line="265"/>
+        <location filename="../lxqtsysstatcolors.ui" line="282"/>
         <source>Change ...</source>
         <translation>שינוי…</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="47"/>
+        <location filename="../lxqtsysstatcolors.ui" line="47"/>
         <source>T&amp;itle</source>
         <translation>&amp;כותרת</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="67"/>
+        <location filename="../lxqtsysstatcolors.ui" line="67"/>
         <source>CPU</source>
         <translation>מעבד</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="80"/>
+        <location filename="../lxqtsysstatcolors.ui" line="80"/>
         <source>&amp;Nice</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="97"/>
+        <location filename="../lxqtsysstatcolors.ui" line="97"/>
         <source>Ot&amp;her</source>
         <translation>&amp;אחר</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="107"/>
+        <location filename="../lxqtsysstatcolors.ui" line="107"/>
         <source>&amp;Frequency</source>
         <translation>ת&amp;דירות</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="124"/>
+        <location filename="../lxqtsysstatcolors.ui" line="124"/>
         <source>S&amp;ystem</source>
         <translation>מ&amp;ערכת</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="134"/>
+        <location filename="../lxqtsysstatcolors.ui" line="134"/>
         <source>&amp;User</source>
         <translation>מ&amp;שתמש</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="172"/>
+        <location filename="../lxqtsysstatcolors.ui" line="172"/>
         <source>Memory</source>
         <translation>זיכרון</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="185"/>
+        <location filename="../lxqtsysstatcolors.ui" line="185"/>
         <source>Cache&amp;d</source>
         <translation>במ&amp;טמון</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="195"/>
+        <location filename="../lxqtsysstatcolors.ui" line="195"/>
         <source>S&amp;wap</source>
         <translation>החל&amp;פה</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="212"/>
+        <location filename="../lxqtsysstatcolors.ui" line="212"/>
         <source>&amp;Applications</source>
         <translation>יי&amp;שומים</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="222"/>
+        <location filename="../lxqtsysstatcolors.ui" line="222"/>
         <source>&amp;Buffers</source>
         <translation>&amp;חוצצים</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="249"/>
+        <location filename="../lxqtsysstatcolors.ui" line="249"/>
         <source>Network</source>
         <translation>רשת</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="255"/>
+        <location filename="../lxqtsysstatcolors.ui" line="255"/>
         <source>&amp;Received</source>
         <translation>הת&amp;קבלו</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolours.ui" line="272"/>
+        <location filename="../lxqtsysstatcolors.ui" line="272"/>
         <source>&amp;Transmitted</source>
         <translation>&amp;נשלחו</translation>
     </message>
@@ -205,17 +205,17 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
-        <source>Use t&amp;heme colours</source>
+        <source>Use t&amp;heme colors</source>
         <translation>שימוש בצבעי &amp;ערכת העיצוב</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
-        <source>Use c&amp;ustom colours</source>
+        <source>Use c&amp;ustom colors</source>
         <translation>שימוש בצבעים בהת&amp;אמה אישית</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
-        <source>Custom colour ...</source>
+        <source>Custom color ...</source>
         <translation>צבע בהתאמה אישית…</translation>
     </message>
     <message>

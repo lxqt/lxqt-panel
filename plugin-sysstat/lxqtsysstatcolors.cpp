@@ -26,8 +26,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#include "lxqtsysstatcolours.h"
-#include "ui_lxqtsysstatcolours.h"
+#include "lxqtsysstatcolors.h"
+#include "ui_lxqtsysstatcolors.h"
 
 #include <QSignalMapper>
 #include <QColorDialog>
@@ -101,10 +101,10 @@ void LXQtSysStatColors::selectColor(const QString &name)
     }
 }
 
-void LXQtSysStatColors::setColors(const Colors &colours)
+void LXQtSysStatColors::setColors(const Colors &colors)
 {
-    mInitialColors = colours;
-    mColors = colours;
+    mInitialColors = colors;
+    mColors = colors;
     applyColorsToButtons();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
@@ -172,12 +172,12 @@ void LXQtSysStatColors::reset()
 
 void LXQtSysStatColors::apply()
 {
-    emit coloursChanged();
+    emit colorsChanged();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
 
-LXQtSysStatColors::Colors LXQtSysStatColors::colours() const
+LXQtSysStatColors::Colors LXQtSysStatColors::colors() const
 {
     return mColors;
 }

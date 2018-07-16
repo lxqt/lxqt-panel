@@ -1028,7 +1028,7 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Settings loaded and saved
   * Config added
   * Initial WorldClock plugin skeleton
-  * SysStat plugin: Custom colours are in separate dialog
+  * SysStat plugin: Custom colors are in separate dialog
   * SysStat plugin: Colors and font are read from theme
   * potential solution for #484 - to display text placeholder when there is no item connected
   * Icon in the TeaTime plugin.

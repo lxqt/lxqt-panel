@@ -59,7 +59,7 @@ public slots:
     void on_maximumHS_valueChanged(int);
     void on_customColorsB_clicked();
 
-    void coloursChanged();
+    void colorsChanged();
 
 public:
     static const QStringList msStatTypes;

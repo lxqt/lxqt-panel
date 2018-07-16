@@ -307,7 +307,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="coloursGB">
+      <widget class="QGroupBox" name="colorsGB">
        <property name="title">
         <string>Colors</string>
        </property>
@@ -324,7 +324,7 @@
         <item row="0" column="0">
          <widget class="QRadioButton" name="useThemeColorsRB">
           <property name="text">
-           <string>Use t&amp;heme colours</string>
+           <string>Use t&amp;heme colors</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -334,14 +334,14 @@
         <item row="1" column="0">
          <widget class="QRadioButton" name="useCustomColorsRB">
           <property name="text">
-           <string>Use c&amp;ustom colours</string>
+           <string>Use c&amp;ustom colors</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QPushButton" name="customColorsB">
           <property name="text">
-           <string>Custom colour ...</string>
+           <string>Custom color ...</string>
           </property>
          </widget>
         </item>

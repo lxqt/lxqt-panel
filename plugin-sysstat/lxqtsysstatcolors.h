@@ -56,12 +56,12 @@ public:
 
     void setColors(const Colors&);
 
-    Colors colours() const;
+    Colors colors() const;
 
     Colors defaultColors() const;
 
 signals:
-    void coloursChanged();
+    void colorsChanged();
 
 public slots:
     void on_buttons_clicked(QAbstractButton*);
