@@ -33,37 +33,37 @@
 #include <QColorDialog>
 
 
-LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
+LXQtSysStatColors::LXQtSysStatColors(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::LXQtSysStatColours),
-    mSelectColourMapper(new QSignalMapper(this))
+    ui(new Ui::LXQtSysStatColors),
+    mSelectColorMapper(new QSignalMapper(this))
 {
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
-    mDefaultColours["grid"]  = QColor("#808080");
-    mDefaultColours["title"] = QColor("#000000");
+    mDefaultColors["grid"]  = QColor("#808080");
+    mDefaultColors["title"] = QColor("#000000");
 
-    mDefaultColours["cpuSystem"]    = QColor("#800000");
-    mDefaultColours["cpuUser"]      = QColor("#000080");
-    mDefaultColours["cpuNice"]      = QColor("#008000");
-    mDefaultColours["cpuOther"]     = QColor("#808000");
-    mDefaultColours["cpuFrequency"] = QColor("#808080");
+    mDefaultColors["cpuSystem"]    = QColor("#800000");
+    mDefaultColors["cpuUser"]      = QColor("#000080");
+    mDefaultColors["cpuNice"]      = QColor("#008000");
+    mDefaultColors["cpuOther"]     = QColor("#808000");
+    mDefaultColors["cpuFrequency"] = QColor("#808080");
 
-    mDefaultColours["memApps"]    = QColor("#000080");
-    mDefaultColours["memBuffers"] = QColor("#008000");
-    mDefaultColours["memCached"]  = QColor("#808000");
-    mDefaultColours["memSwap"]    = QColor("#800000");
+    mDefaultColors["memApps"]    = QColor("#000080");
+    mDefaultColors["memBuffers"] = QColor("#008000");
+    mDefaultColors["memCached"]  = QColor("#808000");
+    mDefaultColors["memSwap"]    = QColor("#800000");
 
-    mDefaultColours["netReceived"]    = QColor("#000080");
-    mDefaultColours["netTransmitted"] = QColor("#808000");
+    mDefaultColors["netReceived"]    = QColor("#000080");
+    mDefaultColors["netTransmitted"] = QColor("#808000");
 
 
 #undef CONNECT_SELECT_COLOUR
 #define CONNECT_SELECT_COLOUR(VAR) \
-    connect(ui-> VAR ## B, SIGNAL(clicked()), mSelectColourMapper, SLOT(map())); \
-    mSelectColourMapper->setMapping(ui-> VAR ## B, QString( #VAR )); \
-    mShowColourMap[QString( #VAR )] = ui-> VAR ## B;
+    connect(ui-> VAR ## B, SIGNAL(clicked()), mSelectColorMapper, SLOT(map())); \
+    mSelectColorMapper->setMapping(ui-> VAR ## B, QString( #VAR )); \
+    mShowColorMap[QString( #VAR )] = ui-> VAR ## B;
 
     CONNECT_SELECT_COLOUR(grid)
     CONNECT_SELECT_COLOUR(title)
@@ -81,46 +81,46 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
 
 #undef CONNECT_SELECT_COLOUR
 
-    connect(mSelectColourMapper, SIGNAL(mapped(const QString &)), SLOT(selectColour(const QString &)));
+    connect(mSelectColorMapper, SIGNAL(mapped(const QString &)), SLOT(selectColor(const QString &)));
 }
 
-LXQtSysStatColours::~LXQtSysStatColours()
+LXQtSysStatColors::~LXQtSysStatColors()
 {
     delete ui;
 }
 
-void LXQtSysStatColours::selectColour(const QString &name)
+void LXQtSysStatColors::selectColor(const QString &name)
 {
-    QColor color = QColorDialog::getColor(mColours[name], this);
+    QColor color = QColorDialog::getColor(mColors[name], this);
     if (color.isValid())
     {
-        mColours[name] = color;
-        mShowColourMap[name]->setStyleSheet(QString("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? "black" : "white"));
+        mColors[name] = color;
+        mShowColorMap[name]->setStyleSheet(QString("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? "black" : "white"));
 
         ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(true);
     }
 }
 
-void LXQtSysStatColours::setColours(const Colours &colours)
+void LXQtSysStatColors::setColors(const Colors &colours)
 {
-    mInitialColours = colours;
-    mColours = colours;
-    applyColoursToButtons();
+    mInitialColors = colours;
+    mColors = colours;
+    applyColorsToButtons();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
 
-void LXQtSysStatColours::applyColoursToButtons()
+void LXQtSysStatColors::applyColorsToButtons()
 {
-    Colours::ConstIterator M = mColours.constEnd();
-    for (Colours::ConstIterator I = mColours.constBegin(); I != M; ++I)
+    Colors::ConstIterator M = mColors.constEnd();
+    for (Colors::ConstIterator I = mColors.constBegin(); I != M; ++I)
     {
         const QColor &color = I.value();
-        mShowColourMap[I.key()]->setStyleSheet(QString("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? "black" : "white"));
+        mShowColorMap[I.key()]->setStyleSheet(QString("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? "black" : "white"));
     }
 }
 
-void LXQtSysStatColours::on_buttons_clicked(QAbstractButton *button)
+void LXQtSysStatColors::on_buttons_clicked(QAbstractButton *button)
 {
     switch (ui->buttons->standardButton(button))
     {
@@ -150,39 +150,39 @@ void LXQtSysStatColours::on_buttons_clicked(QAbstractButton *button)
     }
 }
 
-void LXQtSysStatColours::restoreDefaults()
+void LXQtSysStatColors::restoreDefaults()
 {
-    bool wereTheSame = mColours == mDefaultColours;
+    bool wereTheSame = mColors == mDefaultColors;
 
-    mColours = mDefaultColours;
-    applyColoursToButtons();
+    mColors = mDefaultColors;
+    applyColorsToButtons();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(!wereTheSame);
 }
 
-void LXQtSysStatColours::reset()
+void LXQtSysStatColors::reset()
 {
-    bool wereTheSame = mColours == mInitialColours;
+    bool wereTheSame = mColors == mInitialColors;
 
-    mColours = mInitialColours;
-    applyColoursToButtons();
+    mColors = mInitialColors;
+    applyColorsToButtons();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(!wereTheSame);
 }
 
-void LXQtSysStatColours::apply()
+void LXQtSysStatColors::apply()
 {
     emit coloursChanged();
 
     ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
 
-LXQtSysStatColours::Colours LXQtSysStatColours::colours() const
+LXQtSysStatColors::Colors LXQtSysStatColors::colours() const
 {
-    return mColours;
+    return mColors;
 }
 
-LXQtSysStatColours::Colours LXQtSysStatColours::defaultColours() const
+LXQtSysStatColors::Colors LXQtSysStatColors::defaultColors() const
 {
-    return mDefaultColours;
+    return mDefaultColors;
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
-    <name>LXQtSysStatColours</name>
+    <name>LXQtSysStatColors</name>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
@@ -350,7 +350,7 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
-        <source>Colours</source>
+        <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>

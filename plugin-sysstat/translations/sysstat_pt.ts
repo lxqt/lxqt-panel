@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt">
 <context>
-    <name>LXQtSysStatColours</name>
+    <name>LXQtSysStatColors</name>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
@@ -149,7 +149,7 @@
         <translation type="vanished">Linhas</translation>
     </message>
     <message>
-        <source>Colour</source>
+        <source>Color</source>
         <translation type="vanished">Cor</translation>
     </message>
     <message>
@@ -384,7 +384,7 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
-        <source>Colours</source>
+        <source>Colors</source>
         <translation>Cores</translation>
     </message>
     <message>

@@ -37,28 +37,28 @@
 
 
 namespace Ui {
-    class LXQtSysStatColours;
+    class LXQtSysStatColors;
 }
 
 class QSignalMapper;
 class QAbstractButton;
 class QPushButton;
 
-class LXQtSysStatColours : public QDialog
+class LXQtSysStatColors : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit LXQtSysStatColours(QWidget *parent = NULL);
-    ~LXQtSysStatColours();
+    explicit LXQtSysStatColors(QWidget *parent = NULL);
+    ~LXQtSysStatColors();
 
-    typedef QMap<QString, QColor> Colours;
+    typedef QMap<QString, QColor> Colors;
 
-    void setColours(const Colours&);
+    void setColors(const Colors&);
 
-    Colours colours() const;
+    Colors colours() const;
 
-    Colours defaultColours() const;
+    Colors defaultColors() const;
 
 signals:
     void coloursChanged();
@@ -66,23 +66,23 @@ signals:
 public slots:
     void on_buttons_clicked(QAbstractButton*);
 
-    void selectColour(const QString &);
+    void selectColor(const QString &);
 
     void restoreDefaults();
     void reset();
     void apply();
 
 private:
-    Ui::LXQtSysStatColours *ui;
+    Ui::LXQtSysStatColors *ui;
 
-    QSignalMapper *mSelectColourMapper;
-    QMap<QString, QPushButton*> mShowColourMap;
+    QSignalMapper *mSelectColorMapper;
+    QMap<QString, QPushButton*> mShowColorMap;
 
-    Colours mDefaultColours;
-    Colours mInitialColours;
-    Colours mColours;
+    Colors mDefaultColors;
+    Colors mInitialColors;
+    Colors mColors;
 
-    void applyColoursToButtons();
+    void applyColorsToButtons();
 };
 
 #endif // LXQTSYSSTATCOLOURS_HPP
