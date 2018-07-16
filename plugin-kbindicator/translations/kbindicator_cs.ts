@@ -60,32 +60,32 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Ukázat přepínače</translation>
+        <translation>Indikovat zámky</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Ukázat klávesu CapsLock</translation>
+        <translation>Ukazovat CapsLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Ukázat klávesu NumLock</translation>
+        <translation>Ukazovat NumLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Ukázat klávesu ScrollLock</translation>
+        <translation>Ukazovat ScrollLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Ukázat rozvržení klávesnice</translation>
+        <translation>Ukazovat rozvržení klávesnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Předpis pro přepínání</translation>
+        <translation>Pravidlo pro přepínání</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
@@ -95,7 +95,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation>Celkové</translation>
+        <translation>Celkově</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Program</translation>
+        <translation>Aplikace</translation>
     </message>
 </context>
 </TS>
