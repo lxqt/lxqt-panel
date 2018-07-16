@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation>اعرض منبثقة عند مرور الفأرة</translation>
+        <translation>اعرض منبثقة عند مرور المؤشّر</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation>أدنى عرض للزّرّ</translation>
+        <translation>أدنى عرض للزرّ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="144"/>
@@ -196,22 +196,22 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation>أقصى ارتفاع للزّرّ</translation>
+        <translation>أقصى ارتفاع للزرّ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>&amp;دوّر الأزرار آليًّا عندما تكون اللوحة رأسيّة</translation>
+        <translation>&amp;دوّر الأزرار آليا عندما تكون اللوحة رأسية</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>استخدم الأيقونات من WindowClass إن توفّرت</translation>
+        <translation>استخدم الأيقونات من WindowClass إن وُجدت</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
         <source>Icon and text</source>
-        <translation>أيقونة ونصّ</translation>
+        <translation>أيقونة ونص</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
@@ -221,12 +221,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Only text</source>
-        <translation>نصّ فقط</translation>
+        <translation>نص فقط</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Current</source>
-        <translation>الحاليّ</translation>
+        <translation>الحالي</translation>
     </message>
 </context>
 </TS>
