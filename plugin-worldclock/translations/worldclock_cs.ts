@@ -49,7 +49,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Vlastní</translation>
+        <translation>Uživatelem určený</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Ukazovat den v &amp;týdnu</translation>
+        <translation>U&amp;kazovat den v týdnu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
@@ -284,7 +284,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Vlastní datum/Skladba formátu času&lt;/h1&gt;
+        <translation>&lt;h1&gt;Syntaxe uživatelem určeného formátu data/času&lt;/h1&gt;
 &lt;p&gt;Vzor data je řetězec znaků, kde jsou určité řetězce znaků při formátování nahrazeny údaji o datu a času z kalendáře, nebo jsou při zpracování použity na vytvoření údajů pro kalendář.&lt;/p&gt;
 &lt;p&gt;Tabulka symbolů v poli s datem níže obsahuje znaky používané k ukázání příslušných formátů pro daný jazyk, jako je rrrr pro rok. Znaky lze použít vícekrát. Například, pokud je r použito pro rok, &apos;rr&apos; může vytvořit &apos;99&apos;, kdežto &apos;rrrr&apos; vytvoří &apos;1999&apos;. Pro většinu číselných polí stanovuje počet znaků šířku pole. Například, pokud je h hodina, &apos;h&apos; může vytvořit &apos;5&apos;, ale &apos;hh&apos; vytváří &apos;05&apos;. U některých znaků počet určuje, zda se má použít zkrácený nebo plný tvar, ale mohou být i další volby, které jsou udány níže.&lt;/p&gt;
 &lt;p&gt;Dvě jednoduché uvozovky představují písmennou jednu uvozovku, buď uvnitř anebo vně jednoduchých uvozovek. Text uvnitř jednoduchých uvozovek není jakkoli vykládán (vyjma dvou sousedících jednoduchých uvozovek). Jinak jsou všechna písmena ASCII od a do z a A až Z vyhrazena jako znaky pro skladbu, a vyžadují uzavření v uvozovkách, pokud mají představovat znaky tvořené písmeny. Kromě toho se mohou určité znaky interpunkčních znamének ASCII stát proměnnými v budoucnu (to znamená &quot;:&quot; se vykládá jako oddělovač času a &apos;/&apos; jako oddělovač data, a jsou v zobrazení nahrazeny příslušnými místními znaky s rozlišením velikosti písma).&lt;br /&gt;&lt;/p&gt;
