@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation>أظهر المدخلات المُطابقة:</translation>
+        <translation>اعرض المدخلات المتطابقة:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>تنظيف البحث عند إظهار القائمة</translation>
+        <translation>امسح البحث عند عرض القائمة</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>انقر الزّرّ لتسجيل اختصار:</translation>
+        <translation>انقر الزرّ لتسجيل اختصار:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
@@ -119,22 +119,22 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>اختر ملفّ أيقونة</translation>
+        <translation>اختر ملف أيقونة</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation>صور (‎*.svg *.png)</translation>
+        <translation>الصور (‎*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>اختر ملفّ القوائم</translation>
+        <translation>اختر ملف القوائم</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
         <source>Menu files (*.menu)</source>
-        <translation>ملفّات القوائم (‎*.menu)</translation>
+        <translation>ملفات القوائم (‎*.menu)</translation>
     </message>
 </context>
 </TS>
