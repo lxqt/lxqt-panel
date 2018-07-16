@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
-        <translation>المازج الخارجيّ</translation>
+        <translation>المازج الخارجي</translation>
     </message>
 </context>
 <context>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>أطلق المازج</translation>
+        <translation>أطلِق المازج</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation>المازج</translation>
+        <translation>ال&amp;مازج</translation>
     </message>
 </context>
 </TS>
