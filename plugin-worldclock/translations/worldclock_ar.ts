@@ -14,22 +14,22 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>إعدادات السّاعة العالميّة</translation>
+        <translation>إعدادات الساعة العالمية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation>نسق العرض</translation>
+        <translation>ت&amp;نسيق العرض</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation>الوقت</translation>
+        <translation>الو&amp;قت</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation>النّسق :</translation>
+        <translation>الت&amp;نسيق:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
@@ -54,27 +54,27 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>أظهر الثّواني</translation>
+        <translation>ا&amp;عرض الثواني</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation type="unfinished"></translation>
+        <translation>أ&amp;سبِق عدد الساعات بصفر</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>المنطقة الزّمنية</translation>
+        <translation>المن&amp;طقة الزمنية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>المكان :</translation>
+        <translation>الم&amp;كان:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>النّسق :</translation>
+        <translation>الت&amp;نسيق:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
