@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Files:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
