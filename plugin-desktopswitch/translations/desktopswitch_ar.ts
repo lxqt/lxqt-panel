@@ -25,7 +25,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation>عدد الصّفوف:</translation>
+        <translation>عدد الصفوف:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>بلا</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
