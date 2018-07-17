@@ -11,13 +11,13 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>يتعذّر الآن تضمين العنوان/المسار &apos;%1&apos; إلى المُطلق السّريع</translation>
+        <translation>يتعذر الآن تضمين العنوان/المسار ”%1“ إلى المُطلق السريع</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation>أفلت أيقونات التّطبيقات هنا</translation>
+        <translation>أفلِت أيقونات التطبيقات هنا</translation>
     </message>
 </context>
 <context>
@@ -25,17 +25,17 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation>انقل لليسار</translation>
+        <translation>انقل يسارا</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>انقل لليمين</translation>
+        <translation>انقل يمينا</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>أزل من المُطلق السّريع</translation>
+        <translation>أزِل من المُطلق السريع</translation>
     </message>
 </context>
 </TS>
