@@ -11,12 +11,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>عامّ</translation>
+        <translation>عام</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>فترة التّحديث (بالثّواني)</translation>
+        <translation>فترة التحديث (بالثواني)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
@@ -31,17 +31,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation>سيليزيّ</translation>
+        <translation>سيليزي</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation>فهرنهايتيّ</translation>
+        <translation>فهرنهايتي</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>أومض أشرطة التّقدّم إن كانت درجة الحرارة مرتفعة جدًّا</translation>
+        <translation>أومِض أشرطة التقدم إن كانت درجة الحرارة مرتفعة جدا</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>الرّقاقات المُكتشفة:</translation>
+        <translation>الرقاقات المُكتشفة:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>ميزات الرّقاقة:</translation>
+        <translation>ميزات الرقاقة:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
