@@ -2,111 +2,111 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
-    <name>LXQtSysStatColors</name>
+    <name>LXQtSysStatColours</name>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="14"/>
+        <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
         <translation>Цвета статистических данных системы</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="24"/>
+        <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
         <translation>График</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="30"/>
+        <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
         <translation>&amp;Сетка</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="40"/>
-        <location filename="../lxqtsysstatcolors.ui" line="57"/>
-        <location filename="../lxqtsysstatcolors.ui" line="73"/>
-        <location filename="../lxqtsysstatcolors.ui" line="90"/>
-        <location filename="../lxqtsysstatcolors.ui" line="117"/>
-        <location filename="../lxqtsysstatcolors.ui" line="144"/>
-        <location filename="../lxqtsysstatcolors.ui" line="151"/>
-        <location filename="../lxqtsysstatcolors.ui" line="178"/>
-        <location filename="../lxqtsysstatcolors.ui" line="205"/>
-        <location filename="../lxqtsysstatcolors.ui" line="232"/>
-        <location filename="../lxqtsysstatcolors.ui" line="239"/>
-        <location filename="../lxqtsysstatcolors.ui" line="265"/>
-        <location filename="../lxqtsysstatcolors.ui" line="282"/>
+        <location filename="../lxqtsysstatcolours.ui" line="40"/>
+        <location filename="../lxqtsysstatcolours.ui" line="57"/>
+        <location filename="../lxqtsysstatcolours.ui" line="73"/>
+        <location filename="../lxqtsysstatcolours.ui" line="90"/>
+        <location filename="../lxqtsysstatcolours.ui" line="117"/>
+        <location filename="../lxqtsysstatcolours.ui" line="144"/>
+        <location filename="../lxqtsysstatcolours.ui" line="151"/>
+        <location filename="../lxqtsysstatcolours.ui" line="178"/>
+        <location filename="../lxqtsysstatcolours.ui" line="205"/>
+        <location filename="../lxqtsysstatcolours.ui" line="232"/>
+        <location filename="../lxqtsysstatcolours.ui" line="239"/>
+        <location filename="../lxqtsysstatcolours.ui" line="265"/>
+        <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
         <translation>Изменить…</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="47"/>
+        <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
         <translation>&amp;Название</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="67"/>
+        <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
         <translation>ЦПУ</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="80"/>
+        <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
         <translation>&amp;Приоритет</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="97"/>
+        <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
         <translation>&amp;Прочее</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="107"/>
+        <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
         <translation>&amp;Частота</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="124"/>
+        <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
         <translation>&amp;Система</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="134"/>
+        <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
         <translation>&amp;Пользователь</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="172"/>
+        <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
         <translation>Память</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="185"/>
+        <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
         <translation>&amp;Кэшировано</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="195"/>
+        <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
         <translation>&amp;Подкачка</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="212"/>
+        <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
         <translation>&amp;Приложения</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="222"/>
+        <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
         <translation>&amp;Буферы</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="249"/>
+        <location filename="../lxqtsysstatcolours.ui" line="249"/>
         <source>Network</source>
         <translation>Сеть</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="255"/>
+        <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
         <translation>&amp;Получено</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstatcolors.ui" line="272"/>
+        <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
         <translation>&amp;Передано</translation>
     </message>
@@ -350,22 +350,22 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
-        <source>Colors</source>
+        <source>Colours</source>
         <translation>Цвета</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
-        <source>Use t&amp;heme colors</source>
+        <source>Use t&amp;heme colours</source>
         <translation>Использовать цвета &amp;темы</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
-        <source>Use c&amp;ustom colors</source>
+        <source>Use c&amp;ustom colours</source>
         <translation>Использовать с&amp;вои цвета</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
-        <source>Custom color ...</source>
+        <source>Custom colour ...</source>
         <translation>Свои цвета…</translation>
     </message>
 </context>
