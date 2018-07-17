@@ -37,17 +37,17 @@
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>قافل التّمرير</translation>
+        <translation>قافل التمرير</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation>التّخطيط</translation>
+        <translation>التخطيط</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Variant</source>
-        <translation>التّنويعة</translation>
+        <translation>التنويعة</translation>
     </message>
 </context>
 <context>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>أظهر قافل الحالة</translation>
+        <translation>اعرض قافل الحالة</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>أظهر قافل الأرقام</translation>
+        <translation>اعرض قافل الأرقام</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>أظهر قافل التّمرير</translation>
+        <translation>اعرض قافل التمرير</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
@@ -85,27 +85,27 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>سياسة التّغيير</translation>
+        <translation>سياسة التبديل</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>اضبط التّخطيطات</translation>
+        <translation>اضبط التخطيطات</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation>عموميّ</translation>
+        <translation>عمومي</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation>حسب النّافذة</translation>
+        <translation>حسب النافذة</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>حسب التّطبيق</translation>
+        <translation>حسب التطبيق</translation>
     </message>
 </context>
 </TS>
