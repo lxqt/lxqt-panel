@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd، d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -103,12 +103,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>الإزاحة من التوقيت العالمي المنسّق</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation>الإختصار</translation>
+        <translation>الاختصار</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
@@ -120,122 +120,122 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="579"/>
         <source>Custom name</source>
-        <translation>الإسم المخصص</translation>
+        <translation>الاسم المخصّص</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>إستخدام نسق 12 ساعة</translation>
+        <translation>ا&amp;ستخدم وضع ١٢ ساعة</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation>معرّف الموقع</translation>
+        <translation>معرّف المكان</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation>التاريخ</translation>
+        <translation>ال&amp;تاريخ</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>المكان :</translation>
+        <translation>الم&amp;كان:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation>النسق :</translation>
+        <translation>الت&amp;نسيق:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation>ISO 8601</translation>
+        <translation>آيزو ٨٦٠١</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation>إظهار السنة</translation>
+        <translation>اعرض ال&amp;سنة</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>إظهار أيام الأسبوع</translation>
+        <translation>اعرض يوم الأ&amp;سبوع</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation type="unfinished"></translation>
+        <translation>أ&amp;سبِق اليوم بصفر</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>أسماء طويلة للأشهر و الأيام و الأسابيع</translation>
+        <translation>أسماء الأشهر وأيام الأسبوع &amp;طويلة</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>نسق متقدم يدوي</translation>
+        <translation>تنسيق يدوي مت&amp;قدّم</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>تخصيص …</translation>
+        <translation>&amp;خصّص…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation>المناطق الزمنية</translation>
+        <translation>المنا&amp;طق الزمنية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>إضافة …</translation>
+        <translation>أ&amp;ضِف…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation>حذف</translation>
+        <translation>أ&amp;زِل</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>تعيين كافتراضي</translation>
+        <translation>اضبط &amp;كمبدئي</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>تعديل الإسم المخصص …</translation>
+        <translation>&amp;حرّر الاسم المخصّص…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>النقل إلى أعلى</translation>
+        <translation>انقل لأ&amp;على</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>النقل إلى أسفل</translation>
+        <translation>انقل لأ&amp;سفل</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
-        <translation>عامّ</translation>
+        <translation>&amp;عام</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;دوّر آليا عندما تكون اللوحة رأسية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd، d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Input custom time zone name</source>
-        <translation>قم بإدخال منطقة زمنية مخصصة</translation>
+        <translation>أدخِل اسم المنطقة الزمنية المخصّص</translation>
     </message>
 </context>
 <context>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>الساعة العالمية للمناطق الزمنية</translation>
+        <translation>المناطق الزمنية للساعة العالمية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -284,7 +284,44 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;div dir=&quot;rtl&quot;&gt;
+&lt;h1&gt;صياغة تنسيق الوقت والتاريخ المخصّصين&lt;/h1&gt;
+&lt;p&gt;يُعتبر نمط التاريخ مجموعة من المحارف حيث تُستبدل بعض المحارف الخاصة ببيانات التاريخ والوقت وذلك عند التنسيق، أو أن يُستخدم لتوليد تاريخ للتقويم عند التحليل.&lt;/p&gt;
+&lt;p&gt;يحتوي جدول رموز حقل التاريخ أدناه المحارفَ المستخدمة في الأنماط لعرض التنسيق المناسب حسب المحلية، مثال على ذلك هو yyyy لعرض السنة. يمكنك استخدام المحارف عدّة مرات. على سبيل المثال، إن اسُتخدم ”y“ لعرض السنة، فَ‍”yy“ ستعرض ”٩٩“ بينما ”yyyy“ ستعرض ”١٩٩٩“. بالنسبة لأغلب الحقول الرقمية فعدد المحارف هو ذاته عرض الحقل. على سبيل المثال، إن استُخدم ”h“ لعرض الساعة، فَ‍”h“ ستعرض ”٥“ بينما ”hh“ تعرض ”٠٥“. بالنسبة لبعض المحارف، عدد الأحرف يحدّد ما إذا كان يجب استخدام الصيغة المختصرة أو الكاملة، ولكن قد يكون لبعضها خيارات أخرى كما هو موضّح أدناه.&lt;/p&gt;
+&lt;p&gt;يُعتبر محرفا الاقتباس المفردان (&apos;&apos;) محرفَ اقتباس واحد خالص، أكانا داخل محارف الاقتباس المفردة أم خارجهما. النصوص داخل محارف الاقتباس المفردة لا تُعالج بتاتا (ثمة استثناء وهو محرفي اقتباس مفردين متتاليين). عدا ذلك فكل محارف ”آسكي“ من a إلى z ومن A إلى Z محجوزة باعتبارها محارف صياغة، ويجب وضعها بين محارف اقتباس إن أردت أن تكون محارف خالصة. إضافة إلى ذلك، بعض محارف الترقيم بنظام ”آسكي“ قد تصبح متغيرات مستقبلا (مثل أن تكون ”:“ فاصل وقت و”/“ فاصل تاريخ، فتُستبدل بالمحارف المقابلة لها حسب المحلية عند عرضها).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;الرمز&lt;/th&gt;&lt;th&gt;معناه&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;اليوم باعتباره عددا دون الصفر في بدايته (١ إلى ٣١)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;اليوم باعتباره عددا بصفر في بدايته (٠١ إلى ٣١)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;اسم اليوم الموطّن مختصرا (مثال: ”Sat“ إلى “Fri“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;اسم اليوم الموطّن كاملا (مثال: ”السبت“ إلى ”الجمعة“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;الشهر باعتباره عددا دون الصفر في بدايته (١-١٢)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;الشهر باعتباره عددا بصفر في بدايته (٠١-١٢)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;اسم الشهر الموطّن مختصرا (مثال: ”Jan“ إلى ”Dec“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;اسم الشهر الموطّن كاملا (مثال: ”يناير“/”كانون الأول“ إلى ”ديسمبر“/”كانون الثاني“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;السنة باعتبارها عددا من خانتين (٠٠-٩٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;السنة باعتبارها عددا من أربع خانات&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;الساعة دون الصفر في بدايتها (٠ إلى ٢٣ أو ١ إلى ١٢ بوضع ١٢ ساعة)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;الساعة بصفر في بدايتها (٠٠ إلى ٢٣ أو ٠١ إلى ١٢ بوضع ١٢ ساعة)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;الساعة دون الصفر في بدايتها (٠ إلى ٢٣، حتى بوضع ١٢ ساعة)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;الساعة بصفر في بدايتها (٠٠ إلى ٢٣، حتى بوضع ١٢ ساعة)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;الدقيقة دون صفر في بدايتها (٠ إلى ٥٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;الدقيقة بصفر في بدايتها (٠٠ إلى ٥٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;الثانية دون صفر في بدايتها (٠ إلى ٥٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;الثانية بصفر في بدايتها (٠٠ إلى ٥٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;الملي‌ثانية دون صفر في بدايتها (٠ إلى ٩٩٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;الملي‌ثانية بصفر في بدايتها (٠٠٠ إلى ٩٩٩)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;أو&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;لعرض ”ص“/”م“.  ستُستبدل &lt;b&gt;A/AP&lt;/b&gt; بِ‍”ص“ أو ”م“&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;أو&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;لعرض ”ص“/”م“.  ستُستبدل &lt;b&gt;a/ap&lt;/b&gt; بِ‍”ص“ أو ”م“&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;المنطقة الزمنية (مثال: ”CEST“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;الإزاحة من التوقيت العالمي المنسّق&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;معرّف IANA للمنطقة الزمنية&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;اختصار المنطقة الزمنية&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;اسم عرض المنطقة الزمنية قصيرا&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;اسم عرض المنطقة الزمنية طويلا&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;اسم المنطقة الزمنية المخصّص. يمكنك تغييره في لسان ”المناطق الزمنية“ في نافذة الضبط&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;ملاحظات:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;إن وُجد في النمط أية محارف ليست في النطاقات [”a“.‏.”z“] و [”A“.‏.”Z“]، فستُعامل كنصوص في علامات اقتباس. فمثلا المحارف ”:“ و”.“ و” “ و”#“ و”@“ ستظهر في النص الناتج كما هي حتى لو لم توضع بين علامات اقتباس مفردة. تُستخدم علامة الاقتباس المفردة ل‍”تهريب“ الأحرف. إن وُجدت علامتي اقتباس مفردتين متتاليتين -أكانتا داخل علامتي اقتباس أم لا- فستُعاملان على أنهما علامة اقتباس ”فعلية“.&lt;/li&gt;&lt;li&gt;أدنى فترة للتحديث هي ثانية واحدة. إن استُخدم ”z“ أو ”zzz“ في النمط لعرض جزء الملي‌ثانية، فلن يُحدّث كل ملي‌ثانية واحدة، ذلك لتجنب تردي الأداء.&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
@@ -292,17 +329,17 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>الساعة العالمية للمناطق الزمنية</translation>
+        <translation>المناطق الزمنية للساعة العالمية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
-        <translation>المنطقة الزّمنية</translation>
+        <translation>المنطقة الزمنية</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
-        <translation>الإسم</translation>
+        <translation>الاسم</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
@@ -312,12 +349,12 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="51"/>
         <source>Country</source>
-        <translation>البلد</translation>
+        <translation>الدولة</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
-        <translation>UTC</translation>
+        <translation>التوقيت العالمي المنسّق</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
@@ -328,7 +365,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
-        <translation>المنطقة الزّمنيّة المحلية</translation>
+        <translation>المنطقة الزمنية المحلية</translation>
     </message>
 </context>
 </TS>
