@@ -21,17 +21,17 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>خطّيّ</translation>
+        <translation>خطي</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>منقّط</translation>
+        <translation>منقط</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>مخفيّ</translation>
+        <translation>مخفي</translation>
     </message>
 </context>
 </TS>
