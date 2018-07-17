@@ -19,7 +19,7 @@
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>السّلوك</translation>
+        <translation>السلوك</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>أبثق قائمة</translation>
+        <translation>أبثِق قائمة</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation>أظهر معلوماته</translation>
+        <translation>اعرض معلوماته</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation>لا تفعل شيئًا</translation>
+        <translation>لا تفعل شيئا</translation>
     </message>
 </context>
 <context>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>وُصل الجهاز &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;.</translation>
+        <translation>وُصل الجهاز &lt;b&gt;&lt;nobr&gt;”%1“&lt;/nobr&gt;&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>أُزيل الجهاز &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;.</translation>
+        <translation>أُزيل الجهاز &lt;b&gt;&lt;nobr&gt;”%1“&lt;/nobr&gt;&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>فشل ضمّ &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;:‏ %2</translation>
+        <translation>فشل ضمّ &lt;b&gt;&lt;nobr&gt;”%1“&lt;/nobr&gt;&lt;/b&gt;:‏ %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>فشلت إزالة ضمّ &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt;:‏ %2</translation>
+        <translation>فشل إلغاء ضمّ &lt;strong&gt;&lt;nobr&gt;”%1“&lt;/nobr&gt;&lt;/strong&gt;:‏ %2</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation>لا أجهزة متوفّرة</translation>
+        <translation>لا أجهزة متوفرة</translation>
     </message>
 </context>
 </TS>
