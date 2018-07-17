@@ -119,7 +119,7 @@ LXQtSysStatContent::LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent
     mUpdateInterval(0),
     mMinimalSize(0),
     mTitleFontPixelHeight(0),
-    mUseThemeColors(true),
+    mUseThemeColours(true),
     mHistoryOffset(0)
 {
     setObjectName("SysStat_Graph");
@@ -134,31 +134,31 @@ LXQtSysStatContent::~LXQtSysStatContent()
 
 #undef QSS_GET_COLOUR
 #define QSS_GET_COLOUR(GETNAME) \
-QColor LXQtSysStatContent::GETNAME##Color() const \
+QColor LXQtSysStatContent::GETNAME##Colour() const \
 { \
-    return mThemeColors.GETNAME##Color; \
+    return mThemeColours.GETNAME##Colour; \
 }
 
 #undef QSS_COLOUR
 #define QSS_COLOUR(GETNAME, SETNAME) \
 QSS_GET_COLOUR(GETNAME) \
-void LXQtSysStatContent::SETNAME##Color(QColor value) \
+void LXQtSysStatContent::SETNAME##Colour(QColor value) \
 { \
-    mThemeColors.GETNAME##Color = value; \
-    if (mUseThemeColors) \
-        mColors.GETNAME##Color = mThemeColors.GETNAME##Color; \
+    mThemeColours.GETNAME##Colour = value; \
+    if (mUseThemeColours) \
+        mColours.GETNAME##Colour = mThemeColours.GETNAME##Colour; \
 }
 
 #undef QSS_NET_COLOUR
 #define QSS_NET_COLOUR(GETNAME, SETNAME) \
 QSS_GET_COLOUR(GETNAME) \
-void LXQtSysStatContent::SETNAME##Color(QColor value) \
+void LXQtSysStatContent::SETNAME##Colour(QColor value) \
 { \
-    mThemeColors.GETNAME##Color = value; \
-    if (mUseThemeColors) \
+    mThemeColours.GETNAME##Colour = value; \
+    if (mUseThemeColours) \
     { \
-        mColors.GETNAME##Color = mThemeColors.GETNAME##Color; \
-        mixNetColors(); \
+        mColours.GETNAME##Colour = mThemeColours.GETNAME##Colour; \
+        mixNetColours(); \
     } \
 }
 
@@ -181,17 +181,17 @@ QSS_NET_COLOUR(netTransmitted, setNetTransmitted)
 #undef QSS_COLOUR
 #undef QSS_GET_COLOUR
 
-void LXQtSysStatContent::mixNetColors()
+void LXQtSysStatContent::mixNetColours()
 {
-    QColor netReceivedColor_hsv = mColors.netReceivedColor.toHsv();
-    QColor netTransmittedColor_hsv = mColors.netTransmittedColor.toHsv();
-    qreal hue = (netReceivedColor_hsv.hueF() + netTransmittedColor_hsv.hueF()) / 2;
-    if (qAbs(netReceivedColor_hsv.hueF() - netTransmittedColor_hsv.hueF()) > 0.5)
+    QColor netReceivedColour_hsv = mColours.netReceivedColour.toHsv();
+    QColor netTransmittedColour_hsv = mColours.netTransmittedColour.toHsv();
+    qreal hue = (netReceivedColour_hsv.hueF() + netTransmittedColour_hsv.hueF()) / 2;
+    if (qAbs(netReceivedColour_hsv.hueF() - netTransmittedColour_hsv.hueF()) > 0.5)
         hue += 0.5;
-    mNetBothColor.setHsvF(
+    mNetBothColour.setHsvF(
         hue,
-        (netReceivedColor_hsv.saturationF() + netTransmittedColor_hsv.saturationF()) / 2,
-        (netReceivedColor_hsv.valueF()      + netTransmittedColor_hsv.valueF()     ) / 2 );
+        (netReceivedColour_hsv.saturationF() + netTransmittedColour_hsv.saturationF()) / 2,
+        (netReceivedColour_hsv.valueF()      + netTransmittedColour_hsv.valueF()     ) / 2 );
 }
 
 void LXQtSysStatContent::setTitleFont(QFont value)
@@ -223,7 +223,7 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     bool old_logarithmicScale = mLogarithmicScale;
     int old_logScaleSteps = mLogScaleSteps;
 
-    mUseThemeColors = settings->value("graph/useThemeColors", true).toBool();
+    mUseThemeColours = settings->value("graph/useThemeColours", true).toBool();
     mUpdateInterval = settings->value("graph/updateInterval", 1.0).toDouble();
     mMinimalSize = settings->value("graph/minimalSize", 30).toInt();
 
@@ -247,31 +247,31 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     mNetRealMaximumSpeed = static_cast<qreal>(static_cast<int64_t>(1) << mNetMaximumSpeed);
 
 
-    mSettingsColors.gridColor = QColor(settings->value("grid/color", "#c0c0c0").toString());
+    mSettingsColours.gridColour = QColor(settings->value("grid/colour", "#c0c0c0").toString());
 
-    mSettingsColors.titleColor = QColor(settings->value("title/color", "#ffffff").toString());
+    mSettingsColours.titleColour = QColor(settings->value("title/colour", "#ffffff").toString());
 
-    mSettingsColors.cpuSystemColor = QColor(settings->value("cpu/systemColor",    "#800000").toString());
-    mSettingsColors.cpuUserColor   = QColor(settings->value("cpu/userColor",      "#000080").toString());
-    mSettingsColors.cpuNiceColor   = QColor(settings->value("cpu/niceColor",      "#008000").toString());
-    mSettingsColors.cpuOtherColor  = QColor(settings->value("cpu/otherColor",     "#808000").toString());
-    mSettingsColors.frequencyColor = QColor(settings->value("cpu/frequencyColor", "#808080").toString());
+    mSettingsColours.cpuSystemColour = QColor(settings->value("cpu/systemColour",    "#800000").toString());
+    mSettingsColours.cpuUserColour   = QColor(settings->value("cpu/userColour",      "#000080").toString());
+    mSettingsColours.cpuNiceColour   = QColor(settings->value("cpu/niceColour",      "#008000").toString());
+    mSettingsColours.cpuOtherColour  = QColor(settings->value("cpu/otherColour",     "#808000").toString());
+    mSettingsColours.frequencyColour = QColor(settings->value("cpu/frequencyColour", "#808080").toString());
 
-    mSettingsColors.memAppsColor    = QColor(settings->value("mem/appsColor",    "#000080").toString());
-    mSettingsColors.memBuffersColor = QColor(settings->value("mem/buffersColor", "#008000").toString());
-    mSettingsColors.memCachedColor  = QColor(settings->value("mem/cachedColor",  "#808000").toString());
-    mSettingsColors.swapUsedColor   = QColor(settings->value("mem/swapColor",    "#800000").toString());
+    mSettingsColours.memAppsColour    = QColor(settings->value("mem/appsColour",    "#000080").toString());
+    mSettingsColours.memBuffersColour = QColor(settings->value("mem/buffersColour", "#008000").toString());
+    mSettingsColours.memCachedColour  = QColor(settings->value("mem/cachedColour",  "#808000").toString());
+    mSettingsColours.swapUsedColour   = QColor(settings->value("mem/swapColour",    "#800000").toString());
 
-    mSettingsColors.netReceivedColor    = QColor(settings->value("net/receivedColor",    "#000080").toString());
-    mSettingsColors.netTransmittedColor = QColor(settings->value("net/transmittedColor", "#808000").toString());
+    mSettingsColours.netReceivedColour    = QColor(settings->value("net/receivedColour",    "#000080").toString());
+    mSettingsColours.netTransmittedColour = QColor(settings->value("net/transmittedColour", "#808000").toString());
 
 
-    if (mUseThemeColors)
-        mColors = mThemeColors;
+    if (mUseThemeColours)
+        mColours = mThemeColours;
     else
-        mColors = mSettingsColors;
+        mColours = mSettingsColours;
 
-    mixNetColors();
+    mixNetColours();
 
     updateTitleFontPixelHeight();
 
@@ -407,27 +407,27 @@ void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
     QPainter painter(&mHistoryImage);
     if (y_system != 0)
     {
-        painter.setPen(mColors.cpuSystemColor);
+        painter.setPen(mColours.cpuSystemColour);
         painter.drawLine(mHistoryOffset, y_system, mHistoryOffset, 0);
     }
     if (y_user != y_system)
     {
-        painter.setPen(mColors.cpuUserColor);
+        painter.setPen(mColours.cpuUserColour);
         painter.drawLine(mHistoryOffset, y_user, mHistoryOffset, y_system);
     }
     if (y_nice != y_user)
     {
-        painter.setPen(mColors.cpuNiceColor);
+        painter.setPen(mColours.cpuNiceColour);
         painter.drawLine(mHistoryOffset, y_nice, mHistoryOffset, y_user);
     }
     if (y_other != y_nice)
     {
-        painter.setPen(mColors.cpuOtherColor);
+        painter.setPen(mColours.cpuOtherColour);
         painter.drawLine(mHistoryOffset, y_other, mHistoryOffset, y_nice);
     }
     if (y_freq != y_other)
     {
-        painter.setPen(mColors.frequencyColor);
+        painter.setPen(mColours.frequencyColour);
         painter.drawLine(mHistoryOffset, y_freq, mHistoryOffset, y_other);
     }
 
@@ -455,22 +455,22 @@ void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
     QPainter painter(&mHistoryImage);
     if (y_system != 0)
     {
-        painter.setPen(mColors.cpuSystemColor);
+        painter.setPen(mColours.cpuSystemColour);
         painter.drawLine(mHistoryOffset, y_system, mHistoryOffset, 0);
     }
     if (y_user != y_system)
     {
-        painter.setPen(mColors.cpuUserColor);
+        painter.setPen(mColours.cpuUserColour);
         painter.drawLine(mHistoryOffset, y_user, mHistoryOffset, y_system);
     }
     if (y_nice != y_user)
     {
-        painter.setPen(mColors.cpuNiceColor);
+        painter.setPen(mColours.cpuNiceColour);
         painter.drawLine(mHistoryOffset, y_nice, mHistoryOffset, y_user);
     }
     if (y_other != y_nice)
     {
-        painter.setPen(mColors.cpuOtherColor);
+        painter.setPen(mColours.cpuOtherColour);
         painter.drawLine(mHistoryOffset, y_other, mHistoryOffset, y_nice);
     }
 
@@ -496,17 +496,17 @@ void LXQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
     QPainter painter(&mHistoryImage);
     if (y_apps != 0)
     {
-        painter.setPen(mColors.memAppsColor);
+        painter.setPen(mColours.memAppsColour);
         painter.drawLine(mHistoryOffset, y_apps, mHistoryOffset, 0);
     }
     if (y_buffers != y_apps)
     {
-        painter.setPen(mColors.memBuffersColor);
+        painter.setPen(mColours.memBuffersColour);
         painter.drawLine(mHistoryOffset, y_buffers, mHistoryOffset, y_apps);
     }
     if (y_cached != y_buffers)
     {
-        painter.setPen(mColors.memCachedColor);
+        painter.setPen(mColours.memCachedColour);
         painter.drawLine(mHistoryOffset, y_cached, mHistoryOffset, y_buffers);
     }
 
@@ -527,7 +527,7 @@ void LXQtSysStatContent::swapUpdate(float used)
     QPainter painter(&mHistoryImage);
     if (y_used != 0)
     {
-        painter.setPen(mColors.swapUsedColor);
+        painter.setPen(mColours.swapUsedColour);
         painter.drawLine(mHistoryOffset, y_used, mHistoryOffset, 0);
     }
 
@@ -558,12 +558,12 @@ void LXQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
     QPainter painter(&mHistoryImage);
     if (y_min_value != 0)
     {
-        painter.setPen(mNetBothColor);
+        painter.setPen(mNetBothColour);
         painter.drawLine(mHistoryOffset, y_min_value, mHistoryOffset, 0);
     }
     if (y_max_value != y_min_value)
     {
-        painter.setPen((received > transmitted) ? mColors.netReceivedColor : mColors.netTransmittedColor);
+        painter.setPen((received > transmitted) ? mColours.netReceivedColour : mColours.netTransmittedColour);
         painter.drawLine(mHistoryOffset, y_max_value, mHistoryOffset, y_min_value);
     }
 
@@ -588,7 +588,7 @@ void LXQtSysStatContent::paintEvent(QPaintEvent *event)
 
         if (event->region().intersects(QRect(0, 0, width(), graphTop)))
         {
-            p.setPen(mColors.titleColor);
+            p.setPen(mColours.titleColour);
             p.setFont(mTitleFont);
             p.drawText(QRectF(0, 0, width(), graphTop), Qt::AlignHCenter | Qt::AlignVCenter, mTitleLabel);
         }
@@ -607,7 +607,7 @@ void LXQtSysStatContent::paintEvent(QPaintEvent *event)
 
     p.setRenderHint(QPainter::Antialiasing);
 
-    p.setPen(mColors.gridColor);
+    p.setPen(mColours.gridColour);
     qreal w = static_cast<qreal>(width());
     if (hasTitle)
         p.drawLine(QPointF(0.0, graphTop + 0.5), QPointF(w, graphTop + 0.5)); // 0.5 looks better with antialiasing

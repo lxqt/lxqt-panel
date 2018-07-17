@@ -307,9 +307,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="colorsGB">
+      <widget class="QGroupBox" name="coloursGB">
        <property name="title">
-        <string>Colors</string>
+        <string>Colours</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_8" columnstretch="2,3">
         <property name="horizontalSpacing">
@@ -322,9 +322,9 @@
          <number>4</number>
         </property>
         <item row="0" column="0">
-         <widget class="QRadioButton" name="useThemeColorsRB">
+         <widget class="QRadioButton" name="useThemeColoursRB">
           <property name="text">
-           <string>Use t&amp;heme colors</string>
+           <string>Use t&amp;heme colours</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -332,16 +332,16 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QRadioButton" name="useCustomColorsRB">
+         <widget class="QRadioButton" name="useCustomColoursRB">
           <property name="text">
-           <string>Use c&amp;ustom colors</string>
+           <string>Use c&amp;ustom colours</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="customColorsB">
+         <widget class="QPushButton" name="customColoursB">
           <property name="text">
-           <string>Custom color ...</string>
+           <string>Custom colour ...</string>
           </property>
          </widget>
         </item>
@@ -386,9 +386,9 @@
   <tabstop>maximumHS</tabstop>
   <tabstop>logarithmicCB</tabstop>
   <tabstop>logScaleSB</tabstop>
-  <tabstop>useThemeColorsRB</tabstop>
-  <tabstop>useCustomColorsRB</tabstop>
-  <tabstop>customColorsB</tabstop>
+  <tabstop>useThemeColoursRB</tabstop>
+  <tabstop>useCustomColoursRB</tabstop>
+  <tabstop>customColoursB</tabstop>
   <tabstop>buttons</tabstop>
  </tabstops>
  <resources/>
@@ -442,9 +442,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>useCustomColorsRB</sender>
+   <sender>useCustomColoursRB</sender>
    <signal>toggled(bool)</signal>
-   <receiver>customColorsB</receiver>
+   <receiver>customColoursB</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
