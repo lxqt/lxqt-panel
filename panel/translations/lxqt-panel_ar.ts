@@ -150,7 +150,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>مدّة تأثير الحركة:</translation>
+        <translation>مدة تأثير الحركة:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation>الأعمدة :</translation>
+        <translation>الصفوف:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -189,27 +189,27 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation>لون الخطّ:</translation>
+        <translation>لون الخط:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation>لون الخلفيّة:</translation>
+        <translation>لون الخلفية:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation>شفافيّة الخلفيّة:</translation>
+        <translation>شفافية الخلفية:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;التّراكب مطلوب لشفافيّة اللوحة.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;التراكب مطلوب لشفافية اللوحة.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation>صورة الخلفيّة:</translation>
+        <translation>صورة الخلفية:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="168"/>
@@ -265,7 +265,7 @@
         <location filename="../config/configpanelwidget.cpp" line="368"/>
         <location filename="../config/configpanelwidget.cpp" line="384"/>
         <source>Pick color</source>
-        <translation>اختر لونًا</translation>
+        <translation>اختر لونا</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
@@ -275,7 +275,7 @@
     <message>
         <location filename="../config/configpanelwidget.cpp" line="402"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation>صور (‎*.png *.gif *.jpg)</translation>
+        <translation>الصور (‎*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -283,12 +283,12 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>اضبط اللوحات</translation>
+        <translation>اضبط الملحقات</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>لاحظ: التّعديلات على هذه الصّفحة لا عودة فيها.</translation>
+        <translation>لاحظ: التعديلات على هذه الصفحة لا عودة فيها.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -302,7 +302,7 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
@@ -312,12 +312,12 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation>أضف</translation>
+        <translation>أضِف</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>أزل</translation>
+        <translation>أزِل</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
@@ -341,18 +341,18 @@
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation>أدر الودجات</translation>
+        <translation>أدِر الودجات</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation>أضف لوحة جديدة</translation>
+        <translation>أضِف لوحة جديدة</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>إزالة اللوحة</translation>
+        <translation>أزِل اللوحة</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -363,7 +363,7 @@
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>إزالة اللوحة</translation>
+        <translation>أزِل اللوحة</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
@@ -378,17 +378,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>اضبط &quot;%1&quot;</translation>
+        <translation>اضبط ”%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>انقل &quot;%1&quot;</translation>
+        <translation>انقل ”%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>أزل &quot;%1&quot;</translation>
+        <translation>أزِل ”%1“</translation>
     </message>
 </context>
 <context>
@@ -396,12 +396,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>استخدم ملفّ ضبط بديل.</translation>
+        <translation>استخدم ملف ضبط بديل.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>ملفّ الضّبط</translation>
+        <translation>ملف الضبط</translation>
     </message>
 </context>
 </TS>
