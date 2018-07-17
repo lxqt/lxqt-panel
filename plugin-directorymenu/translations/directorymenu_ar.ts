@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>إعدادات قائمة الأدلّة</translation>
+        <translation>إعدادات قائمة الأدلة</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>الدّليل الأساس:</translation>
+        <translation>الدليل الأساس:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>اسم الدّليل الأساس</translation>
+        <translation>اسم الدليل الأساس</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation>اختر الدّليل الأساس</translation>
+        <translation>اختر الدليل الأساس</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
@@ -49,12 +49,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation>صور (‎*.png *.xpm *.jpg)</translation>
+        <translation>الصور (‎*.png *.xpm *.jpg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation>قائمة الأدلّة</translation>
+        <translation>قائمة الأدلة</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
