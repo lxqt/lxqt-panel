@@ -6,22 +6,22 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>أضف ملحقات</translation>
+        <translation>أضِف ملحقات</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>ابحث:</translation>
+        <translation>ابحث عن:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>أضف ودجة</translation>
+        <translation>أضِف ودجة</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation>أغلق</translation>
+        <translation>أغلِق</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;تضبط القيم السّالبة طولَ اللوحة ليكون أقلّ من مساحة الشّاشة المتوفّرة بالعدد المحدّد.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;مثلًا إن كان &quot;الطّول&quot; هو -100بكسل، وحجم الشّاشة هو 1000بكسل، فسيكون طول اللوحة الحقيقيّ 900 بكسل.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;تضبط القيم السالبة طولَ اللوحة ليكون أقل من مساحة الشاشة المتوفرة بالعدد المحدّد.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;مثلا إن كان &quot;الطول&quot; هو -١٠٠ بكسل، ومقاس الشاشة هو ١٠٠٠ بكسل، فسيكون طول اللوحة الحقيقي ٩٠٠ بكسل.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation>الطّول:</translation>
+        <translation>الطول:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation>%</translation>
+        <translation>٪</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Rows count:</source>
-        <translation type="vanished">عدد الصّفوف:</translation>
+        <translation>عدد الصفوف:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -107,13 +107,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>إخفاء تلقائي</translation>
+        <translation>أ&amp;خفِ آليا</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>يعني الصّفر لا تأثير حركة</translation>
+        <translation>يعني الصفر لا تأثير حركة</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -125,22 +125,22 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>الصّفر يعني دون تحديد المهلة</translation>
+        <translation>يعني الصفر لا مهلة</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>اعرض بمهلة قدرها:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تسمح بأن تذهب النوافذ المكبّرة تحت نافذة اللوحة</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>احجز مساحة عند العرض</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
