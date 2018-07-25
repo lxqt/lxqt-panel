@@ -216,12 +216,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation type="unfinished">auswählen...</translation>
+        <translation>Benutzerdefinierte Farbe ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation type="unfinished">Prozessor</translation>
+        <translation>Hauptprozessor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
