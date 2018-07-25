@@ -144,7 +144,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Esconder automaticamente</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
