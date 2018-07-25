@@ -49,7 +49,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation type="unfinished">Benutzerdefiniert(e)</translation>
+        <translation>Benutzerdefiniert</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation type="unfinished">&amp;Erweitertes manuelles Format</translation>
+        <translation>&amp;Erweitertes Benutzerhandbuchsformat</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
