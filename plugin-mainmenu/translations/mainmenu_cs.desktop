@@ -8,5 +8,5 @@ Comment=A menu of all your applications.
 
 
 # Translations
-Comment[cs]=Hlavní nabídka
-Name[cs]=Nabídka
+Comment[cs]=Nabídka se všemi nainstalovanými aplikacemi
+Name[cs]=Nabídka aplikací
