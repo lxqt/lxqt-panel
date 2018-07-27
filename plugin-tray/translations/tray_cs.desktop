@@ -1,12 +1,3 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name=System tray
-Comment=Display applications minimized to the system tray.
-
-#TRANSLATIONS_DIR=../translations
-
-
 # Translations
-Comment[cs]=Přístup ke skrytým programům zmenšeným v oznamovací oblasti panelu
+Comment[cs]=Přístup k aplikacím minimalizovaným do oznamovací oblasti panelu
 Name[cs]=Oznamovací oblast panelu
