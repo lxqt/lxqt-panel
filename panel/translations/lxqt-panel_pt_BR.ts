@@ -327,7 +327,7 @@
         <location filename="../lxqtpanel.cpp" line="1068"/>
         <location filename="../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation>Suspender Automaticamente</translation>
+        <translation>Painel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
