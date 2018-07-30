@@ -6,7 +6,7 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation>Strom DOM panelu</translation>
+        <translation>DOM strom panelu</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
