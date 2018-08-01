@@ -107,7 +107,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch verbergen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -125,22 +125,22 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nul betekent geen vertraging</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon met vertraging:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta gemaximaliseerde vensters niet toe om onder het paneelvenster te duiken</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Reserveer ruimte op scherm</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rijen:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -352,7 +352,7 @@
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Werkbalk verwijderen</translation>
+        <translation>Werkbalk verwijderen</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -363,7 +363,7 @@
         <location filename="../lxqtpanel.cpp" line="1265"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Werkbalk verwijderen</translation>
+        <translation>Werkbalk verwijderen</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1266"/>
