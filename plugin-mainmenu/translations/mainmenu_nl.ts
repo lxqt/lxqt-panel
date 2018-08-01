@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. elementbreedte:</translation>
     </message>
     <message>
         <source>max. item width:</source>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekveld leegmaken bij tonen van menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
