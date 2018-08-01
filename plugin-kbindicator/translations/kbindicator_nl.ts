@@ -8,21 +8,21 @@
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
         <translatorcomment>This capital letter is printed on my keyboard.</translatorcomment>
-        <translation>A</translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
         <translatorcomment>This digit is printed on my keyboard.</translatorcomment>
-        <translation>1</translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
         <translatorcomment>From the word &quot;Rollen&quot;.</translatorcomment>
-        <translation>R</translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="46"/>
