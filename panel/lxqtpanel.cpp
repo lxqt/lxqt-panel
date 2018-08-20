@@ -1362,6 +1362,28 @@ void LXQtPanel::setShowDelay(int showDelay, bool save)
         saveSettings(true);
 }
 
+QString LXQtPanel::iconTheme() const
+{
+    return mSettings->value("iconTheme").toString();
+}
+
+void LXQtPanel::setIconTheme(const QString& iconTheme)
+{
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    a->setIconTheme(iconTheme);
+}
+
+void LXQtPanel::updateConfigDialog() const
+{
+    if (!mConfigDialog.isNull() && mConfigDialog->isVisible())
+    {
+        mConfigDialog->updateIconThemeSettings();
+        const QList<QWidget*> widgets = mConfigDialog->findChildren<QWidget*>();
+        for (QWidget *widget : widgets)
+            widget->update();
+    }
+}
+
 bool LXQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const
 {
     Plugin const * plugin = mPlugins->pluginByID(pluginId);

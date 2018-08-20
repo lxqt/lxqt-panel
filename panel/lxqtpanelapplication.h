@@ -69,12 +69,14 @@ public:
     explicit LXQtPanelApplication(int& argc, char** argv);
     ~LXQtPanelApplication();
 
+    void setIconTheme(const QString &iconTheme);
+
     /*!
      * \brief Determines the number of LXQtPanel objects
      * \return the current number of LXQtPanel objects
      */
-    int count() { return mPanels.count(); }
-    
+    int count() const { return mPanels.count(); }
+
     /*!
      * \brief Checks if a given Plugin is running and has the
      * ILXQtPanelPlugin::SingleInstance flag set. As Plugins are added to
@@ -122,6 +124,10 @@ private:
      * \brief Holds all the instances of LXQtPanel.
      */
     QList<LXQtPanel*> mPanels;
+    /*!
+     * \brief The global icon theme used by all apps (except for panels perhaps).
+     */
+    QString mGlobalIconTheme;
     /*!
      * \brief Creates a new LXQtPanel with the given name and connects the
      * appropriate signals and slots.

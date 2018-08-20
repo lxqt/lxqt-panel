@@ -43,6 +43,7 @@ public:
 
     void showConfigPanelPage();
     void showConfigPluginsPage();
+    void updateIconThemeSettings();
 
 private:
     ConfigPanelWidget *mPanelPage;

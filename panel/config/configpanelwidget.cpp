@@ -57,6 +57,7 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
 
     fillComboBox_position();
     fillComboBox_alignment();
+    fillComboBox_icon();
 
     mOldPanelSize = mPanel->panelSize();
     mOldIconSize = mPanel->iconSize();
@@ -115,6 +116,9 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     connect(ui->slider_opacity,             &QSlider::valueChanged,         this, &ConfigPanelWidget::editChanged);
 
     connect(ui->checkBox_reserveSpace, &QAbstractButton::toggled, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
+
+    connect(ui->groupBox_icon, &QGroupBox::clicked, this, &ConfigPanelWidget::editChanged);
+    connect(ui->comboBox_icon, QOverload<int>::of(&QComboBox::activated), this, &ConfigPanelWidget::editChanged);
 }
 
 
@@ -211,6 +215,59 @@ void ConfigPanelWidget::fillComboBox_alignment()
     };
 }
 
+/************************************************
+ *
+ ************************************************/
+void ConfigPanelWidget::fillComboBox_icon()
+{
+    ui->groupBox_icon->setChecked(!mPanel->iconTheme().isEmpty());
+
+    QStringList themeList;
+    QStringList processed;
+    const QStringList baseDirs = QIcon::themeSearchPaths();
+    for (const QString &baseDirName : baseDirs)
+    {
+        QDir baseDir(baseDirName);
+        if (!baseDir.exists())
+            continue;
+        const QFileInfoList dirs = baseDir.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Name);
+        for (const QFileInfo &dir : dirs)
+        {
+            if (!processed.contains(dir.canonicalFilePath()))
+            {
+                processed << dir.canonicalFilePath();
+                QDir Dir(dir.canonicalFilePath());
+                QSettings file(Dir.absoluteFilePath(QStringLiteral("index.theme")), QSettings::IniFormat);
+                if (file.status() == QSettings::NoError
+                    && !file.value(QStringLiteral("Icon Theme/Directories")).toStringList().join(QLatin1Char(' ')).isEmpty()
+                    && !file.value(QStringLiteral("Icon Theme/Hidden"), false).toBool())
+                {
+                    themeList << Dir.dirName();
+                }
+            }
+        }
+    }
+    if (!themeList.isEmpty())
+    {
+        themeList.sort();
+        ui->comboBox_icon->insertItems(0, themeList);
+        QString curTheme = QIcon::themeName();
+        if (!curTheme.isEmpty())
+            ui->comboBox_icon->setCurrentText(curTheme);
+    }
+}
+
+
+/************************************************
+ *
+ ************************************************/
+void ConfigPanelWidget::updateIconThemeSettings()
+{
+    ui->groupBox_icon->setChecked(!mPanel->iconTheme().isEmpty());
+    QString curTheme = QIcon::themeName();
+    if (!curTheme.isEmpty())
+        ui->comboBox_icon->setCurrentText(curTheme);
+}
 
 /************************************************
  *
@@ -284,6 +341,11 @@ void ConfigPanelWidget::editChanged()
 
     QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
     mPanel->setBackgroundImage(image, true);
+
+    if (!ui->groupBox_icon->isChecked())
+        mPanel->setIconTheme(QString());
+    else if (!ui->comboBox_icon->currentText().isEmpty())
+        mPanel->setIconTheme(ui->comboBox_icon->currentText());
 }
 
 

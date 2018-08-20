@@ -49,6 +49,7 @@ public:
 
     int screenNum() const { return mScreenNum; }
     ILXQtPanel::Position position() const { return mPosition; }
+    void updateIconThemeSettings();
 
 signals:
     void changed();
@@ -73,6 +74,7 @@ private:
     void addPosition(const QString& name, int screen, LXQtPanel::Position position);
     void fillComboBox_position();
     void fillComboBox_alignment();
+    void fillComboBox_icon();
     int indexForPosition(int screen, ILXQtPanel::Position position);
     int getMaxLength();
 

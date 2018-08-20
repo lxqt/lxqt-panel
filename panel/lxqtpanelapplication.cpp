@@ -117,6 +117,15 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
     QStringList panels = d->mSettings->value("panels").toStringList();
 
+    // WARNING: Giving a separate icon theme to the panel is wrong and has side effects.
+    // However, it is optional and can be used as the last resort for avoiding a low
+    // contrast in the case of symbolic SVG icons. (The correct way of doing that is
+    // using a Qt widget style that can assign a separate theme/QPalette to the panel.)
+    mGlobalIconTheme = QIcon::themeName();
+    const QString iconTheme = d->mSettings->value("iconTheme").toString();
+    if (!iconTheme.isEmpty())
+        QIcon::setThemeName(iconTheme);
+
     if (panels.isEmpty())
     {
         panels << "panel1";
@@ -279,4 +288,22 @@ bool LXQtPanelApplication::isPluginSingletonAndRunnig(QString const & pluginId) 
             return true;
 
     return false;
+}
+
+// See LXQtPanelApplication::LXQtPanelApplication for why this isn't good.
+void LXQtPanelApplication::setIconTheme(const QString &iconTheme)
+{
+    Q_D(LXQtPanelApplication);
+
+    d->mSettings->setValue("iconTheme", iconTheme == mGlobalIconTheme ? QString() : iconTheme);
+    QString newTheme = iconTheme.isEmpty() ? mGlobalIconTheme : iconTheme;
+    if (newTheme != QIcon::themeName())
+    {
+        QIcon::setThemeName(newTheme);
+        for(LXQtPanel* panel : qAsConst(mPanels))
+        {
+            panel->update();
+            panel->updateConfigDialog();
+        }
+    }
 }
