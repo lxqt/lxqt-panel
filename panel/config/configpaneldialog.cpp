@@ -56,3 +56,8 @@ void ConfigPanelDialog::showConfigPluginsPage()
 {
     showPage(mPluginsPage);
 }
+
+void ConfigPanelDialog::updateIconThemeSettings()
+{
+    mPanelPage->updateIconThemeSettings();
+}

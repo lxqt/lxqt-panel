@@ -223,6 +223,7 @@ public:
     bool hidable() const { return mHidable; }
     int animationTime() const { return mAnimationTime; }
     int showDelay() const { return mShowDelayTimer.interval(); }
+    QString iconTheme() const;
 
     /*!
      * \brief Checks if a given Plugin is running and has the
@@ -233,6 +234,11 @@ public:
      * ILXQtPanelPlugin::SingleInstance flag set, false otherwise.
      */
     bool isPluginSingletonAndRunnig(QString const & pluginId) const;
+    /*!
+     * \brief Updates the config dialog. Used for updating its icons
+     * when the panel-specific icon theme changes.
+     */
+    void updateConfigDialog() const;
 
 public slots:
     /**
@@ -300,6 +306,7 @@ public slots:
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
     void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
     void setShowDelay(int showDelay, bool save); //!< \sa setPanelSize()
+    void setIconTheme(const QString& iconTheme);
 
     /**
      * @brief Saves the current configuration, i.e. writes the current
@@ -550,7 +557,7 @@ private:
      * @brief Stores if mLength is stored in pixels or relative to the
      * screen size in percents. If true, the length is stored in percents,
      * otherwise in pixels.
-     * 
+     *
      * \sa mLength
      */
     bool mLengthInPercents;
