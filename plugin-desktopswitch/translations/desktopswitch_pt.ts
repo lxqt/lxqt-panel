@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation>Nomes das áreas de trabalho</translation>
+        <translation>Nome das áreas de trabalho</translation>
     </message>
 </context>
 </TS>
