@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Largeur maxi d&apos;une entrée :</translation>
     </message>
     <message>
         <source>max. item width:</source>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Remettre à zéro la recherche lors de l&apos;affichage du menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
