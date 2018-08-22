@@ -124,7 +124,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rangées :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
