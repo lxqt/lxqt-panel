@@ -366,7 +366,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation>mémoire échange</translation>
+        <translation>mémoire d&apos;échange</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>applis : %1%&lt;br&gt;tampons : %2%&lt;br&gt;cachée: %3%</translation>
+        <translation>applis : %1%&lt;br&gt;tampons : %2%&lt;br&gt;en cache: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
