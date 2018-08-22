@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Déplacer</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
