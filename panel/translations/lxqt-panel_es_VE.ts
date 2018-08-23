@@ -6,22 +6,22 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar Plugins</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar Widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar Panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Panel</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Configurar panel</translation>
+        <translation>Configurar panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Tamaño:</translation>
+        <translation>Tamaño:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
