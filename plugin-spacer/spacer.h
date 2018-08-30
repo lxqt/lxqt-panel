@@ -77,7 +77,7 @@ private:
 private:
     SpacerWidget mSpacer;
     int mSize;
-    int mExpandable;
+    bool mExpandable;
 };
 
 class SpacerPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
