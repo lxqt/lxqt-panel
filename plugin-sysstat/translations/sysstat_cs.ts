@@ -210,13 +210,21 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
-        <source>Use c&amp;ustom colors</source>
-        <translation>Po&amp;užít uživatelem určené barvy</translation>
+        <source>Use c&amp;ustom colours</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
+        <source>Custom colour ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use c&amp;ustom colors</source>
+        <translation type="vanished">Po&amp;užít uživatelem určené barvy</translation>
+    </message>
+    <message>
         <source>Custom color ...</source>
-        <translation>Vlastní barva...</translation>
+        <translation type="vanished">Vlastní barva...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>

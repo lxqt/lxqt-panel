@@ -24,14 +24,22 @@
         <translation>Kontrola głośności: Nie można zarejestrować następujących skrótów klawiszowych: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
-        <translation>Głośność: wyciszono</translation>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">Głośność: %1% {1%%2?}</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume: muted</source>
+        <translation type="vanished">Głośność: wyciszono</translation>
+    </message>
+    <message>
         <source>Volume: %1%</source>
-        <translation>Głośność: %1%</translation>
+        <translation type="vanished">Głośność: %1%</translation>
     </message>
 </context>
 <context>

@@ -128,20 +128,20 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
-        <location filename="../config/configpanelwidget.cpp" line="202"/>
+        <location filename="../config/configpanelwidget.cpp" line="206"/>
         <source>Left</source>
         <translation>Esquerda</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.cpp" line="203"/>
-        <location filename="../config/configpanelwidget.cpp" line="209"/>
+        <location filename="../config/configpanelwidget.cpp" line="207"/>
+        <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
         <translation>Centro</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
-        <location filename="../config/configpanelwidget.cpp" line="204"/>
+        <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Right</source>
         <translation>Direita</translation>
     </message>
@@ -202,6 +202,28 @@
         <translation>Imagem de fundo:</translation>
     </message>
     <message>
+        <location filename="../config/configpanelwidget.ui" line="561"/>
+        <source>A partial workaround for widget styles that
+cannot give a separate theme to the panel.
+
+You might also want to disable:
+
+LXQt Appearance Configuration →
+Icons Theme →
+Colorize icons based on widget style (palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="571"/>
+        <source>Override icon &amp;theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="586"/>
+        <source>Icon theme for panels:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
         <translation>Alinhamento:</translation>
@@ -212,68 +234,68 @@
         <translation>Posição:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="168"/>
+        <location filename="../config/configpanelwidget.cpp" line="172"/>
         <source>Top of desktop</source>
         <translation>Em cima</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="169"/>
+        <location filename="../config/configpanelwidget.cpp" line="173"/>
         <source>Left of desktop</source>
         <translation>À esquerda</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="170"/>
+        <location filename="../config/configpanelwidget.cpp" line="174"/>
         <source>Right of desktop</source>
         <translation>À direita</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="171"/>
+        <location filename="../config/configpanelwidget.cpp" line="175"/>
         <source>Bottom of desktop</source>
         <translation>Em baixo</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="180"/>
+        <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Top of desktop %1</source>
         <translation>Em cima, área de trabalho %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="181"/>
+        <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Left of desktop %1</source>
         <translation>À esquerda, área de trabalho %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="182"/>
+        <location filename="../config/configpanelwidget.cpp" line="186"/>
         <source>Right of desktop %1</source>
         <translation>À direita, área de trabalho %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="183"/>
+        <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
         <translation>Em baixo, área de trabalho %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="208"/>
+        <location filename="../config/configpanelwidget.cpp" line="212"/>
         <source>Top</source>
         <translation>Cima</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="210"/>
+        <location filename="../config/configpanelwidget.cpp" line="214"/>
         <source>Bottom</source>
         <translation>Baixo</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="368"/>
-        <location filename="../config/configpanelwidget.cpp" line="384"/>
+        <location filename="../config/configpanelwidget.cpp" line="430"/>
+        <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
         <translation>Escolher cor</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="402"/>
+        <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Imagens (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="402"/>
+        <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
         <translation>Escolher imagem</translation>
     </message>
@@ -360,13 +382,13 @@
         <translation>Bloquear este painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1265"/>
+        <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Remover painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1266"/>
+        <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Não pode reverter a remoção de um painel.

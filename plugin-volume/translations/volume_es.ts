@@ -24,14 +24,22 @@
         <translation>Control de volumen: los siguientes atajos no han podido registrarse: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
-        <translation>Volumen: silenciado</translation>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">Volumen: %1% {1%%2?}</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume: muted</source>
+        <translation type="vanished">Volumen: silenciado</translation>
+    </message>
+    <message>
         <source>Volume: %1%</source>
-        <translation>Volumen: %1%</translation>
+        <translation type="vanished">Volumen: %1%</translation>
     </message>
 </context>
 <context>

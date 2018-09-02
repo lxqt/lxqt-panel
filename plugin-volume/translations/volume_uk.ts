@@ -24,14 +24,18 @@
         <translation>Регулятор гучності: не вдалося зареєструвати наступне скорочення: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">Гучність: %1% {1%%2?}</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
         <source>Volume: %1%</source>
-        <translation type="unfinished">Гучність: %1%</translation>
+        <translation type="obsolete">Гучність: %1%</translation>
     </message>
 </context>
 <context>
