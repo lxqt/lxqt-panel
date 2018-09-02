@@ -24,14 +24,22 @@
         <translation>Lautstärkeeinstellung: Die folgenden Tastaturkürzel konnten nicht registriert werden: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
-        <translation>Lautstärke: stumm</translation>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">Lautstärke: %1% {1%%2?}</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume: muted</source>
+        <translation type="vanished">Lautstärke: stumm</translation>
+    </message>
+    <message>
         <source>Volume: %1%</source>
-        <translation>Lautstärke: %1%</translation>
+        <translation type="vanished">Lautstärke: %1%</translation>
     </message>
 </context>
 <context>

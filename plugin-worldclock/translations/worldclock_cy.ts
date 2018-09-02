@@ -256,7 +256,7 @@
 &lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;the day as number without a leading zero (1 to 31)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;the day as number with a leading zero (01 to 31)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;the abbreviated localized day name (e.g. &apos;Mon&apos; to &apos;Sun&apos;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;the long localized day name (e.g. &apos;Monday&apos; to &apos;Sunday&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;the long localized day name (e.g. &apos;Monday&apos; to &apos;Sunday&apos;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;the month as number without a leading zero (1-12)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;the month as number with a leading zero (01-12)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;the abbreviated localized month name (e.g. &apos;Jan&apos; to &apos;Dec&apos;).&lt;/td&gt;&lt;/tr&gt;
@@ -273,18 +273,18 @@
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (for example &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;the offset from UTC&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;the timezone IANA id&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;the timezone abbreviation&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;the timezone short display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;the timezone long display name&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes.The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

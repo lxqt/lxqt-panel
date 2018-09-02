@@ -4,19 +4,29 @@
 <context>
     <name>SpacerConfiguration</name>
     <message>
-        <location filename="../spacerconfiguration.ui" line="12"/>
+        <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
         <translation>Ayraç Ayarları</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="18"/>
+        <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
         <translation>Boşluk genişliği:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="38"/>
+        <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
         <translation>Boşluk türü:</translation>
+    </message>
+    <message>
+        <location filename="../spacerconfiguration.ui" line="57"/>
+        <source>fixed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../spacerconfiguration.ui" line="71"/>
+        <source>expandable</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>

@@ -24,14 +24,22 @@
         <translation>Hangerőszabályozó: A %1 gyorsbillentyű regisztrálhatatlan</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
-        <translation>Hangerő: néma</translation>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">Hangerő: %1% {1%%2?}</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume: muted</source>
+        <translation type="vanished">Hangerő: néma</translation>
+    </message>
+    <message>
         <source>Volume: %1%</source>
-        <translation type="unfinished">Hangerő: %1%</translation>
+        <translation type="obsolete">Hangerő: %1%</translation>
     </message>
 </context>
 <context>

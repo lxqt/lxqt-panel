@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Rows count:</source>
-        <translation>عدد الصفوف:</translation>
+        <translation type="vanished">عدد الصفوف:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -164,20 +164,20 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
-        <location filename="../config/configpanelwidget.cpp" line="202"/>
+        <location filename="../config/configpanelwidget.cpp" line="206"/>
         <source>Left</source>
         <translation>اليسار</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.cpp" line="203"/>
-        <location filename="../config/configpanelwidget.cpp" line="209"/>
+        <location filename="../config/configpanelwidget.cpp" line="207"/>
+        <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
         <translation>الوسط</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
-        <location filename="../config/configpanelwidget.cpp" line="204"/>
+        <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Right</source>
         <translation>اليمين</translation>
     </message>
@@ -212,68 +212,90 @@
         <translation>صورة الخلفية:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="168"/>
+        <location filename="../config/configpanelwidget.ui" line="561"/>
+        <source>A partial workaround for widget styles that
+cannot give a separate theme to the panel.
+
+You might also want to disable:
+
+LXQt Appearance Configuration →
+Icons Theme →
+Colorize icons based on widget style (palette)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="571"/>
+        <source>Override icon &amp;theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="586"/>
+        <source>Icon theme for panels:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.cpp" line="172"/>
         <source>Top of desktop</source>
         <translation>أعلى سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="169"/>
+        <location filename="../config/configpanelwidget.cpp" line="173"/>
         <source>Left of desktop</source>
         <translation>يسار سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="170"/>
+        <location filename="../config/configpanelwidget.cpp" line="174"/>
         <source>Right of desktop</source>
         <translation>يمين سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="171"/>
+        <location filename="../config/configpanelwidget.cpp" line="175"/>
         <source>Bottom of desktop</source>
         <translation>أدنى سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="180"/>
+        <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Top of desktop %1</source>
         <translation>أعلى سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="181"/>
+        <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Left of desktop %1</source>
         <translation>يسار سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="182"/>
+        <location filename="../config/configpanelwidget.cpp" line="186"/>
         <source>Right of desktop %1</source>
         <translation>يمين سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="183"/>
+        <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
         <translation>أدنى سطح المكتب %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="208"/>
+        <location filename="../config/configpanelwidget.cpp" line="212"/>
         <source>Top</source>
         <translation>الأعلى</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="210"/>
+        <location filename="../config/configpanelwidget.cpp" line="214"/>
         <source>Bottom</source>
         <translation>الأسفل</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="368"/>
-        <location filename="../config/configpanelwidget.cpp" line="384"/>
+        <location filename="../config/configpanelwidget.cpp" line="430"/>
+        <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
         <translation>اختر لونا</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="402"/>
+        <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
         <translation>اختر صورة</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="402"/>
+        <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>الصور (‎*.png *.gif *.jpg)</translation>
     </message>
@@ -360,13 +382,13 @@
         <translation>اقفل هذه اللوحة</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1265"/>
+        <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>أزِل اللوحة</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1266"/>
+        <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>إزالة اللوحة إجراء لا عودة فيه.

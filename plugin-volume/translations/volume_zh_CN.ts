@@ -24,14 +24,22 @@
         <translation>音量控制：无法注册下列快捷键：%1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="287"/>
-        <source>Volume: muted</source>
-        <translation>已静音</translation>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>Volume: %1%%2</source>
+        <translation type="unfinished">音量: %1% {1%%2?}</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="289"/>
+        <location filename="../lxqtvolume.cpp" line="286"/>
+        <source>(muted)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume: muted</source>
+        <translation type="vanished">已静音</translation>
+    </message>
+    <message>
         <source>Volume: %1%</source>
-        <translation>音量: %1%</translation>
+        <translation type="vanished">音量: %1%</translation>
     </message>
 </context>
 <context>
