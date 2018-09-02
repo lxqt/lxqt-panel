@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Запустить задачу %1</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Пере&amp;местить</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Изм&amp;енить размер</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Переключать окна колесиком мыши</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать список при наведении мыши</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
