@@ -221,17 +221,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Een gedeeltelijke noodoplossing voor
+widgetstijlen die geen afzonderlijk thema
+kunnen geven aan de werkbalk.
+U wilt wellicht ook het volgende uitzetten:
+Instellingen van LXQt-uiterlijk →
+Pictogrammenthema →
+Pictogrammen inkleuren op basis van
+widgetstijl (palet)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictogramthema passeren</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictogramthema voor werkbalken:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
