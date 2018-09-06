@@ -221,13 +221,13 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Una solució parcial per als estils dels estris
-que no pot donar un tema separat al tauler.
+        <translation>Una solució parcial per als estils dels estris que no
+poden donar un tema separat al tauler.
 
 Potser voleu inhabilitar-ho:
 
 Configuració de l&apos;aparença de LXQt →
-tema d&apos;icones →
+Tema d&apos;icones →
 Acoloreix les icones en funció de l&apos;estil de l&apos;estri (paleta)</translation>
     </message>
     <message>
