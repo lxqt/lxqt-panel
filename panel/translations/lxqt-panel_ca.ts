@@ -221,17 +221,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Una solució parcial per als estils dels estris
+que no pot donar un tema separat al tauler.
+
+Potser voleu inhabilitar-ho:
+
+Configuració de l&apos;aparença de LXQt →
+tema d&apos;icones →
+Acoloreix les icones en funció de l&apos;estil de l&apos;estri (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Anul·la el &amp;tema d&apos;icones</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema d&apos;icones per als taulers:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
