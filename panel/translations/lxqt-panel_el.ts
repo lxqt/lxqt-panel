@@ -211,17 +211,26 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Μια μερική εναλλακτική λύση για το ύφος
+των γραφικών συστατικών που δεν προσφέρουν
+ένα ξεχωριστό θέμα στον πίνακα.
+
+Ίσως να επιθυμείτε επίσης την απενεργοποίηση του:
+
+LXQT Διαμόρφωση εμφάνισης→
+Θέμα εικονιδίων →
+Χρωματισμός των εικονιδίων βάσει του ύφους
+του γραφικού συστατικού (χρωματοπυξίδα)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντικατάσταση του &amp;θέματος εικονιδίων</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Θέμα εικονιδίων για πίνακες:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
