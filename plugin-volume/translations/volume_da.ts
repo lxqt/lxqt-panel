@@ -35,7 +35,7 @@
     </message>
     <message>
         <source>Volume: muted</source>
-        <translation type="vanished">Lydstyrke: på lydløs</translation>
+        <translation>Lydstyrke: lydløst</translation>
     </message>
     <message>
         <source>Volume: %1%</source>
