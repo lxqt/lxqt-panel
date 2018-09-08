@@ -21,17 +21,17 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>σταθερό</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>επεκτάσιμο</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>με γραμμές</translation>
+        <translation>γραμμωτό</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
