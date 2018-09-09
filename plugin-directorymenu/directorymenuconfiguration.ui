@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>342</width>
-    <height>168</height>
+    <height>195</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,6 +57,20 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="terminalL">
+        <property name="text">
+         <string>Terminal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="terminalB">
+        <property name="text">
+         <string>Choose Default Terminal</string>
         </property>
        </widget>
       </item>

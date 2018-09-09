@@ -30,6 +30,7 @@
 #include "directorymenu.h"
 #include <QDebug>
 #include <QDesktopServices>
+#include <QProcess>
 #include <QFileInfo>
 #include <QUrl>
 #include <QIcon>
@@ -43,6 +44,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);
+    mOpenTerminalSignalMapper = new QSignalMapper(this);
     mMenuSignalMapper = new QSignalMapper(this);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -51,6 +53,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
     connect(mOpenDirectorySignalMapper, SIGNAL(mapped(QString)), this, SLOT(openDirectory(QString)));
+    connect(mOpenTerminalSignalMapper, SIGNAL(mapped(QString)), this, SLOT(openInTerminal(QString)));
     connect(mMenuSignalMapper, SIGNAL(mapped(QString)), this, SLOT(addMenu(QString)));
 
     settingsChanged();
@@ -102,6 +105,12 @@ void DirectoryMenu::openDirectory(const QString& path)
     QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
 }
 
+void DirectoryMenu::openInTerminal(const QString& path)
+{
+    QString action = mDefaultTerminal + " --workdir " + path;
+    QProcess::startDetached(action);
+}
+
 void DirectoryMenu::addMenu(QString path)
 {
     QSignalMapper* sender = (QSignalMapper* )QObject::sender();
@@ -120,6 +129,10 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
     QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open"));
     connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
     mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
+
+    QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open in terminal"));
+    connect(openTerminalAction, SIGNAL(triggered()), mOpenTerminalSignalMapper, SLOT(map()));
+    mOpenTerminalSignalMapper->setMapping(openTerminalAction, mPathStrings.back());
 
     menu->addSeparator();
 
@@ -163,4 +176,7 @@ void DirectoryMenu::settingsChanged()
     }
 
     mButton.setIcon(mDefaultIcon);
+
+    // Set default terminal
+    mDefaultTerminal = settings()->value("defaultTerminal", QString()).toString();
 }
