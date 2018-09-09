@@ -55,6 +55,7 @@ private:
     QDir mBaseDirectory;
     QString mIcon;
     QIcon mDefaultIcon;
+    QString mDefaultTerminal;
 
     /*
       Read settings from conf file and put data into controls.
@@ -68,6 +69,7 @@ private slots:
     void saveSettings();
     void showDirectoryDialog();
     void showIconDialog();
+    void showTermDialog();
 
 private:
 };
