@@ -221,17 +221,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>מעקף חלקי לסגנונות וידג׳טים שלא יכולים
+להשתמש בערכת עיצוב שונה ללוח.
+
+אולי עדיף גם להשבית את:
+
+הגדרות המראה של LXQt ←
+ערכות סמלים ←
+צביעת סמלים בסגנון וידג׳ט (ערכת צבעים)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>שכתוב על &amp;ערכת סמלים</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>ערכת סמלים ללוחות:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
