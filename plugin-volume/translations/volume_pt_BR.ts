@@ -26,12 +26,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(mudo)</translation>
     </message>
     <message>
         <source>Volume: muted</source>
@@ -111,7 +111,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>Mi&amp;xer</translation>
     </message>
 </context>
 </TS>
