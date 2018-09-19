@@ -207,17 +207,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Uma solução alternativa parcial para estilos widget que
+não conseguem dar ao painel um tema separado.
+
+Talvez você também queira desabilitar:
+
+Configurações de Aparência LXQt →
+Icones do tema →
+Colorir icones baseado no estilo widget (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobrepor ícone do &amp;tema</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ícone do tema para paineis:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
