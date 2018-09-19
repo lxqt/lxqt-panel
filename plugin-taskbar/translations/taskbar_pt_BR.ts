@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mover</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;dimensionar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Agrupamento de janelas</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto&amp;rotacionar botões quando o painel for vertical</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
