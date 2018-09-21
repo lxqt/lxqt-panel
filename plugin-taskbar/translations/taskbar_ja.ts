@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>移動（&amp;M）</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>リサイズ（&amp;z）</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
