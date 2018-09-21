@@ -6,17 +6,17 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>Aumentar el volumen de sonido</translation>
+        <translation>Aumentar el volumen del sonido</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation>Reducir el volumen de sonido</translation>
+        <translation>Reducir el volumen del sonido</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Silenciar/No silenciar el volumen de sonido</translation>
+        <translation>Silenciar/No silenciar el volumen del sonido</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
