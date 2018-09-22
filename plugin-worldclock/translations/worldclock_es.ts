@@ -284,7 +284,43 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Formato de fecha/hora personalizado&lt;/h1&gt;
+&lt;p&gt;Un patrón de fecha es una cadena de caracteres, donde determinadas cadenas de caracteres son sustituidas con los datos de fecha y hora de un calendario al ser formateadas o usadas para generar datos para un calendario al ser procesadas.&lt;/p&gt;
+&lt;p&gt;La tabla de símbolos de campos de fecha de abajo contiene los caracteres usados en patrones para mostrar los formatos apropiados para una configuración regional dada, tales como «yyyy» para el año. Los caracteres se pueden usar varias veces. Por ejemplo, si «y» se usa para el año, «yy» puede resultar en «99», mientras que «yyyy» resultaría en «1999». Para la mayoría de campos numéricos, el número de caracteres especifica el ancho del campo. Por ejemplo, si «h» es la hora, «h» puede resultar en «5», pero «hh» resultaría en «05». Para algunos caracteres, su número especifica si se debe usar un formato abreviado o completo, aunque pueden tener otras opciones, como se muestra abajo.&lt;/p&gt;
+&lt;p&gt;Dos comillas simples representan una comilla simple literal, tanto dentro como fuera de comillas simples. El texto entre comillas simples no se interpreta de ninguna forma (salvo que sean dos comillas simples juntas). Por otro lado, todas las letras del código ASCII de la «a» a la «z» y de la «A» a la «Z» están reservadas como caracteres sintácticos, y deben entrecomillarse si se quieren representar literalmente. Además, algunos caracteres de puntuación del código ASCII pueden variar en el futuro (p. ej., que «:» se interprete como separador en horas y «/» como separador de fechas, y que se sustituyan por caracteres ajustados a la configuración regional al ser representados).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Significado&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;el día como un número sin cero de relleno (1 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;el día como un número con cero de relleno (01 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;el nombre abreviado del día en la configuración regional (p. ej. &apos;Lun&apos; a &apos;Dom&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;el nombre completo del día en la configuración regional (p. ej. &apos;Lunes&apos; a &apos;Domingo&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;el mes como un número sin cero de relleno (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;el mes como un número con cero de relleno (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;el nombre abreviado del mes en la configuración regional (p. ej. &apos;Ene&apos; a &apos;Dic&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;el nombre completo del mes en la configuración regional (p. ej. &apos;Enero&apos; a &apos;Diciembre&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;el año como un número de dos dígitos (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;el año como un número de cuatro dígitos&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;la hora sin cero de relleno (0 a 23 o 1 a 12 en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;la hora con cero de relleno (00 a 23 o 01 a 12 en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;la hora sin cero de relleno (0 a 23, incluso en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;la hora con cero de relleno (00 a 23, incluso en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;el minuto sin cero de relleno (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;el minuto con cero de relleno (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;el segundo sin cero de relleno (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;el segundo con cero de relleno (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;los milisegundos sin ceros de relleno (0 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;los milisegundos con ceros de relleno (000 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;o&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;usa el formato AM/PM. &lt;b&gt;A/AP&lt;/b&gt; se sustituirán por &quot;AM&quot; o &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;o&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;usa el formato am/pm. &lt;b&gt;a/ap&lt;/b&gt; se sustituirán por &quot;am&quot; o &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;la zona horaria (p. ej. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;el desfase respecto UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;el identificador de zona horaria de la IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;la forma abreviada de la zona horaria&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;el nombre corto de la zona horaria&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;el nombre completo de la zona horaria&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;el nombre personalizado de la zona horaria. Puede cambiarlo en la pestaña «Zonas horarias» de la ventana de configuración&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Notas:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Cualquiera de los caracteres del patrón que no esté en los rangos [&apos;a&apos;..&apos;z&apos;] y [&apos;A&apos;..&apos;Z&apos;] se trata como un texto entrecomillado. Por ejemplo, caracteres como &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; y &apos;@&apos; aparecen en el texto resultante de la hora incluso si no están entrecomillados entre comillas simples. La comilla simple se usa para quitar el significado especial de las letras. Dos comillas simples seguidas, tanto dentro como fuera de una secuencia entrecomillada, representan una comilla simple «real».&lt;/li&gt;&lt;li&gt;El intervalo mínimo de actualización es de 1 segundo. Si se usa «z» o «zzz», la hora muestra los milisegundos, pero no se actualiza cada milisegundo (para evitar una gran penalización en el rendimiento).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Custom Date/Time Format Syntax&lt;/h1&gt;
