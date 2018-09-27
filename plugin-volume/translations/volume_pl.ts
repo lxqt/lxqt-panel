@@ -26,12 +26,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Głośność: %1% {1%%2?}</translation>
+        <translation type="unfinished">Głośność: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(wyciszony)</translation>
     </message>
     <message>
         <source>Volume: muted</source>
