@@ -6,12 +6,12 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázať plochu</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázať plochu: Globálna klávesová skratka &apos;%1&apos; sa nedá použiť</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
