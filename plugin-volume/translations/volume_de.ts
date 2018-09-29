@@ -87,7 +87,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Lautstärke über 100% (0dB) erlauben</translation>
+        <translation>Lautstärke über 100 % (0 dB) erlauben</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
