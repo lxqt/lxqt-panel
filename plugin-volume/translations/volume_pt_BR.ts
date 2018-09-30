@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>Aumentar o volume</translation>
+        <translation>Aumentar volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Desativar/ativar som</translation>
+        <translation>Mudo/falante volume do som</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Dispositivo para controlar</translation>
+        <translation>Dispositivo de controle</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Mostrar no clique do mouse</translation>
+        <translation>Exibir no clique do mouse</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
@@ -106,7 +106,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>Abrir Mixer</translation>
+        <translation>Lançar Mixer</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
