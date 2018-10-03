@@ -144,7 +144,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>Esconder automaticamente</translation>
+        <translation>A&amp;uto Ocultar</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Painel transparente requer composição.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;A composição é necessária para a transparência do painel.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -213,18 +213,18 @@ não conseguem dar ao painel um tema separado.
 Talvez você também queira desabilitar:
 
 Configurações de Aparência LXQt →
-Icones do tema →
-Colorir icones baseado no estilo widget (paleta)</translation>
+Ícones do tema →
+Colorir ícones baseado no estilo widget (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation>Sobrepor ícone do &amp;tema</translation>
+        <translation>Substituir ícone do &amp;tema</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation>Ícone do tema para paineis:</translation>
+        <translation>Tema de ícones para painéis:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
