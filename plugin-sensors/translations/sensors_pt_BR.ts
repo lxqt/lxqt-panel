@@ -21,12 +21,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Temperatura em barra com</translation>
+        <translation>Largura da barra de temperatura</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
         <source>Temperature scale</source>
-        <translation>Temperatura em escala</translation>
+        <translation>Escala de temperatura</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
@@ -41,12 +41,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation>Piscar a barra de progresso quando a temperatura está muito alta</translation>
+        <translation>Piscar as barras de progresso quando a temperatura está muito alta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Alertar sobre a alta temperatura</translation>
+        <translation>Aviso sobre alta temperatura</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
