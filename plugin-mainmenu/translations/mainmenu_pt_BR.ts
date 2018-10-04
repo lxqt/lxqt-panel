@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Tamanho da fonte personalizada:</translation>
+        <translation>Tamanho de fonte personalizado:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation>Arquvo do menu</translation>
+        <translation>Arquivo de menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Largura máxima:</translation>
+        <translation>Largura Max. do item:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>Atalho do teclado</translation>
+        <translation>Atalho de teclado</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
@@ -124,12 +124,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>Escolher arquivo do menu</translation>
+        <translation>Escolher arquivo de menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
         <source>Menu files (*.menu)</source>
-        <translation>Arquivos do menu (*.menus)</translation>
+        <translation>Arquivos de menu (*.menu)</translation>
     </message>
 </context>
 </TS>
