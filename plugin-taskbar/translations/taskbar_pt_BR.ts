@@ -19,22 +19,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>To &amp;Desktop</source>
-        <translation>Para a área &amp;de trabalho</translation>
+        <translation>Para a &amp;Área de Trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation>Todas &amp;as áreas de trabalho</translation>
+        <translation>&amp;Todas Áreas de Trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
         <source>Desktop &amp;%1</source>
-        <translation>Área de trabalho &amp;%1</translation>
+        <translation>Área de Trabalho &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Para a área de &amp;trabalho atual</translation>
+        <translation>&amp;Para a Área de Trabalho atual</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>Re&amp;dimensionar</translation>
+        <translation>Redi&amp;mensionar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Always on &amp;bottom</source>
-        <translation>Sempre em &amp;baixo</translation>
+        <translation>Sempre &amp;embaixo</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="646"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Exibir somente as janelas da tela do &amp;painel</translation>
+        <translation>Exibir somente janelas da tela do &amp;painel</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Fechar em meio clique</translation>
+        <translation>Fechar no clique do meio</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
