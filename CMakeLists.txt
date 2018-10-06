@@ -14,33 +14,16 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-if(COMPILER_SUPPORTS_CXX11)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-else()
-    message(FATAL "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. C++11 support is required")
-endif()
-
 macro(setByDefault VAR_NAME VAR_VALUE)
   if(NOT DEFINED ${VAR_NAME})
     set (${VAR_NAME} ${VAR_VALUE})
   endif(NOT DEFINED ${VAR_NAME})
 endmacro()
 
-# use gcc visibility feature to decrease unnecessary exported symbols
-if (CMAKE_COMPILER_IS_GNUCXX)
-  # set visibility to hidden to hide symbols, unlesss they're exporeted manually in the code
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
-endif()
-
-#########################################################################
-
+# is -Wall still needed?
 add_definitions (-Wall)
+
+
 include(GNUInstallDirs)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -70,6 +53,8 @@ add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 
 include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
+include(LXQtCompilerSettings)
+include(LXQtCompilerSettings NO_POLICY_SCOPE)
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
