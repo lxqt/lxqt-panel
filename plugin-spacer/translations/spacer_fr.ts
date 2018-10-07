@@ -21,7 +21,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>Attaché</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
