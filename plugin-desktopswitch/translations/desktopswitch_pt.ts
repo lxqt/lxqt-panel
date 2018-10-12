@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Nada</translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
