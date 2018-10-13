@@ -1,5 +1,13 @@
-cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 project(lxqt-panel)
+# CMP0000 - A minimum required CMake version must be specified.
+# Note that the command invocation must appear in the CMakeLists.txt
+# file itself; a call in an included file is not sufficient.
+cmake_minimum_required(VERSION 3.6.2 FATAL_ERROR)
+
+# Patch Version
+set(LXQT_PANEL_PATCH_VERSION 0)
+set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
+add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
 option(WITH_SCREENSAVER_FALLBACK "Include support for converting the deprecated 'screensaver' plugin to 'quicklaunch'. This requires the lxqt-leave (lxqt-session) to be installed in runtime." ON)
@@ -10,19 +18,11 @@ option(USE_MENU_CACHE "Use menu-cached (no noticable penalty even on a 2004 sing
 # additional cmake files
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
 macro(setByDefault VAR_NAME VAR_VALUE)
   if(NOT DEFINED ${VAR_NAME})
     set (${VAR_NAME} ${VAR_VALUE})
   endif(NOT DEFINED ${VAR_NAME})
 endmacro()
-
-# is -Wall still needed?
-add_definitions (-Wall)
-
 
 include(GNUInstallDirs)
 
@@ -45,23 +45,14 @@ find_package(lxqt REQUIRED)
 find_package(lxqt-globalkeys REQUIRED)
 find_package(lxqt-globalkeys-ui REQUIRED)
 
-# Patch Version
-set(LXQT_PANEL_PATCH_VERSION 0)
-
-set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
-add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
-
 include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
-include(LXQtCompilerSettings)
 include(LXQtCompilerSettings NO_POLICY_SCOPE)
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(
     -DPLUGIN_DIR=\"${PLUGIN_DIR}\"
-    -DQT_USE_QSTRINGBUILDER
-    -DQT_NO_FOREACH
 )
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
