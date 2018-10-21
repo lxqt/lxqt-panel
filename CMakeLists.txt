@@ -47,13 +47,40 @@ find_package(lxqt-globalkeys-ui REQUIRED)
 
 include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
-include(LXQtCompilerSettings NO_POLICY_SCOPE)
+
+# TODO - get rid of these special settings
+# right now we are not able to use the general LXQtCompilerSettings
+# See https://github.com/lxqt/lxqt/issues/1589
+#   snapshot/plugin-colorpicker/../panel/ilxqtpanel.h:39:22: warning: ‘class ILXQtPanel’ has virtual functions
+#   and accessible non-virtual destructor [-Wnon-virtual-dtor]
+#   class LXQT_PANEL_API ILXQtPanel
+# and others
+
+# include(LXQtCompilerSettings NO_POLICY_SCOPE)
+
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+# use gcc visibility feature to decrease unnecessary exported symbols
+if (CMAKE_COMPILER_IS_GNUCXX)
+  # set visibility to hidden to hide symbols, unlesss they're exporeted manually in the code
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
+  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
+endif()
+add_definitions (-Wall)
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(
     -DPLUGIN_DIR=\"${PLUGIN_DIR}\"
+    -DQT_USE_QSTRINGBUILDER
+    -DQT_NO_FOREACH
 )
+
+## End TODO
+
+
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 #########################################################################
