@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Adaugare Plugin-uri</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cautare:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Adaugare Widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Inchidere</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(o singura instanta poate rula in acelasi timp)</translation>
     </message>
 </context>
 <context>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget-uri</translation>
     </message>
 </context>
 <context>
@@ -108,23 +108,23 @@
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero inseamna Fara Animatie</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Durata animatiei:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Randuri:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -148,48 +148,48 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto-ascundere</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero insemana Fara Decalaj</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Afiseaza cu Decalaj:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu permite ferestrelor maximizate sa intre sub fereastra panou</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverseaza spatiul pe ecran</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Stil particularizat</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Culoare font:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Culoare de fundal:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacitatea fundalului:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
@@ -199,7 +199,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagine de fundal:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="561"/>
@@ -216,12 +216,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Inlocuieste pictograma &amp;tema</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema de pictograme pentru panouri:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -297,7 +297,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Alege imagine</translation>
     </message>
 </context>
 <context>
@@ -305,17 +305,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Configureaza plugin-urile</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: modificarile efectuate in aceasta pagina nu pot fi resetate.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Muta in sus</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -324,17 +324,17 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Muta in jos</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adauga</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
@@ -368,7 +368,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Adauga Panou nou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
@@ -379,7 +379,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocheaza acest Panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1273"/>
@@ -391,7 +391,8 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Înlăturarea acestui panou nu poate fi anulata.
+Doriți sa înlăturați acest panou?</translation>
     </message>
 </context>
 <context>
@@ -422,7 +423,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Fisier de configurare</translation>
     </message>
 </context>
 </TS>
