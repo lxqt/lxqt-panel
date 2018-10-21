@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cautare ...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Afișează/Ascunde meniul principal</translation>
     </message>
 </context>
 <context>
@@ -24,27 +24,27 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Setari pentru Meniul Principal</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictograma:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Text pe butoane:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Marime font particularizat:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> punct</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
@@ -54,47 +54,47 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fisier meniu:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Cautare</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lățime maxima obiect:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arata valorile identice:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Numar maxim de obiecte vizibile:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Intrări pentru meniul Filtre</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> pixel</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascunde intrările din meniu în timpul Căutării</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Șterge Căutarea când se afișează meniul</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -109,17 +109,17 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetare</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Alege fisierul pictograma</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagini (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
