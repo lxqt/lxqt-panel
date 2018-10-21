@@ -6,12 +6,12 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Afișează Spațiul de birou (Desktop)</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Arata Desktop: Scurtătura globala &apos;%1&apos; nu poate fi inregistrata</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
