@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
         <source>Roll down</source>
-        <translation>Enrotlla cap a baix</translation>
+        <translation>Enrotlla cap avall</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Roll up</source>
-        <translation>Enrotlla cap a dalt</translation>
+        <translation>Enrotlla cap amunt</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
