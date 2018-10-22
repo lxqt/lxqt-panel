@@ -1,13 +1,9 @@
+# Note: Call the cmake_minimum_required() command at the beginning of the top-level CMakeLists.txt
+# file even before calling the project() command. The cmake_minimum_required(VERSION) command
+# implicitly invokes the cmake_policy(VERSION) command to specify that the current project
+# code is written for the given range of CMake versions.
+cmake_minimum_required(VERSION 3.0.2)
 project(lxqt-panel)
-# CMP0000 - A minimum required CMake version must be specified.
-# Note that the command invocation must appear in the CMakeLists.txt
-# file itself; a call in an included file is not sufficient.
-cmake_minimum_required(VERSION 3.6.2 FATAL_ERROR)
-
-# Patch Version
-set(LXQT_PANEL_PATCH_VERSION 0)
-set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
-add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
 option(WITH_SCREENSAVER_FALLBACK "Include support for converting the deprecated 'screensaver' plugin to 'quicklaunch'. This requires the lxqt-leave (lxqt-session) to be installed in runtime." ON)
@@ -45,6 +41,11 @@ find_package(lxqt REQUIRED)
 find_package(lxqt-globalkeys REQUIRED)
 find_package(lxqt-globalkeys-ui REQUIRED)
 
+# Patch Version
+set(LXQT_PANEL_PATCH_VERSION 0)
+set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
+add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
+
 include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
 
@@ -61,6 +62,9 @@ include(LXQtTranslate)
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
+
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 14 CACHE STRING "C++ ISO Standard")
 
 # use gcc visibility feature to decrease unnecessary exported symbols
 if (CMAKE_COMPILER_IS_GNUCXX)
