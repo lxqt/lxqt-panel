@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cipuri detectate:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation type="unfinished"></translation>
+        <translation>Caracteristici cip:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
