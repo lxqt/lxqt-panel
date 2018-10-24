@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Afegiment de complements</translation>
+        <translation>Afegiment de connectors</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Configuració del plafó</translation>
+        <translation>Configuració del tauler</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation>Plafó</translation>
+        <translation>Tauler</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>Configura el plafó</translation>
+        <translation>Configura el tauler</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;El valor negatiu dels píxels estableix la llargada del plafó a alguns píxels menys dels disponibles a l&apos;espai de la pantalla.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;P. ex. Amb la &quot;Llargada&quot; establerta a -100px, amb una mida de la pantalla de 1000px, aleshores la llargada real del plafó serà 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;El valor negatiu dels píxels estableix la llargada del tauler a alguns píxels menys dels disponibles a l&apos;espai de la pantalla.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;P. ex. Amb la &quot;Llargada&quot; establerta a -100px, amb una mida de la pantalla de 1000px, aleshores la llargada real del tauler serà 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>No permetis que les finestres maximitzades vagin sota de la finestra del plafó</translation>
+        <translation>No permetis que les finestres maximitzades vagin sota de la finestra del tauler</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
@@ -204,7 +204,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Es requereix composició per a la transparència del plafó.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Es requereix composició per a la transparència del tauler.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -360,12 +360,12 @@ Acoloreix les icones en funció de l&apos;estil de l&apos;estri (paleta)</transl
         <location filename="../lxqtpanel.cpp" line="1068"/>
         <location filename="../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation>Plafó</translation>
+        <translation>Tauler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation>Configura el plafó</translation>
+        <translation>Configura el tauler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
@@ -375,31 +375,31 @@ Acoloreix les icones en funció de l&apos;estil de l&apos;estri (paleta)</transl
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation>Afegeix un plafó nou</translation>
+        <translation>Afegeix un tauler nou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Suprimeix el plafó</translation>
+        <translation>Suprimeix el tauler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
         <source>Lock This Panel</source>
-        <translation>Bloqueja aquest plafó</translation>
+        <translation>Bloqueja aquest tauler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Supressió del plafó</translation>
+        <translation>Supressió del tauler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La supressió d&apos;un plafó no es pot desfer.
-Voleu suprimir el plafó?</translation>
+        <translation>La supressió d&apos;un tauler no es pot desfer.
+Voleu suprimir el tauler?</translation>
     </message>
 </context>
 <context>
