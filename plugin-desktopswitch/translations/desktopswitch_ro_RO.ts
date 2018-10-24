@@ -35,7 +35,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Aspect</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
@@ -50,12 +50,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Nici unul</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>Denumiri ale desktopului</translation>
     </message>
 </context>
 </TS>
