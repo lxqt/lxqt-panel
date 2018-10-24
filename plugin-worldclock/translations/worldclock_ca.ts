@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Gi&amp;ra automàticament quan el plafó sigui vertical</translation>
+        <translation>Gi&amp;ra automàticament quan el tauler sigui vertical</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
