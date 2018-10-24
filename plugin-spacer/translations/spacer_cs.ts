@@ -21,12 +21,12 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>pevné</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>zvětšovatelné</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
