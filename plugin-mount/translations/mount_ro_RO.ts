@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Setări ale dispozitivelor detașabile</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected :</source>
-        <translation type="unfinished"></translation>
+        <translation>Când este conectat un dispozitiv:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu sunt dispozitive disponibile</translation>
     </message>
 </context>
 </TS>
