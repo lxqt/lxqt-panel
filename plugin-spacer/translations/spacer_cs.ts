@@ -21,27 +21,27 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation>pevné</translation>
+        <translation>pevné velikosti</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation>zvětšovatelné</translation>
+        <translation>zvětšovatelná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>linkováno</translation>
+        <translation>linkovaná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>tečkováno</translation>
+        <translation>tečkovaná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>neviditelné</translation>
+        <translation>neviditelná</translation>
     </message>
 </context>
 </TS>
