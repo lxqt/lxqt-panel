@@ -211,12 +211,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít &amp;uživatelsky určené barvy</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uživatelsky určená barva…</translation>
     </message>
     <message>
         <source>Use c&amp;ustom colors</source>
