@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;L&apos;amplada mínima si el plafó és horitzontal.&lt;/p&gt;&lt;p&gt;L&apos;alçada mínima si el plafó és vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;L&apos;amplada mínima si el tauler és horitzontal.&lt;/p&gt;&lt;p&gt;L&apos;alçada mínima si el tauler és vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
