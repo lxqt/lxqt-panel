@@ -77,7 +77,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Silencia amb el clic del mig</translation>
+        <translation>Silencia amb el clic central del ratolí</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
