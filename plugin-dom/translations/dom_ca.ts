@@ -6,7 +6,7 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation>Plafó de l&apos;arbre de DOM</translation>
+        <translation>Arbre DOM del tauler</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
