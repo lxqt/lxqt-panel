@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Mostra únicament les finestres de la pantalla del &amp;plafó</translation>
+        <translation>Mostra únicament les finestres de la pantalla del &amp;tauler</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -201,7 +201,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Gi&amp;ra automàticament els botons quan el plafó sigui vertical</translation>
+        <translation>Gi&amp;ra automàticament els botons quan el tauler sigui vertical</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
