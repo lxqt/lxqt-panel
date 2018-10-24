@@ -211,17 +211,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Částečné obejití problému pro motivy vzhledu
+prvků který nedává oddělený motiv vzhledu na panel.
+
+Nejspíš také můžete chtít vypnout:
+
+Nastavení vzhledu LXQt  →
+Motiv ikon →
+Obarvit ikony podle stylu prvku (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Přebít mo&amp;tiv ikon</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Motiv vzhledu ikon pro panely:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
