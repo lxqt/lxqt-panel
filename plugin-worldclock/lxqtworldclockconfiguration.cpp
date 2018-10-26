@@ -135,9 +135,9 @@ void LXQtWorldClockConfiguration::loadSettings()
     else // if (formatType == QLatin1String("custom-timeonly"))
         ui->timeFormatCB->setCurrentIndex(2);
 
-    ui->timeShowSecondsCB->setChecked(settings().value(QLatin1String("timeShowSeconds"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->timePadHourCB->setChecked(settings().value(QLatin1String("timePadHour"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->timeAMPMCB->setChecked(settings().value(QLatin1String("timeAMPM"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->timeShowSecondsCB->setChecked(settings().value(QLatin1String("timeShowSeconds"), false).toBool());
+    ui->timePadHourCB->setChecked(settings().value(QLatin1String("timePadHour"), false).toBool());
+    ui->timeAMPMCB->setChecked(settings().value(QLatin1String("timeAMPM"), false).toBool());
 
     bool customTimeFormatSelected = ui->timeFormatCB->currentIndex() == ui->timeFormatCB->count() - 1;
     ui->timeCustomW->setEnabled(customTimeFormatSelected);
@@ -192,10 +192,10 @@ void LXQtWorldClockConfiguration::loadSettings()
     else // if (dateFormatType == QLatin1String("custom"))
         ui->dateFormatCB->setCurrentIndex(3);
 
-    ui->dateShowYearCB->setChecked(settings().value(QLatin1String("dateShowYear"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->dateShowDoWCB->setChecked(settings().value(QLatin1String("dateShowDoW"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->datePadDayCB->setChecked(settings().value(QLatin1String("datePadDay"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
-    ui->dateLongNamesCB->setChecked(settings().value(QLatin1String("dateLongNames"), false).toBool() ? Qt::Checked : Qt:: Unchecked);
+    ui->dateShowYearCB->setChecked(settings().value(QLatin1String("dateShowYear"), false).toBool());
+    ui->dateShowDoWCB->setChecked(settings().value(QLatin1String("dateShowDoW"), false).toBool());
+    ui->datePadDayCB->setChecked(settings().value(QLatin1String("datePadDay"), false).toBool());
+    ui->dateLongNamesCB->setChecked(settings().value(QLatin1String("dateLongNames"), false).toBool());
 
     bool customDateFormatSelected = ui->dateFormatCB->currentIndex() == ui->dateFormatCB->count() - 1;
     ui->dateCustomW->setEnabled(dateIsChecked && customDateFormatSelected);
