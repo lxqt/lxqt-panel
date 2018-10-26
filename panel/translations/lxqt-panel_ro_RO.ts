@@ -194,7 +194,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt; Este necesar un compozitor  pentru transparența tabloului de bord.&lt;/ small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -226,12 +226,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Aliniere:</translation>
+        <translation>Aliniere:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">Poziție:</translation>
+        <translation>Poziție:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
@@ -276,23 +276,23 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <source>Top</source>
-        <translation type="unfinished">Sus</translation>
+        <translation>Sus</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="214"/>
         <source>Bottom</source>
-        <translation type="unfinished">Jos</translation>
+        <translation>Jos</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="430"/>
         <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
-        <translation type="unfinished">Alege culoare</translation>
+        <translation>Alege culoare</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished">Imagini (*.png *.gif *.jpg)</translation>
+        <translation>Imagini (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
@@ -344,7 +344,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Configurează</translation>
+        <translation>Configurează</translation>
     </message>
 </context>
 <context>
@@ -358,12 +358,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation type="unfinished">Configurează panoul</translation>
+        <translation>Configurează panoul</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionează Widget-uri</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
@@ -405,7 +405,7 @@ Doriți sa înlăturați acest panou?</translation>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished">Mută &quot;%1&quot;</translation>
+        <translation>Mută &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
@@ -418,7 +418,7 @@ Doriți sa înlăturați acest panou?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizează fișierul de configurare alternativ.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
