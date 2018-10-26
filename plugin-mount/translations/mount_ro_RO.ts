@@ -19,7 +19,7 @@
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">Comportament</translation>
+        <translation>Comportament</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation type="unfinished">Meniu popup</translation>
+        <translation>Meniu pop-up</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation type="unfinished">Afișează informații</translation>
+        <translation>Afișează informații</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Nicio acțiune</translation>
+        <translation>Nicio acțiune</translation>
     </message>
 </context>
 <context>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished">Dispozitivul &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a fost conectat.</translation>
+        <translation type="unfinished">Dispozitivul &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; este conectat.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished">Dispozitivul &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a fost eliminat.</translation>
+        <translation type="unfinished">Dispozitivul &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; este eliminat.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
