@@ -216,12 +216,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Imponi icone alternative</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema icone per i panelli:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
