@@ -36,11 +36,43 @@
 #include <QWidgetAction>
 #include <QMenu>
 #include <QStandardItemModel>
-#include <QSortFilterProxyModel>
 #include <QScrollBar>
 #include <QProxyStyle>
 #include <QStyledItemDelegate>
+//==============================
+#ifdef HAVE_MENU_CACHE
+#include <QSortFilterProxyModel>
+#else
+FilterProxyModel::FilterProxyModel(QObject* parent) :
+    QSortFilterProxyModel(parent) {
+}
 
+FilterProxyModel::~FilterProxyModel() {
+}
+
+bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const {
+    if (filterStr_.isEmpty())
+        return true;
+    if (QStandardItemModel* srcModel = static_cast<QStandardItemModel*>(sourceModel())) {
+        QModelIndex index = srcModel->index(source_row, 0, source_parent);
+        if (QStandardItem * item = srcModel->itemFromIndex(index)) {
+            XdgAction * action = qobject_cast<XdgAction *>(qvariant_cast<QAction *>(item->data(ActionView::ActionRole)));
+            if (action) {
+                const XdgDesktopFile& df = action->desktopFile();
+                if (df.name().contains(filterStr_, filterCaseSensitivity()))
+                    return true;
+                QStringList list = df.expandExecString();
+                if (!list.isEmpty()) {
+                    if (list.at(0).contains(filterStr_, filterCaseSensitivity()))
+                        return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+#endif
+//==============================
 namespace
 {
     class SingleActivateStyle : public QProxyStyle
@@ -102,11 +134,15 @@ namespace
     };
 
 }
-
+//==============================
 ActionView::ActionView(QWidget * parent /*= nullptr*/)
     : QListView(parent)
     , mModel{new QStandardItemModel{this}}
+#ifdef HAVE_MENU_CACHE
     , mProxy{new QSortFilterProxyModel{this}}
+#else
+    , mProxy{new FilterProxyModel{this}}
+#endif
     , mMaxItemsToShow(10)
 {
     setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -187,7 +223,11 @@ void ActionView::fillActions(QMenu * menu)
 
 void ActionView::setFilter(QString const & filter)
 {
+#ifdef HAVE_MENU_CACHE
     mProxy->setFilterFixedString(filter);
+#else
+    mProxy->setfilerString(filter);
+#endif
     const int count = mProxy->rowCount();
     if (0 < count)
     {
