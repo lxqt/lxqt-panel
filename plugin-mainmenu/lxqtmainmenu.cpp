@@ -46,7 +46,9 @@
 #include <XdgMenuWidget>
 
 #ifdef HAVE_MENU_CACHE
-#include "xdgcachedmenu.h"
+    #include "xdgcachedmenu.h"
+#else
+    #include <XdgAction>
 #endif
 
 #define DEFAULT_SHORTCUT "Alt+F1"
@@ -279,7 +281,23 @@ static bool filterMenu(QMenu * menu, QString const & filter)
         } else if (!action->isSeparator())
         {
             //real menu action -> app
-            action->setVisible(filter.isEmpty() || action->text().contains(filter, Qt::CaseInsensitive) || action->toolTip().contains(filter, Qt::CaseInsensitive));
+            bool visible(filter.isEmpty() || action->text().contains(filter, Qt::CaseInsensitive) || action->toolTip().contains(filter, Qt::CaseInsensitive));
+#ifndef HAVE_MENU_CACHE
+            if(!visible)
+            {
+                if (XdgAction * xdgAction = qobject_cast<XdgAction *>(action))
+                {
+                    const XdgDesktopFile& df = xdgAction->desktopFile();
+                    QStringList list = df.expandExecString();
+                    if (!list.isEmpty())
+                    {
+                        if (list.at(0).contains(filter, Qt::CaseInsensitive))
+                            visible = true;
+                    }
+                }
+            }
+#endif
+            action->setVisible(visible);
             has_visible |= action->isVisible();
         }
     }

@@ -31,8 +31,32 @@
 #include <QListView>
 
 class QStandardItemModel;
-class QSortFilterProxyModel;
 
+//==============================
+#ifdef HAVE_MENU_CACHE
+class QSortFilterProxyModel;
+#else
+#include <QSortFilterProxyModel>
+class FilterProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit FilterProxyModel(QObject* parent = nullptr);
+    virtual ~FilterProxyModel();
+
+    void setfilerString(const QString &str) {
+        filterStr_ = str;
+        invalidateFilter();
+    }
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
+
+private:
+    QString filterStr_;
+};
+#endif
+//==============================
 class ActionView : public QListView
 {
     Q_OBJECT
@@ -88,7 +112,11 @@ private:
 
 private:
     QStandardItemModel * mModel;
+#ifdef HAVE_MENU_CACHE
     QSortFilterProxyModel * mProxy;
+#else
+    FilterProxyModel * mProxy;
+#endif
     int mMaxItemsToShow;
 };
 
