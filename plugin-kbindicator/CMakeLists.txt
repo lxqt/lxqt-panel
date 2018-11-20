@@ -1,8 +1,5 @@
 set(PLUGIN "kbindicator")
 
-# FindXKBCommon uses ecm_find_package_version_check() that needs it.
-cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
-
 set(HEADERS
     src/kbdstate.h
     src/settings.h
