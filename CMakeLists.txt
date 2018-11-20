@@ -1,8 +1,9 @@
-# Note: Call the cmake_minimum_required() command at the beginning of the top-level CMakeLists.txt
-# file even before calling the project() command. The cmake_minimum_required(VERSION) command
-# implicitly invokes the cmake_policy(VERSION) command to specify that the current project
-# code is written for the given range of CMake versions.
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+# CMP0000: Call the cmake_minimum_required() command at the beginning of the top-level
+# CMakeLists.txt file even before calling the project() command.
+# The cmake_minimum_required(VERSION) command implicitly invokes the cmake_policy(VERSION)
+# command to specify that the current project code is written for the given range of CMake
+# versions.
 project(lxqt-panel)
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
@@ -49,46 +50,25 @@ add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 include(LXQtPreventInSourceBuilds)
 include(LXQtTranslate)
 
-# TODO - get rid of these special settings
-# right now we are not able to use the general LXQtCompilerSettings
-# See https://github.com/lxqt/lxqt/issues/1589
-#   snapshot/plugin-colorpicker/../panel/ilxqtpanel.h:39:22: warning: ‘class ILXQtPanel’ has virtual functions
-#   and accessible non-virtual destructor [-Wnon-virtual-dtor]
-#   class LXQT_PANEL_API ILXQtPanel
-# and others
-
-# include(LXQtCompilerSettings NO_POLICY_SCOPE)
-
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_STANDARD 14 CACHE STRING "C++ ISO Standard")
-
-# use gcc visibility feature to decrease unnecessary exported symbols
-if (CMAKE_COMPILER_IS_GNUCXX)
-  # set visibility to hidden to hide symbols, unlesss they're exporeted manually in the code
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions")
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-no-undefined")
-endif()
-add_definitions (-Wall)
+# All LXQtCompilerSettings except CMAKE_MODULE_LINKER_FLAGS work just fine
+# So we reset only these Flags after loading LXQtCompilerSettings
+# lxqt-build-tools:
+#  set(CMAKE_MODULE_LINKER_FLAGS "-Wl,--no-undefined ${SYMBOLIC_FLAGS} ${CMAKE_MODULE_LINKER_FLAGS}")
+message(STATUS "==OLD== CMAKE_MODULE_LINKER_FLAGS: ${CMAKE_MODULE_LINKER_FLAGS}")
+set( OLD_CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS}")
+include(LXQtCompilerSettings NO_POLICY_SCOPE)
+set(CMAKE_MODULE_LINKER_FLAGS "${OLD_CMAKE_MODULE_LINKER_FLAGS} ${SYMBOLIC_FLAGS}")
 
 # Warning: This must be before add_subdirectory(panel). Move with caution.
 set(PLUGIN_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/lxqt-panel")
 add_definitions(
     -DPLUGIN_DIR=\"${PLUGIN_DIR}\"
-    -DQT_USE_QSTRINGBUILDER
-    -DQT_NO_FOREACH
 )
 
-## End TODO
-
-
+message(STATUS "CMAKE Module linker flags: ${CMAKE_MODULE_LINKER_FLAGS}")
 message(STATUS "Panel plugins location: ${PLUGIN_DIR}")
 
 #########################################################################
-
 # Plugin system
 # You can enable/disable building of the plugin using cmake options.
 #    cmake -DWORLDCLOCK_PLUGIN=Yes .. # Enable worldclock plugin
