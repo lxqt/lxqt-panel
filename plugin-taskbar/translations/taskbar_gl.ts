@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation></translation>
+        <translation>Activar a tarefa %1</translation>
     </message>
 </context>
 <context>
@@ -14,82 +14,82 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>Application</source>
-        <translation></translation>
+        <translation>Aplicación</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>To &amp;Desktop</source>
-        <translation></translation>
+        <translation>Ao &amp;escritorio</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation></translation>
+        <translation>&amp;Todos os escritorios</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
         <source>Desktop &amp;%1</source>
-        <translation></translation>
+        <translation>Escritorio &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation></translation>
+        <translation>Ao escritorio &amp;actual</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation></translation>
+        <translation>&amp;Desprazar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation></translation>
+        <translation>Redi&amp;mensionar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation></translation>
+        <translation>Ma&amp;ximizar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
         <source>Maximize vertically</source>
-        <translation></translation>
+        <translation>Maximizar verticalmente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Maximize horizontally</source>
-        <translation></translation>
+        <translation>Maximizar horizontalmente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="600"/>
         <source>&amp;Restore</source>
-        <translation></translation>
+        <translation>&amp;Restaurar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>Mi&amp;nimize</source>
-        <translation></translation>
+        <translation>Mi&amp;nimizar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
         <source>Roll down</source>
-        <translation></translation>
+        <translation>Desenrolar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Roll up</source>
-        <translation></translation>
+        <translation>Enrolar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Layer</source>
-        <translation></translation>
+        <translation>&amp;Disposición</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Always on &amp;top</source>
-        <translation></translation>
+        <translation>Sempre &amp;enriba</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="632"/>
@@ -99,12 +99,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Always on &amp;bottom</source>
-        <translation></translation>
+        <translation>Sempre &amp;embaixo</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="646"/>
         <source>&amp;Close</source>
-        <translation></translation>
+        <translation>&amp;Pechar</translation>
     </message>
 </context>
 <context>
@@ -112,12 +112,12 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
-        <translation></translation>
+        <translation>Groupo</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
-        <translation></translation>
+        <translation>Pechar o grupo</translation>
     </message>
 </context>
 <context>
@@ -125,12 +125,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation></translation>
+        <translation>Axustes do administrador de tarefas</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation></translation>
+        <translation>Xeral</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
