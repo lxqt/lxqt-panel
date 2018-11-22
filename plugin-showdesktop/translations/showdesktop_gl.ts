@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Amosar o escritorio: Non é posíbel definir o atallo global «%1»</translation>
+        <translation>Amosar o escritorio: Non é posíbel rexistrar o atallo global «%1»</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
