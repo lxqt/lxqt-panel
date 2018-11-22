@@ -7,13 +7,13 @@
         <location filename="../src/content.cpp" line="43"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation></translation>
+        <translation>M</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation></translation>
+        <translation>Bloq Maiús</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
@@ -25,29 +25,29 @@
         <location filename="../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation></translation>
+        <translation>Bloq Núm</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation></translation>
+        <translation>D</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation></translation>
+        <translation>Bloq Despr</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation></translation>
+        <translation>Disposición</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Variant</source>
-        <translation></translation>
+        <translation>Variante</translation>
     </message>
 </context>
 <context>
@@ -55,42 +55,42 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation></translation>
+        <translation>Axustes do estado do teclado</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation></translation>
+        <translation>Indicadores de bloqueo</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation></translation>
+        <translation>Amosar o bloqueo de maiúsculas</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation></translation>
+        <translation>Amosar o bloqueo do teclado numérico</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation></translation>
+        <translation>Amosar o bloqueo do desprazamento</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation></translation>
+        <translation>Indicador da disposición do teclado</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation></translation>
+        <translation>Política de intercambio</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation></translation>
+        <translation>Configurar as disposicións</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
@@ -100,12 +100,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation></translation>
+        <translation>Xanela</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation></translation>
+        <translation>Aplicación</translation>
     </message>
 </context>
 </TS>
