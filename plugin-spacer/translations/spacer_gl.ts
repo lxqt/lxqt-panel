@@ -11,7 +11,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Largo do espazo:</translation>
+        <translation>Largura do espazo:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>liña</translation>
+        <translation>raia</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
