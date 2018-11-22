@@ -6,17 +6,17 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation></translation>
+        <translation>Interface de rede &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
-        <translation></translation>
+        <translation>Enviados %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
-        <translation></translation>
+        <translation>Recibidos %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
@@ -54,12 +54,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation></translation>
+        <translation>Axustes do monitor de rede</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation></translation>
+        <translation>Xeral</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation></translation>
+        <translation>Módem</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
@@ -79,17 +79,17 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
         <source>Network</source>
-        <translation></translation>
+        <translation>Rede</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation></translation>
+        <translation>Sen fíos</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
         <source>Icon</source>
-        <translation></translation>
+        <translation>Icona</translation>
     </message>
 </context>
 </TS>
