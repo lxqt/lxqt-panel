@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation></translation>
+        <translation>Cambiar para o escritorio %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
         <location filename="../desktopswitch.cpp" line="151"/>
         <source>Desktop %1</source>
-        <translation></translation>
+        <translation>Escritorio %1</translation>
     </message>
 </context>
 <context>
@@ -20,42 +20,42 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation></translation>
+        <translation>Axustes do cambiador de escritorios</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation></translation>
+        <translation>Número de filas:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation></translation>
+        <translation>Etiquetas dos escritorios:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation></translation>
+        <translation>Aparencia</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation></translation>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation></translation>
+        <translation>Nomes</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation></translation>
+        <translation>Ningún</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation></translation>
+        <translation>Nomes dos escritorios</translation>
     </message>
 </context>
 </TS>
