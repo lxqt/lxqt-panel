@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
-        <translation></translation>
+        <translation>Produciuse un erro ao arrastrar</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation></translation>
+        <translation>O ficheiro/URL «%1» non pode ser incrustado, polo de agora, no inicio rápido</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation></translation>
+        <translation>Arrastre para  aquí as
+iconas das aplicacións</translation>
     </message>
 </context>
 <context>
@@ -25,17 +26,17 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation></translation>
+        <translation>Mover á esquerda</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation></translation>
+        <translation>Mover á dereita</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation></translation>
+        <translation>Retirar o iniciador rápido</translation>
     </message>
 </context>
 </TS>
