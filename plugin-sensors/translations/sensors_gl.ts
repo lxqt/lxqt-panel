@@ -6,27 +6,27 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation></translation>
+        <translation>Axustes dos sensores</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation></translation>
+        <translation>Común</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation></translation>
+        <translation>Intervalo de actualización (segundos)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation></translation>
+        <translation>Largura da barra de temperaturas</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
         <source>Temperature scale</source>
-        <translation></translation>
+        <translation>Escala de temperaturas</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
@@ -41,42 +41,42 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink progress bars when the temperature is too high</source>
-        <translation></translation>
+        <translation>Facer escintilar as barras cando a temperatura sexa demasiado alta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation></translation>
+        <translation>Avisar cando a temperatura sexa elevada</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
         <source>Sensors</source>
-        <translation></translation>
+        <translation>Sensores</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation></translation>
+        <translation type="unfinished">Chips detectados:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation></translation>
+        <translation type="unfinished">Funcionalidades do chip:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
-        <translation></translation>
+        <translation>Activado</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation></translation>
+        <translation>Etiqueta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Color</source>
-        <translation></translation>
+        <translation>Cor</translation>
     </message>
 </context>
 </TS>
