@@ -6,33 +6,33 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation></translation>
+        <translation>Árbore DOM do panel</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation></translation>
+        <translation>Propiedade</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
         <source>Value</source>
-        <translation></translation>
+        <translation>Valor</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation></translation>
+        <translation>Todas as propiedade</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation></translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation></translation>
+        <translation>Valor da cadea</translation>
     </message>
 </context>
 </TS>
