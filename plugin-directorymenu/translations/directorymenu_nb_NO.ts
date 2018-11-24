@@ -6,7 +6,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="120"/>
         <source>Open</source>
-        <translation></translation>
+        <translation>Åpne</translation>
     </message>
 </context>
 <context>
@@ -14,52 +14,52 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation></translation>
+        <translation>Mappemenyinnstillinger</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation></translation>
+        <translation>Utseende</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation></translation>
+        <translation>Mappe å vise:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation></translation>
+        <translation>Navn på mappe å vise</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation></translation>
+        <translation>Symbol:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation></translation>
+        <translation>Velg mappe å vise</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Icon</source>
-        <translation></translation>
+        <translation>Velg symbol</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation></translation>
+        <translation>Symboler (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation></translation>
+        <translation>Mappemeny</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>An error occurred while loading the icon.</source>
-        <translation></translation>
+        <translation>En feil oppstod da symbolet ble lastet inn.</translation>
     </message>
 </context>
 </TS>
