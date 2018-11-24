@@ -6,23 +6,23 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation></translation>
+        <translation>Panelets DOM-tre</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation></translation>
+        <translation>Egenskap</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
         <source>Value</source>
-        <translation></translation>
+        <translation>Verdi</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation></translation>
+        <translation>Alle egenskaper</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation></translation>
+        <translation>Strengverdi</translation>
     </message>
 </context>
 </TS>
