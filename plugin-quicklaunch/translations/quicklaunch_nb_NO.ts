@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
-        <translation></translation>
+        <translation>Slippfeil</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation></translation>
+        <translation>Filen/URLen &apos;%1&apos; kan ikke bli lagt til Hurtigstarteren nå</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation></translation>
+        <translation>Slipp program-
+symboler her</translation>
     </message>
 </context>
 <context>
@@ -25,17 +26,17 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation></translation>
+        <translation>Flytt til venstre</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation></translation>
+        <translation>Flytt til høyre</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation></translation>
+        <translation>Fjern fra hurtigstarteren</translation>
     </message>
 </context>
 </TS>
