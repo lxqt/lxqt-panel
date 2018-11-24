@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="96"/>
         <source>Search...</source>
-        <translation></translation>
+        <translation>Søk...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
         <source>Show/hide main menu</source>
-        <translation></translation>
+        <translation>Vis eller skjul hovedmeny</translation>
     </message>
 </context>
 <context>
@@ -19,92 +19,92 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation></translation>
+        <translation>Generelt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation></translation>
+        <translation>Hovedmenyinnstillinger</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation></translation>
+        <translation>Symbol:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation></translation>
+        <translation>Knapptekst:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation></translation>
+        <translation>Egen skriftstørrelse:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation></translation>
+        <translation> punkter</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation></translation>
+        <translation>Menyfil</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation></translation>
+        <translation>Menyfil:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation></translation>
+        <translation>Søk</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation></translation>
+        <translation>Maksimum bredde:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation></translation>
+        <translation>Vis matchende menyvalg:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation></translation>
+        <translation>Maksimum synlige valg:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation></translation>
+        <translation>Filtrer menyvalg</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation></translation>
+        <translation> piksler</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation></translation>
+        <translation>Skjul menyvalg ved søk</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation></translation>
+        <translation>Fjern søk når meny vises</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation></translation>
+        <translation>Tastaturkommandoer</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation></translation>
+        <translation>Klikk knappen for ny tastaturkommando:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
@@ -114,22 +114,22 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation></translation>
+        <translation>Velg symbolfil</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation></translation>
+        <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation></translation>
+        <translation>Velg menyfil</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
         <source>Menu files (*.menu)</source>
-        <translation></translation>
+        <translation>Menyfiler (*.menu)</translation>
     </message>
 </context>
 </TS>
