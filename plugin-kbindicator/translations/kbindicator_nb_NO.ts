@@ -42,7 +42,7 @@
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation></translation>
+        <translation>Tastaturspråk</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
@@ -55,57 +55,57 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation></translation>
+        <translation>Tastaturtilstandsinstillinger</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation></translation>
+        <translation>Låseindikatorer</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation></translation>
+        <translation>Vis Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation></translation>
+        <translation>Vis Num Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation></translation>
+        <translation>Vis Scroll Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation></translation>
+        <translation>Tastaturspråkindikator</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation></translation>
+        <translation>Bytt tastaturspråk</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation></translation>
+        <translation>Konfigurer tastaturspråk</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation></translation>
+        <translation>Over alt</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation></translation>
+        <translation>Per vindu</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation></translation>
+        <translation>Per program</translation>
     </message>
 </context>
 </TS>
