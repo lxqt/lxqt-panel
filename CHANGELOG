@@ -1,8 +1,26 @@
 
+lxqt-panel-0.14.0 / 2018-12-01
+==============================
+ 
+  * Implementation fixed:
+    - plugin-mainmenu: Also include exec name in filtering without menu-cache
+    - plugin-panel: Optional overriding of icon theme for panels
+    - plugin-spacer: Change type of mExpandable
+    - plugin-volume: Do not auto-unmute on volume change
+  * Improved cmake scripting
+    - plugin-tray: Use XCOMPOSITE_LDFLAGS instead of XCOMPOSITE_LIBRARIES
+    - Set cmake_minimum_required to 3.1.0
+    - Use lxqt-build-tools and -compilersettings
+    - Removed locale compile definitons
+  * Moved translations from lxqt-l10n back to lxqt-panel
+    - Removed obsolete translation fuctionality
+    - Removed now obsolete and harmful panel/translations/.gitignore
+    - Added translation promo in README.md
+
 lxqt-panel-0.13.0 / 2018-05-21
 ==============================
 
-  *  Remove spurious newline
+  * Remove spurious newline
   * Remove spurious newline
   * Spanish translation update
   * mainmenu: Use new signal/slot connection notation
