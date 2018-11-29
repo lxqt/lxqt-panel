@@ -59,3 +59,66 @@ Pane "Widgets" allows for configuring and removing all plugins currently include
 
 Sometimes right-clicking over particular plugins may bring up a context menu dealing with the respective plugin's functionality *only* which means the plugin in question cannot be configured the usual way. This affects e. g. plugin-quicklaunch as soon as items were added (the context menu is limited to topics dealing with the items included in plugin-quicklaunch).
 Currently there are two ways to deal with this. Some themes like e. g. `Frost` come with handles at the plugins' left end providing the regular context menu. Also, it can be assumed at least one plugin is included in the panel that's always featuring the regular context menu like e. g. plugin-mainmenu. Either way pane "Widgets" of "Configure Panel" can be accessed and used to configure the particular plugin.
+
+## Translation (Weblate)
+
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-colorpicker/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-colorpicker/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-cpuload/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-cpuload/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-desktopswitch/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-desktopswitch/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-directorymenu/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-directorymenu/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-dom/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-dom/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-kbindicator/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-kbindicator/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-mainmenu/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-mainmenu/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-mount/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-mount/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-networkmonitor/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-networkmonitor/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-quicklaunch/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-quicklaunch/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-sensors/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-sensors/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-showdesktop/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-showdesktop/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-spacer/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-spacer/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-statusnotifier/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-statusnotifier/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-sysstat/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-sysstat/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-taskbar/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-taskbar/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-tray/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-tray/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-volume/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-volume/287x66-white.png" alt="Translation status" />
+</a>
+<a href="https://weblate.lxqt.org/projects/lxqt/lxqt-panel-plugin-worldclock/">
+<img src="https://weblate.lxqt.org/widgets/lxqt/-/lxqt-panel-plugin-worldclock/287x66-white.png" alt="Translation status" />
+</a>
