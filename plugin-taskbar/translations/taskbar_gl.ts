@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation>Amosar a mensaxe emerxente ao pasar o rato por riba</translation>
+        <translation>Amosar a xanela emerxente ao pasar o rato por riba</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
