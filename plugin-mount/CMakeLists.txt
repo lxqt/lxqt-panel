@@ -28,7 +28,7 @@ set(UIS
     configuration.ui
 )
 
-find_package(KF5Solid REQUIRED)
+find_package(KF5Solid ${QT_MINIMUM_VERSION} REQUIRED)
 set(LIBRARIES Qt5Xdg KF5::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

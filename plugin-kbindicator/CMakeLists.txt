@@ -31,7 +31,7 @@ set(LIBRARIES
 
 find_package(XCB REQUIRED COMPONENTS xcb xcb-xkb)
 find_package(XKBCommon REQUIRED COMPONENTS XKBCommon X11)
-find_package(Qt5 REQUIRED COMPONENTS X11Extras Xml)
+find_package(Qt5 ${QT_MINIMUM_VERSION} REQUIRED COMPONENTS X11Extras Xml)
 
 include_directories(${XCB_INCLUDE_DIRS})
 
