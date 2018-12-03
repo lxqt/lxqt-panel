@@ -164,7 +164,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не позволять полноэкранным окнам заходить за панель</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
@@ -211,7 +211,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Заменить &amp;тему значков</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
@@ -374,7 +374,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Удалить панель</translation>
+        <translation>Удалить панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -385,7 +385,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Удалить панель</translation>
+        <translation>Удалить панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
