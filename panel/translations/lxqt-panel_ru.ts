@@ -169,7 +169,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Зарезервировать место на экране</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
