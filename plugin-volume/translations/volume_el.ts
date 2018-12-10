@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(χωρίς ήχο)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Ένταση: σε σίγαση</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Ένταση: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

@@ -96,10 +96,6 @@
         <translation>Symbolgröße:</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Zeilenzahl:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Ausrichtung und Position</translation>

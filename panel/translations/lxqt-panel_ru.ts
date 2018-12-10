@@ -60,10 +60,6 @@
         <translation>пикс</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Количество строк:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
         <translation>Размер иконок:</translation>

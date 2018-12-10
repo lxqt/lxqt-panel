@@ -96,10 +96,6 @@
         <translation>גודל סמלים:</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">ספירת שורות:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>יישור ומיקום</translation>

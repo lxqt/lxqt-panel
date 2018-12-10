@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(lydløst)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation>Lydstyrke: lydløst</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Lydstyrke: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

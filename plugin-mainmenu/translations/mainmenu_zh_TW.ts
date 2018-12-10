@@ -4,12 +4,12 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="96"/>
+        <location filename="../lxqtmainmenu.cpp" line="98"/>
         <source>Search...</source>
         <translation>搜尋...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="102"/>
+        <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
         <translation>顯示/隱藏 主選單</translation>
     </message>
@@ -65,10 +65,6 @@
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
         <translation>最大物件寬度：</translation>
-    </message>
-    <message>
-        <source>max. item width:</source>
-        <translation type="vanished">最大物件寬度：</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>

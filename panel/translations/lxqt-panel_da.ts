@@ -96,10 +96,6 @@
         <translation>px</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Rækker:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Justering og placering</translation>

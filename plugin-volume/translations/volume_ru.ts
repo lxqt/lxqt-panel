@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Громкость: отключено</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Громкость: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

@@ -219,14 +219,6 @@
         <translation>Uživatelsky určená barva…</translation>
     </message>
     <message>
-        <source>Use c&amp;ustom colors</source>
-        <translation type="vanished">Po&amp;užít uživatelem určené barvy</translation>
-    </message>
-    <message>
-        <source>Custom color ...</source>
-        <translation type="vanished">Vlastní barva...</translation>
-    </message>
-    <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
         <translation>Procesor</translation>

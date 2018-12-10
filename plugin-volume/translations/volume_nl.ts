@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(gedempt)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Geluidssterkte: gedempt</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Geluidssterkte: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

@@ -96,10 +96,6 @@
         <translation>Symbolgröße:</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Aantal rijen:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Uitlijning en positie</translation>

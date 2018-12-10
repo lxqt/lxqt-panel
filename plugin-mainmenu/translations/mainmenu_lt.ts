@@ -4,12 +4,12 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="96"/>
+        <location filename="../lxqtmainmenu.cpp" line="98"/>
         <source>Search...</source>
         <translation>Ieškoti...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="102"/>
+        <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
         <translation>Rodyti/slėpti pagrindinį meniu</translation>
     </message>
@@ -65,10 +65,6 @@
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
         <translation>Didžiausias elemento plotis:</translation>
-    </message>
-    <message>
-        <source>max. item width:</source>
-        <translation type="vanished">Didžiausias elemento plotis:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>

@@ -33,10 +33,6 @@
         <source>(muted)</source>
         <translation>(mudo)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Volume: Mudo</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>
