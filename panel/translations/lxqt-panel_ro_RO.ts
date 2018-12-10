@@ -96,10 +96,6 @@
         <translation type="unfinished">px</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="obsolete">Număr coloane:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation type="unfinished">Aliniere și poziție</translation>

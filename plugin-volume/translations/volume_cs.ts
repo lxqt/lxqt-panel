@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(ztlumeno)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Hlasitost: ztlumeno</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Hlasitost: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

@@ -33,10 +33,6 @@
         <source>(muted)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="obsolete">Гучність: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

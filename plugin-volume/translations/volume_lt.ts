@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(nutildyta)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Garsis: nutildytas</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">Garsis: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

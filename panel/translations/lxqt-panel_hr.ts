@@ -96,10 +96,6 @@
         <translation type="unfinished">Veličina ikone:</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="obsolete">Broj redaka:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation type="unfinished">Poravnanje &amp;&amp; pozicija</translation>

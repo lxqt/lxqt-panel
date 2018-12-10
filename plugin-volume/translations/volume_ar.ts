@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation>(مكتوم)</translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">الصوت: مكتوم</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="vanished">المستوى: %1٪</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

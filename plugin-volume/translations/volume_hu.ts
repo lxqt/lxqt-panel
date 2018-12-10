@@ -33,14 +33,6 @@
         <source>(muted)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Volume: muted</source>
-        <translation type="vanished">Hangerő: néma</translation>
-    </message>
-    <message>
-        <source>Volume: %1%</source>
-        <translation type="obsolete">Hangerő: %1%</translation>
-    </message>
 </context>
 <context>
     <name>LXQtVolumeConfiguration</name>

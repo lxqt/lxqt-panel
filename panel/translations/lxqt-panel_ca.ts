@@ -96,10 +96,6 @@
         <translation>Mida de la icona:</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Nombre de files:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Alineació &amp;&amp; posició</translation>

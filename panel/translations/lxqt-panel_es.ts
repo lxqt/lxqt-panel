@@ -96,10 +96,6 @@
         <translation>px</translation>
     </message>
     <message>
-        <source>Rows count:</source>
-        <translation type="vanished">Número de filas:</translation>
-    </message>
-    <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
         <translation>Alineación y posición</translation>
