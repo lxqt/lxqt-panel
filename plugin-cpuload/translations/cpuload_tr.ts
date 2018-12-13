@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>LXQt İşlemci Yükü Ayarları</translation>
+        <translation>İşlemci Yükü Ayarları</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Metin göster</translation>
+        <translation>Metni göster</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
