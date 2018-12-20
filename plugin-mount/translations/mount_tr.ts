@@ -76,7 +76,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ayrılırken hata oluştu: %2</translation>
+        <translation>&lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ayrılırken hata oluştu: %2</translation>
     </message>
 </context>
 <context>
