@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="98"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť/skryť hlavné menu</translation>
     </message>
 </context>
 <context>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenia hlavného menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonka:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. šírka položiek:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Pri vyhľadávaní skryť položky menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Klávesová skratka</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
