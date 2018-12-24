@@ -6,17 +6,17 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Adicionar Plugins</translation>
+        <translation>Adicionar plugins</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Pesquisa:</translation>
+        <translation>Pesquisar:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Adicionar Widget</translation>
+        <translation>Adicionar widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(apenas uma instância aberta de cada vez)</translation>
+        <translation>(apenas uma instância pode ser aberta de cada vez)</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Tamanho do ícone:</translation>
+        <translation>Tamanho dos ícones:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Valor negativo de pixel configura o comprimento do painel a partir da quantia de pixels especificado, menos o espaço disponível na tela.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por exemplo: &quot;Comprimento&quot; vale -100px, tamanho da tela vale 1000px, então o tamanho real do painel será de 900px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Valores negativos de pixels configuram o comprimento do painel a partir da quantia de pixels especificados, menos o espaço disponível na tela.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por exemplo: &quot;Comprimento&quot; vale -100px, tamanho da tela vale 1000px, então o tamanho real do painel será de 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -133,7 +133,7 @@
         <location filename="../config/configpanelwidget.cpp" line="207"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
-        <translation>Centro</translation>
+        <translation>Centralizado</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;uto Ocultar</translation>
+        <translation>Ocultar a&amp;utomaticamente</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation>Reserve espaço na tela</translation>
+        <translation>Reservar espaço na tela</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;A composição é necessária para a transparência do painel.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;É necessária composição para a transparência do painel.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -207,7 +207,7 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Uma solução alternativa parcial para estilos widget que
+        <translation>Uma solução parcial alternativa para estilos de widget que
 não conseguem dar ao painel um tema separado.
 
 Talvez você também queira desabilitar:
@@ -254,7 +254,7 @@ Colorir ícones baseado no estilo widget (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="175"/>
         <source>Bottom of desktop</source>
-        <translation>Base da área de trabalho</translation>
+        <translation>Abaixo da área de trabalho</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
@@ -274,7 +274,7 @@ Colorir ícones baseado no estilo widget (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
-        <translation>Base da área de trabalho %1</translation>
+        <translation>Abaixo da área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
@@ -394,8 +394,8 @@ Colorir ícones baseado no estilo widget (paleta)</translation>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Remoção de um painel não pode ser defeito.
-Deseja remover este painel?</translation>
+        <translation>A remoção de um painel não pode ser desfeita.
+Deseja mesmo remover este painel?</translation>
     </message>
 </context>
 <context>
