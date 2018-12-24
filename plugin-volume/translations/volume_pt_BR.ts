@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Mudo/falante volume do som</translation>
+        <translation>Ativar/desativar som</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Permitir o volume além de 100% (0dB)</translation>
+        <translation>Permitir volume além de 100% (0dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Ajustar volume</translation>
+        <translation>Passos de ajuste do volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
-        <translation>Mixer Externo</translation>
+        <translation>Mixer externo</translation>
     </message>
 </context>
 <context>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>Lançar Mixer</translation>
+        <translation>Executar Mixer</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
