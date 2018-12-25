@@ -54,7 +54,7 @@
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
         <translatorcomment>&amp;Diğer</translatorcomment>
-        <translation></translation>
+        <translation>&amp;Diğer</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>Maksi&amp;mum</translation>
+        <translation>En&amp;fazla</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -376,13 +376,13 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frekans: %5%</translation>
+        <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frek: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frekans: n/a</translation>
+        <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frek: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
