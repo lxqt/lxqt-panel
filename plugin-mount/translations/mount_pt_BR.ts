@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected :</source>
-        <translation>Quando um dispositivo está conectado:</translation>
+        <translation>Quando um dispositivo for conectado:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation>Exibir informação</translation>
+        <translation>Exibir informações</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
@@ -47,12 +47,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; está conectado.</translation>
+        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; foi conectado.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; Foi removido.</translation>
+        <translation>O dispositivo &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; foi removido.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Montagem do &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; falhou : %2</translation>
+        <translation>A montagem do &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; falhou : %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Desmontagem do &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; falhou: %2</translation>
+        <translation>A desmontagem do &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; falhou: %2</translation>
     </message>
 </context>
 <context>
