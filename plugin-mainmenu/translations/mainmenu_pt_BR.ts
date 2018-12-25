@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
-        <translation>Exibir/ocultar menu principal</translation>
+        <translation>Exibir/ocultar o menu principal</translation>
     </message>
 </context>
 <context>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation>Arquivo do menu:</translation>
+        <translation>Arquivo de menu:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Largura Max. do item:</translation>
+        <translation>Largura máx. do item:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -109,12 +109,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation>Reiniciar</translation>
+        <translation>Redefinir</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>Escolher arquivo de ícone</translation>
+        <translation>Escolher ícone</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
