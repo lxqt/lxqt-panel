@@ -40,7 +40,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation>Числа</translation>
+        <translation>Номера</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Нет</translation>
+        <translation>Без меток</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
