@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Не задано</translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
