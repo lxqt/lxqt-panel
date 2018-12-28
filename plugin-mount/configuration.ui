@@ -23,7 +23,7 @@
       <item>
        <widget class="QLabel" name="devAddedLabel">
         <property name="text">
-         <string>When a device is connected :</string>
+         <string>When a device is connected:</string>
         </property>
        </widget>
       </item>
