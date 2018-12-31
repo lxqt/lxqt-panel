@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation>Prozessorauslastung %1%</translation>
+        <translation>CPU-Auslastung %1%</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Einstellungen zur Prozessorlast-Anzeige</translation>
+        <translation>Einstellungen zur CPU-Auslastung</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Allgemeines</translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
