@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation>Aktiviere Aufgabe %1</translation>
+        <translation>Aufgabe %1 aktivieren</translation>
     </message>
 </context>
 <context>
@@ -19,22 +19,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>To &amp;Desktop</source>
-        <translation>Zur Arb&amp;eitsfläche</translation>
+        <translation>Zum &amp;Schreibtisch</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Alle Arbeitsflächen</translation>
+        <translation>&amp;Alle Schreibtische</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
         <source>Desktop &amp;%1</source>
-        <translation>Arbeitsfläche &amp;%1</translation>
+        <translation>Schreibtisch &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Zur ak&amp;tuellen Arbeitsfläche</translation>
+        <translation>Zum ak&amp;tuellen Schreibtisch</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation>&amp;Maximieren</translation>
+        <translation>Ma&amp;ximieren</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="600"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Wiederherstellen</translation>
+        <translation>Wiede&amp;rherstellen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>Mi&amp;nimize</source>
-        <translation>&amp;Minimieren</translation>
+        <translation>Mi&amp;nimieren</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
@@ -130,12 +130,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Allgemeines</translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Nur Fenster der Arbeitsfläche anzeigen</translation>
+        <translation>Nur Fenster des Schreibtisches anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
@@ -150,12 +150,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Minimierte Fenster auf aktuelle Arbeitsfläche heben</translation>
+        <translation>Minimierte Fenster auf aktuellen Schreibtisch heben</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Fenster bei Mittelklick schließen</translation>
+        <translation>Mit Mittelklick schließen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation>Max. Schaltflächenbreite</translation>
+        <translation>Maximale Schaltflächenbreite</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="144"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation>Max. Schaltflächenhöhe</translation>
+        <translation>Maximale Schaltflächenhöhe</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
