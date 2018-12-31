@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Einstellungen des Verzeichnismenüs</translation>
+        <translation>Einstellungen zum Verzeichnismenü</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BasisVerzeichnisname</translation>
+        <translation>BasisVerzeichnisName</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
