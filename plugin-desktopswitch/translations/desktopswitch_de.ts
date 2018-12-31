@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation>Zu Arbeitsfläche %1 wechseln</translation>
+        <translation>Zu Schreibtisch %1 wechseln</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Einstellungen für Arbeitsflächenumschalter</translation>
+        <translation>Einstellungen für Schreibtischumschalter</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Arbeitsflächenbezeichnungen:</translation>
+        <translation>Schreibtischbezeichnungen:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation>Arbeitsflächenbezeichnungen</translation>
+        <translation>Schreibtischnamen</translation>
     </message>
 </context>
 </TS>
