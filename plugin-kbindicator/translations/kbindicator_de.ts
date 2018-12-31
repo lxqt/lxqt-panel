@@ -14,7 +14,7 @@
         <location filename="../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>Feststelltaste für Großbuchstaben</translation>
+        <translation>Feststelltaste</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
@@ -27,7 +27,7 @@
         <location filename="../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>Feststelltaste des Ziffernblocks</translation>
+        <translation>Num-Taste</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
@@ -40,7 +40,7 @@
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>Feststelltaste für Rollen</translation>
+        <translation>Rollen-Taste</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Tastaturstatus - Einstellungen</translation>
+        <translation>Tastaturstatuseinstellungen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
@@ -68,22 +68,22 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Feststelltaste für Großbuchstaben anzeigen</translation>
+        <translation>Feststelltaste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Feststelltaste des Ziffernblocks anzeigen</translation>
+        <translation>Num-Taste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Feststelltaste für Rollen anzeigen</translation>
+        <translation>Rollen-Taste anzeigen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Indikator der Tastaturbelegung</translation>
+        <translation>Tastaturbelegungsindikator</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
