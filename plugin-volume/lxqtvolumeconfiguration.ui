@@ -25,7 +25,7 @@
         <item>
          <widget class="QRadioButton" name="alsaRadioButton">
           <property name="text">
-           <string>Alsa</string>
+           <string>ALSA</string>
           </property>
          </widget>
         </item>
