@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Lautstärkeeinstellung: Die folgenden Tastaturkürzel konnten nicht registriert werden: %1</translation>
+        <translation>Lautstärkeregler: Die folgenden Tastaturkürzel konnten nicht registriert werden: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Lautstärkeeinstellungen</translation>
+        <translation>Lautstärkereglereinstellungen</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
