@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation>Netzwerkmonitor-Einstellungen</translation>
+        <translation>Einstellungen des Netzwerkmonitors</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
