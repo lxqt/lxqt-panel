@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation>Widgets</translation>
+        <translation>Bedienelemente</translation>
     </message>
 </context>
 <context>
@@ -98,12 +98,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Ausrichtung und Position</translation>
+        <translation>Ausrichtung &amp;&amp; Position</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>&amp;Automatisch verbergen</translation>
+        <translation>A&amp;utomatisch ausblenden</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -126,12 +126,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Zeige mit Verzögerung:</translation>
+        <translation>Mit Verzögerung anzeigen:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Leiste nicht durch maximierte Fenster verdecken</translation>
+        <translation>Nicht zulassen, dass maximierte Fenster unter das Leistenfenster gehen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Für Transparenzeffekt wird Compositing benötigt.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Für Leistentransparenz ist Compositing erforderlich.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -222,52 +222,52 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation>Symbol-&amp;Design überschreiben</translation>
+        <translation>Symbol&amp;thema überschreiben</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation>Symbol-Design für Leisten:</translation>
+        <translation>Symbolthema für Leisten:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
         <source>Top of desktop</source>
-        <translation>Oben auf der Arbeitsfläche</translation>
+        <translation>Oben auf dem Schreibtisch</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="173"/>
         <source>Left of desktop</source>
-        <translation>Links auf der Arbeitsfläche</translation>
+        <translation>Links auf dem Schreibtisch</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="174"/>
         <source>Right of desktop</source>
-        <translation>Rechts auf der Arbeitsfläche</translation>
+        <translation>Rechts auf dem Schreibtisch</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="175"/>
         <source>Bottom of desktop</source>
-        <translation>Unten auf der Arbeitsfläche</translation>
+        <translation>Unten auf dem Schreibtisch</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Top of desktop %1</source>
-        <translation>Oben auf Arbeitsfläche %1</translation>
+        <translation>Oben auf dem Schreibtisch %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Left of desktop %1</source>
-        <translation>Links auf Arbeitsfläche %1</translation>
+        <translation>Links auf dem Schreibtisch %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="186"/>
         <source>Right of desktop %1</source>
-        <translation>Rechts auf Arbeitsfläche %1</translation>
+        <translation>Rechts auf dem Schreibtisch %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
-        <translation>Unten auf Arbeitsfläche %1</translation>
+        <translation>Unten auf dem Schreibtisch %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
@@ -306,12 +306,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Hinweis: Hier gemachte Änderungen können nicht rückgängig gemacht werden.</translation>
+        <translation>Hinweis: In dieser Seite vorgenommene Änderungen können nicht zurückgesetzt werden.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Nach oben schieben</translation>
+        <translation>Nach oben verschieben</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -325,7 +325,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Nach unten schieben</translation>
+        <translation>Nach unten verschieben</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
@@ -359,7 +359,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation>Widgets verwalten</translation>
+        <translation>Bedienelemente verwalten</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
@@ -388,7 +388,7 @@ Colorize icons based on widget style (palette)</source>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Das Entfernen einer Leiste kann nicht rückgängig gemacht werden.
-Soll die Leiste entfernt werden?</translation>
+Möchten Sie diese Leiste entfernen?</translation>
     </message>
 </context>
 <context>
