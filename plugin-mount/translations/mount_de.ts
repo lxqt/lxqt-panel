@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Entfernbare Medien - Einstellungen</translation>
+        <translation>Einstellungen entfernbarer Medien</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation>Informationen anzeigen</translation>
+        <translation>Info anzeigen</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Entfernbare Medien-/Geräteverwaltung</translation>
+        <translation>Verwaltung entfernbarer Medien/Geräte</translation>
     </message>
 </context>
 <context>
@@ -71,12 +71,12 @@
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Entfernbare Medien-/Geräteverwaltung</translation>
+        <translation>Verwaltung entfernbarer Medien/Geräte</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Das Lösen von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
+        <translation>Das Aushängen von &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; ist fehlgeschlagen: %2</translation>
     </message>
 </context>
 <context>
