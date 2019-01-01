@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Drücke die Schaltfläche, um ein Tastenkürzel aufzunehmen:</translation>
+        <translation>Klicken Sie auf die Schaltfläche, um ein Tastenkürzel aufzunehmen:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
