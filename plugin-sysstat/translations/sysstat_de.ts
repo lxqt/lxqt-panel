@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Systemstatistik-Farben</translation>
+        <translation>Systemstatistikfarben</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation>Puff&amp;er</translation>
+        <translation>&amp;Puffer</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -103,12 +103,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation>E&amp;mpfangen</translation>
+        <translation>&amp;Empfangen</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation>&amp;Gesendet</translation>
+        <translation>Gesende&amp;t</translation>
     </message>
 </context>
 <context>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Systemstatistik - Einstellungen</translation>
+        <translation>Systemstatistikeinstellungen</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -206,12 +206,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>Farben des Farbsc&amp;hemas</translation>
+        <translation>T&amp;hemenfarben verwenden</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>&amp;Eigene Farben</translation>
+        <translation>&amp;Eigene Farben verwenden</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
