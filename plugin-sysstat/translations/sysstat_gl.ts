@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Aplicacións</translation>
+        <translation>&amp;Aplicativos</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
@@ -387,7 +387,7 @@
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>aplicacións: %1%&lt;br&gt;búferes: %2%&lt;br&gt;na caché: %3%</translation>
+        <translation>aplicativos: %1%&lt;br&gt;búferes: %2%&lt;br&gt;na caché: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
