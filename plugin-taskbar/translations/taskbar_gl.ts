@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>Application</source>
-        <translation>Aplicación</translation>
+        <translation>Aplicativo</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
