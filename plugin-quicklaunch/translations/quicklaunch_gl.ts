@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation>Arrastre para  aquí as
-iconas das aplicacións</translation>
+        <translation>Arrastre cara aquí as
+iconas dos aplicativos</translation>
     </message>
 </context>
 <context>
