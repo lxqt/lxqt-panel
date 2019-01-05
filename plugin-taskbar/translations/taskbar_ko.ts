@@ -19,12 +19,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>To &amp;Desktop</source>
-        <translation>&amp;D바탕화면 으로</translation>
+        <translation>바탕화면으로(&amp;D)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;A모든 바탕화면</translation>
+        <translation>모든 바탕화면(&amp;A)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
@@ -34,22 +34,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="564"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;T현재 바탕화면으로</translation>
+        <translation>현재 바탕화면으로(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation>&amp;M이동</translation>
+        <translation>이동(&amp;M)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>&amp;z크기 조절</translation>
+        <translation>크기 조절(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation>&amp;x최대화</translation>
+        <translation>최대화(&amp;X)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="600"/>
         <source>&amp;Restore</source>
-        <translation>&amp;R복원</translation>
+        <translation>복원(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>Mi&amp;nimize</source>
-        <translation>&amp;n최소화</translation>
+        <translation>최소화(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
@@ -84,27 +84,27 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Layer</source>
-        <translation>&amp;L레이어</translation>
+        <translation>레이어(&amp;L)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Always on &amp;top</source>
-        <translation>&amp;t항상 위에</translation>
+        <translation>항상 위에(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="632"/>
         <source>&amp;Normal</source>
-        <translation>&amp;N기본</translation>
+        <translation>기본(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Always on &amp;bottom</source>
-        <translation>&amp;b항상 아래에</translation>
+        <translation>항상 아래에(&amp;B)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="646"/>
         <source>&amp;Close</source>
-        <translation>&amp;C닫기</translation>
+        <translation>닫기(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation>창 &amp;g그룹화</translation>
+        <translation>창 그룹화(&amp;G)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>패널이 세로 일 때 버튼 &amp;자동 회전</translation>
+        <translation>패널이 세로 일 때 버튼 자동 회전(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>&amp;패널 화면에 창만 보이기</translation>
+        <translation>패널 화면에 창만 보이기(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
