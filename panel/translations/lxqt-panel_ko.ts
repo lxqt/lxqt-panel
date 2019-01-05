@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>정렬 &amp; 위치</translation>
+        <translation>정렬 &amp;&amp; 위치</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
