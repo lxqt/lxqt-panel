@@ -26,7 +26,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation>espandibile</translation>
+        <translation>dinamico</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
