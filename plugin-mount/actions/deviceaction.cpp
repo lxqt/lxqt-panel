@@ -83,12 +83,14 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
 
 void DeviceAction::onDeviceAdded(Solid::Device device)
 {
+    mKnownDeviceDescriptions[device.udi()] = device.description();
     doDeviceAdded(device);
 }
 
 void DeviceAction::onDeviceRemoved(Solid::Device device)
 {
     doDeviceRemoved(device);
+    mKnownDeviceDescriptions.remove(device.udi());
 }
 
 DeviceAction::ActionId DeviceAction::stringToActionId(const QString &string, ActionId defaultValue)

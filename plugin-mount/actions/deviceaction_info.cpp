@@ -42,7 +42,7 @@ void DeviceActionInfo::doDeviceAdded(Solid::Device device)
 
 void DeviceActionInfo::doDeviceRemoved(Solid::Device device)
 {
-    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is removed.").arg(device.description()));
+    showMessage(tr("The device <b><nobr>\"%1\"</nobr></b> is removed.").arg(device.description().isEmpty() ? mKnownDeviceDescriptions[device.udi()] : device.description()));
 }
 
 void DeviceActionInfo::showMessage(const QString &text)

@@ -63,6 +63,7 @@ protected:
     virtual void doDeviceRemoved(Solid::Device device) = 0;
 
     LXQtMountPlugin *mPlugin;
+    QMap<QString/*!< device udi*/, QString/*!< device description*/> mKnownDeviceDescriptions;
 };
 
 #endif // DEVICEACTION_H
