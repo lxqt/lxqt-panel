@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished">Не позволять полноэкранным окнам заходить за панель</translation>
+        <translation>Не позволять развернутым окнам заходить под окно панели</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
