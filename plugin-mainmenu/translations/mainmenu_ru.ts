@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Настройки главного меню</translation>
+        <translation>Настройки Главного Меню</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
