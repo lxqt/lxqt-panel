@@ -219,7 +219,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation>Тема значков для панели:</translation>
+        <translation>Тема значков панелей:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
