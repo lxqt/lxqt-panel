@@ -202,17 +202,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Частичное обходное решение для стилей виджетов,
+которые не устанавливают отдельную тему для панели.
+
+Вы также возможно захотите отключить:
+
+Настройка внешнего вида LXQt →
+Тема Значков →
+Цвет значков в соответствии с палитрой виджетов</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished">Заменить &amp;тему значков</translation>
+        <translation>Переопределить &amp;тему значков</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема значков для панели:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
