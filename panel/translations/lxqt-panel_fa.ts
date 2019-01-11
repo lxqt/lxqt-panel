@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation></translation>
+        <translation>افزودن افزونه ها</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation></translation>
+        <translation>جستجو:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation></translation>
+        <translation>افزودن ابزارک</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation></translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation></translation>
+        <translation>(تنها یک نسخه می‌توانپ به طور همزمان اجرا شود)</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation></translation>
+        <translation>بخش تنظیمات</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation></translation>
+        <translation>پنل</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation></translation>
+        <translation>ابزارک ها</translation>
     </message>
 </context>
 <context>
@@ -52,12 +52,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation></translation>
+        <translation>پنل پیکربندی</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation></translation>
+        <translation>اندازه</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
@@ -67,12 +67,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation></translation>
+        <translation>اندازه:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation></translation>
+        <translation>طول:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation></translation>
+        <translation>اندازه آیکون:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -109,7 +109,7 @@
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation></translation>
+        <translation>صفر به معنای عدم اجرای انیمیشن است</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -121,12 +121,12 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation></translation>
+        <translation>صفر به معنای بدون وقفه می‌باشد</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation></translation>
+        <translation>نمایش با وقفه:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
@@ -168,7 +168,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation></translation>
+        <translation>مدت زمان انیمیشن:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -178,26 +178,26 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation></translation>
+        <translation>سطر ها:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="206"/>
         <source>Left</source>
-        <translation></translation>
+        <translation>چپ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="207"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
-        <translation></translation>
+        <translation>مرکز</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Right</source>
-        <translation></translation>
+        <translation>راست</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
@@ -207,17 +207,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation></translation>
+        <translation>رنگ فونت:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation></translation>
+        <translation>رنگ پس زمینه:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation></translation>
+        <translation>شفافیت پس زمینه:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
@@ -227,7 +227,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation></translation>
+        <translation>تصویر پس زمینه:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
@@ -272,28 +272,28 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <source>Top</source>
-        <translation></translation>
+        <translation>بالا</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="214"/>
         <source>Bottom</source>
-        <translation></translation>
+        <translation>پایین</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="430"/>
         <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
-        <translation></translation>
+        <translation>انتخاب رنگ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
-        <translation></translation>
+        <translation>انتخاب تصویر</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation></translation>
+        <translation>تصاویر (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -301,7 +301,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation></translation>
+        <translation>پیکربندی افزونه ها</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -330,17 +330,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation></translation>
+        <translation>افزودن</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation></translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation></translation>
+        <translation>پیکربندی</translation>
     </message>
 </context>
 <context>
@@ -349,28 +349,28 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1068"/>
         <location filename="../lxqtpanel.cpp" line="1094"/>
         <source>Panel</source>
-        <translation></translation>
+        <translation>پنل</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation></translation>
+        <translation>پیکربندی پنل</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation></translation>
+        <translation>مدیریت ابزارک ها</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation></translation>
+        <translation>افزودن پنل جدید</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation></translation>
+        <translation>حذف پنل</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -381,7 +381,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation></translation>
+        <translation>حذف پنل</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
@@ -400,12 +400,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation></translation>
+        <translation>انتقال &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation></translation>
+        <translation>حذف &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation></translation>
+        <translation>فایل پیکربندی</translation>
     </message>
 </context>
 </TS>
