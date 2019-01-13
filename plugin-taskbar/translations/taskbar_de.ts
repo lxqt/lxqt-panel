@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>&amp;Größenänderung</translation>
+        <translation>&amp;Größe ändern</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -201,7 +201,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Schaltflächen automatisch d&amp;rehen bei vertikaler Leiste</translation>
+        <translation>Schaltflächen bei vertikaler Leiste automatisch d&amp;rehen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
