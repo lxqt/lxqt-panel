@@ -26,12 +26,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Громкость: %1% {1%%2?}</translation>
+        <translation>Громкость: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(заглушён)</translation>
     </message>
 </context>
 <context>
