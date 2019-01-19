@@ -284,7 +284,48 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Синтаксис пользовательского формата даты/времени&lt;/h1&gt;
+&lt;p&gt;Шаблон даты — это строка, в которой определённые последовательности символов при форматировании заменяются значениями календарных даты и времени или при синтаксическом анализе используются для раздора соответствующих календарных данных.&lt;/p&gt;
+&lt;p&gt;Таблица ниже содержит буквы, используемые в шаблонах для отображения соответствующих форматов в данной локали, например, «yyyy» — это год. Отдельные буквы могут повторяться разное количество раз. Например, «y» означает год, тогда значение «yy» может вывести «99», а «yyyy» — «1999». Для большинства числовых полей количество повторяющихся букв определяет ширину поля. Например, «h» — это час, тогда «h» выведет «5», а «hh» — «05». Для некоторых букв количество повторений указывает, следует ли использовать сокращённую или полную форму, но может иметь и другие значения, как указано далее.&lt;/p&gt;
+&lt;p&gt;Две одинарные кавычки, идущие подряд, дают одну фактическую одинарную кавычку в выводе (как внутри, так и снаружи других кавычек). Если текст заключён внутрь одинарных кавычек, то он никоим образом не интерпретируется (за исключением двух соседних кавычек). В противном случае все латинские буквенные символы таблицы ASCII (от a до z и от A до Z) считаются имеющими специальные значения и требуют обрамления в кавычки, в случае если они подразумеваются непосредственно как буквы. Кроме того, некоторые знаки препинания ASCII также могут стать переменными в будущем (например, «:» может интерпретироваться как разделитель времени, а «/» — как разделитель даты и заменяться соответствующими зависящими от локали символами при отображении).&lt;br/&gt;&lt;/р&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Код&lt;/th&gt;&lt;th&gt;Значение&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;день в виде числа без ведущего нуля (от 1 до 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;день в виде числа с ведущим нулём (от 01 до 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;сокращённое локализованное название дня (например, от «пн» до «вс»).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;длинное локализованное название дня (например, от «понедельник» до «воскресенье»).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;месяц в виде числа без ведущего нуля (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;месяц как число с ведущим нулём (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;сокращённое локализованное название месяца (например, от «янв» до «дек»).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;длинное локализованное название месяца (например, от «январь» до «декабрь»).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;год в виде двузначного числа (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;год в виде четырёхзначного числа&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;час без ведущего нуля (от 0 до 23 или от 1 до 12, если используется AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;час с ведущим нулём (от 00 до 23 или от 01 до 12, если используется AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;час без ведущего нуля (от 0 до 23, даже при использовании AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;час с ведущим нулём (от 00 до 23, даже при использовании AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;минуты без ведущего нуля (от 0 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;минуты с ведущим нулём (от 00 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;секунды без ведущего нуля (от 0 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;секунды с ведущим нулём (от 00 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;миллисекунды без ведущих нулей (от 0 до 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;миллисекунды с ведущими нулями (от 000 до 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP&lt;i&gt;или&lt;/i&gt;A&lt;/td&gt;&lt;td&gt;использовать формат AM/PM.&lt;b&gt;A/AP&lt;/b&gt;будет заменено на «ДП» (до полудня) или «ПП» (после полудня). Конкретные значения могут зависят от локали.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap&lt;i&gt;или&lt;/i&gt;a&lt;/td&gt;&lt;td&gt;использовать формат am/pm.&lt;b&gt;a/ap&lt;/b&gt;будет заменено на «дп» или «пп». Конкретные значения могут зависят от локали.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;часовой пояс (например, «MSK»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;смещение относительно UTC (например, «+03:00»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;идентификатор IANA часового пояса (например «Europe/Moscow»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;аббревиатура имени часового пояса (например «MSK»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;краткое имя часового пояса (например «GMT+3»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;длинное имя часового пояса (например «Москва, стандартное время»)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;пользовательское имя часового пояса. Вы можете изменить его на вкладке «Часовые пояса»&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;b&gt;Примечания.&lt;/b&gt;
+&lt;ul&gt;
+&lt;li&gt;Любые символы в шаблоне, не входящие в диапазоны [&apos;a&apos; … &apos;z&apos;] и [&apos;A&apos; … &apos;Z&apos;] будут  рассматриваться как фактический текст. В частности, такие символы, как &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; и &apos;@&apos;, будут отображаться в результирующем тексте, даже если они не заключены в одинарные кавычки. Одиночная кавычка используется для «экранирования» латинских букв. Две одинарные кавычки подряд, внутри или вне других кавычек, представляют собой «настоящие» одинарные кавычки.&lt;/li&gt;
+&lt;li&gt;Минимальный интервал обновления составляет 1 секунда. Если z или zzz включены в формат, то время будет отображаться с миллисекундами, но не обновляется каждую миллисекунду (во избежание значительного снижения производительности).&lt;/li&gt;
+&lt;/ul&gt;
+</translation>
     </message>
 </context>
 <context>
