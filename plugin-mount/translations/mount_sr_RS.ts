@@ -23,7 +23,7 @@
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
-        <source>When a device is connected :</source>
+        <source>When a device is connected:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

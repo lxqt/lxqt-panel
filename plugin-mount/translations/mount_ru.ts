@@ -23,8 +23,8 @@
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
-        <source>When a device is connected :</source>
-        <translation>При подключении устройства:</translation>
+        <source>When a device is connected:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>

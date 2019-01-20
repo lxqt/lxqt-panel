@@ -242,8 +242,8 @@
     <name>LXQtWorldClockConfigurationManualFormat</name>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
-        <source>World Clock Time Zones</source>
-        <translation>Zonas horarias del Reloj mundial</translation>
+        <source>World Clock Manual Format Configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>

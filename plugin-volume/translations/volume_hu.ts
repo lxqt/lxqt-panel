@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
-        <source>Alsa</source>
-        <translation></translation>
+        <source>ALSA</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
