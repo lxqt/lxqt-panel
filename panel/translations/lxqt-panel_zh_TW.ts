@@ -217,7 +217,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>面板的圖示主題：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
