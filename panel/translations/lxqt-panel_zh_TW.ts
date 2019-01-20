@@ -212,7 +212,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>覆寫圖示主題(&amp;T)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
