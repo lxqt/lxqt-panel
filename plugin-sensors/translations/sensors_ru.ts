@@ -40,8 +40,8 @@
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
-        <source>Blink progress bars when the temperature is too high</source>
-        <translation>Мигать индикатором состояния при слишком высокой температуре</translation>
+        <source>Blink status bars when the temperature is too high</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
