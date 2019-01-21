@@ -75,6 +75,7 @@
 #define CFG_KEY_RESERVESPACE       "reserve-space"
 #define CFG_KEY_PLUGINS            "plugins"
 #define CFG_KEY_HIDABLE            "hidable"
+#define CFG_KEY_VISIBLE_MARGIN     "visible-margin"
 #define CFG_KEY_ANIMATION          "animation-duration"
 #define CFG_KEY_SHOW_DELAY         "show-delay"
 #define CFG_KEY_LOCKPANEL          "lockPanel"
@@ -133,6 +134,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mScreenNum(0), //whatever (avoid conditional on uninitialized value)
     mActualScreenNum(0),
     mHidable(false),
+    mVisibleMargin(true),
     mHidden(false),
     mAnimationTime(0),
     mReserveSpace(true),
@@ -241,6 +243,8 @@ void LXQtPanel::readSettings()
     mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
     mHidden = mHidable;
 
+    mVisibleMargin = mSettings->value(CFG_KEY_VISIBLE_MARGIN, mVisibleMargin).toBool();
+
     mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
     mShowDelayTimer.setInterval(mSettings->value(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval()).toInt());
 
@@ -316,6 +320,7 @@ void LXQtPanel::saveSettings(bool later)
     mSettings->setValue(CFG_KEY_RESERVESPACE, mReserveSpace);
 
     mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
+    mSettings->setValue(CFG_KEY_VISIBLE_MARGIN, mVisibleMargin);
     mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
     mSettings->setValue(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval());
 
@@ -554,9 +559,14 @@ void LXQtPanel::setMargins()
             else
                 mLayout->setContentsMargins(PANEL_HIDE_SIZE, 0, 0, 0);
         }
+        if (!mVisibleMargin)
+            setWindowOpacity(0.0);
     }
-    else
+    else {
         mLayout->setContentsMargins(0, 0, 0, 0);
+        if (!mVisibleMargin)
+            setWindowOpacity(1.0);
+    }
 }
 
 void LXQtPanel::realign()
@@ -1333,6 +1343,19 @@ void LXQtPanel::setHidable(bool hidable, bool save)
         return;
 
     mHidable = hidable;
+
+    if (save)
+        saveSettings(true);
+
+    realign();
+}
+
+void LXQtPanel::setVisibleMargin(bool visibleMargin, bool save)
+{
+    if (mVisibleMargin == visibleMargin)
+        return;
+
+    mVisibleMargin = visibleMargin;
 
     if (save)
         saveSettings(true);

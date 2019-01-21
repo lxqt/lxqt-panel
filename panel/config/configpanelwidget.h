@@ -91,6 +91,7 @@ private:
     LXQtPanel::Alignment mOldAlignment;
     ILXQtPanel::Position mOldPosition;
     bool mOldHidable;
+    bool mOldVisibleMargin;
     int mOldAnimation;
     int mOldShowDelay;
     int mOldScreenNum;

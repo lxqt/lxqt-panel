@@ -221,6 +221,7 @@ public:
     int opacity() const { return mOpacity; }
     int reserveSpace() const { return mReserveSpace; }
     bool hidable() const { return mHidable; }
+    bool visibleMargin() const { return mVisibleMargin; }
     int animationTime() const { return mAnimationTime; }
     int showDelay() const { return mShowDelayTimer.interval(); }
     QString iconTheme() const;
@@ -304,6 +305,7 @@ public slots:
     void setOpacity(int opacity, bool save); //!< \sa setPanelSize()
     void setReserveSpace(bool reserveSpace, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
+    void setVisibleMargin(bool visibleMargin, bool save); //!< \sa setPanelSize()
     void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
     void setShowDelay(int showDelay, bool save); //!< \sa setPanelSize()
     void setIconTheme(const QString& iconTheme);
@@ -608,13 +610,19 @@ private:
      * @brief Stores if the panel is hidable, i.e. if the panel will be
      * hidden after the cursor has left the panel area.
      *
-     * \sa mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     * \sa mVisibleMargin, mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
      */
     bool mHidable;
     /**
+     * @brief Stores if the hidable panel should have a visible margin.
+     *
+     * \sa mHidable, mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     */
+    bool mVisibleMargin;
+    /**
      * @brief Stores if the panel is currently hidden.
      *
-     * \sa mHidable, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     * \sa mHidable, mVisibleMargin, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
      */
     bool mHidden;
     /**
@@ -622,7 +630,7 @@ private:
      * area, this timer will be started. After this timer has timed out, the
      * panel will actually be hidden.
      *
-     * \sa mHidable, mHidden, showPanel(), hidePanel(), hidePanelWork()
+     * \sa mHidable, mVisibleMargin, mHidden, showPanel(), hidePanel(), hidePanelWork()
      */
     QTimer mHideTimer;
     /**
