@@ -321,6 +321,13 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="0" colspan="3">
+          <widget class="QCheckBox" name="checkBox_visibleMargin">
+           <property name="text">
+            <string>Visible thin margin for hidden panel</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
