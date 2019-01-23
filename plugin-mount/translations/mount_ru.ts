@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>Всплывающее меню</translation>
+        <translation>Показать меню</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
