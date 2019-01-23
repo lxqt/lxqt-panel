@@ -1,5 +1,5 @@
 
-lxqt-panel-0.14.0 / 2018-12-01
+lxqt-panel-0.14.0 / 2019-01-25
 ==============================
  
   * New implemented: plugin-spacer: Add auto-expansion feature
@@ -67,8 +67,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * worldclock: Fix widget size updating (#438)
   * Fix stupid whitespace.
 
-0.12.0 / 2017-10-21
-===================
+lxqt-panel-0.12.0 / 2017-10-21
+==============================
 
   * Release 0.12.0: Update changelog
   * Set patch version
@@ -153,8 +153,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * taskbar: Add Meta+1..9 shortcuts to raise windows
   * Bump year
 
-0.11.1 / 2017-01-01
-===================
+lxqt-panel-0.11.1 / 2017-01-01
+==============================
 
   * Release 0.11.1: Update changelog
   * Show Auto-Hiding Panels with Delay (#387)
@@ -174,8 +174,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Remove arbitrary limit of taskbar button width
   * Remove cpack (#371)
 
-0.11.0 / 2016-09-24
-===================
+lxqt-panel-0.11.0 / 2016-09-24
+==============================
 
   * Release 0.11.0: Add changelog
   * Update README.md: Reflect changes introduced in 1c22479
@@ -321,8 +321,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * desktop-switch: Hightlight only windows in taskbar
   * fix misspelled prefered
 
-0.10.0 / 2015-10-31
-===================
+lxqt-panel-0.10.0 / 2015-10-31
+==============================
 
   * Fix license file
   * panel: Fix reserved space on screen
@@ -668,8 +668,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Add missing libxcb linkage to showdesktop and tray plugins since they still uses xcb.
   * remove KF5/ prefix from includes     as done in lxde/liblxqt/pull/36
 
-0.9.0 / 2015-02-05
-==================
+lxqt-panel-0.9.0 / 2015-02-05
+=============================
 
   * Change the delay of main menu popup from 500 ms to 250 ms.
   * Try to fix lxde/lxqt#459, lxde/lxqt##142, and lxde/lxqt#401 at the same time. * Delay showing the menu when it's activated by shortcut key to workaround keyboard focus related issues. * Code cleanup. Remove unnecessary keyboard event hacks.
@@ -765,8 +765,8 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Commit from LXDE Pootle server by user Pjotr.: 356 of 356 strings translated (0 need review).
   * Commit from LXDE Pootle server by user KlemenKosir.: 285 of 356 strings translated (0 need review).
 
-0.8.0 / 2014-10-09
-==================
+lxqt-panel-0.8.0 / 2014-10-09
+=============================
 
   * Load the plugins translations
   * Adapt to the translation infrastructure
@@ -850,13 +850,13 @@ lxqt-panel-0.13.0 / 2018-05-21
   * cmake option to build without menu-cache even if it is installed
   * RGBA support for panel
 
-0.7.0 / 2014-04-30
-==================
+lxqt-panel-0.7.0 / 2014-04-30
+=============================
 
   * Avoid mnemonics in the main application menu caused by & symbol in the name of the desktop apps.
 
-0.6.99 / 2014-04-29
-===================
+lxqt-panel-0.6.99 / 2014-04-29
+==============================
 
   * Update AUTHORS and COPYING
   * Add CPack rules for creating tarball
@@ -1559,7 +1559,6 @@ lxqt-panel-0.13.0 / 2018-05-21
   * New version of main menu plugin
   * allow to specify quicklaunch button size (like on netbooks)
   * removed unused files
-  * 
   * better fix for tasks layout
   * include fix; kdm/gdm/*dm session file; fix for taskbar resizing
   * panel alignment works now (top/left, center, bottom/right)
@@ -1579,19 +1578,10 @@ lxqt-panel-0.13.0 / 2018-05-21
   * initial refactoring for common plugin handling. Work in progress. Done:  * all plugins are using the same base class  * all plugins can handle dynamic resizing (eg. systray can be smaller after embed app close, taskbar occupies all available space...)  * all is fully scriptable with QSS  - some layout glitches have to be fixed
   * initial API for plugins. No other changes in functionality yet
   * Made RazorHal mounting/unmounting work and added a new function to Xfitman for checking if a window wants attention _NET_WM_WINDOW_DEMANDS_ATTENTION - tried to get the buttons at the taskmanager to glow when this is true but it didnt work..
-  * 
-  * 
   * do not set layout too many times
   * avoid huge moving of widgets after 1st clocks update
   * src formatted with astyle -A1
   * settings refactored a bit: SHARE_DIR dependen on th CMAKE_INSTALL_PREFIX is defined for the compilation phase (it allows to have more razors installed eg. for development); SHARE_DIR is searched in the startup too; optimized cfg file access (1x vs. 4x as before for every file); redundant conversions merged into Razorsettings; usage of QSettings to read the settings (it does the error handling for us).
-  * 
-  * 
   * implementation of the 'quicklaunch icons' (Razorspinbutton like widget); disabled some debug outputs; tooltips enabled for panel widgets
-  * 
   * fixed cmake stuff (debug,lib location,do not install .svn,make uninstall,etc.); fixes for qss skinning
-  * 
-  * 
-  * 
-  * 
-  * 
+ 
