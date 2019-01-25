@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Настройки меню папки</translation>
+        <translation>Настройки меню каталога</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Начальная папка:</translation>
+        <translation>Начальный каталог:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation>Выберите начальную папку</translation>
+        <translation>Выберите начальный каталог</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation>Меню папки</translation>
+        <translation>Меню каталога</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
