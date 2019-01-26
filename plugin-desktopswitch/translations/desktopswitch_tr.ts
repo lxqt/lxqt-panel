@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation>Masaüstü %1</translation>
+        <translation>%1 Masaüstüne geç</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
         <location filename="../desktopswitch.cpp" line="151"/>
         <source>Desktop %1</source>
-        <translation>Masaüstü %1</translation>
+        <translation>%1 Masaüstü</translation>
     </message>
 </context>
 <context>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation>Rakam</translation>
+        <translation>Sayılar</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation>İsim</translation>
+        <translation>İsimler</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Desktop names</source>
-        <translation>Masaüstü adı</translation>
+        <translation>Masaüstü isimleri</translation>
     </message>
 </context>
 </TS>
