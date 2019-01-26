@@ -31,6 +31,7 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QProcess>
+#include <QStringList>
 #include <QFileInfo>
 #include <QUrl>
 #include <QIcon>
@@ -107,8 +108,11 @@ void DirectoryMenu::openDirectory(const QString& path)
 
 void DirectoryMenu::openInTerminal(const QString& path)
 {
-    QString action = mDefaultTerminal + " --workdir " + path;
-    QProcess::startDetached(action);
+    // Create list of arguments
+    QStringList args;
+    args << "--workdir" << QDir::toNativeSeparators(path);
+    // Execute the default terminal program with arguments
+    QProcess::startDetached(mDefaultTerminal, args);
 }
 
 void DirectoryMenu::addMenu(QString path)
