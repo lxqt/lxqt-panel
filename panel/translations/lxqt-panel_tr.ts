@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Satır:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -133,7 +133,7 @@
         <location filename="../config/configpanelwidget.cpp" line="207"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
-        <translation>Merkez</translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
@@ -144,28 +144,28 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Otomatik Gizle</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıfır gecikme yok demektir</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikmeli göster:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Büyütülmüş pencerelerin panel penceresinin altına gitmesine izin verme</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekranda yer ayır</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
@@ -207,17 +207,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Panele ayrı bir tema veremeyen widget 
+stilleri için kısmi bir geçici çözüm.
+
+Devre dışı bırakmak isteyebilirsiniz:
+
+LXQT Görünüm Yapılandırma
+Simge Teması
+Gereç biçemine (palet) göre simgeleri renklendir</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge temasını geçersiz kıl</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel için simge teması:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -370,7 +377,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Paneli Sil</translation>
+        <translation>Paneli Sil</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -381,7 +388,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Paneli Sil</translation>
+        <translation>Paneli Sil</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
