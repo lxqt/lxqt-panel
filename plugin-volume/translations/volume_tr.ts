@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Kullanılan aygıt</translation>
+        <translation>Kontrol edilecek aygıt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
