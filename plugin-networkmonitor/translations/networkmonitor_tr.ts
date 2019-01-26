@@ -26,27 +26,27 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation>KiB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>MiB</source>
-        <translation>MiB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation>GB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>TiB</source>
-        <translation>TiB</translation>
+        <translation>TB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>PiB</source>
-        <translation>PiB</translation>
+        <translation>PB</translation>
     </message>
 </context>
 <context>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation>Ağ İzleme Ayarları</translation>
+        <translation>Ağ İzleme ayarları</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
