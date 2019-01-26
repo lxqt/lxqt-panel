@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="549"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Tüm Masaüstlerine</translation>
+        <translation>&amp;Tüm Masaüstleri</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="557"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation>Pencereleri &amp;grupla</translation>
+        <translation>Pencereleri &amp;gruplama</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
@@ -201,7 +201,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
         <source>Button style</source>
-        <translation>Düğme biçimi</translation>
+        <translation>Düğme biçemi</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
