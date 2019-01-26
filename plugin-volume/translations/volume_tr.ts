@@ -26,12 +26,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Ses: %1% {1%%2?}</translation>
+        <translation>Ses: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(sessiz)</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses değişiklikleri hakkında her zaman uyar</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
