@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Poblikávající stavové panely při příliš vysoké teplotě</translation>
+        <translation>Při příliš vysoké teplotě signalizovat blikáním proužků ukazatele stavu</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
