@@ -46,7 +46,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Yüksek ısı ikazı</translation>
+        <translation>Yüksek ısı uyarısı</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
