@@ -21,7 +21,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation>fixado</translation>
+        <translation>fixo</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
@@ -31,12 +31,12 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>linhas</translation>
+        <translation>alinhado</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>pontos</translation>
+        <translation>pontilhado</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
