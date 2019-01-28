@@ -6,19 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
-        <translation>Erro ao largar</translation>
+        <translation>Erro ao soltar</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Por agora, não pode incluir o ficheiro/URL &apos;%1&apos; no início rápido</translation>
+        <translation>Arquivo/URL &apos;% 1&apos; não pode ser incorporado na Inicialização Rápida por enquanto</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation>Largue aqui os
-ícones das aplicações</translation>
+        <translation>Solte os ícones dos
+aplicativos aqui</translation>
     </message>
 </context>
 <context>
@@ -26,17 +26,17 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation>Mover à esquerda</translation>
+        <translation>Mover para esquerda</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>Mover à direita</translation>
+        <translation>Mover para direita</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Remover do inicio rápido</translation>
+        <translation>Remover da inicialização rápida</translation>
     </message>
 </context>
 </TS>
