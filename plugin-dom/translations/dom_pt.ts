@@ -6,7 +6,7 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation>Árvore do painel DOM</translation>
+        <translation>Árvore do Painel DOM</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation>Todas as propriedades</translation>
+        <translation>Todas propriedades</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation>Valor string</translation>
+        <translation>Valor da string</translation>
     </message>
 </context>
 </TS>
