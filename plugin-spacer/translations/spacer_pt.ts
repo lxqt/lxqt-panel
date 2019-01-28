@@ -11,22 +11,22 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Largura:</translation>
+        <translation>Largura do espaço:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Tipo:</translation>
+        <translation>Tipo do espaço:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>fixado</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>expansível</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
