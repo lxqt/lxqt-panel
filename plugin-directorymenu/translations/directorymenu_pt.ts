@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Definições do Menu de diretórios</translation>
+        <translation>Definições do Menu de Diretórios</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>Nome do diretório base</translation>
+        <translation>Nome do Diretório Base</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation>Escolha o diretório base</translation>
+        <translation>Escolha o Diretório Base</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Icon</source>
-        <translation>Escolha o ícone</translation>
+        <translation>Escolha o Ícone</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation>Menu de diretórios</translation>
+        <translation>Menu de Diretórios</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
