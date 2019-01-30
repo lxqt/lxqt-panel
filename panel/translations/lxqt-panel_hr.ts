@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished">Dodaj priključke</translation>
+        <translation>Dodaj priključke</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished">Traži:</translation>
+        <translation>Traži:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished">Zatvori</translation>
+        <translation>Zatvori</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(samo jedan primjerak može biti pokrenut u isto vrijeme)</translation>
     </message>
 </context>
 <context>
