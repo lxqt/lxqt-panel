@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation>(заглушён)</translation>
+        <translation>(без звука)</translation>
     </message>
 </context>
 <context>
