@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished">Učitavanje procesora %1</translation>
+        <translation>Korištenje CPU-a %1%</translation>
     </message>
 </context>
 <context>
@@ -14,57 +14,57 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished">Postavke učitavanja procesora</translation>
+        <translation>Postavke korištenja CPU-a</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished">Općenito</translation>
+        <translation>Općenito</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation type="unfinished">Pokaži tekst</translation>
+        <translation>Pokaži tekst</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation type="unfinished">Interval ažuriranja:</translation>
+        <translation>Interval ažuriranja:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation type="unfinished">sek</translation>
+        <translation>sek</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation type="unfinished">Orijentacija trake:</translation>
+        <translation>Orijentacija trake:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished">Duljina trake:</translation>
+        <translation>Širina trake:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation type="unfinished">Odozdo gore</translation>
+        <translation>Odozdo prema gore</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation type="unfinished">Odozgo dolje</translation>
+        <translation>Odozgo prema dolje</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation type="unfinished">S lijeva na desno</translation>
+        <translation>S lijeva na desno</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation type="unfinished">S desna na lijevo</translation>
+        <translation>S desna na lijevo</translation>
     </message>
 </context>
 </TS>
