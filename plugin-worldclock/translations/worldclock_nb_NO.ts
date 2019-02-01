@@ -113,7 +113,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation></translation>
+        <translation>IANA-id</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuell konfigurasjon av verdensklokken</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
