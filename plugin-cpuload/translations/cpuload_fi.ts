@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU-kuorma %1%</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU-mittarin asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -39,32 +39,32 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palkin suunta:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palkin koko:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation type="unfinished"></translation>
+        <translation>Alhaalta ylös</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ylhäältä alas</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasemmalta oikealle</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation type="unfinished"></translation>
+        <translation>Oikealta vasemmalle</translation>
     </message>
 </context>
 </TS>
