@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(تنها یک نسخه می‌توانپ به طور همزمان اجرا شود)</translation>
+        <translation>(تنها یک نسخه می‌تواند به طور همزمان اجرا شود)</translation>
     </message>
 </context>
 <context>
