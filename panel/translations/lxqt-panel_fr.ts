@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(une seule instance peut touner à la fois)</translation>
+        <translation>(une seule instance peut être exécutée à la fois)</translation>
     </message>
 </context>
 <context>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;uto-escamotable</translation>
+        <translation>Masquage a&amp;utomatique</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation>Couleur des fontes :</translation>
+        <translation>Couleur de la police :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
@@ -207,17 +207,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Solution de contournement partielle pour les styles de widget qui
+ne peut pas donner un thème séparé au panneau.
+
+Vous pourriez aussi vouloir désactiver:
+
+Configuration d&apos;apparence LXQt →
+Thème des icônes →
+Colorier les icônes en fonction du style du widget (palette)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer l&apos;icône et le &amp;thème</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Thème d&apos;icônes pour les panneaux :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
