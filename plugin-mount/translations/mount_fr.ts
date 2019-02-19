@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;un appareil est connecté :</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation>Afficher les informations</translation>
+        <translation>Afficher les infos</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Le périphérique &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;est connecté.</translation>
+        <translation>Le périphérique &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; est connecté.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Échec du montage de &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; : %2</translation>
+        <translation>Montage de &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a échoué: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Échec du démontage de &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; : %2</translation>
+        <translation>Le démontage de &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; a échoué: %2</translation>
     </message>
 </context>
 <context>
