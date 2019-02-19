@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice</translation>
+        <translation>&amp;Bien</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>Ma&amp;ximum</translation>
+        <translation>&amp;Maximum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation>T&amp;ype</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
