@@ -55,32 +55,32 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Tastaturtilstandsinstillinger</translation>
+        <translation>Innstillinger for tastaturtilstand</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Låseindikatorer</translation>
+        <translation>Indikatorer for låsetaster</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Vis Caps Lock</translation>
+        <translation>Vis CapsLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Vis Num Lock</translation>
+        <translation>Vis NumLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Vis Scroll Lock</translation>
+        <translation>Vis ScrollLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Tastaturspråkindikator</translation>
+        <translation>Indikator for tastaturlayout</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Konfigurer tastaturspråk</translation>
+        <translation>Still inn tastaturlayout</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
