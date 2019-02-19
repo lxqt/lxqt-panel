@@ -6,17 +6,17 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Paramétrage du séparateur</translation>
+        <translation>Réglages du séparateur</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Largeur de l&apos;espace :</translation>
+        <translation>Largeur d&apos;espace :</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Type de l&apos;espace :</translation>
+        <translation>Type d&apos;espace :</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
@@ -26,22 +26,22 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>Extensible</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>une ligne</translation>
+        <translation>doublé</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>des points</translation>
+        <translation>pointillé</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>invisible</translation>
+        <translation>caché</translation>
     </message>
 </context>
 </TS>
