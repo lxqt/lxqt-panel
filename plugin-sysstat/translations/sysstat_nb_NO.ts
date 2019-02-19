@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Bra</translation>
+        <translation>&amp;Prioritering</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>Oppdate&amp;ringsintervall</translation>
+        <translation>Oppdater&amp;ingsintervall</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
@@ -151,12 +151,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> pksl</translation>
+        <translation> pk</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation> sek</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -166,12 +166,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>Bruk&amp;sfrekvens</translation>
+        <translation>Bruks&amp;frekvens</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>Ma&amp;ksimum</translation>
+        <translation>&amp;Maksimum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -201,7 +201,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
         <source>Colours</source>
-        <translation>Farge</translation>
+        <translation>Farger</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;bra: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: %5%</translation>
+        <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;prioritering: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;bra: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: n/a</translation>
+        <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;prioritering: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
