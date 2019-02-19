@@ -6,32 +6,32 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="63"/>
         <source>Increase sound volume</source>
-        <translation>Augmenter le volume du son</translation>
+        <translation>Augmenter le son</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="69"/>
         <source>Decrease sound volume</source>
-        <translation>Diminuer le volume du son</translation>
+        <translation>Diminuer le son</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="75"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Son muet ou pas</translation>
+        <translation>Désactiver/activer le son</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Contrôle du volume : le raccourci suivant&apos; ne peut pas être défini &apos;%1</translation>
+        <translation>Contrôle du volume: les raccourcis suivants ne peuvent pas être enregistrés: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Volume : %1% {1%%2?}</translation>
+        <translation>Volume: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(muet)</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Paramètres du contrôle de volume</translation>
+        <translation>Paramètres de contrôle du volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
         <source>Behavior</source>
-        <translation>Propriétés</translation>
+        <translation>Comportement</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Permet le volume jusqu&apos;à 100% (0dB)</translation>
+        <translation>Autoriser un volume supérieur à 100% (0dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>Toujours notifier un changement de volume</translation>
+        <translation>Toujours notifier les changements de volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
