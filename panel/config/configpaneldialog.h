@@ -39,7 +39,7 @@ class ConfigPanelDialog : public LXQt::ConfigDialog
     Q_OBJECT
 
 public:
-    ConfigPanelDialog(LXQtPanel *panel, QWidget *parent = 0);
+    ConfigPanelDialog(LXQtPanel *panel, QWidget *parent = nullptr);
 
     void showConfigPanelPage();
     void showConfigPluginsPage();

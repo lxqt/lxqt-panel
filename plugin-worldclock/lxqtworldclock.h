@@ -103,7 +103,7 @@ class ActiveLabel : public QLabel
 Q_OBJECT
 
 public:
-    explicit ActiveLabel(QWidget * = NULL);
+    explicit ActiveLabel(QWidget * = nullptr);
 
 signals:
     void wheelScrolled(int);
@@ -120,7 +120,7 @@ class LXQtWorldClockPopup : public QDialog
     Q_OBJECT
 
 public:
-    LXQtWorldClockPopup(QWidget *parent = 0);
+    LXQtWorldClockPopup(QWidget *parent = nullptr);
 
     void show();
 

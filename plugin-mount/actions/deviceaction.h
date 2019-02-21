@@ -49,7 +49,7 @@ public:
     virtual ~DeviceAction();
     virtual ActionId Type() const throw () = 0;
 
-    static DeviceAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = 0);
+    static DeviceAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = nullptr);
     static ActionId stringToActionId(const QString &string, ActionId defaultValue);
     static QString actionIdToString(ActionId id);
 
@@ -58,7 +58,7 @@ public slots:
     void onDeviceRemoved(Solid::Device device);
 
 protected:
-    explicit DeviceAction(LXQtMountPlugin *plugin, QObject *parent = 0);
+    explicit DeviceAction(LXQtMountPlugin *plugin, QObject *parent = nullptr);
     virtual void doDeviceAdded(Solid::Device device) = 0;
     virtual void doDeviceRemoved(Solid::Device device) = 0;
 

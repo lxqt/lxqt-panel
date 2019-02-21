@@ -114,7 +114,7 @@ public:
      * @param settings The settings instance of this lxqt panel application.
      * @param parent Parent QWidget, can be omitted.
      */
-    LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidget *parent = 0);
+    LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidget *parent = nullptr);
     virtual ~LXQtPanel();
 
     /**

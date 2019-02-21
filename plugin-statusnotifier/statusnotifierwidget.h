@@ -41,7 +41,7 @@ class StatusNotifierWidget : public QWidget
     Q_OBJECT
 
 public:
-    StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = 0);
+    StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
     ~StatusNotifierWidget();
 
 signals:

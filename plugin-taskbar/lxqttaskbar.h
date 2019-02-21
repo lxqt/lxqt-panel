@@ -60,7 +60,7 @@ class LXQtTaskBar : public QFrame
     Q_OBJECT
 
 public:
-    explicit LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    explicit LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     virtual ~LXQtTaskBar();
 
     void realign();

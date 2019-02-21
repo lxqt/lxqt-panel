@@ -49,7 +49,7 @@ class PulseAudioEngine : public AudioEngine
     Q_OBJECT
 
 public:
-    PulseAudioEngine(QObject *parent = 0);
+    PulseAudioEngine(QObject *parent = nullptr);
     ~PulseAudioEngine();
 
     virtual const QString backendName() const { return QLatin1String("PulseAudio"); }

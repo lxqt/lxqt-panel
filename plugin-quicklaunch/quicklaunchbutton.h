@@ -41,7 +41,7 @@ class QuickLaunchButton : public QToolButton
     Q_OBJECT
 
 public:
-    QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin * plugin, QWidget* parent = 0);
+    QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin * plugin, QWidget* parent = nullptr);
     ~QuickLaunchButton();
 
     QHash<QString,QString> settingsMap();

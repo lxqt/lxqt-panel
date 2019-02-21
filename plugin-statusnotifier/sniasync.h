@@ -67,7 +67,7 @@ class SniAsync : public QObject
 {
     Q_OBJECT
 public:
-    SniAsync(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    SniAsync(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = nullptr);
 
     template <typename F>
     inline void propertyGetAsync(QString const &name, F finished)

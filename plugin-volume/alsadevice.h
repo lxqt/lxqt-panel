@@ -40,7 +40,7 @@ class AlsaDevice : public AudioDevice
     Q_OBJECT
 
 public:
-    AlsaDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = 0);
+    AlsaDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = nullptr);
 
     snd_mixer_t *mixer() const { return m_mixer; }
     snd_mixer_elem_t *element() const { return m_elem; }

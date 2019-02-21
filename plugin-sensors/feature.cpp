@@ -33,7 +33,7 @@ Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature
     : mSensorsChipName(sensorsChipName),
       mSensorsFeature(sensorsFeature)
 {
-    char *featureLabel = NULL;
+    char *featureLabel = nullptr;
 
     if ((featureLabel = sensors_get_label(mSensorsChipName, mSensorsFeature)))
     {

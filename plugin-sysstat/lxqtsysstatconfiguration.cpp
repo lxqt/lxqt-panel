@@ -85,8 +85,8 @@ namespace
 LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtSysStatConfiguration),
-    mStat(NULL),
-    mColoursDialog(NULL)
+    mStat(nullptr),
+    mColoursDialog(nullptr)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("SysStatConfigurationWindow");

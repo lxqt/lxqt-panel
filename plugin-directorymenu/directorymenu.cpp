@@ -58,11 +58,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
 DirectoryMenu::~DirectoryMenu()
 {
-    if(mMenu)
-    {
-        delete mMenu;
-        mMenu = 0;
-    }
+    delete mMenu;
 }
 
 void DirectoryMenu::showMenu()
@@ -84,11 +80,7 @@ void DirectoryMenu::showMenu()
 
 void DirectoryMenu::buildMenu(const QString& path)
 {
-    if(mMenu)
-    {
-        delete mMenu;
-        mMenu = 0;
-    }
+    delete mMenu;
 
     mPathStrings.clear();
 

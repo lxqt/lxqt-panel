@@ -44,7 +44,7 @@ class Configuration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
-    explicit Configuration(PluginSettings *settings, QWidget *parent = 0);
+    explicit Configuration(PluginSettings *settings, QWidget *parent = nullptr);
     ~Configuration();
 
 protected slots:

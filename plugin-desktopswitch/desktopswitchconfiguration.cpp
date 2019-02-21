@@ -84,4 +84,3 @@ void DesktopSwitchConfiguration::labelTypeChanged(int type)
 {
     settings().setValue("labelType", type);
 }
-

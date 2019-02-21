@@ -165,10 +165,10 @@ void AlsaEngine::discoverDevices()
             qWarning("Can't get info for card %i: %s\n", cardNum, snd_strerror(error));
         } else {
             // setup mixer and iterate over channels
-            snd_mixer_t *mixer = 0;
-            snd_mixer_open(&mixer, 0);
+            snd_mixer_t *mixer = nullptr;
+            snd_mixer_open(&mixer, nullptr);
             snd_mixer_attach(mixer, str);
-            snd_mixer_selem_register(mixer, NULL, NULL);
+            snd_mixer_selem_register(mixer, nullptr, nullptr);
             snd_mixer_load(mixer);
 
             // setup event handler for mixer

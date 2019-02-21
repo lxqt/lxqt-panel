@@ -31,7 +31,7 @@ class XdgCachedMenu : public QMenu
 {
     Q_OBJECT
 public:
-    XdgCachedMenu(QWidget* parent = NULL);
+    XdgCachedMenu(QWidget* parent = nullptr);
     XdgCachedMenu(MenuCache* menuCache, QWidget* parent);
     virtual ~XdgCachedMenu();
 
@@ -55,7 +55,7 @@ class XdgCachedMenuAction: public QAction
 {
     Q_OBJECT
 public:
-    explicit XdgCachedMenuAction(MenuCacheItem* item, QObject* parent = 0);
+    explicit XdgCachedMenuAction(MenuCacheItem* item, QObject* parent = nullptr);
     inline const QString & filePath() const { return filePath_; }
 
     void updateIcon();

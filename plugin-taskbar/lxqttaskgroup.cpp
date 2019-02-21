@@ -136,7 +136,7 @@ LXQtTaskButton * LXQtTaskGroup::checkedButton() const
         if (button->isChecked())
             return button;
 
-    return NULL;
+    return nullptr;
 }
 
 /************************************************
@@ -171,7 +171,7 @@ LXQtTaskButton * LXQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
     if (circular)
         idx = (idx + mButtonHash.count()) % mButtonHash.count();
     else if (mPopup->count() <= idx || idx < 0)
-        return NULL;
+        return nullptr;
 
     // return the next or the previous child
     QLayoutItem *item = mPopup->itemAt(idx);
@@ -182,7 +182,7 @@ LXQtTaskButton * LXQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
             return button;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 /************************************************
@@ -322,7 +322,7 @@ void LXQtTaskGroup::regroup()
     {
         mSingleButton = true;
         // Get first visible button
-        LXQtTaskButton * button = NULL;
+        LXQtTaskButton * button = nullptr;
         for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         {
             if (btn->isVisibleTo(mPopup))

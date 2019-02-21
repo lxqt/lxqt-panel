@@ -68,8 +68,8 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mHeavyMenuChanges(false)
 {
 #ifdef HAVE_MENU_CACHE
-    mMenuCache = NULL;
-    mMenuCacheNotify = 0;
+    mMenuCache = nullptr;
+    mMenuCacheNotify = nullptr;
 #endif
 
     mDelayedPopup.setSingleShot(true);

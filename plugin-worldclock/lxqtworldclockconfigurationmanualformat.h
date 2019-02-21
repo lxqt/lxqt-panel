@@ -45,7 +45,7 @@ class LXQtWorldClockConfigurationManualFormat : public QDialog
     Q_OBJECT
 
 public:
-    explicit LXQtWorldClockConfigurationManualFormat(QWidget *parent = NULL);
+    explicit LXQtWorldClockConfigurationManualFormat(QWidget *parent = nullptr);
     ~LXQtWorldClockConfigurationManualFormat();
 
     void setManualFormat(const QString&);

@@ -47,7 +47,7 @@
 OssEngine::OssEngine(QObject *parent) :
     AudioEngine(parent),
     m_mixer(-1),
-    m_device(NULL),
+    m_device(nullptr),
     m_leftVolume(0),
     m_rightVolume(0)
 {

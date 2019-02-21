@@ -44,7 +44,7 @@ class ConfigPanelWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ConfigPanelWidget(LXQtPanel *panel, QWidget *parent = 0);
+    explicit ConfigPanelWidget(LXQtPanel *panel, QWidget *parent = nullptr);
     ~ConfigPanelWidget();
 
     int screenNum() const { return mScreenNum; }
