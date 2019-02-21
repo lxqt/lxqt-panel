@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Keterlihatan item maksimal:</translation>
+        <translation>Maksimal item yang terlihat:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>Pintasan Papan Tik</translation>
+        <translation>Pintasan Keyboard</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
