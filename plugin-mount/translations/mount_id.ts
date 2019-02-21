@@ -24,12 +24,12 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketika perangkat terhubung:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>Menu sembulan</translation>
+        <translation>Menu popup</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
