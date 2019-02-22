@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="136"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Controlo de volume: os seguintes atalhos não podem ser registados: %1</translation>
+        <translation>Controlo de volume: os seguintes atalhos não foram registados: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(sem som)</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Permitir volume abaixo de 100% (0dB)</translation>
+        <translation>Permitir volume acima de 100% (0dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>Zawsze powiadamiaj o zmianie głośności</translation>
+        <translation>Notificar sempre sobre a alteração de volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
