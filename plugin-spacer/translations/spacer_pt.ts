@@ -6,7 +6,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Definições do Espaçador</translation>
+        <translation>Definições</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Tipo do espaço:</translation>
+        <translation>Tipo de espaço:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>alinhado</translation>
+        <translation>linha</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
