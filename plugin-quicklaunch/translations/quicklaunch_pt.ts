@@ -36,7 +36,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Remover da inicialização rápida</translation>
+        <translation>Remover de Início rápido</translation>
     </message>
 </context>
 </TS>
