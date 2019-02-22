@@ -11,12 +11,12 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Mostrar área de trabalho: O atalho global &apos;% 1&apos; não pode ser registrado</translation>
+        <translation>Mostrar área de trabalho: o atalho global &apos;%1&apos; não pode ser registado</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>Mostrar Área de Trabalho</translation>
+        <translation>Mostrar área de trabalho</translation>
     </message>
 </context>
 </TS>
