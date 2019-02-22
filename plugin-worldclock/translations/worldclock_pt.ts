@@ -109,7 +109,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>F&amp;ormato:</translation>
+        <translation>For&amp;mato:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração manual do formato do relógio</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
