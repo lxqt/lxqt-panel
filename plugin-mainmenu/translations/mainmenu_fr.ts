@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Taille personnalisée des fontes :</translation>
+        <translation>Taille de police personnalisée :</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation>Afficher les entrées concordantes :</translation>
+        <translation>Afficher les entrées correspondantes :</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Maximum d&apos;items visibles :</translation>
+        <translation>Nombre maximum d&apos;éléments visibles :</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>Cacher les entrées pendant la recherche</translation>
+        <translation>Masquer les entrées du menu pendant la recherche</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
