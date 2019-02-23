@@ -300,7 +300,7 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
-        <translation>Prendre une image</translation>
+        <translation>Choisir une image</translation>
     </message>
 </context>
 <context>
@@ -313,12 +313,12 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Note : les changements effectués dans cette page ne peuvent pas être restaurés.</translation>
+        <translation>Remarque: les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Remonter</translation>
+        <translation>Déplacer vers le haut</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
