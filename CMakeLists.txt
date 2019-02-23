@@ -248,6 +248,12 @@ if(SPACER_PLUGIN)
     add_subdirectory(plugin-spacer)
 endif()
 
+setByDefault(NOTES_PLUGIN Yes)
+if(NOTES_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "Notes")
+    add_subdirectory(plugin-notes)
+endif()
+
 #########################################################################
 
 message(STATUS  "**************** The following plugins will be built ****************")

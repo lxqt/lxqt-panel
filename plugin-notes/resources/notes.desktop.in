@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Name=Notes
+Comment=Sticky notes on Desktop.
+Icon=date
+
+#TRANSLATIONS_DIR=../translations
