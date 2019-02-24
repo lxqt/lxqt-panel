@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>搜索:</translation>
+        <translation>搜索：</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>（一次只能运行一个替代项）</translation>
+        <translation>（一次只能运行一个实例）</translation>
     </message>
 </context>
 <context>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation>大小:</translation>
+        <translation>大小：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
@@ -73,12 +73,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>图标大小:</translation>
+        <translation>图标大小：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation>长度:</translation>
+        <translation>长度：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
@@ -212,22 +212,22 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>覆盖图标主题(T)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>面板的图标主题</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation>对齐:</translation>
+        <translation>对齐：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation>位置:</translation>
+        <translation>位置：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
@@ -306,7 +306,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>注：在此页更改的设置无法重置。</translation>
+        <translation>注：此页的改动无法被重置。</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
