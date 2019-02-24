@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Rangées:</translation>
+        <translation>Lignes :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -295,7 +295,7 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Images (*.png *.gif *.jpg)</translation>
+        <translation>Image(s) (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
@@ -394,8 +394,8 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La suppression d&apos;un tableau ne peut pas être annulée.
-Voulez-vous réellement supprimer ce tableau ?</translation>
+        <translation>La suppression d&apos;un panneau ne peut pas être annulée.
+Voulez-vous supprimer ce panneau ?</translation>
     </message>
 </context>
 <context>
