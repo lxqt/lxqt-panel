@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
         <source>PulseAudio</source>
-        <translation>PulseAudio</translation>
+        <translation>Pulse Audio</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
