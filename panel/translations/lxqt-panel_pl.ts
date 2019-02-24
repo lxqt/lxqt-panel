@@ -207,7 +207,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Częściowe obejście problemu stylów widżetów,
+które nie nadają panelowi oddzielnego motywu.
+
+Możesz też chcieć to wyłączyć:
+
+Konfiguracja wyglądu →
+Motyw ikon →
+Koloruj ikony na podstawie stylu (palety)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
