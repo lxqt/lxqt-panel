@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation>Basculer sur le bureau %1</translation>
+        <translation>Basculer vers le bureau %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Label des bureaux :</translation>
+        <translation>Étiquettes de bureau :</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
