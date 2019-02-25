@@ -181,7 +181,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation>Echelle lo&amp;garithmique</translation>
+        <translation>Échelle lo&amp;garithmique</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
@@ -191,12 +191,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation>&amp;Source</translation>
+        <translation>&amp;Source(s)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation>Type</translation>
+        <translation>T&amp;ype(s)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
@@ -211,17 +211,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>&amp;Utiliser des couleurs personnelles</translation>
+        <translation>&amp;Utiliser des couleurs personnalisées</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>Couleurs personnelles...</translation>
+        <translation>Couleurs personnalisées ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation>CPU</translation>
+        <translation>CPU (µC)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
@@ -375,19 +375,19 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;nice: %3%&lt;br&gt;autre : %4%&lt;br&gt;freq: %5%</translation>
+        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;bon : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;nice: %3%&lt;br&gt;autre : %4%&lt;br&gt;freq: n/c</translation>
+        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;bon : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : n/c</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>applis : %1%&lt;br&gt;tampons : %2%&lt;br&gt;en cache: %3%</translation>
+        <translation>applis : %1%&lt;br&gt;tampons : %2%&lt;br&gt;en cache : %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
