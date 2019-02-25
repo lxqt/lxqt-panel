@@ -32,7 +32,7 @@
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation>Valeur texte</translation>
+        <translation>Valeur de chaîne</translation>
     </message>
 </context>
 </TS>
