@@ -43,7 +43,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation>CPU</translation>
+        <translation>CPU (µC)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>Echan&amp;ge</translation>
+        <translation>Échan&amp;ge</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>&amp;Intervale des mises à jour</translation>
+        <translation>&amp;Intervalle des mises à jour</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
@@ -146,17 +146,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Largeur minimale avec panneau horizontal.&lt;/p&gt;&lt;p&gt;Hauteur minimale avec panneau vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Largeur minimale si le panneau est horizontal.&lt;/p&gt;&lt;p&gt;Hauteur minimale si le panneau est vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> px(s)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation> s</translation>
+        <translation> seconde(s)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX kos</translation>
+        <translation>XXX Ko(s)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
