@@ -100,7 +100,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Application(s)</translation>
+        <translation>Application</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
