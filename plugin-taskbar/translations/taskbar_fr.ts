@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="513"/>
         <source>Application</source>
-        <translation>Application(s)</translation>
+        <translation>Application</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="547"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Utilisez les icônes par classe de fenêtre, si disponible</translation>
+        <translation>Utiliser les icônes par classe de fenêtre, si disponible</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
