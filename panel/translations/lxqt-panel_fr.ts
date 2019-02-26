@@ -295,7 +295,7 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Image(s) (*.png *.gif *.jpg)</translation>
+        <translation>Images (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
