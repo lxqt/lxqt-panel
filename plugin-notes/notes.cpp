@@ -6,7 +6,7 @@
  *
  * Copyright: 2012 Razor team
  * Authors:
- *   Aaron Lewis <the.warl0ck.1989@gmail.com>
+ *   Matteo Fois <giomatfois62@yahoo.it>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -52,36 +52,36 @@ Notes::Notes(const ILXQtPanelPluginStartupInfo &startupInfo) :
 {
     realign();
     
-    mButton.setAutoRaise(true);
-    mButton.setIcon(XdgIcon::fromTheme("date", "date"));
-    
     QAction *addNew = new QAction(tr("New Note"));
     QAction *showHide = new QAction(tr("Show/Hide Notes"));
-    connect(addNew, SIGNAL(triggered()), this, SLOT(addNewNote()));
-    connect(showHide, SIGNAL(triggered()), this, SLOT(toggleShowHide()));
+    
+    connect(addNew, &QAction::triggered, this, &Notes::addNewNote);
+    connect(showHide, &QAction::triggered, this, &Notes::toggleShowHide);
     
     QMenu *menu = new QMenu;
     menu->addAction(addNew);
     menu->addAction(showHide);
+    
     mButton.setMenu(menu);
     mButton.setPopupMode(QToolButton::InstantPopup);
+    mButton.setAutoRaise(true);
+    mButton.setIcon(XdgIcon::fromTheme("date", "date"));
     
-    QString showOnStartup = settings()->value("showNotesOnStartup","").toString();
-	if(!showOnStartup.isEmpty())
-    	mHidden = !settings()->value("showNotesOnStartup").toBool();
     
     // load all notes
     QDir dir(dataDir());
-	QStringList notes = dir.entryList(QDir::Files);
+    QStringList notes = dir.entryList(QDir::Files);
+    
     for(int i = 0; i < notes.size(); ++i) {
-    	qint64 noteId = notes[i].toLong();
-    	if(!noteId)
-    		continue;
-    	
-    	StickyNote *note = new StickyNote(noteId);
-    	connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
-    	
-    	mNotes[noteId] = note;
+        qint64 noteId = notes[i].toLong();
+        
+        if(!noteId)
+            continue;
+        
+        StickyNote *note = new StickyNote(noteId);
+        connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
+        
+        mNotes[noteId] = note;
     }
     
     // set colors & fonts 
@@ -91,162 +91,135 @@ Notes::Notes(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
 Notes::~Notes()
 {
-	for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
-    	delete it.value();
+    for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
+        delete it.value();
     
-	mNotes.clear();
+    mNotes.clear();
 }
 
 void Notes::realign()
 {
-	mButton.setFixedHeight(panel()->iconSize());
+    mButton.setFixedHeight(panel()->iconSize());
     mButton.setFixedWidth(panel()->iconSize());
 }
 
 
 QString Notes::dataDir()
 {
-	QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "lxqt-notes";
-	return dir;
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "lxqt-notes";
+    return dir;
 }
 
 void Notes::addNewNote()
 {
-	StickyNote *note = new StickyNote();
-	connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
-	
-	QFont font = qvariant_cast<QFont>(settings()->value("defaultFont"));
-	QString bgColor = settings()->value("backgroundColor", "#ffff7f").toString();
-	QString fgColor = settings()->value("foregroundColor", "#000000").toString();
-	bool showFrame = settings()->value("showWindowFrame","false").toBool();
-	
-	note->setFont(font);
+    StickyNote *note = new StickyNote();
+    connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
+    
+    QFont font = qvariant_cast<QFont>(settings()->value("defaultFont"));
+    QString bgColor = settings()->value("backgroundColor", "#ffff7f").toString();
+    QString fgColor = settings()->value("foregroundColor", "#000000").toString();
+    bool showFrame = settings()->value("showWindowFrame", "false").toBool();
+    
+    note->setFont(font);
     note->setColors(bgColor, fgColor);
     
     if(!showFrame)
-    	note->setWindowFlags(Qt::Window | Qt::Tool | Qt::FramelessWindowHint);
+        note->setWindowFlags(Qt::Window | Qt::Tool | Qt::FramelessWindowHint);
     else
-    	note->setWindowFlags(Qt::Window | Qt::Tool);
-	
-	mNotes[note->id()] = note;
-	note->show();
+        note->setWindowFlags(Qt::Window | Qt::Tool);
+    
+    mNotes[note->id()] = note;
+    note->show();
 }
 
 void Notes::deleteNote(const qint64 &id)
 {
-	auto it = mNotes.find(id);
-	if(it != mNotes.end()) {
-		delete it.value();
-		mNotes.erase(it);
-	}
-	
-	// delete note file
-	QDir dir(dataDir());
+    auto it = mNotes.find(id);
+    if(it != mNotes.end()) {
+        delete it.value();
+        mNotes.erase(it);
+    }
+    
+    // delete note file
+    QDir dir(dataDir());
     dir.remove(QString::number(id));
 }
 
 void Notes::toggleShowHide()
 {
-	// TODO: call note function to move to or store last known position
-	if(mHidden) {
-		for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
-    		it.value()->show();
-    	mHidden = false;
-	} else {
-		for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
-    		it.value()->hide();
-    	mHidden = true;
-	}
+    if(mHidden) {
+        for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
+            it.value()->show();
+        mHidden = false;
+    } else {
+        for(auto it = mNotes.begin(); it != mNotes.end(); ++it)
+            it.value()->hide();
+        mHidden = true;
+    }
 }
 
-void Notes::setIconsColor(const QString &color)
+void Notes::setIconColor(const QString &icon, const QString &color)
 {
-	// create icons path
-	QString iconsDir = dataDir() + QDir::separator() + "icons";
-	QDir().mkpath(iconsDir);
+    // create icons path
+    QString iconsDir = dataDir() + QDir::separator() + "icons";
+    QDir().mkpath(iconsDir);
 
-	// set delete icon color
-    QFile file(":/resources/times-solid-template.svg");
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        qDebug() << "Could not open file for read";
+    // set icon color
+    QFile file(icon);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
-    }
     
     QTextStream in(&file);
     QString svg = in.readAll().arg(color);
     
     file.close();
 
-	QString iconFile = iconsDir + QDir::separator() + "times-solid.svg";
-	
+    QFileInfo info(icon);
+    QString iconFile = iconsDir + QDir::separator() + info.fileName();
+    
     QFile outFile(iconFile);
-    if(!outFile.open(QIODevice::WriteOnly | QIODevice::Text)){
-        qDebug() << "Could not open file for write";
+    if(!outFile.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
-    }
     
     QTextStream out(&outFile);
     out << svg;
     
     outFile.close();
-
-	// set font icon color
-	QFile file2(":/resources/font-solid-template.svg");
-
-    if(!file2.open(QIODevice::ReadOnly | QIODevice::Text)){
-        qDebug() << "Could not open file for read";
-        return;
-    }
-
-    QTextStream in2(&file2);
-    svg = in2.readAll().arg(color);
-    
-    file2.close();
-
-	iconFile = iconsDir + QDir::separator() + "font-solid.svg";
-    
-    QFile outFile2(iconFile);
-    if(!outFile2.open(QIODevice::WriteOnly | QIODevice::Text)){
-        qDebug() << "Could not open file for read";
-        return;
-    }
-    
-    QTextStream out2(&outFile2);
-    out2 << svg;
-    
-    outFile2.close();
 }
 
 void Notes::settingsChanged()
 {
-	// set new params
-	QFont font = qvariant_cast<QFont>(settings()->value("defaultFont"));
-	QString bgColor = settings()->value("backgroundColor", "#ffff7f").toString();
-	QString fgColor = settings()->value("foregroundColor", "#000000").toString();
-	bool showFrame = settings()->value("showWindowFrame","false").toBool();
-	
-	setIconsColor(fgColor);
-	
-	for(auto it = mNotes.begin(); it != mNotes.end(); ++it) {
-    	StickyNote *note = it.value();
-    	if(!note->hasOwnFont())
-    		note->setFont(font);
-    		
-    	note->setColors(bgColor, fgColor);
-    	
-    	if(!showFrame)
-    		note->setWindowFlags(Qt::Window | Qt::Tool | Qt::FramelessWindowHint);
-    	else
-    		note->setWindowFlags(Qt::Window | Qt::Tool);
-    	
-    	if(!mHidden)
-    		note->show();
+    // new params
+    QFont font = qvariant_cast<QFont>(settings()->value("defaultFont"));
+    QString bgColor = settings()->value("backgroundColor", "#ffff7f").toString();
+    QString fgColor = settings()->value("foregroundColor", "#000000").toString();
+    bool showFrame = settings()->value("showWindowFrame","false").toBool();
+   	mHidden = !(settings()->value("showNotesOnStartup","false").toBool());
+    
+    setIconColor(":/resources/times-solid.svg", fgColor);
+    setIconColor(":/resources/font-solid.svg", fgColor);
+    
+    for(auto it = mNotes.begin(); it != mNotes.end(); ++it) {
+        StickyNote *note = it.value();
+        
+        if(!note->hasOwnFont())
+            note->setFont(font);
+        
+        note->setColors(bgColor, fgColor);
+        
+        if(!showFrame)
+            note->setWindowFlags(Qt::Window | Qt::Tool | Qt::FramelessWindowHint);
+        else
+            note->setWindowFlags(Qt::Window | Qt::Tool);
+        
+        if(!mHidden)
+            note->show();
     }
 }
 
 QDialog* Notes::configureDialog()
 {
-	NotesConfiguration *configDialog = new NotesConfiguration(settings());
-	configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
-	return configDialog;
+    NotesConfiguration *configDialog = new NotesConfiguration(settings());
+    configDialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    return configDialog;
 }

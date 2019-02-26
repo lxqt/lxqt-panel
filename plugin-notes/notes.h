@@ -55,22 +55,21 @@ public:
 
 public slots:
     void realign();
-    
     void toggleShowHide();
-	void addNewNote();
-	void deleteNote(const qint64 &id);
-	
+    void addNewNote();
+    void deleteNote(const qint64 &id);
+    
 protected slots:
     void settingsChanged();
 
 private:
     QToolButton mButton;
-    
     bool mHidden;
     QMap<qint64, StickyNote*> mNotes;
+    QString dataDir(); // (cannot be static for some reason)
     
-    QString dataDir(); // GenericDataLocation (cannot be static for some reason)
     void setIconsColor(const QString &color);
+    void setIconColor(const QString &icon, const QString &color);
 };
 
 

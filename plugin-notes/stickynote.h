@@ -36,7 +36,7 @@ class StickyNote;
 
 class StickyNote: public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
     StickyNote(qint64 id = 0, QWidget* parent = 0);
     ~StickyNote();
@@ -46,35 +46,35 @@ public:
     bool hasOwnFont() { return mHasOwnFont; }
 
 public slots:
-	void changeFont();
-	void setColors(const QString &backGround, const QString &foreground);
-	void setFont(const QFont &font);
-	void requestDelete();
-	void savePosition();
-	void saveText();
+    void changeFont();
+    void setColors(const QString &backGround, const QString &foreground);
+    void setFont(const QFont &font);
+    void requestDelete();
+    void savePosition();
+    void saveText();
 
 signals:
-	void deleteRequested(qint64 id);
+    void deleteRequested(qint64 id);
 
 protected:
-	void resizeEvent(QResizeEvent *event);
-	void moveEvent(QMoveEvent *event);
-	void mouseMoveEvent(QMouseEvent *event);
+    void resizeEvent(QResizeEvent *event);
+    void moveEvent(QMoveEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
 
 private:
-	void load();
-	
-	QString dataDir(); // GenericDataLocation
+    void load();
+    
+    QString dataDir(); // GenericDataLocation
 
-	qint64 mId;
-	
-	QPoint prevPos;
-	bool prevPosSet;
-	
-	bool mHasOwnFont;
-	
-	Ui::StickyNote *ui;
+    qint64 mId;
+    
+    QPoint prevPos;
+    bool prevPosSet;
+    
+    bool mHasOwnFont;
+    
+    Ui::StickyNote *ui;
 };
 
 
