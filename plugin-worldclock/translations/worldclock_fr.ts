@@ -43,7 +43,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation>Long(s)</translation>
+        <translation>Long</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>&amp;Personnaliser ...</translation>
+        <translation>&amp;Personnaliser...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Ajouter ...</translation>
+        <translation>&amp;Ajouter...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
