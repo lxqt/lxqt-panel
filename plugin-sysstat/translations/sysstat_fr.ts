@@ -43,7 +43,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation>CPU (µC)</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Application(s)</translation>
+        <translation>&amp;Applications</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
@@ -151,12 +151,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> px(s)</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation> seconde(s)</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -191,12 +191,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation>&amp;Source(s)</translation>
+        <translation>&amp;Source</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation>T&amp;ype(s)</translation>
+        <translation>T&amp;ype</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
@@ -216,12 +216,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>Couleurs personnalisées ...</translation>
+        <translation>Couleurs personnalisées...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation>CPU (µC)</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;bon : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : %5%</translation>
+        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;nice : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;bon : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : n/c</translation>
+        <translation>système : %1%&lt;br&gt;utilisateur : %2%&lt;br&gt;nice : %3%&lt;br&gt;autre : %4%&lt;br&gt;fréq : n/c</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
