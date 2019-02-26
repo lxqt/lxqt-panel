@@ -104,7 +104,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Cliquez sur le bouton pour enregistrer le raccourci :</translation>
+        <translation>Cliquer sur le bouton pour enregistrer le raccourci :</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
@@ -119,12 +119,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation>Image(s) (*.svg *.png)</translation>
+        <translation>Images (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>Choisissez un fichier de menu</translation>
+        <translation>Choisir un fichier de menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
