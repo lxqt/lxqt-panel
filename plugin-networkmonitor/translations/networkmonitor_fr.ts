@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
         <source>Interface</source>
-        <translation>Interface(s)</translation>
+        <translation>Interface</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
         <source>Modem</source>
-        <translation>Modem(s)</translation>
+        <translation>Modem</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
