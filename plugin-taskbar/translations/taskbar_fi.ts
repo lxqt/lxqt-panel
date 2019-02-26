@@ -156,7 +156,7 @@ Aktivoi tehtävä %1</translation>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihda ikkunoita hiirenrullaa pyörittämällä</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
