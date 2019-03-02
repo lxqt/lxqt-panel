@@ -68,7 +68,7 @@
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation></translation>
+        <translation> 像素</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;如设置长度为负数，则面板长度会等于最大长度加上输入值&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例：如“长度”设置为-100px，且最大长度为1000px，则实际显示长度为900px。&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;如设置长度为负数，则面板长度会等于可用空间减去输入值&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例：如“长度”设置为-100px，且最大长度为1000px，则实际显示长度为900px。&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation>px</translation>
+        <translation>像素</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -104,7 +104,7 @@
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>如设置为0，则不显示动画</translation>
+        <translation>0表示无动画</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>动画时间:</translation>
+        <translation>动画时长：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
@@ -126,7 +126,7 @@
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="206"/>
         <source>Left</source>
-        <translation>左</translation>
+        <translation>居左</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
@@ -139,12 +139,12 @@
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="208"/>
         <source>Right</source>
-        <translation>右</translation>
+        <translation>居右</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>自动隐藏(&amp;U)</translation>
+        <translation>自动隐藏(&amp;u)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation>显示器上的保留空间</translation>
+        <translation>在显示器上保留空间</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
@@ -217,7 +217,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation>面板的图标主题</translation>
+        <translation>面板的图标主题：</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
