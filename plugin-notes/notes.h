@@ -30,6 +30,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QApplication>
+#include <QMainWindow>
 #include <QDesktopWidget>
 #include <QFontMetrics>
 #include <QTextEdit>
@@ -70,6 +71,8 @@ private:
     
     void setIconsColor(const QString &color);
     void setIconColor(const QString &icon, const QString &color);
+    
+    QMainWindow window;
 };
 
 

@@ -78,7 +78,7 @@ Notes::Notes(const ILXQtPanelPluginStartupInfo &startupInfo) :
         if(!noteId)
             continue;
         
-        StickyNote *note = new StickyNote(noteId);
+        StickyNote *note = new StickyNote(noteId, &window);
         connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
         
         mNotes[noteId] = note;
@@ -112,7 +112,7 @@ QString Notes::dataDir()
 
 void Notes::addNewNote()
 {
-    StickyNote *note = new StickyNote();
+    StickyNote *note = new StickyNote(0, &window);
     connect(note, &StickyNote::deleteRequested, this, &Notes::deleteNote);
     
     QFont font = qvariant_cast<QFont>(settings()->value("defaultFont"));
