@@ -38,7 +38,7 @@ class StickyNote: public QWidget
 {
     Q_OBJECT
 public:
-    StickyNote(qint64 id = 0, QWidget* parent = 0);
+    StickyNote(qint64 id = 0, QWidget* parent = nullptr);
     ~StickyNote();
     
     qint64 id() { return mId; }
