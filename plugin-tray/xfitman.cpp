@@ -200,7 +200,8 @@ QString XfitMan::getWindowTitle(Window _wid) const
     QString name = "";
     //first try the modern net-wm ones
     unsigned long length;
-    unsigned char *data = NULL;
+    unsigned char *data = nullptr;
+    
     Atom utf8Atom = atom("UTF8_STRING");
 
     if (getWindowProperty(_wid, atom("_NET_WM_VISIBLE_NAME"), utf8Atom, &length, &data))

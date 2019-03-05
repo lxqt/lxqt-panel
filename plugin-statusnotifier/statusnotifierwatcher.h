@@ -46,7 +46,7 @@ class StatusNotifierWatcher : public QObject, protected QDBusContext
     Q_SCRIPTABLE Q_PROPERTY(QStringList RegisteredStatusNotifierItems READ RegisteredStatusNotifierItems)
 
 public:
-    explicit StatusNotifierWatcher(QObject *parent = 0);
+    explicit StatusNotifierWatcher(QObject *parent = nullptr);
     ~StatusNotifierWatcher();
 
     bool isStatusNotifierHostRegistered() { return mHosts.count() > 0; }

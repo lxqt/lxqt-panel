@@ -35,8 +35,8 @@
 class LXQT_PANEL_API PopupMenu: public QMenu
 {
 public:
-    explicit PopupMenu(QWidget *parent = 0): QMenu(parent) {}
-    explicit PopupMenu(const QString &title, QWidget *parent = 0): QMenu(title, parent) {}
+    explicit PopupMenu(QWidget *parent = nullptr): QMenu(parent) {}
+    explicit PopupMenu(const QString &title, QWidget *parent = nullptr): QMenu(title, parent) {}
 
     QAction* addTitle(const QIcon &icon, const QString &text);
     QAction* addTitle(const QString &text);

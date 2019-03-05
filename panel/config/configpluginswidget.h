@@ -42,7 +42,7 @@ class ConfigPluginsWidget : public QWidget
     Q_OBJECT
 
 public:
-    ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent = 0);
+    ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent = nullptr);
     ~ConfigPluginsWidget();
 
 signals:

@@ -43,11 +43,11 @@
 LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
-    mPopup(NULL),
+    mPopup(nullptr),
     mTimer(new QTimer(this)),
     mUpdateInterval(1),
     mAutoRotate(true),
-    mPopupContent(NULL)
+    mPopupContent(nullptr)
 {
     mMainWidget = new QWidget();
     mContent = new ActiveLabel();
@@ -428,9 +428,9 @@ void LXQtWorldClock::activated(ActivationReason reason)
 
 void LXQtWorldClock::deletePopup()
 {
-    mPopupContent = NULL;
+    mPopupContent = nullptr;
     mPopup->deleteLater();
-    mPopup = NULL;
+    mPopup = nullptr;
 }
 
 QString LXQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)

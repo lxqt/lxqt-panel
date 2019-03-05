@@ -39,7 +39,7 @@ class DeviceActionMenu : public DeviceAction
 {
     Q_OBJECT
 public:
-    explicit DeviceActionMenu(LXQtMountPlugin *plugin, QObject *parent = 0);
+    explicit DeviceActionMenu(LXQtMountPlugin *plugin, QObject *parent = nullptr);
     virtual ActionId Type() const throw () { return ActionMenu; }
 
 protected:

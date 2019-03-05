@@ -323,7 +323,7 @@ void PulseAudioEngine::connectContext()
         return;
     }
 
-    if (pa_context_connect(m_context, NULL, (pa_context_flags_t)0, NULL) < 0) {
+    if (pa_context_connect(m_context, nullptr, (pa_context_flags_t)0, nullptr) < 0) {
         pa_threaded_mainloop_unlock(m_mainLoop);
         m_reconnectionTimer.start();
         return;

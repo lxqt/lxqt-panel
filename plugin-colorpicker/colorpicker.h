@@ -42,7 +42,7 @@ class ColorPickerWidget: public QFrame
 {
     Q_OBJECT
 public:
-    ColorPickerWidget(QWidget* parent = 0);
+    ColorPickerWidget(QWidget* parent = nullptr);
     ~ColorPickerWidget();
 
     QLineEdit *lineEdit() { return &mLineEdit; }

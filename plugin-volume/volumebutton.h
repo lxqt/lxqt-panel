@@ -40,7 +40,7 @@ class VolumeButton : public QToolButton
 {
     Q_OBJECT
 public:
-    VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~VolumeButton();
 
     void setShowOnClicked(bool state);

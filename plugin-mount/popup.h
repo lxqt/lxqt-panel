@@ -42,7 +42,7 @@ class Popup: public QDialog
     Q_OBJECT
 
 public:
-    explicit Popup(ILXQtPanelPlugin * plugin, QWidget* parent = 0);
+    explicit Popup(ILXQtPanelPlugin * plugin, QWidget* parent = nullptr);
     void realign();
 
 public slots:

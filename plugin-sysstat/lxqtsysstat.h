@@ -73,7 +73,7 @@ class LXQtSysStatTitle : public QLabel
 {
     Q_OBJECT
 public:
-    LXQtSysStatTitle(QWidget *parent = NULL);
+    LXQtSysStatTitle(QWidget *parent = nullptr);
     ~LXQtSysStatTitle();
 
 protected:
@@ -102,7 +102,7 @@ class LXQtSysStatContent : public QWidget
     Q_PROPERTY(QColor netTransmittedColor READ netTransmittedColour WRITE setNetTransmittedColour)
 
 public:
-    LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = NULL);
+    LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
     ~LXQtSysStatContent();
 
     void updateSettings(const PluginSettings *);

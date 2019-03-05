@@ -45,7 +45,7 @@ class AudioDevice : public QObject
     Q_PROPERTY(AudioDeviceType type READ type CONSTANT)
 
 public:
-    AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = 0);
+    AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = nullptr);
     ~AudioDevice();
 
     // the volume can range from 0 to 100.

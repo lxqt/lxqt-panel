@@ -169,7 +169,7 @@ bool XdgCachedMenu::event(QEvent* event)
     {
         QHelpEvent* helpEvent = static_cast<QHelpEvent*>(event);
         QAction* action = actionAt(helpEvent->pos());
-        if(action && action->menu() == NULL)
+        if(action && action->menu() == nullptr)
             QToolTip::showText(helpEvent->globalPos(), action->toolTip(), this);
     }
 

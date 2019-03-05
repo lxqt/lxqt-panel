@@ -51,7 +51,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
     initDefaultSettings();
 
     // Add GUI elements
-    ProgressBar* pg = NULL;
+    ProgressBar* pg = nullptr;
 
     mLayout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     mLayout->setSpacing(0);

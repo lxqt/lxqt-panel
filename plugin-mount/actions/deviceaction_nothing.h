@@ -37,7 +37,7 @@ class DeviceActionNothing : public DeviceAction
     Q_OBJECT
 
 public:
-    explicit DeviceActionNothing(LXQtMountPlugin *plugin, QObject *parent = 0);
+    explicit DeviceActionNothing(LXQtMountPlugin *plugin, QObject *parent = nullptr);
     virtual ActionId Type() const throw () { return ActionNothing; };
 
 protected:

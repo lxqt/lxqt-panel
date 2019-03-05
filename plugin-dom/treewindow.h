@@ -46,7 +46,7 @@ class TreeWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit TreeWindow(QWidget *parent = 0);
+    explicit TreeWindow(QWidget *parent = nullptr);
     ~TreeWindow();
 
 private slots:

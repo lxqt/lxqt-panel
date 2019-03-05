@@ -44,7 +44,7 @@ class AddPluginDialog : public QDialog
     Q_OBJECT
 
 public:
-    AddPluginDialog(QWidget *parent = 0);
+    AddPluginDialog(QWidget *parent = nullptr);
     ~AddPluginDialog();
 
 signals:

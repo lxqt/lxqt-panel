@@ -40,7 +40,7 @@ class ProgressBar: public QProgressBar
 {
     Q_OBJECT
 public:
-    ProgressBar(QWidget *parent = 0);
+    ProgressBar(QWidget *parent = nullptr);
 
     QSize sizeHint() const;
 };
@@ -54,7 +54,7 @@ class LXQtSensors : public QFrame
 {
     Q_OBJECT
 public:
-    LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~LXQtSensors();
 
     void settingsChanged();

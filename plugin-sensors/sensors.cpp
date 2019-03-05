@@ -39,14 +39,14 @@ Sensors::Sensors()
     // Increase instance counter
     ++mInstanceCounter;
 
-    if (!mSensorsInitialized && sensors_init(NULL) == 0)
+    if (!mSensorsInitialized && sensors_init(nullptr) == 0)
     {
         // Sensors initialized
         mSensorsInitialized = true;
 
         sensors_chip_name const * chipName;
         int chipNr = 0;
-        while ((chipName = sensors_get_detected_chips(NULL, &chipNr)) != NULL)
+        while ((chipName = sensors_get_detected_chips(nullptr, &chipNr)) != nullptr)
         {
             mDetectedChips.push_back(chipName);
         }

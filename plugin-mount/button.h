@@ -36,7 +36,7 @@ class Button : public QToolButton
 {
     Q_OBJECT
 public:
-    Button(QWidget *parent = 0);
+    Button(QWidget *parent = nullptr);
     ~Button();
 };
 

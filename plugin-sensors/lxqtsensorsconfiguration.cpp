@@ -120,8 +120,8 @@ void LXQtSensorsConfiguration::saveSettings()
     if (chipNames.size())
     {
         QStringList chipFeatureLabels;
-        QPushButton* colorButton = NULL;
-        QCheckBox* enabledCheckbox = NULL;
+        QPushButton* colorButton = nullptr;
+        QCheckBox* enabledCheckbox = nullptr;
 
         settings().beginGroup(chipNames[ui->detectedChipsCB->currentIndex()]);
 
@@ -179,9 +179,9 @@ void LXQtSensorsConfiguration::detectedChipSelected(int index)
     settings().beginGroup("chips");
     QStringList chipNames = settings().childGroups();
     QStringList chipFeatureLabels;
-    QPushButton* colorButton = NULL;
-    QCheckBox* enabledCheckbox = NULL;
-    QTableWidgetItem *chipFeatureLabel = NULL;
+    QPushButton* colorButton = nullptr;
+    QCheckBox* enabledCheckbox = nullptr;
+    QTableWidgetItem *chipFeatureLabel = nullptr;
 
     if (index < chipNames.size())
     {

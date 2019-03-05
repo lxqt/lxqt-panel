@@ -59,7 +59,7 @@ class LXQtTaskButton : public QToolButton
     Q_PROPERTY(Qt::Corner origin READ origin WRITE setOrigin)
 
 public:
-    explicit LXQtTaskButton(const WId window, LXQtTaskBar * taskBar, QWidget *parent = 0);
+    explicit LXQtTaskButton(const WId window, LXQtTaskBar * taskBar, QWidget *parent = nullptr);
     virtual ~LXQtTaskButton();
 
     bool isApplicationHidden() const;
