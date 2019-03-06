@@ -34,6 +34,8 @@
 #include "lxqtworldclockconfigurationtimezones.h"
 #include "lxqtworldclockconfigurationmanualformat.h"
 
+#include <LXQt/Globals>
+
 #include <QInputDialog>
 
 
@@ -82,6 +84,7 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     connect(ui->moveDownPB, SIGNAL(clicked()), SLOT(moveTimeZoneDown()));
 
     connect(ui->autorotateCB, SIGNAL(clicked()), SLOT(saveSettings()));
+    connect(ui->showWeekNumberCB, &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
 
     loadSettings();
 }
@@ -230,6 +233,7 @@ void LXQtWorldClockConfiguration::loadSettings()
 
 
     ui->autorotateCB->setChecked(settings().value("autoRotate", true).toBool());
+    ui->showWeekNumberCB->setChecked(settings().value(QL1S("showWeekNumber"), true).toBool());
 
 
     mLockCascadeSettingChanges = false;
@@ -375,6 +379,7 @@ void LXQtWorldClockConfiguration::saveSettings()
     settings().setValue(QLatin1String("defaultTimeZone"), mDefaultTimeZone);
     settings().setValue(QLatin1String("useAdvancedManualFormat"), ui->advancedManualGB->isChecked());
     settings().setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
+    settings().setValue(QL1S("showWeekNumber"), ui->showWeekNumberCB->isChecked());
 }
 
 void LXQtWorldClockConfiguration::timeFormatChanged(int index)

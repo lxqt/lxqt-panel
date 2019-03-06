@@ -84,6 +84,7 @@ private:
     QString mFormat;
 
     bool mAutoRotate;
+    bool mShowWeekNumber;
     QLabel *mPopupContent;
 
     QDateTime mShownTime;
