@@ -166,7 +166,7 @@ void AlsaEngine::discoverDevices()
         } else {
             // setup mixer and iterate over channels
             snd_mixer_t *mixer = nullptr;
-            snd_mixer_open(&mixer, nullptr);
+            snd_mixer_open(&mixer, 0);
             snd_mixer_attach(mixer, str);
             snd_mixer_selem_register(mixer, nullptr, nullptr);
             snd_mixer_load(mixer);
