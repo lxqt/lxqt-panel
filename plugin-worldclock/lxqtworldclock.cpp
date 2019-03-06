@@ -28,6 +28,8 @@
 
 #include "lxqtworldclock.h"
 
+#include <LXQt/Globals>
+
 #include <QCalendarWidget>
 #include <QDate>
 #include <QDesktopWidget>
@@ -47,6 +49,7 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mTimer(new QTimer(this)),
     mUpdateInterval(1),
     mAutoRotate(true),
+    mShowWeekNumber(true),
     mPopupContent(nullptr)
 {
     mMainWidget = new QWidget();
@@ -346,6 +349,12 @@ void LXQtWorldClock::settingsChanged()
         realign();
     }
 
+    bool showWeekNumber = settings()->value(QL1S("showWeekNumber"), true).toBool();
+    if (showWeekNumber != mShowWeekNumber)
+    {
+        mShowWeekNumber = showWeekNumber;
+    }
+
     if (mPopup)
     {
         updatePopupContent();
@@ -393,6 +402,8 @@ void LXQtWorldClock::activated(ActivationReason reason)
 
             mPopup->layout()->setContentsMargins(0, 0, 0, 0);
             QCalendarWidget *calendarWidget = new QCalendarWidget(mPopup);
+            if (!mShowWeekNumber)
+                calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
             mPopup->layout()->addWidget(calendarWidget);
 
             QString timeZoneName = mActiveTimeZone;
