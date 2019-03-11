@@ -26,12 +26,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Гучність: %1% {1%%2?}</translation>
+        <translation>Гучність: %1% {1%%2?}</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(вимкнено)</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>РAЗL</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
