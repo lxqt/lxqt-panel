@@ -418,7 +418,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>فایل پیکربندی</translation>
+        <translation>پرونده پیکربندی</translation>
     </message>
 </context>
 </TS>
