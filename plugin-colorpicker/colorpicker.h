@@ -43,10 +43,7 @@ class ColorPickerWidget : public QWidget
     Q_OBJECT
 
 public:
-<<<<<<< HEAD
 
-=======
->>>>>>> 43df28caa4b5ed2870902b8686a9e672a108dc27
     ColorPickerWidget(QWidget* parent = nullptr);
     ~ColorPickerWidget();
 
