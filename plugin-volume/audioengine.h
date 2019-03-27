@@ -39,7 +39,7 @@ class AudioEngine : public QObject
     Q_OBJECT
 
 public:
-    AudioEngine(QObject *parent = 0);
+    AudioEngine(QObject *parent = nullptr);
     ~AudioEngine();
 
     const QList<AudioDevice *> &sinks() const { return m_sinks; }

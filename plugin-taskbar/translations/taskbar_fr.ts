@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;dimensionner</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
         <source>Roll down</source>
-        <translation>Enrouler vers le bas</translation>
+        <translation>Dérouler vers le bas</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Roll up</source>
-        <translation>Enrouler vers le haut</translation>
+        <translation>Dérouler vers le haut</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Always on &amp;top</source>
-        <translation>Toujours au &amp;dessus</translation>
+        <translation>Toujours au-&amp;dessus</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="632"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Paramétrage du gestionnaire de tâches</translation>
+        <translation>Paramétrages du gestionnaire de tâches</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -150,12 +150,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Relever les fenêtres  réduites du bureau actuel</translation>
+        <translation>Faire apparaître les fenêtres réduites du bureau actuel</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Cycle de fenêtres sur le défilement de la roulette</translation>
+        <translation>Faire défiler les fenêtres en utilisant la roulette</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Utilisez les icônes par WindowClass, si disponible</translation>
+        <translation>Utiliser les icônes par classe de fenêtre, si disponible</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>&amp;Rotation automatique des boutons lorsque le tableau est vertical</translation>
+        <translation>&amp;Rotation automatique des boutons lorsque la barre de tâche est verticale</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>

@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Głośność: %1%%2</translation>
+        <translation>Głośność: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="286"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>

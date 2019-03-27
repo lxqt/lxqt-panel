@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Um valor negativo de pixel, reduz esse valor ao valor máximo disponível do ecrã.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por exemplo, se definir &quot;Comprimento&quot; como -100px e o tamanho do ecrã for 1000px, o comprimento do painel será de 900px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Um valor negativo de pixel reduz esse valor ao valor máximo disponível do ecrã.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por exemplo, se definir &quot;Comprimento&quot; como -100px e o tamanho do ecrã for 1000px, o comprimento do painel será de 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -207,17 +207,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Um solução parcial para os estilos de widget que
+não permitem um tema distinto para o painel.
+
+Também pode desativar a opção em:
+
+Configuração de aparência do LXQt →
+Tema de icones →
+Colorir ícones tendo por base o estilo do widget (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Substituir &amp;tema de ícones</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema de ícones para os painéis:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>

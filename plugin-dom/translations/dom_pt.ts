@@ -22,7 +22,7 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation>Todas as propriedades</translation>
+        <translation>Todas propriedades</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation>Valor string</translation>
+        <translation>Valor da cadeia</translation>
     </message>
 </context>
 </TS>

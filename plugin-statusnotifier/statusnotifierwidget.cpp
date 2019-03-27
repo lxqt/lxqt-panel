@@ -73,7 +73,7 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 
 void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
 {
-    StatusNotifierButton *button = mServices.value(serviceAndPath, NULL);
+    StatusNotifierButton *button = mServices.value(serviceAndPath, nullptr);
     if (button)
     {
         button->deleteLater();

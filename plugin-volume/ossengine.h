@@ -41,7 +41,7 @@ class OssEngine : public AudioEngine
     Q_OBJECT
 
 public:
-    OssEngine(QObject *parent = 0);
+    OssEngine(QObject *parent = nullptr);
     ~OssEngine();
 
     virtual const QString backendName() const { return QLatin1String("Oss"); }

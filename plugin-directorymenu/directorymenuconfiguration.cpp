@@ -41,7 +41,8 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DirectoryMenuConfiguration),
     mBaseDirectory(QDir::homePath()),
-    mDefaultIcon(XdgIcon::fromTheme("folder"))
+    mDefaultIcon(XdgIcon::fromTheme("folder")),
+    mDefaultTerminal("/usr/bin/qterminal")
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName("DirectoryMenuConfigurationWindow");
@@ -54,6 +55,7 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
 
     connect(ui->baseDirectoryB, SIGNAL(clicked()), SLOT(showDirectoryDialog()));
     connect(ui->iconB, SIGNAL(clicked()), SLOT(showIconDialog()));
+    connect(ui->terminalB, SIGNAL(clicked()), SLOT(showTermDialog()));
 }
 
 DirectoryMenuConfiguration::~DirectoryMenuConfiguration()
@@ -78,12 +80,15 @@ void DirectoryMenuConfiguration::loadSettings()
     }
 
     ui->iconB->setIcon(mDefaultIcon);
+
+    ui->terminalB->setText(settings().value("defaultTerminal", QString()).toString());
 }
 
 void DirectoryMenuConfiguration::saveSettings()
 {
     settings().setValue("baseDirectory", mBaseDirectory.absolutePath());
     settings().setValue("icon", mIcon);
+    settings().setValue("defaultTerminal", mDefaultTerminal);
 }
 
 void DirectoryMenuConfiguration::showDirectoryDialog()
@@ -100,6 +105,20 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
 
         saveSettings();
     }
+}
+
+void DirectoryMenuConfiguration::showTermDialog()
+{
+    QFileDialog d(this, tr("Choose Default Terminal"), "/usr/bin");
+    d.setFileMode(QFileDialog::ExistingFile);
+    d.setWindowModality(Qt::WindowModal);
+    
+    if (d.exec() && !d.selectedFiles().isEmpty())
+    {
+        mDefaultTerminal = d.selectedFiles().front();
+        saveSettings();
+    }
+    ui->terminalB->setText(mDefaultTerminal);
 }
 
 void DirectoryMenuConfiguration::showIconDialog()

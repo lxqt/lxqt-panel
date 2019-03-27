@@ -38,7 +38,7 @@ class VolumePopup : public QDialog
 {
     Q_OBJECT
 public:
-    VolumePopup(QWidget* parent = 0);
+    VolumePopup(QWidget* parent = nullptr);
 
     void openAt(QPoint pos, Qt::Corner anchor);
     void handleWheelEvent(QWheelEvent *event);

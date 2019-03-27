@@ -473,4 +473,3 @@ void ConfigPanelWidget::pickBackgroundImage()
     connect(d, &QFileDialog::fileSelected, ui->lineEdit_customBgImage, &QLineEdit::setText);
     d->show();
 }
-

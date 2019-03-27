@@ -24,12 +24,12 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>При подключении устройства:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>Всплывающее меню</translation>
+        <translation>Показать меню</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>

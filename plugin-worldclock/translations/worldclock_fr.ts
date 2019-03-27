@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt; &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>Affiche les &amp;secondes</translation>
+        <translation>&amp;Afficher les secondes</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Décalage par rapport à UTC</translation>
+        <translation>Décalage par rapport à l&apos;UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>&amp;Personnaliser ...</translation>
+        <translation>&amp;Personnaliser...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Ajouter ...</translation>
+        <translation>&amp;Ajouter...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>&amp;Editer le nom personnalisé...</translation>
+        <translation>&amp;Éditer le nom personnalisé...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
@@ -225,17 +225,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>&amp;Rotation automatique avec un panneau vertical</translation>
+        <translation>Auto&amp;rotation lorsque le panneau est vertical</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt; &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
         <source>Input custom time zone name</source>
-        <translation>Saisir le nom du fuseau horaire</translation>
+        <translation>Entrez le nom du fuseau horaire personnalisé</translation>
     </message>
 </context>
 <context>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration du format manuel de l&apos;horloge mondiale</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -284,7 +284,43 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Syntaxe du format de date/heure personnalisé&lt;/h1&gt;
+&lt;p&gt;Un modèle de date est une chaîne de caractères, des chaînes spécifiques étant remplacées par les données de date et d&apos;heure d&apos;un calendrier lors du formatage ou utilisées pour générer des données pour un calendrier lors de l&apos;analyse.&lt;/p&gt;
+&lt;p&gt;La table des symboles de champ de date ci-dessous contient les caractères utilisés dans les modèles pour afficher les formats appropriés pour un environnement local donné, tel que yyyy pour l&apos;année. Les caractères peuvent être utilisés plusieurs fois. Par exemple, si y est utilisé pour l&apos;année, &quot;yy&quot; peut produire &quot;99&quot;, alors que &quot;yyyy&quot; produit &quot;1999&quot;. Pour la plupart des champs numériques, le nombre de caractères spécifie la largeur du champ. Par exemple, si h est l&apos;heure, &quot;h&quot; peut produire &quot;5&quot;, mais &quot;hh&quot; produit &quot;05&quot;. Pour certains caractères, le nombre indique si une forme abrégée ou complète doit être utilisée, mais peut avoir d&apos;autres choix, comme indiqué ci-dessous.&lt;/P&gt;
+&lt;p&gt;Deux citations simples représentent une citation unique littérale, à l&apos;intérieur ou à l&apos;extérieur de citations simples. Le texte entre guillemets simples n&apos;est interprété d&apos;aucune façon (à l&apos;exception de deux guillemets simples adjacents). Sinon, toutes les lettres ASCII de a à z et de A à Z sont réservées en tant que caractères de syntaxe et nécessitent une citation si elles doivent représenter des caractères littéraux. De plus, certains caractères de ponctuation ASCII risquent de devenir variables à l&apos;avenir (par exemple, &quot;:&quot; étant interprété comme séparateur d&apos;heure et &apos;/&apos; comme séparateur de date, et remplacé par des caractères respectifs respectant les paramètres régionaux).&lt;br/&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt; th width = &quot;20%&quot;&gt; Code &lt;/ th&gt; &lt;th&gt; Signification &lt;/ th&gt; &lt;/ tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;le jour en tant que nombre sans zéro (1 à 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;le jour sous forme de nombre avec un zéro (01 à 31) &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;nom abrégé du jour localisé (par exemple, &quot;Mon&quot; à &quot;Soleil&quot;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;le nom de jour long localisé (par exemple, &quot;lundi&quot; à &quot;dimanche&quot;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;le mois sous la forme d&apos;un nombre sans zéro (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;le mois sous la forme d&apos;un nombre avec un zéro (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;nom abrégé du mois localisé (par exemple, &quot;Jan&quot; à &quot;Déc&quot;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;nom de mois long localisé (par exemple, &quot;janvier&quot; à &quot;décembre&quot;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;l&apos;année sous forme de numéro à deux chiffres (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;aaaa&lt;/td&gt;&lt;td&gt;l&apos;année sous forme de numéro à quatre chiffres&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/ td&gt;&lt;td&gt;l&apos;heure sans zéro (0 à 23 ou 1 à 12 si affichage AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;l&apos;heure précédée d&apos;un zéro (00 à 23 ou 01 à 12 si affichage AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; H &lt;/ td&gt;&lt;td&gt;l&apos;heure sans zéro (0 à 23, même avec l&apos;affichage AM / PM) &lt;/ td&gt; &lt;/ tr&gt;
+&lt;tr&gt;&lt;td&gt; HH &lt;/ td&gt;&lt;td&gt;l&apos;heure avec un zéro non significatif (00 à 23, même avec l&apos;affichage AM/PM) &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;la minute sans zéro (0 à 59)&lt;/td&gt;&lt;/ tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;la minute précédée d&apos;un zéro (00 à 59)&lt;/td&gt;&lt;/ tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;la seconde sans zéro (0 à 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;le deuxième avec un zéro non significatif (00 à 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;les millisecondes sans zéros au début (0 à 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;les millisecondes avec des zéros non significatifs (000 à 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP&lt;i&gt;ou&lt;/i&gt;A&lt;/td&gt;&lt;td&gt;utilise l&apos;affichage AM/PM.&lt;b&gt;A/AP&lt;/b&gt;sera remplacé par &quot;AM&quot; ou &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap&lt;i&gt;ou&lt;/i&gt;a&lt;/td&gt;&lt;td&gt;utilise l&apos;affichage am/pm.&lt;b&gt;a/ap&lt;/b&gt;sera remplacé par &quot;am&quot; ou &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/ td&gt;&lt;td&gt;le fuseau horaire (par exemple, &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;le décalage par rapport à UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;l&apos;identifiant IANA du fuseau horaire&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;l&apos;abréviation du fuseau horaire&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;nom d&apos;affichage abrégé du fuseau horaire&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;nom d&apos;affichage complet du fuseau horaire&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;le nom personnalisé du fuseau horaire. Vous pouvez modifier l&apos;onglet &quot;Fuseaux horaires&quot; de la fenêtre de configuration&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br/&gt;&lt;b&gt;Remarques:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;Tous les caractères du modèle qui ne figurent pas dans les plages de [&apos;a&apos; .. &apos;z&apos;] et de &apos;&apos; A &apos;..&apos; Z &apos;] sera traité comme un texte cité. Par exemple, des caractères tels que &apos;:&apos;, &apos;.&apos;, &apos;&apos;, &apos;#&apos; Et &apos;@&apos; apparaîtront dans le texte temporel résultant, même s&apos;ils ne sont pas entourés de guillemets simples. La citation simple est utilisée pour &quot;échapper&quot; aux lettres. Deux guillemets simples à la suite, que ce soit à l&apos;intérieur ou à l&apos;extérieur d&apos;une séquence citée, représentent un guillemet simple &quot;réel&quot;.&lt;/Li&gt;&lt;li&gt;L&apos;intervalle de mise à jour minimal est de 1 seconde. Si z ou zzz est configuré, l&apos;heure est indiquée avec la fraction en millisecondes, mais n&apos;est pas mise à jour sur une base milliseconde (évitant ainsi de nuire aux performances).&lt;/Li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>

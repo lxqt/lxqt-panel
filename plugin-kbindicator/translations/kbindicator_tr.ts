@@ -7,7 +7,7 @@
         <location filename="../src/content.cpp" line="43"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation>C</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="46"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Büyük/Küçük Harf</translation>
+        <translation>Büyük Harfi Göster</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Sayısal Tuş Takımı Açık/Kapalı</translation>
+        <translation>Sayısal Tuş Takımını Göster</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Kaydırma Açık/Kapalı</translation>
+        <translation>Kaydırma Kilidini Göster</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Değiştirme Politikası</translation>
+        <translation>Değiştirme politikası</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Düzeni Yapılandır</translation>
+        <translation>Düzeni yapılandır</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>

@@ -48,7 +48,7 @@ public:
         LeftToRightBar  //! Bar begins at left edge and grows to the right
     };
 
-    LXQtCpuLoad(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    LXQtCpuLoad(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~LXQtCpuLoad();
 
 
@@ -85,5 +85,3 @@ private:
 
 
 #endif // LXQTCPULOAD_H
-
-

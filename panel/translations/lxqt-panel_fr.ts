@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(une seule instance peut touner à la fois)</translation>
+        <translation>(une seule instance peut être exécutée à la fois)</translation>
     </message>
 </context>
 <context>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Rangées:</translation>
+        <translation>Lignes :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;uto-escamotable</translation>
+        <translation>Masquage a&amp;utomatique</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
         <source>Font color:</source>
-        <translation>Couleur des fontes :</translation>
+        <translation>Couleur de la police :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
@@ -207,17 +207,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Solution de contournement partielle pour les styles de widget qui
+ne peut pas donner un thème séparé au panneau.
+
+Vous pourriez aussi vouloir désactiver:
+
+Configuration d&apos;apparence LXQt →
+Thème des icônes →
+Colorier les icônes en fonction du style du widget (palette)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer l&apos;icône et le &amp;thème</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Thème d&apos;icônes pour les panneaux :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -293,7 +300,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
-        <translation>Prendre une image</translation>
+        <translation>Choisir une image</translation>
     </message>
 </context>
 <context>
@@ -306,12 +313,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Note : les changements effectués dans cette page ne peuvent pas être restaurés.</translation>
+        <translation>Remarque: les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Remonter</translation>
+        <translation>Déplacer vers le haut</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -387,8 +394,8 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La suppression d&apos;un tableau ne peut pas être annulée.
-Voulez-vous réellement supprimer ce tableau ?</translation>
+        <translation>La suppression d&apos;un panneau ne peut pas être annulée.
+Voulez-vous supprimer ce panneau ?</translation>
     </message>
 </context>
 <context>

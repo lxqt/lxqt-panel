@@ -38,7 +38,7 @@ class KbdStateConfig : public QDialog
     Q_OBJECT
 
 public:
-    explicit KbdStateConfig(QWidget *parent = 0);
+    explicit KbdStateConfig(QWidget *parent = nullptr);
     ~KbdStateConfig();
 private:
     void save();

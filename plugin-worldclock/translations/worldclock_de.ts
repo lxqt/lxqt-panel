@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuelle Formatkonfiguration der Weltzeituhr</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -284,7 +284,43 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Syntax für eigenes Datums- und Zeitformat&lt;/h1&gt;
+&lt;p&gt;Ein Datumsmuster ist eine Zeichenkette, in der bestimmte Buchstaben mit den jeweiligen Datums- oder Zeitangaben ersetzt werden.&lt;/p&gt;
+&lt;p&gt;In der unten stehenden Datenfeldtabelle sind Buchstaben aufgeführt, die im Muster verwendet werden können, um das passend lokalisierte Format auszugeben, z.B. yyyy für die Jahreszahl. Buchstaben können mehrfach verwendet werden. Da z.B. y für das Jahr steht, könnte &apos;yy&apos; &apos;99&apos; ergeben, &apos;yyyy&apos; hingegen &apos;1999&apos;. Zumeist entspricht bei Zahlenfeldern die Anzahl der Buchstaben die Anzahl der Ziffern. Als Beispiel könnte &apos;h&apos; &apos;5&apos; ergeben, &apos;hh&apos; hingegen &apos;&apos;05&apos;. In einigen Fällen steht die Anzahl der Buchstaben für die abgekürzte oder ausgeschriebene Form, es kann aber auch andere Optionen geben, wie unten angegeben.&lt;/p&gt;
+&lt;p&gt;Zwei aufeinanderfolgende Hochkommas bedeuten ein buchstäbliches Hochkomma, sei es innerhalb oder außerhalb von Hochkommas. In Hochkommas eingeschlossener Text wird nicht interpretiert (außer dieser Regel der zwei Hochkommas), sondern buchstäblich wiedergegeben. ASCII-Buchstaben von a bis z und A bis Z, die nicht in einzelnen Hochkommas eingeschlossen sind, gelten als Syntaxbuchstaben und werden daher ersetzt oder verschluckt. Darüber hinaus könnten Satzzeichen in Zukunft ebenfalls als Syntaxbuchstaben interpretiert werden (z.B. Doppelpunkt als Trennzeichen für Zeiten oder &apos;/&apos; als Datums-Trennzeichen, welche automatisch lokalisiert werden).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Code&lt;/th&gt;&lt;th&gt;Bedeutung&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;Tag des Monats ohne führende Null (1 bis 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;Tag des Monats mit führender Null (01 bis 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;Lokalisierte Abkürzung für den Wochentag  (z.B. &apos;Mon&apos; bis &apos;Son&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;Lokalisierter Wochentag (z.B. &apos;Montag&apos; bis &apos;Sonntag&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;Monat als Zahl ohne führende Null (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;Monat als Zahl mit führender Null (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;Lokalisierte Abkürzung des Monats (z.B. &apos;Jan&apos; bis &apos;Dez&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;Lokalisierter Monat (z.B. &apos;Januar&apos; bis &apos;Dezember&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;Jahr in zwei Ziffern (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;Jahr in vier Ziffern&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23 oder 1 bis 12 in der AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23 oder 01 bis 12 in der AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23, auch bei AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23, auch bei AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Minute ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Minute mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Sekunde ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Sekunde mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;Millisekunde ohne führende Nullen (0 bis 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;Millisekunde mit führenden Nullen (000 bis 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;oder&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;für AM/PM-Darstellung. &lt;b&gt;A/AP&lt;/b&gt; wird durch &quot;AM&quot; oder &quot;PM&quot; ersetzt.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;oder&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;für am/pm-Darstellung. &lt;b&gt;a/ap&lt;/b&gt; wird durch &quot;am&quot; oder &quot;pm&quot; ersetzt.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Zeitzone (z.B. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Zeitverschiebung gegenüber UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;IANA-ID der Zeitzone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;Abkürzung der Zeitzone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Kurzer Name der Zeitzone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Langer Name der Zeitzone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Individualisierter Zeitzonenname. Er kann in der Karteikarte &quot;Zeitzonen&quot; im Konfigurationsfenster geändert werden.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Anmerkungen:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Jeder Buchstabe, der nicht zum Bereich [&apos;a&apos;..&apos;z&apos;] und [&apos;A&apos;..&apos;Z&apos;] gehört, wird buchstäblich angezeigt. Beispielsweise werden Zeichen wie &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; genau so im Text auftauchen, auch wenn sie ohne Hochkommas geschrieben sind. Hochkommas werden benutzt, um Buchstaben von der Interpretation auszuschließen. Zwei Hochkommas nacheinander werden als ein Hochkomma wiedergegegeben. &lt;/li&gt;&lt;li&gt;Kürzeste Aktualisierungszeit ist eine Sekunde. Auch Millisekundenwerte werden nicht häufiger als einmal pro Sekunde aktualisiert, um den Rechenbedarf moderat zu halten.&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>

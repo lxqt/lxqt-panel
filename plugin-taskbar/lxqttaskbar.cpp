@@ -575,7 +575,7 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
 
     // create temporary list of visible groups in the same order like on the layout
     QList<LXQtTaskGroup*> list;
-    LXQtTaskGroup *group = NULL;
+    LXQtTaskGroup *group = nullptr;
     for (int i = 0; i < mLayout->count(); i++)
     {
         QWidget * o = mLayout->itemAt(i)->widget();
@@ -595,7 +595,7 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
     if (!group)
         group = list.at(0);
 
-    LXQtTaskButton *button = NULL;
+    LXQtTaskButton *button = nullptr;
 
     // switching between groups from temporary list in modulo addressing
     while (!button)
@@ -626,7 +626,7 @@ void LXQtTaskBar::changeEvent(QEvent* event)
     // if current style is changed, reset the base style of the proxy style
     // so we can apply the new style correctly to task buttons.
     if(event->type() == QEvent::StyleChange)
-        mStyle->setBaseStyle(NULL);
+        mStyle->setBaseStyle(nullptr);
 
     QFrame::changeEvent(event);
 }

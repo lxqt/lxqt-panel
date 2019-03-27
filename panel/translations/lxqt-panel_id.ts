@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Tambah Pengaya</translation>
+        <translation>Tambah Plugin</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(hanya satu pengaya yang dapat berjalan pada satu waktu)</translation>
+        <translation>(hanya satu instansi yang dapat berjalan pada satu waktu)</translation>
     </message>
 </context>
 <context>
@@ -219,7 +219,7 @@ Warnai ikon berdasarkan gaya widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation>Ganti tema ikon</translation>
+        <translation>Ganti &amp;tema ikon</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
@@ -229,7 +229,7 @@ Warnai ikon berdasarkan gaya widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation>Panjajaran:</translation>
+        <translation>Penjajaran:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>

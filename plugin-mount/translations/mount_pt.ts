@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Definições de Discos amovíveis</translation>
+        <translation>Definições de discos amovíveis</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ao conectar um dispositivo:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>

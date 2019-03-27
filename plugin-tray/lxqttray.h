@@ -53,7 +53,7 @@ class LXQtTray: public QFrame, QAbstractNativeEventFilter
     Q_OBJECT
     Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize)
 public:
-    LXQtTray(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    LXQtTray(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~LXQtTray();
 
 

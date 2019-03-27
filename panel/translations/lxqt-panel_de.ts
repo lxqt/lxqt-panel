@@ -103,7 +103,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;utomatisch ausblenden</translation>
+        <translation>Automatisch ausblenden</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>

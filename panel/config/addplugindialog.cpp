@@ -132,4 +132,3 @@ void AddPluginDialog::emitPluginSelected()
         emit pluginSelected(plugin);
     }
 }
-

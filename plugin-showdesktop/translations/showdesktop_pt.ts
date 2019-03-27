@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Tecla de atalho global: &apos;%1&apos; não pode ser registada</translation>
+        <translation>Mostrar área de trabalho: o atalho global &apos;%1&apos; não pode ser registado</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>

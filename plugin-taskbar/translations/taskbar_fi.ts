@@ -6,7 +6,8 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>
+Aktivoi tehtävä %1</translation>
     </message>
 </context>
 <context>
@@ -155,7 +156,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihda ikkunoita hiirenrullaa pyörittämällä</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>

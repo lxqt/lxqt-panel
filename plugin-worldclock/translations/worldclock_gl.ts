@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración do formato manual do reloxo mundial</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -286,7 +286,7 @@
 </source>
         <translation>&lt;h1&gt;Formato personalizado da data/hora&lt;/h1&gt;
 &lt;p&gt;Un patrón de data é unha cadea de caracteres, onde as cadeas específicas de caracteres substitúense por datos de data e hora dun calendario cando se formatan ou se utilizan para xerar datos para un calendario ao seren procesadas.&lt;/p&gt;
-&lt;p&gt;A táboa de símbolos de campos de data de embaixo contén os caracteres usados en patróns para amosar os formatos apropiados para unha configuración rexional dada, tales como «yyyy» para o ano. Os caracteres poden usarse varias veces. Por exemplo, usándose «y» para o ano, «yy» da como resultado «99», mentres que «yyyy» daría como resultado «1999». Para a maioría de campos numéricos, o número de caracteres especifica o largo do campo. Por exemplo, sendo «h» a hora, «h» da como resultado «5», mais «hh» resultaría seren «05». Para algúns caracteres, o seu número especifica se debe usarse un formato abreviado ou completo, aínda que poden ter outras opcións, como se amosa embaixo.&lt;/p&gt;
+&lt;p&gt;A táboa de símbolos de campos de data de embaixo contén os caracteres usados en patróns para amosar os formatos apropiados para unha configuración rexional dada, tales como «yyyy» para o ano. Os caracteres poden usarse varias veces. Por exemplo, usándose «y» para o ano, «yy» da como resultado «99», mentres que «yyyy» daría como resultado «1999». Para a maioría de campos numéricos, o número de caracteres especifica o largo do campo. Por exemplo, sendo «h» a hora, «h» da como resultado «5», mais «hh» resultaría ser «05». Para algúns caracteres, o seu número especifica se debe usarse un formato abreviado ou completo, aínda que poden ter outras opcións, como se amosa embaixo.&lt;/p&gt;
 &lt;p&gt;Dúas comiñas simples representan unha comiña literal única, tanto dentro como fora de comiñas simples. O texto entre comiñas simples non se interpreta de ningunha forma (salvo que sexan dúas comiñas simples xuntas). Por outra banda, todas as letras do código ASCII da «a» ata a «z» e da «A» ata a «Z» están reservadas como caracteres sintácticos, e deben entrecomiñarse se se queren representar literalmente. Ademais, algúns caracteres de puntuación do código ASCII poden variar o futuro (p. ex., que «:» se interprete como separador en horas e «/» como separador de datas, e que se substitúan por caracteres axustados á configuración rexional ao seren representados).&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
 &lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Significado&lt;/th&gt;&lt;/tr&gt;

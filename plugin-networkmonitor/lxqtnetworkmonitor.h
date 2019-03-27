@@ -38,7 +38,7 @@ class LXQtNetworkMonitor: public QFrame
 {
     Q_OBJECT
 public:
-    LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~LXQtNetworkMonitor();
     virtual void settingsChanged();
 

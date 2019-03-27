@@ -60,7 +60,7 @@ public:
     { return "org.kde.StatusNotifierItem"; }
 
 public:
-    StatusNotifierItemInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    StatusNotifierItemInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = nullptr);
 
     ~StatusNotifierItemInterface();
 

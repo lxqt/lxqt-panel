@@ -55,7 +55,7 @@ class LXQtQuickLaunch : public QFrame
     Q_OBJECT
 
 public:
-    LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent = 0);
+    LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
     ~LXQtQuickLaunch();
 
     int indexOfButton(QuickLaunchButton* button) const;

@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>Antarmuka &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Antarmuka jaringan &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="162"/>

@@ -14,7 +14,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Paramètrage du menu des répertoires</translation>
+        <translation>Paramétrage du menu des répertoires</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Echec du chargement de l&apos;icône.</translation>
+        <translation>Une erreur s&apos;est produite lors du chargement de l&apos;icône.</translation>
     </message>
 </context>
 </TS>

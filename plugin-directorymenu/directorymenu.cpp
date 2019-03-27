@@ -30,6 +30,8 @@
 #include "directorymenu.h"
 #include <QDebug>
 #include <QDesktopServices>
+#include <QProcess>
+#include <QStringList>
 #include <QFileInfo>
 #include <QUrl>
 #include <QIcon>
@@ -43,6 +45,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mDefaultIcon(XdgIcon::fromTheme("folder"))
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);
+    mOpenTerminalSignalMapper = new QSignalMapper(this);
     mMenuSignalMapper = new QSignalMapper(this);
 
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -51,6 +54,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
     connect(mOpenDirectorySignalMapper, SIGNAL(mapped(QString)), this, SLOT(openDirectory(QString)));
+    connect(mOpenTerminalSignalMapper, SIGNAL(mapped(QString)), this, SLOT(openInTerminal(QString)));
     connect(mMenuSignalMapper, SIGNAL(mapped(QString)), this, SLOT(addMenu(QString)));
 
     settingsChanged();
@@ -58,11 +62,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
 DirectoryMenu::~DirectoryMenu()
 {
-    if(mMenu)
-    {
-        delete mMenu;
-        mMenu = 0;
-    }
+    delete mMenu;
 }
 
 void DirectoryMenu::showMenu()
@@ -84,11 +84,7 @@ void DirectoryMenu::showMenu()
 
 void DirectoryMenu::buildMenu(const QString& path)
 {
-    if(mMenu)
-    {
-        delete mMenu;
-        mMenu = 0;
-    }
+    delete mMenu;
 
     mPathStrings.clear();
 
@@ -100,6 +96,15 @@ void DirectoryMenu::buildMenu(const QString& path)
 void DirectoryMenu::openDirectory(const QString& path)
 {
     QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
+}
+
+void DirectoryMenu::openInTerminal(const QString& path)
+{
+    // Create list of arguments
+    QStringList args;
+    args << "--workdir" << QDir::toNativeSeparators(path);
+    // Execute the default terminal program with arguments
+    QProcess::startDetached(mDefaultTerminal, args);
 }
 
 void DirectoryMenu::addMenu(QString path)
@@ -120,6 +125,10 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
     QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open"));
     connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
     mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
+
+    QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme("folder"), tr("Open in terminal"));
+    connect(openTerminalAction, SIGNAL(triggered()), mOpenTerminalSignalMapper, SLOT(map()));
+    mOpenTerminalSignalMapper->setMapping(openTerminalAction, mPathStrings.back());
 
     menu->addSeparator();
 
@@ -163,4 +172,7 @@ void DirectoryMenu::settingsChanged()
     }
 
     mButton.setIcon(mDefaultIcon);
+
+    // Set default terminal
+    mDefaultTerminal = settings()->value("defaultTerminal", QString()).toString();
 }

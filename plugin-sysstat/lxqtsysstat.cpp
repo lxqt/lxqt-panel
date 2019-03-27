@@ -115,7 +115,7 @@ bool LXQtSysStatTitle::event(QEvent *e)
 LXQtSysStatContent::LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent):
     QWidget(parent),
     mPlugin(plugin),
-    mStat(NULL),
+    mStat(nullptr),
     mUpdateInterval(0),
     mMinimalSize(0),
     mTitleFontPixelHeight(0),

@@ -58,6 +58,7 @@ public:
 private slots:
     void showMenu();
     void openDirectory(const QString& path);
+    void openInTerminal(const QString &path);
     void addMenu(QString path);
 
 protected slots:
@@ -69,11 +70,13 @@ private:
     QToolButton mButton;
     QMenu *mMenu;
     QSignalMapper *mOpenDirectorySignalMapper;
+    QSignalMapper *mOpenTerminalSignalMapper; // New singal mapper to opening direcotry in term
     QSignalMapper *mMenuSignalMapper;
 
     QDir mBaseDirectory;
     QIcon mDefaultIcon;
     std::vector<QString> mPathStrings;
+    QString mDefaultTerminal;
 };
 
 class DirectoryMenuLibrary: public QObject, public ILXQtPanelPluginLibrary
