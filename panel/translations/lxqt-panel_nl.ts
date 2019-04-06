@@ -93,7 +93,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Symbolgröße:</translation>
+        <translation>Pictogramgrootte:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
