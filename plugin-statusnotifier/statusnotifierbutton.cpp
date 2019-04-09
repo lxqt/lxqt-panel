@@ -253,7 +253,7 @@ void StatusNotifierButton::newStatus(QString status)
     resetIcon();
 }
 
-void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* event)
+void StatusNotifierButton::contextMenuEvent(QContextMenuEvent* /*event*/)
 {
     //XXX: avoid showing of parent's context menu, we are (optionaly) providing context menu on mouseReleaseEvent
     //QWidget::contextMenuEvent(event);

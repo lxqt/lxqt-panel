@@ -118,7 +118,7 @@ double LXQtCpuLoad::getLoadCpu() const
     return (cur->user + cur->kernel + cur->nice);
 }
 
-void LXQtCpuLoad::timerEvent(QTimerEvent *event)
+void LXQtCpuLoad::timerEvent(QTimerEvent * /*event*/)
 {
     double avg = getLoadCpu();
     if ( qAbs(m_avg-avg)>1 )

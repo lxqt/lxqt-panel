@@ -157,7 +157,7 @@ public:
 
     The default implementation do nothing.
      **/
-    virtual void activated(ActivationReason reason) {}
+    virtual void activated(ActivationReason /*reason*/) {}
 
     /**
     This function is called when the panel geometry or lines count are changed.

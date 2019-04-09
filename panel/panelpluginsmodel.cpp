@@ -86,7 +86,7 @@ QVariant PanelPluginsModel::data(const QModelIndex & index, int role/* = Qt::Dis
     return ret;
 }
 
-Qt::ItemFlags PanelPluginsModel::flags(const QModelIndex & index) const
+Qt::ItemFlags PanelPluginsModel::flags(const QModelIndex & /*index*/) const
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
 }

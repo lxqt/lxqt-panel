@@ -105,12 +105,12 @@ bool VolumePopup::eventFilter(QObject * watched, QEvent * event)
     return QDialog::eventFilter(watched, event);
 }
 
-void VolumePopup::enterEvent(QEvent *event)
+void VolumePopup::enterEvent(QEvent * /*event*/)
 {
     emit mouseEntered();
 }
 
-void VolumePopup::leaveEvent(QEvent *event)
+void VolumePopup::leaveEvent(QEvent * /*event*/)
 {
     // qDebug("leaveEvent");
     emit mouseLeft();

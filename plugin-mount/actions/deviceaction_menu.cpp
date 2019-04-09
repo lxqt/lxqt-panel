@@ -39,12 +39,12 @@ DeviceActionMenu::DeviceActionMenu(LXQtMountPlugin *plugin, QObject *parent):
     connect(&mHideTimer, &QTimer::timeout, mPopup, &Popup::hide);
 }
 
-void DeviceActionMenu::doDeviceAdded(Solid::Device device)
+void DeviceActionMenu::doDeviceAdded(Solid::Device /*device*/)
 {
     mHideTimer.start();
     mPopup->show();
 }
 
-void DeviceActionMenu::doDeviceRemoved(Solid::Device device)
+void DeviceActionMenu::doDeviceRemoved(Solid::Device /*device*/)
 {
 }

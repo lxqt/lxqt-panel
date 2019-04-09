@@ -113,7 +113,7 @@ void OssEngine::commitDeviceVolume(AudioDevice *device)
     setVolume(device->volume());
 }
 
-void OssEngine::setMute(AudioDevice *device, bool state)
+void OssEngine::setMute(AudioDevice * /*device*/, bool state)
 {
   if(state)
       setVolume(0);
@@ -121,7 +121,7 @@ void OssEngine::setMute(AudioDevice *device, bool state)
       setVolume(m_leftVolume);
 }
 
-void OssEngine::setIgnoreMaxVolume(bool ignore)
+void OssEngine::setIgnoreMaxVolume(bool /*ignore*/)
 {
   // TODO
 }

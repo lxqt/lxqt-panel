@@ -79,7 +79,7 @@ void LXQtNetworkMonitor::resizeEvent(QResizeEvent *)
 }
 
 
-void LXQtNetworkMonitor::timerEvent(QTimerEvent *event)
+void LXQtNetworkMonitor::timerEvent(QTimerEvent * /*event*/)
 {
     bool matched = false;
 

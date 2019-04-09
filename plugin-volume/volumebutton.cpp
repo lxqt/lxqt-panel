@@ -88,7 +88,7 @@ void VolumeButton::setMixerCommand(const QString &command)
     m_mixerCommand = command;
 }
 
-void VolumeButton::enterEvent(QEvent *event)
+void VolumeButton::enterEvent(QEvent * /*event*/)
 {
     if (!m_showOnClick)
         showVolumeSlider();
@@ -110,7 +110,7 @@ void VolumeButton::mouseMoveEvent(QMouseEvent *event)
     QToolButton::mouseMoveEvent(event);
 }
 
-void VolumeButton::leaveEvent(QEvent *event)
+void VolumeButton::leaveEvent(QEvent * /*event*/)
 {
     m_popupHideTimer.start();
 }

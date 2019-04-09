@@ -71,7 +71,7 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
 
     connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::onMounted);
     connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::onUnmounted);
-    connect(iface, &Solid::StorageAccess::accessibilityChanged, [this] (bool accessible, QString const &) {
+    connect(iface, &Solid::StorageAccess::accessibilityChanged, [this] (bool /*accessible*/, QString const &) {
         updateMountStatus();
     });
 
@@ -142,7 +142,7 @@ void MenuDiskItem::ejectButtonClicked()
     mPopup->hide();
 }
 
-void MenuDiskItem::onMounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
+void MenuDiskItem::onMounted(Solid::ErrorType error, QVariant resultData, const QString & /*udi*/)
 {
     if (mDiskButtonClicked)
     {
@@ -159,7 +159,7 @@ void MenuDiskItem::onMounted(Solid::ErrorType error, QVariant resultData, const 
     }
 }
 
-void MenuDiskItem::onUnmounted(Solid::ErrorType error, QVariant resultData, const QString &udi)
+void MenuDiskItem::onUnmounted(Solid::ErrorType error, QVariant resultData, const QString & /*udi*/)
 {
     if (mEjectButtonClicked)
     {

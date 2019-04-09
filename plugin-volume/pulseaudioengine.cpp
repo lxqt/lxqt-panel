@@ -57,7 +57,11 @@ static void sinkInfoCallback(pa_context *context, const pa_sink_info *info, int 
     pulseEngine->addOrUpdateSink(info);
 }
 
-static void contextEventCallback(pa_context *context, const char *name, pa_proplist *p, void *userdata)
+static void contextEventCallback(pa_context * /*context*/, const char *
+#ifdef PULSEAUDIO_ENGINE_DEBUG
+        name
+#endif
+        , pa_proplist * /*p*/, void * /*userdata*/)
 {
 #ifdef PULSEAUDIO_ENGINE_DEBUG
     qWarning("event received %s", name);
@@ -113,7 +117,7 @@ static void contextSuccessCallback(pa_context *context, int success, void *userd
     pa_threaded_mainloop_signal(pulseEngine->mainloop(), 0);
 }
 
-static void contextSubscriptionCallback(pa_context *context, pa_subscription_event_type_t t, uint32_t idx, void *userdata)
+static void contextSubscriptionCallback(pa_context * /*context*/, pa_subscription_event_type_t t, uint32_t idx, void *userdata)
 {
     PulseAudioEngine *pulseEngine = reinterpret_cast<PulseAudioEngine*>(userdata);
     if (PA_SUBSCRIPTION_EVENT_REMOVE == t)

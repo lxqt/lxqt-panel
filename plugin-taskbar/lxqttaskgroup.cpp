@@ -206,7 +206,7 @@ void LXQtTaskGroup::onActiveWindowChanged(WId window)
 /************************************************
 
  ************************************************/
-void LXQtTaskGroup::onDesktopChanged(int number)
+void LXQtTaskGroup::onDesktopChanged(int /*number*/)
 {
     refreshVisibility();
 }

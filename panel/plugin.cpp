@@ -350,7 +350,7 @@ void Plugin::saveSettings()
 /************************************************
 
  ************************************************/
-void Plugin::contextMenuEvent(QContextMenuEvent *event)
+void Plugin::contextMenuEvent(QContextMenuEvent * /*event*/)
 {
     mPanel->showPopupMenu(this);
 }
@@ -450,7 +450,7 @@ bool Plugin::isExpandable() const
 /************************************************
 
  ************************************************/
-bool Plugin::eventFilter(QObject * watched, QEvent * event)
+bool Plugin::eventFilter(QObject * /*watched*/, QEvent * event)
 {
     switch (event->type())
     {

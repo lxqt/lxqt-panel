@@ -131,7 +131,7 @@ void LXQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
 /************************************************
  *
  ************************************************/
-void LXQtGroupPopup::leaveEvent(QEvent *event)
+void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 {
     mCloseTimer.start();
 }
@@ -139,12 +139,12 @@ void LXQtGroupPopup::leaveEvent(QEvent *event)
 /************************************************
  *
  ************************************************/
-void LXQtGroupPopup::enterEvent(QEvent *event)
+void LXQtGroupPopup::enterEvent(QEvent * /*event*/)
 {
     mCloseTimer.stop();
 }
 
-void LXQtGroupPopup::paintEvent(QPaintEvent *event)
+void LXQtGroupPopup::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter p(this);
     QStyleOption opt;

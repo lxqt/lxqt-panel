@@ -44,7 +44,10 @@ bool WindowNotifier::eventFilter(QObject * watched, QEvent * event)
     {
         case QEvent::Close:
             watched->removeEventFilter(this);
-            //no break
+#if __cplusplus >= 201703L
+            [[fallthrough]];
+#endif
+            // fall through
         case QEvent::Hide:
             Q_ASSERT(mShownWindows.end() != it);
             mShownWindows.erase(it);

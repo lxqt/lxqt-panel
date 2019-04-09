@@ -109,7 +109,7 @@ void DesktopSwitch::shortcutRegistered()
     }
 }
 
-void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2)
+void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Properties2 /*properties2*/)
 {
     if (properties.testFlag(NET::WMState) && isWindowHighlightable(id))
     {

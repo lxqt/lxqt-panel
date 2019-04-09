@@ -1041,7 +1041,10 @@ bool LXQtPanel::event(QEvent *event)
     case QEvent::DragEnter:
         dynamic_cast<QDropEvent *>(event)->setDropAction(Qt::IgnoreAction);
         event->accept();
-        //no break intentionally
+#if __cplusplus >= 201703L
+        [[fallthrough]];
+#endif
+        // fall through
     case QEvent::Enter:
         mShowDelayTimer.start();
         break;

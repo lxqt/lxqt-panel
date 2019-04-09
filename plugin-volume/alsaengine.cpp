@@ -35,7 +35,7 @@
 
 AlsaEngine *AlsaEngine::m_instance = 0;
 
-static int alsa_elem_event_callback(snd_mixer_elem_t *elem, unsigned int mask)
+static int alsa_elem_event_callback(snd_mixer_elem_t *elem, unsigned int /*mask*/)
 {
     AlsaEngine *engine = AlsaEngine::instance();
     if (engine)
@@ -44,7 +44,7 @@ static int alsa_elem_event_callback(snd_mixer_elem_t *elem, unsigned int mask)
     return 0;
 }
 
-static int alsa_mixer_event_callback(snd_mixer_t *mixer, unsigned int mask, snd_mixer_elem_t *elem)
+static int alsa_mixer_event_callback(snd_mixer_t * /*mixer*/, unsigned int /*mask*/, snd_mixer_elem_t * /*elem*/)
 {
     return 0;
 }

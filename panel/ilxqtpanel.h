@@ -49,6 +49,8 @@ public:
         PositionRight   //!< The right side of the screen.
     };
 
+    virtual ~ILXQtPanel() { }
+
     /**
      * @brief Returns the position of the panel. Possible values for the
      * return value are described by the Position enum.

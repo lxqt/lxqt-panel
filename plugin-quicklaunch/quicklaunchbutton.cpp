@@ -91,7 +91,7 @@ QHash<QString,QString> QuickLaunchButton::settingsMap()
 }
 
 
-void QuickLaunchButton::this_customContextMenuRequested(const QPoint & pos)
+void QuickLaunchButton::this_customContextMenuRequested(const QPoint & /*pos*/)
 {
     LXQtQuickLaunch *panel = qobject_cast<LXQtQuickLaunch*>(parent());
 

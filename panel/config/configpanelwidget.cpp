@@ -280,7 +280,7 @@ void ConfigPanelWidget::updateIconThemeSettings()
 void ConfigPanelWidget::addPosition(const QString& name, int screen, LXQtPanel::Position position)
 {
     if (LXQtPanel::canPlacedOn(screen, position))
-        ui->comboBox_position->addItem(name, QVariant::fromValue((ScreenPosition){screen, position}));
+        ui->comboBox_position->addItem(name, QVariant::fromValue(ScreenPosition{screen, position}));
 }
 
 
