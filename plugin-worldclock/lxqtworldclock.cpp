@@ -571,6 +571,8 @@ void LXQtWorldClock::realign()
         }
     else
         mRotatedWidget->setOrigin(Qt::TopLeftCorner);
+    if (mContent->size() != mContent->sizeHint())
+        mRotatedWidget->adjustContentSize();
 }
 
 ActiveLabel::ActiveLabel(QWidget *parent) :
