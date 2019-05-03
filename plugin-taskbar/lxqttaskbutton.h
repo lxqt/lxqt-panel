@@ -103,6 +103,7 @@ public slots:
     void updateIcon();
 
 protected:
+    virtual void changeEvent(QEvent *event);
     virtual void dragEnterEvent(QDragEnterEvent *event);
     virtual void dragMoveEvent(QDragMoveEvent * event);
     virtual void dragLeaveEvent(QDragLeaveEvent *event);
@@ -128,6 +129,7 @@ private:
     bool mDrawPixmap;
     LXQtTaskBar * mParentTaskBar;
     ILXQtPanelPlugin * mPlugin;
+    int mIconSize;
 
     // Timer for when draggind something into a button (the button's window
     // must be activated so that the use can continue dragging to the window
