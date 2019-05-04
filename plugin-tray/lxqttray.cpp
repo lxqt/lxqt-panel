@@ -394,7 +394,24 @@ void LXQtTray::addIcon(Window winId)
 
     icon = new TrayIcon(winId, mIconSize, this);
     mIcons.append(icon);
+
+    QString name = icon->appName();
+    int insertIdx = mLayout->count();
+    int moveToIdx;
+
+    // insert the icon sorted alphabetically, so that icons show up in a
+    // predictable order (otherwise it varies depending on startup times)
+    for (moveToIdx = 0; moveToIdx < insertIdx; moveToIdx++)
+    {
+        auto layoutItem = mLayout->itemAt(moveToIdx);
+        auto existingIcon = static_cast<TrayIcon *>(layoutItem->widget());
+        if (name < existingIcon->appName())
+            break;
+    }
+
     mLayout->addWidget(icon);
+    mLayout->moveItem(insertIdx, moveToIdx);
+
     connect(icon, &QObject::destroyed, this, &LXQtTray::onIconDestroyed);
 }
 
