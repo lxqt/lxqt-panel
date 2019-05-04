@@ -36,7 +36,7 @@
 MenuStyle::MenuStyle():
     QProxyStyle()
 {
-    mIconSize = 16;
+    mIconSize = DEFAULT_ICON_SIZE;
 }
 
 
@@ -45,7 +45,7 @@ MenuStyle::MenuStyle():
  ************************************************/
 int MenuStyle::pixelMetric(PixelMetric metric, const QStyleOption * option, const QWidget * widget) const
 {
-    if (metric == QProxyStyle::PM_SmallIconSize)
+    if (metric == QStyle::PM_SmallIconSize && mIconSize != DEFAULT_ICON_SIZE)
         return mIconSize;
 
     return QProxyStyle::pixelMetric(metric, option, widget);

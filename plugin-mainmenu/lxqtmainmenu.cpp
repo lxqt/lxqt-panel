@@ -435,7 +435,9 @@ void LXQtMainMenu::setMenuFontSize()
         return;
 
     QFont menuFont = mButton.font();
-    if(settings()->value("customFont", false).toBool())
+    bool customFont = settings()->value("customFont", false).toBool();
+
+    if(customFont)
     {
         menuFont = mMenu->font();
         menuFont.setPointSize(settings()->value("customFontSize").toInt());
@@ -453,9 +455,15 @@ void LXQtMainMenu::setMenuFontSize()
         mSearchView->setFont(menuFont);
     }
 
-    //icon size the same as the font height
-    const int icon_size = QFontMetrics(menuFont).height();
+    // icon size the same as the font height if a custom font is selected,
+    // otherwise use the default size
+    int icon_size = (customFont ? QFontMetrics(menuFont).height()
+                                : MenuStyle::DEFAULT_ICON_SIZE);
     mTopMenuStyle.setIconSize(icon_size);
+
+    // get the size back from the style (this will resolve DEFAULT_ICON_SIZE
+    // to an actual pixel size if necessary)
+    icon_size = mTopMenuStyle.pixelMetric(QStyle::PM_SmallIconSize);
     mSearchView->setIconSize(QSize{icon_size, icon_size});
 }
 

@@ -35,6 +35,9 @@ class MenuStyle : public QProxyStyle
 {
     Q_OBJECT
 public:
+    // reserved value which gets the icon size from the parent style
+    static constexpr int DEFAULT_ICON_SIZE = -1;
+
     explicit MenuStyle();
     int pixelMetric(PixelMetric metric, const QStyleOption * option = 0, const QWidget * widget = 0 ) const;
     int styleHint(StyleHint hint, const QStyleOption* option = 0, const QWidget* widget = 0, QStyleHintReturn* returnData = 0) const;
