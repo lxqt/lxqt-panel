@@ -77,6 +77,7 @@ LXQtTray::LXQtTray(ILXQtPanelPlugin *plugin, QWidget *parent):
     mDisplay(QX11Info::display())
 {
     mLayout = new LXQt::GridLayout(this);
+    mLayout->setSpacing((TRAY_ICON_SIZE_DEFAULT + 4) / 8);
     realign();
     _NET_SYSTEM_TRAY_OPCODE = XfitMan::atom("_NET_SYSTEM_TRAY_OPCODE");
     // Init the selection later just to ensure that no signals are sent until
@@ -228,6 +229,7 @@ void LXQtTray::setIconSize(QSize iconSize)
 {
     mIconSize = iconSize;
     unsigned long size = qMin(mIconSize.width(), mIconSize.height());
+    mLayout->setSpacing(((int)size + 4) / 8);
     XChangeProperty(mDisplay,
                     mTrayId,
                     XfitMan::atom("_NET_SYSTEM_TRAY_ICON_SIZE"),
