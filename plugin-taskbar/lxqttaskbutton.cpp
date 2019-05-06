@@ -136,7 +136,12 @@ void LXQtTaskButton::updateIcon()
     }
     if (ico.isNull())
     {
-        ico = KWindowSystem::icon(mWindow, mIconSize, mIconSize);
+#if QT_VERSION >= 0x050600
+        int devicePixels = mIconSize * devicePixelRatioF();
+#else
+        int devicePixels = mIconSize * devicePixelRatio();
+#endif
+        ico = KWindowSystem::icon(mWindow, devicePixels, devicePixels);
     }
     setIcon(ico.isNull() ? XdgIcon::defaultApplicationIcon() : ico);
 }
