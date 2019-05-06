@@ -75,7 +75,6 @@ private:
     QMenu *mMenu;
     Status mStatus;
 
-    QString mThemePath;
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 
     ILXQtPanelPlugin* mPlugin;
@@ -85,7 +84,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
 
-    void refetchIcon(Status status);
+    void refetchIcon(Status status, const QString& themePath);
     void resetIcon();
 };
 

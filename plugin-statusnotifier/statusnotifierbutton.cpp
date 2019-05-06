@@ -83,11 +83,10 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     });
 
     interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
-        mThemePath = value;
         //do the logic of icons after we've got the theme path
-        refetchIcon(Active);
-        refetchIcon(Passive);
-        refetchIcon(NeedsAttention);
+        refetchIcon(Active, value);
+        refetchIcon(Passive, value);
+        refetchIcon(NeedsAttention, value);
     });
 
     newToolTip();
@@ -100,20 +99,26 @@ StatusNotifierButton::~StatusNotifierButton()
 
 void StatusNotifierButton::newIcon()
 {
-    refetchIcon(Passive);
+    interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
+        refetchIcon(Passive, value);
+    });
 }
 
 void StatusNotifierButton::newOverlayIcon()
 {
-    refetchIcon(Active);
+    interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
+        refetchIcon(Active, value);
+    });
 }
 
 void StatusNotifierButton::newAttentionIcon()
 {
-    refetchIcon(NeedsAttention);
+    interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
+        refetchIcon(NeedsAttention, value);
+    });
 }
 
-void StatusNotifierButton::refetchIcon(Status status)
+void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
 {
     QString nameProperty, pixmapProperty;
     if (status == Active)
@@ -132,7 +137,7 @@ void StatusNotifierButton::refetchIcon(Status status)
         pixmapProperty = QLatin1String("IconPixmap");
     }
 
-    interface->propertyGetAsync(nameProperty, [this, status, pixmapProperty] (QString iconName) {
+    interface->propertyGetAsync(nameProperty, [this, status, pixmapProperty, themePath] (QString iconName) {
         QIcon nextIcon;
         if (!iconName.isEmpty())
         {
@@ -140,7 +145,7 @@ void StatusNotifierButton::refetchIcon(Status status)
                 nextIcon = QIcon::fromTheme(iconName);
             else
             {
-                QDir themeDir(mThemePath);
+                QDir themeDir(themePath);
                 if (themeDir.exists())
                 {
                     if (themeDir.exists(iconName + ".png"))
