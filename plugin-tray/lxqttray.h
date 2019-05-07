@@ -63,6 +63,7 @@ public:
     bool nativeEventFilter(const QByteArray &eventType, void *message, long *);
 
     void realign();
+    void settingsChanged();
 
 signals:
     void iconSizeChanged(int iconSize);
@@ -85,6 +86,8 @@ private:
                       long unsigned int data4 = 0) const;
 
     void addIcon(Window id);
+    void sortIcons();
+
     TrayIcon* findIcon(Window trayId);
 
     bool mValid;
