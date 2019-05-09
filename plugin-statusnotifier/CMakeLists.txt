@@ -2,6 +2,7 @@ set(PLUGIN "statusnotifier")
 
 
 find_package(dbusmenu-qt5 REQUIRED)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Concurrent)
 
 set(HEADERS
     statusnotifier.h
@@ -35,6 +36,7 @@ list(APPEND SOURCES "${DBUS_SOURCES}")
 
 set(LIBRARIES
     dbusmenu-qt5
+    Qt5::Concurrent
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
