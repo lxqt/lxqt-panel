@@ -49,8 +49,8 @@ bool WindowNotifier::eventFilter(QObject * watched, QEvent * event)
 #endif
             // fall through
         case QEvent::Hide:
-            Q_ASSERT(mShownWindows.end() != it);
-            mShownWindows.erase(it);
+            if (mShownWindows.end() != it)
+                mShownWindows.erase(it);
             if (mShownWindows.isEmpty())
                 emit lastHidden();
             break;
