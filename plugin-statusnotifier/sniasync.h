@@ -79,7 +79,7 @@ public:
                 {
                     QDBusPendingReply<QVariant> reply = *call;
                     if (reply.isError())
-                        qDebug() << "Error on DBus request:" << reply.error();
+                        qDebug().noquote().nospace() << "Error on DBus request(" << mSni.service() << ',' << mSni.path() << "): " << reply.error();
                     finished(qdbus_cast<typename std::function<typename call_signature<F>::type>::argument_type>(reply.value()));
                     call->deleteLater();
                 }
