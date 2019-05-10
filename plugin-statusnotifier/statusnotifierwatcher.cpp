@@ -40,8 +40,17 @@ StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
     qDBusRegisterMetaType<ToolTip>();
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    if (!dbus.registerService("org.kde.StatusNotifierWatcher"))
-        qDebug() << QDBusConnection::sessionBus().lastError().message();
+    switch (dbus.interface()->registerService("org.kde.StatusNotifierWatcher", QDBusConnectionInterface::QueueService).value())
+    {
+        case QDBusConnectionInterface::ServiceNotRegistered:
+            qWarning() << "StatusNotifier: unable to register service for org.kde.StatusNotifierWatcher";
+            break;
+        case QDBusConnectionInterface::ServiceQueued:
+            qWarning() << "StatusNotifier: registration of service org.kde.StatusNotifierWatcher queued, we can become primary after existing one deregisters";
+            break;
+        case QDBusConnectionInterface::ServiceRegistered:
+            break;
+    }
     if (!dbus.registerObject("/StatusNotifierWatcher", this, QDBusConnection::ExportScriptableContents))
         qDebug() << QDBusConnection::sessionBus().lastError().message();
 

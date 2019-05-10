@@ -31,6 +31,7 @@
 #include <QDebug>
 #include <QFutureWatcher>
 #include <QtConcurrent>
+#include <QDBusConnectionInterface>
 #include "../panel/ilxqtpanelplugin.h"
 
 StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent) :
@@ -57,8 +58,8 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
     QFuture<StatusNotifierWatcher *> future = QtConcurrent::run([]
         {
             QString dbusName = QString("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1);
-            if (!QDBusConnection::sessionBus().registerService(dbusName))
-                qDebug() << QDBusConnection::sessionBus().lastError().message();
+            if (QDBusConnectionInterface::ServiceNotRegistered == QDBusConnection::sessionBus().interface()->registerService(dbusName, QDBusConnectionInterface::DontQueueService))
+                qDebug() << "unable to register service for " << dbusName;
 
             StatusNotifierWatcher * watcher = new StatusNotifierWatcher;
             watcher->RegisterStatusNotifierHost(dbusName);
