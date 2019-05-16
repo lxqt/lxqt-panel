@@ -73,6 +73,7 @@ TrayIcon::TrayIcon(Window iconId, QSize const & iconSize, QWidget* parent):
     QFrame(parent),
     mIconId(iconId),
     mWindowId(0),
+    mAppName(xfitMan().getApplicationName(mIconId)),
     mIconSize(iconSize),
     mDamage(0),
     mDisplay(QX11Info::display())

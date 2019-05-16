@@ -11,6 +11,7 @@ pkg_check_modules(XDAMAGE REQUIRED xdamage)
 pkg_check_modules(XRENDER REQUIRED xrender)
 
 set(HEADERS
+    lxqttrayconfiguration.h
     lxqttrayplugin.h
     lxqttray.h
     trayicon.h
@@ -18,10 +19,15 @@ set(HEADERS
 )
 
 set(SOURCES
+    lxqttrayconfiguration.cpp
     lxqttrayplugin.cpp
     lxqttray.cpp
     trayicon.cpp
     xfitman.cpp
+)
+
+set(UIS
+    lxqttrayconfiguration.ui
 )
 
 set(LIBRARIES

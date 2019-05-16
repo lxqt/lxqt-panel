@@ -4,9 +4,9 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2013 Razor team
+ * Copyright: 2019 LXQt team
  * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *   John Lindgren <john@jlindgren.net>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,40 +25,29 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#ifndef LXQTTRAYCONFIGURATION_H
+#define LXQTTRAYCONFIGURATION_H
 
-#include "lxqttrayplugin.h"
-#include "lxqttrayconfiguration.h"
-#include "lxqttray.h"
+#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <memory>
 
-LXQtTrayPlugin::LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo) :
-    QObject(),
-    ILXQtPanelPlugin(startupInfo),
-    mWidget(new LXQtTray(this))
-{
+namespace Ui {
+    class LXQtTrayConfiguration;
 }
 
-LXQtTrayPlugin::~LXQtTrayPlugin()
+class LXQtTrayConfiguration : public LXQtPanelPluginConfigDialog
 {
-    delete mWidget;
-}
+    Q_OBJECT
 
-QWidget *LXQtTrayPlugin::widget()
-{
-    return mWidget;
-}
+public:
+    explicit LXQtTrayConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
+    ~LXQtTrayConfiguration();
 
-QDialog *LXQtTrayPlugin::configureDialog()
-{
-    return new LXQtTrayConfiguration(settings());
-}
+private slots:
+    void loadSettings() override;
 
-void LXQtTrayPlugin::realign()
-{
-    mWidget->realign();
-}
+private:
+    std::unique_ptr<Ui::LXQtTrayConfiguration> ui;
+};
 
-void LXQtTrayPlugin::settingsChanged()
-{
-    mWidget->settingsChanged();
-}
-
+#endif // LXQTTRAYCONFIGURATION_H

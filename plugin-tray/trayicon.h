@@ -50,8 +50,10 @@ public:
     TrayIcon(Window iconId, QSize const & iconSize, QWidget* parent);
     virtual ~TrayIcon();
 
-    Window iconId() { return mIconId; }
-    Window windowId() { return mWindowId; }
+    Window iconId() const { return mIconId; }
+    Window windowId() const { return mWindowId; }
+    QString appName() const { return mAppName; }
+
     void windowDestroyed(Window w);
 
     QSize iconSize() const { return mIconSize; }
@@ -68,6 +70,7 @@ private:
     QRect iconGeometry();
     Window mIconId;
     Window mWindowId;
+    QString mAppName;
     QSize mIconSize;
     Damage mDamage;
     Display* mDisplay;

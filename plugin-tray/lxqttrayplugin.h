@@ -44,8 +44,12 @@ public:
 
     virtual QWidget *widget();
     virtual QString themeId() const { return "Tray"; }
-    virtual Flags flags() const { return  PreferRightAlignment | SingleInstance | NeedsHandle; }
+    virtual Flags flags() const { return HaveConfigDialog | PreferRightAlignment | SingleInstance | NeedsHandle; }
+
+    QDialog *configureDialog();
+
     void realign();
+    void settingsChanged();
 
     bool isSeparate() const { return true; }
 
