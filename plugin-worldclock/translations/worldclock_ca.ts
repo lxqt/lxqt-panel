@@ -284,7 +284,43 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Format de data/hora personalitzat&lt;/h1&gt;
+&lt;p&gt;Un patró de data és una cadena de caràcters, on determinades cadenes de caràcters són substituïdes amb les dades de data i hora d&apos;un calendari en ser formatades o usades per a generar dades per a un calendari en ser processades.&lt;/p&gt;
+&lt;p&gt;La taula de símbols de camps de data de baix conté els caràcters usats en patrons per a mostrar els formats apropiats per a una configuració regional donada, tals com «yyyy» per a l&apos;any. Els caràcters es poden usar diverses vegades. Per exemple, si «y» s&apos;usa per a l&apos;any, «yy» pot resultar en «99», mentre que «yyyy» resultaria en «1999». Per a la majoria de camps numèrics, el nombre de caràcters especifica l&apos;ample del camp. Per exemple, si «h» és l&apos;hora, «h» pot resultar en «5», però «hh» resultaria en «05». Per a alguns caràcters, el seu número especifica si s&apos;ha d&apos;usar un format abreujat o complet, encara que poden tenir altres opcions, com es mostra a baix.&lt;/p&gt;
+&lt;p&gt;Dues cometes simples representen una cometa simple literal, tant dins com fora de cometes simples. El text entre cometes simples no s&apos;interpreta de cap manera (tret que siguin dues cometes simples juntes). D&apos;altra banda, totes les lletres del codi ASCII de la «a» a la «z» i de la «A» a la «Z» estan reservades com a caràcters sintàctics, i s&apos;ha de posar entre cometes si es volen representar literalment. A més, alguns caràcters de puntuació del codi ASCII poden variar en el futur (p. ex., que «:» s&apos;interpreti com a separador en hores i «/» com a separador de dates, i que se substitueixin per caràcters ajustats a la configuració regional en ser representats).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Codi&lt;/th&gt;&lt;th&gt;Significat&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;el dia com un número sense zero de farciment (1 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;el dia com un número amb zero de farciment (01 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;el nom abreujat del dia en la configuració regional (p. ex. &apos;Dll&apos; a &apos;Dmg&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;el nom complet del dia en la configuració regional (p. ex. &apos;Dilluns&apos; a &apos;Diumenge&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;el mes com un número sense zero de farciment (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;el mes com un número amb zero de farciment (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;el nom abreujat del mes en la configuració regional (p. ex. &apos;Gen&apos; a &apos;Des&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;el nom complet del mes en la configuració regional (p. ex. &apos;Gener&apos; a &apos;Desembre&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;l&apos;any com un número de dos dígits (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;l&apos;any com un número de quatre dígits&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;l&apos;hora sense zero de farciment (0 a 23 o 1 a 12 en format AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;l&apos;hora amb zero de farciment (00 a 23 o 01 a 12 en format AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;l&apos;hora sense zero de farciment (0 a 23, fins i tot en format AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;l&apos;hora amb zero de farciment (00 a 23, fins i tot en format AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;el minut sense zero de farciment (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;el minut amb zero de farciment (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt; el segon sense zero de farciment (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;el segon amb zero de farciment (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;els mil·lisegons sense zeros de farciment (0 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;els mil·lisegons amb zeros de farciment (000 a 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;o&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;usa el format AM/PM. &lt;b&gt;A/AP&lt;/b&gt; se substituiran per &quot;AM&quot; o &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;o&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;usa el format am/*pm. &lt;b&gt;a/ap&lt;/b&gt; se substituiran per &quot;am&quot; o &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;la zona horària (p. ex. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;el desfasament respecte UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;l&apos;identificador de zona horària de la IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;la forma abreujada de la zona horària&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;el nom curt de la zona horària&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;el nom complet de la zona horària&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;el nom personalitzat de la zona horària. Pot canviar-ho en la pestanya «Zones horàries» de la finestra de configuració&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Qualsevol dels caràcters del patró que no estigui en els rangs [&apos;a&apos;..&apos;z&apos;] i [&apos;A&apos;..&apos;Z&apos;] es tracta com un text entre cometes. Per exemple, caràcters com &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; i &apos;@&apos; apareixen en el text resultant de l&apos;hora fins i tot si no estan entre cometes simples. La cometa simple s&apos;usa per canviar el significat especial de les lletres. Dues cometes simples seguides, tant dins com fora d&apos;una seqüència entre cometes, representen una cometa simple «real».&lt;/li&gt;&lt;li&gt;L&apos;interval mínim d&apos;actualització és d&apos;1 segon. Si s&apos;usa «z» o «zzz», l&apos;hora mostra els mil·lisegons, però no s&apos;actualitza cada mil·lisegon (per a evitar problemes de rendiment).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
