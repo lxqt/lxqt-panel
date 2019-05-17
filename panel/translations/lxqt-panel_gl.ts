@@ -103,7 +103,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>Agachar a&amp;utomaticamente</translation>
+        <translation>Agochar a&amp;utomaticamente</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
