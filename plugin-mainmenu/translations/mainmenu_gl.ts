@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
-        <translation>Amosar/agachar o menú principal</translation>
+        <translation>Amosar/agochar o menú principal</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>Agachar as entradas do menú nas buscas</translation>
+        <translation>Agochar as entradas do menú nas buscas</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
