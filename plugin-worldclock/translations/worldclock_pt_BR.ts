@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;1&apos;HH:mm:ss&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;5&apos;TT&apos;&lt;/font&gt;6&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation>$Tempo</translation>
+        <translation>&amp;Tempo</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
