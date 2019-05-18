@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>Giv altid besked når lydstyrken ændres</translation>
+        <translation>Underret altid når lydstyrken ændres</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
