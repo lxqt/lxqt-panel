@@ -103,6 +103,15 @@ target_link_libraries(${PROJECT}
     ${STATIC_PLUGINS}
 )
 
+target_compile_definitions(${PROJECT}
+    PRIVATE
+        QT_USE_QSTRINGBUILDER
+        QT_NO_CAST_FROM_ASCII
+        QT_NO_CAST_TO_ASCII
+        QT_NO_URL_CAST_FROM_STRING
+        QT_NO_CAST_FROM_BYTEARRAY
+)
+
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES ${CONFIG_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/lxqt)
 install(FILES ${PUB_HEADERS} DESTINATION include/lxqt)

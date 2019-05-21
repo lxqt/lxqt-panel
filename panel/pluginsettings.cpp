@@ -42,7 +42,7 @@ public:
     QString prefix() const;
     inline QString fullPrefix() const
     {
-        return mGroup + "/" + prefix();
+        return mGroup + QStringLiteral("/") + prefix();
     }
 
     LXQt::Settings *mSettings;
@@ -54,7 +54,7 @@ public:
 QString PluginSettingsPrivate::prefix() const
 {
     if (!mSubGroups.empty())
-        return mSubGroups.join('/');
+        return mSubGroups.join(QLatin1Char('/'));
     return QString();
 }
 

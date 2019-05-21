@@ -49,9 +49,9 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
     ui->setupUi(this);
 
     QStringList desktopFilesDirs;
-    desktopFilesDirs << QString(getenv("LXQT_PANEL_PLUGINS_DIR")).split(':', QString::SkipEmptyParts);
+    desktopFilesDirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), QString::SkipEmptyParts);
     desktopFilesDirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
-    desktopFilesDirs << PLUGIN_DESKTOPS_DIR;
+    desktopFilesDirs << QStringLiteral(PLUGIN_DESKTOPS_DIR);
 
     mPlugins = LXQt::PluginInfo::search(desktopFilesDirs, QLatin1String("LXQtPanel/Plugin"), QLatin1String("*"));
     std::sort(mPlugins.begin(), mPlugins.end(), [](const LXQt::PluginInfo &p1, const LXQt::PluginInfo &p2) {
@@ -90,7 +90,7 @@ void AddPluginDialog::filter()
     const int curr_item = 0 < pluginList->count() ? pluginList->currentRow() : 0;
     pluginList->clear();
 
-    static QIcon fallIco = XdgIcon::fromTheme("preferences-plugin");
+    static QIcon fallIco = XdgIcon::fromTheme(QStringLiteral("preferences-plugin"));
 
     int pluginCount = mPlugins.length();
     for (int i = 0; i < pluginCount; ++i)

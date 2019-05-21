@@ -240,45 +240,45 @@ void LXQtPanel::readSettings()
 
     // Let Hidability be the first thing we read
     // so that every call to realign() is without side-effect
-    mHidable = mSettings->value(CFG_KEY_HIDABLE, mHidable).toBool();
+    mHidable = mSettings->value(QStringLiteral(CFG_KEY_HIDABLE), mHidable).toBool();
     mHidden = mHidable;
 
-    mVisibleMargin = mSettings->value(CFG_KEY_VISIBLE_MARGIN, mVisibleMargin).toBool();
+    mVisibleMargin = mSettings->value(QStringLiteral(CFG_KEY_VISIBLE_MARGIN), mVisibleMargin).toBool();
 
-    mAnimationTime = mSettings->value(CFG_KEY_ANIMATION, mAnimationTime).toInt();
-    mShowDelayTimer.setInterval(mSettings->value(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval()).toInt());
+    mAnimationTime = mSettings->value(QStringLiteral(CFG_KEY_ANIMATION), mAnimationTime).toInt();
+    mShowDelayTimer.setInterval(mSettings->value(QStringLiteral(CFG_KEY_SHOW_DELAY), mShowDelayTimer.interval()).toInt());
 
     // By default we are using size & count from theme.
-    setPanelSize(mSettings->value(CFG_KEY_PANELSIZE, PANEL_DEFAULT_SIZE).toInt(), false);
-    setIconSize(mSettings->value(CFG_KEY_ICONSIZE, PANEL_DEFAULT_ICON_SIZE).toInt(), false);
-    setLineCount(mSettings->value(CFG_KEY_LINECNT, PANEL_DEFAULT_LINE_COUNT).toInt(), false);
+    setPanelSize(mSettings->value(QStringLiteral(CFG_KEY_PANELSIZE), PANEL_DEFAULT_SIZE).toInt(), false);
+    setIconSize(mSettings->value(QStringLiteral(CFG_KEY_ICONSIZE), PANEL_DEFAULT_ICON_SIZE).toInt(), false);
+    setLineCount(mSettings->value(QStringLiteral(CFG_KEY_LINECNT), PANEL_DEFAULT_LINE_COUNT).toInt(), false);
 
-    setLength(mSettings->value(CFG_KEY_LENGTH, 100).toInt(),
-              mSettings->value(CFG_KEY_PERCENT, true).toBool(),
+    setLength(mSettings->value(QStringLiteral(CFG_KEY_LENGTH), 100).toInt(),
+              mSettings->value(QStringLiteral(CFG_KEY_PERCENT), true).toBool(),
               false);
 
-    mScreenNum = mSettings->value(CFG_KEY_SCREENNUM, QApplication::desktop()->primaryScreen()).toInt();
+    mScreenNum = mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), QApplication::desktop()->primaryScreen()).toInt();
     setPosition(mScreenNum,
-                strToPosition(mSettings->value(CFG_KEY_POSITION).toString(), PositionBottom),
+                strToPosition(mSettings->value(QStringLiteral(CFG_KEY_POSITION)).toString(), PositionBottom),
                 false);
 
-    setAlignment(Alignment(mSettings->value(CFG_KEY_ALIGNMENT, mAlignment).toInt()), false);
+    setAlignment(Alignment(mSettings->value(QStringLiteral(CFG_KEY_ALIGNMENT), mAlignment).toInt()), false);
 
-    QColor color = mSettings->value(CFG_KEY_FONTCOLOR, "").value<QColor>();
+    QColor color = mSettings->value(QStringLiteral(CFG_KEY_FONTCOLOR), QString()).value<QColor>();
     if (color.isValid())
         setFontColor(color, true);
 
-    setOpacity(mSettings->value(CFG_KEY_OPACITY, 100).toInt(), true);
-    mReserveSpace = mSettings->value(CFG_KEY_RESERVESPACE, true).toBool();
-    color = mSettings->value(CFG_KEY_BACKGROUNDCOLOR, "").value<QColor>();
+    setOpacity(mSettings->value(QStringLiteral(CFG_KEY_OPACITY), 100).toInt(), true);
+    mReserveSpace = mSettings->value(QStringLiteral(CFG_KEY_RESERVESPACE), true).toBool();
+    color = mSettings->value(QStringLiteral(CFG_KEY_BACKGROUNDCOLOR), QString()).value<QColor>();
     if (color.isValid())
         setBackgroundColor(color, true);
 
-    QString image = mSettings->value(CFG_KEY_BACKGROUNDIMAGE, "").toString();
+    QString image = mSettings->value(QStringLiteral(CFG_KEY_BACKGROUNDIMAGE), QString()).toString();
     if (!image.isEmpty())
         setBackgroundImage(image, false);
 
-    mLockPanel = mSettings->value(CFG_KEY_LOCKPANEL, false).toBool();
+    mLockPanel = mSettings->value(QStringLiteral(CFG_KEY_LOCKPANEL), false).toBool();
 
     mSettings->endGroup();
 }
@@ -301,30 +301,30 @@ void LXQtPanel::saveSettings(bool later)
     //Note: save/load of plugin names is completely handled by mPlugins object
     //mSettings->setValue(CFG_KEY_PLUGINS, mPlugins->pluginNames());
 
-    mSettings->setValue(CFG_KEY_PANELSIZE, mPanelSize);
-    mSettings->setValue(CFG_KEY_ICONSIZE, mIconSize);
-    mSettings->setValue(CFG_KEY_LINECNT, mLineCount);
+    mSettings->setValue(QStringLiteral(CFG_KEY_PANELSIZE), mPanelSize);
+    mSettings->setValue(QStringLiteral(CFG_KEY_ICONSIZE), mIconSize);
+    mSettings->setValue(QStringLiteral(CFG_KEY_LINECNT), mLineCount);
 
-    mSettings->setValue(CFG_KEY_LENGTH, mLength);
-    mSettings->setValue(CFG_KEY_PERCENT, mLengthInPercents);
+    mSettings->setValue(QStringLiteral(CFG_KEY_LENGTH), mLength);
+    mSettings->setValue(QStringLiteral(CFG_KEY_PERCENT), mLengthInPercents);
 
-    mSettings->setValue(CFG_KEY_SCREENNUM, mScreenNum);
-    mSettings->setValue(CFG_KEY_POSITION, positionToStr(mPosition));
+    mSettings->setValue(QStringLiteral(CFG_KEY_SCREENNUM), mScreenNum);
+    mSettings->setValue(QStringLiteral(CFG_KEY_POSITION), positionToStr(mPosition));
 
-    mSettings->setValue(CFG_KEY_ALIGNMENT, mAlignment);
+    mSettings->setValue(QStringLiteral(CFG_KEY_ALIGNMENT), mAlignment);
 
-    mSettings->setValue(CFG_KEY_FONTCOLOR, mFontColor.isValid() ? mFontColor : QColor());
-    mSettings->setValue(CFG_KEY_BACKGROUNDCOLOR, mBackgroundColor.isValid() ? mBackgroundColor : QColor());
-    mSettings->setValue(CFG_KEY_BACKGROUNDIMAGE, QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
-    mSettings->setValue(CFG_KEY_OPACITY, mOpacity);
-    mSettings->setValue(CFG_KEY_RESERVESPACE, mReserveSpace);
+    mSettings->setValue(QStringLiteral(CFG_KEY_FONTCOLOR), mFontColor.isValid() ? mFontColor : QColor());
+    mSettings->setValue(QStringLiteral(CFG_KEY_BACKGROUNDCOLOR), mBackgroundColor.isValid() ? mBackgroundColor : QColor());
+    mSettings->setValue(QStringLiteral(CFG_KEY_BACKGROUNDIMAGE), QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
+    mSettings->setValue(QStringLiteral(CFG_KEY_OPACITY), mOpacity);
+    mSettings->setValue(QStringLiteral(CFG_KEY_RESERVESPACE), mReserveSpace);
 
-    mSettings->setValue(CFG_KEY_HIDABLE, mHidable);
-    mSettings->setValue(CFG_KEY_VISIBLE_MARGIN, mVisibleMargin);
-    mSettings->setValue(CFG_KEY_ANIMATION, mAnimationTime);
-    mSettings->setValue(CFG_KEY_SHOW_DELAY, mShowDelayTimer.interval());
+    mSettings->setValue(QStringLiteral(CFG_KEY_HIDABLE), mHidable);
+    mSettings->setValue(QStringLiteral(CFG_KEY_VISIBLE_MARGIN), mVisibleMargin);
+    mSettings->setValue(QStringLiteral(CFG_KEY_ANIMATION), mAnimationTime);
+    mSettings->setValue(QStringLiteral(CFG_KEY_SHOW_DELAY), mShowDelayTimer.interval());
 
-    mSettings->setValue(CFG_KEY_LOCKPANEL, mLockPanel);
+    mSettings->setValue(QStringLiteral(CFG_KEY_LOCKPANEL), mLockPanel);
 
     mSettings->endGroup();
 }
@@ -373,9 +373,9 @@ void LXQtPanel::show()
 QStringList pluginDesktopDirs()
 {
     QStringList dirs;
-    dirs << QString(getenv("LXQT_PANEL_PLUGINS_DIR")).split(':', QString::SkipEmptyParts);
+    dirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), QString::SkipEmptyParts);
     dirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
-    dirs << PLUGIN_DESKTOPS_DIR;
+    dirs << QStringLiteral(PLUGIN_DESKTOPS_DIR);
     return dirs;
 }
 
@@ -386,7 +386,7 @@ QStringList pluginDesktopDirs()
 void LXQtPanel::loadPlugins()
 {
     QString names_key(mConfigGroup);
-    names_key += '/';
+    names_key += QLatin1Char('/');
     names_key += QLatin1String(CFG_KEY_PLUGINS);
     mPlugins.reset(new PanelPluginsModel(this, names_key, pluginDesktopDirs()));
 
@@ -769,7 +769,7 @@ void LXQtPanel::updateStyleSheet()
     sheet << QStringLiteral("Plugin > * > QAbstractButton, TrayIcon { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
 
     if (mFontColor.isValid())
-        sheet << QString("Plugin * { color: " + mFontColor.name() + "; }");
+        sheet << QString(QStringLiteral("Plugin * { color: ") + mFontColor.name() + QStringLiteral("; }"));
 
     QString object = LXQtPanelWidget->objectName();
 
@@ -780,11 +780,11 @@ void LXQtPanel::updateStyleSheet()
             .arg(mBackgroundColor.green())
             .arg(mBackgroundColor.blue())
             .arg((float) mOpacity / 100);
-        sheet << QString("LXQtPanel #BackgroundWidget { background-color: rgba(" + color + "); }");
+        sheet << QString(QStringLiteral("LXQtPanel #BackgroundWidget { background-color: rgba(") + color + QStringLiteral("); }"));
     }
 
     if (QFileInfo(mBackgroundImage).exists())
-        sheet << QString("LXQtPanel #BackgroundWidget { background-image: url('" + mBackgroundImage + "');}");
+        sheet << QString(QStringLiteral("LXQtPanel #BackgroundWidget { background-image: url('") + mBackgroundImage + QStringLiteral("');}"));
 
     setStyleSheet(sheet.join(QStringLiteral("\n")));
 }
