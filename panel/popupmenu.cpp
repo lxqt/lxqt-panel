@@ -42,7 +42,7 @@ QAction* PopupMenu::addTitle(const QIcon &icon, const QString &text)
     QAction *buttonAction = new QAction(this);
     QFont font = buttonAction->font();
     font.setBold(true);
-    buttonAction->setText(QString(text).replace("&", "&&"));
+    buttonAction->setText(QString(text).replace(QLatin1String("&"), QLatin1String("&&")));
     buttonAction->setFont(font);
     buttonAction->setIcon(icon);
 
