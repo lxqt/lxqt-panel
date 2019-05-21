@@ -30,6 +30,9 @@
 #include "ilxqtpanelplugin.h"
 #include "pluginsettings_p.h"
 #include "lxqtpanel.h"
+
+#include <KWindowSystem>
+
 #include <QDebug>
 #include <QProcessEnvironment>
 #include <QStringList>
