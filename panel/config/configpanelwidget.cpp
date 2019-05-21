@@ -151,9 +151,9 @@ void ConfigPanelWidget::reset()
     ui->spinBox_length->setValue(mOldLength);
 
     mFontColor.setNamedColor(mOldFontColor.name());
-    ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mOldFontColor.name()));
+    ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldFontColor.name()));
     mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
-    ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mOldBackgroundColor.name()));
+    ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldBackgroundColor.name()));
     ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
     ui->slider_opacity->setValue(mOldOpacity);
     ui->checkBox_reserveSpace->setChecked(mOldReserveSpace);
@@ -438,7 +438,7 @@ void ConfigPanelWidget::pickFontColor()
     if (d.exec() && d.currentColor().isValid())
     {
         mFontColor.setNamedColor(d.currentColor().name());
-        ui->pushButton_customFontColor->setStyleSheet(QString("background: %1").arg(mFontColor.name()));
+        ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mFontColor.name()));
         editChanged();
     }
 }
@@ -454,7 +454,7 @@ void ConfigPanelWidget::pickBackgroundColor()
     if (d.exec() && d.currentColor().isValid())
     {
         mBackgroundColor.setNamedColor(d.currentColor().name());
-        ui->pushButton_customBgColor->setStyleSheet(QString("background: %1").arg(mBackgroundColor.name()));
+        ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mBackgroundColor.name()));
         editChanged();
     }
 }

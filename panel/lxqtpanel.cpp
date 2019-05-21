@@ -87,10 +87,10 @@
  ************************************************/
 ILXQtPanel::Position LXQtPanel::strToPosition(const QString& str, ILXQtPanel::Position defaultValue)
 {
-    if (str.toUpper() == "TOP")    return LXQtPanel::PositionTop;
-    if (str.toUpper() == "LEFT")   return LXQtPanel::PositionLeft;
-    if (str.toUpper() == "RIGHT")  return LXQtPanel::PositionRight;
-    if (str.toUpper() == "BOTTOM") return LXQtPanel::PositionBottom;
+    if (str.toUpper() == QLatin1String("TOP"))    return LXQtPanel::PositionTop;
+    if (str.toUpper() == QLatin1String("LEFT"))   return LXQtPanel::PositionLeft;
+    if (str.toUpper() == QLatin1String("RIGHT"))  return LXQtPanel::PositionRight;
+    if (str.toUpper() == QLatin1String("BOTTOM")) return LXQtPanel::PositionBottom;
     return defaultValue;
 }
 
@@ -103,13 +103,13 @@ QString LXQtPanel::positionToStr(ILXQtPanel::Position position)
     switch (position)
     {
     case LXQtPanel::PositionTop:
-        return QString("Top");
+        return QStringLiteral("Top");
     case LXQtPanel::PositionLeft:
-        return QString("Left");
+        return QStringLiteral("Left");
     case LXQtPanel::PositionRight:
-        return QString("Right");
+        return QStringLiteral("Right");
     case LXQtPanel::PositionBottom:
-        return QString("Bottom");
+        return QStringLiteral("Bottom");
     }
 
     return QString();
@@ -171,12 +171,12 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     //Allows data from drag and drop operations to be dropped onto the widget (see QWidget::setAcceptDrops()).
     setAttribute(Qt::WA_AcceptDrops);
 
-    setWindowTitle("LXQt Panel");
-    setObjectName(QString("LXQtPanel %1").arg(configGroup));
+    setWindowTitle(QStringLiteral("LXQt Panel"));
+    setObjectName(QStringLiteral("LXQtPanel %1").arg(configGroup));
 
     //LXQtPanel (inherits QFrame) -> lav (QGridLayout) -> LXQtPanelWidget (QFrame) -> LXQtPanelLayout
     LXQtPanelWidget = new QFrame(this);
-    LXQtPanelWidget->setObjectName("BackgroundWidget");
+    LXQtPanelWidget->setObjectName(QStringLiteral("BackgroundWidget"));
     QGridLayout* lav = new QGridLayout();
     lav->setContentsMargins(0, 0, 0, 0);
     setLayout(lav);
@@ -374,7 +374,7 @@ QStringList pluginDesktopDirs()
 {
     QStringList dirs;
     dirs << QString(getenv("LXQT_PANEL_PLUGINS_DIR")).split(':', QString::SkipEmptyParts);
-    dirs << QString("%1/%2").arg(XdgDirs::dataHome(), "/lxqt/lxqt-panel");
+    dirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
     dirs << PLUGIN_DESKTOPS_DIR;
     return dirs;
 }
@@ -765,8 +765,8 @@ void LXQtPanel::showAddPluginDialog()
 void LXQtPanel::updateStyleSheet()
 {
     QStringList sheet;
-    sheet << QString("Plugin > QAbstractButton, LXQtTray { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
-    sheet << QString("Plugin > * > QAbstractButton, TrayIcon { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
+    sheet << QStringLiteral("Plugin > QAbstractButton, LXQtTray { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
+    sheet << QStringLiteral("Plugin > * > QAbstractButton, TrayIcon { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
 
     if (mFontColor.isValid())
         sheet << QString("Plugin * { color: " + mFontColor.name() + "; }");
@@ -775,7 +775,7 @@ void LXQtPanel::updateStyleSheet()
 
     if (mBackgroundColor.isValid())
     {
-        QString color = QString("%1, %2, %3, %4")
+        QString color = QStringLiteral("%1, %2, %3, %4")
             .arg(mBackgroundColor.red())
             .arg(mBackgroundColor.green())
             .arg(mBackgroundColor.blue())
@@ -786,7 +786,7 @@ void LXQtPanel::updateStyleSheet()
     if (QFileInfo(mBackgroundImage).exists())
         sheet << QString("LXQtPanel #BackgroundWidget { background-image: url('" + mBackgroundImage + "');}");
 
-    setStyleSheet(sheet.join("\n"));
+    setStyleSheet(sheet.join(QStringLiteral("\n")));
 }
 
 
@@ -1081,7 +1081,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
     PopupMenu * menu = new PopupMenu(tr("Panel"), this);
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
-    menu->setIcon(XdgIcon::fromTheme("configure-toolbars"));
+    menu->setIcon(XdgIcon::fromTheme(QStringLiteral("configure-toolbars")));
 
     // Plugin Menu ..............................
     if (plugin)
@@ -1111,7 +1111,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
                    this, SLOT(showConfigDialog())
                   )->setDisabled(mLockPanel);
 
-    menu->addAction(XdgIcon::fromTheme("preferences-plugin"),
+    menu->addAction(XdgIcon::fromTheme(QStringLiteral("preferences-plugin")),
                    tr("Manage Widgets"),
                    this, SLOT(showAddPluginDialog())
                   )->setDisabled(mLockPanel);
@@ -1292,7 +1292,7 @@ void LXQtPanel::userRequestForDeletion()
     }
 
     mSettings->beginGroup(mConfigGroup);
-    const QStringList plugins = mSettings->value("plugins").toStringList();
+    const QStringList plugins = mSettings->value(QStringLiteral("plugins")).toStringList();
     mSettings->endGroup();
 
     for(const QString& i : plugins)
@@ -1390,7 +1390,7 @@ void LXQtPanel::setShowDelay(int showDelay, bool save)
 
 QString LXQtPanel::iconTheme() const
 {
-    return mSettings->value("iconTheme").toString();
+    return mSettings->value(QStringLiteral("iconTheme")).toString();
 }
 
 void LXQtPanel::setIconTheme(const QString& iconTheme)

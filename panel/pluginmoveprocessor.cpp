@@ -208,7 +208,7 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
 
     static QWidget *prevWidget = 0;
     if (prevWidget && prevWidget != widget)
-        prevWidget->setStyleSheet("");
+        prevWidget->setStyleSheet(QLatin1String(""));
 
     prevWidget = widget;
 
@@ -220,23 +220,23 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
     switch(markType)
     {
     case TopMark:
-        border1 = "top";
-        border2 = "bottom";
+        border1 = QLatin1String("top");
+        border2 = QLatin1String("bottom");
         break;
 
     case BottomMark:
-        border1 = "bottom";
-        border2 = "top";
+        border1 = QLatin1String("bottom");
+        border2 = QLatin1String("top");
         break;
 
     case LeftMark:
-        border1 = "left";
-        border2 = "right";
+        border1 = QLatin1String("left");
+        border2 = QLatin1String("right");
         break;
 
     case RightMark:
-        border1 = "right";
-        border2 = "left";
+        border1 = QLatin1String("right");
+        border2 = QLatin1String("left");
         break;
 
     }

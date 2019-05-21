@@ -69,15 +69,15 @@ QVariant PanelPluginsModel::data(const QModelIndex & index, int role/* = Qt::Dis
     {
         case Qt::DisplayRole:
             if (plugin.second.isNull())
-                ret = QString("<b>Unknown</b> (%1)").arg(plugin.first);
+                ret = QStringLiteral("<b>Unknown</b> (%1)").arg(plugin.first);
             else
-                ret = QString("<b>%1</b> (%2)").arg(plugin.second->name(), plugin.first);
+                ret = QStringLiteral("<b>%1</b> (%2)").arg(plugin.second->name(), plugin.first);
             break;
         case Qt::DecorationRole:
             if (plugin.second.isNull())
-                ret = XdgIcon::fromTheme("preferences-plugin");
+                ret = XdgIcon::fromTheme(QStringLiteral("preferences-plugin"));
             else
-                ret = plugin.second->desktopFile().icon(XdgIcon::fromTheme("preferences-plugin"));
+                ret = plugin.second->desktopFile().icon(XdgIcon::fromTheme(QStringLiteral("preferences-plugin")));
             break;
         case Qt::UserRole:
             ret = QVariant::fromValue(const_cast<Plugin const *>(plugin.second.data()));
@@ -230,7 +230,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
         QString type = mPanel->settings()->value(name + "/type").toString();
         if (type.isEmpty())
         {
-            qWarning() << QString("Section \"%1\" not found in %2.").arg(name, mPanel->settings()->fileName());
+            qWarning() << QStringLiteral("Section \"%1\" not found in %2.").arg(name, mPanel->settings()->fileName());
             continue;
         }
 #ifdef WITH_SCREENSAVER_FALLBACK
@@ -253,10 +253,10 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
         }
 #endif
 
-        LXQt::PluginInfoList list = LXQt::PluginInfo::search(desktopDirs, "LXQtPanel/Plugin", QString("%1.desktop").arg(type));
+        LXQt::PluginInfoList list = LXQt::PluginInfo::search(desktopDirs, QStringLiteral("LXQtPanel/Plugin"), QStringLiteral("%1.desktop").arg(type));
         if( !list.count())
         {
-            qWarning() << QString("Plugin \"%1\" not found.").arg(type);
+            qWarning() << QStringLiteral("Plugin \"%1\" not found.").arg(type);
             continue;
         }
 
@@ -288,7 +288,7 @@ QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType)
     groups.sort();
 
     // Generate new section name
-    QString pluginName = QString("%1").arg(pluginType);
+    QString pluginName = QStringLiteral("%1").arg(pluginType);
 
     if (!groups.contains(pluginName))
         return pluginName;
@@ -296,7 +296,7 @@ QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType)
     {
         for (int i = 2; true; ++i)
         {
-            pluginName = QString("%1%2").arg(pluginType).arg(i);
+            pluginName = QStringLiteral("%1%2").arg(pluginType).arg(i);
             if (!groups.contains(pluginName))
                 return pluginName;
         }

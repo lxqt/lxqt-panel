@@ -50,7 +50,7 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
 
     QStringList desktopFilesDirs;
     desktopFilesDirs << QString(getenv("LXQT_PANEL_PLUGINS_DIR")).split(':', QString::SkipEmptyParts);
-    desktopFilesDirs << QString("%1/%2").arg(XdgDirs::dataHome(), "/lxqt/lxqt-panel");
+    desktopFilesDirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
     desktopFilesDirs << PLUGIN_DESKTOPS_DIR;
 
     mPlugins = LXQt::PluginInfo::search(desktopFilesDirs, QLatin1String("LXQtPanel/Plugin"), QLatin1String("*"));
@@ -97,10 +97,10 @@ void AddPluginDialog::filter()
     {
         const LXQt::PluginInfo &plugin = mPlugins.at(i);
 
-        QString s = QString("%1 %2 %3 %4 %5").arg(plugin.name(),
+        QString s = QStringLiteral("%1 %2 %3 %4 %5").arg(plugin.name(),
                                                plugin.comment(),
-                                               plugin.value("Name").toString(),
-                                               plugin.value("Comment").toString(),
+                                               plugin.value(QStringLiteral("Name")).toString(),
+                                               plugin.value(QStringLiteral("Comment")).toString(),
                                                plugin.id());
         if (!s.contains(ui->searchEdit->text(), Qt::CaseInsensitive))
             continue;
@@ -111,10 +111,10 @@ void AddPluginDialog::filter()
         {
             item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
             item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));
-            item->setText(QString("<b>%1</b> (%2)<br>%3<br><small>%4</small>")
+            item->setText(QStringLiteral("<b>%1</b> (%2)<br>%3<br><small>%4</small>")
                     .arg(plugin.name(), plugin.id(), plugin.comment(), tr("(only one instance can run at a time)")));
         } else
-            item->setText(QString("<b>%1</b> (%2)<br>%3").arg(plugin.name(), plugin.id(), plugin.comment()));
+            item->setText(QStringLiteral("<b>%1</b> (%2)<br>%3").arg(plugin.name(), plugin.id(), plugin.comment()));
         item->setIcon(plugin.icon(fallIco));
         item->setData(INDEX_ROLE, i);
     }
