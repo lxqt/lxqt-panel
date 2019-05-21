@@ -227,7 +227,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
     for (auto const & name : plugin_names)
     {
         pluginslist_t::iterator i = mPlugins.insert(mPlugins.end(), {name, nullptr});
-        QString type = mPanel->settings()->value(name + "/type").toString();
+        QString type = mPanel->settings()->value(name + QStringLiteral("/type")).toString();
         if (type.isEmpty())
         {
             qWarning() << QStringLiteral("Section \"%1\" not found in %2.").arg(name, mPanel->settings()->fileName());

@@ -241,7 +241,7 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
 
     }
 
-    widget->setStyleSheet(QString("#%1 {"
+    widget->setStyleSheet(QString::fromLatin1("#%1 {"
                                   "border-%2: 2px solid rgba(%4, %5, %6, %7); "
                                   "border-%3: -2px solid; "
                                   "background-color: transparent; }")

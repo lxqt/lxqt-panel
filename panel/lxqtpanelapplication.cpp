@@ -151,7 +151,7 @@ void LXQtPanelApplication::addNewPanel()
 {
     Q_D(LXQtPanelApplication);
 
-    QString name("panel_" + QUuid::createUuid().toString());
+    QString name(QStringLiteral("panel_") + QUuid::createUuid().toString());
 
     LXQtPanel *p = addPanel(name);
     int screenNum = p->screenNum();

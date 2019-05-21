@@ -47,7 +47,7 @@ QAction* PopupMenu::addTitle(const QIcon &icon, const QString &text)
     buttonAction->setIcon(icon);
 
     QWidgetAction *action = new QWidgetAction(this);
-    action->setObjectName(POPUPMENU_TITLE);
+    action->setObjectName(QLatin1String(POPUPMENU_TITLE));
     QToolButton *titleButton = new QToolButton(this);
     titleButton->installEventFilter(this); // prevent clicks on the title of the menu
     titleButton->setDefaultAction(buttonAction);
@@ -102,7 +102,7 @@ void PopupMenu::keyPressEvent(QKeyEvent* e)
         QWidgetAction *action = qobject_cast<QWidgetAction*>(this->activeAction());
         QWidgetAction *firstAction = action;
 
-        while (action && action->objectName() == POPUPMENU_TITLE)
+        while (action && action->objectName() == QLatin1String(POPUPMENU_TITLE))
         {
             this->keyPressEvent(e);
             action = qobject_cast<QWidgetAction*>(this->activeAction());

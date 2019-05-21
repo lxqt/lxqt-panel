@@ -111,7 +111,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
 
     QStringList dirs;
     dirs << QProcessEnvironment::systemEnvironment().value(QStringLiteral("LXQTPANEL_PLUGIN_PATH")).split(QStringLiteral(":"));
-    dirs << PLUGIN_DIR;
+    dirs << QStringLiteral(PLUGIN_DIR);
 
     bool found = false;
     if(ILXQtPanelPluginLibrary const * pluginLib = findStaticPlugin(desktopFile.id()))
@@ -143,7 +143,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
         return;
     }
 
-    setObjectName(mPlugin->themeId() + "Plugin");
+    setObjectName(mPlugin->themeId() + QStringLiteral("Plugin"));
 
     // plugin handle for easy context menu
     setProperty("NeedsHandle", mPlugin->flags().testFlag(ILXQtPanelPlugin::NeedsHandle));
@@ -361,7 +361,7 @@ void Plugin::settingsChanged()
  ************************************************/
 void Plugin::saveSettings()
 {
-    mSettings->setValue(QStringLiteral("alignment"), (mAlignment == AlignLeft) ? "Left" : "Right");
+    mSettings->setValue(QStringLiteral("alignment"), (mAlignment == AlignLeft) ? QStringLiteral("Left") : QStringLiteral("Right"));
     mSettings->setValue(QStringLiteral("type"), mDesktopFile.id());
     mSettings->sync();
 
