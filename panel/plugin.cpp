@@ -50,24 +50,42 @@
 #include <XdgIcon>
 
 // statically linked built-in plugins
+#if defined(WITH_DESKTOPSWITCH_PLUGIN)
 #include "../plugin-desktopswitch/desktopswitch.h" // desktopswitch
 extern void * loadPluginTranslation_desktopswitch_helper;
+#endif
+#if defined(WITH_MAINMENU_PLUGIN)
 #include "../plugin-mainmenu/lxqtmainmenu.h" // mainmenu
 extern void * loadPluginTranslation_mainmenu_helper;
+#endif
+#if defined(WITH_QUICKLAUNCH_PLUGIN)
 #include "../plugin-quicklaunch/lxqtquicklaunchplugin.h" // quicklaunch
 extern void * loadPluginTranslation_quicklaunch_helper;
+#endif
+#if defined(WITH_SHOWDESKTOP_PLUGIN)
 #include "../plugin-showdesktop/showdesktop.h" // showdesktop
 extern void * loadPluginTranslation_showdesktop_helper;
+#endif
+#if defined(WITH_SPACER_PLUGIN)
 #include "../plugin-spacer/spacer.h" // spacer
 extern void * loadPluginTranslation_spacer_helper;
+#endif
+#if defined(WITH_STATUSNOTIFIER_PLUGIN)
 #include "../plugin-statusnotifier/statusnotifier.h" // statusnotifier
 extern void * loadPluginTranslation_statusnotifier_helper;
+#endif
+#if defined(WITH_TASKBAR_PLUGIN)
 #include "../plugin-taskbar/lxqttaskbarplugin.h" // taskbar
 extern void * loadPluginTranslation_taskbar_helper;
+#endif
+#if defined(WITH_TRAY_PLUGIN)
 #include "../plugin-tray/lxqttrayplugin.h" // tray
 extern void * loadPluginTranslation_tray_helper;
+#endif
+#if defined(WITH_WORLDCLOCK_PLUGIN)
 #include "../plugin-worldclock/lxqtworldclock.h" // worldclock
 extern void * loadPluginTranslation_worldclock_helper;
+#endif
 
 QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 
