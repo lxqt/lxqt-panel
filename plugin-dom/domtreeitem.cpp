@@ -57,7 +57,7 @@ void DomTreeItem::init()
     QStringList hierarcy = widgetClassHierarcy();
     for (int i=0; i<hierarcy.count(); ++i)
     {
-        QString iconName = QString(":" + hierarcy.at(i)).toLower();
+        QString iconName = QString(QLatin1Char(':') + hierarcy.at(i)).toLower();
         if (QFile::exists(iconName))
         {
             setIcon(0, QIcon(iconName));
@@ -67,7 +67,7 @@ void DomTreeItem::init()
 
     QString text = widgetText();
     if (!text.isEmpty())
-        text = " \"" + text + "\"";
+        text = QStringLiteral(" \"") + text + QStringLiteral("\"");
 
     QString name = mWidget->objectName();
     setText(0, QStringLiteral("%1 (%2)%3").arg(
@@ -134,7 +134,7 @@ QString DomTreeItem::widgetText() const
 
 QString DomTreeItem::widgetClassName() const
 {
-    return mWidget->metaObject()->className();
+    return QString::fromUtf8(mWidget->metaObject()->className());
 }
 
 
@@ -144,7 +144,7 @@ QStringList DomTreeItem::widgetClassHierarcy() const
     const QMetaObject *m = mWidget->metaObject();
     while (m)
     {
-        hierarcy << m->className();
+        hierarcy << QString::fromUtf8(m->className());
         m = m->superClass();
     }
     return hierarcy;
