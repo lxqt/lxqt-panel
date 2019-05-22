@@ -38,9 +38,9 @@
 #define ACT_INFO    "showInfo"
 #define ACT_MENU    "showMenu"
 
-#define ACT_NOTHING_UPPER   QString(ACT_NOTHING).toUpper()
-#define ACT_INFO_UPPER      QString(ACT_INFO).toUpper()
-#define ACT_MENU_UPPER      QString(ACT_MENU).toUpper()
+#define ACT_NOTHING_UPPER   QStringLiteral(ACT_NOTHING).toUpper()
+#define ACT_INFO_UPPER      QStringLiteral(ACT_INFO).toUpper()
+#define ACT_MENU_UPPER      QStringLiteral(ACT_MENU).toUpper()
 
 DeviceAction::DeviceAction(LXQtMountPlugin *plugin, QObject *parent)
     : QObject(parent)
@@ -73,12 +73,12 @@ QString DeviceAction::actionIdToString(DeviceAction::ActionId id)
 {
     switch (id)
     {
-    case ActionNothing: return ACT_NOTHING;
-    case ActionInfo:    return ACT_INFO;
-    case ActionMenu:    return ACT_MENU;
+    case ActionNothing: return QStringLiteral(ACT_NOTHING);
+    case ActionInfo:    return QStringLiteral(ACT_INFO);
+    case ActionMenu:    return QStringLiteral(ACT_MENU);
     }
 
-    return ACT_INFO;
+    return QStringLiteral(ACT_INFO);
 }
 
 void DeviceAction::onDeviceAdded(Solid::Device device)
