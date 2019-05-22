@@ -57,7 +57,7 @@ LXQtCpuLoad::LXQtCpuLoad(ILXQtPanelPlugin* plugin, QWidget* parent):
     m_barOrientation(TopDownBar),
     m_timerID(-1)
 {
-    setObjectName("LXQtCpuLoad");
+    setObjectName(QStringLiteral("LXQtCpuLoad"));
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setSpacing(0);
@@ -193,11 +193,11 @@ void LXQtCpuLoad::settingsChanged()
     if (m_timerID != -1)
         killTimer(m_timerID);
 
-    m_showText = mPlugin->settings()->value("showText", false).toBool();
-    m_barWidth = mPlugin->settings()->value("barWidth", 20).toInt();
-    m_updateInterval = mPlugin->settings()->value("updateInterval", 1000).toInt();
+    m_showText = mPlugin->settings()->value(QStringLiteral("showText"), false).toBool();
+    m_barWidth = mPlugin->settings()->value(QStringLiteral("barWidth"), 20).toInt();
+    m_updateInterval = mPlugin->settings()->value(QStringLiteral("updateInterval"), 1000).toInt();
 
-    QString barOrientation = mPlugin->settings()->value("barOrientation", BAR_ORIENT_BOTTOMUP).toString();
+    QString barOrientation = mPlugin->settings()->value(QStringLiteral("barOrientation"), BAR_ORIENT_BOTTOMUP).toString();
     if (barOrientation == BAR_ORIENT_RIGHTLEFT)
         m_barOrientation = RightToLeftBar;
     else if (barOrientation == BAR_ORIENT_LEFTRIGHT)

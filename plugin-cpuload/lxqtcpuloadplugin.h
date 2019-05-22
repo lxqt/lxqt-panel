@@ -43,7 +43,7 @@ public:
 
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
-    virtual QString themeId() const { return "CpuLoad"; }
+    virtual QString themeId() const { return QStringLiteral("CpuLoad"); }
 
     bool isSeparate() const { return true; }
     QDialog *configureDialog();
