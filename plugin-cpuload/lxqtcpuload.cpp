@@ -197,12 +197,12 @@ void LXQtCpuLoad::settingsChanged()
     m_barWidth = mPlugin->settings()->value(QStringLiteral("barWidth"), 20).toInt();
     m_updateInterval = mPlugin->settings()->value(QStringLiteral("updateInterval"), 1000).toInt();
 
-    QString barOrientation = mPlugin->settings()->value(QStringLiteral("barOrientation"), BAR_ORIENT_BOTTOMUP).toString();
-    if (barOrientation == BAR_ORIENT_RIGHTLEFT)
+    QString barOrientation = mPlugin->settings()->value(QStringLiteral("barOrientation"), QStringLiteral(BAR_ORIENT_BOTTOMUP)).toString();
+    if (barOrientation == QLatin1String(BAR_ORIENT_RIGHTLEFT))
         m_barOrientation = RightToLeftBar;
-    else if (barOrientation == BAR_ORIENT_LEFTRIGHT)
+    else if (barOrientation == QLatin1String(BAR_ORIENT_LEFTRIGHT))
         m_barOrientation = LeftToRightBar;
-    else if (barOrientation == BAR_ORIENT_TOPDOWN)
+    else if (barOrientation == QLatin1String(BAR_ORIENT_TOPDOWN))
         m_barOrientation = TopDownBar;
     else
         m_barOrientation = BottomUpBar;

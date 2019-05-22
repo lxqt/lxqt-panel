@@ -65,10 +65,10 @@ LXQtCpuLoadConfiguration::~LXQtCpuLoadConfiguration()
 
 void LXQtCpuLoadConfiguration::fillBarOrientations()
 {
-    ui->barOrientationCOB->addItem(trUtf8("Bottom up"), BAR_ORIENT_BOTTOMUP);
-    ui->barOrientationCOB->addItem(trUtf8("Top down"), BAR_ORIENT_TOPDOWN);
-    ui->barOrientationCOB->addItem(trUtf8("Left to right"), BAR_ORIENT_LEFTRIGHT);
-    ui->barOrientationCOB->addItem(trUtf8("Right to left"), BAR_ORIENT_RIGHTLEFT);
+    ui->barOrientationCOB->addItem(trUtf8("Bottom up"), QStringLiteral(BAR_ORIENT_BOTTOMUP));
+    ui->barOrientationCOB->addItem(trUtf8("Top down"), QStringLiteral(BAR_ORIENT_TOPDOWN));
+    ui->barOrientationCOB->addItem(trUtf8("Left to right"), QStringLiteral(BAR_ORIENT_LEFTRIGHT));
+    ui->barOrientationCOB->addItem(trUtf8("Right to left"), QStringLiteral(BAR_ORIENT_RIGHTLEFT));
 }
 
 void LXQtCpuLoadConfiguration::loadSettings()
@@ -78,7 +78,7 @@ void LXQtCpuLoadConfiguration::loadSettings()
     ui->updateIntervalSpinBox->setValue(settings().value(QStringLiteral("updateInterval"), 1000).toInt() / 1000.0);
 
     int boIndex = ui->barOrientationCOB->findData(
-            settings().value(QStringLiteral("barOrientation"), BAR_ORIENT_BOTTOMUP));
+            settings().value(QStringLiteral("barOrientation"), QStringLiteral(BAR_ORIENT_BOTTOMUP)));
     boIndex = (boIndex < 0) ? 1 : boIndex;
     ui->barOrientationCOB->setCurrentIndex(boIndex);
 
