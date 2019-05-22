@@ -149,7 +149,7 @@ public:
         info.clear();
         xkb_layout_index_t count = xkb_keymap_num_layouts(m_keymap);
         for(xkb_layout_index_t i = 0; i < count; ++i){
-            QString name = xkb_keymap_layout_get_name(m_keymap, i);
+            QString name = QString::fromUtf8(xkb_keymap_layout_get_name(m_keymap, i));
             const LangInfo & linfo = names(name);
             info.append({linfo.syn, linfo.name, linfo.variant});
             if (xkb_state_layout_index_is_active(m_state, i, XKB_STATE_LAYOUT_EFFECTIVE))
@@ -242,35 +242,35 @@ private:
 
     const LangInfo & names(const QString & langName) const
     {
-        static LangInfo def{"Unknown", "??", "None"};
+        static LangInfo def{QStringLiteral("Unknown"), QStringLiteral("??"), QStringLiteral("None")};
         static QHash<QString, LangInfo> names;
         if (names.empty()){
-            if(QFile::exists("/usr/share/X11/xkb/rules/evdev.xml")){
+            if(QFile::exists(QStringLiteral("/usr/share/X11/xkb/rules/evdev.xml"))){
                 QDomDocument doc;
 
-                QFile file("/usr/share/X11/xkb/rules/evdev.xml");
+                QFile file(QStringLiteral("/usr/share/X11/xkb/rules/evdev.xml"));
                 if (file.open(QIODevice::ReadOnly)){
                     if (doc.setContent(&file)) {
                         QDomElement docElem = doc.documentElement();
 
-                        auto layout= docElem.firstChildElement("layoutList");
+                        auto layout= docElem.firstChildElement(QStringLiteral("layoutList"));
                         for(int i = 0; i < layout.childNodes().count(); ++i){
-                            auto conf = layout.childNodes().at(i).firstChildElement("configItem");
+                            auto conf = layout.childNodes().at(i).firstChildElement(QStringLiteral("configItem"));
                             names.insert(
-                                conf.firstChildElement("description").firstChild().toText().data(),{
-                                    conf.firstChildElement("description").firstChild().toText().data(),
-                                    conf.firstChildElement("name").firstChild().toText().data(),
-                                    "None"
+                                conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(),{
+                                    conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(),
+                                    conf.firstChildElement(QStringLiteral("name")).firstChild().toText().data(),
+                                    QStringLiteral("None")
                                 }
                             );
-                            auto variants = layout.childNodes().at(i).firstChildElement("variantList");
+                            auto variants = layout.childNodes().at(i).firstChildElement(QStringLiteral("variantList"));
                             for(int j = 0; j < variants.childNodes().count(); ++j){
-                                auto var = variants.childNodes().at(j).firstChildElement("configItem");
+                                auto var = variants.childNodes().at(j).firstChildElement(QStringLiteral("configItem"));
                                 names.insert(
-                                    var.firstChildElement("description").firstChild().toText().data(), {
-                                        conf.firstChildElement("description").firstChild().toText().data(),
-                                        conf.firstChildElement("name").firstChild().toText().data(),
-                                        var.firstChildElement("name").firstChild().toText().data()
+                                    var.firstChildElement(QStringLiteral("description")).firstChild().toText().data(), {
+                                        conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(),
+                                        conf.firstChildElement(QStringLiteral("name")).firstChild().toText().data(),
+                                        var.firstChildElement(QStringLiteral("name")).firstChild().toText().data()
                                     }
                                 );
                             }
