@@ -70,7 +70,7 @@ public:
     ~ColorPicker();
 
     virtual QWidget *widget() { return &mWidget; }
-    virtual QString themeId() const { return "ColorPicker"; }
+    virtual QString themeId() const { return QStringLiteral("ColorPicker"); }
 
     bool isSeparate() const { return true; }
 
