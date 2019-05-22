@@ -40,7 +40,7 @@ public:
     DomPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return "Dom"; }
+    virtual QString themeId() const { return QStringLiteral("Dom"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
 
 private slots:
