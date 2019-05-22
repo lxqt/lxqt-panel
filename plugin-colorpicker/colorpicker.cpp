@@ -56,7 +56,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
     QFrame(parent)
 {
     QFontMetrics fm (mLineEdit.font());
-    mLineEdit.setFixedWidth ( 10*fm.width ("a") );
+    mLineEdit.setFixedWidth ( 10*fm.width (QStringLiteral("a")) );
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins (0, 0, 0, 0);
@@ -67,7 +67,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
 
 
     mButton.setAutoRaise(true);
-    mButton.setIcon(XdgIcon::fromTheme("color-picker", "kcolorchooser"));
+    mButton.setIcon(XdgIcon::fromTheme(QStringLiteral("color-picker"), QStringLiteral("kcolorchooser")));
 
     mCapturing = false;
     connect(&mButton, SIGNAL(clicked()), this, SLOT(captureMouse()));
