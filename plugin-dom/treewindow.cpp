@@ -49,11 +49,11 @@ TreeWindow::TreeWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-    ui->tree->setStyleSheet(
+    ui->tree->setStyleSheet(QStringLiteral(
                 "QTreeView::item { "
                     "padding: 2px;"
                 "}"
-                );
+                ));
 
     initPropertiesView();
 
@@ -146,8 +146,8 @@ void TreeWindow::updatePropertiesView()
             ui->allPropertiesView->setItem(i, 2, new QTableWidgetItem);
         }
         QMetaProperty const & prop = m->property(i);
-        ui->allPropertiesView->item(i, 0)->setText(prop.name());
-        ui->allPropertiesView->item(i, 1)->setText(prop.typeName());
+        ui->allPropertiesView->item(i, 0)->setText(QString::fromUtf8(prop.name()));
+        ui->allPropertiesView->item(i, 1)->setText(QString::fromUtf8(prop.typeName()));
         s.clear();
         out << prop.read(treeItem->widget());
         ui->allPropertiesView->item(i, 2)->setText(s);
