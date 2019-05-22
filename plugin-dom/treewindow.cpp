@@ -90,19 +90,19 @@ void TreeWindow::initPropertiesView()
     ui->propertiesView->setColumnCount(2);
 
     QTableWidgetItem *item;
-    item = new  QTableWidgetItem("Object name");
+    item = new  QTableWidgetItem(QStringLiteral("Object name"));
     ui->propertiesView->setItem(PROP_OBJECT_NAME, 0, item);
     ui->propertiesView->setItem(PROP_OBJECT_NAME, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem("Class name");
+    item = new  QTableWidgetItem(QStringLiteral("Class name"));
     ui->propertiesView->setItem(PROP_CLASS_NAME, 0, item);
     ui->propertiesView->setItem(PROP_CLASS_NAME, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem("Text");
+    item = new  QTableWidgetItem(QStringLiteral("Text"));
     ui->propertiesView->setItem(PROP_TEXT, 0, item);
     ui->propertiesView->setItem(PROP_TEXT, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem("Class hierarcy");
+    item = new  QTableWidgetItem(QStringLiteral("Class hierarcy"));
     ui->propertiesView->setItem(PROP_CLASS_HIERARCY, 0, item);
     ui->propertiesView->setItem(PROP_CLASS_HIERARCY, 1, new QTableWidgetItem());
 
@@ -130,7 +130,7 @@ void TreeWindow::updatePropertiesView()
     ui->propertiesView->item(PROP_OBJECT_NAME, 1)->setText(treeItem->widgetObjectName());
     ui->propertiesView->item(PROP_CLASS_NAME, 1)->setText(treeItem->widgetClassName());
     ui->propertiesView->item(PROP_TEXT, 1)->setText(treeItem->widgetText());
-    ui->propertiesView->item(PROP_CLASS_HIERARCY, 1)->setText(treeItem->widgetClassHierarcy().join(" :: "));
+    ui->propertiesView->item(PROP_CLASS_HIERARCY, 1)->setText(treeItem->widgetClassHierarcy().join(QStringLiteral(" :: ")));
 
     QString s;
     QDebug out(&s);
@@ -160,7 +160,7 @@ void TreeWindow::updatePropertiesView()
 void TreeWindow::clearPropertiesView()
 {
     for (int i=0; i<ui->propertiesView->rowCount(); ++i)
-        ui->propertiesView->item(i, 1)->setText("");
+        ui->propertiesView->item(i, 1)->setText(QLatin1String(""));
     for (int i = ui->allPropertiesView->rowCount(); 0 <=  i; --i)
         ui->allPropertiesView->removeRow(i);
     ui->allPropertiesView->setRowCount(0);

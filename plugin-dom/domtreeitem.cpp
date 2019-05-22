@@ -70,11 +70,11 @@ void DomTreeItem::init()
         text = " \"" + text + "\"";
 
     QString name = mWidget->objectName();
-    setText(0, QString("%1 (%2)%3").arg(
+    setText(0, QStringLiteral("%1 (%2)%3").arg(
                 name ,
                 widgetClassName(),
                 text));
-    setText(1, hierarcy.join(" :: "));
+    setText(1, hierarcy.join(QStringLiteral(" :: ")));
     fill();
 }
 
@@ -128,7 +128,7 @@ QString DomTreeItem::widgetText() const
     if (toolButton)
         return toolButton->text();
 
-    return "";
+    return QLatin1String("");
 }
 
 
