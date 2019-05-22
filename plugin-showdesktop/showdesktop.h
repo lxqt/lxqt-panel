@@ -46,7 +46,7 @@ public:
     ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo);
 
     virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return "ShowDesktop"; }
+    virtual QString themeId() const { return QStringLiteral("ShowDesktop"); }
 private:
     GlobalKeyShortcut::Action * m_key;
 

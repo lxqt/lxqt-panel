@@ -41,14 +41,14 @@ ShowDesktop::ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo)
 {
-    m_key = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/show_hide").arg(settings()->group()), tr("Show desktop"), this);
+    m_key = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/show_hide").arg(settings()->group()), tr("Show desktop"), this);
     if (m_key)
     {
         connect(m_key, &GlobalKeyShortcut::Action::registrationFinished, this, &ShowDesktop::shortcutRegistered);
         connect(m_key, SIGNAL(activated()), this, SLOT(toggleShowingDesktop()));
     }
 
-    QAction * act = new QAction(XdgIcon::fromTheme("user-desktop"), tr("Show Desktop"), this);
+    QAction * act = new QAction(XdgIcon::fromTheme(QStringLiteral("user-desktop")), tr("Show Desktop"), this);
     connect(act, SIGNAL(triggered()), this, SLOT(toggleShowingDesktop()));
 
     mButton.setDefaultAction(act);
