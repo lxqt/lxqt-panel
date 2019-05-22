@@ -64,8 +64,8 @@ LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
     const auto apps = mPlugin->settings()->readArray(QStringLiteral("apps"));
     for (const QMap<QString, QVariant> &app : apps)
     {
-        desktop = app.value(QStringLiteral("desktop"), "").toString();
-        file = app.value(QStringLiteral("file"), "").toString();
+        desktop = app.value(QStringLiteral("desktop"), QString()).toString();
+        file = app.value(QStringLiteral("file"), QString()).toString();
         if (!desktop.isEmpty())
         {
             XdgDesktopFile xdg;
@@ -88,9 +88,9 @@ LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
         }
         else
         {
-            execname = app.value(QStringLiteral("name"), "").toString();
-            exec = app.value(QStringLiteral("exec"), "").toString();
-            icon = app.value(QStringLiteral("icon"), "").toString();
+            execname = app.value(QStringLiteral("name"), QString()).toString();
+            exec = app.value(QStringLiteral("exec"), QString()).toString();
+            icon = app.value(QStringLiteral("icon"), QString()).toString();
             if (icon.isNull())
             {
                 qDebug() << "Icon" << icon << "is not valid (isNull). Skipped.";
