@@ -42,7 +42,7 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     mMenu(0),
-    mDefaultIcon(XdgIcon::fromTheme("folder"))
+    mDefaultIcon(XdgIcon::fromTheme(QStringLiteral("folder")))
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);
     mOpenTerminalSignalMapper = new QSignalMapper(this);
@@ -95,7 +95,7 @@ void DirectoryMenu::buildMenu(const QString& path)
 
 void DirectoryMenu::openDirectory(const QString& path)
 {
-    QDesktopServices::openUrl(QUrl("file://" + QDir::toNativeSeparators(path)));
+    QDesktopServices::openUrl(QUrl(QStringLiteral("file://") + QDir::toNativeSeparators(path)));
 }
 
 void DirectoryMenu::openInTerminal(const QString& path)
