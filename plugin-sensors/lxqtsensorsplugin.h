@@ -44,7 +44,7 @@ public:
 
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
-    virtual QString themeId() const { return "Sensors"; }
+    virtual QString themeId() const { return QStringLiteral("Sensors"); }
 
     bool isSeparate() const { return true; }
     QDialog *configureDialog();
