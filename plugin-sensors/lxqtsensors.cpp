@@ -153,7 +153,7 @@ void LXQtSensors::updateSensorReadings()
         {
             if (features[j].getType() == SENSORS_FEATURE_TEMP)
             {
-                tooltip = features[j].getLabel() + " (" + QChar(0x00B0);
+                tooltip = features[j].getLabel() + QStringLiteral(" (") + QChar(0x00B0);
 
                 critTemp = features[j].getValue(SENSORS_SUBFEATURE_TEMP_CRIT);
                 maxTemp = features[j].getValue(SENSORS_SUBFEATURE_TEMP_MAX);
