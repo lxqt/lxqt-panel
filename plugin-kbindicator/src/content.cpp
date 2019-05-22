@@ -41,28 +41,28 @@ Content::Content(bool layoutEnabled):
     setLayout(box);
 
     m_capsLock = new QLabel(tr("C", "Label for CapsLock indicator"));
-    m_capsLock->setObjectName("CapsLockLabel");
+    m_capsLock->setObjectName(QStringLiteral("CapsLockLabel"));
     m_capsLock->setAlignment(Qt::AlignCenter);
     m_capsLock->setToolTip(tr("CapsLock", "Tooltip for CapsLock indicator"));
     m_capsLock->installEventFilter(this);
     layout()->addWidget(m_capsLock);
 
     m_numLock = new QLabel(tr("N", "Label for NumLock indicator"));
-    m_numLock->setObjectName("NumLockLabel");
+    m_numLock->setObjectName(QStringLiteral("NumLockLabel"));
     m_numLock->setToolTip(tr("NumLock", "Tooltip for NumLock indicator"));
     m_numLock->setAlignment(Qt::AlignCenter);
     m_numLock->installEventFilter(this);
     layout()->addWidget(m_numLock);
 
     m_scrollLock = new QLabel(tr("S", "Label for ScrollLock indicator"));
-    m_scrollLock->setObjectName("ScrollLockLabel");
+    m_scrollLock->setObjectName(QStringLiteral("ScrollLockLabel"));
     m_scrollLock->setToolTip(tr("ScrollLock", "Tooltip for ScrollLock indicator"));
     m_scrollLock->setAlignment(Qt::AlignCenter);
     m_scrollLock->installEventFilter(this);
     layout()->addWidget(m_scrollLock);
 
     m_layout = new QLabel;
-    m_layout->setObjectName("LayoutLabel");
+    m_layout->setObjectName(QStringLiteral("LayoutLabel"));
     m_layout->setAlignment(Qt::AlignCenter);
     m_layout->installEventFilter(this);
     layout()->addWidget(m_layout);
@@ -84,7 +84,7 @@ bool Content::setup()
 void Content::layoutChanged(const QString & sym, const QString & name, const QString & variant)
 {
     m_layout->setText(sym.toUpper());
-    QString txt = QString("<html><table>\
+    QString txt = QStringLiteral("<html><table>\
     <tr><td>%1: </td><td>%3</td></tr>\
     <tr><td>%2: </td><td>%4</td></tr>\
     </table></html>").arg(tr("Layout")).arg(tr("Variant")).arg(name).arg(variant);

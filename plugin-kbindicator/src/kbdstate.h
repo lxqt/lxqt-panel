@@ -42,7 +42,7 @@ public:
     virtual ~KbdState();
 
     virtual QString themeId() const
-    { return "KbIndicator"; }
+    { return QStringLiteral("KbIndicator"); }
 
     virtual ILXQtPanelPlugin::Flags flags() const
     { return PreferRightAlignment | HaveConfigDialog; }
