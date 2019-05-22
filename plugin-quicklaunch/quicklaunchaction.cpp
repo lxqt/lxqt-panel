@@ -46,11 +46,11 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
 {
     m_type = ActionLegacy;
 
-    m_settingsMap["name"] = name;
-    m_settingsMap["exec"] = exec;
-    m_settingsMap["icon"] = icon;
+    m_settingsMap[QStringLiteral("name")] = name;
+    m_settingsMap[QStringLiteral("exec")] = exec;
+    m_settingsMap[QStringLiteral("icon")] = icon;
 
-    if (icon == "" || icon.isNull())
+    if (icon == QLatin1String("") || icon.isNull())
         setIcon(XdgIcon::defaultApplicationIcon());
     else
         setIcon(QIcon(icon));
@@ -66,10 +66,10 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
 {
     m_type = ActionXdg;
 
-    m_settingsMap["desktop"] = xdg->fileName();
+    m_settingsMap[QStringLiteral("desktop")] = xdg->fileName();
 
-    QString title(xdg->localizedValue("Name").toString());
-    QString gn(xdg->localizedValue("GenericName").toString());
+    QString title(xdg->localizedValue(QStringLiteral("Name")).toString());
+    QString gn(xdg->localizedValue(QStringLiteral("GenericName")).toString());
     if (!gn.isEmpty())
         title += " (" + gn + ")";
     setText(title);
@@ -97,7 +97,7 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     setText(fileName);
     setData(fileName);
 
-    m_settingsMap["file"] = fileName;
+    m_settingsMap[QStringLiteral("file")] = fileName;
 
     QFileInfo fi(fileName);
     if (fi.isDir())
