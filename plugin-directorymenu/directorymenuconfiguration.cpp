@@ -41,7 +41,7 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DirectoryMenuConfiguration),
     mBaseDirectory(QDir::homePath()),
-    mDefaultIcon(XdgIcon::fromTheme("folder")),
+    mDefaultIcon(XdgIcon::fromTheme(QStringLiteral("folder"))),
     mDefaultTerminal(QStringLiteral("/usr/bin/qterminal"))
 {
     setAttribute(Qt::WA_DeleteOnClose);
