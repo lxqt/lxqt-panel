@@ -66,7 +66,7 @@ public:
     DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~DesktopSwitch();
 
-    QString themeId() const { return "DesktopSwitch"; }
+    QString themeId() const { return QStringLiteral("DesktopSwitch"); }
     QWidget *widget() { return &mWidget; }
     bool isSeparate() const { return true; }
     void realign();
