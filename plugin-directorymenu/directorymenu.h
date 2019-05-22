@@ -50,7 +50,7 @@ public:
     ~DirectoryMenu();
 
     virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return "DirectoryMenu"; }
+    virtual QString themeId() const { return QStringLiteral("DirectoryMenu"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
     QDialog *configureDialog();
     void settingsChanged();

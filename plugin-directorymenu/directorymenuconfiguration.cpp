@@ -42,10 +42,10 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     ui(new Ui::DirectoryMenuConfiguration),
     mBaseDirectory(QDir::homePath()),
     mDefaultIcon(XdgIcon::fromTheme("folder")),
-    mDefaultTerminal("/usr/bin/qterminal")
+    mDefaultTerminal(QStringLiteral("/usr/bin/qterminal"))
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("DirectoryMenuConfigurationWindow");
+    setObjectName(QStringLiteral("DirectoryMenuConfigurationWindow"));
     ui->setupUi(this);
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), SLOT(dialogButtonsAction(QAbstractButton*)));
@@ -65,10 +65,10 @@ DirectoryMenuConfiguration::~DirectoryMenuConfiguration()
 
 void DirectoryMenuConfiguration::loadSettings()
 {
-    mBaseDirectory.setPath(settings().value("baseDirectory", QDir::homePath()).toString());
+    mBaseDirectory.setPath(settings().value(QStringLiteral("baseDirectory"), QDir::homePath()).toString());
     ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
-    mIcon = settings().value("icon", QString()).toString();
+    mIcon = settings().value(QStringLiteral("icon"), QString()).toString();
     if(!mIcon.isNull())
     {
         QIcon buttonIcon = QIcon(mIcon);
@@ -81,14 +81,14 @@ void DirectoryMenuConfiguration::loadSettings()
 
     ui->iconB->setIcon(mDefaultIcon);
 
-    ui->terminalB->setText(settings().value("defaultTerminal", QString()).toString());
+    ui->terminalB->setText(settings().value(QStringLiteral("defaultTerminal"), QString()).toString());
 }
 
 void DirectoryMenuConfiguration::saveSettings()
 {
-    settings().setValue("baseDirectory", mBaseDirectory.absolutePath());
-    settings().setValue("icon", mIcon);
-    settings().setValue("defaultTerminal", mDefaultTerminal);
+    settings().setValue(QStringLiteral("baseDirectory"), mBaseDirectory.absolutePath());
+    settings().setValue(QStringLiteral("icon"), mIcon);
+    settings().setValue(QStringLiteral("defaultTerminal"), mDefaultTerminal);
 }
 
 void DirectoryMenuConfiguration::showDirectoryDialog()
@@ -109,7 +109,7 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
 
 void DirectoryMenuConfiguration::showTermDialog()
 {
-    QFileDialog d(this, tr("Choose Default Terminal"), "/usr/bin");
+    QFileDialog d(this, tr("Choose Default Terminal"), QStringLiteral("/usr/bin"));
     d.setFileMode(QFileDialog::ExistingFile);
     d.setWindowModality(Qt::WindowModal);
     
