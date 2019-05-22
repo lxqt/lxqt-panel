@@ -52,14 +52,14 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
     Q_ASSERT(nullptr != iface);
 
     mDiskButton = new QToolButton(this);
-    mDiskButton->setObjectName("DiskButton");
+    mDiskButton->setObjectName(QStringLiteral("DiskButton"));
     mDiskButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mDiskButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     connect(mDiskButton, &QToolButton::clicked, this, &MenuDiskItem::diskButtonClicked);
 
     mEjectButton = new QToolButton(this);
-    mEjectButton->setObjectName("EjectButton");
-    mEjectButton->setIcon(XdgIcon::fromTheme("media-eject"));
+    mEjectButton->setObjectName(QStringLiteral("EjectButton"));
+    mEjectButton->setIcon(XdgIcon::fromTheme(QStringLiteral("media-eject")));
     connect(mEjectButton, &QToolButton::clicked, this, &MenuDiskItem::ejectButtonClicked);
 
     QHBoxLayout *layout = new QHBoxLayout(this);
