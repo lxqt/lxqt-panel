@@ -59,7 +59,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
 
     QString chipFeatureLabel;
 
-    mSettings->beginGroup("chips");
+    mSettings->beginGroup(QStringLiteral("chips"));
 
     for (int i = 0; i < mDetectedChips.size(); ++i)
     {
@@ -77,7 +77,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
                 pg->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
                 // Hide progress bar if it is not enabled
-                if (!mSettings->value("enabled").toBool())
+                if (!mSettings->value(QStringLiteral("enabled")).toBool())
                 {
                     pg->hide();
                 }
@@ -86,7 +86,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
                 pg->setTextVisible(false);
 
                 QPalette pal = pg->palette();
-                QColor color(mSettings->value("color").toString());
+                QColor color(mSettings->value(QStringLiteral("color")).toString());
                 pal.setColor(QPalette::Active, QPalette::Highlight, color);
                 pal.setColor(QPalette::Inactive, QPalette::Highlight, color);
                 pg->setPalette(pal);
@@ -110,13 +110,13 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
 
     // Run timer that will be updating sensor readings
     connect(&mUpdateSensorReadingsTimer, SIGNAL(timeout()), this, SLOT(updateSensorReadings()));
-    mUpdateSensorReadingsTimer.start(mSettings->value("updateInterval").toInt() * 1000);
+    mUpdateSensorReadingsTimer.start(mSettings->value(QStringLiteral("updateInterval")).toInt() * 1000);
 
     // Run timer that will be showin warning
     mWarningAboutHighTemperatureTimer.setInterval(500);
     connect(&mWarningAboutHighTemperatureTimer, SIGNAL(timeout()), this,
             SLOT(warningAboutHighTemperature()));
-    if (mSettings->value("warningAboutHighTemperature").toBool())
+    if (mSettings->value(QStringLiteral("warningAboutHighTemperature")).toBool())
     {
         mWarningAboutHighTemperatureTimer.start();
     }
@@ -141,8 +141,8 @@ void LXQtSensors::updateSensorReadings()
     // Iterator for temperature progress bars
     QList<ProgressBar*>::iterator temperatureProgressBarsIt =
         mTemperatureProgressBars.begin();
-    const bool use_fahrenheit = mSettings->value("useFahrenheitScale").toBool();
-    const bool warn_high = mSettings->value("warningAboutHighTemperature").toBool();
+    const bool use_fahrenheit = mSettings->value(QStringLiteral("useFahrenheitScale")).toBool();
+    const bool warn_high = mSettings->value(QStringLiteral("warningAboutHighTemperature")).toBool();
     const double default_max = use_fahrenheit ? celsiusToFahrenheit(DEFAULT_MAX) : DEFAULT_MAX;
 
     for (int i = 0; i < mDetectedChips.size(); ++i)
@@ -187,11 +187,11 @@ void LXQtSensors::updateSensorReadings()
                     minTemp = celsiusToFahrenheit(minTemp);
                     curTemp = celsiusToFahrenheit(curTemp);
 
-                    tooltip += "F)";
+                    tooltip += QLatin1String("F)");
                 }
                 else
                 {
-                    tooltip += "C)";
+                    tooltip += QLatin1String("C)");
                 }
 
 
@@ -202,25 +202,25 @@ void LXQtSensors::updateSensorReadings()
                 // Set current temperature
                 (*temperatureProgressBarsIt)->setValue(curTemp);
 
-                tooltip += "<br><br>Crit: ";
+                tooltip += QLatin1String("<br><br>Crit: ");
                 tooltip += QString::number((*temperatureProgressBarsIt)->maximum());
-                tooltip += "<br>Max: ";
+                tooltip += QLatin1String("<br>Max: ");
                 tooltip += QString::number(int(maxTemp));
-                tooltip += "<br>Cur: ";
+                tooltip += QLatin1String("<br>Cur: ");
 
                 // Mark high temperature in the tooltip
                 if (highTemperature)
                 {
-                    tooltip += "<span style=\"font-size:8pt; font-weight:600; color:#FF0000;\">";
+                    tooltip += QLatin1String("<span style=\"font-size:8pt; font-weight:600; color:#FF0000;\">");
                     tooltip += QString::number((*temperatureProgressBarsIt)->value());
-                    tooltip += " !</span>";
+                    tooltip += QLatin1String(" !</span>");
                 }
                 else
                 {
                     tooltip += QString::number((*temperatureProgressBarsIt)->value());
                 }
 
-                tooltip += "<br>Min: ";
+                tooltip += QLatin1String("<br>Min: ");
                 tooltip += QString::number((*temperatureProgressBarsIt)->minimum());
                 (*temperatureProgressBarsIt)->setToolTip(tooltip);
 
@@ -265,13 +265,13 @@ void LXQtSensors::warningAboutHighTemperature()
 
 void LXQtSensors::settingsChanged()
 {
-    mUpdateSensorReadingsTimer.setInterval(mSettings->value("updateInterval").toInt() * 1000);
+    mUpdateSensorReadingsTimer.setInterval(mSettings->value(QStringLiteral("updateInterval")).toInt() * 1000);
 
     // Iterator for temperature progress bars
     QList<ProgressBar*>::iterator temperatureProgressBarsIt =
         mTemperatureProgressBars.begin();
 
-    mSettings->beginGroup("chips");
+    mSettings->beginGroup(QStringLiteral("chips"));
 
     for (int i = 0; i < mDetectedChips.size(); ++i)
     {
@@ -284,7 +284,7 @@ void LXQtSensors::settingsChanged()
             {
                 mSettings->beginGroup(features[j].getLabel());
 
-                if (mSettings->value("enabled").toBool())
+                if (mSettings->value(QStringLiteral("enabled")).toBool())
                 {
                     (*temperatureProgressBarsIt)->show();
                 }
@@ -294,7 +294,7 @@ void LXQtSensors::settingsChanged()
                 }
 
                 QPalette pal = (*temperatureProgressBarsIt)->palette();
-                QColor color(mSettings->value("color").toString());
+                QColor color(mSettings->value(QStringLiteral("color")).toString());
                 pal.setColor(QPalette::Active, QPalette::Highlight, color);
                 pal.setColor(QPalette::Inactive, QPalette::Highlight, color);
                 (*temperatureProgressBarsIt)->setPalette(pal);
@@ -312,7 +312,7 @@ void LXQtSensors::settingsChanged()
     mSettings->endGroup();
 
 
-    if (mSettings->value("warningAboutHighTemperature").toBool())
+    if (mSettings->value(QStringLiteral("warningAboutHighTemperature")).toBool())
     {
         // Update sensors readings to get the list of high temperature progress bars
         updateSensorReadings();
@@ -370,12 +370,12 @@ void LXQtSensors::realign()
 
         if (mPlugin->panel()->isHorizontal())
         {
-            mTemperatureProgressBars[i]->setFixedWidth(mPlugin->settings()->value("tempBarWidth").toInt());
+            mTemperatureProgressBars[i]->setFixedWidth(mPlugin->settings()->value(QStringLiteral("tempBarWidth")).toInt());
             mTemperatureProgressBars[i]->setFixedHeight(QWIDGETSIZE_MAX);
         }
         else
         {
-            mTemperatureProgressBars[i]->setFixedHeight(mPlugin->settings()->value("tempBarWidth").toInt());
+            mTemperatureProgressBars[i]->setFixedHeight(mPlugin->settings()->value(QStringLiteral("tempBarWidth")).toInt());
             mTemperatureProgressBars[i]->setFixedWidth(QWIDGETSIZE_MAX);
         }
     }
@@ -391,22 +391,22 @@ double LXQtSensors::celsiusToFahrenheit(double celsius)
 
 void LXQtSensors::initDefaultSettings()
 {
-    if (!mSettings->contains("updateInterval"))
+    if (!mSettings->contains(QStringLiteral("updateInterval")))
     {
-        mSettings->setValue("updateInterval", 1);
+        mSettings->setValue(QStringLiteral("updateInterval"), 1);
     }
 
-    if (!mSettings->contains("tempBarWidth"))
+    if (!mSettings->contains(QStringLiteral("tempBarWidth")))
     {
-        mSettings->setValue("tempBarWidth", 8);
+        mSettings->setValue(QStringLiteral("tempBarWidth"), 8);
     }
 
-    if (!mSettings->contains("useFahrenheitScale"))
+    if (!mSettings->contains(QStringLiteral("useFahrenheitScale")))
     {
-        mSettings->setValue("useFahrenheitScale", false);
+        mSettings->setValue(QStringLiteral("useFahrenheitScale"), false);
     }
 
-    mSettings->beginGroup("chips");
+    mSettings->beginGroup(QStringLiteral("chips"));
 
     // Initialize default sensors settings
     for (int i = 0; i < mDetectedChips.size(); ++i)
@@ -419,15 +419,15 @@ void LXQtSensors::initDefaultSettings()
             if (features[j].getType() == SENSORS_FEATURE_TEMP)
             {
                 mSettings->beginGroup(features[j].getLabel());
-                if (!mSettings->contains("enabled"))
+                if (!mSettings->contains(QStringLiteral("enabled")))
                 {
-                    mSettings->setValue("enabled", true);
+                    mSettings->setValue(QStringLiteral("enabled"), true);
                 }
 
-                if (!mSettings->contains("color"))
+                if (!mSettings->contains(QStringLiteral("color")))
                 {
                     // This is the default from QtDesigner
-                    mSettings->setValue("color", QColor(qRgb(98, 140, 178)).name());
+                    mSettings->setValue(QStringLiteral("color"), QColor(qRgb(98, 140, 178)).name());
                 }
                 mSettings->endGroup();
             }
@@ -437,9 +437,9 @@ void LXQtSensors::initDefaultSettings()
 
     mSettings->endGroup();
 
-    if (!mSettings->contains("warningAboutHighTemperature"))
+    if (!mSettings->contains(QStringLiteral("warningAboutHighTemperature")))
     {
-        mSettings->setValue("warningAboutHighTemperature", true);
+        mSettings->setValue(QStringLiteral("warningAboutHighTemperature"), true);
     }
 }
 
