@@ -165,7 +165,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
 
 void QuickLaunchButton::dragMoveEvent(QDragMoveEvent * e)
 {
-    if (e->mimeData()->hasFormat(MIMETYPE))
+    if (e->mimeData()->hasFormat(QStringLiteral(MIMETYPE)))
         e->acceptProposedAction();
     else
         e->ignore();

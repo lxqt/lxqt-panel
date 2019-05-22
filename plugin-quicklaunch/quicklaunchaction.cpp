@@ -71,7 +71,7 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
     QString title(xdg->localizedValue(QStringLiteral("Name")).toString());
     QString gn(xdg->localizedValue(QStringLiteral("GenericName")).toString());
     if (!gn.isEmpty())
-        title += " (" + gn + ")";
+        title += QLatin1String(" (") + gn + QLatin1String(")");
     setText(title);
 
     setIcon(xdg->icon(XdgIcon::defaultApplicationIcon()));
