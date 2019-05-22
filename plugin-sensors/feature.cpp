@@ -37,7 +37,7 @@ Feature::Feature(const sensors_chip_name* sensorsChipName, const sensors_feature
 
     if ((featureLabel = sensors_get_label(mSensorsChipName, mSensorsFeature)))
     {
-        mLabel = featureLabel;
+        mLabel = QString::fromUtf8(featureLabel);
         free(featureLabel);
     }
 
