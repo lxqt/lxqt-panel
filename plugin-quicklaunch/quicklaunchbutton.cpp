@@ -52,14 +52,14 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     setDefaultAction(mAct);
     mAct->setParent(this);
 
-    mMoveLeftAct = new QAction(XdgIcon::fromTheme("go-previous"), tr("Move left"), this);
+    mMoveLeftAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-previous")), tr("Move left"), this);
     connect(mMoveLeftAct, SIGNAL(triggered()), this, SIGNAL(movedLeft()));
 
-    mMoveRightAct = new QAction(XdgIcon::fromTheme("go-next"), tr("Move right"), this);
+    mMoveRightAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-next")), tr("Move right"), this);
     connect(mMoveRightAct, SIGNAL(triggered()), this, SIGNAL(movedRight()));
 
 
-    mDeleteAct = new QAction(XdgIcon::fromTheme("dialog-close"), tr("Remove from quicklaunch"), this);
+    mDeleteAct = new QAction(XdgIcon::fromTheme(QStringLiteral("dialog-close")), tr("Remove from quicklaunch"), this);
     connect(mDeleteAct, SIGNAL(triggered()), this, SLOT(selfRemove()));
     addAction(mDeleteAct);
     mMenu = new QMenu(this);

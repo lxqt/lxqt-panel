@@ -42,7 +42,7 @@ public:
     ~LXQtQuickLaunchPlugin();
 
     virtual QWidget *widget();
-    virtual QString themeId() const { return "QuickLaunch"; }
+    virtual QString themeId() const { return QStringLiteral("QuickLaunch"); }
     virtual Flags flags() const { return NeedsHandle; }
 
     void realign();
