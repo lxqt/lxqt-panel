@@ -40,7 +40,7 @@
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
 
-static const QString DEFAULT_SHORTCUT_TEMPLATE("Control+F%1");
+static const QString DEFAULT_SHORTCUT_TEMPLATE(QStringLiteral("Control+F%1"));
 
 DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
@@ -80,7 +80,7 @@ void DesktopSwitch::registerShortcuts()
     QString description;
     for (int i = 0; i < 12; ++i)
     {
-        path = QString("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
+        path = QStringLiteral("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
         description = tr("Switch to desktop %1").arg(i + 1);
 
         gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QString(), path, description, this);
@@ -231,13 +231,13 @@ void DesktopSwitch::onDesktopNamesChanged()
 
 void DesktopSwitch::settingsChanged()
 {
-    int value = settings()->value("rows", 1).toInt();
+    int value = settings()->value(QStringLiteral("rows"), 1).toInt();
     if (mRows != value)
     {
         mRows = value;
         realign();
     }
-    value = settings()->value("labelType", DesktopSwitchButton::LABEL_TYPE_NUMBER).toInt();
+    value = settings()->value(QStringLiteral("labelType"), DesktopSwitchButton::LABEL_TYPE_NUMBER).toInt();
     if (mLabelType != static_cast<DesktopSwitchButton::LabelType>(value))
     {
         mLabelType = static_cast<DesktopSwitchButton::LabelType>(value);
