@@ -295,9 +295,9 @@ void LXQtWorldClock::settingsChanged()
             {
                 QString datePortionOrder;
                 QString dateLocale = locale.dateFormat(QLocale::ShortFormat).toLower();
-                int yearIndex = dateLocale.indexOf("y");
-                int monthIndex = dateLocale.indexOf("m");
-                int dayIndex = dateLocale.indexOf("d");
+                int yearIndex = dateLocale.indexOf(QLatin1String("y"));
+                int monthIndex = dateLocale.indexOf(QLatin1String("m"));
+                int dayIndex = dateLocale.indexOf(QLatin1String("d"));
                 if (yearIndex < dayIndex)
                 // Big-endian (year, month, day) (yyyy MMMM dd, dddd) -> in some Asia countires like China or Japan
                     datePortionOrder = QLatin1String("%1%2%3 %4%5%6");

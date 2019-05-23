@@ -38,7 +38,7 @@ LXQtWorldClockConfigurationTimeZones::LXQtWorldClockConfigurationTimeZones(QWidg
     QDialog(parent),
     ui(new Ui::LXQtWorldClockConfigurationTimeZones)
 {
-    setObjectName("WorldClockConfigurationTimeZonesWindow");
+    setObjectName(QStringLiteral("WorldClockConfigurationTimeZonesWindow"));
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
