@@ -207,7 +207,7 @@ void LXQtWorldClockConfiguration::loadSettings()
     ui->advancedManualGB->setChecked(advancedManual);
 
 
-    mDefaultTimeZone = settings().value("defaultTimeZone", QString()).toString();
+    mDefaultTimeZone = settings().value(QStringLiteral("defaultTimeZone"), QString()).toString();
 
     ui->timeZonesTW->setRowCount(0);
 
@@ -232,7 +232,7 @@ void LXQtWorldClockConfiguration::loadSettings()
     ui->timeZonesTW->resizeColumnsToContents();
 
 
-    ui->autorotateCB->setChecked(settings().value("autoRotate", true).toBool());
+    ui->autorotateCB->setChecked(settings().value(QStringLiteral("autoRotate"), true).toBool());
     ui->showWeekNumberCB->setChecked(settings().value(QL1S("showWeekNumber"), true).toBool());
 
 

@@ -38,7 +38,7 @@ LXQtWorldClockConfigurationManualFormat::LXQtWorldClockConfigurationManualFormat
     QDialog(parent),
     ui(new Ui::LXQtWorldClockConfigurationManualFormat)
 {
-    setObjectName("WorldClockConfigurationManualFormatWindow");
+    setObjectName(QStringLiteral("WorldClockConfigurationManualFormatWindow"));
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
