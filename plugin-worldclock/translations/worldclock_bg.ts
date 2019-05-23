@@ -200,7 +200,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Сложи като &amp;Обикновен</translation>
+        <translation>Сложи като &amp;Подразбиране</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
