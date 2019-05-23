@@ -300,7 +300,7 @@ void LXQtTray::startTray()
     Window root = QX11Info::appRootWindow();
 
     QString s = QStringLiteral("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(dsp));
-    Atom _NET_SYSTEM_TRAY_S = XfitMan::atom(s.toLatin1());
+    Atom _NET_SYSTEM_TRAY_S = XfitMan::atom(s.toLatin1().constData());
 
     if (XGetSelectionOwner(dsp, _NET_SYSTEM_TRAY_S) != None)
     {

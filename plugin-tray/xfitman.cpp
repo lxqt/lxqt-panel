@@ -72,10 +72,10 @@ XfitMan::XfitMan()
 Atom XfitMan::atom(const char* atomName)
 {
     static QHash<QString, Atom> hash;
-    if (hash.contains(atomName))
-        return hash.value(atomName);
+    if (hash.contains(QString::fromUtf8(atomName)))
+        return hash.value(QString::fromUtf8(atomName));
     Atom atom = XInternAtom(QX11Info::display(), atomName, false);
-    hash[atomName] = atom;
+    hash[QString::fromUtf8(atomName)] = atom;
     return atom;
 }
 
@@ -224,7 +224,7 @@ QString XfitMan::getWindowTitle(Window _wid) const
     {
         if (getWindowProperty(_wid, atom("XA_WM_NAME"), XA_STRING, &length, &data))
         {
-            name = (char*) data;
+            name =  QString::fromUtf8(reinterpret_cast<char *>(data));
             XFree(data);
         }
     }
@@ -232,7 +232,7 @@ QString XfitMan::getWindowTitle(Window _wid) const
     if (name.isEmpty())
     {
         Status ok = XFetchName(QX11Info::display(), _wid, (char**) &data);
-        name = QString((char*) data);
+        name = QString::fromUtf8(reinterpret_cast<char *> (data));
         if (0 != ok) XFree(data);
     }
 
@@ -258,7 +258,7 @@ QString XfitMan::getApplicationName(Window _wid) const
     {
         if (hint.res_name)
         {
-            ret = hint.res_name;
+            ret = QString::fromUtf8(hint.res_name);
             XFree(hint.res_name);
         }
         if (hint.res_class)
