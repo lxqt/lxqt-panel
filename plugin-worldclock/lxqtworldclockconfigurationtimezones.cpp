@@ -110,8 +110,8 @@ int LXQtWorldClockConfigurationTimeZones::updateAndExec()
     for(const QByteArray &ba : timeZones)
     {
         QTimeZone timeZone(ba);
-        QString ianaId(ba);
-        QStringList qStrings(QString(ba).split(QLatin1Char('/')));
+        QString ianaId(QString::fromUtf8(ba));
+        QStringList qStrings(QString::fromUtf8((ba)).split(QLatin1Char('/')));
 
         if ((qStrings.size() == 1) && (qStrings[0].startsWith(QLatin1String("UTC"))))
             qStrings.prepend(tr("UTC"));
