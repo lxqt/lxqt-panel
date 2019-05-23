@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="648"/>
         <source>Activate task %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivovať úlohu  %1</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="572"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Presunúť</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zmeniť veľkosť</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
@@ -112,12 +112,12 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="82"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Skupina</translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzatvoriť skupinu</translation>
     </message>
 </context>
 <context>
@@ -125,78 +125,78 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenie správcu úloh</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Všeobecné</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť iba okná z pracovnej plochy</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť iba okná z obrazovky panela</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť iba minimalizované okná</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximalizovať všetky okná na aktuálnu plochu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmena okna rolovaním</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Okná &amp; zoskupenie</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť okno po prejdení myšou</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzhľad</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximálna šírka tlačidla</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="144"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximálna výška tlačítka</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Použiť okenné symboly, ak sú k dispozícii</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatické otočenie tlačidiel vo vertikálnej polohe panela</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatvoriť kliknutím na stredné tlačítko</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuálny</translation>
     </message>
 </context>
 </TS>
