@@ -41,7 +41,7 @@ QString netSpeedToString(int value)
     if (value / 10)
         prefix = QChar(prefixes[value / 10 - 1]);
 
-    return QString("%1 %2B/s").arg(1 << (value % 10)).arg(prefix);
+    return QStringLiteral("%1 %2B/s").arg(1 << (value % 10)).arg(prefix);
 }
 
 int netSpeedFromString(QString value)

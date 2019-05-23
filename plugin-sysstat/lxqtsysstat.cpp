@@ -122,7 +122,7 @@ LXQtSysStatContent::LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent
     mUseThemeColours(true),
     mHistoryOffset(0)
 {
-    setObjectName("SysStat_Graph");
+    setObjectName(QStringLiteral("SysStat_Graph"));
 }
 
 LXQtSysStatContent::~LXQtSysStatContent()
@@ -223,47 +223,47 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     bool old_logarithmicScale = mLogarithmicScale;
     int old_logScaleSteps = mLogScaleSteps;
 
-    mUseThemeColours = settings->value("graph/useThemeColours", true).toBool();
-    mUpdateInterval = settings->value("graph/updateInterval", 1.0).toDouble();
-    mMinimalSize = settings->value("graph/minimalSize", 30).toInt();
+    mUseThemeColours = settings->value(QStringLiteral("graph/useThemeColours"), true).toBool();
+    mUpdateInterval = settings->value(QStringLiteral("graph/updateInterval"), 1.0).toDouble();
+    mMinimalSize = settings->value(QStringLiteral("graph/minimalSize"), 30).toInt();
 
-    mGridLines = settings->value("grid/lines", 1).toInt();
+    mGridLines = settings->value(QStringLiteral("grid/lines"), 1).toInt();
 
-    mTitleLabel = settings->value("title/label", QString()).toString();
+    mTitleLabel = settings->value(QStringLiteral("title/label"), QString()).toString();
 
     // default to CPU monitoring
-    mDataType = settings->value("data/type", LXQtSysStatConfiguration::msStatTypes[0]).toString();
+    mDataType = settings->value(QStringLiteral("data/type"), LXQtSysStatConfiguration::msStatTypes[0]).toString();
 
-    mDataSource = settings->value("data/source", QString("cpu")).toString();
+    mDataSource = settings->value(QStringLiteral("data/source"), QStringLiteral("cpu")).toString();
 
-    mUseFrequency = settings->value("cpu/useFrequency", true).toBool();
+    mUseFrequency = settings->value(QStringLiteral("cpu/useFrequency"), true).toBool();
 
-    mNetMaximumSpeed = PluginSysStat::netSpeedFromString(settings->value("net/maximumSpeed", "1 MB/s").toString());
-    mLogarithmicScale = settings->value("net/logarithmicScale", true).toBool();
+    mNetMaximumSpeed = PluginSysStat::netSpeedFromString(settings->value(QStringLiteral("net/maximumSpeed"), "1 MB/s").toString());
+    mLogarithmicScale = settings->value(QStringLiteral("net/logarithmicScale"), true).toBool();
 
-    mLogScaleSteps = settings->value("net/logarithmicScaleSteps", 4).toInt();
+    mLogScaleSteps = settings->value(QStringLiteral("net/logarithmicScaleSteps"), 4).toInt();
     mLogScaleMax = static_cast<qreal>(static_cast<int64_t>(1) << mLogScaleSteps);
 
     mNetRealMaximumSpeed = static_cast<qreal>(static_cast<int64_t>(1) << mNetMaximumSpeed);
 
 
-    mSettingsColours.gridColour = QColor(settings->value("grid/colour", "#c0c0c0").toString());
+    mSettingsColours.gridColour = QColor(settings->value(QStringLiteral("grid/colour"), "#c0c0c0").toString());
 
-    mSettingsColours.titleColour = QColor(settings->value("title/colour", "#ffffff").toString());
+    mSettingsColours.titleColour = QColor(settings->value(QStringLiteral("title/colour"), "#ffffff").toString());
 
-    mSettingsColours.cpuSystemColour = QColor(settings->value("cpu/systemColour",    "#800000").toString());
-    mSettingsColours.cpuUserColour   = QColor(settings->value("cpu/userColour",      "#000080").toString());
-    mSettingsColours.cpuNiceColour   = QColor(settings->value("cpu/niceColour",      "#008000").toString());
-    mSettingsColours.cpuOtherColour  = QColor(settings->value("cpu/otherColour",     "#808000").toString());
-    mSettingsColours.frequencyColour = QColor(settings->value("cpu/frequencyColour", "#808080").toString());
+    mSettingsColours.cpuSystemColour = QColor(settings->value(QStringLiteral("cpu/systemColour"),    "#800000").toString());
+    mSettingsColours.cpuUserColour   = QColor(settings->value(QStringLiteral("cpu/userColour"),      "#000080").toString());
+    mSettingsColours.cpuNiceColour   = QColor(settings->value(QStringLiteral("cpu/niceColour"),      "#008000").toString());
+    mSettingsColours.cpuOtherColour  = QColor(settings->value(QStringLiteral("cpu/otherColour"),     "#808000").toString());
+    mSettingsColours.frequencyColour = QColor(settings->value(QStringLiteral("cpu/frequencyColour"), "#808080").toString());
 
-    mSettingsColours.memAppsColour    = QColor(settings->value("mem/appsColour",    "#000080").toString());
-    mSettingsColours.memBuffersColour = QColor(settings->value("mem/buffersColour", "#008000").toString());
-    mSettingsColours.memCachedColour  = QColor(settings->value("mem/cachedColour",  "#808000").toString());
-    mSettingsColours.swapUsedColour   = QColor(settings->value("mem/swapColour",    "#800000").toString());
+    mSettingsColours.memAppsColour    = QColor(settings->value(QStringLiteral("mem/appsColour"),    "#000080").toString());
+    mSettingsColours.memBuffersColour = QColor(settings->value(QStringLiteral("mem/buffersColour"), "#008000").toString());
+    mSettingsColours.memCachedColour  = QColor(settings->value(QStringLiteral("mem/cachedColour"),  "#808000").toString());
+    mSettingsColours.swapUsedColour   = QColor(settings->value(QStringLiteral("mem/swapColour"),    "#800000").toString());
 
-    mSettingsColours.netReceivedColour    = QColor(settings->value("net/receivedColour",    "#000080").toString());
-    mSettingsColours.netTransmittedColour = QColor(settings->value("net/transmittedColour", "#808000").toString());
+    mSettingsColours.netReceivedColour    = QColor(settings->value(QStringLiteral("net/receivedColour"),    "#000080").toString());
+    mSettingsColours.netTransmittedColour = QColor(settings->value(QStringLiteral("net/transmittedColour"), "#808000").toString());
 
 
     if (mUseThemeColours)
@@ -306,11 +306,11 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
             mStat = nullptr;
         }
 
-        if (mDataType == "CPU")
+        if (mDataType == QLatin1String("CPU"))
             mStat = new SysStat::CpuStat(this);
-        else if (mDataType == "Memory")
+        else if (mDataType == QLatin1String("Memory"))
             mStat = new SysStat::MemStat(this);
-        else if (mDataType == "Network")
+        else if (mDataType == QLatin1String("Network"))
             mStat = new SysStat::NetStat(this);
     }
 
@@ -318,7 +318,7 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     {
         if (needReconnecting)
         {
-            if (mDataType == "CPU")
+            if (mDataType == QLatin1String("CPU"))
             {
                 if (mUseFrequency)
                 {
@@ -331,14 +331,14 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
                     connect(qobject_cast<SysStat::CpuStat*>(mStat), SIGNAL(update(float, float, float, float)), this, SLOT(cpuUpdate(float, float, float, float)));
                 }
             }
-            else if (mDataType == "Memory")
+            else if (mDataType == QLatin1String("Memory"))
             {
-                if (mDataSource == "memory")
+                if (mDataSource == QLatin1String("memory"))
                     connect(qobject_cast<SysStat::MemStat*>(mStat), SIGNAL(memoryUpdate(float, float, float)), this, SLOT(memoryUpdate(float, float, float)));
                 else
                     connect(qobject_cast<SysStat::MemStat*>(mStat), SIGNAL(swapUpdate(float)), this, SLOT(swapUpdate(float)));
             }
-            else if (mDataType == "Network")
+            else if (mDataType == QLatin1String("Network"))
             {
                 connect(qobject_cast<SysStat::NetStat*>(mStat), SIGNAL(update(unsigned, unsigned)), this, SLOT(networkUpdate(unsigned, unsigned)));
             }
@@ -620,7 +620,7 @@ void LXQtSysStatContent::paintEvent(QPaintEvent *event)
 
 void LXQtSysStatContent::toolTipInfo(QString const & tooltip)
 {
-    setToolTip(QString("<b>%1(%2)</b><br>%3")
+    setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3")
             .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataType.toStdString().c_str()))
             .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataSource.toStdString().c_str()))
             .arg(tooltip));
