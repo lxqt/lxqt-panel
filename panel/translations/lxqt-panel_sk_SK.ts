@@ -207,7 +207,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Čiastočné riešenie pre štýly widgetov, ktorým
+nie je možné poskytnúť osobitnú tému panelu.
+
+Možno budete chcieť zakázať:
+
+Konfiguráciu vzhľadu LXQt →
+Tému ikon →
+Farbu ikon na základe štýlu widgetu (palety)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
