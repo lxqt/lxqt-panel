@@ -80,7 +80,7 @@ LXQtTray::LXQtTray(ILXQtPanelPlugin *plugin, QWidget *parent):
     mDisplay(QX11Info::display())
 {
     mLayout = new LXQt::GridLayout(this);
-    mLayout->setSpacing(mPlugin->settings()->value("spacing", 0).toInt());
+    mLayout->setSpacing(mPlugin->settings()->value(QStringLiteral("spacing"), 0).toInt());
     realign();
     _NET_SYSTEM_TRAY_OPCODE = XfitMan::atom("_NET_SYSTEM_TRAY_OPCODE");
     // Init the selection later just to ensure that no signals are sent until
@@ -177,7 +177,7 @@ void LXQtTray::realign()
  ************************************************/
 void LXQtTray::settingsChanged()
 {
-    mLayout->setSpacing(mPlugin->settings()->value("spacing", 0).toInt());
+    mLayout->setSpacing(mPlugin->settings()->value(QStringLiteral("spacing"), 0).toInt());
     sortIcons();
 }
 
@@ -299,7 +299,7 @@ void LXQtTray::startTray()
     Display* dsp = mDisplay;
     Window root = QX11Info::appRootWindow();
 
-    QString s = QString("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(dsp));
+    QString s = QStringLiteral("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(dsp));
     Atom _NET_SYSTEM_TRAY_S = XfitMan::atom(s.toLatin1());
 
     if (XGetSelectionOwner(dsp, _NET_SYSTEM_TRAY_S) != None)
@@ -420,7 +420,7 @@ void LXQtTray::addIcon(Window winId)
 void LXQtTray::sortIcons()
 {
     // there is currently no way to un-sort icons once sorted
-    if(!mPlugin->settings()->value("sortIcons", false).toBool())
+    if(!mPlugin->settings()->value(QStringLiteral("sortIcons"), false).toBool())
         return;
 
     std::vector<QLayoutItem *> items;
