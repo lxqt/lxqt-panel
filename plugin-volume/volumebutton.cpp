@@ -103,7 +103,7 @@ void VolumeButton::mouseMoveEvent(QMouseEvent *event)
     QString tooltip = toolTip();
     if (!tooltip.isEmpty())
     {
-        *(tooltip.rbegin()) = 'X';
+        *(tooltip.rbegin()) = QLatin1Char('X');
         QToolTip::showText(event->globalPos(), tooltip);
         QToolTip::showText(event->globalPos(), toolTip());
     }

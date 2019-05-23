@@ -191,7 +191,7 @@ void AlsaEngine::discoverDevices()
                     AlsaDevice *dev = new AlsaDevice(Sink, this, this);
                     dev->setName(QString::fromLatin1(snd_mixer_selem_get_name(mixerElem)));
                     dev->setIndex(cardNum);
-                    dev->setDescription(cardName + " - " + dev->name());
+                    dev->setDescription(cardName + QStringLiteral(" - ") + dev->name());
 
                     // set alsa specific members
                     dev->setCardName(QString::fromLatin1(str));

@@ -79,7 +79,7 @@ LXQtVolumeConfiguration::~LXQtVolumeConfiguration()
 void LXQtVolumeConfiguration::setSinkList(const QList<AudioDevice *> sinks)
 {
     // preserve the current index, as we change the list
-    int tmp_index = settings().value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE).toInt();
+    int tmp_index = settings().value(QStringLiteral(SETTINGS_DEVICE), SETTINGS_DEFAULT_DEVICE).toInt();
 
     const bool old_block = ui->devAddedCombo->blockSignals(true);
     ui->devAddedCombo->clear();
@@ -100,54 +100,54 @@ void LXQtVolumeConfiguration::audioEngineChanged(bool checked)
     bool canIgnoreMaxVolume = false;
     if (ui->pulseAudioRadioButton->isChecked())
     {
-        settings().setValue(SETTINGS_AUDIO_ENGINE, "PulseAudio");
+        settings().setValue(QStringLiteral(SETTINGS_AUDIO_ENGINE), QStringLiteral("PulseAudio"));
         canIgnoreMaxVolume = true;
     }
     else if(ui->alsaRadioButton->isChecked())
-        settings().setValue(SETTINGS_AUDIO_ENGINE, "Alsa");
+        settings().setValue(QStringLiteral(SETTINGS_AUDIO_ENGINE), QStringLiteral("Alsa"));
     else
-        settings().setValue(SETTINGS_AUDIO_ENGINE, "Oss");
+        settings().setValue(QStringLiteral(SETTINGS_AUDIO_ENGINE), QStringLiteral("Oss"));
     ui->ignoreMaxVolumeCheckBox->setEnabled(canIgnoreMaxVolume);
 }
 
 void LXQtVolumeConfiguration::sinkSelectionChanged(int index)
 {
-    settings().setValue(SETTINGS_DEVICE, index >= 0 ? index : 0);
+    settings().setValue(QStringLiteral(SETTINGS_DEVICE), index >= 0 ? index : 0);
 }
 
 void LXQtVolumeConfiguration::showOnClickedChanged(bool state)
 {
-    settings().setValue(SETTINGS_SHOW_ON_LEFTCLICK, state);
+    settings().setValue(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), state);
 }
 
 void LXQtVolumeConfiguration::muteOnMiddleClickChanged(bool state)
 {
-    settings().setValue(SETTINGS_MUTE_ON_MIDDLECLICK, state);
+    settings().setValue(QStringLiteral(SETTINGS_MUTE_ON_MIDDLECLICK), state);
 }
 
 void LXQtVolumeConfiguration::mixerLineEditChanged(const QString &command)
 {
-    settings().setValue(SETTINGS_MIXER_COMMAND, command);
+    settings().setValue(QStringLiteral(SETTINGS_MIXER_COMMAND), command);
 }
 
 void LXQtVolumeConfiguration::stepSpinBoxChanged(int step)
 {
-    settings().setValue(SETTINGS_STEP, step);
+    settings().setValue(QStringLiteral(SETTINGS_STEP), step);
 }
 
 void LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
 {
-    settings().setValue(SETTINGS_IGNORE_MAX_VOLUME, state);
+    settings().setValue(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), state);
 }
 
 void LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged(bool state)
 {
-    settings().setValue(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS, state);
+    settings().setValue(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), state);
 }
 
 void LXQtVolumeConfiguration::loadSettings()
 {
-    QString engine = settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower();
+    QString engine = settings().value(QStringLiteral(SETTINGS_AUDIO_ENGINE), QStringLiteral(SETTINGS_DEFAULT_AUDIO_ENGINE)).toString().toLower();
     if (engine == QLatin1String("pulseaudio"))
         ui->pulseAudioRadioButton->setChecked(true);
     else if (engine == QLatin1String("alsa"))
@@ -155,12 +155,12 @@ void LXQtVolumeConfiguration::loadSettings()
     else
         ui->ossRadioButton->setChecked(true);
 
-    setComboboxIndexByData(ui->devAddedCombo, settings().value(SETTINGS_DEVICE, SETTINGS_DEFAULT_DEVICE), 1);
-    ui->showOnClickCheckBox->setChecked(settings().value(SETTINGS_SHOW_ON_LEFTCLICK, SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
-    ui->muteOnMiddleClickCheckBox->setChecked(settings().value(SETTINGS_MUTE_ON_MIDDLECLICK, SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
-    ui->mixerLineEdit->setText(settings().value(SETTINGS_MIXER_COMMAND, SETTINGS_DEFAULT_MIXER_COMMAND).toString());
-    ui->stepSpinBox->setValue(settings().value(SETTINGS_STEP, SETTINGS_DEFAULT_STEP).toInt());
-    ui->ignoreMaxVolumeCheckBox->setChecked(settings().value(SETTINGS_IGNORE_MAX_VOLUME, SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
-    ui->allwaysShowNotificationsCheckBox->setChecked(settings().value(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS, SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool());
+    setComboboxIndexByData(ui->devAddedCombo, settings().value(QStringLiteral(SETTINGS_DEVICE), SETTINGS_DEFAULT_DEVICE), 1);
+    ui->showOnClickCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
+    ui->muteOnMiddleClickCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_MUTE_ON_MIDDLECLICK), SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
+    ui->mixerLineEdit->setText(settings().value(QStringLiteral(SETTINGS_MIXER_COMMAND), QStringLiteral(SETTINGS_DEFAULT_MIXER_COMMAND)).toString());
+    ui->stepSpinBox->setValue(settings().value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());
+    ui->ignoreMaxVolumeCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
+    ui->allwaysShowNotificationsCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool());
 }
 
