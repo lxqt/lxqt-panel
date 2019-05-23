@@ -210,12 +210,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Премести нагоре</translation>
+        <translation>Премести &amp;нагоре</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation type="unfinished"></translation>
+        <translation>Премести надолу</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
