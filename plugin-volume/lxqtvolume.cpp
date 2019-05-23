@@ -58,21 +58,21 @@ LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
 {
     m_volumeButton = new VolumeButton(this);
 
-    m_notification = new LXQt::Notification("", this);
+    m_notification = new LXQt::Notification(QLatin1String(""), this);
 
-    m_keyVolumeUp = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/up").arg(settings()->group()), tr("Increase sound volume"), this);
+    m_keyVolumeUp = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/up").arg(settings()->group()), tr("Increase sound volume"), this);
     if (m_keyVolumeUp)
     {
         connect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
         connect(m_keyVolumeUp, SIGNAL(activated()), this, SLOT(handleShortcutVolumeUp()));
     }
-    m_keyVolumeDown = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/down").arg(settings()->group()), tr("Decrease sound volume"), this);
+    m_keyVolumeDown = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/down").arg(settings()->group()), tr("Decrease sound volume"), this);
     if (m_keyVolumeDown)
     {
         connect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
         connect(m_keyVolumeDown, SIGNAL(activated()), this, SLOT(handleShortcutVolumeDown()));
     }
-    m_keyMuteToggle = GlobalKeyShortcut::Client::instance()->addAction(QString(), QString("/panel/%1/mute").arg(settings()->group()), tr("Mute/unmute sound volume"), this);
+    m_keyMuteToggle = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/mute").arg(settings()->group()), tr("Mute/unmute sound volume"), this);
     if (m_keyMuteToggle)
     {
         connect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
@@ -283,7 +283,7 @@ void LXQtVolume::showNotification(bool forceShow) const
     {
         if (Q_LIKELY(m_defaultSink))
         {
-            m_notification->setSummary(tr("Volume: %1%%2").arg(QString::number(m_defaultSink->volume())).arg(m_defaultSink->mute() ? tr("(muted)") : ""));
+            m_notification->setSummary(tr("Volume: %1%%2").arg(QString::number(m_defaultSink->volume())).arg(m_defaultSink->mute() ? tr("(muted)") : QLatin1String("")));
             m_notification->update();
         }
     }

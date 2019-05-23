@@ -148,9 +148,9 @@ void LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged(bool state
 void LXQtVolumeConfiguration::loadSettings()
 {
     QString engine = settings().value(SETTINGS_AUDIO_ENGINE, SETTINGS_DEFAULT_AUDIO_ENGINE).toString().toLower();
-    if (engine == "pulseaudio")
+    if (engine == QLatin1String("pulseaudio"))
         ui->pulseAudioRadioButton->setChecked(true);
-    else if (engine == "alsa")
+    else if (engine == QLatin1String("alsa"))
         ui->alsaRadioButton->setChecked(true);
     else
         ui->ossRadioButton->setChecked(true);
