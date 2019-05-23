@@ -220,12 +220,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Главен</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично завъртане, когато панелът е вертикален</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
