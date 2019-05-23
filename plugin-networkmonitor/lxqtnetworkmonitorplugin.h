@@ -43,7 +43,7 @@ public:
 
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual QWidget *widget();
-    virtual QString themeId() const { return "NetworkMonitor"; }
+    virtual QString themeId() const { return QStringLiteral("NetworkMonitor"); }
 
     bool isSeparate() const { return false; }
     QDialog *configureDialog();

@@ -53,7 +53,7 @@ private:
     static QString convertUnits(double num);
     QString iconName(const QString& state) const
     {
-        return QString(":/images/knemo-%1-%2.png")
+        return QStringLiteral(":/images/knemo-%1-%2.png")
                .arg(m_iconList[m_iconIndex], state);
     }
 

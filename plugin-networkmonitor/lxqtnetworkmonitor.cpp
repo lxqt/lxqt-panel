@@ -58,8 +58,8 @@ LXQtNetworkMonitor::LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent
     sg_init();
 #endif
 
-    m_iconList << "modem" << "monitor"
-               << "network" << "wireless";
+    m_iconList << QStringLiteral("modem") << QStringLiteral("monitor")
+               << QStringLiteral("network") << QStringLiteral("wireless");
 
     startTimer(800);
 
@@ -98,19 +98,19 @@ void LXQtNetworkMonitor::timerEvent(QTimerEvent * /*event*/)
         {
             if (network_stats->rx != 0 && network_stats->tx != 0)
             {
-                m_pic.load(iconName("transmit-receive"));
+                m_pic.load(iconName(QStringLiteral("transmit-receive")));
             }
             else if (network_stats->rx != 0 && network_stats->tx == 0)
             {
-                m_pic.load(iconName("receive"));
+                m_pic.load(iconName(QStringLiteral("receive")));
             }
             else if (network_stats->rx == 0 && network_stats->tx != 0)
             {
-                m_pic.load(iconName("transmit"));
+                m_pic.load(iconName(QStringLiteral("transmit")));
             }
             else
             {
-                m_pic.load(iconName("idle"));
+                m_pic.load(iconName(QStringLiteral("idle")));
             }
 
             matched = true;
@@ -123,7 +123,7 @@ void LXQtNetworkMonitor::timerEvent(QTimerEvent * /*event*/)
 
     if (!matched)
     {
-        m_pic.load(iconName("error"));
+        m_pic.load(iconName(QStringLiteral("error")));
     }
 
     update();
@@ -186,8 +186,8 @@ bool LXQtNetworkMonitor::event(QEvent *event)
 
 void LXQtNetworkMonitor::settingsChanged()
 {
-    m_iconIndex = mPlugin->settings()->value("icon", 1).toInt();
-    m_interface = mPlugin->settings()->value("interface").toString();
+    m_iconIndex = mPlugin->settings()->value(QStringLiteral("icon"), 1).toInt();
+    m_interface = mPlugin->settings()->value(QStringLiteral("interface")).toString();
     if (m_interface.isEmpty())
     {
 #ifdef STATGRAB_NEWER_THAN_0_90
@@ -200,7 +200,7 @@ void LXQtNetworkMonitor::settingsChanged()
             m_interface = QString(stats[0].interface_name);
     }
 
-    m_pic.load(iconName("error"));
+    m_pic.load(iconName(QStringLiteral("error")));
 }
 
 QString LXQtNetworkMonitor::convertUnits(double num)
