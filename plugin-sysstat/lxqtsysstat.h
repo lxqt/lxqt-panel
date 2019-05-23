@@ -50,7 +50,7 @@ public:
     ~LXQtSysStat();
 
     virtual QWidget *widget() { return mWidget; }
-    virtual QString themeId() const { return "SysStat"; }
+    virtual QString themeId() const { return QStringLiteral("SysStat"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
     virtual bool isSeparate() const { return true; }
 

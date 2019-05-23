@@ -89,7 +89,7 @@ LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWi
     mColoursDialog(nullptr)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("SysStatConfigurationWindow");
+    setObjectName(QStringLiteral("SysStatConfigurationWindow"));
     ui->setupUi(this);
 
     //Note: translation is needed here in runtime (translator is attached already)
@@ -117,27 +117,27 @@ LXQtSysStatConfiguration::~LXQtSysStatConfiguration()
 
 void LXQtSysStatConfiguration::loadSettings()
 {
-    ui->intervalSB->setValue(settings().value("graph/updateInterval", 1.0).toDouble());
-    ui->sizeSB->setValue(settings().value("graph/minimalSize", 30).toInt());
+    ui->intervalSB->setValue(settings().value(QStringLiteral("graph/updateInterval"), 1.0).toDouble());
+    ui->sizeSB->setValue(settings().value(QStringLiteral("graph/minimalSize"), 30).toInt());
 
-    ui->linesSB->setValue(settings().value("grid/lines", 1).toInt());
+    ui->linesSB->setValue(settings().value(QStringLiteral("grid/lines"), 1).toInt());
 
-    ui->titleLE->setText(settings().value("title/label", QString()).toString());
+    ui->titleLE->setText(settings().value(QStringLiteral("title/label"), QString()).toString());
 
-    int typeIndex = ui->typeCOB->findData(settings().value("data/type", msStatTypes[0]));
+    int typeIndex = ui->typeCOB->findData(settings().value(QStringLiteral("data/type"), msStatTypes[0]));
     ui->typeCOB->setCurrentIndex((typeIndex >= 0) ? typeIndex : 0);
     on_typeCOB_currentIndexChanged(ui->typeCOB->currentIndex());
 
-    int sourceIndex = ui->sourceCOB->findData(settings().value("data/source", QString()));
+    int sourceIndex = ui->sourceCOB->findData(settings().value(QStringLiteral("data/source"), QString()));
     ui->sourceCOB->setCurrentIndex((sourceIndex >= 0) ? sourceIndex : 0);
 
-    ui->useFrequencyCB->setChecked(settings().value("cpu/useFrequency", true).toBool());
-    ui->maximumHS->setValue(PluginSysStat::netSpeedFromString(settings().value("net/maximumSpeed", "1 MB/s").toString()));
+    ui->useFrequencyCB->setChecked(settings().value(QStringLiteral("cpu/useFrequency"), true).toBool());
+    ui->maximumHS->setValue(PluginSysStat::netSpeedFromString(settings().value(QStringLiteral("net/maximumSpeed"), "1 MB/s").toString()));
     on_maximumHS_valueChanged(ui->maximumHS->value());
-    ui->logarithmicCB->setChecked(settings().value("net/logarithmicScale", true).toBool());
-    ui->logScaleSB->setValue(settings().value("net/logarithmicScaleSteps", 4).toInt());
+    ui->logarithmicCB->setChecked(settings().value(QStringLiteral("net/logarithmicScale"), true).toBool());
+    ui->logScaleSB->setValue(settings().value(QStringLiteral("net/logarithmicScaleSteps"), 4).toInt());
 
-    bool useThemeColours = settings().value("graph/useThemeColours", true).toBool();
+    bool useThemeColours = settings().value(QStringLiteral("graph/useThemeColours"), true).toBool();
     ui->useThemeColoursRB->setChecked(useThemeColours);
     ui->useCustomColoursRB->setChecked(!useThemeColours);
     ui->customColoursB->setEnabled(!useThemeColours);
@@ -145,26 +145,26 @@ void LXQtSysStatConfiguration::loadSettings()
 
 void LXQtSysStatConfiguration::saveSettings()
 {
-    settings().setValue("graph/useThemeColours", ui->useThemeColoursRB->isChecked());
-    settings().setValue("graph/updateInterval", ui->intervalSB->value());
-    settings().setValue("graph/minimalSize", ui->sizeSB->value());
+    settings().setValue(QStringLiteral("graph/useThemeColours"), ui->useThemeColoursRB->isChecked());
+    settings().setValue(QStringLiteral("graph/updateInterval"), ui->intervalSB->value());
+    settings().setValue(QStringLiteral("graph/minimalSize"), ui->sizeSB->value());
 
-    settings().setValue("grid/lines", ui->linesSB->value());
+    settings().setValue(QStringLiteral("grid/lines"), ui->linesSB->value());
 
-    settings().setValue("title/label", ui->titleLE->text());
+    settings().setValue(QStringLiteral("title/label"), ui->titleLE->text());
 
     //Note:
     // need to make a realy deep copy of the msStatTypes[x] because of SEGFAULTs
     // occuring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
     QString type = ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str();
-    settings().setValue("data/type", type);
-    settings().setValue("data/source", ui->sourceCOB->itemData(ui->sourceCOB->currentIndex(), Qt::UserRole));
+    settings().setValue(QStringLiteral("data/type"), type);
+    settings().setValue(QStringLiteral("data/source"), ui->sourceCOB->itemData(ui->sourceCOB->currentIndex(), Qt::UserRole));
 
-    settings().setValue("cpu/useFrequency", ui->useFrequencyCB->isChecked());
+    settings().setValue(QStringLiteral("cpu/useFrequency"), ui->useFrequencyCB->isChecked());
 
-    settings().setValue("net/maximumSpeed", PluginSysStat::netSpeedToString(ui->maximumHS->value()));
-    settings().setValue("net/logarithmicScale", ui->logarithmicCB->isChecked());
-    settings().setValue("net/logarithmicScaleSteps", ui->logScaleSB->value());
+    settings().setValue(QStringLiteral("net/maximumSpeed"), PluginSysStat::netSpeedToString(ui->maximumHS->value()));
+    settings().setValue(QStringLiteral("net/logarithmicScale"), ui->logarithmicCB->isChecked());
+    settings().setValue(QStringLiteral("net/logarithmicScaleSteps"), ui->logScaleSB->value());
 }
 
 void LXQtSysStatConfiguration::on_typeCOB_currentIndexChanged(int index)
@@ -204,22 +204,22 @@ void LXQtSysStatConfiguration::coloursChanged()
 {
     const LXQtSysStatColours::Colours &colours = mColoursDialog->colours();
 
-    settings().setValue("grid/colour",  colours["grid"].name());
-    settings().setValue("title/colour", colours["title"].name());
+    settings().setValue(QStringLiteral("grid/colour"),  colours[QStringLiteral("grid")].name());
+    settings().setValue(QStringLiteral("title/colour"), colours[QStringLiteral("title")].name());
 
-    settings().setValue("cpu/systemColour",    colours["cpuSystem"].name());
-    settings().setValue("cpu/userColour",      colours["cpuUser"].name());
-    settings().setValue("cpu/niceColour",      colours["cpuNice"].name());
-    settings().setValue("cpu/otherColour",     colours["cpuOther"].name());
-    settings().setValue("cpu/frequencyColour", colours["cpuFrequency"].name());
+    settings().setValue(QStringLiteral("cpu/systemColour"),    colours[QStringLiteral("cpuSystem")].name());
+    settings().setValue(QStringLiteral("cpu/userColour"),      colours[QStringLiteral("cpuUser")].name());
+    settings().setValue(QStringLiteral("cpu/niceColour"),      colours[QStringLiteral("cpuNice")].name());
+    settings().setValue(QStringLiteral("cpu/otherColour"),     colours[QStringLiteral("cpuOther")].name());
+    settings().setValue(QStringLiteral("cpu/frequencyColour"), colours[QStringLiteral("cpuFrequency")].name());
 
-    settings().setValue("mem/appsColour",    colours["memApps"].name());
-    settings().setValue("mem/buffersColour", colours["memBuffers"].name());
-    settings().setValue("mem/cachedColour",  colours["memCached"].name());
-    settings().setValue("mem/swapColour",    colours["memSwap"].name());
+    settings().setValue(QStringLiteral("mem/appsColour"),    colours[QStringLiteral("memApps")].name());
+    settings().setValue(QStringLiteral("mem/buffersColour"), colours[QStringLiteral("memBuffers")].name());
+    settings().setValue(QStringLiteral("mem/cachedColour"),  colours[QStringLiteral("memCached")].name());
+    settings().setValue(QStringLiteral("mem/swapColour"),    colours[QStringLiteral("memSwap")].name());
 
-    settings().setValue("net/receivedColour",    colours["netReceived"].name());
-    settings().setValue("net/transmittedColour", colours["netTransmitted"].name());
+    settings().setValue(QStringLiteral("net/receivedColour"),    colours[QStringLiteral("netReceived")].name());
+    settings().setValue(QStringLiteral("net/transmittedColour"), colours[QStringLiteral("netTransmitted")].name());
 }
 
 void LXQtSysStatConfiguration::on_customColoursB_clicked()
@@ -234,22 +234,22 @@ void LXQtSysStatConfiguration::on_customColoursB_clicked()
 
     const LXQtSysStatColours::Colours &defaultColours = mColoursDialog->defaultColours();
 
-    colours["grid"]  = QColor(settings().value("grid/colour",  defaultColours["grid"] .name()).toString());
-    colours["title"] = QColor(settings().value("title/colour", defaultColours["title"].name()).toString());
+    colours[QStringLiteral("grid")]  = QColor(settings().value(QStringLiteral("grid/colour"),  defaultColours[QStringLiteral("grid")] .name()).toString());
+    colours[QStringLiteral("title")] = QColor(settings().value(QStringLiteral("title/colour"), defaultColours[QStringLiteral("title")].name()).toString());
 
-    colours["cpuSystem"]    = QColor(settings().value("cpu/systemColour",    defaultColours["cpuSystem"]   .name()).toString());
-    colours["cpuUser"]      = QColor(settings().value("cpu/userColour",      defaultColours["cpuUser"]     .name()).toString());
-    colours["cpuNice"]      = QColor(settings().value("cpu/niceColour",      defaultColours["cpuNice"]     .name()).toString());
-    colours["cpuOther"]     = QColor(settings().value("cpu/otherColour",     defaultColours["cpuOther"]    .name()).toString());
-    colours["cpuFrequency"] = QColor(settings().value("cpu/frequencyColour", defaultColours["cpuFrequency"].name()).toString());
+    colours[QStringLiteral("cpuSystem")]    = QColor(settings().value(QStringLiteral("cpu/systemColour"),    defaultColours[QStringLiteral("cpuSystem")]   .name()).toString());
+    colours[QStringLiteral("cpuUser")]      = QColor(settings().value(QStringLiteral("cpu/userColour"),      defaultColours[QStringLiteral("cpuUser")]     .name()).toString());
+    colours[QStringLiteral("cpuNice")]      = QColor(settings().value(QStringLiteral("cpu/niceColour"),      defaultColours[QStringLiteral("cpuNice")]     .name()).toString());
+    colours[QStringLiteral("cpuOther")]     = QColor(settings().value(QStringLiteral("cpu/otherColour"),     defaultColours[QStringLiteral("cpuOther")]    .name()).toString());
+    colours[QStringLiteral("cpuFrequency")] = QColor(settings().value(QStringLiteral("cpu/frequencyColour"), defaultColours[QStringLiteral("cpuFrequency")].name()).toString());
 
-    colours["memApps"]    = QColor(settings().value("mem/appsColour",    defaultColours["memApps"]   .name()).toString());
-    colours["memBuffers"] = QColor(settings().value("mem/buffersColour", defaultColours["memBuffers"].name()).toString());
-    colours["memCached"]  = QColor(settings().value("mem/cachedColour",  defaultColours["memCached"] .name()).toString());
-    colours["memSwap"]    = QColor(settings().value("mem/swapColour",    defaultColours["memSwap"]   .name()).toString());
+    colours[QStringLiteral("memApps")]    = QColor(settings().value(QStringLiteral("mem/appsColour"),    defaultColours[QStringLiteral("memApps")]   .name()).toString());
+    colours[QStringLiteral("memBuffers")] = QColor(settings().value(QStringLiteral("mem/buffersColour"), defaultColours[QStringLiteral("memBuffers")].name()).toString());
+    colours[QStringLiteral("memCached")]  = QColor(settings().value(QStringLiteral("mem/cachedColour"),  defaultColours[QStringLiteral("memCached")] .name()).toString());
+    colours[QStringLiteral("memSwap")]    = QColor(settings().value(QStringLiteral("mem/swapColour"),    defaultColours[QStringLiteral("memSwap")]   .name()).toString());
 
-    colours["netReceived"]    = QColor(settings().value("net/receivedColour",    defaultColours["netReceived"]   .name()).toString());
-    colours["netTransmitted"] = QColor(settings().value("net/transmittedColour", defaultColours["netTransmitted"].name()).toString());
+    colours[QStringLiteral("netReceived")]    = QColor(settings().value(QStringLiteral("net/receivedColour"),    defaultColours[QStringLiteral("netReceived")]   .name()).toString());
+    colours[QStringLiteral("netTransmitted")] = QColor(settings().value(QStringLiteral("net/transmittedColour"), defaultColours[QStringLiteral("netTransmitted")].name()).toString());
 
     mColoursDialog->setColours(colours);
 
