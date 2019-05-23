@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad &amp;час с нула</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
@@ -113,7 +113,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation type="unfinished"></translation>
+        <translation>IANA ИД</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad ден с нула</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation>Ръчна конфигурация на световнен часовник</translation>
+        <translation>Световен Часовник Ръчно Конфигуриране На Формата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -284,7 +284,44 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Персонализиран формат за дата / час &lt;/h1&gt;
+&lt;p&gt;Шаблон за дата е низ от символи, в който конкретни низове от знаци се заменят с данни за дата и час от календара при форматиране се използват за генериране на данни за календар при разбор.&lt;/p&gt;
+&lt;p&gt; Таблицата със символи за датата по-долу съдържа символите, използвани в шаблоните, за да се покажат подходящите формати за даден локал, например yyyy за годината. Символите могат да се използват няколко пъти. Например, ако y се използва за годината, „yy“ може да произведе „99“, докато „yyyy“ произвежда „1999“. За повечето числови полета броят на знаците определя ширината на полето. Например, ако h е часът, „h“ може да произведе „5“, но „hh“ произвежда „05“. За някои символи броят указва дали да се използва съкратена или пълна форма, но може да има и други възможности, както е посочено по-долу. &lt;/p&gt;
+&lt;p&gt; Две единични кавички представляват буквален единичен цитат, както вътре, така и извън единични кавички. Текстът в единични кавички не се тълкува по никакъв начин (с изключение на две съседни единични кавички). В противен случай всички ASCII букви от a до z и от A до Z са запазени като синтактични знаци и изискват цитиране, ако те представляват символи с литерали. Освен това някои ASCII знаци за препинателни знаци могат да станат променливи в бъдеще (напр. &quot;:&quot; Да се интерпретират като разделител на време и &quot;/&quot; като разделител на дати и да се заменят със съответните символи, чувствителни към локали). &lt;br /&gt; &lt; / P&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt; &lt;th width = &quot;20%&quot;&gt; Код &lt;/th&gt; &lt;th&gt; Значение &lt;/th&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt; &lt;td&gt; денят като номер без водеща нула (1 до 31) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt; &lt;td&gt; денят като номер с водеща нула (01 до 31) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt; &lt;td&gt; съкратеното име на локализирания ден (напр. &quot;пн&quot; до &quot;нед&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt; &lt;td&gt; името на дългия локализиран ден (напр. &quot;понеделник&quot; до &quot;неделя&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt; &lt;td&gt; месецът като число без водеща нула (1-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt; &lt;td&gt; месецът като число с водеща нула (01-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt; &lt;td&gt; съкратеното локализирано име на месеца (напр. &quot;Яну&quot; до &quot;Дек&quot;). &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;tdMMMM&lt;/td&gt; &lt;td&gt; името на дългия локализиран месец (напр. &quot;Януари&quot; до &quot;Декември&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt; &lt;td&gt; година като двуцифрено число (00-99) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt; &lt;td&gt; годината като четирицифрено число &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt; &lt;td&gt; часа без водеща нула (0 до 23 или от 1 до 12, ако AM / PM дисплей) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt; &lt;td&gt; часът с водеща нула (00 до 23 или от 01 до 12, ако AM / PM дисплей) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt; &lt;td&gt; часа без водеща нула (0 до 23, дори с показване на AM / PM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt; &lt;td&gt; часът с водеща нула (00 до 23, дори с показване на AM / PM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt; &lt;td&gt; минутата без водеща нула (0 до 59) &lt;/td&gt; &lt;/ tr
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt; &lt;td&gt; минутата с водеща нула (00 до 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt; &lt;td&gt; секунда без водеща нула (0 до 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt; &lt;td&gt; секунда с водеща нула (00 до 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt; &lt;td&gt; милисекунди без водещи нули (0 до 999) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt; &lt;td&gt; милисекунди с водещи нули (000 до 999) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; AP &lt;i&gt; или &lt;/i&gt; A &lt;/td&gt; &lt;td&gt; използват дисплея AM / PM. &lt;b&gt; A / AP &lt;/b&gt; ще бъде заменен с „AM“ или „PM“. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ap &lt;i&gt; или &lt;/i&gt; a &lt;/td&gt; &lt;td&gt; използват дисплея am / pm. &lt;b&gt; a / ap &lt;/b&gt; ще бъде заменен от &quot;am&quot; или &quot;pm&quot;. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt; &lt;td&gt; часовата зона (напр. &quot;CEST&quot;) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt; &lt;td&gt; отместването от UTC &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt; &lt;td&gt; часовата зона IANA ид  &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt; &lt;td&gt; съкращението на часовата зона &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt; &lt;td&gt; краткото име на часовата зона &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt; &lt;td&gt; дългото име на часовата зона &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt; &lt;td&gt; персонализирано име на часовата зона. Можете да го промените в раздела &quot;Часови зони&quot; на прозореца за конфигурация &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
+&lt;br /&gt; &lt;b&gt; Бележки: &lt;/b&gt; &lt;ul&gt; &lt;li&gt; Всички символи в шаблона, които не са в диапазоните на [&apos;a&apos; .. &apos;z&apos;] и [&apos;A&apos; .. &apos;Z &apos;] ще се третира като цитиран текст. Например символи като &quot;:&quot;, &quot;.&quot;, &quot;&quot;, &quot;#&quot; И &quot;@&quot; ще се появят в съответния времеви текст, дори и да не са затворени в единични кавички. Единичните  
+кавички се използва за „избягване“ на буквите. Две единични кавички в един ред, независимо дали са вътре или извън цитираната последователност, представляват &quot;реална&quot; единична кавичка. &lt;/li&gt; &lt;li&gt; Минималният интервал на обновяване е 1 секунда. Ако z или zzz е конфигурирано, времето се показва с фракция милисекунди, но не се актуализира на база милисекунди (избягване на голям удар на производителността). &lt;/li&gt; &lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
