@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;1&apos;HH:mm:ss&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;5&apos;TT&apos;&lt;/font&gt;6&apos;</translation>
+        <translation>&apos;&lt;b&gt;1&apos;ЧЧ:мм:сс&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ддд, д МММ ГГГГ&apos;&lt;br/&gt;5&apos;ТТ&apos;&lt;/font&gt;6&apos;</translation>
     </message>
 </context>
 <context>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат на показване</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Време</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Изместване от UTC</translation>
+        <translation>Отместване от UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
