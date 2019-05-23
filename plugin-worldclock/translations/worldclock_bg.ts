@@ -130,37 +130,37 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор на местоположението</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Дата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation type="unfinished"></translation>
+        <translation>Позиция:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO 8601</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation type="unfinished"></translation>
+        <translation>Покажи &amp;Година</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation type="unfinished"></translation>
+        <translation>Покажи ден от седмица</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
@@ -170,47 +170,47 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Имена на дълъг месец и ден от седмицата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation type="unfinished"></translation>
+        <translation>Напреднал ръчен формат</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Персонализирай ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation type="unfinished"></translation>
+        <translation>Времеви зони</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Добави ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Премахни</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation type="unfinished"></translation>
+        <translation>Сложи като &amp;Обикновен</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Редактирай персонализирано име ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation type="unfinished"></translation>
+        <translation>Премести нагоре</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
