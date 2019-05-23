@@ -158,8 +158,8 @@ bool LXQtNetworkMonitor::event(QEvent *event)
         {
             if (m_interface == QString::fromLocal8Bit(network_stats->interface_name))
             {
-                setToolTip(tr("Network interface <b>%1</b>").arg(m_interface) + "<br>"
-                           + tr("Transmitted %1").arg(convertUnits(network_stats->tx)) + "<br>"
+                setToolTip(tr("Network interface <b>%1</b>").arg(m_interface) + QStringLiteral("<br>")
+                           + tr("Transmitted %1").arg(convertUnits(network_stats->tx)) + QStringLiteral("<br>")
                            + tr("Received %1").arg(convertUnits(network_stats->rx))
                           );
             }
@@ -197,7 +197,7 @@ void LXQtNetworkMonitor::settingsChanged()
 #endif
         sg_network_iface_stats* stats = sg_get_network_iface_stats(&count);
         if (count > 0)
-            m_interface = QString(stats[0].interface_name);
+            m_interface = QString(QLatin1String(stats[0].interface_name));
     }
 
     m_pic.load(iconName(QStringLiteral("error")));
@@ -212,5 +212,5 @@ QString LXQtNetworkMonitor::convertUnits(double num)
         num /= 1024;
         unit = iter.next();
     }
-    return QString::number(num, 'f', 2) + " " + unit;
+    return QString::number(num, 'f', 2) + QLatin1Char(' ') + unit;
 }

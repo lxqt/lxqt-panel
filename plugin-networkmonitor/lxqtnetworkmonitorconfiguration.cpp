@@ -77,7 +77,7 @@ void LXQtNetworkMonitorConfiguration::loadSettings()
     sg_network_iface_stats* stats = sg_get_network_iface_stats(&count);
 #endif
     for (int ix = 0; ix < count; ix++)
-        ui->interfaceCB->addItem(stats[ix].interface_name);
+        ui->interfaceCB->addItem(QLatin1String(stats[ix].interface_name));
 
     QString interface = settings().value(QStringLiteral("interface")).toString();
     ui->interfaceCB->setCurrentIndex(qMax(qMin(0, count - 1), ui->interfaceCB->findText(interface)));
