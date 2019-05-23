@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Správca prenosných médií a zariadení</translation>
+        <translation>Správca prenosných médií a zariadení</translation>
     </message>
 </context>
 <context>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenia vymeniteľných médií</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">Správanie</translation>
+        <translation>Správanie</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Keď je zariadenie pripojené:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation type="unfinished">Zobraziť menu</translation>
+        <translation>Zobraziť menu</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation type="unfinished">Zobraziť informácie</translation>
+        <translation>Zobraziť informácie</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Nerobiť nič</translation>
+        <translation>Nerobiť nič</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished">Zariadenie &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; je zapojené.</translation>
+        <translation>Zariadenie &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; je pripojené.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished">Zariadenie &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; je odstránené.</translation>
+        <translation>Zariadenie &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; bolo odstránené.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Správca prenosných médií a zariadení</translation>
+        <translation>Správca prenosných médií a zariadení</translation>
     </message>
 </context>
 <context>
@@ -65,18 +65,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Pripojenie zariadenia a &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; zlyhalo: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Správca prenosných médií a zariadení</translation>
+        <translation>Správca prenosných médií a zariadení</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Odpojenie zariadenia &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; zlyhalo: %2</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation type="unfinished"></translation>
+        <translation>K dispozícii nie je žiadne zariadenie</translation>
     </message>
 </context>
 </TS>
