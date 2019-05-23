@@ -132,7 +132,7 @@ void LXQtSysStatConfiguration::loadSettings()
     ui->sourceCOB->setCurrentIndex((sourceIndex >= 0) ? sourceIndex : 0);
 
     ui->useFrequencyCB->setChecked(settings().value(QStringLiteral("cpu/useFrequency"), true).toBool());
-    ui->maximumHS->setValue(PluginSysStat::netSpeedFromString(settings().value(QStringLiteral("net/maximumSpeed"), "1 MB/s").toString()));
+    ui->maximumHS->setValue(PluginSysStat::netSpeedFromString(settings().value(QStringLiteral("net/maximumSpeed"), QStringLiteral("1 MB/s")).toString()));
     on_maximumHS_valueChanged(ui->maximumHS->value());
     ui->logarithmicCB->setChecked(settings().value(QStringLiteral("net/logarithmicScale"), true).toBool());
     ui->logScaleSB->setValue(settings().value(QStringLiteral("net/logarithmicScaleSteps"), 4).toInt());
@@ -156,7 +156,7 @@ void LXQtSysStatConfiguration::saveSettings()
     //Note:
     // need to make a realy deep copy of the msStatTypes[x] because of SEGFAULTs
     // occuring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
-    QString type = ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str();
+    QString type = QString::fromUtf8(ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str());
     settings().setValue(QStringLiteral("data/type"), type);
     settings().setValue(QStringLiteral("data/source"), ui->sourceCOB->itemData(ui->sourceCOB->currentIndex(), Qt::UserRole));
 
