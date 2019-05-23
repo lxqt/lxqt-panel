@@ -60,10 +60,10 @@ void ShowDesktop::shortcutRegistered()
 {
     if (m_key->shortcut().isEmpty())
     {
-        m_key->changeShortcut(DEFAULT_SHORTCUT);
+        m_key->changeShortcut(QStringLiteral(DEFAULT_SHORTCUT));
         if (m_key->shortcut().isEmpty())
         {
-            LXQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(DEFAULT_SHORTCUT));
+            LXQt::Notification::notify(tr("Show Desktop: Global shortcut '%1' cannot be registered").arg(QStringLiteral(DEFAULT_SHORTCUT)));
         }
     }
 }
