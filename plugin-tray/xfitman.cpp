@@ -197,7 +197,7 @@ XfitMan::~XfitMan()
 // i got the idea for this from taskbar-plugin of LXPanel - so credits fly out :)
 QString XfitMan::getWindowTitle(Window _wid) const
 {
-    QString name = "";
+    QString name = QLatin1String("");
     //first try the modern net-wm ones
     unsigned long length;
     unsigned char *data = nullptr;

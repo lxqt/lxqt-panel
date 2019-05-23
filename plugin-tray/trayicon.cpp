@@ -86,7 +86,7 @@ TrayIcon::TrayIcon(Window iconId, QSize const & iconSize, QWidget* parent):
     // QX11Info::display() will fail and cause crash. Storing this value improves the efficiency and
     // also prevent potential crashes caused by this bug.
 
-    setObjectName("TrayIcon");
+    setObjectName(QStringLiteral("TrayIcon"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     // NOTE:
     // see https://github.com/lxqt/lxqt/issues/945

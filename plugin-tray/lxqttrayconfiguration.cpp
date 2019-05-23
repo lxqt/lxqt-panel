@@ -38,10 +38,10 @@ LXQtTrayConfiguration::LXQtTrayConfiguration(PluginSettings *settings, QWidget *
     loadSettings();
 
     connect(ui->sortIconsCB, &QAbstractButton::toggled, [settings](bool value) {
-        settings->setValue("sortIcons", value);
+        settings->setValue(QStringLiteral("sortIcons"), value);
     });
     connect(ui->spacingSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [settings](int value) {
-        settings->setValue("spacing", value);
+        settings->setValue(QStringLiteral("spacing"), value);
     });
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtTrayConfiguration::dialogButtonsAction);
@@ -51,6 +51,6 @@ LXQtTrayConfiguration::~LXQtTrayConfiguration() {}
 
 void LXQtTrayConfiguration::loadSettings()
 {
-    ui->sortIconsCB->setChecked(settings().value("sortIcons", false).toBool());
-    ui->spacingSB->setValue(settings().value("spacing", 0).toInt());
+    ui->sortIconsCB->setChecked(settings().value(QStringLiteral("sortIcons"), false).toBool());
+    ui->spacingSB->setValue(settings().value(QStringLiteral("spacing"), 0).toInt());
 }

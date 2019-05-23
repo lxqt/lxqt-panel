@@ -43,7 +43,7 @@ public:
     ~LXQtTrayPlugin();
 
     virtual QWidget *widget();
-    virtual QString themeId() const { return "Tray"; }
+    virtual QString themeId() const { return QStringLiteral("Tray"); }
     virtual Flags flags() const { return HaveConfigDialog | PreferRightAlignment | SingleInstance | NeedsHandle; }
 
     QDialog *configureDialog();
