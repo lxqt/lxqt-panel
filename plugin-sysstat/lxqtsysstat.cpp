@@ -238,7 +238,7 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
 
     mUseFrequency = settings->value(QStringLiteral("cpu/useFrequency"), true).toBool();
 
-    mNetMaximumSpeed = PluginSysStat::netSpeedFromString(settings->value(QStringLiteral("net/maximumSpeed"), "1 MB/s").toString());
+    mNetMaximumSpeed = PluginSysStat::netSpeedFromString(settings->value(QStringLiteral("net/maximumSpeed"), QStringLiteral("1 MB/s")).toString());
     mLogarithmicScale = settings->value(QStringLiteral("net/logarithmicScale"), true).toBool();
 
     mLogScaleSteps = settings->value(QStringLiteral("net/logarithmicScaleSteps"), 4).toInt();
@@ -247,23 +247,23 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
     mNetRealMaximumSpeed = static_cast<qreal>(static_cast<int64_t>(1) << mNetMaximumSpeed);
 
 
-    mSettingsColours.gridColour = QColor(settings->value(QStringLiteral("grid/colour"), "#c0c0c0").toString());
+    mSettingsColours.gridColour = QColor(settings->value(QStringLiteral("grid/colour"), QStringLiteral("#c0c0c0")).toString());
 
-    mSettingsColours.titleColour = QColor(settings->value(QStringLiteral("title/colour"), "#ffffff").toString());
+    mSettingsColours.titleColour = QColor(settings->value(QStringLiteral("title/colour"), QStringLiteral("#ffffff")).toString());
 
-    mSettingsColours.cpuSystemColour = QColor(settings->value(QStringLiteral("cpu/systemColour"),    "#800000").toString());
-    mSettingsColours.cpuUserColour   = QColor(settings->value(QStringLiteral("cpu/userColour"),      "#000080").toString());
-    mSettingsColours.cpuNiceColour   = QColor(settings->value(QStringLiteral("cpu/niceColour"),      "#008000").toString());
-    mSettingsColours.cpuOtherColour  = QColor(settings->value(QStringLiteral("cpu/otherColour"),     "#808000").toString());
-    mSettingsColours.frequencyColour = QColor(settings->value(QStringLiteral("cpu/frequencyColour"), "#808080").toString());
+    mSettingsColours.cpuSystemColour = QColor(settings->value(QStringLiteral("cpu/systemColour"),    QStringLiteral("#800000")).toString());
+    mSettingsColours.cpuUserColour   = QColor(settings->value(QStringLiteral("cpu/userColour"),      QStringLiteral("#000080")).toString());
+    mSettingsColours.cpuNiceColour   = QColor(settings->value(QStringLiteral("cpu/niceColour"),      QStringLiteral("#008000")).toString());
+    mSettingsColours.cpuOtherColour  = QColor(settings->value(QStringLiteral("cpu/otherColour"),     QStringLiteral("#808000")).toString());
+    mSettingsColours.frequencyColour = QColor(settings->value(QStringLiteral("cpu/frequencyColour"), QStringLiteral("#808080")).toString());
 
-    mSettingsColours.memAppsColour    = QColor(settings->value(QStringLiteral("mem/appsColour"),    "#000080").toString());
-    mSettingsColours.memBuffersColour = QColor(settings->value(QStringLiteral("mem/buffersColour"), "#008000").toString());
-    mSettingsColours.memCachedColour  = QColor(settings->value(QStringLiteral("mem/cachedColour"),  "#808000").toString());
-    mSettingsColours.swapUsedColour   = QColor(settings->value(QStringLiteral("mem/swapColour"),    "#800000").toString());
+    mSettingsColours.memAppsColour    = QColor(settings->value(QStringLiteral("mem/appsColour"),    QStringLiteral("#000080")).toString());
+    mSettingsColours.memBuffersColour = QColor(settings->value(QStringLiteral("mem/buffersColour"), QStringLiteral("#008000")).toString());
+    mSettingsColours.memCachedColour  = QColor(settings->value(QStringLiteral("mem/cachedColour"),  QStringLiteral("#808000")).toString());
+    mSettingsColours.swapUsedColour   = QColor(settings->value(QStringLiteral("mem/swapColour"),    QStringLiteral("#800000")).toString());
 
-    mSettingsColours.netReceivedColour    = QColor(settings->value(QStringLiteral("net/receivedColour"),    "#000080").toString());
-    mSettingsColours.netTransmittedColour = QColor(settings->value(QStringLiteral("net/transmittedColour"), "#808000").toString());
+    mSettingsColours.netReceivedColour    = QColor(settings->value(QStringLiteral("net/receivedColour"),    QStringLiteral("#000080")).toString());
+    mSettingsColours.netTransmittedColour = QColor(settings->value(QStringLiteral("net/transmittedColour"), QStringLiteral("#808000")).toString());
 
 
     if (mUseThemeColours)

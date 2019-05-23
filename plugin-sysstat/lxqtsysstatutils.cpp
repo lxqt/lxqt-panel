@@ -39,14 +39,14 @@ QString netSpeedToString(int value)
     QString prefix;
     static const char prefixes[] = "kMG";
     if (value / 10)
-        prefix = QChar(prefixes[value / 10 - 1]);
+        prefix = QLatin1Char(prefixes[value / 10 - 1]);
 
     return QStringLiteral("%1 %2B/s").arg(1 << (value % 10)).arg(prefix);
 }
 
 int netSpeedFromString(QString value)
 {
-    QRegExp re("^(\\d+) ([kMG])B/s$");
+    QRegExp re(QStringLiteral("^(\\d+) ([kMG])B/s$"));
     if (re.exactMatch(value))
     {
         int shift = 0;
