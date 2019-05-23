@@ -70,9 +70,9 @@ void OssEngine::initMixer() {
     qDebug() << "InitMixer:" << m_mixer;
 
     m_device = new AudioDevice(Sink, this);
-    m_device->setName("Master");
+    m_device->setName(QStringLiteral("Master"));
     m_device->setIndex(0);
-    m_device->setDescription("Master Volume");
+    m_device->setDescription(QStringLiteral("Master Volume"));
     m_device->setMuteNoCommit(false);
     updateVolume();
 

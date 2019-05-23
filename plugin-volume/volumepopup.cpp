@@ -49,7 +49,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_device(0)
 {
     m_mixerButton = new QPushButton(this);
-    m_mixerButton->setObjectName("MixerLink");
+    m_mixerButton->setObjectName(QStringLiteral("MixerLink"));
     m_mixerButton->setMinimumWidth(1);
     m_mixerButton->setToolTip(tr("Launch mixer"));
     m_mixerButton->setText(tr("Mi&xer"));
@@ -142,7 +142,7 @@ void VolumePopup::handleDeviceVolumeChanged(int volume)
     // signal emission.
     m_volumeSlider->blockSignals(true);
     m_volumeSlider->setValue(volume);
-    m_volumeSlider->setToolTip(QString("%1%").arg(volume));
+    m_volumeSlider->setToolTip(QStringLiteral("%1%").arg(volume));
     dynamic_cast<QWidget&>(*parent()).setToolTip(m_volumeSlider->toolTip()); //parent is the button on panel
     m_volumeSlider->blockSignals(false);
 
@@ -163,13 +163,13 @@ void VolumePopup::updateStockIcon()
 
     QString iconName;
     if (m_device->volume() <= 0 || m_device->mute())
-        iconName = "audio-volume-muted";
+        iconName = QLatin1String("audio-volume-muted");
     else if (m_device->volume() <= 33)
-        iconName = "audio-volume-low";
+        iconName = QLatin1String("audio-volume-low");
     else if (m_device->volume() <= 66)
-        iconName = "audio-volume-medium";
+        iconName = QLatin1String("audio-volume-medium");
     else
-        iconName = "audio-volume-high";
+        iconName = QLatin1String("audio-volume-high");
 
     iconName.append(QLatin1String("-panel"));
     m_muteToggleButton->setIcon(XdgIcon::fromTheme(iconName));

@@ -38,14 +38,14 @@ static void sinkInfoCallback(pa_context *context, const pa_sink_info *info, int 
 {
     PulseAudioEngine *pulseEngine = static_cast<PulseAudioEngine*>(userdata);
     QMap<pa_sink_state, QString> stateMap;
-    stateMap[PA_SINK_INVALID_STATE] = "n/a";
-    stateMap[PA_SINK_RUNNING] = "RUNNING";
-    stateMap[PA_SINK_IDLE] = "IDLE";
-    stateMap[PA_SINK_SUSPENDED] = "SUSPENDED";
+    stateMap[PA_SINK_INVALID_STATE] = QLatin1String("n/a");
+    stateMap[PA_SINK_RUNNING] = QLatin1String("RUNNING");
+    stateMap[PA_SINK_IDLE] = QLatin1String("IDLE");
+    stateMap[PA_SINK_SUSPENDED] = QLatin1String("SUSPENDED");
 
     if (isLast < 0) {
         pa_threaded_mainloop_signal(pulseEngine->mainloop(), 0);
-        qWarning() << QString("Failed to get sink information: %1").arg(pa_strerror(pa_context_errno(context)));
+        qWarning() << QStringLiteral("Failed to get sink information: %1").arg(pa_strerror(pa_context_errno(context)));
         return;
     }
 
@@ -351,7 +351,7 @@ void PulseAudioEngine::connectContext()
 
             case PA_CONTEXT_FAILED:
             default:
-                qWarning() << QString("Connection failure: %1").arg(pa_strerror(pa_context_errno(m_context)));
+                qWarning() << QStringLiteral("Connection failure: %1").arg(pa_strerror(pa_context_errno(m_context)));
                 keepGoing = false;
         }
 
