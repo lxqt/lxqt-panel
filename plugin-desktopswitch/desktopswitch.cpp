@@ -48,6 +48,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     m_pSignalMapper(new QSignalMapper(this)),
     m_desktopCount(KWindowSystem::numberOfDesktops()),
     mRows(-1),
+    mShowOnlyActive(false),
     mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout)),
     mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
 {
@@ -128,18 +129,21 @@ void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Pro
 
 void DesktopSwitch::refresh()
 {
-    QList<QAbstractButton*> btns = m_buttons->buttons();
+    const QList<QAbstractButton*> btns = m_buttons->buttons();
 
     int i = 0;
+    const int current_desktop = KWindowSystem::currentDesktop();
     const int current_cnt = btns.count();
     const int border = qMin(btns.count(), m_desktopCount);
     //update existing buttons
     for ( ; i < border; ++i)
     {
-        ((DesktopSwitchButton*)m_buttons->button(i))->update(i, mLabelType,
+        DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
+        button->update(i, mLabelType,
                        KWindowSystem::desktopName(i + 1).isEmpty() ?
                        tr("Desktop %1").arg(i + 1) :
                        KWindowSystem::desktopName(i + 1));
+        button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
     //create new buttons (if neccessary)
@@ -152,6 +156,7 @@ void DesktopSwitch::refresh()
                 KWindowSystem::desktopName(i+1));
         mWidget.layout()->addWidget(b);
         m_buttons->addButton(b, i);
+        b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
     //delete unneeded buttons (if neccessary)
@@ -219,9 +224,27 @@ void DesktopSwitch::onNumberOfDesktopsChanged(int count)
 
 void DesktopSwitch::onCurrentDesktopChanged(int current)
 {
-    QAbstractButton *button = m_buttons->button(current - 1);
-    if (button)
-        button->setChecked(true);
+    if (mShowOnlyActive)
+    {
+        int i = 1;
+        for (auto button : m_buttons->buttons())
+        {
+            if (current == i)
+            {
+                button->setChecked(true);
+                button->setVisible(true);
+            } else
+            {
+                button->setVisible(false);
+            }
+            ++i;
+        }
+    } else
+    {
+        QAbstractButton *button = m_buttons->button(current - 1);
+        if (button)
+            button->setChecked(true);
+    }
 }
 
 void DesktopSwitch::onDesktopNamesChanged()
@@ -231,18 +254,20 @@ void DesktopSwitch::onDesktopNamesChanged()
 
 void DesktopSwitch::settingsChanged()
 {
-    int value = settings()->value(QStringLiteral("rows"), 1).toInt();
-    if (mRows != value)
-    {
-        mRows = value;
+    const int rows = settings()->value(QStringLiteral("rows"), 1).toInt();
+    const bool show_only_active = settings()->value(QStringLiteral("showOnlyActive"), false).toBool();
+    const int label_type = settings()->value(QStringLiteral("labelType"), DesktopSwitchButton::LABEL_TYPE_NUMBER).toInt();
+
+    const bool need_realign = mRows != rows || show_only_active != mShowOnlyActive;
+    const bool need_refresh = mLabelType != static_cast<DesktopSwitchButton::LabelType>(label_type) || show_only_active != mShowOnlyActive;
+
+    mRows = rows;
+    mShowOnlyActive = show_only_active;
+    mLabelType = static_cast<DesktopSwitchButton::LabelType>(label_type);
+    if (need_realign)
         realign();
-    }
-    value = settings()->value(QStringLiteral("labelType"), DesktopSwitchButton::LABEL_TYPE_NUMBER).toInt();
-    if (mLabelType != static_cast<DesktopSwitchButton::LabelType>(value))
-    {
-        mLabelType = static_cast<DesktopSwitchButton::LabelType>(value);
+    if (need_refresh)
         refresh();
-    }
 }
 
 void DesktopSwitch::realign()
@@ -251,13 +276,13 @@ void DesktopSwitch::realign()
     mLayout->setEnabled(false);
     if (panel()->isHorizontal())
     {
-        mLayout->setRowCount(mRows);
+        mLayout->setRowCount(mShowOnlyActive ? 1 : mRows);
         mLayout->setColumnCount(0);
         mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }
     else
     {
-        mLayout->setColumnCount(mRows);
+        mLayout->setColumnCount(mShowOnlyActive ? 1 : mRows);
         mLayout->setRowCount(0);
         mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }

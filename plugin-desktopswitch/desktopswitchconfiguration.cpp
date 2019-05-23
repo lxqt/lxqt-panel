@@ -43,6 +43,7 @@ DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings,
 
     connect(ui->rowsSB, SIGNAL(valueChanged(int)), this, SLOT(rowsChanged(int)));
     connect(ui->labelTypeCB, SIGNAL(currentIndexChanged(int)), this, SLOT(labelTypeChanged(int)));
+    connect(ui->showOnlyActiveCB, &QAbstractButton::toggled, [this] (bool checked) { this->settings().setValue("showOnlyActive", checked); });
 
     loadDesktopsNames();
 }
@@ -56,6 +57,7 @@ void DesktopSwitchConfiguration::loadSettings()
 {
     ui->rowsSB->setValue(settings().value(QStringLiteral("rows"), 1).toInt());
     ui->labelTypeCB->setCurrentIndex(settings().value(QStringLiteral("labelType"), 0).toInt());
+    ui->showOnlyActiveCB->setChecked(settings().value(QStringLiteral("showOnlyActive"), false).toBool());
 }
 
 void DesktopSwitchConfiguration::loadDesktopsNames()

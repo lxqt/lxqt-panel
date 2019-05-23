@@ -82,6 +82,7 @@ private:
     DesktopSwitchWidget mWidget;
     LXQt::GridLayout *mLayout;
     int mRows;
+    bool mShowOnlyActive;
     QScopedPointer<NETRootInfo> mDesktops;
     DesktopSwitchButton::LabelType mLabelType;
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>213</width>
-    <height>207</height>
+    <width>253</width>
+    <height>235</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,16 @@
           <string>None</string>
          </property>
         </item>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QCheckBox" name="showOnlyActiveCB">
+        <property name="toolTip">
+         <string>If checked, widget will be just an indicator</string>
+        </property>
+        <property name="text">
+         <string>Show only active desktop</string>
+        </property>
        </widget>
       </item>
      </layout>
