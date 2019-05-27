@@ -6,7 +6,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="120"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť</translation>
     </message>
 </context>
 <context>
@@ -14,52 +14,52 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenie ponuky</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzhľad</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Základný adresár:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation type="unfinished"></translation>
+        <translation>Názov základného adresára</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="91"/>
         <source>Choose Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrať základný adresár</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Choose Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoliť ikonu</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="107"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikony (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>Directory Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Ponuka adresára</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="116"/>
         <source>An error occurred while loading the icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pri načítaní ikony nastala chyba.</translation>
     </message>
 </context>
 </TS>
