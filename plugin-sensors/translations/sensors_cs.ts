@@ -66,7 +66,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
-        <translation>Zapnouto</translation>
+        <translation>Zapnuto</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
