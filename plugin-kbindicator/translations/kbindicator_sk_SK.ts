@@ -7,47 +7,47 @@
         <location filename="../src/content.cpp" line="43"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Písanie veľkými písmenami (CapsLock)</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Uzamknutie číselnej klávesnice (NumLock)</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>Zamknúť posúvanie obrazu (ScrollLock)</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozvrhnutie</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
         <source>Variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Variant</translation>
     </message>
 </context>
 <context>
@@ -55,57 +55,57 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenie stavu klávesnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation type="unfinished"></translation>
+        <translation>Indikovať zámky</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukazovať CapsLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukazovať NumLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukazovať ScrollLock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukazovať rozloženie klávesnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Pravidlo pre prepínanie</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť rozloženie</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Globálne</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikácie</translation>
     </message>
 </context>
 </TS>
