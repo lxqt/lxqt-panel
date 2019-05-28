@@ -6,17 +6,17 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Farby systémových štatistík</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Graf</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mriežka</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -33,82 +33,82 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Názov</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>Procesor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Prednosť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Iné</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Frekvencia</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Systém</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Užívateľ</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamäť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uložené v medzipamäti</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Swap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aplikácie</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vyrovnávacia pamäť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Sieť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Prijaté</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Odoslané</translation>
     </message>
 </context>
 <context>
@@ -116,257 +116,257 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nastavenie systémových štatistík</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Graf</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimálne veľkosť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Interval aktualizácie</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nadpis</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Čiary a mriežky</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Najmenšia šírka, ak je panel vodorovne.&lt;/p&gt;&lt;p&gt;Najmenšia výška, ak je zvisle.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation type="unfinished"></translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Dáta</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Použiť frekvenciu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Maximum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation type="unfinished"></translation>
+        <translation>XXX KB/s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Logaritmická stupnica</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
         <source> steps</source>
-        <translation type="unfinished"></translation>
+        <translation> kroky</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zdroj</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Typ</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
         <source>Colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Farby</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Použiť farbu motívu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Použiť užívateľsky určené farby</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Užívateľsky určená farba...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>Procesor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamäť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Sieť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation type="unfinished"></translation>
+        <translation>procesor</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro0</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro1</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro2</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro3</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro4</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro5</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro6</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro7</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro8</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro9</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro10</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro11</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro12</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro13</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro14</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro15</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro16</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro17</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro18</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro19</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro20</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro21</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro22</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation type="unfinished"></translation>
+        <translation>jadro23</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamäť</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation type="unfinished"></translation>
+        <translation>swap</translation>
     </message>
 </context>
 <context>
@@ -375,31 +375,31 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>systém: %1%&lt;br&gt;užívateľ: %2%&lt;br&gt;prednosť: %3%&lt;br&gt;ostatní: %4%&lt;br&gt;frekvencia: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>systém: %1%&lt;br&gt;užívateľ: %2%&lt;br&gt;prednosť: %3%&lt;br&gt;ostatné: %4%&lt;br&gt;frekvencia: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>aplikácie: %1%&lt;br&gt;vyrovnávacia pamäť: %2%&lt;br&gt;uložené v medzipamäti: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>použité: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="552"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>najmenej: %1%&lt;br&gt;najviac: %2%</translation>
     </message>
 </context>
 </TS>
