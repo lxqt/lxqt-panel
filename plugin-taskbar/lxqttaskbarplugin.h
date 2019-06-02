@@ -42,7 +42,7 @@ public:
     LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~LXQtTaskBarPlugin();
 
-    QString themeId() const { return "TaskBar"; }
+    QString themeId() const { return QStringLiteral("TaskBar"); }
     virtual Flags flags() const { return HaveConfigDialog | NeedsHandle; }
 
     QWidget *widget() { return mTaskBar; }

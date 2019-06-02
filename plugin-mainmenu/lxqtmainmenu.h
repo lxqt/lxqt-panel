@@ -69,7 +69,7 @@ public:
     LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~LXQtMainMenu();
 
-    QString themeId() const { return "MainMenu"; }
+    QString themeId() const { return QStringLiteral("MainMenu"); }
     virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog ; }
 
     QWidget *widget() { return &mButton; }
