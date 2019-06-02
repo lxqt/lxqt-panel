@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="214"/>
         <source>Drop Error</source>
-        <translation>CHyba pri pustení</translation>
+        <translation>Chyba pri poklese</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="215"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Súbor/URL „%1“ nateraz nemožno vložiť do rýchleho spustenia</translation>
+        <translation>Súbor/URL „%1“ momentálne nie je možné vložiť do rýchleho spustenia</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
