@@ -101,7 +101,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mSearchEditAction->setDefaultWidget(mSearchEdit);
     QTimer::singleShot(0, [this] { settingsChanged(); });
 
-    mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QString("/panel/%1/show_hide").arg(settings()->group()), LXQtMainMenu::tr("Show/hide main menu"), this);
+    mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QStringLiteral("/panel/%1/show_hide").arg(settings()->group()), LXQtMainMenu::tr("Show/hide main menu"), this);
     if (mShortcut)
     {
         connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
@@ -193,20 +193,20 @@ void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
 void LXQtMainMenu::settingsChanged()
 {
     setButtonIcon();
-    if (settings()->value("showText", false).toBool())
+    if (settings()->value(QStringLiteral("showText"), false).toBool())
     {
-        mButton.setText(settings()->value("text", "Start").toString());
+        mButton.setText(settings()->value(QStringLiteral("text"), "Start").toString());
         mButton.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     }
     else
     {
-        mButton.setText("");
+        mButton.setText(QLatin1String(""));
         mButton.setToolButtonStyle(Qt::ToolButtonIconOnly);
     }
 
-    mLogDir = settings()->value("log_dir", "").toString();
+    mLogDir = settings()->value(QStringLiteral("log_dir"), "").toString();
 
-    QString menu_file = settings()->value("menu_file", "").toString();
+    QString menu_file = settings()->value(QStringLiteral("menu_file"), "").toString();
     if (menu_file.isEmpty())
         menu_file = XdgMenu::getMenuFileName();
 
@@ -228,7 +228,7 @@ void LXQtMainMenu::settingsChanged()
         }
         mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
 #else
-        mXdgMenu.setEnvironments(QStringList() << "X-LXQT" << "LXQt");
+        mXdgMenu.setEnvironments(QStringList() << QStringLiteral("X-LXQT") << QStringLiteral("LXQt"));
         mXdgMenu.setLogDir(mLogDir);
 
         bool res = mXdgMenu.read(mMenuFile);
@@ -239,7 +239,7 @@ void LXQtMainMenu::settingsChanged()
         }
         else
         {
-            QMessageBox::warning(0, "Parse error", mXdgMenu.errorString());
+            QMessageBox::warning(0, QStringLiteral("Parse error"), mXdgMenu.errorString());
             return;
         }
 #endif
@@ -249,17 +249,17 @@ void LXQtMainMenu::settingsChanged()
 
     //clear the search to not leaving the menu in wrong state
     mSearchEdit->setText(QString{});
-    mFilterMenu = settings()->value("filterMenu", true).toBool();
-    mFilterShow = settings()->value("filterShow", true).toBool();
-    mFilterClear = settings()->value("filterClear", false).toBool();
-    mFilterShowHideMenu = settings()->value("filterShowHideMenu", true).toBool();
+    mFilterMenu = settings()->value(QStringLiteral("filterMenu"), true).toBool();
+    mFilterShow = settings()->value(QStringLiteral("filterShow"), true).toBool();
+    mFilterClear = settings()->value(QStringLiteral("filterClear"), false).toBool();
+    mFilterShowHideMenu = settings()->value(QStringLiteral("filterShowHideMenu"), true).toBool();
     if (mMenu)
     {
         mSearchEdit->setVisible(mFilterMenu || mFilterShow);
         mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
     }
-    mSearchView->setMaxItemsToShow(settings()->value("filterShowMaxItems", 10).toInt());
-    mSearchView->setMaxItemWidth(settings()->value("filterShowMaxWidth", 300).toInt());
+    mSearchView->setMaxItemsToShow(settings()->value(QStringLiteral("filterShowMaxItems"), 10).toInt());
+    mSearchView->setMaxItemWidth(settings()->value(QStringLiteral("filterShowMaxWidth"), 300).toInt());
 
     realign();
 }
@@ -393,9 +393,9 @@ void LXQtMainMenu::buildMenu()
 #ifdef HAVE_MENU_CACHE
     mMenu = new XdgCachedMenu(mMenuCache, &mButton);
 #else
-    mMenu = new XdgMenuWidget(mXdgMenu, "", &mButton);
+    mMenu = new XdgMenuWidget(mXdgMenu, QLatin1String(""), &mButton);
 #endif
-    mMenu->setObjectName("TopLevelMainMenu");
+    mMenu->setObjectName(QStringLiteral("TopLevelMainMenu"));
     setTranslucentMenus(mMenu);
     // Note: the QWidget::ensurePolished() workarounds problem with transparent
     // QLineEdit (mSearchEditAction) in menu with Breeze style
@@ -435,12 +435,12 @@ void LXQtMainMenu::setMenuFontSize()
         return;
 
     QFont menuFont = mButton.font();
-    bool customFont = settings()->value("customFont", false).toBool();
+    bool customFont = settings()->value(QStringLiteral("customFont"), false).toBool();
 
     if(customFont)
     {
         menuFont = mMenu->font();
-        menuFont.setPointSize(settings()->value("customFontSize").toInt());
+        menuFont.setPointSize(settings()->value(QStringLiteral("customFontSize")).toInt());
     }
 
     if (mMenu->font() != menuFont)
@@ -473,9 +473,9 @@ void LXQtMainMenu::setMenuFontSize()
  ************************************************/
 void LXQtMainMenu::setButtonIcon()
 {
-    if (settings()->value("ownIcon", false).toBool())
+    if (settings()->value(QStringLiteral("ownIcon"), false).toBool())
     {
-        mButton.setStyleSheet(QString("#MainMenu { qproperty-icon: url(%1); }")
+        mButton.setStyleSheet(QStringLiteral("#MainMenu { qproperty-icon: url(%1); }")
                 .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()));
     } else
     {

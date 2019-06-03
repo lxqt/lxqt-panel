@@ -43,7 +43,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     mShortcut(shortcut)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("MainMenuConfigurationWindow");
+    setObjectName(QStringLiteral("MainMenuConfigurationWindow"));
     ui->setupUi(this);
 
     QIcon folder{XdgIcon::fromTheme("folder")};
@@ -61,7 +61,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
         {
             this->settings().setValue(QLatin1String("menu_file"), file);
         });
-    connect(ui->iconCB, &QCheckBox::toggled, [this] (bool value) { this->settings().setValue("ownIcon", value); });
+    connect(ui->iconCB, &QCheckBox::toggled, [this] (bool value) { this->settings().setValue(QStringLiteral("ownIcon"), value); });
     connect(ui->iconPB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseIcon);
     connect(ui->iconLE, &QLineEdit::textChanged, [&] (QString const & path)
         {
@@ -79,28 +79,28 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->filterMenuCB, &QCheckBox::toggled, [this] (bool enabled)
         {
             ui->filterClearCB->setEnabled(enabled || ui->filterShowCB->isChecked());
-            this->settings().setValue("filterMenu", enabled);
+            this->settings().setValue(QStringLiteral("filterMenu"), enabled);
         });
     connect(ui->filterShowCB, &QCheckBox::toggled, [this] (bool enabled)
         {
             ui->filterClearCB->setEnabled(enabled || ui->filterMenuCB->isChecked());
-            this->settings().setValue("filterShow", enabled);
+            this->settings().setValue(QStringLiteral("filterShow"), enabled);
         });
     connect(ui->filterShowMaxItemsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
         {
-            this->settings().setValue("filterShowMaxItems", value);
+            this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
         });
     connect(ui->filterShowMaxWidthSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
         {
-            this->settings().setValue("filterShowMaxWidth", value);
+            this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
         });
     connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, [this] (bool enabled)
         {
-            this->settings().setValue("filterShowHideMenu", enabled);
+            this->settings().setValue(QStringLiteral("filterShowHideMenu"), enabled);
         });
     connect(ui->filterClearCB, &QCheckBox::toggled, [this] (bool enabled)
         {
-            this->settings().setValue("filterClear", enabled);
+            this->settings().setValue(QStringLiteral("filterClear"), enabled);
         });
 }
 
@@ -111,12 +111,12 @@ LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
 
 void LXQtMainMenuConfiguration::loadSettings()
 {
-    ui->iconCB->setChecked(settings().value("ownIcon", false).toBool());
-    ui->iconLE->setText(settings().value("icon", QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
-    ui->showTextCB->setChecked(settings().value("showText", false).toBool());
-    ui->textLE->setText(settings().value("text", "").toString());
+    ui->iconCB->setChecked(settings().value(QStringLiteral("ownIcon"), false).toBool());
+    ui->iconLE->setText(settings().value(QStringLiteral("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
+    ui->showTextCB->setChecked(settings().value(QStringLiteral("showText"), false).toBool());
+    ui->textLE->setText(settings().value(QStringLiteral("text"), "").toString());
 
-    QString menuFile = settings().value("menu_file", "").toString();
+    QString menuFile = settings().value(QStringLiteral("menu_file"), "").toString();
     if (menuFile.isEmpty())
     {
         menuFile = XdgMenu::getMenuFileName();
@@ -124,38 +124,38 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->menuFilePathLE->setText(menuFile);
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 
-    ui->customFontCB->setChecked(settings().value("customFont", false).toBool());
-    LXQt::Settings lxqtSettings("lxqt"); //load system font size as init value
+    ui->customFontCB->setChecked(settings().value(QStringLiteral("customFont"), false).toBool());
+    LXQt::Settings lxqtSettings(QStringLiteral("lxqt")); //load system font size as init value
     QFont systemFont;
     lxqtSettings.beginGroup(QLatin1String("Qt"));
-    systemFont.fromString(lxqtSettings.value("font", this->font()).toString());
+    systemFont.fromString(lxqtSettings.value(QStringLiteral("font"), this->font()).toString());
     lxqtSettings.endGroup();
-    ui->customFontSizeSB->setValue(settings().value("customFontSize", systemFont.pointSize()).toInt());
-    const bool filter_menu = settings().value("filterMenu", true).toBool();
+    ui->customFontSizeSB->setValue(settings().value(QStringLiteral("customFontSize"), systemFont.pointSize()).toInt());
+    const bool filter_menu = settings().value(QStringLiteral("filterMenu"), true).toBool();
     ui->filterMenuCB->setChecked(filter_menu);
-    const bool filter_show = settings().value("filterShow", true).toBool();
+    const bool filter_show = settings().value(QStringLiteral("filterShow"), true).toBool();
     ui->filterShowCB->setChecked(filter_show);
     ui->filterShowMaxItemsL->setEnabled(filter_show);
     ui->filterShowMaxItemsSB->setEnabled(filter_show);
-    ui->filterShowMaxItemsSB->setValue(settings().value("filterShowMaxItems", 10).toInt());
+    ui->filterShowMaxItemsSB->setValue(settings().value(QStringLiteral("filterShowMaxItems"), 10).toInt());
     ui->filterShowMaxWidthL->setEnabled(filter_show);
     ui->filterShowMaxWidthSB->setEnabled(filter_show);
-    ui->filterShowMaxWidthSB->setValue(settings().value("filterShowMaxWidth", 300).toInt());
+    ui->filterShowMaxWidthSB->setValue(settings().value(QStringLiteral("filterShowMaxWidth"), 300).toInt());
     ui->filterShowHideMenuCB->setEnabled(filter_show);
-    ui->filterShowHideMenuCB->setChecked(settings().value("filterShowHideMenu", true).toBool());
-    ui->filterClearCB->setChecked(settings().value("filterClear", false).toBool());
+    ui->filterShowHideMenuCB->setChecked(settings().value(QStringLiteral("filterShowHideMenu"), true).toBool());
+    ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), false).toBool());
     ui->filterClearCB->setEnabled(filter_menu || filter_show);
 }
 
 
 void LXQtMainMenuConfiguration::textButtonChanged(const QString &value)
 {
-    settings().setValue("text", value);
+    settings().setValue(QStringLiteral("text"), value);
 }
 
 void LXQtMainMenuConfiguration::showTextChanged(bool value)
 {
-    settings().setValue("showText", value);
+    settings().setValue(QStringLiteral("showText"), value);
 }
 
 void LXQtMainMenuConfiguration::chooseIcon()
@@ -206,10 +206,10 @@ void LXQtMainMenuConfiguration::shortcutReset()
 
 void LXQtMainMenuConfiguration::customFontChanged(bool value)
 {
-    settings().setValue("customFont", value);
+    settings().setValue(QStringLiteral("customFont"), value);
 }
 
 void LXQtMainMenuConfiguration::customFontSizeChanged(int value)
 {
-    settings().setValue("customFontSize", value);
+    settings().setValue(QStringLiteral("customFontSize"), value);
 }
