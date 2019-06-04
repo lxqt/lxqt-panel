@@ -39,7 +39,7 @@ XdgCachedMenuAction::XdgCachedMenuAction(MenuCacheItem* item, QObject* parent):
     , iconName_{QString::fromUtf8(menu_cache_item_get_icon(item))}
 {
     QString title = QString::fromUtf8(menu_cache_item_get_name(item));
-    title = title.replace('&', QLatin1String("&&")); // & is reserved for mnemonics
+    title = title.replace(QLatin1Char('&'), QLatin1String("&&")); // & is reserved for mnemonics
     setText(title);
     // Only set tooltips for app items
     if(menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP)
@@ -64,7 +64,7 @@ void XdgCachedMenuAction::updateIcon()
         QIcon icon = QIcon::fromTheme(iconName_);
 
         if (icon.isNull())
-            icon = QIcon::fromTheme("unknown");
+            icon = QIcon::fromTheme(QStringLiteral("unknown"));
         // Some themes may lack the "unknown" icon; checking null prevents 
         // infinite recursion (setIcon->dataChanged->updateIcon->setIcon)
         if (icon.isNull())
@@ -190,7 +190,7 @@ void XdgCachedMenu::handleMouseMoveEvent(QMouseEvent *event)
         return;
 
     QList<QUrl> urls;
-    urls << QUrl(QString("file://%1").arg(a->filePath()));
+    urls << QUrl(QString::fromLatin1("file://%1").arg(a->filePath()));
 
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);

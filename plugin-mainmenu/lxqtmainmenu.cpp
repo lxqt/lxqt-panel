@@ -106,7 +106,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     {
         connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
             if (mShortcut->shortcut().isEmpty())
-                mShortcut->changeShortcut(DEFAULT_SHORTCUT);
+                mShortcut->changeShortcut(QStringLiteral(DEFAULT_SHORTCUT));
         });
         connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] {
             if (!mHideTimer.isActive())
@@ -195,7 +195,7 @@ void LXQtMainMenu::settingsChanged()
     setButtonIcon();
     if (settings()->value(QStringLiteral("showText"), false).toBool())
     {
-        mButton.setText(settings()->value(QStringLiteral("text"), "Start").toString());
+        mButton.setText(settings()->value(QStringLiteral("text"), QStringLiteral("Start")).toString());
         mButton.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     }
     else
@@ -204,9 +204,9 @@ void LXQtMainMenu::settingsChanged()
         mButton.setToolButtonStyle(Qt::ToolButtonIconOnly);
     }
 
-    mLogDir = settings()->value(QStringLiteral("log_dir"), "").toString();
+    mLogDir = settings()->value(QStringLiteral("log_dir"), QString()).toString();
 
-    QString menu_file = settings()->value(QStringLiteral("menu_file"), "").toString();
+    QString menu_file = settings()->value(QStringLiteral("menu_file"), QString()).toString();
     if (menu_file.isEmpty())
         menu_file = XdgMenu::getMenuFileName();
 
@@ -220,7 +220,7 @@ void LXQtMainMenu::settingsChanged()
             menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
             menu_cache_unref(mMenuCache);
         }
-        mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit());
+        mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit().constData());
         if (MenuCacheDir * root = menu_cache_dup_root_dir(mMenuCache))
         {
             menu_cache_item_unref(MENU_CACHE_ITEM(root));
@@ -489,7 +489,7 @@ void LXQtMainMenu::setButtonIcon()
  ************************************************/
 QDialog *LXQtMainMenu::configureDialog()
 {
-    return new LXQtMainMenuConfiguration(settings(), mShortcut, DEFAULT_SHORTCUT);
+    return new LXQtMainMenuConfiguration(settings(), mShortcut, QStringLiteral(DEFAULT_SHORTCUT));
 }
 /************************************************
 

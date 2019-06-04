@@ -46,7 +46,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     setObjectName(QStringLiteral("MainMenuConfigurationWindow"));
     ui->setupUi(this);
 
-    QIcon folder{XdgIcon::fromTheme("folder")};
+    QIcon folder{XdgIcon::fromTheme(QStringLiteral("folder"))};
     ui->chooseMenuFilePB->setIcon(folder);
     ui->iconPB->setIcon(folder);
 
@@ -114,9 +114,9 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->iconCB->setChecked(settings().value(QStringLiteral("ownIcon"), false).toBool());
     ui->iconLE->setText(settings().value(QStringLiteral("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
     ui->showTextCB->setChecked(settings().value(QStringLiteral("showText"), false).toBool());
-    ui->textLE->setText(settings().value(QStringLiteral("text"), "").toString());
+    ui->textLE->setText(settings().value(QStringLiteral("text"), QString()).toString());
 
-    QString menuFile = settings().value(QStringLiteral("menu_file"), "").toString();
+    QString menuFile = settings().value(QStringLiteral("menu_file"), QString()).toString();
     if (menuFile.isEmpty())
     {
         menuFile = XdgMenu::getMenuFileName();
