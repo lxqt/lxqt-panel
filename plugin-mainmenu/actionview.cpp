@@ -189,7 +189,7 @@ void ActionView::addAction(QAction * action)
     item->setText(action->text());
     item->setToolTip(action->toolTip());
     QString all = action->text();
-    all += '\n';
+    all += QLatin1Char('\n');
     all += action->toolTip();
     item->setData(all, FilterRole);
 
