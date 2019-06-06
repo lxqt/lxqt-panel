@@ -72,7 +72,7 @@ void StatusNotifierWatcher::RegisterStatusNotifierItem(const QString &serviceOrP
     QString path = QStringLiteral("/StatusNotifierItem");
 
     // workaround for sni-qt
-    if (service.startsWith('/'))
+    if (service.startsWith(QLatin1Char('/')))
     {
         path = service;
         service = message().service();
@@ -110,7 +110,7 @@ void StatusNotifierWatcher::serviceUnregistered(const QString &service)
         return;
     }
 
-    QString match = service + '/';
+    QString match = service + QLatin1Char('/');
     QStringList::Iterator it = mServices.begin();
     while (it != mServices.end())
     {

@@ -80,7 +80,7 @@ StatusNotifierWidget::~StatusNotifierWidget()
 
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
 {
-    int slash = serviceAndPath.indexOf('/');
+    int slash = serviceAndPath.indexOf(QLatin1Char('/'));
     QString serv = serviceAndPath.left(slash);
     QString path = serviceAndPath.mid(slash);
     StatusNotifierButton *button = new StatusNotifierButton(serv, path, mPlugin, this);
