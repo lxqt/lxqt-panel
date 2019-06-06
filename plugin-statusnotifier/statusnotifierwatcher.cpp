@@ -40,7 +40,7 @@ StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
     qDBusRegisterMetaType<ToolTip>();
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    switch (dbus.interface()->registerService("org.kde.StatusNotifierWatcher", QDBusConnectionInterface::QueueService).value())
+    switch (dbus.interface()->registerService(QStringLiteral("org.kde.StatusNotifierWatcher"), QDBusConnectionInterface::QueueService).value())
     {
         case QDBusConnectionInterface::ServiceNotRegistered:
             qWarning() << "StatusNotifier: unable to register service for org.kde.StatusNotifierWatcher";
@@ -51,7 +51,7 @@ StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
         case QDBusConnectionInterface::ServiceRegistered:
             break;
     }
-    if (!dbus.registerObject("/StatusNotifierWatcher", this, QDBusConnection::ExportScriptableContents))
+    if (!dbus.registerObject(QStringLiteral("/StatusNotifierWatcher"), this, QDBusConnection::ExportScriptableContents))
         qDebug() << QDBusConnection::sessionBus().lastError().message();
 
     mWatcher = new QDBusServiceWatcher(this);
@@ -63,13 +63,13 @@ StatusNotifierWatcher::StatusNotifierWatcher(QObject *parent) : QObject(parent)
 
 StatusNotifierWatcher::~StatusNotifierWatcher()
 {
-    QDBusConnection::sessionBus().unregisterService("org.kde.StatusNotifierWatcher");
+    QDBusConnection::sessionBus().unregisterService(QStringLiteral("org.kde.StatusNotifierWatcher"));
 }
 
 void StatusNotifierWatcher::RegisterStatusNotifierItem(const QString &serviceOrPath)
 {
     QString service = serviceOrPath;
-    QString path = "/StatusNotifierItem";
+    QString path = QStringLiteral("/StatusNotifierItem");
 
     // workaround for sni-qt
     if (service.startsWith('/'))
