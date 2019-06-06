@@ -57,7 +57,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     : QToolButton(parent),
     mMenu(nullptr),
     mStatus(Passive),
-    mFallbackIcon(QIcon::fromTheme("application-x-executable")),
+    mFallbackIcon(QIcon::fromTheme(QLatin1String("application-x-executable"))),
     mPlugin(plugin)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -148,8 +148,8 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                 QDir themeDir(themePath);
                 if (themeDir.exists())
                 {
-                    if (themeDir.exists(iconName + ".png"))
-                        nextIcon.addFile(themeDir.filePath(iconName + ".png"));
+                    if (themeDir.exists(iconName + QStringLiteral(".png")))
+                        nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".png")));
 
                     if (themeDir.cd(QStringLiteral("hicolor")) || (themeDir.cd(QStringLiteral("icons")) && themeDir.cd(QStringLiteral("hicolor"))))
                     {
@@ -159,7 +159,7 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                             const QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                             for (const QString &innerDir : dirs)
                             {
-                                QString file = themeDir.absolutePath() + "/" + dir + "/" + innerDir + "/" + iconName + ".png";
+                                QString file = themeDir.absolutePath() + QLatin1Char('/') + dir + QLatin1Char('/') + innerDir + QLatin1Char('/') + iconName + QStringLiteral(".png");
                                 if (QFile::exists(file))
                                     nextIcon.addFile(file);
                             }
