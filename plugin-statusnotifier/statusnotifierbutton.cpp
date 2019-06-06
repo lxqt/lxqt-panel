@@ -151,7 +151,7 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                     if (themeDir.exists(iconName + ".png"))
                         nextIcon.addFile(themeDir.filePath(iconName + ".png"));
 
-                    if (themeDir.cd("hicolor") || (themeDir.cd("icons") && themeDir.cd("hicolor")))
+                    if (themeDir.cd(QStringLiteral("hicolor")) || (themeDir.cd(QStringLiteral("icons")) && themeDir.cd(QStringLiteral("hicolor"))))
                     {
                         const QStringList sizes = themeDir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                         for (const QString &dir : sizes)
@@ -285,7 +285,7 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
 
 void StatusNotifierButton::wheelEvent(QWheelEvent *event)
 {
-    interface->Scroll(event->delta(), "vertical");
+    interface->Scroll(event->delta(), QStringLiteral("vertical"));
 }
 
 void StatusNotifierButton::resetIcon()
