@@ -207,7 +207,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>幾則無法將面板變更為其他主題的
+小部件樣式的解決方案。
+
+您可能還想禁用：
+
+LXQt外觀配置→
+圖標主題→
+根據小部件樣式（調色板）著色圖標</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
