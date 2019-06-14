@@ -140,27 +140,27 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>一般</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウの表示はひとつのデスクトップのみ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">パネルの画面からウィンドウのみを表示(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化されたウィンドウのみを表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>最小化されいるウィンドウは現在のデスクトップに移動</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -170,43 +170,43 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>パネル上にてマウスのホイールスクロールでウィンドウ切替</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウのグループ化(&amp;G)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>マウスオーバー時にポップアップを表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>外観</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="131"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタンの最大幅</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="144"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="170"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> ピクセル</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="157"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタンの最大高</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation type="unfinished"></translation>
+        <translation>可能であれば WindowClass でアイコンを使う</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のデスクトップ</translation>
     </message>
 </context>
 </TS>
