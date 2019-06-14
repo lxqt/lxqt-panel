@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="241"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy/M/d (ddd)&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>指定する(&amp;C)</translation>
+        <translation>指定する(&amp;C) ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>追加(&amp;A)</translation>
+        <translation>追加(&amp;A) ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>名前を付ける(&amp;E)</translation>
+        <translation>名前を付ける(&amp;E) ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy/M/d (ddd)&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>世界時計の形式の手動設定</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -284,7 +284,60 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;カスタム用の日付時刻フォーマットの形式&lt;/h1&gt;
+&lt;p&gt;日付パターンは文字列です。解析時にはカレンダー時計からデータを生成・フォーマットされ、特定の文字列がカレンダー時計の日付と時刻のデータに置き換わります。&lt;/p&gt;
+&lt;p&gt;
+以下の日付フィールドの記号表には、年の yyyy など、特定の場所に適した形式を表すためのパターンの文字列があります。
+ 文字は複数回使用できます。例えば、y が年に使用されている場合、 yy は 99 を生成しますが、 yyyy は 1999 を生成します。
+ほとんどの数値フィールドでは、文字数がフィールド幅を指定します。
+ 例えば、時刻の h の場合、 h は 5 を生成しますが、 hh は 05 を生成します。
+一部の文字では、この文字の並びの数は省略形か完全形のどちらを使用するかを指定しますが、以下の表に示すように他の使用方法もあります。
+&lt;/p&gt;&lt;p&gt;
+2つの連続した一重引用符は、文字内か外側の１つの一重引用符を表します。
+一重引用符内のテキストは、変換されません（隣接する２つの引用符を除く）。
+それ以外の場合、 a から z および A から Z までのすべてのASCII文字は形式の文字として予約されており、文字自身を表す場合は引用符が必要です。
+さらに、特定のASCII記号は将来変更になる可能性があります（例: &quot;:&quot; は時刻の区切り文字として、 &apos;/&apos; は日付の区切り文字としてみられ、それぞれのロケール依存文字に置き換えられます）。
+&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;記号&lt;/th&gt;&lt;th&gt;意味&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; d&lt;/td&gt; &lt;td&gt;日（1〜31）先頭に0を付けない数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt; &lt;td&gt;日（01〜31）先頭に0を付けた数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt; &lt;td&gt;ローカライズされた曜日の短縮名（例: &apos;月&apos;から &apos;日&apos;）。&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt; &lt;td&gt;ローカライズされた長い曜日名（例: &apos;月曜日&apos;から &apos;日曜日&apos;）。&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; M &lt;/ td&gt; &lt;td&gt;月（1〜12）先頭に0を付けない数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; MM &lt;/ td&gt; &lt;td&gt;月（01-12）先頭に0を付けた数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; MMM&lt;/td&gt; &lt;td&gt;ローカライズされた月の省略名（例: &apos;1月&apos;から &apos;12月&apos;）。&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; MMMM&lt;/td&gt; &lt;td&gt;ローカライズされた長い月の名前（例: &apos;1月&apos;から &apos;12月&apos;）。(訳注: 日本語では MMM と MMMM は同じ表示のようです)&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt; &lt;td&gt;年（00〜99）2桁の数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; yyyy&lt;/td&gt; &lt;td&gt;年を4桁の数字&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt; &lt;td&gt;時刻（0〜23、または午前/午後を表示する場合は1〜12）先頭に0なし&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt; &lt;td&gt;時刻（00から23、または午前/午後を表示する場合は01から12）先頭に0がつく&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt; &lt;td&gt;時刻（午前/午後の表示でも0〜23）先頭に0なし&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt; &lt;td&gt;時刻（午前/午後の表示でも00〜23）先頭に0がつく&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; m&lt;/td&gt; &lt;td&gt;分（0〜59）先頭に0なし&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; mm&lt;/td&gt; &lt;td&gt;分（00から59）先頭に0がつく&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; s&lt;/td&gt; &lt;td&gt;秒（0〜59）先頭に0なし&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt; &lt;td&gt;秒（00〜59）先頭に0がつく&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt; &lt;td&gt;ミリ秒（0〜999）先頭に0なし&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt; &lt;td&gt;ミリ秒（000〜999）先頭に0がつく&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; AP &lt;i&gt;または&lt;/i&gt; A &lt;/td&gt; &lt;td&gt;午前/午後の表示に使用します。 &lt;b&gt; A/AP &lt;/b&gt;は &quot;AM&quot; または &quot;PM&quot; に置き換えられます。&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ap &lt;i&gt;または&lt;/i&gt; a &lt;/td&gt; &lt;td&gt;午前/午後の表示に使用します。 &lt;b&gt; a/ap &lt;/b&gt;は &quot;am&quot; または &quot;pm&quot; に置き換えられます。（訳注: 日本語では AP と ap はどちらも&quot;午前&quot;または&quot;午後&quot;に置き換えられるようです）&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt; &lt;td&gt;タイムゾーン（例: &quot;JST&quot;）&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; T&lt;/td&gt; &lt;td&gt; UTC(世界協定時)からの時差&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt; &lt;td&gt;タイムゾーンの IANA ID &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt; &lt;td&gt;タイムゾーンの省略形&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt; &lt;td&gt;タイムゾーンの短い表示名&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt; &lt;td&gt;タイムゾーンの長い表示名&lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt; &lt;td&gt;タイムゾーンのカスタム名。設定ウィンドウの[タイムゾーン]タブで変更できます。&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;注意:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;
+パターン内の [&apos;a&apos; .. &apos;z&apos;] と [&apos;A&apos; .. &apos;Z&apos;] の範囲内にない文字は引用テキストとして扱われます。
+たとえば、 &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos;, &apos;@&apos;などの文字は、一重引用符(&apos;)で囲まれていなくても、結果のテキストに表示されます。
+一重引用符(&apos;)は、文字を“エスケープ”するために使用されます。行内の2つの連続した一重引用符は、引用符付き文字列の内側でも外側でも、“実際”の1つの一重引用符を表します。
+&lt;/li&gt;&lt;li&gt;
+最小の更新間隔は1秒です。
+z または zzz が設定されている場合、時刻はミリ秒単位で表示されますが、ミリ秒単位では更新されません（大きなパフォーマンスの低下を避けるため）。
+&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
