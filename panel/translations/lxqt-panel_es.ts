@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Añadir miniaplicación</translation>
+        <translation>Añadir widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(solo se permite una instancia a la vez)</translation>
+        <translation>(Este widget ya se encuentra en el panel)</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Configurar el panel</translation>
+        <translation>Configuración del panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation>Miniaplicaciones</translation>
+        <translation>Widgets</translation>
     </message>
 </context>
 <context>
@@ -52,12 +52,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>Configurar el panel</translation>
+        <translation>Configurar panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation>Tamaño</translation>
+        <translation>Dimensiones de los elementos del panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Tamaño de icono:</translation>
+        <translation>Tamaño de los iconos:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Un largo negativo en píxeles configura el largo del panel a esa cantidad de píxeles menos que el espacio disponible en la pantalla.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;P. ej. &quot;Largo&quot; configurado a -100px, el tamaño de la pantalla es 1000px, entonces el largo real del panel será de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Un valor negativo en el tamaño cambia la longitud total del panel restandole esa cantidad al tamaño en la pantalla. &lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Por ejemplo si el &quot;Largo&quot; configurado es -100px, y el tamaño de la pantalla es de 1000px, entonces el largo del panel será de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -98,13 +98,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Alineación y posición</translation>
+        <translation>Alineación, posición y características</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Cero equivale a no usar animaciones</translation>
+        <translation>Si elige &quot;0 ms&quot; se desactivarán las animaciones</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Filas:</translation>
+        <translation>Filas del panel:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -144,33 +144,34 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>Ocultar a&amp;utomáticamente</translation>
+        <translation>Ocultar el panel a&amp;utomáticamente</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>Cero equivale a sin demora</translation>
+        <translation>Si elige &quot;0 ms&quot; se evitara cualquier retraso</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Mostrar con un retraso:</translation>
+        <translation>Retraso antes de aparecer:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>No permitir que las ventanas maximizadas queden bajo la ventana del panel</translation>
+        <translation>Si se activa esta opción se evitará que las ventanas maximizadas
+queden bajo del panel y tengan un area inaccesible</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation>Reservar espacio en la pantalla</translation>
+        <translation>Reservar el espacio del panel en la pantalla</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
         <source>Custom styling</source>
-        <translation>Estilo personalizado</translation>
+        <translation>Personalización del estilo del panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="370"/>
@@ -180,7 +181,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation>Color de fondo:</translation>
+        <translation>Color del fondo:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
@@ -190,7 +191,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;La composición es obligatoria para la transparencia del panel.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;La composición debe estar activada para usar transparencias en el panel.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -207,25 +208,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Un apaño parcial para estilos de componentes que no
-pueden dar un tema separado al panel.
+        <translation>Si tiene problemas para personalizar los widgets que no soportan
+usar un tema diferente al original del panel. 
 
-Puede que también quiera deshabilitar:
+Debe deshabilitar la siguiente casilla:
 
 Configuración de apariencia de LXQt →
 Tema de iconos →
-Colorear los iconos según el estilo de los controles
-(paleta)</translation>
+Colorear los iconos según la paleta de colores usada en los widgets</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation>Sustituir el &amp;tema de iconos</translation>
+        <translation>Elegir un &amp;tema personalizado para los iconos</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation>Tema de iconos para los paneles:</translation>
+        <translation>Tema de iconos de los paneles:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -314,7 +314,7 @@ Colorear los iconos según el estilo de los controles
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Nota: los cambios hechos en esta página no pueden deshacerse.</translation>
+        <translation>Nota: es posible que algunos de los cambios realizados no puedan deshacerse.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -338,17 +338,17 @@ Colorear los iconos según el estilo de los controles
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation>Añadir</translation>
+        <translation>Añadir un widget</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation>Eliminar un widget</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Configurar</translation>
+        <translation>Abrir la ventana de configuración del widget seleccionado</translation>
     </message>
 </context>
 <context>
@@ -362,23 +362,23 @@ Colorear los iconos según el estilo de los controles
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation>Configurar el panel</translation>
+        <translation>Configurar este panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation>Gestionar las miniaplicaciones</translation>
+        <translation>Gestionar los widgets</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
         <source>Add New Panel</source>
-        <translation>Añadir un panel nuevo</translation>
+        <translation>Añadir otro panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Eliminar el panel</translation>
+        <translation>Eliminar este panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -389,14 +389,14 @@ Colorear los iconos según el estilo de los controles
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Eliminar el panel</translation>
+        <translation>Eliminar este panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La eliminación del panel no puede deshacerse.
-¿Seguro que quiere borrar el panel?</translation>
+        <translation>Una vez eliminado el panel no puede deshacerse.
+¿Seguro que desea borrar este panel?</translation>
     </message>
 </context>
 <context>
@@ -404,17 +404,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Configurar &quot;%1&quot;</translation>
+        <translation>Configurar %1</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Mover &quot;%1&quot;</translation>
+        <translation>Mover %1</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Eliminar &quot;%1&quot;</translation>
+        <translation>Eliminar %1</translation>
     </message>
 </context>
 <context>
@@ -422,7 +422,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>Usar un fichero de configuración alternativo.</translation>
+        <translation>Utilizar un archivo de configuración alternativo.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
