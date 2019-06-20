@@ -135,7 +135,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation>日時(&amp;D)</translation>
+        <translation>日付(&amp;D)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
