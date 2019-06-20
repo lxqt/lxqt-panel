@@ -41,12 +41,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Hacer titilar las barras de estado si la temperatura es muy alta</translation>
+        <translation>Hacer destellos en las barra de estado si la temperatura es muy alta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Avisar cuando la temperatura sea alta</translation>
+        <translation>Advertir cuando la temperatura este alta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
