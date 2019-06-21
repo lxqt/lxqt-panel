@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>パネルを設定</translation>
+        <translation>パネルの設定</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>パネルを設定</translation>
+        <translation>パネルの設定</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
