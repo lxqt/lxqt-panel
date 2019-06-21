@@ -26,7 +26,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished">拡張可</translation>
+        <translation>自動拡張</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
