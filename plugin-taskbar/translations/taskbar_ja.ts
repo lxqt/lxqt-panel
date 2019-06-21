@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation type="unfinished">パネルの画面からウィンドウのみを表示(&amp;P)</translation>
+        <translation>パネルのある画面のウィンドウのみを表示(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>最小化されいるウィンドウは現在のデスクトップに移動</translation>
+        <translation>最小化ウィンドウを選択した時には現在の仮想デスクトップで表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation>マウスオーバー時にポップアップを表示</translation>
+        <translation>マウスを合わせるとポップアップでタイトルを表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
