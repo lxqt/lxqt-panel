@@ -10,7 +10,7 @@ Notes on some of the plugins, sorted by terms used within the GUI in alphabetica
 
 #### Date & time (plugin-clock) / World clock (plugin-worldclock)
 
-Both provide clock and calendar functionality. plugin-worldclock can display various time zones in addition but lacks a tooltip displaying current date und time upon hovering.
+Both provide clock and calendar functionality. plugin-worldclock can display various time zones in addition but lacks a tooltip displaying current date and time upon hovering.
 These plugins will probably be merged into one, see https://github.com/lxqt/lxqt/issues/312.
 
 #### Quick launch (plugin-quicklaunch)
