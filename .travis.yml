@@ -28,6 +28,4 @@ arch:
     - lxmenu-data
     - libdbusmenu-qt5
     - lxqt-globalkeys-git
-    # Using the -nostatx variant as Travis builders come with older kernels
-    - qt5-base-nostatx
   script: bash ./.ci/build.sh
