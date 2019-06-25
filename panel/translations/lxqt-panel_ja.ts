@@ -110,7 +110,7 @@
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation> ミリ秒</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
@@ -144,13 +144,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>自動的に隠す(&amp;u)</translation>
+        <translation>自動的に隠す(&amp;U)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>0は遅延しません</translation>
+        <translation>0 は遅延しません</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
@@ -208,9 +208,9 @@ LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
         <translation>パネルに個別のテーマを指定できない
-ウィジェットのスタイルのための部分的な回避策。
+ウィジェットのスタイルのための部分的な回避策です。
 
-次の設定を無効にすることもできます:
+次の設定を無効にすることもできます。
 
 LXQt外観の設定 →
 アイコンテーマ →
@@ -361,7 +361,7 @@ LXQt外観の設定 →
     <message>
         <location filename="../lxqtpanel.cpp" line="1097"/>
         <source>Configure Panel</source>
-        <translation>パネルを設定</translation>
+        <translation>パネルの設定</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
@@ -394,8 +394,8 @@ LXQt外観の設定 →
         <location filename="../lxqtpanel.cpp" line="1274"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>パネルの削除は完了していません。
-このパネルを削除しますか?</translation>
+        <translation>パネルを削除すると、元に戻せません。
+このパネルを削除しますか？</translation>
     </message>
 </context>
 <context>
@@ -403,7 +403,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; を設定</translation>
+        <translation>&quot;%1&quot; の設定</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
