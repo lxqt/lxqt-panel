@@ -44,12 +44,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>リサイズ（&amp;z）</translation>
+        <translation>リサイズ(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>Ma&amp;ximize</source>
-        <translation>最大化(&amp;x)</translation>
+        <translation>最大化(&amp;X)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="589"/>
