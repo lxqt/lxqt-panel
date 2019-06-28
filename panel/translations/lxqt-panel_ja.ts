@@ -366,7 +366,7 @@ LXQt外観の設定 →
     <message>
         <location filename="../lxqtpanel.cpp" line="1102"/>
         <source>Manage Widgets</source>
-        <translation>ウェジェットの管理</translation>
+        <translation>ウィジェットの管理</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1108"/>
