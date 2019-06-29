@@ -151,7 +151,13 @@ void LXQtTaskButton::updateIcon()
  ************************************************/
 void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
 {
-    NETWinInfo info(QX11Info::connection(),
+    xcb_connection_t* x11conn = QX11Info::connection();
+
+    if (!x11conn) {
+        return;
+    }
+
+    NETWinInfo info(x11conn,
                     windowId(),
                     (WId) QX11Info::appRootWindow(),
                     NET::WMIconGeometry,
