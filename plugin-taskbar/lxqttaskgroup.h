@@ -82,6 +82,7 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);
     void mouseMoveEvent(QMouseEvent * event);
+    void mouseReleaseEvent(QMouseEvent *event);
     int recalculateFrameHeight() const;
     int recalculateFrameWidth() const;
 
