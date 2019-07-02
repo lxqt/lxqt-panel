@@ -584,6 +584,19 @@ void LXQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 /************************************************
 
  ************************************************/
+
+void LXQtTaskGroup::mouseReleaseEvent(QMouseEvent* event)
+{
+    // do nothing on left button release if there is a group
+    if (event->button() == Qt::LeftButton && visibleButtonsCount() == 1)
+        LXQtTaskButton::mouseReleaseEvent(event);
+    else
+        QToolButton::mouseReleaseEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
 bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 { // returns true if the class is preserved
     bool needsRefreshVisibility{false};
