@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="84"/>
         <source>Switch to desktop %1</source>
-        <translation>デスクトップ%1に切り替える</translation>
+        <translation>デスクトップ %1 に切り替える</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="141"/>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>DesktopSwitch の設定</translation>
+        <translation>デスクトップ切替の設定</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation>なし</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
