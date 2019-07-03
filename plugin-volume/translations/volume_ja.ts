@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation>ミキサー(&amp;x)</translation>
+        <translation>ミキサー(&amp;X)</translation>
     </message>
 </context>
 </TS>
