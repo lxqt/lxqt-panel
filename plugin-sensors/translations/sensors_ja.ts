@@ -31,17 +31,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation>摂氏</translation>
+        <translation>摂氏 (℃)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation>華氏</translation>
+        <translation>華氏 (℉)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>温度が高すぎる時にステータスバーを点滅</translation>
+        <translation>温度が高すぎる時にステータスバーを点滅します</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
