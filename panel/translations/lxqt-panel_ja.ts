@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;パネルの透明度にはコンポジターが必要です。&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;パネルの透明化にはコンポジターが必要です。&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
@@ -259,22 +259,22 @@ LXQt外観の設定 →
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Top of desktop %1</source>
-        <translation>デスクトップ %1 の上</translation>
+        <translation>モニター %1 の上</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Left of desktop %1</source>
-        <translation>デスクトップ %1 の左</translation>
+        <translation>モニター %1 の左</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="186"/>
         <source>Right of desktop %1</source>
-        <translation>デスクトップ %1 の右</translation>
+        <translation>モニター %1 の右</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
-        <translation>デスクトップ %1 の下</translation>
+        <translation>モニター %1 の下</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
