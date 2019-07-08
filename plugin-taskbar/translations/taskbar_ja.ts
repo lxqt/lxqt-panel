@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="575"/>
         <source>Resi&amp;ze</source>
-        <translation>リサイズ(&amp;Z)</translation>
+        <translation>サイズの変更(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="582"/>
