@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>最大表示アイテム数:</translation>
+        <translation>アイテムの表示最大数:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished">絞り込みメニュー検索を表示</translation>
+        <translation>メニューエントリの絞り込みをする</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>検索中はメニューエントリーを隠す</translation>
+        <translation>検索中はメニューエントリを隠す</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>メニューの表示時は検索フォームをクリアする</translation>
+        <translation>メニューの表示した時、検索フォームをクリアする</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -124,12 +124,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>メニューファイルを選択</translation>
+        <translation>メニューファイルの選択</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
         <source>Menu files (*.menu)</source>
-        <translation>メニューファイル(*.menu)</translation>
+        <translation>メニューファイル (*.menu)</translation>
     </message>
 </context>
 </TS>
