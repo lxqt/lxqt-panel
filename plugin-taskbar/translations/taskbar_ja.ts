@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>最小化ウィンドウを選択した時には現在の仮想デスクトップで表示</translation>
+        <translation>最小化されたウィンドウを選択した時には現在のデスクトップで表示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
