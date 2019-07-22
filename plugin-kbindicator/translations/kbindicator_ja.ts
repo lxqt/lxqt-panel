@@ -13,7 +13,7 @@
         <location filename="../src/content.cpp" line="46"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>CapsLock</translation>
+        <translation>Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="50"/>
@@ -25,7 +25,7 @@
         <location filename="../src/content.cpp" line="52"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>NumLock</translation>
+        <translation>Num Lock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="57"/>
@@ -37,7 +37,7 @@
         <location filename="../src/content.cpp" line="59"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>ScrollLock</translation>
+        <translation>Scroll Lock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="90"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Caps Lock を表示</translation>
+        <translation>Caps Lock を表示する</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>NumLockを表示</translation>
+        <translation>Num Lock を表示する</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Scroll Lock を表示</translation>
+        <translation>Scroll Lock を表示する</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
