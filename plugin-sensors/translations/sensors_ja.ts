@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation>センサーウィジェットの設定</translation>
+        <translation>センサーの設定</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -46,7 +46,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>高温時に警告</translation>
+        <translation>高温時に警告する</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
