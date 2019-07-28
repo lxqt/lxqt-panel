@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till insticksmodul</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till grafiska komponenter</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(endast en instans kan köras i taget)</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafiska komponenter</translation>
     </message>
 </context>
 <context>
@@ -52,91 +52,91 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Storlek</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt; Negativt pixelvärde ställer in panellängden på så många pixlar som är mindre än tillgängligt skärmutrymme. &lt;/p&gt;&lt;p/&gt;&lt;p&gt; &lt;i&gt;T.ex Om &quot;Längd&quot; = -100px, och skärmbredd = 1000px, då kommer panelen uppta 900px&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Storlek:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Längd:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished"></translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonstorlek:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Justering &amp;&amp; position</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;uto göm</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Noll betyder ingen animering</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Noll betyder ingen fördröjning</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa med fördröjning:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Låt inte maximerade fönster gå under panelfönstret</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Reservera utrymme på displayen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="561"/>
