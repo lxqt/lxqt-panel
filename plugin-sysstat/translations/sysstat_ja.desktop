@@ -1,8 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
 Name[ja]=システム統計
-Comment[ja]=システム統計のプラグイン
-
-#TRANSLATIONS_DIR=../translations
-
+Comment[ja]=システム(CPU、メモリ、ネットワーク等)をグラフ表示します

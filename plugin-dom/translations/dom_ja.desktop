@@ -1,5 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name[ja]=パネルのDOMツリー
-Comment[ja]=LXQtパネルのDOMツリーを表示する
+Name[ja]=パネルの DOM ツリー
+Comment[ja]=LXQt パネルの DOM ツリーを表示します
