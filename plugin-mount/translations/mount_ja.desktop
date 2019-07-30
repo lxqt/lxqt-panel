@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name=Removable media
-Comment=Easy mounting and unmounting of USB and optical drives.
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
-Comment[ja]=USBや光学ドライブのマウントやアンマウントを容易にします
-Name[ja]=リムーバルメディア
+Name[ja]=リムーバブルメディア
+Comment[ja]=USB や光学ドライブのマウントやアンマウントを簡単にします

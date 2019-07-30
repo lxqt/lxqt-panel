@@ -1,7 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LxQtPanel/Plugin
 Name[ja]=キーボードインジケーター
-Comment[ja]=キーボードインジケーターのプラグイン
-
-#TRANSLATIONS_DIR=../translations
+Comment[ja]=キーボードのロック状態やレイアウトの表示と切替をします
