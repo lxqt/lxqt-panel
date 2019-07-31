@@ -16,7 +16,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>デスクトップを表示</translation>
+        <translation>デスクトップを表示します</translation>
     </message>
 </context>
 </TS>
