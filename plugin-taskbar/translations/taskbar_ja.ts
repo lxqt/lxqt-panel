@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>タスクマネージャーの設定</translation>
+        <translation>タスク管理の設定</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
