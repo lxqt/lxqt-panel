@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>Nice(&amp;N)</translation>
+        <translation>Nice値(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>周波数をグラフ表示(&amp;F)</translation>
+        <translation>周波数をグラフ表示する(&amp;F)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
@@ -346,17 +346,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>テーマの色を使用(&amp;H)</translation>
+        <translation>テーマの色を使用する(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>色を指定(&amp;U)</translation>
+        <translation>色を指定する(&amp;U)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>色を指定する ...</translation>
+        <translation>色の指定 ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;nice: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: %5%</translation>
+        <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;Nice値: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;nice: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: n/a</translation>
+        <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;Nice値: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: 不明</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
@@ -399,7 +399,7 @@
         <location filename="../lxqtsysstat.cpp" line="552"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation>min: %1%&lt;br&gt;max: %2%</translation>
+        <translation>最小: %1%&lt;br&gt;最大: %2%</translation>
     </message>
 </context>
 </TS>
