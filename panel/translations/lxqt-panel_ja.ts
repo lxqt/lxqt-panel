@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>ウィジェットの追加</translation>
+        <translation>プラグインの追加</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="330"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>最大化したウィンドウをパネルの後ろに配置することを許可しない</translation>
+        <translation>最大化したウィンドウをパネルの後ろに配置しません</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
@@ -212,7 +212,7 @@ Colorize icons based on widget style (palette)</source>
 
 次の設定を無効にすることもできます。
 
-LXQt外観の設定 →
+LXQt 設定　外観 →
 アイコンテーマ →
 ウィジェットのスタイル（パレット）に基づいてアイコンを色付けする</translation>
     </message>
@@ -290,7 +290,7 @@ LXQt外観の設定 →
         <location filename="../config/configpanelwidget.cpp" line="430"/>
         <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
-        <translation>色を選ぶ</translation>
+        <translation>色の選択</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
@@ -313,7 +313,7 @@ LXQt外観の設定 →
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>注意: このページでの変更はリセットされません。</translation>
+        <translation>注意: このページでの変更は[リセット]ボタンで初期化されません。</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -377,7 +377,7 @@ LXQt外観の設定 →
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>パネルを削除</translation>
+        <translation>パネルの削除</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1120"/>
@@ -388,7 +388,7 @@ LXQt外観の設定 →
         <location filename="../lxqtpanel.cpp" line="1273"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>パネルを削除</translation>
+        <translation>パネルの削除</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1274"/>
@@ -403,17 +403,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="411"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; の設定</translation>
+        <translation>【%1】の設定</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="416"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; を移動</translation>
+        <translation>【%1】の移動</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="424"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; を削除</translation>
+        <translation>【%1】の削除</translation>
     </message>
 </context>
 <context>
