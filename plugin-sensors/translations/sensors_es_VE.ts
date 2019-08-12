@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de Sensores</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation type="unfinished"></translation>
+        <translation>Parpadear las barras de estado cuando la temperatura sea demasiado alta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
