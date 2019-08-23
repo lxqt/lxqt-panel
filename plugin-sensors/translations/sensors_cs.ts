@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation>Nastavení čidel</translation>
+        <translation>Nastavení senzorů</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Šířka proužku s teplotou</translation>
+        <translation>Šíře pruhu s teplotou</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
@@ -31,17 +31,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation>Celsius</translation>
+        <translation>Celsia</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation>Fahrenheit</translation>
+        <translation>Fahrenheita</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Při příliš vysoké teplotě signalizovat blikáním proužků ukazatele stavu</translation>
+        <translation>Při příliš vysoké teplotě signalizovat blikáním pruhu ukazatele stavu</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
         <source>Sensors</source>
-        <translation>Čidla</translation>
+        <translation>Senzory</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
@@ -66,12 +66,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Enabled</source>
-        <translation>Zapnuto</translation>
+        <translation>Povoleno</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation>Štítek</translation>
+        <translation>označení</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
