@@ -255,8 +255,8 @@ void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
             // delete and then re-create the panel ourselves
             QString name = panel->name();
             panel->saveSettings(false);
-            delete panel; // delete the panel, so Qt does not have a chance to set a new screen to it.
             mPanels.removeAll(panel);
+            delete panel; // delete the panel, so Qt does not have a chance to set a new screen to it.
             reloadNeeded = true;
             qDebug() << "Workaround Qt 5 bug #40681: delete panel:" << name;
         }
