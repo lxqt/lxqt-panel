@@ -6,42 +6,42 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Axustes del espaciador</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anchor:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Triba:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>fixu</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>espandible</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation type="unfinished"></translation>
+        <translation>lliniáu</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation type="unfinished"></translation>
+        <translation>puntiáu</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation type="unfinished"></translation>
+        <translation>invisible</translation>
     </message>
 </context>
 </TS>
