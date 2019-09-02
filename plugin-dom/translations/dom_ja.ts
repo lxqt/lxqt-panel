@@ -6,13 +6,13 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation>パネルのDOMツリー</translation>
+        <translation>パネルの DOM ツリー</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation>プロパティー</translation>
+        <translation>プロパティ</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
