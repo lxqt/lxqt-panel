@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(一度に実行できるインスタンスは1つだけです)</translation>
+        <translation>(一度に実行できるインスタンスは 1 つだけです)</translation>
     </message>
 </context>
 <context>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation>大きさ</translation>
+        <translation>サイズ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>アイコンの大きさ:</translation>
+        <translation>アイコンのサイズ:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;負のピクセル値を設定すると、スクリーンの最大領域からその値を差し引いた長さになります。&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例: スクリーンの大きさが 1000 ピクセルである場合に -100 ピクセルを設定すると、パネルの長さは 900 ピクセルになります。&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;負のピクセル値を設定すると、スクリーンの最大領域からその値を差し引いた長さになります。&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;例: スクリーンのサイズが 1000 ピクセルである場合に -100 ピクセルを設定すると、パネルの長さは 900 ピクセルになります。&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
