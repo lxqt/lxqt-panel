@@ -48,7 +48,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui->wheelEventsActionCB->addItem(tr("Disabled"), 0);
     ui->wheelEventsActionCB->addItem(tr("Cycle windows on wheel scrolling"), 1);
     ui->wheelEventsActionCB->addItem(tr("Scroll up to raise, down to minimize"), 2);
-    ui->wheelEventsActionCB->addItem(tr("Scroll up to minimize, up to raise"), 3);
+    ui->wheelEventsActionCB->addItem(tr("Scroll up to minimize, down to raise"), 3);
 
     ui->showDesktopNumCB->addItem(tr("Current"), 0);
     //Note: in KWindowSystem desktops are numbered from 1..N
