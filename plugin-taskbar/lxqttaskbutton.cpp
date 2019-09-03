@@ -274,6 +274,34 @@ void LXQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 /************************************************
 
  ************************************************/
+void LXQtTaskButton::wheelEvent(QWheelEvent* event)
+{
+    // ignore wheel event if it is not "raise" or "minimize" window
+    if (mParentTaskBar->wheelEventsAction() != 2 && mParentTaskBar->wheelEventsAction() != 3)
+        return QToolButton::wheelEvent(event);
+
+    static int threshold = 0;
+    threshold += abs(event->delta());
+    if (threshold < mParentTaskBar->wheelDeltaThreshold())
+        return QToolButton::wheelEvent(event);
+    else
+        threshold = 0;
+
+    int delta = event->delta() < 0 ? 1 : -1;
+    if (mParentTaskBar->wheelEventsAction() == 3)
+        delta *= -1;
+
+    if (delta < 0)
+        raiseApplication();
+    else if (delta > 0)
+        minimizeApplication();
+
+    QToolButton::wheelEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
 QMimeData * LXQtTaskButton::mimeData()
 {
     QMimeData *mimedata = new QMimeData;
