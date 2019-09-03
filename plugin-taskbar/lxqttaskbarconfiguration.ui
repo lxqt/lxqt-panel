@@ -77,12 +77,62 @@
         </property>
        </widget>
       </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="WLMousewheelGB">
+     <property name="title">
+      <string>Mouse Wheel</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_mousewheel">
       <item>
-       <widget class="QCheckBox" name="cycleOnWheelScroll">
-        <property name="text">
-         <string>Cycle windows on wheel scrolling</string>
+       <widget class="QComboBox" name="wheelEventsActionCB"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
         </property>
-       </widget>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="wheelDeltaThresholdLabel">
+          <property name="text">
+           <string>Wheel Delta Threshold</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+        <widget class="QSpinBox" name="wheelDeltaThresholdSB">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="suffix">
+          <string> px</string>
+         </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>300</number>
+         </property>
+        </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
