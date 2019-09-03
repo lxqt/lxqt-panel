@@ -38,7 +38,6 @@
 #include <QWheelEvent>
 #include <QFlag>
 #include <QX11Info>
-#include <QDebug>
 #include <QTimer>
 
 #include <lxqt-globalkeys.h>
