@@ -68,7 +68,8 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mGroupingEnabled(true),
     mShowGroupOnHover(true),
     mIconByClass(false),
-    mCycleOnWheelScroll(true),
+    mWheelEventsAction(1),
+    mWheelDeltaThreshold(300),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
     mStyle(new LeftAlignedTextStyle())
@@ -469,7 +470,8 @@ void LXQtTaskBar::settingsChanged()
     mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
     mShowGroupOnHover = mPlugin->settings()->value("showGroupOnHover",true).toBool();
     mIconByClass = mPlugin->settings()->value("iconByClass", false).toBool();
-    mCycleOnWheelScroll = mPlugin->settings()->value("cycleOnWheelScroll", true).toBool();
+    mWheelEventsAction = mPlugin->settings()->value("wheelEventsAction", 1).toInt();
+    mWheelDeltaThreshold = mPlugin->settings()->value("wheelDeltaThreshold", 300).toInt();
 
     // Delete all groups if grouping feature toggled and start over
     if (groupingEnabledOld != mGroupingEnabled)
@@ -560,12 +562,13 @@ void LXQtTaskBar::realign()
  ************************************************/
 void LXQtTaskBar::wheelEvent(QWheelEvent* event)
 {
-    if (!mCycleOnWheelScroll)
+    // ignore wheel action unless user preference is "cycle windows"
+    if (mWheelEventsAction != 1)
         return QFrame::wheelEvent(event);
 
     static int threshold = 0;
     threshold += abs(event->delta());
-    if (threshold < 300)
+    if (threshold < mWheelDeltaThreshold)
         return QFrame::wheelEvent(event);
     else
         threshold = 0;

@@ -77,6 +77,8 @@ public:
     bool isGroupingEnabled() const { return mGroupingEnabled; }
     bool isShowGroupOnHover() const { return mShowGroupOnHover; }
     bool isIconByClass() const { return mIconByClass; }
+    int wheelEventsAction() const { return mWheelEventsAction; }
+    int wheelDeltaThreshold() const { return mWheelDeltaThreshold; }
     inline ILXQtPanel * panel() const { return mPlugin->panel(); }
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
@@ -135,7 +137,8 @@ private:
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
     bool mIconByClass;
-    bool mCycleOnWheelScroll; //!< flag for processing the wheelEvent
+    int mWheelEventsAction;
+    int mWheelDeltaThreshold;
 
     bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
