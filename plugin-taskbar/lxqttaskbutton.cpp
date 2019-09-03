@@ -67,8 +67,12 @@ void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, 
             , const QPalette & pal, bool enabled, const QString & text
             , QPalette::ColorRole textRole) const
 {
-    QString txt = QFontMetrics(painter->font()).elidedText(text, Qt::ElideRight, rect.width());
-    return QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, txt, textRole);
+    QString txt = text;
+    // get the button text because the text that's given to this function may be middle-elided
+    if (const QToolButton *tb = dynamic_cast<const QToolButton*>(painter->device()))
+        txt = tb->text();
+    txt = QFontMetrics(painter->font()).elidedText(txt, Qt::ElideRight, rect.width());
+    QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, txt, textRole);
 }
 
 
@@ -80,7 +84,6 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
     mWindow(window),
     mUrgencyHint(false),
     mOrigin(Qt::TopLeftCorner),
-    mDrawPixmap(false),
     mParentTaskBar(taskbar),
     mPlugin(mParentTaskBar->plugin()),
     mIconSize(mPlugin->panel()->iconSize()),
@@ -793,70 +796,39 @@ void LXQtTaskButton::paintEvent(QPaintEvent *event)
     }
 
     QSize sz = size();
-    QSize adjSz = sz;
+    bool transpose = false;
     QTransform transform;
-    QPoint originPoint;
 
     switch (mOrigin)
     {
     case Qt::TopLeftCorner:
-        transform.rotate(0.0);
-        originPoint = QPoint(0.0, 0.0);
         break;
 
     case Qt::TopRightCorner:
         transform.rotate(90.0);
-        originPoint = QPoint(0.0, -sz.width());
-        adjSz.transpose();
+        transform.translate(0.0, -sz.width());
+        transpose = true;
         break;
 
     case Qt::BottomRightCorner:
         transform.rotate(180.0);
-        originPoint = QPoint(-sz.width(), -sz.height());
+        transform.translate(-sz.width(), -sz.height());
         break;
 
     case Qt::BottomLeftCorner:
         transform.rotate(270.0);
-        originPoint = QPoint(-sz.height(), 0.0);
-        adjSz.transpose();
+        transform.translate(-sz.height(), 0.0);
+        transpose = true;
         break;
     }
 
-    bool drawPixmapNextTime = false;
-
-    if (!mDrawPixmap)
-    {
-        mPixmap = QPixmap(adjSz);
-        mPixmap.fill(QColor(0, 0, 0, 0));
-
-        if (adjSz != sz)
-            resize(adjSz); // this causes paint event to be repeated - next time we'll paint the pixmap to the widget surface.
-
-        // copied from QToolButton::paintEvent   {
-        QStylePainter painter(&mPixmap, this);
-        QStyleOptionToolButton opt;
-        initStyleOption(&opt);
-        painter.drawComplexControl(QStyle::CC_ToolButton, opt);
-        // }
-
-        if (adjSz != sz)
-        {
-            resize(sz);
-            drawPixmapNextTime = true;
-        }
-        else
-            mDrawPixmap = true; // transfer the pixmap to the widget now!
-    }
-    if (mDrawPixmap)
-    {
-        QPainter painter(this);
-        painter.setTransform(transform);
-        painter.drawPixmap(originPoint, mPixmap);
-
-        drawPixmapNextTime = false;
-    }
-
-    mDrawPixmap = drawPixmapNextTime;
+    QStylePainter painter(this);
+    painter.setTransform(transform);
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+    if (transpose)
+        opt.rect = opt.rect.transposed();
+    painter.drawComplexControl(QStyle::CC_ToolButton, opt);
 }
 
 bool LXQtTaskButton::hasDragAndDropHover() const

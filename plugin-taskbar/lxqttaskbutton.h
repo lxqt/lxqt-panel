@@ -126,8 +126,6 @@ private:
     bool mUrgencyHint;
     QPoint mDragStartPosition;
     Qt::Corner mOrigin;
-    QPixmap mPixmap;
-    bool mDrawPixmap;
     LXQtTaskBar * mParentTaskBar;
     ILXQtPanelPlugin * mPlugin;
     int mIconSize;
