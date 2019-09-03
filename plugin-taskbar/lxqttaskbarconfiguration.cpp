@@ -45,6 +45,11 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui->buttonStyleCB->addItem(tr("Only icon"), "Icon");
     ui->buttonStyleCB->addItem(tr("Only text"), "Text");
 
+    ui->wheelEventsActionCB->addItem(tr("Disabled"), 0);
+    ui->wheelEventsActionCB->addItem(tr("Cycle windows on wheel scrolling"), 1);
+    ui->wheelEventsActionCB->addItem(tr("Scroll up to raise, down to minimize"), 2);
+    ui->wheelEventsActionCB->addItem(tr("Scroll up to minimize, up to raise"), 3);
+
     ui->showDesktopNumCB->addItem(tr("Current"), 0);
     //Note: in KWindowSystem desktops are numbered from 1..N
     const int desk_cnt = KWindowSystem::numberOfDesktops();
@@ -69,7 +74,8 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
     connect(ui->iconByClassCB, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->cycleOnWheelScroll, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->wheelEventsActionCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
+    connect(ui->wheelDeltaThresholdSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
@@ -95,7 +101,8 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->groupingGB->setChecked(settings().value("groupingEnabled",true).toBool());
     ui->showGroupOnHoverCB->setChecked(settings().value("showGroupOnHover",true).toBool());
     ui->iconByClassCB->setChecked(settings().value("iconByClass", false).toBool());
-    ui->cycleOnWheelScroll->setChecked(settings().value("cycleOnWheelScroll", true).toBool());
+    ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value("wheelEventsAction", 0).toInt()));
+    ui->wheelDeltaThresholdSB->setValue(settings().value("wheelDeltaThreshold", 300).toInt());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
@@ -113,5 +120,6 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue("groupingEnabled",ui->groupingGB->isChecked());
     settings().setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
     settings().setValue("iconByClass",ui->iconByClassCB->isChecked());
-    settings().setValue("cycleOnWheelScroll",ui->cycleOnWheelScroll->isChecked());
+    settings().setValue("wheelEventsAction",ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
+    settings().setValue("wheelDeltaThreshold",ui->wheelDeltaThresholdSB->value());
 }
