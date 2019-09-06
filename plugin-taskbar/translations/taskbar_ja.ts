@@ -130,7 +130,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="183"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>パネルが垂直なときにはボタンを回転(&amp;R)</translation>
+        <translation>パネルが垂直なときにはボタンを回転させる(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="121"/>
@@ -145,22 +145,22 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>ウィンドウの表示はひとつのデスクトップのみ</translation>
+        <translation>次のデスクトップのウィンドウのみを表示する</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>パネルのある画面のウィンドウのみを表示(&amp;P)</translation>
+        <translation>パネルのある画面のウィンドウのみを表示する(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>最小化されたウィンドウのみを表示</translation>
+        <translation>最小化されたウィンドウのみを表示する</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>最小化されたウィンドウを選択した時には現在のデスクトップで表示</translation>
+        <translation>最小化されたウィンドウを選択した時には現在のデスクトップに移動させる</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="83"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>パネル上にてマウスのホイールスクロールでウィンドウ切替</translation>
+        <translation>パネル上にてマウスのホイールスクロールでウィンドウを切り替える</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="93"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="102"/>
         <source>Show popup on mouse hover</source>
-        <translation>マウスを合わせるとポップアップでタイトルを表示</translation>
+        <translation>マウスを合わせるとポップアップでタイトルを表示する</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="190"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>可能であれば WindowClass でアイコンを使う</translation>
+        <translation>可能であれば WindowClass のアイコンを使用する</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
