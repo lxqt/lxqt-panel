@@ -274,7 +274,7 @@ Obarvit ikony podle stylu prvku (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="187"/>
         <source>Bottom of desktop %1</source>
-        <translation>Dolní strana pracovní plochy %1</translation>
+        <translation>Spodní strana pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
