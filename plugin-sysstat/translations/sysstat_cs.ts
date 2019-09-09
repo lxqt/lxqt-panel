@@ -286,7 +286,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation>jádro8</translation>
+        <translation>jádro9</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
