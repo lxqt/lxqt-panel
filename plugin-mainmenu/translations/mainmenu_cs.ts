@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Uživatelem určená velikost písma:</translation>
+        <translation>Uživatelem stanovená velikost písma:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
