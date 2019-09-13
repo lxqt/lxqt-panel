@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>マウスのクリックで表示</translation>
+        <translation>マウスのクリックで表示する</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>100% (0dB)を超える音量を許可</translation>
+        <translation>100% (0dB) を超える音量を許可する</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
