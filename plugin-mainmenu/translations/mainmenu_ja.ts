@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="104"/>
         <source>Show/hide main menu</source>
-        <translation>メインメニューを表示/隠す</translation>
+        <translation>アプリケーションメニューの表示/非表示</translation>
     </message>
 </context>
 <context>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>メインメニューの設定</translation>
+        <translation>アプリケーションメニューの設定</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
