@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation>表示形式 (&amp;F)</translation>
+        <translation>表示形式(&amp;F)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
@@ -54,17 +54,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>秒も表示(&amp;W)</translation>
+        <translation>秒を表示する(&amp;W)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>時が一桁のときゼロで埋める(&amp;H)</translation>
+        <translation>時が一桁のとき 0 で埋める(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>12時間制で表示(&amp;U)</translation>
+        <translation>12 時間制で表示する(&amp;U)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>形式(&amp;m):</translation>
+        <translation>形式(&amp;M):</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>UTCからの時差</translation>
+        <translation>UTC からの時差</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation>IANAのID</translation>
+        <translation>IANA の ID</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
@@ -155,22 +155,22 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation>年を表示(&amp;Y)</translation>
+        <translation>年を表示する(&amp;Y)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>曜日を表示(&amp;K)</translation>
+        <translation>曜日を表示する(&amp;K)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>日が一桁のときゼロで埋める(&amp;A)</translation>
+        <translation>日が一桁のとき 0 で埋める(&amp;A)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>月や曜日を長い名前で表示(&amp;L)</translation>
+        <translation>月や曜日を長い名前で表示する(&amp;L)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
@@ -355,7 +355,7 @@ z または zzz が設定されている場合、時刻はミリ秒単位で表�
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
-        <translation>タイムゾーン</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
