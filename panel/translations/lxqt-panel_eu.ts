@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu pluginak</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gehitu Widget</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widgets</translation>
     </message>
 </context>
 <context>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Konfiguratu panela</translation>
+        <translation>Konfiguratu panela</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Tamaina:</translation>
+        <translation>Tamaina:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
@@ -98,19 +98,19 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Lerrokatzea eta postua</translation>
+        <translation>Lerrokatzea &amp;&amp; posizioa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero animaziorik ez dela esan nahi du</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
@@ -133,7 +133,7 @@
         <location filename="../config/configpanelwidget.cpp" line="207"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Center</source>
-        <translation type="unfinished">Erdia</translation>
+        <translation>Erdia</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
@@ -150,7 +150,7 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zero atzerapenik ez dela esan nahi du</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="333"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">erreserbatu espazioa pantailan</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="349"/>
@@ -180,12 +180,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="410"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Atzeko planoaren kolorea:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="449"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Atzeko planoaren opakutasuna:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="481"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="509"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Atzeko planoko irudia:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="561"/>
@@ -212,12 +212,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="571"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Baztertu ikonoa eta gaia</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="586"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ikonoen gaia panelentzako:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -227,7 +227,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">Posizioa:</translation>
+        <translation>Posizioa:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="172"/>
@@ -272,28 +272,28 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">gainean</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="214"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">behean</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="430"/>
         <location filename="../config/configpanelwidget.cpp" line="446"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Aukeratu kolorea</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudiak (* .png * .gif * .jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="464"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Aukeratu irudia</translation>
     </message>
 </context>
 <context>
@@ -306,7 +306,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Oharra: ezin dira orrialde honetan egindako aldaketak berrezarri.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
