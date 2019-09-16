@@ -32,6 +32,7 @@
     #include <XdgAction>
 #endif
 
+#include <algorithm>
 #include <QAction>
 #include <QWidgetAction>
 #include <QMenu>
@@ -43,6 +44,18 @@
 #ifdef HAVE_MENU_CACHE
 #include <QSortFilterProxyModel>
 #else
+static bool stringMatches(const QString& string, const QString &search, Qt::CaseSensitivity cs) {
+    QStringList words = string.split(' ', QString::SkipEmptyParts);
+    QStringList snippets = search.split(' ', QString::SkipEmptyParts);
+    auto unmatched = std::find_if(snippets.begin(), snippets.end(), [&](const QString &snippet) {
+        auto match = std::find_if(words.begin(), words.end(), [&](const QString& word) {
+            return word.startsWith(snippet, cs);
+        });
+        return match == words.end(); // true if the snippet did NOT match
+    });
+    return unmatched == snippets.end(); // true if all snippets matched
+}
+
 FilterProxyModel::FilterProxyModel(QObject* parent) :
     QSortFilterProxyModel(parent) {
 }
@@ -59,11 +72,11 @@ bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& sourc
             XdgAction * action = qobject_cast<XdgAction *>(qvariant_cast<QAction *>(item->data(ActionView::ActionRole)));
             if (action) {
                 const XdgDesktopFile& df = action->desktopFile();
-                if (df.name().contains(filterStr_, filterCaseSensitivity()))
+                if (stringMatches(df.name(), filterStr_, filterCaseSensitivity()))
                     return true;
                 QStringList list = df.expandExecString();
                 if (!list.isEmpty()) {
-                    if (list.at(0).contains(filterStr_, filterCaseSensitivity()))
+                    if (stringMatches(list.at(0), filterStr_, filterCaseSensitivity()))
                         return true;
                 }
             }
