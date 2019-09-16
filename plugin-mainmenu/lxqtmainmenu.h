@@ -111,6 +111,7 @@ private:
 
     QTimer mDelayedPopup;
     QTimer mHideTimer;
+    QTimer mSearchTimer;
     QString mMenuFile;
 
 protected slots:
@@ -121,7 +122,7 @@ protected slots:
 private slots:
     void showMenu();
     void showHideMenu();
-    void searchTextChanged(QString const & text);
+    void searchMenu();
     void setSearchFocus(QAction *action);
 };
 

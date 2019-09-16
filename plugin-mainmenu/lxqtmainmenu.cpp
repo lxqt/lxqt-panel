@@ -78,6 +78,10 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(250);
 
+    mSearchTimer.setSingleShot(true);
+    connect(&mSearchTimer, &QTimer::timeout, this, &LXQtMainMenu::searchMenu);
+    mSearchTimer.setInterval(350); // typing speed (not very fast)
+
     mButton.setAutoRaise(true);
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     //Notes:
@@ -96,7 +100,9 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mSearchEdit = new QLineEdit;
     mSearchEdit->setClearButtonEnabled(true);
     mSearchEdit->setPlaceholderText(LXQtMainMenu::tr("Search..."));
-    connect(mSearchEdit, &QLineEdit::textChanged, this, &LXQtMainMenu::searchTextChanged);
+    connect(mSearchEdit, &QLineEdit::textChanged, [this] (QString const &) {
+        mSearchTimer.start();
+    });
     connect(mSearchEdit, &QLineEdit::returnPressed, mSearchView, &ActionView::activateCurrent);
     mSearchEditAction->setDefaultWidget(mSearchEdit);
     QTimer::singleShot(0, [this] { settingsChanged(); });
@@ -333,8 +339,9 @@ static void setTranslucentMenus(QMenu * menu)
 /************************************************
 
  ************************************************/
-void LXQtMainMenu::searchTextChanged(QString const & text)
+void LXQtMainMenu::searchMenu()
 {
+    const QString text = mSearchEdit->text();
     if (mFilterShow)
     {
         mHeavyMenuChanges = true;
@@ -422,7 +429,7 @@ void LXQtMainMenu::buildMenu()
     mSearchEditAction->setVisible(mFilterMenu || mFilterShow);
     mSearchView->fillActions(mMenu);
 
-    searchTextChanged(mSearchEdit->text());
+    searchMenu();
     setMenuFontSize();
 }
 
