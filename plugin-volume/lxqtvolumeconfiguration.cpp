@@ -48,6 +48,7 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     connect(ui->stepSpinBox, SIGNAL(valueChanged(int)), this, SLOT(stepSpinBoxChanged(int)));
     connect(ui->ignoreMaxVolumeCheckBox, SIGNAL(toggled(bool)), this, SLOT(ignoreMaxVolumeCheckBoxChanged(bool)));
     connect(ui->allwaysShowNotificationsCheckBox, &QAbstractButton::toggled, this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
+    connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled, this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
 
 
     // currently, this option is only supported by the pulse audio backend
@@ -143,7 +144,20 @@ void LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
 void LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged(bool state)
 {
     settings().setValue(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), state);
+    // since always showing notifications is the sufficient condition for showing them with keyboard,
+    // self-consistency requires setting the latter to true whenever the former is toggled by the user
+    ui->showKeyboardNotificationsCheckBox->setEnabled(!state);
+    if (!ui->showKeyboardNotificationsCheckBox->isChecked())
+        ui->showKeyboardNotificationsCheckBox->setChecked(true);
+    else
+        settings().setValue(QStringLiteral(SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS), true);
 }
+
+void LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged(bool state)
+{
+    settings().setValue(QStringLiteral(SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS), state);
+}
+
 
 void LXQtVolumeConfiguration::loadSettings()
 {
@@ -162,5 +176,15 @@ void LXQtVolumeConfiguration::loadSettings()
     ui->stepSpinBox->setValue(settings().value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());
     ui->ignoreMaxVolumeCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
     ui->allwaysShowNotificationsCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool());
+    // always showing notifications is the sufficient condition for showing them with keyboard
+    if (ui->allwaysShowNotificationsCheckBox->isChecked())
+    {
+        ui->showKeyboardNotificationsCheckBox->setChecked(true);
+        ui->showKeyboardNotificationsCheckBox->setEnabled(false);
+    }
+    else
+    {
+        ui->showKeyboardNotificationsCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS), SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS).toBool());
+    }
 }
 
