@@ -80,6 +80,7 @@ private:
     LXQt::Notification *m_notification;
     QPointer<LXQtVolumeConfiguration> m_configDialog;
     bool m_allwaysShowNotifications;
+    bool m_showKeyboardNotifications;
 };
 
 
