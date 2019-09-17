@@ -33,6 +33,22 @@
 class QStandardItemModel;
 
 //==============================
+class StringFilter
+{
+public:
+    StringFilter() = default;
+    StringFilter(const QString &searchStr, bool startOfWord);
+
+    const QString& searchStr() const { return searchStr_; }
+
+    bool isMatch(const QString& string) const;
+
+private:
+    QString searchStr_;
+    QStringList snippets;
+    bool startOfWord_ = false;
+};
+//==============================
 #ifdef HAVE_MENU_CACHE
 class QSortFilterProxyModel;
 #else
@@ -44,8 +60,8 @@ public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
-    void setfilerString(const QString &str) {
-        filterStr_ = str;
+    void setFilter(const StringFilter& filter) {
+        filter_ = filter;
         invalidateFilter();
     }
 
@@ -53,7 +69,7 @@ protected:
     bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
 
 private:
-    QString filterStr_;
+    StringFilter filter_;
 };
 #endif
 //==============================
@@ -86,7 +102,7 @@ public:
     void fillActions(QMenu * menu);
     /*! \brief Sets the filter for entries to be presented
      */
-    void setFilter(QString const & filter);
+    void setFilter(const StringFilter& filter);
     /*! \brief Set the maximum number of items/results to show
      */
     void setMaxItemsToShow(int max);

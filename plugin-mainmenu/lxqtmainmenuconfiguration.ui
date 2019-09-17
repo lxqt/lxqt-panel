@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>LXQtMainMenuConfiguration</class>
  <widget class="QDialog" name="LXQtMainMenuConfiguration">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>481</width>
-    <height>501</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>Main Menu settings</string>
   </property>
@@ -212,6 +204,13 @@
        </widget>
       </item>
       <item row="4" column="0" colspan="3">
+       <widget class="QCheckBox" name="filterStartOfWordCB">
+        <property name="text">
+         <string>Match start of word only (&quot;ma&quot; matches &quot;make&quot;, not &quot;cmake&quot;)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="3">
        <widget class="QCheckBox" name="filterClearCB">
         <property name="text">
          <string>Clear search upon showing menu</string>

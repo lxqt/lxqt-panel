@@ -63,6 +63,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mMakeDirtyAction{new QAction{this}},
     mFilterMenu(true),
     mFilterShow(true),
+    mFilterStartOfWord(false),
     mFilterClear(false),
     mFilterShowHideMenu(true),
     mHeavyMenuChanges(false)
@@ -251,6 +252,7 @@ void LXQtMainMenu::settingsChanged()
     mSearchEdit->setText(QString{});
     mFilterMenu = settings()->value(QStringLiteral("filterMenu"), true).toBool();
     mFilterShow = settings()->value(QStringLiteral("filterShow"), true).toBool();
+    mFilterStartOfWord = settings()->value(QStringLiteral("filterStartOfWord"), false).toBool();
     mFilterClear = settings()->value(QStringLiteral("filterClear"), false).toBool();
     mFilterShowHideMenu = settings()->value(QStringLiteral("filterShowHideMenu"), true).toBool();
     if (mMenu)
@@ -264,7 +266,7 @@ void LXQtMainMenu::settingsChanged()
     realign();
 }
 
-static bool filterMenu(QMenu * menu, QString const & filter)
+static bool filterMenu(QMenu * menu, const StringFilter& filter)
 {
     bool has_visible = false;
     const auto actions = menu->actions();
@@ -281,7 +283,7 @@ static bool filterMenu(QMenu * menu, QString const & filter)
         } else if (!action->isSeparator())
         {
             //real menu action -> app
-            bool visible(filter.isEmpty() || action->text().contains(filter, Qt::CaseInsensitive) || action->toolTip().contains(filter, Qt::CaseInsensitive));
+            bool visible(filter.searchStr().isEmpty() || filter.isMatch(action->text()) || filter.isMatch(action->toolTip()));
 #ifndef HAVE_MENU_CACHE
             if(!visible)
             {
@@ -291,7 +293,7 @@ static bool filterMenu(QMenu * menu, QString const & filter)
                     QStringList list = df.expandExecString();
                     if (!list.isEmpty())
                     {
-                        if (list.at(0).contains(filter, Qt::CaseInsensitive))
+                        if (filter.isMatch(list.at(0)))
                             visible = true;
                     }
                 }
@@ -335,6 +337,7 @@ static void setTranslucentMenus(QMenu * menu)
  ************************************************/
 void LXQtMainMenu::searchTextChanged(QString const & text)
 {
+    StringFilter filter(text, mFilterStartOfWord);
     if (mFilterShow)
     {
         mHeavyMenuChanges = true;
@@ -342,7 +345,7 @@ void LXQtMainMenu::searchTextChanged(QString const & text)
         if (mFilterShowHideMenu)
             showHideMenuEntries(mMenu, !shown);
         if (shown)
-            mSearchView->setFilter(text);
+            mSearchView->setFilter(filter);
         mSearchView->setVisible(shown);
         mSearchViewAction->setVisible(shown);
         //TODO: how to force the menu to recalculate it's size in a more elegant way?
@@ -351,7 +354,7 @@ void LXQtMainMenu::searchTextChanged(QString const & text)
         mHeavyMenuChanges = false;
     }
     if (mFilterMenu && !(mFilterShow && mFilterShowHideMenu))
-        filterMenu(mMenu, text);
+        filterMenu(mMenu, filter);
 
 }
 

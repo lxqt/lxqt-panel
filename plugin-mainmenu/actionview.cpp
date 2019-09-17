@@ -41,21 +41,28 @@
 #include <QProxyStyle>
 #include <QStyledItemDelegate>
 //==============================
-#ifdef HAVE_MENU_CACHE
-#include <QSortFilterProxyModel>
-#else
-static bool stringMatches(const QString& string, const QString &search, Qt::CaseSensitivity cs) {
+StringFilter::StringFilter(const QString &searchStr, bool startOfWord)
+    : searchStr_(searchStr)
+    , snippets(searchStr.split(' ', QString::SkipEmptyParts))
+    , startOfWord_(startOfWord)
+{
+}
+
+bool StringFilter::isMatch(const QString& string) const {
     QStringList words = string.split(' ', QString::SkipEmptyParts);
-    QStringList snippets = search.split(' ', QString::SkipEmptyParts);
     auto unmatched = std::find_if(snippets.begin(), snippets.end(), [&](const QString &snippet) {
         auto match = std::find_if(words.begin(), words.end(), [&](const QString& word) {
-            return word.startsWith(snippet, cs);
+            return startOfWord_ ? word.startsWith(snippet, Qt::CaseInsensitive) :
+                                  word.contains(snippet, Qt::CaseInsensitive);
         });
         return match == words.end(); // true if the snippet did NOT match
     });
     return unmatched == snippets.end(); // true if all snippets matched
 }
-
+//==============================
+#ifdef HAVE_MENU_CACHE
+#include <QSortFilterProxyModel>
+#else
 FilterProxyModel::FilterProxyModel(QObject* parent) :
     QSortFilterProxyModel(parent) {
 }
@@ -64,7 +71,7 @@ FilterProxyModel::~FilterProxyModel() {
 }
 
 bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const {
-    if (filterStr_.isEmpty())
+    if (filter_.searchStr().isEmpty())
         return true;
     if (QStandardItemModel* srcModel = static_cast<QStandardItemModel*>(sourceModel())) {
         QModelIndex index = srcModel->index(source_row, 0, source_parent);
@@ -72,11 +79,11 @@ bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& sourc
             XdgAction * action = qobject_cast<XdgAction *>(qvariant_cast<QAction *>(item->data(ActionView::ActionRole)));
             if (action) {
                 const XdgDesktopFile& df = action->desktopFile();
-                if (stringMatches(df.name(), filterStr_, filterCaseSensitivity()))
+                if (filter_.isMatch(df.name()))
                     return true;
                 QStringList list = df.expandExecString();
                 if (!list.isEmpty()) {
-                    if (stringMatches(list.at(0), filterStr_, filterCaseSensitivity()))
+                    if (filter_.isMatch(list.at(0)))
                         return true;
                 }
             }
@@ -234,12 +241,12 @@ void ActionView::fillActions(QMenu * menu)
     fillActionsRecursive(menu);
 }
 
-void ActionView::setFilter(QString const & filter)
+void ActionView::setFilter(const StringFilter& filter)
 {
 #ifdef HAVE_MENU_CACHE
-    mProxy->setFilterFixedString(filter);
+    mProxy->setFilterFixedString(filter.searchStr());
 #else
-    mProxy->setfilerString(filter);
+    mProxy->setFilter(filter);
 #endif
     const int count = mProxy->rowCount();
     if (0 < count)
