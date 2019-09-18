@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="321"/>
         <source>Drop application
 icons here</source>
-        <translation>アプリケーションアイコンを
-ここへドロップ</translation>
+        <translation>ここにアプリケーション
+アイコンをドロップします</translation>
     </message>
 </context>
 <context>
