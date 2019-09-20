@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>デスクトップ切替の設定</translation>
+        <translation>デスクトップ切り替えの設定</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
