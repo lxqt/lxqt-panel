@@ -81,7 +81,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 
     QMenu * menu = new QMenu(tr("Group"));
     menu->setAttribute(Qt::WA_DeleteOnClose);
-    QAction *a = menu->addAction(XdgIcon::fromTheme("process-stop"), tr("Close group"));
+    QAction *a = menu->addAction(XdgIcon::fromTheme(QStringLiteral("process-stop")), tr("Close group"));
     connect(a, SIGNAL(triggered()), this, SLOT(closeGroup()));
     connect(menu, &QMenu::aboutToHide, [this] {
         mPreventPopup = false;
@@ -344,7 +344,7 @@ void LXQtTaskGroup::regroup()
     else
     {
         mSingleButton = false;
-        QString t = QString("%1 - %2 windows").arg(mGroupName).arg(cont);
+        QString t = QString(QStringLiteral("%1 - %2 windows")).arg(mGroupName).arg(cont);
         setText(t);
         setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
     }

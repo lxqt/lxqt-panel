@@ -36,14 +36,14 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui(new Ui::LXQtTaskbarConfiguration)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setObjectName("TaskbarConfigurationWindow");
+    setObjectName(QStringLiteral("TaskbarConfigurationWindow"));
     ui->setupUi(this);
 
     connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
 
-    ui->buttonStyleCB->addItem(tr("Icon and text"), "IconText");
-    ui->buttonStyleCB->addItem(tr("Only icon"), "Icon");
-    ui->buttonStyleCB->addItem(tr("Only text"), "Text");
+    ui->buttonStyleCB->addItem(tr("Icon and text"), QLatin1String("IconText"));
+    ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));
+    ui->buttonStyleCB->addItem(tr("Only text"), QLatin1String("Text"));
 
     ui->wheelEventsActionCB->addItem(tr("Disabled"), 0);
     ui->wheelEventsActionCB->addItem(tr("Cycle windows on wheel scrolling"), 1);
@@ -54,7 +54,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     //Note: in KWindowSystem desktops are numbered from 1..N
     const int desk_cnt = KWindowSystem::numberOfDesktops();
     for (int i = 1; desk_cnt >= i; ++i)
-        ui->showDesktopNumCB->addItem(QString("%1 - %2").arg(i).arg(KWindowSystem::desktopName(i)), i);
+        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KWindowSystem::desktopName(i)), i);
 
     loadSettings();
 
@@ -85,41 +85,41 @@ LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
 
 void LXQtTaskbarConfiguration::loadSettings()
 {
-    const bool showOnlyOneDesktopTasks = settings().value("showOnlyOneDesktopTasks", false).toBool();
+    const bool showOnlyOneDesktopTasks = settings().value(QStringLiteral("showOnlyOneDesktopTasks"), false).toBool();
     ui->limitByDesktopCB->setChecked(showOnlyOneDesktopTasks);
-    ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(settings().value("showDesktopNum", 0).toInt()));
+    ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(settings().value(QStringLiteral("showDesktopNum"), 0).toInt()));
     ui->showDesktopNumCB->setEnabled(showOnlyOneDesktopTasks);
-    ui->limitByScreenCB->setChecked(settings().value("showOnlyCurrentScreenTasks", false).toBool());
-    ui->limitByMinimizedCB->setChecked(settings().value("showOnlyMinimizedTasks", false).toBool());
+    ui->limitByScreenCB->setChecked(settings().value(QStringLiteral("showOnlyCurrentScreenTasks"), false).toBool());
+    ui->limitByMinimizedCB->setChecked(settings().value(QStringLiteral("showOnlyMinimizedTasks"), false).toBool());
 
-    ui->autoRotateCB->setChecked(settings().value("autoRotate", true).toBool());
-    ui->middleClickCB->setChecked(settings().value("closeOnMiddleClick", true).toBool());
-    ui->raiseOnCurrentDesktopCB->setChecked(settings().value("raiseOnCurrentDesktop", false).toBool());
-    ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(settings().value("buttonStyle", "IconText")));
-    ui->buttonWidthSB->setValue(settings().value("buttonWidth", 400).toInt());
-    ui->buttonHeightSB->setValue(settings().value("buttonHeight", 100).toInt());
-    ui->groupingGB->setChecked(settings().value("groupingEnabled",true).toBool());
-    ui->showGroupOnHoverCB->setChecked(settings().value("showGroupOnHover",true).toBool());
-    ui->iconByClassCB->setChecked(settings().value("iconByClass", false).toBool());
-    ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value("wheelEventsAction", 0).toInt()));
-    ui->wheelDeltaThresholdSB->setValue(settings().value("wheelDeltaThreshold", 300).toInt());
+    ui->autoRotateCB->setChecked(settings().value(QStringLiteral("autoRotate"), true).toBool());
+    ui->middleClickCB->setChecked(settings().value(QStringLiteral("closeOnMiddleClick"), true).toBool());
+    ui->raiseOnCurrentDesktopCB->setChecked(settings().value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool());
+    ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(settings().value(QStringLiteral("buttonStyle"), QLatin1String("IconText"))));
+    ui->buttonWidthSB->setValue(settings().value(QStringLiteral("buttonWidth"), 400).toInt());
+    ui->buttonHeightSB->setValue(settings().value(QStringLiteral("buttonHeight"), 100).toInt());
+    ui->groupingGB->setChecked(settings().value(QStringLiteral("groupingEnabled"),true).toBool());
+    ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"),true).toBool());
+    ui->iconByClassCB->setChecked(settings().value(QStringLiteral("iconByClass"), false).toBool());
+    ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 0).toInt()));
+    ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
 {
-    settings().setValue("showOnlyOneDesktopTasks", ui->limitByDesktopCB->isChecked());
-    settings().setValue("showDesktopNum", ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
-    settings().setValue("showOnlyCurrentScreenTasks", ui->limitByScreenCB->isChecked());
-    settings().setValue("showOnlyMinimizedTasks", ui->limitByMinimizedCB->isChecked());
-    settings().setValue("buttonStyle", ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
-    settings().setValue("buttonWidth", ui->buttonWidthSB->value());
-    settings().setValue("buttonHeight", ui->buttonHeightSB->value());
-    settings().setValue("autoRotate", ui->autoRotateCB->isChecked());
-    settings().setValue("closeOnMiddleClick", ui->middleClickCB->isChecked());
-    settings().setValue("raiseOnCurrentDesktop", ui->raiseOnCurrentDesktopCB->isChecked());
-    settings().setValue("groupingEnabled",ui->groupingGB->isChecked());
-    settings().setValue("showGroupOnHover",ui->showGroupOnHoverCB->isChecked());
-    settings().setValue("iconByClass",ui->iconByClassCB->isChecked());
-    settings().setValue("wheelEventsAction",ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
-    settings().setValue("wheelDeltaThreshold",ui->wheelDeltaThresholdSB->value());
+    settings().setValue(QStringLiteral("showOnlyOneDesktopTasks"), ui->limitByDesktopCB->isChecked());
+    settings().setValue(QStringLiteral("showDesktopNum"), ui->showDesktopNumCB->itemData(ui->showDesktopNumCB->currentIndex()));
+    settings().setValue(QStringLiteral("showOnlyCurrentScreenTasks"), ui->limitByScreenCB->isChecked());
+    settings().setValue(QStringLiteral("showOnlyMinimizedTasks"), ui->limitByMinimizedCB->isChecked());
+    settings().setValue(QStringLiteral("buttonStyle"), ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
+    settings().setValue(QStringLiteral("buttonWidth"), ui->buttonWidthSB->value());
+    settings().setValue(QStringLiteral("buttonHeight"), ui->buttonHeightSB->value());
+    settings().setValue(QStringLiteral("autoRotate"), ui->autoRotateCB->isChecked());
+    settings().setValue(QStringLiteral("closeOnMiddleClick"), ui->middleClickCB->isChecked());
+    settings().setValue(QStringLiteral("raiseOnCurrentDesktop"), ui->raiseOnCurrentDesktopCB->isChecked());
+    settings().setValue(QStringLiteral("groupingEnabled"),ui->groupingGB->isChecked());
+    settings().setValue(QStringLiteral("showGroupOnHover"),ui->showGroupOnHoverCB->isChecked());
+    settings().setValue(QStringLiteral("iconByClass"),ui->iconByClassCB->isChecked());
+    settings().setValue(QStringLiteral("wheelEventsAction"),ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
+    settings().setValue(QStringLiteral("wheelDeltaThreshold"),ui->wheelDeltaThresholdSB->value());
 }
