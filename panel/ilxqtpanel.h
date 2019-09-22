@@ -122,6 +122,11 @@ public:
      * \sa ILXQtPanelPlugin::isSeparate(), ILXQtPanelPlugin::isExpandable
      */
     virtual void pluginFlagsChanged(const ILXQtPanelPlugin * plugin) = 0;
+
+    /*!
+     * \brief Checks if the panel is locked.
+     */
+    virtual bool isLocked() const = 0;
 };
 
 #endif // ILXQTPANEL_H

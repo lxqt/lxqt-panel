@@ -95,8 +95,9 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & /*pos*/)
 {
     LXQtQuickLaunch *panel = qobject_cast<LXQtQuickLaunch*>(parent());
 
-    mMoveLeftAct->setEnabled( panel && panel->indexOfButton(this) > 0);
-    mMoveRightAct->setEnabled(panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);
+    mMoveLeftAct->setEnabled(!mPlugin->panel()->isLocked() && panel && panel->indexOfButton(this) > 0);
+    mMoveRightAct->setEnabled(!mPlugin->panel()->isLocked() && panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);
+    mDeleteAct->setEnabled(!mPlugin->panel()->isLocked());
     mPlugin->willShowWindow(mMenu);
     mMenu->popup(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal({0, 0}), mMenu->sizeHint()).topLeft());
 }
@@ -133,7 +134,7 @@ void QuickLaunchButton::mousePressEvent(QMouseEvent *e)
 
 void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
 {
-    if (!(e->buttons() & Qt::LeftButton))
+    if (mPlugin->panel()->isLocked() || !(e->buttons() & Qt::LeftButton))
     {
         return;
     }
@@ -165,7 +166,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
 
 void QuickLaunchButton::dragMoveEvent(QDragMoveEvent * e)
 {
-    if (e->mimeData()->hasFormat(QStringLiteral(MIMETYPE)))
+    if (!mPlugin->panel()->isLocked() && e->mimeData()->hasFormat(QStringLiteral(MIMETYPE)))
         e->acceptProposedAction();
     else
         e->ignore();
@@ -174,9 +175,11 @@ void QuickLaunchButton::dragMoveEvent(QDragMoveEvent * e)
 
 void QuickLaunchButton::dragEnterEvent(QDragEnterEvent *e)
 {
-    const ButtonMimeData *mimeData = qobject_cast<const ButtonMimeData*>(e->mimeData());
-    if (mimeData && mimeData->button())
-    {
-        emit switchButtons(mimeData->button(), this);
+    if (!mPlugin->panel()->isLocked()) {
+        const ButtonMimeData *mimeData = qobject_cast<const ButtonMimeData*>(e->mimeData());
+        if (mimeData && mimeData->button())
+        {
+            emit switchButtons(mimeData->button(), this);
+        }
     }
 }

@@ -172,6 +172,12 @@ void LXQtQuickLaunch::addButton(QuickLaunchAction* action)
 
 void LXQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
 {
+    if (mPlugin->panel()->isLocked())
+    {
+        e->ignore();
+        return;
+    }
+
     // Getting URL from mainmenu...
     if (e->mimeData()->hasUrls())
     {
@@ -188,6 +194,12 @@ void LXQtQuickLaunch::dragEnterEvent(QDragEnterEvent *e)
 
 void LXQtQuickLaunch::dropEvent(QDropEvent *e)
 {
+    if (mPlugin->panel()->isLocked())
+    {
+        e->ignore();
+        return;
+    }
+
     const auto urls = e->mimeData()->urls().toSet();
     for (const QUrl &url : urls)
     {
