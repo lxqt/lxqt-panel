@@ -197,12 +197,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mausrad</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Rad-Delta-Schwelle</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -237,7 +237,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Deaktiviert</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
