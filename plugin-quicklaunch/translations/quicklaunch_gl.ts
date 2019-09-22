@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="214"/>
+        <location filename="../lxqtquicklaunch.cpp" line="226"/>
         <source>Drop Error</source>
         <translation>Produciuse un erro ao arrastrar</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="215"/>
+        <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>O ficheiro/URL «%1» non pode ser incrustado, polo de agora, no inicio rápido</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="321"/>
+        <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
         <translation>Arrastre cara aquí as

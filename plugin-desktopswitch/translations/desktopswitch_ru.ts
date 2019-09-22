@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="84"/>
+        <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
         <translation>Переключиться на рабочий стол %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="141"/>
-        <location filename="../desktopswitch.cpp" line="151"/>
+        <location filename="../desktopswitch.cpp" line="144"/>
+        <location filename="../desktopswitch.cpp" line="155"/>
         <source>Desktop %1</source>
         <translation>Рабочий стол %1</translation>
     </message>
@@ -53,7 +53,17 @@
         <translation>Без меток</translation>
     </message>
     <message>
+        <location filename="../desktopswitchconfiguration.ui" line="72"/>
+        <source>If checked, widget will be just an indicator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
+        <source>Show only active desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
         <translation>Имена рабочих столов</translation>
     </message>

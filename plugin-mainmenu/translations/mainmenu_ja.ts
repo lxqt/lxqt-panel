@@ -4,12 +4,12 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="98"/>
+        <location filename="../lxqtmainmenu.cpp" line="102"/>
         <source>Search...</source>
         <translation>検索...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="104"/>
+        <location filename="../lxqtmainmenu.cpp" line="110"/>
         <source>Show/hide main menu</source>
         <translation>アプリケーションメニューの表示/非表示</translation>
     </message>

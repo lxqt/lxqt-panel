@@ -4,32 +4,32 @@
 <context>
     <name>LXQtVolume</name>
     <message>
-        <location filename="../lxqtvolume.cpp" line="63"/>
+        <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
         <translation>Ses seviyesini yükselt</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="69"/>
+        <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
         <translation>Ses seviyesini azalt</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="75"/>
+        <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
         <translation>Sessiz/Sesi Aç</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="136"/>
+        <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Ses Kontrol: Aşağıdaki kısayollar kaydedilemez: %1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="286"/>
+        <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
         <translation>Ses: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="286"/>
+        <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
         <translation>(sessiz)</translation>
     </message>
@@ -87,12 +87,17 @@
         <translation>Ses değişiklikleri hakkında her zaman uyar</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <source>Notify about volume changes with keyboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
         <source>Volume adjust step</source>
         <translation>Ses ayar adımı</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
         <source>External Mixer</source>
         <translation>Harici Karıştırıcı</translation>
     </message>

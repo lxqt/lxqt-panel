@@ -4,32 +4,32 @@
 <context>
     <name>LXQtVolume</name>
     <message>
-        <location filename="../lxqtvolume.cpp" line="63"/>
+        <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
         <translation>增大音量</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="69"/>
+        <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
         <translation>减小音量</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="75"/>
+        <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
         <translation>静音/取消静音</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="136"/>
+        <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>音量控制：无法注册下列快捷键：%1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="286"/>
+        <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
         <translation>音量: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="286"/>
+        <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
         <translation>（静音）</translation>
     </message>
@@ -87,12 +87,17 @@
         <translation>总是在音量改变时提示</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <source>Notify about volume changes with keyboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
         <source>Volume adjust step</source>
         <translation>声音调整幅度</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
         <source>External Mixer</source>
         <translation>外部混音器</translation>
     </message>

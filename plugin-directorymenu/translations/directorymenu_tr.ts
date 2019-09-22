@@ -4,9 +4,14 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../directorymenu.cpp" line="120"/>
+        <location filename="../directorymenu.cpp" line="125"/>
         <source>Open</source>
         <translation>Aç</translation>
+    </message>
+    <message>
+        <location filename="../directorymenu.cpp" line="129"/>
+        <source>Open in terminal</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -37,27 +42,38 @@
         <translation>Simge:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="91"/>
+        <location filename="../directorymenuconfiguration.ui" line="66"/>
+        <source>Terminal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../directorymenuconfiguration.ui" line="73"/>
+        <location filename="../directorymenuconfiguration.cpp" line="112"/>
+        <source>Choose Default Terminal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
         <translation>Temel Dizini Seç</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Choose Icon</source>
         <translation>Simge Seç</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="107"/>
+        <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
         <translation>Simgeler (*.png *.xmp *.jpg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="116"/>
+        <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>Directory Menu</source>
         <translation>Dizin Menüsü</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="116"/>
+        <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Simge yüklenirken hata oluştu.</translation>
     </message>

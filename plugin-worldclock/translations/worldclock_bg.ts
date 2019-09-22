@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="241"/>
+        <location filename="../lxqtworldclock.cpp" line="244"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;1&apos;ЧЧ:мм:сс&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ддд, д МММ ГГГГ&apos;&lt;br/&gt;5&apos;ТТ&apos;&lt;/font&gt;6&apos;</translation>
     </message>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="579"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
         <source>Custom name</source>
         <translation>Персонализирано име</translation>
     </message>
@@ -228,12 +228,17 @@
         <translation>Автоматично завъртане, когато панелът е вертикален</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
+        <source>Show &amp;week number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;1&apos;ЧЧ:мм:сс&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ддд, д МММ гггг&apos;&lt;br/&gt;5&apos;ТТ&apos;&lt;/font&gt;6&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="578"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="583"/>
         <source>Input custom time zone name</source>
         <translation>Въведете персонализирано име на часовата зона</translation>
     </message>
