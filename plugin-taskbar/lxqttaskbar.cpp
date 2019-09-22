@@ -449,29 +449,29 @@ void LXQtTaskBar::settingsChanged()
     bool showOnlyMinimizedTasksOld = mShowOnlyMinimizedTasks;
     const bool iconByClassOld = mIconByClass;
 
-    mButtonWidth = mPlugin->settings()->value("buttonWidth", 400).toInt();
-    mButtonHeight = mPlugin->settings()->value("buttonHeight", 100).toInt();
-    QString s = mPlugin->settings()->value("buttonStyle").toString().toUpper();
+    mButtonWidth = mPlugin->settings()->value(QStringLiteral("buttonWidth"), 400).toInt();
+    mButtonHeight = mPlugin->settings()->value(QStringLiteral("buttonHeight"), 100).toInt();
+    QString s = mPlugin->settings()->value(QStringLiteral("buttonStyle")).toString().toUpper();
 
-    if (s == "ICON")
+    if (s == QStringLiteral("ICON"))
         setButtonStyle(Qt::ToolButtonIconOnly);
-    else if (s == "TEXT")
+    else if (s == QStringLiteral("TEXT"))
         setButtonStyle(Qt::ToolButtonTextOnly);
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyOneDesktopTasks = mPlugin->settings()->value("showOnlyOneDesktopTasks", mShowOnlyOneDesktopTasks).toBool();
-    mShowDesktopNum = mPlugin->settings()->value("showDesktopNum", mShowDesktopNum).toInt();
-    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value("showOnlyCurrentScreenTasks", mShowOnlyCurrentScreenTasks).toBool();
-    mShowOnlyMinimizedTasks = mPlugin->settings()->value("showOnlyMinimizedTasks", mShowOnlyMinimizedTasks).toBool();
-    mAutoRotate = mPlugin->settings()->value("autoRotate", true).toBool();
-    mCloseOnMiddleClick = mPlugin->settings()->value("closeOnMiddleClick", true).toBool();
-    mRaiseOnCurrentDesktop = mPlugin->settings()->value("raiseOnCurrentDesktop", false).toBool();
-    mGroupingEnabled = mPlugin->settings()->value("groupingEnabled",true).toBool();
-    mShowGroupOnHover = mPlugin->settings()->value("showGroupOnHover",true).toBool();
-    mIconByClass = mPlugin->settings()->value("iconByClass", false).toBool();
-    mWheelEventsAction = mPlugin->settings()->value("wheelEventsAction", 1).toInt();
-    mWheelDeltaThreshold = mPlugin->settings()->value("wheelDeltaThreshold", 300).toInt();
+    mShowOnlyOneDesktopTasks = mPlugin->settings()->value(QStringLiteral("showOnlyOneDesktopTasks"), mShowOnlyOneDesktopTasks).toBool();
+    mShowDesktopNum = mPlugin->settings()->value(QStringLiteral("showDesktopNum"), mShowDesktopNum).toInt();
+    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value(QStringLiteral("showOnlyCurrentScreenTasks"), mShowOnlyCurrentScreenTasks).toBool();
+    mShowOnlyMinimizedTasks = mPlugin->settings()->value(QStringLiteral("showOnlyMinimizedTasks"), mShowOnlyMinimizedTasks).toBool();
+    mAutoRotate = mPlugin->settings()->value(QStringLiteral("autoRotate"), true).toBool();
+    mCloseOnMiddleClick = mPlugin->settings()->value(QStringLiteral("closeOnMiddleClick"), true).toBool();
+    mRaiseOnCurrentDesktop = mPlugin->settings()->value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool();
+    mGroupingEnabled = mPlugin->settings()->value(QStringLiteral("groupingEnabled"),true).toBool();
+    mShowGroupOnHover = mPlugin->settings()->value(QStringLiteral("showGroupOnHover"),true).toBool();
+    mIconByClass = mPlugin->settings()->value(QStringLiteral("iconByClass"), false).toBool();
+    mWheelEventsAction = mPlugin->settings()->value(QStringLiteral("wheelEventsAction"), 1).toInt();
+    mWheelDeltaThreshold = mPlugin->settings()->value(QStringLiteral("wheelDeltaThreshold"), 300).toInt();
 
     // Delete all groups if grouping feature toggled and start over
     if (groupingEnabledOld != mGroupingEnabled)
@@ -646,7 +646,7 @@ void LXQtTaskBar::registerShortcuts()
     QString description;
     for (int i = 1; i <= 10; ++i)
     {
-        path = QString("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i);
+        path = QStringLiteral("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i);
         description = tr("Activate task %1").arg(i);
 
         gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QStringLiteral(), path, description, this);
