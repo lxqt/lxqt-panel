@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Weltzeituhr-Einstellungen</translation>
+        <translation>Einstellungen der Weltzeituhr</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Stunden mit fü&amp;hrender Null</translation>
+        <translation>&amp;Stundenanzeige mit führender Null</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>&amp;Bei senkrechter Leiste automatisch drehen</translation>
+        <translation>&amp;Bei vertikaler Leiste automatisch drehen</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="103"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>Weltzeituhr-Zeitzonen</translation>
+        <translation>Zeitzonen der Weltzeituhr</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
