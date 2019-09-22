@@ -490,7 +490,7 @@ int LXQtTaskGroup::recalculateFrameHeight() const
 int LXQtTaskGroup::recalculateFrameWidth() const
 {
     const QFontMetrics fm = fontMetrics();
-    int max = 100 * fm.width (' '); // elide after the max width
+    int max = 100 * fm.width (QLatin1Char(' ')); // elide after the max width
     int txtWidth = 0;
     for (LXQtTaskButton *btn : qAsConst(mButtonHash))
         txtWidth = qMax(fm.width(btn->text()), txtWidth);
@@ -614,7 +614,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass))
         {
             KWindowInfo info(window, 0, NET::WM2WindowClass);
-            if (info.windowClassClass() != mGroupName)
+            if (QString::fromUtf8(info.windowClassClass()) != mGroupName)
             {
                 onWindowRemoved(window);
                 return false;

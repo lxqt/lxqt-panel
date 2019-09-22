@@ -270,7 +270,7 @@ void LXQtTaskBar::groupBecomeEmptySlot()
 void LXQtTaskBar::addWindow(WId window)
 {
     // If grouping disabled group behaves like regular button
-    const QString group_id = mGroupingEnabled ? KWindowInfo(window, 0, NET::WM2WindowClass).windowClassClass() : QString("%1").arg(window);
+    const QString group_id = mGroupingEnabled ? QString::fromUtf8(KWindowInfo(window, 0, NET::WM2WindowClass).windowClassClass()) : QString::number(window);
 
     LXQtTaskGroup *group = nullptr;
     auto i_group = mKnownWindows.find(window);
