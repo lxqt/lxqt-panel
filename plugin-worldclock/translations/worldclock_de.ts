@@ -108,7 +108,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Versatz zu UTC</translation>
+        <translation>Abweichung zur  UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week number</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Kalender&amp;woche</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="583"/>
         <source>Input custom time zone name</source>
-        <translation>Eingabe eines benutzerdefinierten Zeitzonennamens</translation>
+        <translation>Eingabe des Namens der benutzerdefinierten Zeitzone</translation>
     </message>
 </context>
 <context>
