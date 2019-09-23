@@ -52,10 +52,12 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     setDefaultAction(mAct);
     mAct->setParent(this);
 
-    mMoveLeftAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-previous")), tr("Move left"), this);
+    const QString dndStr = QStringLiteral(" ") + tr("(Ctrl + DND)");
+
+    mMoveLeftAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-previous")), tr("Move left") + dndStr, this);
     connect(mMoveLeftAct, SIGNAL(triggered()), this, SIGNAL(movedLeft()));
 
-    mMoveRightAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-next")), tr("Move right"), this);
+    mMoveRightAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-next")), tr("Move right") + dndStr, this);
     connect(mMoveRightAct, SIGNAL(triggered()), this, SIGNAL(movedRight()));
 
 
