@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
-        <translation>Zu Schreibtisch %1 wechseln</translation>
+        <translation>Zu Arbeitsfläche %1 wechseln</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Einstellungen für Schreibtischumschalter</translation>
+        <translation>Einstellungen für Arbeitsflächenumschalter</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Schreibtischbezeichnungen:</translation>
+        <translation>Arbeitsflächenbezeichnungen:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn diese Option aktiviert ist, ist das Widget nur ein Indikator</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur aktiven Desktop anzeigen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
