@@ -35,7 +35,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation>Anzahl der Zeilen:</translation>
+        <translation>Zeilenanzahl:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Schreibtischnamen</translation>
+        <translation>Arbeitsflächennamen</translation>
     </message>
 </context>
 </TS>
