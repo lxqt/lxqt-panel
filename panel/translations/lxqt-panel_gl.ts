@@ -131,7 +131,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Marxe fina visible para o panel agochado</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -323,7 +323,7 @@ Colorar as iconas segundo o estilo dos trebellos (paleta)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Mover cara arriba</translation>
+        <translation>Mover cara a arriba</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -337,7 +337,7 @@ Colorar as iconas segundo o estilo dos trebellos (paleta)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Mover cara abaixo</translation>
+        <translation>Mover cara a abaixo</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
