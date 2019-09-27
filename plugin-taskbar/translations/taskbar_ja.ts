@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>パネル上にてマウスのホイールスクロールでウィンドウを切り替える</translation>
+        <translation>ホイールスクロールでウィンドウの切り替え</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>マウスのホイール</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>ホイールの変化量のしきい値</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>無効</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>スクロールアップで最前面、スクロールダウンで最小化</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>スクロールアップで最小化、スクロールダウンで最前面</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
