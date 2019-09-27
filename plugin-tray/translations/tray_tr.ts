@@ -11,17 +11,17 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation type="unfinished"></translation>
+        <translation>Simgeler arası boşluk:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
