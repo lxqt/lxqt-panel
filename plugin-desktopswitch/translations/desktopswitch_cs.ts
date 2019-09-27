@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud zaškrtnuto, ovládací prvek bude pouze indikátorem</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazovat pouze pracovní plochu, na které se nacházíte</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
