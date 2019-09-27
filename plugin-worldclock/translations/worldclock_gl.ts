@@ -210,12 +210,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Mover cara a&amp;rriba</translation>
+        <translation>Mover cara a a&amp;rriba</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>Mover cara a&amp;baixo</translation>
+        <translation>Mover cara a a&amp;baixo</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week number</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar número de &amp;semana</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
