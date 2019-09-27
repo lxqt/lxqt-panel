@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Se está marcado, o trebello será só un indicador</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosa só escritorio activo</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
