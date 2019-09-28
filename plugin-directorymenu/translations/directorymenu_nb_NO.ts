@@ -29,12 +29,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Mappe å vise:</translation>
+        <translation>Basismappe:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>Navn på mappe å vise</translation>
+        <translation>Basismappenavn</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
-        <translation>Velg mappe å vise</translation>
+        <translation>Velg basismappe</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
