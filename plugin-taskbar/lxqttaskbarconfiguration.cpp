@@ -60,22 +60,22 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
 
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
-    connect(ui->limitByDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(ui->limitByDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByDesktopCB, &QCheckBox::stateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);
-    connect(ui->showDesktopNumCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
-    connect(ui->limitByScreenCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->limitByMinimizedCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->raiseOnCurrentDesktopCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->buttonStyleCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
-    connect(ui->buttonWidthSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
-    connect(ui->buttonHeightSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
-    connect(ui->autoRotateCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->middleClickCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->groupingGB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->showGroupOnHoverCB, SIGNAL(clicked()), this, SLOT(saveSettings()));
-    connect(ui->iconByClassCB, &QCheckBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->wheelEventsActionCB, SIGNAL(activated(int)), this, SLOT(saveSettings()));
-    connect(ui->wheelDeltaThresholdSB, SIGNAL(valueChanged(int)), this, SLOT(saveSettings()));
+    connect(ui->showDesktopNumCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->limitByScreenCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->limitByMinimizedCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->raiseOnCurrentDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->buttonStyleCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->buttonWidthSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->buttonHeightSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->autoRotateCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->middleClickCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->groupingGB, &QGroupBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->showGroupOnHoverCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->iconByClassCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->wheelEventsActionCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->wheelDeltaThresholdSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()

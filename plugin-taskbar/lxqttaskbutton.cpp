@@ -284,19 +284,24 @@ void LXQtTaskButton::wheelEvent(QWheelEvent* event)
         return QToolButton::wheelEvent(event);
 
     static int threshold = 0;
-    threshold += abs(event->delta());
+
+    QPoint angleDelta = event->angleDelta();
+    Qt::Orientation orient = (qAbs(angleDelta.x()) > qAbs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
+    int delta = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
+
+    threshold += abs(delta);
     if (threshold < mParentTaskBar->wheelDeltaThreshold())
         return QToolButton::wheelEvent(event);
     else
         threshold = 0;
 
-    int delta = event->delta() < 0 ? 1 : -1;
+    int D = delta < 0 ? 1 : -1;
     if (mParentTaskBar->wheelEventsAction() == 3)
-        delta *= -1;
+        D *= -1;
 
-    if (delta < 0)
+    if (D < 0)
         raiseApplication();
-    else if (delta > 0)
+    else if (D > 0)
         minimizeApplication();
 
     QToolButton::wheelEvent(event);
