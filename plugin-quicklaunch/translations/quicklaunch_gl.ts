@@ -18,7 +18,7 @@
         <source>Drop application
 icons here</source>
         <translation>Arrastre cara aquí as
-iconas dos aplicativos</translation>
+iconas das aplicacións</translation>
     </message>
 </context>
 <context>
@@ -36,7 +36,7 @@ iconas dos aplicativos</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
         <source>Remove from quicklaunch</source>
-        <translation>Retirar o iniciador rápido</translation>
+        <translation>Retirar o lanzador rápido</translation>
     </message>
 </context>
 </TS>
