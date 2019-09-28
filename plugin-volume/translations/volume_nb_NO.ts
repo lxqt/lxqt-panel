@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Volumkontroll: Den følgende tastaturkommandoen kan ikke registreres: %1</translation>
+        <translation>Volumkontroll: Den følgende tastatursnareveien kan ikke registreres: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Gi varsel om volumforandringer fra tastaturet</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
