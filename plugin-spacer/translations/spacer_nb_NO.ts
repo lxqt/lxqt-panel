@@ -41,7 +41,7 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>Usynlig</translation>
+        <translation>usynlig</translation>
     </message>
 </context>
 </TS>
