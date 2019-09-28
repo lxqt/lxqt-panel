@@ -82,13 +82,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation>piksler</translation>
+        <translation>pk</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation> piksler</translation>
+        <translation> pk</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -98,12 +98,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Justering &amp;og posisjon</translation>
+        <translation>Justering &amp;og plassering</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>S&amp;kjul automatisk</translation>
+        <translation>Skj&amp;ul automatisk</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Synlig tynn marg for skjult panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -214,7 +214,7 @@ Fargelegg symboler basert på widget-stil (pallett)</translation>
     <message>
         <location filename="../config/configpanelwidget.ui" line="356"/>
         <source>Custom styling</source>
-        <translation>Egen stil</translation>
+        <translation>Selvvalgt stil</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="377"/>
@@ -249,12 +249,12 @@ Fargelegg symboler basert på widget-stil (pallett)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation>Venstre på skrivebordet</translation>
+        <translation>Til venstre på skrivebordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation>Høyre på skrivebordet</translation>
+        <translation>Til høyre på skrivebordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
@@ -269,12 +269,12 @@ Fargelegg symboler basert på widget-stil (pallett)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation>Venstre på skrivebordet %1</translation>
+        <translation>Til venstre på skrivebordet %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation>Høyre på skrivebordet %1</translation>
+        <translation>Til høyre på skrivebordet %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
@@ -371,7 +371,7 @@ Fargelegg symboler basert på widget-stil (pallett)</translation>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Manage Widgets</source>
-        <translation>Styr Widgeter</translation>
+        <translation>Styr widgeter</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1121"/>
