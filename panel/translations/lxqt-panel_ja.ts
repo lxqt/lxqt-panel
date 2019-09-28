@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>プラグインの追加</translation>
+        <translation>ウィジェットへ追加</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>隠れたパネルの細い余白を見えるようにする</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -217,7 +217,7 @@ Colorize icons based on widget style (palette)</source>
 
 次の設定を無効にすることもできます。
 
-LXQt 設定&#x3000;外観 →
+LXQt 設定　外観 →
 アイコンテーマ →
 ウィジェットのスタイル（パレット）に基づいてアイコンを色付けする</translation>
     </message>
