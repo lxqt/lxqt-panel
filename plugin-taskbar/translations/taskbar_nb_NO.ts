@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="650"/>
         <source>Activate task %1</source>
-        <translation>Aktiv handling %1</translation>
+        <translation>Aktiver handling %1</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
         <source>To &amp;Desktop</source>
-        <translation>Til&amp; skrivebord</translation>
+        <translation>Til &amp;skrivebord</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="612"/>
@@ -160,12 +160,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Skift vindu ved skrolling med hjulet</translation>
+        <translation>Skift vindu ved rulling med mushjulet</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation>Vindusg&amp;rupering</translation>
+        <translation>Vindus&amp;gruppering</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
@@ -192,17 +192,17 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="194"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="220"/>
         <source> px</source>
-        <translation> pksl</translation>
+        <translation> pk</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Rullehjul på mus</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Avstand å rulle før forandring</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>skrudd av</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Rull opp for å maksimere, ned for å minimere</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>Rull opp for å minimere, ned for å maksimere</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
