@@ -567,13 +567,18 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
         return QFrame::wheelEvent(event);
 
     static int threshold = 0;
-    threshold += abs(event->delta());
+
+    QPoint angleDelta = event->angleDelta();
+    Qt::Orientation orient = (qAbs(angleDelta.x()) > qAbs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
+    int delta = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
+
+    threshold += abs(delta);
     if (threshold < mWheelDeltaThreshold)
         return QFrame::wheelEvent(event);
     else
         threshold = 0;
 
-    int delta = event->delta() < 0 ? 1 : -1;
+    int D = delta < 0 ? 1 : -1;
 
     // create temporary list of visible groups in the same order like on the layout
     QList<LXQtTaskGroup*> list;
@@ -602,10 +607,10 @@ void LXQtTaskBar::wheelEvent(QWheelEvent* event)
     // switching between groups from temporary list in modulo addressing
     while (!button)
     {
-        button = group->getNextPrevChildButton(delta == 1, !(list.count() - 1));
+        button = group->getNextPrevChildButton(D == 1, !(list.count() - 1));
         if (button)
             button->raiseApplication();
-        int idx = (list.indexOf(group) + delta + list.count()) % list.count();
+        int idx = (list.indexOf(group) + D + list.count()) % list.count();
         group = list.at(idx);
     }
     QFrame::wheelEvent(event);
