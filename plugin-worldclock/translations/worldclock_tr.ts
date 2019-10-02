@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="244"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;SS:dd:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ggg, g AAA yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ggg, g AAA yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week number</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hafta numarasını göster</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
