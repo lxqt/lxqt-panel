@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα στο τερματικό</translation>
     </message>
 </context>
 <context>
@@ -44,13 +44,13 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Τερματικό</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή προκαθορισμένου τερματικού</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
