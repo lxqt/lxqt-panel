@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem Çekmecesi Ayarları</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation type="unfinished"></translation>
+        <translation>Simgeleri pencere sınıfına göre sırala</translation>
     </message>
 </context>
 </TS>
