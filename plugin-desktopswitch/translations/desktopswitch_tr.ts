@@ -60,7 +60,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Sadece aktif masaüstünü göster</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
