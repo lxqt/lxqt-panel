@@ -264,7 +264,7 @@ void LXQtTaskButton::mousePressEvent(QMouseEvent* event)
  ************************************************/
 void LXQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton)
+    if (!sDraggging && event->button() == Qt::LeftButton)
     {
         if (isChecked())
             minimizeApplication();
@@ -325,6 +325,7 @@ QMimeData * LXQtTaskButton::mimeData()
  ************************************************/
 void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 {
+    QAbstractButton::mouseMoveEvent(event);
     if (!(event->buttons() & Qt::LeftButton))
         return;
 
@@ -354,9 +355,13 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     // if button is dropped out of panel (e.g. on desktop)
     // it is not deleted automatically by Qt
     drag->deleteLater();
-    sDraggging = false;
 
-    QAbstractButton::mouseMoveEvent(event);
+    // release mouse appropriately, by positioning the event outside
+    // the button rectangle (otherwise, the button will be toggled)
+    QMouseEvent releasingEvent(QEvent::MouseButtonRelease, QPoint(-1,-1), Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
+    mouseReleaseEvent(&releasingEvent);
+
+    sDraggging = false;
 }
 
 /************************************************
