@@ -49,22 +49,22 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>De abaixo cara arriba</translation>
+        <translation>De abaixo cara a arriba</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation>De arriba cara abaixo</translation>
+        <translation>De arriba cara a abaixo</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation>Da esquerda cara a dereita</translation>
+        <translation>Da esquerda cara á dereita</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation>Da dereita cara a esquerda</translation>
+        <translation>Da dereita cara á esquerda</translation>
     </message>
 </context>
 </TS>
