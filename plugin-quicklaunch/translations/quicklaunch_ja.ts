@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>ファイル/URL &apos;%1&apos; は現在、クイック起動に埋め込むことができません</translation>
+        <translation>現時点では、ファイル/URL &apos;%1&apos; はクイック起動に入れられません</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
@@ -26,12 +26,12 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>Move left</source>
-        <translation>左に移動</translation>
+        <translation>左へ移動</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="58"/>
         <source>Move right</source>
-        <translation>右に移動</translation>
+        <translation>右へ移動</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="62"/>
