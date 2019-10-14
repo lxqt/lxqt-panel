@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>チェックすると、ウィジェットがインジケーターのみになります。</translation>
+        <translation>チェックすると、ウィジェットがインジケーターのみになります</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
