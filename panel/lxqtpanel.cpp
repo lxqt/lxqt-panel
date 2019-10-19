@@ -764,6 +764,11 @@ void LXQtPanel::showAddPluginDialog()
  ************************************************/
 void LXQtPanel::updateStyleSheet()
 {
+    // NOTE: This is a workaround for Qt >= 5.13, which might not completely
+    // update the style sheet (especially positioned backgrounds of plugins
+    // with NeedsHandle="true") if it is not reset first.
+    setStyleSheet(QString());
+
     QStringList sheet;
     sheet << QStringLiteral("Plugin > QAbstractButton, LXQtTray { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
     sheet << QStringLiteral("Plugin > * > QAbstractButton, TrayIcon { qproperty-iconSize: %1px %1px; }").arg(mIconSize);
