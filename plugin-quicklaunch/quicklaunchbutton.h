@@ -53,8 +53,6 @@ signals:
     void movedRight();
 
 protected:
-    //! Disable that annoying small arrow when there is a menu
-    virtual void paintEvent(QPaintEvent *);
     void mousePressEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
     void dragEnterEvent(QDragEnterEvent *e);

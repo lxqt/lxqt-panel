@@ -63,7 +63,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
 
     mDeleteAct = new QAction(XdgIcon::fromTheme(QStringLiteral("dialog-close")), tr("Remove from quicklaunch"), this);
     connect(mDeleteAct, SIGNAL(triggered()), this, SLOT(selfRemove()));
-    addAction(mDeleteAct);
+
     mMenu = new QMenu(this);
     mMenu->addAction(mAct);
     mMenu->addActions(mAct->addtitionalActions());
@@ -72,7 +72,6 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     mMenu->addAction(mMoveRightAct);
     mMenu->addSeparator();
     mMenu->addAction(mDeleteAct);
-
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
@@ -108,17 +107,6 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & /*pos*/)
 void QuickLaunchButton::selfRemove()
 {
     emit buttonDeleted();
-}
-
-
-void QuickLaunchButton::paintEvent(QPaintEvent *)
-{
-    // Do not paint that ugly "has menu" arrow
-    QStylePainter p(this);
-    QStyleOptionToolButton opt;
-    initStyleOption(&opt);
-    opt.features &= (~ QStyleOptionToolButton::HasMenu);
-    p.drawComplexControl(QStyle::CC_ToolButton, opt);
 }
 
 
