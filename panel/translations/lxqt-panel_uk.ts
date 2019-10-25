@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Рядів:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -144,33 +144,33 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично ховати</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>При вказанні нуля затримки не буде</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати із затримкою:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Лишати тонкий край прихованої панелі видимим</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Не дозволяти максимізованим вікнам розташовуватися під панеллю</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Резервувати простір на екрані</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="356"/>
@@ -217,12 +217,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Замінити тему піктограм</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема піктограм для панелей:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
