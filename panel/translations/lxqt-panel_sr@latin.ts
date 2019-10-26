@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj Plagine</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pretraga:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj vidžet</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatvori</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">(istovremeno se može pokrenuti samo jedna instanca)</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurišite panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Automatsko suspendovanje</translation>
+        <translation type="unfinished">Panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Vidžet</translation>
     </message>
 </context>
 <context>
@@ -52,17 +52,17 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurišite panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Veličina</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Veličina:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
@@ -73,38 +73,38 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Veličina ikone:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dužina:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Negativna vrednost piksela postavlja dužinu panela na broj piksela manje od raspoloživog prostora ekrana.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;na primer &quot;Dužina&quot; postavljeno na -100px, veličina ekrana je 1000 px, tada će stvarna dužina panela biti 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished"></translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Poravnanje i položaj</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nula znači da nema animacije</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -115,31 +115,31 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Trajanje animacije:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Redovi:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="211"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Levo</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centar</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Desno</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
@@ -150,47 +150,47 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nula znači bez zakašnjenja</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži sa zakašnjenjem:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Vidljiva tanka margina za skriveni panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne dozvolite da maksimizirani prozori idu ispod prozora panela</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Rezervišite prostor na displeju</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="356"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Prilagođeni stil</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="377"/>
         <source>Font color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Boja fonta:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="417"/>
         <source>Background color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Boja pozadine:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="456"/>
         <source>Background opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>Neprozirnost pozadine:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="488"/>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="516"/>
         <source>Background image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozadinska slika:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="568"/>
@@ -212,7 +212,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Delimično rešenje za stilove vidžeta koji
+ne može dati posebnu temu panelu.
+
+Takođe biste mogli da onemogućite:
+
+Konfiguracija izgleda LXQt →
+Tema ikona →
+Oboji ikone na osnovu stila vidžeta (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
