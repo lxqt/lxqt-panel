@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Verkkoseuranta astukset</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
         <source>Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Monitori</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
