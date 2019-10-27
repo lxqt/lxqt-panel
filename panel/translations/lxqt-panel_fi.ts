@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Koko:</translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">Pituus:</translation>
+        <translation>Pituus:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
