@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Mykistä/poista mykistys</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmoita näppäimistöllä tehdystä äänenvoimakkuuden muutoksesta</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
