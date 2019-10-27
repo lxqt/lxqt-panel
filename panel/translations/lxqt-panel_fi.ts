@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää lisäosia</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Lisää vempain</translation>
+        <translation>Lisää pienoisohjelma</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -68,7 +68,7 @@
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Negatiivinen pikseliarvo asettaa paneelin pituuden yhtä monta pikseliä käytettävissä olevaa näyttötilaa pienemmäksi.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esim. &quot;Pituus&quot; asetettu -100px:iin, näytön koko 1000px, asetaa paneelin oikeaksi kooksi 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
