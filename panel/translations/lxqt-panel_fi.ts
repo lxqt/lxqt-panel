@@ -83,17 +83,17 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negatiivinen pikseliarvo asettaa paneelin pituuden yhtä monta pikseliä käytettävissä olevaa näyttötilaa pienemmäksi.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esim. &quot;Pituus&quot; asetettu -100px:iin, näytön koko 1000px, asetaa paneelin oikeaksi kooksi 900px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Negatiivinen pikseliarvo asettaa paneelin pituuden yhtä monta pikseliä käytettävissä olevaa näyttötilaa pienemmäksi.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esimerkiksi jos &quot;Pituus&quot; on asetettu arvoon -100px, ja näytön koko on 1000px, tulee paneelin pituudeksi 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">pikseliä</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -110,7 +110,7 @@
         <location filename="../config/configpanelwidget.ui" line="288"/>
         <location filename="../config/configpanelwidget.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
@@ -126,20 +126,20 @@
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="211"/>
         <source>Left</source>
-        <translation type="unfinished">Vasemmalla</translation>
+        <translation>Vasemmalla</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Center</source>
-        <translation type="unfinished">Keskellä</translation>
+        <translation>Keskellä</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="213"/>
         <source>Right</source>
-        <translation type="unfinished">Oikealla</translation>
+        <translation>Oikealla</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä ohut osa piiloitetusta paneelista</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="356"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulkoasun muokkaaminen</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="377"/>
@@ -227,52 +227,52 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Kohdistus:</translation>
+        <translation>Kohdistus:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished">Sijainti:</translation>
+        <translation>Sijainti:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Työpöydän yläosassa</translation>
+        <translation>Työpöydän yläosassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Työpöydän vasemmassa laidassa</translation>
+        <translation>Työpöydän vasemmassa laidassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Työpöydän oikeassa laidassa</translation>
+        <translation>Työpöydän oikeassa laidassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Työpöydän alaosassa</translation>
+        <translation>Työpöydän alaosassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">Työpöydän %1 yläosassa</translation>
+        <translation>Työpöydän %1 yläosassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">Työpöydän %1 vasemmassa laidassa</translation>
+        <translation>Työpöydän %1 vasemmassa laidassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">Työpöydän %1 oikeassa laidassa</translation>
+        <translation>Työpöydän %1 oikeassa laidassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">Työpöydän %1 alaosassa</translation>
+        <translation>Työpöydän %1 alaosassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
