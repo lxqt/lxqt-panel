@@ -17,7 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Pudota ohjelman
+kuvake tähän</translation>
     </message>
 </context>
 <context>
