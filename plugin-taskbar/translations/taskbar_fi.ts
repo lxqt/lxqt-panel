@@ -40,12 +40,12 @@ Aktivoi tehtävä %1</translation>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="635"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Siirrä</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuta kokoa</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="645"/>
