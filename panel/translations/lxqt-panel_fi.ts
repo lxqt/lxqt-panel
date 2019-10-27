@@ -120,7 +120,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rivejä:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -212,17 +212,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Osittainen kiertotapa pienoisohjelmatyyleille,
+jotka eivät voi antaa erillistä teemaa paneelille.
+
+Saatat myös haluta poistaa käytöstä:
+
+LXQtin ulkoasun hallinta →
+Kuvaketeema →
+Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohita kuvake &amp; teema</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaketeema paneeleille:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -277,12 +284,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Yläreunassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="219"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alareunassa</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="436"/>
@@ -306,7 +313,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Säädä lisäosia</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -364,7 +371,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Hallitse pienoisohjelmia</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1121"/>
@@ -401,17 +408,17 @@ Haluatko varmasti poistaa tämän paneelin?</translation>
     <message>
         <location filename="../plugin.cpp" line="432"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Säädä &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="437"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirrä &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="445"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -419,7 +426,7 @@ Haluatko varmasti poistaa tämän paneelin?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä vaihtoehtoista asetustiedostoa.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
