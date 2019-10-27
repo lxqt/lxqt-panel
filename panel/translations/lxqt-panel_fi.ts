@@ -347,12 +347,12 @@ Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Poista</translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Muokkaa</translation>
+        <translation>Asetukset</translation>
     </message>
 </context>
 <context>
