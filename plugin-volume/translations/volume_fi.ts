@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Äänenvoimakkuuden säätö: Seuraavia pikavalintoja ei voida rekisteröidä: % 1</translation>
+        <translation>Äänenvoimakkuuden hallinta: Seuraavia pikavalintoja ei voida rekisteröidä: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(mykistetty)</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Äänenvoimakkuuden hallinnan asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
