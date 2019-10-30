@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeżeli zaznaczono, widżet będzie po prostu wskaźnikiem</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokazuj tylko aktywny pulpit</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
