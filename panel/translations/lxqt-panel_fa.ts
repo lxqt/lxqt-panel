@@ -131,7 +131,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>حاشیه نازک قابل مشاهده برای پنل پنهان</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
         <source>Reserve space on display</source>
-        <translation></translation>
+        <translation>رزرو فضا بر روی صفحه نمایش</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="568"/>
@@ -163,12 +163,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation></translation>
+        <translation>تم آیکون برای پنل‌ها:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation></translation>
+        <translation>موقعیت:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
@@ -212,7 +212,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="377"/>
         <source>Font color:</source>
-        <translation>رنگ فونت:</translation>
+        <translation>رنگ قلم:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="417"/>
@@ -237,42 +237,42 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
         <source>Top of desktop</source>
-        <translation></translation>
+        <translation>بالای دسکتاپ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation></translation>
+        <translation>سمت چپ دسکتاپ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation></translation>
+        <translation>سمت راست دسکتاپ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Bottom of desktop</source>
-        <translation></translation>
+        <translation>پایین دسکتاپ</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation></translation>
+        <translation>بالای دسکتاپ %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation></translation>
+        <translation>سمت چپ دسکتاپ %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation></translation>
+        <translation>سمت راست دسکتاپ %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation></translation>
+        <translation>پایین دسکتاپ %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
@@ -311,12 +311,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation></translation>
+        <translation>توجه: تغییرات ایجاد شده در این صفحه قابل تنظیم مجدد نیست.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation></translation>
+        <translation>حرکت به بالا</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -330,7 +330,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation></translation>
+        <translation>حرکت به پایین</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
