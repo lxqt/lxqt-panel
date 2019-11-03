@@ -43,7 +43,6 @@
 #include <QX11Info>
 #include <QDebug>
 #include <QString>
-#include <QDesktopWidget>
 #include <QMenu>
 #include <QMessageBox>
 #include <QDropEvent>
@@ -199,14 +198,24 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mShowDelayTimer.setInterval(PANEL_SHOW_DELAY);
     connect(&mShowDelayTimer, &QTimer::timeout, [this] { showPanel(mAnimationTime > 0); });
 
-    connect(QApplication::desktop(), &QDesktopWidget::resized, this, &LXQtPanel::ensureVisible);
-    connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, &LXQtPanel::ensureVisible);
-
-    // connecting to QDesktopWidget::workAreaResized shouldn't be necessary,
-    // as we've already connceted to QDesktopWidget::resized, but it actually
-    // is. Read mode on https://github.com/lxqt/lxqt-panel/pull/310
-    connect(QApplication::desktop(), &QDesktopWidget::workAreaResized,
-            this, &LXQtPanel::ensureVisible);
+    // screen updates
+    connect(qApp, &QApplication::screenAdded, this, [this] (QScreen* newScreen) {
+        connect(newScreen, &QScreen::virtualGeometryChanged, this, &LXQtPanel::ensureVisible);
+        connect(newScreen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
+        ensureVisible();
+    });
+    connect(qApp, &QApplication::screenRemoved, this, [this] (QScreen* oldScreen) {
+        disconnect(oldScreen, &QScreen::virtualGeometryChanged, this, &LXQtPanel::ensureVisible);
+        disconnect(oldScreen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
+        // wait until the screen is really removed because it may contain the panel
+        QTimer::singleShot(0, this, &LXQtPanel::ensureVisible);
+    });
+    const auto screens = QApplication::screens();
+    for(const auto& screen : screens)
+    {
+        connect(screen, &QScreen::virtualGeometryChanged, this, &LXQtPanel::ensureVisible);
+        connect(screen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
+    }
 
     connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
     connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
@@ -257,7 +266,7 @@ void LXQtPanel::readSettings()
               mSettings->value(QStringLiteral(CFG_KEY_PERCENT), true).toBool(),
               false);
 
-    mScreenNum = mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), QApplication::desktop()->primaryScreen()).toInt();
+    mScreenNum = mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), 0).toInt();
     setPosition(mScreenNum,
                 strToPosition(mSettings->value(QStringLiteral(CFG_KEY_POSITION)).toString(), PositionBottom),
                 false);
@@ -414,7 +423,11 @@ int LXQtPanel::getReserveDimension()
 
 void LXQtPanel::setPanelGeometry(bool animate)
 {
-    const QRect currentScreen = QApplication::desktop()->screenGeometry(mActualScreenNum);
+    const auto screens = QApplication::screens();
+    if (mActualScreenNum >= screens.size())
+        return;
+    const QRect currentScreen = screens.at(mActualScreenNum)->geometry();
+
     QRect rect;
 
     if (isHorizontal())
@@ -600,9 +613,9 @@ void LXQtPanel::updateWmStrut()
     if(wid == 0 || !isVisible())
         return;
 
-    if (mReserveSpace)
+    if (mReserveSpace && QApplication::primaryScreen())
     {
-        const QRect wholeScreen = QApplication::desktop()->geometry();
+        const QRect wholeScreen = QApplication::primaryScreen()->virtualGeometry();
         const QRect rect = geometry();
         // NOTE: https://standards.freedesktop.org/wm-spec/wm-spec-latest.html
         // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
@@ -667,33 +680,43 @@ void LXQtPanel::updateWmStrut()
  ************************************************/
 bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
 {
-    QDesktopWidget* dw = QApplication::desktop();
-
-    switch (position)
+    const auto screens = QApplication::screens();
+    if (screens.size() > screenNum)
     {
-    case LXQtPanel::PositionTop:
-        for (int i = 0; i < dw->screenCount(); ++i)
-            if (dw->screenGeometry(i).bottom() < dw->screenGeometry(screenNum).top())
-                return false;
-        return true;
+        switch (position)
+        {
+        case LXQtPanel::PositionTop:
+            for (const auto& screen : screens)
+            {
+                if (screen->geometry().bottom() < screens.at(screenNum)->geometry().top())
+                    return false;
+            }
+            return true;
 
-    case LXQtPanel::PositionBottom:
-        for (int i = 0; i < dw->screenCount(); ++i)
-            if (dw->screenGeometry(i).top() > dw->screenGeometry(screenNum).bottom())
-                return false;
-        return true;
+        case LXQtPanel::PositionBottom:
+            for (const auto& screen : screens)
+            {
+                if (screen->geometry().top() > screens.at(screenNum)->geometry().bottom())
+                    return false;
+            }
+            return true;
 
-    case LXQtPanel::PositionLeft:
-        for (int i = 0; i < dw->screenCount(); ++i)
-            if (dw->screenGeometry(i).right() < dw->screenGeometry(screenNum).left())
-                return false;
-        return true;
+        case LXQtPanel::PositionLeft:
+            for (const auto& screen : screens)
+            {
+                if (screen->geometry().right() < screens.at(screenNum)->geometry().left())
+                    return false;
+            }
+            return true;
 
-    case LXQtPanel::PositionRight:
-        for (int i = 0; i < dw->screenCount(); ++i)
-            if (dw->screenGeometry(i).left() > dw->screenGeometry(screenNum).right())
-                return false;
-        return true;
+        case LXQtPanel::PositionRight:
+            for (const auto& screen : screens)
+            {
+                if (screen->geometry().left() > screens.at(screenNum)->geometry().right())
+                    return false;
+            }
+            return true;
+        }
     }
 
     return false;
@@ -707,7 +730,7 @@ int LXQtPanel::findAvailableScreen(LXQtPanel::Position position)
 {
     int current = mScreenNum;
 
-    for (int i = current; i < QApplication::desktop()->screenCount(); ++i)
+    for (int i = current; i < QApplication::screens().size(); ++i)
         if (canPlacedOn(i, position))
             return i;
 
@@ -1191,22 +1214,25 @@ QRect LXQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const
 
     QRect res(QPoint(x, y), windowSize);
 
-    QRect screen = QApplication::desktop()->screenGeometry(this);
+    QRect panelScreen;
+    const auto screens = QApplication::screens();
+    if (mActualScreenNum < screens.size())
+        panelScreen = screens.at(mActualScreenNum)->geometry();
     // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
     // multihead setup with different resolutions. In this case, the size of the work area is limited
     // by the smallest monitor and may be much smaller than the current screen and we will place the
     // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.
-    if (res.right() > screen.right())
-        res.moveRight(screen.right());
+    if (res.right() > panelScreen.right())
+        res.moveRight(panelScreen.right());
 
-    if (res.bottom() > screen.bottom())
-        res.moveBottom(screen.bottom());
+    if (res.bottom() > panelScreen.bottom())
+        res.moveBottom(panelScreen.bottom());
 
-    if (res.left() < screen.left())
-        res.moveLeft(screen.left());
+    if (res.left() < panelScreen.left())
+        res.moveLeft(panelScreen.left());
 
-    if (res.top() < screen.top())
-        res.moveTop(screen.top());
+    if (res.top() < panelScreen.top())
+        res.moveTop(panelScreen.top());
 
     return res;
 }
