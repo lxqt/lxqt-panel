@@ -33,7 +33,7 @@
 #include <KWindowSystem/KWindowSystem>
 #include <QDebug>
 #include <QListView>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QWindow>
 #include <QColorDialog>
 #include <QFileDialog>
@@ -171,7 +171,7 @@ void ConfigPanelWidget::reset()
  ************************************************/
 void ConfigPanelWidget::fillComboBox_position()
 {
-    int screenCount = QApplication::desktop()->screenCount();
+    int screenCount = QApplication::screens().size();
     if (screenCount == 1)
     {
         addPosition(tr("Top of desktop"), 0, LXQtPanel::PositionTop);
@@ -384,13 +384,16 @@ void ConfigPanelWidget::widthTypeChanged()
  ************************************************/
 int ConfigPanelWidget::getMaxLength()
 {
-    QDesktopWidget* dw = QApplication::desktop();
-
-    if (mPosition == ILXQtPanel::PositionTop ||
-        mPosition == ILXQtPanel::PositionBottom)
-        return dw->screenGeometry(mScreenNum).width();
-    else
-        return dw->screenGeometry(mScreenNum).height();
+    auto screens = QApplication::screens();
+    if (screens.size() > mScreenNum)
+    {
+        if (mPosition == ILXQtPanel::PositionTop ||
+            mPosition == ILXQtPanel::PositionBottom)
+            return screens.at(mScreenNum)->geometry().width();
+        else
+            return screens.at(mScreenNum)->geometry().height();
+    }
+    return 0;
 }
 
 
