@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
-        <translation>Zu Arbeitsfläche %1 wechseln</translation>
+        <translation>Wechsele zu Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
