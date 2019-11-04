@@ -674,7 +674,7 @@ void LXQtPanel::updateWmStrut()
 
 
 /************************************************
-  The panel can't be placed on boundary of two displays.
+  The panel can be placed only at the edges of the virtual screen.
   This function checks if the panel can be placed on the display
   @screenNum on @position.
  ************************************************/
@@ -683,12 +683,13 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
     const auto screens = QApplication::screens();
     if (screens.size() > screenNum)
     {
+        const QRect screenGeometry = screens.at(screenNum)->geometry();
         switch (position)
         {
         case LXQtPanel::PositionTop:
             for (const auto& screen : screens)
             {
-                if (screen->geometry().bottom() < screens.at(screenNum)->geometry().top())
+                if (screen->geometry().top() < screenGeometry.top())
                     return false;
             }
             return true;
@@ -696,7 +697,7 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
         case LXQtPanel::PositionBottom:
             for (const auto& screen : screens)
             {
-                if (screen->geometry().top() > screens.at(screenNum)->geometry().bottom())
+                if (screen->geometry().bottom() > screenGeometry.bottom())
                     return false;
             }
             return true;
@@ -704,7 +705,7 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
         case LXQtPanel::PositionLeft:
             for (const auto& screen : screens)
             {
-                if (screen->geometry().right() < screens.at(screenNum)->geometry().left())
+                if (screen->geometry().left() < screenGeometry.left())
                     return false;
             }
             return true;
@@ -712,7 +713,7 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
         case LXQtPanel::PositionRight:
             for (const auto& screen : screens)
             {
-                if (screen->geometry().left() > screens.at(screenNum)->geometry().right())
+                if (screen->geometry().right() > screenGeometry.right())
                     return false;
             }
             return true;
