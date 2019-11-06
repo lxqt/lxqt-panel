@@ -1332,7 +1332,7 @@ void LXQtPanel::hidePanel()
 
 void LXQtPanel::hidePanelWork()
 {
-    if (!geometry().contains(QCursor::pos()))
+    if (!testAttribute(Qt::WA_UnderMouse))
     {
         if (!mStandaloneWindows->isAnyWindowShown())
         {
