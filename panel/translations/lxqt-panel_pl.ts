@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Widoczny cienki odstęp, gdy pasek jest ukryty</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -313,7 +313,7 @@ Koloruj ikony na podstawie stylu (palety)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Konfiguruj Pluginy</translation>
+        <translation>Konfiguruj wtyczki</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
