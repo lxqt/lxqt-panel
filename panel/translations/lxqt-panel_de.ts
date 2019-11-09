@@ -237,42 +237,42 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
         <source>Top of desktop</source>
-        <translation>Oben auf dem Schreibtisch</translation>
+        <translation>Oben auf der Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation>Links auf dem Schreibtisch</translation>
+        <translation>Links auf der Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation>Rechts auf dem Schreibtisch</translation>
+        <translation>Rechts auf der Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Bottom of desktop</source>
-        <translation>Unten auf dem Schreibtisch</translation>
+        <translation>Unten auf der Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation>Oben auf dem Schreibtisch %1</translation>
+        <translation>Oben auf der Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation>Links auf dem Schreibtisch %1</translation>
+        <translation>Links auf dem Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation>Rechts auf dem Schreibtisch %1</translation>
+        <translation>Rechts auf der Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation>Unten auf dem Schreibtisch %1</translation>
+        <translation>Unten auf der Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
