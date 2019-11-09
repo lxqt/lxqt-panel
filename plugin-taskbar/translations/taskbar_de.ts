@@ -19,22 +19,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="610"/>
         <source>To &amp;Desktop</source>
-        <translation>Zum &amp;Schreibtisch</translation>
+        <translation>Zu Arbei&amp;tsfläche</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="612"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Alle Schreibtische</translation>
+        <translation>&amp;Alle Arbeitsflächen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="620"/>
         <source>Desktop &amp;%1</source>
-        <translation>Schreibtisch &amp;%1</translation>
+        <translation>Arbeitsfläche &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="627"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Zum ak&amp;tuellen Schreibtisch</translation>
+        <translation>Zur ak&amp;tuellen Arbeitsfläche</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="635"/>
@@ -135,12 +135,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Nur Fenster des Schreibtisches anzeigen</translation>
+        <translation>Nur Fenster der Arbeitsfläche anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Nur Fenster auf dem Bildschirm mit der &amp;Leiste anzeigen</translation>
+        <translation>Nur Fenster des  Bildschirms mit der &amp;Leiste anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Minimierte Fenster auf aktuellen Schreibtisch heben</translation>
+        <translation>Minimierte Fenster auf aktuelle Arbeitsfläche heben</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
