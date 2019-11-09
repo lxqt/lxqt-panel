@@ -6,17 +6,17 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation>Schreibtisch anzeigen</translation>
+        <translation>Arbeitsfläche anzeigen</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>Schreibtisch anzeigen</translation>
+        <translation>Arbeitsfläche anzeigen</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Schreibtisch anzeigen: Globales Tastaturkürzel &apos;%1&apos; kann nicht registriert werden</translation>
+        <translation>Arbeitsfläche anzeigen: Globales Tastaturkürzel &apos;%1&apos; kann nicht registriert werden</translation>
     </message>
 </context>
 </TS>
