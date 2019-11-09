@@ -229,6 +229,9 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
 
     loadPlugins();
 
+    // NOTE: Some (X11) WMs may need the geometry to be set before QWidget::show().
+    setPanelGeometry();
+
     show();
 
     // show it the first time, despite setting
