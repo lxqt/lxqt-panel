@@ -6,7 +6,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Einstellungen des Abstandhalters</translation>
+        <translation>Abstandhaltereinstellungen</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
