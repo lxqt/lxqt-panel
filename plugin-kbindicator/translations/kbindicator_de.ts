@@ -8,7 +8,7 @@
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
         <translatorcomment>This capital letter is printed on my keyboard.</translatorcomment>
-        <translation>A</translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="46"/>
@@ -21,7 +21,7 @@
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
         <translatorcomment>This digit is printed on my keyboard.</translatorcomment>
-        <translation>1</translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="52"/>
@@ -34,7 +34,7 @@
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
         <translatorcomment>From the word &quot;Rollen&quot;.</translatorcomment>
-        <translation>R</translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="59"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Umschaltrichtlinie</translation>
+        <translation>Umschaltregelung</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
