@@ -50,7 +50,7 @@
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation>Wählen Sie Standardterminal</translation>
+        <translation>Wählen Sie das Standardterminal</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
