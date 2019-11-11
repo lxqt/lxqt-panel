@@ -182,7 +182,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Roulette de la souris</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactivé</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Défiler vers le haut pour élever, vers le bas pour minimiser</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>Défiler vers le haut pour minimiser, vers le bas pour agrandir</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
