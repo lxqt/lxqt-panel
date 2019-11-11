@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Si coché, le widget ne sera qu&apos;un indicateur</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher uniquement le bureau actif</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
