@@ -53,6 +53,9 @@ bool Settings::showScrollLock() const
 bool Settings::showLayout() const
 { return m_settings->value(QStringLiteral("show_layout"), true).toBool(); }
 
+QString Settings::layoutFlagPattern() const
+{ return m_settings->value(QStringLiteral("layout_flag_pattern"), true).toString(); }
+
 void Settings::setShowCapLock(bool show)
 { m_settings->setValue(QStringLiteral("show_caps_lock"), show); }
 
@@ -64,6 +67,9 @@ void Settings::setShowScrollLock(bool show)
 
 void Settings::setShowLayout(bool show)
 { m_settings->setValue(QStringLiteral("show_layout"), show); }
+
+void Settings::setLayoutFlagPattern(const QString & layoutFlagPattern)
+{ m_settings->setValue(QStringLiteral("layout_flag_pattern"), layoutFlagPattern); }
 
 KeeperType Settings::keeperType() const
 {

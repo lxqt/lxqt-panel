@@ -28,6 +28,9 @@
 #include <QLabel>
 #include <QDebug>
 #include <QEvent>
+#include <QIcon>
+#include <QToolButton>
+#include <QFileInfo>
 #include "kbdstate.h"
 #include "content.h"
 
@@ -61,12 +64,11 @@ Content::Content(bool layoutEnabled):
     m_scrollLock->installEventFilter(this);
     layout()->addWidget(m_scrollLock);
 
-    m_layout = new QLabel;
+    m_layout = new QToolButton;
     m_layout->setObjectName(QStringLiteral("LayoutLabel"));
-    m_layout->setAlignment(Qt::AlignCenter);
-    m_layout->installEventFilter(this);
+    m_layout->setAutoRaise(true);
+    connect(m_layout, &QAbstractButton::released, this, [this] { emit controlClicked(Controls::Layout); });
     layout()->addWidget(m_layout);
-    m_layout->setEnabled(false);
 }
 
 Content::~Content()
@@ -78,12 +80,23 @@ bool Content::setup()
     m_numLock->setVisible(Settings::instance().showNumLock());
     m_scrollLock->setVisible(Settings::instance().showScrollLock());
     m_layout->setVisible(m_layoutEnabled && Settings::instance().showLayout());
+    m_layoutFlagPattern = Settings::instance().layoutFlagPattern();
     return true;
 }
 
 void Content::layoutChanged(const QString & sym, const QString & name, const QString & variant)
 {
     m_layout->setText(sym.toUpper());
+    const QString flag_file = m_layoutFlagPattern.arg(sym);
+    if (flag_file.isEmpty() || !QFileInfo::exists(flag_file))
+    {
+        m_layout->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        m_layout->setIcon({});
+    } else
+    {
+        m_layout->setIcon(QIcon{flag_file});
+        m_layout->setToolButtonStyle(m_layout->icon().pixmap(m_layout->iconSize()).isNull() ? Qt::ToolButtonTextOnly : Qt::ToolButtonIconOnly);
+    }
     QString txt = QStringLiteral("<html><table>\
     <tr><td>%1: </td><td>%3</td></tr>\
     <tr><td>%2: </td><td>%4</td></tr>\
@@ -123,9 +136,6 @@ bool Content::eventFilter(QObject *object, QEvent *event)
             emit controlClicked(Controls::Num);
         else if (object == m_scrollLock)
             emit controlClicked(Controls::Scroll);
-        else if(object == m_layout){
-            emit controlClicked(Controls::Layout);
-        }
     }
 
     return QWidget::eventFilter(object, event);

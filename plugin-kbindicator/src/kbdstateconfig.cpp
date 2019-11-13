@@ -44,6 +44,7 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
     connect(m_ui->showNum,    &QCheckBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->showScroll, &QCheckBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->showLayout, &QGroupBox::clicked, this, &KbdStateConfig::save);
+    connect(m_ui->layoutFlagPattern, &QLineEdit::textEdited, this, &KbdStateConfig::save);
 
     connect(m_ui->modes, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
         [this](int){
@@ -76,6 +77,7 @@ void KbdStateConfig::load()
     m_ui->showNum->setChecked(sets.showNumLock());
     m_ui->showScroll->setChecked(sets.showScrollLock());
     m_ui->showLayout->setChecked(sets.showLayout());
+    m_ui->layoutFlagPattern->setText(sets.layoutFlagPattern());
 
     switch(sets.keeperType()){
     case KeeperType::Global:
@@ -98,6 +100,7 @@ void KbdStateConfig::save()
     sets.setShowNumLock(m_ui->showNum->isChecked());
     sets.setShowScrollLock(m_ui->showScroll->isChecked());
     sets.setShowLayout(m_ui->showLayout->isChecked());
+    sets.setLayoutFlagPattern(m_ui->layoutFlagPattern->text());
 
     if (m_ui->switchGlobal->isChecked())
         sets.setKeeperType(KeeperType::Global);

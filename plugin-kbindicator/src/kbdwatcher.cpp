@@ -41,6 +41,8 @@ void KbdWatcher::setup()
 
     if (!m_keeper || m_keeper->type() != Settings::instance().keeperType()){
         createKeeper(Settings::instance().keeperType());
+    } else {
+        keeperChanged();
     }
 }
 

@@ -50,6 +50,7 @@ public:
     bool showNumLock() const;
     bool showScrollLock() const;
     bool showLayout() const;
+    QString layoutFlagPattern() const;
     KeeperType keeperType() const;
     void restore();
 
@@ -58,6 +59,7 @@ public:
     void setShowNumLock(bool show);
     void setShowScrollLock(bool show);
     void setShowLayout(bool show);
+    void setLayoutFlagPattern(const QString & layoutFlagPattern);
     void setKeeperType(KeeperType type) const;
 
 private:

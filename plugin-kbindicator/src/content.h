@@ -31,6 +31,7 @@
 #include "controls.h"
 
 class QLabel;
+class QToolButton;
 
 class Content : public QWidget
 {
@@ -55,10 +56,11 @@ signals:
     void controlClicked(Controls cnt);
 private:
     bool        m_layoutEnabled;
+    QString     m_layoutFlagPattern;
     QLabel     *m_capsLock;
     QLabel     *m_numLock;
     QLabel     *m_scrollLock;
-    QLabel     *m_layout;
+    QToolButton *m_layout;
 };
 
 #endif
