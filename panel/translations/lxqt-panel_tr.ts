@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Gizli panel için görünür ince kenar boşluğu</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
