@@ -126,10 +126,9 @@ bool Content::eventFilter(QObject *object, QEvent *event)
         else if(object == m_layout){
             emit controlClicked(Controls::Layout);
         }
-        return true;
     }
 
-    return QObject::eventFilter(object, event);
+    return QWidget::eventFilter(object, event);
 }
 
 void Content::showHorizontal()
