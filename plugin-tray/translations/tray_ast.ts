@@ -6,22 +6,22 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Axustes de la bandexa del sistema</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Xeneral</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation type="unfinished"></translation>
+        <translation>Espariu ente iconos:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
