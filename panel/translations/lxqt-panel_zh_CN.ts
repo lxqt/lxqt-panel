@@ -160,7 +160,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>为隐藏面板保留可见细边距</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
