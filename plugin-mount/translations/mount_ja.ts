@@ -19,7 +19,7 @@
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>挙動</translation>
+        <translation>動作</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
