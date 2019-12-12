@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>系统统计颜色</translation>
+        <translation>系统统计信息颜色</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
