@@ -65,10 +65,10 @@ LXQtCpuLoadConfiguration::~LXQtCpuLoadConfiguration()
 
 void LXQtCpuLoadConfiguration::fillBarOrientations()
 {
-    ui->barOrientationCOB->addItem(trUtf8("Bottom up"), QStringLiteral(BAR_ORIENT_BOTTOMUP));
-    ui->barOrientationCOB->addItem(trUtf8("Top down"), QStringLiteral(BAR_ORIENT_TOPDOWN));
-    ui->barOrientationCOB->addItem(trUtf8("Left to right"), QStringLiteral(BAR_ORIENT_LEFTRIGHT));
-    ui->barOrientationCOB->addItem(trUtf8("Right to left"), QStringLiteral(BAR_ORIENT_RIGHTLEFT));
+    ui->barOrientationCOB->addItem(tr("Bottom up"), QStringLiteral(BAR_ORIENT_BOTTOMUP));
+    ui->barOrientationCOB->addItem(tr("Top down"), QStringLiteral(BAR_ORIENT_TOPDOWN));
+    ui->barOrientationCOB->addItem(tr("Left to right"), QStringLiteral(BAR_ORIENT_LEFTRIGHT));
+    ui->barOrientationCOB->addItem(tr("Right to left"), QStringLiteral(BAR_ORIENT_RIGHTLEFT));
 }
 
 void LXQtCpuLoadConfiguration::loadSettings()
