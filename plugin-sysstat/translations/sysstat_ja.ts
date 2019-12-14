@@ -73,7 +73,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation>メモリー</translation>
+        <translation>メモリ</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation>データー</translation>
+        <translation>データ</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation>メモリー</translation>
+        <translation>メモリ</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
