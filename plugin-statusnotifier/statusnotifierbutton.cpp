@@ -198,7 +198,7 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                         QImage image((uchar*) iconPixmap.bytes.data(), iconPixmap.width,
                                      iconPixmap.height, QImage::Format_ARGB32);
 
-                        const uchar *end = image.constBits() + image.byteCount();
+                        const uchar *end = image.constBits() + image.sizeInBytes();
                         uchar *dest = reinterpret_cast<uchar*>(iconPixmap.bytes.data());
                         for (const uchar *src = image.constBits(); src < end; src += 4, dest += 4)
                             qToUnaligned(qToBigEndian<quint32>(qFromUnaligned<quint32>(src)), dest);

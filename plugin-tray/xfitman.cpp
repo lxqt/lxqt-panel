@@ -145,7 +145,7 @@ bool XfitMan::getClientIcon(Window _wid, QPixmap& _pixreturn) const
     }
 
     QImage img (data[0], data[1], QImage::Format_ARGB32);
-    for (int i=0; i<img.byteCount()/4; ++i)
+    for (int i=0; i<img.sizeInBytes()/4; ++i)
         ((uint*)img.bits())[i] = data[i+2];
 
     _pixreturn = QPixmap::fromImage(img);
@@ -174,7 +174,7 @@ bool XfitMan::getClientIcon(Window _wid, QIcon *icon) const
     {
         QImage img (d[0], d[1], QImage::Format_ARGB32);
         d+=2;
-        for (int i=0; i<img.byteCount()/4; ++i, ++d)
+        for (int i=0; i<img.sizeInBytes()/4; ++i, ++d)
             ((uint*)img.bits())[i] = *d;
 
         icon->addPixmap(QPixmap::fromImage(img));
