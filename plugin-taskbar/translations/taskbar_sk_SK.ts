@@ -187,12 +187,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolečko myši</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Prah prírastku pri otočení kolečka</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Vypnuté</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočením smerom hore preniesť do popredia, smerom dole minimalizovať</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočením smerom hore minimalizovať, smerom dole preniesť do popredia</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
