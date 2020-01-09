@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="102"/>
         <source>Search...</source>
-        <translation>Keres...</translation>
+        <translation>Keresés...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="110"/>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation>Keres</translation>
+        <translation type="unfinished">Keresés</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximum elem szélesség:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Maximálisan látható tételek:</translation>
+        <translation type="unfinished">Maximálisan látható elemek:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -109,17 +109,17 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation>Visszaállít</translation>
+        <translation type="unfinished">Visszaállítás</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>Ikonfájl választás</translation>
+        <translation type="unfinished">Ikon választása</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation>Képek (*.svg *.png)</translation>
+        <translation type="unfinished">Képek (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
