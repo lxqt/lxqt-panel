@@ -68,7 +68,7 @@ Content::Content(bool layoutEnabled):
     m_layout->setObjectName(QStringLiteral("LayoutLabel"));
     m_layout->setAutoRaise(true);
     connect(m_layout, &QAbstractButton::released, this, [this] { emit controlClicked(Controls::Layout); });
-    layout()->addWidget(m_layout);
+    box->addWidget(m_layout, 0, Qt::AlignCenter);
 }
 
 Content::~Content()
