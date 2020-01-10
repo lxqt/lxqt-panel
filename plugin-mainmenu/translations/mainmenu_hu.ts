@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="110"/>
         <source>Show/hide main menu</source>
-        <translation>Menü láttatás/elrejtés</translation>
+        <translation>Menü mutatás/elrejtés</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Billentyű nyomása a megjegyzéshez:</translation>
+        <translation>Gyorsbillentyű beállítása:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
