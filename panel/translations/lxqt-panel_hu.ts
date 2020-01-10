@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Bővítmény hozzáadás</translation>
+        <translation>Bővítmény hozzáadása</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,12 +16,12 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Elem hozzáadás</translation>
+        <translation>Elem hozzáadása</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation>Bezár</translation>
+        <translation>Bezárás</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Panelbeállítás</translation>
+        <translation>Panelbeállítások</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>Panelbeállítás</translation>
+        <translation>Panelbeállítások</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
@@ -82,13 +82,13 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation>pixel</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation> pixel</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -131,12 +131,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vékony margó a rejtett panelnél</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>A maximalizált ablakok a panel alá nem lóghatnak</translation>
+        <translation>A maximalizált ablakok nem lóghatnak a panel alá</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>Animáció tartam:</translation>
+        <translation>Animáció időtartam:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorok:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
@@ -210,7 +210,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="516"/>
         <source>Background image:</source>
-        <translation>Háttér kép:</translation>
+        <translation>Háttérkép:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="568"/>
@@ -227,52 +227,52 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikontéma &amp;felülbírálása</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikontéma a panelhez:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
         <source>Top of desktop</source>
-        <translation>Az asztal tetejére</translation>
+        <translation>Az asztal tetején</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation>Az asztal bal oldalára</translation>
+        <translation>Az asztal bal oldalán</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation>Az asztal jobb oldalára</translation>
+        <translation>Az asztal jobb oldalán</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Bottom of desktop</source>
-        <translation>Az asztal aljára</translation>
+        <translation>Az asztal alján</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation>A(z) %1. asztal tetejére</translation>
+        <translation>A(z) %1. asztal tetején</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation>A(z) %1. asztal bal oldalára</translation>
+        <translation>A(z) %1. asztal bal oldalán</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation>A(z) %1. asztal jobb oldalára</translation>
+        <translation>A(z) %1. asztal jobb oldalán</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation>A(z) %1. asztal aljára</translation>
+        <translation>A(z) %1. asztal alján</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
@@ -306,7 +306,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Bővítménybeállítás</translation>
+        <translation type="unfinished">Bővítménybeállítások</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -316,7 +316,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Föl</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -359,7 +359,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1110"/>
         <source>Configure Panel</source>
-        <translation>Panelbeállítás</translation>
+        <translation>Panelbeállítások</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
@@ -375,7 +375,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1128"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Panel törlés</translation>
+        <translation>Panel törlése</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1133"/>
@@ -386,14 +386,14 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1286"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Panel törlés</translation>
+        <translation>Panel törlése</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1287"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>A panel törlése végleges.
-Valóban töröljük?</translation>
+Valóban törli?</translation>
     </message>
 </context>
 <context>
