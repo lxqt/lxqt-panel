@@ -72,7 +72,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation>Hossz:</translation>
+        <translation>Hosszúság:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;utomata elrejtés</translation>
+        <translation>A&amp;utomatikus elrejtés</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -121,7 +121,7 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>Nulla esetén nincs várakozás</translation>
+        <translation>Nulla esetén nincs késleltetés</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished">Vékony margó a rejtett panelnél</translation>
+        <translation type="unfinished">Vékony margó amikor rejtve van a panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -277,12 +277,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <source>Top</source>
-        <translation>Fenn</translation>
+        <translation>Fent</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="219"/>
         <source>Bottom</source>
-        <translation>Lenn</translation>
+        <translation>Lent</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="436"/>
@@ -293,7 +293,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="470"/>
         <source>Pick image</source>
-        <translation>Képválasztás</translation>
+        <translation>Kép kiválasztása</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="470"/>
@@ -311,7 +311,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Megjegyzés: ezek a változtatások maradandóak.</translation>
+        <translation>Megjegyzés: ezeket a változtatásokat nem lehet visszaállítani.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
