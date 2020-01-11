@@ -55,12 +55,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Billentyűállapot beállítás</translation>
+        <translation type="unfinished">Billentyűzetállapot beállítás</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Jelzőállapotok</translation>
+        <translation>Jelzőállapot</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
@@ -80,12 +80,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Billentyűkiosztás jelző</translation>
+        <translation>Billentyűzetkiosztás jelző</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Őrváltó</translation>
+        <translation type="unfinished">Szolgáltatásváltás</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
