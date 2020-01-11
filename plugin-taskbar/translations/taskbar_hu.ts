@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="635"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Mozgatás</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Resi&amp;ze</source>
-        <translation type="unfinished"></translation>
+        <translation>Átmé&amp;retezés</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="645"/>
@@ -135,12 +135,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Csak az asztal ablakjai látszanak</translation>
+        <translation>Csak az asztal ablakai látszanak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Csak a &amp;panel képernyőjének ablakjai látszanak</translation>
+        <translation>Csak a &amp;panel képernyőjének ablakai látszanak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Egérre felugró ablak</translation>
+        <translation type="unfinished">Egérre felugró ablak</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
@@ -182,17 +182,17 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="194"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="220"/>
         <source> px</source>
-        <translation> pixel</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Egérkerék</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">A kerék küszöbértéke</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Bezárás középkattintásra</translation>
+        <translation>Bezárás középső kattintásra</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Kikapcsolva</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Görgetés felfelé a felengedéshez, le a minimalizáláshoz</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Görgetés felfelé a minimalizáláshoz, le a felengedéshez</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
