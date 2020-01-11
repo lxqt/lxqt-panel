@@ -6,7 +6,7 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM tree</source>
-        <translation>DOM panel fa</translation>
+        <translation>Panel DOM fa</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
