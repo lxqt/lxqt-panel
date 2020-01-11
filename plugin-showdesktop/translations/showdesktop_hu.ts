@@ -6,17 +6,17 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation>Asztalmegjelenítés</translation>
+        <translation>Asztal megjelenítése</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Asztalmegjelenítés: A &apos;%1&apos; gyorsbillentyű nem regisztrálható</translation>
+        <translation>Asztalmegjelenítés: A &apos;%1&apos; gyorsbillentyű nem beállítható</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>Asztalmegjelenítés</translation>
+        <translation>Asztal megjelenítése</translation>
     </message>
 </context>
 </TS>
