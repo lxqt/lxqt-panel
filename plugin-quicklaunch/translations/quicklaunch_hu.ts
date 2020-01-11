@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="226"/>
         <source>Drop Error</source>
-        <translation>Ejtési hiba</translation>
+        <translation type="unfinished">Ejtési hiba</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
@@ -18,7 +18,7 @@
         <source>Drop application
 icons here</source>
         <translation>Ejts ide
-indító ikont</translation>
+indító ikonokat</translation>
     </message>
 </context>
 <context>
