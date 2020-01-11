@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Asztalváltó beállítás</translation>
+        <translation>Asztalváltó beállítások</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ha be van jelölve, nem lehet asztalt váltani vele</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Csak az aktív asztal mutatása</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
