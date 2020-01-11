@@ -16,17 +16,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Frissítési köz (másodperc)</translation>
+        <translation>Frissítési időköz (másodperc)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Hősáv szélesség</translation>
+        <translation>Sáv szélessége</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
         <source>Temperature scale</source>
-        <translation>Hőfok skálaérték</translation>
+        <translation>Mértékegység</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
@@ -41,12 +41,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Villogjon az állapotsáv, ha a hőmérséklet túl magas</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Nagy hőfoknál figyelmeztetés</translation>
+        <translation>Magas hőfoknál figyelmeztetés</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
