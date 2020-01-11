@@ -6,12 +6,12 @@
     <message>
         <location filename="../directorymenu.cpp" line="125"/>
         <source>Open</source>
-        <translation>Nyit</translation>
+        <translation>Megnyitás</translation>
     </message>
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitás terminálban</translation>
     </message>
 </context>
 <context>
@@ -44,23 +44,23 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminál</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alapértelmezett terminál választása</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
-        <translation>Aapkönyvtár kijelölés</translation>
+        <translation>Aapkönyvtár kijelölése</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Choose Icon</source>
-        <translation>Ikon kijelölés</translation>
+        <translation>Ikon kiválasztása</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
