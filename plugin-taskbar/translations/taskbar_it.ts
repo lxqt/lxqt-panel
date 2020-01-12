@@ -182,12 +182,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotellina del mouse</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Soglia</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="207"/>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Disabilitata</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrolla insù per alzare, in giù per minimizzare</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrolla insù per minimizzare, in giù per alzare</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
