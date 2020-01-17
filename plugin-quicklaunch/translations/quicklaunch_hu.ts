@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="226"/>
         <source>Drop Error</source>
-        <translation type="unfinished">Ejtési hiba</translation>
+        <translation>Ejtési hiba</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
