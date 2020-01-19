@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhetőeszköz-kezelő</translation>
+        <translation type="unfinished">Cserélhető eszköz kezelő</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Cserélhető eszközbeállítás</translation>
+        <translation type="unfinished">Cserélhető eszköz beállítás</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhetőeszköz kezelő</translation>
+        <translation>Cserélhető eszköz kezelő</translation>
     </message>
 </context>
 <context>
@@ -71,7 +71,7 @@
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhetőeszköz kezelő</translation>
+        <translation>Cserélhető eszköz kezelő</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
