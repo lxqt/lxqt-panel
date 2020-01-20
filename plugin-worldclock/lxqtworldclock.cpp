@@ -96,6 +96,9 @@ void LXQtWorldClock::updateTimeText()
     QTimeZone timeZone(timeZoneName.toLatin1());
     QDateTime tzNow = now.toTimeZone(timeZone);
 
+    QString dateFormat = QLatin1String("yyyy-MM-dd");
+    mContent->setToolTip(tzNow.toString(preformat(dateFormat, timeZone, tzNow)));
+
     bool isUpToDate(true);
     if (!mShownTime.isValid()) // first time or forced update
     {
