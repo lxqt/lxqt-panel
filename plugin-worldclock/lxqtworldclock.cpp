@@ -137,7 +137,6 @@ void LXQtWorldClock::updateTimeText()
     {
         const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
-        mMainWidget->setToolTip(tzNow.toString(preformat(mTooltipFormat, timeZone, tzNow)));
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
@@ -241,9 +240,6 @@ void LXQtWorldClock::settingsChanged()
     bool datePadDay = _settings->value(QLatin1String("datePadDay"), false).toBool();
     bool dateLongNames = _settings->value(QLatin1String("dateLongNames"), false).toBool();
 
-    // tooltip
-    bool showTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
-
     // advanced
     QString customFormat = _settings->value(QLatin1String("customFormat"), tr("'<b>'HH:mm:ss'</b><br/><font size=\"-2\">'ddd, d MMM yyyy'<br/>'TT'</font>'")).toString();
 
@@ -323,44 +319,6 @@ void LXQtWorldClock::settingsChanged()
             else // if (datePosition == QLatin1String("after"))
                 mFormat = mFormat + QLatin1String(" ") + datePortion;
         }
-
-        if (showTooltip)
-		{
-			QString tooltipPortion;
-			if (dateFormatType == QLatin1String("short"))
-				tooltipPortion = locale.dateFormat(QLocale::ShortFormat);
-			else if (dateFormatType == QLatin1String("long"))
-				tooltipPortion = locale.dateFormat(QLocale::LongFormat);
-			else if (dateFormatType == QLatin1String("iso"))
-				tooltipPortion = QLatin1String("yyyy-MM-dd");
-			else // if (dateFormatType == QLatin1String("custom"))
-			{
-				QString tooltipPortionOrder;
-				QString dateLocale = locale.dateFormat(QLocale::ShortFormat).toLower();
-				int yearIndex = dateLocale.indexOf(QLatin1String("y"));
-				int monthIndex = dateLocale.indexOf(QLatin1String("m"));
-				int dayIndex = dateLocale.indexOf(QLatin1String("d"));
-				if (yearIndex < dayIndex)
-				// Big-endian (year, month, day) (yyyy MMMM dd, dddd) -> in some Asia countires like China or Japan
-					tooltipPortionOrder = QLatin1String("%1%2%3 %4%5%6");
-				else if (monthIndex < dayIndex)
-				// Middle-endian (month, day, year) (dddd, MMMM dd yyyy) -> USA
-					tooltipPortionOrder = QLatin1String("%6%5%3 %4%2%1");
-				else
-				// Little-endian (day, month, year) (dddd, dd MMMM yyyy) -> most of Europe
-					tooltipPortionOrder = QLatin1String("%6%5%4 %3%2%1");
-				tooltipPortion = tooltipPortionOrder.arg(dateShowYear ? QLatin1String("yyyy") : QLatin1String("")).arg(dateShowYear ? QLatin1String(" ") : QLatin1String("")).arg(dateLongNames ? QLatin1String("MMMM") : QLatin1String("MMM")).arg(datePadDay ? QLatin1String("dd") : QLatin1String("d")).arg(dateShowDoW ? QLatin1String(", ") : QLatin1String("")).arg(dateShowDoW ? (dateLongNames ? QLatin1String("dddd") : QLatin1String("ddd")) : QLatin1String(""));
-			}
-
-			if (datePosition == QLatin1String("below"))
-				mTooltipFormat = mFormat + QLatin1String("'<br/>'") + tooltipPortion;
-			else if (datePosition == QLatin1String("above"))
-				mTooltipFormat = tooltipPortion + QLatin1String("'<br/>'") + mFormat;
-			else if (datePosition == QLatin1String("before"))
-				mTooltipFormat = tooltipPortion + QLatin1String(" ") + mFormat;
-			else // if (datePosition == QLatin1String("after"))
-				mTooltipFormat = mFormat + QLatin1String(" ") + tooltipPortion;
-		}
     }
 
 
