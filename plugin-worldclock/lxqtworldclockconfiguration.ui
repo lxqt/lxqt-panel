@@ -104,6 +104,13 @@
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QCheckBox" name="showTooltipCB">
+               <property name="text">
+                <string>Sho&amp;Show tooltip</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -573,7 +580,8 @@
   <tabstop>timeFormatCB</tabstop>
   <tabstop>timeShowSecondsCB</tabstop>
   <tabstop>timePadHourCB</tabstop>
-  <tabstop>timeAMPMCB</tabstop>
+  <tabstop>showTooltipCB</tabstop>
+  <tabstop>timeShowSecondsCB</tabstop>
   <tabstop>timezoneGB</tabstop>
   <tabstop>timezonePositionCB</tabstop>
   <tabstop>timezoneFormatCB</tabstop>

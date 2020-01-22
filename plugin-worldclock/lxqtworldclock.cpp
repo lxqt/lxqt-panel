@@ -137,6 +137,13 @@ void LXQtWorldClock::updateTimeText()
     {
         const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
+        PluginSettings *_settings = settings();
+        bool showTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
+
+        if (!showTooltip)
+		{
+        	mMainWidget->setToolTip(tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
+	    }
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
