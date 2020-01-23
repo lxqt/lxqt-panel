@@ -40,7 +40,7 @@
 #include <QScopedArrayPointer>
 #include <QTimer>
 #include <QWheelEvent>
-#include <iostream>
+
 
 LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -142,7 +142,7 @@ void LXQtWorldClock::updateTimeText()
 	    }
         else
         {
-        	mMainWidget->setToolTip("");
+        	mMainWidget->setToolTip(QLatin1String(""));
         }
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
