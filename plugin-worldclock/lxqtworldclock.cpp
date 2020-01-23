@@ -137,10 +137,8 @@ void LXQtWorldClock::updateTimeText()
     {
         const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
-        PluginSettings *_settings = settings();
-        bool showTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
 
-        if (!showTooltip)
+        if (mShowTooltip)
 		{
         	mMainWidget->setToolTip(tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
 	    }
@@ -368,6 +366,8 @@ void LXQtWorldClock::settingsChanged()
         mPopup->adjustSize();
         mPopup->setGeometry(calculatePopupWindowPos(mPopup->size()));
     }
+
+    mShowTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
 
     setTimeText();
 }

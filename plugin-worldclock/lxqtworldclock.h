@@ -85,6 +85,7 @@ private:
 
     bool mAutoRotate;
     bool mShowWeekNumber;
+    bool mShowTooltip;
     QLabel *mPopupContent;
 
     QDateTime mShownTime;
