@@ -112,7 +112,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Выравнивание &amp;&amp; расположение</translation>
+        <translation>Выравнивание и расположение</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
@@ -155,12 +155,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Показать с задержкой:</translation>
+        <translation>Показывать с задержкой:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Оставлять тонкую видимую полосу при скрытии панели</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
@@ -224,7 +224,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation>Тема значков панели:</translation>
+        <translation>Тема значков панелей:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="417"/>
@@ -318,7 +318,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Примечание: изменения, сделанные на этой странице, нельзя сбросить.</translation>
+        <translation>Примечание: изменения, сделанные на этой вкладке, нельзя сбросить.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -387,7 +387,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1133"/>
         <source>Lock This Panel</source>
-        <translation>Закрепить эту панель</translation>
+        <translation>Закрепить панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1286"/>
