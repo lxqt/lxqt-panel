@@ -40,7 +40,7 @@
 #include <QScopedArrayPointer>
 #include <QTimer>
 #include <QWheelEvent>
-
+#include <iostream>
 
 LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
@@ -132,16 +132,18 @@ void LXQtWorldClock::updateTimeText()
             mShownTime = tzNow.addSecs(-tzNow.time().minute() * 60 - tzNow.time().second());
         }
     }
-
     if (!isUpToDate)
     {
         const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
-
         if (mShowTooltip)
 		{
         	mMainWidget->setToolTip(tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
 	    }
+        else
+        {
+        	mMainWidget->setToolTip("");
+        }
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
@@ -228,7 +230,7 @@ void LXQtWorldClock::settingsChanged()
     bool timeShowSeconds = _settings->value(QLatin1String("timeShowSeconds"), false).toBool();
     bool timePadHour = _settings->value(QLatin1String("timePadHour"), false).toBool();
     bool timeAMPM = _settings->value(QLatin1String("timeAMPM"), false).toBool();
-
+    mShowTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
     // timezone
     bool showTimezone = _settings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected;
 
@@ -366,8 +368,6 @@ void LXQtWorldClock::settingsChanged()
         mPopup->adjustSize();
         mPopup->setGeometry(calculatePopupWindowPos(mPopup->size()));
     }
-
-    mShowTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
 
     setTimeText();
 }
