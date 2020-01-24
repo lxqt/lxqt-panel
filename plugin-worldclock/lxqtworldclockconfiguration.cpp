@@ -56,7 +56,6 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     connect(ui->timeShowSecondsCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->timePadHourCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->timeAMPMCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->showTooltipCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->timezoneGB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->timezonePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
     connect(ui->timezoneFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
@@ -86,6 +85,7 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
 
     connect(ui->autorotateCB, SIGNAL(clicked()), SLOT(saveSettings()));
     connect(ui->showWeekNumberCB, &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->showTooltipCB, SIGNAL(clicked()), SLOT(saveSettings()));
 
     loadSettings();
 }
@@ -265,7 +265,6 @@ void LXQtWorldClockConfiguration::saveSettings()
     settings().setValue(QLatin1String("timeShowSeconds"), ui->timeShowSecondsCB->isChecked());
     settings().setValue(QLatin1String("timePadHour"), ui->timePadHourCB->isChecked());
     settings().setValue(QLatin1String("timeAMPM"), ui->timeAMPMCB->isChecked());
-    settings().setValue(QLatin1String("showTooltip"), ui->showTooltipCB->isChecked());
 
     settings().setValue(QLatin1String("showTimezone"), ui->timezoneGB->isChecked());
 

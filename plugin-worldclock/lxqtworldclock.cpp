@@ -50,6 +50,7 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mUpdateInterval(1),
     mAutoRotate(true),
     mShowWeekNumber(true),
+	mShowTooltip(false),
     mPopupContent(nullptr)
 {
     mMainWidget = new QWidget();
