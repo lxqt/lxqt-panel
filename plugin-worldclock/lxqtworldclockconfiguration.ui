@@ -532,7 +532,7 @@
        <item>
         <widget class="QCheckBox" name="showWeekNumberCB">
          <property name="text">
-          <string>Show &amp;week number</string>
+          <string>Show &amp;week numbers in popup calendar</string>
          </property>
          <property name="checked">
           <bool>true</bool>
