@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Cserélhető eszköz kezelő</translation>
+        <translation type="unfinished">Cserélhetőeszköz-kezelő</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished">Cserélhető eszköz beállítás</translation>
+        <translation type="unfinished">Cserélhető eszköz beállítások</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhető eszköz kezelő</translation>
+        <translation>Cserélhetőeszköz-kezelő</translation>
     </message>
 </context>
 <context>
@@ -65,13 +65,13 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>A &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; felcsatolása sikertelen: %2</translation>
+        <translation>A &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; csatolása sikertelen: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Cserélhető eszköz kezelő</translation>
+        <translation>Cserélhetőeszköz-kezelő</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
