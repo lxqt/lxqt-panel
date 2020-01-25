@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>686</height>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -540,12 +540,12 @@
         </widget>
        </item>
        <item>
-          <widget class="QCheckBox" name="showTooltipCB">
-           <property name="text">
-            <string>S&amp;how tooltip</string>
-           </property>
-          </widget>
-         </item>
+        <widget class="QCheckBox" name="showTooltipCB">
+         <property name="text">
+          <string>S&amp;how tooltip</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
@@ -580,8 +580,7 @@
   <tabstop>timeFormatCB</tabstop>
   <tabstop>timeShowSecondsCB</tabstop>
   <tabstop>timePadHourCB</tabstop>
-  <tabstop>showTooltipCB</tabstop>
-  <tabstop>timeShowSecondsCB</tabstop>
+  <tabstop>timeAMPMCB</tabstop>
   <tabstop>timezoneGB</tabstop>
   <tabstop>timezonePositionCB</tabstop>
   <tabstop>timezoneFormatCB</tabstop>
@@ -602,7 +601,8 @@
   <tabstop>moveUpPB</tabstop>
   <tabstop>moveDownPB</tabstop>
   <tabstop>autorotateCB</tabstop>
-  <tabstop>buttons</tabstop>
+  <tabstop>showWeekNumberCB</tabstop>
+  <tabstop>showTooltipCB</tabstop>
  </tabstops>
  <resources/>
  <connections>
