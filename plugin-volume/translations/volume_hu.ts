@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Hangerőszabályozó: A %1 gyorsbillentyű regisztrálhatatlan</translation>
+        <translation>Hangerőszabályozó: A %1 gyorsbillentyű nincs beállítva</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>A hangerőváltozásnál értesítsen</translation>
+        <translation>A hangerőváltozásnál mindig értesítsen</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Értesítsen amikor a billentyűzetről változtatom a hangerőt</translation>
+        <translation>Értesítés amikor a billentyűzetről változtatja a hangerőt</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>Keverő futtatása</translation>
+        <translation>Keverő indítása</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
