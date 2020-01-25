@@ -155,7 +155,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Az ablakok körbe görgetése</translation>
+        <translation>Az ablakok körbeléptetése</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Ikonok az ablakosztályokból, ha vannak</translation>
+        <translation>Ikonok az ablakosztályokból, ha elérhetők</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="233"/>
