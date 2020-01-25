@@ -55,7 +55,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation type="unfinished">Billentyűzetállapot beállítás</translation>
+        <translation type="unfinished">Billentyűzetállapot beállítások</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
