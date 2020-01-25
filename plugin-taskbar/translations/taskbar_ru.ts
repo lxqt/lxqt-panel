@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>Переключать окна колесиком мыши</translation>
+        <translation>Переключать окна колёсиком мыши</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
