@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Asztalváltó beállítások</translation>
+        <translation>Asztalváltó beállításai</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished">Csak az aktív asztal mutatása</translation>
+        <translation type="unfinished">Csak az aktív asztal megjelenítése</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Asztal nevek</translation>
+        <translation>Asztalnevek</translation>
     </message>
 </context>
 </TS>
