@@ -11,22 +11,22 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Általános</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonok közötti távolság:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonok rendezése ablakosztály szerint</translation>
     </message>
 </context>
 </TS>
