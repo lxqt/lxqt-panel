@@ -50,10 +50,11 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mUpdateInterval(1),
     mAutoRotate(true),
     mShowWeekNumber(true),
-	mShowTooltip(false),
+    mShowTooltip(false),
     mPopupContent(nullptr)
 {
     mMainWidget = new QWidget();
+    mMainWidget->installEventFilter(this);
     mContent = new ActiveLabel();
     mRotatedWidget = new LXQt::RotatedWidget(*mContent, mMainWidget);
 
@@ -137,14 +138,6 @@ void LXQtWorldClock::updateTimeText()
     {
         const QSize old_size = mContent->sizeHint();
         mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
-        if (mShowTooltip)
-		{
-        	mMainWidget->setToolTip(tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
-	    }
-        else
-        {
-        	mMainWidget->setToolTip(QLatin1String(""));
-        }
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
@@ -643,4 +636,21 @@ bool LXQtWorldClockPopup::event(QEvent *event)
         emit deactivated();
 
     return QDialog::event(event);
+}
+
+bool LXQtWorldClock::eventFilter(QObject * watched, QEvent * event)
+{
+    if (mShowTooltip && watched == mMainWidget && event->type() == QEvent::ToolTip)
+    {
+        QHelpEvent *helpEvent = static_cast<QHelpEvent*>(event);
+        QDateTime now = QDateTime::currentDateTime();
+        QString timeZoneName = mActiveTimeZone;
+        if (timeZoneName == QLatin1String("local"))
+            timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+        QTimeZone timeZone(timeZoneName.toLatin1());
+        QDateTime tzNow = now.toTimeZone(timeZone);
+        QToolTip::showText(helpEvent->globalPos(), tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
+        return false;
+    }
+    return QObject::eventFilter(watched, event);
 }

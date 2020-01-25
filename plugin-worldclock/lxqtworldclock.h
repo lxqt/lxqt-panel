@@ -33,6 +33,7 @@
 
 #include <QDialog>
 #include <QLabel>
+#include <QToolTip>
 
 #include <LXQt/RotatedWidget>
 
@@ -61,6 +62,7 @@ public:
     virtual void settingsChanged();
     virtual void realign();
     QDialog *configureDialog();
+    bool eventFilter(QObject * watched, QEvent * event);
 
 private slots:
     void timeout();
