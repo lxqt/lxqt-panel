@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Frissítési köz:</translation>
+        <translation>Frissítési időköz:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -49,22 +49,22 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>Felfele</translation>
+        <translation>Lentről fel</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
-        <translation>Lefele</translation>
+        <translation>Fentről le</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation>Jobbra</translation>
+        <translation>Balról jobbra</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation>Balra</translation>
+        <translation>Jobbró balra</translation>
     </message>
 </context>
 </TS>
