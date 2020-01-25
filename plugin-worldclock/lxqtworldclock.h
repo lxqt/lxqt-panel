@@ -33,7 +33,7 @@
 
 #include <QDialog>
 #include <QLabel>
-#include <QToolTip>
+
 
 #include <LXQt/RotatedWidget>
 
