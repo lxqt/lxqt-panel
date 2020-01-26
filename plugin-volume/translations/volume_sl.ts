@@ -6,32 +6,32 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvišaj glasnost</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Znižaj glasnost</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Izklopi/vklopi zvok</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavitev glasnosti: Sledeče bližnjice ne morejo biti registrirane: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Glasnost: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(utišan)</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavitve glasnosti</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Utišaj s srednjim klikom</translation>
+        <translation>Utišaj s srednjim klikom na ikono</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Pokaži z miškinim klikom</translation>
+        <translation>Odpri drsnik z levim klikom</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži obvestilo ob vsaki spremembi glasnosti</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Obvesti, ko se prek tipkovnice nastavi glasnost</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
         <source>External Mixer</source>
-        <translation>Zunanji mešalnik</translation>
+        <translation>Zunanji mešalnik zvoka</translation>
     </message>
 </context>
 <context>
@@ -107,12 +107,12 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaženi mešalnik zvoka</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Mi&amp;xer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mešalnik</translation>
     </message>
 </context>
 </TS>
