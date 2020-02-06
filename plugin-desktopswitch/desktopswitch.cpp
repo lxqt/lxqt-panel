@@ -265,26 +265,37 @@ void DesktopSwitch::settingsChanged()
     mShowOnlyActive = show_only_active;
     mLabelType = static_cast<DesktopSwitchButton::LabelType>(label_type);
     if (need_realign)
-        realign();
+    {
+        // WARNING: Changing the desktop layout may call "LXQtPanel::realign", which calls
+        // "DesktopSwitch::realign()". Therefore, the desktop layout should not be changed
+        // inside the latter method.
+        int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
+        if (panel()->isHorizontal())
+        {
+            mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+        }
+        else
+        {
+            mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+        }
+        realign(); // in case it isn't called when the desktop layout changes
+    }
     if (need_refresh)
         refresh();
 }
 
 void DesktopSwitch::realign()
 {
-    int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
     mLayout->setEnabled(false);
     if (panel()->isHorizontal())
     {
         mLayout->setRowCount(mShowOnlyActive ? 1 : mRows);
         mLayout->setColumnCount(0);
-        mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }
     else
     {
         mLayout->setColumnCount(mShowOnlyActive ? 1 : mRows);
         mLayout->setRowCount(0);
-        mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
     }
     mLayout->setEnabled(true);
 }
