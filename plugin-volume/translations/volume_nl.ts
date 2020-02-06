@@ -6,17 +6,17 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation>Geluidssterkte verhogen</translation>
+        <translation>Verhoog geluidssterkte</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation>Geluidssterkte verlagen</translation>
+        <translation>Verlaag geluidssterkte</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Demp/ontdemp de geluidssterkte</translation>
+        <translation>Demp/ontdemp geluidssterkte</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Instellingen van geluidssterktebeheer</translation>
+        <translation>Instellingen geluidssterktebeheer</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Dempen bij middelklik</translation>
+        <translation>Demp bij middelklik</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen in geluidssterkte vanaf toetsenbord altijd melden</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="54"/>
         <source>Launch mixer</source>
-        <translation>Mengpaneel starten</translation>
+        <translation>Start mengpaneel</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
