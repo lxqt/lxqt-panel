@@ -597,6 +597,22 @@ void LXQtTaskGroup::mouseReleaseEvent(QMouseEvent* event)
 /************************************************
 
  ************************************************/
+
+void LXQtTaskGroup::wheelEvent(QWheelEvent* event)
+{
+    if (mSingleButton)
+    {
+        LXQtTaskButton::wheelEvent(event);
+        return;
+    }
+    // if there are multiple buttons, just show the popup
+    setPopupVisible(true);
+    QToolButton::wheelEvent(event);
+}
+
+/************************************************
+
+ ************************************************/
 bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 { // returns true if the class is preserved
     bool needsRefreshVisibility{false};

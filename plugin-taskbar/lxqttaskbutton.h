@@ -122,6 +122,8 @@ protected:
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
 private:
+    void moveApplicationToPrevNextDesktop(bool next);
+
     WId mWindow;
     bool mUrgencyHint;
     QPoint mDragStartPosition;
@@ -129,10 +131,14 @@ private:
     LXQtTaskBar * mParentTaskBar;
     ILXQtPanelPlugin * mPlugin;
     int mIconSize;
+    int mWheelDelta;
 
     // Timer for when draggind something into a button (the button's window
     // must be activated so that the use can continue dragging to the window
     QTimer * mDNDTimer;
+
+    // Timer for distinguishing between separate mouse wheel rotations
+    QTimer * mWheelTimer;
 
 private slots:
     void activateWithDraggable();

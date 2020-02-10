@@ -49,6 +49,8 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui->wheelEventsActionCB->addItem(tr("Cycle windows on wheel scrolling"), 1);
     ui->wheelEventsActionCB->addItem(tr("Scroll up to raise, down to minimize"), 2);
     ui->wheelEventsActionCB->addItem(tr("Scroll up to minimize, down to raise"), 3);
+    ui->wheelEventsActionCB->addItem(tr("Scroll up to move to next desktop, down to previous"), 4);
+    ui->wheelEventsActionCB->addItem(tr("Scroll up to move to previous desktop, down to next"), 5);
 
     ui->showDesktopNumCB->addItem(tr("Current"), 0);
     //Note: in KWindowSystem desktops are numbered from 1..N
