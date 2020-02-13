@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>686</height>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -540,6 +540,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="showTooltipCB">
+         <property name="text">
+          <string>S&amp;how tooltip</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -594,7 +601,8 @@
   <tabstop>moveUpPB</tabstop>
   <tabstop>moveDownPB</tabstop>
   <tabstop>autorotateCB</tabstop>
-  <tabstop>buttons</tabstop>
+  <tabstop>showWeekNumberCB</tabstop>
+  <tabstop>showTooltipCB</tabstop>
  </tabstops>
  <resources/>
  <connections>

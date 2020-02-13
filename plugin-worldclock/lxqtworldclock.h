@@ -34,6 +34,7 @@
 #include <QDialog>
 #include <QLabel>
 
+
 #include <LXQt/RotatedWidget>
 
 #include "../panel/ilxqtpanelplugin.h"
@@ -61,6 +62,7 @@ public:
     virtual void settingsChanged();
     virtual void realign();
     QDialog *configureDialog();
+    bool eventFilter(QObject * watched, QEvent * event);
 
 private slots:
     void timeout();
@@ -85,6 +87,7 @@ private:
 
     bool mAutoRotate;
     bool mShowWeekNumber;
+    bool mShowTooltip;
     QLabel *mPopupContent;
 
     QDateTime mShownTime;

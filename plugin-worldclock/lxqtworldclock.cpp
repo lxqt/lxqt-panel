@@ -40,6 +40,7 @@
 #include <QScopedArrayPointer>
 #include <QTimer>
 #include <QWheelEvent>
+#include <QToolTip>
 
 
 LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
@@ -50,9 +51,11 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mUpdateInterval(1),
     mAutoRotate(true),
     mShowWeekNumber(true),
+    mShowTooltip(false),
     mPopupContent(nullptr)
 {
     mMainWidget = new QWidget();
+    mMainWidget->installEventFilter(this);
     mContent = new ActiveLabel();
     mRotatedWidget = new LXQt::RotatedWidget(*mContent, mMainWidget);
 
@@ -132,7 +135,6 @@ void LXQtWorldClock::updateTimeText()
             mShownTime = tzNow.addSecs(-tzNow.time().minute() * 60 - tzNow.time().second());
         }
     }
-
     if (!isUpToDate)
     {
         const QSize old_size = mContent->sizeHint();
@@ -223,7 +225,7 @@ void LXQtWorldClock::settingsChanged()
     bool timeShowSeconds = _settings->value(QLatin1String("timeShowSeconds"), false).toBool();
     bool timePadHour = _settings->value(QLatin1String("timePadHour"), false).toBool();
     bool timeAMPM = _settings->value(QLatin1String("timeAMPM"), false).toBool();
-
+    mShowTooltip = _settings->value(QLatin1String("showTooltip"), false).toBool();
     // timezone
     bool showTimezone = _settings->value(QLatin1String("showTimezone"), false).toBool() && !longTimeFormatSelected;
 
@@ -635,4 +637,21 @@ bool LXQtWorldClockPopup::event(QEvent *event)
         emit deactivated();
 
     return QDialog::event(event);
+}
+
+bool LXQtWorldClock::eventFilter(QObject * watched, QEvent * event)
+{
+    if (mShowTooltip && watched == mMainWidget && event->type() == QEvent::ToolTip)
+    {
+        QHelpEvent *helpEvent = static_cast<QHelpEvent*>(event);
+        QDateTime now = QDateTime::currentDateTime();
+        QString timeZoneName = mActiveTimeZone;
+        if (timeZoneName == QLatin1String("local"))
+            timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
+        QTimeZone timeZone(timeZoneName.toLatin1());
+        QDateTime tzNow = now.toTimeZone(timeZone);
+        QToolTip::showText(helpEvent->globalPos(), tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
+        return false;
+    }
+    return QObject::eventFilter(watched, event);
 }
