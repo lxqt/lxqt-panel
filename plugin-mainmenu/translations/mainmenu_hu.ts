@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished">Keresés</translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished">Maximálisan látható elemek:</translation>
+        <translation>Maximálisan látható elemek:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -109,17 +109,17 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation type="unfinished">Visszaállítás</translation>
+        <translation>Visszaállítás</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation type="unfinished">Ikon kiválasztása</translation>
+        <translation>Ikon kiválasztása</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished">Képek (*.svg *.png)</translation>
+        <translation>Képek (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
