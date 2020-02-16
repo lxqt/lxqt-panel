@@ -252,7 +252,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Current</source>
-        <translation>Mostani</translation>
+        <translation>Jelenlegi</translation>
     </message>
 </context>
 </TS>
