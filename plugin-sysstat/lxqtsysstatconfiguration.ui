@@ -77,7 +77,7 @@
         <item row="1" column="1">
          <widget class="QSpinBox" name="sizeSB">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="suffix">
            <string> px</string>
