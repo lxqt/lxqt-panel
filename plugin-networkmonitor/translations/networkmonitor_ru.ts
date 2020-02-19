@@ -26,27 +26,27 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>KiB</source>
-        <translation>КБ</translation>
+        <translation>КиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>MiB</source>
-        <translation>МБ</translation>
+        <translation>МиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>GiB</source>
-        <translation>ГБ</translation>
+        <translation>ГиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>TiB</source>
-        <translation>ТБ</translation>
+        <translation>ТиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
         <source>PiB</source>
-        <translation>ПБ</translation>
+        <translation>ПиБ</translation>
     </message>
 </context>
 <context>

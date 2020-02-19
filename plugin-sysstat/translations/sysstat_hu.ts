@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Rendszerstatisztikai színek</translation>
+        <translation>Rendszerstatisztika színei</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice</translation>
+        <translation type="unfinished">&amp;Nice</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -68,7 +68,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation>&amp;Használó</translation>
+        <translation>&amp;Felhasználó</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>&amp;Gyorsított</translation>
+        <translation>&amp;Gyorsítótárazva</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>&amp;Lapozó</translation>
+        <translation>&amp;Lapozófájl</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
@@ -121,7 +121,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> pixel</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Rendszerstatisztika beállítás</translation>
+        <translation>Rendszerstatisztika beállítások</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>Fr&amp;issítési köz</translation>
+        <translation>Fr&amp;issítési időköz</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vízszintes panelnál szélesség.&lt;/p&gt;&lt;p&gt;Függőleges panelnál magaság.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vízszintes panelnél szélesség.&lt;/p&gt;&lt;p&gt;Függőleges panelnél magasság.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
@@ -346,7 +346,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>&amp;Rendszertémáé</translation>
+        <translation>&amp;Rendszertéma használata</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
@@ -375,7 +375,7 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;más: %4%&lt;br&gt;freq: %5%</translation>
+        <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;egyéb: %4%&lt;br&gt;freq: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
@@ -387,13 +387,13 @@
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation></translation>
+        <translation>alkalmazások: %1%&lt;br&gt;pufferek: %2%&lt;br&gt;gyorsítótárazva: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation>haznált: %1%</translation>
+        <translation>használt: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="552"/>

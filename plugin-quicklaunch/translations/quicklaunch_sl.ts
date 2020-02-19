@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="226"/>
         <source>Drop Error</source>
-        <translation>Napaka spusta</translation>
+        <translation>Napaka pri dodajanju</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Datoteke/lokacije »%1« trenutno ni bilo moč vstaviti v Hitri zagon</translation>
+        <translation>Elementa »%1« trenutno ni mogoče vstaviti v hitri zagon</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Povlecite ikone za
+hitri zagon sem</translation>
     </message>
 </context>
 <context>

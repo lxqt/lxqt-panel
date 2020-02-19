@@ -6,12 +6,12 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaži namizje</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Prikaz namizja: globalne bližnjice »%1« ni moč registrirati</translation>
+        <translation>Prikaži namizje: globalne bližnjice &apos;%1&apos; ni mogoče registrirati</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
