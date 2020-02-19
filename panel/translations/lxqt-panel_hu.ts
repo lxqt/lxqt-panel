@@ -72,7 +72,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation>Hosszúság:</translation>
+        <translation>Hossz:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Láthatósági késleltetés:</translation>
+        <translation>Megjelenítési késleltetés:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
@@ -364,7 +364,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
         <source>Manage Widgets</source>
-        <translation>Bővítménykezelés</translation>
+        <translation>Bővítmények kezelése</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1121"/>
@@ -406,7 +406,7 @@ Valóban törli?</translation>
     <message>
         <location filename="../plugin.cpp" line="437"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; mozgatása</translation>
+        <translation>&quot;%1&quot; áthelyezése</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="445"/>
