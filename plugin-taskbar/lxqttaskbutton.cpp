@@ -87,7 +87,9 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
     mParentTaskBar(taskbar),
     mPlugin(mParentTaskBar->plugin()),
     mIconSize(mPlugin->panel()->iconSize()),
-    mDNDTimer(new QTimer(this))
+    mWheelDelta(0),
+    mDNDTimer(new QTimer(this)),
+    mWheelTimer(new QTimer(this))
 {
     Q_ASSERT(taskbar);
 
@@ -105,6 +107,13 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
     mDNDTimer->setSingleShot(true);
     mDNDTimer->setInterval(700);
     connect(mDNDTimer, SIGNAL(timeout()), this, SLOT(activateWithDraggable()));
+
+    mWheelTimer->setSingleShot(true);
+    mWheelTimer->setInterval(250);
+    connect(mWheelTimer, &QTimer::timeout, [this] {
+        mWheelDelta = 0; // forget previous wheel deltas
+    });
+
     connect(LXQt::Settings::globalSettings(), SIGNAL(iconThemeChanged()), this, SLOT(updateIcon()));
     connect(mParentTaskBar, &LXQtTaskBar::iconByClassChanged, this, &LXQtTaskButton::updateIcon);
 }
@@ -279,30 +288,52 @@ void LXQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
  ************************************************/
 void LXQtTaskButton::wheelEvent(QWheelEvent* event)
 {
-    // ignore wheel event if it is not "raise" or "minimize" window
-    if (mParentTaskBar->wheelEventsAction() != 2 && mParentTaskBar->wheelEventsAction() != 3)
+    // ignore wheel event if it is not "raise", "minimize" or "move" window
+    if (mParentTaskBar->wheelEventsAction() < 2 || mParentTaskBar->wheelEventsAction() > 5)
         return QToolButton::wheelEvent(event);
-
-    static int threshold = 0;
 
     QPoint angleDelta = event->angleDelta();
     Qt::Orientation orient = (qAbs(angleDelta.x()) > qAbs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
     int delta = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
 
-    threshold += abs(delta);
-    if (threshold < mParentTaskBar->wheelDeltaThreshold())
+    if (!mWheelTimer->isActive())
+        mWheelDelta += abs(delta);
+    else
+    {
+        // NOTE: We should consider a short delay after the last wheel event
+        // in order to distinguish between separate wheel rotations; otherwise,
+        // a wheel delta threshold will not make much sense because the delta
+        // might have been increased due to a previous and separate wheel rotation.
+        mWheelTimer->start();
+    }
+
+    if (mWheelDelta < mParentTaskBar->wheelDeltaThreshold())
         return QToolButton::wheelEvent(event);
     else
-        threshold = 0;
+    {
+        mWheelDelta = 0;
+        mWheelTimer->start(); // start to distinguish between separate wheel rotations
+    }
 
     int D = delta < 0 ? 1 : -1;
-    if (mParentTaskBar->wheelEventsAction() == 3)
-        D *= -1;
 
-    if (D < 0)
-        raiseApplication();
-    else if (D > 0)
-        minimizeApplication();
+    if (mParentTaskBar->wheelEventsAction() == 4)
+    {
+        moveApplicationToPrevNextDesktop(D < 0);
+    }
+    else if (mParentTaskBar->wheelEventsAction() == 5)
+    {
+        moveApplicationToPrevNextDesktop(D > 0);
+    }
+    else
+    {
+        if (mParentTaskBar->wheelEventsAction() == 3)
+            D *= -1;
+        if (D < 0)
+            raiseApplication();
+        else if (D > 0)
+            minimizeApplication();
+    }
 
     QToolButton::wheelEvent(event);
 }
@@ -531,6 +562,24 @@ void LXQtTaskButton::moveApplicationToDesktop()
         return;
 
     KWindowSystem::setOnDesktop(mWindow, desk);
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
+{
+    int deskNum = KWindowSystem::numberOfDesktops();
+    if (deskNum <= 1)
+        return;
+    int targetDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop() + (next ? 1 : -1);
+    // wrap around
+    if (targetDesk > deskNum)
+        targetDesk = 1;
+    else if (targetDesk < 1)
+        targetDesk = deskNum;
+
+    KWindowSystem::setOnDesktop(mWindow, targetDesk);
 }
 
 /************************************************
