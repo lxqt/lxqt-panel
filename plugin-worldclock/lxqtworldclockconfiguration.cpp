@@ -213,7 +213,7 @@ void LXQtWorldClockConfiguration::loadSettings()
 
     ui->timeZonesTW->setRowCount(0);
 
-    QList<QMap<QString, QVariant> > list = settings().readArray(QLatin1String("timeZones"));
+    const QList<QMap<QString, QVariant> > list = settings().readArray(QLatin1String("timeZones"));
     int i = 0;
     for (const auto &map : list)
     {
