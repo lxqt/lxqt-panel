@@ -277,12 +277,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <source>Top</source>
-        <translation>Fent</translation>
+        <translation>Fentre</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="219"/>
         <source>Bottom</source>
-        <translation>Lent</translation>
+        <translation>Lentre</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="436"/>
@@ -311,7 +311,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Megjegyzés: ezeket a változtatásokat nem lehet visszaállítani.</translation>
+        <translation>Megjegyzés: ezeket a változtatásokat nem lehet visszavonni.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
