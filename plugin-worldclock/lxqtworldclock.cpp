@@ -173,7 +173,7 @@ void LXQtWorldClock::settingsChanged()
 
     mTimeZones.clear();
 
-    QList<QMap<QString, QVariant> > array = _settings->readArray(QLatin1String("timeZones"));
+    const QList<QMap<QString, QVariant> > array = _settings->readArray(QLatin1String("timeZones"));
     for (const auto &map : array)
     {
         QString timeZoneName = map.value(QLatin1String("timeZone"), QString()).toString();

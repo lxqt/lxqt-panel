@@ -224,7 +224,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
     timer.start();
     qint64 lastTime = 0;
 #endif
-    for (auto const & name : plugin_names)
+    for (auto const & name : qAsConst(plugin_names))
     {
         pluginslist_t::iterator i = mPlugins.insert(mPlugins.end(), {name, nullptr});
         QString type = mPanel->settings()->value(name + QStringLiteral("/type")).toString();
