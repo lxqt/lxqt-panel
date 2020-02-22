@@ -21,17 +21,17 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Hangerőszabályozó: A %1 gyorsbillentyű nincs beállítva</translation>
+        <translation>Hangerőszabályzó: A %1 gyorsbillentyű nincs beállítva</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished">Hangerő: %1% {1%%2?}</translation>
+        <translation>Hangerő: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
-        <translation type="unfinished">(némítva)</translation>
+        <translation>(némítva)</translation>
     </message>
 </context>
 <context>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Középső kattintásra némítás</translation>
+        <translation>Némítás középső kattintásra</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Kattintásra nyílik meg</translation>
+        <translation>Megnyitás csak kattintásra</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>A hangerőváltozásnál mindig értesítsen</translation>
+        <translation>Hangerőváltoztatásnál mindig értesítsen</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
