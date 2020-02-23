@@ -16,7 +16,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Megjelenés:</translation>
+        <translation>Típus:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished">kibővített</translation>
+        <translation>kibővített</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
