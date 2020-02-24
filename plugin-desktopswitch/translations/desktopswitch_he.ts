@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>אם האפשרות מסומנת, הווידג׳ט יהיה מחוון בלבד</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת שולחן העבודה הפעיל בלבד</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
