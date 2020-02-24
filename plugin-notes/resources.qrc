@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/font-solid.svg</file>
+        <file>resources/times-solid.svg</file>
+    </qresource>
+</RCC>
