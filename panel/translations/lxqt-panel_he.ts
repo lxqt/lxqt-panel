@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;ערך פיקסלים שלילי מגדיר את אורך הלוח לכמות כזאת של פיקסלים מתחת לשטח הזמין במסך.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;למשל: „אורך” שומגדר ל־‎-100 פיקסלים, גודל המסך הוא 1000 פיקסלים, אז אורך הלוח יהיה 900  פיקסלים.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;ערך פיקסלים שלילי מגדיר את אורך הלוח לכמות כזאת של פיקסלים מתחת לשטח הזמין במסך.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;למשל: „אורך” שומגדר ל־‎-100 פיקסלים, אם גודל המסך הוא 1000 פיקסלים, אז אורך הלוח יהיה 900 פיקסלים.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>גבול דק גלוי ללוח נסתר</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="337"/>
