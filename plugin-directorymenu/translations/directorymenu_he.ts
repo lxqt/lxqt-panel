@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>פתיחה במסוף</translation>
     </message>
 </context>
 <context>
@@ -44,13 +44,13 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>מסוף</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>בחירת מסוף בררת המחדל</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
