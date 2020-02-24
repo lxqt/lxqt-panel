@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week number</source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת מ&amp;ספר שבוע</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>הגדרות תצורה ידנית של שעון עולמי</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
