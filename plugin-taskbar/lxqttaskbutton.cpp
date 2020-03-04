@@ -606,7 +606,7 @@ void LXQtTaskButton::moveApplicationToNextMonitor()
                 int Y = windowGeometry.y() - screenGeometry.y() + nextScreenGeometry.y();
                 //      NW geometry |     x/y      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b010 << 12);
-                NETRootInfo(QX11Info::connection(), NET::Properties()).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
+                NETRootInfo(QX11Info::connection(), 0, NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
                 break;
             }
         }
@@ -723,7 +723,6 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     if(QGuiApplication::screens().size() > 1){
         menu->addSeparator();
         a = menu->addAction(tr("Move To &Next Monitor"));
-        a->setEnabled(info.actionSupported(NET::ActionMove));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToNextMonitor); 
     }
     menu->addSeparator();
