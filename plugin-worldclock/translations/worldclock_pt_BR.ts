@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="244"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d &apos;de&apos; MMM &apos;de&apos; yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -290,13 +290,13 @@
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
         <translation>&lt;h1&gt;Formato Personalizado de Data/Hora &lt;/h1&gt;
-&lt;p&gt;Um padrão de data é uma sequencia de caracteres, em que a sequencia de caracteres especificados são substituídos por dados de data e hora de um calendário ao formatar ou usado para gerar dados para um calendário durante a análise. &lt;/p&gt;
+&lt;p&gt;Um padrão de data é uma sequência de caracteres, em que a sequência de caracteres especificados são substituídos por dados de data e hora de um calendário ao formatar ou usados para gerar dados para um calendário durante a análise. &lt;/p&gt;
 &lt;p&gt;A Tabela de Símbolo de Campo de Data abaixo contém os caracteres usados nos padrões para mostrar os formatos apropriados para uma determinada localidade, como yyyy para o ano. Caracteres podem ser usados várias vezes. Por exemplo, se y for usado para o ano, &apos;yy&apos; produzirá &apos;99&apos;, enquanto &apos;yyyy&apos; produzirá &apos;1999&apos;. Para a maioria dos campos numéricos, o número de caracteres especifica a largura do campo. Por exemplo, se h é a hora, &apos;h&apos; produz &apos;5&apos;, mas &apos;hh&apos; produz &apos;05&apos;. Para alguns caracteres, a contagem especifica se um formulário completo ou abreviado deve ser usado, mas pode ter outras opções, conforme indicado abaixo. &lt;/p&gt;
 &lt;p&gt;Duas aspas simples representam uma aspa simples literal, dentro ou fora de aspas simples. O texto entre aspas simples não é interpretado de forma alguma (exceto por duas aspas simples adjacentes). Caso contrário, todas as letras ASCII de a para z e de A para Z são reservadas como caracteres de sintaxe e requerem aspas para representar caracteres literais. Além disso, determinados caracteres de pontuação ASCII podem se tornar variáveis no futuro (por exemplo, &quot;:&quot; sendo interpretado como o separador de hora e &quot;/&quot; como um separador de data, e substituído por respectivos caracteres sensíveis ao local na tela).&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;o dia como número sem zero à esquerda (1 to 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;o dia como número com zero à esquerda (01 to 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Significado&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;o dia como número sem zero à esquerda (1 à 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;o dia como número com zero à esquerda (01 à 31)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;o nome abreviado do dia localizado (ex. &apos;Seg&apos; à &apos;Dom&apos;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;o nome longo do dia localizado (ex. &apos;Segunda&apos; à &apos;Domingo&apos;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;o mês como número sem zero à esquerda (1-12)&lt;/td&gt;&lt;/tr&gt;
@@ -324,7 +324,7 @@
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;o nome curto do fuso horário&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;o nome longo do fuso horário&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;o nome personalizado do fuso horário. Você pode alterar a guia &apos;Fusos horários&apos; da janela de configuração&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Nota:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Quaisquer caracteres no padrão que não estejam nos intervalos de [&apos;a&apos; .. &apos;z&apos;] e [&apos;A&apos; .. &apos;Z&apos;] serão tratados como texto entre aspas. Por exemplo, caracteres como &apos;:&apos;, &apos;.&apos;, &apos;&apos;, &apos;#&apos; E &apos;@&apos; aparecerão no texto de tempo resultante, mesmo que não estejam entre aspas simples. A aspa simples é usada para &apos;escapar&apos; cartas. Duas aspas simples em uma linha, dentro ou fora de uma sequencia citada, representam uma aspa simples &apos;real&apos;. &lt;/li&gt;&lt;li&gt; O intervalo mínimo de atualização é de 1 segundo. Se z ou zzz forem configurados, o horário será mostrado com a fração de milissegundos, mas não será atualizado em milissegundos (evitando um grande impacto no desempenho).&lt;/li&gt;&lt;/ul&gt;
+&lt;br /&gt;&lt;b&gt;Nota:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Quaisquer caracteres no padrão que não estejam nos intervalos de [&apos;a&apos; .. &apos;z&apos;] e [&apos;A&apos; .. &apos;Z&apos;] serão tratados como texto entre aspas. Por exemplo, caracteres como &apos;:&apos;, &apos;.&apos;, &apos;&apos;, &apos;#&apos; e &apos;@&apos; aparecerão no texto de tempo resultante, mesmo que não estejam entre aspas simples. A aspa simples é usada para &apos;escapar&apos; letras. Duas aspas simples em uma linha, dentro ou fora de uma sequência citada, representam uma aspa simples &apos;real&apos;. &lt;/li&gt;&lt;li&gt; O intervalo mínimo de atualização é de 1 segundo. Se z ou zzz forem configurados, o horário será mostrado com a fração de milissegundos, mas não será atualizado em milissegundos (evitando um grande impacto no desempenho).&lt;/li&gt;&lt;/ul&gt;
 </translation>
     </message>
 </context>
