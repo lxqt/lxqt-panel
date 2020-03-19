@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice</translation>
+        <translation>&amp;Aceitável</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>S&amp;wap</translation>
+        <translation>&amp;Swap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;1&lt;head/&gt;2&lt;body&gt;3&lt;p&gt;4Largura mínima se o painel estiver na horizontal.&lt;/p&gt;5&lt;p&gt;6Altura mínima se o painel  estiver na vertical.&lt;/p&gt;7&lt;/body&gt;8&lt;/html&gt;9</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Largura mínima se o painel estiver na horizontal.&lt;/p&gt;&lt;p&gt;Altura mínima se o painel estiver na vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
