@@ -248,6 +248,12 @@ if(SPACER_PLUGIN)
     add_subdirectory(plugin-spacer)
 endif()
 
+setByDefault(BACKLIGHT_PLUGIN Yes)
+if(BACKLIGHT_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "Backlight")
+    add_subdirectory(plugin-backlight)
+endif()
+
 #########################################################################
 
 message(STATUS  "**************** The following plugins will be built ****************")
