@@ -55,9 +55,10 @@ QWidget *LXQtBacklight::widget()
 void LXQtBacklight::deleteSlider()
 {
     if(m_backlightSlider) {
-        delete m_backlightSlider;
+        m_backlightSlider->deleteLater();
     }
     m_backlightSlider = nullptr;
+    //printf("Deleted\n");
 }
 
 void LXQtBacklight::showSlider(bool)
@@ -65,6 +66,7 @@ void LXQtBacklight::showSlider(bool)
     if(! m_backlightSlider) {
         m_backlightSlider = new SliderDialog(m_backlightButton);
         connect(m_backlightSlider, SIGNAL(dialogClosed()), this, SLOT(deleteSlider()));
+        //printf("New Slider\n");
     }
     QSize size = m_backlightSlider->sizeHint();
     QRect rect = calculatePopupWindowPos(size);

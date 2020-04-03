@@ -89,8 +89,9 @@ void SliderDialog::upButtonClicked(bool)
 
 bool SliderDialog::event(QEvent * event)
 {
-    if(event->type() == QEvent::WindowDeactivate) {
+    if(event->type() == QEvent::WindowDeactivate || event->type() == QEvent::Hide) {
         hide();
+        //printf("emit dialogClosed()\n");
         emit dialogClosed();
     }
     return QDialog::event(event);
