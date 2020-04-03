@@ -3,6 +3,6 @@ Type=Service
 ServiceTypes=LXQtPanel/Plugin
 Name=Backlight
 Comment=Sets display backlight
-Icon=video-display
+Icon=display-brightness-symbolic
 
 #TRANSLATIONS_DIR=../translations
