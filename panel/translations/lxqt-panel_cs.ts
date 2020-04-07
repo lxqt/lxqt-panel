@@ -217,7 +217,7 @@ prvků který nedává oddělený motiv vzhledu na panel.
 
 Nejspíš také můžete chtít vypnout:
 
-Nastavení vzhledu LXQt  →
+Nastavení vzhledu LXQt →
 Motiv ikon →
 Obarvit ikony podle stylu prvku (paleta)</translation>
     </message>
