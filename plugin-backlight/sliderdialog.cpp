@@ -44,6 +44,13 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
     
     m_slider = new QSlider(this);
     
+    layout->addWidget(m_slider, 0, Qt::AlignHCenter);
+    
+    m_downButton = new QToolButton();
+    m_downButton->setText(QStringLiteral("☀"));
+    layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
+    
+    
     if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
         m_slider->setMaximum(m_backlight->getMaxBacklight());
         // set the minimum to 5% of the maximum to prevent a black screen
@@ -52,12 +59,9 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
     } else {
         m_slider->setValue(0);
         m_slider->setEnabled(false);
+        m_upButton->setEnabled(false);
+        m_downButton->setEnabled(false);
     }
-    layout->addWidget(m_slider, 0, Qt::AlignHCenter);
-    
-    m_downButton = new QToolButton();
-    m_downButton->setText(QStringLiteral("☀"));
-    layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
     
     connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged(int)));
     connect(m_upButton, SIGNAL(clicked(bool)), this, SLOT(upButtonClicked(bool)));
