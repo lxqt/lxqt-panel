@@ -53,6 +53,13 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
     m_downButton->setAutoRepeat(true);
     layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
     
+    layout->addWidget(m_slider, 0, Qt::AlignHCenter);
+    
+    m_downButton = new QToolButton();
+    m_downButton->setText(QStringLiteral("☀"));
+    layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
+    
+    
     if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
         // Set the minimum to 5% of the maximum to prevent a black screen
         int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
