@@ -35,25 +35,25 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 {
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
     m_backlight = new LXQt::Backlight(this);
-    
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);
     layout->setMargin(2);
-    
+
     m_upButton = new QToolButton();
     m_upButton->setText(QStringLiteral("☀"));
     m_upButton->setAutoRepeat(true);
     layout->addWidget(m_upButton, 0, Qt::AlignHCenter);
-    
+
     m_slider = new QSlider(this);
     layout->addWidget(m_slider, 0, Qt::AlignHCenter);
-    
+
     m_downButton = new QToolButton();
     m_downButton->setText(QStringLiteral("☼"));
     m_downButton->setAutoRepeat(true);
     layout->addWidget(m_downButton, 0, Qt::AlignHCenter);
-    
-    
+
+
     if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
         // Set the minimum to 5% of the maximum to prevent a black screen
         int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
