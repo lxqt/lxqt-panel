@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Systemstatistikkfarger</translation>
+        <translation>Farger for systemstatistikk</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX kB</translation>
+        <translation>XXX kBs</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
