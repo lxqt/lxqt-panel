@@ -30,7 +30,7 @@ lxqt-panel-0.15.0 / 2020-04-22
   * Removed QDesktopWidget from panel.
   * Put panel only at an edge of virtual screen (to prevent it from being positioned at the middle of virtual screen).
   * Set the geometry of panel before showing it (because, otherwise. some WMs might not position the panel correctly).
-  * Removeed deprecated QImage method `byteCount()` and used `sizeInBytes()` instead.
+  * Removed deprecated QImage method `byteCount()` and used `sizeInBytes()` instead.
   * Remove deprecated `trUtf8()` and used `tr()` instead.
   * Fixd eventFilter() logic in kbindicator.
   * Set alignment for layout button in kbindicator.
