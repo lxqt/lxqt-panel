@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="612"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Todas Áreas de Trabalho</translation>
+        <translation>&amp;Todas as Áreas de Trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="620"/>
