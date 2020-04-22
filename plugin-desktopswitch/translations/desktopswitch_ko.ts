@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>이 옵션을 선택하면,위젯이 표시기에  표시</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>활성 데스크탑 만 표시</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>

@@ -25,7 +25,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation>段の数:</translation>
+        <translation>行数:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
