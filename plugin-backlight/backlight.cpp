@@ -32,11 +32,11 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
         ILXQtPanelPlugin(startupInfo)
 {
     m_backlightButton = new QToolButton();
-    //m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("video-display")));
-    m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("display-brightness-symbolic")));
-    
+    // use our own icon
+    m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
+
     connect(m_backlightButton, SIGNAL(clicked(bool)), this, SLOT(showSlider(bool)));
-    
+
     m_backlightSlider = nullptr;
 }
 
