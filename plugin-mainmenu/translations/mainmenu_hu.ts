@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Menübeállítás</translation>
+        <translation>Menü beállítások</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation>Szűrő menü elemek</translation>
+        <translation>Menüelemek keresése</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>Törölje a keresést a menüből</translation>
+        <translation>Törölje a keresést a menü megjelenítésekor</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
