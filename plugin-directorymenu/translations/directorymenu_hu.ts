@@ -24,7 +24,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Kinézet</translation>
+        <translation>Megjelenés</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
-        <translation>Aapkönyvtár kijelölése</translation>
+        <translation>Alapkönyvtár kiválasztása</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Az ikon betöltése sikertelen.</translation>
+        <translation>Hiba történt az ikon betöltése közben.</translation>
     </message>
 </context>
 </TS>
