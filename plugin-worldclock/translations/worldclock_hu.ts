@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Világóra beállítás</translation>
+        <translation>Világóra beállítások</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation>Megjelenítés &amp;forma</translation>
+        <translation>Megjelenítendő &amp;formátum</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>&amp;Másodpercek</translation>
+        <translation>&amp;Másodpercek megjelenítése</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation></translation>
+        <translation>ISO 8601</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
@@ -160,22 +160,22 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Hét napja látszi&amp;k</translation>
+        <translation>Hét nap&amp;jainak megjelenítése</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>N&amp;ap nullával kezdődik </translation>
+        <translation>N&amp;ap nullával kezdődik</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>&amp;Hosszú hónap és hét napja</translation>
+        <translation>&amp;Hosszú hónap- és napnév</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>Haladó ké&amp;zi alak</translation>
+        <translation>Haladó ké&amp;zi formátum</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>Névsz&amp;erkesztés ...</translation>
+        <translation>Név sz&amp;erkesztése...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished">Világóra kézi formátum beállítása</translation>
+        <translation>Világóra kézi formátum beállítása</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -322,7 +322,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
-        <translation></translation>
+        <translation>UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
