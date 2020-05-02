@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Panelbeállítások</translation>
+        <translation>Panel beállítása</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
         <source>Reserve space on display</source>
-        <translation>A kijelzőn tartalékterület marad</translation>
+        <translation type="unfinished">A kijelzőn tartalékterület marad</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="488"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Paneláttetszőséghez kompozitálás kell.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;A paneláttetszőséghez kompozitálás szükséges.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="516"/>
@@ -325,7 +325,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
@@ -359,7 +359,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1110"/>
         <source>Configure Panel</source>
-        <translation>Panelbeállítások</translation>
+        <translation>Panel beállítása</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1115"/>
@@ -380,7 +380,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1133"/>
         <source>Lock This Panel</source>
-        <translation>A panel zárolása</translation>
+        <translation>Panel zárolása</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1286"/>
