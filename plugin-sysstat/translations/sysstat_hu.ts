@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Rendszerstatisztika színei</translation>
+        <translation>Rendszerstatisztika színek</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -33,7 +33,7 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Változtat...</translation>
+        <translation>Változtatás...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>&amp;Lapozófájl</translation>
+        <translation>&amp;Swap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>&amp;Frekvencia használat</translation>
+        <translation>&amp;Frekvencia használata</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
@@ -326,7 +326,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation>lapozóhely</translation>
+        <translation>swap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
@@ -375,7 +375,7 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;egyéb: %4%&lt;br&gt;freq: %5%</translation>
+        <translation type="unfinished">rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;egyéb: %4%&lt;br&gt;frekvencia: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
