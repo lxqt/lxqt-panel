@@ -17,7 +17,7 @@
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
-        <translation>Ejts ide
+        <translation>Rakjon ide
 indító ikonokat</translation>
     </message>
 </context>
