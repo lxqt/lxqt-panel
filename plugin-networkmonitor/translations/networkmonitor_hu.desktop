@@ -6,5 +6,5 @@ Name=Network monitor
 Comment=Displays network status and activity.
 
 # Translations
-Name[hu]=Alkalmazásindító alapú menü
-Comment[hu]=Alkalmazásmenü
+Name[hu]=Hálózatfigyelő
+Comment[hu]=Megjeleníti a hálózat állapotát és aktivitását.
