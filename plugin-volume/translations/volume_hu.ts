@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Némítás/megszólaltatás</translation>
+        <translation>Némítás/visszahangosítás</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
