@@ -54,7 +54,7 @@ bool Settings::showLayout() const
 { return m_settings->value(QStringLiteral("show_layout"), true).toBool(); }
 
 QString Settings::layoutFlagPattern() const
-{ return m_settings->value(QStringLiteral("layout_flag_pattern"), true).toString(); }
+{ return m_settings->value(QStringLiteral("layout_flag_pattern")).toString(); }
 
 void Settings::setShowCapLock(bool show)
 { m_settings->setValue(QStringLiteral("show_caps_lock"), show); }
