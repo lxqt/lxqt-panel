@@ -31,17 +31,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation></translation>
+        <translation>Celsius</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation></translation>
+        <translation>Fahrenheit</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation type="unfinished">Villogjon az állapotsáv, ha a hőmérséklet túl magas</translation>
+        <translation>Villogjon az állapotsáv, ha a hőmérséklet túl magas</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>

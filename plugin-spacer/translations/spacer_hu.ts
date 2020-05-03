@@ -21,12 +21,12 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation>fix</translation>
+        <translation>rögzített</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation>kibővített</translation>
+        <translation>bővíthető</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>átlátszó</translation>
+        <translation>láthatatlan</translation>
     </message>
 </context>
 </TS>

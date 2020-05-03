@@ -8,5 +8,5 @@ Comment=Display applications minimized to the system tray.
 
 
 # Translations
-Comment[hu]=A paneltálcára minimalizált, rejtett alkalmazások elérése
-Name[hu]=Paneltálca
+Comment[hu]=A rendszertálcára minimalizált alkalmazások elérése
+Name[hu]=Rendszertálca

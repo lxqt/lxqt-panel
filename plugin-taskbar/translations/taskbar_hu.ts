@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="620"/>
         <source>Desktop &amp;%1</source>
-        <translation>&amp;%1. asztal</translation>
+        <translation>&amp;%1. asztalra</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="627"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation>&amp;Ablakcsoportok</translation>
+        <translation>&amp;Ablakcsoportosítás</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Ikonok az ablakosztályokból, ha elérhetők</translation>
+        <translation>Ikonok az ablakosztályokból, ha elérhetőek</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="233"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Gombok függőleges panelnál gö&amp;rdülnek</translation>
+        <translation>Gombok elfo&amp;rgatása függőleges panelnél</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="171"/>

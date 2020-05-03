@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation type="unfinished">Rendszertálca beállítások</translation>
+        <translation>Rendszertálca beállításai</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>

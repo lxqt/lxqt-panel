@@ -65,17 +65,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Caps Lock be</translation>
+        <translation>Caps Lock megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Num Lock be</translation>
+        <translation>Num Lock megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Scroll Lock be</translation>
+        <translation type="unfinished">Scroll Lock megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished">Szolgáltatásváltás</translation>
+        <translation>Szolgáltatásváltás</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="102"/>
         <source>Configure layouts</source>
-        <translation>Kiosztásbeállítás</translation>
+        <translation>Kiosztás beállítása</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>

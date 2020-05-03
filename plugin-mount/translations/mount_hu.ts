@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Cserélhetőeszköz-kezelő</translation>
+        <translation>Cserélhetőeszköz-kezelő</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished">Cserélhető eszköz beállítások</translation>
+        <translation>Cserélhetőeszköz-kezelő beállításai</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished">Ha egy eszköz csatlakoztatva van:</translation>
+        <translation>Ha egy eszköz csatlakoztatva van:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
