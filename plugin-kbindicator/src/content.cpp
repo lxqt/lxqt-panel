@@ -87,7 +87,9 @@ bool Content::setup()
 void Content::layoutChanged(const QString & sym, const QString & name, const QString & variant)
 {
     m_layout->setText(sym.toUpper());
-    const QString flag_file = m_layoutFlagPattern.arg(sym);
+    QString flag_file;
+    if (m_layoutFlagPattern.contains(QStringLiteral("%1")))
+        flag_file = m_layoutFlagPattern.arg(sym);
     if (flag_file.isEmpty() || !QFileInfo::exists(flag_file))
     {
         m_layout->setToolButtonStyle(Qt::ToolButtonTextOnly);
