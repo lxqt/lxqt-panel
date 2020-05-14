@@ -421,6 +421,7 @@ void LXQtTaskButton::activateWithDraggable()
     // in progress to allow drop it into an app
     raiseApplication();
     KWindowSystem::forceActiveWindow(mWindow);
+    xcb_flush(QX11Info::connection());
 }
 
 /************************************************
