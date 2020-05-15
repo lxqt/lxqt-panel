@@ -677,23 +677,28 @@ void LXQtPanel::updateWmStrut()
 
 
 /************************************************
-  The panel can be placed only at the edges of the virtual screen.
-  This function checks if the panel can be placed on the display
-  @screenNum on @position.
+  This function checks if the panel can be placed on
+  the display @screenNum at @position.
+  NOTE: The panel can be placed only at screen edges
+  but no part of it should be between two screens.
  ************************************************/
 bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
 {
     const auto screens = QApplication::screens();
     if (screens.size() > screenNum)
     {
-        const QRect screenGeometry = screens.at(screenNum)->geometry();
+        QRect screenGeometry = screens.at(screenNum)->geometry();
         switch (position)
         {
         case LXQtPanel::PositionTop:
             for (const auto& screen : screens)
             {
                 if (screen->geometry().top() < screenGeometry.top())
-                    return false;
+                {
+                    screenGeometry.setTop(screen->geometry().top());
+                    if (screen->geometry().intersects(screenGeometry))
+                        return false;
+                }
             }
             return true;
 
@@ -701,7 +706,11 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             for (const auto& screen : screens)
             {
                 if (screen->geometry().bottom() > screenGeometry.bottom())
-                    return false;
+                {
+                    screenGeometry.setBottom(screen->geometry().bottom());
+                    if (screen->geometry().intersects(screenGeometry))
+                        return false;
+                }
             }
             return true;
 
@@ -709,7 +718,11 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             for (const auto& screen : screens)
             {
                 if (screen->geometry().left() < screenGeometry.left())
-                    return false;
+                {
+                    screenGeometry.setLeft(screen->geometry().left());
+                    if (screen->geometry().intersects(screenGeometry))
+                        return false;
+                }
             }
             return true;
 
@@ -717,7 +730,11 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             for (const auto& screen : screens)
             {
                 if (screen->geometry().right() > screenGeometry.right())
-                    return false;
+                {
+                    screenGeometry.setRight(screen->geometry().right());
+                    if (screen->geometry().intersects(screenGeometry))
+                        return false;
+                }
             }
             return true;
         }
