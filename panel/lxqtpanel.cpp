@@ -687,7 +687,7 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
     const auto screens = QApplication::screens();
     if (screens.size() > screenNum)
     {
-        QRect screenGeometry = screens.at(screenNum)->geometry();
+        const QRect screenGeometry = screens.at(screenNum)->geometry();
         switch (position)
         {
         case LXQtPanel::PositionTop:
@@ -695,8 +695,8 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             {
                 if (screen->geometry().top() < screenGeometry.top())
                 {
-                    screenGeometry.setTop(screen->geometry().top());
-                    if (screen->geometry().intersects(screenGeometry))
+                    QRect r = screenGeometry.adjusted(0, screen->geometry().top() - screenGeometry.top(), 0, 0);
+                    if (screen->geometry().intersects(r))
                         return false;
                 }
             }
@@ -707,8 +707,8 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             {
                 if (screen->geometry().bottom() > screenGeometry.bottom())
                 {
-                    screenGeometry.setBottom(screen->geometry().bottom());
-                    if (screen->geometry().intersects(screenGeometry))
+                    QRect r = screenGeometry.adjusted(0, 0, 0, screen->geometry().bottom() - screenGeometry.bottom());
+                    if (screen->geometry().intersects(r))
                         return false;
                 }
             }
@@ -719,8 +719,8 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             {
                 if (screen->geometry().left() < screenGeometry.left())
                 {
-                    screenGeometry.setLeft(screen->geometry().left());
-                    if (screen->geometry().intersects(screenGeometry))
+                    QRect r = screenGeometry.adjusted(screen->geometry().left() - screenGeometry.left(), 0, 0, 0);
+                    if (screen->geometry().intersects(r))
                         return false;
                 }
             }
@@ -731,8 +731,8 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
             {
                 if (screen->geometry().right() > screenGeometry.right())
                 {
-                    screenGeometry.setRight(screen->geometry().right());
-                    if (screen->geometry().intersects(screenGeometry))
+                    QRect r = screenGeometry.adjusted(0, 0, screen->geometry().right() - screenGeometry.right(), 0);
+                    if (screen->geometry().intersects(r))
                         return false;
                 }
             }
