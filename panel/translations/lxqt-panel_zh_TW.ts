@@ -292,18 +292,18 @@ LXQt外觀配置→
         <translation>底端</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="436"/>
-        <location filename="../config/configpanelwidget.cpp" line="452"/>
+        <location filename="../config/configpanelwidget.cpp" line="439"/>
+        <location filename="../config/configpanelwidget.cpp" line="455"/>
         <source>Pick color</source>
         <translation>選擇顏色</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>圖片 (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Pick image</source>
         <translation>選擇圖片</translation>
     </message>
@@ -358,45 +358,45 @@ LXQt外觀配置→
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1081"/>
-        <location filename="../lxqtpanel.cpp" line="1107"/>
+        <location filename="../lxqtpanel.cpp" line="1130"/>
+        <location filename="../lxqtpanel.cpp" line="1156"/>
         <source>Panel</source>
         <translation>面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1110"/>
+        <location filename="../lxqtpanel.cpp" line="1159"/>
         <source>Configure Panel</source>
         <translation>配置面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1115"/>
+        <location filename="../lxqtpanel.cpp" line="1164"/>
         <source>Manage Widgets</source>
         <translation>管理小工具</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1121"/>
+        <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
         <translation>新增面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1128"/>
+        <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>移除面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1133"/>
+        <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
         <translation>鎖定此面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1286"/>
+        <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>移除面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1287"/>
+        <location filename="../lxqtpanel.cpp" line="1339"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>移除面板是不可回復的。

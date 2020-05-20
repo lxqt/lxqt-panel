@@ -292,18 +292,18 @@ Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
         <translation>Alareunassa</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="436"/>
-        <location filename="../config/configpanelwidget.cpp" line="452"/>
+        <location filename="../config/configpanelwidget.cpp" line="439"/>
+        <location filename="../config/configpanelwidget.cpp" line="455"/>
         <source>Pick color</source>
         <translation>Valitse väri</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Kuvat (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Pick image</source>
         <translation>Valitse kuva</translation>
     </message>
@@ -358,45 +358,45 @@ Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1081"/>
-        <location filename="../lxqtpanel.cpp" line="1107"/>
+        <location filename="../lxqtpanel.cpp" line="1130"/>
+        <location filename="../lxqtpanel.cpp" line="1156"/>
         <source>Panel</source>
         <translation>Paneeli</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1110"/>
+        <location filename="../lxqtpanel.cpp" line="1159"/>
         <source>Configure Panel</source>
         <translation>Muokkaa paneelia</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1115"/>
+        <location filename="../lxqtpanel.cpp" line="1164"/>
         <source>Manage Widgets</source>
         <translation>Hallitse pienoisohjelmia</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1121"/>
+        <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
         <translation>Luo uusi paneeli</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1128"/>
+        <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Poista paneeli</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1133"/>
+        <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
         <translation>Lukitse paneeli</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1286"/>
+        <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Poista paneeli</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1287"/>
+        <location filename="../lxqtpanel.cpp" line="1339"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Paneelin poistoa ei voi peruuttaa.
