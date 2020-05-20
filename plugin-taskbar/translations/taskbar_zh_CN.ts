@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="650"/>
+        <location filename="../lxqttaskbar.cpp" line="655"/>
         <source>Activate task %1</source>
         <translation>激活任务 %1</translation>
     </message>
@@ -12,97 +12,97 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="576"/>
+        <location filename="../lxqttaskbutton.cpp" line="635"/>
         <source>Application</source>
         <translation>应用程序</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="610"/>
+        <location filename="../lxqttaskbutton.cpp" line="669"/>
         <source>To &amp;Desktop</source>
         <translation>转到桌面(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="612"/>
+        <location filename="../lxqttaskbutton.cpp" line="671"/>
         <source>&amp;All Desktops</source>
         <translation>全部桌面(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="620"/>
+        <location filename="../lxqttaskbutton.cpp" line="679"/>
         <source>Desktop &amp;%1</source>
         <translation>桌面 &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="627"/>
+        <location filename="../lxqttaskbutton.cpp" line="686"/>
         <source>&amp;To Current Desktop</source>
         <translation>转到当前桌面(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="635"/>
+        <location filename="../lxqttaskbutton.cpp" line="694"/>
         <source>&amp;Move</source>
         <translation>移动(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="638"/>
+        <location filename="../lxqttaskbutton.cpp" line="697"/>
         <source>Resi&amp;ze</source>
         <translation>更改大小(Z)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="645"/>
+        <location filename="../lxqttaskbutton.cpp" line="704"/>
         <source>Ma&amp;ximize</source>
         <translation>最大化(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="652"/>
+        <location filename="../lxqttaskbutton.cpp" line="711"/>
         <source>Maximize vertically</source>
         <translation>垂直最大化</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="657"/>
+        <location filename="../lxqttaskbutton.cpp" line="716"/>
         <source>Maximize horizontally</source>
         <translation>水平最大化</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="663"/>
+        <location filename="../lxqttaskbutton.cpp" line="722"/>
         <source>&amp;Restore</source>
         <translation>恢复(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="667"/>
+        <location filename="../lxqttaskbutton.cpp" line="726"/>
         <source>Mi&amp;nimize</source>
         <translation>最小化(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="673"/>
+        <location filename="../lxqttaskbutton.cpp" line="732"/>
         <source>Roll down</source>
         <translation>卷下</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="679"/>
+        <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Roll up</source>
         <translation>卷上</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="687"/>
+        <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Layer</source>
         <translation>层(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="689"/>
+        <location filename="../lxqttaskbutton.cpp" line="748"/>
         <source>Always on &amp;top</source>
         <translation>总在顶层(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="695"/>
+        <location filename="../lxqttaskbutton.cpp" line="754"/>
         <source>&amp;Normal</source>
         <translation>正常(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="701"/>
+        <location filename="../lxqttaskbutton.cpp" line="760"/>
         <source>Always on &amp;bottom</source>
         <translation>总在底层(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="709"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>&amp;Close</source>
         <translation>关闭(&amp;C)</translation>
     </message>
@@ -250,7 +250,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <source>Scroll up to move to next desktop, down to previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <source>Scroll up to move to previous desktop, down to next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Current</source>
         <translation>当前桌面</translation>
     </message>

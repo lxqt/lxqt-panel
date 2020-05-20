@@ -293,18 +293,18 @@ Colorear los iconos según la paleta de colores usada en los widgets</translatio
         <translation>Abajo</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="436"/>
-        <location filename="../config/configpanelwidget.cpp" line="452"/>
+        <location filename="../config/configpanelwidget.cpp" line="439"/>
+        <location filename="../config/configpanelwidget.cpp" line="455"/>
         <source>Pick color</source>
         <translation>Seleccione un color</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Imágenes (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Pick image</source>
         <translation>Seleccione una imagen</translation>
     </message>
@@ -359,45 +359,45 @@ Colorear los iconos según la paleta de colores usada en los widgets</translatio
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1081"/>
-        <location filename="../lxqtpanel.cpp" line="1107"/>
+        <location filename="../lxqtpanel.cpp" line="1130"/>
+        <location filename="../lxqtpanel.cpp" line="1156"/>
         <source>Panel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1110"/>
+        <location filename="../lxqtpanel.cpp" line="1159"/>
         <source>Configure Panel</source>
         <translation>Configurar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1115"/>
+        <location filename="../lxqtpanel.cpp" line="1164"/>
         <source>Manage Widgets</source>
         <translation>Gestionar los widgets</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1121"/>
+        <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
         <translation>Añadir otro panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1128"/>
+        <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Eliminar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1133"/>
+        <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
         <translation>Bloquear este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1286"/>
+        <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Eliminar este panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1287"/>
+        <location filename="../lxqtpanel.cpp" line="1339"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Una vez eliminado el panel no puede deshacerse.

@@ -24,16 +24,21 @@ icons here</source>
     <name>QuickLaunchButton</name>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
+        <source>(Ctrl + DND)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
         <translation>左移</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="58"/>
+        <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
         <translation>右移</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="62"/>
+        <location filename="../quicklaunchbutton.cpp" line="64"/>
         <source>Remove from quicklaunch</source>
         <translation>从快速启动删除</translation>
     </message>

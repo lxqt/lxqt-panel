@@ -1,3 +1,9 @@
+lxqt-panel-0.15.1 / 2020-05-20
+==============================
+  * Bumped version to 0.15.1.
+  * Fixed a problem in keyboard indicator flag, that might cause a huge amount of error messages.
+  * Let the panel be at virtual screen edges but not between screens.
+
 lxqt-panel-0.15.0 / 2020-04-22
 ==============================
   * Bumped version to 0.15.0.

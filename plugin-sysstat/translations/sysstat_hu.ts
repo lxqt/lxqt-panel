@@ -119,6 +119,11 @@
         <translation>Grafikon</translation>
     </message>
     <message>
+        <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
         <translation> px</translation>
@@ -157,11 +162,6 @@
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
         <translation>&amp;Rácsvonalak</translation>
-    </message>
-    <message>
-        <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height is the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vízszintes panelnél szélesség.&lt;/p&gt;&lt;p&gt;Függőleges panelnél magasság.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>

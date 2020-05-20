@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="244"/>
+        <location filename="../lxqtworldclock.cpp" line="246"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy/M/d (ddd)&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -127,13 +127,18 @@
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
-        <source>Show &amp;week number</source>
-        <translation>週番号を表示する(&amp;W)</translation>
+        <source>Show &amp;week numbers in popup calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
+        <source>S&amp;how tooltip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="586"/>
         <source>Custom name</source>
         <translation>指定した名前</translation>
     </message>
@@ -233,12 +238,12 @@
         <translation>パネルが垂直なときには回転する(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy/M/d (ddd)&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="583"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Input custom time zone name</source>
         <translation>タイムゾーンの名前を入力</translation>
     </message>

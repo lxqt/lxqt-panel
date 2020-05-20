@@ -217,7 +217,7 @@ Colorize icons based on widget style (palette)</source>
 
 次の設定を無効にすることもできます。
 
-LXQt 設定　外観 →
+LXQt 設定&#x3000;外観 →
 アイコンテーマ →
 ウィジェットのスタイル（パレット）に基づいてアイコンを色付けする</translation>
     </message>
@@ -292,18 +292,18 @@ LXQt 設定　外観 →
         <translation>下</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="436"/>
-        <location filename="../config/configpanelwidget.cpp" line="452"/>
+        <location filename="../config/configpanelwidget.cpp" line="439"/>
+        <location filename="../config/configpanelwidget.cpp" line="455"/>
         <source>Pick color</source>
         <translation>色の選択</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>画像 (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="470"/>
+        <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Pick image</source>
         <translation>画像の選択</translation>
     </message>
@@ -358,45 +358,45 @@ LXQt 設定　外観 →
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1081"/>
-        <location filename="../lxqtpanel.cpp" line="1107"/>
+        <location filename="../lxqtpanel.cpp" line="1130"/>
+        <location filename="../lxqtpanel.cpp" line="1156"/>
         <source>Panel</source>
         <translation>パネル</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1110"/>
+        <location filename="../lxqtpanel.cpp" line="1159"/>
         <source>Configure Panel</source>
         <translation>パネルの設定</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1115"/>
+        <location filename="../lxqtpanel.cpp" line="1164"/>
         <source>Manage Widgets</source>
         <translation>ウィジェットの管理</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1121"/>
+        <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
         <translation>新しいパネルの追加</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1128"/>
+        <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>パネルの削除</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1133"/>
+        <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
         <translation>パネルのロック</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1286"/>
+        <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>パネルの削除</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1287"/>
+        <location filename="../lxqtpanel.cpp" line="1339"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>パネルを削除すると、元に戻せません。
