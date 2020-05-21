@@ -68,17 +68,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Toon Caps Lock-toets</translation>
+        <translation>Toon Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Toon Num Lock-toets</translation>
+        <translation>Toon Num Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Toon Scroll Lock-toets</translation>
+        <translation>Toon Scroll Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
@@ -93,12 +93,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Patroon voor pad van vlaggen:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Patroon voor bestandspad van vlaggen. Moet &lt;strong&gt;%1&lt;/strong&gt; bevatten, dat vervangen zal worden door de tweeletterige ISO-landcode (kleine letters).&lt;br&gt;&lt;br&gt;Bijvoorbeeld: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>

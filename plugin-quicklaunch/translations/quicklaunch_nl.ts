@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="226"/>
         <source>Drop Error</source>
-        <translation>Neerzetfout</translation>
+        <translation>Sleepfout</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
-        <translation>Zet pictogrammen van
-toepassingen hier neer</translation>
+        <translation>Sleep pictogrammen van
+toepassingen hiernaartoe</translation>
     </message>
 </context>
 <context>
@@ -26,7 +26,7 @@ toepassingen hier neer</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl + slepen</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
@@ -41,7 +41,7 @@ toepassingen hier neer</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="64"/>
         <source>Remove from quicklaunch</source>
-        <translation>Verwijder uit snelstartbalk</translation>
+        <translation>Verwijder uit snelstarter</translation>
     </message>
 </context>
 </TS>

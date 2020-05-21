@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation>Open in terminal</translation>
+        <translation>In terminal openen</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Instellingen voor mapmenu</translation>
+        <translation>Instellingen voor Mapmenu</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>

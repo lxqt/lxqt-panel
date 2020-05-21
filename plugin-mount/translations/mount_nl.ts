@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Beheerder van verwijderbare media/apparaten</translation>
+        <translation>Beheer van verwijderbare media/apparaten</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation>Opduikmenu</translation>
+        <translation>Popup-menu</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation>Doe niets</translation>
+        <translation>Niets doen</translation>
     </message>
 </context>
 <context>
@@ -52,12 +52,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Het apparaat &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; werd verwijderd.</translation>
+        <translation>Het apparaat &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is verwijderd.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Beheerder van verwijderbare media/apparaten</translation>
+        <translation>Beheer van verwijderbare media/apparaten</translation>
     </message>
 </context>
 <context>
@@ -71,7 +71,7 @@
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation>Beheerder van verwijderbare media/apparaten</translation>
+        <translation>Beheer van verwijderbare media/apparaten</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>

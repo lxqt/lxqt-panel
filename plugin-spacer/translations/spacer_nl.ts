@@ -6,22 +6,22 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Instellingen voor spaties</translation>
+        <translation>Instellingen voor Tussenruimte</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Spatiebreedte:</translation>
+        <translation>Breedte:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Spatiesoort:</translation>
+        <translation>Type:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation>vastgezet</translation>
+        <translation>vast</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
