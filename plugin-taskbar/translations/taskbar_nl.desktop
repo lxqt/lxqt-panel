@@ -1,12 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-Name=Task manager
-Comment=Switch between running applications
-
-#TRANSLATIONS_DIR=../translations
-
-
-# Translations
+Name[nl]=Taakbalk
 Comment[nl]=Wissel tussen draaiende applicaties
-Name[nl]=taak-manager

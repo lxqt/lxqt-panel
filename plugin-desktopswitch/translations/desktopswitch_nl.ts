@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
-        <translation>Schakel over naar werkblad %1</translation>
+        <translation>Schakel over naar bureaublad %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
         <location filename="../desktopswitch.cpp" line="155"/>
         <source>Desktop %1</source>
-        <translation>Werkblad %1</translation>
+        <translation>bureaublad %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Instellingen voor Werkbladwisselaar</translation>
+        <translation>Instellingen voor Bureaubladwisselaar</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Werkbladetiketten:</translation>
+        <translation>Bureaubladlabels:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Indien aangevinkt is widget alleen een indicator</translation>
+        <translation>Indien aangevinkt is de bureaubladwisselaar alleen een indicator</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Werkbladnamen</translation>
+        <translation>Bureaubladnamen</translation>
     </message>
 </context>
 </TS>

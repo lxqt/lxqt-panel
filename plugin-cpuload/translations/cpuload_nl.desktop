@@ -1,13 +1,2 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=LXQtPanel/Plugin
-
-Name=Cpu monitor
-Comment=Displays the current CPU load.
-
-
-
-
-# Translations
-Comment[nl]=CPU belasting monitor
-Name[nl]=Cpu belasting
+Name[nl]=CPU-monitor
+Comment[nl]=Geeft de huidige processorbelasting weer.

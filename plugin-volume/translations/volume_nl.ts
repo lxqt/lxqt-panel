@@ -6,27 +6,27 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation>Verhoog geluidssterkte</translation>
+        <translation>Verhoog volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation>Verlaag geluidssterkte</translation>
+        <translation>Verlaag volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Demp/ontdemp geluidssterkte</translation>
+        <translation>Demp/ontdemp geluid</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Geluidssterktebeheer: de volgende sneltoetsen kunnen niet worden geregistreerd: %1</translation>
+        <translation>Volume: de volgende sneltoetsen kunnen niet worden geregistreerd: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
-        <translation>Geluidssterkte: %1%%2</translation>
+        <translation>Volume: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Instellingen geluidssterktebeheer</translation>
+        <translation>Instellingen Volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -79,22 +79,22 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Sta geluidssterktes toe boven 100% (0dB)</translation>
+        <translation>Sta volumes toe boven 100% (0dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>Wijzigingen in geluidssterkte altijd melden</translation>
+        <translation>Wijzigingen in volume altijd melden</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Wijzigingen in geluidssterkte vanaf toetsenbord altijd melden</translation>
+        <translation>Wijzigingen in volume vanaf toetsenbord altijd melden</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
         <source>Volume adjust step</source>
-        <translation>Bijstellingsstappen voor geluidssterkte</translation>
+        <translation>Stapgrootte voor volumeverandering</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="125"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation>Instellingen van sensoren</translation>
+        <translation>Instellingen van Sensoren</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Opgemerkte chips:</translation>
+        <translation>Gedetecteerde chips:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation>Etiket</translation>
+        <translation>Label</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>

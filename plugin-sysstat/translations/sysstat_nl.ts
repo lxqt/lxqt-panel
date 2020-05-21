@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Kleuren voor systeemstatistieken</translation>
+        <translation>Kleuren voor Systeemstatistieken</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>Tijdelijke op&amp;slag</translation>
+        <translation>&amp;Tijdelijke opslag</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
@@ -88,12 +88,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Toepassingen</translation>
+        <translation>&amp;Applicaties</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation>Buff&amp;ers</translation>
+        <translation>&amp;Buffers</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Instellingen voor systeemstatistieken</translation>
+        <translation>Instellingen voor Systeemstatistieken</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimale breedte als de werkbalk horizontaal is.&lt;/p&gt;&lt;p&gt;Minimale hoogte als de werkbalk verticaal is.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -387,7 +387,7 @@
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>toepassingen: %1%&lt;br&gt;buffers: %2%&lt;br&gt;tijd. opslag: %3%</translation>
+        <translation>applicaties: %1%&lt;br&gt;buffers: %2%&lt;br&gt;tijd. opslag: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
