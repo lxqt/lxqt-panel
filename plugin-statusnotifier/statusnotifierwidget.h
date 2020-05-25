@@ -30,6 +30,7 @@
 #define STATUSNOTIFIERWIDGET_H
 
 #include <QDir>
+#include <QTimer>
 
 #include <LXQt/GridLayout>
 
@@ -44,19 +45,34 @@ public:
     StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
     ~StatusNotifierWidget();
 
+    QStringList itemTitles() const;
+
 signals:
 
 public slots:
     void itemAdded(QString serviceAndPath);
     void itemRemoved(const QString &serviceAndPath);
-
+    void settingsChanged();
     void realign();
+
+protected:
+    void leaveEvent(QEvent *event) override;
+    void enterEvent(QEvent *event) override;
 
 private:
     ILXQtPanelPlugin *mPlugin;
     StatusNotifierWatcher *mWatcher;
 
+    QTimer mHideTimer;
+
     QHash<QString, StatusNotifierButton*> mServices;
+
+    QStringList mItemTitles;
+    QStringList mAutoHideList;
+    QStringList mHideList;
+    QToolButton *mShowBtn;
+    int mAttentionPeriod;
+    bool mForceVisible;
 };
 
 #endif // STATUSNOTIFIERWIDGET_H
