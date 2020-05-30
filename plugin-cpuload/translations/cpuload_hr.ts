@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation>Korištenje CPU-a %1%</translation>
+        <translation>Opterećenje procesora %1 %</translation>
     </message>
 </context>
 <context>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Postavke korištenja CPU-a</translation>
+        <translation>Opterećenje procesora – Postavke</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Općenito</translation>
+        <translation>Opće</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Pokaži tekst</translation>
+        <translation>Prikaži tekst</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Interval ažuriranja:</translation>
+        <translation>Interval aktualiziranja:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation>sek</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Orijentacija trake:</translation>
+        <translation>Smjer trake:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>

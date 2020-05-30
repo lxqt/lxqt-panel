@@ -6,17 +6,17 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation type="unfinished">Pokaži radnu površinu</translation>
+        <translation>Prikaži radnu površinu</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži radnu površinu: Nije moguće registrirati globalni prečac „%1”</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation type="unfinished">Pokaži Radnu površinu</translation>
+        <translation>Prikaži radnu površinu</translation>
     </message>
 </context>
 </TS>

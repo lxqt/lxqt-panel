@@ -7,37 +7,37 @@
         <location filename="../src/content.cpp" line="46"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation>C</translation>
+        <translation>V</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="49"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>CapsLock</translation>
+        <translation>Prekidač velikih slova</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="53"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
-        <translation>N</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="55"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>NumLock</translation>
+        <translation>Prekidač brojčane tipkovnice</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="60"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation>S</translation>
+        <translation>K</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="62"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>ScrollLock</translation>
+        <translation>Prekidač klizanja</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="105"/>
@@ -55,32 +55,32 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Postavke stanja tipkovnice</translation>
+        <translation>Stanje tipkovnice – Postavke</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Indikatori lockova</translation>
+        <translation>Indikatori za tipke</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Prikaži CapsLock</translation>
+        <translation>Prikaži prekidač velikih slova</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Prikaži NumLock</translation>
+        <translation>Prikaži prekidač brojčane tipkovnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Prikaži ScrollLock</translation>
+        <translation>Prikaži prekidač klizanja</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Indikator rasporeda tipkovnice</translation>
+        <translation>Indikator za raspored tipkovnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
@@ -100,17 +100,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Aplikacija</translation>
+        <translation>Program</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzorak staze zastava:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzorak staze datoteka za zastave zemlje. Mora sadržavati &lt;strong&gt;%1&lt;/strong&gt;, što se zamijenjuje dvoslovnim ISO kodom države (mala slova).&lt;br&gt;&lt;br&gt;Primjer: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>

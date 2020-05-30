@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Upravitelj uklonjivim medijima/uređajima</translation>
+        <translation>Upravljač prijenosnih medija/uređaja</translation>
     </message>
 </context>
 <context>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished">Postavke uklonjivih medija</translation>
+        <translation>Prijenosni mediji – Postavke</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">Ponašanje</translation>
+        <translation>Ponašanje</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="26"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kad je uređaj priključen:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="40"/>
         <source>Popup menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvori skočni izbornik</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="41"/>
         <source>Show info</source>
-        <translation type="unfinished">Pokaži info</translation>
+        <translation>Prikaži inforamcije</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="42"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Ne čini ništa</translation>
+        <translation>Ne čini ništa</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished">Uređaj &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je spojen.</translation>
+        <translation>Uređaj &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt; je spojen.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished">Uređaj &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; je uklonjen.</translation>
+        <translation>Uređaj &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt; je uklonjen.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Upravitelj uklonjivim medijima/uređajima</translation>
+        <translation>Upravljač prijenosnih medija/uređaja</translation>
     </message>
 </context>
 <context>
@@ -65,18 +65,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation type="unfinished">Montiranje &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; nije uspjelo: %2</translation>
+        <translation>Neuspjelo pokretanje medija/uređaja &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt;: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="157"/>
         <location filename="../menudiskitem.cpp" line="178"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Upravitelj uklonjivim medijima/uređajima</translation>
+        <translation>Upravljač prijenosnih medija/uređaja</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished">Odmontiranje &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; nije uspjelo: %2</translation>
+        <translation>Neuspjelo uklanjanje medija/uređaja &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt;: %2</translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation type="unfinished">Nije dostupan nijedan uređaj</translation>
+        <translation>Nema dostupnih uređaja</translation>
     </message>
 </context>
 </TS>
