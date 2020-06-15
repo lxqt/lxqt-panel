@@ -84,12 +84,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
 
                 pg->setToolTip(chipFeatureLabel);
                 pg->setTextVisible(false);
-
-                QPalette pal = pg->palette();
-                QColor color(mSettings->value(QStringLiteral("color")).toString());
-                pal.setColor(QPalette::Active, QPalette::Highlight, color);
-                pal.setColor(QPalette::Inactive, QPalette::Highlight, color);
-                pg->setPalette(pal);
+                pg->setSensorColor(mSettings->value(QStringLiteral("color")).toString());
 
                 mTemperatureProgressBars.push_back(pg);
                 mLayout->addWidget(pg);
@@ -293,11 +288,7 @@ void LXQtSensors::settingsChanged()
                     (*temperatureProgressBarsIt)->hide();
                 }
 
-                QPalette pal = (*temperatureProgressBarsIt)->palette();
-                QColor color(mSettings->value(QStringLiteral("color")).toString());
-                pal.setColor(QPalette::Active, QPalette::Highlight, color);
-                pal.setColor(QPalette::Inactive, QPalette::Highlight, color);
-                (*temperatureProgressBarsIt)->setPalette(pal);
+                (*temperatureProgressBarsIt)->setSensorColor(mSettings->value(QStringLiteral("color")).toString());
 
                 mSettings->endGroup();
 
@@ -453,4 +444,19 @@ ProgressBar::ProgressBar(QWidget *parent):
 QSize ProgressBar::sizeHint() const
 {
     return QSize(20, 20);
+}
+
+void ProgressBar::setSensorColor(const QString &colorName)
+{
+    // NOTE: Only a style sheet guarantees that custom colors are applied
+    // because not all widget styles use palettes to draw progress bars.
+    static const QString ss = QStringLiteral("QProgressBar{background-color: %1; border-radius: 2px; border: 1px solid %2;}"
+                                             "QProgressBar::chunk{background-color: %3; border-radius: 1px;}");
+    QPalette pal = palette();
+    QColor base = pal.color(QPalette::Base);
+    QColor outline = pal.color(QPalette::Text);
+    outline.setRgbF(0.5 * base.redF()   + 0.5 * outline.redF(),
+                    0.5 * base.greenF() + 0.5 * outline.greenF(),
+                    0.5 * base.blueF()  + 0.5 * outline.blueF());
+    setStyleSheet(ss.arg(base.name(), outline.name(), colorName));
 }
