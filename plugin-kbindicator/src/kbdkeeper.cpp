@@ -142,7 +142,7 @@ AppKbdKeeper::~AppKbdKeeper()
 
 void AppKbdKeeper::layoutChanged(uint group)
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), 0, NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     if (m_active == app){
@@ -161,7 +161,7 @@ void AppKbdKeeper::layoutChanged(uint group)
 
 void AppKbdKeeper::checkState()
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), 0, NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     if (!m_mapping.contains(app))
@@ -176,7 +176,7 @@ void AppKbdKeeper::checkState()
 
 void AppKbdKeeper::switchToGroup(uint group)
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), 0, NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     m_mapping[app] = group;

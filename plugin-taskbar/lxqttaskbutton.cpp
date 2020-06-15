@@ -144,7 +144,7 @@ void LXQtTaskButton::updateIcon()
     QIcon ico;
     if (mParentTaskBar->isIconByClass())
     {
-        ico = XdgIcon::fromTheme(QString::fromUtf8(KWindowInfo{mWindow, 0, NET::WM2WindowClass}.windowClassClass()).toLower());
+        ico = XdgIcon::fromTheme(QString::fromUtf8(KWindowInfo{mWindow, NET::Properties(), NET::WM2WindowClass}.windowClassClass()).toLower());
     }
     if (ico.isNull())
     {
@@ -173,7 +173,7 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
                     windowId(),
                     (WId) QX11Info::appRootWindow(),
                     NET::WMIconGeometry,
-                    0);
+                    NET::Properties2());
     NETRect const curr = info.iconGeometry();
     if (curr.pos.x != geom.x() || curr.pos.y != geom.y()
             || curr.size.width != geom.width() || curr.size.height != geom.height())
@@ -629,7 +629,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         return;
     }
 
-    KWindowInfo info(mWindow, 0, NET::WM2AllowedActions);
+    KWindowInfo info(mWindow, NET::Properties(), NET::WM2AllowedActions);
     unsigned long state = KWindowInfo(mWindow, NET::WMState).state();
 
     QMenu * menu = new QMenu(tr("Application"));

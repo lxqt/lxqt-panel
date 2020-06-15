@@ -629,7 +629,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         // if class is changed the window won't belong to our group any more
         if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass))
         {
-            KWindowInfo info(window, 0, NET::WM2WindowClass);
+            KWindowInfo info(window, NET::Properties(), NET::WM2WindowClass);
             if (QString::fromUtf8(info.windowClassClass()) != mGroupName)
             {
                 onWindowRemoved(window);
