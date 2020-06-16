@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="669"/>
         <source>To &amp;Desktop</source>
-        <translation>ל&amp;שולחן עבודה</translation>
+        <translation>ל&amp;שולחן העבודה</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="671"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>הגדרות מנהל משימות</translation>
+        <translation>הגדרות מנהל המשימות</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -252,12 +252,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>גלילה למעלה על מנת לעבור לשולחן העבודה הבא, ולמטה לקודם</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>גלילה למעלה על מנת לעבור לשולחן העבודה הקודם, ולמטה להבא</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
