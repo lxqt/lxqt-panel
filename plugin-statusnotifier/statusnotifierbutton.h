@@ -72,6 +72,7 @@ public:
 
 signals:
     void titleFound(const QString &title);
+    void attentionChanged();
 
 public slots:
     void newIcon();

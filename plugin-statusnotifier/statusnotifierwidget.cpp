@@ -52,16 +52,13 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
     layout()->addWidget(mShowBtn);
     mShowBtn->hide();
     connect(mShowBtn, &QAbstractButton::released, [this] {
+        if (mForceVisible)
+            return; // all items are visible; nothing to do
         mHideTimer.stop();
+        mForceVisible = true;
         const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
         for (const auto &btn : allButtons)
-        {
-            if (!btn->isVisible())
-            {
-                mForceVisible = true;
-                btn->show();
-            }
-        }
+            btn->show();
     });
 
     settingsChanged();
@@ -143,20 +140,49 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
     layout()->addWidget(button);
     button->show();
 
-    connect(button, &StatusNotifierButton::titleFound, button, [this, button] (const QString &title) {
+    // show/hide the added item appropriately and show mShowBtn if needed
+    connect(button, &StatusNotifierButton::titleFound, [this, button] (const QString &title) {
         mItemTitles << title;
         if (mAutoHideList.contains(title))
         {
             mShowBtn->show();
-            button->setAutoHide(true, mAttentionPeriod, mHideTimer.isActive());
+            button->setAutoHide(true, mAttentionPeriod, mForceVisible);
         }
         else if (mHideList.contains(title))
         {
             mShowBtn->show();
             button->setAutoHide(false);
-            if (!mHideTimer.isActive())
+            if (!mForceVisible)
                 button->hide();
         }
+    });
+    // show/hide mShowBtn if needed whenever an item gets or loses attention
+    connect(button, &StatusNotifierButton::attentionChanged, [this, button] {
+        if (button->hasAttention())
+        {
+            if (mShowBtn->isVisible())
+            {
+                const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
+                for (const auto &btn : allButtons)
+                {
+                    if (!btn->isVisible()
+                        // or shown only because mShowBtn was clicked
+                        || (mForceVisible && !btn->hasAttention()
+                            && (mAutoHideList.contains(btn->title())
+                                || mHideList.contains(btn->title()))))
+                    {
+                        return;
+                    }
+                }
+                // there is no item in the hiding list and all auto-hiding items have attention;
+                // so, mShowBtn has no job
+                mHideTimer.stop();
+                mForceVisible = false;
+                mShowBtn->hide();
+            }
+        }
+        else // the auto-hiding item lost attention
+            mShowBtn->show();
     });
 }
 
@@ -203,8 +229,13 @@ void StatusNotifierWidget::settingsChanged()
     {
         if (mAutoHideList.contains(btn->title()))
         {
-            showBtn = true;
             btn->setAutoHide(true, mAttentionPeriod);
+            if (!btn->isVisible()
+                // or shown only because mShowBtn was clicked
+                || !btn->hasAttention())
+            {
+                showBtn = true;
+            }
         }
         else if (mHideList.contains(btn->title()))
         {

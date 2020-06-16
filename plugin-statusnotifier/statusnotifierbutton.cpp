@@ -101,7 +101,10 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     // The timer that hides an auto-hiding button after it gets attention:
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(300000);
-    connect(&mHideTimer, &QTimer::timeout, this, [this] { hide(); });
+    connect(&mHideTimer, &QTimer::timeout, this, [this] {
+        hide();
+        emit attentionChanged();
+    });
 }
 
 StatusNotifierButton::~StatusNotifierButton()
@@ -344,6 +347,7 @@ void StatusNotifierButton::onNeedingAttention()
     {
         show();
         mHideTimer.start();
+        emit attentionChanged();
     }
 }
 
