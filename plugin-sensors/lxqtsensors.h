@@ -43,6 +43,7 @@ public:
     ProgressBar(QWidget *parent = nullptr);
 
     QSize sizeHint() const;
+    void setSensorColor(const QString &colorName);
 };
 
 
