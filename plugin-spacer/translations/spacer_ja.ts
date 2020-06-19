@@ -16,7 +16,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>スペースのタイプ:</translation>
+        <translation>スペースの種類:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
@@ -31,17 +31,17 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>線</translation>
+        <translation>直線</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>ドット</translation>
+        <translation>点線</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>見えないようにする</translation>
+        <translation>非表示</translation>
     </message>
 </context>
 </TS>
