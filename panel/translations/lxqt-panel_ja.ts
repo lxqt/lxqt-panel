@@ -217,7 +217,7 @@ Colorize icons based on widget style (palette)</source>
 
 次の設定を無効にすることもできます。
 
-LXQt 設定&#x3000;外観 →
+LXQt 設定 - 外観 →
 アイコンテーマ →
 ウィジェットのスタイル（パレット）に基づいてアイコンを色付けする</translation>
     </message>

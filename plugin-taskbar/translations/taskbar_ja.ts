@@ -34,7 +34,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="686"/>
         <source>&amp;To Current Desktop</source>
-        <translation>現在のデスクトップへ(&amp;T)</translation>
+        <translation>現在のデスクトップに(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="694"/>
@@ -252,12 +252,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>スクロールアップで次のデスクトップへ移動、ダウンで前のデスクトップへ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>スクロールアップで前のデスクトップへ移動、ダウンで次のデスクトップへ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>

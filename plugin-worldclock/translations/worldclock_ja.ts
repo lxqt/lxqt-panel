@@ -128,12 +128,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>ポップアップするカレンダーに週番号を表示する(&amp;W)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールチップを表示する(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
