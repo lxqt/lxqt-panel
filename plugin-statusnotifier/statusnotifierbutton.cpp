@@ -71,10 +71,13 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
     connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
 
-    // get the title only at the start
+    // get the title only at the start because that title is used
+    // for deciding about (auto-)hiding
     interface->propertyGetAsync(QLatin1String("Title"), [this] (QString value) {
         mTitle = value;
-        emit titleFound(value);
+        QTimer::singleShot(0, this, [this]() { // wait for the c-tor
+            Q_EMIT titleFound(mTitle);
+        });
     });
 
     interface->propertyGetAsync(QLatin1String("Menu"), [this] (QDBusObjectPath path) {
@@ -103,7 +106,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     mHideTimer.setInterval(300000);
     connect(&mHideTimer, &QTimer::timeout, this, [this] {
         hide();
-        emit attentionChanged();
+        Q_EMIT attentionChanged();
     });
 }
 
@@ -347,7 +350,7 @@ void StatusNotifierButton::onNeedingAttention()
     {
         show();
         mHideTimer.start();
-        emit attentionChanged();
+        Q_EMIT attentionChanged();
     }
 }
 
