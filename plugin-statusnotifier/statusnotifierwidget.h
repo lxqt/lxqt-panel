@@ -45,6 +45,7 @@ public:
     StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
     ~StatusNotifierWidget();
 
+    void settingsChanged();
     QStringList itemTitles() const;
 
 signals:
@@ -52,7 +53,7 @@ signals:
 public slots:
     void itemAdded(QString serviceAndPath);
     void itemRemoved(const QString &serviceAndPath);
-    void settingsChanged();
+
     void realign();
 
 protected:

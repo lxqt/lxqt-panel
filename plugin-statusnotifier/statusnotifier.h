@@ -45,7 +45,7 @@ public:
     virtual Flags flags() const { return SingleInstance | HaveConfigDialog | NeedsHandle; }
     QWidget *widget() { return m_widget; }
 
-    QDialog *configureDialog();
+    QDialog *configureDialog() override;
 
     void settingsChanged() { m_widget->settingsChanged(); }
 
