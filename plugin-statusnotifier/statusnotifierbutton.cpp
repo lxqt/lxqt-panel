@@ -58,7 +58,8 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     mMenu(nullptr),
     mStatus(Passive),
     mFallbackIcon(QIcon::fromTheme(QLatin1String("application-x-executable"))),
-    mPlugin(plugin)
+    mPlugin(plugin),
+    mAutoHide(false)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAutoRaise(true);
@@ -69,6 +70,15 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     connect(interface, &SniAsync::NewAttentionIcon, this, &StatusNotifierButton::newAttentionIcon);
     connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
     connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
+
+    // get the title only at the start because that title is used
+    // for deciding about (auto-)hiding
+    interface->propertyGetAsync(QLatin1String("Title"), [this] (QString value) {
+        mTitle = value;
+        QTimer::singleShot(0, this, [this]() { // wait for the c-tor
+            Q_EMIT titleFound(mTitle);
+        });
+    });
 
     interface->propertyGetAsync(QLatin1String("Menu"), [this] (QDBusObjectPath path) {
         if (!path.path().isEmpty())
@@ -90,6 +100,14 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     });
 
     newToolTip();
+
+    // The timer that hides an auto-hiding button after it gets attention:
+    mHideTimer.setSingleShot(true);
+    mHideTimer.setInterval(300000);
+    connect(&mHideTimer, &QTimer::timeout, this, [this] {
+        hide();
+        Q_EMIT attentionChanged();
+    });
 }
 
 StatusNotifierButton::~StatusNotifierButton()
@@ -99,6 +117,9 @@ StatusNotifierButton::~StatusNotifierButton()
 
 void StatusNotifierButton::newIcon()
 {
+    if (!icon().isNull() && icon().name() != QLatin1String("application-x-executable"))
+        onNeedingAttention();
+
     interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
         refetchIcon(Passive, value);
     });
@@ -106,6 +127,8 @@ void StatusNotifierButton::newIcon()
 
 void StatusNotifierButton::newOverlayIcon()
 {
+    onNeedingAttention();
+
     interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
         refetchIcon(Active, value);
     });
@@ -113,6 +136,8 @@ void StatusNotifierButton::newOverlayIcon()
 
 void StatusNotifierButton::newAttentionIcon()
 {
+    onNeedingAttention();
+
     interface->propertyGetAsync(QLatin1String("IconThemePath"), [this] (QString value) {
         refetchIcon(NeedsAttention, value);
     });
@@ -255,6 +280,8 @@ void StatusNotifierButton::newStatus(QString status)
         return;
 
     mStatus = newStatus;
+    if (mStatus == NeedsAttention)
+        onNeedingAttention();
     resetIcon();
 }
 
@@ -302,4 +329,32 @@ void StatusNotifierButton::resetIcon()
         setIcon(mAttentionIcon);
     else
         setIcon(mFallbackIcon);
+}
+
+void StatusNotifierButton::setAutoHide(bool autoHide, int minutes, bool forcedVisible)
+{
+    if (autoHide)
+        mHideTimer.setInterval(qBound(1, minutes, 60) * 60000);
+    if (mAutoHide != autoHide)
+    {
+        mAutoHide = autoHide;
+        setVisible(!mAutoHide || forcedVisible);
+        if (!mAutoHide)
+            mHideTimer.stop();
+    }
+}
+
+void StatusNotifierButton::onNeedingAttention()
+{
+    if (mAutoHide)
+    {
+        show();
+        mHideTimer.start();
+        Q_EMIT attentionChanged();
+    }
+}
+
+bool StatusNotifierButton::hasAttention() const
+{
+    return mHideTimer.isActive();
 }

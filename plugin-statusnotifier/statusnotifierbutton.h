@@ -36,6 +36,7 @@
 #include <QToolButton>
 #include <QWheelEvent>
 #include <QMenu>
+#include <QTimer>
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
 template <typename T> inline T qFromUnaligned(const uchar *src)
@@ -63,6 +64,16 @@ public:
         Passive, Active, NeedsAttention
     };
 
+    QString title() const {
+        return mTitle;
+    }
+    bool hasAttention() const;
+    void setAutoHide(bool autoHide, int minutes = 5, bool forcedVisible = false);
+
+signals:
+    void titleFound(const QString &title);
+    void attentionChanged();
+
 public slots:
     void newIcon();
     void newAttentionIcon();
@@ -71,6 +82,8 @@ public slots:
     void newStatus(QString status);
 
 private:
+    void onNeedingAttention();
+
     SniAsync *interface;
     QMenu *mMenu;
     Status mStatus;
@@ -78,6 +91,10 @@ private:
     QIcon mIcon, mOverlayIcon, mAttentionIcon, mFallbackIcon;
 
     ILXQtPanelPlugin* mPlugin;
+
+    QString mTitle;
+    bool mAutoHide;
+    QTimer mHideTimer;
 
 protected:
     void contextMenuEvent(QContextMenuEvent * event);

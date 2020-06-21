@@ -6,6 +6,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Concurrent)
 
 set(HEADERS
     statusnotifier.h
+    statusnotifierconfiguration.h
     dbustypes.h
     statusnotifierbutton.h
     statusnotifieriteminterface.h
@@ -16,12 +17,17 @@ set(HEADERS
 
 set(SOURCES
     statusnotifier.cpp
+    statusnotifierconfiguration.cpp
     dbustypes.cpp
     statusnotifierbutton.cpp
     statusnotifieriteminterface.cpp
     statusnotifierwatcher.cpp
     statusnotifierwidget.cpp
     sniasync.cpp
+)
+
+set(UIS
+    statusnotifierconfiguration.ui
 )
 
 qt5_add_dbus_adaptor(DBUS_SOURCES

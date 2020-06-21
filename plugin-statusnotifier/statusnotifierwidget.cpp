@@ -32,13 +32,54 @@
 #include <QFutureWatcher>
 #include <QtConcurrent>
 #include <QDBusConnectionInterface>
+#include "../panel/pluginsettings.h"
 #include "../panel/ilxqtpanelplugin.h"
 
 StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QWidget(parent),
-    mPlugin(plugin)
+    mPlugin(plugin),
+    mAttentionPeriod(5),
+    mForceVisible(false)
 {
     setLayout(new LXQt::GridLayout(this));
+
+    // The button that shows all hidden items:
+    mShowBtn = new QToolButton(this);
+    mShowBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mShowBtn->setAutoRaise(true);
+    mShowBtn->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    mShowBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
+    layout()->addWidget(mShowBtn);
+    mShowBtn->hide();
+    connect(mShowBtn, &QAbstractButton::released, [this] {
+        if (mForceVisible)
+            return; // all items are visible; nothing to do
+        mHideTimer.stop();
+        mForceVisible = true;
+        const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
+        for (const auto &btn : allButtons)
+            btn->show();
+    });
+
+    settingsChanged();
+
+    // The timer that hides (auto-)hidden items after 2 seconds:
+    mHideTimer.setSingleShot(true);
+    mHideTimer.setInterval(2000);
+    connect(&mHideTimer, &QTimer::timeout, this, [this] {
+        mForceVisible = false;
+        const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
+        for (const auto &btn : allButtons)
+        {
+            if (btn->hasAttention()
+                || (!mAutoHideList.contains(btn->title())
+                     && !mHideList.contains(btn->title())))
+            {
+                continue;
+            }
+            btn->hide();
+        }
+    });
 
     QFutureWatcher<StatusNotifierWatcher *> * future_watcher = new QFutureWatcher<StatusNotifierWatcher *>;
     connect(future_watcher, &QFutureWatcher<StatusNotifierWatcher *>::finished, this, [this, future_watcher]
@@ -70,12 +111,22 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
     future_watcher->setFuture(future);
 
     realign();
-
 }
 
 StatusNotifierWidget::~StatusNotifierWidget()
 {
     delete mWatcher;
+}
+
+void StatusNotifierWidget::leaveEvent(QEvent * /*event*/)
+{
+    if (mForceVisible)
+        mHideTimer.start();
+}
+
+void StatusNotifierWidget::enterEvent(QEvent * /*event*/)
+{
+    mHideTimer.stop();
 }
 
 void StatusNotifierWidget::itemAdded(QString serviceAndPath)
@@ -88,6 +139,51 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
     mServices.insert(serviceAndPath, button);
     layout()->addWidget(button);
     button->show();
+
+    // show/hide the added item appropriately and show mShowBtn if needed
+    connect(button, &StatusNotifierButton::titleFound, [this, button] (const QString &title) {
+        mItemTitles << title;
+        if (mAutoHideList.contains(title))
+        {
+            mShowBtn->show();
+            button->setAutoHide(true, mAttentionPeriod, mForceVisible);
+        }
+        else if (mHideList.contains(title))
+        {
+            mShowBtn->show();
+            button->setAutoHide(false);
+            if (!mForceVisible)
+                button->hide();
+        }
+    });
+    // show/hide mShowBtn if needed whenever an item gets or loses attention
+    connect(button, &StatusNotifierButton::attentionChanged, [this, button] {
+        if (button->hasAttention())
+        {
+            if (mShowBtn->isVisible())
+            {
+                const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
+                for (const auto &btn : allButtons)
+                {
+                    if (!btn->isVisible()
+                        // or shown only because mShowBtn was clicked
+                        || (mForceVisible && !btn->hasAttention()
+                            && (mAutoHideList.contains(btn->title())
+                                || mHideList.contains(btn->title()))))
+                    {
+                        return;
+                    }
+                }
+                // there is no item in the hiding list and all auto-hiding items have attention;
+                // so, mShowBtn has no job
+                mHideTimer.stop();
+                mForceVisible = false;
+                mShowBtn->hide();
+            }
+        }
+        else // the auto-hiding item lost attention
+            mShowBtn->show();
+    });
 }
 
 void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
@@ -95,8 +191,69 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
     StatusNotifierButton *button = mServices.value(serviceAndPath, nullptr);
     if (button)
     {
+        mItemTitles.removeOne(button->title());
+        if (mShowBtn->isVisible())
+        { // hide mShowBtn if no (auto-)hidden item remains
+            bool showBtn = false;
+            for (const auto &name : qAsConst(mItemTitles))
+            {
+                if (mAutoHideList.contains(name) || mHideList.contains(name))
+                {
+                    showBtn = true;
+                    break;
+                }
+            }
+            if (!showBtn)
+            {
+                mHideTimer.stop();
+                mForceVisible = false;
+                mShowBtn->hide();
+            }
+        }
         button->deleteLater();
         layout()->removeWidget(button);
+        mServices.remove(serviceAndPath);
+    }
+}
+
+void StatusNotifierWidget::settingsChanged()
+{
+    mAttentionPeriod = mPlugin->settings()->value(QStringLiteral("attentionPeriod"), 5).toInt();
+    mAutoHideList = mPlugin->settings()->value(QStringLiteral("autoHideList")).toStringList();
+    mHideList = mPlugin->settings()->value(QStringLiteral("hideList")).toStringList();
+
+    // show/hide items as well as showBtn appropriately
+    const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
+    bool showBtn = false;
+    for (const auto &btn : allButtons)
+    {
+        if (mAutoHideList.contains(btn->title()))
+        {
+            btn->setAutoHide(true, mAttentionPeriod);
+            if (!btn->isVisible()
+                // or shown only because mShowBtn was clicked
+                || !btn->hasAttention())
+            {
+                showBtn = true;
+            }
+        }
+        else if (mHideList.contains(btn->title()))
+        {
+            showBtn = true;
+            btn->setAutoHide(false);
+            btn->hide();
+        }
+        else
+        {
+            btn->setAutoHide(false);
+            btn->show(); // may have been in mHideList before
+        }
+    }
+    mShowBtn->setVisible(showBtn);
+    if (!showBtn)
+    {
+        mHideTimer.stop();
+        mForceVisible = false;
     }
 }
 
@@ -118,4 +275,11 @@ void StatusNotifierWidget::realign()
     }
 
     layout->setEnabled(true);
+}
+
+QStringList StatusNotifierWidget::itemTitles() const
+{
+    QStringList names = mItemTitles;
+    names.removeDuplicates();
+    return names;
 }
