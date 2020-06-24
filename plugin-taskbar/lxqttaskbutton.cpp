@@ -610,7 +610,6 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 QRect targetScreenGeometry = screens[targetScreen]->geometry();
                 int X = windowGeometry.x() - screenGeometry.x() + targetScreenGeometry.x();
                 int Y = windowGeometry.y() - screenGeometry.y() + targetScreenGeometry.y();
-                ;
                 NET::States state = KWindowInfo(mWindow, NET::WMState).state();
                 //      NW geometry |     x/y      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b011 << 12);
