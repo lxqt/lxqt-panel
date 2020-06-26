@@ -610,12 +610,12 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 QRect targetScreenGeometry = screens[targetScreen]->geometry();
                 int X = windowGeometry.x() - screenGeometry.x() + targetScreenGeometry.x();
                 int Y = windowGeometry.y() - screenGeometry.y() + targetScreenGeometry.y();
-                NET::States state = KWindowInfo(mWindow, NET::WMState).state();
-                //      NW geometry |     x/y      |  from panel
-                const int flags = 1 | (0b011 << 8) | (0b011 << 12);
+                NET::States state = KWindowInfo(mWindow, NET::WMState).state();                
+                //      NW geometry |     y/x      |  from panel
+                const int flags = 1 | (0b011 << 8) | (0b010 << 12);
                 KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
                 NETRootInfo(QX11Info::connection(), 0, NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);            
-                QTimer::singleShot(200, [=]()
+                QTimer::singleShot(200, this, [this, state]
                 {
                     KWindowSystem::setState(mWindow, state);
                     raiseApplication();
@@ -733,7 +733,8 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
     }
     /********** Move/Resize **********/
-    if(QGuiApplication::screens().size() > 1){
+    if (QGuiApplication::screens().size() > 1)
+    {
         menu->addSeparator();
         a = menu->addAction(tr("Move To &Next Monitor"));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });

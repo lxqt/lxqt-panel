@@ -93,8 +93,7 @@ public slots:
     void shadeApplication();
     void unShadeApplication();
     void closeApplication();
-    void moveApplicationToDesktop();
-    
+    void moveApplicationToDesktop();    
     void moveApplication();
     void resizeApplication();
     void setApplicationLayer();
