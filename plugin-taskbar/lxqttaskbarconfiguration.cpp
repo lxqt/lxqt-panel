@@ -58,9 +58,8 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     for (int i = 1; desk_cnt >= i; ++i)
         ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KWindowSystem::desktopName(i)), i);
 
-    ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
     loadSettings();
-
+    ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
     connect(ui->limitByDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
