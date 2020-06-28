@@ -93,7 +93,7 @@ public slots:
     void shadeApplication();
     void unShadeApplication();
     void closeApplication();
-    void moveApplicationToDesktop();
+    void moveApplicationToDesktop();    
     void moveApplication();
     void resizeApplication();
     void setApplicationLayer();
@@ -123,7 +123,7 @@ protected:
 
 private:
     void moveApplicationToPrevNextDesktop(bool next);
-
+    void moveApplicationToPrevNextMonitor(bool next);
     WId mWindow;
     bool mUrgencyHint;
     QPoint mDragStartPosition;

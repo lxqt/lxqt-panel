@@ -48,6 +48,7 @@
 #include <QStylePainter>
 #include <QStyleOptionToolButton>
 #include <QDesktopWidget>
+#include <QScreen>
 
 #include "lxqttaskbutton.h"
 #include "lxqttaskgroup.h"
@@ -585,6 +586,49 @@ void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
 /************************************************
 
  ************************************************/
+void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
+{
+    KWindowInfo info(mWindow, NET::WMDesktop);
+    if (!info.isOnCurrentDesktop())
+        KWindowSystem::setCurrentDesktop(info.desktop());
+    if (isMinimized())
+        KWindowSystem::unminimizeWindow(mWindow);
+    KWindowSystem::forceActiveWindow(mWindow);
+    const QRect& windowGeometry = KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry();
+    QList<QScreen *> screens = QGuiApplication::screens();
+    if (screens.size() > 1){
+        for (int i = 0; i < screens.size(); ++i)
+        {
+            QRect screenGeometry = screens[i]->geometry();
+            if (screenGeometry.intersects(windowGeometry))
+            {
+                int targetScreen = i + (next ? 1 : -1);
+                if (targetScreen < 0)
+                    targetScreen += screens.size();
+                else if (targetScreen >= screens.size())
+                    targetScreen -= screens.size();
+                QRect targetScreenGeometry = screens[targetScreen]->geometry();
+                int X = windowGeometry.x() - screenGeometry.x() + targetScreenGeometry.x();
+                int Y = windowGeometry.y() - screenGeometry.y() + targetScreenGeometry.y();
+                NET::States state = KWindowInfo(mWindow, NET::WMState).state();                
+                //      NW geometry |     y/x      |  from panel
+                const int flags = 1 | (0b011 << 8) | (0b010 << 12);
+                KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
+                NETRootInfo(QX11Info::connection(), 0, NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);            
+                QTimer::singleShot(200, this, [this, state]
+                {
+                    KWindowSystem::setState(mWindow, state);
+                    raiseApplication();
+                });
+                break;
+            }
+        }
+    }
+}
+
+/************************************************
+
+ ************************************************/
 void LXQtTaskButton::moveApplication()
 {
     KWindowInfo info(mWindow, NET::WMDesktop);
@@ -688,8 +732,16 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         a->setEnabled(curDesk != winDesk);
         connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
     }
-
     /********** Move/Resize **********/
+    if (QGuiApplication::screens().size() > 1)
+    {
+        menu->addSeparator();
+        a = menu->addAction(tr("Move To &Next Monitor"));
+        connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });
+        a->setEnabled(info.actionSupported(NET::ActionMove) && (!(state & NET::FullScreen) || ((state & NET::FullScreen) && info.actionSupported(NET::ActionFullScreen))));
+        a = menu->addAction(tr("Move To &Previous Monitor"));
+        connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(false); });
+    }
     menu->addSeparator();
     a = menu->addAction(tr("&Move"));
     a->setEnabled(info.actionSupported(NET::ActionMove) && !(state & NET::Max) && !(state & NET::FullScreen));
