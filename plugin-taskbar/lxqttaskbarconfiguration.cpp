@@ -58,6 +58,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     for (int i = 1; desk_cnt >= i; ++i)
         ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KWindowSystem::desktopName(i)), i);
 
+    ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
     loadSettings();
 
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
@@ -73,7 +74,10 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->buttonHeightSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->autoRotateCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->middleClickCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->groupingGB, &QGroupBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->groupingGB, &QGroupBox::clicked, this, [this] {
+        saveSettings();
+        ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
+    });
     connect(ui->showGroupOnHoverCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->ungroupedNextToExistingCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->iconByClassCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
