@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>401</width>
-    <height>512</height>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -114,23 +114,23 @@
          </widget>
         </item>
         <item>
-        <widget class="QSpinBox" name="wheelDeltaThresholdSB">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="minimum">
-          <number>0</number>
-         </property>
-         <property name="maximum">
-          <number>300</number>
-         </property>
-        </widget>
+         <widget class="QSpinBox" name="wheelDeltaThresholdSB">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>300</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -154,6 +154,13 @@
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="ungroupedNextToExistingCB">
+     <property name="text">
+      <string>Ungrouped windows added next to existing window of same class</string>
+     </property>
     </widget>
    </item>
    <item>

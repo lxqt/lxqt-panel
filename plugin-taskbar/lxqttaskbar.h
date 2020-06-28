@@ -136,6 +136,7 @@ private:
     bool mAutoRotate;
     bool mGroupingEnabled;
     bool mShowGroupOnHover;
+    bool mUngroupedNextToExisting;
     bool mIconByClass;
     int mWheelEventsAction;
     int mWheelDeltaThreshold;

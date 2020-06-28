@@ -67,6 +67,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mAutoRotate(true),
     mGroupingEnabled(true),
     mShowGroupOnHover(true),
+    mUngroupedNextToExisting(false),
     mIconByClass(false),
     mWheelEventsAction(1),
     mWheelDeltaThreshold(300),
@@ -304,11 +305,32 @@ void LXQtTaskBar::addWindow(WId window)
         connect(group, &LXQtTaskButton::dragging, this, [this] (QObject * dragSource, QPoint const & pos) {
             buttonMove(qobject_cast<LXQtTaskGroup *>(sender()), qobject_cast<LXQtTaskGroup *>(dragSource), pos);
         });
-
         mLayout->addWidget(group);
         group->setToolButtonsStyle(mButtonStyle);
-    }
+                const QString window_class = QString::fromUtf8(KWindowInfo(window, NET::Properties(), NET::WM2WindowClass).windowClassClass());
+        int src_index = mLayout->count() - 1;
+        int dst_index = src_index;
+        if (mUngroupedNextToExisting)
+        {
+            for (int i = mLayout->count() - 2; 0 <= i; --i)
+            {
+                LXQtTaskGroup * group = qobject_cast<LXQtTaskGroup*>(mLayout->itemAt(i)->widget());
+                if (nullptr != group)
+                {
+                    const QString current_class = QString::fromUtf8(KWindowInfo((group->groupName()).toUInt(), NET::Properties(), NET::WM2WindowClass).windowClassClass());
+                    if(current_class == window_class){
+                        dst_index = i +1;
+                        break;
+                    }
+                }
+            }
 
+            if (dst_index != src_index)
+            {
+                mLayout->moveItem(src_index, dst_index, false);
+            }
+        }
+    }
     mKnownWindows[window] = group;
     group->addWindow(window);
 }
@@ -443,6 +465,7 @@ void LXQtTaskBar::setButtonStyle(Qt::ToolButtonStyle buttonStyle)
 void LXQtTaskBar::settingsChanged()
 {
     bool groupingEnabledOld = mGroupingEnabled;
+    bool ungroupedNextToExistingOld = mUngroupedNextToExisting;
     bool showOnlyOneDesktopTasksOld = mShowOnlyOneDesktopTasks;
     const int showDesktopNumOld = mShowDesktopNum;
     bool showOnlyCurrentScreenTasksOld = mShowOnlyCurrentScreenTasks;
@@ -469,12 +492,13 @@ void LXQtTaskBar::settingsChanged()
     mRaiseOnCurrentDesktop = mPlugin->settings()->value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool();
     mGroupingEnabled = mPlugin->settings()->value(QStringLiteral("groupingEnabled"),true).toBool();
     mShowGroupOnHover = mPlugin->settings()->value(QStringLiteral("showGroupOnHover"),true).toBool();
+    mUngroupedNextToExisting = mPlugin->settings()->value(QStringLiteral("ungroupedNextToExisting"),false).toBool();
     mIconByClass = mPlugin->settings()->value(QStringLiteral("iconByClass"), false).toBool();
     mWheelEventsAction = mPlugin->settings()->value(QStringLiteral("wheelEventsAction"), 1).toInt();
     mWheelDeltaThreshold = mPlugin->settings()->value(QStringLiteral("wheelDeltaThreshold"), 300).toInt();
 
-    // Delete all groups if grouping feature toggled and start over
-    if (groupingEnabledOld != mGroupingEnabled)
+    // Delete all groups if grouping or ungrouped next to existing feature toggled and start over
+    if (groupingEnabledOld != mGroupingEnabled || ungroupedNextToExistingOld != mUngroupedNextToExisting)
     {
         for (int i = mLayout->count() - 1; 0 <= i; --i)
         {
