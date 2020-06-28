@@ -159,7 +159,7 @@
    <item>
     <widget class="QCheckBox" name="ungroupedNextToExistingCB">
      <property name="text">
-      <string>Ungrouped windows added next to existing window of same class</string>
+      <string>Put buttons of the same class next to each other</string>
      </property>
     </widget>
    </item>
