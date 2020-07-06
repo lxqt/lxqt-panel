@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>הגדרות מעבר שולחן עבודה</translation>
+        <translation>הגדרות מעבר בין שולחנות עבודה</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>אין</translation>
+        <translation>כלום</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
