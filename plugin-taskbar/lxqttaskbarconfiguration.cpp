@@ -59,7 +59,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
         ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KWindowSystem::desktopName(i)), i);
 
     loadSettings();
-
+    ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
     /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
         change of state */
     connect(ui->limitByDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
@@ -73,8 +73,12 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->buttonHeightSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->autoRotateCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->middleClickCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->groupingGB, &QGroupBox::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->groupingGB, &QGroupBox::clicked, this, [this] {
+        saveSettings();
+        ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
+    });
     connect(ui->showGroupOnHoverCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->ungroupedNextToExistingCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->iconByClassCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelEventsActionCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelDeltaThresholdSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
@@ -102,6 +106,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->buttonHeightSB->setValue(settings().value(QStringLiteral("buttonHeight"), 100).toInt());
     ui->groupingGB->setChecked(settings().value(QStringLiteral("groupingEnabled"),true).toBool());
     ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"),true).toBool());
+    ui->ungroupedNextToExistingCB->setChecked(settings().value(QStringLiteral("ungroupedNextToExisting"),false).toBool());
     ui->iconByClassCB->setChecked(settings().value(QStringLiteral("iconByClass"), false).toBool());
     ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 0).toInt()));
     ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
@@ -121,6 +126,7 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue(QStringLiteral("raiseOnCurrentDesktop"), ui->raiseOnCurrentDesktopCB->isChecked());
     settings().setValue(QStringLiteral("groupingEnabled"),ui->groupingGB->isChecked());
     settings().setValue(QStringLiteral("showGroupOnHover"),ui->showGroupOnHoverCB->isChecked());
+    settings().setValue(QStringLiteral("ungroupedNextToExisting"),ui->ungroupedNextToExistingCB->isChecked());
     settings().setValue(QStringLiteral("iconByClass"),ui->iconByClassCB->isChecked());
     settings().setValue(QStringLiteral("wheelEventsAction"),ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
     settings().setValue(QStringLiteral("wheelDeltaThreshold"),ui->wheelDeltaThresholdSB->value());

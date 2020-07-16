@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>401</width>
-    <height>512</height>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -154,6 +154,13 @@
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="ungroupedNextToExistingCB">
+     <property name="text">
+      <string>Put buttons of the same class next to each other</string>
+     </property>
     </widget>
    </item>
    <item>
