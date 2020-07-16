@@ -307,17 +307,18 @@ void LXQtTaskBar::addWindow(WId window)
         });
         mLayout->addWidget(group);
         group->setToolButtonsStyle(mButtonStyle);
-        const QString window_class = QString::fromUtf8(KWindowInfo(window, NET::Properties(), NET::WM2WindowClass).windowClassClass());
-        int src_index = mLayout->count() - 1;
-        int dst_index = src_index;
+
         if (mUngroupedNextToExisting)
         {
+            const QString window_class = QString::fromUtf8(KWindowInfo(window, NET::Properties(), NET::WM2WindowClass).windowClassClass());
+            int src_index = mLayout->count() - 1;
+            int dst_index = src_index;
             for (int i = mLayout->count() - 2; 0 <= i; --i)
             {
-                LXQtTaskGroup * group = qobject_cast<LXQtTaskGroup*>(mLayout->itemAt(i)->widget());
-                if (nullptr != group)
+                LXQtTaskGroup * current_group = qobject_cast<LXQtTaskGroup*>(mLayout->itemAt(i)->widget());
+                if (nullptr != current_group)
                 {
-                    const QString current_class = QString::fromUtf8(KWindowInfo((group->groupName()).toUInt(), NET::Properties(), NET::WM2WindowClass).windowClassClass());
+                    const QString current_class = QString::fromUtf8(KWindowInfo((current_group->groupName()).toUInt(), NET::Properties(), NET::WM2WindowClass).windowClassClass());
                     if(current_class == window_class)
                     {
                         dst_index = i + 1;
