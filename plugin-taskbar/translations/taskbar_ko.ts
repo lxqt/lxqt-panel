@@ -212,7 +212,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>마우스 호버 할 때 팝업 하기</translation>
+        <translation>마우스를 올릴 때 팝업 표시</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="171"/>
@@ -242,22 +242,22 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation>아래로 스크롤하여 올리거나 내리고 최소화하십시오</translation>
+        <translation>스크롤을 올리면 최대화, 내리면 최소화</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation>최소화는 위로 스크롤,높이려면 아래로 스크롤</translation>
+        <translation>스크롤을 내리면 최소화, 올리면 최대화</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤을 올리면 다음 데스크톱으로, 내리면 이전 데스크톱으로 이동 </translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤을 올리면 이전 데스크톱으로, 내리면 다음 데스크톱으로 이동</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
