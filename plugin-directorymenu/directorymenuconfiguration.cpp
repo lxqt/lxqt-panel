@@ -100,7 +100,7 @@ void DirectoryMenuConfiguration::showDirectoryDialog()
 
     if(d.exec() && !d.selectedFiles().isEmpty())
     {
-        mBaseDirectory.setPath(d.selectedFiles().front());
+        mBaseDirectory.setPath(d.selectedFiles().constFirst());
         ui->baseDirectoryB->setText(mBaseDirectory.dirName());
 
         saveSettings();
@@ -115,7 +115,7 @@ void DirectoryMenuConfiguration::showTermDialog()
     
     if (d.exec() && !d.selectedFiles().isEmpty())
     {
-        mDefaultTerminal = d.selectedFiles().front();
+        mDefaultTerminal = d.selectedFiles().constFirst();
         saveSettings();
     }
     ui->terminalB->setText(mDefaultTerminal);
@@ -128,7 +128,7 @@ void DirectoryMenuConfiguration::showIconDialog()
 
     if(d.exec() && !d.selectedFiles().isEmpty())
     {
-        QIcon newIcon = QIcon(d.selectedFiles().front());
+        QIcon newIcon = QIcon(d.selectedFiles().constFirst());
 
         if(newIcon.pixmap(QSize(24,24)).isNull())
         {
@@ -137,7 +137,7 @@ void DirectoryMenuConfiguration::showIconDialog()
         }
 
         ui->iconB->setIcon(newIcon);
-        mIcon = d.selectedFiles().front();
+        mIcon = d.selectedFiles().constFirst();
         saveSettings();
     }
 }
