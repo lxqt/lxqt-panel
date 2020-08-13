@@ -162,7 +162,7 @@ void DesktopSwitch::refresh()
     //delete unneeded buttons (if neccessary)
     for ( ; i < current_cnt; ++i)
     {
-        b = m_buttons->buttons().last();
+        b = m_buttons->buttons().constLast();
         m_buttons->removeButton(b);
         mWidget.layout()->removeWidget(b);
         delete b;
