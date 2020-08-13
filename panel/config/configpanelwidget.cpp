@@ -160,7 +160,7 @@ void ConfigPanelWidget::reset()
 
     ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
     ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());
-    ui->checkBox_customBgImage->setChecked(QFileInfo(mOldBackgroundImage).exists());
+    ui->checkBox_customBgImage->setChecked(QFileInfo::exists(mOldBackgroundImage));
 
     // update position
     positionChanged();
