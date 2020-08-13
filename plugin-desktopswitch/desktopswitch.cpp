@@ -227,7 +227,8 @@ void DesktopSwitch::onCurrentDesktopChanged(int current)
     if (mShowOnlyActive)
     {
         int i = 1;
-        for (auto button : m_buttons->buttons())
+        const auto buttons = m_buttons->buttons();
+        for (const auto button : buttons)
         {
             if (current == i)
             {
