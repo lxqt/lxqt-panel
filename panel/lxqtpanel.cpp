@@ -327,7 +327,7 @@ void LXQtPanel::saveSettings(bool later)
 
     mSettings->setValue(QStringLiteral(CFG_KEY_FONTCOLOR), mFontColor.isValid() ? mFontColor : QColor());
     mSettings->setValue(QStringLiteral(CFG_KEY_BACKGROUNDCOLOR), mBackgroundColor.isValid() ? mBackgroundColor : QColor());
-    mSettings->setValue(QStringLiteral(CFG_KEY_BACKGROUNDIMAGE), QFileInfo(mBackgroundImage).exists() ? mBackgroundImage : QString());
+    mSettings->setValue(QStringLiteral(CFG_KEY_BACKGROUNDIMAGE), QFileInfo::exists(mBackgroundImage) ? mBackgroundImage : QString());
     mSettings->setValue(QStringLiteral(CFG_KEY_OPACITY), mOpacity);
     mSettings->setValue(QStringLiteral(CFG_KEY_RESERVESPACE), mReserveSpace);
 
@@ -832,7 +832,7 @@ void LXQtPanel::updateStyleSheet()
         sheet << QString(QStringLiteral("LXQtPanel #BackgroundWidget { background-color: rgba(") + color + QStringLiteral("); }"));
     }
 
-    if (QFileInfo(mBackgroundImage).exists())
+    if (QFileInfo::exists(mBackgroundImage))
         sheet << QString(QStringLiteral("LXQtPanel #BackgroundWidget { background-image: url('") + mBackgroundImage + QStringLiteral("');}"));
 
     setStyleSheet(sheet.join(QStringLiteral("\n")));
