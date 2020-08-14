@@ -481,7 +481,7 @@ void LXQtWorldClock::updatePopupContent()
 bool LXQtWorldClock::formatHasTimeZone(QString format)
 {
     format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
-    return format.toLower().contains(QLatin1String("t"));
+    return format.contains(QLatin1Char('t'), Qt::CaseInsensitive);
 }
 
 QString LXQtWorldClock::preformat(const QString &format, const QTimeZone &timeZone, const QDateTime &dateTime)
