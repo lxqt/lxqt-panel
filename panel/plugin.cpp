@@ -412,8 +412,12 @@ void Plugin::mouseDoubleClickEvent(QMouseEvent*)
  ************************************************/
 void Plugin::showEvent(QShowEvent *)
 {
+    // ensure that plugin widgets have correct sizes at startup
     if (mPluginWidget)
+    {
+        mPluginWidget->updateGeometry(); // needed for widgets with style sizes (like buttons)
         mPluginWidget->adjustSize();
+    }
 }
 
 
