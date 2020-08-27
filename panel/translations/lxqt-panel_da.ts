@@ -406,17 +406,17 @@ Vil du fjerne panelet?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="432"/>
+        <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Konfigurér &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="437"/>
+        <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Flyt &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Fjern &quot;%1&quot;</translation>
     </message>

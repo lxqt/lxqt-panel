@@ -281,8 +281,6 @@
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;the minute with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;the second without a leading zero (0 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
@@ -294,43 +292,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Egendefinert dato og tidssyntaks&lt;/h1&gt;
-&lt;p&gt;Et datomønster er en rekke bokstaver med spesielle bokstaver som byttes ut med dato og tid fra en kalender når det formateres eller som brukes til å generere data for en kalender når den behandles.&lt;/p&gt;
-&lt;p&gt;I tabellen under ser man hvilke tegn som brukes i hvilke mønstre for å vise formater som passer for et gitt sted, sånn som yyyy for å vise året med fire tall. Samme tegn kan brukes flere ganger. F.eks. når y viser året, viser yy året med to tall og yyyy året med fire tall. For de fleste tall er antallet tegn det samme som bredden på resultatet man får ut. F.eks. er h timen med ett tall, mens hh er timen vist med to tall. For noen tegn viser antallet tegn om en fullstendig eller forkortet form brukes.&lt;/p&gt;
-&lt;p&gt;To enkle anførselstegn betyr enkelt anførselstegn, enten på innsiden eller på utsiden av andre enkle anførselsestegn. Tekst på innsiden av enkle anførselstegn blir ikke tolket på noen annen måte (med unntak av når det er to enkle anførselstegn ved siden av hverandre). Ellers er alle bokstaver reservert til å representere dato og tid og krever anførselstegn hvis de skal tolkes som vanlige bokstaver. I tillegg kan visse tegnsettingstegn komme til å bli variabler i framtiden. (For eksempel kan kolon komme til å bli tolket som tidsskilletegn og skråstrek som datoskilletegn og byttet ut med tegn som matcher innstillingen for tidssone og språk.)&lt;br /&gt;&lt;/p&gt;
-&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Tegn&lt;/th&gt;&lt;th&gt;Betydning&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;Dag i måneden uten null foran (1 til 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;Dag i måneden med null foran (01 til 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;Forkortet navn på ukedag (f.eks. man).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;Fullstendig navn på ukedag (f.eks. mandag).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;Månedens nummer uten null foran (1 til 12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;Månedens nummer med null foran (01 til 12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;Forkortet navn på måneden (F.eks. jan).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;fullstendig navn på måneden (F.eks. januar).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;År uttrykt som to tall (00 til 99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;År uttrykt som fire tall&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;Timen uten null foran (0 til 23 eller 1 til 12 hvis AM/PM er på)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;Timen med null foran (00 til 23 eller 01 til 12 hvis AM/PM er på)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;Timen uten null foran i 24-timers format (0 til 23)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;Timen med null foran i 24-timers format (00 til 23)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Minuttet uten null foran (0 til 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Minuttet med null foran (00 til 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Sekundet uten null foran (0 til 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Sekundet med null foran (00 til 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;Millisekundet uten null foran (0 til 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;Millisekundet med null foran (000 til 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;Bruk AM/PM med store bokstaver.&lt;b&gt;A/AP&lt;/b&gt; byttes ut med &quot;AM&quot; eller &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;Bruk am/pm med små bokstaver. &lt;b&gt;a/ap&lt;/b&gt;byttes ut med &quot;am&quot; eller &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Tidssonen (f.eks. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Forskjellen fra UTC&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;Tidssonens IANA-id&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;Tidssonens forkortelse&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Forkortet navn på tidssonen&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Langt navn på tidssonen&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Tidssonens egendefinerte navn. Du kan forandre det i &apos;Tidssoner&apos;-fanen i konfigurasjonsvinduet.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Ingen andre tegn vil tolkes om. For eksempel vil tegn som komma, punktum, kolon, firkant og alfakrøll dukke opp i klokkens tekst som seg selv, akkurat som om de hadde blitt skrevet med enkle anførselstegn rundt. Enkle anførselstegn brukes til å &quot;escape&quot; et tegn. To enkle anførselstegn etter hverandre, enten på innsiden eller utsiden av anførselstegn, representeter et ekte anførselstegn i klokkens tekst.&lt;/li&gt;&lt;li&gt;Minste oppdateringsintervall er ett sekund. Hvis z eller zzz blir brukt millisekunder vist, men klokken blir likevel ikke oppdatert hvert millisekund for å hindre at klokken stjeler all datakraften fra maskinen.&lt;/li&gt;&lt;ul&gt;
-</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

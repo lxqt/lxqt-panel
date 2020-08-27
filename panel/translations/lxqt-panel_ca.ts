@@ -406,17 +406,17 @@ Voleu suprimir el tauler?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="432"/>
+        <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Configura &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="437"/>
+        <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Mou &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Suprimeix &quot;%1&quot;</translation>
     </message>

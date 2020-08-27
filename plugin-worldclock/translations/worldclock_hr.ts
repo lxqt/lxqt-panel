@@ -281,8 +281,6 @@
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;the minute with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;the second without a leading zero (0 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
@@ -294,42 +292,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Prilagođena sintaksa za formate datuma i vremena&lt;/h1&gt;
-&lt;p&gt;Uzorak datuma je niz znakova, pri čemu se određeni znakovni nizovi prilikom formatiranja zamijenjuju podacima datuma i vremena iz kalendara ili se koriste za stvaranje podataka za kalendar prilikom obrade podataka.&lt;/p&gt;
-&lt;p&gt;Donja tablica simbola polja datuma sadrži znakove, koji se koriste u obrascima za prikazivanje odgovarajućih formata za određen jezik, kao što je yyyy za godinu. Znakovi se mogu koristiti više puta. Na primjer, ako se y koristi za godinu, &apos;yy&apos; može proizvesti &apos;99&apos;, dok &apos;yyyy&apos; proizvodi &apos;1999&apos;. Za većinu numeričkih polja broj znakova određuje širinu polja. Na primjer, ako je h sat, &apos;h&apos; može proizvesti &apos;5&apos;, ali &apos;hh&apos; proizvodi &apos;05&apos;. Za neke znakove, broj znakova određuje treba li koristiti skraćeni ili potpuni oblik, ali može imati i druge mogućnosti, kao što je dolje navedeno.&lt;/p&gt;
-&lt;p&gt;Dva uzastopna polunavodnika, bilo unutar ili izvan niza pod polunavodnicima, predstavljaju znak polunavodnika. Tekst unutar polunavodnika ne tumači se ni na koji način (osim dva uzastopna polunavodnika). Inače su svi ASCII znakovi od a do z i od A do Z rezervirani za znakove sintakse i moraju se staviti pod polunavodnike, ako predstavljaju doslovne znakove. Pored toga, neki se ASCII znakovi interpunkcije mijenjaju (npr. &quot;:&quot; se koristi za razdvajanje vremena i &quot;/&quot; za razdvajanje datuma, a može biti, da će se zamijenjeniti odgovarajućim lokaliziranim znakovima).&lt;br /&gt;&lt; / p&gt;
-&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Znakovni niz&lt;/th&gt;&lt;th&gt;Značenje&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;dan kao broj bez vodeće nule (1 do 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;dan kao broj s vodećom nulom (01 do 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;skraćeno lokalizirano ime dana (npr. „pon” do „ned”).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;puno lokalizirano ime dana (npr. „ponedjeljak” do „nedjelja”).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mjesec kao broj bez vodeće nule (1 do 12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mjesec kao broj s vodećom nulom (01 do 12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;skraćeno lokalizirano ime mjeseca (npr. „sij” do „pro”).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;puno lokalizirano ime mjeseca (npr. „siječanj“ do „prosinac“).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;godina kao dvoznamenkast broj (00 do 99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;godina kao četveroznamenkast broj&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;sat bez vodeće nule (0 do 23 ili 1 do 12, ako se prikazuje AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;sat s vodećom nulom (00 do 23 ili 01 do 12, ako se prikazuje AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;sat bez vodeće nule (0 do 23, čak i s prikazom AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;sat s vodećom nulom (00 do 23, čak i s prikazom AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minuta bez vodeće nule (0 do 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minuta s vodećom nulom (00 do 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekunda bez vodeće nule (0 do 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekunda s vodećom nulom (00 do 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;milisekunde bez vodećih nula (0 do 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;milisekunde s vodećim nulama (000 do 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;ili&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;koristi prikaz AM/PM. &lt;b&gt;A/AP&lt;/b&gt; će se zamijeniti s „AM” ili „PM”.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;ili&lt;/i&gt;&gt;&lt;td&gt;koristi prikaz am/pm. &lt;b&gt;a/ap&lt;/b&gt; će se zamijeniti s „am” ili „pm”.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;vremenska zona (npr. „CEST”)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;odstupanje od UTC-a&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;IANA id vremenske zone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;skraćenica vremenske zone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;prikaz kratkog imena vremenske zone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;prikaz punog imena vremenske zone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTTT&lt;/td&gt;&lt;td&gt;prilagođeno ime vremenske zone. Može se promijeniti u kartici „Vremenske zone” u prozoru konfiguracije&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Napomene:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;Svi znakovi u obrascu koji nisu u rasponima od [&apos;a&apos;..&apos;z&apos;] i [&apos;A&apos;..&apos;Z&apos;] tretirat će se kao citirani tekst. Na primjer, znakovi poput &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos;, pojavit će se u rezultirajućem tekstu vremena, čak i ako nisu stavljeni pod polunavodnike. Polunavodnik se koristi za &apos;prikaz&apos; slova. Dva uzastopna polunavodnika, bilo unutar ili izvan niza pod navodnicima, predstavljaju znak polunavodnika.&lt;/li&gt;&lt;li&gt;Minimalni interval aktualiziranja je jedna sekunda. Ako je konfigurirano z ili zzz, vrijeme se prikazuje s milisekunda, ali se ne milisekunde ne aktualiziraju (izbjegavajući probleme s perfomansom).&lt;/li&gt;&lt;ul&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
