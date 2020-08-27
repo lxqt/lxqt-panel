@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Wireless</source>
-        <translation>Wireless</translation>
+        <translation>Senza filo</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>

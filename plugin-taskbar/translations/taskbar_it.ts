@@ -252,12 +252,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrolla insù per spostare al desktop prossimo, ingiù al precedente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrolla insù per spostare al desktop precedente, ingiù al prossimo</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>

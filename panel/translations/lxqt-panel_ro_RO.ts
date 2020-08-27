@@ -195,7 +195,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="488"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt; Este necesar un compozitor  pentru transparența tabloului de bord.&lt;/ small&gt;</translation>
+        <translation>&lt;small&gt;Este necesar un compozitor pentru transparența tabloului de bord.&lt;/ small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="516"/>
