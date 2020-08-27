@@ -281,8 +281,6 @@
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;the minute with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;the second without a leading zero (0 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
@@ -294,43 +292,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt; Vlastná syntax formátu dátumu / času &lt;/ h1&gt;
-&lt;p&gt; Vzor dát je reťazec znakov, kde sú špecifické reťazce znakov nahradené dátami a časovými údajmi z kalendára pri formátovaní alebo pri generovaní dát v kalendári. &lt;/ p&gt;
-&lt;p&gt; Dole uvedená tabuľka symbolov poľa údajov obsahuje znaky použité vo vzorcoch pre zobrazenie vhodných formátov pre dané národné prostredie, napríklad rrrr za rok. Znaky môžu byť použité viackrát. Napríklad, ak y je použito pre rok, &apos;yy&apos; môže produkovať &apos;99&apos;, zatiaľčo &apos;yyyy&apos; produkuje &apos;1999&apos;. U väčšiny číselných polí určuje počet znakov šírku poľa. Napríklad, ak h je hodina, &apos;h&apos; môže produkovať &apos;5&apos;, ale &apos;hh&apos; produkuje &apos;05&apos;. U niektorých znakov počet určuje, či má byť použitá skrátená alebo úplná forma, ale môže mať iné možnosti, ako je uvedené nižšie. &lt;/ P&gt;
-&lt;p&gt; Dve samostatné úvodzovky predstavujú doslovnú jednoduchú citáciu, buď už vo vnútri, alebo mimo jednotlivé citácie. Text v rámci jednotlivých úvodzoviek nie je interpretovaný žiadnym spôsombom (s výnimkou dvoch susedných jednoduchých úvodzoviek). V opačnom prípade sú všetky písmena ASCII od a do z a A až Z vyhradené ako syntaktické znaky a vyžadujú citovanie, pokiaľ majú reprezentovať doslovné znaky. Okrem toho sa niektoré znaky interpunkcie ASCII môžu v budúcnosti zmeniť (napr. &quot;:&quot; Sa interpretuje ako oddeľovač času a &quot;/&quot; ako oddeľovač dát a na displeji sa nahradia príslušnými znakmi národného prostredie). &lt;br /&gt; &lt; / p&gt;
-&lt;table border = &quot;1&quot; šírka = &quot;100%&quot; cellpadding = &quot;4&quot; cellspacing = &quot;0&quot;&gt;
-&lt;tr&gt; &lt;th width = &quot;20%&quot;&gt; Kód &lt;/ th&gt; &lt;th&gt; Význam &lt;/ th&gt; &lt;/ tr&gt;
-&lt;td&gt; d &lt;/ td&gt; &lt;td&gt; deň ako číslo bez prednej nuly (1 až 31) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; dd &lt;/ td&gt; &lt;td&gt; deň ako číslo s počiatočnou nulou (01 až 31) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; ddd &lt;/ td&gt; &lt;td&gt; skrátený názov lokalizovaného dne (napr. &apos;Mon&apos; to &apos;Sun&apos;). &lt;/ td&gt;
-&lt;tr&gt; &lt;td&gt; dddd &lt;/ td&gt; &lt;td&gt; dlhý názov lokalizovaného dňa (napr. &apos;pondelok&apos; až &apos;nedeľa). &lt;/ td&gt;
-&lt;tr&gt; &lt;td&gt; M &lt;/ td&gt; &lt;td&gt; mesiac ako číslo bez prednej nuly (1-12) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; MM &lt;/ td&gt; &lt;td&gt; mesiac ako číslo s počiatočnou nulou (01-12) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; MMM &lt;/ td&gt; &lt;td&gt; skrátený názov lokalizovaného mesiaca (napr. &apos;Jan&apos; až &apos;Dec&apos;). &lt;/ td&gt;
-&lt;tr&gt; &lt;td&gt; MMMM &lt;/ td&gt; &lt;td&gt; dlhý lokalizovaný názov mesiaca (napr. &apos;Január&apos; až &apos;December&apos;). &lt;/ td&gt;
-&lt;td&gt; yy &lt;/ td&gt; &lt;td&gt; rok ako dvojmiesté číslo (00-99) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;yyyy &lt;/ td&gt; &lt;td&gt; rok ako štvormiestné číslo &lt;/ td&gt; &lt;/ tr&gt;
-&lt;td&gt; h &lt;/ td&gt; &lt;td&gt; hodina bez prednej nuly (0 až 23 alebo 1 až 12 v prípade zobrazenia AM / PM) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;td&gt; hh &lt;/ td&gt; &lt;td&gt; hodina s počiatočnou nulou (00 až 23 alebo 01 až 12, pokiaľ je zobrazenie AM / PM) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;td&gt; H &lt;/ td&gt; &lt;td&gt; hodina bez prednej nuly (0 až 23, pri zobrazení AM / PM) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;hd&gt; &lt;/ td&gt; &lt;td&gt; hodina s počiatočnou nulou (00 až 23, dokonca i s displejom AM / PM) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; m &lt;/ td&gt; &lt;td&gt; minúta bez prednej nuly (0 až 59) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; mm &lt;/ td&gt; &lt;td&gt; minúta s počiatočnou nulou (00 až 59) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; s &lt;/ td&gt; &lt;td&gt; druhé bez prednej nuly (0 až 59) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; ss &lt;/ td&gt; &lt;td&gt; druhá s počiatočnou nulou (00 až 59) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;td&gt; &lt;/ td&gt; &lt;td&gt; milisekundy bez predných núl (0 až 999) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;td&gt; zzz &lt;/ td&gt; &lt;td&gt; milisekundy s prednými nulami (000 až 999) &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; AP &lt;i&gt; nebo &lt;/ i&gt; A &lt;/ td&gt; &lt;td&gt; použite zobrazenie AM / PM. &lt;b&gt; A / AP &lt;/ b&gt; bude nahradené buď &quot;AM&quot; nebo &quot;PM&quot;. &lt;/ td&gt; &lt;/
-&lt;tr&gt; &lt;td&gt; ap &lt;i&gt; nebo &lt;/ i&gt; a &lt;/ td&gt; &lt;td&gt; použite zobrazenie am / pm. &lt;b&gt; a / ap &lt;/ b&gt; bude nahradené buď &quot;am&quot; nebo &quot;pm&quot;. &lt;/ td&gt; &lt;/
-&lt;tr&gt; &lt;td&gt; t &lt;/ td&gt; &lt;td&gt; časové pásmo (např. &quot;CEST&quot;) &lt;/ td&gt;
-&lt;tr&gt; &lt;td&gt; T &lt;/ td&gt; &lt;td&gt; offset z UTC &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; TT &lt;/ td&gt; &lt;td&gt; časová zóna IANA id &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; TTT &lt;/ td&gt; &lt;td&gt; skratka časových pásiem &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; TTTT &lt;/ td&gt; &lt;td&gt; krátky zobrazovaný názov časového pásma &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; TTTTT &lt;/ td&gt; &lt;td&gt; dlhý zobrazovaný názov časového pásma &lt;/ td&gt; &lt;/ tr&gt;
-&lt;tr&gt; &lt;td&gt; TTTTTT &lt;/ td&gt; &lt;td&gt; vlastný názov časového pásma. Môžete zmenit kartu &quot;Časové pásma&quot; konfiguračného okna &lt;/ td&gt; &lt;/ tr&gt; &lt;/ table&gt;
-&lt;br /&gt; &lt;b&gt; Poznámky: &lt;/ b&gt; &lt;ul&gt; &lt;li&gt; Všetky znaky vo vzoru, ktoré nie sú v rozmedzí [&apos;a&apos; .. &apos;z&apos;] a [&apos;A&apos; &apos;] budú považované za citovaný text. Napríklad znaky ako &apos;:&apos;, &apos;.&apos;, &apos;&apos;, &apos;#&apos; A &apos;@&apos; se objavia vo výslednom texte, aj keď nie sú  zahrnuté do jednotlivých uvodzoviek. Jediná citácia sa používa k úniku úprav. Dve jednoduché úvodzovky v rade, buď vo vnútri alebo vonku citovanej sekvencie, predstavujú &quot;skutočný&quot; jediný citát. &lt;/ Li&gt; &lt;li&gt; Minimálny interval aktualizácie je 1 sekunda. Pokiaľ je z nebo zzz nakonfigurovaná, čas je zobrazený s milisekundovou frakciou, ale nie je aktualizovaný na milisekundách (vyhýba sa veľkému výkonu). &lt;/ Li&gt; &lt;ul&gt;
-</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

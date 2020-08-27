@@ -281,8 +281,6 @@
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;the minute with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;the second without a leading zero (0 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
@@ -294,43 +292,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Syntax für eigene Datums- und Zeitformate&lt;/h1&gt;
-&lt;p&gt;Ein Datumsmuster ist eine Buchstabenreihe, in der bestimmte Buchstaben mit dem jeweiligen Datum und Zeit ersetzt werden.&lt;/p&gt;
-&lt;p&gt;Die Datenfeldtabelle unten enthält die Buchstaben, die in diesen Mustern verwendet werden können, um das richtig lokalisierte Format auszugeben, z.B. yyyy für die Jahreszahl. Buchstaben können mehrfach verwendet werden. Wenn z.B. y für das Jahr verwendet wird, könnte &apos;yy&apos; das Ergebnis &apos;99&apos; haben. &apos;yyyy&apos; hingegen würde &apos;1999&apos; ausgeben. Auf diese Weise ergibt bei den meisten Zahlen  die Anzahl der Buchstaben die Anzahl der Ziffern, z.B. &apos;h&apos; kann &apos;5&apos; ergeben, &apos;hh&apos; hingegen &apos;&apos;05&apos;.  Oft kann man so mit der Anzahl der Buchstaben die abgekürzte oder ausgeschriebene Form angeben. Teilweise gibt es aber auch andere Optionen, wie unten angegeben.&lt;/p&gt;
-&lt;p&gt;Zwei Hochkommas bedeuten ein buchstäbliches Hochkomma, sei es innerhalb oder außerhalb von Hochkommas. Text in Hochkommas wird nicht interpretiert (außer dieser Regel der zwei Hochkommas). Alle anderen ASCII-Buchstaben von a bis z und A bis Z sind Syntaxbuchstaben, die in Hochkommas eingeschlossen sein müssen, wenn sie buchstäblich angezeigt werden sollen. Darüber hinaus können in Punktuationszeichen als Variablen interpretiert werden (z.B. Doppelpunkt als Trennzeichen für Zeiten oder &quot;/&quot; als Datums-Trennzeichen, dass automatisch lokal angepasst wird).&lt;br /&gt;&lt;/p&gt;
-&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Code&lt;/th&gt;&lt;th&gt;Bedeutung&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;Tag als Zahl ohne führende Null (1 bis 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;Tag als Zahl mit führender Null (01 bis 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;Die lokalisierte Abkürzung für den Wochentag  (z.B. &apos;Mon&apos; bis &apos;Son&apos;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;Der übersetzte Wochentag (z.B. &apos;Montag&apos; bis &apos;Sonntag&apos;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;Monat als Zahl ohne führende Null (1-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;Monat als Zahl mit führender Null (01-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;Die lokalisierte Abkürzung des Monats (z.B. &apos;Jan&apos; bis &apos;Dez&apos;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;Der übersetzte Monat (z.B. &apos;Januar&apos; bis &apos;Dezember&apos;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;Jahr in zwei Ziffern (00-99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;Jahr in vier Ziffern&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23 oder 1 bis 12 in der AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23 oder 01 bis 12 in der AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23, selbst mit AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23, selbst mit AM/PM-Darstellung)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Minute ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Minute mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Sekunde ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Sekunde mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;Millisekunden ohne führende Null (0 bis 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;Millisekunden mit führenden Nullen (000 bis 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Zeitzone (z.B. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Zeitverschiebung von UTC&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;IANA id der Zeitzone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;Abkürzung der Zeitzone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Kurzer Name der Zeitzone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Langer Name der Zeitzone&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Der angepasste Zeitzonenname. Sie können ihn in der Karteikarte &quot;Zeitzonen&quot; im Konfigurationsfenster bearbeiten.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Anmerkungen:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Jeder Buchstabe, der nicht zum Bereich [&apos;a&apos;..&apos;z&apos;] und [&apos;A&apos;..&apos;Z&apos;] gehört, wird buchstäblich angezeigt. Beispielsweise werden Zeichen wie &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; genau so im Text auftauchen, auch wenn sie ohne Hochkommas geschrieben sind. Mit vorangestelltem Hochkomma kann jeder Buchstabe buchstäblich angezeigt werden. Zwei Hochkommas nacheinander werden als ein &quot;echtes&quot; Hochkomma angezeigt. &lt;/li&gt;&lt;li&gt;Kürzeste Aktualisiernug ist 1 Sekunde. Auch Millisekundenwerte werden nicht häufiger als einmal pro Sekunde aktualisiert, um den Rechenbedarf moderat zu halten.&lt;/li&gt;&lt;ul&gt;
-</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -407,17 +407,17 @@ Ar norite pašalinti šį skydelį?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="432"/>
+        <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Konfigūruoti &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="437"/>
+        <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Perkelti &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Šalinti &quot;%1&quot;</translation>
     </message>

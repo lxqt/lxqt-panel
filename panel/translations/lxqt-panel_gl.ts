@@ -406,17 +406,17 @@ Confirma que quere retirar o panel?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="432"/>
+        <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Configurar «%1»</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="437"/>
+        <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Desprazar «%1»</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Retirar «%1»</translation>
     </message>

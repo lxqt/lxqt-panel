@@ -281,8 +281,6 @@
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;the minute with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;the second without a leading zero (0 to 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;the second with a leading zero (00 to 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;the milliseconds without leading zeroes (0 to 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;the milliseconds with leading zeroes (000 to 999)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM display. &lt;b&gt;A/AP&lt;/b&gt; will be replaced by either &quot;AM&quot; or &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm display. &lt;b&gt;a/ap&lt;/b&gt; will be replaced by either &quot;am&quot; or &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;the timezone (e.g. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
@@ -294,43 +292,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Formato personalizado da data/hora&lt;/h1&gt;
-&lt;p&gt;Un patrón de data é unha cadea de caracteres, onde as cadeas específicas de caracteres substitúense por datos de data e hora dun calendario cando se formatan ou se utilizan para xerar datos para un calendario ao seren procesadas.&lt;/p&gt;
-&lt;p&gt;A táboa de símbolos de campos de data de embaixo contén os caracteres usados en patróns para amosar os formatos apropiados para unha configuración rexional dada, tales como «yyyy» para o ano. Os caracteres poden usarse varias veces. Por exemplo, usándose «y» para o ano, «yy» da como resultado «99», mentres que «yyyy» daría como resultado «1999». Para a maioría de campos numéricos, o número de caracteres especifica o largo do campo. Por exemplo, sendo «h» a hora, «h» da como resultado «5», mais «hh» resultaría ser «05». Para algúns caracteres, o seu número especifica se debe usarse un formato abreviado ou completo, aínda que poden ter outras opcións, como se amosa embaixo.&lt;/p&gt;
-&lt;p&gt;Dúas comiñas simples representan unha comiña literal única, tanto dentro como fora de comiñas simples. O texto entre comiñas simples non se interpreta de ningunha forma (salvo que sexan dúas comiñas simples xuntas). Por outra banda, todas as letras do código ASCII da «a» ata a «z» e da «A» ata a «Z» están reservadas como caracteres sintácticos, e deben entrecomiñarse se se queren representar literalmente. Ademais, algúns caracteres de puntuación do código ASCII poden variar o futuro (p. ex., que «:» se interprete como separador en horas e «/» como separador de datas, e que se substitúan por caracteres axustados á configuración rexional ao seren representados).&lt;br /&gt;&lt;/p&gt;
-&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Código&lt;/th&gt;&lt;th&gt;Significado&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;o día coma un número sen cero de recheo (1 a 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;o día coma un número con cero de recheo (01 a 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;o nome abreviado do día na configuración rexional (p. ex. «lun» a «dom»).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;o nome completo do día na configuración rexional (p. ex. «luns» a domingo»).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;o mes coma un número sen cero de recheo (1-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;o mes coma un número con cero de recheo (01-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;o nome abreviado do mes na configuración rexional (p. ex. «xan» a «dec»).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;o nome completo do mes na configuración rexional (p. ex. «xaneiro» a «decembro»).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;o ano coma un número de dous díxitos (00-99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;o ano coma un número de catro díxitos&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;a hora sen cero de recheo (0 a 23 ou 1 a 12 en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;a hora con cero de recheo (00 a 23 ou 01 a 12 en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;a hora sen cero de recheo (0 a 23, incluso en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;a hora con cero de recheo (00 a 23, incluso en formato AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;o minuto sen cero de recheo (0 a 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;o minuto con cero de recheo (00 a 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;o segundo sen cero de recheo (0 a 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;o segundo con cero de recheo (00 a 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;os milisegundos sen ceros de recheo (0 a 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;os milisegundos con ceros de recheo (000 a 999)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;ou&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;usa o formato AM/PM. &lt;b&gt;A/AP&lt;/b&gt; substituiranse por «AM» ou «PM».&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;ou&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;usa o formato am/pm. &lt;b&gt;a/ap&lt;/b&gt; substituiranse por «am» ou «pm».&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;o fuso horario (p. ex. «CEST»)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;a desviación respecto UTC&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;o identificador de fuso horario da IANA&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;o formato abreviado do fuso horario&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;o nome curto do fuso horario&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;o nome completo do fuso horario&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;o nombre personalizado do fuso horario. Pode cambialo na lapela «Fusos horarios» da xanela de configuración&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Notas:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Calquera dos caracteres do patrón que non estea nos intervalos [&apos;a&apos;..&apos;z&apos;] e [&apos;A&apos;..&apos;Z&apos;] tratase coma un texto entrecomiñado. Por exemplo, caracteres como «:», «.», « », «#» e «@» aparecen no texto resultante da hora incluso se non están entrecomiñados entre comiñas simples. A comiña simple usase para retirar o significado especial das letras. Dúas comiñas simples seguidas, tanto dentro como fora dunha secuencia entrecomiñada, representan unha comiña simple «real».&lt;/li&gt;&lt;li&gt;O intervalo mínimo de actualización é de 1 segundo. Se se usa «z» ou «zzz», a hora amosa os milisegundos, mais non se actualiza cada milisegundo (para evitar una gran penalización no rendemento).&lt;/li&gt;&lt;ul&gt;
-</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
