@@ -222,7 +222,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Egy részleges kerülőmegoldás azokhoz az elemstílusokhoz,
+amelyek nem adnak külön témát a panelnek.
+
+Lehet, hogy ki akarja kapcsolni:
+
+Megjelenés →
+Ikontéma →
+Színes ikonok az elemek stílusából (paletta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
@@ -306,7 +313,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished">Bővítménybeállítások</translation>
+        <translation>Bővítménybeállítások</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
