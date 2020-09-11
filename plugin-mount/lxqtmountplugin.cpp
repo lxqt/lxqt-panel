@@ -28,13 +28,21 @@
 #include "lxqtmountplugin.h"
 #include "configuration.h"
 
+#include <lxqt-globalkeys.h>
+
+#include <LXQt/Notification>
+
 #include <Solid/DeviceNotifier>
+
+#define DEFAULT_EJECT_SHORTCUT "XF86Eject"
 
 LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     mPopup(nullptr),
-    mDeviceAction(nullptr)
+    mDeviceAction(nullptr),
+    mEjectAction(nullptr),
+    mKeyEject(nullptr)
 {
     mButton = new Button;
     mPopup = new Popup(this);
@@ -49,6 +57,29 @@ LXQtMountPlugin::~LXQtMountPlugin()
 {
     delete mButton;
     delete mPopup;
+}
+
+
+void LXQtMountPlugin::shortcutRegistered()
+{
+    GlobalKeyShortcut::Action * const shortcut = qobject_cast<GlobalKeyShortcut::Action*>(sender());
+
+    if (shortcut == mKeyEject)
+    {
+        disconnect(mKeyEject, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtMountPlugin::shortcutRegistered);
+
+        if (mKeyEject->shortcut().isEmpty())
+        {
+            mKeyEject->changeShortcut(QStringLiteral(DEFAULT_EJECT_SHORTCUT));
+            if (mKeyEject->shortcut().isEmpty())
+            {
+//                QString errorMsg = tr("Failed to register shortcut <b><nobr>\"%1\"</nobr></b>");
+//                errorMsg = errorMsg.arg(DEFAULT_EJECT_SHORTCUT);
+//                LXQt::Notification::notify(tr("Removable media/devices manager"), errorMsg, "media-eject");
+                LXQt::Notification::notify(tr("Removable media/devices manager: Global shortcut '%1' cannot be registered").arg(QStringLiteral(DEFAULT_EJECT_SHORTCUT)));
+            }
+        }
+    }
 }
 
 QDialog *LXQtMountPlugin::configureDialog()
@@ -69,15 +100,37 @@ void LXQtMountPlugin::realign()
 void LXQtMountPlugin::settingsChanged()
 {
     QString s = settings()->value(QLatin1String(CFG_KEY_ACTION)).toString();
-    DeviceAction::ActionId actionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
+    DeviceAction::ActionId devActionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
 
-    if (mDeviceAction == nullptr || mDeviceAction->Type() != actionId)
+    if (mDeviceAction == nullptr || mDeviceAction->Type() != devActionId)
     {
         delete mDeviceAction;
-        mDeviceAction = DeviceAction::create(actionId, this, this);
+        mDeviceAction = DeviceAction::create(devActionId, this, this);
 
         connect(mPopup, &Popup::deviceAdded, mDeviceAction, &DeviceAction::onDeviceAdded);
         connect(mPopup, &Popup::deviceRemoved, mDeviceAction, &DeviceAction::onDeviceRemoved);
     }
 
+    if(mKeyEject == nullptr)
+    {
+        mKeyEject = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/eject").arg(settings()->group()), tr("Eject removable media"), this);
+        if(mKeyEject)
+        {
+             connect(mKeyEject, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtMountPlugin::shortcutRegistered);
+        }
+    }
+
+    s = settings()->value(QLatin1String(CFG_EJECT_ACTION)).toString();
+    EjectAction::ActionId ejActionId = EjectAction::stringToActionId(s, EjectAction::ActionNothing);
+
+    if ((mEjectAction == nullptr || mEjectAction->Type() != ejActionId) && mKeyEject)
+    {
+         if(mEjectAction)
+             mKeyEject->disconnect(mEjectAction);
+
+         delete mEjectAction;
+         mEjectAction = EjectAction::create(ejActionId, this, this);
+
+         connect(mKeyEject, &GlobalKeyShortcut::Action::activated, mEjectAction, &EjectAction::onEjectPressed); 
+    }
 }
