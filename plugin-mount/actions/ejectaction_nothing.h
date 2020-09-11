@@ -4,9 +4,9 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2020 LXQt team
  * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *   Oleksandr Ostrenko <oleksandr.ostrenko@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,37 +25,23 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_CONFIGURATION_H
-#define LXQT_PLUGIN_MOUNT_CONFIGURATION_H
 
-#include "../panel/lxqtpanelpluginconfigdialog.h"
+#ifndef LXQT_PLUGIN_MOUNT_EJECTACTION_NOTHING_H
+#define LXQT_PLUGIN_MOUNT_EJECTACTION_NOTHING_H
 
-#define CFG_KEY_ACTION    "newDeviceAction"
-#define CFG_EJECT_ACTION  "ejectAction"
-#define ACT_SHOW_MENU     "showMenu"
-#define ACT_SHOW_INFO     "showInfo"
-#define ACT_NOTHING       "nothing"
-#define ACT_EJECT_OPTICAL "ejectOpticalDrives"
+#include "ejectaction.h"
+#include <QWidget>
 
-namespace Ui {
-    class Configuration;
-}
-
-class Configuration : public LXQtPanelPluginConfigDialog
+class EjectActionNothing : public EjectAction
 {
     Q_OBJECT
 
 public:
-    explicit Configuration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~Configuration();
+    explicit EjectActionNothing(LXQtMountPlugin *plugin, QObject *parent = nullptr);
+    virtual ActionId Type() const throw () { return ActionNothing; };
 
-protected slots:
-    virtual void loadSettings();
-    void devAddedChanged(int index);
-    void ejectPressedChanged(int index);
-
-private:
-    Ui::Configuration *ui;
+protected:
+    void doEjectPressed(void);
 };
 
-#endif // LXQTMOUNTCONFIGURATION_H
+#endif // EJECTACTION_NOTHING_H

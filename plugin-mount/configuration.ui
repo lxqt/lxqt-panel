@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>129</height>
+    <width>607</width>
+    <height>170</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,16 +19,35 @@
      <property name="title">
       <string>Behaviour</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
+      <property name="labelAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <item row="0" column="0">
        <widget class="QLabel" name="devAddedLabel">
         <property name="text">
          <string>When a device is connected:</string>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="0" column="1">
        <widget class="QComboBox" name="devAddedCombo"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="ejectPressedLabel">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>When eject button is pressed:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="ejectPressedCombo"/>
       </item>
      </layout>
     </widget>
@@ -40,8 +59,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>41</height>
+       <width>10</width>
+       <height>10</height>
       </size>
      </property>
     </spacer>

@@ -33,8 +33,14 @@
 #include "button.h"
 #include "popup.h"
 #include "actions/deviceaction.h"
+#include "actions/ejectaction.h"
 
 #include <QIcon>
+
+namespace GlobalKeyShortcut
+{
+    class Action;
+}
 
 /*!
 \author Petr Vanek <petr@scribus.info>
@@ -61,11 +67,14 @@ public slots:
 
 protected slots:
     virtual void settingsChanged();
+    void shortcutRegistered();
 
 private:
     Button *mButton;
     Popup *mPopup;
     DeviceAction *mDeviceAction;
+    EjectAction *mEjectAction;
+    GlobalKeyShortcut::Action *mKeyEject;
 };
 
 class LXQtMountPluginLibrary: public QObject, public ILXQtPanelPluginLibrary

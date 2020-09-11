@@ -10,6 +10,9 @@ set(HEADERS
     actions/deviceaction_info.h
     actions/deviceaction_menu.h
     actions/deviceaction_nothing.h
+    actions/ejectaction.h
+    actions/ejectaction_optical.h
+    actions/ejectaction_nothing.h
 )
 
 set(SOURCES
@@ -22,6 +25,9 @@ set(SOURCES
     actions/deviceaction_info.cpp
     actions/deviceaction_menu.cpp
     actions/deviceaction_nothing.cpp
+    actions/ejectaction.cpp
+    actions/ejectaction_optical.cpp
+    actions/ejectaction_nothing.cpp
 )
 
 set(UIS
@@ -29,6 +35,6 @@ set(UIS
 )
 
 find_package(KF5Solid ${QT_MINIMUM_VERSION} REQUIRED)
-set(LIBRARIES Qt5Xdg KF5::Solid)
+set(LIBRARIES Qt5Xdg lxqt-globalkeys KF5::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

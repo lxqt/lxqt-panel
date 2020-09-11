@@ -4,9 +4,9 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2010-2011 Razor team
+ * Copyright: 2020 LXQt team
  * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
+ *   Oleksandr Ostrenko <oleksandr.ostrenko@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,37 +25,41 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_CONFIGURATION_H
-#define LXQT_PLUGIN_MOUNT_CONFIGURATION_H
+#ifndef LXQT_PLUGIN_MOUNT_EJECTACTION_H
+#define LXQT_PLUGIN_MOUNT_EJECTACTION_H
 
-#include "../panel/lxqtpanelpluginconfigdialog.h"
+#include <QObject>
+#include <QSettings>
+#include <Solid/Device>
 
-#define CFG_KEY_ACTION    "newDeviceAction"
-#define CFG_EJECT_ACTION  "ejectAction"
-#define ACT_SHOW_MENU     "showMenu"
-#define ACT_SHOW_INFO     "showInfo"
-#define ACT_NOTHING       "nothing"
-#define ACT_EJECT_OPTICAL "ejectOpticalDrives"
+class LXQtMountPlugin;
 
-namespace Ui {
-    class Configuration;
-}
-
-class Configuration : public LXQtPanelPluginConfigDialog
+class EjectAction: public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Configuration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~Configuration();
+    enum ActionId
+    {
+        ActionNothing,
+        ActionOptical
+    };
 
-protected slots:
-    virtual void loadSettings();
-    void devAddedChanged(int index);
-    void ejectPressedChanged(int index);
+    virtual ~EjectAction();
+    virtual ActionId Type() const throw () = 0;
 
-private:
-    Ui::Configuration *ui;
+    static EjectAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = nullptr);
+    static ActionId stringToActionId(const QString &string, ActionId defaultValue);
+    static QString actionIdToString(ActionId id);
+
+public slots:
+    void onEjectPressed(void);
+
+protected:
+    explicit EjectAction(LXQtMountPlugin *plugin, QObject *parent = nullptr);
+    virtual void doEjectPressed() = 0;
+
+    LXQtMountPlugin *mPlugin;
 };
 
-#endif // LXQTMOUNTCONFIGURATION_H
+#endif // EJECTACTION_H

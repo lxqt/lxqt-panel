@@ -37,13 +37,27 @@ Configuration::Configuration(PluginSettings *settings, QWidget *parent) :
     ui(new Ui::Configuration)
 {
     ui->setupUi(this);
+
+    ui->devAddedLabel->sizePolicy().setHorizontalStretch(1);
+
     ui->devAddedCombo->addItem(tr("Popup menu"), QLatin1String(ACT_SHOW_MENU));
     ui->devAddedCombo->addItem(tr("Show info"),  QLatin1String(ACT_SHOW_INFO));
     ui->devAddedCombo->addItem(tr("Do nothing"), QLatin1String(ACT_NOTHING));
+    ui->devAddedCombo->sizePolicy().setHorizontalStretch(1);
+
+    ui->ejectPressedLabel->sizePolicy().setHorizontalStretch(1);
+
+    ui->ejectPressedCombo->addItem(tr("Do nothing"), QLatin1String(ACT_NOTHING));
+    ui->ejectPressedCombo->addItem(tr("Eject All Optical Drives"), QLatin1String(ACT_EJECT_OPTICAL));
+    ui->ejectPressedCombo->sizePolicy().setHorizontalStretch(1);
+
+    adjustSize();
 
     loadSettings();
     connect(ui->devAddedCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &Configuration::devAddedChanged);
+    connect(ui->ejectPressedCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &Configuration::ejectPressedChanged);
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &Configuration::dialogButtonsAction);
 }
 
@@ -56,10 +70,19 @@ void Configuration::loadSettings()
 {
     QVariant value = settings().value(QLatin1String(CFG_KEY_ACTION), QLatin1String(ACT_SHOW_INFO));
     setComboboxIndexByData(ui->devAddedCombo, value, 1);
+
+    value = settings().value(QLatin1String(CFG_EJECT_ACTION), QLatin1String(ACT_NOTHING));
+    setComboboxIndexByData(ui->ejectPressedCombo, value, 1);
 }
 
 void Configuration::devAddedChanged(int index)
 {
     QString s = ui->devAddedCombo->itemData(index).toString();
     settings().setValue(QLatin1String(CFG_KEY_ACTION), s);
+}
+
+void Configuration::ejectPressedChanged(int index)
+{
+    QString s = ui->ejectPressedCombo->itemData(index).toString();
+    settings().setValue(QLatin1String(CFG_EJECT_ACTION), s);
 }
