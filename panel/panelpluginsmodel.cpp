@@ -319,7 +319,7 @@ void PanelPluginsModel::onMovePluginUp(QModelIndex const & index)
         return; //can't move up
 
     beginMoveRows(QModelIndex(), row, row, QModelIndex(), row - 1);
-    mPlugins.swap(row - 1, row);
+    mPlugins.swapItemsAt(row - 1, row);
     endMoveRows();
     pluginslist_t::const_reference moved_plugin = mPlugins[row - 1];
     pluginslist_t::const_reference prev_plugin = mPlugins[row];
@@ -342,7 +342,7 @@ void PanelPluginsModel::onMovePluginDown(QModelIndex const & index)
         return; //can't move down
 
     beginMoveRows(QModelIndex(), row, row, QModelIndex(), row + 2);
-    mPlugins.swap(row, row + 1);
+    mPlugins.swapItemsAt(row, row + 1);
     endMoveRows();
     pluginslist_t::const_reference moved_plugin = mPlugins[row + 1];
     pluginslist_t::const_reference next_plugin = mPlugins[row];

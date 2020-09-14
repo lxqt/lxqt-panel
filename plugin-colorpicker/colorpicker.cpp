@@ -56,7 +56,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
     QFrame(parent)
 {
     QFontMetrics fm (mLineEdit.font());
-    mLineEdit.setFixedWidth ( 10*fm.width (QStringLiteral("a")) );
+    mLineEdit.setFixedWidth ( 10*fm.horizontalAdvance (QStringLiteral("a")) );
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins (0, 0, 0, 0);
