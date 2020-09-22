@@ -83,6 +83,7 @@ protected:
 private:
     void setMenuFontSize();
     void setButtonIcon();
+    void addContextMenu(QMenu *menu);
 
 private:
     QToolButton mButton;
@@ -124,6 +125,7 @@ private slots:
     void showHideMenu();
     void searchMenu();
     void setSearchFocus(QAction *action);
+    void onRequestingCustomMenu(const QPoint& p);
 };
 
 class LXQtMainMenuPluginLibrary: public QObject, public ILXQtPanelPluginLibrary

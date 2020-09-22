@@ -48,6 +48,9 @@
 #ifdef HAVE_MENU_CACHE
     #include "xdgcachedmenu.h"
 #else
+    #include <QStandardPaths>
+    #include <QClipboard>
+    #include <QMimeData>
     #include <XdgAction>
 #endif
 
@@ -399,6 +402,7 @@ void LXQtMainMenu::buildMenu()
     mMenu = new XdgCachedMenu(mMenuCache, &mButton);
 #else
     mMenu = new XdgMenuWidget(mXdgMenu, QLatin1String(""), &mButton);
+    addContextMenu(mMenu);
 #endif
     mMenu->setObjectName(QStringLiteral("TopLevelMainMenu"));
     setTranslucentMenus(mMenu);
@@ -433,6 +437,72 @@ void LXQtMainMenu::buildMenu()
 
     searchMenu();
     setMenuFontSize();
+}
+
+/************************************************
+
+ ************************************************/
+void LXQtMainMenu::addContextMenu(QMenu *menu)
+{
+    const auto actions = menu->actions();
+    for (auto const & action : actions)
+    {
+        if (action->menu())
+        {
+            action->menu()->setContextMenuPolicy(Qt::CustomContextMenu);
+            connect(action->menu(), &QWidget::customContextMenuRequested,
+                    this, &LXQtMainMenu::onRequestingCustomMenu);
+            addContextMenu(action->menu());
+        }
+    }
+}
+
+void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
+{
+    QMenu *parentMenu = static_cast<QMenu*>(QObject::sender());
+    if (parentMenu == nullptr)
+        return;
+    QAction *action = parentMenu->actionAt(p);
+    if (action == nullptr || action->menu() != nullptr || action->isSeparator())
+        return;
+    XdgAction *xdgAction = qobject_cast<XdgAction *>(action);
+    if (xdgAction == nullptr)
+        return;
+    const XdgDesktopFile& df = xdgAction->desktopFile();
+    QString file = df.fileName();
+
+    QMenu menu;
+    QAction *a = menu.addAction(tr("Add to desktop"));
+    connect(a, &QAction::triggered, [file] {
+        QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+        QString desktopFile = desktop + QStringLiteral("/") + file.section(QStringLiteral("/"), -1);
+        if (QFile::exists(desktopFile))
+        {
+            QMessageBox::StandardButton btn =
+            QMessageBox::question(nullptr,
+                                  tr("Question"),
+                                  tr("A file with the same name already exists.\nDo you want to overwrite it?"));
+            if (btn == QMessageBox::No)
+                return;
+            if (!QFile::remove(desktopFile))
+            {
+                QMessageBox::warning(nullptr,
+                                     tr("Warning"),
+                                     tr("The file cannot be overwritten."));
+                return;
+            }
+        }
+        QFile::copy(file, desktopFile);
+    });
+    a = menu.addAction(tr("Copy"));
+    connect(a, &QAction::triggered, [file] {
+        QClipboard* clipboard = QApplication::clipboard();
+        QMimeData* data = new QMimeData();
+        data->setData(QStringLiteral("text/uri-list"), QUrl::fromLocalFile(file).toEncoded()
+                                                       + QByteArray("\r\n"));
+        clipboard->setMimeData(data);
+    });
+    menu.exec(parentMenu->mapToGlobal(p));
 }
 
 /************************************************
