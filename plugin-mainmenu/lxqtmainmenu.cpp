@@ -613,7 +613,7 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                 QAction* action = menu->activeAction();
                 if(action !=0) {
                     QList<QAction*> actions = menu->actions();
-                    QList<QAction*>::iterator it = qFind(actions.begin(), actions.end(), action);
+                    QList<QAction*>::iterator it = std::find(actions.begin(), actions.end(), action);
                     it = std::find_if(it + 1, actions.end(), MatchAction(key));
                     if(it == actions.end())
                         it = std::find_if(actions.begin(), it, MatchAction(key));

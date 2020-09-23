@@ -490,10 +490,10 @@ int LXQtTaskGroup::recalculateFrameHeight() const
 int LXQtTaskGroup::recalculateFrameWidth() const
 {
     const QFontMetrics fm = fontMetrics();
-    int max = 100 * fm.width (QLatin1Char(' ')); // elide after the max width
+    int max = 100 * fm.horizontalAdvance(QLatin1Char(' ')); // elide after the max width
     int txtWidth = 0;
     for (LXQtTaskButton *btn : qAsConst(mButtonHash))
-        txtWidth = qMax(fm.width(btn->text()), txtWidth);
+        txtWidth = qMax(fm.horizontalAdvance(btn->text()), txtWidth);
     return iconSize().width() + qMin(txtWidth, max) + 30/* give enough room to margins and borders*/;
 }
 
