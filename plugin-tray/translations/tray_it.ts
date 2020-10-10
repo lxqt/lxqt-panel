@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"> px</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>

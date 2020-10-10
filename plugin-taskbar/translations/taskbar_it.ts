@@ -202,7 +202,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation>Raggruppa finestre della stessa classe</translation>
+        <translation>Accosta finestre della stessa classe</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
@@ -222,7 +222,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Mostra popup al passaggio del puntatore </translation>
+        <translation>Mostra popup al passaggio del puntatore</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
