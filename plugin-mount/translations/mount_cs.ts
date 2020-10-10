@@ -84,7 +84,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation>Nejsou k dispozici žádná zařízení</translation>
+        <translation>Nejsou dostupná žádná zařízení</translation>
     </message>
 </context>
 </TS>

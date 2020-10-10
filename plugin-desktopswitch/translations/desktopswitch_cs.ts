@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Pokud zaškrtnuto, ovládací prvek bude pouze indikátorem</translation>
+        <translation>Pokud zaškrtnuto, ovládací prvek bude pouze ukazatelem</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
