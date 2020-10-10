@@ -44,6 +44,7 @@
 #include <QApplication>
 
 #include <XdgMenuWidget>
+#include <XdgIcon>
 
 #ifdef HAVE_MENU_CACHE
     #include "xdgcachedmenu.h"
@@ -472,7 +473,23 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
     QString file = df.fileName();
 
     QMenu menu;
-    QAction *a = menu.addAction(tr("Add to desktop"));
+    QAction *a;
+
+    if (df.actions().count() > 0 && df.type() == XdgDesktopFile::Type::ApplicationType)
+    {
+        for (int i = 0; i < df.actions().count(); ++i)
+        {
+            QString action(df.actions().at(i));
+            a = menu.addAction(df.actionIcon(action), df.actionName(action));
+            connect(a, &QAction::triggered, [this, df, action] {
+                df.actionActivate(action, QStringList());
+                mMenu->hide();
+            });
+        }
+        menu.addSeparator();
+    }
+
+    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("desktop")), tr("Add to desktop"));
     connect(a, &QAction::triggered, [file] {
         QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
         QString desktopFile = desktop + QStringLiteral("/") + file.section(QStringLiteral("/"), -1);
@@ -494,7 +511,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
         }
         QFile::copy(file, desktopFile);
     });
-    a = menu.addAction(tr("Copy"));
+    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("edit-copy")), tr("Copy"));
     connect(a, &QAction::triggered, [file] {
         QClipboard* clipboard = QApplication::clipboard();
         QMimeData* data = new QMimeData();
