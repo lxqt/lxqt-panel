@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja">
+<TS version="2.1" language="he">
 <context>
     <name>StatusNotifierConfiguration</name>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation>ステータス通知の設定</translation>
+        <translation>הגדרות מודיע מצבים</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>注意が必要な場合、自動的に隠されるアイテムがこの期間表示されたままになります。</translation>
+        <translation>פריט שמסתתר אוטומטית יישאר גלוי למשך הזמן הזה אם נדרשת התייחסות.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation>注意期間:</translation>
+        <translation>תקופת ההתייחסות:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
         <source> minute(s)</source>
-        <translation> 分</translation>
+        <translation> דקות</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation>アイテムの表示を変更</translation>
+        <translation>החלפת מצב חשיפה של פריטים</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
         <source>Item</source>
-        <translation>アイテム</translation>
+        <translation>פריט</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="90"/>
         <source>Visibility</source>
-        <translation>表示</translation>
+        <translation>נראות</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation>常に表示する</translation>
+        <translation>להציג תמיד</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation>自動的に隠す</translation>
+        <translation>הסתרה אוטומטית</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation>常に隠す</translation>
+        <translation>להסתיר תמיד</translation>
     </message>
 </context>
 </TS>

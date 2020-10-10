@@ -6,53 +6,53 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení oznamování stavu</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky skrývaná položka zůstane po tuto dobu viditelná, pokud toto potřebuje pozornost.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation type="unfinished"></translation>
+        <translation>Doba pozornosti:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
         <source> minute(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> minut(a)</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Změnit viditelnost položek</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
         <source>Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Položka</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="90"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Viditelnost</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázat vždy</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt automaticky</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt vždy</translation>
     </message>
 </context>
 </TS>

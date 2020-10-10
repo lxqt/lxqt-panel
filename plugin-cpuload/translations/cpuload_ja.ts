@@ -34,7 +34,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
         <source>sec</source>
-        <translation> 秒</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>

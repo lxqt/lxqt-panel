@@ -71,7 +71,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
         <source>Label</source>
-        <translation>označení</translation>
+        <translation>Označení</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
