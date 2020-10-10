@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation type="unfinished"></translation>
+        <translation>סידור סמלים לפי מחלקה של חלון</translation>
     </message>
 </context>
 </TS>
