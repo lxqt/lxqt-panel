@@ -121,7 +121,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Largura mínima do painel se na horizontal.&lt;/p&gt;&lt;p&gt;Altura mínima do painel se na vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>

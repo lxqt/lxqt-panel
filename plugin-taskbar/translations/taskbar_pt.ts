@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover para o mo&amp;nitor seguinte</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover para o monitor &amp;anterior</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Colocar botões da mesma classe juntos</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Deslocar para cima move-se para a área de trabalho seguinte, para baixo move-se para a anterior</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>Deslocar para cima move-se para a área de trabalho anterior, para baixo move-se para a seguinte</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
