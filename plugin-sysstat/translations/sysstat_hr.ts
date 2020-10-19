@@ -141,7 +141,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation>Linije &amp;mreže</translation>
+        <translation>Broj linija &amp;mreže</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
@@ -171,17 +171,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>Ma&amp;ksimalno</translation>
+        <translation>Ma&amp;ksimum</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX KBs</translation>
+        <translation>XXX KB</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation>Lo&amp;garitmička skala</translation>
+        <translation>Lo&amp;garitamska mjera</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>

@@ -36,20 +36,20 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation>Kratak</translation>
+        <translation>Kratki</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation>Dug</translation>
+        <translation>Dugi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Prilagođen</translation>
+        <translation>Prilagođeni</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
