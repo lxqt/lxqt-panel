@@ -460,6 +460,10 @@ void LXQtMainMenu::addContextMenu(QMenu *menu)
 
 void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
 {
+#ifdef HAVE_MENU_CACHE
+    Q_UNUSED(p)
+    return;
+#else
     QMenu *parentMenu = static_cast<QMenu*>(QObject::sender());
     if (parentMenu == nullptr)
         return;
@@ -520,6 +524,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
         clipboard->setMimeData(data);
     });
     menu.exec(parentMenu->mapToGlobal(p));
+#endif
 }
 
 /************************************************
