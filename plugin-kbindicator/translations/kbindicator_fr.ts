@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modèle de chemin des drapeaux :</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
