@@ -22,24 +22,40 @@
         <translation>行為</translation>
     </message>
     <message>
-        <location filename="../configuration.ui" line="26"/>
+        <location filename="../configuration.ui" line="32"/>
         <source>When a device is connected:</source>
         <translation>當設備已連結：</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="40"/>
+        <location filename="../configuration.ui" line="42"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../configuration.ui" line="45"/>
+        <source>When eject button is pressed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../configuration.cpp" line="43"/>
         <source>Popup menu</source>
         <translation>彈出式選單</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="41"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Show info</source>
         <translation>顯示資訊</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="42"/>
+        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="50"/>
         <source>Do nothing</source>
         <translation>什麼都不做</translation>
+    </message>
+    <message>
+        <location filename="../configuration.cpp" line="51"/>
+        <source>Eject All Optical Drives</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -58,6 +74,32 @@
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
         <translation>可卸除式裝置管理員</translation>
+    </message>
+</context>
+<context>
+    <name>EjectActionOptical</name>
+    <message>
+        <location filename="../actions/ejectaction_optical.cpp" line="59"/>
+        <source>Removable media/devices manager</source>
+        <translation type="unfinished">可卸除式裝置管理員</translation>
+    </message>
+    <message>
+        <location filename="../actions/ejectaction_optical.cpp" line="59"/>
+        <source>Ejected all optical drives</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LXQtMountPlugin</name>
+    <message>
+        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <source>Eject removable media</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
