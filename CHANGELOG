@@ -1,3 +1,17 @@
+lxqt-panel-0.16.0 / 2020-11-01
+==============================
+  * Use a stylesheet for progress-bars of Sensors plugin.
+  * Implemented auto-hiding for Status Notifier.
+  * Added option to task button for moving the window to next monitor.
+  * Added option to place task buttons of new windows next to the existing ones of same class when task buttons are ungrouped.
+  * Removed incorrect and redundant explanation of milliseconds from World Clock.
+  * Don't call non-const member functions on temporaries.
+  * Prevent possible C++11 range loop container detachment.
+  * Fixed the sizes and alignments of some plugins at startup.
+  * Added right-click menu to main menu items.
+  * Address deprecation warnings/errors.
+  * Added XF86Eject button action.
+
 lxqt-panel-0.15.1 / 2020-05-20
 ==============================
   * Bumped version to 0.15.1.
