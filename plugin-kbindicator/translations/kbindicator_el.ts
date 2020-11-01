@@ -105,12 +105,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Σχηματομορφή διαδρομής σημαιών:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Σχηματομορφή διαδρομής αρχείου για της σημαίες χωρών. Πρέπει να περιέχει το &lt;strong&gt;%1&lt;/strong&gt; το οποίο θα αντικατασταθεί από τα δυο γράμματα του κωδικού ISO της χώρας (πεζά).&lt;br&gt;&lt;br&gt;Παράδειγμα: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
