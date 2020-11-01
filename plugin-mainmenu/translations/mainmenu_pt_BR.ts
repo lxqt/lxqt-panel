@@ -16,33 +16,34 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar à área de trabalho</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Questão</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="505"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Já existe um arquivo com o mesmo nome.
+Você deseja sobrescrevê-lo?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="511"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Atenção</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="512"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo não pode ser sobrescrito.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
 </context>
 <context>

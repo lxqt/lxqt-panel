@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
         <source>PulseAudio</source>
-        <translation></translation>
+        <translation>Pulseaudio</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
         <source>External Mixer</source>
-        <translation>Mixer externo</translation>
+        <translation>Mixador externo</translation>
     </message>
 </context>
 <context>
@@ -107,12 +107,12 @@
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Launch mixer</source>
-        <translation>Executar Mixer</translation>
+        <translation>Executar Mixador</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="56"/>
         <source>Mi&amp;xer</source>
-        <translation>Mi&amp;xer</translation>
+        <translation>Mi&amp;xador</translation>
     </message>
 </context>
 </TS>

@@ -29,12 +29,12 @@
     <message>
         <location filename="../configuration.ui" line="42"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acione a seguinte ação se o atalho de ejeção for pressionado (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; por padrão)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando o botão de ejeção é pressionado:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="43"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="51"/>
         <source>Eject All Optical Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejetar Todas as Unidades Ópticas</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Gerenciador de mídias/dispositivos removíveis</translation>
+        <translation>Gerenciador de mídias/dispositivos removíveis</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Todas as unidades ópticas ejetadas</translation>
     </message>
 </context>
 <context>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciador de mídias/dispositivos removíveis: O atalho global &apos;%1&apos; não pode ser registrado</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejetar mídia removível</translation>
     </message>
 </context>
 <context>

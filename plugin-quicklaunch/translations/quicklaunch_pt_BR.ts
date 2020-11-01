@@ -26,7 +26,7 @@ aplicativos para cá</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + Arrastar e Soltar)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>

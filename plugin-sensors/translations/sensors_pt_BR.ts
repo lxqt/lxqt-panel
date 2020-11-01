@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation></translation>
+        <translation>Celso</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
