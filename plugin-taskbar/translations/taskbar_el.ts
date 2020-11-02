@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετακίνηση στην &amp;επόμενη οθόνη</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετακίνηση στην π&amp;ροηγούμενη οθόνη</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοποθέτηση των κουμπιών της ίδιας κλάσης το ένα δίπλα στο άλλο</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Κύλιση προς τα πάνω για μετάβαση στην επόμενη επιφάνεια εργασίας, προς τα κάτω για την προηγούμενη</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>Κύλιση προς τα πάνω για μετάβαση στην προηγούμενη επιφάνεια εργασίας, προς τα κάτω για την επόμενη</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
