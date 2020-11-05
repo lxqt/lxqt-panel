@@ -1,3 +1,7 @@
+lxqt-panel-0.16.1 / 2020-11-04
+==============================
+  * Fixed compilation with Qt 5.12 and Qt 5.13.
+
 lxqt-panel-0.16.0 / 2020-11-01
 ==============================
   * Use a stylesheet for progress-bars of Sensors plugin.
