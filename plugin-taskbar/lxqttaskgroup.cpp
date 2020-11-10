@@ -72,13 +72,12 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
 void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 {
     setPopupVisible(false, true);
-    mPreventPopup = true;
     if (mSingleButton)
     {
         LXQtTaskButton::contextMenuEvent(event);
         return;
     }
-
+    mPreventPopup = true;
     QMenu * menu = new QMenu(tr("Group"));
     menu->setAttribute(Qt::WA_DeleteOnClose);
     QAction *a = menu->addAction(XdgIcon::fromTheme(QStringLiteral("process-stop")), tr("Close group"));
