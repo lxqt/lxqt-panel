@@ -189,14 +189,14 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="211"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="212"/>
         <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitten</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
@@ -288,17 +288,17 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpanelwidget.cpp" line="439"/>
         <location filename="../config/configpanelwidget.cpp" line="455"/>
         <source>Pick color</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj färg</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Pick image</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj bild</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -316,7 +316,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta upp</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -325,27 +325,27 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta ner</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera</translation>
     </message>
 </context>
 <context>
@@ -400,17 +400,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Flytta &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -423,7 +423,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurationsfil</translation>
     </message>
 </context>
 </TS>
