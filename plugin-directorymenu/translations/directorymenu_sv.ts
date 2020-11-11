@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna i terminal</translation>
     </message>
 </context>
 <context>
@@ -44,13 +44,13 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj standard Terminal</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>

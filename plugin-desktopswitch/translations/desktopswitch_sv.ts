@@ -60,7 +60,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa endast aktivt skrivbord</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
