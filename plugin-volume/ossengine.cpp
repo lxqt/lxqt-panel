@@ -34,7 +34,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
-#include <errno.h>
+#include <cerrno>
 
 #if defined(__FreeBSD__) || defined(__NetBSD__)
 #include <sys/soundcard.h>
