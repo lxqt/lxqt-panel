@@ -48,7 +48,7 @@
 LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
     QFrame(parent),
     mPlugin(plugin),
-    mPlaceHolder(0)
+    mPlaceHolder(nullptr)
 {
     setAcceptDrops(true);
 
@@ -164,7 +164,7 @@ void LXQtQuickLaunch::addButton(QuickLaunchAction* action)
 
     mLayout->removeWidget(mPlaceHolder);
     delete mPlaceHolder;
-    mPlaceHolder = 0;
+    mPlaceHolder = nullptr;
     mLayout->setEnabled(true);
     realign();
 }

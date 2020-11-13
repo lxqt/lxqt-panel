@@ -151,7 +151,7 @@ void TrayIcon::init()
         Atom acttype;
         int actfmt;
         unsigned long nbitem, bytes;
-        unsigned char *data = 0;
+        unsigned char *data = nullptr;
         int ret;
 
         ret = XGetWindowProperty(dsp, mIconId, xfitMan().atom("_XEMBED_INFO"),

@@ -51,9 +51,9 @@
 LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
         ILXQtPanelPlugin(startupInfo),
-        m_engine(0),
+        m_engine(nullptr),
         m_defaultSinkIndex(0),
-        m_defaultSink(0),
+        m_defaultSink(nullptr),
         m_allwaysShowNotifications(SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS),
         m_showKeyboardNotifications(SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS)
 {
@@ -156,9 +156,9 @@ void LXQtVolume::setAudioEngine(AudioEngine *engine)
         }
         m_volumeButton->volumePopup()->setDevice(m_defaultSink);
 
-        disconnect(m_engine, 0, 0, 0);
+        disconnect(m_engine, nullptr, nullptr, nullptr);
         delete m_engine;
-        m_engine = 0;
+        m_engine = nullptr;
     }
 
     m_engine = engine;

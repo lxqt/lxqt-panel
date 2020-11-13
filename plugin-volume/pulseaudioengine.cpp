@@ -129,7 +129,7 @@ static void contextSubscriptionCallback(pa_context * /*context*/, pa_subscriptio
 
 PulseAudioEngine::PulseAudioEngine(QObject *parent) :
     AudioEngine(parent),
-    m_context(0),
+    m_context(nullptr),
     m_contextState(PA_CONTEXT_UNCONNECTED),
     m_ready(false),
     m_maximumVolume(PA_VOLUME_UI_MAX)
@@ -141,7 +141,7 @@ PulseAudioEngine::PulseAudioEngine(QObject *parent) :
     connect(&m_reconnectionTimer, SIGNAL(timeout()), this, SLOT(connectContext()));
 
     m_mainLoop = pa_threaded_mainloop_new();
-    if (m_mainLoop == 0) {
+    if (m_mainLoop == nullptr) {
         qWarning("Unable to create pulseaudio mainloop");
         return;
     }
@@ -149,7 +149,7 @@ PulseAudioEngine::PulseAudioEngine(QObject *parent) :
     if (pa_threaded_mainloop_start(m_mainLoop) != 0) {
         qWarning("Unable to start pulseaudio mainloop");
         pa_threaded_mainloop_free(m_mainLoop);
-        m_mainLoop = 0;
+        m_mainLoop = nullptr;
         return;
     }
 
@@ -164,12 +164,12 @@ PulseAudioEngine::~PulseAudioEngine()
 {
     if (m_context) {
         pa_context_unref(m_context);
-        m_context = 0;
+        m_context = nullptr;
     }
 
     if (m_mainLoop) {
         pa_threaded_mainloop_free(m_mainLoop);
-        m_mainLoop = 0;
+        m_mainLoop = nullptr;
     }
 }
 
@@ -187,7 +187,7 @@ void PulseAudioEngine::removeSink(uint32_t idx)
 
 void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
 {
-    AudioDevice *dev = 0;
+    AudioDevice *dev = nullptr;
     bool newSink = false;
     QString name = QString::fromUtf8(info->name);
 
@@ -314,7 +314,7 @@ void PulseAudioEngine::connectContext()
 
     if (m_context) {
         pa_context_unref(m_context);
-        m_context = 0;
+        m_context = nullptr;
     }
 
     m_context = pa_context_new(m_mainLoopApi, "lxqt-volume");

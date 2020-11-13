@@ -133,7 +133,7 @@ bool XfitMan::getClientIcon(Window _wid, QPixmap& _pixreturn) const
 {
     int format;
     ulong type, nitems, extra;
-    ulong* data = 0;
+    ulong* data = nullptr;
 
     XGetWindowProperty(QX11Info::display(), _wid, atom("_NET_WM_ICON"),
                        0, LONG_MAX, False, AnyPropertyType,
@@ -158,7 +158,7 @@ bool XfitMan::getClientIcon(Window _wid, QIcon *icon) const
 {
     int format;
     ulong type, nitems, extra;
-    ulong* data = 0;
+    ulong* data = nullptr;
 
     XGetWindowProperty(QX11Info::display(), _wid, atom("_NET_WM_ICON"),
                        0, LONG_MAX, False, AnyPropertyType,

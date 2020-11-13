@@ -98,9 +98,9 @@ QColor Plugin::mMoveMarkerColor= QColor(255, 0, 0, 255);
 Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, const QString &settingsGroup, LXQtPanel *panel) :
     QFrame(panel),
     mDesktopFile(desktopFile),
-    mPluginLoader(0),
-    mPlugin(0),
-    mPluginWidget(0),
+    mPluginLoader(nullptr),
+    mPlugin(nullptr),
+    mPluginWidget(nullptr),
     mAlignment(AlignLeft),
     mPanel(panel)
 {

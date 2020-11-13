@@ -231,7 +231,7 @@ TrayIcon* LXQtTray::findIcon(Window id)
         if (icon->iconId() == id || icon->windowId() == id)
             return icon;
     }
-    return 0;
+    return nullptr;
 }
 
 

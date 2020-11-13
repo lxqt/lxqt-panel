@@ -72,7 +72,7 @@ private:
 
 struct LayoutItemInfo
 {
-    LayoutItemInfo(QLayoutItem *layoutItem=0);
+    LayoutItemInfo(QLayoutItem *layoutItem=nullptr);
     QLayoutItem *item;
     QRect geometry;
     bool separate;
@@ -490,9 +490,9 @@ void LXQtPanelLayout::globalIndexToLocal(int index, LayoutItemGrid **grid, int *
 QLayoutItem *LXQtPanelLayout::itemAt(int index) const
 {
     if (index < 0 || index >= count())
-        return 0;
+        return nullptr;
 
-    LayoutItemGrid *grid=0;
+    LayoutItemGrid *grid=nullptr;
     int idx=0;
     globalIndexToLocal(index, &grid, &idx);
 
@@ -506,9 +506,9 @@ QLayoutItem *LXQtPanelLayout::itemAt(int index) const
 QLayoutItem *LXQtPanelLayout::takeAt(int index)
 {
     if (index < 0 || index >= count())
-        return 0;
+        return nullptr;
 
-    LayoutItemGrid *grid=0;
+    LayoutItemGrid *grid=nullptr;
     int idx=0;
     globalIndexToLocal(index, &grid, &idx);
 
@@ -532,11 +532,11 @@ void LXQtPanelLayout::moveItem(int from, int to, bool withAnimation)
 {
     if (from != to)
     {
-        LayoutItemGrid *fromGrid=0;
+        LayoutItemGrid *fromGrid=nullptr;
         int fromIdx=0;
         globalIndexToLocal(from, &fromGrid, &fromIdx);
 
-        LayoutItemGrid *toGrid=0;
+        LayoutItemGrid *toGrid=nullptr;
         int toIdx=0;
         globalIndexToLocal(to, &toGrid, &toIdx);
 
@@ -549,7 +549,7 @@ void LXQtPanelLayout::moveItem(int from, int to, bool withAnimation)
             QLayoutItem *item = fromGrid->takeAt(fromIdx);
             toGrid->addItem(item);
             //recalculate position because we removed from one and put to another grid
-            LayoutItemGrid *toGridAux=0;
+            LayoutItemGrid *toGridAux=nullptr;
             globalIndexToLocal(to, &toGridAux, &toIdx);
             Q_ASSERT(toGrid == toGridAux); //grid must be the same (if not something is wrong with our logic)
             toGrid->moveItem(toGridAux->count()-1, toIdx);
