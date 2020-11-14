@@ -132,7 +132,7 @@ void AlsaEngine::discoverDevices()
     int cardNum = -1;
     const int BUFF_SIZE = 64;
 
-    while (1) {
+    while (true) {
         if ((error = snd_card_next(&cardNum)) < 0) {
             qWarning("Can't get the next card number: %s\n", snd_strerror(error));
             break;
