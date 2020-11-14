@@ -93,7 +93,6 @@ namespace
     public:
         DelayedIconDelegate(QObject * parent = nullptr)
             : QStyledItemDelegate(parent)
-            , mMaxItemWidth(300)
         {
         }
 
@@ -130,7 +129,7 @@ namespace
             return s;
         }
     private:
-        int mMaxItemWidth;
+        int mMaxItemWidth{300};
     };
 
 }

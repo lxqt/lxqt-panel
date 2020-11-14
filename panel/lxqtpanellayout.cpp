@@ -75,15 +75,13 @@ struct LayoutItemInfo
     LayoutItemInfo(QLayoutItem *layoutItem=nullptr);
     QLayoutItem *item;
     QRect geometry;
-    bool separate;
-    bool expandable;
+    bool separate{false};
+    bool expandable{false};
 };
 
 
 LayoutItemInfo::LayoutItemInfo(QLayoutItem *layoutItem):
-    item(layoutItem),
-    separate(false),
-    expandable(false)
+    item(layoutItem)
 {
     if (!item)
         return;
