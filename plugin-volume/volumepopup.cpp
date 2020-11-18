@@ -47,7 +47,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     m_pos(0,0),
     m_anchor(Qt::TopLeftCorner),
-    m_device(0)
+    m_device(nullptr)
 {
     m_mixerButton = new QPushButton(this);
     m_mixerButton->setObjectName(QStringLiteral("MixerLink"));

@@ -92,8 +92,8 @@ void PluginMoveProcessor::mouseMoveEvent(QMouseEvent *event)
 
     MousePosInfo pos = itemByMousePos(mouse);
 
-    QLayoutItem *prevItem = 0;
-    QLayoutItem *nextItem = 0;
+    QLayoutItem *prevItem = nullptr;
+    QLayoutItem *nextItem = nullptr;
     if (pos.after)
     {
         mDestIndex = pos.index + 1;
@@ -204,9 +204,9 @@ PluginMoveProcessor::MousePosInfo PluginMoveProcessor::itemByMousePos(const QPoi
  ************************************************/
 void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
 {
-    QWidget *widget = (item) ? item->widget() : 0;
+    QWidget *widget = (item) ? item->widget() : nullptr;
 
-    static QWidget *prevWidget = 0;
+    static QWidget *prevWidget = nullptr;
     if (prevWidget && prevWidget != widget)
         prevWidget->setStyleSheet(QLatin1String(""));
 
@@ -295,7 +295,7 @@ void PluginMoveProcessor::doFinish(bool cancel)
 {
     releaseKeyboard();
 
-    drawMark(0, TopMark);
+    drawMark(nullptr, TopMark);
 
     if (!cancel)
     {

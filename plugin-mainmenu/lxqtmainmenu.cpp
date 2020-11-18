@@ -60,8 +60,8 @@
 LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
-    mMenu(0),
-    mShortcut(0),
+    mMenu(nullptr),
+    mShortcut(nullptr),
     mSearchEditAction{new QWidgetAction{this}},
     mSearchViewAction{new QWidgetAction{this}},
     mMakeDirtyAction{new QAction{this}},
@@ -245,7 +245,7 @@ void LXQtMainMenu::settingsChanged()
         }
         else
         {
-            QMessageBox::warning(0, QStringLiteral("Parse error"), mXdgMenu.errorString());
+            QMessageBox::warning(nullptr, QStringLiteral("Parse error"), mXdgMenu.errorString());
             return;
         }
 #endif
@@ -633,7 +633,7 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                 if(key.isEmpty())
                     return false;
                 QAction* action = menu->activeAction();
-                if(action !=0) {
+                if(action !=nullptr) {
                     QList<QAction*> actions = menu->actions();
                     QList<QAction*>::iterator it = std::find(actions.begin(), actions.end(), action);
                     it = std::find_if(it + 1, actions.end(), MatchAction(key));

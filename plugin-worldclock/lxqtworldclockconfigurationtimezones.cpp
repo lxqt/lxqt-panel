@@ -74,7 +74,7 @@ void LXQtWorldClockConfigurationTimeZones::itemDoubleClicked(QTreeWidgetItem* /*
 QTreeWidgetItem* LXQtWorldClockConfigurationTimeZones::makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems)
 {
     if (parts.length() == 1)
-        return 0;
+        return nullptr;
 
     QStringList parentParts = parts.mid(0, parts.length() - 1);
 

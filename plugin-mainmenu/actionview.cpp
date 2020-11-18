@@ -79,7 +79,7 @@ namespace
     {
     public:
         using QProxyStyle::QProxyStyle;
-        virtual int styleHint(StyleHint hint, const QStyleOption * option = 0, const QWidget * widget = 0, QStyleHintReturn * returnData = 0) const override
+        virtual int styleHint(StyleHint hint, const QStyleOption * option = nullptr, const QWidget * widget = nullptr, QStyleHintReturn * returnData = nullptr) const override
         {
             if(hint == QStyle::SH_ItemView_ActivateItemOnSingleClick)
                 return 1;
@@ -93,7 +93,6 @@ namespace
     public:
         DelayedIconDelegate(QObject * parent = nullptr)
             : QStyledItemDelegate(parent)
-            , mMaxItemWidth(300)
         {
         }
 
@@ -130,7 +129,7 @@ namespace
             return s;
         }
     private:
-        int mMaxItemWidth;
+        int mMaxItemWidth{300};
     };
 
 }

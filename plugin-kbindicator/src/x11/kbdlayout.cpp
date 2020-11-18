@@ -64,7 +64,7 @@ public:
     bool init()
     {
         m_context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
-        m_connection = xcb_connect(0, 0);
+        m_connection = xcb_connect(nullptr, nullptr);
 
         if (!m_connection || xcb_connection_has_error(m_connection)){
             qWarning() << "Couldn't connect to X server: error code"
@@ -76,7 +76,7 @@ public:
             XKB_X11_MIN_MAJOR_XKB_VERSION,
             XKB_X11_MIN_MINOR_XKB_VERSION,
             XKB_X11_SETUP_XKB_EXTENSION_NO_FLAGS,
-            NULL, NULL, &m_eventType, NULL
+            nullptr, nullptr, &m_eventType, nullptr
         );
 
         m_deviceId = xkb_x11_get_core_keyboard_device_id(m_connection);
@@ -189,7 +189,7 @@ private:
 
         xkb_mod_index_t index =  xkb_keymap_led_get_index(m_keymap, modName(cnt));
 
-        xcb_generic_error_t *error = 0;
+        xcb_generic_error_t *error = nullptr;
         quint8 mask = 0;
 
         xcb_xkb_get_indicator_map_cookie_t cookie = xcb_xkb_get_indicator_map(m_connection, m_deviceId, 1 << index);
@@ -220,7 +220,7 @@ private:
         case Controls::Scroll:
             return XKB_LED_NAME_SCROLL;
         default:
-            return 0;
+            return nullptr;
         }
     }
 
@@ -286,12 +286,12 @@ private:
     }
 
 private:
-    struct xkb_context    *m_context    = 0;
-    xcb_connection_t      *m_connection = 0;
+    struct xkb_context    *m_context    = nullptr;
+    xcb_connection_t      *m_connection = nullptr;
     int32_t                m_deviceId;
     uint8_t                m_eventType;
-    xkb_state             *m_state      = 0;
-    xkb_keymap            *m_keymap     = 0;
+    xkb_state             *m_state      = nullptr;
+    xkb_keymap            *m_keymap     = nullptr;
     ::X11Kbd              *m_pub;
     QHash<Controls, bool>  m_modifiers  = {
         {Controls::Caps,   false},

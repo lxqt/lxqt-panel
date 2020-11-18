@@ -125,7 +125,7 @@ QWidget* Content::widget(Controls cnt) const
     case Scroll: return m_scrollLock;
     case Layout: return m_layout;
     }
-    return 0;
+    return nullptr;
 }
 
 bool Content::eventFilter(QObject *object, QEvent *event)

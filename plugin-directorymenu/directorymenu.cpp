@@ -41,7 +41,7 @@
 DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo),
-    mMenu(0),
+    mMenu(nullptr),
     mDefaultIcon(XdgIcon::fromTheme(QStringLiteral("folder")))
 {
     mOpenDirectorySignalMapper = new QSignalMapper(this);

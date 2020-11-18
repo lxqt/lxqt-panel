@@ -109,7 +109,7 @@ void PopupMenu::keyPressEvent(QKeyEvent* e)
 
             if (firstAction == action) // we looped and only found titles
             {
-                this->setActiveAction(0);
+                this->setActiveAction(nullptr);
                 break;
             }
         }

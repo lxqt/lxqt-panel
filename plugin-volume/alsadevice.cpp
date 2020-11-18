@@ -29,8 +29,8 @@
 
 AlsaDevice::AlsaDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent) :
     AudioDevice(t, engine, parent),
-    m_mixer(0),
-    m_elem(0),
+    m_mixer(nullptr),
+    m_elem(nullptr),
     m_volumeMin(0),
     m_volumeMax(100)
 {

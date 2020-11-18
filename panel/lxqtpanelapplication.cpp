@@ -38,7 +38,7 @@
 #include <QCommandLineParser>
 
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
-    : mSettings(0),
+    : mSettings(nullptr),
       q_ptr(q)
 {
 }

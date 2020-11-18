@@ -33,7 +33,7 @@
 #include <QSocketNotifier>
 #include <QtDebug>
 
-AlsaEngine *AlsaEngine::m_instance = 0;
+AlsaEngine *AlsaEngine::m_instance = nullptr;
 
 static int alsa_elem_event_callback(snd_mixer_elem_t *elem, unsigned int /*mask*/)
 {
@@ -79,7 +79,7 @@ AlsaDevice *AlsaEngine::getDeviceByAlsaElem(snd_mixer_elem_t *elem) const
             return dev;
     }
 
-    return 0;
+    return nullptr;
 }
 
 void AlsaEngine::commitDeviceVolume(AudioDevice *device)
@@ -132,7 +132,7 @@ void AlsaEngine::discoverDevices()
     int cardNum = -1;
     const int BUFF_SIZE = 64;
 
-    while (1) {
+    while (true) {
         if ((error = snd_card_next(&cardNum)) < 0) {
             qWarning("Can't get the next card number: %s\n", snd_strerror(error));
             break;
@@ -182,7 +182,7 @@ void AlsaEngine::discoverDevices()
                 m_mixerMap.insert(pfd.fd, mixer);
             }
 
-            snd_mixer_elem_t *mixerElem = 0;
+            snd_mixer_elem_t *mixerElem = nullptr;
             mixerElem = snd_mixer_first_elem(mixer);
 
             while (mixerElem) {
