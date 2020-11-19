@@ -24,6 +24,7 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     lxqt_translate_desktop(DESKTOP_FILES
         SOURCES
             ${${PROJECT_NAME}_DESKTOP_FILES_IN}
+        USE_YAML
     )
 
     lxqt_plugin_translation_loader(QM_LOADER ${NAME} "lxqt-panel")
