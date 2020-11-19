@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LXQtPanel/Plugin
-Name=System Statistics
-Comment=System Statistics plugin.
 Icon=utilities-system-monitor
 
 #TRANSLATIONS_DIR=../translations
