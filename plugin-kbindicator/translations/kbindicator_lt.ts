@@ -90,12 +90,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vėliavų kelio šablonas:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Šalių vėliavų failų šablonas. Jame privalo būti &lt;strong&gt;%1&lt;/strong&gt;, kas savo ruožtu bus pakeista dviem ISO šalies kodo raidėmis (mažosiomis).&lt;br&gt;&lt;br&gt;Pavyzdys: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>

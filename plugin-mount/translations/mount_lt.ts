@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Paspaudus išstūmimo mygtuką:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="43"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="51"/>
         <source>Eject All Optical Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Išstumti visus optinius diskus</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Keičiamųjų laikmenų/įrenginių tvarkytuvė</translation>
+        <translation>Keičiamųjų laikmenų/įrenginių tvarkytuvė</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Keičiamųjų laikmenų/įrenginių tvarkytuvė: Visuotinis spartusis klavišas „%1“ negali būti registruotas</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>Išstumti keičiamąją laikmeną</translation>
     </message>
 </context>
 <context>

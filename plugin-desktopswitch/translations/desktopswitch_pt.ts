@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
-        <translation>Trocar para a área de trabalho %1</translation>
+        <translation>Trocar para o ambiente de trabalho %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
         <location filename="../desktopswitch.cpp" line="155"/>
         <source>Desktop %1</source>
-        <translation>Área de trabalho %1</translation>
+        <translation>Ambiente de trabalho %1</translation>
     </message>
 </context>
 <context>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Texto da área de trabalho:</translation>
+        <translation>Texto do ambiente de trabalho:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Nome das áreas de trabalho</translation>
+        <translation>Nome dos ambiente de trabalho</translation>
     </message>
 </context>
 </TS>

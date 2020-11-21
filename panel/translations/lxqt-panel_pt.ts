@@ -264,22 +264,22 @@ Colorir ícones tendo por base o estilo do widget (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation>Em cima, área de trabalho %1</translation>
+        <translation>Em cima, ambiente de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation>À esquerda, área de trabalho %1</translation>
+        <translation>À esquerda, ambiente de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation>À direita, área de trabalho %1</translation>
+        <translation>À direita, ambiente de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation>Em baixo, área de trabalho %1</translation>
+        <translation>Em baixo, ambiente de trabalho %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
