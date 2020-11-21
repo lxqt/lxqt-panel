@@ -19,22 +19,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="713"/>
         <source>To &amp;Desktop</source>
-        <translation>Na área &amp;de trabalho</translation>
+        <translation>No ambiente &amp;de trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="715"/>
         <source>&amp;All Desktops</source>
-        <translation>Tod&amp;as as áreas de trabalho</translation>
+        <translation>Todos os &amp;ambiente de trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="723"/>
         <source>Desktop &amp;%1</source>
-        <translation>Área de trabalho &amp;%1</translation>
+        <translation>Ambiente de trabalho &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="730"/>
         <source>&amp;To Current Desktop</source>
-        <translation>Na área de &amp;trabalho atual</translation>
+        <translation>No ambiente de &amp;trabalho atual</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Mostrar apenas as janelas da área de trabalho</translation>
+        <translation>Mostrar apenas as janelas do ambiente de trabalho</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Mostrar janelas minimizadas da área de trabalho atual</translation>
+        <translation>Mostrar janelas minimizadas do ambiente de trabalho atual</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>Deslocar para cima move-se para a área de trabalho seguinte, para baixo move-se para a anterior</translation>
+        <translation>Deslocar para cima move-se para o ambiente de trabalho seguinte, para baixo move-se para o anterior</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation>Deslocar para cima move-se para a área de trabalho anterior, para baixo move-se para a seguinte</translation>
+        <translation>Deslocar para cima move-se para o ambiente de trabalho anterior, para baixo move-se para o seguinte</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
