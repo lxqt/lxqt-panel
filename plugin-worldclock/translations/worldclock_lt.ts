@@ -230,12 +230,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti iškylančiajame kalendoriuje &amp;savaičių numerius</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Ro&amp;dyti paaiškinimą</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Tinkintos datos/laiko formato sintaksė&lt;/h1&gt;
+&lt;p&gt;Datos šablonas yra simbolių eilutė, kurioje tam tikros simbolių eilutės, formatuojant, yra pakeičiamos datos ir laiko duomenimis iš kalendoriaus arba analizuojant, yra naudojamos kalendoriaus duomenų kūrimui.&lt;/p&gt;
+&lt;p&gt;Žemiau esančioje datų laukelio simbolių lentelėje yra simboliai, kurie naudojami šablonuose, siekiant rodyti atitinkamus nurodytos lokalės formatus, tokie simboliai kaip pvz., yyyy, kurie yra skirti metams. Simboliai gali būti naudojami kelis kartus. Pavyzdžiui, jeigu y yra naudojama metams, tai „yy“ gali atvaizduoti „99“, tuo tarpu „yyyy“ atvaizduos „1999“. Daugelyje skaitmeninių laukelių simbolių skaičius nustato laukelio plotį. Pavyzdžiui, jeigu h yra valanda, tai „h“ gali atvaizduoti „5“, tačiau „hh“ atvaizduos „05“. Kai kuriems simboliams skaičius nustato, ar turėtų būti naudojama pilna, ar sutrumpinta forma, tačiau gali būti ir kiti pasirinkimai, kaip tai yra nurodyta žemiau.&lt;/p&gt;
+&lt;p&gt;Dvi kabutės, nesvarbu ar viengubų kabučių viduje ar išorėje, atvaizduoja viengubą kabutę. Viengubų kabučių viduje esantis tekstas niekaip nėra interpretuojamas (išskyrus dvi viengubas kabutes viena šalia kitos). Kita vertus visos ASCII raidės nuo a iki z ir nuo A iki Z yra rezervuotos kaip sintaksės simboliai, ir yra reikalaujama, kad jos būtų kabutėse, jeigu norima jas atvaizduoti kaip įprastas raides. Be to, tam tikri ASCII punktuacijos simboliai ateityje gali tapti kintamaisiais (pvz., „:“ gali būti interpretuojamas kaip laiko skirtuvas, o „/“ kaip datos skirtuvas, ir rodinyje gali būti pakeisti atitinkamais lokalės simboliais.&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kodas&lt;/th&gt;&lt;th&gt;Reikšmė&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;diena kaip skaičius be priekinio nulio (nuo 1 iki 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;diena kaip skaičius su priekiniu nuliu (nuo 01 iki 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;sutrumpintas lokalizuotas dienos pavadinimas (pvz., nuo „Pir“ iki „Sek“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;ilgas lokalizuotas dienos pavadinimas (pvz., nuo „Pirmadienis“ iki „Sekmadienis“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mėnesis kaip skaičius be priekinio nulio (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mėnesis kaip skaičius su priekiniu nuliu (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;sutrumpintas lokalizuotas mėnesio pavadinimas (pvz., nuo „Sau“ iki „Gru“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;ilgas lokalizuotas mėnesio pavadinimas (pvz., nuo „Sausis“ iki „Gruodis“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;metai kaip dviejų skaitmenų skaičius (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;metai kaip keturių skaitmenų skaičius&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;valanda be priekinio nulio (nuo 0 iki 23 arba nuo 1 iki 12, jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;valanda su priekiniu nuliu (nuo 00 iki 23 arba nuo 01 iki 12, jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;valanda be priekinio nulio (nuo 0 iki 23, netgi jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;valanda su priekiniu nuliu (nuo 00 iki 23, netgi jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minutė be priekinio nulio (nuo 0 iki 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minutė su priekiniu nuliu (nuo 00 iki 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekundė be priekinio nulio (nuo 0 iki 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekundė su priekiniu nuliu (nuo 00 iki 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;arba&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;naudoti AM/PM formatą. &lt;b&gt;A/AP&lt;/b&gt; bus pakeista arba į „AM“, arba į „PM“.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;arba&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;naudoti am/pm formatą. &lt;b&gt;a/ap&lt;/b&gt; bus pakeista arba į „am“, arba į „pm“.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;laiko juosta (pvz., „CEST“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;poslinkis nuo UTC (Suderintojo pasaulinio laiko)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;laiko juostos IANA id&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;laiko juostos santrumpa&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;trumpasis laiko juostos pavadinimas&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;ilgasis laiko juostos pavadinimas&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;tinkintas laiko juostos pavadinimas. Jūs galite jį pakeisti konfigūracijos lango „Laiko juostų“ kortelėje&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Pastabos:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Bet kurie šablone esantys simboliai, kurie nėra rėžyje [„a“..„z“] ir [„A“..„Z“] bus laikomi cituotu tekstu. Pavyzdžiui, tokie simboliai kaip „:“, „.“, „ “, „#“ ir „@“ bus rodomi galutiniame laiko tekste netgi tuo atveju, jeigu jie nėra viengubose kabutėse. Viengubos kabutės yra naudojamos raidžių „ištrūkimui“. Dvi viengubos kabutės iš eilės, nesvarbu, ar cituojamos sekos viduje, ar išorėje, atvaizduoja „tikrąsias“ viengubas kabutes.&lt;/li&gt;&lt;li&gt;Mažiausias atnaujinimo intervalas yra 1 sekundė. Jeigu laiko atvaizdavimui yra naudojama z ar zzz, tuomet laikas bus rodomas su milisekundėmis, tačiau jis nebus atnaujinamas kas milisekundę (tam, kad būtų išvengta našumo sumažėjimo).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
