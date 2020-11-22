@@ -8,10 +8,9 @@ The elements available in lxqt-panel are called "plugin" technically. This appli
 Configuration dialogue "Add Plugins", see [below](https://github.com/lxqt/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.
 Notes on some of the plugins, sorted by terms used within the GUI in alphabetical order, technical term in parenthesis:
 
-#### Date & time (plugin-clock) / World clock (plugin-worldclock)
+#### Date & time / World clock (plugin-worldclock)
 
-Both provide clock and calendar functionality. plugin-worldclock can display various time zones in addition but lacks a tooltip displaying current date and time upon hovering.
-These plugins will probably be merged into one, see https://github.com/lxqt/lxqt/issues/312.
+Provides clock and calendar functionality and can display various time zones in addition.
 
 #### Quick launch (plugin-quicklaunch)
 
@@ -33,7 +32,7 @@ As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio
 
 The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, lxmenu-data, [liblxqt](https://github.com/lxqt/liblxqt) and [lxqt-globalkeys](https://github.com/lxqt/lxqt-globalkeys).
 Several plugins or features thereof are optional and need additional runtime dependencies. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxqt/libsysstat) (plugin-sysstat). All of them are enabled by default and have to be disabled by CMake variables as required, see below.
-In addition CMake is a mandatory build dependency. Git is optionally needed to pull latest VCS checkouts. The localization files were outsourced to repository [lxqt-l10n](https://github.com/lxqt/lxqt-l10n) so the corresponding dependencies are needed, too. Please refer to this repository's `README.md` for further information.
+In addition CMake is a mandatory build dependency. Git is optionally needed to pull latest VCS checkouts.
 
 Code configuration is handled by CMake. CMake variable `CMAKE_INSTALL_PREFIX` has to be set to `/usr` on most operating systems, depending on the way library paths are dealt with on 64bit systems variables like CMAKE_INSTALL_LIBDIR may have to be set as well.
 By default all available plugins and features thereof are built and CMake fails when dependencies aren't met. Building particular plugins can be disabled by boolean CMake variables `<plugin>_PLUGIN` where the plugin is referred by its technical term like e. g. in `SYSSTAT_PLUGIN`. Alsa and PulseAudio support in plugin-volume can be disabled by boolean CMake variables `VOLUME_USE_ALSA` and `VOLUME_USE_PULSEAUDIO`.
