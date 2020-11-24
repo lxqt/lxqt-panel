@@ -230,12 +230,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ve &amp;vyskakovacím kalendáři zobrazovat čísla týdnů</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zobrazovat popisky ikon</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
