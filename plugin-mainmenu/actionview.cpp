@@ -47,8 +47,7 @@ FilterProxyModel::FilterProxyModel(QObject* parent) :
     QSortFilterProxyModel(parent) {
 }
 
-FilterProxyModel::~FilterProxyModel() {
-}
+FilterProxyModel::~FilterProxyModel() = default;
 
 bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const {
     if (filterStr_.isEmpty())

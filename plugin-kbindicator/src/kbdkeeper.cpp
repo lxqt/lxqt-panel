@@ -39,8 +39,7 @@ KbdKeeper::KbdKeeper(const KbdLayout & layout, KeeperType type):
     m_layout.readKbdInfo(m_info);
 }
 
-KbdKeeper::~KbdKeeper()
-{}
+KbdKeeper::~KbdKeeper() = default;
 
 bool KbdKeeper::setup()
 {
@@ -89,8 +88,7 @@ WinKbdKeeper::WinKbdKeeper(const KbdLayout & layout):
     KbdKeeper(layout, KeeperType::Window)
 {}
 
-WinKbdKeeper::~WinKbdKeeper()
-{}
+WinKbdKeeper::~WinKbdKeeper() = default;
 
 void WinKbdKeeper::layoutChanged(uint group)
 {
@@ -137,8 +135,7 @@ AppKbdKeeper::AppKbdKeeper(const KbdLayout & layout):
     KbdKeeper(layout, KeeperType::Window)
 {}
 
-AppKbdKeeper::~AppKbdKeeper()
-{}
+AppKbdKeeper::~AppKbdKeeper() = default;
 
 void AppKbdKeeper::layoutChanged(uint group)
 {

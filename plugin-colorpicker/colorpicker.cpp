@@ -39,9 +39,7 @@ ColorPicker::ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo) :
 }
 
 
-ColorPicker::~ColorPicker()
-{
-}
+ColorPicker::~ColorPicker() = default;
 
 
 void ColorPicker::realign()
@@ -75,9 +73,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
 }
 
 
-ColorPickerWidget::~ColorPickerWidget()
-{
-}
+ColorPickerWidget::~ColorPickerWidget() = default;
 
 
 void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)

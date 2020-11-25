@@ -42,9 +42,7 @@ EjectAction::EjectAction(LXQtMountPlugin *plugin, QObject *parent)
 {
 }
 
-EjectAction::~EjectAction()
-{
-}
+EjectAction::~EjectAction() = default;
 
 EjectAction *EjectAction::create(ActionId id, LXQtMountPlugin *plugin, QObject *parent)
 {

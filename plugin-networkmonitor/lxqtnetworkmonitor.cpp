@@ -66,9 +66,7 @@ LXQtNetworkMonitor::LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent
     settingsChanged();
 }
 
-LXQtNetworkMonitor::~LXQtNetworkMonitor()
-{
-}
+LXQtNetworkMonitor::~LXQtNetworkMonitor() = default;
 
 void LXQtNetworkMonitor::resizeEvent(QResizeEvent *)
 {

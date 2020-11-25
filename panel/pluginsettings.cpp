@@ -72,9 +72,7 @@ QString PluginSettings::group() const
     return d->mGroup;
 }
 
-PluginSettings::~PluginSettings()
-{
-}
+PluginSettings::~PluginSettings() = default;
 
 QVariant PluginSettings::value(const QString &key, const QVariant &defaultValue) const
 {

@@ -36,8 +36,7 @@ class LXQtKbIndicatorPlugin: public QObject, public ILXQtPanelPluginLibrary
     Q_PLUGIN_METADATA(IID "lxqt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ~LXQtKbIndicatorPlugin() override
-    {}
+    ~LXQtKbIndicatorPlugin() override = default;
 
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const override
     {

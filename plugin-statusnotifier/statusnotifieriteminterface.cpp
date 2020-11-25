@@ -48,7 +48,5 @@ StatusNotifierItemInterface::StatusNotifierItemInterface(const QString &service,
 {
 }
 
-StatusNotifierItemInterface::~StatusNotifierItemInterface()
-{
-}
+StatusNotifierItemInterface::~StatusNotifierItemInterface() = default;
 

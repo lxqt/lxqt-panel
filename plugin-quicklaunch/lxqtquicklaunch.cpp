@@ -107,9 +107,7 @@ LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
 }
 
 
-LXQtQuickLaunch::~LXQtQuickLaunch()
-{
-}
+LXQtQuickLaunch::~LXQtQuickLaunch() = default;
 
 
 int LXQtQuickLaunch::indexOfButton(QuickLaunchButton* button) const

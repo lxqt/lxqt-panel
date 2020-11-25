@@ -71,8 +71,7 @@ Content::Content(bool layoutEnabled):
     box->addWidget(m_layout, 0, Qt::AlignCenter);
 }
 
-Content::~Content()
-{}
+Content::~Content() = default;
 
 bool Content::setup()
 {

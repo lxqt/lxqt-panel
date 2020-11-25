@@ -27,8 +27,7 @@
 #include <QSettings>
 #include "settings.h"
 
-Settings::Settings()
-{}
+Settings::Settings() = default;
 
 Settings &Settings::instance()
 {

@@ -122,9 +122,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
 /************************************************
 
 ************************************************/
-LXQtTaskButton::~LXQtTaskButton()
-{
-}
+LXQtTaskButton::~LXQtTaskButton() = default;
 
 /************************************************
 

@@ -66,9 +66,7 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
     connect(m_volumePopup, SIGNAL(stockIconChanged(QString)), this, SLOT(handleStockIconChanged(QString)));
 }
 
-VolumeButton::~VolumeButton()
-{
-}
+VolumeButton::~VolumeButton() = default;
 
 void VolumeButton::setShowOnClicked(bool state)
 {

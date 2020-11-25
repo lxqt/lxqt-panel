@@ -306,8 +306,7 @@ X11Kbd::X11Kbd():
     m_priv(new pimpl::X11Kbd(this))
 {}
 
-X11Kbd::~X11Kbd()
-{}
+X11Kbd::~X11Kbd() = default;
 
 bool X11Kbd::init()
 { return m_priv->init(); }

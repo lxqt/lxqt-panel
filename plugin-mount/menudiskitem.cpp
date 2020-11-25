@@ -78,9 +78,7 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
     updateMountStatus();
 }
 
-MenuDiskItem::~MenuDiskItem()
-{
-}
+MenuDiskItem::~MenuDiskItem() = default;
 
 void MenuDiskItem::setMountStatus(bool mounted)
 {

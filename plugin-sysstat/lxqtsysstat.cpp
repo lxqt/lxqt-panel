@@ -99,10 +99,7 @@ LXQtSysStatTitle::LXQtSysStatTitle(QWidget *parent):
 
 }
 
-LXQtSysStatTitle::~LXQtSysStatTitle()
-{
-
-}
+LXQtSysStatTitle::~LXQtSysStatTitle() = default;
 
 bool LXQtSysStatTitle::event(QEvent *e)
 {
@@ -125,9 +122,7 @@ LXQtSysStatContent::LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent
     setObjectName(QStringLiteral("SysStat_Graph"));
 }
 
-LXQtSysStatContent::~LXQtSysStatContent()
-{
-}
+LXQtSysStatContent::~LXQtSysStatContent() = default;
 
 
 // I don't like macros very much, but writing dozen similar functions is much much worse.

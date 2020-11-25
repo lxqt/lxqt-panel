@@ -47,7 +47,7 @@ LXQtTrayConfiguration::LXQtTrayConfiguration(PluginSettings *settings, QWidget *
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtTrayConfiguration::dialogButtonsAction);
 }
 
-LXQtTrayConfiguration::~LXQtTrayConfiguration() {}
+LXQtTrayConfiguration::~LXQtTrayConfiguration() = default;
 
 void LXQtTrayConfiguration::loadSettings()
 {

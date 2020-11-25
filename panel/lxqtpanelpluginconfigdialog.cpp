@@ -46,9 +46,7 @@ LXQtPanelPluginConfigDialog::LXQtPanelPluginConfigDialog(PluginSettings &setting
 /************************************************
 
  ************************************************/
-LXQtPanelPluginConfigDialog::~LXQtPanelPluginConfigDialog()
-{
-}
+LXQtPanelPluginConfigDialog::~LXQtPanelPluginConfigDialog() = default;
 
 
 /************************************************
