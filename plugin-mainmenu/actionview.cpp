@@ -79,7 +79,7 @@ namespace
     {
     public:
         using QProxyStyle::QProxyStyle;
-        virtual int styleHint(StyleHint hint, const QStyleOption * option = nullptr, const QWidget * widget = nullptr, QStyleHintReturn * returnData = nullptr) const override
+        int styleHint(StyleHint hint, const QStyleOption * option = nullptr, const QWidget * widget = nullptr, QStyleHintReturn * returnData = nullptr) const override
         {
             if(hint == QStyle::SH_ItemView_ActivateItemOnSingleClick)
                 return 1;
@@ -101,7 +101,7 @@ namespace
             mMaxItemWidth = max;
         }
 
-        virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override
+        QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override
         {
             QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
             //the XdgCachedMenuAction/XdgAction does load the icon upon showing its menu

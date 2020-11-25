@@ -86,7 +86,7 @@ public:
         return true;
     }
 
-    virtual ~X11Kbd()
+    ~X11Kbd() override
     {
         xkb_state_unref(m_state);
         xkb_keymap_unref(m_keymap);
@@ -97,7 +97,7 @@ public:
     bool isEnabled() const
     { return true;  }
 
-    virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *)
+    bool nativeEventFilter(const QByteArray &eventType, void *message, long *) override
     {
         if (eventType != "xcb_generic_event_t")
             return false;
