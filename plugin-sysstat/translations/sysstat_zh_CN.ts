@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;水平面板的最小宽度。&lt;/p&gt;&lt;p&gt;垂直面板的最小高度。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -375,19 +375,19 @@
         <location filename="../lxqtsysstat.cpp" line="397"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation></translation>
+        <translation>系统： %1%&lt;br&gt;用户： %2%&lt;br&gt;Nice 值： %3%&lt;br&gt;其它： %4%&lt;br&gt;频率： %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="446"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation></translation>
+        <translation>系统： %1%&lt;br&gt;用户： %2%&lt;br&gt;Nice 值： %3%&lt;br&gt;其它： %4%&lt;br&gt;频率： n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="488"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation></translation>
+        <translation>应用程序： %1%&lt;br&gt;缓冲区： %2%&lt;br&gt;已缓存： %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="522"/>
