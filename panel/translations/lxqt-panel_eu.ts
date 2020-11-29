@@ -170,7 +170,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="340"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished">erreserbatu espazioa pantailan</translation>
+        <translation>Erreserbatu espazioa pantailan</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="356"/>
@@ -180,27 +180,27 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="377"/>
         <source>Font color:</source>
-        <translation type="unfinished">Letraren kolorea:</translation>
+        <translation>Letraren kolorea:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="417"/>
         <source>Background color:</source>
-        <translation type="unfinished">Atzeko planoaren kolorea:</translation>
+        <translation>Atzeko planoaren kolorea:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="456"/>
         <source>Background opacity:</source>
-        <translation type="unfinished">Atzeko planoaren opakutasuna:</translation>
+        <translation>Atzeko planoaren opakutasuna:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="488"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Konposaketa egitea beharrezkoa da panelaren gardentasunerako.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="516"/>
         <source>Background image:</source>
-        <translation type="unfinished">Atzeko planoko irudia:</translation>
+        <translation>Atzeko planoaren irudia:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="568"/>
@@ -222,12 +222,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished">Ikonoen gaia panelentzako:</translation>
+        <translation>Paneletarako ikonoen gaia:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished">Lerrokatzea:</translation>
+        <translation>Lerrokatzea:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
@@ -237,52 +237,52 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Mahaigainaren goialdea</translation>
+        <translation>Mahaigainaren goialdea</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="178"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Mahaigainaren ezkerraldea</translation>
+        <translation>Mahaigainaren ezkerraldea</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="179"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Mahaigainaren eskuinaldea</translation>
+        <translation>Mahaigainaren eskuinaldea</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="180"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Mahaigainaren behealdea</translation>
+        <translation>Mahaigainaren behealdea</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="189"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">%1 mahaigainaren goialdea</translation>
+        <translation>Mahaigainaren goialdea %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="190"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">%1 mahaigainaren ezkerraldea</translation>
+        <translation>Mahaigainaren ezkerraldea %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="191"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">%1 mahaigainaren eskuinaldea</translation>
+        <translation>Mahaigainaren eskuinaldea %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="192"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">%1 mahaigainaren behealdea</translation>
+        <translation>Mahaigainaren behealdea %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <source>Top</source>
-        <translation type="unfinished">gainean</translation>
+        <translation>Goian</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="219"/>
         <source>Bottom</source>
-        <translation type="unfinished">behean</translation>
+        <translation>Behean</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="439"/>
@@ -306,7 +306,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Pluginak Konfiguratu</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -316,7 +316,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Mugitu gora</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -325,27 +325,27 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Mugitu behera</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Kendu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished">Konfiguratu</translation>
+        <translation>Konfiguratu</translation>
     </message>
 </context>
 <context>
@@ -364,35 +364,36 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1164"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widgetak Kudeatu</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu Panel Berria</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kendu Panela</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel Hau Blokeatu</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kendu Panela</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1339"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Panela ezabatu ondoren, ezin da ekintza desegin.
+Ziur zaude panel hau ezabatu nahi duzula?</translation>
     </message>
 </context>
 <context>
@@ -400,17 +401,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguratu &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Mugitu &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -423,7 +424,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurazio fitxategia</translation>
     </message>
 </context>
 </TS>

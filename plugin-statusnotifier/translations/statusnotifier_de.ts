@@ -22,37 +22,37 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
         <source> minute(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> Minute(n)</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Sichtbarkeit der Einträge ändern</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
         <source>Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Eintrag</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="90"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Sichtbarkeit</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation type="unfinished"></translation>
+        <translation>Immer anzeigen</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch ausblenden</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Immer ausblenden</translation>
     </message>
 </context>
 </TS>

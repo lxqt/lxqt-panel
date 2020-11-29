@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Verwaltung entfernbarer Medien/Geräte</translation>
+        <translation>Verwaltung für Wechseldatenträger/Geräte</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Einstellungen entfernbarer Medien</translation>
+        <translation>Wechseldatenträgereinstellungen</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn die Auswurftaste gedrückt wird:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="43"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="51"/>
         <source>Eject All Optical Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle optischen Laufwerke auswerfen</translation>
     </message>
 </context>
 <context>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle optischen Laufwerke ausgeworfen</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>Wechseldatenträger auswerfen</translation>
     </message>
 </context>
 <context>
