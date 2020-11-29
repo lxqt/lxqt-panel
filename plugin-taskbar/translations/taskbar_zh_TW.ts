@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation>移動到前一個螢幕(&amp;N)</translation>
+        <translation>移動到前一個螢幕(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
