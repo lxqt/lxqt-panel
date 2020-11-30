@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Sintassi personalizzata per Data e Ora&lt;/h1&gt;
+&lt;p&gt;Un modello di data è una stringa di caratteri, in cui caratteri specifici vengono sostituite con quelle di data e ora da un calendario durante la formattazione.&lt;/p&gt;
+&lt;p&gt;La tabella dei simboli del campo Data della tabella seguente contiene i caratteri utilizzati nei modelli per mostrare i formati appropriati per una data locale, ad esempio aaaa per l&apos;anno. I caratteri possono essere utilizzati più volte. Ad esempio, se y è utilizzato per l&apos;anno, &quot;yy&quot; potrebbe produrre &quot;99&quot;, mentre &quot;yyyy&quot; restituirà &quot;1999&quot;. Per la maggior parte dei campi numerici, il numero di caratteri specifica la larghezza del campo. Ad esempio, se h è l&apos;ora, &quot;h&quot; potrebbe produrre &quot;5&quot;, ma &quot;hh&quot; restituirà &quot;05&quot;. Per alcuni caratteri, il conteggio specifica se deve essere utilizzata una forma abbreviata o completa, ma può avere altre scelte, come indicato di seguito.&lt;/p&gt;
+&lt;p&gt;Due virgolette singole rappresentano una virgoletta singola letterale, all&apos;interno o all&apos;esterno di virgolette singole. Il testo all&apos;interno di virgolette singole non viene interpretato in alcun modo (ad eccezione di due virgolette singole adiacenti). Altrimenti tutte le lettere ASCII dalla a alla zeta dalla A alla Zeta sono riservate come caratteri di sintassi e richiedono la citazione se devono rappresentare caratteri letterali. Inoltre, alcuni caratteri di punteggiatura ASCII potrebbero diventare variabili in futuro (ad es. &quot;:&quot; Interpretato come separatore dell&apos;ora e &quot;/&quot; come separatore della data e sostituito dai rispettivi caratteri sensibili alle impostazioni internazionali sul display).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Codice&lt;/th&gt;&lt;th&gt;Significato&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;Il giorno come numero senza zero iniziale (1 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;Il giorno come numero con uno zero iniziale (01 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;Il nome abbreviato localizzato (p.e. &apos;Lun&apos; a &apos;Dom&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;Il nome completo localizzato (p.e. &apos;Lunedì&apos; a &apos;Domenica&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;Il mese come numero senza zero iniziale (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;Il mese come numero con uno zero iniziale (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;Il nome abbreviato del mese localizzato (p.e. &apos;Gen&apos; a &apos;Dec&apos;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;In nome completo del mese localizzato (p.e. &apos;Gennaio&apos; a &apos;Dicembre&apos;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;L&apos;anno in due numeri (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;L&apos;anno in quattro numeri&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;L&apos;ora senza zero iniziale (0 a 23 o 1 a 12 con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;L&apos;ora con uno zero iniziale (00 a 23 o 01 a 12 con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;L&apos;ora con uno zero iniziale (0 a 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;L&apos;ora senza zero iniziale (00 to 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Il minuto senza zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Il minuto con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Il secondo  senza uno zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Il secondo secondo con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;o&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;Usa visualizzazione AM/PM. &lt;b&gt;A/AP&lt;/b&gt; sarà sostituito con &quot;AM&quot; o &quot;PM&quot;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;o&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;Usa visualizzazione am/pm. &lt;b&gt;a/ap&lt;/b&gt; sarà sostituito con &quot;am&quot; o &quot;pm&quot;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Il fuso orario (p.e. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;La differenza a UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;L&apos;id del fuso orario IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;L&apos;abbreviazione del fuso orario&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Il nome abbreviato del fuso orario&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Il nome completo del fuso orario&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Il nome personalizzato del fuso orario. E&apos; possibile modificarlo nella scheda &apos;Fusi orari&apos; nella finestra di configurazione.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Qualsiasi carattere nel modello che non si trova negli intervalli di [&apos;a&apos; .. &apos;z&apos;] e [&apos;A&apos; .. &apos;Z&apos;] verrà trattato come testo citato. Ad esempio, caratteri come &quot;:&quot;, &quot;.&quot;, &quot;&quot;, &quot;#&quot; e &quot;@&quot; appariranno nel orologio anche se non sono racchiusi tra virgolette singole. La virgoletta singola viene utilizzata per &quot;sfuggire&quot; alle lettere. Due virgolette singole di seguito, sia all&apos;interno che all&apos;esterno di una sequenza tra virgolette, rappresentano una virgoletta singola &quot;reale&quot;.&lt;/li&gt;&lt;li&gt;L&apos;intervallo di aggiornamento minimo è 1 secondo. Se è configurato z or zzz l&apos;ora viene mostrata con la frazione di milliseconds ma non verrà aggiornata in questo ritmo per ragioni di prestazione.&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
