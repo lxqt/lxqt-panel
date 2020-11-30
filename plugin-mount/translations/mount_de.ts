@@ -81,7 +81,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Verwaltung entfernbarer Medien/Geräte</translation>
+        <translation>Verwaltung für Wechseldatenträger/Geräte</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>

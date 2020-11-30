@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Zeige Popup wenn Maus über Inhalt steht</translation>
+        <translation>Popup beim Überfahren mit der Maus anzeigen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
