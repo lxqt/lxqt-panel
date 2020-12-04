@@ -62,9 +62,7 @@ LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
     mCloseTimer.setInterval(400);
 }
 
-LXQtGroupPopup::~LXQtGroupPopup()
-{
-}
+LXQtGroupPopup::~LXQtGroupPopup() = default;
 
 void LXQtGroupPopup::dropEvent(QDropEvent *event)
 {

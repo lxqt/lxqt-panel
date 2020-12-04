@@ -48,9 +48,7 @@ DeviceAction::DeviceAction(LXQtMountPlugin *plugin, QObject *parent)
 {
 }
 
-DeviceAction::~DeviceAction()
-{
-}
+DeviceAction::~DeviceAction() = default;
 
 DeviceAction *DeviceAction::create(ActionId id, LXQtMountPlugin *plugin, QObject *parent)
 {

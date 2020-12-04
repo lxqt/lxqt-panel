@@ -59,7 +59,7 @@ public:
         setDuration(ANIMATION_DURATION);
     }
 
-    void updateCurrentValue(const QVariant &current)
+    void updateCurrentValue(const QVariant &current) override
     {
         mItem->setGeometry(current.toRect());
     }

@@ -36,10 +36,9 @@ class LXQtKbIndicatorPlugin: public QObject, public ILXQtPanelPluginLibrary
     Q_PLUGIN_METADATA(IID "lxqt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    virtual ~LXQtKbIndicatorPlugin()
-    {}
+    ~LXQtKbIndicatorPlugin() override = default;
 
-    virtual ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const override
     {
         // Currently only X11 supported
         if (!QX11Info::connection()) {

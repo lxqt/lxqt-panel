@@ -49,9 +49,7 @@ PluginMoveProcessor::PluginMoveProcessor(LXQtPanelLayout *layout, Plugin *plugin
 /************************************************
 
  ************************************************/
-PluginMoveProcessor::~PluginMoveProcessor()
-{
-}
+PluginMoveProcessor::~PluginMoveProcessor() = default;
 
 
 /************************************************

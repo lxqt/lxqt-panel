@@ -187,9 +187,7 @@ bool XfitMan::getClientIcon(Window _wid, QIcon *icon) const
 /**
  * @brief destructor
  */
-XfitMan::~XfitMan()
-{
-}
+XfitMan::~XfitMan() = default;
 
 /**
  * @brief returns a windowname and sets _nameSource to the finally used Atom

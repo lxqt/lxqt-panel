@@ -46,7 +46,7 @@ namespace
         using DBusMenuImporter::DBusMenuImporter;
 
     protected:
-        virtual QIcon iconForName(const QString & name) override
+        QIcon iconForName(const QString & name) override
         {
             return XdgIcon::fromTheme(name);
         }

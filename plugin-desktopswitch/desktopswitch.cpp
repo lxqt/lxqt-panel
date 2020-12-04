@@ -206,9 +206,7 @@ bool DesktopSwitch::isWindowHighlightable(WId window)
     return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
-DesktopSwitch::~DesktopSwitch()
-{
-}
+DesktopSwitch::~DesktopSwitch() = default;
 
 void DesktopSwitch::setDesktop(int desktop)
 {

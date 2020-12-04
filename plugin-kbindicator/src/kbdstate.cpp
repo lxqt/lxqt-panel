@@ -46,8 +46,7 @@ KbdState::KbdState(const ILXQtPanelPluginStartupInfo &startupInfo):
     settingsChanged();
 }
 
-KbdState::~KbdState()
-{}
+KbdState::~KbdState() = default;
 
 void KbdState::settingsChanged()
 {

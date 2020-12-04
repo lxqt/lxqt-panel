@@ -38,9 +38,7 @@ AudioDevice::AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent
 {
 }
 
-AudioDevice::~AudioDevice()
-{
-}
+AudioDevice::~AudioDevice() = default;
 
 void AudioDevice::setName(const QString &name)
 {

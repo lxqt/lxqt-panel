@@ -78,11 +78,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
             this, SLOT(this_customContextMenuRequested(const QPoint&)));
 }
 
-
-QuickLaunchButton::~QuickLaunchButton()
-{
-    //m_act->deleteLater();
-}
+QuickLaunchButton::~QuickLaunchButton() = default;
 
 
 QHash<QString,QString> QuickLaunchButton::settingsMap()

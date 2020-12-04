@@ -40,6 +40,4 @@ Button::Button(QWidget * parent) :
     setAutoRaise(true);
 }
 
-Button::~Button()
-{
-}
+Button::~Button() = default;

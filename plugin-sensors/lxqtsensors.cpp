@@ -118,9 +118,7 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
 }
 
 
-LXQtSensors::~LXQtSensors()
-{
-}
+LXQtSensors::~LXQtSensors() = default;
 
 
 void LXQtSensors::updateSensorReadings()
