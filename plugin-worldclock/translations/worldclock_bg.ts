@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtworldclock.cpp" line="246"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;1&apos;ЧЧ:мм:сс&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ддд, д МММ ГГГГ&apos;&lt;br/&gt;5&apos;ТТ&apos;&lt;/font&gt;6&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Настройки на световния часовник</translation>
+        <translation>Настройки на часовник</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation>Формат на показване</translation>
+        <translation>&amp;Формат на дисплея</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
@@ -29,42 +29,42 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation>Формат:</translation>
+        <translation>Фор&amp;мат:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation>Късо</translation>
+        <translation>Кратък</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation>Дълго</translation>
+        <translation>Пълен</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Персонализиран</translation>
+        <translation>Модифициран</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>Покажи секудните</translation>
+        <translation>Показване секунди</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Pad &amp;час с нула</translation>
+        <translation>Представяне на часовете с водеща нула</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>Времева зона</translation>
+        <translation>Часова зона</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>Формат:</translation>
+        <translation>Фор&amp;мат:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
@@ -92,18 +92,18 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="248"/>
         <source>Before</source>
-        <translation>Преди</translation>
+        <translation>Отпред</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="164"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="253"/>
         <source>After</source>
-        <translation>След</translation>
+        <translation>Отзад</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Отместване от UTC</translation>
+        <translation>Изместване от UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -113,24 +113,24 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation>IANA ИД</translation>
+        <translation>IANA id</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="586"/>
         <source>Custom name</source>
-        <translation>Персонализирано име</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>&amp;Ползване на 12-часов формат</translation>
+        <translation>&amp;Използване на 12 часов формат</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation>Идентификатор на местоположението</translation>
+        <translation>Идентификатор на локацията</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Позиция:</translation>
+        <translation>По&amp;зиция:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
@@ -155,97 +155,97 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation>Покажи &amp;Година</translation>
+        <translation>Показване на &amp;годината</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Покажи ден от седмица</translation>
+        <translation>Показване деня от седмицата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>Pad ден с нула</translation>
+        <translation>Представяне на дните с водеща нула</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>&amp;Имена на дълъг месец и ден от седмицата</translation>
+        <translation>Пълни имена на месеца и деня от седмицата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>Напреднал ръчен формат</translation>
+        <translation>Разширен ръчен формат</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>&amp;Персонализирай ...</translation>
+        <translation>Модифициране...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation>Времеви зони</translation>
+        <translation>Часова &amp;зона</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Добави ...</translation>
+        <translation>&amp;Добавяне...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation>&amp;Премахни</translation>
+        <translation>&amp;Премахване</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Сложи като &amp;Подразбиране</translation>
+        <translation>По подразбиране</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>&amp;Редактирай персонализирано име ...</translation>
+        <translation>&amp;Промени име...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Премести &amp;нагоре</translation>
+        <translation>Преместване нагоре</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>Премести надолу</translation>
+        <translation>Преместване надолу</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
-        <translation>&amp;Главен</translation>
+        <translation>&amp;Общи</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Автоматично завъртане, когато панелът е вертикален</translation>
+        <translation>Автоматично завъртане при вертикален панел</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показване номер на седмицата в календара</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Показване на подсказка</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;1&apos;ЧЧ:мм:сс&apos;&lt;/b&gt;2&lt;br/&gt;3&lt;font size=&quot;-2&quot;&gt;4&apos;ддд, д МММ гггг&apos;&lt;br/&gt;5&apos;ТТ&apos;&lt;/font&gt;6&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Input custom time zone name</source>
-        <translation>Въведете персонализирано име на часовата зона</translation>
+        <translation>Ново име на часовата зона</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation>Световен Часовник Ръчно Конфигуриране На Формата</translation>
+        <translation>Ръководство за ръчни настройки на датата</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -292,7 +292,43 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt; Синтакс на модифициране на формата за дата и час&lt;/h1&gt;
+&lt;p&gt;Щаблонът на датата е низ от символи, където конкретни низове от символи се заменят с данни за дата и час от календара при форматиране или се използват за генериране на данни за календар при парсване.&lt;/p&gt;
+&lt;p&gt;Таблицата със символи на полето за дата по-долу съдържа символите, използвани в шаблони, за да покаже подходящите формати за даден локал, като гггг за годината. Символите могат да се използват многократно. Например, ако y се използва за годината, „yy“ извежда „99“, докато „yyyy“ „1999“. За повечето цифрови полета броят на символите определя ширината на полето. Например, ако h е часът, „h“ изписва „5“, а „hh“ произвежда „05“. За някои знаци броят определя дали трябва да се използва съкратена или пълна форма, но може да има други възможности за избор, както е дадено по-долу.&lt;/p&gt;
+&lt;p&gt;Две единични кавички представляват буквални единични кавички, вътре или извън кавичките. Текстът в единични кавички не се тълкува по никакъв начин (с изключение на две съседни единични кавички). В противен случай всички ASCII букви от a до z и A до Z са запазени като синтаксисни символи и изискват кавички, ако трябва да представляват буквени символи. В допълнение, някои пунктуационни знаци ASCII могат да станат променливи в бъдеще (напр. &quot;:&quot;) се интерпретира като разделител на времето и &apos;/&apos; като разделител на дата и се заменят със съответните локални символи на дисплея).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Код&lt;/th&gt;&lt;th&gt;Значение&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;денят като число без водеща нула&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;денят като число с водеща нула (от 01 до 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;съкратеното локализирано име на ден (напр. „Пон“ до „Нед“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;дългото локализирано име на ден (напр. от „Понеделник“ до „Неделя)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;месецът като число без водеща нула (1-12)&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;месецът като число с водеща нула (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;съкратеното локализирано име на месеца (напр. „Яну“ до „Дек“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;дълго локализираното име на месеца (напр. „Януари“ до „Декември“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;годината като двуцифрено число (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;годината като четирицифрено число&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;часът без водеща нула (0 до 23 или 1 до 12, ако се показва AM / PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;часът с водеща нула (от 00 до 23 или от 01 до 12, ако се показва AM / PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;часът без водеща нула (0 до 23, дори и с AM / PM дисплей)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;часът с водеща нула (от 00 до 23, дори и с AM / PM дисплей)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;минутата без водеща нула (0 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;минутата с водеща нула (00 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;секундите без водеща нула (0 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;секундите с водеща нула (00 до 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;z&lt;/td&gt;&lt;td&gt;милисекундите без водещи нули (0 до 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;zzz&lt;/td&gt;&lt;td&gt;милисекундите с водещи нули (от 000 до 999)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;или&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;използвай AM / PM дисплей.&lt;b&gt;A/AP&lt;/b&gt; ще бъде заменен с „AM“ или „PM“.&lt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;uизползвайте дисплей am / pm. &lt;b&gt;a/ap&lt;/b&gt; ще бъде заменен с &quot;am&quot; или &quot;pm&quot;.&lt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;часовата зона (например &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;изместването от UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;идентификатор на IANA на часовата зона&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;съкращението на часовата зона&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;краткото име на часовата зона&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;дългото име на часовата зона&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;персонализираното име на часовата зона. Можете да го промените в раздела „Часови зони“ в прозореца за конфигуриране&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Забележки:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Всички символи в шаблона, които не са в обхвата на [&apos;a&apos; .. &apos;z&apos;] и [&apos;A&apos; .. &apos;Z&apos;], ще бъдат третирани като цитиран текст. Например, символите като „:“, „.“, „„, „#“ И „@“ ще се появят в получения текст на времето, дори и да не са затворени в единични кавички. Единичната кавичка се използва, буквите да не се интерпретират като синтаксни символи. Две единични кавички подред, независимо дали в цитираната последователност или извън нея, представляват „истинска“ единична кавичка. &lt;/li&gt; &lt;li&gt; Минималният интервал за актуализация е 1 секунда. Ако z или zzz са конфигурирани, времето се показва с фракцията от милисекунди, но не се актуализира на база милисекунди (с цел избягване на голямо натоварване).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
@@ -300,12 +336,12 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>Времеви зони на световен часовник</translation>
+        <translation>Настройки на часова зона</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
-        <translation>Времева зона</translation>
+        <translation>&amp;Часова зона</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
@@ -336,7 +372,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
-        <translation>Местна времева зона</translation>
+        <translation>Локална часова зона</translation>
     </message>
 </context>
 </TS>
