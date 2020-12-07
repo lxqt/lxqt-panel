@@ -66,7 +66,7 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
     for (int i = 1; i <= n; i++)
     {
         QLineEdit *edit = new QLineEdit(KWindowSystem::desktopName(i), this);
-        ((QFormLayout *) ui->namesGroupBox->layout())->addRow(QStringLiteral("Desktop %1:").arg(i), edit);
+        ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
 
         // C++11 rocks!
         QTimer *timer = new QTimer(this);

@@ -67,5 +67,10 @@
         <source>Desktop names</source>
         <translation>أسماء أسطح المكتب</translation>
     </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <source>Desktop %1:</source>
+        <translation type="unfinished">سطح المكتب %1:</translation>
+    </message>
 </context>
 </TS>

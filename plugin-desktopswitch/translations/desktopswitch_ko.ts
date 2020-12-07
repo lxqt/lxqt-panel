@@ -67,5 +67,10 @@
         <source>Desktop names</source>
         <translation>바탕화면 이름</translation>
     </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <source>Desktop %1:</source>
+        <translation type="unfinished">바탕화면 %1:</translation>
+    </message>
 </context>
 </TS>

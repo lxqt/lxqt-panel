@@ -67,5 +67,10 @@
         <source>Desktop names</source>
         <translation>Име на плот</translation>
     </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <source>Desktop %1:</source>
+        <translation type="unfinished">Плот %1:</translation>
+    </message>
 </context>
 </TS>

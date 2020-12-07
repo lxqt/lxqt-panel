@@ -67,5 +67,10 @@
         <source>Desktop names</source>
         <translation>Imena namizij</translation>
     </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <source>Desktop %1:</source>
+        <translation type="unfinished">Namizje %1:</translation>
+    </message>
 </context>
 </TS>

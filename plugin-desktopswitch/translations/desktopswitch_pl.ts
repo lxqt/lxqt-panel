@@ -67,5 +67,10 @@
         <source>Desktop names</source>
         <translation>Nazwy pulpitów</translation>
     </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <source>Desktop %1:</source>
+        <translation type="unfinished">Pulpit %1:</translation>
+    </message>
 </context>
 </TS>
