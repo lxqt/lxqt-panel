@@ -385,7 +385,11 @@ void LXQtPanel::show()
 QStringList pluginDesktopDirs()
 {
     QStringList dirs;
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+    dirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), Qt::SkipEmptyParts);
+#else
     dirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), QString::SkipEmptyParts);
+#endif
     dirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
     dirs << QStringLiteral(PLUGIN_DESKTOPS_DIR);
     return dirs;
