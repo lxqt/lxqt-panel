@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(само една истанция може да се изпълнява едновременно)</translation>
+        <translation>(само една инстанция може да се изпълнява едновременно)</translation>
     </message>
 </context>
 <context>
@@ -370,7 +370,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1170"/>
         <source>Add New Panel</source>
-        <translation>Добави нов панел</translation>
+        <translation>Добавяне на нов панел</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1177"/>
