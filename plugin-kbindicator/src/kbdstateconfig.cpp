@@ -112,5 +112,5 @@ void KbdStateConfig::save()
 
 void KbdStateConfig::configureLayouts()
 {
-    QProcess::startDetached(QL1S("lxqt-config-input --show-page \"Keyboard Layout\""));
+    QProcess::startDetached(QL1S("lxqt-config-input"), QStringList() << QL1S("--show-page") << QL1S("Keyboard Layout"));
 }

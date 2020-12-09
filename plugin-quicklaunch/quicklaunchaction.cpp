@@ -122,8 +122,15 @@ void QuickLaunchAction::execAction(QString additionalAction)
     switch (m_type)
     {
         case ActionLegacy:
+        {
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+            QStringList args = QProcess::splitCommand(exec);
+            QProcess::startDetached(args.takeFirst(), args);
+#else
             QProcess::startDetached(exec);
+#endif
             break;
+        }
         case ActionXdg:
         {
             XdgDesktopFile xdg;
