@@ -163,7 +163,7 @@ void VolumeButton::hideVolumeSlider()
 
 void VolumeButton::handleMixerLaunch()
 {
-    QProcess::startDetached(m_mixerCommand);
+    QProcess::startDetached(m_mixerCommand, QStringList());
 }
 
 void VolumeButton::handleStockIconChanged(const QString &iconName)
