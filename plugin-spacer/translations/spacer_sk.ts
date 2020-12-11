@@ -6,42 +6,42 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Nastavenia medzery</translation>
+        <translation>Nastavenie výplne</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Šírka medzery:</translation>
+        <translation>Šírka výplne:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Typ medzery:</translation>
+        <translation>Typ výplne:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation>Pevný</translation>
+        <translation>Pevné veľkosti</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation>Rozšiřitelný</translation>
+        <translation>Rozšíriteľná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>plná čiara</translation>
+        <translation>linkovaná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>bodkovaná čiara</translation>
+        <translation>bodkovaná</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>neviditeľná</translation>
+        <translation>neviditeľný</translation>
     </message>
 </context>
 </TS>
