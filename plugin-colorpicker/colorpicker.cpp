@@ -58,7 +58,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins (0, 0, 0, 0);
-    layout->setSpacing (1);
+    layout->setSpacing (0);
     setLayout(layout);
     layout->addWidget (&mButton);
     layout->addWidget (&mLineEdit);

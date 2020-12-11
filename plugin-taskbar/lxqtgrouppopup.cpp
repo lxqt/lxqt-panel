@@ -54,8 +54,8 @@ LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
     setAttribute(Qt::WA_TranslucentBackground);
 
     setLayout(new QVBoxLayout);
-    layout()->setSpacing(3);
-    layout()->setMargin(3);
+    layout()->setSpacing(0);
+    layout()->setMargin(0);
 
     connect(&mCloseTimer, &QTimer::timeout, this, &LXQtGroupPopup::closeTimerSlot);
     mCloseTimer.setSingleShot(true);

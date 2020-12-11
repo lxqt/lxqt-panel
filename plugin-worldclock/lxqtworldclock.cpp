@@ -622,7 +622,7 @@ LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
     QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setLayout(new QHBoxLayout(this));
-    layout()->setMargin(1);
+    layout()->setMargin(0);
 }
 
 void LXQtWorldClockPopup::show()
