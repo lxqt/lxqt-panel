@@ -59,8 +59,6 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mContent = new ActiveLabel();
     mRotatedWidget = new LXQt::RotatedWidget(*mContent, mMainWidget);
 
-    mRotatedWidget->setTransferWheelEvent(true);
-
     QVBoxLayout *borderLayout = new QVBoxLayout(mMainWidget);
     borderLayout->setContentsMargins(0, 0, 0, 0);
     borderLayout->setSpacing(0);
