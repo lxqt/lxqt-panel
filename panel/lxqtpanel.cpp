@@ -533,6 +533,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
                 rect.moveRight(currentScreen.right());
         }
     }
+    if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
     if (rect != geometry())
     {
         setFixedSize(rect.size());
@@ -1221,19 +1222,19 @@ QRect LXQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const
     switch (position())
     {
     case ILXQtPanel::PositionTop:
-        y = globalGeometry().bottom();
+        y = mGeometry.bottom();
         break;
 
     case ILXQtPanel::PositionBottom:
-        y = globalGeometry().top() - windowSize.height();
+        y = mGeometry.top() - windowSize.height();
         break;
 
     case ILXQtPanel::PositionLeft:
-        x = globalGeometry().right();
+        x = mGeometry.right();
         break;
 
     case ILXQtPanel::PositionRight:
-        x = globalGeometry().left() - windowSize.width();
+        x = mGeometry.left() - windowSize.width();
         break;
     }
 
@@ -1279,7 +1280,7 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
     }
 
     // Note: assuming there are not contentMargins around the "BackgroundWidget" (LXQtPanelWidget)
-    return calculatePopupWindowPos(globalGeometry().topLeft() + panel_plugin->geometry().topLeft(), windowSize);
+    return calculatePopupWindowPos(mGeometry.topLeft() + panel_plugin->geometry().topLeft(), windowSize);
 }
 
 

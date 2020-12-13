@@ -525,7 +525,11 @@ private:
      * @return The height/width of the panel.
      */
     int getReserveDimension();
-
+    /**
+     * @brief Stores the geometry of the non-hidden panel, for use in
+     * calculatePopupWindowPos()
+     */
+    QRect mGeometry;
     /**
      * @brief Stores the size of the panel, i.e. the height of a horizontal
      * panel or the width of a vertical panel in pixels. If the panel is
