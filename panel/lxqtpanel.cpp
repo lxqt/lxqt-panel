@@ -825,8 +825,6 @@ void LXQtPanel::updateStyleSheet()
     if (mFontColor.isValid())
         sheet << QString(QStringLiteral("Plugin * { color: ") + mFontColor.name() + QStringLiteral("; }"));
 
-    QString object = LXQtPanelWidget->objectName();
-
     if (mBackgroundColor.isValid())
     {
         QString color = QStringLiteral("%1, %2, %3, %4")
