@@ -612,7 +612,7 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 //      NW geometry |     y/x      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b010 << 12);
                 KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
-                NETRootInfo(QX11Info::connection(), nullptr, NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
+                NETRootInfo(QX11Info::connection(), NET::Properties(), NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
                 QTimer::singleShot(200, this, [this, state]
                 {
                     KWindowSystem::setState(mWindow, state);
