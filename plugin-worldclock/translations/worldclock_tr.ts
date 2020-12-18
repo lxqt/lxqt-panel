@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt; Özel Tarih/Saat Biçimi Sözdizimi &lt;/h1&gt;
+&lt;p&gt; Tarih deseni, biçimlendirme sırasında belirli karakter dizilerinin bir takvimdeki tarih ve saat verileriyle değiştirildiği veya ayrıştırma sırasında bir takvim için veri oluşturmak için kullanıldığı bir karakter dizisidir. &lt;/p&gt;
+&lt;p&gt; Aşağıdaki Tarih Alanı Sembolü Tablosu, yıl için yyyy gibi belirli bir yerel ayara uygun biçimleri göstermek için kalıplarda kullanılan karakterleri içerir. Karakterler birden çok kez kullanılabilir. Örneğin, yıl için y kullanılırsa, &apos;yy&apos; &apos;99&apos; üretirken &apos;yyyy&apos;, &apos;1999&apos; üretir. Çoğu sayısal alan için, karakter sayısı alan genişliğini belirtir. Örneğin, h saat ise, &quot;h&quot; &quot;5&quot; üretebilir, ancak &quot;hh&quot;, &quot;05&quot; üretir. Bazı karakterler için sayı, kısaltılmış biçimin mi yoksa tam biçimin mi kullanılması gerektiğini belirtir, ancak aşağıda belirtildiği gibi başka seçenekler de olabilir. &lt;/p&gt;
+&lt;p&gt; İki tek tırnak, tek tırnak içinde veya dışında gerçek tek bir alıntıyı temsil eder. Tek tırnak içindeki metinler hiçbir şekilde yorumlanmaz (bitişik iki tek tırnak hariç). Aksi takdirde, a&apos;dan z&apos;ye ve A&apos;dan Z&apos;ye tüm ASCII harfleri sözdizimi karakterleri olarak ayrılır ve değişmez karakterleri temsil edeceklerse, alıntı yapılmasını gerektirir. Ek olarak, belirli ASCII noktalama karakterleri gelecekte değişken hale gelebilir (örneğin, &quot;:&quot; zaman ayırıcı olarak yorumlanır ve &apos;/&apos; bir tarih ayırıcı olarak yorumlanır ve ekranda ilgili yerel ayara duyarlı karakterlerle değiştirilir). &lt;br /&gt; &lt; / p&gt;
+&lt;table border = &quot;1&quot; width = &quot;100%&quot; cellpadding = &quot;4&quot; cellspacing = &quot;0&quot;&gt;
+&lt;tr&gt; &lt;th width = &quot;20%&quot;&gt; Kod &lt;/th&gt; &lt;th&gt; Anlamı &lt;/th&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt; &lt;td&gt; başında sıfır olmadan sayı olarak gün (1&apos;den 31&apos;e) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt; &lt;td&gt; başında sıfır olan sayı olarak gün (01 - 31) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt; &lt;td&gt; kısaltılmış yerelleştirilmiş gün adı (ör. &quot;Pzt&quot; ila &quot;Güneş&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt; &lt;td&gt; uzun yerelleştirilmiş gün adı (ör. &apos;Pazartesi&apos;den&apos; Pazar&apos;a &apos;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt; &lt;td&gt; başında sıfır olmadan sayı olarak ay (1-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt; &lt;td&gt; başında sıfır olan ay (01-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt; &lt;td&gt; kısaltılmış yerelleştirilmiş ay adı (ör. &quot;Oca&quot; dan &quot;Ara&quot; ya). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt; &lt;td&gt; uzun yerelleştirilmiş ay adı (ör. &quot;Ocak&quot; dan &quot;Aralık&quot; a). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt; &lt;td&gt; iki basamaklı sayı olarak yıl (00-99) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt; &lt;td&gt; dört basamaklı sayı olarak yıl &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt; &lt;td&gt; başında sıfır olmadan saat (0 - 23 veya AM / PM gösteriliyorsa 1 - 12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt; &lt;td&gt; başında sıfır olan saat (00-23 veya 01-12, AM / PM görüntüleniyorsa) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt; &lt;td&gt; başında sıfır olmadan saat (0&apos;dan 23&apos;e, AM / PM ekranıyla bile) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt; &lt;td&gt; başında sıfır olan saat (00&apos;dan 23&apos;e, AM / PM ekranıyla bile) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt; &lt;td&gt; başında sıfır olmadan dakika (0&apos;dan 59&apos;a) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt; &lt;td&gt; önde sıfır (00&apos;dan 59&apos;a) ile dakika &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt; &lt;td&gt; başında sıfır olmadan saniye (0 - 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt; &lt;td&gt; başında sıfır (00 - 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; AP &lt;i&gt; veya &lt;/i&gt; A &lt;/td&gt; &lt;td&gt; AM / PM ekranı kullanır. &lt;b&gt; A / AP &lt;/b&gt;, &quot;ÖÖ&quot; veya &quot;ÖS&quot; ile değiştirilecektir. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ap &lt;i&gt; veya &lt;/i&gt; a &lt;/td&gt; &lt;td&gt; am / pm görüntüsünü kullanın. &lt;b&gt; a / ap &lt;/b&gt;, &quot;am&quot; veya &quot;pm&quot; ile değiştirilecektir. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt; &lt;td&gt; saat dilimi (ör. &quot;CEST&quot;) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt; &lt;td&gt; UTC&apos;den uzaklık &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt; &lt;td&gt; saat dilimi IANA kimliği &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt; &lt;td&gt; saat dilimi kısaltması &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt; &lt;td&gt; saat dilimi kısa görünen adı &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt; &lt;td&gt; saat dilimi uzun görünen adı &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt; &lt;td&gt; saat dilimi özel adı. Bunu, yapılandırma penceresinin &apos;Saat dilimleri&apos; sekmesinden değiştirebilirsiniz &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
+&lt;br /&gt; &lt;b&gt; Notlar: &lt;/b&gt; &lt;ul&gt; &lt;li&gt; Kalıpta [&apos;a&apos; .. &apos;z&apos;] ve [&apos;A&apos; .. &apos;Z aralığında olmayan karakterler &apos;], alıntılanmış metin olarak değerlendirilecektir. Örneğin, &apos;:&apos;, &apos;.&apos;, &apos;&apos;, &apos;#&apos; Ve &apos;@&apos; gibi karakterler, tek tırnak içine alınmasalar bile ortaya çıkan zaman metninde görünecektir. Tek alıntı, harflerden &apos;kaçış&apos; için kullanılır. Bir satırdaki iki tek tırnak, alıntılanan bir dizinin içinde veya dışında, &apos;gerçek&apos; tek bir alıntıyı temsil eder. &lt;/li&gt; &lt;li&gt; Minimum güncelleme aralığı 1 saniyedir. Z veya zzz yapılandırılırsa, zaman milisaniye kesiriyle gösterilir, ancak milisaniye bazında güncellenmez (büyük performans vuruşundan kaçınarak). &lt;/li&gt; &lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
