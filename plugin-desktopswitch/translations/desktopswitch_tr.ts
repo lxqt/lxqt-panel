@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="69"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">%1: Masaüstü</translation>
+        <translation>%1 Masaüstü:</translation>
     </message>
 </context>
 </TS>

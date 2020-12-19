@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="763"/>
         <source>Maximize vertically</source>
-        <translation>Вертикално максимализиране</translation>
+        <translation>Вертикално максимизиране</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>Maximize horizontally</source>
-        <translation>Хоризонтално максимализиране</translation>
+        <translation>Хоризонтално максимизиране</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="774"/>
@@ -257,12 +257,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation>Скролиране нагоре за максимализиране, надолу за минимизиране</translation>
+        <translation>Скролиране нагоре за максимизиране, надолу за минимизиране</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation>Скролиране нагоре за минимизиране, надолу за максимализиране</translation>
+        <translation>Скролиране нагоре за минимизиране, надолу за максимизиране</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
