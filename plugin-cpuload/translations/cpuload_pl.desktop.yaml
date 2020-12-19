@@ -1,6 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Cpu monitor"
-Desktop Entry/Comment: "Displays the current CPU load."
-Desktop Entry/Comment: "Wyświetla obecne obciążenie CPU"
 Desktop Entry/Name: "Obciążenie CPU"
+Desktop Entry/Comment: "Wyświetla obecne obciążenie CPU"

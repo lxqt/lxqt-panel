@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Desktop switcher"
-Desktop Entry/Comment: "Allows easy switching between virtual desktops."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
 Desktop Entry/Name: "Εναλλαγή επιφάνειας εργασίας"
-Desktop Entry/Comment: "Επιτρέπει την εναλλαγή των εικονικών επιφανειών εργασίας."
+Desktop Entry/Comment: "Επιτρέπει την εναλλαγή των εικονικών επιφανειών εργασίας"
