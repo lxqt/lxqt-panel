@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "System tray"
-Desktop Entry/Comment: "Display applications minimized to the system tray."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "A rendszertálcára minimalizált alkalmazások elérése"
 Desktop Entry/Name: "Rendszertálca"
+Desktop/Comment: ""

@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Volume control"
-Desktop Entry/Comment: "Control the system's volume and launch your preferred mixer."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "Controla el volumen del sistema y lanza el mezclador escogido referido"
 Desktop Entry/Name: "Control de volumen"
+Desktop Entry/Comment: "Controla el volumen del sistema y lanza el mezclador escogido referido"
