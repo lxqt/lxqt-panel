@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Application menu"
-Desktop Entry/Comment: "A menu of all your applications."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "Valikkopohjainen sovelluskäynnistin"
 Desktop Entry/Name: "Sovellusvalikko"
+Desktop Entry/Comment: "Valikkopohjainen sovelluskäynnistin"
