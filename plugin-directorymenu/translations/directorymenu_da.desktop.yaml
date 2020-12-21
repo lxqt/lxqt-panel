@@ -1,8 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Directory Menu"
-Desktop Entry/Comment: "Displays a menu showing the contents of a directory"
-Desktop Entry/Icon: "folder"
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
 Desktop Entry/Name: "Mappemenu"
 Desktop Entry/Comment: "Viser en menu med indholdet af en mappe"
