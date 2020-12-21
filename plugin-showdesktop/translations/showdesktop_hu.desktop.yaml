@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Show desktop"
-Desktop Entry/Comment: "Minimize all windows and show the desktop"
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "Minimalizálja az összes ablakot és megjeleníti az asztalt"
 Desktop Entry/Name: "Asztal megjelenítése"
+Desktop Entry/Comment: "Minimalizálja az összes ablakot és megjeleníti az asztalt"
