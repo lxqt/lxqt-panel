@@ -1,5 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
 Desktop Entry/Name: "音量調節"
 Desktop Entry/Comment: "システムの音量を制御したり、ミキサーを起動したりします"
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
