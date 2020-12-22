@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Sensors"
-Desktop Entry/Comment: "View readings from hardware sensors."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
 Desktop Entry/Name: "Sensorer"
-Desktop Entry/Comment: "Vis målinger fra hardware-sensorer."
+Desktop Entry/Comment: "Vis målinger fra hardware-sensorer"

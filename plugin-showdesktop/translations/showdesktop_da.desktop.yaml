@@ -1,8 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Show desktop"
-Desktop Entry/Comment: "Minimize all windows and show the desktop"
-Desktop Entry/Icon: "user-desktop"
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
 Desktop Entry/Name: "Vis skrivebord"
 Desktop Entry/Comment: "Minimer alle vinduer og vis skrivebordet"

@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Show desktop"
-Desktop Entry/Comment: "Minimize all windows and show the desktop"
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "Minimizează toate ferestrele și arată desktopul"
 Desktop Entry/Name: "Arată desktopul"
+Desktop Entry/Comment: "Minimizează toate ferestrele și arată desktopul"
