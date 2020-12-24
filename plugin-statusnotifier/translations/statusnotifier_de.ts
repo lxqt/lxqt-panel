@@ -6,7 +6,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Statusbenachrichtigungseinstellungen</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
