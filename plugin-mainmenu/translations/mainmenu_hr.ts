@@ -16,33 +16,34 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj na radnu površinu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Pitanje</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="505"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Datoteka s istim imenom već postoji.
+Želiš li je prepisati?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="511"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Upozorenje</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="512"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>Datoteka se ne može prepisati.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiraj</translation>
     </message>
 </context>
 <context>

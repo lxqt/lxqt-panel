@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Flyt til &amp;næste skærm</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Flyt til &amp;forrige skærm</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Placer knapper af samme klasse ved siden af hinanden</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Rul op for er flytte til næste skrivebord, ned for forrige</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>Rul op for er flytte til forrige skrivebord, ned for næste</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>

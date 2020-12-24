@@ -19,7 +19,7 @@
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Afværd</translation>
+        <translation>Opførsel</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="32"/>
