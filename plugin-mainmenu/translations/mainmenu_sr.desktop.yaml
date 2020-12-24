@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Application menu"
-Desktop Entry/Comment: "A menu of all your applications."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "Мени покретача програма"
 Desktop Entry/Name: "Мени програма"
+Desktop Entry/Comment: "Мени покретача програма"
