@@ -1,7 +1,2 @@
-Desktop Entry/Type: "Service"
-Desktop Entry/ServiceTypes: "LXQtPanel/Plugin"
-Desktop Entry/Name: "Application menu"
-Desktop Entry/Comment: "A menu of all your applications."
-Desktop Entry/#TRANSLATIONS_DIR: "../translations"
-Desktop Entry/Comment: "基于菜单的程序启动器"
 Desktop Entry/Name: "程序菜单"
+Desktop Entry/Comment: "基于菜单的程序启动器"
