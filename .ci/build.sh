@@ -1,6 +1,14 @@
 set -ex
 
-mkdir build
-cd build
-cmake ..
-make
+cat >> /etc/pacman.conf <<EOF
+[archlinuxcn]
+Server = https://repo.archlinuxcn.org/\$arch
+SigLevel = Never
+EOF
+
+pacman -Syu --noconfirm
+# See *depends in https://github.com/archlinuxcn/repo/blob/master/archlinuxcn/lxqt-panel-git/PKGBUILD
+pacman -S --noconfirm --needed git cmake qt5-tools lxqt-build-tools-git alsa-lib libpulse lm_sensors libstatgrab libsysstat-git solid menu-cache libxcomposite lxmenu-data libdbusmenu-qt5 lxqt-globalkeys-git
+
+cmake -B build -S .
+make -C build
