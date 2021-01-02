@@ -27,7 +27,8 @@
         <location filename="../lxqtmainmenu.cpp" line="505"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>同じ名前のファイルが既に存在します。上書きしますか？</translation>
+        <translation>同じ名前のファイルが既に存在します。
+上書きしますか？</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="511"/>
