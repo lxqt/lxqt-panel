@@ -127,7 +127,7 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Close group</source>
-        <translation>Замкнути групу</translation>
+        <translation>Закрити групу</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Використовувати значки по WindowClass, якщо доступні</translation>
+        <translation>Використовувати піктограми за WindowClass, якщо доступні</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
@@ -237,12 +237,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
         <source>Icon and text</source>
-        <translation>Значок та текст</translation>
+        <translation>Піктограма та текст</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
         <source>Only icon</source>
-        <translation>Лише значок</translation>
+        <translation>Лише піктограма</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>

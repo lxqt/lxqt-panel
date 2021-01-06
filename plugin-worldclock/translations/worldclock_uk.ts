@@ -230,7 +230,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати номери &amp;тижнів у розгортуваному календарі</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>

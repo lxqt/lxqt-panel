@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
         <source>Icon</source>
-        <translation>Значок</translation>
+        <translation>Піктограма</translation>
     </message>
 </context>
 </TS>

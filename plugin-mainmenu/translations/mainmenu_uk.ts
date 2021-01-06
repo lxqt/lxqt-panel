@@ -60,7 +60,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Значок:</translation>
+        <translation>Піктограма:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -145,12 +145,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>Вибрати файл значка</translation>
+        <translation>Вибрати файл піктограми</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
         <source>Images (*.svg *.png)</source>
-        <translation>Малюнки (*.svg *.png) </translation>
+        <translation>Зображення (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>

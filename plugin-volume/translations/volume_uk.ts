@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Завжди сповіщати про зміни гучности</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Сповіщати про зміни гучности за допомогою клавіатури</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>

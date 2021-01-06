@@ -7,7 +7,7 @@
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
         <translatorcomment>Перейти на стільницю %1 </translatorcomment>
-        <translation></translation>
+        <translation>Перемкнутися до стільниці %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="69"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">Стільниця %1:</translation>
+        <translation>Стільниця %1:</translation>
     </message>
 </context>
 </TS>
