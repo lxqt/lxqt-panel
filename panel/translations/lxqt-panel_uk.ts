@@ -73,7 +73,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Розмір значків:</translation>
+        <translation>Розмір піктограм:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Негативне значення пунктів встановить розмір панелі менший за доступний розмір екрану.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Наприклад &quot;Довжина&quot; встановлена на -100пікселів, розмір екрану є 1000пікселів, тоді дійсний розмір панелі буде 900 пікселів.&lt;/i&gt;&lt;/p</translation>
+        <translation>&lt;p&gt;Від&apos;ємне значення встановить довжину панелі зменшену на вказану кількість пікселів від доступної довжини екрана.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Наприклад &quot;Довжину&quot; встановлена на -100 пікселів, розмір екрану — 1000 пікселів, тоді дійсний розмір панелі буде 900 пікселів.&lt;/i&gt;&lt;/p</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -293,7 +293,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="473"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Малюнки (*.png *.gif *.jpg</translation>
+        <translation>Зображення (*.png *.gif *.jpg)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="473"/>
@@ -375,18 +375,18 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1177"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Вилучити панель</translation>
+        <translation>Вилучити панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1182"/>
         <source>Lock This Panel</source>
-        <translation>Замкнути цю панель</translation>
+        <translation>Закріпити цю панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1338"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Вилучити панель</translation>
+        <translation>Вилучити панель</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1339"/>
@@ -401,17 +401,17 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Налаштування &quot;%1&quot; </translation>
+        <translation>Налаштування &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Перемістити &quot;%1&quot; </translation>
+        <translation>Перемістити &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Вилучити &quot;%1&quot; </translation>
+        <translation>Вилучити &quot;%1&quot;</translation>
     </message>
 </context>
 <context>

@@ -60,7 +60,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Замкнути індикатор</translation>
+        <translation>Прикріпити індикатори</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>

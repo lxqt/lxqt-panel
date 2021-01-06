@@ -32,7 +32,7 @@
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation>Значення стрічки</translation>
+        <translation>Значення рядка</translation>
     </message>
 </context>
 </TS>

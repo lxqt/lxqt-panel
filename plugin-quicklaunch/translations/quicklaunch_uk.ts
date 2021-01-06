@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="333"/>
         <source>Drop application
 icons here</source>
-        <translation>Тут значок програми
-розміщення</translation>
+        <translation>Перетягніть піктограми
+програм сюди</translation>
     </message>
 </context>
 <context>
@@ -26,7 +26,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + DND)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>

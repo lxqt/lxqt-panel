@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити у терміналі</translation>
     </message>
 </context>
 <context>
@@ -39,18 +39,18 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation>Значок:</translation>
+        <translation>Піктограма:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Термінал</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрати типовий термінал</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Choose Icon</source>
-        <translation>Вибрати значок</translation>
+        <translation>Вибрати піктограму</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Icons (*.png *.xpm *.jpg)</source>
-        <translation>Значки (*.png *.xpm *.jpg) </translation>
+        <translation>Піктограми (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Сталася помилка завантаження значка.</translation>
+        <translation>Сталася помилка завантаження піктограми.</translation>
     </message>
 </context>
 </TS>
