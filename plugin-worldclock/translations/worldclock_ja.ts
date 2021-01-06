@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>時が一桁のとき 0 で埋める(&amp;H)</translation>
+        <translation>時が 1 桁のとき 0 で埋める(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
@@ -118,12 +118,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation>場所</translation>
+        <translation>ロケーション ID</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation>IANA の ID</translation>
+        <translation>IANA ID</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
@@ -140,7 +140,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="586"/>
         <source>Custom name</source>
-        <translation>指定した名前</translation>
+        <translation>カスタム名</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>日が一桁のとき 0 で埋める(&amp;A)</translation>
+        <translation>日が 1 桁のとき 0 で埋める(&amp;A)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
@@ -210,32 +210,32 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>デフォルトにする(&amp;D)</translation>
+        <translation>既定として設定(&amp;D)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>名前を付ける(&amp;E) ...</translation>
+        <translation>カスタム名の編集(&amp;E) ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>上へ(&amp;U)</translation>
+        <translation>上へ移動(&amp;U)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>下へ(&amp;W)</translation>
+        <translation>下へ移動(&amp;W)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
-        <translation>一般(&amp;G)</translation>
+        <translation>全般(&amp;G)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>パネルが垂直なときには回転する(&amp;R)</translation>
+        <translation>パネルが垂直なときには回転させる(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Input custom time zone name</source>
-        <translation>タイムゾーンの名前を入力</translation>
+        <translation>タイムゾーンのカスタム名を入力</translation>
     </message>
 </context>
 <context>
@@ -356,12 +356,12 @@ z または zzz が設定されている場合、時刻はミリ秒単位で表�
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
-        <translation>都市</translation>
+        <translation>タイムゾーン</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
-        <translation>名前</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
@@ -376,7 +376,7 @@ z または zzz が設定されている場合、時刻はミリ秒単位で表�
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
-        <translation>UTC</translation>
+        <translation>協定世界時</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
@@ -387,7 +387,7 @@ z または zzz が設定されている場合、時刻はミリ秒単位で表�
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
-        <translation>ローカルなタイムゾーン</translation>
+        <translation>ローカルのタイムゾーン</translation>
     </message>
 </context>
 </TS>
