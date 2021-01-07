@@ -60,7 +60,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Прикріпити індикатори</translation>
+        <translation>Прикріпити покажчики</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
@@ -80,27 +80,27 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Індикатор розкладки клавіатури</translation>
+        <translation>Покажчик розкладки клавіатури</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Політика перемикання</translation>
+        <translation>Правила перемикання</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблону шляху до прапорів:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблон шляху до файлу для прапорів країн. Повинен містити &lt;strong&gt;%1&lt;/strong&gt;, який замінено двобуквеним кодом країни ISO (маленькі букви).&lt;br&gt;&lt;br&gt;Приклад: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation>Налатування розкладки</translation>
+        <translation>Налаштування розкладок</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>

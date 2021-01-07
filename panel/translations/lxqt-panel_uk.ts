@@ -212,7 +212,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Часткове рішення для стилів віджетів, які
+не надають окрему тему панелі.
+
+Ви також можете вимкнути:
+
+Налаштування вигляду LXQt →
+Тема піктограм →
+Забарвлювати піктограми на основі стилю віджета (палітра)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
