@@ -40,12 +40,12 @@ Aktivoi tehtävä %1</translation>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirrä &amp;seuraavalle näytölle</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirrä &amp;edelliselle näytölle</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
