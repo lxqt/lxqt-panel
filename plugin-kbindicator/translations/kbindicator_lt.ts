@@ -13,7 +13,7 @@
         <location filename="../src/content.cpp" line="49"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>Didž (CapsLock)</translation>
+        <translation>CapsLock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="53"/>
@@ -25,7 +25,7 @@
         <location filename="../src/content.cpp" line="55"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>Skaitm (NumLock)</translation>
+        <translation>NumLock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="60"/>
@@ -37,7 +37,7 @@
         <location filename="../src/content.cpp" line="62"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>Slinkti (ScrollLock)</translation>
+        <translation>ScrollLock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="105"/>
