@@ -223,24 +223,24 @@ LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
         <translation>Dalinis problemos apėjimas valdiklių stiliams,
-kurie negali suteikti atskiros temos skydeliui.
+kurie negali suteikti atskiro apipavidalinimo skydeliui.
 
 Jūs taip pat galite pageidauti išjungti:
 
 LXQT išvaizdos konfigūravimas →
-Piktogramų tema →
+Piktogramų apipavidalinimas →
 Spalvinti piktogramas valdiklių stiliaus
 (spalvų paletės) pagrindu</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="578"/>
         <source>Override icon &amp;theme</source>
-        <translation>Nustelbti piktogramų &amp;temą</translation>
+        <translation>Nustelbti piktogramų apipavi&amp;dalinimą</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="593"/>
         <source>Icon theme for panels:</source>
-        <translation>Skydelių piktogramų tema:</translation>
+        <translation>Skydelių piktogramų apipavidalinimas:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="177"/>
