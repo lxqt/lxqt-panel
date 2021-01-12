@@ -78,6 +78,8 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
 
     mOldVisibleMargin = mPanel->visibleMargin();
 
+    mOldHideOnOverlap = mPanel->hideOnOverlap();
+
     mOldAnimation = mPanel->animationTime();
     mOldShowDelay = mPanel->showDelay();
 
@@ -106,6 +108,7 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
     connect(ui->checkBox_hidable,           SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
     connect(ui->checkBox_visibleMargin,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
+    connect(ui->checkBox_overlap,           &QAbstractButton::toggled,      this, &ConfigPanelWidget::editChanged);
     connect(ui->spinBox_animation,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
     connect(ui->spinBox_delay,              SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
 
@@ -139,6 +142,8 @@ void ConfigPanelWidget::reset()
     ui->checkBox_hidable->setChecked(mOldHidable);
 
     ui->checkBox_visibleMargin->setChecked(mOldVisibleMargin);
+
+    ui->checkBox_overlap->setChecked(mOldHideOnOverlap);
 
     ui->spinBox_animation->setValue(mOldAnimation);
     ui->spinBox_delay->setValue(mOldShowDelay);
@@ -330,6 +335,7 @@ void ConfigPanelWidget::editChanged()
     mPanel->setPosition(mScreenNum, mPosition, true);
     mPanel->setHidable(ui->checkBox_hidable->isChecked(), true);
     mPanel->setVisibleMargin(ui->checkBox_visibleMargin->isChecked(), true);
+    mPanel->setHideOnOverlap(ui->checkBox_overlap->isChecked(), true);
     mPanel->setAnimationTime(ui->spinBox_animation->value(), true);
     mPanel->setShowDelay(ui->spinBox_delay->value(), true);
 

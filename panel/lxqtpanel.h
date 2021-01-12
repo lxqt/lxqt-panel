@@ -223,6 +223,7 @@ public:
     int reserveSpace() const { return mReserveSpace; }
     bool hidable() const { return mHidable; }
     bool visibleMargin() const { return mVisibleMargin; }
+    bool hideOnOverlap() const { return mHideOnOverlap; }
     int animationTime() const { return mAnimationTime; }
     int showDelay() const { return mShowDelayTimer.interval(); }
     QString iconTheme() const;
@@ -307,6 +308,7 @@ public slots:
     void setReserveSpace(bool reserveSpace, bool save); //!< \sa setPanelSize()
     void setHidable(bool hidable, bool save); //!< \sa setPanelSize()
     void setVisibleMargin(bool visibleMargin, bool save); //!< \sa setPanelSize()
+    void setHideOnOverlap(bool hideOnOverlap, bool save);
     void setAnimationTime(int animationTime, bool save); //!< \sa setPanelSize()
     void setShowDelay(int showDelay, bool save); //!< \sa setPanelSize()
     void setIconTheme(const QString& iconTheme);
@@ -625,6 +627,12 @@ private:
      */
     bool mVisibleMargin;
     /**
+     * @brief Stores if the panel should hide on overlapping a window.
+     *
+     * \sa mHidable, mHidden, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
+     */
+    bool mHideOnOverlap;
+    /**
      * @brief Stores if the panel is currently hidden.
      *
      * \sa mHidable, mVisibleMargin, mHideTimer, showPanel(), hidePanel(), hidePanelWork()
@@ -691,6 +699,11 @@ private:
      * QWidget::setStyleSheet().
      */
     void updateStyleSheet();
+
+    /**
+     * @brief Checks if the panel overlaps a window.
+     */
+    bool isPanelOverlapped() const;
 
     // settings should be kept private for security
     LXQt::Settings *settings() const { return mSettings; }

@@ -92,6 +92,7 @@ private:
     ILXQtPanel::Position mOldPosition;
     bool mOldHidable;
     bool mOldVisibleMargin;
+    bool mOldHideOnOverlap;
     int mOldAnimation;
     int mOldShowDelay;
     int mOldScreenNum;
