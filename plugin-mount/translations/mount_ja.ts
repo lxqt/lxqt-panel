@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>リムーバブルメディア/デバイスのマネージャー: グローバルショートカット &apos;%1&apos; を登録できません</translation>
+        <translation>リムーバブルメディア/デバイスの管理: グローバルショートカット &apos;%1&apos; を登録できません</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
