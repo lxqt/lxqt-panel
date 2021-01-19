@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque le bouton d&apos;éjection est enfoncé :</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="43"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="51"/>
         <source>Eject All Optical Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Éjecter tous les lecteurs optiques</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Gestionnaire de médias/périphériques amovibles</translation>
+        <translation>Gestionnaire de médias/périphériques amovibles</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Éjecté tous les lecteurs optiques</translation>
     </message>
 </context>
 <context>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de supports/périphériques amovibles : le raccourci global &apos;%1&apos; ne peut pas être enregistré</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>Éjecter le support amovible</translation>
     </message>
 </context>
 <context>

@@ -105,12 +105,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished">Modèle de chemin des drapeaux :</translation>
+        <translation>Modèle de chemin vers les drapeaux :</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèle de chemin de fichier pour les drapeaux de pays. Doit contenir &lt;strong&gt;%1&lt;/strong&gt; qui est remplacé par le code de pays ISO à deux lettres (minuscules). &lt;br&gt;&lt;br&gt; Exemple : /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
