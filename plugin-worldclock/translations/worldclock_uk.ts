@@ -130,7 +130,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation>Ідентифікатор місцезнаходження</translation>
+        <translation>Ідентифікатор місцеперебування</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
