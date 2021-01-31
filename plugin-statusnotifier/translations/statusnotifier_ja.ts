@@ -12,12 +12,12 @@
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>注意が必要な場合、自動的に隠されるアイテムがこの期間表示されたままになります。</translation>
+        <translation>注意が必要な場合、自動的に隠されるアイテムがこの時間表示されたままになります。</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation>注意期間:</translation>
+        <translation>注意の時間:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation>アイテムの表示を変更</translation>
+        <translation>アイテムの表示設定を変更します</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="90"/>
         <source>Visibility</source>
-        <translation>表示</translation>
+        <translation>表示設定</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>

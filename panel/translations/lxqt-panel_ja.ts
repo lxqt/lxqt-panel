@@ -323,7 +323,7 @@ LXQt 設定 - 外観 →
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>上に移動</translation>
+        <translation>上へ移動</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -337,7 +337,7 @@ LXQt 設定 - 外観 →
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>下に移動</translation>
+        <translation>下へ移動</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
