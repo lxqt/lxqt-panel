@@ -26,7 +26,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>(Ctrl + ドラッグアンドドロップ)</translation>
+        <translation>(Ctrl + ドラッグ＆ドロップ)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
