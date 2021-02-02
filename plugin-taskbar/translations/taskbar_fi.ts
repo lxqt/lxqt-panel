@@ -6,8 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="681"/>
         <source>Activate task %1</source>
-        <translation>
-Aktivoi tehtävä %1</translation>
+        <translation>Aktivoi tehtävä %1</translation>
     </message>
 </context>
 <context>
