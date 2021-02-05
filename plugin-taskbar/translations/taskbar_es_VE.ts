@@ -247,8 +247,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Only text</source>
-        <translation>
-Solo texto</translation>
+        <translation>Solo texto</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
