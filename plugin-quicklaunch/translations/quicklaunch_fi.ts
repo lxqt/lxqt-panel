@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="226"/>
+        <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
         <translation>Poistovirhe</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="227"/>
+        <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Tiedostoa/osoitetta &apos;%1&apos; ei toistaiseksi voi asettaa pikakäynnistykseen</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="333"/>
+        <location filename="../lxqtquicklaunch.cpp" line="336"/>
         <source>Drop application
 icons here</source>
         <translation>Pudota ohjelman

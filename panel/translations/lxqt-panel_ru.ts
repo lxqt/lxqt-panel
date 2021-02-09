@@ -24,7 +24,7 @@
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="115"/>
+        <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
         <translation>(только одна копия может быть запущена за раз)</translation>
     </message>
@@ -71,20 +71,20 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
-        <location filename="../config/configpanelwidget.cpp" line="211"/>
+        <location filename="../config/configpanelwidget.cpp" line="216"/>
         <source>Left</source>
         <translation>Слева</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.cpp" line="212"/>
-        <location filename="../config/configpanelwidget.cpp" line="218"/>
+        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="223"/>
         <source>Center</source>
         <translation>По центру</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
-        <location filename="../config/configpanelwidget.cpp" line="213"/>
+        <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Right</source>
         <translation>Справа</translation>
     </message>
@@ -163,42 +163,47 @@
         <translation>Оставлять тонкую видимую полосу при скрытии панели</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="337"/>
+        <location filename="../config/configpanelwidget.ui" line="334"/>
+        <source>Hide only on overlapping a window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
         <translation>Не позволять развёрнутым окнам залезать под панель</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="340"/>
+        <location filename="../config/configpanelwidget.ui" line="347"/>
         <source>Reserve space on display</source>
         <translation>Зарезервировать место на экране</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="356"/>
+        <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
         <translation>Пользовательский стиль</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="377"/>
+        <location filename="../config/configpanelwidget.ui" line="384"/>
         <source>Font color:</source>
         <translation>Цвет шрифта:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="456"/>
+        <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background opacity:</source>
         <translation>Непрозрачность фона:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="488"/>
+        <location filename="../config/configpanelwidget.ui" line="495"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;Композиция необходима для прозрачности панели.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="516"/>
+        <location filename="../config/configpanelwidget.ui" line="523"/>
         <source>Background image:</source>
         <translation>Фоновое изображение:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="568"/>
+        <location filename="../config/configpanelwidget.ui" line="575"/>
         <source>A partial workaround for widget styles that
 cannot give a separate theme to the panel.
 
@@ -217,17 +222,17 @@ Colorize icons based on widget style (palette)</source>
 Цвет значков в соответствии с палитрой виджетов</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="578"/>
+        <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
         <translation>Переопределить &amp;тему значков</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="593"/>
+        <location filename="../config/configpanelwidget.ui" line="600"/>
         <source>Icon theme for panels:</source>
         <translation>Тема значков панелей:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="417"/>
+        <location filename="../config/configpanelwidget.ui" line="424"/>
         <source>Background color:</source>
         <translation>Цвет фона:</translation>
     </message>
@@ -242,68 +247,68 @@ Colorize icons based on widget style (palette)</source>
         <translation>Расположение:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="177"/>
+        <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="178"/>
+        <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
         <translation>Слева</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="179"/>
+        <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
         <translation>Справа</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="180"/>
+        <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="189"/>
+        <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
         <translation>Вверху %1 рабочего стола</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="190"/>
+        <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
         <translation>Слева на %1 рабочем столе</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="191"/>
+        <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
         <translation>Справа на %1 рабочем столе</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="192"/>
+        <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
         <translation>Внизу %1 рабочего стола</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="219"/>
+        <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="439"/>
-        <location filename="../config/configpanelwidget.cpp" line="455"/>
+        <location filename="../config/configpanelwidget.cpp" line="445"/>
+        <location filename="../config/configpanelwidget.cpp" line="461"/>
         <source>Pick color</source>
         <translation>Выбрать цвет</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Изображения (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Pick image</source>
         <translation>Выберите изображение</translation>
     </message>
@@ -358,45 +363,45 @@ Colorize icons based on widget style (palette)</source>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1130"/>
-        <location filename="../lxqtpanel.cpp" line="1156"/>
+        <location filename="../lxqtpanel.cpp" line="1178"/>
+        <location filename="../lxqtpanel.cpp" line="1204"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1159"/>
+        <location filename="../lxqtpanel.cpp" line="1207"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1164"/>
+        <location filename="../lxqtpanel.cpp" line="1212"/>
         <source>Manage Widgets</source>
         <translation>Управление виджетами</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1170"/>
+        <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
         <translation>Добавить новую панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
+        <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Удалить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1182"/>
+        <location filename="../lxqtpanel.cpp" line="1230"/>
         <source>Lock This Panel</source>
         <translation>Закрепить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1338"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Удалить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1339"/>
+        <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Удаление панели не может быть отменено.

@@ -4,47 +4,47 @@
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Διεπαφή δικτύου &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
         <source>Transmitted %1</source>
         <translation>Διαβιβασμένα %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Received %1</source>
         <translation>Ειλημμένα %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="208"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="206"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>TiB</source>
         <translation>TiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="209"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>PiB</source>
         <translation>PiB</translation>
     </message>

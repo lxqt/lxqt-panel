@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="397"/>
+        <location filename="../lxqtsysstat.cpp" line="392"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>System: %1%&lt;br&gt;Nutzer: %2%&lt;br&gt;Priorität: %3%&lt;br&gt;Andere: %4%&lt;br&gt;Freq: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="446"/>
+        <location filename="../lxqtsysstat.cpp" line="441"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>System: %1%&lt;br&gt;Nutzer: %2%&lt;br&gt;Priorität: %3%&lt;br&gt;Andere: %4%&lt;br&gt;Freq: n/a</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="488"/>
+        <location filename="../lxqtsysstat.cpp" line="483"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>Anwendungen: %1%&lt;br&gt;Puffer: %2%&lt;br&gt;Cache: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="522"/>
+        <location filename="../lxqtsysstat.cpp" line="517"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>Benutzt: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="552"/>
+        <location filename="../lxqtsysstat.cpp" line="547"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>Min: %1%&lt;br&gt;Max: %2%</translation>

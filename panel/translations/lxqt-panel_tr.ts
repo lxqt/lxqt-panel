@@ -24,7 +24,7 @@
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="115"/>
+        <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
         <translation>(aynı anda yalnızca bir örnek çalışabilir)</translation>
     </message>
@@ -124,20 +124,20 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
-        <location filename="../config/configpanelwidget.cpp" line="211"/>
+        <location filename="../config/configpanelwidget.cpp" line="216"/>
         <source>Left</source>
         <translation>Sol</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.cpp" line="212"/>
-        <location filename="../config/configpanelwidget.cpp" line="218"/>
+        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="223"/>
         <source>Center</source>
         <translation>Orta</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
-        <location filename="../config/configpanelwidget.cpp" line="213"/>
+        <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Right</source>
         <translation>Sağ</translation>
     </message>
@@ -163,47 +163,52 @@
         <translation>Gizli panel için görünür ince kenar boşluğu</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="337"/>
+        <location filename="../config/configpanelwidget.ui" line="334"/>
+        <source>Hide only on overlapping a window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
         <translation>Büyütülmüş pencerelerin panel penceresinin altına girmesine izin verme</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="340"/>
+        <location filename="../config/configpanelwidget.ui" line="347"/>
         <source>Reserve space on display</source>
         <translation>Ekranda yer ayır</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="356"/>
+        <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
         <translation>Özel biçimlendirme</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="377"/>
+        <location filename="../config/configpanelwidget.ui" line="384"/>
         <source>Font color:</source>
         <translation>Yazı tipi rengi:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="417"/>
+        <location filename="../config/configpanelwidget.ui" line="424"/>
         <source>Background color:</source>
         <translation>Arka plan rengi:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="456"/>
+        <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background opacity:</source>
         <translation>Arka plan matlığı:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="488"/>
+        <location filename="../config/configpanelwidget.ui" line="495"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;Karışım, panel şeffaflığı için gereklidir.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="516"/>
+        <location filename="../config/configpanelwidget.ui" line="523"/>
         <source>Background image:</source>
         <translation>Arka plan resmi:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="568"/>
+        <location filename="../config/configpanelwidget.ui" line="575"/>
         <source>A partial workaround for widget styles that
 cannot give a separate theme to the panel.
 
@@ -222,12 +227,12 @@ Simge Teması →
 Gereç biçimine (palet) göre simgeleri renklendir</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="578"/>
+        <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
         <translation>Simge &amp;temasını geçersiz kıl</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="593"/>
+        <location filename="../config/configpanelwidget.ui" line="600"/>
         <source>Icon theme for panels:</source>
         <translation>Panel için simge teması:</translation>
     </message>
@@ -242,68 +247,68 @@ Gereç biçimine (palet) göre simgeleri renklendir</translation>
         <translation>Konum:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="177"/>
+        <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
         <translation>Ekranın üstünde</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="178"/>
+        <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
         <translation>Ekranın solunda</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="179"/>
+        <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
         <translation>Ekranın sağında</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="180"/>
+        <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
         <translation>Ekranın altında</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="189"/>
+        <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
         <translation>%1, ekranın üstünde</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="190"/>
+        <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
         <translation>%1 Ekranın solunda</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="191"/>
+        <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
         <translation>%1 Ekranın sağında</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="192"/>
+        <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
         <translation>%1 Ekranın altında</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
         <translation>Üst</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="219"/>
+        <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
         <translation>Alt</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="439"/>
-        <location filename="../config/configpanelwidget.cpp" line="455"/>
+        <location filename="../config/configpanelwidget.cpp" line="445"/>
+        <location filename="../config/configpanelwidget.cpp" line="461"/>
         <source>Pick color</source>
         <translation>Renk seç</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>Resimler (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Pick image</source>
         <translation>Resim seç</translation>
     </message>
@@ -358,45 +363,45 @@ Gereç biçimine (palet) göre simgeleri renklendir</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1130"/>
-        <location filename="../lxqtpanel.cpp" line="1156"/>
+        <location filename="../lxqtpanel.cpp" line="1178"/>
+        <location filename="../lxqtpanel.cpp" line="1204"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1159"/>
+        <location filename="../lxqtpanel.cpp" line="1207"/>
         <source>Configure Panel</source>
         <translation>Paneli Yapılandır</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1164"/>
+        <location filename="../lxqtpanel.cpp" line="1212"/>
         <source>Manage Widgets</source>
         <translation>Gereçleri Yönet</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1170"/>
+        <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
         <translation>Yeni Panel Ekle</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
+        <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Paneli Sil</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1182"/>
+        <location filename="../lxqtpanel.cpp" line="1230"/>
         <source>Lock This Panel</source>
         <translation>Bu Paneli Kilitle</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1338"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Paneli Sil</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1339"/>
+        <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Bir paneli silme eylemi geri alınamaz.

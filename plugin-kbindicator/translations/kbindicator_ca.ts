@@ -40,12 +40,12 @@
         <translation>Bloq Despl</translation>
     </message>
     <message>
-        <location filename="../src/content.cpp" line="105"/>
+        <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
         <translation>Disposició</translation>
     </message>
     <message>
-        <location filename="../src/content.cpp" line="105"/>
+        <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
         <translation>Variant</translation>
     </message>

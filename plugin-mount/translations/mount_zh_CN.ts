@@ -28,8 +28,8 @@
     </message>
     <message>
         <location filename="../configuration.ui" line="42"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按下弹出快捷键 (默认为 &lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt;) 触发以下操作&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action when eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
@@ -105,18 +105,18 @@
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <location filename="../menudiskitem.cpp" line="155"/>
+        <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
         <translation>挂载&lt;b&gt;&lt;nobr&gt;“%1”&lt;/nobr&gt;&lt;/b&gt;失败：%2</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="157"/>
-        <location filename="../menudiskitem.cpp" line="178"/>
+        <location filename="../menudiskitem.cpp" line="155"/>
+        <location filename="../menudiskitem.cpp" line="176"/>
         <source>Removable media/devices manager</source>
         <translation>可移动媒体管理器</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="176"/>
+        <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>卸载&lt;strong&gt;&lt;nobr&gt;“%1”&lt;/nobr&gt;&lt;/strong&gt;失败：%2</translation>
     </message>

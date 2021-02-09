@@ -24,7 +24,7 @@
         <translation>닫기</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="115"/>
+        <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
         <translation>(한 번에 하나의 인스턴스만 실행할 수 있습니다)</translation>
     </message>
@@ -124,20 +124,20 @@
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
-        <location filename="../config/configpanelwidget.cpp" line="211"/>
+        <location filename="../config/configpanelwidget.cpp" line="216"/>
         <source>Left</source>
         <translation>왼쪽</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
-        <location filename="../config/configpanelwidget.cpp" line="212"/>
-        <location filename="../config/configpanelwidget.cpp" line="218"/>
+        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="223"/>
         <source>Center</source>
         <translation>가운데</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
-        <location filename="../config/configpanelwidget.cpp" line="213"/>
+        <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Right</source>
         <translation>오른쪽</translation>
     </message>
@@ -163,47 +163,52 @@
         <translation>숨겨진 패널에 보이는 얇은 여백</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="337"/>
+        <location filename="../config/configpanelwidget.ui" line="334"/>
+        <source>Hide only on overlapping a window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
         <translation>패널 창 아래에 최대화한 창 허용하지 않기</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="340"/>
+        <location filename="../config/configpanelwidget.ui" line="347"/>
         <source>Reserve space on display</source>
         <translation>화면을 위한 공간 예약</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="356"/>
+        <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
         <translation>사용자 설정</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="377"/>
+        <location filename="../config/configpanelwidget.ui" line="384"/>
         <source>Font color:</source>
         <translation>글꼴 색:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="417"/>
+        <location filename="../config/configpanelwidget.ui" line="424"/>
         <source>Background color:</source>
         <translation>배경 색:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="456"/>
+        <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background opacity:</source>
         <translation>배경 투명도:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="488"/>
+        <location filename="../config/configpanelwidget.ui" line="495"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;패널 투명화를 위해서 컴포지팅이 필요합니다.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="516"/>
+        <location filename="../config/configpanelwidget.ui" line="523"/>
         <source>Background image:</source>
         <translation>배경 이미지:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="568"/>
+        <location filename="../config/configpanelwidget.ui" line="575"/>
         <source>A partial workaround for widget styles that
 cannot give a separate theme to the panel.
 
@@ -222,12 +227,12 @@ LXQt 꾸미기 설정 →
 위젯 스타일 (팔레트) 기반 아이콘 색상 지정</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="578"/>
+        <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
         <translation>아이콘 테마 덮어쓰기</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.ui" line="593"/>
+        <location filename="../config/configpanelwidget.ui" line="600"/>
         <source>Icon theme for panels:</source>
         <translation>패널용 아이콘 테마:</translation>
     </message>
@@ -242,68 +247,68 @@ LXQt 꾸미기 설정 →
         <translation>위치:</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="177"/>
+        <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
         <translation>바탕화면 위쪽</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="178"/>
+        <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
         <translation>바탕화면 왼쪽</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="179"/>
+        <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
         <translation>바탕화면 오른쪽</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="180"/>
+        <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
         <translation>바탕화면 아래쪽</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="189"/>
+        <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
         <translation>바탕화면 위쪽 %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="190"/>
+        <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
         <translation>바탕화면 왼쪽 %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="191"/>
+        <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
         <translation>바탕화면 오른쪽 %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="192"/>
+        <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
         <translation>바탕화면 아래쪽 %1</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="217"/>
+        <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
         <translation>위</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="219"/>
+        <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
         <translation>아래</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="439"/>
-        <location filename="../config/configpanelwidget.cpp" line="455"/>
+        <location filename="../config/configpanelwidget.cpp" line="445"/>
+        <location filename="../config/configpanelwidget.cpp" line="461"/>
         <source>Pick color</source>
         <translation>색상 선택</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Images (*.png *.gif *.jpg)</source>
         <translation>이미지 (*.png *.gif *.jpg)</translation>
     </message>
     <message>
-        <location filename="../config/configpanelwidget.cpp" line="473"/>
+        <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Pick image</source>
         <translation>이미지 선택</translation>
     </message>
@@ -358,45 +363,45 @@ LXQt 꾸미기 설정 →
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1130"/>
-        <location filename="../lxqtpanel.cpp" line="1156"/>
+        <location filename="../lxqtpanel.cpp" line="1178"/>
+        <location filename="../lxqtpanel.cpp" line="1204"/>
         <source>Panel</source>
         <translation>패널</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1159"/>
+        <location filename="../lxqtpanel.cpp" line="1207"/>
         <source>Configure Panel</source>
         <translation>패널 설정</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1164"/>
+        <location filename="../lxqtpanel.cpp" line="1212"/>
         <source>Manage Widgets</source>
         <translation>위젯 관리</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1170"/>
+        <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
         <translation>새 패널 추가</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1177"/>
+        <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>패널 제거</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1182"/>
+        <location filename="../lxqtpanel.cpp" line="1230"/>
         <source>Lock This Panel</source>
         <translation>이 패널 잠그기</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1338"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>패널 제거</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1339"/>
+        <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>패널 제거는 취소할 수 없습니다.

@@ -40,12 +40,12 @@
         <translation>Zamknutí posunování obrazu (ScrollLock)</translation>
     </message>
     <message>
-        <location filename="../src/content.cpp" line="105"/>
+        <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
         <translation>Rozvržení</translation>
     </message>
     <message>
-        <location filename="../src/content.cpp" line="105"/>
+        <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
         <translation>Varianta</translation>
     </message>
