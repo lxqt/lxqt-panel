@@ -68,7 +68,7 @@
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation> пт</translation>
+        <translation> пікселів</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation>пт</translation>
+        <translation>пікселів</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -150,7 +150,7 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>При вказанні нуля затримки не буде</translation>
+        <translation>Якщо вказати нуль, затримки не буде</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ховати лише коли перекривається вікном</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="523"/>
         <source>Background image:</source>
-        <translation>Малюнок тла:</translation>
+        <translation>Зображення тла:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="575"/>
@@ -284,17 +284,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
-        <translation>Знизу стільниці %1</translation>
+        <translation>Внизу стільниці %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
-        <translation>Зверху</translation>
+        <translation>Вгорі</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
-        <translation>Знизу</translation>
+        <translation>Внизу</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="445"/>
