@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="424"/>
         <source>Background color:</source>
-        <translation>Коілр тла:</translation>
+        <translation>Колір тла:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="463"/>
