@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη μόνον κατά την επικάλυψη ενός παραθύρου</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
