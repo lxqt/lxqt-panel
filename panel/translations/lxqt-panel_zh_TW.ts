@@ -160,12 +160,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">為隱藏的面板保留細邊界</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>只在與視窗重疊時隱藏</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>

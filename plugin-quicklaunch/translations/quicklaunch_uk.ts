@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
-        <translation>Збій при розміщенні</translation>
+        <translation>Помилка розміщення</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
