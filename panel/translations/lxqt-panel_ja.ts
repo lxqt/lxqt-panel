@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウが重なっている場合のみ隠す</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
