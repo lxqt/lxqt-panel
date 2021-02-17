@@ -16,33 +16,34 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>加到桌面</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>問題</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="505"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>已經有同樣名稱的檔案。
+您要覆蓋它嗎？</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="511"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>警告</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="512"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>這個檔案無法被覆蓋。</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>複製</translation>
     </message>
 </context>
 <context>
