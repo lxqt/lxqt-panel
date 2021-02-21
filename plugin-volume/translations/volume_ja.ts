@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>音量調節: このショートカットは登録することができません: %1</translation>
+        <translation>音量調節: このショートカットは登録できません: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
