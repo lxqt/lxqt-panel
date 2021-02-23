@@ -68,7 +68,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>デバイス &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; が接続解除されました。</translation>
+        <translation>デバイス &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; が取り外されました。</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>

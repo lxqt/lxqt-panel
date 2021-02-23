@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>ミュート/解除</translation>
+        <translation>音量をミュート/解除する</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>(muted)</source>
-        <translation>(消音)</translation>
+        <translation>(ミュート中)</translation>
     </message>
 </context>
 <context>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>中ボタンのクリックでミュート</translation>
+        <translation>中ボタンのクリックでミュートする</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Always notify about volume changes</source>
-        <translation>音量の変更時には常に通知する</translation>
+        <translation>音量変更時には常に通知する</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="55"/>
         <source>Launch mixer</source>
-        <translation>ミキサーを起動</translation>
+        <translation>ミキサーを起動します</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="56"/>
