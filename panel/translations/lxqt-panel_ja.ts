@@ -436,7 +436,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>ファイルの設定</translation>
+        <translation>設定ファイル</translation>
     </message>
 </context>
 </TS>
