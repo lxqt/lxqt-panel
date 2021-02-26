@@ -6,22 +6,22 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>系统托盘设置</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>通用</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation type="unfinished"></translation>
+        <translation>图标间距：</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> 像素</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
