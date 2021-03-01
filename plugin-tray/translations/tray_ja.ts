@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation>一般</translation>
+        <translation>全般</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
