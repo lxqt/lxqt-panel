@@ -146,12 +146,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation>サイズの最小値(&amp;M)</translation>
+        <translation>最小サイズ(&amp;M)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>更新頻度(&amp;I)</translation>
+        <translation>更新間隔(&amp;I)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>

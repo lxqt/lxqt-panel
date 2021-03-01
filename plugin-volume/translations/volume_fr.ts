@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation>Augmenter le son</translation>
+        <translation>Augmenter le volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation>Diminuer le son</translation>
+        <translation>Diminuer le volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
@@ -21,12 +21,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Contrôle du volume: les raccourcis suivants ne peuvent pas être enregistrés: %1</translation>
+        <translation>Contrôle du volume : les raccourcis suivants ne peuvent pas être enregistrés  : %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
         <source>Volume: %1%%2</source>
-        <translation>Volume: %1%%2</translation>
+        <translation>Volume : %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Notification lorsque le volume est changé avec un raccourci clavier</translation>
+        <translation>Notification lorsque le volume est changé avec le clavier</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
         <source>Volume adjust step</source>
-        <translation>Pas du réglage du volume</translation>
+        <translation>Étape de réglage du volume</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
