@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer uniquement lors du chevauchement d&apos;une fenêtre</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -217,10 +217,10 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Solution de contournement partielle pour les styles de widget qui
+        <translation>Solution partielle de contournement pour les styles de widget qui
 ne peut pas donner un thème séparé au panneau.
 
-Vous pourriez aussi vouloir désactiver:
+Vous pourriez aussi vouloir désactiver :
 
 Configuration d&apos;apparence LXQt →
 Thème des icônes →
@@ -323,7 +323,7 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Remarque: les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
+        <translation>Remarque : les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
