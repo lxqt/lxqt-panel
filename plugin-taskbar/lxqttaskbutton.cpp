@@ -111,7 +111,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
 
     mWheelTimer->setSingleShot(true);
     mWheelTimer->setInterval(250);
-    connect(mWheelTimer, &QTimer::timeout, [this] {
+    connect(mWheelTimer, &QTimer::timeout, this, [this] {
         mWheelDelta = 0; // forget previous wheel deltas
     });
 

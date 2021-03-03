@@ -63,7 +63,10 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     onCurrentDesktopChanged(KWindowSystem::currentDesktop());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
-    connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
+    connect(m_buttons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * /*button*/){
+        int id = m_buttons->checkedId();
+        setDesktop(id);
+    });
 
     connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
     connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);

@@ -462,7 +462,7 @@ void LXQtPanel::loadPlugins()
     for (auto const & plugin : plugins)
     {
         mLayout->addPlugin(plugin);
-        connect(plugin, &Plugin::dragLeft, [this] { mShowDelayTimer.stop(); hidePanel(); });
+        connect(plugin, &Plugin::dragLeft, this, [this] { mShowDelayTimer.stop(); hidePanel(); });
     }
 }
 
@@ -590,7 +590,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
                 mAnimation = new QPropertyAnimation(this, "geometry");
                 mAnimation->setEasingCurve(QEasingCurve::Linear);
                 //Note: for hiding, the margins are set after animation is finished
-                connect(mAnimation, &QAbstractAnimation::finished, [this] { if (mHidden) setMargins(); });
+                connect(mAnimation, &QAbstractAnimation::finished, this, [this] { if (mHidden) setMargins(); });
             }
             mAnimation->setDuration(mAnimationTime);
             mAnimation->setStartValue(geometry());
@@ -1231,7 +1231,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
     QAction * act_lock = menu->addAction(tr("Lock This Panel"));
     act_lock->setCheckable(true);
     act_lock->setChecked(mLockPanel);
-    connect(act_lock, &QAction::triggered, [this] { mLockPanel = !mLockPanel; saveSettings(false); });
+    connect(act_lock, &QAction::triggered, this, [this] { mLockPanel = !mLockPanel; saveSettings(false); });
 
 #ifdef DEBUG
     menu->addSeparator();

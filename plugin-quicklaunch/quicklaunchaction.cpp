@@ -84,7 +84,7 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
     {
         QAction * act = new QAction{xdg->actionIcon(action), xdg->actionName(action), this};
         act->setData(action);
-        connect(act, &QAction::triggered, [this, act] { execAction(act->data().toString()); });
+        connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
         m_addtitionalActions.push_back(act);
     }
 }
