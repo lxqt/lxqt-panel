@@ -37,6 +37,7 @@
 #include "panelpluginsmodel.h"
 #include "windownotifier.h"
 #include <LXQt/PluginInfo>
+#include <LXQt/Settings>
 
 #include <QScreen>
 #include <QWindow>
@@ -190,15 +191,15 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
 
     mDelaySave.setSingleShot(true);
     mDelaySave.setInterval(SETTINGS_SAVE_DELAY);
-    connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
+    connect(&mDelaySave, &QTimer::timeout, this, [this] { saveSettings(); } );
 
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
-    connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
+    connect(&mHideTimer, &QTimer::timeout, this, &LXQtPanel::hidePanelWork);
 
     mShowDelayTimer.setSingleShot(true);
     mShowDelayTimer.setInterval(PANEL_SHOW_DELAY);
-    connect(&mShowDelayTimer, &QTimer::timeout, [this] { showPanel(mAnimationTime > 0); });
+    connect(&mShowDelayTimer, &QTimer::timeout, this, [this] { showPanel(mAnimationTime > 0); });
 
     // screen updates
     connect(qApp, &QApplication::screenAdded, this, [this] (QScreen* newScreen) {
@@ -219,10 +220,10 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         connect(screen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
     }
 
-    connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
-    connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
+    connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::settingsChanged, this, [this] { update(); } );
+    connect(lxqtApp, &LXQt::Application::themeChanged, this, &LXQtPanel::realign);
 
-    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, [this] { showPanel(true); });
+    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, this, [this] { showPanel(true); });
     connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();

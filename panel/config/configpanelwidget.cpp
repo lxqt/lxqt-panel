@@ -97,34 +97,34 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     // reset configurations from file
     reset();
 
-    connect(ui->spinBox_panelSize,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
-    connect(ui->spinBox_iconSize,           SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
-    connect(ui->spinBox_lineCount,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->spinBox_panelSize,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
+    connect(ui->spinBox_iconSize,           QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
+    connect(ui->spinBox_lineCount,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
 
-    connect(ui->spinBox_length,             SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
-    connect(ui->comboBox_lenghtType,        SIGNAL(activated(int)),         this, SLOT(widthTypeChanged()));
+    connect(ui->spinBox_length,             QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
+    connect(ui->comboBox_lenghtType,        QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::widthTypeChanged);
 
-    connect(ui->comboBox_alignment,         SIGNAL(activated(int)),         this, SLOT(editChanged()));
-    connect(ui->comboBox_position,          SIGNAL(activated(int)),         this, SLOT(positionChanged()));
-    connect(ui->checkBox_hidable,           SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->checkBox_visibleMargin,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->checkBox_overlap,           &QAbstractButton::toggled,      this, &ConfigPanelWidget::editChanged);
-    connect(ui->spinBox_animation,          SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
-    connect(ui->spinBox_delay,              SIGNAL(valueChanged(int)),      this, SLOT(editChanged()));
+    connect(ui->comboBox_alignment,         QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::editChanged);
+    connect(ui->comboBox_position,          QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::positionChanged);
+    connect(ui->groupBox_hidable,           &QGroupBox::toggled,                              this, &ConfigPanelWidget::editChanged);
+    connect(ui->checkBox_visibleMargin,     &QCheckBox::toggled,                              this, &ConfigPanelWidget::editChanged);
+    connect(ui->checkBox_overlap,           &QAbstractButton::toggled,                        this, &ConfigPanelWidget::editChanged);
+    connect(ui->spinBox_animation,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
+    connect(ui->spinBox_delay,              QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
 
-    connect(ui->checkBox_customFontColor,   SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->pushButton_customFontColor, SIGNAL(clicked(bool)),          this, SLOT(pickFontColor()));
-    connect(ui->checkBox_customBgColor,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->pushButton_customBgColor,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundColor()));
-    connect(ui->checkBox_customBgImage,     SIGNAL(toggled(bool)),          this, SLOT(editChanged()));
-    connect(ui->lineEdit_customBgImage,     SIGNAL(textChanged(QString)),   this, SLOT(editChanged()));
-    connect(ui->pushButton_customBgImage,   SIGNAL(clicked(bool)),          this, SLOT(pickBackgroundImage()));
-    connect(ui->slider_opacity,             &QSlider::valueChanged,         this, &ConfigPanelWidget::editChanged);
+    connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
+    connect(ui->pushButton_customFontColor, &QPushButton::clicked,     this, &ConfigPanelWidget::pickFontColor);
+    connect(ui->checkBox_customBgColor,     &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
+    connect(ui->pushButton_customBgColor,   &QPushButton::clicked,     this, &ConfigPanelWidget::pickBackgroundColor);
+    connect(ui->checkBox_customBgImage,     &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
+    connect(ui->lineEdit_customBgImage,     &QLineEdit::textChanged,   this, &ConfigPanelWidget::editChanged);
+    connect(ui->pushButton_customBgImage,   &QPushButton::clicked,     this, &ConfigPanelWidget::pickBackgroundImage);
+    connect(ui->slider_opacity,             &QSlider::valueChanged,    this, &ConfigPanelWidget::editChanged);
 
-    connect(ui->checkBox_reserveSpace, &QAbstractButton::toggled, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
+    connect(ui->checkBox_reserveSpace,      &QAbstractButton::toggled, this, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
 
-    connect(ui->groupBox_icon, &QGroupBox::clicked, this, &ConfigPanelWidget::editChanged);
-    connect(ui->comboBox_icon, QOverload<int>::of(&QComboBox::activated), this, &ConfigPanelWidget::editChanged);
+    connect(ui->groupBox_icon,              &QGroupBox::clicked, this, &ConfigPanelWidget::editChanged);
+    connect(ui->comboBox_icon,              QOverload<int>::of(&QComboBox::activated), this, &ConfigPanelWidget::editChanged);
 }
 
 
@@ -139,7 +139,7 @@ void ConfigPanelWidget::reset()
 
     ui->comboBox_position->setCurrentIndex(indexForPosition(mOldScreenNum, mOldPosition));
 
-    ui->checkBox_hidable->setChecked(mOldHidable);
+    ui->groupBox_hidable->setChecked(mOldHidable);
 
     ui->checkBox_visibleMargin->setChecked(mOldVisibleMargin);
 
@@ -333,7 +333,7 @@ void ConfigPanelWidget::editChanged()
 
     mPanel->setAlignment(align, true);
     mPanel->setPosition(mScreenNum, mPosition, true);
-    mPanel->setHidable(ui->checkBox_hidable->isChecked(), true);
+    mPanel->setHidable(ui->groupBox_hidable->isChecked(), true);
     mPanel->setVisibleMargin(ui->checkBox_visibleMargin->isChecked(), true);
     mPanel->setHideOnOverlap(ui->checkBox_overlap->isChecked(), true);
     mPanel->setAnimationTime(ui->spinBox_animation->value(), true);

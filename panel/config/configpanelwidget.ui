@@ -242,7 +242,7 @@
        <widget class="QComboBox" name="comboBox_position"/>
       </item>
       <item row="2" column="0" colspan="2">
-       <widget class="QGroupBox" name="checkBox_hidable">
+       <widget class="QGroupBox" name="groupBox_hidable">
         <property name="enabled">
          <bool>true</bool>
         </property>
