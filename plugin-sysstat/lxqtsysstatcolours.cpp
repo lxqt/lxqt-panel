@@ -41,22 +41,22 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
-    mDefaultColours[QStringLiteral("grid")]  = QColor("#808080");
-    mDefaultColours[QStringLiteral("title")] = QColor("#000000");
+    mDefaultColours[QStringLiteral("grid")]  = QColor(128,128,128); // #808080
+    mDefaultColours[QStringLiteral("title")] = QColor(0,0,0); // #000000
 
-    mDefaultColours[QStringLiteral("cpuSystem")]    = QColor("#800000");
-    mDefaultColours[QStringLiteral("cpuUser")]      = QColor("#000080");
-    mDefaultColours[QStringLiteral("cpuNice")]      = QColor("#008000");
-    mDefaultColours[QStringLiteral("cpuOther")]     = QColor("#808000");
-    mDefaultColours[QStringLiteral("cpuFrequency")] = QColor("#808080");
+    mDefaultColours[QStringLiteral("cpuSystem")]    = QColor(0,0,0); // #000000
+    mDefaultColours[QStringLiteral("cpuUser")]      = QColor(0,0,128); // #000080
+    mDefaultColours[QStringLiteral("cpuNice")]      = QColor(0,128,0); // #008000
+    mDefaultColours[QStringLiteral("cpuOther")]     = QColor(128,128,0); // #808000
+    mDefaultColours[QStringLiteral("cpuFrequency")] = QColor(128,128,128); // #808080
 
-    mDefaultColours[QStringLiteral("memApps")]    = QColor("#000080");
-    mDefaultColours[QStringLiteral("memBuffers")] = QColor("#008000");
-    mDefaultColours[QStringLiteral("memCached")]  = QColor("#808000");
-    mDefaultColours[QStringLiteral("memSwap")]    = QColor("#800000");
+    mDefaultColours[QStringLiteral("memApps")]    = QColor(0,0,128); // #000080
+    mDefaultColours[QStringLiteral("memBuffers")] = QColor(0,128,0); // #008000
+    mDefaultColours[QStringLiteral("memCached")]  = QColor(128,128,0); // #808000
+    mDefaultColours[QStringLiteral("memSwap")]    = QColor(128,0,0); // #800000
 
-    mDefaultColours[QStringLiteral("netReceived")]    = QColor("#000080");
-    mDefaultColours[QStringLiteral("netTransmitted")] = QColor("#808000");
+    mDefaultColours[QStringLiteral("netReceived")]    = QColor(0,0,128); // #000080
+    mDefaultColours[QStringLiteral("netTransmitted")] = QColor(128,128,0); // #808000
 
 
 #undef CONNECT_SELECT_COLOUR
@@ -81,7 +81,7 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
 
 #undef CONNECT_SELECT_COLOUR
 
-    connect(mSelectColourMapper, SIGNAL(mapped(const QString &)), SLOT(selectColour(const QString &)));
+    connect(mSelectColourMapper, QOverload<const QString &>::of(&QSignalMapper::mapped), this, &LXQtSysStatColours::selectColour);
 }
 
 LXQtSysStatColours::~LXQtSysStatColours()

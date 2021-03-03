@@ -155,10 +155,10 @@ void LXQtQuickLaunch::addButton(QuickLaunchAction* action)
     QuickLaunchButton* btn = new QuickLaunchButton(action, mPlugin, this);
     mLayout->addWidget(btn);
 
-    connect(btn, SIGNAL(switchButtons(QuickLaunchButton*,QuickLaunchButton*)), this, SLOT(switchButtons(QuickLaunchButton*,QuickLaunchButton*)));
-    connect(btn, SIGNAL(buttonDeleted()), this, SLOT(buttonDeleted()));
-    connect(btn, SIGNAL(movedLeft()), this, SLOT(buttonMoveLeft()));
-    connect(btn, SIGNAL(movedRight()), this, SLOT(buttonMoveRight()));
+    connect(btn, &QuickLaunchButton::switchButtons, this, &LXQtQuickLaunch::switchButtons);
+    connect(btn, &QuickLaunchButton::buttonDeleted, this, &LXQtQuickLaunch::buttonDeleted);
+    connect(btn, &QuickLaunchButton::movedLeft,     this, &LXQtQuickLaunch::buttonMoveLeft);
+    connect(btn, &QuickLaunchButton::movedRight,    this, &LXQtQuickLaunch::buttonMoveRight);
 
     mLayout->removeWidget(mPlaceHolder);
     delete mPlaceHolder;

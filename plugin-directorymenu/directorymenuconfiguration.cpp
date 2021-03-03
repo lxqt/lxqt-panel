@@ -48,14 +48,14 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     setObjectName(QStringLiteral("DirectoryMenuConfigurationWindow"));
     ui->setupUi(this);
 
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), SLOT(dialogButtonsAction(QAbstractButton*)));
+    connect(ui->buttons, &QDialogButtonBox::clicked, this, &DirectoryMenuConfiguration::dialogButtonsAction);
 
     loadSettings();
     ui->baseDirectoryB->setIcon(mDefaultIcon);
 
-    connect(ui->baseDirectoryB, SIGNAL(clicked()), SLOT(showDirectoryDialog()));
-    connect(ui->iconB, SIGNAL(clicked()), SLOT(showIconDialog()));
-    connect(ui->terminalB, SIGNAL(clicked()), SLOT(showTermDialog()));
+    connect(ui->baseDirectoryB, &QPushButton::clicked, this, &DirectoryMenuConfiguration::showDirectoryDialog);
+    connect(ui->iconB,          &QPushButton::clicked, this, &DirectoryMenuConfiguration::showIconDialog);
+    connect(ui->terminalB,      &QPushButton::clicked, this, &DirectoryMenuConfiguration::showTermDialog);
 }
 
 DirectoryMenuConfiguration::~DirectoryMenuConfiguration()

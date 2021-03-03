@@ -38,7 +38,7 @@ DomTreeItem::DomTreeItem(QTreeWidget *view, QWidget *widget):
 {
     init();
     mWidget->installEventFilter(this);
-    connect(mWidget, SIGNAL(destroyed()), this, SLOT(widgetDestroyed()));
+    connect(mWidget, &QWidget::destroyed, this, &DomTreeItem::widgetDestroyed);
 }
 
 
@@ -48,7 +48,7 @@ DomTreeItem::DomTreeItem(QTreeWidgetItem *parent, QWidget *widget):
 {
     init();
     mWidget->installEventFilter(this);
-    connect(mWidget, SIGNAL(destroyed()), this, SLOT(widgetDestroyed()));
+    connect(mWidget, &QWidget::destroyed, this, &DomTreeItem::widgetDestroyed);
 }
 
 
