@@ -71,9 +71,9 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     settingsChanged();
 
     mTimer->setTimerType(Qt::PreciseTimer);
-    connect(mTimer, SIGNAL(timeout()), SLOT(timeout()));
+    connect(mTimer, &QTimer::timeout, this, &LXQtWorldClock::timeout);
 
-    connect(mContent, SIGNAL(wheelScrolled(int)), SLOT(wheelScrolled(int)));
+    connect(mContent, &ActiveLabel::wheelScrolled, this, &LXQtWorldClock::wheelScrolled);
 }
 
 LXQtWorldClock::~LXQtWorldClock()
@@ -394,7 +394,7 @@ void LXQtWorldClock::activated(ActivationReason reason)
     if (!mPopup)
     {
         mPopup = new LXQtWorldClockPopup(mContent);
-        connect(mPopup, SIGNAL(deactivated()), SLOT(deletePopup()));
+        connect(mPopup, &LXQtWorldClockPopup::deactivated, this, &LXQtWorldClock::deletePopup);
 
         if (reason == ILXQtPanelPlugin::Trigger)
         {

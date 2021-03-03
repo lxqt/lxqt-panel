@@ -65,19 +65,19 @@ LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
     if (m_keyVolumeUp)
     {
         connect(m_keyVolumeUp, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
-        connect(m_keyVolumeUp, SIGNAL(activated()), this, SLOT(handleShortcutVolumeUp()));
+        connect(m_keyVolumeUp, &GlobalKeyShortcut::Action::activated,            this, &LXQtVolume::handleShortcutVolumeUp);
     }
     m_keyVolumeDown = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/down").arg(settings()->group()), tr("Decrease sound volume"), this);
     if (m_keyVolumeDown)
     {
         connect(m_keyVolumeDown, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
-        connect(m_keyVolumeDown, SIGNAL(activated()), this, SLOT(handleShortcutVolumeDown()));
+        connect(m_keyVolumeDown, &GlobalKeyShortcut::Action::activated,            this, &LXQtVolume::handleShortcutVolumeDown);
     }
     m_keyMuteToggle = GlobalKeyShortcut::Client::instance()->addAction(QString(), QStringLiteral("/panel/%1/mute").arg(settings()->group()), tr("Mute/unmute sound volume"), this);
     if (m_keyMuteToggle)
     {
         connect(m_keyMuteToggle, &GlobalKeyShortcut::Action::registrationFinished, this, &LXQtVolume::shortcutRegistered);
-        connect(m_keyMuteToggle, SIGNAL(activated()), this, SLOT(handleShortcutVolumeMute()));
+        connect(m_keyMuteToggle, &GlobalKeyShortcut::Action::activated,            this, &LXQtVolume::handleShortcutVolumeMute);
     }
 
     settingsChanged();

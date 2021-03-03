@@ -56,14 +56,14 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     setObjectName(groupName);
     setText(groupName);
 
-    connect(this, SIGNAL(clicked(bool)), this, SLOT(onClicked(bool)));
-    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), this, SLOT(onDesktopChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(activeWindowChanged(WId)), this, SLOT(onActiveWindowChanged(WId)));
-    connect(parent, &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
-    connect(parent, &LXQtTaskBar::refreshIconGeometry, this, &LXQtTaskGroup::refreshIconsGeometry);
-    connect(parent, &LXQtTaskBar::buttonStyleRefreshed, this, &LXQtTaskGroup::setToolButtonsStyle);
-    connect(parent, &LXQtTaskBar::showOnlySettingChanged, this, &LXQtTaskGroup::refreshVisibility);
-    connect(parent, &LXQtTaskBar::popupShown, this, &LXQtTaskGroup::groupPopupShown);
+    connect(this,                  &LXQtTaskGroup::clicked,               this, &LXQtTaskGroup::onClicked);
+    connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged, this, &LXQtTaskGroup::onDesktopChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
+    connect(parent,                &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
+    connect(parent,                &LXQtTaskBar::refreshIconGeometry,     this, &LXQtTaskGroup::refreshIconsGeometry);
+    connect(parent,                &LXQtTaskBar::buttonStyleRefreshed,    this, &LXQtTaskGroup::setToolButtonsStyle);
+    connect(parent,                &LXQtTaskBar::showOnlySettingChanged,  this, &LXQtTaskGroup::refreshVisibility);
+    connect(parent,                &LXQtTaskBar::popupShown,              this, &LXQtTaskGroup::groupPopupShown);
 }
 
 /************************************************
@@ -81,8 +81,8 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
     QMenu * menu = new QMenu(tr("Group"));
     menu->setAttribute(Qt::WA_DeleteOnClose);
     QAction *a = menu->addAction(XdgIcon::fromTheme(QStringLiteral("process-stop")), tr("Close group"));
-    connect(a, SIGNAL(triggered()), this, SLOT(closeGroup()));
-    connect(menu, &QMenu::aboutToHide, [this] {
+    connect(a, &QAction::triggered, this, &LXQtTaskGroup::closeGroup);
+    connect(menu, &QMenu::aboutToHide, this, [this] {
         mPreventPopup = false;
     });
     menu->setGeometry(plugin()->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
@@ -120,7 +120,7 @@ LXQtTaskButton * LXQtTaskGroup::addWindow(WId id)
     mButtonHash.insert(id, btn);
     mPopup->addButton(btn);
 
-    connect(btn, SIGNAL(clicked()), this, SLOT(onChildButtonClicked()));
+    connect(btn, &LXQtTaskButton::clicked, this, &LXQtTaskGroup::onChildButtonClicked);
     refreshVisibility();
 
     return btn;

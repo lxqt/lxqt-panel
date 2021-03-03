@@ -138,7 +138,7 @@ PulseAudioEngine::PulseAudioEngine(QObject *parent) :
 
     m_reconnectionTimer.setSingleShot(true);
     m_reconnectionTimer.setInterval(100);
-    connect(&m_reconnectionTimer, SIGNAL(timeout()), this, SLOT(connectContext()));
+    connect(&m_reconnectionTimer, &QTimer::timeout, this, &PulseAudioEngine::connectContext);
 
     m_mainLoop = pa_threaded_mainloop_new();
     if (m_mainLoop == nullptr) {
@@ -155,7 +155,7 @@ PulseAudioEngine::PulseAudioEngine(QObject *parent) :
 
     m_mainLoopApi = pa_threaded_mainloop_get_api(m_mainLoop);
 
-    connect(this, SIGNAL(contextStateChanged(pa_context_state_t)), this, SLOT(handleContextStateChanged()));
+    connect(this, &PulseAudioEngine::contextStateChanged, this, &PulseAudioEngine::handleContextStateChanged);
 
     connectContext();
 }
