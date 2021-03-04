@@ -60,7 +60,7 @@ void PluginMoveProcessor::start()
     // We have not memoryleaks there.
     // The animation will be automatically deleted when stopped.
     CursorAnimation *cursorAnimation = new CursorAnimation();
-    connect(cursorAnimation, SIGNAL(finished()), this, SLOT(doStart()));
+    connect(cursorAnimation, &CursorAnimation::finished, this, &PluginMoveProcessor::doStart);
     cursorAnimation->setEasingCurve(QEasingCurve::InOutQuad);
     cursorAnimation->setDuration(150);
 

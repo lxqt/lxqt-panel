@@ -58,17 +58,17 @@ ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
     connect(ui->listView_plugins->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &ConfigPluginsWidget::resetButtons);
 
-    connect(ui->pushButton_moveUp,      &QToolButton::clicked, [this, plugins] { plugins->onMovePluginUp(ui->listView_plugins->currentIndex()); });
-    connect(ui->pushButton_moveDown,    &QToolButton::clicked, [this, plugins] { plugins->onMovePluginDown(ui->listView_plugins->currentIndex()); });
+    connect(ui->pushButton_moveUp,       &QToolButton::clicked, this, [this, plugins] { plugins->onMovePluginUp(ui->listView_plugins->currentIndex()); });
+    connect(ui->pushButton_moveDown,     &QToolButton::clicked, this, [this, plugins] { plugins->onMovePluginDown(ui->listView_plugins->currentIndex()); });
 
-    connect(ui->pushButton_addPlugin, &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
-    connect(ui->pushButton_removePlugin, &QToolButton::clicked, [this, plugins] { plugins->onRemovePlugin(ui->listView_plugins->currentIndex()); });
+    connect(ui->pushButton_addPlugin,    &QPushButton::clicked, this, &ConfigPluginsWidget::showAddPluginDialog);
+    connect(ui->pushButton_removePlugin, &QToolButton::clicked, this, [this, plugins] { plugins->onRemovePlugin(ui->listView_plugins->currentIndex()); });
 
-    connect(ui->pushButton_pluginConfig, &QToolButton::clicked, [this, plugins] { plugins->onConfigurePlugin(ui->listView_plugins->currentIndex()); });
+    connect(ui->pushButton_pluginConfig, &QToolButton::clicked, this, [this, plugins] { plugins->onConfigurePlugin(ui->listView_plugins->currentIndex()); });
 
-    connect(plugins, &PanelPluginsModel::pluginAdded, this, &ConfigPluginsWidget::resetButtons);
+    connect(plugins, &PanelPluginsModel::pluginAdded,   this, &ConfigPluginsWidget::resetButtons);
     connect(plugins, &PanelPluginsModel::pluginRemoved, this, &ConfigPluginsWidget::resetButtons);
-    connect(plugins, &PanelPluginsModel::pluginMoved, this, &ConfigPluginsWidget::resetButtons);
+    connect(plugins, &PanelPluginsModel::pluginMoved,   this, &ConfigPluginsWidget::resetButtons);
 }
 
 ConfigPluginsWidget::~ConfigPluginsWidget()

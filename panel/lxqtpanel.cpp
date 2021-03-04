@@ -190,15 +190,15 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
 
     mDelaySave.setSingleShot(true);
     mDelaySave.setInterval(SETTINGS_SAVE_DELAY);
-    connect(&mDelaySave, SIGNAL(timeout()), this, SLOT(saveSettings()));
+    connect(&mDelaySave, &QTimer::timeout, this, [this] { saveSettings(); } );
 
     mHideTimer.setSingleShot(true);
     mHideTimer.setInterval(PANEL_HIDE_DELAY);
-    connect(&mHideTimer, SIGNAL(timeout()), this, SLOT(hidePanelWork()));
+    connect(&mHideTimer, &QTimer::timeout, this, &LXQtPanel::hidePanelWork);
 
     mShowDelayTimer.setSingleShot(true);
     mShowDelayTimer.setInterval(PANEL_SHOW_DELAY);
-    connect(&mShowDelayTimer, &QTimer::timeout, [this] { showPanel(mAnimationTime > 0); });
+    connect(&mShowDelayTimer, &QTimer::timeout, this, [this] { showPanel(mAnimationTime > 0); });
 
     // screen updates
     connect(qApp, &QApplication::screenAdded, this, [this] (QScreen* newScreen) {
@@ -219,10 +219,10 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         connect(screen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
     }
 
-    connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()), this, SLOT(update()));
-    connect(lxqtApp, SIGNAL(themeChanged()), this, SLOT(realign()));
+    connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::settingsChanged, this, [this] { update(); } );
+    connect(lxqtApp,                          &LXQt::Application::themeChanged,       this, &LXQtPanel::realign);
 
-    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, [this] { showPanel(true); });
+    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, this, [this] { showPanel(true); });
     connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
@@ -461,7 +461,10 @@ void LXQtPanel::loadPlugins()
     for (auto const & plugin : plugins)
     {
         mLayout->addPlugin(plugin);
-        connect(plugin, &Plugin::dragLeft, [this] { mShowDelayTimer.stop(); hidePanel(); });
+        connect(plugin, &Plugin::dragLeft, this, [this] {
+            mShowDelayTimer.stop();
+            hidePanel();
+        });
     }
 }
 
@@ -589,7 +592,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
                 mAnimation = new QPropertyAnimation(this, "geometry");
                 mAnimation->setEasingCurve(QEasingCurve::Linear);
                 //Note: for hiding, the margins are set after animation is finished
-                connect(mAnimation, &QAbstractAnimation::finished, [this] { if (mHidden) setMargins(); });
+                connect(mAnimation, &QAbstractAnimation::finished, this, [this] { if (mHidden) setMargins(); });
             }
             mAnimation->setDuration(mAnimationTime);
             mAnimation->setStartValue(geometry());
@@ -1205,36 +1208,36 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
 
     menu->addAction(XdgIcon::fromTheme(QLatin1String("configure")),
                    tr("Configure Panel"),
-                   this, SLOT(showConfigDialog())
+                   this, &LXQtPanel::showConfigDialog
                   )->setDisabled(mLockPanel);
 
     menu->addAction(XdgIcon::fromTheme(QStringLiteral("preferences-plugin")),
                    tr("Manage Widgets"),
-                   this, SLOT(showAddPluginDialog())
+                   this, &LXQtPanel::showAddPluginDialog
                   )->setDisabled(mLockPanel);
 
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     menu->addAction(XdgIcon::fromTheme(QLatin1String("list-add")),
                    tr("Add New Panel"),
-                   a, SLOT(addNewPanel())
+                   a, &LXQtPanelApplication::addNewPanel
                   );
 
     if (a->count() > 1)
     {
         menu->addAction(XdgIcon::fromTheme(QLatin1String("list-remove")),
                        tr("Remove Panel", "Menu Item"),
-                       this, SLOT(userRequestForDeletion())
+                       this, &LXQtPanel::userRequestForDeletion
                       )->setDisabled(mLockPanel);
     }
 
     QAction * act_lock = menu->addAction(tr("Lock This Panel"));
     act_lock->setCheckable(true);
     act_lock->setChecked(mLockPanel);
-    connect(act_lock, &QAction::triggered, [this] { mLockPanel = !mLockPanel; saveSettings(false); });
+    connect(act_lock, &QAction::triggered, this, [this] { mLockPanel = !mLockPanel; saveSettings(false); });
 
 #ifdef DEBUG
     menu->addSeparator();
-    menu->addAction("Exit (debug only)", qApp, SLOT(quit()));
+    menu->addAction("Exit (debug only)", qApp, &QApplication::quit);
 #endif
 
     /* Note: in multihead & multipanel setup the QMenu::popup/exec places the window
