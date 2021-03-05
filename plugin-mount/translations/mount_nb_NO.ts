@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Håndterer for uttagbare medier og enheter</translation>
+        <translation>Håndterer for flyttbare medium/enheter</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Håndterer for uttagbare media og enheter</translation>
+        <translation>Håndterer for flyttbare medium/enheter</translation>
     </message>
 </context>
 <context>
@@ -113,7 +113,7 @@
         <location filename="../menudiskitem.cpp" line="155"/>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Removable media/devices manager</source>
-        <translation>Håndterer for uttagbare media og enheter</translation>
+        <translation>Håndterer for flyttbare medium/enheter</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
