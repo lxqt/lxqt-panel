@@ -42,9 +42,9 @@ ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
     addPage(mPluginsPage, tr("Widgets"), QLatin1String("preferences-plugin"));
     connect(this, &ConfigPanelDialog::reset, mPluginsPage, &ConfigPluginsWidget::reset);
 
-    connect(this, &ConfigPanelDialog::accepted, [panel] {
+    connect(this, &ConfigPanelDialog::accepted, panel, [panel] {
         panel->saveSettings();
-   });
+    });
 }
 
 void ConfigPanelDialog::showConfigPanelPage()

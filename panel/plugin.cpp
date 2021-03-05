@@ -435,12 +435,12 @@ QMenu *Plugin::popupMenu() const
             XdgIcon::fromTheme(QLatin1String("preferences-other")),
             tr("Configure \"%1\"").arg(name), menu);
         menu->addAction(configAction);
-        connect(configAction, SIGNAL(triggered()), this, SLOT(showConfigureDialog()));
+        connect(configAction, &QAction::triggered, this, &Plugin::showConfigureDialog);
     }
 
     QAction* moveAction = new QAction(XdgIcon::fromTheme(QStringLiteral("transform-move")), tr("Move \"%1\"").arg(name), menu);
     menu->addAction(moveAction);
-    connect(moveAction, SIGNAL(triggered()), this, SIGNAL(startMove()));
+    connect(moveAction, &QAction::triggered, this, &Plugin::startMove);
 
     menu->addSeparator();
 
@@ -448,7 +448,7 @@ QMenu *Plugin::popupMenu() const
         XdgIcon::fromTheme(QLatin1String("list-remove")),
         tr("Remove \"%1\"").arg(name), menu);
     menu->addAction(removeAction);
-    connect(removeAction, SIGNAL(triggered()), this, SLOT(requestRemove()));
+    connect(removeAction, &QAction::triggered, this, &Plugin::requestRemove);
 
     return menu;
 }
