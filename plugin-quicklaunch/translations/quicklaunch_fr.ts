@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="336"/>
         <source>Drop application
 icons here</source>
-        <translation>Déposer ici
-les icônes d&apos;application</translation>
+        <translation>Déposer les icônes
+ d&apos;application ici</translation>
     </message>
 </context>
 <context>
@@ -26,17 +26,17 @@ les icônes d&apos;application</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished">(Ctrl + Fin)</translation>
+        <translation>(Ctrl + DND)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation>Déplacer vers la gauche</translation>
+        <translation>Déplacer à gauche</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation>Déplacer vers la droite</translation>
+        <translation>Déplacer à droite</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="64"/>

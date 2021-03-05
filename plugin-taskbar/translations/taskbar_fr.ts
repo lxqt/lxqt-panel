@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="737"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished">Déplacer vers l&apos;&amp;Écran suivant</translation>
+        <translation>Déplacer vers l&apos;Écran suiva&amp;nt</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="740"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished">Déplacer vers l&apos;&amp;Écran précédent</translation>
+        <translation>Déplacer vers l&apos;Écran &amp;précédent</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="744"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished">Seuil de delta de roue</translation>
+        <translation>Seuil de delta de roue</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>

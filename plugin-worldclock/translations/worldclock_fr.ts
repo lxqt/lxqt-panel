@@ -230,12 +230,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished">Afficher les numéros de &amp;semaine dans le calendrier contextuel</translation>
+        <translation>Afficher les numéros de semaine dans le calendrier contextuel</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished">Montrer les infobulles</translation>
+        <translation>Montrer les infobulles</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
