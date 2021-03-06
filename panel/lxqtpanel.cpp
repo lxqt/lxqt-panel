@@ -268,7 +268,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     });
     connect(KWindowSystem::self(),
             static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged),
-            this, [this] (WId id, NET::Properties prop, NET::Properties2) {
+            this, [this] (WId /* id */, NET::Properties prop, NET::Properties2) {
         if (mHidable && mHideOnOverlap
             // when a window is moved, resized, shaded, or minimized
             && (prop.testFlag(NET::WMGeometry) || prop.testFlag(NET::WMState)))
@@ -1127,7 +1127,11 @@ bool LXQtPanel::event(QEvent *event)
         // Sometimes Qt needs to re-create the underlying window of the widget and
         // the winId() may be changed at runtime. So we need to reset all X11 properties
         // when this happens.
-        qDebug() << "WinIdChange" << hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
+        #if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
+            qDebug() << "WinIdChange" << Qt::hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
+        #else
+            qDebug() << "WinIdChange" << hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
+        #endif
 
         // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
         // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887

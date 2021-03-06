@@ -53,7 +53,13 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
 {
     m_buttons = new QButtonGroup(this);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+    connect (m_pSignalMapper, &QSignalMapper::mappedInt, this, &DesktopSwitch::setDesktop);
+#else
     connect (m_pSignalMapper, QOverload<int>::of(&QSignalMapper::mapped), this, &DesktopSwitch::setDesktop);
+#endif
+
 
     mLayout = new LXQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
@@ -63,10 +69,14 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     onCurrentDesktopChanged(KWindowSystem::currentDesktop());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+    connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
+#else
     connect(m_buttons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * /*button*/){
         int id = m_buttons->checkedId();
         setDesktop(id);
     });
+#endif
 
     connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
     connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);
@@ -318,13 +328,18 @@ DesktopSwitchWidget::DesktopSwitchWidget():
 void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
     // Without some sort of threshold which has to be passed, scrolling is too sensitive
-    m_mouseWheelThresholdCounter -= e->delta();
+    QPoint angleDelta = e->angleDelta();
+    Qt::Orientation orient = (qAbs(angleDelta.x()) > qAbs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
+    int rotationSteps = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
+
+    m_mouseWheelThresholdCounter -= rotationSteps;
+
     // If the user hasn't scrolled far enough in one direction (positive or negative): do nothing
     if(abs(m_mouseWheelThresholdCounter) < 100)
         return;
 
     int max = KWindowSystem::numberOfDesktops();
-    int delta = e->delta() < 0 ? 1 : -1;
+    int delta = rotationSteps < 0 ? 1 : -1;
     int current = KWindowSystem::currentDesktop() + delta;
 
     if (current > max){
