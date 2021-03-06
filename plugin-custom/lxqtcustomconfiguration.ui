@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>572</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -182,16 +182,6 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="commandLabel">
-          <property name="text">
-           <string>Command</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="2" colspan="2">
          <widget class="QPlainTextEdit" name="commandPlainTextEdit">
           <property name="minimumSize">
@@ -208,6 +198,16 @@
           </property>
           <property name="placeholderText">
            <string>Command to run</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" rowspan="2">
+         <widget class="QLabel" name="commandLabel">
+          <property name="text">
+           <string>Command</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>

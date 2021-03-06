@@ -64,7 +64,7 @@ void CustomButton::setMaxWidth(int maxWidth)
 void CustomButton::updateWidth()
 {
     int newWidth = qMin(sizeHint().width(), mMaxWidth);
-    if (mOrigin == Qt::TopLeftCorner){
+    if (mOrigin == Qt::TopLeftCorner) {
         setFixedWidth(newWidth);
 
         setMinimumHeight(1);
@@ -81,8 +81,7 @@ void CustomButton::updateWidth()
 
 void CustomButton::setOrigin(Qt::Corner newOrigin)
 {
-    if (mOrigin != newOrigin)
-    {
+    if (mOrigin != newOrigin) {
         mOrigin = newOrigin;
         updateWidth();
     }
@@ -90,8 +89,7 @@ void CustomButton::setOrigin(Qt::Corner newOrigin)
 
 void CustomButton::setAutoRotation(bool value)
 {
-    if (value)
-    {
+    if (value) {
         switch (mPanel->position())
         {
         case ILXQtPanel::PositionTop:
@@ -116,8 +114,7 @@ void CustomButton::setAutoRotation(bool value)
 
 void CustomButton::paintEvent(QPaintEvent *event)
 {
-    if (mOrigin == Qt::TopLeftCorner)
-    {
+    if (mOrigin == Qt::TopLeftCorner) {
         QToolButton::paintEvent(event);
         return;
     }

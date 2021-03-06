@@ -43,17 +43,15 @@ LXQtCustom::LXQtCustom(const ILXQtPanelPluginStartupInfo &startupInfo):
         mOutput(QString()),
         mAutoRotate(true)
 {
-    mMainWidget = new QWidget;
-    mMainWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    mContent = new CustomButton(this);
-    mContent->setObjectName(QLatin1String("CustomContent"));
+    mButton = new CustomButton(this);
+    mButton->setObjectName(QLatin1String("CustomButton"));
 
-    mFont = mContent->font().toString();
+    mFont = mButton->font().toString();
 
     mTimer->setSingleShot(true);
 
-    connect(mContent, &CustomButton::clicked, this, &LXQtCustom::handleClick);
-    connect(mContent, &CustomButton::wheelScrolled, this, &LXQtCustom::wheelScrolled);
+    connect(mButton, &CustomButton::clicked, this, &LXQtCustom::handleClick);
+    connect(mButton, &CustomButton::wheelScrolled, this, &LXQtCustom::wheelScrolled);
     connect(mTimer, &QTimer::timeout, this, &LXQtCustom::runCommand);
     connect(mProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &LXQtCustom::handleFinished);
 
@@ -62,17 +60,17 @@ LXQtCustom::LXQtCustom(const ILXQtPanelPluginStartupInfo &startupInfo):
 
 LXQtCustom::~LXQtCustom()
 {
-    delete mContent;
+    delete mButton;
 }
 
 QWidget *LXQtCustom::widget()
 {
-    return mContent;
+    return mButton;
 }
 
 void LXQtCustom::realign()
 {
-    mContent->setAutoRotation(mAutoRotate);
+    mButton->setAutoRotation(mAutoRotate);
 }
 
 QDialog *LXQtCustom::configureDialog()
@@ -99,7 +97,7 @@ void LXQtCustom::settingsChanged()
     int oldMaxWidth = mMaxWidth;
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
-    mFont = settings()->value(QStringLiteral("font"), mContent->font().toString()).toString();
+    mFont = settings()->value(QStringLiteral("font"), mButton->font().toString()).toString();
     mCommand = settings()->value(QStringLiteral("command"), QString()).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
@@ -115,7 +113,7 @@ void LXQtCustom::settingsChanged()
         QFont newFont;
         newFont.fromString(mFont);
         QTimer::singleShot(100, [=] {
-            mContent->setFont(newFont);
+            mButton->setFont(newFont);
         });
     }
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldRepeat != mRepeat)
@@ -124,14 +122,18 @@ void LXQtCustom::settingsChanged()
     if (oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer);
 
-    if (oldIcon != mIcon || oldText != mText)
-        mContent->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
+    if (oldIcon != mIcon) {
+        mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
+        updateButton();
+    }
+    else if (oldText != mText)
+        updateButton();
 
     if (oldMaxWidth != mMaxWidth)
-        mContent->setMaxWidth(mMaxWidth);
+        mButton->setMaxWidth(mMaxWidth);
 
     if (oldAutoRotate != mAutoRotate)
-        mContent->setAutoRotation(mAutoRotate);
+        mButton->setAutoRotation(mAutoRotate);
 
     if (shouldRun || mFirstRun) {
         mFirstRun = false;
@@ -161,18 +163,18 @@ void LXQtCustom::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*
         mTimer->start();
 }
 
-void LXQtCustom::updateButton(){
+void LXQtCustom::updateButton() {
     QString newText = mText;
     if (newText.contains(QStringLiteral("%1")))
         newText = newText.arg(mOutput);
 
-    if(mContent->icon().isNull())
-         mContent->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    if (mButton->icon().isNull())
+         mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
     else
-         mContent->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+         mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mContent->setText(newText);
-    mContent->updateWidth();
+    mButton->setText(newText);
+    mButton->updateWidth();
 }
 
 void LXQtCustom::wheelScrolled(int yDelta)

@@ -62,9 +62,7 @@ private slots:
     void wheelScrolled(int yDelta);
 
 private:
-    QWidget *mMainWidget;
-    LXQt::RotatedWidget* mRotatedWidget;
-    CustomButton *mContent;
+    CustomButton *mButton;
     QPointer<LXQtCustomConfiguration> mConfigDialog;
 
     QProcess *mProcess;
