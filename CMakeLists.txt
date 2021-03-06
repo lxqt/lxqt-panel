@@ -97,6 +97,12 @@ if(CPULOAD_PLUGIN)
     add_subdirectory(plugin-cpuload)
 endif()
 
+setByDefault(CUSTOM_PLUGIN Yes)
+if(CUSTOM_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "Custom Plugin")
+    add_subdirectory(plugin-custom)
+endif()
+
 setByDefault(DIRECTORYMENU_PLUGIN Yes)
 if(DIRECTORYMENU_PLUGIN)
     list(APPEND ENABLED_PLUGINS "Directory menu")
