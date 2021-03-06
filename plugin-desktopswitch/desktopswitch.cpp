@@ -53,7 +53,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
 {
     m_buttons = new QButtonGroup(this);
-    connect (m_pSignalMapper, SIGNAL(mapped(int)), this, SLOT(setDesktop(int)));
+    connect (m_pSignalMapper, QOverload<int>::of(&QSignalMapper::mapped), this, &DesktopSwitch::setDesktop);
 
     mLayout = new LXQt::GridLayout(&mWidget);
     mWidget.setLayout(mLayout);
@@ -63,11 +63,14 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     onCurrentDesktopChanged(KWindowSystem::currentDesktop());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
-    connect(m_buttons, SIGNAL(buttonClicked(int)), this, SLOT(setDesktop(int)));
+    connect(m_buttons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * /*button*/){
+        int id = m_buttons->checkedId();
+        setDesktop(id);
+    });
 
-    connect(KWindowSystem::self(), SIGNAL(numberOfDesktopsChanged(int)), SLOT(onNumberOfDesktopsChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(currentDesktopChanged(int)), SLOT(onCurrentDesktopChanged(int)));
-    connect(KWindowSystem::self(), SIGNAL(desktopNamesChanged()), SLOT(onDesktopNamesChanged()));
+    connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::desktopNamesChanged,     this, &DesktopSwitch::onDesktopNamesChanged);
 
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged),
             this, &DesktopSwitch::onWindowChanged);
@@ -89,7 +92,9 @@ void DesktopSwitch::registerShortcuts()
         {
             m_keys << gshortcut;
             connect(gshortcut, &GlobalKeyShortcut::Action::registrationFinished, this, &DesktopSwitch::shortcutRegistered);
-            connect(gshortcut, SIGNAL(activated()), m_pSignalMapper, SLOT(map()));
+            connect(gshortcut, &GlobalKeyShortcut::Action::activated, m_pSignalMapper, [this] {
+                m_pSignalMapper->map();
+            });
             m_pSignalMapper->setMapping(gshortcut, i);
         }
     }

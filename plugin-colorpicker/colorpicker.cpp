@@ -68,8 +68,7 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent):
     mButton.setIcon(XdgIcon::fromTheme(QStringLiteral("color-picker"), QStringLiteral("kcolorchooser")));
 
     mCapturing = false;
-    connect(&mButton, SIGNAL(clicked()), this, SLOT(captureMouse()));
-
+    connect(&mButton, &QToolButton::clicked, this, &ColorPickerWidget::captureMouse);
 }
 
 
