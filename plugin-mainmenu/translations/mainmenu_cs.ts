@@ -136,7 +136,7 @@ Chcete ho přepsat?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Klávesovou zkratku zaznamenáte kliknutím na tlačítko:</translation>
+        <translation>Klávesovou zkratku zaznamenáte klepnutím na tlačítko:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
