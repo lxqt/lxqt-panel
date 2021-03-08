@@ -35,7 +35,7 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     // use our own icon
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
 
-    connect(m_backlightButton, SIGNAL(clicked(bool)), this, SLOT(showSlider(bool)));
+    connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::showSlider);
 
     m_backlightSlider = nullptr;
 }
@@ -65,7 +65,7 @@ void LXQtBacklight::showSlider(bool)
 {
     if(! m_backlightSlider) {
         m_backlightSlider = new SliderDialog(m_backlightButton);
-        connect(m_backlightSlider, SIGNAL(dialogClosed()), this, SLOT(deleteSlider()));
+        connect(m_backlightSlider, &SliderDialog::dialogClosed, this, &LXQtBacklight::deleteSlider);
         //printf("New Slider\n");
     }
     QSize size = m_backlightSlider->sizeHint();

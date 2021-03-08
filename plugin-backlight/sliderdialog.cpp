@@ -76,9 +76,9 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
         m_downButton->setEnabled(false);
     }
     
-    connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged(int)));
-    connect(m_upButton, SIGNAL(clicked(bool)), this, SLOT(upButtonClicked(bool)));
-    connect(m_downButton, SIGNAL(clicked(bool)), this, SLOT(downButtonClicked(bool)));
+    connect(m_slider,     &QSlider::valueChanged, this, &SliderDialog::sliderValueChanged);
+    connect(m_upButton,   &QToolButton::clicked,  this, &SliderDialog::upButtonClicked);
+    connect(m_downButton, &QToolButton::clicked,  this, &SliderDialog::downButtonClicked);
 }
 
 
