@@ -66,7 +66,7 @@ TreeWindow::TreeWindow(QWidget *parent) :
     ui->tree->resizeColumnToContents(0);
 
 
-    connect(ui->tree, SIGNAL(itemSelectionChanged()), this, SLOT(updatePropertiesView()));
+    connect(ui->tree, &QTreeWidget::itemSelectionChanged, this, &TreeWindow::updatePropertiesView);
     item->setSelected(true);
 
     QHeaderView* h = new QHeaderView(Qt::Horizontal);
