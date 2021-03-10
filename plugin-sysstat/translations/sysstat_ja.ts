@@ -33,7 +33,7 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>変更する ...</translation>
+        <translation>変更 ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
@@ -393,7 +393,7 @@
         <location filename="../lxqtsysstat.cpp" line="517"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation>使用: %1%</translation>
+        <translation>使用量: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="547"/>
