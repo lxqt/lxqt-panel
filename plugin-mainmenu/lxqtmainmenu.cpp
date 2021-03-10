@@ -421,8 +421,8 @@ void LXQtMainMenu::buildMenu()
     mMenu->addSeparator();
 
     menuInstallEventFilter(mMenu, this);
-    connect(mMenu, &QMenu::aboutToHide, this, [this] { mHideTimer.start(); });
-    connect(mMenu, &QMenu::aboutToShow, this, [this] { mHideTimer.stop(); });
+    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, QOverload<>::of(&QTimer::start));
+    connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
     mMenu->addSeparator();
     mMenu->addAction(mSearchViewAction);
