@@ -46,13 +46,11 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
     connect(m_ui->showLayout, &QGroupBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->layoutFlagPattern, &QLineEdit::textEdited, this, &KbdStateConfig::save);
 
-    connect(m_ui->modes, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
-        [this](int){
-            KbdStateConfig::save();
-        }
-    );
+    connect(m_ui->modes, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [this] {
+        KbdStateConfig::save();
+    });
 
-    connect(m_ui->btns, &QDialogButtonBox::clicked, [this](QAbstractButton *btn){
+    connect(m_ui->btns, &QDialogButtonBox::clicked, this, [this](QAbstractButton *btn){
         if (m_ui->btns->buttonRole(btn) == QDialogButtonBox::ResetRole){
             Settings::instance().restore();
             load();

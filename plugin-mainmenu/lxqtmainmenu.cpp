@@ -93,7 +93,10 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     //   (while setting icon we also need to set the style)
     //2. delaying of installEventFilter because in c-tor mButton has no parent widget
     //   (parent is assigned in panel's logic after widget() call)
-    QTimer::singleShot(0, [this] { Q_ASSERT(mButton.parentWidget()); mButton.parentWidget()->installEventFilter(this); });
+    QTimer::singleShot(0, mButton.parentWidget(), [this] {
+        Q_ASSERT(mButton.parentWidget());
+        mButton.parentWidget()->installEventFilter(this);
+    });
 
     connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
@@ -104,21 +107,23 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mSearchEdit = new QLineEdit;
     mSearchEdit->setClearButtonEnabled(true);
     mSearchEdit->setPlaceholderText(LXQtMainMenu::tr("Search..."));
-    connect(mSearchEdit, &QLineEdit::textChanged, [this] (QString const &) {
+    connect(mSearchEdit, &QLineEdit::textChanged, this, [this] (QString const &) {
         mSearchTimer.start();
     });
     connect(mSearchEdit, &QLineEdit::returnPressed, mSearchView, &ActionView::activateCurrent);
     mSearchEditAction->setDefaultWidget(mSearchEdit);
-    QTimer::singleShot(0, [this] { settingsChanged(); });
+    QTimer::singleShot(0, this, [this] {
+        settingsChanged();
+    });
 
     mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QStringLiteral("/panel/%1/show_hide").arg(settings()->group()), LXQtMainMenu::tr("Show/hide main menu"), this);
     if (mShortcut)
     {
-        connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, [this] {
+        connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, this, [this] {
             if (mShortcut->shortcut().isEmpty())
                 mShortcut->changeShortcut(QStringLiteral(DEFAULT_SHORTCUT));
         });
-        connect(mShortcut, &GlobalKeyShortcut::Action::activated, [this] {
+        connect(mShortcut, &GlobalKeyShortcut::Action::activated, this, [this] {
             if (!mHideTimer.isActive())
                 // Delay this a little -- if we don't do this, search field
                 // won't be able to capture focus
@@ -416,7 +421,7 @@ void LXQtMainMenu::buildMenu()
     mMenu->addSeparator();
 
     menuInstallEventFilter(mMenu, this);
-    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, QOverload<>::of(&QTimer::start));
     connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
     mMenu->addSeparator();
@@ -427,7 +432,7 @@ void LXQtMainMenu::buildMenu()
     //(if the readOnly is not set, the "blink" timer is active also in case the menu is not shown ->
     //QWidgetLineControl::updateNeeded is performed w/o any need)
     //https://bugreports.qt.io/browse/QTBUG-52021
-    connect(mMenu, &QMenu::aboutToHide, [this] {
+    connect(mMenu, &QMenu::aboutToHide, mSearchEdit, [this] {
         mSearchEdit->setReadOnly(true);
         if (mFilterClear)
             mSearchEdit->clear();
@@ -451,8 +456,7 @@ void LXQtMainMenu::addContextMenu(QMenu *menu)
         if (action->menu())
         {
             action->menu()->setContextMenuPolicy(Qt::CustomContextMenu);
-            connect(action->menu(), &QWidget::customContextMenuRequested,
-                    this, &LXQtMainMenu::onRequestingCustomMenu);
+            connect(action->menu(), &QWidget::customContextMenuRequested, this, &LXQtMainMenu::onRequestingCustomMenu);
             addContextMenu(action->menu());
         }
     }
@@ -485,7 +489,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
         {
             QString action(df.actions().at(i));
             a = menu.addAction(df.actionIcon(action), df.actionName(action));
-            connect(a, &QAction::triggered, [this, df, action] {
+            connect(a, &QAction::triggered, this, [this, df, action] {
                 df.actionActivate(action, QStringList());
                 mMenu->hide();
             });
@@ -516,7 +520,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
         QFile::copy(file, desktopFile);
     });
     a = menu.addAction(XdgIcon::fromTheme(QLatin1String("edit-copy")), tr("Copy"));
-    connect(a, &QAction::triggered, [file] {
+    connect(a, &QAction::triggered, this, [file] {
         QClipboard* clipboard = QApplication::clipboard();
         QMimeData* data = new QMimeData();
         data->setData(QStringLiteral("text/uri-list"), QUrl::fromLocalFile(file).toEncoded()

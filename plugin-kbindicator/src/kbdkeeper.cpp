@@ -43,10 +43,9 @@ KbdKeeper::~KbdKeeper() = default;
 
 bool KbdKeeper::setup()
 {
-    connect(&m_layout, SIGNAL(keyboardChanged()), SLOT(keyboardChanged()));
-    connect(&m_layout, SIGNAL(layoutChanged(uint)), SLOT(layoutChanged(uint)));
-    connect(&m_layout, SIGNAL(checkState()), SLOT(checkState()));
-
+    connect(&m_layout, &KbdLayout::keyboardChanged, this, &KbdKeeper::keyboardChanged);
+    connect(&m_layout, &KbdLayout::layoutChanged,   this, &KbdKeeper::layoutChanged);
+    connect(&m_layout, &KbdLayout::checkState,      this, &KbdKeeper::checkState);
     return true;
 }
 

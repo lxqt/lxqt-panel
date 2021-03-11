@@ -29,7 +29,7 @@
 
 KbdWatcher::KbdWatcher()
 {
-    connect(&m_layout, SIGNAL(modifierChanged(Controls,bool)), SIGNAL(modifierStateChanged(Controls,bool)));
+    connect(&m_layout, &KbdLayout::modifierChanged, this, &KbdWatcher::modifierStateChanged);
     m_layout.init();
 }
 
@@ -61,7 +61,7 @@ void KbdWatcher::createKeeper(KeeperType type)
         break;
     }
 
-    connect(m_keeper.data(), SIGNAL(changed()), this, SLOT(keeperChanged()));
+    connect(m_keeper.data(), &KbdKeeper::changed, this, &KbdWatcher::keeperChanged);
 
     m_keeper->setup();
     keeperChanged();

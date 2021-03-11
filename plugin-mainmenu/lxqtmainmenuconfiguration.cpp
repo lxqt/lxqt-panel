@@ -54,19 +54,19 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
 
     loadSettings();
 
-    connect(ui->showTextCB, &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::showTextChanged);
-    connect(ui->textLE, &QLineEdit::textEdited, this, &LXQtMainMenuConfiguration::textButtonChanged);
+    connect(ui->showTextCB,       &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::showTextChanged);
+    connect(ui->textLE,           &QLineEdit::textEdited,    this, &LXQtMainMenuConfiguration::textButtonChanged);
     connect(ui->chooseMenuFilePB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseMenuFile);
-    connect(ui->menuFilePathLE, &QLineEdit::textChanged, [&] (QString const & file)
-        {
-            this->settings().setValue(QLatin1String("menu_file"), file);
-        });
-    connect(ui->iconCB, &QCheckBox::toggled, [this] (bool value) { this->settings().setValue(QStringLiteral("ownIcon"), value); });
+    connect(ui->menuFilePathLE,   &QLineEdit::textChanged,   this, [&] (QString const & file) {
+        this->settings().setValue(QLatin1String("menu_file"), file);
+    });
+    connect(ui->iconCB, &QCheckBox::toggled, this, [this] (bool value) {
+        this->settings().setValue(QStringLiteral("ownIcon"), value); }
+    );
     connect(ui->iconPB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseIcon);
-    connect(ui->iconLE, &QLineEdit::textChanged, [&] (QString const & path)
-        {
-            this->settings().setValue(QLatin1String("icon"), path);
-        });
+    connect(ui->iconLE, &QLineEdit::textChanged, this, [&] (QString const & path) {
+        this->settings().setValue(QLatin1String("icon"), path);
+    });
 
     connect(ui->shortcutEd, &ShortcutSelector::shortcutGrabbed, this, &LXQtMainMenuConfiguration::shortcutChanged);
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtMainMenuConfiguration::shortcutReset);
@@ -76,32 +76,26 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
 
-    connect(ui->filterMenuCB, &QCheckBox::toggled, [this] (bool enabled)
-        {
-            ui->filterClearCB->setEnabled(enabled || ui->filterShowCB->isChecked());
-            this->settings().setValue(QStringLiteral("filterMenu"), enabled);
-        });
-    connect(ui->filterShowCB, &QCheckBox::toggled, [this] (bool enabled)
-        {
-            ui->filterClearCB->setEnabled(enabled || ui->filterMenuCB->isChecked());
-            this->settings().setValue(QStringLiteral("filterShow"), enabled);
-        });
-    connect(ui->filterShowMaxItemsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
-        {
-            this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
-        });
-    connect(ui->filterShowMaxWidthSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), [this] (int value)
-        {
-            this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
-        });
-    connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, [this] (bool enabled)
-        {
-            this->settings().setValue(QStringLiteral("filterShowHideMenu"), enabled);
-        });
-    connect(ui->filterClearCB, &QCheckBox::toggled, [this] (bool enabled)
-        {
-            this->settings().setValue(QStringLiteral("filterClear"), enabled);
-        });
+    connect(ui->filterMenuCB, &QCheckBox::toggled, this, [this] (bool enabled) {
+        ui->filterClearCB->setEnabled(enabled || ui->filterShowCB->isChecked());
+        this->settings().setValue(QStringLiteral("filterMenu"), enabled);
+    });
+    connect(ui->filterShowCB, &QCheckBox::toggled, this, [this] (bool enabled) {
+        ui->filterClearCB->setEnabled(enabled || ui->filterMenuCB->isChecked());
+        this->settings().setValue(QStringLiteral("filterShow"), enabled);
+    });
+    connect(ui->filterShowMaxItemsSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+        this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
+    });
+    connect(ui->filterShowMaxWidthSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+        this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
+    });
+    connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, this, [this] (bool enabled) {
+        this->settings().setValue(QStringLiteral("filterShowHideMenu"), enabled);
+    });
+    connect(ui->filterClearCB, &QCheckBox::toggled, this, [this] (bool enabled) {
+        this->settings().setValue(QStringLiteral("filterClear"), enabled);
+    });
 }
 
 LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
@@ -168,7 +162,7 @@ void LXQtMainMenuConfiguration::chooseIcon()
                                      tr("Images (*.svg *.png)"));
     d->setWindowModality(Qt::WindowModal);
     d->setAttribute(Qt::WA_DeleteOnClose);
-    connect(d, &QFileDialog::fileSelected, [&] (const QString &icon) {
+    connect(d, &QFileDialog::fileSelected, this, [&] (const QString &icon) {
         ui->iconLE->setText(icon);
     });
     d->show();
@@ -182,7 +176,7 @@ void LXQtMainMenuConfiguration::chooseMenuFile()
                                      tr("Menu files (*.menu)"));
     d->setWindowModality(Qt::WindowModal);
     d->setAttribute(Qt::WA_DeleteOnClose);
-    connect(d, &QFileDialog::fileSelected, [&] (const QString &file) {
+    connect(d, &QFileDialog::fileSelected, this, [&] (const QString &file) {
         ui->menuFilePathLE->setText(file);
     });
     d->show();
