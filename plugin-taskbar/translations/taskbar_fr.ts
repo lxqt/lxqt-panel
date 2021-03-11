@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="737"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation>Déplacer vers l&apos;Écran suiva&amp;nt</translation>
+        <translation>Déplacer vers l&apos;&amp;Écran suivant</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="740"/>
