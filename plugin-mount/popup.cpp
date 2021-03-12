@@ -72,14 +72,13 @@ Popup::Popup(ILXQtPanelPlugin * plugin, QWidget* parent):
     //Perform the potential long time operation after object construction
     //Note: can't use QTimer::singleShot with lambda in pre QT 5.4 code
     QTimer * aux_timer = new QTimer;
-    connect(aux_timer, &QTimer::timeout, [this, aux_timer]
-        {
-            delete aux_timer; //cleanup
-            const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess);
-            for (const Solid::Device& device : devices)
-                if (hasRemovableParent(device))
-                    addItem(device);
-        });
+    connect(aux_timer, &QTimer::timeout, this, [this, aux_timer] {
+        delete aux_timer; //cleanup
+        const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess);
+        for (const Solid::Device& device : devices)
+            if (hasRemovableParent(device))
+                addItem(device);
+    });
     aux_timer->setSingleShot(true);
     aux_timer->start(0);
 

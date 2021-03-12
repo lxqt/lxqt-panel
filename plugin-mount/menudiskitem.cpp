@@ -69,9 +69,9 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
     layout->setSpacing(0);
     setLayout(layout);
 
-    connect(iface, &Solid::StorageAccess::setupDone, this, &MenuDiskItem::onMounted);
-    connect(iface, &Solid::StorageAccess::teardownDone, this, &MenuDiskItem::onUnmounted);
-    connect(iface, &Solid::StorageAccess::accessibilityChanged, [this] (bool /*accessible*/, QString const &) {
+    connect(iface, &Solid::StorageAccess::setupDone,            this, &MenuDiskItem::onMounted);
+    connect(iface, &Solid::StorageAccess::teardownDone,         this, &MenuDiskItem::onUnmounted);
+    connect(iface, &Solid::StorageAccess::accessibilityChanged, this, [this] (bool /*accessible*/, QString const &) {
         updateMountStatus();
     });
 
