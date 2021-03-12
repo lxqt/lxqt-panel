@@ -39,6 +39,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         ILXQtPanelPlugin(startupInfo),
         mProcess(new QProcess(this)),
         mTimer(new QTimer(this)),
+        mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
         mOutput(QString()),
         mAutoRotate(true)
@@ -49,10 +50,12 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
     mFont = mButton->font().toString();
 
     mTimer->setSingleShot(true);
+    mDelayedRunTimer->setSingleShot(true);
 
     connect(mButton, &CustomButton::clicked, this, &LXQtCustomCommand::handleClick);
-    connect(mButton, &CustomButton::wheelScrolled, this, &LXQtCustomCommand::wheelScrolled);
+    connect(mButton, &CustomButton::wheelScrolled, this, &LXQtCustomCommand::handleWheelScrolled);
     connect(mTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
+    connect(mDelayedRunTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &LXQtCustomCommand::handleFinished);
 
     settingsChanged();
@@ -100,7 +103,8 @@ void LXQtCustomCommand::settingsChanged()
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
-    mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 1000).toInt();
+    mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 1).toInt();
+    mRepeatTimer = qMax(1, mRepeatTimer);
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
     mMaxWidth = settings()->value(QStringLiteral("maxWidth"), 200).toInt();
@@ -119,7 +123,7 @@ void LXQtCustomCommand::settingsChanged()
         shouldRun = true;
 
     if (oldRepeatTimer != mRepeatTimer)
-        mTimer->setInterval(mRepeatTimer);
+        mTimer->setInterval(mRepeatTimer * 1000);
 
     if (oldIcon != mIcon) {
         mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
@@ -134,10 +138,13 @@ void LXQtCustomCommand::settingsChanged()
     if (oldAutoRotate != mAutoRotate)
         mButton->setAutoRotation(mAutoRotate);
 
-    if (shouldRun || mFirstRun) {
+    if (mFirstRun) {
         mFirstRun = false;
         runCommand();
     }
+    // Delay timer for running command, avoids multiple calls on settings change while typing command or clicking "Reset"
+    else if (shouldRun)
+        mDelayedRunTimer->start(500);
 }
 
 void LXQtCustomCommand::handleClick()
@@ -176,7 +183,7 @@ void LXQtCustomCommand::updateButton() {
     mButton->updateWidth();
 }
 
-void LXQtCustomCommand::wheelScrolled(int yDelta)
+void LXQtCustomCommand::handleWheelScrolled(int yDelta)
 {
     if (yDelta > 0 && !mWheelUp.isEmpty())
         runDetached(mWheelUp);
@@ -186,9 +193,8 @@ void LXQtCustomCommand::wheelScrolled(int yDelta)
 
 void LXQtCustomCommand::runCommand()
 {
-    if (mCommand.isEmpty()) {
+    if (mCommand.isEmpty() || mProcess->state() == QProcess::Starting || mProcess->state() == QProcess::Running)
         return;
-    }
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     QStringList args;

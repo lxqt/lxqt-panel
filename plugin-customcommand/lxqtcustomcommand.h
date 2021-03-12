@@ -56,10 +56,11 @@ protected slots:
 private slots:
     void handleClick();
     void handleFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void handleWheelScrolled(int yDelta);
     void updateButton();
     void runCommand();
     void runDetached(QString command);
-    void wheelScrolled(int yDelta);
+
 
 private:
     CustomButton *mButton;
@@ -67,6 +68,7 @@ private:
 
     QProcess *mProcess;
     QTimer *mTimer;
+    QTimer *mDelayedRunTimer;
 
     bool mFirstRun;
     QString mOutput;
