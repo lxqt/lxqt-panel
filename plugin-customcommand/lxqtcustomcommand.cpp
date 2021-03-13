@@ -51,6 +51,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
 
     mTimer->setSingleShot(true);
     mDelayedRunTimer->setSingleShot(true);
+    mDelayedRunTimer->setInterval(500);
 
     connect(mButton, &CustomButton::clicked, this, &LXQtCustomCommand::handleClick);
     connect(mButton, &CustomButton::wheelScrolled, this, &LXQtCustomCommand::handleWheelScrolled);
@@ -103,7 +104,7 @@ void LXQtCustomCommand::settingsChanged()
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
-    mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 1).toInt();
+    mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
     mRepeatTimer = qMax(1, mRepeatTimer);
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
@@ -115,9 +116,16 @@ void LXQtCustomCommand::settingsChanged()
     if (oldFont != mFont) {
         QFont newFont;
         newFont.fromString(mFont);
-        QTimer::singleShot(100, [=] {
+        if (mFirstRun) {
+            QTimer::singleShot(0, mButton, [this, newFont] {
+                mButton->setFont(newFont);
+                updateButton();
+            });
+        }
+        else {
             mButton->setFont(newFont);
-        });
+            updateButton();
+        }
     }
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldRepeat != mRepeat)
         shouldRun = true;
@@ -144,7 +152,7 @@ void LXQtCustomCommand::settingsChanged()
     }
     // Delay timer for running command, avoids multiple calls on settings change while typing command or clicking "Reset"
     else if (shouldRun)
-        mDelayedRunTimer->start(500);
+        mDelayedRunTimer->start();
 }
 
 void LXQtCustomCommand::handleClick()
@@ -193,8 +201,13 @@ void LXQtCustomCommand::handleWheelScrolled(int yDelta)
 
 void LXQtCustomCommand::runCommand()
 {
-    if (mCommand.isEmpty() || mProcess->state() == QProcess::Starting || mProcess->state() == QProcess::Running)
+    if (mCommand.isEmpty())
         return;
+
+    if (mProcess->state() != QProcess::NotRunning) {
+        mDelayedRunTimer->start();
+        return;
+    }
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     QStringList args;
