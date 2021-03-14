@@ -55,14 +55,13 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     const QString dndStr = QStringLiteral(" ") + tr("(Ctrl + DND)");
 
     mMoveLeftAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-previous")), tr("Move left") + dndStr, this);
-    connect(mMoveLeftAct, SIGNAL(triggered()), this, SIGNAL(movedLeft()));
+    connect(mMoveLeftAct, &QAction::triggered, this, &QuickLaunchButton::movedLeft);
 
     mMoveRightAct = new QAction(XdgIcon::fromTheme(QStringLiteral("go-next")), tr("Move right") + dndStr, this);
-    connect(mMoveRightAct, SIGNAL(triggered()), this, SIGNAL(movedRight()));
-
+    connect(mMoveRightAct, &QAction::triggered, this, &QuickLaunchButton::movedRight);
 
     mDeleteAct = new QAction(XdgIcon::fromTheme(QStringLiteral("dialog-close")), tr("Remove from quicklaunch"), this);
-    connect(mDeleteAct, SIGNAL(triggered()), this, SLOT(selfRemove()));
+    connect(mDeleteAct, &QAction::triggered, this, &QuickLaunchButton::selfRemove);
 
     mMenu = new QMenu(this);
     mMenu->addAction(mAct);
@@ -74,8 +73,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     mMenu->addAction(mDeleteAct);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
-            this, SLOT(this_customContextMenuRequested(const QPoint&)));
+    connect(this, &QuickLaunchButton::customContextMenuRequested, this, &QuickLaunchButton::this_customContextMenuRequested);
 }
 
 QuickLaunchButton::~QuickLaunchButton() = default;
