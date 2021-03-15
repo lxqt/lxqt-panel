@@ -45,11 +45,11 @@ ShowDesktop::ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo) :
     if (m_key)
     {
         connect(m_key, &GlobalKeyShortcut::Action::registrationFinished, this, &ShowDesktop::shortcutRegistered);
-        connect(m_key, SIGNAL(activated()), this, SLOT(toggleShowingDesktop()));
+        connect(m_key, &GlobalKeyShortcut::Action::activated,            this, &ShowDesktop::toggleShowingDesktop);
     }
 
     QAction * act = new QAction(XdgIcon::fromTheme(QStringLiteral("user-desktop")), tr("Show Desktop"), this);
-    connect(act, SIGNAL(triggered()), this, SLOT(toggleShowingDesktop()));
+    connect(act, &QAction::triggered, this, &ShowDesktop::toggleShowingDesktop);
 
     mButton.setDefaultAction(act);
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
