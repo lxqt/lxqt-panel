@@ -104,13 +104,12 @@ LXQtSensors::LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent):
     updateSensorReadings();
 
     // Run timer that will be updating sensor readings
-    connect(&mUpdateSensorReadingsTimer, SIGNAL(timeout()), this, SLOT(updateSensorReadings()));
+    connect(&mUpdateSensorReadingsTimer, &QTimer::timeout, this, &LXQtSensors::updateSensorReadings);
     mUpdateSensorReadingsTimer.start(mSettings->value(QStringLiteral("updateInterval")).toInt() * 1000);
 
     // Run timer that will be showin warning
     mWarningAboutHighTemperatureTimer.setInterval(500);
-    connect(&mWarningAboutHighTemperatureTimer, SIGNAL(timeout()), this,
-            SLOT(warningAboutHighTemperature()));
+    connect(&mWarningAboutHighTemperatureTimer, &QTimer::timeout, this, &LXQtSensors::warningAboutHighTemperature);
     if (mSettings->value(QStringLiteral("warningAboutHighTemperature")).toBool())
     {
         mWarningAboutHighTemperatureTimer.start();
