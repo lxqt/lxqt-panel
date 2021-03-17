@@ -59,21 +59,21 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
     mDefaultColours[QStringLiteral("netTransmitted")] = QColor("#808000");
 
     //
-    mShowColourMap[QString::fromLatin1("grid")] = ui->gridB;
-    mShowColourMap[QString::fromLatin1("title")] = ui->titleB;
-    mShowColourMap[QString::fromLatin1("cpuSystem")] = ui->cpuSystemB;
-    mShowColourMap[QString::fromLatin1("cpuUser")] = ui->cpuUserB;
-    mShowColourMap[QString::fromLatin1("cpuNice")] = ui->cpuNiceB;
-    mShowColourMap[QString::fromLatin1("cpuOther")] = ui->cpuOtherB;
-    mShowColourMap[QString::fromLatin1("cpuFrequency")] = ui->cpuFrequencyB;
-    mShowColourMap[QString::fromLatin1("memApps")] = ui->memAppsB;
-    mShowColourMap[QString::fromLatin1("memBuffers")] = ui->memBuffersB;
-    mShowColourMap[QString::fromLatin1("memCached")] = ui->memCachedB;
-    mShowColourMap[QString::fromLatin1("memSwap")] = ui->memSwapB;
-    mShowColourMap[QString::fromLatin1("netReceived")] = ui->netReceivedB;
-    mShowColourMap[QString::fromLatin1("netTransmitted")] = ui->netTransmittedB;
+    mShowColourMap[QStringLiteral("grid")] = ui->gridB;
+    mShowColourMap[QStringLiteral("title")] = ui->titleB;
+    mShowColourMap[QStringLiteral("cpuSystem")] = ui->cpuSystemB;
+    mShowColourMap[QStringLiteral("cpuUser")] = ui->cpuUserB;
+    mShowColourMap[QStringLiteral("cpuNice")] = ui->cpuNiceB;
+    mShowColourMap[QStringLiteral("cpuOther")] = ui->cpuOtherB;
+    mShowColourMap[QStringLiteral("cpuFrequency")] = ui->cpuFrequencyB;
+    mShowColourMap[QStringLiteral("memApps")] = ui->memAppsB;
+    mShowColourMap[QStringLiteral("memBuffers")] = ui->memBuffersB;
+    mShowColourMap[QStringLiteral("memCached")] = ui->memCachedB;
+    mShowColourMap[QStringLiteral("memSwap")] = ui->memSwapB;
+    mShowColourMap[QStringLiteral("netReceived")] = ui->netReceivedB;
+    mShowColourMap[QStringLiteral("netTransmitted")] = ui->netTransmittedB;
 
-    QMap<QString, QPushButton*>::const_iterator iterator = mShowColourMap.constBegin();
+    auto iterator = mShowColourMap.constBegin();
     while (iterator != mShowColourMap.constEnd()) {
         connect(iterator.value(), &QPushButton::clicked, mSelectColourMapper, QOverload<>::of(&QSignalMapper::map));
         mSelectColourMapper->setMapping( iterator.value() , iterator.key() );
