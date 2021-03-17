@@ -51,7 +51,7 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
     mShowBtn->setText(QStringLiteral("+"));
     layout()->addWidget(mShowBtn);
     mShowBtn->hide();
-    connect(mShowBtn, &QAbstractButton::clicked, [this] {
+    connect(mShowBtn, &QAbstractButton::clicked, this, [this] {
         if (mForceVisible)
             return; // all items are visible; nothing to do
         mShowBtn->hide();
@@ -143,7 +143,7 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
     button->show();
 
     // show/hide the added item appropriately and show mShowBtn if needed
-    connect(button, &StatusNotifierButton::titleFound, [this, button] (const QString &title) {
+    connect(button, &StatusNotifierButton::titleFound, this, [this, button] (const QString &title) {
         mItemTitles << title;
         if (mAutoHideList.contains(title))
         {
@@ -162,7 +162,7 @@ void StatusNotifierWidget::itemAdded(QString serviceAndPath)
         }
     });
     // show/hide mShowBtn if needed whenever an item gets or loses attention
-    connect(button, &StatusNotifierButton::attentionChanged, [this, button] {
+    connect(button, &StatusNotifierButton::attentionChanged, mShowBtn, [this, button] {
         if (button->hasAttention())
         {
             if (mShowBtn->isVisible() || mForceVisible)
