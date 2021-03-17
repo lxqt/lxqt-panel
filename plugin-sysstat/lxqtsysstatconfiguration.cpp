@@ -227,7 +227,7 @@ void LXQtSysStatConfiguration::on_customColoursB_clicked()
     if (!mColoursDialog)
     {
         mColoursDialog = new LXQtSysStatColours(this);
-        connect(mColoursDialog, SIGNAL(coloursChanged()), SLOT(coloursChanged()));
+        connect(mColoursDialog, &LXQtSysStatColours::coloursChanged, this, &LXQtSysStatConfiguration::coloursChanged);
     }
 
     LXQtSysStatColours::Colours colours;

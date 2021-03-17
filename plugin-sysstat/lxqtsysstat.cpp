@@ -55,7 +55,7 @@ LXQtSysStat::LXQtSysStat(const ILXQtPanelPluginStartupInfo &startupInfo):
     mContent->setMinimumSize(2, 2);
 
     // qproperty of font type doesn't work with qss, so fake QLabel is used instead
-    connect(mFakeTitle, SIGNAL(fontChanged(QFont)), mContent, SLOT(setTitleFont(QFont)));
+    connect(mFakeTitle, &LXQtSysStatTitle::fontChanged, mContent, &LXQtSysStatContent::setTitleFont);
 
     // has to be postponed to update the size first
     QTimer::singleShot(0, this, SLOT(lateInit()));
@@ -315,27 +315,30 @@ void LXQtSysStatContent::updateSettings(const PluginSettings *settings)
         {
             if (mDataType == QLatin1String("CPU"))
             {
+                SysStat::CpuStat* cpustat = qobject_cast<SysStat::CpuStat*>(mStat);
                 if (mUseFrequency)
                 {
-                    qobject_cast<SysStat::CpuStat*>(mStat)->setMonitoring(SysStat::CpuStat::LoadAndFrequency);
-                    connect(qobject_cast<SysStat::CpuStat*>(mStat), SIGNAL(update(float, float, float, float, float, uint)), this, SLOT(cpuUpdate(float, float, float, float, float, uint)));
+                    cpustat->setMonitoring(SysStat::CpuStat::LoadAndFrequency);
+                    connect(cpustat, QOverload<float, float, float, float, float, uint>::of(&SysStat::CpuStat::update), this, &LXQtSysStatContent::cpuLoadFrequencyUpdate);
                 }
                 else
                 {
-                    qobject_cast<SysStat::CpuStat*>(mStat)->setMonitoring(SysStat::CpuStat::LoadOnly);
-                    connect(qobject_cast<SysStat::CpuStat*>(mStat), SIGNAL(update(float, float, float, float)), this, SLOT(cpuUpdate(float, float, float, float)));
+                    cpustat->setMonitoring(SysStat::CpuStat::LoadOnly);
+                    connect(cpustat, QOverload<float, float, float, float>::of(&SysStat::CpuStat::update), this, &LXQtSysStatContent::cpuLoadUpdate);
                 }
             }
             else if (mDataType == QLatin1String("Memory"))
             {
+                SysStat::MemStat* memstat = qobject_cast<SysStat::MemStat*>(mStat);
                 if (mDataSource == QLatin1String("memory"))
-                    connect(qobject_cast<SysStat::MemStat*>(mStat), SIGNAL(memoryUpdate(float, float, float)), this, SLOT(memoryUpdate(float, float, float)));
+                    connect(memstat, &SysStat::MemStat::memoryUpdate, this, &LXQtSysStatContent::memoryUpdate);
                 else
-                    connect(qobject_cast<SysStat::MemStat*>(mStat), SIGNAL(swapUpdate(float)), this, SLOT(swapUpdate(float)));
+                    connect(memstat, &SysStat::MemStat::swapUpdate,   this, &LXQtSysStatContent::swapUpdate);
             }
             else if (mDataType == QLatin1String("Network"))
             {
-                connect(qobject_cast<SysStat::NetStat*>(mStat), SIGNAL(update(unsigned, unsigned)), this, SLOT(networkUpdate(unsigned, unsigned)));
+                SysStat::NetStat* netstat = qobject_cast<SysStat::NetStat*>(mStat);
+                connect(netstat, &SysStat::NetStat::update, this, &LXQtSysStatContent::networkUpdate);
             }
 
             mStat->setMonitoredSource(mDataSource);
@@ -381,7 +384,7 @@ void LXQtSysStatContent::clearLine()
         reinterpret_cast<QRgb*>(mHistoryImage.scanLine(i))[mHistoryOffset] = bg;
 }
 
-void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float other, float frequencyRate, uint)
+void LXQtSysStatContent::cpuLoadFrequencyUpdate(float user, float nice, float system, float other, float frequencyRate, uint)
 {
     int y_system = static_cast<int>(system * 100.0 * frequencyRate);
     int y_user   = static_cast<int>(user   * 100.0 * frequencyRate);
@@ -431,7 +434,7 @@ void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float o
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
 
-void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float other)
+void LXQtSysStatContent::cpuLoadUpdate(float user, float nice, float system, float other)
 {
     int y_system = static_cast<int>(system * 100.0);
     int y_user   = static_cast<int>(user   * 100.0);
