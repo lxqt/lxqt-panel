@@ -137,8 +137,8 @@ protected:
     void resizeEvent(QResizeEvent *);
 
 protected slots:
-    void cpuUpdate(float user, float nice, float system, float other, float frequencyRate, uint frequency);
-    void cpuUpdate(float user, float nice, float system, float other);
+    void cpuLoadFrequencyUpdate(float user, float nice, float system, float other, float frequencyRate, uint frequency);
+    void cpuLoadUpdate(float user, float nice, float system, float other);
     void memoryUpdate(float apps, float buffers, float cached);
     void swapUpdate(float used);
     void networkUpdate(unsigned received, unsigned transmitted);

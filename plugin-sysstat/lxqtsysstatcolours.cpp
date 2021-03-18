@@ -58,30 +58,33 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
     mDefaultColours[QStringLiteral("netReceived")]    = QColor("#000080");
     mDefaultColours[QStringLiteral("netTransmitted")] = QColor("#808000");
 
+    //
+    mShowColourMap[QStringLiteral("grid")] = ui->gridB;
+    mShowColourMap[QStringLiteral("title")] = ui->titleB;
+    mShowColourMap[QStringLiteral("cpuSystem")] = ui->cpuSystemB;
+    mShowColourMap[QStringLiteral("cpuUser")] = ui->cpuUserB;
+    mShowColourMap[QStringLiteral("cpuNice")] = ui->cpuNiceB;
+    mShowColourMap[QStringLiteral("cpuOther")] = ui->cpuOtherB;
+    mShowColourMap[QStringLiteral("cpuFrequency")] = ui->cpuFrequencyB;
+    mShowColourMap[QStringLiteral("memApps")] = ui->memAppsB;
+    mShowColourMap[QStringLiteral("memBuffers")] = ui->memBuffersB;
+    mShowColourMap[QStringLiteral("memCached")] = ui->memCachedB;
+    mShowColourMap[QStringLiteral("memSwap")] = ui->memSwapB;
+    mShowColourMap[QStringLiteral("netReceived")] = ui->netReceivedB;
+    mShowColourMap[QStringLiteral("netTransmitted")] = ui->netTransmittedB;
 
-#undef CONNECT_SELECT_COLOUR
-#define CONNECT_SELECT_COLOUR(VAR) \
-    connect(ui-> VAR ## B, SIGNAL(clicked()), mSelectColourMapper, SLOT(map())); \
-    mSelectColourMapper->setMapping(ui-> VAR ## B, QString::fromLatin1( #VAR )); \
-    mShowColourMap[QString::fromLatin1( #VAR )] = ui-> VAR ## B;
+    auto iterator = mShowColourMap.constBegin();
+    while (iterator != mShowColourMap.constEnd()) {
+        connect(iterator.value(), &QPushButton::clicked, mSelectColourMapper, QOverload<>::of(&QSignalMapper::map));
+        mSelectColourMapper->setMapping( iterator.value() , iterator.key() );
+        ++iterator;
+    }
 
-    CONNECT_SELECT_COLOUR(grid)
-    CONNECT_SELECT_COLOUR(title)
-    CONNECT_SELECT_COLOUR(cpuSystem)
-    CONNECT_SELECT_COLOUR(cpuUser)
-    CONNECT_SELECT_COLOUR(cpuNice)
-    CONNECT_SELECT_COLOUR(cpuOther)
-    CONNECT_SELECT_COLOUR(cpuFrequency)
-    CONNECT_SELECT_COLOUR(memApps)
-    CONNECT_SELECT_COLOUR(memBuffers)
-    CONNECT_SELECT_COLOUR(memCached)
-    CONNECT_SELECT_COLOUR(memSwap)
-    CONNECT_SELECT_COLOUR(netReceived)
-    CONNECT_SELECT_COLOUR(netTransmitted)
-
-#undef CONNECT_SELECT_COLOUR
-
-    connect(mSelectColourMapper, SIGNAL(mapped(const QString &)), SLOT(selectColour(const QString &)));
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+    connect(mSelectColourMapper, &QSignalMapper::mappedString, this, &LXQtSysStatColours::selectColour);
+#else
+    connect(mSelectColourMapper, QOverload<const QString &>::of(&QSignalMapper::mapped), this, &LXQtSysStatColours::selectColour);
+#endif
 }
 
 LXQtSysStatColours::~LXQtSysStatColours()
