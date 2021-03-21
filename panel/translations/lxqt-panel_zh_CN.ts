@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>仅在重叠窗口时隐藏</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
