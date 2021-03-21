@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(тільки один екземпляр може бути запущений за раз)</translation>
+        <translation>(лише один екземпляр може бути запущений за раз)</translation>
     </message>
 </context>
 <context>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Від&apos;ємне значення встановить довжину панелі зменшену на вказану кількість пікселів від доступної довжини екрана.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Наприклад &quot;Довжину&quot; встановлена на -100 пікселів, розмір екрану — 1000 пікселів, тоді дійсний розмір панелі буде 900 пікселів.&lt;/i&gt;&lt;/p</translation>
+        <translation>&lt;p&gt;Від&apos;ємне значення встановить довжину панелі зменшену на вказану кількість пікселів від доступної довжини екрана.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Наприклад &quot;Довжиною&quot; встановлено 100 пікселів, розмір екрана — 1000 пікселів, тоді дійсний розмір панелі буде 900 пікселів.&lt;/i&gt;&lt;/p</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>

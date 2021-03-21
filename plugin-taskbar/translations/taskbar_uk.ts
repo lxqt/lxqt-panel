@@ -145,17 +145,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Показати тільки вікна з стільниці</translation>
+        <translation>Показати лише вікна зі стільниці</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Показати тільки вікна з екрану &amp;панелі</translation>
+        <translation>Показати лише вікна з екрана &amp;панелі</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>Показати тільки мінімізовані вікна</translation>
+        <translation>Показати лише згорнуті вікна</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
