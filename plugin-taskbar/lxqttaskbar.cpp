@@ -87,10 +87,14 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
-    QTimer::singleShot(0, this, SLOT(settingsChanged()));
+    QTimer::singleShot(0, this, &LXQtTaskBar::settingsChanged);
     setAcceptDrops(true);
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+    connect(mSignalMapper, &QSignalMapper::mappedInt, this, &LXQtTaskBar::activateTask);
+#else
     connect(mSignalMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &LXQtTaskBar::activateTask);
+#endif
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
@@ -299,10 +303,10 @@ void LXQtTaskBar::addWindow(WId window)
     if (!group)
     {
         group = new LXQtTaskGroup(group_id, window, this);
-        connect(group, SIGNAL(groupBecomeEmpty(QString)), this, SLOT(groupBecomeEmptySlot()));
-        connect(group, SIGNAL(visibilityChanged(bool)), this, SLOT(refreshPlaceholderVisibility()));
-        connect(group, &LXQtTaskGroup::popupShown, this, &LXQtTaskBar::popupShown);
-        connect(group, &LXQtTaskButton::dragging, this, [this] (QObject * dragSource, QPoint const & pos) {
+        connect(group, &LXQtTaskGroup::groupBecomeEmpty,  this, &LXQtTaskBar::groupBecomeEmptySlot);
+        connect(group, &LXQtTaskGroup::visibilityChanged, this, &LXQtTaskBar::refreshPlaceholderVisibility);
+        connect(group, &LXQtTaskGroup::popupShown,        this, &LXQtTaskBar::popupShown);
+        connect(group, &LXQtTaskButton::dragging,         this, [this] (QObject * dragSource, QPoint const & pos) {
             buttonMove(qobject_cast<LXQtTaskGroup *>(sender()), qobject_cast<LXQtTaskGroup *>(dragSource), pos);
         });
         mLayout->addWidget(group);

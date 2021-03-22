@@ -39,7 +39,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     setObjectName(QStringLiteral("TaskbarConfigurationWindow"));
     ui->setupUi(this);
 
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
+    connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtTaskbarConfiguration::dialogButtonsAction);
 
     ui->buttonStyleCB->addItem(tr("Icon and text"), QLatin1String("IconText"));
     ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));

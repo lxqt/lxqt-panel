@@ -107,16 +107,16 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
 
     mDNDTimer->setSingleShot(true);
     mDNDTimer->setInterval(700);
-    connect(mDNDTimer, SIGNAL(timeout()), this, SLOT(activateWithDraggable()));
+    connect(mDNDTimer, &QTimer::timeout, this, &LXQtTaskButton::activateWithDraggable);
 
     mWheelTimer->setSingleShot(true);
     mWheelTimer->setInterval(250);
-    connect(mWheelTimer, &QTimer::timeout, [this] {
+    connect(mWheelTimer, &QTimer::timeout, this, [this] {
         mWheelDelta = 0; // forget previous wheel deltas
     });
 
-    connect(LXQt::Settings::globalSettings(), SIGNAL(iconThemeChanged()), this, SLOT(updateIcon()));
-    connect(mParentTaskBar, &LXQtTaskBar::iconByClassChanged, this, &LXQtTaskButton::updateIcon);
+    connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::iconThemeChanged, this, &LXQtTaskButton::updateIcon);
+    connect(mParentTaskBar,                   &LXQtTaskBar::iconByClassChanged,        this, &LXQtTaskButton::updateIcon);
 }
 
 /************************************************
@@ -713,7 +713,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         a = deskMenu->addAction(tr("&All Desktops"));
         a->setData(NET::OnAllDesktops);
         a->setEnabled(winDesk != NET::OnAllDesktops);
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         deskMenu->addSeparator();
 
         for (int i = 0; i < deskNum; ++i)
@@ -721,14 +721,14 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
             a = deskMenu->addAction(tr("Desktop &%1").arg(i + 1));
             a->setData(i + 1);
             a->setEnabled(i + 1 != winDesk);
-            connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
+            connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         }
 
         int curDesk = KWindowSystem::currentDesktop();
         a = menu->addAction(tr("&To Current Desktop"));
         a->setData(curDesk);
         a->setEnabled(curDesk != winDesk);
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(moveApplicationToDesktop()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
     }
     /********** Move/Resize **********/
     if (QGuiApplication::screens().size() > 1)
@@ -754,40 +754,40 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     a = menu->addAction(tr("Ma&ximize"));
     a->setEnabled(info.actionSupported(NET::ActionMax) && (!(state & NET::Max) || (state & NET::Hidden)));
     a->setData(NET::Max);
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
         a = menu->addAction(tr("Maximize vertically"));
         a->setEnabled(info.actionSupported(NET::ActionMaxVert) && !((state & NET::MaxVert) || (state & NET::Hidden)));
         a->setData(NET::MaxVert);
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
         a = menu->addAction(tr("Maximize horizontally"));
         a->setEnabled(info.actionSupported(NET::ActionMaxHoriz) && !((state & NET::MaxHoriz) || (state & NET::Hidden)));
         a->setData(NET::MaxHoriz);
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(maximizeApplication()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
     }
 
     a = menu->addAction(tr("&Restore"));
     a->setEnabled((state & NET::Hidden) || (state & NET::Max) || (state & NET::MaxHoriz) || (state & NET::MaxVert));
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(deMaximizeApplication()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::deMaximizeApplication);
 
     a = menu->addAction(tr("Mi&nimize"));
     a->setEnabled(info.actionSupported(NET::ActionMinimize) && !(state & NET::Hidden));
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(minimizeApplication()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::minimizeApplication);
 
     if (state & NET::Shaded)
     {
         a = menu->addAction(tr("Roll down"));
         a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(unShadeApplication()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::unShadeApplication);
     }
     else
     {
         a = menu->addAction(tr("Roll up"));
         a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
-        connect(a, SIGNAL(triggered(bool)), this, SLOT(shadeApplication()));
+        connect(a, &QAction::triggered, this, &LXQtTaskButton::shadeApplication);
     }
 
     /********** Layer menu **********/
@@ -799,24 +799,24 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     // FIXME: There is no info.actionSupported(NET::ActionKeepAbove)
     a->setEnabled(!(state & NET::KeepAbove));
     a->setData(NET::KeepAbove);
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
     a = layerMenu->addAction(tr("&Normal"));
     a->setEnabled((state & NET::KeepAbove) || (state & NET::KeepBelow));
     // FIXME: There is no NET::KeepNormal, so passing 0
     a->setData(0);
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
     a = layerMenu->addAction(tr("Always on &bottom"));
     // FIXME: There is no info.actionSupported(NET::ActionKeepBelow)
     a->setEnabled(!(state & NET::KeepBelow));
     a->setData(NET::KeepBelow);
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(setApplicationLayer()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
     /********** Kill menu **********/
     menu->addSeparator();
     a = menu->addAction(XdgIcon::fromTheme(QStringLiteral("process-stop")), tr("&Close"));
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(closeApplication()));
+    connect(a, &QAction::triggered, this, &LXQtTaskButton::closeApplication);
     menu->setGeometry(mParentTaskBar->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
     mPlugin->willShowWindow(menu);
     menu->show();
