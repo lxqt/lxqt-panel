@@ -40,33 +40,32 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     ui->setupUi(this);
 
     loadSettings();
-    connect(ui->devAddedCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(sinkSelectionChanged(int)));
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
-    connect(ui->showOnClickCheckBox, SIGNAL(toggled(bool)), this, SLOT(showOnClickedChanged(bool)));
-    connect(ui->muteOnMiddleClickCheckBox, SIGNAL(toggled(bool)), this, SLOT(muteOnMiddleClickChanged(bool)));
-    connect(ui->mixerLineEdit, SIGNAL(textChanged(QString)), this, SLOT(mixerLineEditChanged(QString)));
-    connect(ui->stepSpinBox, SIGNAL(valueChanged(int)), this, SLOT(stepSpinBoxChanged(int)));
-    connect(ui->ignoreMaxVolumeCheckBox, SIGNAL(toggled(bool)), this, SLOT(ignoreMaxVolumeCheckBoxChanged(bool)));
-    connect(ui->allwaysShowNotificationsCheckBox, &QAbstractButton::toggled, this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
-    connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled, this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
-
+    connect(ui->devAddedCombo,                     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtVolumeConfiguration::sinkSelectionChanged);
+    connect(ui->buttons,                           &QDialogButtonBox::clicked,                          this, &LXQtVolumeConfiguration::dialogButtonsAction);
+    connect(ui->showOnClickCheckBox,               &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::showOnClickedChanged);
+    connect(ui->muteOnMiddleClickCheckBox,         &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::muteOnMiddleClickChanged);
+    connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,                             this, &LXQtVolumeConfiguration::mixerLineEditChanged);
+    connect(ui->stepSpinBox,                       QOverload<int>::of(&QSpinBox::valueChanged),         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);
+    connect(ui->ignoreMaxVolumeCheckBox,           &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged);
+    connect(ui->allwaysShowNotificationsCheckBox,  &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
+    connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
 
     // currently, this option is only supported by the pulse audio backend
     if(!ui->pulseAudioRadioButton->isChecked())
         ui->ignoreMaxVolumeCheckBox->setEnabled(false);
 
     if (ossAvailable)
-        connect(ui->ossRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+        connect(ui->ossRadioButton, &QRadioButton::toggled, this, &LXQtVolumeConfiguration::audioEngineChanged);
     else
         ui->ossRadioButton->setVisible(false);
 #ifdef USE_PULSEAUDIO
-    connect(ui->pulseAudioRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+    connect(ui->pulseAudioRadioButton, &QRadioButton::toggled, this, &LXQtVolumeConfiguration::audioEngineChanged);
 #else
     ui->pulseAudioRadioButton->setVisible(false);
 #endif
 
 #ifdef USE_ALSA
-    connect(ui->alsaRadioButton, SIGNAL(toggled(bool)), this, SLOT(audioEngineChanged(bool)));
+    connect(ui->alsaRadioButton, &QRadioButton::toggled, this, &LXQtVolumeConfiguration::audioEngineChanged);
 #else
     ui->alsaRadioButton->setVisible(false);
 #endif
