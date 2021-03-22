@@ -22,7 +22,7 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation>全てのプロパティ</translation>
+        <translation>すべてのプロパティ</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
