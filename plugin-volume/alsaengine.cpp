@@ -178,7 +178,11 @@ void AlsaEngine::discoverDevices()
             struct pollfd pfd;
             if (snd_mixer_poll_descriptors(mixer, &pfd, 1)) {
                 QSocketNotifier *notifier = new QSocketNotifier(pfd.fd, QSocketNotifier::Read, this);
-                connect(notifier, &QSocketNotifier::activated, this, &AlsaEngine::driveAlsaEventHandling);
+            #if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
+                connect(notifier, &QSocketNotifier::activated, this, [this] (QSocketDescriptor socket, QSocketNotifier::Type) { this->driveAlsaEventHandling(socket); });
+            #else
+                connect(notifier, QOverload<int>::of(&QSocketNotifier::activated), this, [=](int socket){ this->driveAlsaEventHandling(socket); });
+            #endif
                 m_mixerMap.insert(pfd.fd, mixer);
             }
 
