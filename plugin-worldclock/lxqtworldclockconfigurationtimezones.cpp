@@ -42,8 +42,8 @@ LXQtWorldClockConfigurationTimeZones::LXQtWorldClockConfigurationTimeZones(QWidg
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
-    connect(ui->timeZonesTW, SIGNAL(itemSelectionChanged()), SLOT(itemSelectionChanged()));
-    connect(ui->timeZonesTW, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), SLOT(itemDoubleClicked(QTreeWidgetItem*,int)));
+    connect(ui->timeZonesTW, &QTreeWidget::itemSelectionChanged, this, &LXQtWorldClockConfigurationTimeZones::itemSelectionChanged);
+    connect(ui->timeZonesTW, &QTreeWidget::itemDoubleClicked,    this, &LXQtWorldClockConfigurationTimeZones::itemDoubleClicked);
 }
 
 LXQtWorldClockConfigurationTimeZones::~LXQtWorldClockConfigurationTimeZones()

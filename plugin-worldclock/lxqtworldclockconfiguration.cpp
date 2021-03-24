@@ -50,42 +50,41 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     setObjectName(QLatin1String("WorldClockConfigurationWindow"));
     ui->setupUi(this);
 
-    connect(ui->buttons, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonsAction(QAbstractButton*)));
+    connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtWorldClockConfiguration::dialogButtonsAction);
 
-    connect(ui->timeFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
-    connect(ui->timeShowSecondsCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->timePadHourCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->timeAMPMCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->timezoneGB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->timezonePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
-    connect(ui->timezoneFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
-    connect(ui->dateGB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->datePositionCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
-    connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(saveSettings()));
-    connect(ui->dateShowYearCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->dateShowDoWCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->datePadDayCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->dateLongNamesCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->advancedManualGB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->customisePB, SIGNAL(clicked()), SLOT(customiseManualFormatClicked()));
+    connect(ui->timeFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timeShowSecondsCB,    &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timePadHourCB,        &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timeAMPMCB,           &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timezoneGB,           &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timezonePositionCB,   QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timezoneFormatCB,     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateGB,               &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->datePositionCB,       QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateShowYearCB,       &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateShowDoWCB,        &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->datePadDayCB,         &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateLongNamesCB,      &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->advancedManualGB,     &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->customisePB,          &QPushButton::clicked,           this, &LXQtWorldClockConfiguration::customiseManualFormatClicked);
 
+    connect(ui->timeFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::timeFormatChanged);
+    connect(ui->dateGB,               &QGroupBox::toggled,             this, &LXQtWorldClockConfiguration::dateGroupToggled);
+    connect(ui->dateFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::dateFormatChanged);
+    connect(ui->advancedManualGB,     &QGroupBox::toggled,             this, &LXQtWorldClockConfiguration::advancedFormatToggled);
 
-    connect(ui->timeFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(timeFormatChanged(int)));
-    connect(ui->dateGB, SIGNAL(toggled(bool)), SLOT(dateGroupToggled(bool)));
-    connect(ui->dateFormatCB, SIGNAL(currentIndexChanged(int)), SLOT(dateFormatChanged(int)));
-    connect(ui->advancedManualGB, SIGNAL(toggled(bool)), SLOT(advancedFormatToggled(bool)));
+    connect(ui->timeZonesTW,          &QTableWidget::itemSelectionChanged, this, &LXQtWorldClockConfiguration::updateTimeZoneButtons);
+    connect(ui->addPB,                &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::addTimeZone);
+    connect(ui->removePB,             &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::removeTimeZone);
+    connect(ui->setAsDefaultPB,       &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::setTimeZoneAsDefault);
+    connect(ui->editCustomNamePB,     &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::editTimeZoneCustomName);
+    connect(ui->moveUpPB,             &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::moveTimeZoneUp);
+    connect(ui->moveDownPB,           &QPushButton::clicked,               this, &LXQtWorldClockConfiguration::moveTimeZoneDown);
 
-    connect(ui->timeZonesTW, SIGNAL(itemSelectionChanged()), SLOT(updateTimeZoneButtons()));
-    connect(ui->addPB, SIGNAL(clicked()), SLOT(addTimeZone()));
-    connect(ui->removePB, SIGNAL(clicked()), SLOT(removeTimeZone()));
-    connect(ui->setAsDefaultPB, SIGNAL(clicked()), SLOT(setTimeZoneAsDefault()));
-    connect(ui->editCustomNamePB, SIGNAL(clicked()), SLOT(editTimeZoneCustomName()));
-    connect(ui->moveUpPB, SIGNAL(clicked()), SLOT(moveTimeZoneUp()));
-    connect(ui->moveDownPB, SIGNAL(clicked()), SLOT(moveTimeZoneDown()));
-
-    connect(ui->autorotateCB, SIGNAL(clicked()), SLOT(saveSettings()));
-    connect(ui->showWeekNumberCB, &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
-    connect(ui->showTooltipCB, SIGNAL(clicked()), SLOT(saveSettings()));
+    connect(ui->autorotateCB,         &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->showWeekNumberCB,     &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->showTooltipCB,        &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
 
     loadSettings();
 }
@@ -418,7 +417,7 @@ void LXQtWorldClockConfiguration::customiseManualFormatClicked()
     if (!mConfigurationManualFormat)
     {
         mConfigurationManualFormat = new LXQtWorldClockConfigurationManualFormat(this);
-        connect(mConfigurationManualFormat, SIGNAL(manualFormatChanged()), this, SLOT(manualFormatChanged()));
+        connect(mConfigurationManualFormat, &LXQtWorldClockConfigurationManualFormat::manualFormatChanged, this, &LXQtWorldClockConfiguration::manualFormatChanged);
     }
 
     mConfigurationManualFormat->setManualFormat(mManualFormat);
