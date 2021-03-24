@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Syntakset for selvvalgt dato- og tidsformat&lt;/h1&gt;
+&lt;p&gt;En dato er en streng med tegn hvor spesielle strenger av tegn blir byttet ut med dato og tidsdata fra en kalender når den formateres eller brukes til lage data til en kalender når den deles opp.&lt;/p&gt;
+&lt;p&gt; Tabellen med datofelt under inneholder tegn brukt i mønstre for å vise det riktige formatet for en spesiell lokasjon, sånn som yyyy for året. Tegn kan bli brukt flere ganger. For eksempel, hvis y blir brukt for år kan yy kanskje gi 99 mens yyyy gir 1999. I de fleste numeriske feltene vil antallet tegn bestemme bredden. For eksempel hvis h er timen kan h gi 5 mens hh gir 05. For noen tegn kan antallet bestemme om en forkortet eller full form skal bli brukt, men det kan også være andre valg som vist under.&lt;/p&gt;
+&lt;p&gt;To enkle anførselstegn representerer ett virkelig anførselstegn, enten det er inni eller på utsiden av enkle anførselstegn. Tekst inni enkle anførselstegn blir ikke tolket på noen måte (untatt hvis det er to ved siden av hverandre). Ellers er alle ASCII-tegn fra a til z og fra A til Z reservert for datosyntakset og krever anførselstegn hvis de skal framstå som de faktiske tegnene. I tilleg kan visse ASCII tegnsettingstegn bli variable i framtiden (f.eks. : kan bli tolket som et tidsskilletegn og / som et datoskilletegn og byttet ut med riktig tegn for lokasjonen når det vises.)&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kode&lt;/th&gt;&lt;th&gt;Betydning&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;dagen i måneden uten null foran (1 til 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;dagen i måneden med null foran (01 til 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;forkortet navn på dag for lokasjonen (f.eks. &apos;Man&apos; til &apos;Søn&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;langt navn på ukedag for lokasjonen (f.eks. &apos;Mandag&apos; til &apos;Søndag&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;måneden som tall uten null foran (1 til 12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;måneden som tall med null foran (01 til 12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;forkortet navn på måneden for lokasjonen (f.eks. &apos;Jan&apos; til &apos;Des&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;langt månedsnavn for lokasjonen (f.eks. &apos;Januar&apos; to &apos;Desember&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;året som tosifret tall (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;året som firesifret tall&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;timen uten null foran (0 til 23 eller 1 til 12 hvis AM/PM vises)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;timen med null foran (00 til 23 eller 01 til 12 hvis AM/PM vises)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;timen uten null foran i 24-timersvisning (0 til 23, selv hvis AM/PM vises)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;timen med null foran i 24-timersvisning (00 til 23, selv hivs AM/PM vises)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minuttene uten null foran (0 til 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minuttene med null foran (00 til 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekundene uten null foran (0 til 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekundene med null foran (00 til 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;use AM/PM visning. &lt;b&gt;A/AP&lt;/b&gt; blir erstattet med enten &quot;AM&quot; eller &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;use am/pm visning. &lt;b&gt;a/ap&lt;/b&gt; blir erstattet med enten &quot;am&quot; eller &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;tidssonen (f.eks. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;forskjell fra UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;tidssonens IANA id&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;tidssonens forkortelse&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;tidssonens korte visningsnavn&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;tidssonens lange visningsnavn&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;tidssonens selvvalgte navn. Du kan forandre det i &apos;Tidssoner&apos;-fana i innstillingsvinduet&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Ethvert tegn i mønsteret som ikke er blant [&apos;a&apos;..&apos;z&apos;] og [&apos;A&apos;..&apos;Z&apos;] blir behandlet som om den var i anførselstegn. For eksempel vil tegn som &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; og &apos;@&apos; dukke opp i det som vises selv om de ikke er inne i enkle anførselstegn. Enkle anførselstegn brukes for å &apos;escape&quot; tegn. To enkle anførselstegn på rad, enten inne i eller på utsiden av tekst i anførselstegn tolkes som et ekte enkelt anførselstegn. &lt;/li&gt;&lt;li&gt;Minimum oppdateringsintervall er ett sekund. Hvis z eller zzz blir brukt vises tiden med millisekunder, men oppdateres ikke hvert millisekund fordi det ville ødelegge ytelsen.&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>

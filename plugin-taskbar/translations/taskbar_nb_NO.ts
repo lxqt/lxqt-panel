@@ -217,7 +217,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished">Putt knapper av samme klasse ved siden av hverandre</translation>
+        <translation>Putt knapper av samme tyoe ved siden av hverandre</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
