@@ -42,7 +42,7 @@ LXQtWorldClockConfigurationManualFormat::LXQtWorldClockConfigurationManualFormat
     setWindowModality(Qt::WindowModal);
     ui->setupUi(this);
 
-    connect(ui->manualFormatPTE, SIGNAL(textChanged()), this, SIGNAL(manualFormatChanged()));
+    connect(ui->manualFormatPTE, &QPlainTextEdit::textChanged, this, &LXQtWorldClockConfigurationManualFormat::manualFormatChanged);
 }
 
 LXQtWorldClockConfigurationManualFormat::~LXQtWorldClockConfigurationManualFormat()
