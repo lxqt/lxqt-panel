@@ -56,14 +56,14 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
     m_volumePopup = new VolumePopup(this);
 
     m_popupHideTimer.setInterval(1000);
-    connect(this, SIGNAL(clicked()), this, SLOT(toggleVolumeSlider()));
-    connect(&m_popupHideTimer, SIGNAL(timeout()), this, SLOT(hideVolumeSlider()));
+    connect(this,              &VolumeButton::clicked, this, &VolumeButton::toggleVolumeSlider);
+    connect(&m_popupHideTimer, &QTimer::timeout,       this, &VolumeButton::hideVolumeSlider);
 
-    connect(m_volumePopup, SIGNAL(mouseEntered()), &m_popupHideTimer, SLOT(stop()));
-    connect(m_volumePopup, SIGNAL(mouseLeft()), &m_popupHideTimer, SLOT(start()));
+    connect(m_volumePopup, &VolumePopup::mouseEntered, &m_popupHideTimer, &QTimer::stop);
+    connect(m_volumePopup, &VolumePopup::mouseLeft,    this, [this] { m_popupHideTimer.start(); } );
 
-    connect(m_volumePopup, SIGNAL(launchMixer()), this, SLOT(handleMixerLaunch()));
-    connect(m_volumePopup, SIGNAL(stockIconChanged(QString)), this, SLOT(handleStockIconChanged(QString)));
+    connect(m_volumePopup, &VolumePopup::launchMixer,      this, &VolumeButton::handleMixerLaunch);
+    connect(m_volumePopup, &VolumePopup::stockIconChanged, this, &VolumeButton::handleStockIconChanged);
 }
 
 VolumeButton::~VolumeButton() = default;
