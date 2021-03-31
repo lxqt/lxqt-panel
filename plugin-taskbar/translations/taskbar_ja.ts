@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>パネルが垂直なときにはボタンを回転させる(&amp;R)</translation>
+        <translation>パネルが垂直ならばボタンを回転させる(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>

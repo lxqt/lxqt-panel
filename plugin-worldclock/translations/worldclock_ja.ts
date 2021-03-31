@@ -235,7 +235,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>パネルが垂直なときには回転させる(&amp;R)</translation>
+        <translation>パネルが垂直ならば回転させる(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
