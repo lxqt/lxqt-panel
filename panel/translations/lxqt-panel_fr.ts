@@ -170,7 +170,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Ne pas autoriser les fenêtres agrandies d&apos;aller sous le panneau</translation>
+        <translation>Ne pas autoriser les fenêtres maximisées à aller sous le tableau de bord</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="347"/>
@@ -218,7 +218,7 @@ LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
         <translation>Solution partielle de contournement pour les styles de widget qui
-ne peut pas donner un thème séparé au panneau.
+ne peut pas donner un thème séparé au tableau de bord.
 
 Vous pourriez aussi vouloir désactiver :
 
@@ -229,12 +229,12 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
-        <translation>Ignorer l&apos;icône et le &amp;thème</translation>
+        <translation>Ignorer le &amp;thème d&apos;icônes</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="600"/>
         <source>Icon theme for panels:</source>
-        <translation>Thème d&apos;icônes pour les panneaux :</translation>
+        <translation>Thème d&apos;icônes pour les tableaux de bords :</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -381,7 +381,7 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
     <message>
         <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
-        <translation>Ajouter un nouveau tableau</translation>
+        <translation>Ajouter un nouveau tableau de bord</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1225"/>
@@ -404,8 +404,8 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
         <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>La suppression d&apos;un panneau ne peut pas être annulée.
-Voulez-vous supprimer ce panneau ?</translation>
+        <translation>La suppression d&apos;un tableau de bord ne peut pas être annulée.
+Voulez-vous supprimer ce tableau de bord ?</translation>
     </message>
 </context>
 <context>
