@@ -1,3 +1,12 @@
+lxqt-panel-0.17.0 / 2021-04-15
+==============================
+  * Fixed the popup of grouped task button in a special case.
+  * Code cleanup (using nullptr, removing deprecated headers/methods, using default member initializers, etc.).
+  * Fixed changing of world clock's time zone with mouse wheel.
+  * Optionally auto-hide panel only when it overlaps a window.
+  * Workaround for an issue with glibc 2.33 on old Docker engines.
+  * Completely move to Qt5 signal/slot syntax.
+
 lxqt-panel-0.16.1 / 2020-11-04
 ==============================
   * Fixed compilation with Qt 5.12 and Qt 5.13.
