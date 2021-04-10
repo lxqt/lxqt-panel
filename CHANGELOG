@@ -6,6 +6,7 @@ lxqt-panel-0.17.0 / 2021-04-15
   * Optionally auto-hide panel only when it overlaps a window.
   * Workaround for an issue with glibc 2.33 on old Docker engines.
   * Completely move to Qt5 signal/slot syntax.
+  * Check pressed mouse buttons before closing grouped task popup.
 
 lxqt-panel-0.16.1 / 2020-11-04
 ==============================

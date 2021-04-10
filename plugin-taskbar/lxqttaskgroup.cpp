@@ -576,7 +576,8 @@ void LXQtTaskGroup::dragLeaveEvent(QDragLeaveEvent *event)
 void LXQtTaskGroup::mouseMoveEvent(QMouseEvent* event)
 {
     // if dragging the taskgroup, do not show the popup
-    setPopupVisible(false, true);
+    if (event->buttons() & Qt::LeftButton)
+        setPopupVisible(false, true);
     LXQtTaskButton::mouseMoveEvent(event);
 }
 
