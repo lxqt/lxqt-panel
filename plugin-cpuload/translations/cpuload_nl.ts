@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Instellingen van Processorbelasting</translation>
+        <translation>Processorbelasting-instellingen</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Toon tekst</translation>
+        <translation>Tekst tonen</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Tussenpoze voor bijwerken:</translation>
+        <translation>Bijwerktussenpoos:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>

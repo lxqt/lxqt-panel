@@ -6,43 +6,44 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="106"/>
         <source>Search...</source>
-        <translation>Zoeken...</translation>
+        <translation>Zoeken…</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Show/hide main menu</source>
-        <translation>Toon/verberg hoofdmenu</translation>
+        <translation>Hoofdmenu tonen/verbergen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureaubladsnelkoppeling maken</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Vraag</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="505"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is al een bestand met dezelfde naam.
+Wilt u dit overschrijven?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="511"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Waarschuwing</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="512"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit bestand kan niet worden overschreven.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiëren</translation>
     </message>
 </context>
 <context>
@@ -50,7 +51,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Instellingen van Hoofdmenu</translation>
+        <translation>Hoofdmenu-instellingen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
@@ -70,7 +71,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Aangepaste lettergrootte:</translation>
+        <translation>Aangepaste tekstgrootte:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
@@ -105,22 +106,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Maximum elementbreedte:</translation>
+        <translation>Maximale itembreedte:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation>Toon overeenkomende onderdelen:</translation>
+        <translation>Overeenkomende onderdelen tonen:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Maximaal aantal zichtbare elementen:</translation>
+        <translation>Maximumaantal getoonde items:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation>Menu-onderdelen filteren</translation>
+        <translation>Menu-items filteren</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
@@ -130,22 +131,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>Menu-onderdelen verbergen tijdens het zoeken</translation>
+        <translation>Menu-items verbergen tijdens zoeken</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>Zoekveld leegmaken bij tonen van menu</translation>
+        <translation>Leeg zoekveld tonen als het menu wordt geopend</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation>Terugzetten</translation>
+        <translation>Standaardwaarden</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
         <source>Choose icon file</source>
-        <translation>Kies pictogrambestand</translation>
+        <translation>Kies een pictogrambestand</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
@@ -155,7 +156,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
         <source>Choose menu file</source>
-        <translation>Kies menubestand</translation>
+        <translation>Kies een menubestand</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>

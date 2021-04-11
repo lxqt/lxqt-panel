@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="85"/>
         <source>Switch to desktop %1</source>
-        <translation>Schakel over naar bureaublad %1</translation>
+        <translation>Ga naar werkblad %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="144"/>
         <location filename="../desktopswitch.cpp" line="155"/>
         <source>Desktop %1</source>
-        <translation>bureaublad %1</translation>
+        <translation>Werkblad %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Instellingen voor Bureaubladwisselaar</translation>
+        <translation>Werkbladwisselaar-instellingen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,12 +30,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Bureaubladlabels:</translation>
+        <translation>Werkbladlabels:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Uiterlijk</translation>
+        <translation>Vormgeving</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
@@ -55,22 +55,22 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Indien aangevinkt is de bureaubladwisselaar alleen een indicator</translation>
+        <translation>Schakel in om de werkbladwisselaar alleen als indicator te tonen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation>Toon alleen in actieve desktop</translation>
+        <translation>Alleen tonen op actief werkblad</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Bureaubladnamen</translation>
+        <translation>Werkbladnamen</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="69"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">bureaublad %1:</translation>
+        <translation>Werkblad %1:</translation>
     </message>
 </context>
 </TS>
