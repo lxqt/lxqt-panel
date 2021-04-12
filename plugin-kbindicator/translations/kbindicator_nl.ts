@@ -63,42 +63,42 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Vergrendelingsindicatoren</translation>
+        <translation>&apos;Lock&apos;-indicatoren</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Toon Caps Lock</translation>
+        <translation>CapsLock tonen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Toon Num Lock</translation>
+        <translation>NumLock tonen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>Toon Scroll Lock</translation>
+        <translation>ScrollLock tonen</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>Indicator voor toetsenbordindeling</translation>
+        <translation>Toetsenbordindelingindicator</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Omschakelingsbeleid</translation>
+        <translation>Schakelbeleid</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation>Patroon voor pad van vlaggen:</translation>
+        <translation>Patroon van vlagpad:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation>Patroon voor bestandspad van vlaggen. Moet &lt;strong&gt;%1&lt;/strong&gt; bevatten, dat vervangen zal worden door de tweeletterige ISO-landcode (kleine letters).&lt;br&gt;&lt;br&gt;Bijvoorbeeld: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
+        <translation>Patroon omtrent het bestandspad van vlaggen. Het pad dient &lt;strong&gt;%1&lt;/strong&gt; te bevatten, wat vervangen zal worden door de tweeletterige ISO-landcode (kleine letters).&lt;br&gt;&lt;br&gt;Voorbeeld: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Toepassing</translation>
+        <translation>Programma</translation>
     </message>
 </context>
 </TS>

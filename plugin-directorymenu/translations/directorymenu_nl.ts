@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="129"/>
         <source>Open in terminal</source>
-        <translation>In terminal openen</translation>
+        <translation>Openen in terminalvenster</translation>
     </message>
 </context>
 <context>
@@ -19,22 +19,22 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Instellingen voor Mapmenu</translation>
+        <translation>Mapmenu-instellingen</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Uiterlijk</translation>
+        <translation>Vormgeving</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Basismap:</translation>
+        <translation>Hoofdmap:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BasisMapNaam</translation>
+        <translation>Naam van hoofdmap</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -50,17 +50,17 @@
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation>Kies standaardterminal</translation>
+        <translation>Kies standaard terminalprogramma</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
-        <translation>Kies basismap</translation>
+        <translation>Kies een hoofdmap</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
         <source>Choose Icon</source>
-        <translation>Kies pictogram</translation>
+        <translation>Kies een pictogram</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
