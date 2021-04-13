@@ -6,7 +6,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Instellingen voor Tussenruimte</translation>
+        <translation>Tussenruimte-instellingen</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Type:</translation>
+        <translation>Soort:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
@@ -31,12 +31,12 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>gelinieerd</translation>
+        <translation>lijn</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>met puntjes</translation>
+        <translation>puntjes</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>

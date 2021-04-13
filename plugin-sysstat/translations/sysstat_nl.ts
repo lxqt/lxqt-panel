@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Kleuren voor Systeemstatistieken</translation>
+        <translation>Systeemstatistiek-kleuren</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation>&amp;Raster</translation>
+        <translation>&amp;Rooster</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -33,12 +33,12 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Verander ...</translation>
+        <translation>Wijzigen…</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation>T&amp;itel</translation>
+        <translation>N&amp;aam</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Applicaties</translation>
+        <translation>Progr&amp;amma&apos;s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Instellingen voor Systeemstatistieken</translation>
+        <translation>Systeemstatistiek-instellingen</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
@@ -131,22 +131,22 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>Tussenpoze voor bij&amp;werken</translation>
+        <translation>B&amp;ijwerktussenpoos</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation>&amp;Titel</translation>
+        <translation>&amp;Naam</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation>&amp;Rasterlijnen</translation>
+        <translation>&amp;Roosterlijnen</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimale breedte als de werkbalk horizontaal is.&lt;/p&gt;&lt;p&gt;Minimale hoogte als de werkbalk verticaal is.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimale breedte als het paneel horizontaal is.&lt;/p&gt;&lt;p&gt;Minimale hoogte als het paneel verticaal is.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>Gebruik &amp;frequentie</translation>
+        <translation>&amp;Frequentie gebruiken</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
@@ -206,17 +206,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>Gebruik t&amp;hemakleuren</translation>
+        <translation>T&amp;hemakleuren gebruiken</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>Gebruik &amp;aangepaste kleuren</translation>
+        <translation>Aangepaste kle&amp;uren gebruiken</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>Aangepaste kleur ...</translation>
+        <translation>Aangepaste kleur…</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
@@ -387,7 +387,7 @@
         <location filename="../lxqtsysstat.cpp" line="483"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>applicaties: %1%&lt;br&gt;buffers: %2%&lt;br&gt;tijd. opslag: %3%</translation>
+        <translation>programma&apos;s: %1%&lt;br&gt;buffers: %2%&lt;br&gt;tijd. opslag: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="517"/>

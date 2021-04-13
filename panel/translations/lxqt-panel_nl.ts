@@ -232,9 +232,9 @@ paneel niet van een afzonderlijk thema kunnen voorzien.
 
 U wilt wellicht ook het volgende uitschakelen:
 
-Instellingen van LXQt-vormgeving →
+LXQt-vormgevingsinstellingen →
 Pictogramthema →
-Pictogrammen inkleuren op basis van widgetstijl (palet)</translation>
+Pictogrammen inkleuren op basis van elementstijl (palet)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
