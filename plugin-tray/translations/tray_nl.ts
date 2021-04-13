@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation>Instellingen voor systeemvak</translation>
+        <translation>Systeemvak-instellingen</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation>Sorteer pictogrammen volgens vensterklasse</translation>
+        <translation>Pictogrammen sorteren op vensterklasse</translation>
     </message>
 </context>
 </TS>
