@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen zum Arbeitsplatz</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>

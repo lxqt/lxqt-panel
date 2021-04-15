@@ -131,12 +131,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Sichtbarer dünner Rand für verborgene Leiste</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstecke nur bei überlappendem Fenster</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -227,7 +227,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilweise Notlösung für Symbolthemen,
+die nicht ein spezielles Thema für die Leiste anbieten.
+
+Folgendes blockieren:
+
+LXQt Aussehen einstellen →
+Symbolthema →
+Symbolfarbe folgt Symbolthema (Farben)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
