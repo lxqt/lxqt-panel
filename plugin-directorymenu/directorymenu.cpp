@@ -59,9 +59,10 @@ DirectoryMenu::DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo) :
     connect(mOpenTerminalSignalMapper,  &QSignalMapper::mappedString, this, &DirectoryMenu::openInTerminal);
     connect(mMenuSignalMapper,          &QSignalMapper::mappedString, this, &DirectoryMenu::addMenu);
 #else
-    connect(mOpenDirectorySignalMapper, QOverload<const QString &->::of(&QSignalMapper::mapped), this, &DirectoryMenu::openDirectory);
-    connect(mOpenTerminalSignalMapper,  QOverload<const QString &->::of(&QSignalMapper::mapped), this, &DirectoryMenu::openInTerminal);
-    connect(mMenuSignalMapper,          QOverload<const QString &->::of(&QSignalMapper::mapped), this, &DirectoryMenu::addMenu);
+    connect(&mButton, SIGNAL(clicked()), this, SLOT(showMenu()));
+    connect(mOpenDirectorySignalMapper, SIGNAL(mapped(QString)), this, SLOT(openDirectory(QString)));
+    connect(mOpenTerminalSignalMapper, SIGNAL(mapped(QString)), this, SLOT(openInTerminal(QString)));
+    connect(mMenuSignalMapper, SIGNAL(mapped(QString)), this, SLOT(addMenu(QString)));
 #endif
 
     settingsChanged();
@@ -130,11 +131,19 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
     mPathStrings.push_back(path);
 
     QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("folder")), tr("Open"));
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect(openDirectoryAction, &QAction::triggered, mOpenDirectorySignalMapper, [this] { mOpenDirectorySignalMapper->map(); } );
+#else
+    connect(openDirectoryAction, SIGNAL(triggered()), mOpenDirectorySignalMapper, SLOT(map()));
+#endif
     mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
 
     QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("folder")), tr("Open in terminal"));
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect(openTerminalAction, &QAction::triggered, mOpenTerminalSignalMapper, [this] { mOpenTerminalSignalMapper->map(); } );
+#else
+    connect(openTerminalAction, SIGNAL(triggered()), mOpenTerminalSignalMapper, SLOT(map()));
+#endif
     mOpenTerminalSignalMapper->setMapping(openTerminalAction, mPathStrings.back());
 
     menu->addSeparator();
@@ -150,7 +159,11 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 
             QMenu* subMenu = menu->addMenu(XdgIcon::fromTheme(QStringLiteral("folder")), mPathStrings.back());
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
             connect(subMenu, &QMenu::aboutToShow, mMenuSignalMapper, [this] { mMenuSignalMapper->map(); } );
+#else
+            connect(subMenu, SIGNAL(aboutToShow()), mMenuSignalMapper, SLOT(map()));
+#endif
             mMenuSignalMapper->setMapping(subMenu, entry.absoluteFilePath());
         }
     }
