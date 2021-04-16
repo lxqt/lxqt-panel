@@ -1,3 +1,7 @@
+lxqt-panel-0.17.1 / 2021-04-16
+==============================
+  * Fixed compilation against Qt < 5.15.
+
 lxqt-panel-0.17.0 / 2021-04-15
 ==============================
   * Fixed the popup of grouped task button in a special case.
