@@ -230,12 +230,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation>Kalender&amp;wochen im Popup-Kalender anzeigen</translation>
+        <translation>Zeige Kalender&amp;Wochen im Aufklappkalender</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation>&amp;Kurzinfo anzeigen</translation>
+        <translation>&amp;Zeige Kurzinfo</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Benutzerformat für Datum und Zeit&lt;/h1&gt;
+&lt;p&gt;Datumsformat ist eine Zeichenkette, bei der spezielle Zeichen durch Datums- und Zeitwerte ersetzt werden aus der Anzeigevorbereitung und -formatierung.&lt;/p&gt;
+&lt;p&gt;Die folgende Zeichentabelle beinhaltet gültige Formatzeichen. Zum Beispiel: yy bedeutet 99 und yyyy 1999. Die Anzahl der Zeichen zeigt oft Feldlänge, bspw. h bringt 5 und hh 05.&lt;/p&gt;
+&lt;p&gt;Zwei einfache Anführungszeichen bedeuten ein einfaches Anführungszeichen, sowohl in als auch außerhalb einfacher Anführungszeichen. Text in einfachen Anführungszeichen wird nicht gedeutet (außer in benachbarten einfachen Anführungszeichen). Ansonsten sind alle ASCII-Zeichen von a bis z und A bis Z sind reserviert als Formatzeichen, und benötigen Anführungszeichen damit sie als einfache Zeichen gedeutet. Zusätzlich, werden ASCII-Interpunktion-Zeichen in der könnten in Zukunft Formatzeichen werden (z.B. &quot;:&quot; als Zeittrennzeichen und &apos;/&apos; als Datumstrennzeichen, und ersetzt mit lokalen Zeichen bei der Anzeige).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Code&lt;/th&gt;&lt;th&gt;Bedeutung&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;Tag ohne führende Null (1 to 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;Tag mit führender Null (01 to 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;Abkürzung für Wochentag (e.g. &apos;Mo&apos; bis &apos;So&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;Wochentag (e.g. &apos;Montag&apos; bis &apos;Sonntag&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;Monat ohne führende Null (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;Monat mit führender Null (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;Monatsabkürzung (e.g. &apos;Jan&apos; bis &apos;Dez&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;Monat (e.g. &apos;Januar&apos; bis &apos;Dezember&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;Jahreszahl zweistellig (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;Jahreszahl vierstellig&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23 oder 1 bis 12 bei AM/PM anzeige)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23 oder 01 bis 12 bei AM/PM anzeige)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;Stunde ohne führende Null (0 bis 23, auch bei AM/PM anzeige)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;Stunde mit führender Null (00 bis 23, auch bei AM/PM anzeige)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Minute ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Minute mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Sekunde ohne führende Null (0 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Sekunde mit führender Null (00 bis 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;or&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;bei AM/PM anzeige. &lt;b&gt;A/AP&lt;/b&gt; wird ersetzt mit &quot;AM&quot; oder &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;or&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;bei am/pm anzeige. &lt;b&gt;a/ap&lt;/b&gt; wird ersetzt mit &quot;am&quot; oder &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Zeitzone (z.B. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;Zeitoffset zum UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;Zeitzone von IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt; Abkürzung Zeitzone &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;Kurzbezeichnung Zeitzone &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;Vollname Zeitzone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;Benutzername Zeitzone. Man kann es im Reiter Zeitzonen im Konfigurationsfenster einstellen&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Notiz:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Jedes Zeichen außer  [&apos;a&apos;..&apos;z&apos;,&apos;A&apos;..&apos;Z&apos;] werden als in Anführungszeichen gedeutet. Zum Beispiel, Zeichen wie &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; und &apos;@&apos; werden angezeigt ohne Anführungszeichen. Das einfache Anführungszeichen verhindert Umdeutung der Buchstaben (&apos;escape&apos; letters).&lt;/li&gt;&lt;li&gt;Kürzestes Aktualisierungsintervall ist 1 Sekunde. Wenn z oder zzz eingestellt ist, wird die Zeit in Millisekunden angezeigt, aber nicht in Millisekunden hochgezählt (vermeidet Leistungskatastrophe).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>

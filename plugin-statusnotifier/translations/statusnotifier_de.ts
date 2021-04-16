@@ -12,12 +12,12 @@
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine automatisch verschwindende wichtige Meldung bleibt für diesen Zeitraum sichtbar.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigungszeitraum:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
