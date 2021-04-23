@@ -374,24 +374,24 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till ny Panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort Panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1230"/>
         <source>Lock This Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Lås denna panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1387"/>
