@@ -131,12 +131,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Synlig tunn marginal för dold panel</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj bara när du överlappar ett fönster</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -163,7 +163,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Åsidosätt ikon &amp;tema</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="600"/>
@@ -178,7 +178,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Animationstid:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
@@ -232,7 +232,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="495"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;Komposition är nödvändig för panelens transparens.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="523"/>
@@ -242,17 +242,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst på skrivbordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster om skrivbordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Höger om skrivbordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
@@ -262,17 +262,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Överst på skrivbordet %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster om skrivbordet %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Höger om skrivbordet %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
@@ -311,12 +311,12 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera plugins</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Obs: ändringar som gjorts på den här sidan kan inte återställas.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -359,17 +359,17 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1178"/>
         <location filename="../lxqtpanel.cpp" line="1204"/>
         <source>Panel</source>
-        <translation type="unfinished">Panel</translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1207"/>
         <source>Configure Panel</source>
-        <translation type="unfinished">Konfigurera</translation>
+        <translation>Konfigurera Panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1212"/>
         <source>Manage Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Hantera widgets</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1218"/>
@@ -397,7 +397,8 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Att ta bort en panel kan inte ångras.
+Vill du ta bort den här panelen?</translation>
     </message>
 </context>
 <context>
@@ -423,7 +424,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd alternativ konfigurationsfil.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>

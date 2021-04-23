@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Om markerat är widgeten bara en indikator</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="69"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">Skrivbord %1:</translation>
+        <translation>Skrivbord %1:</translation>
     </message>
 </context>
 </TS>
