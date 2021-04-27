@@ -16,12 +16,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="496"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj na namizje</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="504"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Vprašanje</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="505"/>
@@ -42,7 +42,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiraj</translation>
     </message>
 </context>
 <context>
