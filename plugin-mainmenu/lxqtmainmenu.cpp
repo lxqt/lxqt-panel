@@ -625,7 +625,7 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         {
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-            if (keyEvent->modifiers() & ~Qt::ShiftModifier)
+            if (keyEvent->modifiers() & ~(Qt::ShiftModifier | Qt::KeypadModifier))
             {
                 mHideTimer.start();
                 mMenu->hide(); // close the app menu
