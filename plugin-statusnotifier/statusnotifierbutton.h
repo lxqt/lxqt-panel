@@ -38,16 +38,6 @@
 #include <QMenu>
 #include <QTimer>
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
-template <typename T> inline T qFromUnaligned(const uchar *src)
-{
-    T dest;
-    const size_t size = sizeof(T);
-    memcpy(&dest, src, size);
-    return dest;
-}
-#endif
-
 class ILXQtPanelPlugin;
 class SniAsync;
 

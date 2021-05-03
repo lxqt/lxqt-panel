@@ -198,13 +198,8 @@ void LXQtQuickLaunch::dropEvent(QDropEvent *e)
         return;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
     const auto & urls = e->mimeData()->urls();
     for (const QUrl &url : QSet<QUrl>{urls.cbegin(), urls.cend()})
-#else
-    const auto urls = e->mimeData()->urls().toSet();
-    for (const QUrl &url : urls)
-#endif
     {
         QString fileName(url.isLocalFile() ? url.toLocalFile() : url.url());
         QFileInfo fi(fileName);

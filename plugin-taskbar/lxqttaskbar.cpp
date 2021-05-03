@@ -90,11 +90,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QTimer::singleShot(0, this, &LXQtTaskBar::settingsChanged);
     setAcceptDrops(true);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect(mSignalMapper, &QSignalMapper::mappedInt, this, &LXQtTaskBar::activateTask);
-#else
-    connect(mSignalMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &LXQtTaskBar::activateTask);
-#endif
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)

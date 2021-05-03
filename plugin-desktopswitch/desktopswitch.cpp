@@ -54,11 +54,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 {
     m_buttons = new QButtonGroup(this);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect (m_pSignalMapper, &QSignalMapper::mappedInt, this, &DesktopSwitch::setDesktop);
-#else
-    connect (m_pSignalMapper, QOverload<int>::of(&QSignalMapper::mapped), this, &DesktopSwitch::setDesktop);
-#endif
 
 
     mLayout = new LXQt::GridLayout(&mWidget);
@@ -69,14 +65,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     onCurrentDesktopChanged(KWindowSystem::currentDesktop());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
-#else
-    connect(m_buttons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * /*button*/){
-        int id = m_buttons->checkedId();
-        setDesktop(id);
-    });
-#endif
 
     connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
     connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);

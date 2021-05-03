@@ -49,11 +49,7 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
     ui->setupUi(this);
 
     QStringList desktopFilesDirs;
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     desktopFilesDirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), Qt::SkipEmptyParts);
-#else
-    desktopFilesDirs << QString::fromLocal8Bit(qgetenv("LXQT_PANEL_PLUGINS_DIR")).split(QLatin1Char(':'), QString::SkipEmptyParts);
-#endif
     desktopFilesDirs << QStringLiteral("%1/%2").arg(XdgDirs::dataHome(), QStringLiteral("/lxqt/lxqt-panel"));
     desktopFilesDirs << QStringLiteral(PLUGIN_DESKTOPS_DIR);
 

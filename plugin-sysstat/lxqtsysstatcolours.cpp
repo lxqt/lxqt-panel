@@ -80,11 +80,7 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
         ++iterator;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     connect(mSelectColourMapper, &QSignalMapper::mappedString, this, &LXQtSysStatColours::selectColour);
-#else
-    connect(mSelectColourMapper, QOverload<const QString &>::of(&QSignalMapper::mapped), this, &LXQtSysStatColours::selectColour);
-#endif
 }
 
 LXQtSysStatColours::~LXQtSysStatColours()
