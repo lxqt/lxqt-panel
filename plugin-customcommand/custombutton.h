@@ -23,8 +23,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef VOLUMEBUTTON_H
-#define VOLUMEBUTTON_H
+#ifndef CUSTOMBUTTON_H
+#define CUSTOMBUTTON_H
 
 #include <QToolButton>
 
@@ -61,4 +61,4 @@ signals:
     void wheelScrolled(int);
 };
 
-#endif // VOLUMEBUTTON_H
+#endif // CUSTOMBUTTON_H
