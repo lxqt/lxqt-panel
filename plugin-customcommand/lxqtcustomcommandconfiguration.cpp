@@ -45,7 +45,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
-    connect(ui->repeatGroupBox, &QGroupBox::toggled, this, &LXQtCustomCommandConfiguration::repeatGroupBoxChanged);
+    connect(ui->repeatCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::repeatCheckBoxChanged);
     connect(ui->repeatTimerSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
     connect(ui->iconLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
     connect(ui->iconBrowseButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::iconBrowseButtonClicked);
@@ -94,7 +94,8 @@ void LXQtCustomCommandConfiguration::setUiValues()
     ui->fontButton->setText(mFont);
     ui->commandPlainTextEdit->setPlainText(mCommand);
     ui->runWithBashCheckBox->setChecked(mRunWithBash);
-    ui->repeatGroupBox->setChecked(mRepeat);
+    ui->repeatCheckBox->setChecked(mRepeat);
+    ui->repeatTimerSpinBox->setEnabled(mRepeat);
     ui->repeatTimerSpinBox->setValue(mRepeatTimer);
     ui->iconLineEdit->setText(mIcon);
     ui->textLineEdit->setText(mText);
@@ -135,9 +136,10 @@ void LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged(bool runWithBash
     settings().setValue(QStringLiteral("runWithBash"), runWithBash);
 }
 
-void LXQtCustomCommandConfiguration::repeatGroupBoxChanged(bool repeat)
+void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
 {
     settings().setValue(QStringLiteral("repeat"), repeat);
+    ui->repeatTimerSpinBox->setEnabled(repeat);
 }
 
 void LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged(int repeatTimer)

@@ -63,7 +63,7 @@ private slots:
     void fontChanged(QString fontString);
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
-    void repeatGroupBoxChanged(bool repeat);
+    void repeatCheckBoxChanged(bool repeat);
     void repeatTimerSpinBoxChanged(int repeatTimer);
     void iconLineEditChanged(QString icon);
     void iconBrowseButtonClicked();

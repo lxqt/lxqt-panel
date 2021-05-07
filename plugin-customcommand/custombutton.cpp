@@ -29,6 +29,30 @@
 #include <QPainter>
 #include <QStylePainter>
 #include <QStyleOptionToolButton>
+#include <QProxyStyle>
+
+class LeftAlignedTextStyle : public QProxyStyle
+{
+    using QProxyStyle::QProxyStyle;
+public:
+
+    virtual void drawItemText(QPainter * painter, const QRect & rect, int flags
+            , const QPalette & pal, bool enabled, const QString & text
+            , QPalette::ColorRole textRole = QPalette::NoRole) const override;
+};
+
+void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, int flags
+            , const QPalette & pal, bool enabled, const QString & text
+            , QPalette::ColorRole textRole) const
+{
+    QString txt = text;
+    // get the button text because the text that's given to this function may be middle-elided
+    if (const QToolButton *tb = dynamic_cast<const QToolButton*>(painter->device()))
+        txt = tb->text();
+    txt = QFontMetrics(painter->font()).elidedText(txt, Qt::ElideRight, rect.width());
+    QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, txt, textRole);
+}
+
 
 CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
@@ -43,7 +67,9 @@ CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
     setMinimumWidth(1);
     setMinimumHeight(1);
     setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    setStyle(new LeftAlignedTextStyle());
     updateWidth();
+
 }
 
 CustomButton::~CustomButton() = default;
@@ -152,5 +178,6 @@ void CustomButton::paintEvent(QPaintEvent *event)
     initStyleOption(&opt);
     if (transpose)
         opt.rect = opt.rect.transposed();
+
     painter.drawComplexControl(QStyle::CC_ToolButton, opt);
 }
