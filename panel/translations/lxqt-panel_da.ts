@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul kun når et vindue overdækkes</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>

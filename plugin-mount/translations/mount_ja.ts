@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation>取り出しボタンが押された時:</translation>
+        <translation>[取り出し] ボタンが押された時:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="43"/>

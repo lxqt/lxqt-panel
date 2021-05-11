@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>El archivo/URL &apos;%1&apos; no puede incrustarse de momento en QuickLaunch</translation>
+        <translation>El archivo/URL «%1» no puede incrustarse de momento en el inicio rápido</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="336"/>
@@ -26,7 +26,7 @@ aplicaciones aquí</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + arrastrar y colocar)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
@@ -41,7 +41,7 @@ aplicaciones aquí</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="64"/>
         <source>Remove from quicklaunch</source>
-        <translation>Quitar del lanzador rápido</translation>
+        <translation>Quitar del inicio rápido</translation>
     </message>
 </context>
 </TS>
