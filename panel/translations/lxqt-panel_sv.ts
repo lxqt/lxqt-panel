@@ -183,7 +183,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>Justering:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
@@ -212,7 +212,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassad styling</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="384"/>
@@ -257,7 +257,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Längst ner på skrivbordet</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="194"/>
@@ -277,17 +277,17 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Längst ner på skrivbord %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Högst upp</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Längst ner</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="445"/>
