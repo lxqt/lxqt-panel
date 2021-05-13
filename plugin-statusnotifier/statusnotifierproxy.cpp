@@ -118,14 +118,12 @@ void StatusNotifierProxy::unregisterWidget(StatusNotifierWidget */*widget*/)
 
 void StatusNotifierProxy::onStatusNotifierItemRegistered(const QString &service)
 {
-    QString temp(service);
-    mServices.append(temp);
-    emit StatusNotifierItemRegistered(temp);
+    mServices.append(service);
+    emit StatusNotifierItemRegistered(service);
 }
 
 void StatusNotifierProxy::onStatusNotifierItemUnregistered(const QString &service)
 {
-    QString temp(service);
-    mServices.removeAll(temp);
-    emit StatusNotifierItemUnregistered(temp);
+    mServices.removeAll(service);
+    emit StatusNotifierItemUnregistered(service);
 }
