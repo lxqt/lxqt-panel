@@ -476,7 +476,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
     QAction *action;
     QPoint globalPos;
     if (parentView != nullptr) {
-        action = mSearchView->indexAt(p).data(ActionView::ActionRole).value<QAction*>();
+        action = parentView->indexAt(p).data(ActionView::ActionRole).value<QAction*>();
         if (action == nullptr)
             return;
         globalPos = parentView->mapToGlobal(p);
