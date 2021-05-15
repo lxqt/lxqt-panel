@@ -39,6 +39,12 @@
 #include <QScrollBar>
 #include <QProxyStyle>
 #include <QStyledItemDelegate>
+#include <QApplication>
+#include <QDrag>
+#include <QMouseEvent>
+#include <QMimeData>
+#include <QUrl>
+
 //==============================
 #ifdef HAVE_MENU_CACHE
 #include <QSortFilterProxyModel>
@@ -273,6 +279,38 @@ QSize ActionView::viewportSizeHint() const
 QSize ActionView::minimumSizeHint() const
 {
     return QSize{0, 0};
+}
+
+void ActionView::mousePressEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton)
+        mDragStartPosition = event->pos();
+
+    QListView::mousePressEvent(event);
+}
+
+void ActionView::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!(event->buttons() & Qt::LeftButton))
+        return;
+
+    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
+        return;
+
+    XdgAction *a = qobject_cast<XdgAction*>(indexAt(mDragStartPosition).data(ActionView::ActionRole).value<QAction*>());
+    if (!a)
+        return;
+
+    QList<QUrl> urls;
+    urls << QUrl::fromLocalFile(a->desktopFile().fileName());
+
+    QMimeData *mimeData = new QMimeData();
+    mimeData->setUrls(urls);
+
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    drag->exec(Qt::CopyAction | Qt::LinkAction);
+    emit requestShowHideMenu();
 }
 
 void ActionView::onActivated(QModelIndex const & index)

@@ -29,6 +29,7 @@
 #define ACTION_VIEW_H
 
 #include <QListView>
+#include <QPoint>
 
 class QStandardItemModel;
 
@@ -102,6 +103,11 @@ public slots:
 protected:
     virtual QSize viewportSizeHint() const override;
     virtual QSize minimumSizeHint() const override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
+signals:
+    void requestShowHideMenu();
 
 private slots:
     void onActivated(QModelIndex const & index);
@@ -112,6 +118,7 @@ private:
 
 private:
     QStandardItemModel * mModel;
+    QPoint mDragStartPosition;
 #ifdef HAVE_MENU_CACHE
     QSortFilterProxyModel * mProxy;
 #else
