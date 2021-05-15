@@ -40,7 +40,6 @@
 #include <QLineEdit>
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
-#include <KWindowSystem/KWindowSystem>
 #include <QApplication>
 
 #include <XdgMenuWidget>
@@ -471,8 +470,8 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
     Q_UNUSED(p)
     return;
 #else
-    QMenu *parentMenu = static_cast<QMenu*>(QObject::sender());
-    ActionView *parentView = static_cast<ActionView*>(QObject::sender());
+    QMenu *parentMenu = qobject_cast<QMenu*>(QObject::sender());
+    ActionView *parentView = qobject_cast<ActionView*>(QObject::sender());
     QAction *action;
     QPoint globalPos;
     if (parentView != nullptr) {
