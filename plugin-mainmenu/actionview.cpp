@@ -44,7 +44,6 @@
 #include <QMouseEvent>
 #include <QMimeData>
 #include <QUrl>
-#include <QPointer>
 
 //==============================
 #ifdef HAVE_MENU_CACHE
@@ -308,12 +307,10 @@ void ActionView::mouseMoveEvent(QMouseEvent *event)
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
 
-    QPointer<QDrag> drag = new QDrag(this);
+    QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->exec(Qt::CopyAction | Qt::LinkAction);
     emit requestShowHideMenu();
-    event->accept();
-    drag->deleteLater();
 }
 
 void ActionView::onActivated(QModelIndex const & index)
