@@ -40,7 +40,6 @@
 #include <QLineEdit>
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
-#include <KWindowSystem/KWindowSystem>
 #include <QApplication>
 
 #include <XdgMenuWidget>
@@ -102,7 +101,10 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     mSearchView = new ActionView;
     mSearchView->setVisible(false);
+    mSearchView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mSearchView, &QAbstractItemView::activated, this, &LXQtMainMenu::showHideMenu);
+    connect(mSearchView, &ActionView::requestShowHideMenu, this, &LXQtMainMenu::showHideMenu);
+    connect(mSearchView, &QWidget::customContextMenuRequested, this, &LXQtMainMenu::onRequestingCustomMenu);
     mSearchViewAction->setDefaultWidget(mSearchView);
     mSearchEdit = new QLineEdit;
     mSearchEdit->setClearButtonEnabled(true);
@@ -468,12 +470,25 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
     Q_UNUSED(p)
     return;
 #else
-    QMenu *parentMenu = static_cast<QMenu*>(QObject::sender());
-    if (parentMenu == nullptr)
+    QMenu *parentMenu = qobject_cast<QMenu*>(QObject::sender());
+    ActionView *parentView = qobject_cast<ActionView*>(QObject::sender());
+    QAction *action;
+    QPoint globalPos;
+    if (parentView != nullptr) {
+        action = parentView->indexAt(p).data(ActionView::ActionRole).value<QAction*>();
+        if (action == nullptr)
+            return;
+        globalPos = parentView->mapToGlobal(p);
+    }
+    else if (parentMenu != nullptr) {
+        action = parentMenu->actionAt(p);
+        if (action == nullptr || action->menu() != nullptr || action->isSeparator())
+            return;
+        globalPos = parentMenu->mapToGlobal(p);
+    }
+    else {
         return;
-    QAction *action = parentMenu->actionAt(p);
-    if (action == nullptr || action->menu() != nullptr || action->isSeparator())
-        return;
+    }
     XdgAction *xdgAction = qobject_cast<XdgAction *>(action);
     if (xdgAction == nullptr)
         return;
@@ -487,10 +502,10 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
     {
         for (int i = 0; i < df.actions().count(); ++i)
         {
-            QString action(df.actions().at(i));
-            a = menu.addAction(df.actionIcon(action), df.actionName(action));
-            connect(a, &QAction::triggered, this, [this, df, action] {
-                df.actionActivate(action, QStringList());
+            QString actionString(df.actions().at(i));
+            a = menu.addAction(df.actionIcon(actionString), df.actionName(actionString));
+            connect(a, &QAction::triggered, this, [this, df, actionString] {
+                df.actionActivate(actionString, QStringList());
                 mMenu->hide();
             });
         }
@@ -527,7 +542,7 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
                                                        + QByteArray("\r\n"));
         clipboard->setMimeData(data);
     });
-    menu.exec(parentMenu->mapToGlobal(p));
+    menu.exec(globalPos);
 #endif
 }
 
