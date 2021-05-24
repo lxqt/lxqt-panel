@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="737"/>
         <source>Move To &amp;Next Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 모니터로 이동(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="740"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 모니터로 이동(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="744"/>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>휠 델타 임계값</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>같은 클래스의 버튼을 나란히 배치</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -267,7 +267,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>스크롤을 올리면 다음 데스크톱으로, 내리면 이전 데스크톱으로 이동 </translation>
+        <translation>다음 바탕화면으로 이동, 이전 바탕화면으로 이동하려면 위로 스크롤</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
