@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(한 번에 하나의 인스턴스만 실행할 수 있습니다)</translation>
+        <translation>(한 번에 하나의 인스턴스만 실행할 수 있음)</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>제로는 애니메이션 효과 없음을 말합니다</translation>
+        <translation>0은 애니메이션이 없음을 의미함</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>애니메이션 시간:</translation>
+        <translation>애니메이션 재생시간:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
@@ -150,12 +150,12 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>제로는 딜레이 시간 없음을 말합니다</translation>
+        <translation>0은 지연시간이 없음을 의미함</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>딜레이 시간:</translation>
+        <translation>지연 시간 표시:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>창과 겹칠 때만 숨김</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
