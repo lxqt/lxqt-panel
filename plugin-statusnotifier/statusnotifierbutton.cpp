@@ -173,8 +173,10 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                 QDir themeDir(themePath);
                 if (themeDir.exists())
                 {
-                    if (themeDir.exists(iconName + QStringLiteral(".png")))
-                        nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".png")));
+                    if (!iconName.endsWith(QStringLiteral(".png")))
+                        iconName += QStringLiteral(".png");
+                    if (themeDir.exists(iconName))
+                        nextIcon.addFile(themeDir.filePath(iconName));
 
                     if (themeDir.cd(QStringLiteral("hicolor")) || (themeDir.cd(QStringLiteral("icons")) && themeDir.cd(QStringLiteral("hicolor"))))
                     {
@@ -184,7 +186,7 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                             const QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                             for (const QString &innerDir : dirs)
                             {
-                                QString file = themeDir.absolutePath() + QLatin1Char('/') + dir + QLatin1Char('/') + innerDir + QLatin1Char('/') + iconName + QStringLiteral(".png");
+                                QString file = themeDir.absolutePath() + QLatin1Char('/') + dir + QLatin1Char('/') + innerDir + QLatin1Char('/') + iconName;
                                 if (QFile::exists(file))
                                     nextIcon.addFile(file);
                             }
