@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
-        <translation>Chyba pri poklese</translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
@@ -26,7 +26,7 @@ ikonu aplikácie</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + ťahanie)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
