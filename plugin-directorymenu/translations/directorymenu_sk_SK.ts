@@ -50,7 +50,7 @@
         <location filename="../directorymenuconfiguration.ui" line="73"/>
         <location filename="../directorymenuconfiguration.cpp" line="112"/>
         <source>Choose Default Terminal</source>
-        <translation>Vybrať  predvolený terminál</translation>
+        <translation>Vybrať predvolený terminál</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
