@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Oznamovanie zmeny hlasitostí vykonanej pomocou klávesnice</translation>
+        <translation>Ukázať oznam pri zmene hlasitosti klávesnicou</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
