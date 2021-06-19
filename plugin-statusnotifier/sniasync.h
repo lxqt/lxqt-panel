@@ -79,7 +79,14 @@ public:
                 {
                     QDBusPendingReply<QVariant> reply = *call;
                     if (reply.isError())
-                        qDebug().noquote().nospace() << "Error on DBus request(" << mSni.service() << ',' << mSni.path() << "): " << reply.error();
+                    {
+                        QDBusError err = reply.error();
+                        // Ignore UnknownProperty errors for IconThemePath as it is not from XDG spec
+                        if (!(err.type() == QDBusError::UnknownProperty && name == QLatin1String("IconThemePath")))
+                        {
+                            qDebug().noquote().nospace() << "Error on DBus request(" << mSni.service() << ',' << mSni.path() << "): " << err;
+                        }
+                    }
                     finished(qdbus_cast<typename std::function<typename call_signature<F>::type>::argument_type>(reply.value()));
                     call->deleteLater();
                 }
