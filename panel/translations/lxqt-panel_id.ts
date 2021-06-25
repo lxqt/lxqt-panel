@@ -160,12 +160,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Tepi tipis yang nampak pada panel yang tersembunyi</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan ketika tumpang tindih dengan sebuah jendela</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
