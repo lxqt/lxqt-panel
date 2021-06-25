@@ -310,8 +310,8 @@
 &lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;L&apos;anno in quattro numeri&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;L&apos;ora senza zero iniziale (0 a 23 o 1 a 12 con AM/PM)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;L&apos;ora con uno zero iniziale (00 a 23 o 01 a 12 con AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;L&apos;ora con uno zero iniziale (0 a 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;L&apos;ora senza zero iniziale (00 to 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;L&apos;ora senza zero iniziale (0 a 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;L&apos;ora con uno zero iniziale (00 to 23, anche con AM/PM)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Il minuto senza zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Il minuto con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Il secondo  senza uno zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
