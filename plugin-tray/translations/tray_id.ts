@@ -6,27 +6,27 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="6"/>
         <source>System Tray Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Nampan Sistem</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="12"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Umum</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sela antar ikon:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation type="unfinished"></translation>
+        <translation>Urutkan ikon menurut kelas jendela</translation>
     </message>
 </context>
 </TS>
