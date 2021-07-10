@@ -173,8 +173,23 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                 QDir themeDir(themePath);
                 if (themeDir.exists())
                 {
-                    if (themeDir.exists(iconName + QStringLiteral(".png")))
-                        nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".png")));
+                    bool hasExtension = iconName.endsWith(QStringLiteral(".png"))
+                                        || iconName.endsWith(QStringLiteral(".svg"))
+                                        || iconName.endsWith(QStringLiteral(".xpm"));
+                    if (hasExtension)
+                    { // extension is included
+                        if (themeDir.exists(iconName))
+                            nextIcon.addFile(themeDir.filePath(iconName));
+                    }
+                    else
+                    {
+                        if (themeDir.exists(iconName + QStringLiteral(".png")))
+                            nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".png")));
+                        if (themeDir.exists(iconName + QStringLiteral(".svg")))
+                            nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".svg")));
+                        if (themeDir.exists(iconName + QStringLiteral(".xpm")))
+                            nextIcon.addFile(themeDir.filePath(iconName + QStringLiteral(".xpm")));
+                    }
 
                     if (themeDir.cd(QStringLiteral("hicolor")) || (themeDir.cd(QStringLiteral("icons")) && themeDir.cd(QStringLiteral("hicolor"))))
                     {
@@ -184,9 +199,21 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
                             const QStringList dirs = QDir(themeDir.filePath(dir)).entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
                             for (const QString &innerDir : dirs)
                             {
-                                QString file = themeDir.absolutePath() + QLatin1Char('/') + dir + QLatin1Char('/') + innerDir + QLatin1Char('/') + iconName + QStringLiteral(".png");
-                                if (QFile::exists(file))
-                                    nextIcon.addFile(file);
+                                QString path = themeDir.absolutePath() + QLatin1Char('/') + dir + QLatin1Char('/') + innerDir + QLatin1Char('/') + iconName;
+                                if (hasExtension)
+                                { // extension is included
+                                    if (QFile::exists(path))
+                                        nextIcon.addFile(path);
+                                }
+                                else
+                                {
+                                    if (QFile::exists(path + QStringLiteral(".png")))
+                                        nextIcon.addFile(path + QStringLiteral(".png"));
+                                    if (QFile::exists(path + QStringLiteral(".svg")))
+                                        nextIcon.addFile(path + QStringLiteral(".svg"));
+                                    if (QFile::exists(path + QStringLiteral(".xpm")))
+                                        nextIcon.addFile(path + QStringLiteral(".xpm"));
+                                }
                             }
                         }
                     }
