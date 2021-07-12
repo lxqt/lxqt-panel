@@ -163,12 +163,10 @@ void StatusNotifierButton::refetchIcon(Status status, const QString& themePath)
     }
 
     interface->propertyGetAsync(nameProperty, [this, status, pixmapProperty, themePath] (QString iconName) {
-        QIcon nextIcon;
         if (!iconName.isEmpty())
         {
-            if (QIcon::hasThemeIcon(iconName))
-                nextIcon = QIcon::fromTheme(iconName);
-            else
+            QIcon nextIcon = QIcon::fromTheme(iconName);
+            if (nextIcon.isNull())
             {
                 QDir themeDir(themePath);
                 if (themeDir.exists())
