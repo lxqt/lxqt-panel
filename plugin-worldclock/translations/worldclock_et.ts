@@ -225,12 +225,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Kui paneel on vertikaalne, siis pööra &amp;automaatselt</translation>
+        <translation>Kui paneel asub püstloodis, siis pööra &amp;automaatselt</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation>Näita avatavas kalendris &amp;nädalate nubreid</translation>
+        <translation>Näita avatavas kalendris &amp;nädalate numbreid</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
