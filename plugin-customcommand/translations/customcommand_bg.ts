@@ -6,77 +6,77 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Конфигуриране на персонализирана команда</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Дисплей</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Use icon from theme or browse file</source>
-        <translation type="unfinished"></translation>
+        <translation>Използвайте икона от темата или изберете файл</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Стартирайте с &quot;bash -c&quot;</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Изберете шрифт</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="65"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда(Инструкция)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="75"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Фрифт</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> пиксела</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="101"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="104"/>
         <source>Use %1 to display command output</source>
-        <translation type="unfinished"></translation>
+        <translation>Използвайте %1 за да покажете изходът от командата</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="111"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Икона</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Разглеждане</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="131"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично завъртане когато панелът е в вертикално положение</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation type="unfinished"></translation>
+        <translation>echo Конфигуриране...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
@@ -84,32 +84,32 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="278"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="285"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда за изпълнение</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимална широчина</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Повтаряне на команда след:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> секунда(и)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Команди за мишката</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Клик</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
