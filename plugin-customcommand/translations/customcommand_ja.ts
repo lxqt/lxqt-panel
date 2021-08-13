@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムコマンドの設定</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>表示</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
@@ -36,22 +36,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="65"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンド</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="75"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>フォント</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> ピクセル</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="101"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="104"/>
@@ -61,7 +61,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="111"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコン</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">echo 設定する...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>最大幅</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> 秒</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>クリック</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
