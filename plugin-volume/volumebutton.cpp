@@ -86,26 +86,23 @@ void VolumeButton::setMixerCommand(const QString &command)
     m_mixerCommand = command;
 }
 
-void VolumeButton::enterEvent(QEvent * /*event*/)
+void VolumeButton::enterEvent(QEvent *event)
 {
     if (!m_showOnClick)
         showVolumeSlider();
 
     m_popupHideTimer.stop();
+
+    // show tooltip immediately on entering widget
+    QToolTip::showText(static_cast<QEnterEvent*>(event)->globalPos(), toolTip());
 }
 
 void VolumeButton::mouseMoveEvent(QMouseEvent *event)
 {
-    // moving the tooltip must be achieved by chaging the text
-    // (hide/show - won't work because of the internal hide delay)
-    QString tooltip = toolTip();
-    if (!tooltip.isEmpty())
-    {
-        *(tooltip.rbegin()) = QLatin1Char('X');
-        QToolTip::showText(event->globalPos(), tooltip);
-        QToolTip::showText(event->globalPos(), toolTip());
-    }
     QToolButton::mouseMoveEvent(event);
+    // show tooltip immediately on moving the mouse
+    if (!QToolTip::isVisible()) // prevent sliding of tooltip
+        QToolTip::showText(event->globalPos(), toolTip());
 }
 
 void VolumeButton::leaveEvent(QEvent * /*event*/)
