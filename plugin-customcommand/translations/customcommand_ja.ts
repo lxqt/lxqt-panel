@@ -16,22 +16,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Use icon from theme or browse file</source>
-        <translation type="unfinished"></translation>
+        <translation>テーマからアイコンを使用するかファイルを参照します</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;bash -c&quot; で実行する</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォントの選択</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">文字列</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="65"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="104"/>
         <source>Use %1 to display command output</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンドの出力を表示するために %1 を使用します</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="111"/>
@@ -66,17 +66,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>参照</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="131"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルが垂直ならば回転する</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation type="unfinished">echo 設定する...</translation>
+        <translation>echo 設定して下さい...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
@@ -84,7 +84,7 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="278"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="285"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>実行するコマンド</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">次の時間の後にコマンドを繰り返す:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>マウスのコマンド</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
@@ -114,12 +114,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ホイールアップ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ホイールダウン</translation>
     </message>
 </context>
 </TS>

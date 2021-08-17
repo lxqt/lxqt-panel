@@ -38,12 +38,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="512"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>El archivo no puede ser sobrescrito.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="518"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
 </context>
 <context>
