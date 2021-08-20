@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<TS version="2.1" language="lv">
 <context>
     <name>AddPluginDialog</name>
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Lägg till insticksmodul</translation>
+        <translation>Pielikt spraudņus/plaginus</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Sök:</translation>
+        <translation>Meklēt:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Lägg till grafiska komponenter</translation>
+        <translation>Pielikt vidžetu</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
         <source>Close</source>
-        <translation>Stäng</translation>
+        <translation>Aizvērt</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="119"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(endast en instans kan köras i taget)</translation>
+        <translation>(vienlaicīgi var palaist/darbināt tikai vienu eksemplāru)</translation>
     </message>
 </context>
 <context>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Konfigurera</translation>
+        <translation>Iestatīt paneli</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation>Panel</translation>
+        <translation>Panelis</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
         <source>Widgets</source>
-        <translation>Grafiska komponenter</translation>
+        <translation>Vidžeti</translation>
     </message>
 </context>
 <context>
@@ -52,27 +52,27 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation>Konfigurera</translation>
+        <translation>Iestatīt paneli</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation>Storlek</translation>
+        <translation>Izmērs</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt; Negativt pixelvärde ställer in panellängden på så många pixlar som är mindre än tillgängligt skärmutrymme. &lt;/p&gt;&lt;p/&gt;&lt;p&gt; &lt;i&gt;T.ex Om &quot;Längd&quot; = -100px, och skärmbredd = 1000px, då kommer panelen uppta 900px&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Negatīva pikseļa vērtība iestata paneļa garumu par tik daudz pikseļiem mazāku par pieejamo ekrāna izmēru.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt; Piem. Ja &quot;Garums&quot; iestatīts -100px, ekrāna izmērs ir 1000px, tad reālais paneļa garums būs 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation>Storlek:</translation>
+        <translation>Izmērs:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation>Längd:</translation>
+        <translation>Garums:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
@@ -82,34 +82,34 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation>px</translation>
+        <translation>pikseļi</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> pikseļi</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Ikonstorlek:</translation>
+        <translation>Ikonu izmērs:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Justering &amp;&amp; position</translation>
+        <translation>Izlīdzinājums un novietojums</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;uto göm</translation>
+        <translation>&amp;Automātiski paslēpt</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
         <location filename="../config/configpanelwidget.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Noll betyder ingen animering</translation>
+        <translation>Nulle nozīmē animācijas neesamību</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="288"/>
@@ -121,32 +121,32 @@
         <location filename="../config/configpanelwidget.ui" line="301"/>
         <location filename="../config/configpanelwidget.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>Noll betyder ingen fördröjning</translation>
+        <translation>Nulle nozīmē aizkaves neesamību</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Visa med fördröjning:</translation>
+        <translation>Parādīt ar aizkavi/aizturi:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation>Synlig tunn marginal för dold panel</translation>
+        <translation>Slēptajam panelim rādīt tievu/plānu ietvaru</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Dölj bara när du överlappar ett fönster</translation>
+        <translation>Paslēpt tikai uz pārklājošās loga</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Låt inte maximerade fönster gå under panelfönstret</translation>
+        <translation>Neļaut maksimizētajiem logiem paiet zem paneļa loga</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation>Reservera utrymme på displayen</translation>
+        <translation>Rezervēt vietu uz ekrāna</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="575"/>
@@ -158,160 +158,159 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>En partiell lösning för widgetstil som inte
+        <translation>Daļējs apejas risinājums logrīku/vidžetu stiliem, kas
+panelim nevar piešķirt atsevišķu tēmu.
 
-kan ge ett separat tema till panelen.
+Iespējams, vēlēsieties arī atspējot:
 
-Du kanske också vill ändra:
-
-LXQt Utseendeinställningar→
-Ikontema→
-Färgade ikoner baserad på widgetstil (palett)</translation>
+LXQt Izskata konfigurācija →
+Ikonu tēma →
+Iekrāsot ikonas, balstoties uz logrīku stilu (palete)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
         <source>Override icon &amp;theme</source>
-        <translation>Åsidosätt ikon &amp;tema</translation>
+        <translation>Nomākt ikonu &amp;tēmu</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="600"/>
         <source>Icon theme for panels:</source>
-        <translation>Ikontema för paneler:</translation>
+        <translation>Ikonu tēma paneļiem:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation>Position:</translation>
+        <translation>Atrašanās:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>Animationstid:</translation>
+        <translation>Animācijas ilgums:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="208"/>
         <source>Alignment:</source>
-        <translation>Justering:</translation>
+        <translation>Izlīdzinājums:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Rader:</translation>
+        <translation>Rindas:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="216"/>
         <source>Left</source>
-        <translation>Vänster</translation>
+        <translation>Pa kreisi</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <location filename="../config/configpanelwidget.cpp" line="223"/>
         <source>Center</source>
-        <translation>Mitten</translation>
+        <translation>Centrā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Right</source>
-        <translation>Höger</translation>
+        <translation>Pa labi</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
-        <translation>Anpassad styling</translation>
+        <translation>Pielāgots stils</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="384"/>
         <source>Font color:</source>
-        <translation>Textfärg:</translation>
+        <translation>Šrifta krāsa:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="424"/>
         <source>Background color:</source>
-        <translation>Bakgrundsfärg:</translation>
+        <translation>Fona krāsa:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background opacity:</source>
-        <translation>Bakgrunds genomskinlighet:</translation>
+        <translation>Fona necaurspīdīgums:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="495"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Komposition är nödvändig för panelens transparens.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Paneļa caurspīdīgumam ir nepieciešama kompozīcija.&lt;/mazs&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="523"/>
         <source>Background image:</source>
-        <translation>Bakgrundsbild:</translation>
+        <translation>Fona attēls:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
-        <translation>Överst på skrivbordet</translation>
+        <translation>Darbvirsmas augšdaļā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
-        <translation>Vänster om skrivbordet</translation>
+        <translation>Darbvirsmas kreisajā pusē</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
-        <translation>Höger om skrivbordet</translation>
+        <translation>Darbvirsmas labajā pusē</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
-        <translation>Längst ner på skrivbordet</translation>
+        <translation>Darbvirsmas lejasdaļā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
-        <translation>Överst på skrivbordet %1</translation>
+        <translation>Darbvirsmas %1 augšdaļā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
-        <translation>Vänster om skrivbordet %1</translation>
+        <translation>Darbvirsmas %1 kreisajā pusē</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
-        <translation>Höger om skrivbordet %1</translation>
+        <translation>Darbvirsmas %1 labajā pusē</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
-        <translation>Längst ner på skrivbord %1</translation>
+        <translation>Darbvirsmas %1 apakšdaļā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="222"/>
         <source>Top</source>
-        <translation>Högst upp</translation>
+        <translation>Augšā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="224"/>
         <source>Bottom</source>
-        <translation>Längst ner</translation>
+        <translation>Apakšā</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="445"/>
         <location filename="../config/configpanelwidget.cpp" line="461"/>
         <source>Pick color</source>
-        <translation>Välj färg</translation>
+        <translation>Izvēlēties krāsu</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Pick image</source>
-        <translation>Välj bild</translation>
+        <translation>Izvēlēties attēlu</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="479"/>
         <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Bilder (*.png *.gif *.jpg)</translation>
+        <translation>Attēli (*.png *.gif *.jpg)</translation>
     </message>
 </context>
 <context>
@@ -319,17 +318,17 @@ Färgade ikoner baserad på widgetstil (palett)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Konfigurera plugins</translation>
+        <translation>Iestatīt spraudņus/plaginus</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Obs: ändringar som gjorts på den här sidan kan inte återställas.</translation>
+        <translation>Piezīme: Šajā lapā veiktās izmaiņas nevar atstatīt.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Flytta upp</translation>
+        <translation>Pārvietot augšup</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -343,22 +342,22 @@ Färgade ikoner baserad på widgetstil (palett)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Flytta ner</translation>
+        <translation>Pārvietot lejup</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation>Lägg till</translation>
+        <translation>Pielikt/pievienot</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>Noņemt</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Konfigurera</translation>
+        <translation>Iestatīt</translation>
     </message>
 </context>
 <context>
@@ -367,46 +366,46 @@ Färgade ikoner baserad på widgetstil (palett)</translation>
         <location filename="../lxqtpanel.cpp" line="1178"/>
         <location filename="../lxqtpanel.cpp" line="1204"/>
         <source>Panel</source>
-        <translation>Panel</translation>
+        <translation>Panelis</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1207"/>
         <source>Configure Panel</source>
-        <translation>Konfigurera Panel</translation>
+        <translation>Iestatīt paneli</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1212"/>
         <source>Manage Widgets</source>
-        <translation>Hantera widgets</translation>
+        <translation>Pārvaldīt logrīkus/vidžetus</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1218"/>
         <source>Add New Panel</source>
-        <translation>Lägg till ny Panel</translation>
+        <translation>Pielikt jaunu paneli</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Ta bort Panel</translation>
+        <translation>Noņemt paneli</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1230"/>
         <source>Lock This Panel</source>
-        <translation>Lås denna panel</translation>
+        <translation>Nostiprināt paneli</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Ta bort panel</translation>
+        <translation>Noņemt paneli</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Att ta bort en panel kan inte ångras.
-Vill du ta bort den här panelen?</translation>
+        <translation>Paneļa noņemšanu nevar atsaukt/atdarīt.
+Tomēr vēlaties noņemt šo paneli?</translation>
     </message>
 </context>
 <context>
@@ -414,17 +413,17 @@ Vill du ta bort den här panelen?</translation>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfigurera &quot;%1&quot;</translation>
+        <translation>Iestatīt &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Flytta &quot;%1&quot;</translation>
+        <translation>Pārvietot &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Ta bort &quot;%1&quot;</translation>
+        <translation>Noņemt &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -432,12 +431,12 @@ Vill du ta bort den här panelen?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>Använd alternativ konfigurationsfil.</translation>
+        <translation>Izmantot alternatīvu iestatījumu/konfigurācijas failu.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>Konfigurationsfil</translation>
+        <translation>Iestatījumu/konfigurācijas fails</translation>
     </message>
 </context>
 </TS>
