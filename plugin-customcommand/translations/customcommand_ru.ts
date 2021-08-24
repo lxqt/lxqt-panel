@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
@@ -51,7 +51,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="101"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="104"/>
