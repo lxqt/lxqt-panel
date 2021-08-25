@@ -1444,6 +1444,7 @@ void LXQtPanel::showPanel(bool animate)
             mHidden = false;
             setPanelGeometry(mAnimationTime > 0 && animate);
         }
+        mRerveSpace=true;
     }
 }
 
