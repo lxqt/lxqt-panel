@@ -34,12 +34,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished">Configurează panoul</translation>
+        <translation>Configurează panoul</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="38"/>
         <source>Panel</source>
-        <translation type="unfinished">Panou</translation>
+        <translation>Panou</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="42"/>
@@ -52,53 +52,53 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="20"/>
         <source>Configure panel</source>
-        <translation type="unfinished">Configurează panoul</translation>
+        <translation>Configurează panoul</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished">Dimensiune</translation>
+        <translation>Dimensiune</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished">Dimensiune:</translation>
+        <translation>Dimensiune:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="109"/>
         <location filename="../config/configpanelwidget.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"> px</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished">Dimensiune pictograme:</translation>
+        <translation>Dimensiune pictograme:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished">Lungime:</translation>
+        <translation>Lungime:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Pentru valori negative, dimensiunea panoului va fi calculată ca diferenta dintre marimea disponibilă a ecranului și valoarea introdusă.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;De ex. introducând o &quot;lungime&quot; de -100 px si o dimensiune a ecranului de 1000 px, dimensiunea reala a panoului va fi de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pentru valori negative, dimensiunea panoului va fi calculată ca diferenta dintre marimea disponibilă a ecranului și valoarea introdusă.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;De ex. introducând o &quot;lungime&quot; de -100 px si o dimensiune a ecranului de 1000 px, dimensiunea reala a panoului va fi de 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished">px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished">Aliniere și poziție</translation>
+        <translation>Aliniere și poziție</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -126,20 +126,20 @@
         <location filename="../config/configpanelwidget.ui" line="219"/>
         <location filename="../config/configpanelwidget.cpp" line="216"/>
         <source>Left</source>
-        <translation type="unfinished">Stânga</translation>
+        <translation>Stânga</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="224"/>
         <location filename="../config/configpanelwidget.cpp" line="217"/>
         <location filename="../config/configpanelwidget.cpp" line="223"/>
         <source>Center</source>
-        <translation type="unfinished">Centru</translation>
+        <translation>Centru</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="229"/>
         <location filename="../config/configpanelwidget.cpp" line="218"/>
         <source>Right</source>
-        <translation type="unfinished">Dreapta</translation>
+        <translation>Dreapta</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="250"/>
@@ -160,12 +160,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Bordură subțire vizibilă pentru panoul ascuns</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascundeți numai dacă se suprapune o fereastră</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation>Inverseaza spatiul pe ecran</translation>
+        <translation>Rezervă spatiu pe ecran</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="363"/>
@@ -217,7 +217,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>O soluție parțială pentru stilurile de widget care
+nu pot da o temă separată panoului.
+
+Ați putea dori, de asemenea, să dezactivați:
+
+Configurarea aspectului LXQt →
+Tema pictograme →
+Colorează pictogramele pe baza stilului widgetului (paletei)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="585"/>
@@ -242,42 +249,42 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
-        <translation type="unfinished">Partea de sus a ecranului</translation>
+        <translation>Partea de sus a ecranului</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
-        <translation type="unfinished">Stânga ecranului</translation>
+        <translation>Stânga ecranului</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
-        <translation type="unfinished">Dreapta ecranului</translation>
+        <translation>Dreapta ecranului</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
-        <translation type="unfinished">Partea de jos a ecranului</translation>
+        <translation>Partea de jos a ecranului</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished">Partea de sus a ecranului %1</translation>
+        <translation>Partea de sus a ecranului %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished">Stânga ecranului %1</translation>
+        <translation>Stânga ecranului %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished">Dreapta ecranului %1</translation>
+        <translation>Dreapta ecranului %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished">Partea de jos a ecranului %1</translation>
+        <translation>Partea de jos a ecranului %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="222"/>
@@ -345,7 +352,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation type="unfinished">Îndepărtează</translation>
+        <translation>Șterge</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
@@ -380,7 +387,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1225"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation type="unfinished">Îndepărtează panou</translation>
+        <translation>Șterge Panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1230"/>
@@ -391,7 +398,7 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation type="unfinished">Îndepărtează panou</translation>
+        <translation>Șterge panou</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1387"/>
@@ -406,7 +413,7 @@ Doriți sa înlăturați acest panou?</translation>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished">Configurează &quot;%1&quot;</translation>
+        <translation>Configurează &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
@@ -416,7 +423,7 @@ Doriți sa înlăturați acest panou?</translation>
     <message>
         <location filename="../plugin.cpp" line="449"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation type="unfinished">Îndepărtează &quot;%1&quot;</translation>
+        <translation>Îndepărtează &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
