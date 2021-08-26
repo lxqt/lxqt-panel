@@ -59,12 +59,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Prikaži sate dvoznamenkasto</translation>
+        <translation>Prikaži &amp;sate s vodećom nulom</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>&amp;Vremenska zona</translation>
+        <translation>Vremenska &amp;zona</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Odmak od UTC-a</translation>
+        <translation>Odstupanje od UTC-a</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -165,12 +165,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>Prikaži datum d&amp;ana dvoznamenkasto</translation>
+        <translation>Prikaži d&amp;ane s vodećom nulom</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>&amp;Ispiši mjesec i dan tjedna</translation>
+        <translation>&amp;Ispiši mjesece i dane tjedna</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
