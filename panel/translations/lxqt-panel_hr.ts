@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negativna vrijednost piksela postavlja duljinu ploče na toliki broj piksela minus dostupnog prostora na ekranu. &lt;/p&gt; &lt;p /&gt; &lt;p&gt; &lt;i&gt; Npr. „Duljina” postavljena na −100&#xa0;px, s veličinom ekrana od 1000&#xa0;px, tada će stvarna duljina ploče biti 900&#xa0;px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Negativna vrijednost piksela postavlja duljinu ploče na toliki broj piksela minus dostupnog prostora na ekranu.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Npr. „Duljina” postavljena na −100 px, s veličinom ekrana od 1000 px, tada će stvarna duljina ploče biti 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="81"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Veličina ikona:</translation>
+        <translation>Veličina ikone:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sakrij samo pri prekrivanju prozora</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Ne dopuštaj, da maksimalno prošireni prozori idu ispod prozora ploče</translation>
+        <translation>Nemoj dopustiti da se maksimalno prošireni prozori povlače ispod prozora ploče</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="347"/>
@@ -232,7 +232,7 @@ koji ploči ne mogu dati zasebnu temu.
 
 Možda želiš deaktivirati i:
 
-LXQt konfiguracija izgleda →
+Konfiguracija LXQt izgleda →
 Tema ikona →
 Oboji ikone na osnovi stila programčića (paleta)</translation>
     </message>
@@ -404,7 +404,7 @@ Oboji ikone na osnovi stila programčića (paleta)</translation>
         <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Uklanjanje ploče ne može se poništiti.
+        <translation>Uklanjanje ploče se ne može poništiti.
 Svejedno ukloniti ovu ploču?</translation>
     </message>
 </context>
