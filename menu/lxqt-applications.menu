@@ -175,8 +175,6 @@
 					</Or>
 				</And>
 				<!-- Include some optional components here -->
-				<Filename>obconf-qt.desktop</Filename>
-				<Filename>compton-conf.desktop</Filename>
 				<Filename>pcmanfm-qt-desktop-pref.desktop</Filename>
 			</Include>
 			<Layout>
