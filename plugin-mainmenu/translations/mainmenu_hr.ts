@@ -91,7 +91,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>Tipkovnički prečac</translation>
+        <translation>Tipkovni prečac</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>

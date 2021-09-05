@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Upravljač prijenosnih medija/uređaja: Globalni prečac „%1“ se ne može registrirati</translation>
+        <translation>Upravljač prijenosnih medija/uređaja: Globalni prečac „%1” se ne može registrirati</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
