@@ -93,12 +93,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation>Patroon van vlagpad:</translation>
+        <translation>Patroon van vlaglocatie:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation>Patroon omtrent het bestandspad van vlaggen. Het pad dient &lt;strong&gt;%1&lt;/strong&gt; te bevatten, wat vervangen zal worden door de tweeletterige ISO-landcode (kleine letters).&lt;br&gt;&lt;br&gt;Voorbeeld: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
+        <translation>Patroon omtrent de bestandslocatie van vlaggen. De locatie dient &lt;strong&gt;%1&lt;/strong&gt; te bevatten, wat vervangen zal worden door de tweeletterige ISO-landcode (kleine letters).&lt;br&gt;&lt;br&gt;Voorbeeld: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
