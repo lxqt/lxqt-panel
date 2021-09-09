@@ -42,7 +42,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation>Виводити постійно</translation>
+        <translation>Завжди показувати</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation>Завжди приховувати</translation>
+        <translation>Завжди ховати</translation>
     </message>
 </context>
 </TS>

@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation>Відстань між значками:</translation>
+        <translation>Відстань між піктограмами:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation>Сортувати значки за класом вікна</translation>
+        <translation>Сортувати піктограми за класом вікна</translation>
     </message>
 </context>
 </TS>
