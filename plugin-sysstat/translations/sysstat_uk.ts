@@ -241,7 +241,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation>цп1</translation>
+        <translation>цп0</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="56"/>
