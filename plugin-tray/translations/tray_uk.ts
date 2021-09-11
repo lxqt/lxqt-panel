@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="18"/>
         <source>Spacing between icons:</source>
-        <translation>Відстань між піктограмами:</translation>
+        <translation>Відстань між значками:</translation>
     </message>
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="25"/>
