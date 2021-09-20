@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Adicionar widget</translation>
+        <translation>Adicionar ferramenta</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
