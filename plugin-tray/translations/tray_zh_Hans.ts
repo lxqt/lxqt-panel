@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqttrayconfiguration.ui" line="32"/>
         <source>Sort icons by window class</source>
-        <translation type="unfinished"></translation>
+        <translation>通过窗口类型排序图标</translation>
     </message>
 </context>
 </TS>
