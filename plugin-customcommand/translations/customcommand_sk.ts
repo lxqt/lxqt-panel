@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenie vlasných príkazov</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
