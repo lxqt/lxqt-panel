@@ -48,27 +48,27 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Prioriteet</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation type="unfinished"></translation>
+        <translation>M%uu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sagedus</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;üsteem</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kasutaja</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation type="unfinished"></translation>
+        <translation>Puhverdatu&amp;d</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Puhvrid</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Paneeli vähim laius horisontaalselt.&lt;/p&gt;&lt;p&gt;Paneeli vähim kõrgus vertikaalselt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Andmed</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
@@ -171,12 +171,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma&amp;ksimaalne</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation type="unfinished"></translation>
+        <translation>XXX KB</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
@@ -186,17 +186,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
         <source> steps</source>
-        <translation type="unfinished"></translation>
+        <translation> sammu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aallikas</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation type="unfinished"></translation>
+        <translation>T&amp;üüp</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
@@ -375,19 +375,19 @@
         <location filename="../lxqtsysstat.cpp" line="392"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>süsteem: %1%&lt;br&gt;kasutaja: %2%&lt;br&gt;prioriteet: %3%&lt;br&gt;muu: %4%&lt;br&gt;sagedus: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="441"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>süsteem: %1%&lt;br&gt;kasutaja: %2%&lt;br&gt;prioriteet: %3%&lt;br&gt;muu: %4%&lt;br&gt;sagedus: pole teada</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="483"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>rakendused: %1%&lt;br&gt;puhverdatud: %2%&lt;br&gt;puhverdatud kettale: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="517"/>
