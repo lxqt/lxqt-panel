@@ -75,7 +75,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Při nahrávání ikony se vyskytla chyba.</translation>
+        <translation>Při načítání ikony se vyskytla chyba.</translation>
     </message>
 </context>
 </TS>

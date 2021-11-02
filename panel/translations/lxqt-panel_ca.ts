@@ -131,12 +131,12 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Marge lleuger visible per al plafó ocult</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Amaga només en superposar una finestra</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>

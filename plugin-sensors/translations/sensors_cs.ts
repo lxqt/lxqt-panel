@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Šíře pruhu s teplotou</translation>
+        <translation>Šíře lišty s teplotou</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Při příliš vysoké teplotě signalizovat blikáním pruhu ukazatele stavu</translation>
+        <translation>Při příliš vysoké teplotě signalizovat blikáním lišty ukazatele stavu</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
