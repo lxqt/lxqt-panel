@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.ui" line="42"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action when eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Po stisknutí zkratky pro vysunutí spustit následující činnost (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; je výchozí)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Po stisknutí zkratky pro vysunutí spustit následující akci (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; je výchozí)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation>Nejsou dostupná žádná zařízení</translation>
+        <translation>Nejsou k dispozici žádná zařízení</translation>
     </message>
 </context>
 </TS>

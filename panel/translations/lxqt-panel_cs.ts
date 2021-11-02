@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="363"/>
         <source>Custom styling</source>
-        <translation>Vlastní styl</translation>
+        <translation>Uživatelsky určený styl</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="384"/>

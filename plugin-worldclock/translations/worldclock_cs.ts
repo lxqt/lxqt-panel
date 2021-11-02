@@ -49,7 +49,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Uživatelem určený</translation>
+        <translation>Uživatelsky určený</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>

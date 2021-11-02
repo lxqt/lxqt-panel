@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Směr pruhu:</translation>
+        <translation>Směr lišty:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation>Šířka pruhu:</translation>
+        <translation>Šířka lišty:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
