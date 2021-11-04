@@ -31,7 +31,7 @@
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>folrat</translation>
+        <translation>línia</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>

@@ -84,42 +84,42 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="278"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="285"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordre a executar</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Amplada màxima</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Repeteix l&apos;ordre després de:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> segon(s)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordres del ratolí</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Clic</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Roda amunt</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Roda avall</translation>
     </message>
 </context>
 </TS>

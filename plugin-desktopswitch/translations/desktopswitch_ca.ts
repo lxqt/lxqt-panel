@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Si està marcat, l&apos; estri serà només un indicador</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra només l&apos;escriptori actiu</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="69"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">Escriptori %1:</translation>
+        <translation>Escriptori %1:</translation>
     </message>
 </context>
 </TS>
