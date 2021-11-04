@@ -6,22 +6,22 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation>Apuja el volum del so</translation>
+        <translation>Augmenta el volum del so</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation>Abaixa el volum del so</translation>
+        <translation>Redueix el volum del so</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Silencia o dessilencia el volum del so</translation>
+        <translation>Silencia/Activa el volum del so</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Control del volum: Les següents dreceres no es poden registrar: %1</translation>
+        <translation>Control de volum: No es poden registrar les següents dreceres:%1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Notifica els canvis de volum amb el teclat</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="106"/>

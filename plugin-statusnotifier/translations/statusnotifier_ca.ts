@@ -6,53 +6,53 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paràmetres del notificador d&apos;estat</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un element d&apos;ocultació automàtica romandrà visible durant aquest període si necessita atenció.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation type="unfinished"></translation>
+        <translation>Període d&apos;atenció:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>
         <source> minute(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> minut(s)</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvia la visibilitat dels elements</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
         <source>Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Element</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="90"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Visibilitat</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra sempre</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Oculta automàticament</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Oculta sempre</translation>
     </message>
 </context>
 </TS>
