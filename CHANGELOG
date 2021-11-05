@@ -1,3 +1,15 @@
+lxqt-panel-1.0.0 / 2021-11-04
+==============================
+ * Updated AUTHORS.
+ * Fixed the keypad navigation in main menu.
+ * Bumped minimum required Qt version to 5.15.
+ * Added Custom Command plugin.
+ * Added context menu and drag-and-drop support to search results of main menu.
+ * Consider icon names that end with a valid extension in Status Notifier.
+ * Don't check icon name with hasTheme() in Status Notifier.
+ * Prevent sliding of volume tooltip.
+ * Do not force Openbox configs under LXQt.
+
 lxqt-panel-0.17.1 / 2021-04-16
 ==============================
   * Fixed compilation against Qt < 5.15.
