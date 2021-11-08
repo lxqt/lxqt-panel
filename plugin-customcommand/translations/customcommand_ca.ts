@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation>Selecciona el tipus de lletra</translation>
+        <translation>Selecciona la lletra tipogràfica</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="75"/>
         <source>Font</source>
-        <translation>Tipus de lletra</translation>
+        <translation>Lletra tipogràfica</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>

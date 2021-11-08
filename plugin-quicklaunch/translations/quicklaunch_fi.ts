@@ -26,7 +26,7 @@ kuvake tähän</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + Raahaa ja pudoita)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
