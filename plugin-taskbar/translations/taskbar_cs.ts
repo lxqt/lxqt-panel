@@ -232,7 +232,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
-        <translation>Zavírat klepnutím prostředním tlačítkem</translation>
+        <translation>Zavírat kliknutím prostředním tlačítkem</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
