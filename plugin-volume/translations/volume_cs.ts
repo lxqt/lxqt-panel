@@ -69,12 +69,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Ztlumit klepnutím prostředním tlačítkem</translation>
+        <translation>Ztlumit kliknutím prostředním tlačítkem</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Show on mouse click</source>
-        <translation>Ukázat při klepnutí</translation>
+        <translation>Ukázat při kliknutí</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
