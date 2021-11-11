@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Při najetí ukazovátkem myši zobrazit vyskakovací okno</translation>
+        <translation>Při najetí ukazatelem myši zobrazit vyskakovací okno</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>

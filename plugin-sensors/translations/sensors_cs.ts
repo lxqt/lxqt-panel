@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Šíře lišty s teplotou</translation>
+        <translation>Šířka lišty s teplotou</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>

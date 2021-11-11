@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Ztlumit/zrušit ztlumení zvuku</translation>
+        <translation>Ztlumit / zrušit ztlumení zvuku</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>

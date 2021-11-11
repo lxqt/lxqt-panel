@@ -165,7 +165,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Skrýt jen při překrytí okna</translation>
+        <translation>Skrýt jen pokud by překrýval okno</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="344"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="463"/>
         <source>Background opacity:</source>
-        <translation>Neprůhlednost pozadí:</translation>
+        <translation>(Ne)průhlednost pozadí:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="495"/>
@@ -249,42 +249,42 @@ Obarvit ikony podle stylu prvku (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
         <source>Top of desktop</source>
-        <translation>Horní strana pracovní plochy</translation>
+        <translation>Horní okraj pracovní plochy</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="183"/>
         <source>Left of desktop</source>
-        <translation>Levá strana pracovní plochy</translation>
+        <translation>Levý okraj pracovní plochy</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="184"/>
         <source>Right of desktop</source>
-        <translation>Pravá strana pracovní plochy</translation>
+        <translation>Pravý okraj pracovní plochy</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="185"/>
         <source>Bottom of desktop</source>
-        <translation>Dolní strana pracovní plochy</translation>
+        <translation>Dolní okraj pracovní plochy</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="194"/>
         <source>Top of desktop %1</source>
-        <translation>Horní strana pracovní plochy %1</translation>
+        <translation>Horní okraj pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="195"/>
         <source>Left of desktop %1</source>
-        <translation>Levá strana pracovní plochy %1</translation>
+        <translation>Levý okraj pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="196"/>
         <source>Right of desktop %1</source>
-        <translation>Pravá strana pracovní plochy %1</translation>
+        <translation>Pravý okraj pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="197"/>
         <source>Bottom of desktop %1</source>
-        <translation>Spodní strana pracovní plochy %1</translation>
+        <translation>Spodní okraj pracovní plochy %1</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="222"/>
@@ -431,12 +431,12 @@ Opravdu chcete tento panel odstranit?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>Použít jiný soubor s nastavením.</translation>
+        <translation>Použít jiný soubor s nastaveními.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>Soubor s nastavením</translation>
+        <translation>Soubor s nastaveními</translation>
     </message>
 </context>
 </TS>
