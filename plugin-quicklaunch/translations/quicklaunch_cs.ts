@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
-        <translation>Problém s upuštěním sem</translation>
+        <translation>Chyba při upuštění sem</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Soubor/URL „%1“ nyní nelze vložit do rychlého spuštění</translation>
+        <translation>Soubor/URL „%1“ proteď nelze vložit do rychlého spouštění</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="336"/>
@@ -41,7 +41,7 @@ ikonu aplikace</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="64"/>
         <source>Remove from quicklaunch</source>
-        <translation>Odebrat z rychlého spuštění</translation>
+        <translation>Odebrat z rychlého spouštění</translation>
     </message>
 </context>
 </TS>

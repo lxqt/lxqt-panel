@@ -6,7 +6,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
-        <translation>Ukázat pracovní plochu</translation>
+        <translation>Ukázat plochu</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
-        <translation>Ukázat pracovní plochu</translation>
+        <translation>Ukázat plochu</translation>
     </message>
 </context>
 </TS>

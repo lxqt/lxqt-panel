@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Použijte ikonu z motivu vzhledu nebo nalistujte soubor</translation>
+        <translation>Použít ikonu z motivu vzhledu nebo nalistujte soubor</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
