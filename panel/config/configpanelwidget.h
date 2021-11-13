@@ -50,6 +50,7 @@ public:
     int screenNum() const { return mScreenNum; }
     ILXQtPanel::Position position() const { return mPosition; }
     void updateIconThemeSettings();
+    QSize extraLayoutSize();
 
 signals:
     void changed();

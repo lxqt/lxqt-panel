@@ -482,3 +482,18 @@ void ConfigPanelWidget::pickBackgroundImage()
     connect(d, &QFileDialog::fileSelected, ui->lineEdit_customBgImage, &QLineEdit::setText);
     d->show();
 }
+
+/************************************************
+ *
+ ************************************************/
+QSize ConfigPanelWidget::extraLayoutSize()
+{
+    // avoid scrollbars if possible; should be called ater the widget is shown
+    if (auto viewport = ui->scrollArea->viewport())
+    {
+        QSize diff = viewport->childrenRect().size() - ui->scrollArea->size();
+        if (diff.width() > 0 || diff.height() > 0)
+            return diff.expandedTo(QSize(0, 0));
+    }
+    return QSize(0, 0);
+}

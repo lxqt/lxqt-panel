@@ -26,6 +26,9 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "configpaneldialog.h"
+#include <QWindow>
+#include <QScreen>
+#include <QApplication>
 
 ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
     LXQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent),
@@ -44,6 +47,33 @@ ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
 
     connect(this, &ConfigPanelDialog::accepted, panel, [panel] {
         panel->saveSettings();
+    });
+}
+
+void ConfigPanelDialog::show()
+{
+    LXQt::ConfigDialog::show();
+
+    QTimer::singleShot(0, this, [this] {
+        // fit into available desktop geometry
+        QScreen *sc = nullptr;
+        if (auto p = qobject_cast<QWidget*>(parent()))
+        {
+            if (QWindow *win = p->windowHandle())
+                sc = win->screen();
+        }
+        if (sc == nullptr)
+            sc = QApplication::primaryScreen();
+        if (sc != nullptr)
+        {
+            QSize ag = sc->availableVirtualGeometry().size() - QSize(100, 100);
+            if (!ag.isEmpty())
+            {
+                // also, avoid scrollbars on the first page if possible
+                QSize diff = mPanelPage->extraLayoutSize();
+                resize((size() + diff).boundedTo(ag));
+            }
+        }
     });
 }
 

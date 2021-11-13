@@ -41,6 +41,7 @@ class ConfigPanelDialog : public LXQt::ConfigDialog
 public:
     ConfigPanelDialog(LXQtPanel *panel, QWidget *parent = nullptr);
 
+    void show();
     void showConfigPanelPage();
     void showConfigPluginsPage();
     void updateIconThemeSettings();
