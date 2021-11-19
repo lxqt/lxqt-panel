@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configpanelwidget.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Zarovnání &amp;a poloha</translation>
+        <translation>Zarovnání &amp;a pozice</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.ui" line="262"/>
@@ -218,7 +218,7 @@ LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
         <translation>Částečné obejití problému pro motivy vzhledu
-prvků který nedává oddělený motiv vzhledu na panel.
+prvků které neposkytují oddělený motiv vzhledu na panel.
 
 Nejspíš také můžete chtít vypnout:
 
@@ -244,7 +244,7 @@ Obarvit ikony podle stylu prvku (paleta)</translation>
     <message>
         <location filename="../config/configpanelwidget.ui" line="237"/>
         <source>Position:</source>
-        <translation>Poloha:</translation>
+        <translation>Pozice:</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="182"/>
@@ -323,7 +323,7 @@ Obarvit ikony podle stylu prvku (paleta)</translation>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Poznámka: Změny provedené na této stránce nelze vrátit do výchozích hodnot.</translation>
+        <translation>Pozn.: Změny, provedené na této stránce, nelze vrátit (zpět či do výchozího stavu).</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>

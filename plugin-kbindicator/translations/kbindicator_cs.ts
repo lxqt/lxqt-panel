@@ -55,12 +55,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard state settings</source>
-        <translation>Nastavení stavu klávesnice</translation>
+        <translation>Nastavení pro stav klávesnice</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Indikovat zámky</translation>
+        <translation>Kontrolky zámků</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
@@ -85,7 +85,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation>Pravidlo pro přepínání</translation>
+        <translation>Dosah přepínání</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
@@ -105,17 +105,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation>Celkově</translation>
+        <translation>Pro všechno</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation>Okno</translation>
+        <translation>Pro stávající okno</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Aplikace</translation>
+        <translation>Pro stávající aplikaci</translation>
     </message>
 </context>
 </TS>

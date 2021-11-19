@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>Posunout nahoru pro přesun na další plochu, dolů pro přesun na předchozí</translation>
+        <translation>Otáčením nahoru pro přesun na další plochu, dolů pro přesun na předchozí</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation>Posunout nahoru pro přesun na předchozí plochu, dolů pro přesun na další</translation>
+        <translation>Otáčením nahoru pro přesun na předchozí plochu, dolů pro přesun na další</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
