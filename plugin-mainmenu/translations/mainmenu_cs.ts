@@ -126,7 +126,7 @@ Chcete ho přepsat?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>Po zobrazení nabídky vyčistit hledání</translation>
+        <translation>Při dalším zobrazení nabídky vyčistit hledání</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>

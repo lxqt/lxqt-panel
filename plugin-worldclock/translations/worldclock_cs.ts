@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>&amp;Poloha:</translation>
+        <translation>&amp;Pozice:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
@@ -205,12 +205,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>Upravit uživatelem určený náz&amp;ev…</translation>
+        <translation>Upravit uživat&amp;elsky určený název…</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Posunout nahor&amp;u</translation>
+        <translation>Pos&amp;unout nahoru</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Při svisle orientovaném panelu &amp;natočit tak, aby bylo vodorovně</translation>
+        <translation>Při svisle o&amp;rientovaném panelu natočit tak, aby bylo vodorovně</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Input custom time zone name</source>
-        <translation>Zadat uživatelem stanovený název časového pásma</translation>
+        <translation>Zadat uživatelsky určený název časového pásma</translation>
     </message>
 </context>
 <context>

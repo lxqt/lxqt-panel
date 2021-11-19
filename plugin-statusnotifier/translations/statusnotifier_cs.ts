@@ -12,7 +12,7 @@
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>Automaticky skrývaná položka zůstane po tuto dobu viditelná, pokud toto potřebuje pozornost.</translation>
+        <translation>Automaticky skrývaná položka zůstane po tuto dobu viditelná, pokud položka vyžaduje pozornost.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation>Skrýt automaticky</translation>
+        <translation>Automaticky skrývat</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>

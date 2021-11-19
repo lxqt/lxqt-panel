@@ -18,7 +18,7 @@
         <source>Drop application
 icons here</source>
         <translation>Sem přetáhněte
-ikonu aplikace</translation>
+ikony aplikací</translation>
     </message>
 </context>
 <context>
@@ -26,7 +26,7 @@ ikonu aplikace</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>(Ctrl + DND)</translation>
+        <translation>(Ctrl + táhni a pusť)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>

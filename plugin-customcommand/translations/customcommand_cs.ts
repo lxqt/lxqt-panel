@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation>Zobrazit</translation>
+        <translation>Zobrazení</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
@@ -46,7 +46,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> obraz. bodů</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="101"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation>nastavit echo…</translation>
+        <translation>echo Nastavte…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation>Příkazy myši</translation>
+        <translation>Příkazy myší</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>

@@ -151,7 +151,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> obraz. bodů</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
