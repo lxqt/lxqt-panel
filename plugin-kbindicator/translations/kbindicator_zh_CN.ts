@@ -65,7 +65,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>显示大些锁定</translation>
+        <translation>显示大写锁定</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
