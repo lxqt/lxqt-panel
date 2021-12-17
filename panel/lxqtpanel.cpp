@@ -282,6 +282,13 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
                 mShowDelayTimer.start();
         }
     });
+    connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged, this, [this] (bool showing) {
+        if (showing && mHidable && mHideOnOverlap) {
+            mHideTimer.stop();
+            if (mHidden)
+                mShowDelayTimer.start();
+        }
+    });
 }
 
 /************************************************
