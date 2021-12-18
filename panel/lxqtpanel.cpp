@@ -1467,7 +1467,8 @@ void LXQtPanel::hidePanelWork()
 {
     if (!testAttribute(Qt::WA_UnderMouse))
     {
-        if (!mStandaloneWindows->isAnyWindowShown())
+        if (!mStandaloneWindows->isAnyWindowShown()
+            && !(mHideOnOverlap && KWindowSystem::showingDesktop()))
         {
             if (!mHideOnOverlap || isPanelOverlapped())
             {
