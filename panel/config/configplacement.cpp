@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "configpanelwidget.h"
-#include "ui_configpanelwidget.h"
+#include "configplacement.h"
+#include "ui_configplacement.h"
 
 #include "../lxqtpanellimits.h"
 
@@ -48,16 +48,15 @@ struct ScreenPosition
 };
 Q_DECLARE_METATYPE(ScreenPosition)
 
-ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
+ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ConfigPanelWidget),
+    ui(new Ui::ConfigPlacement),
     mPanel(panel)
 {
     ui->setupUi(this);
 
     fillComboBox_position();
     fillComboBox_alignment();
-    fillComboBox_icon();
 
     mOldPanelSize = mPanel->panelSize();
     mOldIconSize = mPanel->iconSize();
@@ -86,52 +85,35 @@ ConfigPanelWidget::ConfigPanelWidget(LXQtPanel *panel, QWidget *parent) :
     ui->spinBox_panelSize->setMinimum(PANEL_MINIMUM_SIZE);
     ui->spinBox_panelSize->setMaximum(PANEL_MAXIMUM_SIZE);
 
-    mOldFontColor = mPanel->fontColor();
-    mFontColor = mOldFontColor;
-    mOldBackgroundColor = mPanel->backgroundColor();
-    mBackgroundColor = mOldBackgroundColor;
-    mOldBackgroundImage = mPanel->backgroundImage();
-    mOldOpacity = mPanel->opacity();
     mOldReserveSpace = mPanel->reserveSpace();
 
     // reset configurations from file
     reset();
 
-    connect(ui->spinBox_panelSize,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
-    connect(ui->spinBox_iconSize,           QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
-    connect(ui->spinBox_lineCount,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
+    connect(ui->spinBox_panelSize,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_iconSize,           QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_lineCount,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
 
-    connect(ui->spinBox_length,             QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
-    connect(ui->comboBox_lenghtType,        QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::widthTypeChanged);
+    connect(ui->spinBox_length,             QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
+    connect(ui->comboBox_lenghtType,        QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::widthTypeChanged);
 
-    connect(ui->comboBox_alignment,         QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::editChanged);
-    connect(ui->comboBox_position,          QOverload<int>::of(&QComboBox::activated),        this, &ConfigPanelWidget::positionChanged);
-    connect(ui->groupBox_hidable,           &QGroupBox::toggled,                              this, &ConfigPanelWidget::editChanged);
-    connect(ui->checkBox_visibleMargin,     &QCheckBox::toggled,                              this, &ConfigPanelWidget::editChanged);
-    connect(ui->checkBox_overlap,           &QAbstractButton::toggled,                        this, &ConfigPanelWidget::editChanged);
-    connect(ui->spinBox_animation,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
-    connect(ui->spinBox_delay,              QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPanelWidget::editChanged);
-
-    connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
-    connect(ui->pushButton_customFontColor, &QPushButton::clicked,     this, &ConfigPanelWidget::pickFontColor);
-    connect(ui->checkBox_customBgColor,     &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
-    connect(ui->pushButton_customBgColor,   &QPushButton::clicked,     this, &ConfigPanelWidget::pickBackgroundColor);
-    connect(ui->checkBox_customBgImage,     &QCheckBox::toggled,       this, &ConfigPanelWidget::editChanged);
-    connect(ui->lineEdit_customBgImage,     &QLineEdit::textChanged,   this, &ConfigPanelWidget::editChanged);
-    connect(ui->pushButton_customBgImage,   &QPushButton::clicked,     this, &ConfigPanelWidget::pickBackgroundImage);
-    connect(ui->slider_opacity,             &QSlider::valueChanged,    this, &ConfigPanelWidget::editChanged);
+    connect(ui->comboBox_alignment,         QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::editChanged);
+    connect(ui->comboBox_position,          QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::positionChanged);
+    connect(ui->groupBox_hidable,           &QGroupBox::toggled,                              this, &ConfigPlacement::editChanged);
+    connect(ui->checkBox_visibleMargin,     &QCheckBox::toggled,                              this, &ConfigPlacement::editChanged);
+    connect(ui->checkBox_overlap,           &QAbstractButton::toggled,                        this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_animation,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_delay,              QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
 
     connect(ui->checkBox_reserveSpace,      &QAbstractButton::toggled, this, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
 
-    connect(ui->groupBox_icon,              &QGroupBox::clicked,                       this, &ConfigPanelWidget::editChanged);
-    connect(ui->comboBox_icon,              QOverload<int>::of(&QComboBox::activated), this, &ConfigPanelWidget::editChanged);
 }
 
 
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::reset()
+void ConfigPlacement::reset()
 {
     ui->spinBox_panelSize->setValue(mOldPanelSize);
     ui->spinBox_iconSize->setValue(mOldIconSize);
@@ -155,17 +137,7 @@ void ConfigPanelWidget::reset()
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
 
-    mFontColor.setNamedColor(mOldFontColor.name());
-    ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldFontColor.name()));
-    mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
-    ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldBackgroundColor.name()));
-    ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
-    ui->slider_opacity->setValue(mOldOpacity);
     ui->checkBox_reserveSpace->setChecked(mOldReserveSpace);
-
-    ui->checkBox_customFontColor->setChecked(mOldFontColor.isValid());
-    ui->checkBox_customBgColor->setChecked(mOldBackgroundColor.isValid());
-    ui->checkBox_customBgImage->setChecked(QFileInfo::exists(mOldBackgroundImage));
 
     // update position
     positionChanged();
@@ -174,7 +146,7 @@ void ConfigPanelWidget::reset()
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::fillComboBox_position()
+void ConfigPlacement::fillComboBox_position()
 {
     int screenCount = QApplication::screens().size();
     if (screenCount == 1)
@@ -203,7 +175,7 @@ void ConfigPanelWidget::fillComboBox_position()
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::fillComboBox_alignment()
+void ConfigPlacement::fillComboBox_alignment()
 {
     ui->comboBox_alignment->setItemData(0, QVariant(LXQtPanel::AlignmentLeft));
     ui->comboBox_alignment->setItemData(1, QVariant(LXQtPanel::AlignmentCenter));
@@ -225,64 +197,11 @@ void ConfigPanelWidget::fillComboBox_alignment()
     };
 }
 
-/************************************************
- *
- ************************************************/
-void ConfigPanelWidget::fillComboBox_icon()
-{
-    ui->groupBox_icon->setChecked(!mPanel->iconTheme().isEmpty());
-
-    QStringList themeList;
-    QStringList processed;
-    const QStringList baseDirs = QIcon::themeSearchPaths();
-    for (const QString &baseDirName : baseDirs)
-    {
-        QDir baseDir(baseDirName);
-        if (!baseDir.exists())
-            continue;
-        const QFileInfoList dirs = baseDir.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Name);
-        for (const QFileInfo &dir : dirs)
-        {
-            if (!processed.contains(dir.canonicalFilePath()))
-            {
-                processed << dir.canonicalFilePath();
-                QDir Dir(dir.canonicalFilePath());
-                QSettings file(Dir.absoluteFilePath(QStringLiteral("index.theme")), QSettings::IniFormat);
-                if (file.status() == QSettings::NoError
-                    && !file.value(QStringLiteral("Icon Theme/Directories")).toStringList().join(QLatin1Char(' ')).isEmpty()
-                    && !file.value(QStringLiteral("Icon Theme/Hidden"), false).toBool())
-                {
-                    themeList << Dir.dirName();
-                }
-            }
-        }
-    }
-    if (!themeList.isEmpty())
-    {
-        themeList.sort();
-        ui->comboBox_icon->insertItems(0, themeList);
-        QString curTheme = QIcon::themeName();
-        if (!curTheme.isEmpty())
-            ui->comboBox_icon->setCurrentText(curTheme);
-    }
-}
-
 
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::updateIconThemeSettings()
-{
-    ui->groupBox_icon->setChecked(!mPanel->iconTheme().isEmpty());
-    QString curTheme = QIcon::themeName();
-    if (!curTheme.isEmpty())
-        ui->comboBox_icon->setCurrentText(curTheme);
-}
-
-/************************************************
- *
- ************************************************/
-void ConfigPanelWidget::addPosition(const QString& name, int screen, LXQtPanel::Position position)
+void ConfigPlacement::addPosition(const QString& name, int screen, LXQtPanel::Position position)
 {
     if (LXQtPanel::canPlacedOn(screen, position))
         ui->comboBox_position->addItem(name, QVariant::fromValue(ScreenPosition{screen, position}));
@@ -292,7 +211,7 @@ void ConfigPanelWidget::addPosition(const QString& name, int screen, LXQtPanel::
 /************************************************
  *
  ************************************************/
-int ConfigPanelWidget::indexForPosition(int screen, ILXQtPanel::Position position)
+int ConfigPlacement::indexForPosition(int screen, ILXQtPanel::Position position)
 {
     for (int i = 0; i < ui->comboBox_position->count(); i++)
     {
@@ -307,7 +226,7 @@ int ConfigPanelWidget::indexForPosition(int screen, ILXQtPanel::Position positio
 /************************************************
  *
  ************************************************/
-ConfigPanelWidget::~ConfigPanelWidget()
+ConfigPlacement::~ConfigPlacement()
 {
     delete ui;
 }
@@ -316,7 +235,7 @@ ConfigPanelWidget::~ConfigPanelWidget()
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::editChanged()
+void ConfigPlacement::editChanged()
 {
     mPanel->setPanelSize(ui->spinBox_panelSize->value(), true);
     mPanel->setIconSize(ui->spinBox_iconSize->value(), true);
@@ -338,33 +257,13 @@ void ConfigPanelWidget::editChanged()
     mPanel->setHideOnOverlap(ui->checkBox_overlap->isChecked(), true);
     mPanel->setAnimationTime(ui->spinBox_animation->value(), true);
     mPanel->setShowDelay(ui->spinBox_delay->value(), true);
-
-    mPanel->setFontColor(ui->checkBox_customFontColor->isChecked() ? mFontColor : QColor(), true);
-    if (ui->checkBox_customBgColor->isChecked())
-    {
-        mPanel->setBackgroundColor(mBackgroundColor, true);
-        mPanel->setOpacity(ui->slider_opacity->value(), true);
-    }
-    else
-    {
-        mPanel->setBackgroundColor(QColor(), true);
-        mPanel->setOpacity(100, true);
-    }
-
-    QString image = ui->checkBox_customBgImage->isChecked() ? ui->lineEdit_customBgImage->text() : QString();
-    mPanel->setBackgroundImage(image, true);
-
-    if (!ui->groupBox_icon->isChecked())
-        mPanel->setIconTheme(QString());
-    else if (!ui->comboBox_icon->currentText().isEmpty())
-        mPanel->setIconTheme(ui->comboBox_icon->currentText());
 }
 
 
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::widthTypeChanged()
+void ConfigPlacement::widthTypeChanged()
 {
     int max = getMaxLength();
 
@@ -388,7 +287,7 @@ void ConfigPanelWidget::widthTypeChanged()
 /************************************************
  *
  ************************************************/
-int ConfigPanelWidget::getMaxLength()
+int ConfigPlacement::getMaxLength()
 {
     auto screens = QApplication::screens();
     if (screens.size() > mScreenNum)
@@ -406,7 +305,7 @@ int ConfigPanelWidget::getMaxLength()
 /************************************************
  *
  ************************************************/
-void ConfigPanelWidget::positionChanged()
+void ConfigPlacement::positionChanged()
 {
     ScreenPosition sp = ui->comboBox_position->itemData(
         ui->comboBox_position->currentIndex()).value<ScreenPosition>();
@@ -434,51 +333,4 @@ void ConfigPanelWidget::positionChanged()
             fillComboBox_alignment();
 
         editChanged();
-}
-
-/************************************************
- *
- ************************************************/
-void ConfigPanelWidget::pickFontColor()
-{
-    QColorDialog d(QColor(mFontColor.name()), this);
-    d.setWindowTitle(tr("Pick color"));
-    d.setWindowModality(Qt::WindowModal);
-    if (d.exec() && d.currentColor().isValid())
-    {
-        mFontColor.setNamedColor(d.currentColor().name());
-        ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mFontColor.name()));
-        editChanged();
-    }
-}
-
-/************************************************
- *
- ************************************************/
-void ConfigPanelWidget::pickBackgroundColor()
-{
-    QColorDialog d(QColor(mBackgroundColor.name()), this);
-    d.setWindowTitle(tr("Pick color"));
-    d.setWindowModality(Qt::WindowModal);
-    if (d.exec() && d.currentColor().isValid())
-    {
-        mBackgroundColor.setNamedColor(d.currentColor().name());
-        ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mBackgroundColor.name()));
-        editChanged();
-    }
-}
-
-/************************************************
- *
- ************************************************/
-void ConfigPanelWidget::pickBackgroundImage()
-{
-    QString picturesLocation;
-    picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-
-    QFileDialog* d = new QFileDialog(this, tr("Pick image"), picturesLocation, tr("Images (*.png *.gif *.jpg)"));
-    d->setAttribute(Qt::WA_DeleteOnClose);
-    d->setWindowModality(Qt::WindowModal);
-    connect(d, &QFileDialog::fileSelected, ui->lineEdit_customBgImage, &QLineEdit::setText);
-    d->show();
 }

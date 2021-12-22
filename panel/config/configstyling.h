@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPANELWIDGET_H
-#define CONFIGPANELWIDGET_H
+#ifndef CONFIGSTYLING_H
+#define CONFIGSTYLING_H
 
 #include "../lxqtpanel.h"
 #include <QSettings>
@@ -36,19 +36,17 @@
 class LXQtPanel;
 
 namespace Ui {
-    class ConfigPanelWidget;
+    class ConfigStyling;
 }
 
-class ConfigPanelWidget : public QWidget
+class ConfigStyling : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ConfigPanelWidget(LXQtPanel *panel, QWidget *parent = nullptr);
-    ~ConfigPanelWidget();
+    explicit ConfigStyling(LXQtPanel *panel, QWidget *parent = nullptr);
+    ~ConfigStyling();
 
-    int screenNum() const { return mScreenNum; }
-    ILXQtPanel::Position position() const { return mPosition; }
     void updateIconThemeSettings();
 
 signals:
@@ -59,48 +57,25 @@ public slots:
 
 private slots:
     void editChanged();
-    void widthTypeChanged();
-    void positionChanged();
     void pickFontColor();
     void pickBackgroundColor();
     void pickBackgroundImage();
 
 private:
-    Ui::ConfigPanelWidget *ui;
+    Ui::ConfigStyling *ui;
     LXQtPanel *mPanel;
-    int mScreenNum;
-    ILXQtPanel::Position mPosition;
 
-    void addPosition(const QString& name, int screen, LXQtPanel::Position position);
-    void fillComboBox_position();
-    void fillComboBox_alignment();
     void fillComboBox_icon();
-    int indexForPosition(int screen, ILXQtPanel::Position position);
-    int getMaxLength();
 
     // new values
     QColor mFontColor;
     QColor mBackgroundColor;
 
     // old values for reset
-    int mOldPanelSize;
-    int mOldIconSize;
-    int mOldLineCount;
-    int mOldLength;
-    bool mOldLengthInPercents;
-    LXQtPanel::Alignment mOldAlignment;
-    ILXQtPanel::Position mOldPosition;
-    bool mOldHidable;
-    bool mOldVisibleMargin;
-    bool mOldHideOnOverlap;
-    int mOldAnimation;
-    int mOldShowDelay;
-    int mOldScreenNum;
     QColor mOldFontColor;
     QColor mOldBackgroundColor;
     QString mOldBackgroundImage;
     int mOldOpacity;
-    bool mOldReserveSpace;
 };
 
 #endif
