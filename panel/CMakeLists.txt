@@ -14,7 +14,8 @@ set(PRIV_HEADERS
     pluginmoveprocessor.h
     lxqtpanelpluginconfigdialog.h
     config/configpaneldialog.h
-    config/configpanelwidget.h
+    config/configplacement.h
+    config/configstyling.h
     config/configpluginswidget.h
     config/addplugindialog.h
 )
@@ -40,13 +41,15 @@ set(SOURCES
     pluginmoveprocessor.cpp
     lxqtpanelpluginconfigdialog.cpp
     config/configpaneldialog.cpp
-    config/configpanelwidget.cpp
+    config/configplacement.cpp
+    config/configstyling.cpp
     config/configpluginswidget.cpp
     config/addplugindialog.cpp
 )
 
 set(UI
-    config/configpanelwidget.ui
+    config/configplacement.ui
+    config/configstyling.ui
     config/configpluginswidget.ui
     config/addplugindialog.ui
 )

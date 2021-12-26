@@ -29,14 +29,19 @@
 
 ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
     LXQt::ConfigDialog(tr("Configure Panel"), panel->settings(), parent),
-    mPanelPage(nullptr),
+    mPlacementPage(nullptr),
+    mStylingPage(nullptr),
     mPluginsPage(nullptr)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
-    mPanelPage = new ConfigPanelWidget(panel, this);
-    addPage(mPanelPage, tr("Panel"), QLatin1String("configure"));
-    connect(this, &ConfigPanelDialog::reset, mPanelPage, &ConfigPanelWidget::reset);
+    mPlacementPage = new ConfigPlacement(panel, this);
+    addPage(mPlacementPage, tr("Placement"), QLatin1String("configure-toolbars"));
+    connect(this, &ConfigPanelDialog::reset, mPlacementPage, &ConfigPlacement::reset);
+
+    mStylingPage = new ConfigStyling(panel, this);
+    addPage(mStylingPage, tr("Styling"), QLatin1String("colormanagement"));
+    connect(this, &ConfigPanelDialog::reset, mStylingPage, &ConfigStyling::reset);
 
     mPluginsPage = new ConfigPluginsWidget(panel, this);
     addPage(mPluginsPage, tr("Widgets"), QLatin1String("preferences-plugin"));
@@ -47,9 +52,14 @@ ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
     });
 }
 
-void ConfigPanelDialog::showConfigPanelPage()
+void ConfigPanelDialog::showConfigPlacementPage()
 {
-    showPage(mPanelPage);
+    showPage(mPlacementPage);
+}
+
+void ConfigPanelDialog::showConfigStylingPage()
+{
+    showPage(mStylingPage);
 }
 
 void ConfigPanelDialog::showConfigPluginsPage()
@@ -59,5 +69,5 @@ void ConfigPanelDialog::showConfigPluginsPage()
 
 void ConfigPanelDialog::updateIconThemeSettings()
 {
-    mPanelPage->updateIconThemeSettings();
+    mStylingPage->updateIconThemeSettings();
 }

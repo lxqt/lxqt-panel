@@ -820,7 +820,7 @@ void LXQtPanel::showConfigDialog()
     if (mConfigDialog.isNull())
         mConfigDialog = new ConfigPanelDialog(this, nullptr /*make it top level window*/);
 
-    mConfigDialog->showConfigPanelPage();
+    mConfigDialog->showConfigPlacementPage();
     mStandaloneWindows->observeWindow(mConfigDialog.data());
     mConfigDialog->show();
     mConfigDialog->raise();

@@ -28,7 +28,8 @@
 #ifndef CONFIGPANELDIALOG_H
 #define CONFIGPANELDIALOG_H
 
-#include "configpanelwidget.h"
+#include "configplacement.h"
+#include "configstyling.h"
 #include "configpluginswidget.h"
 #include "../lxqtpanel.h"
 
@@ -41,12 +42,14 @@ class ConfigPanelDialog : public LXQt::ConfigDialog
 public:
     ConfigPanelDialog(LXQtPanel *panel, QWidget *parent = nullptr);
 
-    void showConfigPanelPage();
+    void showConfigPlacementPage();
+    void showConfigStylingPage();
     void showConfigPluginsPage();
     void updateIconThemeSettings();
 
 private:
-    ConfigPanelWidget *mPanelPage;
+    ConfigPlacement *mPlacementPage;
+    ConfigStyling *mStylingPage;
     ConfigPluginsWidget *mPluginsPage;
 };
 
