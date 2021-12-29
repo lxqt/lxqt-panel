@@ -43,6 +43,9 @@ if(NOT EXISTS "${XKB_RULES_DIR}")
     message(FATAL_ERROR "Couldn't find XKB rules location: \"${XKB_RULES_DIR}\".")
 endif()
 
+message(STATUS "X11_xkbfile_INCLUDE_PATH: ${X11_xkbfile_INCLUDE_PATH}")
+message(STATUS "X11_INCLUDE_DIR: ${X11_INCLUDE_DIR}")
+
 include_directories(
     ${XCB_INCLUDE_DIRS}
     ${X11_xkbfile_INCLUDE_PATH}
