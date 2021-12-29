@@ -34,6 +34,10 @@ find_package(XKBCommon REQUIRED COMPONENTS XKBCommon X11)
 find_package(X11 REQUIRED)
 find_package(Qt5 ${QT_MINIMUM_VERSION} REQUIRED COMPONENTS X11Extras Xml)
 
+if(NOT X11_Xkbfile_FOUND)
+    MESSAGE(FATAL_ERROR "'libxkbfile' not found. Aborting")
+endif()
+
 find_package(PkgConfig REQUIRED)
 execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=xkb_base xkeyboard-config
     OUTPUT_VARIABLE XKB_RULES_DIR
