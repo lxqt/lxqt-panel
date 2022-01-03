@@ -114,12 +114,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Hjul upp</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Hjul ner</translation>
     </message>
 </context>
 </TS>
