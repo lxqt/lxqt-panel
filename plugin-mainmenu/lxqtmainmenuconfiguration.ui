@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>481</width>
-    <height>501</height>
+    <width>483</width>
+    <height>544</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -156,20 +156,6 @@
       <string>Search</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="2" column="1">
-       <widget class="QLabel" name="filterShowMaxWidthL">
-        <property name="text">
-         <string>Max. item width:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="filterShowCB">
-        <property name="text">
-         <string>Show matching entries:</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2">
        <widget class="QSpinBox" name="filterShowMaxItemsSB">
         <property name="maximum">
@@ -177,10 +163,10 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="filterShowMaxItemsL">
+      <item row="3" column="1" colspan="2">
+       <widget class="QCheckBox" name="filterShowHideMenuCB">
         <property name="text">
-         <string>Maximum visible items:</string>
+         <string>Hide menu entries while searching</string>
         </property>
        </widget>
       </item>
@@ -204,17 +190,38 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1" colspan="2">
-       <widget class="QCheckBox" name="filterShowHideMenuCB">
-        <property name="text">
-         <string>Hide menu entries while searching</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="0" colspan="3">
        <widget class="QCheckBox" name="filterClearCB">
         <property name="text">
          <string>Clear search upon showing menu</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="filterShowCB">
+        <property name="text">
+         <string>Show matching entries:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="filterShowMaxWidthL">
+        <property name="text">
+         <string>Max. item width:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="filterShowMaxItemsL">
+        <property name="text">
+         <string>Maximum visible items:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="3">
+       <widget class="QCheckBox" name="writeToSearch">
+        <property name="text">
+         <string>Write text anywhere to search</string>
         </property>
        </widget>
       </item>

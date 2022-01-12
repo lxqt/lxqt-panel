@@ -273,6 +273,7 @@ void LXQtMainMenu::settingsChanged()
     mFilterShow = settings()->value(QStringLiteral("filterShow"), true).toBool();
     mFilterClear = settings()->value(QStringLiteral("filterClear"), false).toBool();
     mFilterShowHideMenu = settings()->value(QStringLiteral("filterShowHideMenu"), true).toBool();
+    mWriteToSearch = settings()->value(QStringLiteral("writeToSearch"), false).toBool();
     if (mMenu)
     {
         mSearchEdit->setVisible(mFilterMenu || mFilterShow);
@@ -625,9 +626,9 @@ QDialog *LXQtMainMenu::configureDialog()
 // functor used to match a QAction by prefix
 struct MatchAction
 {
-    MatchAction(QString key):key_(key) {}
+    MatchAction(QChar key): key_(key) {}
     bool operator()(QAction* action) { return action->text().startsWith(key_, Qt::CaseInsensitive); }
-    QString key_;
+    QChar key_;
 };
 
 bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
@@ -671,11 +672,19 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                 mMenu->hide(); // close the app menu
                 return true;
             }
+
+            QChar key = keyEvent->key();
+
+            if(mWriteToSearch && (key.isLetterOrNumber() || key == Qt::Key_Backspace))
+            {
+                qApp->sendEvent(mSearchEdit, keyEvent);
+                return true;
+            }
             else // go to the menu item which starts with the pressed key if there is an active action.
             {
-                QString key = keyEvent->text();
-                if(key.isEmpty())
+                if(! key.isLetterOrNumber())
                     return false;
+
                 QAction* action = menu->activeAction();
                 if(action !=nullptr) {
                     QList<QAction*> actions = menu->actions();
