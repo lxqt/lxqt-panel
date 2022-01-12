@@ -384,7 +384,7 @@ void LXQtMainMenu::searchMenu()
  ************************************************/
 void LXQtMainMenu::setSearchFocus(QAction *action)
 {
-    if (mFilterMenu || mFilterShow)
+    if (!mWriteToSearch && (mFilterMenu || mFilterShow))
     {
         if(action == mSearchEditAction)
             mSearchEdit->setFocus();
