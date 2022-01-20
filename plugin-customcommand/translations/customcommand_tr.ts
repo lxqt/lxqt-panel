@@ -76,7 +76,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation type="unfinished">echo Yapılandır...</translation>
+        <translation>echo Yapılandır...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>

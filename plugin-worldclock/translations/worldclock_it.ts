@@ -253,7 +253,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation>Configurazione Manuale Formato Orologio Globale</translation>
+        <translation>Configurazione del formato personalizzato dell&apos;orologio globale</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
