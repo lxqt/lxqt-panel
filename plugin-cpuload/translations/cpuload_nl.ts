@@ -47,22 +47,22 @@
         <translation>Balkbreedte:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
         <source>Bottom up</source>
         <translation>Van onder naar boven</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Top down</source>
         <translation>Van boven naar onder</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Left to right</source>
         <translation>Van links naar rechts</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Right to left</source>
         <translation>Van rechts naar links</translation>
     </message>

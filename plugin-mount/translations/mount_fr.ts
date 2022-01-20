@@ -107,7 +107,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Le montage de &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a échoué : %2</translation>
+        <translation>Le montage de &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; a échoué&#x202f;: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Le démontage de &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; a échoué : %2</translation>
+        <translation>Le démontage de &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; a échoué&#x202f;: %2</translation>
     </message>
 </context>
 <context>

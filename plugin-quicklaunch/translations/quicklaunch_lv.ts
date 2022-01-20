@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="229"/>
+        <location filename="../lxqtquicklaunch.cpp" line="224"/>
         <source>Drop Error</source>
         <translation>Pārvilkšanas kļūme</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="230"/>
+        <location filename="../lxqtquicklaunch.cpp" line="225"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Fails/URL &apos;%1&apos; pašreiz nevar tik ieligzdots ātrajā palaidējā QuickLaunch</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="336"/>
+        <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
         <translation>Pārvelciet lietotņu ikonas uz šejieni</translation>
@@ -38,7 +38,7 @@ icons here</source>
         <translation>Pa labi virzīt</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="64"/>
+        <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>Noņemt no ātrpalaidēja Quicklaunch</translation>
     </message>

@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="392"/>
+        <location filename="../lxqtsysstat.cpp" line="395"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="441"/>
+        <location filename="../lxqtsysstat.cpp" line="444"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv: (nepieejama)</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="483"/>
+        <location filename="../lxqtsysstat.cpp" line="486"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>lietotnes: %1%&lt;br&gt;bufferi: %2%&lt;br&gt;kešots: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="517"/>
+        <location filename="../lxqtsysstat.cpp" line="520"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>izmantots: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="547"/>
+        <location filename="../lxqtsysstat.cpp" line="550"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>min.: %1%&lt;br&gt;maks.: %2%</translation>

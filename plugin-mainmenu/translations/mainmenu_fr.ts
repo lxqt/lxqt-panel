@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="106"/>
+        <location filename="../lxqtmainmenu.cpp" line="111"/>
         <source>Search...</source>
         <translation>Rechercher...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="114"/>
+        <location filename="../lxqtmainmenu.cpp" line="121"/>
         <source>Show/hide main menu</source>
         <translation>Afficher/Cacher le menu principal</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="496"/>
+        <location filename="../lxqtmainmenu.cpp" line="515"/>
         <source>Add to desktop</source>
         <translation>Ajouter au bureau</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="504"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Question</source>
         <translation>Question</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="505"/>
+        <location filename="../lxqtmainmenu.cpp" line="524"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichier du même nom existe déjà.
-Voulez-vous l&apos;écraser ?</translation>
+Voulez-vous l&apos;écraser&#x202f;?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="511"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="512"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>The file cannot be overwritten.</source>
         <translation>Le fichier ne peut pas être écrasé.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="518"/>
+        <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Copy</source>
         <translation>Copier</translation>
     </message>
@@ -144,22 +144,22 @@ Voulez-vous l&apos;écraser ?</translation>
         <translation>Réinitialiser</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
         <source>Choose icon file</source>
         <translation>Choisir un fichier d&apos;icône</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
         <source>Images (*.svg *.png)</source>
         <translation>Images (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
         <source>Choose menu file</source>
         <translation>Choisir un fichier de menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Menu files (*.menu)</source>
         <translation>Fichiers de menu (*.menu)</translation>
     </message>

@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="229"/>
+        <location filename="../lxqtquicklaunch.cpp" line="224"/>
         <source>Drop Error</source>
         <translation>Грешка при прехвърляне</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="230"/>
+        <location filename="../lxqtquicklaunch.cpp" line="225"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Файл/Адрес &apos;%1&apos; не може да се вкара в стартера</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="336"/>
+        <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
         <translation>Завлечете с мишката иконата на приложението тук</translation>
@@ -38,7 +38,7 @@ icons here</source>
         <translation>Преместване на надясно</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="64"/>
+        <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>Премахване от стартера</translation>
     </message>

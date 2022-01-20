@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="229"/>
+        <location filename="../lxqtquicklaunch.cpp" line="224"/>
         <source>Drop Error</source>
         <translation>드롭 오류</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="230"/>
+        <location filename="../lxqtquicklaunch.cpp" line="225"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>File/URL &apos;%1&apos;의 QuickLaunch 임베딩이 지금은 불가능합니다</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="336"/>
+        <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
         <translation>애플리케이션 아이콘을
@@ -39,7 +39,7 @@ icons here</source>
         <translation>오른쪽으로</translation>
     </message>
     <message>
-        <location filename="../quicklaunchbutton.cpp" line="64"/>
+        <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
         <translation>quicklaunch에서 빼기</translation>
     </message>

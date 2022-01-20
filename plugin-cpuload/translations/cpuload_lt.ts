@@ -47,22 +47,22 @@
         <translation>Juostos plotis:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
         <source>Bottom up</source>
         <translation>Iš apačios į viršų</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Top down</source>
         <translation>Iš viršaus į apačią</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Left to right</source>
         <translation>Iš kairės į dešinę</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Right to left</source>
         <translation>Iš dešinės į kairę</translation>
     </message>

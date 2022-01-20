@@ -118,7 +118,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="586"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Custom name</source>
         <translation>Tinkintas pavadinimas</translation>
     </message>
@@ -238,12 +238,12 @@
         <translation>Ro&amp;dyti paaiškinimą</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="107"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy MMM d, ddd&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
         <source>Input custom time zone name</source>
         <translation>Įrašykite tinkintą laiko juostos pavadinimą</translation>
     </message>

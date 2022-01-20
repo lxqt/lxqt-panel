@@ -47,22 +47,22 @@
         <translation>Infograafiku laius:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
         <source>Bottom up</source>
         <translation>Alt üles</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Top down</source>
         <translation>Ülevalt alla</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Left to right</source>
         <translation>Vasakult paremale</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Right to left</source>
         <translation>Paremalt vasakule</translation>
     </message>

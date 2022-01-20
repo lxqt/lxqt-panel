@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="677"/>
+        <location filename="../lxqttaskbutton.cpp" line="673"/>
         <source>Application</source>
         <translation>Sovellus</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="711"/>
+        <location filename="../lxqttaskbutton.cpp" line="707"/>
         <source>To &amp;Desktop</source>
         <translation>Työ&amp;pöydälle</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="713"/>
+        <location filename="../lxqttaskbutton.cpp" line="709"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Kaikille työpöydille</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="721"/>
+        <location filename="../lxqttaskbutton.cpp" line="717"/>
         <source>Desktop &amp;%1</source>
         <translation>Työpöytä &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="728"/>
+        <location filename="../lxqttaskbutton.cpp" line="724"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;Nykyiselle työpöydälle</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="737"/>
+        <location filename="../lxqttaskbutton.cpp" line="733"/>
         <source>Move To &amp;Next Monitor</source>
         <translation>Siirrä &amp;seuraavalle näytölle</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="740"/>
+        <location filename="../lxqttaskbutton.cpp" line="736"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>Siirrä &amp;edelliselle näytölle</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="744"/>
+        <location filename="../lxqttaskbutton.cpp" line="740"/>
         <source>&amp;Move</source>
         <translation>&amp;Siirrä</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="747"/>
+        <location filename="../lxqttaskbutton.cpp" line="743"/>
         <source>Resi&amp;ze</source>
         <translation>Muuta kokoa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="754"/>
+        <location filename="../lxqttaskbutton.cpp" line="750"/>
         <source>Ma&amp;ximize</source>
         <translation>Suu&amp;renna</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="761"/>
+        <location filename="../lxqttaskbutton.cpp" line="757"/>
         <source>Maximize vertically</source>
         <translation>Suurenna pystysuunnassa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="766"/>
+        <location filename="../lxqttaskbutton.cpp" line="762"/>
         <source>Maximize horizontally</source>
         <translation>Suurenna vaakasuunnassa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="772"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>&amp;Restore</source>
         <translation>&amp;Palauta</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="776"/>
+        <location filename="../lxqttaskbutton.cpp" line="772"/>
         <source>Mi&amp;nimize</source>
         <translation>Pie&amp;nennä</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="782"/>
+        <location filename="../lxqttaskbutton.cpp" line="778"/>
         <source>Roll down</source>
         <translation>Rullaa alas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="788"/>
+        <location filename="../lxqttaskbutton.cpp" line="784"/>
         <source>Roll up</source>
         <translation>Rullaa ylös</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="796"/>
+        <location filename="../lxqttaskbutton.cpp" line="792"/>
         <source>&amp;Layer</source>
         <translation>Tas&amp;o</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="798"/>
+        <location filename="../lxqttaskbutton.cpp" line="794"/>
         <source>Always on &amp;top</source>
         <translation>Aina &amp;ylimpänä</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="804"/>
+        <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>&amp;Normal</source>
         <translation>&amp;Tavallinen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="810"/>
+        <location filename="../lxqttaskbutton.cpp" line="806"/>
         <source>Always on &amp;bottom</source>
         <translation>Aina &amp;alimpana</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="818"/>
+        <location filename="../lxqttaskbutton.cpp" line="814"/>
         <source>&amp;Close</source>
         <translation>&amp;Sulje</translation>
     </message>

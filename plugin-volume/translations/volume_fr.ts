@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Contrôle du volume : les raccourcis suivants ne peuvent pas être enregistrés  : %1</translation>
+        <translation>Contrôle du volume&#x202f;: les raccourcis suivants ne peuvent pas être enregistrés &#x202f;: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="291"/>

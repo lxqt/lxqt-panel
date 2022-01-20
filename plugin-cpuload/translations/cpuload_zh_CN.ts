@@ -47,22 +47,22 @@
         <translation>状态栏宽度:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
         <source>Bottom up</source>
         <translation>自下而上</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Top down</source>
         <translation>自上而下</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Left to right</source>
         <translation>从左到右</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Right to left</source>
         <translation>从右到左</translation>
     </message>

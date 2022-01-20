@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="85"/>
+        <location filename="../desktopswitch.cpp" line="87"/>
         <source>Switch to desktop %1</source>
         <translation>%1. asztalra váltás</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="144"/>
-        <location filename="../desktopswitch.cpp" line="155"/>
+        <location filename="../desktopswitch.cpp" line="148"/>
+        <location filename="../desktopswitch.cpp" line="159"/>
         <source>Desktop %1</source>
         <translation>%1. asztal</translation>
     </message>
@@ -68,7 +68,7 @@
         <translation>Asztalnevek</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="69"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
         <translation type="unfinished">%1:. asztal</translation>
     </message>

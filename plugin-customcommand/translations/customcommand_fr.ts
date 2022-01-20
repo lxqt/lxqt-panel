@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr">
 <context>
+    <name>LXQtCustomCommand</name>
+    <message>
+        <location filename="../lxqtcustomcommand.cpp" line="173"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LXQtCustomCommandConfiguration</name>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
@@ -94,7 +102,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après :</translation>
+        <translation>Répéter la commande après&#xa0;:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
@@ -120,6 +128,16 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
         <translation>Roue vers le bas</translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <source>Select Icon File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <source>Images (*.png *.svg *.xpm *.jpg)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
