@@ -228,6 +228,7 @@ void DesktopSwitch::onCurrentDesktopChanged(int current)
 {
     if (mShowOnlyActive)
     {
+        mLayout->setEnabled(false);
         int i = 1;
         const auto buttons = m_buttons->buttons();
         for (const auto button : buttons)
@@ -242,6 +243,7 @@ void DesktopSwitch::onCurrentDesktopChanged(int current)
             }
             ++i;
         }
+        mLayout->setEnabled(true);
     } else
     {
         QAbstractButton *button = m_buttons->button(current - 1);
