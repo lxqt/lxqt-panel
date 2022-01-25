@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="106"/>
+        <location filename="../lxqtmainmenu.cpp" line="111"/>
         <source>Search...</source>
         <translation>Cercar...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="114"/>
+        <location filename="../lxqtmainmenu.cpp" line="121"/>
         <source>Show/hide main menu</source>
         <translation>Afichar/Amagar lo menú principal</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="496"/>
+        <location filename="../lxqtmainmenu.cpp" line="515"/>
         <source>Add to desktop</source>
         <translation>Apondre al burèu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="504"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Question</source>
         <translation>Question</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="505"/>
+        <location filename="../lxqtmainmenu.cpp" line="524"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichièr amb aqueste nom existís ja.
-Lo volètz remplaçar ?</translation>
+Lo volètz remplaçar&#x202f;?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="511"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Warning</source>
         <translation>Avertiment</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="512"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>The file cannot be overwritten.</source>
         <translation>Lo fichièr pòt pas èsser remplaçat.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="518"/>
+        <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
@@ -61,17 +61,17 @@ Lo volètz remplaçar ?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Icòna :</translation>
+        <translation>Icòna&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>Tèxt del boton :</translation>
+        <translation>Tèxt del boton&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Talha de la poliça personalizada :</translation>
+        <translation>Talha de la poliça personalizada&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
@@ -86,7 +86,7 @@ Lo volètz remplaçar ?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation>Fichièr de menú :</translation>
+        <translation>Fichièr de menú&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
@@ -96,17 +96,17 @@ Lo volètz remplaçar ?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Largor maxi d’una entrada :</translation>
+        <translation>Largor maxi d’una entrada&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation>Mostrar las entradas correspondentas :</translation>
+        <translation>Mostrar las entradas correspondentas&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Nombre maximum d’elements visibles :</translation>
+        <translation>Nombre maximum d’elements visibles&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
@@ -136,7 +136,7 @@ Lo volètz remplaçar ?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Clicatz lo boton per enregistrar l’acorchi :</translation>
+        <translation>Clicatz lo boton per enregistrar l’acorchi&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
@@ -144,22 +144,22 @@ Lo volètz remplaçar ?</translation>
         <translation>Reïnicializar</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="166"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
         <source>Choose icon file</source>
         <translation>Causir un fichièr d’icòna</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="168"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
         <source>Images (*.svg *.png)</source>
         <translation>Imatges (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="180"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
         <source>Choose menu file</source>
         <translation>Causir un fichièr de menú</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="182"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Menu files (*.menu)</source>
         <translation>Fichièr de menú (*.menu)</translation>
     </message>
