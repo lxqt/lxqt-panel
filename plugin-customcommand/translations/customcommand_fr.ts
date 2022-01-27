@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="173"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur</translation>
     </message>
 </context>
 <context>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après&#xa0;:</translation>
+        <translation>Répéter la commande après :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
@@ -132,12 +132,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez le fichier d&apos;icône</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Images (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>
