@@ -28,8 +28,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Ένα αρχείο με το ίδιο όνομα υπάρχει ήδη.
-Επιθυμείτε να το αντικαταστήσετε;
-</translation>
+Επιθυμείτε να το αντικαταστήσετε;</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="530"/>

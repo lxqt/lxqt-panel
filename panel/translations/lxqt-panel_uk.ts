@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation>Сконфігурувати розміщення</translation>
+        <translation>Налаштувати розміщення</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>Сконфігурувати оформлення</translation>
+        <translation>Налаштувати оформлення</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
