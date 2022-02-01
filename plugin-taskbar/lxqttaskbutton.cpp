@@ -715,10 +715,11 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         for (int i = 1; i <= deskNum; ++i)
         {
             auto deskName = KWindowSystem::desktopName(i).trimmed();
-            if (deskName.isEmpty()) {
-                deskName = tr("Desktop %1").arg(i);
-            }
-            a = deskMenu->addAction(QStringLiteral("&%1: %2").arg(i).arg(deskName));
+            if (deskName.isEmpty())
+                a = deskMenu->addAction(tr("Desktop &%1").arg(i));
+            else
+                a = deskMenu->addAction(QStringLiteral("&%1: %2").arg(i).arg(deskName));
+
             a->setData(i);
             a->setEnabled(i != winDesk);
             connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
