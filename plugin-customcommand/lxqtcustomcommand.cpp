@@ -64,6 +64,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
 
 LXQtCustomCommand::~LXQtCustomCommand()
 {
+    mProcess->close();
     delete mButton;
 }
 
