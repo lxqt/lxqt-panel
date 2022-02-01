@@ -604,7 +604,7 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 QRect targetScreenGeometry = screens[targetScreen]->geometry();
                 int X = windowGeometry.x() - screenGeometry.x() + targetScreenGeometry.x();
                 int Y = windowGeometry.y() - screenGeometry.y() + targetScreenGeometry.y();
-                NET::States state = KWindowInfo(mWindow, NET::WMState).state();                
+                NET::States state = KWindowInfo(mWindow, NET::WMState).state();
                 //      NW geometry |     y/x      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b010 << 12);
                 KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
@@ -712,11 +712,16 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         deskMenu->addSeparator();
 
-        for (int i = 0; i < deskNum; ++i)
+        for (int i = 1; i <= deskNum; ++i)
         {
-            a = deskMenu->addAction(tr("Desktop &%1").arg(i + 1));
-            a->setData(i + 1);
-            a->setEnabled(i + 1 != winDesk);
+            auto deskName = KWindowSystem::desktopName(i).trimmed();
+            if (deskName.isEmpty())
+                a = deskMenu->addAction(tr("Desktop &%1").arg(i));
+            else
+                a = deskMenu->addAction(QStringLiteral("&%1: %2").arg(i).arg(deskName));
+
+            a->setData(i);
+            a->setEnabled(i != winDesk);
             connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         }
 
@@ -730,7 +735,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     if (QGuiApplication::screens().size() > 1)
     {
         menu->addSeparator();
-        a = menu->addAction(tr("Move To &Next Monitor"));
+        a = menu->addAction(tr("Move To N&ext Monitor"));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });
         a->setEnabled(info.actionSupported(NET::ActionMove) && (!(state & NET::FullScreen) || ((state & NET::FullScreen) && info.actionSupported(NET::ActionFullScreen))));
         a = menu->addAction(tr("Move To &Previous Monitor"));
