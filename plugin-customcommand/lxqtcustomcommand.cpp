@@ -64,6 +64,8 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
 
 LXQtCustomCommand::~LXQtCustomCommand()
 {
+    // Ensure process is closed before exiting and avoids warning from QProcess.
+    mProcess->close();
     delete mButton;
 }
 
