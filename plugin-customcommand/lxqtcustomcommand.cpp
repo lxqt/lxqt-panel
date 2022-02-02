@@ -141,11 +141,9 @@ void LXQtCustomCommand::settingsChanged()
     if (oldMaxWidth != mMaxWidth)
         mButton->setMaxWidth(mMaxWidth);
 
-    if (oldExpandToRows != mExpandToRows) {
+    if (oldExpandToRows != mExpandToRows)
         pluginFlagsChanged();
-        // Need to call setAutoRotation twice to change instantly
-        mButton->setAutoRotation(!mAutoRotate);
-    }
+
     mButton->setAutoRotation(mAutoRotate);
 
     if (mFirstRun) {
