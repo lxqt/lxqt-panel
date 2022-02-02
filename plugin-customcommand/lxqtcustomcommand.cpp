@@ -42,7 +42,8 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
         mOutput(QString()),
-        mAutoRotate(true)
+        mAutoRotate(true),
+        mExpandToRows(false)
 {
     mButton = new CustomButton(this);
     mButton->setObjectName(QLatin1String("CustomButton"));
@@ -76,7 +77,7 @@ QWidget *LXQtCustomCommand::widget()
 
 void LXQtCustomCommand::realign()
 {
-    mButton->setAutoRotation(mAutoRotate);
+    mButton->updateButton();
 }
 
 QDialog *LXQtCustomCommand::configureDialog()
@@ -91,17 +92,17 @@ void LXQtCustomCommand::settingsChanged()
 {
     bool shouldRun = false;
 
-    bool oldAutoRotate = mAutoRotate;
+    bool oldExpandToRows = mExpandToRows;
     QString oldFont = mFont;
     QString oldCommand = mCommand;
     bool oldRunWithBash = mRunWithBash;
     bool oldRepeat = mRepeat;
     int oldRepeatTimer = mRepeatTimer;
     QString oldIcon = mIcon;
-    QString oldText = mText;
     int oldMaxWidth = mMaxWidth;
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
+    mExpandToRows = settings()->value(QStringLiteral("expandToRows")).toBool();
     mFont = settings()->value(QStringLiteral("font"), mButton->font().toString()).toString();
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
@@ -126,7 +127,6 @@ void LXQtCustomCommand::settingsChanged()
         }
         else {
             mButton->setFont(newFont);
-            updateButton();
         }
     }
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldRepeat != mRepeat)
@@ -135,18 +135,18 @@ void LXQtCustomCommand::settingsChanged()
     if (oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
-    if (oldIcon != mIcon) {
+    if (oldIcon != mIcon)
         mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
-        updateButton();
-    }
-    else if (oldText != mText)
-        updateButton();
 
     if (oldMaxWidth != mMaxWidth)
         mButton->setMaxWidth(mMaxWidth);
 
-    if (oldAutoRotate != mAutoRotate)
-        mButton->setAutoRotation(mAutoRotate);
+    if (oldExpandToRows != mExpandToRows) {
+        pluginFlagsChanged();
+        // Need to call setAutoRotation twice to change instantly
+        mButton->setAutoRotation(!mAutoRotate);
+    }
+    mButton->setAutoRotation(mAutoRotate);
 
     if (mFirstRun) {
         mFirstRun = false;
@@ -190,7 +190,7 @@ void LXQtCustomCommand::updateButton() {
          mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mButton->setText(newText);
-    mButton->updateWidth();
+    mButton->updateButton();
 }
 
 void LXQtCustomCommand::handleWheelScrolled(int yDelta)

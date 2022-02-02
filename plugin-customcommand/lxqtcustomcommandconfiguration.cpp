@@ -42,6 +42,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
 
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &LXQtCustomCommandConfiguration::buttonBoxClicked);
     connect(ui->autoRotateCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::autoRotateChanged);
+    connect(ui->expandToRowsCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::expandToRowsChanged);
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
@@ -75,6 +76,7 @@ void LXQtCustomCommandConfiguration::buttonBoxClicked(QAbstractButton *btn)
 void LXQtCustomCommandConfiguration::loadSettings()
 {
     mAutoRotate = settings().value(QStringLiteral("autoRotate"), true).toBool();
+    mExpandToRows = settings().value(QStringLiteral("expandToRows"), false).toBool();
     mFont = settings().value(QStringLiteral("font"), font().toString()).toString();
     mCommand = settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings().value(QStringLiteral("runWithBash"), true).toBool();
@@ -91,6 +93,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
 void LXQtCustomCommandConfiguration::setUiValues()
 {
     ui->autoRotateCheckBox->setChecked(mAutoRotate);
+    ui->expandToRowsCheckBox->setChecked(mExpandToRows);
     ui->fontButton->setText(mFont);
     ui->commandPlainTextEdit->setPlainText(mCommand);
     ui->runWithBashCheckBox->setChecked(mRunWithBash);
@@ -108,6 +111,11 @@ void LXQtCustomCommandConfiguration::setUiValues()
 void LXQtCustomCommandConfiguration::autoRotateChanged(bool autoRotate)
 {
     settings().setValue(QStringLiteral("autoRotate"), autoRotate);
+}
+
+void LXQtCustomCommandConfiguration::expandToRowsChanged(bool expand)
+{
+    settings().setValue(QStringLiteral("expandToRows"), expand);
 }
 
 void LXQtCustomCommandConfiguration::fontButtonClicked()

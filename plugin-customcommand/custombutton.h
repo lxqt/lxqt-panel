@@ -40,9 +40,9 @@ public:
     ~CustomButton();
 
 public slots:
-    void setAutoRotation(bool value);
     void setMaxWidth(int maxWidth);
-    void updateWidth();
+    void setAutoRotation(bool rotate);
+    void updateButton();
 
 protected:
     void wheelEvent(QWheelEvent *event) override;
@@ -54,8 +54,11 @@ private slots:
 private:
     ILXQtPanelPlugin *mPlugin;
     ILXQtPanel *mPanel;
+    ILXQtPanel::Position mPanelPosition;
+    bool mAutoRotate;
     Qt::Corner mOrigin;
     int mMaxWidth;
+    QSize mSizeHint;
 
 signals:
     void wheelScrolled(int);
