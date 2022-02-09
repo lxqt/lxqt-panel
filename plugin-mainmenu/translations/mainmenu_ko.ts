@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="121"/>
         <source>Show/hide main menu</source>
-        <translation>메뉴 보이기/감추기</translation>
+        <translation>메뉴 표시/숨김</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="515"/>
@@ -51,12 +51,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>일반 설정</translation>
+        <translation>일반</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>메뉴 설정</translation>
+        <translation>기본 메뉴 설정</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -66,12 +66,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>버튼 문자:</translation>
+        <translation>버튼 텍스트:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>글꼴 크기 조절:</translation>
+        <translation>사용자 지정 글꼴 크기:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
@@ -96,7 +96,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>최대 폭:</translation>
+        <translation>최대 항목 너비:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -106,27 +106,27 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>최대 표시 항목 수:</translation>
+        <translation>최대 표시 항목:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation>메뉴 항목 확인</translation>
+        <translation>필터 메뉴 항목</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> 픽셀</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation>검색하는 동안 메뉴 항목 감추기</translation>
+        <translation>검색하는 동안 메뉴 항목 숨김</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>메뉴 표시할 때 검색 내용 청소하기</translation>
+        <translation>메뉴 표시 시 검색 지우기</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
@@ -136,17 +136,17 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>사용할 단축키를 입력하세요:</translation>
+        <translation>단축키를 기록하려면 버튼 클릭:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
         <source>Reset</source>
-        <translation>초기화</translation>
+        <translation>재설정</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
         <source>Choose icon file</source>
-        <translation>아이콘 파일 선택</translation>
+        <translation>아이콘 파일 선택하기</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
@@ -156,7 +156,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
         <source>Choose menu file</source>
-        <translation>메뉴 파일 선택</translation>
+        <translation>메뉴 파일 선택하기</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
