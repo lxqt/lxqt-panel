@@ -29,62 +29,62 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;bash -c&quot;로 실행</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 선택</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="65"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>명령</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="75"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> 픽셀</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="101"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="104"/>
         <source>Use %1 to display command output</source>
-        <translation type="unfinished"></translation>
+        <translation>명령 출력을 표시하려면 %1 사용</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="111"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>아이콘</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>찾아보기</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="131"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>패널이 수직일 때 자동 회전</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation type="unfinished"></translation>
+        <translation>에코 구성하기...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
@@ -92,52 +92,52 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="278"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="285"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>실행할 명령</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>최대 너비</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 시간 이후에 명령 반복:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> 초</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>마우스 명령</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>클릭</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation>휠 위로</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation>휠 아래로</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>아이콘 파일 선택</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>

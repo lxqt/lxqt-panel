@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="173"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba</translation>
     </message>
 </context>
 <context>
@@ -132,12 +132,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonfájl kiválasztása</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Képek (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>
