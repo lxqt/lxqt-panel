@@ -41,6 +41,8 @@
 #include <lxqt-globalkeys.h>
 #include <algorithm> // for find_if()
 #include <QApplication>
+#include <QMetaEnum>
+#include <QStringBuilder>
 
 #include <XdgMenuWidget>
 #include <XdgIcon>
@@ -121,9 +123,14 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mShortcut = GlobalKeyShortcut::Client::instance()->addAction(QString{}, QStringLiteral("/panel/%1/show_hide").arg(settings()->group()), LXQtMainMenu::tr("Show/hide main menu"), this);
     if (mShortcut)
     {
+        connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, [this](const QString &, const QString & shortcut) {
+                mShortcutSeq = shortcut;
+        });
         connect(mShortcut, &GlobalKeyShortcut::Action::registrationFinished, this, [this] {
             if (mShortcut->shortcut().isEmpty())
                 mShortcut->changeShortcut(QStringLiteral(DEFAULT_SHORTCUT));
+            else
+                mShortcutSeq = mShortcut->shortcut();
         });
         connect(mShortcut, &GlobalKeyShortcut::Action::activated, this, [this] {
             if (!mHideTimer.isActive())
@@ -636,11 +643,29 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
     }
     else if(QMenu* menu = qobject_cast<QMenu*>(obj))
     {
-        if(event->type() == QEvent::KeyPress)
+        if(event->type() == QEvent::KeyRelease)
         {
+            static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-            if (keyEvent->modifiers() & ~(Qt::ShiftModifier | Qt::KeypadModifier))
+            QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+            switch (keyEvent->key()) {
+                case Qt::Key_Alt:
+                    mod &= ~Qt::AltModifier;
+                    break;
+                case Qt::Key_Control:
+                    mod &= ~Qt::ControlModifier;
+                    break;
+                case Qt::Key_Shift:
+                    mod &= ~Qt::ShiftModifier;
+                    break;
+                case Qt::Key_Super_L:
+                case Qt::Key_Super_R:
+                    mod &= ~Qt::MetaModifier;
+                    break;
+            }
+            const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
+            if (press == mShortcutSeq)
             {
                 mHideTimer.start();
                 mMenu->hide(); // close the app menu
