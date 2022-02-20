@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
         <source>Add Widget</source>
-        <translation>Добави</translation>
+        <translation>Добавяне</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="105"/>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Разположение</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Стил</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки на разположение</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Скриване само на припокриващите се прозорци</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Премести нагоре</translation>
+        <translation>Преместване нагоре</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -272,22 +272,22 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Премести надолу</translation>
+        <translation>Преместване надолу</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation>Добави</translation>
+        <translation>Добавяне</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>Премахни</translation>
+        <translation>Премахване</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Конфигурирай</translation>
+        <translation>Конфигуриране</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Конфигуриране на стил</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -354,12 +354,12 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configstyling.cpp" line="189"/>
         <location filename="../config/configstyling.cpp" line="205"/>
         <source>Pick color</source>
-        <translation>Избери цвят</translation>
+        <translation>Избиране на цвят</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Pick image</source>
-        <translation>Избери изображение</translation>
+        <translation>Избиране на изображение</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
