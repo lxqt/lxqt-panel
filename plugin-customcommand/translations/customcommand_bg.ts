@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="173"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
 </context>
 <context>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation>Стартирайте с &quot;bash -c&quot;</translation>
+        <translation>Изпълняване с &quot;bash -c&quot;</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation>Изберете шрифт</translation>
+        <translation>Избиране на шрифт</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="75"/>
         <source>Font</source>
-        <translation>Фрифт</translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="82"/>
@@ -122,22 +122,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Превъртане нагоре</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Превъртане надолу</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Избиране на файл с икона</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображения (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>
