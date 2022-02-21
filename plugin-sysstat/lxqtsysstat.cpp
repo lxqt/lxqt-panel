@@ -364,10 +364,15 @@ void LXQtSysStatContent::reset()
     setMinimumSize(mPlugin->panel()->isHorizontal() ? mMinimalSize : 2,
                    mPlugin->panel()->isHorizontal() ? 2 : mMinimalSize);
 
-    mHistoryOffset = 0;
-    mHistoryImage = QImage(width(), 100, QImage::Format_ARGB32);
-    mHistoryImage.fill(Qt::transparent);
-    update();
+    if (width() > mHistoryImage.width())
+    {
+        QImage newImage{width(), 100, QImage::Format_ARGB32};
+        newImage.fill(Qt::transparent);
+        QPainter p{&newImage};
+        p.drawImage(mHistoryImage.rect(), mHistoryImage, mHistoryImage.rect());
+        mHistoryImage = newImage;
+        update();
+    }
 }
 
 template <typename T>
@@ -429,7 +434,7 @@ void LXQtSysStatContent::cpuLoadFrequencyUpdate(float user, float nice, float sy
         painter.drawLine(mHistoryOffset, y_freq, mHistoryOffset, y_other);
     }
 
-    mHistoryOffset = (mHistoryOffset + 1) % width();
+    mHistoryOffset = (mHistoryOffset + 1) % mHistoryImage.width();
 
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
@@ -472,7 +477,7 @@ void LXQtSysStatContent::cpuLoadUpdate(float user, float nice, float system, flo
         painter.drawLine(mHistoryOffset, y_other, mHistoryOffset, y_nice);
     }
 
-    mHistoryOffset = (mHistoryOffset + 1) % width();
+    mHistoryOffset = (mHistoryOffset + 1) % mHistoryImage.width();
 
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
@@ -508,7 +513,7 @@ void LXQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
         painter.drawLine(mHistoryOffset, y_cached, mHistoryOffset, y_buffers);
     }
 
-    mHistoryOffset = (mHistoryOffset + 1) % width();
+    mHistoryOffset = (mHistoryOffset + 1) % mHistoryImage.width();
 
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
@@ -529,7 +534,7 @@ void LXQtSysStatContent::swapUpdate(float used)
         painter.drawLine(mHistoryOffset, y_used, mHistoryOffset, 0);
     }
 
-    mHistoryOffset = (mHistoryOffset + 1) % width();
+    mHistoryOffset = (mHistoryOffset + 1) % mHistoryImage.width();
 
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
@@ -565,7 +570,7 @@ void LXQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
         painter.drawLine(mHistoryOffset, y_max_value, mHistoryOffset, y_min_value);
     }
 
-    mHistoryOffset = (mHistoryOffset + 1) % width();
+    mHistoryOffset = (mHistoryOffset + 1) % mHistoryImage.width();
 
     update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
 }
