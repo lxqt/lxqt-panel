@@ -2,40 +2,45 @@ set(PLUGIN "tray")
 
 include(CheckLibraryExists)
 
-find_package(XCB REQUIRED COMPONENTS xcb xcb-util xcb-damage)
+find_package(XCB
+    REQUIRED COMPONENTS
+        xcb
+        xcb-xfixes
+        xcb-damage
+        xcb-composite
+        xcb-randr
+        xcb-shm
+        xcb-util
+        xcb-image
+        xcb-shape
+)
 find_package(PkgConfig)
-
-find_package(X11 REQUIRED)
-pkg_check_modules(XCOMPOSITE REQUIRED xcomposite)
-pkg_check_modules(XDAMAGE REQUIRED xdamage)
-pkg_check_modules(XRENDER REQUIRED xrender)
+pkg_check_modules(xtst REQUIRED xtst)
 
 set(HEADERS
-    lxqttrayconfiguration.h
+    xtestsender.h
+    xcbutils.h
+    sniproxy.h
+    snidbus.h
+    fdoselectionmanager.h
     lxqttrayplugin.h
-    lxqttray.h
-    trayicon.h
-    xfitman.h
 )
 
 set(SOURCES
-    lxqttrayconfiguration.cpp
+    xtestsender.cpp
+    sniproxy.cpp
+    snidbus.cpp
+    fdoselectionmanager.cpp
     lxqttrayplugin.cpp
-    lxqttray.cpp
-    trayicon.cpp
-    xfitman.cpp
 )
 
-set(UIS
-    lxqttrayconfiguration.ui
-)
+qt_add_dbus_adaptor(SOURCES org.kde.StatusNotifierItem.xml sniproxy.h SNIProxy)
+qt_add_dbus_interface(SOURCES org.kde.StatusNotifierWatcher.xml statusnotifierwatcher_interface)
 
 set(LIBRARIES
-    ${X11_LIBRARIES}
-    ${XCOMPOSITE_LDFLAGS}
-    ${XDAMAGE_LIBRARIES}
-    ${XRENDER_LIBRARIES}
     ${XCB_LIBRARIES}
+    ${xtst_LDFLAGS}
 )
+
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
