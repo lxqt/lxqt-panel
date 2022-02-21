@@ -60,7 +60,9 @@ FdoSelectionManager::FdoSelectionManager()
 FdoSelectionManager::~FdoSelectionManager()
 {
     qDebug() << "closing";
-    qDeleteAll(m_proxies);
+    for (auto p_i = m_proxies.begin(); p_i != m_proxies.end(); p_i = m_proxies.begin()) {
+        undock(p_i.key(), false);
+    }
     m_selectionOwner->release();
 }
 
@@ -148,12 +150,12 @@ bool FdoSelectionManager::nativeEventFilter(const QByteArray &eventType, void *m
     } else if (responseType == XCB_UNMAP_NOTIFY) {
         const auto unmappedWId = reinterpret_cast<xcb_unmap_notify_event_t *>(ev)->window;
         if (m_proxies.contains(unmappedWId)) {
-            undock(unmappedWId);
+            undock(unmappedWId, true);
         }
     } else if (responseType == XCB_DESTROY_NOTIFY) {
         const auto destroyedWId = reinterpret_cast<xcb_destroy_notify_event_t *>(ev)->window;
         if (m_proxies.contains(destroyedWId)) {
-            undock(destroyedWId);
+            undock(destroyedWId, true);
         }
     } else if (responseType == m_damageEventBase + XCB_DAMAGE_NOTIFY) {
         const auto damagedWId = reinterpret_cast<xcb_damage_notify_event_t *>(ev)->drawable;
@@ -198,15 +200,24 @@ void FdoSelectionManager::dock(xcb_window_t winId)
     }
 }
 
-void FdoSelectionManager::undock(xcb_window_t winId)
+void FdoSelectionManager::undock(xcb_window_t winId, bool vanished)
 {
     qDebug() << "trying to undock window " << winId;
 
-    if (!m_proxies.contains(winId)) {
+    auto p_i = m_proxies.find(winId);
+    if (p_i == m_proxies.end()) {
         return;
     }
-    m_proxies[winId]->deleteLater();
-    m_proxies.remove(winId);
+    auto d_i = m_damageWatches.find(winId);
+    if (d_i != m_damageWatches.end()) {
+        if (!vanished) {
+            xcb_damage_destroy(QX11Info::connection(), *d_i);
+        }
+        m_damageWatches.erase(d_i);
+    }
+    (*p_i)->vanished(vanished);
+    (*p_i)->deleteLater();
+    m_proxies.erase(p_i);
 }
 
 void FdoSelectionManager::onClaimedOwnership()

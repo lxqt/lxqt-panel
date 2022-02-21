@@ -61,6 +61,7 @@ public:
     void update();
     void resizeWindow(const uint16_t width, const uint16_t height) const;
     void hideContainerWindow(xcb_window_t windowId) const;
+    inline void vanished(bool vanished) { m_vanished = vanished; }
 
     /**
      * @return the category of the application associated to this item
@@ -174,4 +175,5 @@ private:
     bool sendingClickEvent;
     InjectMode m_injectMode;
     Xcb::Atoms & m_atoms;
+    bool m_vanished = false;
 };

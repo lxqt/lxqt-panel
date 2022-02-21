@@ -60,7 +60,7 @@ private:
     void init();
     bool addDamageWatch(xcb_window_t client);
     void dock(xcb_window_t embed_win);
-    void undock(xcb_window_t client);
+    void undock(xcb_window_t client, bool vanished);
     void setSystemTrayVisual();
 
     uint8_t m_damageEventBase;

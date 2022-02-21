@@ -200,7 +200,9 @@ SNIProxy::~SNIProxy()
 {
     auto c = QX11Info::connection();
 
-    xcb_reparent_window(c, m_windowId, QX11Info::appRootWindow(), 0, 0);
+    if (!m_vanished) {
+        xcb_reparent_window(c, m_windowId, QX11Info::appRootWindow(), 0, 0);
+    }
     xcb_destroy_window(c, m_containerWid);
     QDBusConnection::disconnectFromBus(m_dbus.name());
 }
