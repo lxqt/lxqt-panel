@@ -25,7 +25,6 @@
 
 #include "statusnotifierproxy.h"
 #include "statusnotifierwatcher.h"
-#include "statusnotifierwidget.h"
 
 #include <QApplication>
 #include <QFutureWatcher>
@@ -36,28 +35,24 @@
 Q_GLOBAL_STATIC(StatusNotifierProxy, statusNotifierProxy)
 
 StatusNotifierProxy::StatusNotifierProxy()
-    : mWatcher(nullptr),
-    mWidgetCount(0),
-    mCreatingWatcher(false)
+    : mWatcher{nullptr},
+    mUsersCount{0}
 {
-    createWatcher();
 }
 
 void StatusNotifierProxy::createWatcher()
 {
-    mCreatingWatcher = true;
     QFutureWatcher<StatusNotifierWatcher *> * future_watcher = new QFutureWatcher<StatusNotifierWatcher *>;
     connect(future_watcher, &QFutureWatcher<StatusNotifierWatcher *>::finished, this, [this, future_watcher]
         {
-            mWatcher = future_watcher->future().result();
-            watcherCreated();
+            mWatcher.reset(future_watcher->future().result());
 
-            connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemRegistered,
-                    this, &StatusNotifierProxy::onStatusNotifierItemRegistered);
-            connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemUnregistered,
-                    this, &StatusNotifierProxy::onStatusNotifierItemUnregistered);
+            connect(mWatcher.get(), &StatusNotifierWatcher::StatusNotifierItemRegistered,
+                    this, &StatusNotifierProxy::StatusNotifierItemRegistered);
+            connect(mWatcher.get(), &StatusNotifierWatcher::StatusNotifierItemUnregistered,
+                    this, &StatusNotifierProxy::StatusNotifierItemUnregistered);
 
-            qDebug() << mWatcher->RegisteredStatusNotifierItems();
+            qDebug() << "StatusNotifierProxy, services:" << mWatcher->RegisteredStatusNotifierItems();
 
             future_watcher->deleteLater();
         });
@@ -77,53 +72,31 @@ void StatusNotifierProxy::createWatcher()
     future_watcher->setFuture(future);
 }
 
-void StatusNotifierProxy::watcherCreated()
+QStringList StatusNotifierProxy::RegisteredStatusNotifierItems() const
 {
-    mCreatingWatcher = false;
+    Q_ASSERT(mUsersCount > 0);
+    return mWatcher ? mWatcher->RegisteredStatusNotifierItems() : QStringList{};
 }
 
-StatusNotifierProxy::~StatusNotifierProxy()
+StatusNotifierProxy & StatusNotifierProxy::registerLifetimeUsage(QObject * obj)
 {
-    qDebug() << "deleting Proxy";
+    StatusNotifierProxy & p = *statusNotifierProxy();
+    p.registerUsage(obj);
+    return p;
 }
 
-StatusNotifierProxy *StatusNotifierProxy::instance()
+void StatusNotifierProxy::registerUsage(QObject * obj)
 {
-    return statusNotifierProxy();
-}
-
-void StatusNotifierProxy::registerWidget(StatusNotifierWidget *widget)
-{
-    ++mWidgetCount;
-    if (nullptr == mWatcher && mCreatingWatcher == false)
+    connect(obj, &QObject::destroyed, this, &StatusNotifierProxy::unregisterUsage);
+    if (mUsersCount <= 0)
         createWatcher();
-    for (auto i = mServices.cbegin(); i != mServices.cend(); ++i)
-        widget->itemAdded(*i);
-
-    connect(this, &StatusNotifierProxy::StatusNotifierItemRegistered,
-                    widget, &StatusNotifierWidget::itemAdded);
-    connect(this, &StatusNotifierProxy::StatusNotifierItemUnregistered,
-                    widget, &StatusNotifierWidget::itemRemoved);
+    ++mUsersCount;
 }
 
-void StatusNotifierProxy::unregisterWidget(StatusNotifierWidget */*widget*/)
+void StatusNotifierProxy::unregisterUsage()
 {
-    --mWidgetCount;
-    if (mWidgetCount == 0) {
-        mWatcher->deleteLater();
-        mWatcher = nullptr;
-        mServices.clear();
+    --mUsersCount;
+    if (mUsersCount <= 0) {
+        mWatcher.reset();
     }
-}
-
-void StatusNotifierProxy::onStatusNotifierItemRegistered(const QString &service)
-{
-    mServices.append(service);
-    emit StatusNotifierItemRegistered(service);
-}
-
-void StatusNotifierProxy::onStatusNotifierItemUnregistered(const QString &service)
-{
-    mServices.removeAll(service);
-    emit StatusNotifierItemUnregistered(service);
 }

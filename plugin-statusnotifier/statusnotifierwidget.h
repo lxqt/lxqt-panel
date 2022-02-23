@@ -26,10 +26,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIERWIDGET_H
-#define STATUSNOTIFIERWIDGET_H
+#pragma once
 
-#include <QDir>
 #include <QTimer>
 
 #include <LXQt/GridLayout>
@@ -44,7 +42,7 @@ class StatusNotifierWidget : public QWidget
 
 public:
     StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
-    ~StatusNotifierWidget();
+    ~StatusNotifierWidget() = default;
 
     void settingsChanged();
     QStringList itemTitles() const;
@@ -63,7 +61,6 @@ protected:
 
 private:
     ILXQtPanelPlugin *mPlugin;
-    StatusNotifierProxy *mProxy;
 
     QTimer mHideTimer;
 
@@ -76,5 +73,3 @@ private:
     int mAttentionPeriod;
     bool mForceVisible;
 };
-
-#endif // STATUSNOTIFIERWIDGET_H

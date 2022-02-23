@@ -34,7 +34,6 @@
 StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QWidget(parent),
     mPlugin(plugin),
-    mProxy(StatusNotifierProxy::instance()),
     mAttentionPeriod(5),
     mForceVisible(false)
 {
@@ -80,13 +79,15 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
         }
     });
 
-    mProxy->registerWidget(this);
     realign();
-}
 
-StatusNotifierWidget::~StatusNotifierWidget()
-{
-    mProxy->unregisterWidget(this);
+    StatusNotifierProxy & proxy = StatusNotifierProxy::registerLifetimeUsage(this);
+    connect(&proxy, &StatusNotifierProxy::StatusNotifierItemRegistered,
+                    this, &StatusNotifierWidget::itemAdded);
+    connect(&proxy, &StatusNotifierProxy::StatusNotifierItemUnregistered,
+                    this, &StatusNotifierWidget::itemRemoved);
+    for (const auto & service: proxy.RegisteredStatusNotifierItems())
+        itemAdded(service);
 }
 
 void StatusNotifierWidget::leaveEvent(QEvent * /*event*/)

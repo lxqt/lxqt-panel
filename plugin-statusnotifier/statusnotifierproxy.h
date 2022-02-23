@@ -23,12 +23,11 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIERPROXY_H
-#define STATUSNOTIFIERPROXY_H
-
+#pragma once
 
 #include <QObject>
 #include <QStringList>
+#include <memory>
 
 class StatusNotifierWidget;
 class StatusNotifierWatcher;
@@ -39,25 +38,19 @@ class StatusNotifierProxy : public QObject
 
 public:
     StatusNotifierProxy();
-    ~StatusNotifierProxy();
-    static StatusNotifierProxy *instance();
-
-    void onStatusNotifierItemRegistered(const QString &service);
-    void onStatusNotifierItemUnregistered(const QString &service);
-    void registerWidget(StatusNotifierWidget *widget);
-    void unregisterWidget(StatusNotifierWidget *widget);
+    ~StatusNotifierProxy() = default;
+    QStringList RegisteredStatusNotifierItems() const;
+    static StatusNotifierProxy & registerLifetimeUsage(QObject * obj);
 
 private:
-    QStringList mServices;
-    StatusNotifierWatcher *mWatcher;
-    int mWidgetCount;
-    bool mCreatingWatcher;
+    std::unique_ptr<StatusNotifierWatcher> mWatcher;
+    int mUsersCount;
+
     void createWatcher();
-    void watcherCreated();
+    void registerUsage(QObject * obj);
+    void unregisterUsage();
 
 signals:
     void StatusNotifierItemRegistered(const QString &service);
     void StatusNotifierItemUnregistered(const QString &service);
 };
-
-#endif //STATUSNOTIFIERPROXY_H
