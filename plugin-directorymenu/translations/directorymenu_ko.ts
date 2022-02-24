@@ -19,7 +19,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>디렉토리 메뉴 설정</translation>
+        <translation>디렉터리 메뉴 설정</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>기본 디렉토리:</translation>
+        <translation>기본 디렉터리:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>기본디렉토리이름</translation>
+        <translation>기본 디렉터리이름</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="96"/>
         <source>Choose Base Directory</source>
-        <translation>기본 디렉토리 선택하기</translation>
+        <translation>기본 디렉터리 선택하기</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="126"/>
@@ -70,12 +70,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>Directory Menu</source>
-        <translation>디렉토리 메뉴</translation>
+        <translation>디렉터리 메뉴</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="135"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>아이콘을 불러오는 동안 오류가 발생했습니다.</translation>
+        <translation>아이콘을 불러오는 중에 오류가 발생했습니다.</translation>
     </message>
 </context>
 </TS>
