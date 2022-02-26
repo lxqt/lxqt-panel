@@ -44,7 +44,7 @@
     <message>
         <location filename="../configuration.cpp" line="44"/>
         <source>Show info</source>
-        <translation>정보 보이기</translation>
+        <translation>정보 표시</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="45"/>

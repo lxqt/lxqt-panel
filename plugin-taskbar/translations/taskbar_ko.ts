@@ -155,7 +155,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation>꾸미기</translation>
+        <translation>모양새</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>바탕화면에 창만 보이기</translation>
+        <translation>바탕 화면의 창만 표시</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>패널 화면에 창만 보이기(&amp;P)</translation>
+        <translation>패널 화면의 창만 표시(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>최소화한 창만 보이기</translation>
+        <translation>최소화된 창만 표시</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
