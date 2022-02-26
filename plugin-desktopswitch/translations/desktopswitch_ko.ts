@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="87"/>
         <source>Switch to desktop %1</source>
-        <translation>바탕화면 바꾸기 %1</translation>
+        <translation>%1 바탕화면으로 전환</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="148"/>
         <location filename="../desktopswitch.cpp" line="159"/>
         <source>Desktop %1</source>
-        <translation>바탕화면 %1</translation>
+        <translation>%1 바탕화면</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>바탕화면 바꾸기 설정</translation>
+        <translation>바탕화면 전환 설정</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,12 +30,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>바탕화면 이름표:</translation>
+        <translation>바탕화면 레이블:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>꾸미기</translation>
+        <translation>모양새</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>이 옵션을 선택하면,위젯이 표시기에  표시</translation>
+        <translation>이 옵션을 선택하면 위젯은 표시기만 됩니다</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation>활성 데스크탑 만 표시</translation>
+        <translation>활성 바탕화면만 표시</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
-        <translation>바탕화면 %1:</translation>
+        <translation>%1 바탕화면:</translation>
     </message>
 </context>
 </TS>

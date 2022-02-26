@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>패널 설정</translation>
+        <translation>패널 구성하기</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>플러그인 설정</translation>
+        <translation>플러그인 구성하기</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>설정</translation>
+        <translation>구성하기</translation>
     </message>
 </context>
 <context>
@@ -342,7 +342,7 @@ Colorize icons based on widget style (palette)</source>
 
 이것도 사용 안 함으로 하시겠나요:
 
-LXQt 꾸미기 설정 →
+LXQt 모양새 구성 →
 아이콘 테마 →
 위젯 스타일 (팔레트) 기반 아이콘 색상 지정</translation>
     </message>
@@ -384,7 +384,7 @@ LXQt 꾸미기 설정 →
     <message>
         <location filename="../lxqtpanel.cpp" line="1206"/>
         <source>Configure Panel</source>
-        <translation>패널 설정</translation>
+        <translation>패널 구성하기</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1211"/>
@@ -426,7 +426,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="436"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>설정 &quot;%1&quot;</translation>
+        <translation>&quot;%1&quot; 구성하기</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="441"/>
