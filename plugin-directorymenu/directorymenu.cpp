@@ -159,20 +159,37 @@ void DirectoryMenu::settingsChanged()
 {
     mBaseDirectory.setPath(settings()->value(QStringLiteral("baseDirectory"), QDir::homePath()).toString());
 
+    // icon
+    bool customIcon = false;
     QString iconPath = settings()->value(QStringLiteral("icon"), QString()).toString();
     QIcon icon = QIcon(iconPath);
-
     if(!icon.isNull())
     {
         QIcon buttonIcon = QIcon(icon);
         if(!buttonIcon.pixmap(QSize(24,24)).isNull())
         {
             mButton.setIcon(buttonIcon);
-            return;
+            customIcon = true;
         }
     }
+    if (!customIcon)
+        mButton.setIcon(mDefaultIcon);
 
-    mButton.setIcon(mDefaultIcon);
+    // label
+    QString label = settings()->value(QStringLiteral("label"), QString()).toString();
+    mButton.setText(label);
+
+    // style
+    QString style = settings()->value(QStringLiteral("buttonStyle")).toString().toUpper();
+    if (style == QStringLiteral("ICON"))
+        mButton.setToolButtonStyle(Qt::ToolButtonIconOnly);
+    else if (!label.isEmpty())
+    {
+        if (style == QStringLiteral("TEXT"))
+            mButton.setToolButtonStyle(Qt::ToolButtonTextOnly);
+        else
+            mButton.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    }
 
     // Set default terminal
     mDefaultTerminal = settings()->value(QStringLiteral("defaultTerminal"), QString()).toString();
