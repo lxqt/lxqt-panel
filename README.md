@@ -18,8 +18,11 @@ A plugin to launch applications from the panel. By default it is empty and displ
 
 #### Status Notifier Plugin (plugin-statusnotifier) / System Tray (plugin-tray)
 
-Both provide a notification area within the panel, that is an area where arbitrary applications can place informational icons. This is frequently used e. g. by chat or mail clients to inform about incoming messages or tools configuring the network to inform about connections. (So it's some kind of counterpart to the desktop notifications displayed by [lxqt-notificationd](https://github.com/lxqt/lxqt-notificationd)).
-The difference between the two plugins is a technical one. **plugin-tray** is implementing the so-called [System Tray Protocol](https://www.freedesktop.org/wiki/Specifications/systemtray-spec). It's a specification that has been around for years but has some serious technical limitations and in particular won't work under Wayland. **plugin-statusnotifier** on the other hand is implementing the so-called [StatusNotifierItem (SNI)](https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem) specification which can be considered a successor of the System Tray Protocol.
+Status notifier plugin provides a notification area within the panel, that is an area where arbitrary applications can place informational icons. This is frequently used e. g. by chat or mail clients to inform about incoming messages or tools configuring the network to inform about connections. (So it's some kind of counterpart to the desktop notifications displayed by [lxqt-notificationd](https://github.com/lxqt/lxqt-notificationd)).
+The difference between the two plugins is a technical one:
+* **plugin-tray** is implementing the so-called [System Tray Protocol](https://www.freedesktop.org/wiki/Specifications/systemtray-spec). It's a specification that has been around for years but has some serious technical limitations and in particular won't work under Wayland. This plugin only translates "System Tray Protocol" entities into SNI ones, so it does not provide any visible area in panel.
+* **plugin-statusnotifier** is implementing the so-called [StatusNotifierItem (SNI)](https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem) specification which can be considered a successor of the System Tray Protocol.
+
 Both plugins are maintained in parallel as not all relevant applications are compatible with SNI so far. In particular both Qt 4 and all GTK applications need some kind of wrapper to deal with it. Both plugins can be used in parallel without any issue, applications supporting both specifications will normally chose to display their icons in plugin-statusnotifier.
 
 #### Volume control (plugin-volume)
