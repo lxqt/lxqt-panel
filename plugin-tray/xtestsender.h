@@ -1,12 +1,11 @@
 /* BEGIN_COMMON_COPYRIGHT_HEADER
- * (c)LGPL2+
+ * (c)LGPL2.1+
  *
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2019 LXQt team
- * Authors:
- *   John Lindgren <john@jlindgren.net>
+ * Copyright: 2017 David Edmundson <davidedmundson@kde.org>
+ *            2022 LXQt team
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -25,29 +24,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTTRAYCONFIGURATION_H
-#define LXQTTRAYCONFIGURATION_H
+#pragma once
 
-#include "../panel/lxqtpanelpluginconfigdialog.h"
-#include <memory>
+typedef struct _XDisplay Display;
 
-namespace Ui {
-    class LXQtTrayConfiguration;
-}
-
-class LXQtTrayConfiguration : public LXQtPanelPluginConfigDialog
-{
-    Q_OBJECT
-
-public:
-    explicit LXQtTrayConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtTrayConfiguration();
-
-private slots:
-    void loadSettings() override;
-
-private:
-    std::unique_ptr<Ui::LXQtTrayConfiguration> ui;
-};
-
-#endif // LXQTTRAYCONFIGURATION_H
+void sendXTestPressed(Display *display, int button);
+void sendXTestReleased(Display *display, int button);

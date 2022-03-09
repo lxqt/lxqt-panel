@@ -4,10 +4,8 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2013 Razor team
+ * Copyright: 2017 David Edmundson <davidedmundson@kde.org>
  *            2022 LXQt team
- * Authors:
- *   Alexander Sokoloff <sokoloff.a@gmail.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -26,21 +24,15 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include "lxqttrayplugin.h"
-#include "fdoselectionmanager.h"
+#include "xtestsender.h"
+#include <X11/extensions/XTest.h>
 
-LXQtTrayPlugin::LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo)
-    : QObject()
-    , ILXQtPanelPlugin(startupInfo)
-    , mManager{new FdoSelectionManager}
+void sendXTestPressed(Display *display, int button)
 {
+    XTestFakeButtonEvent(display, button, true, 0);
 }
 
-LXQtTrayPlugin::~LXQtTrayPlugin()
+void sendXTestReleased(Display *display, int button)
 {
-}
-
-QWidget *LXQtTrayPlugin::widget()
-{
-    return nullptr;
+    XTestFakeButtonEvent(display, button, false, 0);
 }
