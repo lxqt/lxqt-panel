@@ -27,11 +27,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "statusnotifierwidget.h"
-#include <QApplication>
-#include <QDebug>
-#include <QFutureWatcher>
-#include <QtConcurrent>
-#include <QDBusConnectionInterface>
+#include "statusnotifierproxy.h"
 #include "../panel/pluginsettings.h"
 #include "../panel/ilxqtpanelplugin.h"
 
@@ -83,41 +79,15 @@ StatusNotifierWidget::StatusNotifierWidget(ILXQtPanelPlugin *plugin, QWidget *pa
         }
     });
 
-    QFutureWatcher<StatusNotifierWatcher *> * future_watcher = new QFutureWatcher<StatusNotifierWatcher *>;
-    connect(future_watcher, &QFutureWatcher<StatusNotifierWatcher *>::finished, this, [this, future_watcher]
-        {
-            mWatcher = future_watcher->future().result();
-
-            connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemRegistered,
-                    this, &StatusNotifierWidget::itemAdded);
-            connect(mWatcher, &StatusNotifierWatcher::StatusNotifierItemUnregistered,
-                    this, &StatusNotifierWidget::itemRemoved);
-
-            qDebug() << mWatcher->RegisteredStatusNotifierItems();
-
-            future_watcher->deleteLater();
-        });
-
-    QFuture<StatusNotifierWatcher *> future = QtConcurrent::run([]
-        {
-            QString dbusName = QStringLiteral("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1);
-            if (QDBusConnectionInterface::ServiceNotRegistered == QDBusConnection::sessionBus().interface()->registerService(dbusName, QDBusConnectionInterface::DontQueueService))
-                qDebug() << "unable to register service for " << dbusName;
-
-            StatusNotifierWatcher * watcher = new StatusNotifierWatcher;
-            watcher->RegisterStatusNotifierHost(dbusName);
-            watcher->moveToThread(QApplication::instance()->thread());
-            return watcher;
-        });
-
-    future_watcher->setFuture(future);
-
     realign();
-}
 
-StatusNotifierWidget::~StatusNotifierWidget()
-{
-    delete mWatcher;
+    StatusNotifierProxy & proxy = StatusNotifierProxy::registerLifetimeUsage(this);
+    connect(&proxy, &StatusNotifierProxy::StatusNotifierItemRegistered,
+                    this, &StatusNotifierWidget::itemAdded);
+    connect(&proxy, &StatusNotifierProxy::StatusNotifierItemUnregistered,
+                    this, &StatusNotifierWidget::itemRemoved);
+    for (const auto & service: proxy.RegisteredStatusNotifierItems())
+        itemAdded(service);
 }
 
 void StatusNotifierWidget::leaveEvent(QEvent * /*event*/)
