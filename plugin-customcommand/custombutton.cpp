@@ -31,35 +31,13 @@
 #include <QStyleOptionToolButton>
 #include <QProxyStyle>
 
-class LeftAlignedTextStyle : public QProxyStyle
-{
-    using QProxyStyle::QProxyStyle;
-public:
-
-    virtual void drawItemText(QPainter * painter, const QRect & rect, int flags
-            , const QPalette & pal, bool enabled, const QString & text
-            , QPalette::ColorRole textRole = QPalette::NoRole) const override;
-};
-
-void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, int flags
-            , const QPalette & pal, bool enabled, const QString & text
-            , QPalette::ColorRole textRole) const
-{
-    QString txt = text;
-    // get the button text because the text that's given to this function may be middle-elided
-    if (const QToolButton *tb = dynamic_cast<const QToolButton*>(painter->device()))
-        txt = tb->text();
-    txt = QFontMetrics(painter->font()).elidedText(txt, Qt::ElideRight, rect.width());
-    QProxyStyle::drawItemText(painter, rect, (flags & ~Qt::AlignHCenter) | Qt::AlignLeft, pal, enabled, txt, textRole);
-}
-
-
 CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
         mPanel(plugin->panel()),
-        mMaxWidth(200)
-
+        mAutoRotate(false),
+        mMaxWidth(200),
+        mSizeHint(QSize())
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAutoRaise(true);
@@ -67,9 +45,7 @@ CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
     setMinimumWidth(1);
     setMinimumHeight(1);
     setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    setStyle(new LeftAlignedTextStyle());
-    updateWidth();
-
+    updateButton();
 }
 
 CustomButton::~CustomButton() = default;
@@ -83,59 +59,75 @@ void CustomButton::wheelEvent(QWheelEvent *event)
 
 void CustomButton::setMaxWidth(int maxWidth)
 {
-    mMaxWidth = maxWidth;
-    updateWidth();
-}
-
-void CustomButton::updateWidth()
-{
-    int newWidth = qMin(sizeHint().width(), mMaxWidth);
-    if (mOrigin == Qt::TopLeftCorner) {
-        setFixedWidth(newWidth);
-
-        setMinimumHeight(1);
-        setMaximumHeight(QWIDGETSIZE_MAX);
-    }
-    else {
-        setMinimumWidth(1);
-        setMaximumWidth(QWIDGETSIZE_MAX);
-
-        setFixedHeight(newWidth);
-    }
-    update();
+    if (mMaxWidth != maxWidth)
+        mMaxWidth = maxWidth;
 }
 
 void CustomButton::setOrigin(Qt::Corner newOrigin)
 {
-    if (mOrigin != newOrigin) {
+    if (mOrigin != newOrigin)
         mOrigin = newOrigin;
-        updateWidth();
-    }
 }
 
-void CustomButton::setAutoRotation(bool value)
+void CustomButton::setAutoRotation(bool rotate)
 {
-    if (value) {
-        switch (mPanel->position())
-        {
-        case ILXQtPanel::PositionTop:
-        case ILXQtPanel::PositionBottom:
-            setOrigin(Qt::TopLeftCorner);
-            break;
+    if (mSizeHint == sizeHint() && mAutoRotate == rotate && mPanelPosition == mPanel->position())
+        return;
 
-        case ILXQtPanel::PositionLeft:
-            setOrigin(Qt::BottomLeftCorner);
-            break;
+    mSizeHint = sizeHint();
+    mAutoRotate = rotate;
+    mPanelPosition = mPanel->position();
+    int length = 0;
 
-        case ILXQtPanel::PositionRight:
-            setOrigin(Qt::TopRightCorner);
-            break;
-        }
-    }
-    else
+    switch (mPanel->position())
+    {
+    case ILXQtPanel::PositionTop:
+    case ILXQtPanel::PositionBottom:
         setOrigin(Qt::TopLeftCorner);
+        length = qMin(mSizeHint.width(), mMaxWidth);
+        setFixedWidth(length);
 
+        setMinimumHeight(1);
+        setMaximumHeight(QWIDGETSIZE_MAX);
+        break;
 
+    case ILXQtPanel::PositionLeft:
+        if (rotate) {
+            setOrigin(Qt::BottomLeftCorner);
+            length = qMin(mSizeHint.width(), mMaxWidth);
+        }
+        else {
+            setOrigin(Qt::TopLeftCorner);
+            length = qMin(mSizeHint.height(), mMaxWidth);
+        }
+        setMinimumWidth(1);
+        setMaximumWidth(QWIDGETSIZE_MAX);
+
+        setFixedHeight(length);
+        break;
+
+    case ILXQtPanel::PositionRight:
+        if (rotate) {
+            setOrigin(Qt::TopRightCorner);
+            length = qMin(mSizeHint.width(), mMaxWidth);
+        }
+        else {
+            setOrigin(Qt::TopLeftCorner);
+            length = qMin(mSizeHint.height(), mMaxWidth);
+        }
+        setMinimumWidth(1);
+        setMaximumWidth(QWIDGETSIZE_MAX);
+
+        setFixedHeight(length);
+        break;
+    }
+    update();
+
+}
+
+void CustomButton::updateButton()
+{
+    setAutoRotation(mAutoRotate);
 }
 
 void CustomButton::paintEvent(QPaintEvent *event)

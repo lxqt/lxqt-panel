@@ -43,6 +43,7 @@ public:
 
 private:
     bool mAutoRotate;
+    bool mExpandToRows;
     QString mFont;
     QString mCommand;
     bool mRunWithBash;
@@ -59,6 +60,7 @@ private slots:
     void buttonBoxClicked(QAbstractButton *btn);
     void setUiValues();
     void autoRotateChanged(bool autoRotate);
+    void expandToRowsChanged(bool expand);
     void fontButtonClicked();
     void fontChanged(QString fontString);
     void commandPlainTextEditChanged();

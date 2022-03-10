@@ -49,6 +49,7 @@ public:
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
     void realign();
     QDialog *configureDialog();
+    bool isSeparate() const { return mExpandToRows; }
 
 protected slots:
     virtual void settingsChanged();
@@ -74,6 +75,7 @@ private:
     QString mOutput;
 
     bool mAutoRotate;
+    bool mExpandToRows;
     QString mFont;
     QString mCommand;
     bool mRunWithBash;
