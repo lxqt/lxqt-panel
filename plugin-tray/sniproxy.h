@@ -31,7 +31,7 @@
 #include <QDBusConnection>
 #include <QDBusObjectPath>
 #include <QObject>
-#include <QPixmap>
+#include <QImage>
 #include <QPoint>
 
 #include <xcb/xcb.h>
@@ -171,7 +171,8 @@ private:
     xcb_window_t m_windowId;
     xcb_window_t m_containerWid;
     static int s_serviceCount;
-    QPixmap m_pixmap;
+    QImage m_windowImage;
+    QImage m_iconImage;
     bool sendingClickEvent;
     InjectMode m_injectMode;
     Xcb::Atoms & m_atoms;

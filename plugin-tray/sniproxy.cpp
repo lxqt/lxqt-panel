@@ -40,6 +40,7 @@
 #include <QX11Info>
 
 #include <QBitmap>
+#include <QGraphicsPixmapItem>
 
 #include <KWindowSystem>
 #include <netwm.h>
@@ -54,7 +55,7 @@
 #define SNI_WATCHER_SERVICE_NAME "org.kde.StatusNotifierWatcher"
 #define SNI_WATCHER_PATH "/StatusNotifierWatcher"
 
-static uint16_t s_embedSize = 32; // max size of window to embed. We no longer resize the embedded window as Chromium acts stupidly.
+static uint16_t s_embedSize = 128; // size of window to embed
 static unsigned int XEMBED_VERSION = 0;
 
 int SNIProxy::s_serviceCount = 0;
@@ -75,6 +76,27 @@ void xembed_message_send(Xcb::Atoms & atoms, xcb_window_t towin, long message, l
     xcb_send_event(QX11Info::connection(), false, towin, XCB_EVENT_MASK_NO_EVENT, (char *)&ev);
 }
 
+static QRect findOpaqueArea(const QImage & image, int margin = 0)
+{
+    int w = image.width();
+    int h = image.height();
+    int left = image.width(), right = 0, top = image.height(), bottom = 0;
+    for (int x = 0; x < w; ++x) {
+        for (int y = 0; y < h; ++y) {
+            if (qAlpha(image.pixel(x, y))) {
+                // Found an opaque pixel.
+                if (x < left) left = x;
+                if (x > right) right = x;
+                if (y < top) top = y;
+                if (y > bottom) bottom = y;
+            }
+        }
+    }
+
+    QRect r{QPoint{left - margin, top - margin}, QPoint{right + margin, bottom + margin}};
+    return r;
+}
+
 SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     : QObject(parent)
     ,
@@ -87,6 +109,8 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     , m_injectMode(Direct)
     , m_atoms{atoms}
 {
+    resizeWindow(s_embedSize, s_embedSize);
+
     // create new SNI
     new StatusNotifierItemAdaptor(this);
     m_dbus.registerObject(QStringLiteral("/StatusNotifierItem"), this);
@@ -148,32 +172,32 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
 
     xcb_map_window(c, m_containerWid);
 
-    xcb_reparent_window(c, wid, m_containerWid, 0, 0);
+    xcb_reparent_window(c, m_windowId, m_containerWid, 0, 0);
 
     /*
      * Render the embedded window offscreen
      */
-    xcb_composite_redirect_window(c, wid, XCB_COMPOSITE_REDIRECT_MANUAL);
+    xcb_composite_redirect_window(c, m_windowId, XCB_COMPOSITE_REDIRECT_MANUAL);
 
     /* we grab the window, but also make sure it's automatically reparented back
      * to the root window if we should die.
      */
-    xcb_change_save_set(c, XCB_SET_MODE_INSERT, wid);
+    xcb_change_save_set(c, XCB_SET_MODE_INSERT, m_windowId);
 
     // tell client we're embedding it
-    xembed_message_send(m_atoms, wid, XEMBED_EMBEDDED_NOTIFY, 0, m_containerWid, XEMBED_VERSION);
+    xembed_message_send(m_atoms, m_windowId, XEMBED_EMBEDDED_NOTIFY, 0, m_containerWid, XEMBED_VERSION);
 
     // move window we're embedding
     const uint32_t windowMoveConfigVals[2] = {0, 0};
 
-    xcb_configure_window(c, wid, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, windowMoveConfigVals);
+    xcb_configure_window(c, m_windowId, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, windowMoveConfigVals);
 
     QSize clientWindowSize = calculateClientWindowSize();
 
     // show the embedded window otherwise nothing happens
-    xcb_map_window(c, wid);
+    xcb_map_window(c, m_windowId);
 
-    xcb_clear_area(c, 0, wid, 0, 0, clientWindowSize.width(), clientWindowSize.height());
+    xcb_clear_area(c, 0, m_windowId, 0, 0, clientWindowSize.width(), clientWindowSize.height());
 
     xcb_flush(c);
 
@@ -184,7 +208,7 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
 
     // we query if the client selected button presses in the event mask
     // if the client does supports that we send directly, otherwise we'll use xtest
-    auto waCookie = xcb_get_window_attributes(c, wid);
+    auto waCookie = xcb_get_window_attributes(c, m_windowId);
     QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> windowAttributes(xcb_get_window_attributes_reply(c, waCookie, nullptr));
     if (windowAttributes && !(windowAttributes->all_event_masks & XCB_EVENT_MASK_BUTTON_PRESS)) {
         m_injectMode = XTest;
@@ -209,20 +233,14 @@ SNIProxy::~SNIProxy()
 
 void SNIProxy::update()
 {
-    const QImage image = getImageNonComposite();
-    if (image.isNull()) {
+    m_windowImage = getImageNonComposite();
+    if (m_windowImage.isNull()) {
+        m_iconImage = QImage{};
         qDebug() << "No xembed icon for" << m_windowId << Title();
         return;
     }
-
-    int w = image.width();
-    int h = image.height();
-
-    m_pixmap = QPixmap::fromImage(image);
-    if (w > s_embedSize || h > s_embedSize) {
-        qDebug() << "Scaling pixmap of window" << m_windowId << Title() << "from w*h" << w << h;
-        m_pixmap = m_pixmap.scaled(s_embedSize, s_embedSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    }
+    m_iconImage = m_windowImage.copy(findOpaqueArea(m_windowImage, 1));
+    //qDebug() << Title() << "windowImage.size:" << m_windowImage.size() << ", iconImage.size:" << m_iconImage.size();
     Q_EMIT NewIcon();
     Q_EMIT NewToolTip();
 }
@@ -231,10 +249,7 @@ void SNIProxy::resizeWindow(const uint16_t width, const uint16_t height) const
 {
     auto connection = QX11Info::connection();
 
-    uint16_t widthNormalized = std::min(width, s_embedSize);
-    uint16_t heighNormalized = std::min(height, s_embedSize);
-
-    const uint32_t windowSizeConfigVals[2] = {widthNormalized, heighNormalized};
+    const uint32_t windowSizeConfigVals[2] = {width, height};
     xcb_configure_window(connection, m_windowId, XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT, windowSizeConfigVals);
 
     xcb_flush(connection);
@@ -422,9 +437,7 @@ QPoint SNIProxy::calculateClickPoint() const
         return clickPoint;
     }
 
-    const QImage image = getImageNonComposite();
-
-    double minLength = sqrt(pow(image.height(), 2) + pow(image.width(), 2));
+    double minLength = sqrt(pow(m_windowImage.height(), 2) + pow(m_windowImage.width(), 2));
     const int nRectangles = xcb_shape_get_rectangles_rectangles_length(rectanglesReply.get());
     for (int i = 0; i < nRectangles; ++i) {
         double length = sqrt(pow(rectangles[i].x, 2) + pow(rectangles[i].y, 2));
@@ -464,8 +477,16 @@ QString SNIProxy::Id() const
 
 KDbusImageVector SNIProxy::IconPixmap() const
 {
-    KDbusImageStruct dbusImage(m_pixmap.toImage());
-    return KDbusImageVector() << dbusImage;
+    KDbusImageVector v{m_iconImage};
+    // add pixmaps up to s_embedSize resolution (for the SNI presenter to be able to choose, if needed)
+    for (int s = 16; s <= s_embedSize; s <<= 1)
+    {
+        if (qMax(m_iconImage.size().width(), m_iconImage.size().height()) < s)
+        {
+            v << m_iconImage.scaled(s, s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        }
+    }
+    return v;
 }
 
 bool SNIProxy::ItemIsMenu() const
