@@ -40,7 +40,6 @@
 #include <QX11Info>
 
 #include <QBitmap>
-#include <QGraphicsPixmapItem>
 
 #include <KWindowSystem>
 #include <netwm.h>
