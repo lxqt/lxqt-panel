@@ -71,7 +71,7 @@ ColorPicker::~ColorPicker() = default;
 
 void ColorPicker::realign()
 {
-    mWidget.update(panel()->isHorizontal());
+    mWidget.update(panel()->lineCount() <= 1 ? panel()->isHorizontal() : !panel()->isHorizontal());
 }
 
 
