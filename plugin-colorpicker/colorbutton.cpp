@@ -1,5 +1,6 @@
 #include "colorbutton.h"
 #include <QPainter>
+#include <QPainterPath>
 
 
 void ColorButton::paintEvent(QPaintEvent *event)

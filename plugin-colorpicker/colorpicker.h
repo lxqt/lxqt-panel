@@ -84,12 +84,12 @@ public:
     ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~ColorPicker();
 
-    virtual QWidget *widget() { return &mWidget; }
-    virtual QString themeId() const { return QStringLiteral("ColorPicker"); }
+    virtual QWidget *widget() override { return &mWidget; }
+    virtual QString themeId() const override { return QStringLiteral("ColorPicker"); }
 
-    bool isSeparate() const { return true; }
+    virtual bool isSeparate() const override { return true; }
 
-    void realign();
+    virtual void realign() override;
 
 private:
     ColorPickerWidget mWidget;

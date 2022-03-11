@@ -36,10 +36,9 @@
 #include <QPainter>
 #include <QScreen>
 #include <QSvgRenderer>
-#include <XdgIcon>
 
 
-const QString ColorPickerWidget::svgIcon {
+const QString ColorPickerWidget::svgIcon = QStringLiteral(
     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\">"
     "  <path"
     "     style=\"fill:%1;fill-opacity:1;stroke:none\""
@@ -50,7 +49,7 @@ const QString ColorPickerWidget::svgIcon {
     "     d=\"M 7.3252447,12.939477 C 4.22976,12.490771 2.2993447,9.4012904 3.2660519,6.4430523 3.7960078,4.8213248 5.176118,3.5502752 6.8340753,3.1569853 8.2327213,2.8252076 9.7084288,3.1079402 10.87908,3.9319726 c 0.351893,0.2477004 0.938414,0.8342222 1.186115,1.1861147 0.392347,0.5573834 0.693227,1.2608044 0.828674,1.9373428 0.09455,0.4722872 0.101172,1.3507353 0.01371,1.8196175 -0.12871,0.6899891 -0.443837,1.4407734 -0.842381,2.0069604 -0.247701,0.351892 -0.834222,0.938414 -1.186115,1.186115 -0.549288,0.386648 -1.2303943,0.679168 -1.9132103,0.82168 -0.4104575,0.08567 -1.2226672,0.110259 -1.640625,0.04967 z\""
     "     id=\"path32\" />"
     "</svg>"
-};
+);
 
 
 ColorPicker::ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo) :
@@ -87,16 +86,16 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
     mSeparator->setFixedHeight(16);
 
     mPickerButton = new QToolButton();
-    mPickerButton->setObjectName("ColorPickerPickerButton");
-    mPickerButton->setAccessibleName("ColorPickerPickerButton");
+    mPickerButton->setObjectName(QStringLiteral("ColorPickerPickerButton"));
+    mPickerButton->setAccessibleName(mPickerButton->objectName());
     mPickerButton->setAutoRaise(true);
-    mPickerButton->setIcon(XdgIcon::fromTheme("color-select-symbolic", "color-select", "color-picker", "kcolorchooser"));
+    mPickerButton->setIcon(QIcon::fromTheme(QLatin1String("color-picker"), QIcon::fromTheme(QLatin1String("color-select-symbolic"))));
 
     mColorButton = new ColorButton();
-    mColorButton->setObjectName("ColorPickerColorButton");
-    mColorButton->setAccessibleName("ColorPickerColorButton");
+    mColorButton->setObjectName(QStringLiteral("ColorPickerColorButton"));
+    mColorButton->setAccessibleName(mColorButton->objectName());
     mColorButton->setAutoRaise(true);
-    mColorButton->setStyleSheet("::menu-indicator{ image: none; }");
+    mColorButton->setStyleSheet(QStringLiteral("::menu-indicator{ image: none; }"));
 
     QBoxLayout *layout = new QBoxLayout(QBoxLayout::LeftToRight);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -105,9 +104,6 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
     layout->addWidget(mSeparator);
     layout->addWidget(mColorButton);
     setLayout(layout);
-
-    mClearListAction = new QAction(XdgIcon::fromTheme("edit-clear-all", "edit-clear"), tr("Clear list"));
-    mClearListAction->setObjectName("ColorPickerClearAction");
 
     connect(mPickerButton, &QToolButton::clicked, this, &ColorPickerWidget::captureMouse);
     connect(mColorButton, &QToolButton::clicked, this, [&]()
@@ -207,11 +203,11 @@ void ColorPickerWidget::buildMenu()
     if (mColorsMenu == nullptr)
     {
         mColorsMenu = new QMenu(this);
-        mColorsMenu->setObjectName("ColorPickerMenu");
-        mColorsMenu->setAccessibleName("ColorPickerMenu");
+        mColorsMenu->setObjectName(QStringLiteral("ColorPickerMenu"));
+        mColorsMenu->setAccessibleName(mColorsMenu->objectName());
         mColorButton->setMenu(mColorsMenu);
-        mClearListAction = new QAction(XdgIcon::fromTheme("edit-clear-all", "edit-clear"), tr("Clear list"));
-        mClearListAction->setObjectName("ColorPickerClearAction");
+        mClearListAction = new QAction(QIcon::fromTheme(QLatin1String("edit-clear-all")), tr("Clear list"));
+        mClearListAction->setObjectName(QStringLiteral("ColorPickerClearAction"));
 
         connect(mColorsMenu, &QMenu::triggered, this, [&](QAction *action)
         {
