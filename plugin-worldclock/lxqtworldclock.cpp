@@ -247,12 +247,10 @@ void LXQtWorldClock::settingsChanged()
         mFormat = customFormat;
     else
     {
-        QLocale locale = QLocale(QLocale::AnyLanguage, QLocale().country());
-
         if (formatType == QLatin1String("short-timeonly"))
-            mFormat = locale.timeFormat(QLocale::ShortFormat);
+            mFormat = QLocale{}.timeFormat(QLocale::ShortFormat);
         else if (formatType == QLatin1String("long-timeonly"))
-            mFormat = locale.timeFormat(QLocale::LongFormat);
+            mFormat = QLocale{}.timeFormat(QLocale::LongFormat);
         else // if (formatType == QLatin1String("custom-timeonly"))
             mFormat = QString(QLatin1String("%1:mm%2%3")).arg(timePadHour ? QLatin1String("hh") : QLatin1String("h")).arg(timeShowSeconds ? QLatin1String(":ss") : QLatin1String("")).arg(timeAMPM ? QLatin1String(" A") : QLatin1String(""));
 
@@ -286,15 +284,15 @@ void LXQtWorldClock::settingsChanged()
         {
             QString datePortion;
             if (dateFormatType == QLatin1String("short"))
-                datePortion = locale.dateFormat(QLocale::ShortFormat);
+                datePortion = QLocale{}.dateFormat(QLocale::ShortFormat);
             else if (dateFormatType == QLatin1String("long"))
-                datePortion = locale.dateFormat(QLocale::LongFormat);
+                datePortion = QLocale{}.dateFormat(QLocale::LongFormat);
             else if (dateFormatType == QLatin1String("iso"))
                 datePortion = QLatin1String("yyyy-MM-dd");
             else // if (dateFormatType == QLatin1String("custom"))
             {
                 QString datePortionOrder;
-                QString dateLocale = locale.dateFormat(QLocale::ShortFormat).toLower();
+                QString dateLocale = QLocale{}.dateFormat(QLocale::ShortFormat).toLower();
                 int yearIndex = dateLocale.indexOf(QLatin1String("y"));
                 int monthIndex = dateLocale.indexOf(QLatin1String("m"));
                 int dayIndex = dateLocale.indexOf(QLatin1String("d"));
@@ -411,7 +409,7 @@ void LXQtWorldClock::activated(ActivationReason reason)
                 timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
 
             QTimeZone timeZone(timeZoneName.toLatin1());
-            calendarWidget->setFirstDayOfWeek(QLocale(QLocale::AnyLanguage, timeZone.country()).firstDayOfWeek());
+            calendarWidget->setFirstDayOfWeek(QLocale{}.firstDayOfWeek());
             calendarWidget->setSelectedDate(QDateTime::currentDateTime().toTimeZone(timeZone).date());
         }
         else
@@ -652,7 +650,7 @@ bool LXQtWorldClock::eventFilter(QObject * watched, QEvent * event)
             timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
         QTimeZone timeZone(timeZoneName.toLatin1());
         QDateTime tzNow = now.toTimeZone(timeZone);
-        QToolTip::showText(helpEvent->globalPos(), tzNow.toString(QLocale(QLocale::AnyLanguage, QLocale().country()).dateTimeFormat(QLocale::ShortFormat)));
+        QToolTip::showText(helpEvent->globalPos(), tzNow.toString(QLocale{}.dateTimeFormat(QLocale::ShortFormat)));
         return false;
     }
     return QObject::eventFilter(watched, event);
