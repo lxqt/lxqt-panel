@@ -30,6 +30,7 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QStandardPaths>
 
 #include <XdgIcon>
 
@@ -50,11 +51,17 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &DirectoryMenuConfiguration::dialogButtonsAction);
 
+    ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));
+    ui->buttonStyleCB->addItem(tr("Only text"), QLatin1String("Text"));
+    ui->buttonStyleCB->addItem(tr("Icon and text"), QLatin1String("IconText"));
+    connect(ui->buttonStyleCB, QOverload<int>::of(&QComboBox::activated), this, &DirectoryMenuConfiguration::saveSettings);
+
     loadSettings();
     ui->baseDirectoryB->setIcon(mDefaultIcon);
 
     connect(ui->baseDirectoryB, &QPushButton::clicked, this, &DirectoryMenuConfiguration::showDirectoryDialog);
     connect(ui->iconB,          &QPushButton::clicked, this, &DirectoryMenuConfiguration::showIconDialog);
+    connect(ui->labelB,         &QPushButton::clicked, this, &DirectoryMenuConfiguration::showLabelDialog);
     connect(ui->terminalB,      &QPushButton::clicked, this, &DirectoryMenuConfiguration::showTermDialog);
 }
 
@@ -67,7 +74,8 @@ void DirectoryMenuConfiguration::loadSettings()
 {
     mBaseDirectory.setPath(settings().value(QStringLiteral("baseDirectory"), QDir::homePath()).toString());
     ui->baseDirectoryB->setText(mBaseDirectory.dirName());
-
+    // icon
+    bool iconSet = false;
     mIcon = settings().value(QStringLiteral("icon"), QString()).toString();
     if(!mIcon.isNull())
     {
@@ -75,11 +83,20 @@ void DirectoryMenuConfiguration::loadSettings()
         if(!buttonIcon.pixmap(QSize(24,24)).isNull())
         {
             ui->iconB->setIcon(buttonIcon);
-            return;
+            iconSet = true;
         }
     }
+    if (!iconSet)
+        ui->iconB->setIcon(mDefaultIcon);
 
-    ui->iconB->setIcon(mDefaultIcon);
+    // label
+    ui->labelB->setText(settings().value(QStringLiteral("label"), QString()).toString());
+
+    // style
+    int index = ui->buttonStyleCB->findData(settings().value(QStringLiteral("buttonStyle"), QLatin1String("Icon")));
+    if (index == -1)
+        index = 0;
+    ui->buttonStyleCB->setCurrentIndex(index);
 
     ui->terminalB->setText(settings().value(QStringLiteral("defaultTerminal"), QString()).toString());
 }
@@ -88,6 +105,8 @@ void DirectoryMenuConfiguration::saveSettings()
 {
     settings().setValue(QStringLiteral("baseDirectory"), mBaseDirectory.absolutePath());
     settings().setValue(QStringLiteral("icon"), mIcon);
+    settings().setValue(QStringLiteral("label"), ui->labelB->text());
+    settings().setValue(QStringLiteral("buttonStyle"), ui->buttonStyleCB->itemData(ui->buttonStyleCB->currentIndex()));
     settings().setValue(QStringLiteral("defaultTerminal"), mDefaultTerminal);
 }
 
@@ -112,7 +131,7 @@ void DirectoryMenuConfiguration::showTermDialog()
     QFileDialog d(this, tr("Choose Default Terminal"), QStringLiteral("/usr/bin"));
     d.setFileMode(QFileDialog::ExistingFile);
     d.setWindowModality(Qt::WindowModal);
-    
+
     if (d.exec() && !d.selectedFiles().isEmpty())
     {
         mDefaultTerminal = d.selectedFiles().constFirst();
@@ -123,7 +142,26 @@ void DirectoryMenuConfiguration::showTermDialog()
 
 void DirectoryMenuConfiguration::showIconDialog()
 {
-    QFileDialog d(this, tr("Choose Icon"), QDir::homePath(), tr("Icons (*.png *.xpm *.jpg)"));
+    // prefer the icon theme folder and give priority to the "places" folder
+    QString iconDir;
+    QString iconThemeName = QIcon::themeName();
+    const auto icons = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
+                                                 QStringLiteral("icons"),
+                                                 QStandardPaths::LocateDirectory);
+    for (const auto& icon : icons)
+    {
+        QString iconThemeFolder = icon + QLatin1String("/") + iconThemeName;
+        if (QDir(iconThemeFolder).exists() && QFileInfo(iconThemeFolder).permission(QFileDevice::ReadUser))
+        {
+            const QString places = iconThemeFolder + QLatin1String("/places");
+            if (QDir(places).exists() && QFileInfo(places).permission(QFileDevice::ReadUser))
+                iconDir = places;
+            else
+                iconDir = iconThemeFolder;
+            break;
+        }
+    }
+    QFileDialog d(this, tr("Choose Icon"), iconDir, tr("Icons (*.png *.xpm *.jpg *.svg)"));
     d.setWindowModality(Qt::WindowModal);
 
     if(d.exec() && !d.selectedFiles().isEmpty())
@@ -138,6 +176,23 @@ void DirectoryMenuConfiguration::showIconDialog()
 
         ui->iconB->setIcon(newIcon);
         mIcon = d.selectedFiles().constFirst();
+        saveSettings();
+    }
+}
+
+void DirectoryMenuConfiguration::showLabelDialog()
+{
+    QInputDialog d(this);
+    d.setWindowModality(Qt::WindowModal);
+    d.setInputMode(QInputDialog::TextInput);
+    d.setWindowTitle(tr("Choose Label"));
+    d.setLabelText(tr("Label:"));
+    QString label = settings().value(QStringLiteral("label"), QString()).toString();
+    if (!label.isEmpty())
+        d.setTextValue(label);
+    if (d.exec())
+    {
+        ui->labelB->setText(d.textValue());
         saveSettings();
     }
 }

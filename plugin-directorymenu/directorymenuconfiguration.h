@@ -69,6 +69,7 @@ private slots:
     void saveSettings();
     void showDirectoryDialog();
     void showIconDialog();
+    void showLabelDialog();
     void showTermDialog();
 
 private:
