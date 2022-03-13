@@ -658,3 +658,12 @@ void LXQtWorldClockConfiguration::moveTimeZoneDown()
 
     saveSettings();
 }
+
+void LXQtWorldClockConfiguration::dialogButtonsAction(QAbstractButton *btn)
+{
+    LXQtPanelPluginConfigDialog::dialogButtonsAction(btn);
+    // also, apply the changes if the Reset button is clicked
+    QDialogButtonBox *box = qobject_cast<QDialogButtonBox*>(btn->parent());
+    if (box && box->buttonRole(btn) == QDialogButtonBox::ResetRole)
+        saveSettings();
+}

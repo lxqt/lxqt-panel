@@ -62,6 +62,8 @@ private:
     */
     void loadSettings();
 
+    void dialogButtonsAction(QAbstractButton *btn);
+
 private slots:
     void timeFormatChanged(int);
     void dateGroupToggled(bool);
