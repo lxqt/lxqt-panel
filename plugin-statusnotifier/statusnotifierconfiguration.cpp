@@ -113,3 +113,36 @@ void StatusNotifierConfiguration::addItems(const QStringList &items)
     ui->tableWidget->horizontalHeader()->setSortIndicatorShown(false);
     ui->tableWidget->setCurrentCell(0, 1);
 }
+
+void StatusNotifierConfiguration::resetVisibilities()
+{
+    for (int i = 0; i < ui->tableWidget->rowCount(); ++i)
+    {
+        if (auto cb = qobject_cast<QComboBox*>(ui->tableWidget->cellWidget(i, 1)))
+        {
+            if (QTableWidgetItem *widgetItem = ui->tableWidget->item(i, 0))
+            {
+                cb->blockSignals(true); // we neither change visibility lists nor save settings here
+                if (mAutoHideList.contains(widgetItem->text()))
+                    cb->setCurrentIndex(1);
+                else if (mHideList.contains(widgetItem->text()))
+                    cb->setCurrentIndex(2);
+                else
+                    cb->setCurrentIndex(0);
+                cb->blockSignals(false);
+            }
+        }
+    }
+}
+
+void StatusNotifierConfiguration::dialogButtonsAction(QAbstractButton *btn)
+{
+    LXQtPanelPluginConfigDialog::dialogButtonsAction(btn);
+    // also, apply the changes if the Reset button is clicked
+    QDialogButtonBox *box = qobject_cast<QDialogButtonBox*>(btn->parent());
+    if (box && box->buttonRole(btn) == QDialogButtonBox::ResetRole)
+    {
+        resetVisibilities();
+        saveSettings();
+    }
+}
