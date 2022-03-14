@@ -35,6 +35,7 @@
 #include "pluginsettings.h"
 
 class QComboBox;
+class QCloseEvent;
 
 class LXQT_PANEL_API LXQtPanelPluginConfigDialog : public QDialog
 {
@@ -45,6 +46,9 @@ public:
     virtual ~LXQtPanelPluginConfigDialog();
 
     PluginSettings &settings() const;
+
+protected:
+    virtual void closeEvent(QCloseEvent *event) override;
 
 protected slots:
     /*

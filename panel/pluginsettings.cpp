@@ -207,6 +207,15 @@ void PluginSettings::loadFromCache()
     d->mSettings->beginGroup(d->mGroup);
     d->mOldSettings.loadToSettings();
     d->mSettings->endGroup();
+    emit settingsChanged();
+}
+
+void PluginSettings::storeToCache()
+{
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->mGroup);
+    d->mOldSettings.loadFromSettings();
+    d->mSettings->endGroup();
 }
 
 PluginSettings* PluginSettingsFactory::create(LXQt::Settings *settings, const QString &group, QObject *parent/* = nullptr*/)
