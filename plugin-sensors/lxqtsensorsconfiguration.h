@@ -49,6 +49,7 @@ public:
 
 private:
     Ui::LXQtSensorsConfiguration *ui;
+    bool mLockSettingChanges;
 
     /*
       Read settings from conf file and put data into controls.

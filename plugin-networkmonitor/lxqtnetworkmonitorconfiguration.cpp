@@ -40,7 +40,8 @@ extern "C" {
 
 LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LXQtNetworkMonitorConfiguration)
+    ui(new Ui::LXQtNetworkMonitorConfiguration),
+    mLockSettingChanges(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QStringLiteral("NetworkMonitorConfigurationWindow"));
@@ -60,12 +61,17 @@ LXQtNetworkMonitorConfiguration::~LXQtNetworkMonitorConfiguration()
 
 void LXQtNetworkMonitorConfiguration::saveSettings()
 {
-    settings().setValue(QStringLiteral("icon"), ui->iconCB->currentIndex());
-    settings().setValue(QStringLiteral("interface"), ui->interfaceCB->currentText());
+    if (!mLockSettingChanges)
+    {
+        settings().setValue(QStringLiteral("icon"), ui->iconCB->currentIndex());
+        settings().setValue(QStringLiteral("interface"), ui->interfaceCB->currentText());
+    }
 }
 
 void LXQtNetworkMonitorConfiguration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     ui->iconCB->setCurrentIndex(settings().value(QStringLiteral("icon"), 1).toInt());
 
     int count;
@@ -81,4 +87,6 @@ void LXQtNetworkMonitorConfiguration::loadSettings()
 
     QString interface = settings().value(QStringLiteral("interface")).toString();
     ui->interfaceCB->setCurrentIndex(qMax(qMin(0, count - 1), ui->interfaceCB->findText(interface)));
+
+    mLockSettingChanges = false;
 }

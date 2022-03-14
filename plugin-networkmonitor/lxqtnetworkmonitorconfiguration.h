@@ -49,6 +49,7 @@ public:
 
 private:
     Ui::LXQtNetworkMonitorConfiguration *ui;
+    bool mLockSettingChanges;
 
 private slots:
     /*

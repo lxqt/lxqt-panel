@@ -36,7 +36,8 @@
 
 LXQtSensorsConfiguration::LXQtSensorsConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LXQtSensorsConfiguration)
+    ui(new Ui::LXQtSensorsConfiguration),
+    mLockSettingChanges(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QStringLiteral("SensorsConfigurationWindow"));
@@ -69,6 +70,8 @@ LXQtSensorsConfiguration::~LXQtSensorsConfiguration()
 
 void LXQtSensorsConfiguration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     ui->updateIntervalSB->setValue(settings().value(QStringLiteral("updateInterval")).toInt());
     ui->tempBarWidthSB->setValue(settings().value(QStringLiteral("tempBarWidth")).toInt());
 
@@ -97,11 +100,16 @@ void LXQtSensorsConfiguration::loadSettings()
 
     ui->warningAboutHighTemperatureChB->setChecked(
             settings().value(QStringLiteral("warningAboutHighTemperature")).toBool());
+
+    mLockSettingChanges = false;
 }
 
 
 void LXQtSensorsConfiguration::saveSettings()
 {
+    if (mLockSettingChanges)
+        return;
+
     settings().setValue(QStringLiteral("updateInterval"), ui->updateIntervalSB->value());
     settings().setValue(QStringLiteral("tempBarWidth"), ui->tempBarWidthSB->value());
 

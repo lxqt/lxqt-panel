@@ -34,7 +34,8 @@
 
 Configuration::Configuration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::Configuration)
+    ui(new Ui::Configuration),
+    mLockSettingChanges(false)
 {
     ui->setupUi(this);
 
@@ -68,21 +69,31 @@ Configuration::~Configuration()
 
 void Configuration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     QVariant value = settings().value(QLatin1String(CFG_KEY_ACTION), QLatin1String(ACT_SHOW_INFO));
     setComboboxIndexByData(ui->devAddedCombo, value, 1);
 
     value = settings().value(QLatin1String(CFG_EJECT_ACTION), QLatin1String(ACT_NOTHING));
     setComboboxIndexByData(ui->ejectPressedCombo, value, 1);
+
+    mLockSettingChanges = false;
 }
 
 void Configuration::devAddedChanged(int index)
 {
-    QString s = ui->devAddedCombo->itemData(index).toString();
-    settings().setValue(QLatin1String(CFG_KEY_ACTION), s);
+    if (!mLockSettingChanges)
+    {
+        QString s = ui->devAddedCombo->itemData(index).toString();
+        settings().setValue(QLatin1String(CFG_KEY_ACTION), s);
+    }
 }
 
 void Configuration::ejectPressedChanged(int index)
 {
-    QString s = ui->ejectPressedCombo->itemData(index).toString();
-    settings().setValue(QLatin1String(CFG_EJECT_ACTION), s);
+    if (!mLockSettingChanges)
+    {
+        QString s = ui->ejectPressedCombo->itemData(index).toString();
+        settings().setValue(QLatin1String(CFG_EJECT_ACTION), s);
+    }
 }

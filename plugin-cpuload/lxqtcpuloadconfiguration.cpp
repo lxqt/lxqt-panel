@@ -35,7 +35,8 @@
 
 LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LXQtCpuLoadConfiguration)
+    ui(new Ui::LXQtCpuLoadConfiguration),
+    mLockSettingChanges(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QStringLiteral("CpuLoadConfigurationWindow"));
@@ -68,6 +69,8 @@ void LXQtCpuLoadConfiguration::fillBarOrientations()
 
 void LXQtCpuLoadConfiguration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     ui->showTextCB->setChecked(settings().value(QStringLiteral("showText"), false).toBool());
     ui->barWidthSB->setValue(settings().value(QStringLiteral("barWidth"), 20).toInt());
     ui->updateIntervalSpinBox->setValue(settings().value(QStringLiteral("updateInterval"), 1000).toInt() / 1000.0);
@@ -84,24 +87,30 @@ void LXQtCpuLoadConfiguration::loadSettings()
 //    }
 //    ui->menuFilePathLE->setText(menuFile);
 //    ui->shortcutEd->setKeySequence(settings().value("shortcut", "Alt+F1").toString());
+
+    mLockSettingChanges = false;
 }
 
 void LXQtCpuLoadConfiguration::showTextChanged(bool value)
 {
-    settings().setValue(QStringLiteral("showText"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("showText"), value);
 }
 
 void LXQtCpuLoadConfiguration::barWidthChanged(int value)
 {
-    settings().setValue(QStringLiteral("barWidth"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("barWidth"), value);
 }
 
 void LXQtCpuLoadConfiguration::updateIntervalChanged(double value)
 {
-    settings().setValue(QStringLiteral("updateInterval"), value*1000);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("updateInterval"), value*1000);
 }
 
 void LXQtCpuLoadConfiguration::barOrientationChanged(int index)
 {
-    settings().setValue(QStringLiteral("barOrientation"), ui->barOrientationCOB->itemData(index).toString());
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("barOrientation"), ui->barOrientationCOB->itemData(index).toString());
 }
