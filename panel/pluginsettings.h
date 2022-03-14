@@ -81,6 +81,7 @@ public:
     void endGroup();
 
     void loadFromCache();
+    void storeToCache();
 
 signals:
     void settingsChanged();

@@ -188,6 +188,8 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
  ************************************************/
 Plugin::~Plugin()
 {
+    if (mConfigDialog)
+        delete mConfigDialog.data();
     delete mPlugin;
     delete mPluginLoader;
     delete mSettings;
@@ -515,7 +517,6 @@ void Plugin::showConfigureDialog()
     if (!mConfigDialog)
         return;
 
-    connect(this, &Plugin::destroyed, mConfigDialog.data(), &QWidget::close);
     mPanel->willShowWindow(mConfigDialog);
     mConfigDialog->show();
     mConfigDialog->raise();

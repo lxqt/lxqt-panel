@@ -28,15 +28,18 @@
 #include "pluginsettings.h"
 #include "pluginsettings_p.h"
 #include <LXQt/Settings>
+#include <memory>
 
 class PluginSettingsPrivate
 {
 public:
     PluginSettingsPrivate(LXQt::Settings* settings, const QString &group)
         : mSettings(settings)
-        , mOldSettings(settings)
         , mGroup(group)
     {
+        mSettings->beginGroup(mGroup);
+        mOldSettings = std::make_unique<LXQt::SettingsCache>(mSettings);
+        mSettings->endGroup();
     }
 
     QString prefix() const;
@@ -46,7 +49,7 @@ public:
     }
 
     LXQt::Settings *mSettings;
-    LXQt::SettingsCache mOldSettings;
+    std::unique_ptr<LXQt::SettingsCache> mOldSettings;
     QString mGroup;
     QStringList mSubGroups;
 };
@@ -163,10 +166,8 @@ void PluginSettings::clear()
 void PluginSettings::sync()
 {
     Q_D(PluginSettings);
-    d->mSettings->beginGroup(d->mGroup);
     d->mSettings->sync();
-    d->mOldSettings.loadFromSettings();
-    d->mSettings->endGroup();
+    storeToCache();
     emit settingsChanged();
 }
 
@@ -205,7 +206,17 @@ void PluginSettings::loadFromCache()
 {
     Q_D(PluginSettings);
     d->mSettings->beginGroup(d->mGroup);
-    d->mOldSettings.loadToSettings();
+    d->mSettings->remove(QString{});
+    d->mOldSettings->loadToSettings();
+    d->mSettings->endGroup();
+    emit settingsChanged();
+}
+
+void PluginSettings::storeToCache()
+{
+    Q_D(PluginSettings);
+    d->mSettings->beginGroup(d->mGroup);
+    d->mOldSettings = std::make_unique<LXQt::SettingsCache>(d->mSettings);
     d->mSettings->endGroup();
 }
 

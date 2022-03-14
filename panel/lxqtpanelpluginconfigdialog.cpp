@@ -58,6 +58,15 @@ PluginSettings& LXQtPanelPluginConfigDialog::settings() const
 }
 
 
+/************************************************
+
+ ************************************************/
+void LXQtPanelPluginConfigDialog::closeEvent(QCloseEvent *event)
+{
+    mSettings.storeToCache();
+    return QDialog::closeEvent(event);
+}
+
 
 /************************************************
 
