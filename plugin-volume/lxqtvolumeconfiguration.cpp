@@ -50,10 +50,6 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     connect(ui->allwaysShowNotificationsCheckBox,  &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
     connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
 
-    // currently, this option is only supported by the pulse audio backend
-    if(!ui->pulseAudioRadioButton->isChecked())
-        ui->ignoreMaxVolumeCheckBox->setEnabled(false);
-
     if (ossAvailable)
         connect(ui->ossRadioButton, &QRadioButton::toggled, this, &LXQtVolumeConfiguration::audioEngineChanged);
     else
@@ -167,6 +163,10 @@ void LXQtVolumeConfiguration::loadSettings()
         ui->alsaRadioButton->setChecked(true);
     else
         ui->ossRadioButton->setChecked(true);
+
+    // currently, this option is only supported by the pulse audio backend
+    if(!ui->pulseAudioRadioButton->isChecked())
+        ui->ignoreMaxVolumeCheckBox->setEnabled(false);
 
     setComboboxIndexByData(ui->devAddedCombo, settings().value(QStringLiteral(SETTINGS_DEVICE), SETTINGS_DEFAULT_DEVICE), 1);
     ui->showOnClickCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
