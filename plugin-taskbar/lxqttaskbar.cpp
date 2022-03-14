@@ -485,10 +485,10 @@ void LXQtTaskBar::settingsChanged()
     else
         setButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    mShowOnlyOneDesktopTasks = mPlugin->settings()->value(QStringLiteral("showOnlyOneDesktopTasks"), mShowOnlyOneDesktopTasks).toBool();
-    mShowDesktopNum = mPlugin->settings()->value(QStringLiteral("showDesktopNum"), mShowDesktopNum).toInt();
-    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value(QStringLiteral("showOnlyCurrentScreenTasks"), mShowOnlyCurrentScreenTasks).toBool();
-    mShowOnlyMinimizedTasks = mPlugin->settings()->value(QStringLiteral("showOnlyMinimizedTasks"), mShowOnlyMinimizedTasks).toBool();
+    mShowOnlyOneDesktopTasks = mPlugin->settings()->value(QStringLiteral("showOnlyOneDesktopTasks"), false).toBool();
+    mShowDesktopNum = mPlugin->settings()->value(QStringLiteral("showDesktopNum"), 0).toInt();
+    mShowOnlyCurrentScreenTasks = mPlugin->settings()->value(QStringLiteral("showOnlyCurrentScreenTasks"), false).toBool();
+    mShowOnlyMinimizedTasks = mPlugin->settings()->value(QStringLiteral("showOnlyMinimizedTasks"), false).toBool();
     mAutoRotate = mPlugin->settings()->value(QStringLiteral("autoRotate"), true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value(QStringLiteral("closeOnMiddleClick"), true).toBool();
     mRaiseOnCurrentDesktop = mPlugin->settings()->value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool();
