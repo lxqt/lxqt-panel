@@ -49,6 +49,7 @@ public:
 
 private:
     Ui::LXQtCpuLoadConfiguration *ui;
+    bool mLockSettingChanges;
 
     /*
       Fills Bar orientation combobox

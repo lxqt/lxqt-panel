@@ -131,12 +131,3 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue(QStringLiteral("wheelEventsAction"),ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
     settings().setValue(QStringLiteral("wheelDeltaThreshold"),ui->wheelDeltaThresholdSB->value());
 }
-
-void LXQtTaskbarConfiguration::dialogButtonsAction(QAbstractButton *btn)
-{
-    LXQtPanelPluginConfigDialog::dialogButtonsAction(btn);
-    // also, apply the changes if the Reset button is clicked
-    QDialogButtonBox *box = qobject_cast<QDialogButtonBox*>(btn->parent());
-    if (box && box->buttonRole(btn) == QDialogButtonBox::ResetRole)
-        saveSettings();
-}

@@ -56,6 +56,7 @@ protected slots:
 
 private:
     Ui::Configuration *ui;
+    bool mLockSettingChanges;
 };
 
 #endif // LXQTMOUNTCONFIGURATION_H

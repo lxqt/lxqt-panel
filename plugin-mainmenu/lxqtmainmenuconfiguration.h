@@ -57,6 +57,7 @@ private:
     Ui::LXQtMainMenuConfiguration *ui;
     QString mDefaultShortcut;
     GlobalKeyShortcut::Action * mShortcut;
+    bool mLockSettingChanges;
 
 private slots:
     void globalShortcutChanged(const QString &oldShortcut, const QString &newShortcut);

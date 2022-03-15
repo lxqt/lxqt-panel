@@ -93,6 +93,7 @@ protected slots:
 
 private:
     Ui::LXQtVolumeConfiguration *ui;
+    bool mLockSettingChanges;
 };
 
 #endif // LXQTVOLUMECONFIGURATION_H

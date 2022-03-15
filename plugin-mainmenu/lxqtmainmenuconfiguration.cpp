@@ -40,7 +40,8 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtMainMenuConfiguration),
     mDefaultShortcut(defaultShortcut),
-    mShortcut(shortcut)
+    mShortcut(shortcut),
+    mLockSettingChanges(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QStringLiteral("MainMenuConfigurationWindow"));
@@ -58,14 +59,17 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->textLE,           &QLineEdit::textEdited,    this, &LXQtMainMenuConfiguration::textButtonChanged);
     connect(ui->chooseMenuFilePB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseMenuFile);
     connect(ui->menuFilePathLE,   &QLineEdit::textChanged,   this, [&] (QString const & file) {
-        this->settings().setValue(QLatin1String("menu_file"), file);
+        if (!mLockSettingChanges)
+            this->settings().setValue(QLatin1String("menu_file"), file);
     });
     connect(ui->iconCB, &QCheckBox::toggled, this, [this] (bool value) {
-        this->settings().setValue(QStringLiteral("ownIcon"), value); }
-    );
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("ownIcon"), value);
+    });
     connect(ui->iconPB, &QAbstractButton::clicked, this, &LXQtMainMenuConfiguration::chooseIcon);
     connect(ui->iconLE, &QLineEdit::textChanged, this, [&] (QString const & path) {
-        this->settings().setValue(QLatin1String("icon"), path);
+        if (!mLockSettingChanges)
+            this->settings().setValue(QLatin1String("icon"), path);
     });
 
     connect(ui->shortcutEd, &ShortcutSelector::shortcutGrabbed, this, &LXQtMainMenuConfiguration::shortcutChanged);
@@ -76,25 +80,31 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
 
-    connect(ui->filterMenuCB, &QCheckBox::toggled, this, [this] (bool enabled) {
-        ui->filterClearCB->setEnabled(enabled || ui->filterShowCB->isChecked());
-        this->settings().setValue(QStringLiteral("filterMenu"), enabled);
+    connect(ui->filterMenuCB, &QCheckBox::toggled, this, [this] (bool value) {
+        ui->filterClearCB->setEnabled(value || ui->filterShowCB->isChecked());
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterMenu"), value);
     });
-    connect(ui->filterShowCB, &QCheckBox::toggled, this, [this] (bool enabled) {
-        ui->filterClearCB->setEnabled(enabled || ui->filterMenuCB->isChecked());
-        this->settings().setValue(QStringLiteral("filterShow"), enabled);
+    connect(ui->filterShowCB, &QCheckBox::toggled, this, [this] (bool value) {
+        ui->filterClearCB->setEnabled(value || ui->filterMenuCB->isChecked());
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterShow"), value);
     });
     connect(ui->filterShowMaxItemsSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
-        this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
     });
     connect(ui->filterShowMaxWidthSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
-        this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
     });
-    connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, this, [this] (bool enabled) {
-        this->settings().setValue(QStringLiteral("filterShowHideMenu"), enabled);
+    connect(ui->filterShowHideMenuCB, &QCheckBox::toggled, this, [this] (bool value) {
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterShowHideMenu"), value);
     });
-    connect(ui->filterClearCB, &QCheckBox::toggled, this, [this] (bool enabled) {
-        this->settings().setValue(QStringLiteral("filterClear"), enabled);
+    connect(ui->filterClearCB, &QCheckBox::toggled, this, [this] (bool value) {
+        if (!mLockSettingChanges)
+            this->settings().setValue(QStringLiteral("filterClear"), value);
     });
 }
 
@@ -105,6 +115,8 @@ LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
 
 void LXQtMainMenuConfiguration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     ui->iconCB->setChecked(settings().value(QStringLiteral("ownIcon"), false).toBool());
     ui->iconLE->setText(settings().value(QStringLiteral("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString());
     ui->showTextCB->setChecked(settings().value(QStringLiteral("showText"), false).toBool());
@@ -139,17 +151,21 @@ void LXQtMainMenuConfiguration::loadSettings()
     ui->filterShowHideMenuCB->setChecked(settings().value(QStringLiteral("filterShowHideMenu"), true).toBool());
     ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), false).toBool());
     ui->filterClearCB->setEnabled(filter_menu || filter_show);
+
+    mLockSettingChanges = false;
 }
 
 
 void LXQtMainMenuConfiguration::textButtonChanged(const QString &value)
 {
-    settings().setValue(QStringLiteral("text"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("text"), value);
 }
 
 void LXQtMainMenuConfiguration::showTextChanged(bool value)
 {
-    settings().setValue(QStringLiteral("showText"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("showText"), value);
 }
 
 void LXQtMainMenuConfiguration::chooseIcon()
@@ -200,10 +216,12 @@ void LXQtMainMenuConfiguration::shortcutReset()
 
 void LXQtMainMenuConfiguration::customFontChanged(bool value)
 {
-    settings().setValue(QStringLiteral("customFont"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("customFont"), value);
 }
 
 void LXQtMainMenuConfiguration::customFontSizeChanged(int value)
 {
-    settings().setValue(QStringLiteral("customFontSize"), value);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("customFontSize"), value);
 }

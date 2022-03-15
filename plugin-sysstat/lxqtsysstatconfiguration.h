@@ -73,6 +73,8 @@ private:
     SysStat::BaseStat *mStat;
     LXQtSysStatColours *mColoursDialog;
 
+    bool mLockSettingChanges;
+
     void loadSettings();
 };
 

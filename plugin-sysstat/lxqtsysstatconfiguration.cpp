@@ -86,7 +86,8 @@ LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWi
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtSysStatConfiguration),
     mStat(nullptr),
-    mColoursDialog(nullptr)
+    mColoursDialog(nullptr),
+    mLockSettingChanges(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QStringLiteral("SysStatConfigurationWindow"));
@@ -117,6 +118,8 @@ LXQtSysStatConfiguration::~LXQtSysStatConfiguration()
 
 void LXQtSysStatConfiguration::loadSettings()
 {
+    mLockSettingChanges = true;
+
     ui->intervalSB->setValue(settings().value(QStringLiteral("graph/updateInterval"), 1.0).toDouble());
     ui->sizeSB->setValue(settings().value(QStringLiteral("graph/minimalSize"), 30).toInt());
 
@@ -141,10 +144,15 @@ void LXQtSysStatConfiguration::loadSettings()
     ui->useThemeColoursRB->setChecked(useThemeColours);
     ui->useCustomColoursRB->setChecked(!useThemeColours);
     ui->customColoursB->setEnabled(!useThemeColours);
+
+    mLockSettingChanges = false;
 }
 
 void LXQtSysStatConfiguration::saveSettings()
 {
+    if (mLockSettingChanges)
+        return;
+
     settings().setValue(QStringLiteral("graph/useThemeColours"), ui->useThemeColoursRB->isChecked());
     settings().setValue(QStringLiteral("graph/updateInterval"), ui->intervalSB->value());
     settings().setValue(QStringLiteral("graph/minimalSize"), ui->sizeSB->value());

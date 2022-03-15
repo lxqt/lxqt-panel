@@ -53,8 +53,6 @@ private:
 
     void dialogButtonsAction(QAbstractButton *btn);
 
-    void resetVisibilities();
-
 private slots:
     void saveSettings();
 };
