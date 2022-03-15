@@ -41,26 +41,9 @@ public:
     explicit LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtCustomCommandConfiguration();
 
-private:
-    bool mAutoRotate;
-    QString mFont;
-    QString mCommand;
-    bool mRunWithBash;
-    bool mRepeat;
-    int mRepeatTimer;
-    QString mIcon;
-    QString mText;
-    int mMaxWidth;
-    QString mClick;
-    QString mWheelUp;
-    QString mWheelDown;
-
 private slots:
-    void buttonBoxClicked(QAbstractButton *btn);
-    void setUiValues();
     void autoRotateChanged(bool autoRotate);
     void fontButtonClicked();
-    void fontChanged(QString fontString);
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
     void repeatCheckBoxChanged(bool repeat);
@@ -78,6 +61,7 @@ protected slots:
 
 private:
     Ui::LXQtCustomCommandConfiguration *ui;
+    bool mLockSettingChanges;
 };
 
 #endif // LXQTCUSTOMCOMMANDCONFIGURATION_H

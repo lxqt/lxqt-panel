@@ -32,15 +32,16 @@
 
 LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
-    ui(new Ui::LXQtCustomCommandConfiguration)
+    ui(new Ui::LXQtCustomCommandConfiguration),
+    mLockSettingChanges(false)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
 
     loadSettings();
-    setUiValues();
 
-    connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &LXQtCustomCommandConfiguration::buttonBoxClicked);
+    connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &LXQtCustomCommandConfiguration::dialogButtonsAction);
+
     connect(ui->autoRotateCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::autoRotateChanged);
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
@@ -61,53 +62,31 @@ LXQtCustomCommandConfiguration::~LXQtCustomCommandConfiguration()
     delete ui;
 }
 
-void LXQtCustomCommandConfiguration::buttonBoxClicked(QAbstractButton *btn)
-{
-    QDialogButtonBox *box = qobject_cast<QDialogButtonBox*>(btn->parent());
-    if (box && box->buttonRole(btn) == QDialogButtonBox::ResetRole) {
-        setUiValues();
-        fontChanged(mFont);
-    }
-    else
-        close();
-}
-
 void LXQtCustomCommandConfiguration::loadSettings()
 {
-    mAutoRotate = settings().value(QStringLiteral("autoRotate"), true).toBool();
-    mFont = settings().value(QStringLiteral("font"), font().toString()).toString();
-    mCommand = settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
-    mRunWithBash = settings().value(QStringLiteral("runWithBash"), true).toBool();
-    mRepeat = settings().value(QStringLiteral("repeat"), true).toBool();
-    mRepeatTimer = settings().value(QStringLiteral("repeatTimer"), 5).toInt();
-    mIcon = settings().value(QStringLiteral("icon"), QString()).toString();
-    mText = settings().value(QStringLiteral("text"), QStringLiteral("%1")).toString();
-    mMaxWidth = settings().value(QStringLiteral("maxWidth"), 200).toInt();
-    mClick = settings().value(QStringLiteral("click"), QString()).toString();
-    mWheelUp = settings().value(QStringLiteral("wheelUp"), QString()).toString();
-    mWheelDown = settings().value(QStringLiteral("wheelDown"), QString()).toString();
-}
+    mLockSettingChanges = true;
 
-void LXQtCustomCommandConfiguration::setUiValues()
-{
-    ui->autoRotateCheckBox->setChecked(mAutoRotate);
-    ui->fontButton->setText(mFont);
-    ui->commandPlainTextEdit->setPlainText(mCommand);
-    ui->runWithBashCheckBox->setChecked(mRunWithBash);
-    ui->repeatCheckBox->setChecked(mRepeat);
-    ui->repeatTimerSpinBox->setEnabled(mRepeat);
-    ui->repeatTimerSpinBox->setValue(mRepeatTimer);
-    ui->iconLineEdit->setText(mIcon);
-    ui->textLineEdit->setText(mText);
-    ui->maxWidthSpinBox->setValue(mMaxWidth);
-    ui->clickLineEdit->setText(mClick);
-    ui->wheelUpLineEdit->setText(mWheelUp);
-    ui->wheelDownLineEdit->setText(mWheelDown);
+    ui->autoRotateCheckBox->setChecked(settings().value(QStringLiteral("autoRotate"), true).toBool());
+    ui->fontButton->setText(settings().value(QStringLiteral("font"), font().toString()).toString());
+    ui->commandPlainTextEdit->setPlainText(settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString());
+    ui->runWithBashCheckBox->setChecked(settings().value(QStringLiteral("runWithBash"), true).toBool());
+    ui->repeatCheckBox->setChecked(settings().value(QStringLiteral("repeat"), true).toBool());
+    ui->repeatTimerSpinBox->setEnabled(ui->repeatCheckBox->isChecked());
+    ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());
+    ui->iconLineEdit->setText(settings().value(QStringLiteral("icon"), QString()).toString());
+    ui->textLineEdit->setText(settings().value(QStringLiteral("text"), QStringLiteral("%1")).toString());
+    ui->maxWidthSpinBox->setValue(settings().value(QStringLiteral("maxWidth"), 200).toInt());
+    ui->clickLineEdit->setText(settings().value(QStringLiteral("click"), QString()).toString());
+    ui->wheelUpLineEdit->setText(settings().value(QStringLiteral("wheelUp"), QString()).toString());
+    ui->wheelDownLineEdit->setText(settings().value(QStringLiteral("wheelDown"), QString()).toString());
+
+    mLockSettingChanges = false;
 }
 
 void LXQtCustomCommandConfiguration::autoRotateChanged(bool autoRotate)
 {
-    settings().setValue(QStringLiteral("autoRotate"), autoRotate);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("autoRotate"), autoRotate);
 }
 
 void LXQtCustomCommandConfiguration::fontButtonClicked()
@@ -117,39 +96,42 @@ void LXQtCustomCommandConfiguration::fontButtonClicked()
     currentFont.fromString(ui->fontButton->text());
     QFont getFont = QFontDialog::getFont(&ok, currentFont, this);
     if (ok)
-        fontChanged(getFont.toString());
-}
-
-void LXQtCustomCommandConfiguration::fontChanged(QString fontString)
-{
-    ui->fontButton->setText(fontString);
-    settings().setValue(QStringLiteral("font"), fontString);
+    {
+        auto fontString = getFont.toString();
+        ui->fontButton->setText(fontString);
+        settings().setValue(QStringLiteral("font"), fontString);
+    }
 }
 
 void LXQtCustomCommandConfiguration::commandPlainTextEditChanged()
 {
-    settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText());
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText());
 }
 
 void LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged(bool runWithBash)
 {
-    settings().setValue(QStringLiteral("runWithBash"), runWithBash);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("runWithBash"), runWithBash);
 }
 
 void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
 {
-    settings().setValue(QStringLiteral("repeat"), repeat);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("repeat"), repeat);
     ui->repeatTimerSpinBox->setEnabled(repeat);
 }
 
 void LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged(int repeatTimer)
 {
-    settings().setValue(QStringLiteral("repeatTimer"), repeatTimer);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("repeatTimer"), repeatTimer);
 }
 
 void LXQtCustomCommandConfiguration::iconLineEditChanged(QString icon)
 {
-    settings().setValue(QStringLiteral("icon"), icon);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("icon"), icon);
 }
 
 void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
@@ -160,25 +142,30 @@ void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
 
 void LXQtCustomCommandConfiguration::textLineEditChanged(QString text)
 {
-    settings().setValue(QStringLiteral("text"), text);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("text"), text);
 }
 
 void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged(int maxWidth)
 {
-    settings().setValue(QStringLiteral("maxWidth"), maxWidth);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("maxWidth"), maxWidth);
 }
 
 void LXQtCustomCommandConfiguration::clickLineEditChanged(QString click)
 {
-    settings().setValue(QStringLiteral("click"), click);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("click"), click);
 }
 
 void LXQtCustomCommandConfiguration::wheelUpLineEditChanged(QString wheelUp)
 {
-    settings().setValue(QStringLiteral("wheelUp"), wheelUp);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("wheelUp"), wheelUp);
 }
 
 void LXQtCustomCommandConfiguration::wheelDownLineEditChanged(QString wheelDown)
 {
-    settings().setValue(QStringLiteral("wheelDown"), wheelDown);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("wheelDown"), wheelDown);
 }
