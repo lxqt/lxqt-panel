@@ -117,7 +117,8 @@ void LXQtCustomCommand::settingsChanged()
 
     if (oldFont != mFont) {
         QFont newFont;
-        newFont.fromString(mFont);
+        if (!mFont.isEmpty()) // is empty when it's reset to app's font
+            newFont.fromString(mFont);
         if (mFirstRun) {
             QTimer::singleShot(0, mButton, [this, newFont] {
                 mButton->setFont(newFont);
