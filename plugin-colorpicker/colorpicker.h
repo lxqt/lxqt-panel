@@ -4,9 +4,9 @@
  * LXQt - a lightweight, Qt based, desktop toolset
  * https://lxqt.org
  *
- * Copyright: 2012 Razor team
+ * Copyright: 2019 LXQt team
  * Authors:
- *   Aaron Lewis <the.warl0ck.1989@gmail.com>
+ *   micrococo <micrococo@gmx.com>
  *
  * This program or library is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -29,25 +29,30 @@
 #define LXQT_COLORPICKER_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QApplication>
-#include <QDesktopWidget>
 #include <QFrame>
-#include <QFontMetrics>
-#include <QLineEdit>
 #include <QToolButton>
-#include <XdgIcon>
 
 
-class ColorPickerWidget: public QFrame
+class QMenu;
+class ColorButton;
+
+
+class ColorPickerWidget : public QWidget
 {
     Q_OBJECT
+
 public:
     ColorPickerWidget(QWidget* parent = nullptr);
     ~ColorPickerWidget();
 
-    QLineEdit *lineEdit() { return &mLineEdit; }
-    QToolButton *button() { return &mButton; }
+    QMenu*       popupMenu() { return mColorsMenu; }
+    QToolButton* pickerButton() { return mPickerButton; }
+    ColorButton* colorButton() { return mColorButton; }
+    void         update(bool isHorizontal);
 
+signals:
+
+    void showMenuRequested(QMenu* menu);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event);
@@ -56,9 +61,19 @@ private slots:
     void captureMouse();
 
 private:
-    QLineEdit mLineEdit;
-    QToolButton mButton;
-    bool mCapturing;
+    static const QString svgIcon;
+
+    QMenu         *mColorsMenu      { nullptr };
+    QToolButton   *mPickerButton    { nullptr };
+    ColorButton   *mColorButton     { nullptr };
+    QAction       *mClearListAction { nullptr };
+    QFrame        *mSeparator       { nullptr };
+    bool           mCapturing       { false };
+    QList <QColor> mColorsList      {};
+
+    QIcon colorIcon(QColor color);
+    void  buildMenu();
+    void  paste(const QString color) const;
 };
 
 
@@ -69,12 +84,12 @@ public:
     ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~ColorPicker();
 
-    virtual QWidget *widget() { return &mWidget; }
-    virtual QString themeId() const { return QStringLiteral("ColorPicker"); }
+    virtual QWidget *widget() override { return &mWidget; }
+    virtual QString themeId() const override { return QStringLiteral("ColorPicker"); }
 
-    bool isSeparate() const { return true; }
+    virtual bool isSeparate() const override { return true; }
 
-    void realign();
+    virtual void realign() override;
 
 private:
     ColorPickerWidget mWidget;
