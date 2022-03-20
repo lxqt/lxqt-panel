@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCustomCommand</name>
     <message>
-        <location filename="../lxqtcustomcommand.cpp" line="173"/>
+        <location filename="../lxqtcustomcommand.cpp" line="176"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
@@ -130,12 +130,12 @@
         <translation>Ρόδα προς τα κάτω</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Select Icon File</source>
         <translation>Επιλογή του αρχείου εικονιδίου</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Εικόνες (*.png *.svg *.xpm *.jpg)</translation>
     </message>

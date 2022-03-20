@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="395"/>
+        <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>σύστημα: %1%&lt;br&gt;χρήστης: %2%&lt;br&gt;nice: %3%&lt;br&gt;άλλο: %4%&lt;br&gt;συχν: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="444"/>
+        <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>σύστημα: %1%&lt;br&gt;χρήστης: %2%&lt;br&gt;nice: %3%&lt;br&gt;άλλο: %4%&lt;br&gt;συχν: μ/δ</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="486"/>
+        <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>εφαρμογές: %1%&lt;br&gt;ενδιάμεση μνήμη: %2%&lt;br&gt;λανθάνουσα: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="520"/>
+        <location filename="../lxqtsysstat.cpp" line="525"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>σε χρήση: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="550"/>
+        <location filename="../lxqtsysstat.cpp" line="555"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>ελάχ: %1%&lt;br&gt;μέγ: %2%</translation>

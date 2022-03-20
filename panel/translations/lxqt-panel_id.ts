@@ -424,17 +424,17 @@ Apakah Anda ingin menghapus panel ini?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="436"/>
+        <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Konfigurasi &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="441"/>
+        <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Pindah &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="449"/>
+        <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Hapus &quot;%1&quot;</translation>
     </message>

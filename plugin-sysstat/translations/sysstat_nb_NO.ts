@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="395"/>
+        <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;prioritering: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="444"/>
+        <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>system: %1%&lt;br&gt;bruker: %2%&lt;br&gt;prioritering: %3%&lt;br&gt;andre: %4%&lt;br&gt;frekv: n/a</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="486"/>
+        <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>apper: %1%&lt;br&gt;buffere: %2%&lt;br&gt;hurtigbufret: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="520"/>
+        <location filename="../lxqtsysstat.cpp" line="525"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>brukt: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="550"/>
+        <location filename="../lxqtsysstat.cpp" line="555"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>min: %1%&lt;br&gt;maks: %2%</translation>
