@@ -37,23 +37,23 @@
         <translation>Po naciśnięciu przycisku wysuwania:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="43"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>Wyskakujące menu</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
         <translation>Pokaż informacje</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
-        <location filename="../configuration.cpp" line="50"/>
+        <location filename="../configuration.cpp" line="46"/>
+        <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
         <translation>Nic nie rób</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
         <translation>Wysuń wszystkie nośniki optyczne</translation>
     </message>

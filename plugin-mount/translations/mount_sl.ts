@@ -37,23 +37,23 @@
         <translation>Ko je pritisnjen gumb za izmet:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="43"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>Prikaži meni</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
         <translation>Prikaži informacije</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
-        <location filename="../configuration.cpp" line="50"/>
+        <location filename="../configuration.cpp" line="46"/>
+        <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
         <translation>Ne naredi nič</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
         <translation>Izvrži vse optične pogone</translation>
     </message>

@@ -27,92 +27,92 @@
         <translation>Ĉiuj l&amp;abortabloj</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="717"/>
+        <location filename="../lxqttaskbutton.cpp" line="719"/>
         <source>Desktop &amp;%1</source>
         <translation>Labortablo &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="724"/>
+        <location filename="../lxqttaskbutton.cpp" line="729"/>
         <source>&amp;To Current Desktop</source>
         <translation>Al ak&amp;tuala labortablo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="733"/>
-        <source>Move To &amp;Next Monitor</source>
+        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="736"/>
+        <location filename="../lxqttaskbutton.cpp" line="741"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="740"/>
+        <location filename="../lxqttaskbutton.cpp" line="745"/>
         <source>&amp;Move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="743"/>
+        <location filename="../lxqttaskbutton.cpp" line="748"/>
         <source>Resi&amp;ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="750"/>
+        <location filename="../lxqttaskbutton.cpp" line="755"/>
         <source>Ma&amp;ximize</source>
         <translation>Ma&amp;ksimumigi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="757"/>
+        <location filename="../lxqttaskbutton.cpp" line="762"/>
         <source>Maximize vertically</source>
         <translation>Vertikale maksimumigi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="762"/>
+        <location filename="../lxqttaskbutton.cpp" line="767"/>
         <source>Maximize horizontally</source>
         <translation>Horizontale maksimumigi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="768"/>
+        <location filename="../lxqttaskbutton.cpp" line="773"/>
         <source>&amp;Restore</source>
         <translation>&amp;Restaŭri</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="772"/>
+        <location filename="../lxqttaskbutton.cpp" line="777"/>
         <source>Mi&amp;nimize</source>
         <translation>&amp;Malmaksimumigi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="778"/>
+        <location filename="../lxqttaskbutton.cpp" line="783"/>
         <source>Roll down</source>
         <translation>Malsupren rulumi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="784"/>
+        <location filename="../lxqttaskbutton.cpp" line="789"/>
         <source>Roll up</source>
         <translation>Supren rulumi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="792"/>
+        <location filename="../lxqttaskbutton.cpp" line="797"/>
         <source>&amp;Layer</source>
         <translation>Tavo&amp;lo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="794"/>
+        <location filename="../lxqttaskbutton.cpp" line="799"/>
         <source>Always on &amp;top</source>
         <translation>Ĉiam &amp;supre</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="800"/>
+        <location filename="../lxqttaskbutton.cpp" line="805"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normale</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="806"/>
+        <location filename="../lxqttaskbutton.cpp" line="811"/>
         <source>Always on &amp;bottom</source>
         <translation>Ĉiam &amp;malsupre</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="814"/>
+        <location filename="../lxqttaskbutton.cpp" line="819"/>
         <source>&amp;Close</source>
         <translation>&amp;Fermi</translation>
     </message>

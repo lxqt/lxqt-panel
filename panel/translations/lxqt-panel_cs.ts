@@ -424,17 +424,17 @@ Opravdu chcete tento panel odstranit?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="436"/>
+        <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Nastavit „%1“</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="441"/>
+        <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Přesunout „%1“</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="449"/>
+        <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Odstranit „%1“</translation>
     </message>

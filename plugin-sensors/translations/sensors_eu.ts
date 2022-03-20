@@ -64,17 +64,17 @@
         <translation>Txiparen ezaugarriak:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Enabled</source>
         <translation>Gaituta</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Label</source>
         <translation>Etiketa</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Color</source>
         <translation>Kolorea</translation>
     </message>

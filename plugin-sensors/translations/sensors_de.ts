@@ -64,17 +64,17 @@
         <translation>Chipeigenschaften:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Enabled</source>
         <translation>Aktiviert</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Label</source>
         <translation>Bezeichnung</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="195"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Color</source>
         <translation>Farbe</translation>
     </message>

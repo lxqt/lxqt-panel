@@ -37,23 +37,23 @@
         <translation>當退出按鈕按下時：</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="43"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>彈出式選單</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
         <translation>顯示資訊</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
-        <location filename="../configuration.cpp" line="50"/>
+        <location filename="../configuration.cpp" line="46"/>
+        <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
         <translation>什麼都不做</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
         <translation>退出所有光碟</translation>
     </message>

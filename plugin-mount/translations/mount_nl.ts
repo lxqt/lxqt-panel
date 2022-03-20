@@ -37,23 +37,23 @@
         <translation>Na indrukken van uitwerpsneltoets:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="43"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>Uitklapmenu</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
         <translation>Informatie tonen</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
-        <location filename="../configuration.cpp" line="50"/>
+        <location filename="../configuration.cpp" line="46"/>
+        <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
         <translation>Niets doen</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
         <translation>Alle optische schijven uitwerpen</translation>
     </message>

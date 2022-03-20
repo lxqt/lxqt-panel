@@ -37,23 +37,23 @@
         <translation>[取り出し] ボタンが押された時:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="43"/>
+        <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
         <translation>メニューのポップアップ</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
         <translation>情報の表示</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
-        <location filename="../configuration.cpp" line="50"/>
+        <location filename="../configuration.cpp" line="46"/>
+        <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
         <translation>何もしない</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
         <translation>すべての光学式ドライブを取り出す</translation>
     </message>

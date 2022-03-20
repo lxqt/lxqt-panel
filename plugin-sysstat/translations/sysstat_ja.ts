@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="395"/>
+        <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;Nice値: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="444"/>
+        <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>システム: %1%&lt;br&gt;ユーザー: %2%&lt;br&gt;Nice値: %3%&lt;br&gt;その他: %4%&lt;br&gt;周波数: 不明</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="486"/>
+        <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>アプリケーション: %1%&lt;br&gt;バッファー: %2%&lt;br&gt;キャッシュ: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="520"/>
+        <location filename="../lxqtsysstat.cpp" line="525"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>使用量: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="550"/>
+        <location filename="../lxqtsysstat.cpp" line="555"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>最小: %1%&lt;br&gt;最大: %2%</translation>

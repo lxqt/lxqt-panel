@@ -47,22 +47,22 @@
         <translation>進度條寬度：</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
         <translation>由下至上</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
         <translation>由上至下</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
         <translation>由左至右</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
         <translation>由右至左</translation>
     </message>

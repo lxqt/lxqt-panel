@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCustomCommand</name>
     <message>
-        <location filename="../lxqtcustomcommand.cpp" line="173"/>
+        <location filename="../lxqtcustomcommand.cpp" line="176"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
@@ -130,12 +130,12 @@
         <translation>Превъртане надолу</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Select Icon File</source>
         <translation>Избиране на файл с икона</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="157"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Изображения (*.png *.svg *.xpm *.jpg)</translation>
     </message>

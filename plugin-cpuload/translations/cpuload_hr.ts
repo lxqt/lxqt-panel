@@ -47,22 +47,22 @@
         <translation>Širina trake:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
         <translation>Odozdo prema gore</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
         <translation>Odozgo prema dolje</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
         <translation>S lijeva na desno</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
         <translation>S desna na lijevo</translation>
     </message>

@@ -27,92 +27,92 @@
         <translation>&amp;ท&amp;ุกพื้นโต๊ะ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="717"/>
+        <location filename="../lxqttaskbutton.cpp" line="719"/>
         <source>Desktop &amp;%1</source>
         <translation>พื้นโต๊ะ &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="724"/>
+        <location filename="../lxqttaskbutton.cpp" line="729"/>
         <source>&amp;To Current Desktop</source>
         <translation>&amp;ไปยังพื้นโต๊ะปัจจุบัน</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="733"/>
-        <source>Move To &amp;Next Monitor</source>
+        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="736"/>
+        <location filename="../lxqttaskbutton.cpp" line="741"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="740"/>
+        <location filename="../lxqttaskbutton.cpp" line="745"/>
         <source>&amp;Move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="743"/>
+        <location filename="../lxqttaskbutton.cpp" line="748"/>
         <source>Resi&amp;ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="750"/>
+        <location filename="../lxqttaskbutton.cpp" line="755"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;ขยายแผ่</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="757"/>
+        <location filename="../lxqttaskbutton.cpp" line="762"/>
         <source>Maximize vertically</source>
         <translation>ขยายแผ่ทางแนวตั้ง</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="762"/>
+        <location filename="../lxqttaskbutton.cpp" line="767"/>
         <source>Maximize horizontally</source>
         <translation>ขยายแผ่ทางแนวนอน</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="768"/>
+        <location filename="../lxqttaskbutton.cpp" line="773"/>
         <source>&amp;Restore</source>
         <translation>&amp;ค&amp;ืนสภาพ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="772"/>
+        <location filename="../lxqttaskbutton.cpp" line="777"/>
         <source>Mi&amp;nimize</source>
         <translation>&amp;ย&amp;่อเก็บ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="778"/>
+        <location filename="../lxqttaskbutton.cpp" line="783"/>
         <source>Roll down</source>
         <translation>ม้วนลง</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="784"/>
+        <location filename="../lxqttaskbutton.cpp" line="789"/>
         <source>Roll up</source>
         <translation>ม้วนขึ้น</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="792"/>
+        <location filename="../lxqttaskbutton.cpp" line="797"/>
         <source>&amp;Layer</source>
         <translation>&amp;ลำดับชั้น</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="794"/>
+        <location filename="../lxqttaskbutton.cpp" line="799"/>
         <source>Always on &amp;top</source>
         <translation>ด้าน&amp;หน้าเสมอ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="800"/>
+        <location filename="../lxqttaskbutton.cpp" line="805"/>
         <source>&amp;Normal</source>
         <translation>&amp;ปกติ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="806"/>
+        <location filename="../lxqttaskbutton.cpp" line="811"/>
         <source>Always on &amp;bottom</source>
         <translation>ด้านหลัง&amp;งเสมอ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="814"/>
+        <location filename="../lxqttaskbutton.cpp" line="819"/>
         <source>&amp;Close</source>
         <translation>ปิ&amp;ด</translation>
     </message>

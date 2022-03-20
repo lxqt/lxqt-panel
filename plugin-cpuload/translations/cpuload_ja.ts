@@ -47,22 +47,22 @@
         <translation>バーの幅:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
         <translation>下から上へ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
         <translation>上から下へ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
         <translation>左から右へ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
         <translation>右から左へ</translation>
     </message>

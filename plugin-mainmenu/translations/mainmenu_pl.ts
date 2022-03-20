@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="111"/>
+        <location filename="../lxqtmainmenu.cpp" line="113"/>
         <source>Search...</source>
         <translation>Szukaj...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="121"/>
+        <location filename="../lxqtmainmenu.cpp" line="123"/>
         <source>Show/hide main menu</source>
         <translation>Pokaż/ukryj główne menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="515"/>
+        <location filename="../lxqtmainmenu.cpp" line="522"/>
         <source>Add to desktop</source>
         <translation>Dodaj do pulpitu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="523"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Question</source>
         <translation>Pytanie</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="524"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Plik o tej samej nazwie już istnieje.
 Czy chcesz go nadpisać?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Warning</source>
         <translation>Uwaga</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>The file cannot be overwritten.</source>
         <translation>Plik nie może zostać nadpisany.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="544"/>
         <source>Copy</source>
         <translation>Kopiuj</translation>
     </message>
@@ -139,27 +139,27 @@ Czy chcesz go nadpisać?</translation>
         <translation>Wciśnij przycisk aby ustawić skrót:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
         <translation>Zresetuj</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Choose icon file</source>
         <translation>Wybierz plik ikony</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
         <source>Images (*.svg *.png)</source>
         <translation>Obrazy (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
         <source>Choose menu file</source>
         <translation>Wybierz plik menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
         <source>Menu files (*.menu)</source>
         <translation>Pliki menu (*.menu)</translation>
     </message>

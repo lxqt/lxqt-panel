@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="111"/>
+        <location filename="../lxqtmainmenu.cpp" line="113"/>
         <source>Search...</source>
         <translation>Bilatu...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="121"/>
+        <location filename="../lxqtmainmenu.cpp" line="123"/>
         <source>Show/hide main menu</source>
         <translation>Erakutsi/ezkutatu menu nagusia</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="515"/>
+        <location filename="../lxqtmainmenu.cpp" line="522"/>
         <source>Add to desktop</source>
         <translation>Gehitu mahaigainean</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="523"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Question</source>
         <translation>Galdera</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="524"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Izen bereko fitxategi bat existitzen da dagoeneko.
 Gainidatzi nahi al duzu?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Warning</source>
         <translation>Abisua</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>The file cannot be overwritten.</source>
         <translation>Ezin da fitxategia gainidatzi.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="544"/>
         <source>Copy</source>
         <translation>Kopiatu</translation>
     </message>
@@ -139,27 +139,27 @@ Gainidatzi nahi al duzu?</translation>
         <translation>Klikatu botoia lasterbidea grabatzeko:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
         <translation>Berrezarri</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Choose icon file</source>
         <translation>Aukeratu ikono fitxategia</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
         <source>Images (*.svg *.png)</source>
         <translation>Irudiak (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
         <source>Choose menu file</source>
         <translation>Aukeratu menu fitxategia</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
         <source>Menu files (*.menu)</source>
         <translation>Menu fitxategiak (*.menu)</translation>
     </message>

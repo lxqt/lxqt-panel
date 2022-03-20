@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="111"/>
+        <location filename="../lxqtmainmenu.cpp" line="113"/>
         <source>Search...</source>
         <translation>검색...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="121"/>
+        <location filename="../lxqtmainmenu.cpp" line="123"/>
         <source>Show/hide main menu</source>
         <translation>메뉴 표시/숨김</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="515"/>
+        <location filename="../lxqtmainmenu.cpp" line="522"/>
         <source>Add to desktop</source>
         <translation>바탕화면에 추가</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="523"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Question</source>
         <translation>질문</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="524"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>같은 이름의 파일이 이미 있습니다.
 덮어쓰시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>The file cannot be overwritten.</source>
         <translation>파일을 덮어쓸 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="544"/>
         <source>Copy</source>
         <translation>복사</translation>
     </message>
@@ -139,27 +139,27 @@ Do you want to overwrite it?</source>
         <translation>단축키를 기록하려면 버튼 클릭:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="72"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
         <translation>재설정</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="160"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Choose icon file</source>
         <translation>아이콘 파일 선택하기</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
         <source>Images (*.svg *.png)</source>
         <translation>이미지 (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="174"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
         <source>Choose menu file</source>
         <translation>메뉴 파일 선택하기</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
         <source>Menu files (*.menu)</source>
         <translation>메뉴 파일 (*.menu)</translation>
     </message>

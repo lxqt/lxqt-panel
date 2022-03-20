@@ -47,22 +47,22 @@
         <translation>Largeur de la barre :</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="63"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
         <translation>De bas en haut</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
         <translation>De haut en bas</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
         <translation>De gauche à droite</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
         <translation>De droite à gauche</translation>
     </message>
