@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="681"/>
         <source>Activate task %1</source>
-        <translation>작업 %1 실행</translation>
+        <translation>작업 %1 활성화</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="673"/>
         <source>Application</source>
-        <translation>응용 프로그램</translation>
+        <translation>응용프로그램</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="707"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 모니터로 이동(&amp;E)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="741"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="748"/>
         <source>Resi&amp;ze</source>
-        <translation>크기 조절(&amp;Z)</translation>
+        <translation>크기 조정(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="755"/>
@@ -99,17 +99,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="799"/>
         <source>Always on &amp;top</source>
-        <translation>항상 위에(&amp;T)</translation>
+        <translation>항상 맨 위(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="805"/>
         <source>&amp;Normal</source>
-        <translation>기본(&amp;N)</translation>
+        <translation>정상(&amp;N)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="811"/>
         <source>Always on &amp;bottom</source>
-        <translation>항상 아래에(&amp;B)</translation>
+        <translation>항상 맨 아래(&amp;B)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="819"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation>휠 스크롤로 창 돌려보기</translation>
+        <translation>휠 스크롤 시 창 순환하기</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
