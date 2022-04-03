@@ -11,13 +11,13 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="225"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Il file/URL &apos;%1&apos; in questo momento non può essere inserito in Avvio rapido</translation>
+        <translation>Il file/URL &apos;%1&apos; al momento non può essere inserito in Avvio rapido</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
-        <translation>Rilascia qui le icone
+        <translation>Trascina qui le icone
 delle applicazioni</translation>
     </message>
 </context>
