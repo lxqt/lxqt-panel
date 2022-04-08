@@ -77,9 +77,6 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mMenuCacheNotify = nullptr;
 #endif
 
-    mHideTimer.setSingleShot(true);
-    mHideTimer.setInterval(250);
-
     mSearchTimer.setSingleShot(true);
     connect(&mSearchTimer, &QTimer::timeout, this, &LXQtMainMenu::searchMenu);
     mSearchTimer.setInterval(350); // typing speed (not very fast)
@@ -420,8 +417,6 @@ void LXQtMainMenu::buildMenu()
     mMenu->addSeparator();
 
     menuInstallEventFilter(mMenu, this);
-    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, QOverload<>::of(&QTimer::start));
-    connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
     mMenu->addSeparator();
     mMenu->addAction(mSearchViewAction);
@@ -657,7 +652,6 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
             if (press == mShortcutSeq)
             {
-                mHideTimer.start();
                 mMenu->hide(); // close the app menu
                 return true;
             }

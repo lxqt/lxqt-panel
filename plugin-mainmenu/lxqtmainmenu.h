@@ -110,7 +110,6 @@ private:
     XdgMenu mXdgMenu;
 #endif
 
-    QTimer mHideTimer;
     QTimer mSearchTimer;
     QString mShortcutSeq;
     QString mMenuFile;
