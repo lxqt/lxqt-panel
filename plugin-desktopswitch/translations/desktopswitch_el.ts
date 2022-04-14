@@ -50,7 +50,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Ουδεμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
