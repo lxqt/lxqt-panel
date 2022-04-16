@@ -1,3 +1,20 @@
+lxqt-panel-1.1.0 / 2022-04-15
+==============================
+ * Updated `README.md`.
+ * Split panel config dialog into 3 sections.
+ * Modified default conf file.
+ * Prevented flickering of desktop switcher when only active button is shown.
+ * Close QProcess in the d-tor of CustomCommand.
+ * Show desktop names on taskbutton's context menu.
+ * Keep stat history on width change in sysstat (fixes the resetting of graph on auto-hiding panels).
+ * Close main menu on pressing its shortcut (the clash with the built-in shortcuts of the search entry is fixed).
+ * Made SNI proxy for xembed tray icons. Now the legacy tray icons are shown inside Status Notifier.
+ * Added lxqt-build-tools build dependency to README.
+ * Added options for button label and style of Directory Menu.
+ * Fixed Reset button in taskbar config dialog.
+ * Fixed Reset button in Status Notifier config dialog.
+ * Fix storing/restoring of settings in general.
+
 lxqt-panel-1.0.0 / 2021-11-04
 ==============================
  * Updated AUTHORS.
