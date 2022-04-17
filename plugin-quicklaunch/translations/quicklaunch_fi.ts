@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="224"/>
         <source>Drop Error</source>
-        <translation>Poistovirhe</translation>
+        <translation>Pudotusvirhe</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="225"/>
@@ -26,7 +26,7 @@ kuvake tähän</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>(Ctrl + Raahaa ja pudoita)</translation>
+        <translation>(Ctrl + Raahaa ja pudota)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>

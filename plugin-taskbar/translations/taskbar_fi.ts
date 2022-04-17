@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirrä &amp;seuraavalle näytölle</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="741"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Tehtävienhallinnan Asetukset</translation>
+        <translation>Tehtävänhallinnan asetukset</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation>Ulkonäkö</translation>
+        <translation>Ulkoasu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
@@ -197,12 +197,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation>Hiiren Rulla</translation>
+        <translation>Hiiren rulla</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation>Rullan Delta Kynnysarvo</translation>
+        <translation>Rullan delta-kynnysarvo</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation>Painikkeiden maksimi korkeus</translation>
+        <translation>Painikkeiden enimmäiskorkeus</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
