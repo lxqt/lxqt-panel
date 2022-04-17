@@ -209,12 +209,13 @@
 		</Include>
 	</Menu> <!-- End Screensaver -->
 
-	<Layout><Menuname show_empty="false" inline="true">LXQt-About</Menuname>
-		<Separator/>
+	<Layout>
 		<Merge type="files"/>
 		<Merge type="menus"/>
 		<Separator/>
 		<Menuname show_empty="false" inline="true">Configuration Center</Menuname>
+		<Separator/>
+		<Menuname show_empty="false" inline="true">LXQt-About</Menuname>
 		<Separator/>
 		<Menuname show_empty="false">X-Leave</Menuname>
 		<Menuname show_empty="false" inline="true">Screensaver</Menuname>
