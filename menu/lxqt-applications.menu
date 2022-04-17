@@ -226,6 +226,7 @@
 		<Merge type="menus"/>
 		<Separator/>
 		<Menuname>DesktopSettings</Menuname>
+		<Separator/>
 		<Menuname show_empty="false" inline="true">LXQt-About</Menuname>
 		<Separator/>
 		<Menuname show_empty="false">X-Leave</Menuname>
