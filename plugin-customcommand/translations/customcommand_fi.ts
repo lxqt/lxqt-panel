@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="176"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Virhe</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation>Custom Command Asetukset</translation>
+        <translation>Mukautetun komennon asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Käytä teeman ikonia tai hae tiedosto</translation>
+        <translation>Käytä teeman kuvaketta tai selaa tiedostoa</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="45"/>
         <source>Select Font</source>
-        <translation>Valitse Fontti</translation>
+        <translation>Valitse fontti</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="55"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="111"/>
         <source>Icon</source>
-        <translation>Ikoni</translation>
+        <translation>Kuvake</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="160"/>
         <source>Max Width</source>
-        <translation>Maksimi Leveys</translation>
+        <translation>Enimmäisleveys</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="255"/>
         <source>Mouse Commands</source>
-        <translation>Hiiri Komennot</translation>
+        <translation>Hiirikomennot</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="261"/>
@@ -122,22 +122,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Wheel Up</source>
-        <translation>Vieritys Ylös</translation>
+        <translation>Vieritys ylös</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="302"/>
         <source>Wheel Down</source>
-        <translation>Vieritys Alas</translation>
+        <translation>Vieritys alas</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse kuvaketiedosto</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvat (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>

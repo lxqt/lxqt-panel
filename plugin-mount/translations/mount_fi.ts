@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation>Eject painiketta painettaessa:</translation>
+        <translation>Eject-painiketta painettaessa:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="44"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
-        <translation>Poista Kaikki Optiset Levyt</translation>
+        <translation>Poista kaikki optiset levyt</translation>
     </message>
 </context>
 <context>

@@ -35,7 +35,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Ulkonäkö</translation>
+        <translation>Ulkoasu</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
