@@ -39,7 +39,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Placering</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera placering</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
