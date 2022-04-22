@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Zum n&amp;ächsten Monitor verschieben</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="741"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation>Verschiebe zum &amp;vorherigen Monitor</translation>
+        <translation>Zum &amp;vorherigen Monitor verschieben</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="745"/>
