@@ -49,7 +49,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Schaltflächenstil</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="54"/>
         <source>Only icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Symbol</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="55"/>
         <source>Only text</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Text</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol und Text</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbole (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
