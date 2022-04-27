@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Składnia niestandardowego formatu daty/godziny&lt;/h1&gt;
+&lt;p&gt;Wzorzec daty to ciąg znaków, w którym określone ciągi znaków są zastępowane danymi daty i godziny z kalendarza podczas formatowania lub używany do generowania danych dla kalendarza podczas analizowania.&lt;/p&gt;
+&lt;p&gt;Poniższa tabela symboli pola daty zawiera znaki używane we wzorcach, aby pokazać odpowiednie formaty dla danego języka, na przykład rrrr dla roku. Znaki mogą być użyte wielokrotnie. Na przykład, jeśli y jest używane jako rok, „yy” może dać „99”, podczas gdy „rrrr” daje „1999”. W przypadku większości pól liczbowych liczba znaków określa szerokość pola. Na przykład, jeśli h jest godziną, &apos;h&apos; może dać &apos;5&apos;, ale &apos;hh&apos; da &apos;05&apos;. W przypadku niektórych znaków liczba określa, czy należy użyć formy skróconej, czy pełnej, ale może mieć inne możliwości, jak podano poniżej.&lt;/p&gt;
+&lt;p&gt;Dwa pojedyncze cudzysłowy oznaczają dosłowny pojedynczy cudzysłów, wewnątrz lub na zewnątrz pojedynczych cudzysłowów. Tekst ujęty w pojedyncze cudzysłowy nie jest w żaden sposób interpretowany (z wyjątkiem dwóch sąsiadujących ze sobą pojedynczych cudzysłowów). W przeciwnym razie wszystkie litery ASCII od a do z i od A do Z są zarezerwowane jako znaki składni i wymagają cytowania, jeśli mają reprezentować znaki dosłowne. Ponadto niektóre znaki interpunkcyjne ASCII mogą w przyszłości stać się zmienne (np. „:” jest interpretowany jako separator czasu, a „/” jako separator daty i jest zastępowany odpowiednimi znakami zależnymi od ustawień regionalnych na wyświetlaczu).&lt;br /&gt;&lt; /p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellpacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kod&lt;/th&gt;&lt;th&gt;Znaczenie&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;dzień jako liczba bez wiodącego zera (1 do 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;dzień jako liczba z wiodącym zerem (od 01 do 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;skrócona, zlokalizowana nazwa dnia (np. „Pon” do „Nd”).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;długa zlokalizowana nazwa dnia (np. „od poniedziałku” do „niedzieli”).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;miesiąc jako liczba bez wiodącego zera (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;miesiąc jako liczba z wiodącym zerem (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;skrócona zlokalizowana nazwa miesiąca (np. od „Jan” do „Dec”).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;długa zlokalizowana nazwa miesiąca (np. „Styczeń” do „Grudzień”).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;rr&lt;/td&gt;&lt;td&gt;rok jako dwucyfrowa liczba (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;rrrr&lt;/td&gt;&lt;td&gt;rok w postaci czterocyfrowej&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;godzina bez wiodącego zera (od 0 do 23 lub od 1 do 12 w przypadku wyświetlania AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;godzina z wiodącym zerem (od 00 do 23 lub od 01 do 12 w przypadku wyświetlania AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;godzina bez wiodącego zera (od 0 do 23, nawet przy wyświetlaniu AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GG&lt;/td&gt;&lt;td&gt;godzina z wiodącym zerem (od 00 do 23, nawet przy wyświetlaniu AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minuta bez wiodącego zera (0 do 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minuta z wiodącym zerem (od 00 do 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;drugi bez wiodącego zera (0 do 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;drugi z wiodącym zerem (od 00 do 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;lub&lt;/i&gt;A&lt;/td&gt;&lt;td&gt;użyj wyświetlania AM/PM. &lt;b&gt;A/AP&lt;/b&gt; zostanie zastąpione przez „AM” lub „PM”.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;lub&lt;/i&gt;&lt;/td&gt;&lt;td&gt;użyj wyświetlania am/pm. &lt;b&gt;a/ap&lt;/b&gt; zostanie zastąpione przez „am” lub „pm”.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;strefa czasowa (np. „CEST”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;przesunięcie względem UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;identyfikator strefy czasowej IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;skrót strefy czasowej&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;krótka wyświetlana nazwa strefy czasowej&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;długa wyświetlana nazwa strefy czasowej&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;niestandardowa nazwa strefy czasowej. Możesz to zmienić w zakładce „Strefy czasowe” w oknie konfiguracji&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Uwagi:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Wszelkie znaki we wzorcu spoza zakresu [&apos;a&apos;..&apos;z&apos;] i [&apos;A&apos;..&apos;Z &apos;] będzie traktowany jako tekst w cudzysłowie. Na przykład znaki takie jak &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; i &apos;@&apos; pojawią się w wynikowym tekście czasu, nawet jeśli nie są ujęte w pojedyncze cudzysłowy. Pojedynczy cudzysłów służy do „ucieczki” liter. Dwa pojedyncze cudzysłowy z rzędu, wewnątrz lub na zewnątrz cytowanej sekwencji, reprezentują „prawdziwy” pojedynczy cudzysłów.&lt;/li&gt;&lt;li&gt;Minimalny interwał aktualizacji to 1 sekunda. Jeśli skonfigurowano z lub zzz, czas jest wyświetlany z ułamkiem milisekund, ale nie jest aktualizowany na podstawie milisekund (unikając dużego spadku wydajności).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
