@@ -156,7 +156,7 @@ if(SENSORS_PLUGIN)
     find_library(SENSORS_LIB sensors)
 
     if(NOT SENSORS_LIB)
-        message(FATAL_ERROR "Sensors plugin requires lm_sensors")
+        message(FATAL_ERROR "Sensors plugin requires libsensors")
     endif()
     list(APPEND ENABLED_PLUGINS "Sensors")
     add_subdirectory(plugin-sensors)
