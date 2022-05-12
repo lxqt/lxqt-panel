@@ -44,12 +44,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>标签</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>按钮样式</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="54"/>
         <source>Only icon</source>
-        <translation type="unfinished"></translation>
+        <translation>仅有图标</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="55"/>
         <source>Only text</source>
-        <translation type="unfinished"></translation>
+        <translation>只有文本</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>图标和文本</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
@@ -90,17 +90,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>选择标签</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>标签:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>

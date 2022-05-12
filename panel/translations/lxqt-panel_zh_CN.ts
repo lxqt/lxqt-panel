@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>放置</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>样式</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>配置位置</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -82,18 +82,18 @@
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation>像素</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation> 像素</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>配置样式</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
