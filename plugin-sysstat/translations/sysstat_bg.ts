@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation>&amp;Линии</translation>
+        <translation>&amp;Мрежа</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -33,7 +33,7 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Промени...</translation>
+        <translation>Промени ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
@@ -43,12 +43,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation>CPU</translation>
+        <translation>Процесор</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice</translation>
+        <translation>&amp;Приоритет</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation>&amp;Frequency</translation>
+        <translation>&amp;Честота</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
@@ -68,7 +68,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation>&amp;User</translation>
+        <translation>&amp;Потребител</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>Cache&amp;d</translation>
+        <translation>Кеширан&amp;о</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>S&amp;wap</translation>
+        <translation>Д&amp;исков кеш</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX KBs</translation>
+        <translation>XXX КБс</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
@@ -206,17 +206,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>Използване от &amp;системния стил</translation>
+        <translation>Използвай цветове от т&amp;емата</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>Използване со&amp;бствени цветове</translation>
+        <translation>Използвай со&amp;бствени цветове</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>Цветове...</translation>
+        <translation>Цветове ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
@@ -236,127 +236,127 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation>cpu</translation>
+        <translation>проц</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation>cpu0</translation>
+        <translation>проц0</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
-        <translation>cpu1</translation>
+        <translation>проц1</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
-        <translation>cpu2</translation>
+        <translation>проц2</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
-        <translation>cpu3</translation>
+        <translation>проц3</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
-        <translation>cpu4</translation>
+        <translation>проц4</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
-        <translation>cpu5</translation>
+        <translation>проц5</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
-        <translation>cpu6</translation>
+        <translation>проц6</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
-        <translation>cpu7</translation>
+        <translation>проц7</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
-        <translation>cpu8</translation>
+        <translation>проц8</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation>cpu9</translation>
+        <translation>проц9</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation>cpu10</translation>
+        <translation>проц10</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation>cpu11</translation>
+        <translation>проц11</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation>cpu12</translation>
+        <translation>проц12</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation>cpu13</translation>
+        <translation>проц13</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation>cpu14</translation>
+        <translation>проц14</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation>cpu15</translation>
+        <translation>проц15</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation>cpu16</translation>
+        <translation>проц16</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation>cpu17</translation>
+        <translation>проц17</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation>cpu18</translation>
+        <translation>проц18</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation>cpu19</translation>
+        <translation>проц19</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation>cpu20</translation>
+        <translation>проц20</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation>cpu21</translation>
+        <translation>проц21</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation>cpu22</translation>
+        <translation>проц22</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation>cpu23</translation>
+        <translation>проц23</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
@@ -375,19 +375,19 @@
         <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</translation>
+        <translation>система: %1%&lt;br&gt;потребител: %2%&lt;br&gt;приоритет: %3%&lt;br&gt;друго: %4%&lt;br&gt;честота: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</translation>
+        <translation>система: %1%&lt;br&gt;потребител: %2%&lt;br&gt;приоритет: %3%&lt;br&gt;друго: %4%&lt;br&gt;честота: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</translation>
+        <translation>приложения: %1%&lt;br&gt;буфери: %2%&lt;br&gt;кеширано: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="525"/>
