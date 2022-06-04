@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Скриване само на припокриващите се прозорци</translation>
+        <translation>Скриване само при припокриване от прозорци</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
