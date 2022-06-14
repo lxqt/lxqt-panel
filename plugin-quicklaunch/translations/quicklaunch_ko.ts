@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
-        <translation>여기에 응용 프로그램
-아이콘 놓기</translation>
+        <translation>즐겨쓰는 프로그램
+아이콘 넣기</translation>
     </message>
 </context>
 <context>
