@@ -641,28 +641,55 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
     if(event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
         keyEvent = static_cast<QKeyEvent*>(event);
 
-    if(obj == mButton.parentWidget())
+    // Check if the close/open shortcut has been triggered
+    // close the menu if so
+    if(event->type() == QEvent::KeyRelease)
     {
-        // the application is given a new QStyle
-        if(event->type() == QEvent::StyleChange)
+        static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
+        // if our shortcut key is pressed while the menu is open, close the menu
+        QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+        switch (keyEvent->key()) {
+            case Qt::Key_Alt:
+                mod &= ~Qt::AltModifier;
+                break;
+            case Qt::Key_Control:
+                mod &= ~Qt::ControlModifier;
+                break;
+            case Qt::Key_Shift:
+                mod &= ~Qt::ShiftModifier;
+                break;
+            case Qt::Key_Super_L:
+            case Qt::Key_Super_R:
+                mod &= ~Qt::MetaModifier;
+                break;
+        }
+        const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
+        if (press == mShortcutSeq)
         {
-            setMenuFontSize();
-            setButtonIcon();
+            mHideTimer.start();
+            mMenu->hide(); // close the app menu
+            return true;
         }
     }
-    else if(obj == mSearchEdit)
+
+    if(obj == mButton.parentWidget() && event->type() == QEvent::StyleChange)
     {
-        if(event->type() == QEvent::KeyPress)
-        {
-            if(keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down)
-            {
-                qApp->sendEvent(mSearchView, keyEvent);
-                return true;
-            }
-            return false;
-        }
+        setMenuFontSize();
+        setButtonIcon();
     }
-    else if(mWriteToSearch && event->type() == QEvent::KeyPress &&
+
+    // Redirect arrow up and arrow down keys to the view that shows search results
+    // so one can browse among them. Only do this when mWriteToSearch = true
+    else if(mWriteToSearch && obj == mSearchEdit && event->type() == QEvent::KeyPress &&
+            (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down))
+    {
+        qApp->sendEvent(mSearchView, keyEvent);
+        return true;
+    }
+
+    // Redirect text edition input to the search edit line, without consideration to focus
+    // Only do this when mWriteToSearch = true
+    else if(mWriteToSearch && obj != mSearchEdit && event->type() == QEvent::KeyPress &&
             (keyEvent->key() == Qt::Key_Backspace ||
              keyEvent->key() == Qt::Key_Space ||
              (keyEvent->text().size() == 1 && keyEvent->text()[0].isLetterOrNumber())))
@@ -671,65 +698,28 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
         qApp->sendEvent(mSearchEdit, keyEvent);
         return true;
     }
-    else
+    else if (obj == mMenu)
     {
-        if(event->type() == QEvent::KeyRelease)
+        if (event->type() == QEvent::Resize)
         {
-            static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
-            // if our shortcut key is pressed while the menu is open, close the menu
-            QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
-            switch (keyEvent->key()) {
-                case Qt::Key_Alt:
-                    mod &= ~Qt::AltModifier;
-                    break;
-                case Qt::Key_Control:
-                    mod &= ~Qt::ControlModifier;
-                    break;
-                case Qt::Key_Shift:
-                    mod &= ~Qt::ShiftModifier;
-                    break;
-                case Qt::Key_Super_L:
-                case Qt::Key_Super_R:
-                    mod &= ~Qt::MetaModifier;
-                    break;
-            }
-            const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
-            if (press == mShortcutSeq)
+            QResizeEvent * e = dynamic_cast<QResizeEvent *>(event);
+            if (e->oldSize().isValid() && e->oldSize() != e->size())
             {
-                mHideTimer.start();
-                mMenu->hide(); // close the app menu
-                return true;
+                mMenu->move(calculatePopupWindowPos(e->size()).topLeft());
             }
         }
-
-        if (obj == mMenu)
+        else if (event->type() == QEvent::KeyPress &&
+                 keyEvent->key() == Qt::Key_Escape &&
+                 !mSearchEdit->text().isEmpty())
         {
-            if (event->type() == QEvent::Resize)
-            {
-                QResizeEvent * e = dynamic_cast<QResizeEvent *>(event);
-                if (e->oldSize().isValid() && e->oldSize() != e->size())
-                {
-                    mMenu->move(calculatePopupWindowPos(e->size()).topLeft());
-                }
-            } else if (event->type() == QEvent::KeyPress)
-            {
-                if (keyEvent->key() == Qt::Key_Escape)
-                {
-                    if (!mSearchEdit->text().isEmpty())
-                    {
-                        mSearchEdit->setText(QString{});
-                        //filter out this to not close the menu
-                        return true;
-                    }
-                }
-            } else if (QEvent::ActionChanged == event->type()
-                    || QEvent::ActionAdded == event->type())
-            {
-                //filter this if we are performing heavy changes to reduce flicker
-                if (mHeavyMenuChanges)
-                    return true;
-            }
+            mSearchEdit->clear();
+            //filter out this to not close the menu
+            return true;
         }
+        else if (mHeavyMenuChanges &&
+                 (QEvent::ActionChanged == event->type() ||
+                  QEvent::ActionAdded == event->type()))
+            return true;
     }
     return false;
 }
