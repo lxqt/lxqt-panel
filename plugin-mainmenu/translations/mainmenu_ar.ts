@@ -16,33 +16,34 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="522"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>أضف إلى سطح المكتب</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>سؤال</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>يوجد ملف بنفس الاسم بالفعل.
+هل تريد الكتابة عليه؟</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="537"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>تحذير</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يمكن الكتابة فوق الملف.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="544"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>نسخ</translation>
     </message>
 </context>
 <context>
