@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>وضع</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>التصميم</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>إعداد الوضع</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -175,12 +175,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>هامش رقيق مرئي للوحة المخفية</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>إخفاء فقط عند تداخل النافذة</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>إعداد التصميم</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -337,17 +337,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>حل جزئي لأنماط عنصر واجهة المستخدم التي
+لا يمكن إعطاء سمة منفصلة للوحة.
+
+قد ترغب أيضًا في تعطيل:
+
+تكوين مظهر LXQt →
+موضوع الأيقونات →
+تلوين الرموز بناءً على نمط القطعة (لوحة)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>تجاوز الرمز والمظهر</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
         <source>Icon theme for panels:</source>
-        <translation type="unfinished"></translation>
+        <translation>سمة رمز للوحات:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="189"/>

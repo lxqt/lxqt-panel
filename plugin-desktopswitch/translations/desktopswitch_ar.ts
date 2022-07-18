@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>إذا تم تحديده ، فسيكون عنصر واجهة المستخدم مجرد مؤشر</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>إظهار سطح المكتب النشط فقط</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">سطح المكتب %1:</translation>
+        <translation>سطح المكتب %1:</translation>
     </message>
 </context>
 </TS>

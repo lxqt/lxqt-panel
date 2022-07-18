@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation>الحمل على المعالج  %1٪</translation>
+        <translation>الحمل على المعالج  %1%</translation>
     </message>
 </context>
 <context>
