@@ -66,7 +66,31 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
     mMenu = new QMenu(this);
     mMenu->addAction(mAct);
     mMenu->addActions(mAct->addtitionalActions());
-    mMenu->addSeparator();
+    mFirstSep = mMenu->addSeparator();
+    if (mAct->type() == QuickLaunchAction::ActionType::ActionXdg)
+    {
+        auto updateAct = new QAction(XdgIcon::fromTheme(QStringLiteral("view-refresh")), tr("Refresh"), this);
+        connect(updateAct, &QAction::triggered, this, [this]
+        {
+            const auto actions = mMenu->actions();
+            for (const auto &action : actions)
+            {
+                if (action->isSeparator()) // mFirstSep
+                {
+                    break;
+                }
+                mMenu->removeAction(action);
+            }
+            mAct->updateXdgAction();
+            mMenu->insertAction(mFirstSep, mAct);
+            const auto extraActions = mAct->addtitionalActions();
+            for (const auto &action : extraActions)
+            {
+                mMenu->insertAction(mFirstSep, action);
+            }
+        });
+        mMenu->addAction(updateAct);
+    }
     mMenu->addAction(mMoveLeftAct);
     mMenu->addAction(mMoveRightAct);
     mMenu->addSeparator();
