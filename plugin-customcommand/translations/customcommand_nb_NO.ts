@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="176"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Feil</translation>
     </message>
 </context>
 <context>
