@@ -144,3 +144,34 @@ void QuickLaunchAction::execAction(QString additionalAction)
             break;
     }
 }
+
+void QuickLaunchAction::updateXdgAction()
+{
+    if (m_valid && m_type == ActionXdg)
+    {
+        XdgDesktopFile xdg;
+        if (xdg.load(data().toString()) && xdg.isSuitable())
+        {
+            QString title(xdg.localizedValue(QStringLiteral("Name")).toString());
+            QString gn(xdg.localizedValue(QStringLiteral("GenericName")).toString());
+            if (!gn.isEmpty())
+                title += QLatin1String(" (") + gn + QLatin1String(")");
+            setText(title);
+            setIcon(xdg.icon(XdgIcon::defaultApplicationIcon()));
+
+            qDeleteAll (m_addtitionalActions);
+            m_addtitionalActions.clear();
+            for (auto const & action : const_cast<const QStringList &&>(xdg.actions()))
+            {
+                QAction * act = new QAction{xdg.actionIcon(action), xdg.actionName(action), this};
+                act->setData(action);
+                connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
+                m_addtitionalActions.push_back(act);
+            }
+        }
+        else
+        {
+            qDebug() << "XdgDesktopFile" << data() << "is not valid or applicable";
+        }
+    }
+}

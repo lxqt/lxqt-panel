@@ -61,6 +61,7 @@ protected:
 private:
     QuickLaunchAction *mAct;
     ILXQtPanelPlugin * mPlugin;
+    QAction *mFirstSep;
     QAction *mDeleteAct;
     QAction *mMoveLeftAct;
     QAction *mMoveRightAct;
