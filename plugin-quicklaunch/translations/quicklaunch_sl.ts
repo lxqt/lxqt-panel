@@ -43,5 +43,10 @@ hitri zagon sem</translation>
         <source>Remove from quicklaunch</source>
         <translation>Odstrani iz hitrega zagona</translation>
     </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

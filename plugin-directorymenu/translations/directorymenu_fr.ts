@@ -100,7 +100,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation>Étiquette :</translation>
+        <translation>Étiquette&#xa0;:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
