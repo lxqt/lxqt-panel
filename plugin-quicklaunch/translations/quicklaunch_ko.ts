@@ -43,5 +43,10 @@ icons here</source>
         <source>Remove from quicklaunch</source>
         <translation>quicklaunch에서 빼기</translation>
     </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

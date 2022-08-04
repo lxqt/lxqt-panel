@@ -43,5 +43,10 @@ aplicativos para cá</translation>
         <source>Remove from quicklaunch</source>
         <translation>Remover do lançador rápido</translation>
     </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

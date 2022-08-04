@@ -43,5 +43,10 @@ aplikasi disini</translation>
         <source>Remove from quicklaunch</source>
         <translation>Hapus dari quicklaunch</translation>
     </message>
+    <message>
+        <location filename="../quicklaunchbutton.cpp" line="72"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
