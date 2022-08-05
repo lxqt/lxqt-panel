@@ -46,7 +46,7 @@ rakenduse ikoone</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Värskenda</translation>
     </message>
 </context>
 </TS>
