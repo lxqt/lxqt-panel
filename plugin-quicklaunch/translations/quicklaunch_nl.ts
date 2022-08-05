@@ -46,7 +46,7 @@ pictogrammen hierheen</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Herladen</translation>
     </message>
 </context>
 </TS>
