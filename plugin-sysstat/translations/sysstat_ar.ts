@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>ألوان إحصائيات النظام</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>

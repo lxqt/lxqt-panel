@@ -46,7 +46,7 @@ buraya bırakın</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Yenile</translation>
     </message>
 </context>
 </TS>
