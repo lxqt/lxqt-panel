@@ -292,7 +292,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt; بنية تنسيق التاريخ / الوقت المخصص &lt;/ h1&gt;
+&lt;p&gt; نمط التاريخ هو سلسلة من الأحرف ، حيث يتم استبدال سلاسل محددة من الأحرف ببيانات التاريخ والوقت من التقويم عند التنسيق أو استخدامها لإنشاء بيانات لتقويم عند التحليل. &lt;/p&gt;
+&lt;p&gt; يحتوي جدول رموز حقل التاريخ أدناه على الأحرف المستخدمة في الأنماط لإظهار التنسيقات المناسبة للإعداد المحلي المحدد ، مثل yyyy للسنة. يمكن استخدام الأحرف عدة مرات. على سبيل المثال ، إذا تم استخدام y للسنة ، فقد ينتج &quot;yy&quot; &quot;99&quot; ، بينما ينتج &quot;yyyy&quot; &quot;1999&quot;. بالنسبة لمعظم الحقول الرقمية ، يحدد عدد الأحرف عرض الحقل. على سبيل المثال ، إذا كانت h هي الساعة ، فقد ينتج عن &quot;h&quot; &quot;5&quot; ، ولكن &quot;hh&quot; ينتج &quot;05&quot;. بالنسبة لبعض الأحرف ، يحدد العدد ما إذا كان يجب استخدام صيغة مختصرة أو كاملة ، ولكن قد يكون لها خيارات أخرى ، كما هو موضح أدناه. &lt;/p&gt;
+&lt;p&gt; علامتا اقتباس مفردتان تمثلان اقتباسًا منفردًا حرفيًا ، إما داخل علامتي اقتباس مفردة أو خارجها. لا يتم تفسير النص داخل علامات الاقتباس المفردة بأي شكل من الأشكال (باستثناء علامتي اقتباس متجاورتين). وبخلاف ذلك ، يتم حجز جميع أحرف ASCII من a إلى z ومن A إلى Z كأحرف بناء ، وتتطلب اقتباسًا إذا كانت تمثل أحرفًا حرفية. بالإضافة إلى ذلك ، قد تتغير بعض أحرف علامات الترقيم ASCII في المستقبل (على سبيل المثال ، &quot;:&quot; يتم تفسيرها على أنها فاصل زمني و &quot;/&quot; كفاصل تاريخ ، واستبدالها بأحرف حساسة للغة في العرض). &lt;br /&gt; &lt; / ص&gt;
+&lt;table border = &quot;1&quot; width = &quot;100%&quot; cellpadding = &quot;4&quot; cellspacing = &quot;0&quot;&gt;
+&lt;tr&gt; &lt;th width = &quot;20%&quot;&gt; Code &lt;/th&gt; &lt;th&gt; المعنى &lt;/th&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; d &lt;/td&gt; &lt;td&gt; اليوم كرقم بدون صفر بادئ (من 1 إلى 31) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; dd &lt;/td&gt; &lt;td&gt; اليوم كرقم بصفر بادئ (من 01 إلى 31) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ddd &lt;/td&gt; &lt;td&gt; اسم اليوم المترجم المختصر (مثل &quot;Mon&quot; إلى &quot;Sun&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; dddd &lt;/td&gt; &lt;td&gt; اسم اليوم المترجم الطويل (مثل &quot;من الاثنين&quot; إلى &quot;الأحد&quot;). &lt;/ td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; M &lt;/td&gt; &lt;td&gt; الشهر كرقم بدون صفر بادئ (1-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; MM &lt;/td&gt; &lt;td&gt; الشهر كرقم بصفر بادئ (01-12) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; MMM &lt;/td&gt; &lt;td&gt; اسم الشهر المترجم المختصر (مثل &quot;يناير&quot; إلى &quot;ديسمبر&quot;). &lt;/ td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; MMMM &lt;/td&gt; &lt;td&gt; اسم الشهر المترجم الطويل (على سبيل المثال ، من &quot;يناير&quot; إلى &quot;ديسمبر&quot;). &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; yy &lt;/td&gt; &lt;td&gt; العام كرقم مكون من رقمين (00-99) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; yyyy &lt;/td&gt; &lt;td&gt; السنة كرقم مكون من أربعة أرقام &lt;/ td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; h &lt;/td&gt; &lt;td&gt; الساعة بدون صفر بادئ (من 0 إلى 23 أو من 1 إلى 12 في حالة عرض AM /pM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; hh &lt;/td&gt; &lt;td&gt; الساعة بصفر بادئ (من 00 إلى 23 أو من 01 إلى 12 في حالة عرض AM /pM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; H &lt;/td&gt; &lt;td&gt; الساعة بدون صفر بادئ (من 0 إلى 23 ، حتى مع عرض AM /pM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; HH &lt;/td&gt; &lt;td&gt; الساعة بصفر بادئ (من 00 إلى 23 ، حتى مع عرض AM /pM) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; m &lt;/td&gt; &lt;td&gt; الدقيقة بدون صفر بادئ (0 إلى 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; mm &lt;/td&gt; &lt;td&gt; الدقيقة بصفر بادئ (من 00 إلى 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; s &lt;/td&gt; &lt;td&gt; الثانية بدون صفر بادئ (0 إلى 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ss &lt;/td&gt; &lt;td&gt; الثانية بصفر بادئ (من 00 إلى 59) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; AP &lt;i&gt; أو &lt;/i&gt; A &lt;/td&gt; &lt;td&gt; استخدم عرض AM /pM. سيتم استبدال &lt;b&gt; A / AP &lt;/b&gt; إما بـ &quot;AM&quot; أو &quot;PM&quot;. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; ap &lt;i&gt; أو &lt;/i&gt; a &lt;/td&gt; &lt;td&gt; استخدم عرض am /pm. سيتم استبدال &lt;b&gt; a / ap &lt;/b&gt; إما بـ &quot;am&quot; أو &quot;pm&quot;. &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; t &lt;/td&gt; &lt;td&gt; المنطقة الزمنية (مثل &quot;CEST&quot;) &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; T &lt;/td&gt; &lt;td&gt; الإزاحة من التوقيت العالمي المنسق &lt;/ td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; TT &lt;/td&gt; &lt;td&gt; معرّف IANA للمنطقة الزمنية &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; TTT &lt;/td&gt; &lt;td&gt; اختصار المنطقة الزمنية &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; TTTT &lt;/td&gt; &lt;td&gt; اسم العرض القصير للمنطقة الزمنية &lt;/td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; TTTTT &lt;/td&gt; &lt;td&gt; اسم العرض الطويل للمنطقة الزمنية &lt;/ td&gt; &lt;/tr&gt;
+&lt;tr&gt; &lt;td&gt; TTTTTT &lt;/td&gt; &lt;td&gt; الاسم المخصص للمنطقة الزمنية. يمكنك تغيير علامة التبويب &quot;المناطق الزمنية&quot; في نافذة التكوين &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;
+&lt;br /&gt; &lt;b&gt; ملاحظات: &lt;/b&gt; &lt;ul&gt; &lt;li&gt; أية أحرف في النمط ليست في نطاقات [&apos;a&apos; .. &apos;z&apos;] و [&apos;A&apos; .. &apos;Z سيتم التعامل مع &apos;] كنص مقتبس. على سبيل المثال ، ستظهر أحرف مثل &quot;:&quot; و &quot;.&quot; و &quot;&quot; و &quot;#&quot; و &quot;@&quot; في نص الوقت الناتج حتى لم يتم تضمينها داخل علامات اقتباس مفردة. يستخدم الاقتباس المنفرد في &quot;الهروب&quot; من الأحرف. علامتا اقتباس منفردتان متتاليتان ، سواء داخل تسلسل مقتبس أو خارجه ، يمثلان اقتباسًا منفردًا &quot;حقيقيًا&quot;. &lt;/ li&gt; &lt;li&gt; أقل فترة تحديث هي ثانية واحدة. إذا تم تكوين z أو zzz ، فسيتم عرض الوقت مع جزء الملي ثانية ، ولكن لا يتم تحديثه على أساس مللي ثانية (تجنب حدوث نجاح كبير في الأداء). &lt;/ li&gt; &lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
