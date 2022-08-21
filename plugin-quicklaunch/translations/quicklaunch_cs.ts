@@ -46,7 +46,7 @@ ikony aplikací</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Načíst znovu</translation>
     </message>
 </context>
 </TS>
