@@ -66,7 +66,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>نص الزرّ:</translation>
+        <translation>زر كتابة:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
@@ -132,7 +132,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation>اختصار سطح المكتب</translation>
+        <translation>اختصار لوحة المفاتيح</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
