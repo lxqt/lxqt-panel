@@ -90,7 +90,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished">國旗圖檔路徑</translation>
+        <translation>國旗圖檔路徑:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
