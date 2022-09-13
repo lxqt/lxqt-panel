@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="176"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
 </context>
 <context>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imatges (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>

@@ -45,7 +45,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Опресняване</translation>
     </message>
 </context>
 </TS>
