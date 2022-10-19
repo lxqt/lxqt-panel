@@ -39,17 +39,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Prijeđi na slj&amp;edeći monitor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="741"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation>Premjesti na &amp;prethodni monitor</translation>
+        <translation>Prijeđi na &amp;prethodni monitor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="745"/>
         <source>&amp;Move</source>
-        <translation>Pre&amp;mjesti</translation>
+        <translation>&amp;Prijeđi</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="748"/>
