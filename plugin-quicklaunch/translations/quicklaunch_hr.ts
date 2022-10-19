@@ -46,7 +46,7 @@ programa ovdje</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualiziraj</translation>
     </message>
 </context>
 </TS>
