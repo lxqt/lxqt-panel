@@ -50,6 +50,12 @@ QuickLaunchAction::QuickLaunchAction(const QString & name,
     m_settingsMap[QStringLiteral("exec")] = exec;
     m_settingsMap[QStringLiteral("icon")] = icon;
 
+    // Since the keys "desktop" and "file" have priority over the above keys
+    // (see LXQtQuickLaunch::LXQtQuickLaunch), we prevent their reading
+    // from another config file by setting them to empty strings here.
+    m_settingsMap[QStringLiteral("desktop")] = QString();
+    m_settingsMap[QStringLiteral("file")] = QString();
+
     if (icon == QLatin1String("") || icon.isNull())
         setIcon(XdgIcon::defaultApplicationIcon());
     else
@@ -98,6 +104,8 @@ QuickLaunchAction::QuickLaunchAction(const QString & fileName, QWidget * parent)
     setData(fileName);
 
     m_settingsMap[QStringLiteral("file")] = fileName;
+    // prevent reading of "desktop" from another config file
+    m_settingsMap[QStringLiteral("desktop")] = QString();
 
     QFileInfo fi(fileName);
     if (fi.isDir())
