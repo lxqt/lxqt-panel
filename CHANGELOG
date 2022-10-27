@@ -1,3 +1,9 @@
+lxqt-panel-1.2.0 / 2022-11-05
+==============================
+ * Added context items to Quick Launch for reloading desktop entries.
+ * Set window flags of the volume popup explicitly (useful under Wayland).
+ * Fixed Quick Launch icons when there are multiple config files.
+
 lxqt-panel-1.1.0 / 2022-04-15
 ==============================
  * Updated `README.md`.
