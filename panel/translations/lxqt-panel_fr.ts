@@ -253,7 +253,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Remarque : les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
+        <translation>Remarque : les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
