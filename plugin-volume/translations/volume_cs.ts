@@ -105,12 +105,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="55"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
         <translation>Spustit směšovač</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="56"/>
+        <location filename="../volumepopup.cpp" line="60"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Směšovač</translation>
     </message>
