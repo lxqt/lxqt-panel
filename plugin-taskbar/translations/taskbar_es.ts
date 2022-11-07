@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="738"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Al monitor &amp;siguiente</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="741"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished">Ir al monitor anterior</translation>
+        <translation>Al m&amp;onitor anterior</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="745"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="748"/>
         <source>Resi&amp;ze</source>
-        <translation>Cambiar el tamaño</translation>
+        <translation>Re&amp;dimensionar</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="755"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="797"/>
         <source>&amp;Layer</source>
-        <translation>&amp;Capa</translation>
+        <translation>Ca&amp;pa</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="799"/>

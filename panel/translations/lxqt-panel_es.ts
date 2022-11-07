@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicación</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar la ubicación</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -77,7 +77,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largo:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -296,7 +296,7 @@ queden bajo del panel y tengan un area inaccesible</translation>
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar el estilo</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
