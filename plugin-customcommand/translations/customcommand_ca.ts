@@ -132,7 +132,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Trieu un fitxer d&apos;icona</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
