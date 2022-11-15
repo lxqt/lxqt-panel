@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorpicker.cpp" line="209"/>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>Izbriši popis</translation>
     </message>
     <message>
         <location filename="../colorpicker.cpp" line="239"/>
         <source>empty</source>
-        <translation type="unfinished"></translation>
+        <translation>prazno</translation>
     </message>
 </context>
 </TS>
