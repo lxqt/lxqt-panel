@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Ajusts del control del volum</translation>
+        <translation>Configuració del control de volum</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
-        <translation>Llança el mesclador</translation>
+        <translation>Inicia el mesclador</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="60"/>
