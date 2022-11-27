@@ -197,7 +197,6 @@ void LXQtVolume::settingsChanged()
 #endif
     }
 
-    m_volumeButton->setShowOnClicked(settings()->value(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
     m_volumeButton->setMuteOnMiddleClick(settings()->value(QStringLiteral(SETTINGS_MUTE_ON_MIDDLECLICK), SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
     m_volumeButton->setMixerCommand(settings()->value(QStringLiteral(SETTINGS_MIXER_COMMAND), QStringLiteral(SETTINGS_DEFAULT_MIXER_COMMAND)).toString());
     m_volumeButton->volumePopup()->setSliderStep(settings()->value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());

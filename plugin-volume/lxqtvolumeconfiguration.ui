@@ -65,13 +65,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="showOnClickCheckBox">
-        <property name="text">
-         <string>Show on mouse click</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="ignoreMaxVolumeCheckBox">
         <property name="text">
          <string>Allow volume beyond 100% (0dB)</string>

@@ -43,7 +43,6 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
         m_panel(plugin->panel()),
-        m_showOnClick(true),
         m_muteOnMiddleClick(true)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -68,14 +67,6 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
 
 VolumeButton::~VolumeButton() = default;
 
-void VolumeButton::setShowOnClicked(bool state)
-{
-    if (m_showOnClick == state)
-        return;
-
-    m_showOnClick = state;
-}
-
 void VolumeButton::setMuteOnMiddleClick(bool state)
 {
     m_muteOnMiddleClick = state;
@@ -88,11 +79,6 @@ void VolumeButton::setMixerCommand(const QString &command)
 
 void VolumeButton::enterEvent(QEvent *event)
 {
-    if (!m_showOnClick)
-        showVolumeSlider();
-
-    m_popupHideTimer.stop();
-
     // show tooltip immediately on entering widget
     QToolTip::showText(static_cast<QEnterEvent*>(event)->globalPos(), toolTip());
 }
@@ -103,11 +89,6 @@ void VolumeButton::mouseMoveEvent(QMouseEvent *event)
     // show tooltip immediately on moving the mouse
     if (!QToolTip::isVisible()) // prevent sliding of tooltip
         QToolTip::showText(event->globalPos(), toolTip());
-}
-
-void VolumeButton::leaveEvent(QEvent * /*event*/)
-{
-    m_popupHideTimer.start();
 }
 
 void VolumeButton::wheelEvent(QWheelEvent *event)
