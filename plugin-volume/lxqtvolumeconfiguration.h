@@ -34,7 +34,6 @@
 #include <QList>
 
 #define SETTINGS_MIXER_COMMAND          "mixerCommand"
-#define SETTINGS_SHOW_ON_LEFTCLICK      "showOnLeftClick"
 #define SETTINGS_MUTE_ON_MIDDLECLICK    "showOnMiddleClick"
 #define SETTINGS_DEVICE                 "device"
 #define SETTINGS_STEP                   "volumeAdjustStep"
@@ -43,7 +42,6 @@
 #define SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS "allwaysShowNotifications"
 #define SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS "showKeyboardNotifications"
 
-#define SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK      true
 #define SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK    true
 #define SETTINGS_DEFAULT_DEVICE                 0
 #define SETTINGS_DEFAULT_STEP                   3
@@ -80,7 +78,6 @@ public slots:
     void setSinkList(const QList<AudioDevice*> sinks);
     void audioEngineChanged(bool checked);
     void sinkSelectionChanged(int index);
-    void showOnClickedChanged(bool state);
     void muteOnMiddleClickChanged(bool state);
     void mixerLineEditChanged(const QString &command);
     void stepSpinBoxChanged(int step);

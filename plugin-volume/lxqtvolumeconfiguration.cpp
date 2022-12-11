@@ -43,7 +43,6 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     loadSettings();
     connect(ui->devAddedCombo,                     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtVolumeConfiguration::sinkSelectionChanged);
     connect(ui->buttons,                           &QDialogButtonBox::clicked,                          this, &LXQtVolumeConfiguration::dialogButtonsAction);
-    connect(ui->showOnClickCheckBox,               &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::showOnClickedChanged);
     connect(ui->muteOnMiddleClickCheckBox,         &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::muteOnMiddleClickChanged);
     connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,                             this, &LXQtVolumeConfiguration::mixerLineEditChanged);
     connect(ui->stepSpinBox,                       QOverload<int>::of(&QSpinBox::valueChanged),         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);
@@ -117,12 +116,6 @@ void LXQtVolumeConfiguration::sinkSelectionChanged(int index)
         settings().setValue(QStringLiteral(SETTINGS_DEVICE), index >= 0 ? index : 0);
 }
 
-void LXQtVolumeConfiguration::showOnClickedChanged(bool state)
-{
-    if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), state);
-}
-
 void LXQtVolumeConfiguration::muteOnMiddleClickChanged(bool state)
 {
     if (!mLockSettingChanges)
@@ -184,7 +177,6 @@ void LXQtVolumeConfiguration::loadSettings()
         ui->ignoreMaxVolumeCheckBox->setEnabled(false);
 
     setComboboxIndexByData(ui->devAddedCombo, settings().value(QStringLiteral(SETTINGS_DEVICE), SETTINGS_DEFAULT_DEVICE), 1);
-    ui->showOnClickCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_SHOW_ON_LEFTCLICK), SETTINGS_DEFAULT_SHOW_ON_LEFTCLICK).toBool());
     ui->muteOnMiddleClickCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_MUTE_ON_MIDDLECLICK), SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
     ui->mixerLineEdit->setText(settings().value(QStringLiteral(SETTINGS_MIXER_COMMAND), QStringLiteral(SETTINGS_DEFAULT_MIXER_COMMAND)).toString());
     ui->stepSpinBox->setValue(settings().value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());
