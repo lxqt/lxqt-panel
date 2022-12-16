@@ -32,14 +32,18 @@
 #include "qeyesimagewidget.h"
 
 
-void ImageStretcher::load(QString fn) {
+bool ImageStretcher::load(QString fn) {
     if (fn.toLower().endsWith(QString::fromUtf8(".svg"))) {
         svg = true;
-        svgrender.load(fn);
+        if (!svgrender.load(fn))
+            return false;
     } else {
-        origImage.load(fn);
+        if (!origImage.load(fn))
+            return false;
         svg = false;
     }
+    strechedImage = QPixmap();
+    return true;
 }
     
 QPixmap & ImageStretcher::ImageStretcher::getImage(int w, int h) {
@@ -96,13 +100,19 @@ void QEyesImageWidget::eyeBorder(float &bx, float &by) {
     by = borderYStreched;
 }
 
-void QEyesImageWidget::load(const QString &eye, const QString &pupil_,
+bool QEyesImageWidget::load(const QString &eye, const QString &pupil_,
                                 int wall, int num) {
 
+    if (num < 1 || num > 10)
+        return false;
+
     borderY = borderX = wall;
-    background.load(eye);
-    pupil.load(pupil_);
+    if (!pupil.load(pupil_))
+        return false;
+    if (!background.load(eye))
+        return false;
     numEyes = num;
+    return true;
 }
 
 void QEyesImageWidget::paintEvent(QPaintEvent *event) {

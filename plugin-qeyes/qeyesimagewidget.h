@@ -30,7 +30,7 @@ class ImageStretcher {
     QSvgRenderer svgrender;
     QPixmap origImage, strechedImage;
 public:
-    void load(QString fn);
+    bool load(QString fn);
     QPixmap &getImage(int w, int h);
     int origWidth();
     int origHeight();
@@ -54,5 +54,5 @@ private:
 public:
     //QEyesImageWidget(const QString &path = QString(), QWidget *parent = nullptr);
     QEyesImageWidget(QWidget *parent = nullptr) : QAbstractEyesWidget(parent) {}
-    void load(const QString &eye, const QString &pupil, int wall, int num);
+    bool load(const QString &eye, const QString &pupil, int wall, int num);
 };
