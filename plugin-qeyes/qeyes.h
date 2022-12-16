@@ -23,11 +23,9 @@
 
 #include <QtWidgets/QApplication>
 #include <QtCore/QCommandLineParser>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QtWidgets/QVBoxLayout>
 
-
-#include <lxqt/ilxqtpanelplugin.h>
+#include "../panel/ilxqtpanelplugin.h"
 
 #include "qeyesvectorwidget.h"
 #include "qeyesimagewidget.h"
@@ -39,14 +37,20 @@ class QEyesPlugin :  public QObject, public ILXQtPanelPlugin
 public:
     QEyesPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() override { return w; }
+    virtual QWidget *widget() override { return w0; }
     virtual QString themeId()  const override{
         return QStringLiteral("QEyesPlugin");
     }
     virtual void realign() override;
+    virtual Flags flags() const override { return HaveConfigDialog ; }
+    virtual QDialog * configureDialog() override;
+    virtual void settingsChanged() override;
 
 private:
-    QEyesVectorWidget *w;
+    QWidget *w0;
+    QVBoxLayout *l;
+    QAbstractEyesWidget *w;
+    bool vectorEyes = true;
 };
 
 class QEyesPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
