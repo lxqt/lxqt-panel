@@ -170,6 +170,13 @@ if(SHOWDESKTOP_PLUGIN)
     add_subdirectory(plugin-showdesktop)
 endif()
 
+setByDefault(QEYES_PLUGIN Yes)
+if(QEYES_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "QEyes")
+    add_subdirectory(plugin-qeyes)
+endif()
+
+
 setByDefault(NETWORKMONITOR_PLUGIN Yes)
 if(NETWORKMONITOR_PLUGIN)
     find_library(STATGRAB_LIB statgrab)
