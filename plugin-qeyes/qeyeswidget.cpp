@@ -37,7 +37,6 @@ QAbstractEyesWidget::QAbstractEyesWidget(QWidget *parent) : QWidget(parent) {
     if (!underMouse()) {
         timer.setInterval(timerTimeout);
         timer.start();
-fprintf(stderr,"Sono entrato \n");
     }
     //setContextMenuPolicy(Qt::CustomContextMenu);
 
