@@ -3,4 +3,3 @@ Type=Service
 ServiceTypes=LXQtPanel/Plugin
 Icon=qeyes
 
-#TRANSLATIONS_DIR=../translations

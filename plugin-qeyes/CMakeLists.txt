@@ -1,4 +1,4 @@
-set(PLUGIN "qeyesplugin")
+set(PLUGIN "qeyes")
 
 set(HEADERS
     qeyes.h
