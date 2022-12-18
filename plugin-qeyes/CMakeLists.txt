@@ -20,4 +20,6 @@ set(LIBRARIES
     ${LIBRARIES}
 )
 
+add_subdirectory(types)
+
 BUILD_LXQT_PLUGIN(${PLUGIN})

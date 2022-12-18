@@ -131,7 +131,19 @@ void QEyesConfigDialog::buildList() {
                               "/usr/share/lxqt/applets/qeyes",
                               "/usr/local/share/lxqt/applets/qeyes",
                               "/usr/share/mate-applets/geyes",
-                              "/usr/local/share/mate-applets/geyes" }) {
+                              "/usr/local/share/mate-applets/geyes",
+                              LXQT_SHARE_DIR "/panel/qeyes-types/",
+                              "$HOMEDATA"
+                              }) {
+
+        if (!strcmp(root, "$HOMEDATA")) {
+            static char buf[1024];
+
+            if (!getenv("XDG_DATA_HOME"))
+                continue;
+            snprintf(buf, 1023, "%s/lxqt/panel/qeyes-types/", getenv("XDG_DATA_HOME"));
+            root = buf;
+        }
 
         auto dir = QDir(QLatin1String(root));
         auto list = dir.entryList();
