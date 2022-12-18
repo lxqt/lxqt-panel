@@ -31,61 +31,42 @@
 #include <QtCore/QFileInfo>
 
 #include "qeyesconfigdialog.h"
+#include "qeyes.h"
 
 QEyesConfigDialog::QEyesConfigDialog(PluginSettings *sts,
         ILXQtPanelPlugin *plugin_, QWidget *parent) : 
     QDialog(parent), _settings(sts), plugin(plugin_)
 {
 
-    old_num_eyes = _settings->value(QLatin1String("num_eyes"),
-                                QLatin1String("2")).toInt();
-    old_type_eyes = _settings->value(QLatin1String("eye_type"),
-                                QLatin1String("<internal>")).toString();
-    buildList();
-    bool found = false;
-    for (auto it = types.begin() ; it != types.end() ; ++it) {
-        if (old_type_eyes == it.value()) {
-            found = true;
-            break;
-        }
-    }
-    if (!found)
-        old_type_eyes = QLatin1String("<internal>");
-    
     auto l1 = new QGridLayout();
     setLayout(l1);
 
-    auto f = new QGroupBox(QString::fromUtf8("Appearance"));
+    auto f = new QGroupBox(tr("Appearance"));
     l1->addWidget(f, 10, 10, 10, 11);
 
     auto l = new QGridLayout();
     f->setLayout(l);
 
-    l->addWidget(new QLabel(QString::fromUtf8("Number of eyes")), 10, 10);
+    l->addWidget(new QLabel(tr("Number of eyes")), 10, 10);
     numEyesWidget = new QSpinBox();
     l->addWidget(numEyesWidget, 10, 20);
     numEyesWidget->setMaximum(10);
     numEyesWidget->setMinimum(1);
 
-    l->addWidget(new QLabel(QString::fromUtf8("Type")), 20, 10);
+    l->addWidget(new QLabel(tr("Type")), 20, 10);
     typesWidget = new QComboBox();
     l->addWidget(typesWidget, 20, 20);
 
-    typesWidget->addItem(QLatin1String("<Internal>"));
-    for (auto it = types.begin() ; it != types.end() ; ++it)
-        typesWidget->addItem(it.key());
-
-    auto b = new QPushButton(QString::fromUtf8("Close"));
+    auto b = new QPushButton(tr("Close"));
     l1->addWidget(b, 50, 10);
     connect(b, &QPushButton::clicked, this, &QEyesConfigDialog::updateAndClose);
     b->setDefault(true);
     
-    b = new QPushButton(QString::fromUtf8("Reset"));
+    b = new QPushButton(tr("Reset"));
     l1->addWidget(b, 50, 20);
     connect(b, &QPushButton::clicked, this, &QEyesConfigDialog::resetValue);
 
-    setWindowTitle(QString::fromUtf8("QEyes setting"));
-    resetValue();
+    setWindowTitle(tr("QEyes setting"));
 
     connect(numEyesWidget, qOverload<int>(&QSpinBox::valueChanged),
         this, &QEyesConfigDialog::updateValues);
@@ -94,26 +75,60 @@ QEyesConfigDialog::QEyesConfigDialog(PluginSettings *sts,
 
 }
 
+void QEyesConfigDialog::showEvent(QShowEvent *) {
+    old_num_eyes = _settings->value(QStringLiteral("num_eyes"),
+                                QStringLiteral("2")).toInt();
+    old_type_eyes = _settings->value(QStringLiteral("eye_type"),
+                                QEyesPlugin::internalEye).toString();
+    buildList();
+    bool found = false;
+    for (const auto &key : types.keys()) {
+        if (old_type_eyes == key) {
+            found = true;
+            break;
+        }
+    }
+    if (!found)
+        old_type_eyes = QEyesPlugin::internalEye;
+
+
+    typesWidget->blockSignals(true);
+    numEyesWidget->blockSignals(true);
+
+    typesWidget->clear();
+    typesWidget->addItem(tr("QEyes default"));
+    for (const auto &key: types.keys())
+        typesWidget->addItem(key);
+
+    resetValue();
+
+    typesWidget->blockSignals(false);
+    numEyesWidget->blockSignals(false);
+}
+
 void QEyesConfigDialog::resetValue() {
     int actIndex = 0;
-    int c = 0;
-    for (auto it = types.begin() ; it != types.end() ; ++it, c++) {
-        if (it.value() == old_type_eyes)
+    int c = 1;  // 0 is <internal>
+    for (const auto &key : types.keys()) {
+        if (old_type_eyes == types[key])
             actIndex = c;
+        c++;
     }
-    typesWidget->setCurrentIndex(actIndex);
 
+    typesWidget->setCurrentIndex(actIndex);
     numEyesWidget->setValue(old_num_eyes);
 }
 
 void QEyesConfigDialog::updateValues(int) {
-    _settings->setValue(QLatin1String("num_eyes"),
+    _settings->setValue(QStringLiteral("num_eyes"),
         numEyesWidget->value());
-    
-    if (typesWidget->currentIndex() == 0) {
-        _settings->setValue(QLatin1String("eye_type"), QLatin1String("<internal>"));
+
+    if (typesWidget->currentIndex() == 0 ||
+        types.count(typesWidget->currentText()) == 0) {
+            _settings->setValue(QStringLiteral("eye_type"), QEyesPlugin::internalEye);
     } else {
-        _settings->setValue(QLatin1String("eye_type"), types[typesWidget->currentText()]);
+            _settings->setValue(QStringLiteral("eye_type"),
+                types[typesWidget->currentText()]);
     }
     _settings->sync();
     plugin->settingsChanged();
@@ -148,17 +163,19 @@ void QEyesConfigDialog::buildList() {
         auto dir = QDir(QLatin1String(root));
         auto list = dir.entryList();
         for (auto const & path : list) {
-            const auto fn = QString(QLatin1String(root) + QLatin1String("/") +
-                                path + QLatin1String("/config"));
+            const auto fn = QString(QLatin1String(root) + QStringLiteral("/") +
+                                path + QStringLiteral("/config"));
             QFileInfo f(fn);
-            
+
+            if (fn == QStringLiteral(".") || fn == QStringLiteral(".."))
+                continue;
             if (!f.exists())
                 continue;
             if (!f.isFile())
                 continue;
 
-            types.insert(path,
-                QString(QLatin1String(root) + QLatin1String("/") + path));
+            types[path] = 
+                QString(QLatin1String(root) + QStringLiteral("/") + path);
         }
     }
 }

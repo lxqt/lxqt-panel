@@ -70,7 +70,7 @@ void QEyesPlugin::realign() {
 
 
 static bool loadImage(QString path, QEyesImageWidget *w) {
-    QFile file(path + QString::fromUtf8("/config"));
+    QFile file(path + QStringLiteral("/config"));
     file.open(QIODevice::ReadOnly);
     QTextStream in(&file);
     QString eye, pupil;
@@ -83,13 +83,13 @@ static bool loadImage(QString path, QEyesImageWidget *w) {
         auto value = fields.at(1).trimmed();
         if (value.size() > 1 && value.at(0) == QChar(QLatin1Char('"')))
             value = value.mid(1, value.size() - 2);
-        if (name == QString::fromUtf8("wall-thickness")) {
+        if (name == QStringLiteral("wall-thickness")) {
             wall = value.toInt();
-        } else if (name == QString::fromUtf8("eye-pixmap")) {
-            eye = path + QString::fromUtf8("/") + value;
-        } else if (name == QString::fromUtf8("pupil-pixmap")) {
-            pupil = path + QString::fromUtf8("/") + value;
-        } else if (name.trimmed() == QString::fromUtf8("num-eyes")) {
+        } else if (name == QStringLiteral("eye-pixmap")) {
+            eye = path + QStringLiteral("/") + value;
+        } else if (name == QStringLiteral("pupil-pixmap")) {
+            pupil = path + QStringLiteral("/") + value;
+        } else if (name.trimmed() == QStringLiteral("num-eyes")) {
             num = value.toInt();
         }
     }
@@ -100,17 +100,17 @@ static bool loadImage(QString path, QEyesImageWidget *w) {
 void QEyesPlugin::settingsChanged() {
     PluginSettings *_settings = settings();
 
-    const auto type = _settings->value(QLatin1String("eye_type"),
-                            QLatin1String("<internal>")).toString();
+    const auto type = _settings->value(QStringLiteral("eye_type"),
+                            internalEye).toString();
 
-    if (type == QLatin1String("<internal>") && !vectorEyes) {
+    if (type == internalEye && !vectorEyes) {
         l->removeWidget(w);
         delete w;
         w = new QEyesVectorWidget();
         l->addWidget(w);
         w->setTransparent(true);
         vectorEyes = true;
-    } else if (type != QLatin1String("<internal>") && vectorEyes) {
+    } else if (type != internalEye && vectorEyes) {
         l->removeWidget(w);
         delete w;
         w = new QEyesImageWidget();
@@ -119,7 +119,7 @@ void QEyesPlugin::settingsChanged() {
         vectorEyes = false;
     }
 
-    if (type != QLatin1String("<internal>") && !vectorEyes) {
+    if (type != internalEye && !vectorEyes) {
         if (!loadImage(type, dynamic_cast<QEyesImageWidget*>(w))) {
             l->removeWidget(w);
             delete w;
@@ -128,13 +128,13 @@ void QEyesPlugin::settingsChanged() {
             w->setTransparent(true);
             vectorEyes = true;
 
-            _settings->setValue(QLatin1String("eye_type"),
-                                QLatin1String("<internal>"));
+            _settings->setValue(QStringLiteral("eye_type"),
+                                internalEye);
             std::cerr << "ERROR: crash during load image\n" ;
         }
     }
 
-    w->setNumEyes(_settings->value(QLatin1String("num_eyes"),
+    w->setNumEyes(_settings->value(QStringLiteral("num_eyes"),
                             QLatin1String("2")).toInt());
     realign();
 }
@@ -142,3 +142,5 @@ void QEyesPlugin::settingsChanged() {
 QDialog * QEyesPlugin::configureDialog() {
     return new QEyesConfigDialog(settings(), this);
 }
+
+const QString QEyesPlugin::internalEye = QStringLiteral("<internal>");

@@ -45,12 +45,14 @@ public:
     virtual Flags flags() const override { return HaveConfigDialog ; }
     virtual QDialog * configureDialog() override;
     virtual void settingsChanged() override;
+    static const QString internalEye;
 
 private:
     QWidget *w0;
     QVBoxLayout *l;
     QAbstractEyesWidget *w;
     bool vectorEyes = true;
+
 };
 
 class QEyesPluginLibrary: public QObject, public ILXQtPanelPluginLibrary

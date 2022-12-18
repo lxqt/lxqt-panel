@@ -20,11 +20,15 @@
  */
  
 #include <iostream>
+#include <map>
+#include <string>
+
 
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QComboBox>
 #include <QtCore/QMap>
+
 
 #include "../panel/pluginsettings.h"
 #include "../panel/ilxqtpanelplugin.h"
@@ -46,6 +50,8 @@ private:
     
     int old_num_eyes;
     QString old_type_eyes;
+
+    void showEvent(QShowEvent *) override;
 
 public slots:
     void updateValues(int);
