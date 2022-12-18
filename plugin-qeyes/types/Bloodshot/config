@@ -1,0 +1,4 @@
+wall-thickness = 5
+num-eyes = 2
+eye-pixmap = "Bloodshot-eye.png"
+pupil-pixmap = "Bloodshot-pupil.png"

@@ -1,0 +1,4 @@
+wall-thickness = 4
+num-eyes = 2
+eye-pixmap = "tango-eye.png"
+pupil-pixmap = "tango-pupil.png"

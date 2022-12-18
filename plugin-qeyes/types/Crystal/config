@@ -1,0 +1,4 @@
+wall-thickness = 3
+num-eyes = 2
+eye-pixmap = "crystal-eye.svg"
+pupil-pixmap = "crystal-pupil.svg"

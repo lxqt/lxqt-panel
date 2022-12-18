@@ -1,0 +1,4 @@
+wall-thickness=2
+num-eyes = 4
+eye-pixmap = "Digital-eye.png"
+pupil-pixmap = "Digital-pupil.png"
