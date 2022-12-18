@@ -34,6 +34,8 @@
 #include "../panel/ilxqtpanelplugin.h"
 
 class QEyesConfigDialog : public QDialog {
+private:
+    Q_OBJECT
 public:
     QEyesConfigDialog(PluginSettings *_settings,
         ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
