@@ -83,14 +83,13 @@ void QEyesConfigDialog::showEvent(QShowEvent *) {
     buildList();
     bool found = false;
     for (const auto &key : types.keys()) {
-        if (old_type_eyes == key) {
+        if (old_type_eyes == types[key]) {
             found = true;
             break;
         }
     }
     if (!found)
         old_type_eyes = QEyesPlugin::internalEye;
-
 
     typesWidget->blockSignals(true);
     numEyesWidget->blockSignals(true);
@@ -124,7 +123,7 @@ void QEyesConfigDialog::updateValues(int) {
         numEyesWidget->value());
 
     if (typesWidget->currentIndex() == 0 ||
-        types.count(typesWidget->currentText()) == 0) {
+        !types.contains(typesWidget->currentText())) {
             _settings->setValue(QStringLiteral("eye_type"), QEyesPlugin::internalEye);
     } else {
             _settings->setValue(QStringLiteral("eye_type"),
