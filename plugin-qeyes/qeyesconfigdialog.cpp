@@ -142,13 +142,7 @@ void QEyesConfigDialog::updateAndClose() {
 
 void QEyesConfigDialog::buildList() {
     types.clear();
-    for (const char *root : { "/usr/share/gnome-applets/geyes",
-                              "/usr/local/share/gnome-applets/geyes",
-                              "/usr/share/lxqt/applets/qeyes",
-                              "/usr/local/share/lxqt/applets/qeyes",
-                              "/usr/share/mate-applets/geyes",
-                              "/usr/local/share/mate-applets/geyes",
-                              LXQT_SHARE_DIR "/panel/qeyes-types/",
+    for (const char *root : { LXQT_SHARE_DIR "/panel/qeyes-types/",
                               "$HOMEDATA"
                               }) {
 
