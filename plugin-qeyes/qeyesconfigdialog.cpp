@@ -101,6 +101,8 @@ void QEyesConfigDialog::showEvent(QShowEvent *) {
 
     resetValue();
 
+    adjustSize();
+
     typesWidget->blockSignals(false);
     numEyesWidget->blockSignals(false);
 }
