@@ -1,0 +1,4 @@
+wall-thickness = 6
+num-eyes = 2
+eye-pixmap = "Default-eye.png"
+pupil-pixmap = "Default-pupil.png"

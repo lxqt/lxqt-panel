@@ -1,0 +1,4 @@
+wall-thickness=2
+num-eyes = 3
+eye-pixmap = "Bizarre-eye.png"
+pupil-pixmap = "Bizarre-pupil.png"

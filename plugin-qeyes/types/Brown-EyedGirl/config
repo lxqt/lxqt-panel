@@ -1,0 +1,4 @@
+wall-thickness = 10
+num-eyes = 2
+eye-pixmap = "brown-eye.png"
+pupil-pixmap = "brown-pupil.png"
