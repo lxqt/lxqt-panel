@@ -146,9 +146,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     //Qt documentation or at https://doc.qt.io/qt-5/qt.html
     //Qt::FramelessWindowHint = Produces a borderless window. The user cannot
     //move or resize a borderless window via the window system. On X11, ...
-    //Qt::WindowStaysOnTopHint = Informs the window system that the window
-    //should stay on top of all other windows. Note that on ...
-    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint;
+    Qt::WindowFlags flags = Qt::FramelessWindowHint;
 
     // NOTE: by PCMan:
     // In Qt 4, the window is not activated if it has Qt::WA_X11NetWmWindowTypeDock.
