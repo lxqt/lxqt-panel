@@ -90,17 +90,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikoner (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Velg etikett</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>Etikett:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>

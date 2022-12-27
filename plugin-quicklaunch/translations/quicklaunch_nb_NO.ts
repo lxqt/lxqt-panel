@@ -46,7 +46,7 @@ symboler her</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjenoppfrisk</translation>
     </message>
 </context>
 </TS>

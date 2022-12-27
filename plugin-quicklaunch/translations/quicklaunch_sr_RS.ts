@@ -17,7 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="331"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Испусти апликацију
+иконе овде</translation>
     </message>
 </context>
 <context>
@@ -25,7 +26,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + DND)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
@@ -45,7 +46,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Освежи</translation>
     </message>
 </context>
 </TS>
