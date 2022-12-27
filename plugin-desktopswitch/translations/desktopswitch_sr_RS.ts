@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="87"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Пребаци на десктоп %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="148"/>
         <location filename="../desktopswitch.cpp" line="159"/>
         <source>Desktop %1</source>
-        <translation>Површ %1</translation>
+        <translation>Десктоп %1</translation>
     </message>
 </context>
 <context>
@@ -20,57 +20,57 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation type="unfinished"></translation>
+        <translation>DesktopSwitch поставке</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Број редова:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Десктоп ознаке:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Изглед</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Бројеви</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Имена</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ниједан</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако је означено, виџет ће бити само индикатор</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи само активни десктоп</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>Имена десктопова</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">Површ %1:</translation>
+        <translation>Десктоп %1:</translation>
     </message>
 </context>
 </TS>
