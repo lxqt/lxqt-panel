@@ -1,3 +1,9 @@
+lxqt-panel-1.2.1 / 2023-01-02
+==============================
+ * Fixed a regression in volume popup.
+ * Added Qeyes plugin.
+ * Avoid covering fullscreen windows.
+
 lxqt-panel-1.2.0 / 2022-11-05
 ==============================
  * Added context items to Quick Launch for reloading desktop entries.
