@@ -46,7 +46,7 @@ kuvake tähän</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivitä kuvakkeet</translation>
     </message>
 </context>
 </TS>
