@@ -31,6 +31,7 @@
 
 #include <XdgIcon>
 
+#include <QTimer>
 #include <QSlider>
 #include <QStyleOptionButton>
 #include <QPushButton>
@@ -47,7 +48,8 @@ VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     m_pos(0,0),
     m_anchor(Qt::TopLeftCorner),
-    m_device(nullptr)
+    m_device(nullptr),
+    mWheelTimer(new QTimer(this))
 {
     // Under some Wayland compositors, setting window flags in the c-tor of the base class
     // may not be enough for a correct positioning of the popup.
@@ -84,6 +86,15 @@ VolumePopup::VolumePopup(QWidget* parent):
     connect(m_mixerButton,      &QPushButton::released, this, &VolumePopup::launchMixer);
     connect(m_volumeSlider,     &QSlider::valueChanged, this, &VolumePopup::handleSliderValueChanged);
     connect(m_muteToggleButton, &QPushButton::clicked,  this, &VolumePopup::handleMuteToggleClicked);
+
+    mWheelTimer->setSingleShot(true);
+    mWheelTimer->setInterval(350); // "QStyle::SH_ToolTip_WakeUpDelay" is 700 by default
+    connect(mWheelTimer, &QTimer::timeout, this, [this] {
+        QTimer::singleShot(0, this, [this] {
+            if (!QToolTip::isVisible())
+                QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip());
+        });
+    });
 }
 
 bool VolumePopup::event(QEvent *event)
@@ -127,7 +138,10 @@ void VolumePopup::handleSliderValueChanged(int value)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
-    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip()); });
+    QTimer::singleShot(0, this, [this] {
+        if (!mWheelTimer->isActive()) // a wheel event immediately hides the tooltip
+            QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip());
+    });
 }
 
 void VolumePopup::handleMuteToggleClicked()
@@ -197,8 +211,21 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event)
 {
-    m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
-            + (event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_volumeSlider->singleStep()));
+    static int _delta = 0; // for high-resolution mice and touchpad scrolling
+
+    int delta = event->angleDelta().y();
+    if ((_delta ^ delta) < 0)
+        _delta = delta; // the wheel direction is reversed
+    else
+        _delta += delta;
+    if (qAbs(_delta) >= QWheelEvent::DefaultDeltasPerStep) {
+        m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
+                + (_delta / QWheelEvent::DefaultDeltasPerStep * m_volumeSlider->singleStep()));
+        _delta = 0;
+    }
+
+    // show the tooltip only after the wheel rotation is stopped
+    mWheelTimer->start();
 }
 
 void VolumePopup::setDevice(AudioDevice *device)

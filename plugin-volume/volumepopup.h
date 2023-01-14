@@ -30,6 +30,7 @@
 
 #include <QDialog>
 
+class QTimer;
 class QSlider;
 class QPushButton;
 class AudioDevice;
@@ -81,6 +82,7 @@ private:
     QPoint m_pos;
     Qt::Corner m_anchor;
     AudioDevice *m_device;
+    QTimer *mWheelTimer; // for showing tooltip with high-resolution mice
 };
 
 #endif // VOLUMEPOPUP_H
