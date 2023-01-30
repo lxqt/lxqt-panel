@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Recercar&#x202f;:</translation>
+        <translation>Recercar :</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="98"/>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar lo tablèu de bòrd</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplaçament</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estil</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar l’emplaçament</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Talha&#x202f;:</translation>
+        <translation>Talha :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largor&#x202f;:</translation>
+        <translation>Largor :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -98,12 +98,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Talha de l’icòna&#x202f;:</translation>
+        <translation>Talha de l’icòna :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Linhas :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
