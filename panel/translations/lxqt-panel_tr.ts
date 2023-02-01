@@ -411,14 +411,14 @@ Gereç biçimine (palet) göre simgeleri renklendir</translation>
         <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Paneli Sil</translation>
+        <translation>Paneli Kaldır</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Bir paneli silme eylemi geri alınamaz.
-Paneli silmek istiyor musunuz?</translation>
+        <translation>Paneli kaldırma eylemi geri alınamaz.
+Paneli kaldırmak istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -436,7 +436,7 @@ Paneli silmek istiyor musunuz?</translation>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>&quot;%1&quot;&apos;i sil</translation>
+        <translation>&quot;%1&quot; kaldır</translation>
     </message>
 </context>
 <context>
