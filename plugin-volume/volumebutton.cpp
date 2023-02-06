@@ -42,7 +42,6 @@
 VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
-        m_panel(plugin->panel()),
         m_muteOnMiddleClick(true)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
