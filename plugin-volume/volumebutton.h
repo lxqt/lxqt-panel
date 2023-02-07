@@ -32,8 +32,6 @@
 #include <QTimer>
 
 class VolumePopup;
-class ILXQtPanel;
-class LXQtVolume;
 class ILXQtPanelPlugin;
 
 class VolumeButton : public QToolButton
@@ -66,7 +64,6 @@ private slots:
 private:
     VolumePopup *m_volumePopup;
     ILXQtPanelPlugin *mPlugin;
-    ILXQtPanel *m_panel;
     QTimer m_popupHideTimer;
     bool m_muteOnMiddleClick;
     QString m_mixerCommand;
