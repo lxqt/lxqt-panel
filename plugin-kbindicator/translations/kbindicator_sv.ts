@@ -90,12 +90,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Flaggsökvägsmönster:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Filsökvägsmönster för landsflaggor. Måste innehålla &lt;strong&gt;%1&lt;/strong&gt; som ersätts av ISO-landskoden på två bokstäver (små bokstäver).&lt;br&gt;&lt;br&gt;Exempel: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
