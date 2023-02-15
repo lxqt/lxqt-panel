@@ -60,7 +60,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
 
     loadSettings();
     ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));
-    /* We use clicked() and activated(int) because these signals aren't emitting after programmaticaly
+    /* We use clicked() and activated(int) because these signals aren't emitting after programmatically
         change of state */
     connect(ui->limitByDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByDesktopCB, &QCheckBox::stateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);

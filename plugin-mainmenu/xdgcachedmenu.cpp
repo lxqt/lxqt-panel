@@ -128,7 +128,7 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
       menu->addAction(action);
 
       if(type == MENU_CACHE_TYPE_APP)
-        connect(action, &QAction::triggered, this, &XdgCachedMenu::onItemTrigerred);
+        connect(action, &QAction::triggered, this, &XdgCachedMenu::onItemTriggered);
       else if(type == MENU_CACHE_TYPE_DIR)
       {
         XdgCachedMenu* submenu = new XdgCachedMenu(menu);
@@ -141,7 +141,7 @@ void XdgCachedMenu::addMenuItems(QMenu* menu, MenuCacheDir* dir)
       g_slist_free(list);
 }
 
-void XdgCachedMenu::onItemTrigerred()
+void XdgCachedMenu::onItemTriggered()
 {
     XdgCachedMenuAction* action = static_cast<XdgCachedMenuAction*>(sender());
     XdgDesktopFile df;

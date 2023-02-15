@@ -43,7 +43,7 @@ public:
     QString widgetObjectName() const;
     QString widgetText() const;
     QString widgetClassName() const;
-    QStringList widgetClassHierarcy() const;
+    QStringList widgetClassHierarchy() const;
     QWidget *widget() const { return mWidget; }
 
 private slots:

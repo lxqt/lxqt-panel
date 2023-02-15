@@ -150,7 +150,7 @@ void DesktopSwitch::refresh()
         button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
-    //create new buttons (if neccessary)
+    //create new buttons (if necessary)
     QAbstractButton *b;
     for ( ; i < m_desktopCount; ++i)
     {
@@ -163,7 +163,7 @@ void DesktopSwitch::refresh()
         b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
-    //delete unneeded buttons (if neccessary)
+    //delete unneeded buttons (if necessary)
     for ( ; i < current_cnt; ++i)
     {
         b = m_buttons->buttons().constLast();

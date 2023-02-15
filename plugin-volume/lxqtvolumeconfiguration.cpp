@@ -47,7 +47,7 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,                             this, &LXQtVolumeConfiguration::mixerLineEditChanged);
     connect(ui->stepSpinBox,                       QOverload<int>::of(&QSpinBox::valueChanged),         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);
     connect(ui->ignoreMaxVolumeCheckBox,           &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged);
-    connect(ui->allwaysShowNotificationsCheckBox,  &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged);
+    connect(ui->alwaysShowNotificationsCheckBox,  &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::alwaysShowNotificationsCheckBoxChanged);
     connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
 
     if (ossAvailable)
@@ -140,10 +140,10 @@ void LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged(bool state)
         settings().setValue(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), state);
 }
 
-void LXQtVolumeConfiguration::allwaysShowNotificationsCheckBoxChanged(bool state)
+void LXQtVolumeConfiguration::alwaysShowNotificationsCheckBoxChanged(bool state)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), state);
+        settings().setValue(QStringLiteral(SETTINGS_ALWAYS_SHOW_NOTIFICATIONS), state);
     // since always showing notifications is the sufficient condition for showing them with keyboard,
     // self-consistency requires setting the latter to true whenever the former is toggled by the user
     ui->showKeyboardNotificationsCheckBox->setEnabled(!state);
@@ -181,9 +181,9 @@ void LXQtVolumeConfiguration::loadSettings()
     ui->mixerLineEdit->setText(settings().value(QStringLiteral(SETTINGS_MIXER_COMMAND), QStringLiteral(SETTINGS_DEFAULT_MIXER_COMMAND)).toString());
     ui->stepSpinBox->setValue(settings().value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());
     ui->ignoreMaxVolumeCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
-    ui->allwaysShowNotificationsCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool());
+    ui->alwaysShowNotificationsCheckBox->setChecked(settings().value(QStringLiteral(SETTINGS_ALWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALWAYS_SHOW_NOTIFICATIONS).toBool());
     // always showing notifications is the sufficient condition for showing them with keyboard
-    if (ui->allwaysShowNotificationsCheckBox->isChecked())
+    if (ui->alwaysShowNotificationsCheckBox->isChecked())
     {
         ui->showKeyboardNotificationsCheckBox->setChecked(true);
         ui->showKeyboardNotificationsCheckBox->setEnabled(false);

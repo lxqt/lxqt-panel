@@ -42,24 +42,24 @@ bool ImageStretcher::load(QString fn) {
             return false;
         svg = false;
     }
-    strechedImage = QPixmap();
+    stretchedImage = QPixmap();
     return true;
 }
     
 QPixmap & ImageStretcher::ImageStretcher::getImage(int w, int h) {
-    if (w == strechedImage.width() && h == strechedImage.height())
-        return strechedImage;
+    if (w == stretchedImage.width() && h == stretchedImage.height())
+        return stretchedImage;
     if (svg) {
-        strechedImage = QPixmap(w, h);
-        strechedImage.fill(QColor(0,0,0,0));
-        QPainter painter(&strechedImage);
-        svgrender.render(&painter, strechedImage.rect());
+        stretchedImage = QPixmap(w, h);
+        stretchedImage.fill(QColor(0,0,0,0));
+        QPainter painter(&stretchedImage);
+        svgrender.render(&painter, stretchedImage.rect());
     } else {
-        strechedImage = origImage.scaled(w, h,
+        stretchedImage = origImage.scaled(w, h,
             Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     }
 
-    return strechedImage;
+    return stretchedImage;
 }
 
 int ImageStretcher::origWidth() {
@@ -76,11 +76,11 @@ int ImageStretcher::origHeight() {
         return origImage.height();
 }
 
-int ImageStretcher::strechedWidth() {
-    return strechedImage.width();
+int ImageStretcher::stretchedWidth() {
+    return stretchedImage.width();
 }
-int ImageStretcher::strechedHeight() {
-    return strechedImage.height();
+int ImageStretcher::stretchedHeight() {
+    return stretchedImage.height();
 }
 
 void QEyesImageWidget::drawEye(QPainter &painter, int x, int y, int dx, int dy) {
@@ -89,15 +89,15 @@ void QEyesImageWidget::drawEye(QPainter &painter, int x, int y, int dx, int dy) 
 void QEyesImageWidget::drawPupil(QPainter &painter, int x, int y) {
 
     auto & img = pupil.getImage( 
-            pupil.origWidth() * background.strechedWidth() / background.origWidth(),
-            pupil.origHeight() * background.strechedHeight() / background.origHeight());
+            pupil.origWidth() * background.stretchedWidth() / background.origWidth(),
+            pupil.origHeight() * background.stretchedHeight() / background.origHeight());
 
     painter.drawPixmap(x - img.width() / 2, y - img.height() / 2, img);
 }
 
 void QEyesImageWidget::eyeBorder(float &bx, float &by) {
-    bx = borderXStreched;
-    by = borderYStreched;
+    bx = borderXStretched;
+    by = borderYStretched;
 }
 
 bool QEyesImageWidget::load(const QString &eye, const QString &pupil_,
@@ -120,8 +120,8 @@ void QEyesImageWidget::paintEvent(QPaintEvent *event) {
         const auto dx = width() / numEyes;
         background.getImage(dx, height());
         
-        borderYStreched = borderY * background.strechedHeight() / background.origHeight();
-        borderXStreched = borderX * background.strechedWidth() / background.origWidth();
+        borderYStretched = borderY * background.stretchedHeight() / background.origHeight();
+        borderXStretched = borderX * background.stretchedWidth() / background.origWidth();
             
         oldWidth = width();
         oldHeight = height();

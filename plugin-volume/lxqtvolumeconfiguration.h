@@ -39,7 +39,7 @@
 #define SETTINGS_STEP                   "volumeAdjustStep"
 #define SETTINGS_IGNORE_MAX_VOLUME      "ignoreMaxVolume"
 #define SETTINGS_AUDIO_ENGINE           "audioEngine"
-#define SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS "allwaysShowNotifications"
+#define SETTINGS_ALWAYS_SHOW_NOTIFICATIONS "alwaysShowNotifications"
 #define SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS "showKeyboardNotifications"
 
 #define SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK    true
@@ -57,7 +57,7 @@
 #endif
 #define SETTINGS_DEFAULT_IGNORE_MAX_VOLUME      false
 #define SETTINGS_DEFAULT_IGNORE_MAX_VOLUME      false
-#define SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS false
+#define SETTINGS_DEFAULT_ALWAYS_SHOW_NOTIFICATIONS false
 #define SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS true
 
 class AudioDevice;
@@ -82,7 +82,7 @@ public slots:
     void mixerLineEditChanged(const QString &command);
     void stepSpinBoxChanged(int step);
     void ignoreMaxVolumeCheckBoxChanged(bool state);
-    void allwaysShowNotificationsCheckBoxChanged(bool state);
+    void alwaysShowNotificationsCheckBoxChanged(bool state);
     void showKeyboardNotificationsCheckBoxChanged(bool state);
 
 protected slots:

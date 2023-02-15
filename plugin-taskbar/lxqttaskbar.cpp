@@ -184,7 +184,7 @@ void LXQtTaskBar::buttonMove(LXQtTaskGroup * dst, LXQtTaskGroup * src, QPoint co
 
     const int size = mLayout->count();
     Q_ASSERT(0 < size);
-    //dst is nullptr in case the drop occured on empty space in taskbar
+    //dst is nullptr in case the drop occurred on empty space in taskbar
     int dst_index;
     if (nullptr == dst)
     {

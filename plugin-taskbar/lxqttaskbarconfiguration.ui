@@ -164,7 +164,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="WLApperanceGB">
+    <widget class="QGroupBox" name="WLAppearanceGB">
      <property name="title">
       <string>Appearance</string>
      </property>

@@ -30,7 +30,7 @@
 #include <QSysInfo>
 #include <QtEndian>
 
-// mostly copied from KStatusNotiferItemDbus.cpps from knotification
+// mostly copied from KStatusNotifierItemDbus.cpp from knotification
 
 KDbusImageStruct::KDbusImageStruct()
 {

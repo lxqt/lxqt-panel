@@ -148,7 +148,7 @@ LXQtTaskButton * LXQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
     int inc = next ? 1 : -1;
     idx += inc;
 
-    // if there is no cheked button, get the first one if next equals true
+    // if there is no checked button, get the first one if next equals true
     // or the last one if not
     if (!button)
     {

@@ -43,7 +43,7 @@ class PluginSettingsPrivate;
 /*!
  * \brief
  * Settings for particular plugin. This object/class can be used similarly as \sa QSettings.
- * Object cannot be constructed direcly (it is the panel's responsibility to construct it for each plugin).
+ * Object cannot be constructed directly (it is the panel's responsibility to construct it for each plugin).
  *
  *
  * \note

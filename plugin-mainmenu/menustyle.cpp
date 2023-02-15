@@ -58,7 +58,7 @@ int MenuStyle::styleHint(StyleHint hint, const QStyleOption * option, const QWid
 {
     // By default, the popup menu will be closed when Alt key
     // is pressed. If SH_MenuBar_AltKeyNavigation style hint returns
-    // false, this behavior can be supressed so let's do it.
+    // false, this behavior can be suppressed so let's do it.
     if(hint == QStyle::SH_MenuBar_AltKeyNavigation)
         return 0;
     return QProxyStyle::styleHint(hint, option, widget, returnData);

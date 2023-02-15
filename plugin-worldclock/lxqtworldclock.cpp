@@ -325,7 +325,7 @@ void LXQtWorldClock::settingsChanged()
         int update_interval;
         QString format = mFormat;
         format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
-        //don't support updating on milisecond basis -> big performance hit
+        //don't support updating on millisecond basis -> big performance hit
         if (format.contains(QLatin1String("s")))
             update_interval = 1000;
         else if (format.contains(QLatin1String("m")))
