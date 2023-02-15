@@ -39,7 +39,7 @@
 // Paulo: I'm not sure what this is for
 static bool hasRemovableParent(Solid::Device device)
 {
-    // qDebug() << "acess:" << device.udi();
+    // qDebug() << "access:" << device.udi();
     for ( ; !device.udi().isEmpty(); device = device.parent())
     {
         Solid::StorageDrive* drive = device.as<Solid::StorageDrive>();

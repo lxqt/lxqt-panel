@@ -110,7 +110,7 @@ private:
     LXQtGroupPopup * mPopup;
     LXQtTaskButtonHash mButtonHash;
     bool mPreventPopup;
-    bool mSingleButton; //!< flag if this group should act as a "standard" button (no groupping or only one "shown" window in group)
+    bool mSingleButton; //!< flag if this group should act as a "standard" button (no grouping or only one "shown" window in group)
 
     QSize recalculateFrameSize();
     QPoint recalculateFramePosition();

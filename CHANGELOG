@@ -134,7 +134,7 @@ lxqt-panel-0.14.0 / 2019-01-25
     - plugin-mainmenu: Also include exec name in filtering without menu-cache
     - plugin-mount: Store device names to show them upon remove
     - plugin-panel: Optional overriding of icon theme for panels
-    - plugin-panel: Allow plugin's "static" configration change
+    - plugin-panel: Allow plugin's "static" configuration change
     - plugin-spacer: Change type of mExpandable
     - plugin-spacer: Use QStringLiteral whenever possible
     - plugin-spacer: Add "override" to declarations
@@ -145,7 +145,7 @@ lxqt-panel-0.14.0 / 2019-01-25
     - plugin-tray: Use XCOMPOSITE_LDFLAGS instead of XCOMPOSITE_LIBRARIES
     - Set cmake_minimum_required to 3.1.0
     - Use lxqt-build-tools and -compilersettings
-    - Removed locale compile definitons
+    - Removed locale compile definitions
   * Moved translations from lxqt-l10n back to lxqt-panel
     - Removed obsolete translation fuctionality
     - Removed now obsolete and harmful panel/translations/.gitignore
@@ -159,7 +159,7 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Remove spurious newline
   * Spanish translation update
   * mainmenu: Use new signal/slot connection notation
-  * lxqtmainmenuconfiguration.cpp: include QAction explicitely
+  * lxqtmainmenuconfiguration.cpp: include QAction explicitly
   * CMake: Prevent in-source builds
   * Fix task button removal on class change
   * plugin-kbindicator: Go directly to the Keyboard Layout config page
@@ -176,13 +176,13 @@ lxqt-panel-0.13.0 / 2018-05-21
   * Drop missed foreach
   * Prevent possible container detachments
   * Drop Qt foreach
-  * avoid infinite recursion when no icon avaible.
+  * avoid infinite recursion when no icon available.
   * pavucontrol should be pavucontrol-qt
   * cpuload: Do proper cleanup
   * cmake: Handle CMP0071
-  * taskbar: Avoid conditionals on unintialized values
+  * taskbar: Avoid conditionals on uninitialized values
   * mount: Fix leak
-  * mainmenu: Fix posible leaks in menu-cache usage
+  * mainmenu: Fix possible leaks in menu-cache usage
   * move panel config to /usr/share/lxqt
   * lxqtpanel: Fix wrongly positioned popups
   * ixlqtpanel: Fix typo Gometry -> Geometry
@@ -226,7 +226,7 @@ lxqt-panel-0.12.0 / 2017-10-21
   * Fixes a FTBFS in superbuild mode
   * Added merged autostart and menu to CMakeLists.txt
   * Updated *_da.desktop files and removed *_da_DK.desktop files
-  * translation: Add Portugese directories
+  * translation: Add Portuguese directories
   * Update desktop entries and Replace fr_FR by fr
   * Merge pull request #45 from lxde/menu-comment
   * lxqt-applications.menu: remove accidentally added topics from "System Tools"
@@ -290,7 +290,7 @@ lxqt-panel-0.11.1 / 2017-01-01
   * plugin-tray: Use the FindXCB CMake module
   * Use the new lxqt-build-tools CMake modules (FindMenuCache)
   * plugin-desktopswitch: Add LABEL_TYPE_NONE
-  * Add/Update Portugese translations
+  * Add/Update Portuguese translations
   * taskbar: Add "cycle on wheel" configuration
   * taskbar: Forward wheelEvent
   * Add/Update french desktop entries
@@ -440,10 +440,10 @@ lxqt-panel-0.11.0 / 2016-09-24
   * Prevent panel hiding in case any (standalone) window shown
   * plugins: Unify window popup-ing
   * directorymenu: Fix indentation (spaces)
-  * panel: Use override for overriden virt func
+  * panel: Use override for overridden virt func
   * hu translations fixed
   * plugin-sysstat: translations fix
-  * desktop-switch: Hightlight only windows in taskbar
+  * desktop-switch: Highlight only windows in taskbar
   * fix misspelled prefered
 
 lxqt-panel-0.10.0 / 2015-10-31
@@ -452,7 +452,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * Fix license file
   * panel: Fix reserved space on screen
   * mainmenu: Fix close menu by "weird" shortcut
-  * volume: Handle add/removal of pulse sink correcly
+  * volume: Handle add/removal of pulse sink correctly
   * Workaround to the QStringLiteral static finalization bug
   * plugin-mount: Fix SEGFAULT in finalization time
   * mainmenu: Fix global shortcut configuration
@@ -479,7 +479,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * Optimization on plugin name generation, as suggested by palinek.
   * Fix #839 - lxqt-panel plugins enumeration
   * Revert "plugin-statusnotifier: fix FTBFS with dbusmenu-qt"
-  * panel: remeber configured screen
+  * panel: remember configured screen
   * plugin-statusnotifier: fix FTBFS with dbusmenu-qt
   * plugin-statusnotifier: better callable checking for static_assert
   * plugin-statusnotifier: polish of SniAsync::propertyGetAsync usage
@@ -498,7 +498,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * plugin-mainmenu: set icon size according to font size
   * plugin-mainmenu: removed unused QProxyStyle object
   * plugin-statusnotifier: fix popup position on
-  * Redesigned settings dialog, switching policy setted as global by default
+  * Redesigned settings dialog, switching policy set as global by default
   * Update Russian translation
   * Removed unneeded entries from include_directories()
   * Use CMAKE_AUTORCC. Drop qt5_add_resources().
@@ -527,7 +527,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * Update hungarian translation
   * Remove faulty lithaunian
   * Update slovenian
-  * Delte incomplete arabian translations
+  * Delete incomplete arabian translations
   * Update romanian translations for the desktopswitch plugin
   * Update romanian translations for the cpuload plugin
   * Update romanian desktop file for the cpuload plugin
@@ -559,7 +559,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * Replace LXDE-Qt with LXQt in desktop file
   * Fix naming and links
   * Delete faulty indonesian translation
-  * Rename greek and french translation file to be country independant
+  * Rename greek and french translation file to be country independent
   * Delete duplicate russian translation
   * Delete duplicate hungary translation
   * Delete duplicate danks files
@@ -581,7 +581,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * plugins: flag to limit plugins to single instances
   * plugin-volume: handle maximum volume proportionally
   * plugin-clock: calculate min widget size
-  * panel: retest conditions for autohide regulary after Leave event
+  * panel: retest conditions for autohide regularly after Leave event
   * Updated / unified german translation for taskbar plugin.
   * Added german translation for sysstat plugin.
   * Added german translation for statusnotifier.
@@ -605,7 +605,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * plugin-clock: adjust size only when needed
   * plugin-taskbar: show only particular desktop windows
   * panel: only for supported objects the iconSize qproperty styling is applied
-  * plugin-sensors: (re)added warning timer fequency initialization
+  * plugin-sensors: (re)added warning timer frequency initialization
   * plugin-tray/statusnotifier: icon in .desktop file
   * plugin-desktopswitch: Check if the button exists dereferencing it.
   * plugin-volume: more obvious popup buttons
@@ -652,7 +652,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * plugin-taskbar: reverting commit b0a1f3d007c2369fdf624f406aa36b883c72fd5f
   * panel: fix volume's type in the default config
   * panel: save settings after plugin move from config dialog
-  * panel: plugins correct positiong
+  * panel: plugins correct positioning
   * panelconfig: corrected usage of Plugin in button states logic
   * CMakeLists: re-enable default building state for plugins
   * panel: PanelPluginsModel signals handled directly by layout
@@ -674,7 +674,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * Fix FTBFS with Qt 5.3 and memory leak
   * plugin-mount: typo for updating the status
   * plugin-mount: large refactoring and simplification
-  * plugin-mount: improoved state changes handling
+  * plugin-mount: improved state changes handling
   * plugin-taskbar: integrated "current screen only" commit into current master - grouping
   * Added show windows from current screen only
   * panel: layout elements centering fix
@@ -708,7 +708,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * panel: make config dialog top-level window
   * plugin-clock: removed unneeded adjusting size of widget to it's content
   * plugin-worldclock: removed unneeded adjusting size of widget to it's content
-  * panel: show panel after lauch if hidable
+  * panel: show panel after launch if hidable
   * plugin-taskbar: optimized calculation of popup position
   * panel: widgets manageable from "add plugin dialog"
   * Updates translations sources
@@ -787,7 +787,7 @@ lxqt-panel-0.10.0 / 2015-10-31
   * plugin-spacer: suitable icon?!
   * new spacer plugin/widget
   * plugin-cpuload: configurable bar width
-  * plugin-cpuload: indentation corrected to follow rquired coding style
+  * plugin-cpuload: indentation corrected to follow required coding style
   * Add some debug code to benchmark the loading time of each plugin during panel startup.
   * Make some frequently used plugins "statically-linked" to speed up loading. * The static plugins are: clock, desktopswitch, mainmenu, quicklaunch, showdesktop, taskbar, tray, and worldclock.
   * Add missing libxcb linkage to showdesktop and tray plugins since they still uses xcb.
@@ -811,7 +811,7 @@ lxqt-panel-0.9.0 / 2015-02-05
   * Add #TRANSLATIONS_DIR to colorpicker.desktop.
   * Fix dom.desktop.in (LXDE-Qt to LXQt)
   * Update all translations
-  * Make sure widgets in settings dialog have corrent enabled state when settings are loaded
+  * Make sure widgets in settings dialog have correct enabled state when settings are loaded
   * Remove a translation message that gotten mixed accidentally
   * Update spanish translation
   * worldclock: Fix Ui date settings load inconsistency
@@ -1076,7 +1076,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * panel: set panel position when screen resizes (used eg. in virtualization)
   * Fix typos
   * Fix Issue #564 for the mainmenu plugin     #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"
-  * Rename Maximum button width to Preferr button width in the taskbar
+  * Rename Maximum button width to Prefer button width in the taskbar
   * Fix Issue #564 for the mainmenu plugin     #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"
   * Fix Issue #564 for non separate plugins        #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"
   * Fix Issue #564 for the colorpicker        #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"
@@ -1085,7 +1085,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Fix Issues for the tray        #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"
   * Fix for Issues    #564 "new panel: cfg "Line size" can be set to 10px but the value is not accepted"    #563 "new panel: vertical mode makes panel too lerge (width)"
   * optimized panel calculations for icons only mode
-  * fix for tasbar's icon only view - autoreduce size expanding
+  * fix for taskbar's icon only view - autoreduce size expanding
   * Don't use separate Layout for Placeholder in the QuickLaunch.
   * Use separate Layout for Placeholder in the QuickLaunch.
   * Show placeholder if QuickLaunch is empty.
@@ -1127,7 +1127,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Typo fixed
   * Mainmenu: Use xfitman to force focus when menu raised via shortcut
   * The Tray plugin was ported
-  * Fix plugins list was saved incorectly
+  * Fix plugins list was saved incorrectly
   * Trivial fix for "sysstat/cpustat.hpp not found"
   * Style follows the Coding Standard
   * Main menu focus fixed if activated by hotkey
@@ -1135,7 +1135,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * RazorSysStat: fix build on ARM
   * Update layout when plugin shows.
   * Improved razorpanellayout and new razorgridlayout.
-  * Fix for devision by zerro exception.
+  * Fix for division by zero exception.
   * Layout for TaskBar
   * Create a rows on panel only if it's necessary (exists some plugin on this row).
   * New panel layout and many changes
@@ -1148,7 +1148,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Panel WorldClock plugin: Smarter timer interval handling
   * plugin-clock: Don't try to get the firstDayofWeek from saved settings
   * fixed #484 Ugly mount plugin appearance without any mountpoints present
-  * Panel Worldclock plugin: proper version dependancy (issue #500)
+  * Panel Worldclock plugin: proper version dependency (issue #500)
   * Fix various build falures
   * Debug included back
   * Panel: Duplicated line removed
@@ -1203,7 +1203,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Re-enable kbindicator plugin
   * More natural logarithmic scale
   * Control over logarithmic scale added
-  * Dependancy on internal library fixed
+  * Dependency on internal library fixed
   * SysStat library and plugin
   * Separator between the screens in the select panel position combobox
   * Razor-panel: New plugin API
@@ -1300,7 +1300,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * panel-volume: Add guard when context is not ready
   * panel-volume: Improve internal context state tracking
   * panel-volume: Finally fix the default behavior to show popup
-  * panel-volume: Fix creating intances in a different thread
+  * panel-volume: Fix creating instances in a different thread
   * panel-volume: No need to set the layout explicitly
   * panel-volume: Fix margin on popup layout
   * panel-volume: Click to show the volume popup is now the default
@@ -1347,7 +1347,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * panel-volume: Add guard when context is not ready
   * panel-volume: Improve internal context state tracking
   * panel-volume: Finally fix the default behavior to show popup
-  * panel-volume: Fix creating intances in a different thread
+  * panel-volume: Fix creating instances in a different thread
   * panel-volume: No need to set the layout explicitly
   * panel-volume: Fix margin on popup layout
   * panel-volume: Click to show the volume popup is now the default
@@ -1424,7 +1424,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Typos in code. Thanks Aaron Lewis.   *  In razor-runner , providers item:  title() was typed as tile()   *  For RazorSettings class , settingsChanged() was typed as settigsChanged()
   * Network monitor: don't needlessly set the tooltip
   * install fix for panel's network monitor
-  * Improve size of cpu monitor on change of pannel orientation.
+  * Improve size of cpu monitor on change of panel orientation.
   * Fixed error on network interface down.
   * Nemo is renamed to NetworkMonitor
   * Fixed init settings of panel-plugin network monitor.
@@ -1443,7 +1443,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * warning if there is no libstatgrab found
   * Hide main menu when it's visible. Thanks Aaron Lewis.
   * Closes #224: Application menu button don't show full text/icon when text is selected
-  * Config coresponds XDG directory specification
+  * Config corresponds XDG directory specification
   * Transifex desktop: sr_BA.ts should be a local
   * Transifex desktop: local translations
   * Transifex desktop: cmake files
@@ -1494,7 +1494,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * Relicense panel
   * The panel is not correctly positioned in the dual-monitor configurations.
   * cmake fix
-  * razormount rewriten (lgpl2+)
+  * razormount rewritten (lgpl2+)
   * Fix gmail.ru -> gmail.com
   * Hello World plugin for panel
   * original and our code compared - it seems 99% rewritem so it's relicensed to lgpl2+
@@ -1605,7 +1605,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * icons logic for removable media
   * initial revision of "removable media" support. Still lots to do but it's functional
   * Potential fix2 for issue #18: Panel clock plugin changes your size
-  * XDG-files are splitted into qtxdg library.
+  * XDG-files are split into qtxdg library.
   * new panel plugin: "show desktop"
   * Polish translation
   * Panel plugins can use translation now
@@ -1699,7 +1699,7 @@ lxqt-panel-0.6.99 / 2014-04-29
   * minor layouting changes
   * patch from alex to load relative qss url
   * fixed clock behavior for sizing. Using sizeHint now.
-  * panel plugins share API layout; don't freeze trying to load non-existing theme; experimantal value placeholders in QSS
+  * panel plugins share API layout; don't freeze trying to load non-existing theme; experimental value placeholders in QSS
   * initial refactoring for common plugin handling. Work in progress. Done:  * all plugins are using the same base class  * all plugins can handle dynamic resizing (eg. systray can be smaller after embed app close, taskbar occupies all available space...)  * all is fully scriptable with QSS  - some layout glitches have to be fixed
   * initial API for plugins. No other changes in functionality yet
   * Made RazorHal mounting/unmounting work and added a new function to Xfitman for checking if a window wants attention _NET_WM_WINDOW_DEMANDS_ATTENTION - tried to get the buttons at the taskmanager to glow when this is true but it didnt work..

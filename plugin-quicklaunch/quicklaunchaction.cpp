@@ -91,7 +91,7 @@ QuickLaunchAction::QuickLaunchAction(const XdgDesktopFile * xdg,
         QAction * act = new QAction{xdg->actionIcon(action), xdg->actionName(action), this};
         act->setData(action);
         connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
-        m_addtitionalActions.push_back(act);
+        m_additionalActions.push_back(act);
     }
 }
 
@@ -167,14 +167,14 @@ void QuickLaunchAction::updateXdgAction()
             setText(title);
             setIcon(xdg.icon(XdgIcon::defaultApplicationIcon()));
 
-            qDeleteAll (m_addtitionalActions);
-            m_addtitionalActions.clear();
+            qDeleteAll (m_additionalActions);
+            m_additionalActions.clear();
             for (auto const & action : const_cast<const QStringList &&>(xdg.actions()))
             {
                 QAction * act = new QAction{xdg.actionIcon(action), xdg.actionName(action), this};
                 act->setData(action);
                 connect(act, &QAction::triggered, this, [this, act] { execAction(act->data().toString()); });
-                m_addtitionalActions.push_back(act);
+                m_additionalActions.push_back(act);
             }
         }
         else

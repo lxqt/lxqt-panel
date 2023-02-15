@@ -1556,7 +1556,7 @@ void LXQtPanel::updateConfigDialog() const
     }
 }
 
-bool LXQtPanel::isPluginSingletonAndRunnig(QString const & pluginId) const
+bool LXQtPanel::isPluginSingletonAndRunning(QString const & pluginId) const
 {
     Plugin const * plugin = mPlugins->pluginByID(pluginId);
     if (nullptr == plugin)

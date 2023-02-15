@@ -72,7 +72,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="allwaysShowNotificationsCheckBox">
+       <widget class="QCheckBox" name="alwaysShowNotificationsCheckBox">
         <property name="text">
          <string>Always notify about volume changes</string>
         </property>

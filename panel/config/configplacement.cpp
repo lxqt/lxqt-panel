@@ -95,7 +95,7 @@ ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
     connect(ui->spinBox_lineCount,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
 
     connect(ui->spinBox_length,             QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
-    connect(ui->comboBox_lenghtType,        QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::widthTypeChanged);
+    connect(ui->comboBox_lengthType,        QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::widthTypeChanged);
 
     connect(ui->comboBox_alignment,         QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::editChanged);
     connect(ui->comboBox_position,          QOverload<int>::of(&QComboBox::activated),        this, &ConfigPlacement::positionChanged);
@@ -133,7 +133,7 @@ void ConfigPlacement::reset()
     fillComboBox_alignment();
     ui->comboBox_alignment->setCurrentIndex(mOldAlignment + 1);
 
-    ui->comboBox_lenghtType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
+    ui->comboBox_lengthType->setCurrentIndex(mOldLengthInPercents ? 0 : 1);
     widthTypeChanged();
     ui->spinBox_length->setValue(mOldLength);
 
@@ -242,7 +242,7 @@ void ConfigPlacement::editChanged()
     mPanel->setLineCount(ui->spinBox_lineCount->value(), true);
 
     mPanel->setLength(ui->spinBox_length->value(),
-                      ui->comboBox_lenghtType->currentIndex() == 0,
+                      ui->comboBox_lengthType->currentIndex() == 0,
                       true);
 
     LXQtPanel::Alignment align = LXQtPanel::Alignment(
@@ -267,7 +267,7 @@ void ConfigPlacement::widthTypeChanged()
 {
     int max = getMaxLength();
 
-    if (ui->comboBox_lenghtType->currentIndex() == 0)
+    if (ui->comboBox_lengthType->currentIndex() == 0)
     {
         // Percents .............................
         int v = ui->spinBox_length->value() * 100.0 / max;
@@ -320,7 +320,7 @@ void ConfigPlacement::positionChanged()
         mScreenNum = sp.screen;
         int newMax = getMaxLength();
 
-        if (ui->comboBox_lenghtType->currentIndex() == 1 &&
+        if (ui->comboBox_lengthType->currentIndex() == 1 &&
             oldMax != newMax)
         {
             // Pixels ...............................

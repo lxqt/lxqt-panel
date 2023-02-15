@@ -162,8 +162,8 @@ void LXQtSysStatConfiguration::saveSettings()
     settings().setValue(QStringLiteral("title/label"), ui->titleLE->text());
 
     //Note:
-    // need to make a realy deep copy of the msStatTypes[x] because of SEGFAULTs
-    // occuring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
+    // need to make a really deep copy of the msStatTypes[x] because of SEGFAULTs
+    // occurring in static finalization time (don't know the real reason...maybe ordering of static finalizers/destructors)
     QString type = QString::fromUtf8(ui->typeCOB->itemData(ui->typeCOB->currentIndex(), Qt::UserRole).toString().toStdString().c_str());
     settings().setValue(QStringLiteral("data/type"), type);
     settings().setValue(QStringLiteral("data/source"), ui->sourceCOB->itemData(ui->sourceCOB->currentIndex(), Qt::UserRole));

@@ -28,14 +28,14 @@
 class ImageStretcher {
     bool svg;
     QSvgRenderer svgrender;
-    QPixmap origImage, strechedImage;
+    QPixmap origImage, stretchedImage;
 public:
     bool load(QString fn);
     QPixmap &getImage(int w, int h);
     int origWidth();
     int origHeight();
-    int strechedWidth();
-    int strechedHeight();
+    int stretchedWidth();
+    int stretchedHeight();
 };
 
 class QEyesImageWidget : public QAbstractEyesWidget {
@@ -48,8 +48,8 @@ private:
     ImageStretcher pupil, background;
 
     int oldWidth = -1, oldHeight = -1;
-    float borderY = 0, borderXStreched = 0;
-    float borderX = 0, borderYStreched = 0;
+    float borderY = 0, borderXStretched = 0;
+    float borderX = 0, borderYStretched = 0;
 
 public:
     //QEyesImageWidget(const QString &path = QString(), QWidget *parent = nullptr);

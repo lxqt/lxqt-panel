@@ -87,7 +87,7 @@ public:
      * \return true if the Plugin is running and has the
      * ILXQtPanelPlugin::SingleInstance flag set, false otherwise.
      */
-    bool isPluginSingletonAndRunnig(QString const & pluginId) const;
+    bool isPluginSingletonAndRunning(QString const & pluginId) const;
 
 public slots:
     /*!

@@ -33,10 +33,10 @@
 #include <QTableWidget>
 #include <QMetaProperty>
 
-#define PROP_OBJECT_NAME    0
-#define PROP_CLASS_NAME     1
-#define PROP_TEXT           2
-#define PROP_CLASS_HIERARCY 3
+#define PROP_OBJECT_NAME     0
+#define PROP_CLASS_NAME      1
+#define PROP_TEXT            2
+#define PROP_CLASS_HIERARCHY 3
 
 
 TreeWindow::TreeWindow(QWidget *parent) :
@@ -102,9 +102,9 @@ void TreeWindow::initPropertiesView()
     ui->propertiesView->setItem(PROP_TEXT, 0, item);
     ui->propertiesView->setItem(PROP_TEXT, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem(QStringLiteral("Class hierarcy"));
-    ui->propertiesView->setItem(PROP_CLASS_HIERARCY, 0, item);
-    ui->propertiesView->setItem(PROP_CLASS_HIERARCY, 1, new QTableWidgetItem());
+    item = new  QTableWidgetItem(QStringLiteral("Class hierarchy"));
+    ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 0, item);
+    ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 1, new QTableWidgetItem());
 
 
 }
@@ -130,7 +130,7 @@ void TreeWindow::updatePropertiesView()
     ui->propertiesView->item(PROP_OBJECT_NAME, 1)->setText(treeItem->widgetObjectName());
     ui->propertiesView->item(PROP_CLASS_NAME, 1)->setText(treeItem->widgetClassName());
     ui->propertiesView->item(PROP_TEXT, 1)->setText(treeItem->widgetText());
-    ui->propertiesView->item(PROP_CLASS_HIERARCY, 1)->setText(treeItem->widgetClassHierarcy().join(QStringLiteral(" :: ")));
+    ui->propertiesView->item(PROP_CLASS_HIERARCHY, 1)->setText(treeItem->widgetClassHierarcy().join(QStringLiteral(" :: ")));
 
     QString s;
     QDebug out(&s);

@@ -70,7 +70,7 @@ private:
     QToolButton mButton;
     QMenu *mMenu;
     QSignalMapper *mOpenDirectorySignalMapper;
-    QSignalMapper *mOpenTerminalSignalMapper; // New singal mapper to opening direcotry in term
+    QSignalMapper *mOpenTerminalSignalMapper; // New signal mapper to opening directory in term
     QSignalMapper *mMenuSignalMapper;
 
     QDir mBaseDirectory;

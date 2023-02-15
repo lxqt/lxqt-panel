@@ -54,7 +54,7 @@ LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
         m_engine(nullptr),
         m_defaultSinkIndex(0),
         m_defaultSink(nullptr),
-        m_allwaysShowNotifications(SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS),
+        m_alwaysShowNotifications(SETTINGS_DEFAULT_ALWAYS_SHOW_NOTIFICATIONS),
         m_showKeyboardNotifications(SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS)
 {
     m_volumeButton = new VolumeButton(this);
@@ -200,10 +200,10 @@ void LXQtVolume::settingsChanged()
     m_volumeButton->setMuteOnMiddleClick(settings()->value(QStringLiteral(SETTINGS_MUTE_ON_MIDDLECLICK), SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK).toBool());
     m_volumeButton->setMixerCommand(settings()->value(QStringLiteral(SETTINGS_MIXER_COMMAND), QStringLiteral(SETTINGS_DEFAULT_MIXER_COMMAND)).toString());
     m_volumeButton->volumePopup()->setSliderStep(settings()->value(QStringLiteral(SETTINGS_STEP), SETTINGS_DEFAULT_STEP).toInt());
-    m_allwaysShowNotifications = settings()->value(QStringLiteral(SETTINGS_ALLWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALLWAYS_SHOW_NOTIFICATIONS).toBool();
+    m_alwaysShowNotifications = settings()->value(QStringLiteral(SETTINGS_ALWAYS_SHOW_NOTIFICATIONS), SETTINGS_DEFAULT_ALWAYS_SHOW_NOTIFICATIONS).toBool();
     m_showKeyboardNotifications = settings()->value(QStringLiteral(SETTINGS_SHOW_KEYBOARD_NOTIFICATIONS), SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS).toBool()
                                   // in case the config file was edited manually (see LXQtVolumeConfiguration)
-                                  || m_allwaysShowNotifications;
+                                  || m_alwaysShowNotifications;
 
     if (!new_engine)
         handleSinkListChanged();
@@ -283,7 +283,7 @@ QDialog *LXQtVolume::configureDialog()
 void LXQtVolume::showNotification(bool forceShow) const
 {
     if ((forceShow && m_showKeyboardNotifications)  // force only if volume change should be notified with keyboard
-        || m_allwaysShowNotifications)
+        || m_alwaysShowNotifications)
     {
         if (Q_LIKELY(m_defaultSink))
         {

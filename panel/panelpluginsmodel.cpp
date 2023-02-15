@@ -129,7 +129,7 @@ Plugin const * PanelPluginsModel::pluginByID(QString id) const
 
 void PanelPluginsModel::addPlugin(const LXQt::PluginInfo &desktopFile)
 {
-    if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(desktopFile.id()))
+    if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunning(desktopFile.id()))
         return;
 
     QString name = findNewPluginSettingsGroup(desktopFile.id());

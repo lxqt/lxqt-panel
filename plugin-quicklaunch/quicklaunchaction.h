@@ -71,10 +71,10 @@ public:
     QHash<QString, QString> settingsMap() { return m_settingsMap; }
 
     /*! Returns list of additional actions to present for user (in menu).
-     * Currently there are only "Addtitional application actions" for the ActionXdg type
+     * Currently there are only "Addititional application actions" for the ActionXdg type
      * (the [Desktop Action %s] in .desktop files)
      */
-    QList<QAction *> addtitionalActions() const { return m_addtitionalActions; }
+    QList<QAction *> additionalActions() const { return m_additionalActions; }
 
     /*! Updates the Xdg action by reloading its desktop file.
      * Does nothing if the desktop file is not loadable or suitable.
@@ -89,7 +89,7 @@ private:
     QString m_data;
     bool m_valid;
     QHash<QString, QString> m_settingsMap;
-    QList<QAction *> m_addtitionalActions;
+    QList<QAction *> m_additionalActions;
 };
 
 #endif

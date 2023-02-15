@@ -107,7 +107,7 @@ void AddPluginDialog::filter()
 
         QListWidgetItem* item = new QListWidgetItem(ui->pluginList);
         // disable single-instances plugins already in use
-        if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunnig(plugin.id()))
+        if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunning(plugin.id()))
         {
             item->setFlags(item->flags() & ~Qt::ItemIsEnabled);
             item->setBackground(palette().brush(QPalette::Disabled, QPalette::Text));

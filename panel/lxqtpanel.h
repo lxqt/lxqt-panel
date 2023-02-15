@@ -236,7 +236,7 @@ public:
      * \return true if the Plugin is running and has the
      * ILXQtPanelPlugin::SingleInstance flag set, false otherwise.
      */
-    bool isPluginSingletonAndRunnig(QString const & pluginId) const;
+    bool isPluginSingletonAndRunning(QString const & pluginId) const;
     /*!
      * \brief Updates the config dialog. Used for updating its icons
      * when the panel-specific icon theme changes.
@@ -315,7 +315,7 @@ public slots:
 
     /**
      * @brief Saves the current configuration, i.e. writes the current
-     * configuration varibles to mSettings.
+     * configuration variables to mSettings.
      * @param later Determines if the settings are written immediately or
      * after a short delay. If later==true, the QTimer mDelaySave is started.
      * As soon as this timer times out, saveSettings(false) will be called. If
@@ -437,7 +437,7 @@ private slots:
     /**
      * @brief Removes this panel's entries from the config file and emits
      * the deletedByUser signal.
-     * The "Remove Panel" button in the panel's contex menu will
+     * The "Remove Panel" button in the panel's context menu will
      * be connected to this slot, so this method will be called whenever
      * the user clicks "Remove Panel".
      */
@@ -653,7 +653,7 @@ private:
      */
     int mAnimationTime;
     /**
-     * @brief The timer used for showing an auto-hiding panel wih delay.
+     * @brief The timer used for showing an auto-hiding panel with delay.
      *
      * \sa showPanel()
      */

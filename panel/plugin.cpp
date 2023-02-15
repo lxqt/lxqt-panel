@@ -150,7 +150,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
 
     QString s = mSettings->value(QStringLiteral("alignment")).toString();
 
-    // Retrun default value
+    // Return default value
     if (s.isEmpty())
     {
         mAlignment = (mPlugin->flags().testFlag(ILXQtPanelPlugin::PreferRightAlignment)) ?
