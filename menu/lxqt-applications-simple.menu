@@ -137,6 +137,17 @@
 		</Include>
 	</Menu> <!-- End Office -->
 
+	<!-- Science & Math -->
+	<Menu>
+		<Name>Science &amp; Math</Name>
+		<Directory>lxde-science-math.directory</Directory>
+		<Include>
+			<And>
+				<Category>Science</Category>
+			</And>
+		</Include>
+	</Menu> <!-- End Science & Math -->
+
 	<!-- System Tools-->
 	<Menu>
 		<Name>System</Name>
