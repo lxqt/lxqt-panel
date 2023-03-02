@@ -4,7 +4,7 @@
 <Menu>
 
 	<Name>Applications</Name>
-	<Directory>lxde-menu-applications.directory</Directory>
+	<Directory>lxqt-menu-applications.directory</Directory>
 
 	<!-- Read standard .directory and .desktop file locations -->
 	<DefaultAppDirs/>
@@ -16,7 +16,7 @@
 	<!-- Accessories submenu -->
 	<Menu>
 		<Name>Accessories</Name>
-		<Directory>lxde-utility.directory</Directory>
+		<Directory>lxqt-utility.directory</Directory>
 		<Include>
 			<And>
 				<Category>Utility</Category>
@@ -33,7 +33,7 @@
 	<!-- Accessibility submenu -->
 	<Menu>
 		<Name>Universal Access</Name>
-		<Directory>lxde-utility-accessibility.directory</Directory>
+		<Directory>lxqt-utility-accessibility.directory</Directory>
 		<Include>
 			<And>
 				<Category>Accessibility</Category>
@@ -45,7 +45,7 @@
 	<!-- Development Tools -->
 	<Menu>
 		<Name>Development</Name>
-		<Directory>lxde-development.directory</Directory>
+		<Directory>lxqt-development.directory</Directory>
 		<Include>
 			<And>
 				<Category>Development</Category>
@@ -57,7 +57,7 @@
 	<!-- Education -->
 	<Menu>
 		<Name>Education</Name>
-		<Directory>lxde-education.directory</Directory>
+		<Directory>lxqt-education.directory</Directory>
 		<Include>
 			<And>
 				<Category>Education</Category>
@@ -68,7 +68,7 @@
 	<!-- Games -->
 	<Menu>
 		<Name>Games</Name>
-		<Directory>lxde-game.directory</Directory>
+		<Directory>lxqt-game.directory</Directory>
 		<Include>
 			<And>
 				<Category>Game</Category>
@@ -79,7 +79,7 @@
 	<!-- Graphics -->
 	<Menu>
 		<Name>Graphics</Name>
-		<Directory>lxde-graphics.directory</Directory>
+		<Directory>lxqt-graphics.directory</Directory>
 		<Include>
 			<And>
 				<Category>Graphics</Category>
@@ -91,7 +91,7 @@
 	<!-- Internet -->
 	<Menu>
 		<Name>Internet</Name>
-		<Directory>lxde-network.directory</Directory>
+		<Directory>lxqt-network.directory</Directory>
 		<Include>
 			<And>
 				<Category>Network</Category>
@@ -110,7 +110,7 @@
 	<!-- Multimedia -->
 	<Menu>
 		<Name>Multimedia</Name>
-		<Directory>lxde-audio-video.directory</Directory>
+		<Directory>lxqt-audio-video.directory</Directory>
 		<Include>
 			<And>
 				<Category>AudioVideo</Category>
@@ -121,7 +121,7 @@
 	<!-- Office -->
 	<Menu>
 		<Name>Office</Name>
-		<Directory>lxde-office.directory</Directory>
+		<Directory>lxqt-office.directory</Directory>
 		<Include>
 			<And>
 				<Category>Office</Category>
@@ -132,7 +132,7 @@
 	<!-- System Tools-->
 	<Menu>
 		<Name>System</Name>
-		<Directory>lxde-system-tools.directory</Directory>
+		<Directory>lxqt-system-tools.directory</Directory>
 		<Include>
 			<And>
 				<Category>System</Category>
@@ -148,7 +148,7 @@
 	<!-- Other -->
 	<Menu>
 		<Name>Other</Name>
-		<Directory>lxde-other.directory</Directory>
+		<Directory>lxqt-other.directory</Directory>
 		<OnlyUnallocated/>
 		<Include>
 			<And>
@@ -159,29 +159,7 @@
 		</Include>
 		</Menu> <!-- End Other -->
 
-	<!-- Settings -->
-	<Menu>
-		<Name>DesktopSettings</Name>
-		<Directory>lxde-settings.directory</Directory>
-		
-		<OnlyUnallocated/>
-		<Include>
-			<Or>
-				<Category>Settings</Category>
-				<Category>PackageManager</Category>
-			</Or>
-		</Include>
-		<Exclude>
-			<Or>
-				<Filename>lxqt-config.desktop</Filename>
-			</Or>
-		</Exclude>
-		<Layout>
-			<Merge type="menus"/>
-			<Merge type="files"/>
-		</Layout>
-	</Menu> <!-- End Settings -->
-	
+	<!-- All settings -->
 	<Menu>
 			<Name>LXQtSettings</Name>
 			<Directory>lxqt-settings.directory</Directory>
@@ -203,6 +181,30 @@
 				<Merge type="files"/>
 			</Layout>
 		</Menu>
+	<!-- Other Settings -->
+	<Menu>
+		<Name>DesktopSettings</Name>
+		<Directory>lxqt-settings-other.directory</Directory>
+
+		<OnlyUnallocated/>
+		<Include>
+			<Or>
+				<Category>Settings</Category>
+				<Category>PackageManager</Category>
+			</Or>
+		</Include>
+		<Exclude>
+			<Or>
+				<Filename>lxqt-config.desktop</Filename>
+			</Or>
+		</Exclude>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu> <!-- End other Settings -->
+
+
 
 	<!-- Leave -->
 	<Menu>
@@ -234,8 +236,8 @@
 		<Merge type="files"/>
 		<Merge type="menus"/>
 		<Separator/>
-		<Menuname>DesktopSettings</Menuname>
 		<Menuname>LXQtSettings</Menuname>
+		<Menuname>DesktopSettings</Menuname>
 		<Separator/>
 		<Menuname show_empty="false" inline="true">X-Leave</Menuname>
 		<Menuname show_empty="false" inline="true">Screensaver</Menuname>
