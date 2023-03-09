@@ -132,7 +132,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
         <source>Select Icon File</source>
-        <translation type="unfinished">アイコンのファイルを選択</translation>
+        <translation>アイコンファイルの選択</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="139"/>
