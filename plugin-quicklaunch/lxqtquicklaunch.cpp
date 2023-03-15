@@ -160,9 +160,12 @@ void LXQtQuickLaunch::addButton(QuickLaunchAction* action)
     connect(btn, &QuickLaunchButton::movedLeft,     this, &LXQtQuickLaunch::buttonMoveLeft);
     connect(btn, &QuickLaunchButton::movedRight,    this, &LXQtQuickLaunch::buttonMoveRight);
 
-    mLayout->removeWidget(mPlaceHolder);
-    delete mPlaceHolder;
-    mPlaceHolder = nullptr;
+    if (mPlaceHolder)
+    {
+        mLayout->removeWidget(mPlaceHolder);
+        delete mPlaceHolder;
+        mPlaceHolder = nullptr;
+    }
     mLayout->setEnabled(true);
     realign();
 }
