@@ -130,7 +130,7 @@ void TreeWindow::updatePropertiesView()
     ui->propertiesView->item(PROP_OBJECT_NAME, 1)->setText(treeItem->widgetObjectName());
     ui->propertiesView->item(PROP_CLASS_NAME, 1)->setText(treeItem->widgetClassName());
     ui->propertiesView->item(PROP_TEXT, 1)->setText(treeItem->widgetText());
-    ui->propertiesView->item(PROP_CLASS_HIERARCHY, 1)->setText(treeItem->widgetClassHierarcy().join(QStringLiteral(" :: ")));
+    ui->propertiesView->item(PROP_CLASS_HIERARCHY, 1)->setText(treeItem->widgetClassHierarchy().join(QStringLiteral(" :: ")));
 
     QString s;
     QDebug out(&s);
