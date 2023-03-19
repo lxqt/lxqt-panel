@@ -184,7 +184,7 @@
 	<!-- Other Settings -->
 	<Menu>
 		<Name>DesktopSettings</Name>
-		<Directory>lxqt-settings-other.directory</Directory>
+		<Directory>lxqt-preferences.directory</Directory>
 
 		<OnlyUnallocated/>
 		<Include>
