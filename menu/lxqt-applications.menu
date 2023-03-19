@@ -162,7 +162,7 @@
 	<!-- Settings -->
 	<Menu>
 		<Name>DesktopSettings</Name>
-		<Directory>lxqt-settings.directory</Directory>
+		<Directory>lxqt-preferences.directory</Directory>
 		<Menu>
 			<Name>LXQtSettings</Name>
 			<Directory>lxqt-settings.directory</Directory>
