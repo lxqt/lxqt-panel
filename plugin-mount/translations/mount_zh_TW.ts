@@ -81,7 +81,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">可卸除式裝置管理員</translation>
+        <translation>可卸除式裝置管理員</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
