@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>تعیین سطح</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>طراحی ظاهر</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>پیکربندی مکان</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;مقدار منفی برای پیکسل، طول پانل را به تعداد پیکسل‌هایی کمتر از فضای موجود روی صفحه تنظیم می‌کند.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;به عنوان مثال اگر &quot;طول&quot; -100px تنظیم شده باشد، وقتی که اندازه صفحه نمایش 1000 پیکسل باشد، درآنصورت طول پانل واقعی 900 پیکسل خواهد بود.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -82,18 +82,18 @@
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>٪</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished"></translation>
+        <translation>پیکسل</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
@@ -108,12 +108,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>هم ترازی &amp;&amp; موقعیت</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>هم ترازی:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>پنهان کردن&amp;خودکار</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -180,12 +180,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>فقط در صورت همپوشانی یک پنجره پنهان شود</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>اجازه ندهید پنجره‌های حداکثری شده زیر پنجره پانل بروند</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
@@ -295,12 +295,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>پیکربندی یک حالت دهنده</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
         <source>Custom styling</source>
-        <translation type="unfinished"></translation>
+        <translation>حالت دهنده سفارشی</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;small&gt;ترکیب برای شفافیت پانل مورد نیاز است.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
@@ -337,12 +337,19 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>یک راه حل جزئی برای سبک های ویجت که
+نمی توان موضوع جداگانه ای به پنل داد.
+
+همچنین ممکن است بخواهید غیرفعال کنید:
+
+پیکربندی ظاهر LXQt →
+تم نمادها →
+رنگ آمیزی نمادها بر اساس سبک ویجت (پالت)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>لغو نماد و طرح زمینه</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
