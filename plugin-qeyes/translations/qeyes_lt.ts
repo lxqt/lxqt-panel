@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<TS version="2.1" language="lt">
 <context>
     <name>QEyesConfigDialog</name>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="44"/>
         <source>Appearance</source>
-        <translation>Apparence</translation>
+        <translation>Išvaizda</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="50"/>
         <source>Number of eyes</source>
-        <translation>Nombre d&apos;yeux</translation>
+        <translation>Akių skaičius</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="56"/>
         <source>Type</source>
-        <translation>Type</translation>
+        <translation>Tipas</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="60"/>
         <source>Close</source>
-        <translation>Fermer</translation>
+        <translation>Užverti</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="65"/>
         <source>Reset</source>
-        <translation>Réinitialiser</translation>
+        <translation>Atstatyti</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="69"/>
         <source>QEyes setting</source>
-        <translation>Réglage de QEyes</translation>
+        <translation>QEyes nustatymas</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="98"/>
         <source>QEyes default</source>
-        <translation>QEyes par défaut</translation>
+        <translation>QEyes numatytoji reikšmė</translation>
     </message>
 </context>
 </TS>
