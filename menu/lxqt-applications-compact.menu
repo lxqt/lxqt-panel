@@ -229,13 +229,13 @@
 	</Menu> <!-- End Screensaver -->
 
 	<Layout>
-		<Menuname show_empty="false" inline="true">LXQt-About</Menuname>
-		<Separator/>
 		<Merge type="files"/>
 		<Merge type="menus"/>
 		<Separator/>
 		<Menuname>DesktopSettings</Menuname>
 		<Menuname>LXQtSettings</Menuname>
+		<Separator/>
+		<Menuname show_empty="false" inline="true">LXQt-About</Menuname>
 		<Separator/>
 		<Menuname show_empty="false" inline="true">X-Leave</Menuname>
 		<Menuname show_empty="false" inline="true">Screensaver</Menuname>
