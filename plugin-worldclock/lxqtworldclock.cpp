@@ -83,7 +83,7 @@ LXQtWorldClock::~LXQtWorldClock()
 
 void LXQtWorldClock::timeout()
 {
-    if (QDateTime{}.time().msec() > 500)
+    if (QTime::currentTime().msec() > 500)
         restartTimer();
     updateTimeText();
 }
