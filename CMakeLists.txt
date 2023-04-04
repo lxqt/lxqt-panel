@@ -109,7 +109,7 @@ if(DIRECTORYMENU_PLUGIN)
     add_subdirectory(plugin-directorymenu)
 endif()
 
-setByDefault(DOM_PLUGIN No)
+setByDefault(DOM_PLUGIN Yes)
 if(DOM_PLUGIN)
     list(APPEND ENABLED_PLUGINS "DOM")
     add_subdirectory(plugin-dom)
