@@ -102,7 +102,7 @@ void LXQtWorldClock::updateTimeText()
     {
         isUpToDate = false;
         if (mUpdateInterval < 60000)
-            mShownTime = tzNow.addSecs(-tzNow.time().msec()); // s
+            mShownTime = tzNow.addMSecs(-tzNow.time().msec()); // s
         else if (mUpdateInterval < 3600000)
             mShownTime = tzNow.addSecs(-tzNow.time().second()); // m
         else
@@ -116,7 +116,7 @@ void LXQtWorldClock::updateTimeText()
             if (diff < 0 || diff >= 1)
             {
                 isUpToDate = false;
-                mShownTime = tzNow.addSecs(-tzNow.time().msec());
+                mShownTime = tzNow.addMSecs(-tzNow.time().msec());
             }
         }
         else if (mUpdateInterval < 3600000)
