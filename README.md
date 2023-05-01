@@ -33,7 +33,7 @@ As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio
 
 ### Compiling source code
 
-The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, lxmenu-data, [liblxqt](https://github.com/lxqt/liblxqt) and [lxqt-globalkeys](https://github.com/lxqt/lxqt-globalkeys).
+The runtime dependencies are libxcomposite, libdbusmenu-qt5, KGuiAddons, KWindowSystem, Solid, menu-cache, [lxqt-menu-data](https://github.com/lxqt/lxqt-menu-data), [liblxqt](https://github.com/lxqt/liblxqt) and [lxqt-globalkeys](https://github.com/lxqt/lxqt-globalkeys).
 Several plugins or features thereof are optional and need additional runtime dependencies. Namely these are (plugin / feature in parenthesis) Alsa library (Alsa support in plugin-volume), PulseAudio client library (PulseAudio support in plugin-volume), lm-sensors (plugin-sensors), libstatgrab (plugin-cpuload, plugin-networkmonitor), [libsysstat](https://github.com/lxqt/libsysstat) (plugin-sysstat). All of them are enabled by default and have to be disabled by CMake variables as required, see below.
 In addition CMake and [lxqt-build-tools](https://github.com/lxqt/lxqt-build-tools) are mandatory build dependencies. Git is optionally needed to pull latest VCS checkouts.
 

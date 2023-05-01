@@ -279,4 +279,3 @@ add_subdirectory(panel)
 
 # merged from lxqt-common
 add_subdirectory(autostart)
-add_subdirectory(menu)
