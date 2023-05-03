@@ -46,7 +46,7 @@ ikonu aplikácie</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnoviť</translation>
     </message>
 </context>
 </TS>
