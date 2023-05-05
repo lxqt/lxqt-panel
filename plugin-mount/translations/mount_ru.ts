@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Диспетчер съёмных медиа/устройств</translation>
+        <translation>Диспетчер съёмных носителей/устройств</translation>
     </message>
 </context>
 <context>
