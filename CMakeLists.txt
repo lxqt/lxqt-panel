@@ -42,6 +42,7 @@ find_package(Qt5Xml ${REQUIRED_QT_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-globalkeys-ui ${LXQT_GLOBALKEYS_MINIMUM_VERSION} REQUIRED)
+find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
 
 # Patch Version
 set(LXQT_PANEL_PATCH_VERSION 0)
