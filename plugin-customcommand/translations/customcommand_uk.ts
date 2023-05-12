@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="150"/>
         <source>echo Configure...</source>
-        <translation>echo Конфігурація...</translation>
+        <translation>echo налаштувати...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="153"/>
