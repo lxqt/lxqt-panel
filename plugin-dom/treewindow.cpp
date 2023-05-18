@@ -57,8 +57,6 @@ TreeWindow::TreeWindow(QWidget *parent) :
 
     initPropertiesView();
 
-    QList<QWidget*> widgets = mRootWidget->findChildren<QWidget*>();
-
     ui->tree->setRootIsDecorated(false);
 
     DomTreeItem *item = new DomTreeItem(ui->tree, mRootWidget);
