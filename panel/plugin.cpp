@@ -390,7 +390,7 @@ void Plugin::mousePressEvent(QMouseEvent *event)
         mPlugin->activated(ILXQtPanelPlugin::Trigger);
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         mPlugin->activated(ILXQtPanelPlugin::MiddleClick);
         break;
 

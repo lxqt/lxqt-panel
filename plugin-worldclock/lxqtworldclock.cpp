@@ -608,7 +608,7 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
         emit leftMouseButtonClicked();
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         emit middleMouseButtonClicked();
         break;
 
