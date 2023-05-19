@@ -257,7 +257,7 @@ void LXQtTaskButton::mousePressEvent(QMouseEvent* event)
 
     if (Qt::LeftButton == b)
         mDragStartPosition = event->pos();
-    else if (Qt::MidButton == b && parentTaskBar()->closeOnMiddleClick())
+    else if (Qt::MiddleButton == b && parentTaskBar()->closeOnMiddleClick())
         closeApplication();
 
     QToolButton::mousePressEvent(event);

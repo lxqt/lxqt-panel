@@ -97,7 +97,7 @@ void VolumeButton::wheelEvent(QWheelEvent *event)
 
 void VolumeButton::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::MidButton && m_muteOnMiddleClick) {
+    if (event->button() == Qt::MiddleButton && m_muteOnMiddleClick) {
         if (m_volumePopup->device()) {
             m_volumePopup->device()->toggleMute();
             return;

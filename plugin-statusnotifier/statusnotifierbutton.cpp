@@ -320,7 +320,7 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
         interface->Activate(QCursor::pos().x(), QCursor::pos().y());
-    else if (event->button() == Qt::MidButton)
+    else if (event->button() == Qt::MiddleButton)
         interface->SecondaryActivate(QCursor::pos().x(), QCursor::pos().y());
     else if (Qt::RightButton == event->button())
     {
