@@ -38,7 +38,7 @@
 #include <QStringBuilder>
 #include <QMenu>
 #include <XdgIcon>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <functional>
 
 /************************************************
@@ -57,8 +57,8 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     setText(groupName);
 
     connect(this,                  &LXQtTaskGroup::clicked,               this, &LXQtTaskGroup::onClicked);
-    connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged, this, &LXQtTaskGroup::onDesktopChanged);
-    connect(KWindowSystem::self(), &KWindowSystem::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
+    connect(KX11Extras::self(),    &KX11Extras::currentDesktopChanged,    this, &LXQtTaskGroup::onDesktopChanged);
+    connect(KX11Extras::self(),    &KX11Extras::activeWindowChanged,      this, &LXQtTaskGroup::onActiveWindowChanged);
     connect(parent,                &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
     connect(parent,                &LXQtTaskBar::refreshIconGeometry,     this, &LXQtTaskGroup::refreshIconsGeometry);
     connect(parent,                &LXQtTaskBar::buttonStyleRefreshed,    this, &LXQtTaskGroup::setToolButtonsStyle);
@@ -96,7 +96,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 void LXQtTaskGroup::closeGroup()
 {
     for (LXQtTaskButton *button : qAsConst(mButtonHash) )
-        if (button->isOnDesktop(KWindowSystem::currentDesktop()))
+        if (button->isOnDesktop(KX11Extras::currentDesktop()))
             button->closeApplication();
 }
 
@@ -304,7 +304,7 @@ void LXQtTaskGroup::onClicked(bool)
 {
     if (visibleButtonsCount() > 1)
     {
-        setChecked(mButtonHash.contains(KWindowSystem::activeWindow()));
+        setChecked(mButtonHash.contains(KX11Extras::activeWindow()));
         setPopupVisible(true);
     }
 }
@@ -383,7 +383,7 @@ void LXQtTaskGroup::refreshVisibility()
     const int showDesktop = taskbar->showDesktopNum();
     for(LXQtTaskButton * btn : qAsConst(mButtonHash))
     {
-        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KWindowSystem::currentDesktop() : showDesktop) : true;
+        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KX11Extras::currentDesktop() : showDesktop) : true;
         visible &= taskbar->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
         visible &= taskbar->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);

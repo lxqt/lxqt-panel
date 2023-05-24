@@ -43,7 +43,7 @@
 #include <QMap>
 #include <lxqt-globalkeys.h>
 #include "../panel/ilxqtpanel.h"
-#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/NETWM>
 

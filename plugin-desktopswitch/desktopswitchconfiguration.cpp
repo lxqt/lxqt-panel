@@ -26,7 +26,7 @@
 
 #include "desktopswitchconfiguration.h"
 #include "ui_desktopswitchconfiguration.h"
-#include <KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <QTimer>
 
 DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent) :
@@ -64,17 +64,17 @@ void DesktopSwitchConfiguration::loadSettings()
 
 void DesktopSwitchConfiguration::loadDesktopsNames()
 {
-    int n = KWindowSystem::numberOfDesktops();
+    int n = KX11Extras::numberOfDesktops();
     for (int i = 1; i <= n; i++)
     {
-        QLineEdit *edit = new QLineEdit(KWindowSystem::desktopName(i), this);
+        QLineEdit *edit = new QLineEdit(KX11Extras::desktopName(i), this);
         ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
 
         // C++11 rocks!
         QTimer *timer = new QTimer(this);
         timer->setInterval(400);
         timer->setSingleShot(true);
-        connect(timer, &QTimer::timeout,       this, [=] { KWindowSystem::setDesktopName(i, edit->text()); });
+        connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
         connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
     }
 }

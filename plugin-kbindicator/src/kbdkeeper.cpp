@@ -25,7 +25,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include <QDebug>
-#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <KWindowSystem/KWindowInfo>
 #include <KWindowSystem/netwm_def.h>
 #include "kbdkeeper.h"
@@ -91,7 +91,7 @@ WinKbdKeeper::~WinKbdKeeper() = default;
 
 void WinKbdKeeper::layoutChanged(uint group)
 {
-    WId win = KWindowSystem::activeWindow();
+    WId win = KX11Extras::activeWindow();
 
     if (m_active == win){
         m_mapping[win] = group;
@@ -108,7 +108,7 @@ void WinKbdKeeper::layoutChanged(uint group)
 
 void WinKbdKeeper::checkState()
 {
-    WId win = KWindowSystem::activeWindow();
+    WId win = KX11Extras::activeWindow();
 
     if (!m_mapping.contains(win))
         m_mapping.insert(win, 0);
@@ -120,7 +120,7 @@ void WinKbdKeeper::checkState()
 
 void WinKbdKeeper::switchToGroup(uint group)
 {
-    WId win = KWindowSystem::activeWindow();
+    WId win = KX11Extras::activeWindow();
     m_mapping[win] = group;
     m_layout.lockGroup(group);
     m_info.setCurrentGroup(group);
@@ -138,7 +138,7 @@ AppKbdKeeper::~AppKbdKeeper() = default;
 
 void AppKbdKeeper::layoutChanged(uint group)
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KX11Extras::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     if (m_active == app){
@@ -157,7 +157,7 @@ void AppKbdKeeper::layoutChanged(uint group)
 
 void AppKbdKeeper::checkState()
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KX11Extras::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     if (!m_mapping.contains(app))
@@ -172,7 +172,7 @@ void AppKbdKeeper::checkState()
 
 void AppKbdKeeper::switchToGroup(uint group)
 {
-    KWindowInfo info = KWindowInfo(KWindowSystem::activeWindow(), NET::Properties(), NET::WM2WindowClass);
+    KWindowInfo info = KWindowInfo(KX11Extras::activeWindow(), NET::Properties(), NET::WM2WindowClass);
     QString app = QString::fromUtf8(info.windowClassName());
 
     m_mapping[app] = group;

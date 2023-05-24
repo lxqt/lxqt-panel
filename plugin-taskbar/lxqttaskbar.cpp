@@ -93,10 +93,10 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(mSignalMapper, &QSignalMapper::mappedInt, this, &LXQtTaskBar::activateTask);
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
-    connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged)
+    connect(KX11Extras::self(), static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged)
             , this, &LXQtTaskBar::onWindowChanged);
-    connect(KWindowSystem::self(), &KWindowSystem::windowAdded, this, &LXQtTaskBar::onWindowAdded);
-    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
+    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, &LXQtTaskBar::onWindowAdded);
+    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 }
 
 /************************************************
@@ -356,7 +356,7 @@ void LXQtTaskBar::refreshTaskList()
 {
     QList<WId> new_list;
     // Just add new windows to groups, deleting is up to the groups
-    const auto wnds = KWindowSystem::stackingOrder();
+    const auto wnds = KX11Extras::stackingOrder();
     for (auto const wnd: wnds)
     {
         if (acceptWindow(wnd))

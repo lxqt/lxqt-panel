@@ -33,6 +33,7 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 #include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 #include <QX11Info>
 #include <cmath>
 
@@ -46,7 +47,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
-    m_desktopCount(KWindowSystem::numberOfDesktops()),
+    m_desktopCount(KX11Extras::numberOfDesktops()),
     mRows(-1),
     mShowOnlyActive(false),
     mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout)),
@@ -62,16 +63,16 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     settingsChanged();
 
-    onCurrentDesktopChanged(KWindowSystem::currentDesktop());
+    onCurrentDesktopChanged(KX11Extras::currentDesktop());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
     connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
 
-    connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
-    connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);
-    connect(KWindowSystem::self(), &KWindowSystem::desktopNamesChanged,     this, &DesktopSwitch::onDesktopNamesChanged);
+    connect(KX11Extras::self(), &KX11Extras::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
+    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);
+    connect(KX11Extras::self(), &KX11Extras::desktopNamesChanged,     this, &DesktopSwitch::onDesktopNamesChanged);
 
-    connect(KWindowSystem::self(), static_cast<void (KWindowSystem::*)(WId, NET::Properties, NET::Properties2)>(&KWindowSystem::windowChanged),
+    connect(KX11Extras::self(), static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged),
             this, &DesktopSwitch::onWindowChanged);
 }
 
@@ -136,7 +137,7 @@ void DesktopSwitch::refresh()
     const QList<QAbstractButton*> btns = m_buttons->buttons();
 
     int i = 0;
-    const int current_desktop = KWindowSystem::currentDesktop();
+    const int current_desktop = KX11Extras::currentDesktop();
     const int current_cnt = btns.count();
     const int border = qMin(btns.count(), m_desktopCount);
     //update existing buttons
@@ -144,9 +145,9 @@ void DesktopSwitch::refresh()
     {
         DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
         button->update(i, mLabelType,
-                       KWindowSystem::desktopName(i + 1).isEmpty() ?
+                       KX11Extras::desktopName(i + 1).isEmpty() ?
                        tr("Desktop %1").arg(i + 1) :
-                       KWindowSystem::desktopName(i + 1));
+                       KX11Extras::desktopName(i + 1));
         button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
@@ -155,9 +156,9 @@ void DesktopSwitch::refresh()
     for ( ; i < m_desktopCount; ++i)
     {
         b = new DesktopSwitchButton(&mWidget, i, mLabelType,
-                KWindowSystem::desktopName(i+1).isEmpty() ?
+                KX11Extras::desktopName(i+1).isEmpty() ?
                 tr("Desktop %1").arg(i+1) :
-                KWindowSystem::desktopName(i+1));
+                KX11Extras::desktopName(i+1));
         mWidget.layout()->addWidget(b);
         m_buttons->addButton(b, i);
         b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
@@ -214,7 +215,7 @@ DesktopSwitch::~DesktopSwitch() = default;
 
 void DesktopSwitch::setDesktop(int desktop)
 {
-    KWindowSystem::setCurrentDesktop(desktop + 1);
+    KX11Extras::setCurrentDesktop(desktop + 1);
 }
 
 void DesktopSwitch::onNumberOfDesktopsChanged(int count)
@@ -329,9 +330,9 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     if(abs(m_mouseWheelThresholdCounter) < 100)
         return;
 
-    int max = KWindowSystem::numberOfDesktops();
+    int max = KX11Extras::numberOfDesktops();
     int delta = rotationSteps < 0 ? 1 : -1;
-    int current = KWindowSystem::currentDesktop() + delta;
+    int current = KX11Extras::currentDesktop() + delta;
 
     if (current > max){
         current = 1;
@@ -340,5 +341,5 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
         current = max;
 
     m_mouseWheelThresholdCounter = 0;
-    KWindowSystem::setCurrentDesktop(current);
+    KX11Extras::setCurrentDesktop(current);
 }

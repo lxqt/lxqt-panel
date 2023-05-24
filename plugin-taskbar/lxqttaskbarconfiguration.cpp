@@ -29,7 +29,7 @@
 
 #include "lxqttaskbarconfiguration.h"
 #include "ui_lxqttaskbarconfiguration.h"
-#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 
 LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),
@@ -54,9 +54,9 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
 
     ui->showDesktopNumCB->addItem(tr("Current"), 0);
     //Note: in KWindowSystem desktops are numbered from 1..N
-    const int desk_cnt = KWindowSystem::numberOfDesktops();
+    const int desk_cnt = KX11Extras::numberOfDesktops();
     for (int i = 1; desk_cnt >= i; ++i)
-        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KWindowSystem::desktopName(i)), i);
+        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KX11Extras::desktopName(i)), i);
 
     loadSettings();
     ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));

@@ -31,7 +31,7 @@
 #include "pluginsettings_p.h"
 #include "lxqtpanel.h"
 
-#include <KWindowSystem>
+#include <KWindowSystem/KX11Extras>
 
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -523,8 +523,8 @@ void Plugin::showConfigureDialog()
     mConfigDialog->activateWindow();
 
     WId wid = mConfigDialog->windowHandle()->winId();
-    KWindowSystem::activateWindow(wid);
-    KWindowSystem::setOnDesktop(wid, KWindowSystem::currentDesktop());
+    KX11Extras::activateWindow(wid);
+    KX11Extras::setOnDesktop(wid, KX11Extras::currentDesktop());
 }
 
 
