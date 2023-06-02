@@ -654,18 +654,21 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop.testFlag(NET::WMIcon) || prop2.testFlag(NET::WM2WindowClass))
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateIcon));
 
+        bool urgency = prop2.testFlag(NET::WM2Urgency);
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
             if (info.hasState(NET::SkipTaskbar))
                 onWindowRemoved(window);
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, info.hasState(NET::DemandsAttention)));
+            urgency |= info.hasState(NET::DemandsAttention);
 
             if (parentTaskBar()->isShowOnlyMinimizedTasks())
             {
                 needsRefreshVisibility = true;
             }
         }
+        if (urgency)
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, true));
     }
 
     if (needsRefreshVisibility)
