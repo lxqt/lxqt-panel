@@ -39,6 +39,7 @@
 #include <QMenu>
 #include <XdgIcon>
 #include <KWindowSystem/KX11Extras>
+#include <QX11Info>
 #include <functional>
 
 /************************************************
@@ -654,21 +655,30 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop.testFlag(NET::WMIcon) || prop2.testFlag(NET::WM2WindowClass))
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateIcon));
 
-        bool urgency = prop2.testFlag(NET::WM2Urgency);
+        bool set_urgency = false;
+        bool urgency = false;
+        if (prop2.testFlag(NET::WM2Urgency))
+        {
+            set_urgency = true;
+            urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
+        }
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
+            if (!set_urgency)
+                urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
+            set_urgency = false;
             if (info.hasState(NET::SkipTaskbar))
                 onWindowRemoved(window);
-            urgency |= info.hasState(NET::DemandsAttention);
 
             if (parentTaskBar()->isShowOnlyMinimizedTasks())
             {
                 needsRefreshVisibility = true;
             }
         }
-        if (urgency)
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, true));
+        if (set_urgency)
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency));
     }
 
     if (needsRefreshVisibility)

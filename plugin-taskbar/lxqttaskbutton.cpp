@@ -834,12 +834,6 @@ void LXQtTaskButton::setUrgencyHint(bool set)
     if (mUrgencyHint == set)
         return;
 
-    if (!set) {
-        // TODO: Test using QWindow::alert()
-        NETWinInfo info(QX11Info::connection(), mWindow, QX11Info::appRootWindow(), NET::WMState, NET::Properties2());
-        info.setState(set ? NET::DemandsAttention : NET::States(), NET::DemandsAttention);
-    }
-
     mUrgencyHint = set;
     setProperty("urgent", set);
     style()->unpolish(this);
