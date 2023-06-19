@@ -93,7 +93,7 @@ public slots:
     void shadeApplication();
     void unShadeApplication();
     void closeApplication();
-    void moveApplicationToDesktop();    
+    void moveApplicationToDesktop();
     void moveApplication();
     void resizeApplication();
     void setApplicationLayer();
@@ -139,9 +139,6 @@ private:
 
     // Timer for distinguishing between separate mouse wheel rotations
     QTimer * mWheelTimer;
-
-private slots:
-    void activateWithDraggable();
 
 signals:
     void dropped(QObject * dragSource, QPoint const & pos);

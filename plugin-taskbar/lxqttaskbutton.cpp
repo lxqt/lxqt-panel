@@ -107,7 +107,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
 
     mDNDTimer->setSingleShot(true);
     mDNDTimer->setInterval(700);
-    connect(mDNDTimer, &QTimer::timeout, this, &LXQtTaskButton::activateWithDraggable);
+    connect(mDNDTimer, &QTimer::timeout, this, &LXQtTaskButton::raiseApplication);
 
     mWheelTimer->setSingleShot(true);
     mWheelTimer->setInterval(250);
@@ -413,17 +413,6 @@ bool LXQtTaskButton::isApplicationActive() const
 /************************************************
 
  ************************************************/
-void LXQtTaskButton::activateWithDraggable()
-{
-    // raise app in any time when there is a drag
-    // in progress to allow drop it into an app
-    raiseApplication();
-    KX11Extras::forceActiveWindow(mWindow);
-}
-
-/************************************************
-
- ************************************************/
 void LXQtTaskButton::raiseApplication()
 {
     KWindowInfo info(mWindow, NET::WMDesktop | NET::WMState | NET::XAWMState);
@@ -437,7 +426,8 @@ void LXQtTaskButton::raiseApplication()
         if (KX11Extras::currentDesktop() != winDesktop)
             KX11Extras::setCurrentDesktop(winDesktop);
     }
-    KX11Extras::activateWindow(mWindow);
+    // bypass focus stealing prevention
+    KX11Extras::forceActiveWindow(mWindow);
 
     setUrgencyHint(false);
 }
