@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation>Näkymä</translation>
+        <translation>Ulkoasu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="121"/>
         <source>Browse</source>
-        <translation>Hae</translation>
+        <translation>Selaa</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="131"/>
