@@ -39,78 +39,78 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvake:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimike</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Painiketyyli</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Pääte</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
         <location filename="../directorymenuconfiguration.cpp" line="131"/>
         <source>Choose Default Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse oletuspääte</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="54"/>
         <source>Only icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvake</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="55"/>
         <source>Only text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksti</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvake ja teksti</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
         <source>Choose Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse näytettävä hakemisto</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Choose Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse kuvake</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvakkeet (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse nimike</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimike:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>Directory Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakemistovalikko</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>An error occurred while loading the icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaketta ladattaessa tapahtui virhe.</translation>
     </message>
 </context>
 </TS>

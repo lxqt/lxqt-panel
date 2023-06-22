@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Maailmankellon asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
@@ -36,20 +36,20 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation type="unfinished"></translation>
+        <translation>Lyhyt</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation type="unfinished"></translation>
+        <translation>Pitkä</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Mukautettu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
@@ -80,25 +80,25 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
-        <translation type="unfinished"></translation>
+        <translation>Alhaalla</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
-        <translation type="unfinished"></translation>
+        <translation>Ylhäällä</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="248"/>
         <source>Before</source>
-        <translation type="unfinished"></translation>
+        <translation>Ennen</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="164"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="253"/>
         <source>After</source>
-        <translation type="unfinished"></translation>
+        <translation>Jälkeen</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
@@ -108,19 +108,19 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lyhenne</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation type="unfinished"></translation>
+        <translation>IANA-koodi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Custom name</source>
-        <translation type="unfinished"></translation>
+        <translation>Mukautettu nimi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO 8601</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
         <source>Input custom time zone name</source>
-        <translation type="unfinished"></translation>
+        <translation>Syötä mukautettu nimi aikavyöhykkeelle</translation>
     </message>
 </context>
 <context>
@@ -300,43 +300,43 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation type="unfinished"></translation>
+        <translation>Maailmankellon aikavyöhykkeet</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Aikavyöhyke</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
         <source>Comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommentti</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="51"/>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>Maa</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Muu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
-        <translation type="unfinished"></translation>
+        <translation>Paikallinen aikavyöhyke</translation>
     </message>
 </context>
 </TS>
