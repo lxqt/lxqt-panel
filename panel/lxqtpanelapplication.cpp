@@ -98,10 +98,15 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
     parser.process(*this);
 
+    bool underWayland = QGuiApplication::platformName() == QStringLiteral("wayland");
+
     const QString configFile = parser.value(configFileOption);
 
     if (configFile.isEmpty())
-        d->mSettings = new LXQt::Settings(QLatin1String("panel"), this);
+        if (underWayland)
+            d->mSettings = new LXQt::Settings(QLatin1String("panel-wayland"), this);
+        else
+            d->mSettings = new LXQt::Settings(QLatin1String("panel"), this);
     else
         d->mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 
