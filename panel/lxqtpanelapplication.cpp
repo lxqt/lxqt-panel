@@ -103,10 +103,12 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
     const QString configFile = parser.value(configFileOption);
 
     if (configFile.isEmpty())
+    {
         if (underWayland)
             d->mSettings = new LXQt::Settings(QLatin1String("panel-wayland"), this);
         else
             d->mSettings = new LXQt::Settings(QLatin1String("panel"), this);
+    }
     else
         d->mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
 
