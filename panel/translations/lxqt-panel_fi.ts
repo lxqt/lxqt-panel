@@ -342,7 +342,7 @@ jotka eivät voi antaa erillistä teemaa paneelille.
 
 Saatat myös haluta poistaa käytöstä:
 
-LXQtin ulkoasun hallinta →
+LXQt:n ulkoasun hallinta →
 Kuvaketeema →
 Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
     </message>
