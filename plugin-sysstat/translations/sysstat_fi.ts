@@ -286,77 +286,77 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu9</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu10</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu11</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu12</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu13</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu14</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu15</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu16</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu17</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu18</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu19</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu20</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu21</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu22</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation type="unfinished"></translation>
+        <translation>cpu23</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
@@ -387,19 +387,19 @@
         <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>sovellukset: %1%&lt;br&gt;puskurit: %2%&lt;br&gt;välimuistissa: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="525"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>käytössä: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="555"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>pienin: %1%&lt;br&gt;-suurin: %2%</translation>
     </message>
 </context>
 </TS>
