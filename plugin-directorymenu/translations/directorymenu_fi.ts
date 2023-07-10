@@ -34,7 +34,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakemiston nimi</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>

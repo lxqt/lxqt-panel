@@ -11,12 +11,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaavio</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ruudukko</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -38,7 +38,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Otsikko</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
@@ -48,27 +48,27 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>Pr&amp;ioriteetti</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Muut</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
         <source>&amp;Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Taajuus</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Järjestelmä</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
         <source>&amp;User</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Käyttäjä</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
@@ -78,22 +78,22 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Välimuistissa</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation type="unfinished"></translation>
+        <translation>Siv&amp;utettu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sovellukset</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Puskurit</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -103,12 +103,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation type="unfinished"></translation>
+        <translation>V&amp;astaanotettu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lähetetty</translation>
     </message>
 </context>
 <context>
@@ -121,32 +121,32 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaavio</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
         <source>&amp;Minimal size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Minimikoko</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Päivitysväli</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Otsikko</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ruudukkoviivat</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pienin leveys jos paneeli on vaakatasossa.&lt;/p&gt;&lt;p&gt;Pienin korkeus jos paneeli on pystysuorassa.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimileveys jos paneeli on vaakatasossa.&lt;/p&gt;&lt;p&gt;Minimikorkeus jos paneeli on pystysuorassa.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -166,12 +166,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä t&amp;aajuutta</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Yläraja</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Logaritminen kerroin</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
