@@ -24,7 +24,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Utiliser l&apos;icône du thème ou  chercher un fichier</translation>
+        <translation>Utiliser l&apos;icône du thème ou chercher un fichier</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="35"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après&#xa0;:</translation>
+        <translation>Répéter la commande après :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
