@@ -73,7 +73,8 @@ void VolumeButton::setMuteOnMiddleClick(bool state)
 
 void VolumeButton::setMixerCommand(const QString &command)
 {
-    m_mixerCommand = command;
+    m_mixerParams = QProcess::splitCommand(command);
+    m_mixerCommand = m_mixerParams.empty() ? QString{} : m_mixerParams.takeFirst();
 }
 
 void VolumeButton::enterEvent(QEvent *event)
@@ -140,7 +141,7 @@ void VolumeButton::hideVolumeSlider()
 
 void VolumeButton::handleMixerLaunch()
 {
-    QProcess::startDetached(m_mixerCommand, QStringList());
+    QProcess::startDetached(m_mixerCommand, m_mixerParams);
 }
 
 void VolumeButton::handleStockIconChanged(const QString &iconName)

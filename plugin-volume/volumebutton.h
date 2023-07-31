@@ -67,6 +67,7 @@ private:
     QTimer m_popupHideTimer;
     bool m_muteOnMiddleClick;
     QString m_mixerCommand;
+    QStringList m_mixerParams;
 };
 
 #endif // VOLUMEBUTTON_H
