@@ -24,12 +24,12 @@
         <translation>Control de volum: No es poden registrar les següents dreceres:%1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
         <translation>Volum: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="291"/>
+        <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
         <translation>(silenciat)</translation>
     </message>
@@ -73,31 +73,26 @@
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
-        <source>Show on mouse click</source>
-        <translation>Mostra amb el clic del ratolí</translation>
-    </message>
-    <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Allow volume beyond 100% (0dB)</source>
         <translation>Permet que el volum superi el 100% (0 dB)</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
         <translation>Notifica sempre sobre els canvis de volum</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="91"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
         <translation>Notifica els canvis de volum amb el teclat</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="106"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
         <translation>Pas d&apos;ajust del volum</translation>
     </message>
     <message>
-        <location filename="../lxqtvolumeconfiguration.ui" line="125"/>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
         <translation>Mesclador extern</translation>
     </message>

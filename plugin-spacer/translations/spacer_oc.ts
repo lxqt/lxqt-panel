@@ -11,12 +11,12 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Largor de l’espaci :</translation>
+        <translation>Largor de l’espaci&#xa0;:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation>Tipe d’espaci :</translation>
+        <translation>Tipe d’espaci&#xa0;:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>

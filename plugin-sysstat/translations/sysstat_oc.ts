@@ -121,7 +121,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grafic</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
@@ -221,17 +221,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Memòria</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ret</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
