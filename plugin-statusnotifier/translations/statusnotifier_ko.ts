@@ -6,18 +6,18 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation>상태 알리미 설정</translation>
+        <translation>상태 알림이 설정</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>자동 숨김 항목은 주의가 필요한 경우 이 기간 동안 계속 표시됩니다.</translation>
+        <translation>자동 숨김 항목은 주목이 필요한 경우 이 시간 동안 계속 표시됩니다.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
         <source>Attention period:</source>
-        <translation>주의 기간:</translation>
+        <translation>주목 시간:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="41"/>

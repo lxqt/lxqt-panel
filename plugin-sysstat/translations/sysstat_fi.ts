@@ -361,12 +361,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation type="unfinished"></translation>
+        <translation>muisti</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation type="unfinished"></translation>
+        <translation>sivutus</translation>
     </message>
 </context>
 <context>
@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>järj.: %1%&lt;br&gt;käytt.: %2%&lt;br&gt;prio.: %3%&lt;br&gt;muu: %4%&lt;br&gt;taaj.: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation type="unfinished"></translation>
+        <translation>järj.: %1%&lt;br&gt;käytt.: %2%&lt;br&gt;prio.: %3%&lt;br&gt;muu: %4%&lt;br&gt;taaj.: -</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="491"/>
