@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Piuses detectadas :</translation>
+        <translation>Piuses detectadas&#xa0;:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Caracteristicas de la piuse :</translation>
+        <translation>Caracteristicas de la piuse&#xa0;:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>

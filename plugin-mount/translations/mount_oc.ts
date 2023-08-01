@@ -68,7 +68,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Lo periferic &lt;b&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/b&gt; es levat.</translation>
+        <translation>Lo periferic &lt;b&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/b&gt; es levat.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Mo montatge de &lt;b&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/b&gt; a fracassat : %2</translation>
+        <translation>Mo montatge de &lt;b&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/b&gt; a fracassat&#xa0;: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Lo desmontatge de &lt;strong&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/strong&gt; a fracassat : %2</translation>
+        <translation>Lo desmontatge de &lt;strong&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/strong&gt; a fracassat&#xa0;: %2</translation>
     </message>
 </context>
 <context>
