@@ -83,7 +83,7 @@
     <message>
         <location filename="../desktopswitch.h" line="113"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>DesktopSwitch geçerli platformda desteklenmiyor: %1</translation>
     </message>
 </context>
 </TS>
