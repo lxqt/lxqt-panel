@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="88"/>
         <source>Switch to desktop %1</source>
-        <translation>Trocar para o ambiente de trabalho %1</translation>
+        <translation>Trocar para a área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="149"/>
         <location filename="../desktopswitch.cpp" line="160"/>
         <source>Desktop %1</source>
-        <translation>Ambiente de trabalho %1</translation>
+        <translation>Área de trabalho %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Definições do alternador</translation>
+        <translation>Definições do DesktopSwitch</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Texto do ambiente de trabalho:</translation>
+        <translation>Texto da área de trabalho:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -65,12 +65,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Nome dos ambiente de trabalho</translation>
+        <translation>Nomes da áreas de trabalho</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
         <source>Desktop %1:</source>
-        <translation>Ambiente de trabalho %1:</translation>
+        <translation>Área de trabalho %1:</translation>
     </message>
 </context>
 <context>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.h" line="111"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>n/d</translation>
     </message>
     <message>
         <location filename="../desktopswitch.h" line="113"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>O DesktopSwitch não é suportado na plataforma atual: %1</translation>
     </message>
 </context>
 </TS>
