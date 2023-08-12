@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.h" line="111"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambio de escritorio no soportado</translation>
     </message>
     <message>
         <location filename="../desktopswitch.h" line="113"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>DesktopSwitch no es compatible con la plataforma actual</translation>
     </message>
 </context>
 </TS>

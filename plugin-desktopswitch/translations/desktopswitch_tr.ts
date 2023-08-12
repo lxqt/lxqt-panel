@@ -78,7 +78,7 @@
     <message>
         <location filename="../desktopswitch.h" line="111"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>yok</translation>
     </message>
     <message>
         <location filename="../desktopswitch.h" line="113"/>
