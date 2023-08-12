@@ -39,7 +39,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation>Ubicación</translation>
+        <translation>Colocación</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>

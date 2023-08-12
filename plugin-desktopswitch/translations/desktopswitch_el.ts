@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.h" line="111"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>α/α</translation>
     </message>
     <message>
         <location filename="../desktopswitch.h" line="113"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Το DesktopSwitch δεν υποστηρίζεται στο τρέχον πλατύβαθρο: %1</translation>
     </message>
 </context>
 </TS>
