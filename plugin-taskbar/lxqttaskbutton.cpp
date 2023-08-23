@@ -159,35 +159,6 @@ void LXQtTaskButton::updateIcon()
 /************************************************
 
  ************************************************/
-void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
-{
-    xcb_connection_t* x11conn = QX11Info::connection();
-
-    if (!x11conn) {
-        return;
-    }
-
-    NETWinInfo info(x11conn,
-                    windowId(),
-                    (WId) QX11Info::appRootWindow(),
-                    NET::WMIconGeometry,
-                    NET::Properties2());
-    NETRect const curr = info.iconGeometry();
-    if (curr.pos.x != geom.x() || curr.pos.y != geom.y()
-            || curr.size.width != geom.width() || curr.size.height != geom.height())
-    {
-        NETRect nrect;
-        nrect.pos.x = geom.x();
-        nrect.pos.y = geom.y();
-        nrect.size.height = geom.height();
-        nrect.size.width = geom.width();
-        info.setIconGeometry(nrect);
-    }
-}
-
-/************************************************
-
- ************************************************/
 void LXQtTaskButton::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::StyleChange)

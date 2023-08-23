@@ -439,18 +439,8 @@ void LXQtTaskGroup::setPopupVisible(bool visible, bool fast)
  ************************************************/
 void LXQtTaskGroup::refreshIconsGeometry()
 {
-    QRect rect = geometry();
-    rect.moveTo(mapToGlobal(QPoint(0, 0)));
-
-    if (mSingleButton)
-    {
-        refreshIconGeometry(rect);
-        return;
-    }
-
     for(LXQtTaskButton *but : qAsConst(mButtonHash))
     {
-        but->refreshIconGeometry(rect);
         but->setIconSize(QSize(plugin()->panel()->iconSize(), plugin()->panel()->iconSize()));
     }
 }
