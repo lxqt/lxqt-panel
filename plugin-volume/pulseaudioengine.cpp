@@ -132,7 +132,7 @@ PulseAudioEngine::PulseAudioEngine(QObject *parent) :
     m_context(nullptr),
     m_contextState(PA_CONTEXT_UNCONNECTED),
     m_ready(false),
-    m_maximumVolume(PA_VOLUME_UI_MAX)
+    m_maximumVolume(PA_VOLUME_NORM)
 {
     qRegisterMetaType<pa_context_state_t>("pa_context_state_t");
 
@@ -420,10 +420,13 @@ void PulseAudioEngine::setContextState(pa_context_state_t state)
 
 void PulseAudioEngine::setIgnoreMaxVolume(bool ignore)
 {
+    int oldMax = m_maximumVolume;
     if (ignore)
         m_maximumVolume = PA_VOLUME_UI_MAX;
     else
-        m_maximumVolume = pa_sw_volume_from_dB(0);
+        m_maximumVolume = PA_VOLUME_NORM;
+    if (oldMax != m_maximumVolume)
+        retrieveSinks();
 }
 
 
