@@ -161,6 +161,9 @@ void LXQtTaskButton::updateIcon()
  ************************************************/
 void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
 {
+    // NOTE: This function announces where the task icon is,
+    // such that X11 WMs can perform their related animations correctly.
+
     xcb_connection_t* x11conn = QX11Info::connection();
 
     if (!x11conn) {
@@ -173,16 +176,21 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
                     NET::WMIconGeometry,
                     NET::Properties2());
     NETRect const curr = info.iconGeometry();
-    if (curr.pos.x != geom.x() || curr.pos.y != geom.y()
-            || curr.size.width != geom.width() || curr.size.height != geom.height())
-    {
-        NETRect nrect;
-        nrect.pos.x = geom.x();
-        nrect.pos.y = geom.y();
-        nrect.size.height = geom.height();
-        nrect.size.width = geom.width();
-        info.setIconGeometry(nrect);
-    }
+
+    // see kwindowsystem -> NETWinInfo::setIconGeometry for the scale factor
+    const qreal scaleFactor = qApp->devicePixelRatio();
+    int xPos = geom.x() * scaleFactor;
+    int yPos = geom.y() * scaleFactor;
+    int w = geom.width() * scaleFactor;
+    int h = geom.height() * scaleFactor;
+    if (xPos == curr.pos.x && yPos == curr.pos.y && w == curr.size.width && h == curr.size.height)
+        return;
+    NETRect nrect;
+    nrect.pos.x = geom.x();
+    nrect.pos.y = geom.y();
+    nrect.size.height = geom.height();
+    nrect.size.width = geom.width();
+    info.setIconGeometry(nrect);
 }
 
 /************************************************
