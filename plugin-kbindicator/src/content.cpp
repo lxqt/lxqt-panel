@@ -28,6 +28,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QEvent>
+#include <QMouseEvent>
 #include <QIcon>
 #include <QToolButton>
 #include <QFileInfo>
@@ -129,7 +130,8 @@ QWidget* Content::widget(Controls cnt) const
 
 bool Content::eventFilter(QObject *object, QEvent *event)
 {
-    if (event->type() == QEvent::QEvent::MouseButtonRelease)
+    if (event->type() == QEvent::QEvent::MouseButtonRelease
+        && static_cast<QMouseEvent*>(event)->button() == Qt::LeftButton)
     {
         if (object == m_capsLock)
             emit controlClicked(Controls::Caps);
