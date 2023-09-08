@@ -80,7 +80,7 @@ void VolumeButton::setMixerCommand(const QString &command)
 void VolumeButton::enterEvent(QEvent *event)
 {
     // show tooltip immediately on entering widget
-    QToolTip::showText(static_cast<QEnterEvent*>(event)->globalPos(), toolTip());
+    QToolTip::showText(static_cast<QEnterEvent*>(event)->globalPos(), toolTip(), this);
 }
 
 void VolumeButton::mouseMoveEvent(QMouseEvent *event)
@@ -88,7 +88,7 @@ void VolumeButton::mouseMoveEvent(QMouseEvent *event)
     QToolButton::mouseMoveEvent(event);
     // show tooltip immediately on moving the mouse
     if (!QToolTip::isVisible()) // prevent sliding of tooltip
-        QToolTip::showText(event->globalPos(), toolTip());
+        QToolTip::showText(event->globalPos(), toolTip(), this);
 }
 
 void VolumeButton::wheelEvent(QWheelEvent *event)
