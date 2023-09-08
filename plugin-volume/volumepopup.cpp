@@ -127,7 +127,7 @@ void VolumePopup::handleSliderValueChanged(int value)
         return;
     // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
     m_device->setVolume(value);
-    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip()); });
+    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip(), this); });
 }
 
 void VolumePopup::handleMuteToggleClicked()
