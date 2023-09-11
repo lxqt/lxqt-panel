@@ -130,15 +130,18 @@ QWidget* Content::widget(Controls cnt) const
 
 bool Content::eventFilter(QObject *object, QEvent *event)
 {
-    if (event->type() == QEvent::QEvent::MouseButtonRelease
-        && static_cast<QMouseEvent*>(event)->button() == Qt::LeftButton)
+    if (event->type() == QEvent::QEvent::MouseButtonRelease)
     {
-        if (object == m_capsLock)
-            emit controlClicked(Controls::Caps);
-        else if (object == m_numLock)
-            emit controlClicked(Controls::Num);
-        else if (object == m_scrollLock)
-            emit controlClicked(Controls::Scroll);
+        Qt::MouseButton btn = static_cast<QMouseEvent*>(event)->button();
+        if (btn == Qt::LeftButton || btn == Qt::MiddleButton)
+        {
+	    if (object == m_capsLock)
+	        emit controlClicked(Controls::Caps);
+	    else if (object == m_numLock)
+	        emit controlClicked(Controls::Num);
+            else if (object == m_scrollLock)
+                emit controlClicked(Controls::Scroll);
+        }
     }
 
     return QWidget::eventFilter(object, event);
