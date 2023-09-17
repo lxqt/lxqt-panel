@@ -95,6 +95,7 @@ void LXQtCustomCommand::settingsChanged()
     QString oldFont = mFont;
     QString oldCommand = mCommand;
     bool oldRunWithBash = mRunWithBash;
+    bool oldOutputImage = mOutputImage;
     bool oldRepeat = mRepeat;
     int oldRepeatTimer = mRepeatTimer;
     QString oldIcon = mIcon;
@@ -105,6 +106,7 @@ void LXQtCustomCommand::settingsChanged()
     mFont = settings()->value(QStringLiteral("font"), QString()).toString(); // the default font should be empty
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
+    mOutputImage = settings()->value(QStringLiteral("outputImage"), true).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
     mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
     mRepeatTimer = qMax(1, mRepeatTimer);
@@ -130,7 +132,7 @@ void LXQtCustomCommand::settingsChanged()
             updateButton();
         }
     }
-    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldRepeat != mRepeat)
+    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputImage != mOutputImage || oldRepeat != mRepeat)
         shouldRun = true;
 
     if (oldRepeatTimer != mRepeatTimer)
@@ -166,11 +168,14 @@ void LXQtCustomCommand::handleClick()
 
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
 {
-
     if (exitCode == 0) {
-        mOutput = QString::fromUtf8(mProcess->readAllStandardOutput());
-        if (mOutput.endsWith(QStringLiteral("\n")))
-            mOutput.chop(1);
+        if(mOutputImage) {
+            mOutputByteArray = mProcess->readAllStandardOutput();
+        } else {
+            mOutput = QString::fromUtf8(mProcess->readAllStandardOutput());
+            if (mOutput.endsWith(QStringLiteral("\n")))
+                mOutput.chop(1);
+        }
     }
     else
         mOutput = tr("Error");
@@ -181,16 +186,26 @@ void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exit
 }
 
 void LXQtCustomCommand::updateButton() {
-    QString newText = mText;
-    if (newText.contains(QStringLiteral("%1")))
-        newText = newText.arg(mOutput);
 
-    if (mButton->icon().isNull())
-         mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    else
-         mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    if(mOutputImage) {
+        QPixmap pixmap;
+        pixmap.loadFromData(mOutputByteArray);
+        QIcon icon(pixmap);
+        mButton->setIcon(icon);
+        mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    } else {
+        QString newText = mText;
+        if (newText.contains(QStringLiteral("%1")))
+            newText = newText.arg(mOutput);
 
-    mButton->setText(newText);
+        mButton->setText(newText);
+
+        if (mButton->icon().isNull())
+             mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        else
+             mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    }
+
     mButton->updateWidth();
 }
 

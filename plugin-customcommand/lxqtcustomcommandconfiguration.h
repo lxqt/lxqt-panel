@@ -46,6 +46,7 @@ private slots:
     void fontButtonClicked();
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
+    void outputImageCheckBoxChanged(bool outputImage);
     void repeatCheckBoxChanged(bool repeat);
     void repeatTimerSpinBoxChanged(int repeatTimer);
     void iconLineEditChanged(QString icon);

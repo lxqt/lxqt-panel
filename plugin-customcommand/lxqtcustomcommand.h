@@ -72,11 +72,13 @@ private:
 
     bool mFirstRun;
     QString mOutput;
+    QByteArray mOutputByteArray;
 
     bool mAutoRotate;
     QString mFont;
     QString mCommand;
     bool mRunWithBash;
+    bool mOutputImage;
     bool mRepeat;
     int mRepeatTimer;
     QString mIcon;
