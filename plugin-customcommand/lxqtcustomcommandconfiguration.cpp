@@ -71,7 +71,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
     ui->fontButton->setText(settings().value(QStringLiteral("font"), font().toString()).toString());
     ui->commandPlainTextEdit->setPlainText(settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString());
     ui->runWithBashCheckBox->setChecked(settings().value(QStringLiteral("runWithBash"), true).toBool());
-    ui->outputImageCheckBox->setChecked(settings().value(QStringLiteral("outputImage"), true).toBool());
+    ui->outputImageCheckBox->setChecked(settings().value(QStringLiteral("outputImage"), false).toBool());
     ui->repeatCheckBox->setChecked(settings().value(QStringLiteral("repeat"), true).toBool());
     ui->repeatTimerSpinBox->setEnabled(ui->repeatCheckBox->isChecked());
     ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());

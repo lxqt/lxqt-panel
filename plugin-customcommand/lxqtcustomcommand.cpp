@@ -106,7 +106,7 @@ void LXQtCustomCommand::settingsChanged()
     mFont = settings()->value(QStringLiteral("font"), QString()).toString(); // the default font should be empty
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
-    mOutputImage = settings()->value(QStringLiteral("outputImage"), true).toBool();
+    mOutputImage = settings()->value(QStringLiteral("outputImage"), false).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
     mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
     mRepeatTimer = qMax(1, mRepeatTimer);
