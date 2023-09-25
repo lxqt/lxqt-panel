@@ -39,11 +39,11 @@ class LXQtQuickLaunchPlugin: public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     explicit LXQtQuickLaunchPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtQuickLaunchPlugin();
+    ~LXQtQuickLaunchPlugin() override;
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("QuickLaunch"); }
-    virtual Flags flags() const { return NeedsHandle; }
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("QuickLaunch"); }
+    Flags flags() const override { return NeedsHandle; }
 
     void realign();
 

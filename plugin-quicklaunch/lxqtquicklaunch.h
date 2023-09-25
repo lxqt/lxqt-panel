@@ -56,7 +56,7 @@ class LXQtQuickLaunch : public QFrame
 
 public:
     LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~LXQtQuickLaunch();
+    ~LXQtQuickLaunch() override;
 
     int indexOfButton(QuickLaunchButton* button) const;
     int countOfButtons() const;

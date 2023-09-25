@@ -45,7 +45,7 @@ public:
         ActionOptical
     };
 
-    virtual ~EjectAction();
+    ~EjectAction() override;
     virtual ActionId Type() const throw () = 0;
 
     static EjectAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = nullptr);

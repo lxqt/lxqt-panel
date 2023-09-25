@@ -39,17 +39,17 @@ class LXQtNetworkMonitorPlugin: public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     explicit LXQtNetworkMonitorPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtNetworkMonitorPlugin();
+    ~LXQtNetworkMonitorPlugin() override;
 
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("NetworkMonitor"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog; }
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("NetworkMonitor"); }
 
-    bool isSeparate() const { return false; }
-    QDialog *configureDialog();
+    bool isSeparate() const override { return false; }
+    QDialog *configureDialog() override;
 
 protected:
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private:
     LXQtNetworkMonitor *mWidget;

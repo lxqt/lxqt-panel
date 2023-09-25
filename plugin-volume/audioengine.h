@@ -40,7 +40,7 @@ class AudioEngine : public QObject
 
 public:
     AudioEngine(QObject *parent = nullptr);
-    ~AudioEngine();
+    ~AudioEngine() override;
 
     const QList<AudioDevice *> &sinks() const { return m_sinks; }
     virtual int volumeMax(AudioDevice *device) const = 0;

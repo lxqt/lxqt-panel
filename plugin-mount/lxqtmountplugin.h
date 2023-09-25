@@ -52,21 +52,21 @@ class LXQtMountPlugin : public QObject, public ILXQtPanelPlugin
 
 public:
     LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtMountPlugin();
+    ~LXQtMountPlugin() override;
 
-    virtual QWidget *widget() { return mButton; }
-    virtual QString themeId() const { return QLatin1String("LXQtMount"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
+    QWidget *widget() override { return mButton; }
+    QString themeId() const override { return QLatin1String("LXQtMount"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog; }
 
-    Popup *popup() { return mPopup; }
-    QIcon icon() { return mButton->icon(); };
-    QDialog *configureDialog();
+    Popup *popup() override { return mPopup; }
+    QIcon icon() override { return mButton->icon(); }
+    QDialog *configureDialog() override;
 
 public slots:
-    void realign();
+    void realign() override;
 
 protected slots:
-    virtual void settingsChanged();
+    void settingsChanged() override;
     void shortcutRegistered();
 
 private:

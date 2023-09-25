@@ -32,7 +32,7 @@ class LXQtPanelApplicationPrivate {
 public:
 
     LXQtPanelApplicationPrivate(LXQtPanelApplication *q);
-    ~LXQtPanelApplicationPrivate() {};
+    ~LXQtPanelApplicationPrivate() {}
 
     LXQt::Settings *mSettings;
 

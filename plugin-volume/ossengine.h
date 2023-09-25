@@ -42,14 +42,14 @@ class OssEngine : public AudioEngine
 
 public:
     OssEngine(QObject *parent = nullptr);
-    ~OssEngine();
+    ~OssEngine() override;
 
-    virtual const QString backendName() const { return QLatin1String("Oss"); }
-    virtual int volumeMax(AudioDevice */*device*/) const { return 100; }
+    const QString backendName() const override { return QLatin1String("Oss"); }
+    int volumeMax(AudioDevice */*device*/) const override { return 100; }
 
-    virtual void commitDeviceVolume(AudioDevice *device);
-    virtual void setMute(AudioDevice *device, bool state);
-    virtual void setIgnoreMaxVolume(bool ignore);
+    void commitDeviceVolume(AudioDevice *device) override;
+    void setMute(AudioDevice *device, bool state) override;
+    void setIgnoreMaxVolume(bool ignore) override;
 
 signals:
     void sinkInfoChanged(AudioDevice *device);

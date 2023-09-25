@@ -56,7 +56,7 @@ protected:
 
 public:
     QAbstractEyesWidget(QWidget *parent = nullptr);
-    ~QAbstractEyesWidget();
+    ~QAbstractEyesWidget() override;
     void setNumEyes(int n) { numEyes = n; }
     int getNumEyes() { return numEyes; }
     void setBGColor(const QString &color) { bgColor = color; }

@@ -46,7 +46,7 @@ public:
         ActionMenu
     };
 
-    virtual ~DeviceAction();
+    ~DeviceAction() override;
     virtual ActionId Type() const throw () = 0;
 
     static DeviceAction *create(ActionId id, LXQtMountPlugin *plugin, QObject *parent = nullptr);

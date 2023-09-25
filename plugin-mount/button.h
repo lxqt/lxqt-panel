@@ -37,7 +37,7 @@ class Button : public QToolButton
     Q_OBJECT
 public:
     Button(QWidget *parent = nullptr);
-    ~Button();
+    ~Button() override;
 };
 
 #endif

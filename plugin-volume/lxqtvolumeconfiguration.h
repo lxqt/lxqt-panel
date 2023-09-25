@@ -72,7 +72,7 @@ class LXQtVolumeConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtVolumeConfiguration(PluginSettings *settings, bool ossAvailable, QWidget *parent = nullptr);
-    ~LXQtVolumeConfiguration();
+    ~LXQtVolumeConfiguration() override;
 
 public slots:
     void setSinkList(const QList<AudioDevice*> sinks);
@@ -86,7 +86,7 @@ public slots:
     void showKeyboardNotificationsCheckBoxChanged(bool state);
 
 protected slots:
-    virtual void loadSettings();
+    void loadSettings() override;
 
 private:
     Ui::LXQtVolumeConfiguration *ui;

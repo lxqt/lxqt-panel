@@ -50,7 +50,7 @@ class LXQtSysStatColours : public QDialog
 
 public:
     explicit LXQtSysStatColours(QWidget *parent = nullptr);
-    ~LXQtSysStatColours();
+    ~LXQtSysStatColours() override;
 
     typedef QMap<QString, QColor> Colours;
 

@@ -45,7 +45,7 @@ class ConfigPlacement : public QWidget
 
 public:
     explicit ConfigPlacement(LXQtPanel *panel, QWidget *parent = nullptr);
-    ~ConfigPlacement();
+    ~ConfigPlacement() override;
 
     int screenNum() const { return mScreenNum; }
     ILXQtPanel::Position position() const { return mPosition; }

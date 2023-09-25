@@ -47,7 +47,7 @@ class TreeWindow : public QMainWindow
 
 public:
     explicit TreeWindow(QWidget *parent = nullptr);
-    ~TreeWindow();
+    ~TreeWindow() override;
 
 private slots:
     void updatePropertiesView();

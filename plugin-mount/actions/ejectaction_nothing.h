@@ -38,7 +38,7 @@ class EjectActionNothing : public EjectAction
 
 public:
     explicit EjectActionNothing(LXQtMountPlugin *plugin, QObject *parent = nullptr);
-    virtual ActionId Type() const throw () { return ActionNothing; };
+    ActionId Type() const throw () override { return ActionNothing; }
 
 protected:
     void doEjectPressed(void);

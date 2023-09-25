@@ -51,7 +51,7 @@ public:
                                        GlobalKeyShortcut::Action *shortcut,
                                        const QString &defaultShortcut,
                                        QWidget *parent = nullptr);
-    ~LXQtMainMenuConfiguration();
+    ~LXQtMainMenuConfiguration() override;
 
 private:
     Ui::LXQtMainMenuConfiguration *ui;
@@ -65,7 +65,7 @@ private slots:
     /*
       Saves settings in conf file.
     */
-    void loadSettings();
+    void loadSettings() override;
     void textButtonChanged(const QString &value);
     void showTextChanged(bool value);
     void chooseIcon();

@@ -42,7 +42,7 @@ class LXQtTaskbarConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtTaskbarConfiguration();
+    ~LXQtTaskbarConfiguration() override;
 
 private:
     Ui::LXQtTaskbarConfiguration *ui;

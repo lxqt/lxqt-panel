@@ -43,7 +43,7 @@ class SpacerConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit SpacerConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~SpacerConfiguration();
+    ~SpacerConfiguration() override;
 
 public:
     static const QStringList msTypes;

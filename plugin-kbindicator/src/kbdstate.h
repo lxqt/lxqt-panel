@@ -39,22 +39,22 @@ class KbdState : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     KbdState(const ILXQtPanelPluginStartupInfo &startupInfo);
-    virtual ~KbdState();
+    ~KbdState() override;
 
-    virtual QString themeId() const
+    QString themeId() const override
     { return QStringLiteral("KbIndicator"); }
 
-    virtual ILXQtPanelPlugin::Flags flags() const
+    ILXQtPanelPlugin::Flags flags() const override
     { return PreferRightAlignment | HaveConfigDialog; }
 
-    virtual bool isSeparate() const
+    bool isSeparate() const override
     { return false; }
 
-    virtual QWidget *widget()
+    QWidget *widget() override
     { return &m_content; }
 
     QDialog *configureDialog();
-    virtual void realign();
+    void realign() override;
 
     const Settings & prefs() const
     { return m_settings; }
@@ -63,7 +63,7 @@ public:
     { return m_settings; }
 
 protected slots:
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private:
     Settings    m_settings;

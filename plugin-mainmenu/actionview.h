@@ -43,7 +43,7 @@ class FilterProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 public:
     explicit FilterProxyModel(QObject* parent = nullptr);
-    virtual ~FilterProxyModel();
+    ~FilterProxyModel() override;
 
     void setfilerString(const QString &str) {
         filterStr_ = str;
@@ -101,8 +101,8 @@ public slots:
     void activateCurrent();
 
 protected:
-    virtual QSize viewportSizeHint() const override;
-    virtual QSize minimumSizeHint() const override;
+    QSize viewportSizeHint() const override;
+    QSize minimumSizeHint() const override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
 
