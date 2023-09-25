@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef AUDIOENGINE_H
-#define AUDIOENGINE_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -60,5 +59,3 @@ signals:
 protected:
     QList<AudioDevice*> m_sinks;
 };
-
-#endif // AUDIOENGINE_H

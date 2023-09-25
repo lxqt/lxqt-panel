@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CHIP_H
-#define CHIP_H
+#pragma once
 
 #include "feature.h"
 #include "sensors.h"
@@ -54,5 +53,3 @@ private:
 
     QList<Feature> mFeatures;
 };
-
-#endif // CHIP_H

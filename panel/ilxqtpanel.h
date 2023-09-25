@@ -26,8 +26,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef ILXQTPANEL_H
-#define ILXQTPANEL_H
+#pragma once
+
 #include <QRect>
 #include "lxqtpanelglobals.h"
 
@@ -128,5 +128,3 @@ public:
      */
     virtual bool isLocked() const = 0;
 };
-
-#endif // ILXQTPANEL_H

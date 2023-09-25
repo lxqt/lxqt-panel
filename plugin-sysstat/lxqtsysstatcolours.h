@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTSYSSTATCOLOURS_HPP
-#define LXQTSYSSTATCOLOURS_HPP
+#pragma once
 
 #include <QDialog>
 
@@ -84,5 +82,3 @@ private:
 
     void applyColoursToButtons();
 };
-
-#endif // LXQTSYSSTATCOLOURS_HPP

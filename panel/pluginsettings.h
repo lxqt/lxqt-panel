@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef PLUGIN_SETTINGS_H
-#define PLUGIN_SETTINGS_H
+#pragma once
 
 #include <QObject>
 #include <QString>
@@ -93,5 +92,3 @@ private:
     QScopedPointer<PluginSettingsPrivate> d_ptr;
     Q_DECLARE_PRIVATE(PluginSettings)
 };
-
-#endif

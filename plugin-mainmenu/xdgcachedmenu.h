@@ -18,8 +18,7 @@
  *
  */
 
-#ifndef XDGCACHEDMENU_H
-#define XDGCACHEDMENU_H
+#pragma once
 
 #include <menu-cache/menu-cache.h>
 #include <QMenu>
@@ -64,6 +63,3 @@ private:
     QString iconName_;
     QString filePath_;
 };
-
-
-#endif // XDGCACHEDMENU_H

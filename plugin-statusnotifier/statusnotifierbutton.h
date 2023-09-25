@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIERBUTTON_H
-#define STATUSNOTIFIERBUTTON_H
+#pragma once
 
 #include <QDBusArgument>
 #include <QDBusMessage>
@@ -94,5 +93,3 @@ protected:
     void refetchIcon(Status status, const QString& themePath);
     void resetIcon();
 };
-
-#endif // STATUSNOTIFIERBUTTON_H

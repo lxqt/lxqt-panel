@@ -25,10 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTCPULOADPLUGIN_H
-#define LXQTCPULOADPLUGIN_H
-
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
@@ -68,6 +65,3 @@ public:
         return new LXQtCpuLoadPlugin(startupInfo);
     }
 };
-
-
-#endif // LXQTCPULOADPLUGIN_H

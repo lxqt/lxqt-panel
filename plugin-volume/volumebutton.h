@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef VOLUMEBUTTON_H
-#define VOLUMEBUTTON_H
+#pragma once
 
 #include <QToolButton>
 #include <QTimer>
@@ -69,5 +68,3 @@ private:
     QString m_mixerCommand;
     QStringList m_mixerParams;
 };
-
-#endif // VOLUMEBUTTON_H

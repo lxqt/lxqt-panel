@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef DOMTREEITEM_H
-#define DOMTREEITEM_H
+#pragma once
 
 #include <QObject>
 #include <QTreeWidgetItem>
@@ -54,5 +53,3 @@ private:
     void init();
     void fill();
 };
-
-#endif // DOMTREEITEM_H

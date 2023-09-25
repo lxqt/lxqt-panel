@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_EJECTACTION_OPTICAL_H
-#define LXQT_PLUGIN_MOUNT_EJECTACTION_OPTICAL_H
+#pragma once
 
 #include "ejectaction.h"
 
@@ -42,5 +41,3 @@ public:
 protected:
     void doEjectPressed(void);
 };
-
-#endif // EJECTACTION_OPTICAL_H

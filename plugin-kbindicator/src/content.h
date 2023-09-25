@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _CONTENT_H_
-#define _CONTENT_H_
+#pragma once
 
 #include <QWidget>
 #include "controls.h"
@@ -62,5 +61,3 @@ private:
     QLabel     *m_scrollLock;
     QToolButton *m_layout;
 };
-
-#endif

@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef ALSADEVICE_H
-#define ALSADEVICE_H
+#pragma once
 
 #include "audiodevice.h"
 
@@ -65,5 +64,3 @@ private:
     long m_volumeMin;
     long m_volumeMax;
 };
-
-#endif // ALSADEVICE_H

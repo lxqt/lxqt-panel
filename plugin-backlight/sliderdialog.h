@@ -24,9 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef SLIDERDIALOG_H
-#define SLIDERDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QSlider>
@@ -59,5 +57,3 @@ private Q_SLOTS:
     void upButtonClicked(bool);
     
 };
-
-#endif // SLIDERDIALOG_H

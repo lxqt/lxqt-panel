@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef DOMPLUGIN_H
-#define DOMPLUGIN_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
@@ -62,5 +60,3 @@ public:
         return new DomPlugin(startupInfo);
     }
 };
-
-#endif // DOMPLUGIN_H

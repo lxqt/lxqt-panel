@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTPANELAPPLICATION_H
-#define LXQTPANELAPPLICATION_H
+#pragma once
 
 #include <LXQt/Application>
 #include "ilxqtpanelplugin.h"
@@ -184,6 +182,3 @@ private:
     Q_DECLARE_PRIVATE(LXQtPanelApplication)
     Q_DISABLE_COPY(LXQtPanelApplication)
 };
-
-
-#endif // LXQTPANELAPPLICATION_H

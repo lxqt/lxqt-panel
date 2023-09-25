@@ -24,9 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef SPACER_H
-#define SPACER_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
@@ -88,6 +86,3 @@ class SpacerPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new Spacer(startupInfo);}
 };
-
-#endif
-

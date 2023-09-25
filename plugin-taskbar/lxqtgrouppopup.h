@@ -28,8 +28,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTTASKPOPUP_H
-#define LXQTTASKPOPUP_H
+#pragma once
 
 #include <QHash>
 #include <QFrame>
@@ -74,5 +73,3 @@ private:
     LXQtTaskGroup *mGroup;
     QTimer mCloseTimer;
 };
-
-#endif // LXQTTASKPOPUP_H

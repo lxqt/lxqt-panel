@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTVOLUME_H
-#define LXQTVOLUME_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
@@ -95,5 +94,3 @@ public:
         return new LXQtVolume(startupInfo);
     }
 };
-
-#endif // LXQTVOLUME_H

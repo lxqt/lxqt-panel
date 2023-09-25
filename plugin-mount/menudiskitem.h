@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_MENUDISKITEM_H
-#define LXQT_PLUGIN_MOUNT_MENUDISKITEM_H
+#pragma once
 
 #include <QFrame>
 #include <QToolButton>
@@ -72,5 +71,3 @@ private:
     bool mDiskButtonClicked;
     bool mEjectButtonClicked;
 };
-
-#endif // MENUDISKITEM_H

@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQT_MAINMENU_H
-#define LXQT_MAINMENU_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <XdgMenu>
@@ -137,5 +135,3 @@ class LXQtMainMenuPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new LXQtMainMenu(startupInfo);}
 };
-
-#endif

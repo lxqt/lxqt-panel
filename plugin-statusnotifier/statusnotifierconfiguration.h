@@ -23,8 +23,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIERCONFIGURATION_H
-#define STATUSNOTIFIERCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -56,5 +55,3 @@ private:
 private slots:
     void saveSettings();
 };
-
-#endif // STATUSNOTIFIERCONFIGURATION_H

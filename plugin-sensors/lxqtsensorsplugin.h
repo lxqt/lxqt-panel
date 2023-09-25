@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTSENSORSPLUGIN_H
-#define LXQTSENSORSPLUGIN_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
@@ -70,5 +68,3 @@ public:
         return new LXQtSensorsPlugin(startupInfo);
     }
 };
-
-#endif // LXQTSENSORSPLUGIN_H

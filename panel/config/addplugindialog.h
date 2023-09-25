@@ -26,8 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQT_ADDPLUGINDIALOG_H
-#define LXQT_ADDPLUGINDIALOG_H
+#pragma once
 
 #include <LXQt/PluginInfo>
 #include <QDialog>
@@ -59,5 +58,3 @@ private slots:
     void filter();
     void emitPluginSelected();
 };
-
-#endif // LXQT_ADDPLUGINDIALOG_H

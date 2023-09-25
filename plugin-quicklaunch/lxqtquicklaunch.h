@@ -26,9 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTQUICKLAUNCH_H
-#define LXQTQUICKLAUNCH_H
+#pragma once
 
 #include "../panel/lxqtpanel.h"
 #include <QHash>
@@ -81,5 +79,3 @@ private slots:
     void buttonMoveLeft();
     void buttonMoveRight();
 };
-
-#endif

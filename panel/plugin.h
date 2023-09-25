@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef PLUGIN_H
-#define PLUGIN_H
+#pragma once
 
 #include <QFrame>
 #include <QString>
@@ -129,6 +127,3 @@ private slots:
     void settingsChanged();
 
 };
-
-
-#endif // PLUGIN_H

@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPLUGINSWIDGET_H
-#define CONFIGPLUGINSWIDGET_H
+#pragma once
 
 #include "../lxqtpanel.h"
 
@@ -60,5 +59,3 @@ private:
     QScopedPointer<AddPluginDialog> mAddPluginDialog;
     LXQtPanel *mPanel;
 };
-
-#endif

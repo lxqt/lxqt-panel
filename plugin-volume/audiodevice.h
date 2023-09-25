@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef AUDIODEVICE_H
-#define AUDIODEVICE_H
+#pragma once
 
 #include <QObject>
 
@@ -86,5 +85,3 @@ private:
     uint m_index;
     QString m_description;
 };
-
-#endif // AUDIODEVICE_H

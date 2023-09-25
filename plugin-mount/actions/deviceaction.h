@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_H
-#define LXQT_PLUGIN_MOUNT_DEVICEACTION_H
+#pragma once
 
 #include <QObject>
 #include <QSettings>
@@ -65,5 +64,3 @@ protected:
     LXQtMountPlugin *mPlugin;
     QMap<QString/*!< device udi*/, QString/*!< device description*/> mKnownDeviceDescriptions;
 };
-
-#endif // DEVICEACTION_H

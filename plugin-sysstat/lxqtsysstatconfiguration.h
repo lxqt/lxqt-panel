@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTSYSSTATCONFIGURATION_H
-#define LXQTSYSSTATCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -77,5 +75,3 @@ private:
 
     void loadSettings();
 };
-
-#endif // LXQTSYSSTATCONFIGURATION_H

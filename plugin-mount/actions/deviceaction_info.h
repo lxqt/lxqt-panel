@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_INFO_H
-#define LXQT_PLUGIN_MOUNT_DEVICEACTION_INFO_H
+#pragma once
 
 #include "deviceaction.h"
 
@@ -49,5 +48,3 @@ protected:
 private:
     void showMessage(const QString &text);
 };
-
-#endif // DEVICEACTION_INFO_H

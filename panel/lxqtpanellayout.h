@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTPANELLAYOUT_H
-#define LXQTPANELLAYOUT_H
+#pragma once
 
 #include <QLayout>
 #include <QList>
@@ -102,5 +100,3 @@ private:
 
     void setItemGeometry(QLayoutItem *item, const QRect &geometry, bool withAnimation);
 };
-
-#endif // LXQTPANELLAYOUT_H

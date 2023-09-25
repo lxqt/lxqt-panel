@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTNETWORKMONITORCONFIGURATION_H
-#define LXQTNETWORKMONITORCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -58,5 +56,3 @@ private slots:
     void saveSettings();
     void loadSettings();
 };
-
-#endif // LXQTNETWORKMONITORCONFIGURATION_H

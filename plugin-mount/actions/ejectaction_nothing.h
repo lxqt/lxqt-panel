@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQT_PLUGIN_MOUNT_EJECTACTION_NOTHING_H
-#define LXQT_PLUGIN_MOUNT_EJECTACTION_NOTHING_H
+#pragma once
 
 #include "ejectaction.h"
 #include <QWidget>
@@ -43,5 +41,3 @@ public:
 protected:
     void doEjectPressed(void);
 };
-
-#endif // EJECTACTION_NOTHING_H

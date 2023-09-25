@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _KBDINFO_H_
-#define _KBDINFO_H_
+#pragma once
 
 #include <QString>
 #include <QList>
@@ -74,5 +73,3 @@ private:
     QList<Info> m_keyboardInfo;
     int         m_current = 0;
 };
-
-#endif

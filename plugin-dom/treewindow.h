@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef TREEWINDOW_H
-#define TREEWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QList>
@@ -60,5 +59,3 @@ private:
 
     void initPropertiesView();
 };
-
-#endif // TREEWINDOW_H

@@ -23,8 +23,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CUSTOMBUTTON_H
-#define CUSTOMBUTTON_H
+#pragma once
 
 #include <QToolButton>
 
@@ -60,5 +59,3 @@ private:
 signals:
     void wheelScrolled(int);
 };
-
-#endif // CUSTOMBUTTON_H

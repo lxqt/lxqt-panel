@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_NOTHING_H
-#define LXQT_PLUGIN_MOUNT_DEVICEACTION_NOTHING_H
+#pragma once
 
 #include "deviceaction.h"
 #include <QWidget>
@@ -44,5 +42,3 @@ protected:
     void doDeviceAdded(Solid::Device device);
     void doDeviceRemoved(Solid::Device device);
 };
-
-#endif // DEVICEACTIONNOTHING_H

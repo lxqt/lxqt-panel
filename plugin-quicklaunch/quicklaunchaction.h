@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef QUICKLAUNCHACTION_H
-#define QUICKLAUNCHACTION_H
+#pragma once
 
 #include <QAction>
 
@@ -91,5 +90,3 @@ private:
     QHash<QString, QString> m_settingsMap;
     QList<QAction *> m_additionalActions;
 };
-
-#endif

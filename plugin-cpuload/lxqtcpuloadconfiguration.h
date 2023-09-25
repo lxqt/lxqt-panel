@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTCPULOADCONFIGURATION_H
-#define LXQTCPULOADCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -67,5 +65,3 @@ private slots:
     void barOrientationChanged(int index);
 
 };
-
-#endif // LXQTCPULOADCONFIGURATION_H

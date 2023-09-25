@@ -23,8 +23,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef PANELPLUGINSMODEL_H
-#define PANELPLUGINSMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <memory>
@@ -337,5 +336,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(Plugin const *)
-
-#endif // PANELPLUGINSMODEL_H

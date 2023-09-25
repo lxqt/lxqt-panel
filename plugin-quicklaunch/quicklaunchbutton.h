@@ -26,9 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTQUICKLAUNCHBUTTON_H
-#define LXQTQUICKLAUNCHBUTTON_H
+#pragma once
 
 #include "quicklaunchaction.h"
 #include <QMimeData>
@@ -89,5 +87,3 @@ public:
 private:
     QuickLaunchButton *mButton;
 };
-
-#endif

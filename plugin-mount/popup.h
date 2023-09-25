@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_POPUP_H
-#define LXQT_PLUGIN_MOUNT_POPUP_H
+#pragma once
 
 #include "menudiskitem.h"
 
@@ -76,5 +75,3 @@ private:
 
     void addItem(Solid::Device device);
 };
-
-#endif // POPUP_H

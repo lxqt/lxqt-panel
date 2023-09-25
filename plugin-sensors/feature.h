@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef FEATURE_H
-#define FEATURE_H
+#pragma once
 
 #include <QList>
 #include <QString>
@@ -56,5 +55,3 @@ private:
 
     QList<const sensors_subfeature*> mSubFeatures;
 };
-
-#endif // CHIP_H

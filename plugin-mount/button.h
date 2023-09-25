@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_BUTTON_H
-#define LXQT_PLUGIN_MOUNT_BUTTON_H
+#pragma once
 
 #include <QToolButton>
 
@@ -39,5 +38,3 @@ public:
     Button(QWidget *parent = nullptr);
     ~Button();
 };
-
-#endif

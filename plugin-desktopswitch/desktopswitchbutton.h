@@ -26,8 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef DESKTOPSWITCHBUTTON_H
-#define DESKTOPSWITCHBUTTON_H
+#pragma once
 
 #include <QToolButton>
 #include <QSet>
@@ -59,5 +58,3 @@ private:
     bool mUrgencyHint;
     QSet<WId> mUrgentWIds;
 };
-
-#endif

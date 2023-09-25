@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _CONTROLS_H_
-#define _CONTROLS_H_
+#pragma once
 
 enum Controls {
     Caps,
@@ -33,5 +32,3 @@ enum Controls {
     Scroll,
     Layout
 };
-
-#endif

@@ -36,8 +36,7 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef STATUSNOTIFIERITEMINTERFACE_H
-#define STATUSNOTIFIERITEMINTERFACE_H
+#pragma once
 
 #include <QObject>
 #include <QByteArray>
@@ -171,4 +170,3 @@ namespace org {
     typedef ::StatusNotifierItemInterface StatusNotifierItem;
   }
 }
-#endif

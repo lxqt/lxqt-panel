@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_DEVICEACTION_MENU_H
-#define LXQT_PLUGIN_MOUNT_DEVICEACTION_MENU_H
+#pragma once
 
 #include "deviceaction.h"
 
@@ -50,5 +49,3 @@ private:
     Popup *mPopup;
     QTimer mHideTimer;
 };
-
-#endif // DEVICEACTIONMENU_H

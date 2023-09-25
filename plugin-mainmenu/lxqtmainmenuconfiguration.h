@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTMAINMENUCONFIGURATION_H
-#define LXQTMAINMENUCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -74,5 +72,3 @@ private slots:
     void customFontChanged(bool value);
     void customFontSizeChanged(int value);
 };
-
-#endif // LXQTMAINMENUCONFIGURATION_H

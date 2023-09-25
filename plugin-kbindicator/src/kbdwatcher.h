@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _KBDWATCHER_H_
-#define _KBDWATCHER_H_
+#pragma once
 
 #include "kbdlayout.h"
 #include "controls.h"
@@ -60,5 +59,3 @@ private:
     KbdLayout                 m_layout;
     QScopedPointer<KbdKeeper> m_keeper;
 };
-
-#endif

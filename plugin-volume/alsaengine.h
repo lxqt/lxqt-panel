@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef ALSAENGINE_H
-#define ALSAENGINE_H
+#pragma once
 
 #include "audioengine.h"
 
@@ -66,5 +65,3 @@ private:
     QMap<int, snd_mixer_t *> m_mixerMap;
     static AlsaEngine *m_instance;
 };
-
-#endif // ALSAENGINE_H
