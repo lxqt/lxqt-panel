@@ -78,6 +78,11 @@ class LXQT_PANEL_API LXQtPanel : public QFrame, public ILXQtPanel
     Q_OBJECT
 
     Q_PROPERTY(QString position READ qssPosition)
+    Q_PROPERTY(int padding READ padding WRITE setPadding NOTIFY paddingChanged)
+    Q_PROPERTY(int bottomPadding READ bottomPadding WRITE setBottomPadding NOTIFY bottomPaddingChanged)
+    Q_PROPERTY(int topPadding READ topPadding WRITE setTopPadding NOTIFY topPaddingChanged)
+    Q_PROPERTY(int leftPadding READ leftPadding WRITE setLeftPadding NOTIFY leftPaddingChanged)
+    Q_PROPERTY(int rightPadding READ rightPadding WRITE setRightPadding NOTIFY rightPaddingChanged)
 
     // for configuration dialog
     friend class ConfigPanelWidget;
@@ -209,6 +214,14 @@ public:
     static ILXQtPanel::Position strToPosition(const QString &str, ILXQtPanel::Position defaultValue);
 
     // Settings
+    int padding() const {
+        auto cm = contentsMargins();
+        return cm.bottom() == cm.top() == cm.left() == cm.right() ? cm.left() : -1;
+    }
+    int bottomPadding() const { return contentsMargins().bottom(); }
+    int topPadding() const { return contentsMargins().top(); }
+    int leftPadding() const { return contentsMargins().left(); }
+    int rightPadding() const { return contentsMargins().right(); }
     int iconSize() const override { return mIconSize; } //!< Implement ILXQtPanel::iconSize().
     int lineCount() const override { return mLineCount; } //!< Implement ILXQtPanel::lineCount().
     int panelSize() const { return mPanelSize; }
@@ -296,6 +309,39 @@ public slots:
      * @param save If true, saveSettings(true) will be called.
      */
     void setPanelSize(int value, bool save);
+    void setPadding(int value) { setContentsMargins(value, value, value, value); }  //!< \sa setPanelSize()
+    void setBottomPadding(int value) {
+        auto cm = contentsMargins();
+        if (value != cm.bottom()) {
+            cm.setBottom(value);
+            setContentsMargins(cm);
+            emit bottomPaddingChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setTopPadding(int value)    {
+        auto cm = contentsMargins();
+        if (value != cm.top()) {
+            cm.setTop(value);
+            setContentsMargins(cm);
+            emit topPaddingChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setLeftPadding(int value)   {
+        auto cm = contentsMargins();
+        if (value != cm.left()) {
+            cm.setLeft(value);
+            setContentsMargins(cm);
+            emit leftPaddingChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setRightPadding(int value)  {
+        auto cm = contentsMargins();
+        if (value != cm.right()) {
+            cm.setRight(value);
+            setContentsMargins(cm);
+            emit rightPaddingChanged();
+        }
+    }  //!< \sa setPanelSize()
     void setIconSize(int value, bool save); //!< \sa setPanelSize()
     void setLineCount(int value, bool save); //!< \sa setPanelSize()
     void setLength(int length, bool inPercents, bool save); //!< \sa setPanelSize()
@@ -347,6 +393,11 @@ signals:
      * parameter to identify the LXQtPanel that should be removed.
      */
     void deletedByUser(LXQtPanel *self);
+    void paddingChanged();
+    void bottomPaddingChanged();
+    void topPaddingChanged();
+    void leftPaddingChanged();
+    void rightPaddingChanged();
     /**
      * @brief This signal is just a relay signal. The pluginAdded signal
      * of the PanelPluginsModel (mPlugins) will be connected to this
