@@ -216,7 +216,7 @@ public:
     // Settings
     int padding() const {
         auto cm = contentsMargins();
-        return cm.bottom() == cm.top() == cm.left() == cm.right() ? cm.left() : -1;
+        return (cm.bottom() == cm.top()) == (cm.left() == cm.right()) ? cm.left() : -1;
     }
     int bottomPadding() const { return contentsMargins().bottom(); }
     int topPadding() const { return contentsMargins().top(); }
