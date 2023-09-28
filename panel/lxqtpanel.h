@@ -224,13 +224,13 @@ public:
     int leftInset() const { return contentsMargins().left(); }
     int rightInset() const { return contentsMargins().right(); }
     int padding() const {
-        auto cm = LXQtPanelWidget->contentsMargins();
+        auto cm = LXQtPanelWidget->contentsMargins() + contentsMargins();
         return (cm.bottom() == cm.top()) == (cm.left() == cm.right()) ? cm.left() : 0;
     }
-    int bottomPadding() const { return LXQtPanelWidget->contentsMargins().bottom(); }
-    int topPadding() const { return LXQtPanelWidget->contentsMargins().top(); }
-    int leftPadding() const { return LXQtPanelWidget->contentsMargins().left(); }
-    int rightPadding() const { return LXQtPanelWidget->contentsMargins().right(); }
+    int bottomPadding() const { return LXQtPanelWidget->contentsMargins().bottom() + contentsMargins().bottom(); }
+    int topPadding() const { return LXQtPanelWidget->contentsMargins().top() + contentsMargins().top(); }
+    int leftPadding() const { return LXQtPanelWidget->contentsMargins().left() + contentsMargins().left(); }
+    int rightPadding() const { return LXQtPanelWidget->contentsMargins().right() + contentsMargins().right(); }
     int iconSize() const override { return mIconSize; } //!< Implement ILXQtPanel::iconSize().
     int lineCount() const override { return mLineCount; } //!< Implement ILXQtPanel::lineCount().
     int panelSize() const { return mPanelSize; }
