@@ -78,6 +78,7 @@ class LXQT_PANEL_API LXQtPanel : public QFrame, public ILXQtPanel
     Q_OBJECT
 
     Q_PROPERTY(QString position READ qssPosition)
+    Q_PROPERTY(int inset READ inset WRITE setInset NOTIFY insetChanged)
     Q_PROPERTY(int padding READ padding WRITE setPadding NOTIFY paddingChanged)
     Q_PROPERTY(int bottomPadding READ bottomPadding WRITE setBottomPadding NOTIFY bottomPaddingChanged)
     Q_PROPERTY(int topPadding READ topPadding WRITE setTopPadding NOTIFY topPaddingChanged)
@@ -214,14 +215,22 @@ public:
     static ILXQtPanel::Position strToPosition(const QString &str, ILXQtPanel::Position defaultValue);
 
     // Settings
-    int padding() const {
+    int inset() const {
         auto cm = contentsMargins();
-        return (cm.bottom() == cm.top()) == (cm.left() == cm.right()) ? cm.left() : -1;
+        return (cm.bottom() == cm.top()) == (cm.left() == cm.right()) ? cm.left() : 0;
     }
-    int bottomPadding() const { return contentsMargins().bottom(); }
-    int topPadding() const { return contentsMargins().top(); }
-    int leftPadding() const { return contentsMargins().left(); }
-    int rightPadding() const { return contentsMargins().right(); }
+    int bottomInset() const { return contentsMargins().bottom(); }
+    int topInset() const { return contentsMargins().top(); }
+    int leftInset() const { return contentsMargins().left(); }
+    int rightInset() const { return contentsMargins().right(); }
+    int padding() const {
+        auto cm = LXQtPanelWidget->contentsMargins();
+        return (cm.bottom() == cm.top()) == (cm.left() == cm.right()) ? cm.left() : 0;
+    }
+    int bottomPadding() const { return LXQtPanelWidget->contentsMargins().bottom(); }
+    int topPadding() const { return LXQtPanelWidget->contentsMargins().top(); }
+    int leftPadding() const { return LXQtPanelWidget->contentsMargins().left(); }
+    int rightPadding() const { return LXQtPanelWidget->contentsMargins().right(); }
     int iconSize() const override { return mIconSize; } //!< Implement ILXQtPanel::iconSize().
     int lineCount() const override { return mLineCount; } //!< Implement ILXQtPanel::lineCount().
     int panelSize() const { return mPanelSize; }
@@ -309,9 +318,28 @@ public slots:
      * @param save If true, saveSettings(true) will be called.
      */
     void setPanelSize(int value, bool save);
-    void setPadding(int value) { setContentsMargins(value, value, value, value); }  //!< \sa setPanelSize()
+    void setInset(int value) {
+        if (value != inset()) {
+            setContentsMargins(value, value, value, value);
+            emit insetChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setPadding(int value) {
+        auto inset_ = inset();
+        if (inset_ != 0) {
+            value = value - inset_;
+        }
+        if (value != padding()) {
+            LXQtPanelWidget->setContentsMargins(value, value, value, value);
+            emit paddingChanged();
+        }
+    }  //!< \sa setPanelSize()
     void setBottomPadding(int value) {
-        auto cm = contentsMargins();
+        auto cm = LXQtPanelWidget->contentsMargins();
+        auto inset_ = bottomInset();
+        if (inset_ != 0) {
+            value = value - inset_;
+        }
         if (value != cm.bottom()) {
             cm.setBottom(value);
             setContentsMargins(cm);
@@ -319,7 +347,11 @@ public slots:
         }
     }  //!< \sa setPanelSize()
     void setTopPadding(int value)    {
-        auto cm = contentsMargins();
+        auto cm = LXQtPanelWidget->contentsMargins();
+        auto inset_ = topInset();
+        if (inset_ != 0) {
+            value = value - inset_;
+        }
         if (value != cm.top()) {
             cm.setTop(value);
             setContentsMargins(cm);
@@ -327,7 +359,11 @@ public slots:
         }
     }  //!< \sa setPanelSize()
     void setLeftPadding(int value)   {
-        auto cm = contentsMargins();
+        auto cm = LXQtPanelWidget->contentsMargins();
+        auto inset_ = leftInset();
+        if (inset_ != 0) {
+            value = value - inset_;
+        }
         if (value != cm.left()) {
             cm.setLeft(value);
             setContentsMargins(cm);
@@ -335,7 +371,11 @@ public slots:
         }
     }  //!< \sa setPanelSize()
     void setRightPadding(int value)  {
-        auto cm = contentsMargins();
+        auto cm = LXQtPanelWidget->contentsMargins();
+        auto inset_ = bottomInset();
+        if (inset_ != 0) {
+            value = value - inset_;
+        }
         if (value != cm.right()) {
             cm.setRight(value);
             setContentsMargins(cm);
@@ -393,6 +433,7 @@ signals:
      * parameter to identify the LXQtPanel that should be removed.
      */
     void deletedByUser(LXQtPanel *self);
+    void insetChanged();
     void paddingChanged();
     void bottomPaddingChanged();
     void topPaddingChanged();
@@ -713,6 +754,7 @@ private:
     QColor mFontColor; //!< Font color that is used in the style sheet.
     QColor mBackgroundColor; //!< Background color that is used in the style sheet.
     QString mBackgroundImage; //!< Background image that is used in the style sheet.
+
     /**
      * @brief Determines the opacity of the background color. The value
      * should be in the range from 0 to 100. This will not affect the opacity
