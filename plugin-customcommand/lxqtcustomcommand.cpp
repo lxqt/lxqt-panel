@@ -46,7 +46,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mRunWithBash(true),
         mOutputImage(false),
         mRepeat(true),
-        mRepeatTimer(1),
+        mRepeatTimer(5),
         mMaxWidth(200)
 {
     mButton = new CustomButton(this);
@@ -140,7 +140,7 @@ void LXQtCustomCommand::settingsChanged()
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputImage != mOutputImage || oldRepeat != mRepeat)
         shouldRun = true;
 
-    if (oldRepeatTimer != mRepeatTimer)
+    if (mFirstRun || oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
     if (oldIcon != mIcon) {
@@ -150,10 +150,10 @@ void LXQtCustomCommand::settingsChanged()
     else if (oldText != mText)
         updateButton();
 
-    if (oldMaxWidth != mMaxWidth)
+    if (mFirstRun || oldMaxWidth != mMaxWidth)
         mButton->setMaxWidth(mMaxWidth);
 
-    if (oldAutoRotate != mAutoRotate)
+    if (mFirstRun || oldAutoRotate != mAutoRotate)
         mButton->setAutoRotation(mAutoRotate);
 
     if (mFirstRun) {
