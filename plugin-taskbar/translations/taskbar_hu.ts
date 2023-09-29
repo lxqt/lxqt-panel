@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="666"/>
+        <location filename="../lxqttaskbutton.cpp" line="674"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="700"/>
+        <location filename="../lxqttaskbutton.cpp" line="708"/>
         <source>To &amp;Desktop</source>
         <translation>Asztal&amp;ra</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="702"/>
+        <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;Az összes asztalra</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="712"/>
+        <location filename="../lxqttaskbutton.cpp" line="720"/>
         <source>Desktop &amp;%1</source>
         <translation>&amp;%1. asztalra</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="722"/>
+        <location filename="../lxqttaskbutton.cpp" line="730"/>
         <source>&amp;To Current Desktop</source>
         <translation>Az ak&amp;tuális asztalra</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="731"/>
+        <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="734"/>
+        <location filename="../lxqttaskbutton.cpp" line="742"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>Áthelyezés az &amp;előző monitorra</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="738"/>
+        <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Move</source>
         <translation type="unfinished">&amp;Mozgatás</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="741"/>
+        <location filename="../lxqttaskbutton.cpp" line="749"/>
         <source>Resi&amp;ze</source>
         <translation>Átmé&amp;retezés</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="748"/>
+        <location filename="../lxqttaskbutton.cpp" line="756"/>
         <source>Ma&amp;ximize</source>
         <translation>Ma&amp;ximalizálás</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="755"/>
+        <location filename="../lxqttaskbutton.cpp" line="763"/>
         <source>Maximize vertically</source>
         <translation>Maximalizálás függőlegesen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="760"/>
+        <location filename="../lxqttaskbutton.cpp" line="768"/>
         <source>Maximize horizontally</source>
         <translation>Maximalizálás vízszintesen</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="766"/>
+        <location filename="../lxqttaskbutton.cpp" line="774"/>
         <source>&amp;Restore</source>
         <translation>&amp;Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="770"/>
+        <location filename="../lxqttaskbutton.cpp" line="778"/>
         <source>Mi&amp;nimize</source>
         <translation>Mi&amp;nimalizálás</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="776"/>
+        <location filename="../lxqttaskbutton.cpp" line="784"/>
         <source>Roll down</source>
         <translation>Legördítés</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="782"/>
+        <location filename="../lxqttaskbutton.cpp" line="790"/>
         <source>Roll up</source>
         <translation>Felgördítés</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="790"/>
+        <location filename="../lxqttaskbutton.cpp" line="798"/>
         <source>&amp;Layer</source>
         <translation>Réte&amp;g</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="792"/>
+        <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>Always on &amp;top</source>
         <translation>Mindig &amp;felül</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="798"/>
+        <location filename="../lxqttaskbutton.cpp" line="806"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normál</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="804"/>
+        <location filename="../lxqttaskbutton.cpp" line="812"/>
         <source>Always on &amp;bottom</source>
         <translation>Min&amp;dig alul</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="812"/>
+        <location filename="../lxqttaskbutton.cpp" line="820"/>
         <source>&amp;Close</source>
         <translation>&amp;Bezárás</translation>
     </message>
