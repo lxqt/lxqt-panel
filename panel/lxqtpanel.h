@@ -79,6 +79,10 @@ class LXQT_PANEL_API LXQtPanel : public QFrame, public ILXQtPanel
 
     Q_PROPERTY(QString position READ qssPosition)
     Q_PROPERTY(int inset READ inset WRITE setInset NOTIFY insetChanged)
+    Q_PROPERTY(int bottomInset READ bottomInset WRITE setBottomInset NOTIFY bottomInsetChanged)
+    Q_PROPERTY(int topInset READ topInset WRITE setTopInset NOTIFY topInsetChanged)
+    Q_PROPERTY(int leftInset READ leftInset WRITE setLeftInset NOTIFY leftInsetChanged)
+    Q_PROPERTY(int rightInset READ rightInset WRITE setRightInset NOTIFY rightInsetChanged)
     Q_PROPERTY(int padding READ padding WRITE setPadding NOTIFY paddingChanged)
     Q_PROPERTY(int bottomPadding READ bottomPadding WRITE setBottomPadding NOTIFY bottomPaddingChanged)
     Q_PROPERTY(int topPadding READ topPadding WRITE setTopPadding NOTIFY topPaddingChanged)
@@ -318,23 +322,73 @@ public slots:
      * @param save If true, saveSettings(true) will be called.
      */
     void setPanelSize(int value, bool save);
-    void setInset(int value) {
+    void setInset(int value, bool save = true) {
         if (value != inset()) {
             setContentsMargins(value, value, value, value);
+            if (save) {
+                saveSettings(true);
+            }
             emit insetChanged();
         }
     }  //!< \sa setPanelSize()
-    void setPadding(int value) {
+    void setBottomInset(int value, bool save = true) {
+        auto cm = contentsMargins();
+        if (value != cm.bottom()) {
+            cm.setBottom(value);
+            setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
+            emit bottomInsetChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setTopInset(int value, bool save = true) {
+        auto cm = contentsMargins();
+        if (value != cm.top()) {
+            cm.setTop(value);
+            setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
+            emit topInsetChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setLeftInset(int value, bool save = true) {
+        auto cm = contentsMargins();
+        if (value != cm.left()) {
+            cm.setLeft(value);
+            setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
+            emit leftInsetChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setRightInset(int value, bool save = true) {
+        auto cm = contentsMargins();
+        if (value != cm.right()) {
+            cm.setRight(value);
+            setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
+            emit rightInsetChanged();
+        }
+    }  //!< \sa setPanelSize()
+    void setPadding(int value, bool save = true) {
         auto inset_ = inset();
         if (inset_ != 0) {
             value = value - inset_;
         }
         if (value != padding()) {
             LXQtPanelWidget->setContentsMargins(value, value, value, value);
+            if (save) {
+                saveSettings(true);
+            }
             emit paddingChanged();
         }
     }  //!< \sa setPanelSize()
-    void setBottomPadding(int value) {
+    void setBottomPadding(int value, bool save = true) {
         auto cm = LXQtPanelWidget->contentsMargins();
         auto inset_ = bottomInset();
         if (inset_ != 0) {
@@ -343,10 +397,13 @@ public slots:
         if (value != cm.bottom()) {
             cm.setBottom(value);
             setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
             emit bottomPaddingChanged();
         }
     }  //!< \sa setPanelSize()
-    void setTopPadding(int value)    {
+    void setTopPadding(int value, bool save = true) {
         auto cm = LXQtPanelWidget->contentsMargins();
         auto inset_ = topInset();
         if (inset_ != 0) {
@@ -355,10 +412,13 @@ public slots:
         if (value != cm.top()) {
             cm.setTop(value);
             setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
             emit topPaddingChanged();
         }
     }  //!< \sa setPanelSize()
-    void setLeftPadding(int value)   {
+    void setLeftPadding(int value, bool save = true) {
         auto cm = LXQtPanelWidget->contentsMargins();
         auto inset_ = leftInset();
         if (inset_ != 0) {
@@ -367,10 +427,13 @@ public slots:
         if (value != cm.left()) {
             cm.setLeft(value);
             setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
             emit leftPaddingChanged();
         }
     }  //!< \sa setPanelSize()
-    void setRightPadding(int value)  {
+    void setRightPadding(int value, bool save = true) {
         auto cm = LXQtPanelWidget->contentsMargins();
         auto inset_ = bottomInset();
         if (inset_ != 0) {
@@ -379,6 +442,9 @@ public slots:
         if (value != cm.right()) {
             cm.setRight(value);
             setContentsMargins(cm);
+            if (save) {
+                saveSettings(true);
+            }
             emit rightPaddingChanged();
         }
     }  //!< \sa setPanelSize()
@@ -434,6 +500,10 @@ signals:
      */
     void deletedByUser(LXQtPanel *self);
     void insetChanged();
+    void bottomInsetChanged();
+    void topInsetChanged();
+    void leftInsetChanged();
+    void rightInsetChanged();
     void paddingChanged();
     void bottomPaddingChanged();
     void topPaddingChanged();

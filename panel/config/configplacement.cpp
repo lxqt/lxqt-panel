@@ -59,6 +59,7 @@ ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
     fillComboBox_alignment();
 
     mOldPanelSize = mPanel->panelSize();
+    mOldPadding = mPanel->padding();
     mOldIconSize = mPanel->iconSize();
     mOldLineCount = mPanel->lineCount();
 
@@ -91,7 +92,7 @@ ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
     reset();
 
     connect(ui->spinBox_panelSize,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
-    connect(ui->spinBox_padding,            QOverload<int>::of(&QSpinBox::valueChanged),      this, [this](){ mPanel->setPadding(ui->spinBox_padding->value()); });
+    connect(ui->spinBox_padding,            QOverload<int>::of(&QSpinBox::valueChanged),      this, [this](){ mPanel->setPadding(ui->spinBox_padding->value(), true); });
     connect(ui->spinBox_iconSize,           QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
     connect(ui->spinBox_lineCount,          QOverload<int>::of(&QSpinBox::valueChanged),      this, &ConfigPlacement::editChanged);
 
@@ -117,6 +118,7 @@ ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
 void ConfigPlacement::reset()
 {
     ui->spinBox_panelSize->setValue(mOldPanelSize);
+    ui->spinBox_padding->setValue(mOldPadding);
     ui->spinBox_iconSize->setValue(mOldIconSize);
     ui->spinBox_lineCount->setValue(mOldLineCount);
 
