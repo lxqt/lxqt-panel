@@ -42,7 +42,12 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
         mOutput(QString()),
-        mAutoRotate(true)
+        mAutoRotate(true),
+        mRunWithBash(true),
+        mOutputImage(false),
+        mRepeat(true),
+        mRepeatTimer(1),
+        mMaxWidth(200)
 {
     mButton = new CustomButton(this);
     mButton->setObjectName(QLatin1String("CustomButton"));
