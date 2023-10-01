@@ -74,6 +74,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     connect(KX11Extras::self(), static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged),
             this, &DesktopSwitch::onWindowChanged);
+    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, &DesktopSwitch::onWindowRemoved);
 }
 
 void DesktopSwitch::registerShortcuts()
@@ -129,6 +130,17 @@ void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Pro
             if(button)
                 button->setUrgencyHint(id, info.hasState(NET::DemandsAttention));
         }
+    }
+}
+
+void DesktopSwitch::onWindowRemoved(WId id)
+{
+    const QList<QAbstractButton*> btns = m_buttons->buttons();
+    const int btn_count = btns.count();
+    for (int i = 0; i < btn_count; ++i)
+    {
+        DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
+        button->setUrgencyHint(id, false);
     }
 }
 
