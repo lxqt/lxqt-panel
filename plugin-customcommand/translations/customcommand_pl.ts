@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Polecenie wyświetla obraz</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>
