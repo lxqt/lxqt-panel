@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Opdracht geeft een afbeelding als resultaat</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>
