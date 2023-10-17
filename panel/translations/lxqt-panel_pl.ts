@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Ujemna ilość pikseli powoduje zmniejszenie panelu .&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Np. &quot;Długość&quot; ustawiona na -100px, rozmiar ekranu 1000px, długość panelu wyniesie 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Ujemna ilość pikseli powoduje zmniejszenie panelu .&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Np. gdy „Długość” ustawiona na -100px a rozmiar ekranu wynosi 1000px, długość panelu wyniesie 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -426,17 +426,17 @@ Czy chcesz usunąć ten panel?</translation>
     <message>
         <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfiguruj &quot;%1&quot;</translation>
+        <translation>Konfiguruj „%1”</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Przesuń &quot;%1&quot;</translation>
+        <translation>Przesuń „%1”</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Usuń &quot;%1&quot;</translation>
+        <translation>Usuń „%1”</translation>
     </message>
 </context>
 <context>
