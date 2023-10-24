@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Neigiama pikselių reikšmė nustato skydelio ilgį tiek pikselių mažiau nei yra prieinama vietos ekrane.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Pvz., Nustatytas &quot;Ilgis&quot; -100 pikselių, ekrano dydis yra 1000 pikselių, tuomet tikrasis skydelio ilgis bus 900 pikselių.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Neigiama pikselių reikšmė nustato skydelio ilgį tiek pikselių mažiau nei yra prieinama vietos ekrane.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Pvz., Yra nustatytas „Ilgis“ -100 pikselių, ekrano dydis yra 1000 pikselių, tuomet tikrasis skydelio ilgis bus 900 pikselių.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -427,17 +427,17 @@ Ar norite pašalinti šį skydelį?</translation>
     <message>
         <location filename="../plugin.cpp" line="438"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfigūruoti &quot;%1&quot;</translation>
+        <translation>Konfigūruoti „%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="443"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Perkelti &quot;%1&quot;</translation>
+        <translation>Perkelti „%1“</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="451"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Šalinti &quot;%1&quot;</translation>
+        <translation>Šalinti „%1“</translation>
     </message>
 </context>
 <context>
