@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="188"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation>Paleisti su „bash -c“</translation>
+        <translation>Paleisti naudojant „bash -c“</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="198"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Komanda išveda paveikslą</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>
