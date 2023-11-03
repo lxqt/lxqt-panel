@@ -12,6 +12,7 @@ lxqt-panel-1.4.0 / 2023-11-05
  * Added parameter parsing to launched command of volume plugin.
  * Fixed the initial displayed volume with PulseAudio in volume plugin.
  * Fixed the tooltips of volume control under Wayland.
+ * Added an option to show the output as an image in the custom command plugin.
 
 lxqt-panel-1.3.0 / 2023-04-15
 ==============================
