@@ -102,7 +102,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="70"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après :</translation>
+        <translation>Répéter la commande après&#xa0;:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="86"/>
