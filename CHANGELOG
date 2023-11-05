@@ -1,3 +1,19 @@
+lxqt-panel-1.4.0 / 2023-11-05
+==============================
+ * Use lxqt-menu-data instead of lxmenu-data.
+ * Consider the WM2Urgency hint in task bar.
+ * Fixed checking/clearing of urgency in task bar.
+ * Fixed window cycling with mouse wheel and focus stealing prevention in task bar.
+ * Removed unused non trivial variable from plugin-dom.
+ * Ported away from deprecated Qt::MidButton.
+ * Ported deprecated KWindowSystem methods to KX11Extras.
+ * Added a clear button to the search bar of Add Plugins dialog.
+ * Create dummy widget on unsupported platforms in desktop switch plugin (fixes crashing on Wayland).
+ * Added parameter parsing to launched command of volume plugin.
+ * Fixed the initial displayed volume with PulseAudio in volume plugin.
+ * Fixed the tooltips of volume control under Wayland.
+ * Added an option to show the output as an image in the custom command plugin.
+
 lxqt-panel-1.3.0 / 2023-04-15
 ==============================
  * Removed redundant classes from `VolumeButton` in volume plugin.
