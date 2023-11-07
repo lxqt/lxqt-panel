@@ -191,12 +191,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lähde</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tyyppi</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
@@ -206,12 +206,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä t&amp;eeman värejä</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Käytä omia värejä</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
