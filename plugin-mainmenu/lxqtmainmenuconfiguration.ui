@@ -127,6 +127,13 @@
       <string>Keyboard Shortcut</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Click the button to record shortcut:</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="1">
        <widget class="ShortcutSelector" name="shortcutEd">
         <property name="minimumSize">
@@ -140,13 +147,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Click the button to record shortcut:</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </widget>
    </item>
@@ -156,10 +156,10 @@
       <string>Search</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="2" column="1">
-       <widget class="QLabel" name="filterShowMaxWidthL">
+      <item row="0" column="0" colspan="3">
+       <widget class="QCheckBox" name="filterMenuCB">
         <property name="text">
-         <string>Max. item width:</string>
+         <string>Filter menu entries</string>
         </property>
        </widget>
       </item>
@@ -170,13 +170,6 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QSpinBox" name="filterShowMaxItemsSB">
-        <property name="maximum">
-         <number>20</number>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1">
        <widget class="QLabel" name="filterShowMaxItemsL">
         <property name="text">
@@ -184,10 +177,17 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="3">
-       <widget class="QCheckBox" name="filterMenuCB">
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="filterShowMaxItemsSB">
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="filterShowMaxWidthL">
         <property name="text">
-         <string>Filter menu entries</string>
+         <string>Max. item width:</string>
         </property>
        </widget>
       </item>
