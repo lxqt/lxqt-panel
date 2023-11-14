@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Rodyti darbalaukį: Visuotinis spartusis klavišas &quot;%1&quot; negali būti užregistruotas</translation>
+        <translation>Rodyti darbalaukį: Visuotinis spartusis klavišas „%1“ negali būti užregistruotas</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>
