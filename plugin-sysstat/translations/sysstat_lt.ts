@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&quot;N&amp;ice&quot; reikšmė</translation>
+        <translation>„N&amp;ice“ reikšmė</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>

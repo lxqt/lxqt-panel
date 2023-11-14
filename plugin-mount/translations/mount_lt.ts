@@ -68,7 +68,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Įrenginys &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; yra pašalintas.</translation>
+        <translation>Įrenginys &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; yra pašalintas.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; prijungimas nepavyko: %2</translation>
+        <translation>&lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; prijungimas patyrė nesėkmę: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>&lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; atjungimas nepavyko: %2</translation>
+        <translation>&lt;strong&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/strong&gt; atjungimas patyrė nesėkmę: %2</translation>
     </message>
 </context>
 <context>
