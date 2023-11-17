@@ -29,6 +29,7 @@
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QFontDialog>
+#include <QStandardPaths>
 
 LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
@@ -144,7 +145,24 @@ void LXQtCustomCommandConfiguration::iconLineEditChanged(QString icon)
 
 void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Select Icon File"), QString(), tr("Images (*.png *.svg *.xpm *.jpg)"));
+    // prefer the icon theme folder
+    QString iconDir;
+    QString iconThemeName = QIcon::themeName();
+    const auto icons = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
+                                                 QStringLiteral("icons"),
+                                                 QStandardPaths::LocateDirectory);
+
+    for (const auto& icon : icons)
+    {
+        QString iconThemeFolder = icon + QLatin1String("/") + iconThemeName;
+        if (QDir(iconThemeFolder).exists() && QFileInfo(iconThemeFolder).permission(QFileDevice::ReadUser))
+        {
+            iconDir = iconThemeFolder;
+            break;
+        }
+    }
+
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Select Icon File"), iconDir, tr("Images (*.png *.svg *.xpm *.jpg)"));
     ui->iconLineEdit->setText(fileName);
 }
 
