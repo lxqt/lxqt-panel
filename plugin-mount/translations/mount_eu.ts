@@ -14,17 +14,17 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media aldagarrien ezarpenak</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation type="unfinished">Portaera</translation>
+        <translation>Portaera</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="32"/>
         <source>When a device is connected:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gailu bat konektatuta dagoenean:</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="42"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ateratzeko botoia sakatzen denean:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="44"/>
@@ -44,18 +44,18 @@
     <message>
         <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
-        <translation type="unfinished">Erakutsi informazioa</translation>
+        <translation>Erakutsi informazioa</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="46"/>
         <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Ez egin ezer</translation>
+        <translation>Ez egin ezer</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Atera Unitate optiko guztiak</translation>
     </message>
 </context>
 <context>
@@ -63,12 +63,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished">&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua konektatuta.</translation>
+        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;Gailua konektatuta.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation type="unfinished">&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua kenduta.</translation>
+        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua kenduta.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation type="unfinished"></translation>
+        <translation>Unitate optiko guztiak kanporatu ditu</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kendu daitezkeen euskarri/gailuen kudeatzailea: &apos;%1&apos; lasterbide orokorra ezin da erregistratu</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez dago gailurik erabilgarri</translation>
     </message>
 </context>
 </TS>
