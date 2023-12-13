@@ -109,7 +109,7 @@ void LXQtCustomCommand::settingsChanged()
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
     mFont = settings()->value(QStringLiteral("font"), QString()).toString(); // the default font should be empty
-    mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString();
+    mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString().trimmed();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     mOutputImage = settings()->value(QStringLiteral("outputImage"), false).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
@@ -118,9 +118,9 @@ void LXQtCustomCommand::settingsChanged()
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
     mMaxWidth = settings()->value(QStringLiteral("maxWidth"), 200).toInt();
-    mClick = settings()->value(QStringLiteral("click"), QString()).toString();
-    mWheelUp = settings()->value(QStringLiteral("wheelUp"), QString()).toString();
-    mWheelDown = settings()->value(QStringLiteral("wheelDown"), QString()).toString();
+    mClick = settings()->value(QStringLiteral("click"), QString()).toString().trimmed();
+    mWheelUp = settings()->value(QStringLiteral("wheelUp"), QString()).toString().trimmed();
+    mWheelDown = settings()->value(QStringLiteral("wheelDown"), QString()).toString().trimmed();
 
     if (oldFont != mFont) {
         QFont newFont;
