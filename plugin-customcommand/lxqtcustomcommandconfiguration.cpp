@@ -108,7 +108,7 @@ void LXQtCustomCommandConfiguration::fontButtonClicked()
 void LXQtCustomCommandConfiguration::commandPlainTextEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText());
+        settings().setValue(QStringLiteral("command"), ui->commandPlainTextEdit->toPlainText().trimmed());
 }
 
 void LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged(bool runWithBash)
@@ -163,17 +163,17 @@ void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged(int maxWidth)
 void LXQtCustomCommandConfiguration::clickLineEditChanged(QString click)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("click"), click);
+        settings().setValue(QStringLiteral("click"), click.trimmed());
 }
 
 void LXQtCustomCommandConfiguration::wheelUpLineEditChanged(QString wheelUp)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelUp"), wheelUp);
+        settings().setValue(QStringLiteral("wheelUp"), wheelUp.trimmed());
 }
 
 void LXQtCustomCommandConfiguration::wheelDownLineEditChanged(QString wheelDown)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelDown"), wheelDown);
+        settings().setValue(QStringLiteral("wheelDown"), wheelDown.trimmed());
 }
