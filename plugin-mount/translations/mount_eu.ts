@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished">Eduki/gailu aldagarrien kudeatzailea</translation>
+        <translation>Kendu daitekeen euskarri/gailuen kudeatzailea</translation>
     </message>
 </context>
 <context>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished">Kendu daitezkeen euskarri/gailuen kudeatzailea: &apos;%1&apos; lasterbide orokorra ezin da erregistratu</translation>
+        <translation>Kendu daitezkeen euskarri/gailuen kudeatzailea: &apos;%1&apos; lasterbide orokorra ezin da erregistratu</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>Atera daitekeen euskarri aldagarria</translation>
     </message>
 </context>
 <context>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Huts egin du &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; muntatu: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Huts egin du &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; desmuntatu: %2</translation>
     </message>
 </context>
 <context>
