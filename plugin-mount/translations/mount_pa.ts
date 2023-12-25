@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="eu">
+<TS version="2.1" language="pa">
 <context>
     <name>Button</name>
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Kendu daitekeen euskarri/gailuen kudeatzailea</translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ/ਡਿਵਾਈਸ ਮੈਨੇਜਰ</translation>
     </message>
 </context>
 <context>
@@ -14,17 +14,17 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Media aldagarrien ezarpenak</translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ ਲਈ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Portaera</translation>
+        <translation>ਰਵੱਈਆ</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="32"/>
         <source>When a device is connected:</source>
-        <translation>Gailu bat konektatuta dagoenean:</translation>
+        <translation>ਜਦੋ ਡਿਵਾਈਸ ਕਨੈਕਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="42"/>
@@ -34,28 +34,28 @@
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation>Ateratzeko botoia sakatzen denean:</translation>
+        <translation>ਜਦੋਂ ਬਾਹਰ ਕੱਢੋ ਬਟਨ ਦਬਾਇਆ ਜਾਂਦਾ ਹੈ:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="44"/>
         <source>Popup menu</source>
-        <translation>Laster-menua</translation>
+        <translation>ਪੌਪ ਮੇਨੂ</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="45"/>
         <source>Show info</source>
-        <translation>Erakutsi informazioa</translation>
+        <translation>ਜਾਣਕਾਰੀ ਵੇਖਾਓ</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="46"/>
         <location filename="../configuration.cpp" line="51"/>
         <source>Do nothing</source>
-        <translation>Ez egin ezer</translation>
+        <translation>ਕੁਝ ਨਾ ਕਰੋ</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="52"/>
         <source>Eject All Optical Drives</source>
-        <translation>Atera Unitate optiko guztiak</translation>
+        <translation>ਸਾਰੇ ਓਪਟੀਕਲ ਡਰਾਇਵ ਬਾਹਰ ਕੱਢੋ</translation>
     </message>
 </context>
 <context>
@@ -63,17 +63,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;Gailua konektatuta.</translation>
+        <translation>ਡਿਵਾਈਸ &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ਕਨੈਕਟ ਹੈ।</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt;gailua kenduta.</translation>
+        <translation>ਡਿਵਾਈਸ &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ਹਟਾਇਆ ਹੈ।</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Eduki/gailu aldagarrien kudeatzailea</translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ/ਡਿਵਾਈਸ ਮੈਨੇਜਰ</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation>Kendu daitezkeen euskarri/gailu kudeatzailea</translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ/ਡਿਵਾਈਸ ਮੈਨੇਜਰ</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation>Unitate optiko guztiak kanporatu ditu</translation>
+        <translation>ਸਾਰੇ ਓਪਟੀਕਲ ਡਰਾਇਵਾਂ ਨੂੰ ਹਟਾਇਆ ਗਿਆ</translation>
     </message>
 </context>
 <context>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Kendu daitezkeen euskarri/gailuen kudeatzailea: &apos;%1&apos; lasterbide orokorra ezin da erregistratu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation>Atera daitekeen euskarri aldagarria</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -107,18 +107,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="153"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Huts egin du &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; muntatu: %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="155"/>
         <location filename="../menudiskitem.cpp" line="176"/>
         <source>Removable media/devices manager</source>
-        <translation>Kendu daitezkeen euskarri/gailu kudeatzailea</translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ/ਡਿਵਾਈਸ ਮੈਨੇਜਰ</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="174"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Huts egin du &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; desmuntatu: %2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../popup.cpp" line="68"/>
         <source>No devices are available</source>
-        <translation>Ez dago gailurik erabilgarri</translation>
+        <translation>ਕੋਈ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੈ</translation>
     </message>
 </context>
 </TS>

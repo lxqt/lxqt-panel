@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="eu">
+<TS version="2.1" language="pa">
 <context>
     <name>LXQtSensorsConfiguration</name>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="14"/>
         <source>Sensors Settings</source>
-        <translation>Sentsoreen ezarpenak</translation>
+        <translation>ਸੈਂਸਰ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>Komuna</translation>
+        <translation>ਆਮ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Eguneraketa tartea (segundoak)</translation>
+        <translation>ਅੱਪਡੇਟ ਦਾ ਅੰਤਰਾਲ (ਸਕਿੰਟ)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
         <source>Temperature bar width</source>
-        <translation>Tenperatura-barraren zabalera</translation>
+        <translation>ਤਾਪਮਾਨ ਪੱਟੀ ਦੀ ਚੌੜਾਈ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
         <source>Temperature scale</source>
-        <translation>Tenperaturaren eskala</translation>
+        <translation>ਤਾਪਮਾਨ ਸਕੇਲ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Celsius</source>
-        <translation>Celsius</translation>
+        <translation>ਸੈਲਸੀਅਸ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
         <source>Fahrenheit</source>
-        <translation>Fahrenheit</translation>
+        <translation>ਫਾਹਰਨਹੀਟ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation type="unfinished"></translation>
+        <translation>ਜੇ ਤਾਪਮਾਨ ਬਹੁਤ ਜਿਆਦਾ ਹੋੇ ਤਾਂ ਸਥਿਤੀ ਪੱਟੀ ਨੂੰ ਝਪਕਾਓ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
         <source>Warning about high temperature</source>
-        <translation>Tenperatura altuari buruzko abisua</translation>
+        <translation>ਵੱਧ ਤਾਪਮਾਨ ਬਾਰੇ ਸਾਵਧਾਨ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
         <source>Sensors</source>
-        <translation>Sentsoreak</translation>
+        <translation>ਸੈਂਸਰ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
         <source>Detected chips:</source>
-        <translation>Detektatutako txipak:</translation>
+        <translation>ਖੋਜੀਆਂ ਚਿੱਪਾਂ:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Txiparen ezaugarriak:</translation>
+        <translation>ਚਿੱਪ ਦੇ ਫੀਚਰ:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Enabled</source>
-        <translation>Gaituta</translation>
+        <translation>ਸਮਰੱਥ ਹੈ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Label</source>
-        <translation>Etiketa</translation>
+        <translation>ਲੇਬਲ</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
         <source>Color</source>
-        <translation>Kolorea</translation>
+        <translation>ਰੰਗ</translation>
     </message>
 </context>
 </TS>

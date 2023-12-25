@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Kokapen</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilizazioa</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguratu kokapena</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Pixelen balio negatiboak panelaren luzera pantailan dagoen espazioa baino pixel gutxiagorekin ezartzen du.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Adibidez.  &quot;Luzera&quot; ezarrita dago -100 px-en, pantailaren tamaina 1000 px-koa da eta, ondoren, panelaren benetako luzera 900 px-koa izango da.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -175,12 +175,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutuko panelerako marjina mehe ikusgaia</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu leiho bat gainjartzean soilik</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguratu estiloa</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -337,7 +337,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget estiloetarako konponbide partziala
+ezin dio gai bereizirik eman panelari.
+
+Baliteke ere desgaitu nahi izatea:
+
+LXQt Itxura konfigurazioa
+Ikonoak Gaia 
+Koloreztatu ikonoak widget estiloaren arabera (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
@@ -437,7 +444,7 @@ Ziur zaude panel hau ezabatu nahi duzula?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili ordezko konfigurazio fitxategia.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
