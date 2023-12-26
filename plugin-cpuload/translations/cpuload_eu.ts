@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtcpuload.cpp" line="127"/>
         <source>CPU load %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU karga %1%</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>CPUaren kargaren ezarpenak</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Barraren zabalera:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>

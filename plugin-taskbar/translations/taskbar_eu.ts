@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="746"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mugitu</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="749"/>
@@ -175,24 +175,24 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi pop-up sagua pasatzean</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxura</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Botoiaren gehienezko zabalera</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="125"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="201"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="227"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
@@ -207,12 +207,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Jarri klase bereko botoiak bata bestearen ondoan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation type="unfinished"></translation>
+        <translation>Botoiaren gehienezko altuera</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
@@ -252,7 +252,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Desgaituta</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Current</source>
-        <translation type="unfinished"></translation>
+        <translation>Oraingoa</translation>
     </message>
 </context>
 </TS>
