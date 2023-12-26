@@ -6,32 +6,32 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="64"/>
         <source>Increase sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Soinu bolumena handitu</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="70"/>
         <source>Decrease sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaitsi soinuaren bolumena</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Desaktibatu/aktibatu soinuaren bolumena</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bolumen-kontrola: lasterbide hauek ezin dira erregistratu: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="290"/>
         <source>Volume: %1%%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Bolumena: %1%%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="290"/>
         <source>(muted)</source>
-        <translation type="unfinished"></translation>
+        <translation>(isilduta)</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Bolumen-kontrolaren ezarpenak</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
         <source>ALSA</source>
-        <translation type="unfinished"></translation>
+        <translation>ALSA</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
         <source>OSS</source>
-        <translation type="unfinished"></translation>
+        <translation>OSS</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Eman beti bolumen-aldaketen berri</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="59"/>
         <source>Launch mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Abiarazi nahasgailua</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="60"/>
