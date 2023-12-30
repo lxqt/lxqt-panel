@@ -90,7 +90,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Patrón do camiño das bandeiras:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
