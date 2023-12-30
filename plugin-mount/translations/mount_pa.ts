@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
         <source>Eject removable media</source>
-        <translation type="unfinished"></translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਏ ਨੂੰ ਹਟਾਓ</translation>
     </message>
 </context>
 <context>

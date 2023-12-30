@@ -31,7 +31,7 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
