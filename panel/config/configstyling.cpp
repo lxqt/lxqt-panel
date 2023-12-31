@@ -220,7 +220,7 @@ void ConfigStyling::pickBackgroundImage()
     QString picturesLocation;
     picturesLocation = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
 
-    QFileDialog* d = new QFileDialog(this, tr("Pick image"), picturesLocation, tr("Images (*.png *.gif *.jpg)"));
+    QFileDialog* d = new QFileDialog(this, tr("Pick image"), picturesLocation, tr("Images (*.png *.gif *.jpg *.svg)"));
     d->setAttribute(Qt::WA_DeleteOnClose);
     d->setWindowModality(Qt::WindowModal);
     connect(d, &QFileDialog::fileSelected, ui->lineEdit_customBgImage, &QLineEdit::setText);
