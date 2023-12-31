@@ -6,37 +6,37 @@
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="44"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>모양새</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="50"/>
         <source>Number of eyes</source>
-        <translation type="unfinished"></translation>
+        <translation>눈의 개수</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="56"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>유형</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="60"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>닫기</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="65"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>재설정</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="69"/>
         <source>QEyes setting</source>
-        <translation type="unfinished"></translation>
+        <translation>QEyes 설정</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="98"/>
         <source>QEyes default</source>
-        <translation type="unfinished"></translation>
+        <translation>QEyes 기본값</translation>
     </message>
 </context>
 </TS>
