@@ -369,8 +369,8 @@ Colora le icone in base allo stile del widget (palette)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Immagini (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Immagini (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

@@ -369,8 +369,8 @@ Pictogrammen inkleuren op basis van elementstijl (palet)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Afbeeldingen (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Afbeeldingen (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

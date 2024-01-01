@@ -370,8 +370,8 @@ Colorear los iconos según la paleta de colores usada en los widgets</translatio
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Imágenes (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Imágenes (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

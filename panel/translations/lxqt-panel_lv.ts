@@ -369,8 +369,8 @@ Iekrāsot ikonas, balstoties uz logrīku stilu (palete)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Attēli (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Attēli (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
