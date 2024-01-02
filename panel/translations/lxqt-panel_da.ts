@@ -369,8 +369,8 @@ Farvelæg ikoner baseret på widgetstil (palet)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Billeder (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Billeder (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

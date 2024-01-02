@@ -369,8 +369,8 @@ Colorează pictogramele pe baza stilului widgetului (paletei)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Imagini (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Imagini (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

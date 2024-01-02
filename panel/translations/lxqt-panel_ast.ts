@@ -304,8 +304,8 @@ Pintar los iconos según l&apos;estilu de widgets (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configpanelwidget.cpp" line="470"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Imáxenes (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Imáxenes (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

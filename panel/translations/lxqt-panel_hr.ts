@@ -369,8 +369,8 @@ Oboji ikone na osnovi stila programčića (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Slike (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Slike (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

@@ -369,8 +369,8 @@ LXQt 外观配置→
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>图像 (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>图像 (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

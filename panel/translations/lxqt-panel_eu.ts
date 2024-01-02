@@ -369,7 +369,7 @@ Koloreztatu ikonoak widget estiloaren arabera (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Irudiak (* .png * .gif * .jpg)</translation>
     </message>
 </context>

@@ -369,7 +369,7 @@ Oboji ikone na osnovu stila vidžeta (paleta)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -369,8 +369,8 @@ LXQt 모양새 구성 →
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>이미지 (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>이미지 (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>

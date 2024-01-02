@@ -371,8 +371,8 @@ LXQT Διαμόρφωση εμφάνισης→
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
-        <source>Images (*.png *.gif *.jpg)</source>
-        <translation>Εικόνες (*.png *.gif *.jpg)</translation>
+        <source>Images (*.png *.gif *.jpg *.svg)</source>
+        <translation>Εικόνες (*.png *.gif *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
