@@ -44,17 +44,59 @@
 #include <QMouseEvent>
 #include <QMimeData>
 #include <QUrl>
+#include <QSortFilterProxyModel>
+
+#include <QtDebug>
+#include <QString>
 
 //==============================
+
+void FilterProxyModel::setfilterString(const QString &str) {
+    filterStr_ = str;
+    invalidateFilter();
+
 #ifdef HAVE_MENU_CACHE
-#include <QSortFilterProxyModel>
-#else
+    setFilterFixedString(str);
+#endif
+}
+
+bool FilterProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    /* Prefer entries that start with the searched text
+     * then entries that contains it
+     * then sort the rest by length of their text
+     * */
+
+    QString leftText = sourceModel()->data(source_left).toString();
+    QString rightText = sourceModel()->data(source_right).toString();
+
+    if(leftText.startsWith(filterStr_, Qt::CaseInsensitive))
+    {
+        if(rightText.startsWith(filterStr_, Qt::CaseInsensitive))
+            return leftText.size() < rightText.size();
+        else return true;
+    }
+    else if(rightText.startsWith(filterStr_, Qt::CaseInsensitive))
+        return false;
+    else if(leftText.contains(filterStr_, Qt::CaseInsensitive))
+    {
+        if(rightText.contains(filterStr_, Qt::CaseInsensitive))
+            return leftText.size() < rightText.size();
+        else return true;
+    }
+    else if(rightText.contains(filterStr_, Qt::CaseInsensitive))
+        return false;
+    else return leftText.size() < rightText.size();
+}
+
+
 FilterProxyModel::FilterProxyModel(QObject* parent) :
     QSortFilterProxyModel(parent) {
 }
 
 FilterProxyModel::~FilterProxyModel() = default;
 
+#ifndef HAVE_MENU_CACHE
 bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const {
     if (filterStr_.isEmpty())
         return true;
@@ -142,11 +184,7 @@ namespace
 ActionView::ActionView(QWidget * parent /*= nullptr*/)
     : QListView(parent)
     , mModel{new QStandardItemModel{this}}
-#ifdef HAVE_MENU_CACHE
-    , mProxy{new QSortFilterProxyModel{this}}
-#else
     , mProxy{new FilterProxyModel{this}}
-#endif
     , mMaxItemsToShow(10)
 {
     setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -227,21 +265,18 @@ void ActionView::fillActions(QMenu * menu)
 
 void ActionView::setFilter(QString const & filter)
 {
-#ifdef HAVE_MENU_CACHE
-    mProxy->setFilterFixedString(filter);
-#else
-    mProxy->setfilerString(filter);
-#endif
+    mProxy->setfilterString(filter);
+
     const int count = mProxy->rowCount();
     if (0 < count)
     {
         if (count > mMaxItemsToShow)
         {
-            setCurrentIndex(mProxy->index(mMaxItemsToShow - 1, 0));
+            setCurrentIndex(mProxy->index(0, 0));
             verticalScrollBar()->triggerAction(QScrollBar::SliderToMinimum);
         } else
         {
-            setCurrentIndex(mProxy->index(count - 1, 0));
+            setCurrentIndex(mProxy->index(0, 0));
         }
     }
 }
