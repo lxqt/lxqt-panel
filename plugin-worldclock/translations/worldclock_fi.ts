@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Muoto:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää tuntiin etunolla</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
