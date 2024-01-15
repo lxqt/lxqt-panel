@@ -32,33 +32,31 @@
 #include "lxqtfancymenuappmodel.h"
 #include "lxqtfancymenucategoriesmodel.h"
 
+#include <QMessageBox>
 #include <QLineEdit>
 #include <QToolButton>
 #include <QListView>
-#include <QPainter>
-#include <QMenu>
-#include <QWindow>
-#include <QScreen>
-#include <QStandardPaths>
-#include <QDir>
-#include <QMimeData>
-#include <XdgIcon>
-#include <QFile>
-
-#include <QApplication>
-#include <QClipboard>
 
 #include <QBoxLayout>
 
-#include <QMessageBox>
+#include <QWindow>
+#include <QScreen>
+#include <QApplication>
+
+#include <QMenu>
+#include <QDir>
+#include <XdgIcon>
+#include <QFile>
 
 #include <QProcess>
 
 #include <QKeyEvent>
-#include <QCoreApplication>
 
 #include <QProxyStyle>
 #include <QStyledItemDelegate>
+#include <QPainter>
+
+#include "lxqtfancymenucontextmenuutils.h"
 
 namespace
 {
@@ -293,60 +291,18 @@ void LXQtFancyMenuWindow::onAppViewCustomMenu(const QPoint& p)
     if(!item)
         return;
 
-    XdgDesktopFile df = item->desktopFileCache;
-    QString file = df.fileName();
+    XdgDesktopFile desktopFile = item->desktopFileCache;
 
     QMenu menu;
-    QAction *a;
 
-    if (df.actions().count() > 0 && df.type() == XdgDesktopFile::Type::ApplicationType)
-    {
-        for (int i = 0; i < df.actions().count(); ++i)
-        {
-            QString actionString(df.actions().at(i));
-            a = menu.addAction(df.actionIcon(actionString), df.actionName(actionString));
-            connect(a, &QAction::triggered, this, [this, df, actionString] {
-                df.actionActivate(actionString, QStringList());
-                hide();
-            });
-        }
-        menu.addSeparator();
-    }
+    // Build default context menu
+    LXQtFancyMenuContextMenuUtils::buildContextMenu(&menu, this, desktopFile);
 
-    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("desktop")), tr("Add to desktop"));
-    connect(a, &QAction::triggered, [file] {
-        QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
-        QString desktopFile = desktop + QStringLiteral("/") + file.section(QStringLiteral("/"), -1);
-        if (QFile::exists(desktopFile))
-        {
-            QMessageBox::StandardButton btn =
-                QMessageBox::question(nullptr,
-                                      tr("Question"),
-                                      tr("A file with the same name already exists.\nDo you want to overwrite it?"));
-            if (btn == QMessageBox::No)
-                return;
-            if (!QFile::remove(desktopFile))
-            {
-                QMessageBox::warning(nullptr,
-                                     tr("Warning"),
-                                     tr("The file cannot be overwritten."));
-                return;
-            }
-        }
-        QFile::copy(file, desktopFile);
-    });
-
-    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("edit-copy")), tr("Copy"));
-    connect(a, &QAction::triggered, this, [file] {
-        QClipboard* clipboard = QApplication::clipboard();
-        QMimeData* data = new QMimeData();
-        data->setUrls({QUrl::fromLocalFile(file)});
-        clipboard->setMimeData(data);
-    });
-
+    // Add Favorites actions
     menu.addSeparator();
 
-    QString canonicalFile = QDir(file).canonicalPath();
+    QAction *a = nullptr;
+    QString canonicalFile = QDir(desktopFile.fileName()).canonicalPath();
     if(mAppMap->isFavorite(canonicalFile))
     {
         a = menu.addAction(XdgIcon::fromTheme(QLatin1String("bookmark-remove")), tr("Remove from Favorites"));

@@ -7,6 +7,7 @@ set(HEADERS
     lxqtfancymenuappmap.h
     lxqtfancymenuappmodel.h
     lxqtfancymenucategoriesmodel.h
+    lxqtfancymenucontextmenuutils.h
     lxqtfancymenushortcututils.h
     lxqtfancymenutypes.h
 )
@@ -18,6 +19,7 @@ set(SOURCES
     lxqtfancymenuappmap.cpp
     lxqtfancymenuappmodel.cpp
     lxqtfancymenucategoriesmodel.cpp
+    lxqtfancymenucontextmenuutils.cpp
     lxqtfancymenushortcututils.cpp
 )
 
