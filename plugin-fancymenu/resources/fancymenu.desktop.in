@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Icon=start-here-lxqt
+
+#TRANSLATIONS_DIR=../translations

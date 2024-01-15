@@ -57,6 +57,10 @@
 #include "../plugin-desktopswitch/desktopswitch.h" // desktopswitch
 extern void * loadPluginTranslation_desktopswitch_helper;
 #endif
+#if defined(WITH_FANCYMENU_PLUGIN)
+#include "../plugin-fancymenu/lxqtfancymenu.h" // fancymenu
+extern void * loadPluginTranslation_fancymenu_helper;
+#endif
 #if defined(WITH_MAINMENU_PLUGIN)
 #include "../plugin-mainmenu/lxqtmainmenu.h" // mainmenu
 extern void * loadPluginTranslation_mainmenu_helper;
@@ -217,6 +221,9 @@ namespace
     static plugin_tuple_t const static_plugins[] = {
 #if defined(WITH_DESKTOPSWITCH_PLUGIN)
         std::make_tuple(QLatin1String("desktopswitch"), plugin_ptr_t{new DesktopSwitchPluginLibrary}, loadPluginTranslation_desktopswitch_helper),// desktopswitch
+#endif
+#if defined(WITH_FANCYMENU_PLUGIN)
+        std::make_tuple(QLatin1String("fancymenu"), plugin_ptr_t{new LXQtFancyMenuPluginLibrary}, loadPluginTranslation_fancymenu_helper),// fancymenu
 #endif
 #if defined(WITH_MAINMENU_PLUGIN)
         std::make_tuple(QLatin1String("mainmenu"), plugin_ptr_t{new LXQtMainMenuPluginLibrary}, loadPluginTranslation_mainmenu_helper),// mainmenu
