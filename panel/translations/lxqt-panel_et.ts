@@ -424,17 +424,17 @@ Kas sa kindlasti soovid seda paneeli kustutada?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="438"/>
+        <location filename="../plugin.cpp" line="445"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Seadista „%1“</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="443"/>
+        <location filename="../plugin.cpp" line="450"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Liiguta „%1“ uude kohta</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="451"/>
+        <location filename="../plugin.cpp" line="458"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Kustuta „%1“</translation>
     </message>

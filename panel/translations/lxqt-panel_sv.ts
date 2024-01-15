@@ -425,17 +425,17 @@ Vill du ta bort den här panelen?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="438"/>
+        <location filename="../plugin.cpp" line="445"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Konfigurera &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="443"/>
+        <location filename="../plugin.cpp" line="450"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Flytta &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="451"/>
+        <location filename="../plugin.cpp" line="458"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Ta bort &quot;%1&quot;</translation>
     </message>
