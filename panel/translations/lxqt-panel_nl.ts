@@ -426,17 +426,17 @@ Weet u zeker dat u wilt doorgaan?</translation>
     <message>
         <location filename="../plugin.cpp" line="445"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>&apos;%1&apos; instellen</translation>
+        <translation>‘%1’ instellen</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="450"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>&apos;%1&apos; verplaatsen</translation>
+        <translation>‘%1’ verplaatsen</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="458"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>&apos;%1&apos; verwijderen</translation>
+        <translation>‘%1’ verwijderen</translation>
     </message>
 </context>
 <context>

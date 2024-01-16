@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="522"/>
         <source>Add to desktop</source>
-        <translation>Bureaubladsnelkoppeling maken</translation>
+        <translation>Op bureaublad plaatsen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="530"/>
@@ -116,7 +116,7 @@ Wilt u dit overschrijven?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Maximumaantal getoonde items:</translation>
+        <translation>Maximaal aantal getoonde items:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>

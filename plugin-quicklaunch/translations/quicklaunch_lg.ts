@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<TS version="2.1" language="lg">
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="227"/>
         <source>Drop Error</source>
-        <translation>Sleepfout</translation>
+        <translation>Okuteekawo kulemye</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="228"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>‘%1’ kan vooralsnog niet worden toegevoegd aan de snelstartbalk</translation>
+        <translation>Tekisoboka kakano okuteeka URL eya fayiro &apos;%1&apos; ku ttandikiro</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="334"/>
         <source>Drop application
 icons here</source>
-        <translation>Sleep programma-
-pictogrammen hierheen</translation>
+        <translation>Teeka wano obufaananyi
+bwa puloguramu</translation>
     </message>
 </context>
 <context>
@@ -26,27 +26,27 @@ pictogrammen hierheen</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>(Ctrl + slepen)</translation>
+        <translation>(Ctrl + walula)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation>Naar links verplaatsen</translation>
+        <translation>Sembeza ku kkono</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation>Naar rechts verplaatsen</translation>
+        <translation>Sembeza ku ddyo</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
-        <translation>Verwijderen van snelstartbalk</translation>
+        <translation>Gigye mu ttandikiro</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation>Herladen</translation>
+        <translation>Gizze bujja</translation>
     </message>
 </context>
 </TS>
