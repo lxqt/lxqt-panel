@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mugitu ondor&amp;en monitorera</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="742"/>

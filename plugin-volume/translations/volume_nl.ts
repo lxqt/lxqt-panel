@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Volumeregeling-instellingen</translation>
+        <translation>Volumeregelingsinstellingen</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Te beheren apparaat</translation>
+        <translation>Te bedienen apparaat</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>

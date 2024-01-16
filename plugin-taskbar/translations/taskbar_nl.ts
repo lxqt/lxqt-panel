@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="681"/>
         <source>Activate task %1</source>
-        <translation>Taak %1 activeren</translation>
+        <translation>%1 activeren</translation>
     </message>
 </context>
 <context>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Taakbalk-instellingen</translation>
+        <translation>Taakbalkinstellingen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Alleen vensters van scherm van &amp;paneel tonen</translation>
+        <translation>Alleen vensters van scherm met &amp;paneel tonen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Pop-upvenster tonen bij aanwijzen met cursor</translation>
+        <translation>Pop-upvenster tonen na aanwijzen met cursor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
@@ -222,7 +222,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Knoppen automatisch d&amp;raaien als de paneel verticaal is</translation>
+        <translation>Knoppen automatisch d&amp;raaien indien paneel verticaal is</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -257,22 +257,22 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation>Scroll omhoog om te herstellen en naar beneden om te minimaliseren</translation>
+        <translation>Scrol omhoog om te herstellen en naar beneden om te minimaliseren</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation>Scroll omhoog om te minimaliseren en naar beneden om te herstellen</translation>
+        <translation>Scrol omhoog om te minimaliseren en naar beneden om te herstellen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>Scroll omhoog om naar het volgende werkblad te gaan en omlaag voor het vorige werkblad</translation>
+        <translation>Scrol omhoog voor het volgende werkblad en omlaag voor het vorige</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation>Scroll omhoog om naar het vorige werkblad te gaan en omlaag voor het volgende werkblad</translation>
+        <translation>Scrol omhoog voor het vorige werkblad en omlaag voor het volgende</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
