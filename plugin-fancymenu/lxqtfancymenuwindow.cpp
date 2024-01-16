@@ -35,7 +35,7 @@
 #include <QLineEdit>
 #include <QToolButton>
 #include <QListView>
-
+#include <QPainter>
 #include <QMenu>
 #include <QStandardPaths>
 #include <QDir>
@@ -150,19 +150,21 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mPowerButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runPowerDialog);
 
     mAppView = new QListView;
+    mAppView->setObjectName(QStringLiteral("AppView"));
     mAppView->setSelectionMode(QListView::SingleSelection);
     mAppView->setDragEnabled(true);
     mAppView->setContextMenuPolicy(Qt::CustomContextMenu);
     mAppView->setItemDelegate(new SeparatorDelegate(this));
 
     mCategoryView = new QListView;
+    mCategoryView->setObjectName(QStringLiteral("CategoryView"));
     mCategoryView->setSelectionMode(QListView::SingleSelection);
     mCategoryView->setItemDelegate(new SeparatorDelegate(this));
 
     // Meld category view with whole popup window
-    // So remove the frame and set same background as the window
+    // So remove its frame and do not auto-fill its background
     mCategoryView->setFrameShape(QFrame::NoFrame);
-    mCategoryView->viewport()->setBackgroundRole(QPalette::Window);
+    mCategoryView->viewport()->setAutoFillBackground(false);
 
     mAppMap = new LXQtFancyMenuAppMap;
 
@@ -518,4 +520,13 @@ void LXQtFancyMenuWindow::setFavorites(const QStringList &newFavorites)
     mAppModel->reloadAppMap(false);
     mAppMap->setFavorites(mFavorites);
     mAppModel->reloadAppMap(true);
+}
+
+void LXQtFancyMenuWindow::paintEvent(QPaintEvent *)
+{
+    // enforce the stylesheet background color (if any) on all widget styles
+    QPainter p(this);
+    QStyleOption opt;
+    opt.initFrom(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
