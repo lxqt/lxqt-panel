@@ -89,6 +89,7 @@ public slots:
 protected:
     void hideEvent(QHideEvent *e);
     void keyPressEvent(QKeyEvent *e);
+    void paintEvent(QPaintEvent *e);
 
 private slots:
     void activateCategory(const QModelIndex& idx);
