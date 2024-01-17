@@ -37,6 +37,8 @@
 #include <QListView>
 #include <QPainter>
 #include <QMenu>
+#include <QWindow>
+#include <QScreen>
 #include <QStandardPaths>
 #include <QDir>
 #include <QMimeData>
@@ -217,6 +219,11 @@ LXQtFancyMenuWindow::~LXQtFancyMenuWindow()
 }
 
 QSize LXQtFancyMenuWindow::sizeHint() const
+{
+    return size().expandedTo(minimumSizeHint());
+}
+
+QSize LXQtFancyMenuWindow::minimumSizeHint() const
 {
     return QSize(450, 550);
 }
@@ -411,6 +418,73 @@ void LXQtFancyMenuWindow::hideEvent(QHideEvent *e)
     QWidget::hideEvent(e);
 }
 
+void LXQtFancyMenuWindow::showEvent(QShowEvent *e)
+{
+    // Resize the widget to fit the category view to its contents.
+    // NOTE: The layout is fully calculated when the widget is shown;
+    // hence resizing the widget here.
+    auto model = mCategoryView->model();
+    if (model == nullptr)
+    {
+        return;
+    }
+    QRect r;
+    for (int i = 0; i < model->rowCount(); ++i)
+    {
+        QModelIndex indx = model->index(i,0);
+        if (indx.isValid())
+        {
+            r = r.united(mCategoryView->visualRect(indx));
+        }
+    }
+    QMargins m = mCategoryView->contentsMargins();
+    int difW = r.width() + m.left() + m.right() - mCategoryView->width();
+    int difH = r.height() + m.top() + m.bottom() - mCategoryView->height();
+    if (difW > 0 || difH > 0)
+    {
+        int newWidth = width();
+        int newHeight = height();
+        if (difW > 0)
+        { // also take stretch factors into account
+            newWidth += qreal((CAT_VIEW_STRETCH + APP_VIEW_STRETCH) * difW) / CAT_VIEW_STRETCH + 1
+                        + 2 * mCategoryView->lineWidth()
+                        + style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+        }
+        if (difH > 0)
+        {
+            newHeight += difH
+                         + 2 * mCategoryView->lineWidth()
+                         + style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+        }
+        QSize newSize(newWidth, newHeight);
+
+        // take care of small screens or huge fonts
+        QRect sr;
+        if (QWindow *win = windowHandle())
+        {
+            if (QScreen *sc = win->screen())
+            {
+                sr = sc->availableGeometry();
+            }
+        }
+        if (sr.isNull())
+        {
+            if (QScreen *pScreen = QApplication::primaryScreen())
+            {
+                sr = pScreen->availableGeometry();
+            }
+        }
+        if (!sr.isNull())
+        {
+            newSize = newSize.boundedTo(sr.size());
+        }
+
+        resize(newSize);
+    }
+
+    QWidget::showEvent(e);
+}
+
 void LXQtFancyMenuWindow::keyPressEvent(QKeyEvent *e)
 {
     // If search edit is not empty, clear it instead of closing popup
@@ -507,6 +581,13 @@ void LXQtFancyMenuWindow::setCustomFont(const QFont &f)
     mAppView->setFont(f);
     mCategoryView->setFont(f);
     mSearchEdit->setFont(f);
+
+    // We should resize the widget because the font may become smaller.
+    // The size will be adjusted in showEvent() if needed.
+    if (!isVisible())
+    {
+        resize(minimumSizeHint());
+    }
 }
 
 QStringList LXQtFancyMenuWindow::favorites() const

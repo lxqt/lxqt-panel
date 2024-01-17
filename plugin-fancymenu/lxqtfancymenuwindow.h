@@ -56,6 +56,7 @@ public:
     ~LXQtFancyMenuWindow();
 
     virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 
     bool rebuildMenu(const XdgMenu &menu);
 
@@ -88,6 +89,7 @@ public slots:
 
 protected:
     void hideEvent(QHideEvent *e);
+    void showEvent(QShowEvent *e);
     void keyPressEvent(QKeyEvent *e);
     void paintEvent(QPaintEvent *e);
 
