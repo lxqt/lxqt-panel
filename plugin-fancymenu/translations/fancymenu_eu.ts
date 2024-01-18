@@ -87,7 +87,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="172"/>
         <source>Popup</source>
-        <translation type="unfinished">Popup</translation>
+        <translation>Pop-up leihoa</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="181"/>
@@ -207,7 +207,7 @@ Gainidatzi nahi al duzu?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="433"/>
         <source>No Executable</source>
-        <translation>Ez Exekutatu</translation>
+        <translation>Ez Exekutagarri</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="434"/>

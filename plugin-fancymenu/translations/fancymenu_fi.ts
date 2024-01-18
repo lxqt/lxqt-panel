@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Suosikit</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaikki sovellukset</translation>
     </message>
 </context>
 <context>
@@ -92,37 +92,37 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="181"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Painikerivin sijainti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="188"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Luokkien sijainti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation>Resetoi</translation>
+        <translation>Palauta</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="104"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alhaalla</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="105"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Ylhäällä</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="110"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasemmalla</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Oikealla</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="169"/>
@@ -155,12 +155,12 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="142"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="148"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="295"/>
@@ -197,22 +197,22 @@ Haluatko korvata sen?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="331"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista suosikeista</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="338"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää suosikkeihin</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="433"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei ohjelmatiedosto(a)</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="434"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohjelmatiedostoa &lt;b&gt;%1&lt;/b&gt; ei löydy.</translation>
     </message>
 </context>
 </TS>
