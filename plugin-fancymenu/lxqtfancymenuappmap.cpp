@@ -211,21 +211,22 @@ QVector<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingAp
 
     for(const AppItem *app : qAsConst(mAppSortedByName))
     {
-        if(app->title.contains(query))
+        if(app->title.contains(query, Qt::CaseInsensitive))
         {
             byName.append(app);
             continue;
         }
 
-        if(app->comment.contains(query))
+        if(app->comment.contains(query, Qt::CaseInsensitive))
         {
             byKeyword.append(app);
             continue;
         }
 
+        // Keywords are already converted to lower case
         for(const QString& key : app->keywords)
         {
-            if(key.startsWith(query))
+            if(key.startsWith(query, Qt::CaseInsensitive))
             {
                 byKeyword.append(app);
                 break;
@@ -344,8 +345,6 @@ LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::loadAppItem(const QString &de
     item->icon = f.icon();
     item->desktopFileCache = f;
 
-    item->keywords << f.localizedValue(QLatin1String("Keywords")).toString().toLower().split(QLatin1Char(';'));
-    item->keywords.append(item->title.toLower().split(QLatin1Char(' ')));
-    item->keywords.append(item->comment.toLower().split(QLatin1Char(' ')));
+    item->keywords << f.localizedValue(QLatin1String("Keywords")).toString().split(QLatin1Char(';'));
     return item;
 }

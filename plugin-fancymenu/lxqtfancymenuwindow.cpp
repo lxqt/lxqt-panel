@@ -389,8 +389,11 @@ void LXQtFancyMenuWindow::doSearch()
 
 void LXQtFancyMenuWindow::setSearchQuery(const QString &text)
 {
-    QSignalBlocker blk(mSearchEdit);
-    mSearchEdit->setText(text);
+    // Do not set text if not changed otherwise cursor
+    // gets moved to end of text, it's annoying if user
+    // is editing in the middle of text
+    if(mSearchEdit->text() != text)
+        mSearchEdit->setText(text);
 
     if(text.isEmpty())
     {
