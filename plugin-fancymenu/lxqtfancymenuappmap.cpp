@@ -223,7 +223,6 @@ QVector<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingAp
             continue;
         }
 
-        // Keywords are already converted to lower case
         for(const QString& key : app->keywords)
         {
             if(key.startsWith(query, Qt::CaseInsensitive))
