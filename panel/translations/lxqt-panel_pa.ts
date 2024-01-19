@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਟਾਈਲਿੰਗ</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>ਇਕਸਾਰ ਤੇ ਸਥਿਤੀ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
@@ -148,12 +148,12 @@
         <location filename="../config/configplacement.ui" line="262"/>
         <location filename="../config/configplacement.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਿਫ਼ਰ ਦਾ ਮਤਲਬ ਕੋਈ ਐਨੀਮੇਸ਼ਨ ਨਹੀਂ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>ਐਨੀਮੇਸ਼ਨ ਦਾ ਅੰਤਰਾਲ:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="288"/>
@@ -165,7 +165,7 @@
         <location filename="../config/configplacement.ui" line="301"/>
         <location filename="../config/configplacement.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਿਫ਼ਰ ਦਾ ਮਤਲਬ ਕੋਈ ਦੇਰੀ ਨਹੀਂ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="304"/>
@@ -215,22 +215,22 @@
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਉੱਤੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਖੱਬੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਸੱਜੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਹੇਠਾਂ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -410,7 +410,8 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1385"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪੈਨਲ ਨੂੰ ਹਟਾਉਣ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।
+ਕੀ ਤੁਸੀਂ ਇਹ ਪੈਨਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</translation>
     </message>
 </context>
 <context>
@@ -436,7 +437,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation type="unfinished"></translation>
+        <translation>ਬਦਲਵੀ ਸੰਰਚਨਾ ਫਾਇਲ ਨੂੰ ਵਰਤੋਂ।</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>

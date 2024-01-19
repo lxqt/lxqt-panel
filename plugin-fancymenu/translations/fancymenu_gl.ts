@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Todas as Aplicacións</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración do menú elegante</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="105"/>
@@ -87,17 +87,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="172"/>
         <source>Popup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ventá emerxente</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="181"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición da fila dos botóns</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="188"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición de categorías</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -107,22 +107,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="104"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Abaixo</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="105"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Arriba</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="110"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Dereita</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="169"/>
@@ -155,63 +155,64 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="142"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="148"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Saír</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="295"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir ao escritorio</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="303"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Pregunta</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="304"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Xa existe un ficheiro co mesmo nome.
+Queres sobreescribilo?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="310"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Aviso</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="311"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se pode sobrescribir o ficheiro.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="318"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="331"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar dos favoritos</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="338"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir a Favoritos</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="433"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Non Executable</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="434"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se pode atopar o executable &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

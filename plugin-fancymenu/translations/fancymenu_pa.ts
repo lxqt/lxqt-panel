@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪਸੰਦੀਦਾ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਭ ਐਪਲੀਕੇਸ਼ਨਾਂ</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ਫੈਂਸੀ ਮੇਨੂ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -87,17 +87,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="172"/>
         <source>Popup</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪੌਪ-ਅੱਪ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="181"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>ਬਟਨ ਕਤਾਰ ਸਥਿਤੀ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="188"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕੈਟਗਰੀਆਂ ਦੀ ਸਥਿਤੀ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -107,22 +107,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="104"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>ਹੇਠਾਂ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="105"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>ਉੱਤੇ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="110"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>ਖੱਬੇ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸੱਜੇ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="169"/>
@@ -155,12 +155,12 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="142"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="148"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>ਛੱਡੋ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="295"/>
@@ -197,22 +197,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="331"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪਸੰਦੀਦਾ ਵਿੱਚੋਂ ਹਟਾਓ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="338"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪਸੰਦੀਦਾ ਵਿੱਚ ਜੋੜੋ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="433"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕੋਈ ਚੱਲਣਯੋਗ ਨਹੀਂ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="434"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt; ਚੱਲਣਯੋਗ ਨੂੰ ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।</translation>
     </message>
 </context>
 </TS>

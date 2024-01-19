@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtfancymenu.cpp" line="93"/>
         <source>Show/hide main menu</source>
-        <translation>Näita või peida põhimenüüd</translation>
+        <translation>Näita või peida põhimenüü</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Lemmikud</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõik rakendused</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaunismenüü seadistused</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -77,7 +77,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation>Kust otsime</translation>
+        <translation>Otsing</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="162"/>
@@ -87,17 +87,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="172"/>
         <source>Popup</source>
-        <translation type="unfinished"></translation>
+        <translation>Hüpikaken</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="181"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Nupurea asukoht</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="188"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Kategooriate asukoht</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -107,22 +107,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="104"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>All</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="105"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Ülal</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="110"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasakul</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Paremal</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="169"/>
@@ -155,12 +155,12 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="142"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Seadistused</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="148"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahku</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="295"/>
@@ -197,22 +197,22 @@ Kas sa soovid seda üle kirjutada?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="331"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Eemalda lemmikule hulgast</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="338"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa lemmikuks</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="433"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Pole käivitatav</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="434"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei leia käivitusfaili: &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

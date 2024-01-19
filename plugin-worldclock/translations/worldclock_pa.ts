@@ -113,7 +113,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation type="unfinished"></translation>
+        <translation>IANA id</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕਸਟਮ ਨਾਂ ਨੂੰ ਸੋਧੋ(&amp;E)...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
@@ -225,27 +225,27 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>ਜਦੋ ਪੈਨਲ ਖੜ੍ਹਵਾਂ ਹੋਵੇ ਤਾਂ ਆਪੇ ਘੁੰਮਾਓ(&amp;r)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>ਪੌਪਅੱਪ ਕੈਲੰਡਰ ਵਿੱਚ ਹਫ਼ਤੇ ਦਾ ਨੰਬਰ ਵੇਖਾਓ(&amp;w)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>ਟੂਲਟਿੱਪ ਵੇਖਾਓ(&amp;h)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation type="unfinished">&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
         <source>Input custom time zone name</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕਸਟਮ ਸਮਾਂ ਖੇਤਰ ਦਾ ਨਾਂ ਦਿਓ</translation>
     </message>
 </context>
 <context>

@@ -171,7 +171,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation type="unfinished"></translation>
+        <translation>ਵੱਧ ਤੋਂ ਵੱਧ(&amp;x)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -211,12 +211,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕਸਟਮ ਰੰਗਾਂ ਨੂੰ ਵਰਤੋਂ(&amp;u)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕਸਟਮ ਰੰਗ ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
