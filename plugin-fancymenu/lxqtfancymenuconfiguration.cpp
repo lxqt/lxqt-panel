@@ -123,7 +123,7 @@ void LXQtFancyMenuConfiguration::loadSettings()
     QString menuFile = settings().value(QStringLiteral("menu_file"), QString()).toString();
     if (menuFile.isEmpty())
     {
-        menuFile = XdgMenu::getMenuFileName();
+        menuFile = XdgMenu::getMenuFileName(LXQtMenuFile);
     }
     ui->menuFilePathLE->setText(menuFile);
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);

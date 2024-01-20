@@ -52,4 +52,6 @@ enum class LXQtFancyMenuItemType
 
 static constexpr const int LXQtFancyMenuItemIsSeparatorRole = Qt::UserRole + 1;
 
+static constexpr const QLatin1String LXQtMenuFile("lxqt-applications.menu");
+
 #endif // LXQTFANCYMENUTYPES_H

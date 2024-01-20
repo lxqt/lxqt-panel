@@ -175,7 +175,7 @@ void LXQtFancyMenu::settingsChanged()
 
     QString menu_file = settings()->value(QStringLiteral("menu_file"), QString()).toString();
     if (menu_file.isEmpty())
-        menu_file = XdgMenu::getMenuFileName();
+        menu_file = XdgMenu::getMenuFileName(LXQtMenuFile);
 
     if (mMenuFile != menu_file)
     {
