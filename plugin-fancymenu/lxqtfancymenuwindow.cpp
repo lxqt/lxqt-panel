@@ -429,6 +429,7 @@ void LXQtFancyMenuWindow::showEvent(QShowEvent *e)
     auto model = mCategoryView->model();
     if (model == nullptr)
     {
+        QWidget::showEvent(e);
         return;
     }
     QRect r;
@@ -494,6 +495,7 @@ void LXQtFancyMenuWindow::keyPressEvent(QKeyEvent *e)
     if(!mSearchEdit->text().isEmpty() && e->matches(QKeySequence::Cancel))
     {
         mSearchEdit->clear();
+        mSearchTimer.start();
         e->accept();
         return;
     }
