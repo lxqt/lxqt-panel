@@ -95,9 +95,20 @@ protected:
             QRect rect = option.rect;
             if (const QAbstractItemView *view = qobject_cast<const QAbstractItemView*>(option.widget))
                 rect.setWidth(view->viewport()->width());
-            QStyleOption opt;
-            opt.rect = rect;
-            option.widget->style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, painter, option.widget);
+            const int margin = 6;
+            painter->save();
+            painter->setOpacity(0.4);
+            painter->setPen(QPen(Qt::black));
+            painter->drawLine(rect.topLeft().x() + margin ,
+                              rect.topLeft().y(),
+                              rect.topRight().x() - margin,
+                              rect.topRight().y());
+            painter->setPen(QPen(Qt::white));
+            painter->drawLine(rect.topLeft().x() + margin ,
+                              rect.topLeft().y() + 1,
+                              rect.topRight().x() - margin,
+                              rect.topRight().y() + 1);
+            painter->restore();
         }
         else
         {
@@ -110,10 +121,7 @@ protected:
     {
         if (isSeparator(index))
         {
-            int pm = option.widget->style()->pixelMetric(QStyle::PM_DefaultFrameWidth,
-                                                         nullptr,
-                                                         option.widget);
-            return QSize(pm, pm);
+            return QSize(2, 2);
         }
 
         return QStyledItemDelegate::sizeHint(option, index);
