@@ -125,6 +125,10 @@ protected:
 LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     : QWidget{parent, Qt::Popup}
 {
+    // Under some Wayland compositors, setting window flags in the c-tor of the base class
+    // may not be enough for a correct positioning of the popup.
+    setWindowFlags(Qt::Popup);
+
     SingleActivateStyle *s = new SingleActivateStyle;
     s->setParent(this);
     setStyle(s);
@@ -350,8 +354,7 @@ void LXQtFancyMenuWindow::onAppViewCustomMenu(const QPoint& p)
         });
     }
 
-    QPoint globalPos = mAppView->mapToGlobal(p);
-    menu.exec(globalPos);
+    menu.exec(mAppView->viewport()->mapToGlobal(p));
 }
 
 void LXQtFancyMenuWindow::setCurrentCategory(int cat)
