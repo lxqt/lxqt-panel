@@ -145,8 +145,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(&mSearchTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::doSearch);
     mSearchTimer.setInterval(350); // typing speed (not very fast)
 
-    mSelTimer.setSingleShot(true);
-    connect(&mSelTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::autoSelect);
+    mAutoSelTimer.setSingleShot(true);
+    connect(&mAutoSelTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::autoSelect);
 
     mSearchEdit = new QLineEdit;
     mSearchEdit->setPlaceholderText(tr("Search..."));
@@ -399,10 +399,12 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
         }
     }
     else if (mAutoSel
-             && (watched == mCategoryView->viewport() || watched == mAppView->viewport())
-             && e->type() == QEvent::MouseMove)
+             && (watched == mCategoryView->viewport() || watched == mAppView->viewport()))
     {
-        mSelTimer.start();
+        if (e->type() == QEvent::MouseMove)
+            mAutoSelTimer.start();
+        else if (e->type() == QEvent::Leave)
+            mAutoSelTimer.stop();
     }
 
     return QWidget::eventFilter(watched, e);

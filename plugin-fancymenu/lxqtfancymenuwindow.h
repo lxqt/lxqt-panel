@@ -81,10 +81,10 @@ public:
     void setAutoSelection(bool autoSel) {
         mAutoSel = autoSel;
         if (!mAutoSel)
-            mSelTimer.stop();
+            mAutoSelTimer.stop();
     }
     void setAutoSelectionDelay(int delay) {
-        mSelTimer.setInterval(delay);
+        mAutoSelTimer.setInterval(delay);
     }
 
 signals:
@@ -142,7 +142,7 @@ private:
     LXQtFancyMenuCategoriesModel *mCategoryModel;
 
     QTimer mSearchTimer;
-    QTimer mSelTimer;
+    QTimer mAutoSelTimer;
     bool mAutoSel = false;
     bool mFilterClear = false;
 };
