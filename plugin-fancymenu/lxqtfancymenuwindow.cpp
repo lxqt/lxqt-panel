@@ -153,7 +153,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
 
     mSettingsButton = new QToolButton;
     mSettingsButton->setIcon(XdgIcon::fromTheme(QStringLiteral("preferences-desktop"))); //TODO: preferences-system?
-    mSettingsButton->setText(tr("Settings"));
+    mSettingsButton->setText(tr("LXQt Configuration Center"));
     mSettingsButton->setToolTip(mSettingsButton->text());
     connect(mSettingsButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runSystemConfigDialog);
 
