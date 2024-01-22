@@ -145,6 +145,9 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(&mSearchTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::doSearch);
     mSearchTimer.setInterval(350); // typing speed (not very fast)
 
+    mSelTimer.setSingleShot(true);
+    connect(&mSelTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::autoSelect);
+
     mSearchEdit = new QLineEdit;
     mSearchEdit->setPlaceholderText(tr("Search..."));
     mSearchEdit->setClearButtonEnabled(true);
@@ -217,6 +220,12 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     setFocusProxy(mSearchEdit);
     mAppView->setFocusProxy(mSearchEdit);
     mCategoryView->setFocusProxy(mSearchEdit);
+
+    // for auto-selection
+    mAppView->viewport()->setMouseTracking(true);
+    mAppView->viewport()->installEventFilter(this);
+    mCategoryView->viewport()->setMouseTracking(true);
+    mCategoryView->viewport()->installEventFilter(this);
 
     // Filter navigation keys
     mSearchEdit->installEventFilter(this);
@@ -388,6 +397,12 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
             QCoreApplication::sendEvent(mAppView, ev);
             return true;
         }
+    }
+    else if (mAutoSel
+             && (watched == mCategoryView->viewport() || watched == mAppView->viewport())
+             && e->type() == QEvent::MouseMove)
+    {
+        mSelTimer.start();
     }
 
     return QWidget::eventFilter(watched, e);
@@ -626,4 +641,24 @@ void LXQtFancyMenuWindow::paintEvent(QPaintEvent *)
     QStyleOption opt;
     opt.initFrom(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
+
+void LXQtFancyMenuWindow::autoSelect()
+{
+    QModelIndex idx = mCategoryView->indexAt(mCategoryView->viewport()->mapFromGlobal(QCursor::pos()));
+    if (idx.isValid())
+    {
+        if (!SeparatorDelegate::isSeparator(idx) && !mCategoryView->selectionModel()->isSelected(idx))
+        {
+            activateCategory(idx);
+        }
+    }
+    else
+    {
+        idx = mAppView->indexAt(mAppView->viewport()->mapFromGlobal(QCursor::pos()));
+        if (idx.isValid() && !mAppView->selectionModel()->isSelected(idx))
+        {
+            mAppView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::SelectCurrent);
+        }
+    }
 }

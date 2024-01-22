@@ -81,7 +81,14 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtFancyMenuConfiguration::shortcutReset);
 
     connect(ui->customFontCB, &QAbstractButton::toggled, this, &LXQtFancyMenuConfiguration::customFontChanged);
-    connect(ui->customFontSizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtFancyMenuConfiguration::customFontSizeChanged);
+    connect(ui->customFontSizeSB, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtFancyMenuConfiguration::customFontSizeChanged);
+
+    connect(ui->autoSelCB, &QAbstractButton::toggled, this, [this] (bool checked) {
+        this->settings().setValue(QStringLiteral("autoSel"), checked);
+    });
+    connect(ui->autoSelSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+        this->settings().setValue(QStringLiteral("autoSelDelay"), value);
+    });
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtFancyMenuConfiguration::globalShortcutChanged);
 
@@ -136,6 +143,9 @@ void LXQtFancyMenuConfiguration::loadSettings()
     lxqtSettings.endGroup();
     ui->customFontSizeSB->setValue(settings().value(QStringLiteral("customFontSize"), systemFont.pointSize()).toInt());
     ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), false).toBool());
+
+    ui->autoSelSB->setValue(settings().value(QStringLiteral("autoSelDelay"), 250).toInt());
+    ui->autoSelCB->setChecked(settings().value(QStringLiteral("autoSel"), false).toBool());
 
     bool buttonsAtTop = settings().value(QStringLiteral("buttonsAtTop"), false).toBool();
     int buttRowPosIdx = ui->buttRowPosCB->findData(buttonsAtTop ? LXQtFancyMenuButtonPosition::Top : LXQtFancyMenuButtonPosition::Bottom);

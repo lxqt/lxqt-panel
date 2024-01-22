@@ -209,6 +209,10 @@ void LXQtFancyMenu::settingsChanged()
     bool categoriesAtRight = settings()->value(QStringLiteral("categoriesAtRight"), true).toBool();
     mWindow->setCategoryPosition(categoriesAtRight ? LXQtFancyMenuCategoryPosition::Right : LXQtFancyMenuCategoryPosition::Left);
 
+    mWindow->setAutoSelection(settings()->value(QStringLiteral("autoSel"), false).toBool());
+    int delay = qBound(50, settings()->value(QStringLiteral("autoSelDelay"), 250).toInt(), 1000);
+    mWindow->setAutoSelectionDelay(delay);
+
     realign();
 }
 
