@@ -53,7 +53,6 @@ QVariant LXQtFancyMenuCategoriesModel::data(const QModelIndex &idx, int role) co
     switch (role)
     {
     case Qt::DisplayRole:
-    case Qt::ToolTipRole:
         return item.menuTitle;
     case Qt::EditRole:
         return item.menuName;

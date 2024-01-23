@@ -155,7 +155,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mSearchEdit, &QLineEdit::returnPressed, this, &LXQtFancyMenuWindow::activateCurrentApp);
 
     mSettingsButton = new QToolButton;
-    mSettingsButton->setIcon(XdgIcon::fromTheme(QStringLiteral("preferences-desktop"))); //TODO: preferences-system?
+    mSettingsButton->setIcon(XdgIcon::fromTheme(QStringLiteral("preferences-system")));
     mSettingsButton->setText(tr("LXQt Configuration Center"));
     mSettingsButton->setToolTip(mSettingsButton->text());
     connect(mSettingsButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runSystemConfigDialog);
@@ -165,6 +165,12 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mPowerButton->setText(tr("Leave"));
     mPowerButton->setToolTip(mPowerButton->text());
     connect(mPowerButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runPowerDialog);
+
+    mAboutButton = new QToolButton;
+    mAboutButton->setIcon(XdgIcon::fromTheme(QStringLiteral("lxqt-about")));
+    mAboutButton->setText(tr("About LXQt"));
+    mAboutButton->setToolTip(mAboutButton->text());
+    connect(mAboutButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runAboutgDialog);
 
     mAppView = new QListView;
     mAppView->setObjectName(QStringLiteral("AppView"));
@@ -207,6 +213,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mMainLayout->addLayout(mViewLayout);
 
     mButtonsLayout = new QHBoxLayout;
+    mButtonsLayout->addWidget(mAboutButton);
     mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addWidget(mPowerButton);
@@ -293,6 +300,11 @@ void LXQtFancyMenuWindow::runPowerDialog()
 void LXQtFancyMenuWindow::runSystemConfigDialog()
 {
     runCommandHelper(QLatin1String("lxqt-config"));
+}
+
+void LXQtFancyMenuWindow::runAboutgDialog()
+{
+    runCommandHelper(QLatin1String("lxqt-about"));
 }
 
 void LXQtFancyMenuWindow::onAppViewCustomMenu(const QPoint& p)
@@ -602,6 +614,7 @@ void LXQtFancyMenuWindow::updateButtonIconSize()
     const QSize iconSize(sz, sz);
     mSettingsButton->setIconSize(iconSize);
     mPowerButton->setIconSize(iconSize);
+    mAboutButton->setIconSize(iconSize);
 }
 
 void LXQtFancyMenuWindow::setSearchEditFocus()
