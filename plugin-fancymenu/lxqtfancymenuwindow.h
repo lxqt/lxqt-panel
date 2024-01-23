@@ -78,6 +78,15 @@ public:
 
     void setCustomFont(const QFont& f);
 
+    void setAutoSelection(bool autoSel) {
+        mAutoSel = autoSel;
+        if (!mAutoSel)
+            mAutoSelTimer.stop();
+    }
+    void setAutoSelectionDelay(int delay) {
+        mAutoSelTimer.setInterval(delay);
+    }
+
 signals:
     void aboutToShow();
     void aboutToHide();
@@ -102,6 +111,8 @@ private slots:
     void runSystemConfigDialog();
 
     void onAppViewCustomMenu(const QPoint &p);
+
+    void autoSelect();
 
 private:
     void runCommandHelper(const QString& cmd);
@@ -131,6 +142,8 @@ private:
     LXQtFancyMenuCategoriesModel *mCategoryModel;
 
     QTimer mSearchTimer;
+    QTimer mAutoSelTimer;
+    bool mAutoSel = false;
     bool mFilterClear = false;
 };
 
