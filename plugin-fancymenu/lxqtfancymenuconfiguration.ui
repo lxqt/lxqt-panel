@@ -169,7 +169,7 @@
    <item>
     <widget class="QGroupBox" name="popupGB">
      <property name="title">
-      <string>Popup</string>
+      <string>Layout</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="1">
