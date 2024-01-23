@@ -109,6 +109,7 @@ private slots:
 
     void runPowerDialog();
     void runSystemConfigDialog();
+    void runAboutgDialog();
 
     void onAppViewCustomMenu(const QPoint &p);
 
@@ -133,6 +134,7 @@ private:
 
     QToolButton *mSettingsButton;
     QToolButton *mPowerButton;
+    QToolButton *mAboutButton;
     QLineEdit *mSearchEdit;
     QListView *mAppView;
     QListView *mCategoryView;
