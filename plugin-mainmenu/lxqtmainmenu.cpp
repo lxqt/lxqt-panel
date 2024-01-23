@@ -43,6 +43,7 @@
 #include <QApplication>
 
 #include "../plugin-fancymenu/lxqtfancymenushortcututils.h"
+#include "../plugin-fancymenu/lxqtfancymenucontextmenuutils.h"
 
 #include <XdgMenuWidget>
 #include <XdgIcon>
@@ -471,84 +472,49 @@ void LXQtMainMenu::addContextMenu(QMenu *menu)
     }
 }
 
-void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
+void LXQtMainMenu::onRequestingCustomMenu(const QPoint& pos)
 {
 #ifdef HAVE_MENU_CACHE
     Q_UNUSED(p)
     return;
 #else
+    QWidget *parentWindow = nullptr;
     QMenu *parentMenu = qobject_cast<QMenu*>(QObject::sender());
     ActionView *parentView = qobject_cast<ActionView*>(QObject::sender());
     QAction *action;
     QPoint globalPos;
-    if (parentView != nullptr) {
-        action = parentView->indexAt(p).data(ActionView::ActionRole).value<QAction*>();
+
+    if (parentView != nullptr)
+    {
+        action = parentView->indexAt(pos).data(ActionView::ActionRole).value<QAction*>();
         if (action == nullptr)
             return;
-        globalPos = parentView->mapToGlobal(p);
+
+        globalPos = parentView->mapToGlobal(pos);
+        parentWindow = parentView;
     }
-    else if (parentMenu != nullptr) {
-        action = parentMenu->actionAt(p);
+    else if (parentMenu != nullptr)
+    {
+        action = parentMenu->actionAt(pos);
         if (action == nullptr || action->menu() != nullptr || action->isSeparator())
             return;
-        globalPos = parentMenu->mapToGlobal(p);
+
+        globalPos = parentMenu->mapToGlobal(pos);
+        parentWindow = parentMenu;
     }
-    else {
+    else
+    {
         return;
     }
+
     XdgAction *xdgAction = qobject_cast<XdgAction *>(action);
     if (xdgAction == nullptr)
         return;
-    const XdgDesktopFile& df = xdgAction->desktopFile();
-    QString file = df.fileName();
+    const XdgDesktopFile& desktopFile = xdgAction->desktopFile();
 
-    QMenu menu;
-    QAction *a;
+    QMenu menu(parentWindow);
+    LXQtFancyMenuContextMenuUtils::buildContextMenu(&menu, parentWindow, desktopFile);
 
-    if (df.actions().count() > 0 && df.type() == XdgDesktopFile::Type::ApplicationType)
-    {
-        for (int i = 0; i < df.actions().count(); ++i)
-        {
-            QString actionString(df.actions().at(i));
-            a = menu.addAction(df.actionIcon(actionString), df.actionName(actionString));
-            connect(a, &QAction::triggered, this, [this, df, actionString] {
-                df.actionActivate(actionString, QStringList());
-                mMenu->hide();
-            });
-        }
-        menu.addSeparator();
-    }
-
-    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("desktop")), tr("Add to desktop"));
-    connect(a, &QAction::triggered, [file] {
-        QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
-        QString desktopFile = desktop + QStringLiteral("/") + file.section(QStringLiteral("/"), -1);
-        if (QFile::exists(desktopFile))
-        {
-            QMessageBox::StandardButton btn =
-            QMessageBox::question(nullptr,
-                                  tr("Question"),
-                                  tr("A file with the same name already exists.\nDo you want to overwrite it?"));
-            if (btn == QMessageBox::No)
-                return;
-            if (!QFile::remove(desktopFile))
-            {
-                QMessageBox::warning(nullptr,
-                                     tr("Warning"),
-                                     tr("The file cannot be overwritten."));
-                return;
-            }
-        }
-        QFile::copy(file, desktopFile);
-    });
-    a = menu.addAction(XdgIcon::fromTheme(QLatin1String("edit-copy")), tr("Copy"));
-    connect(a, &QAction::triggered, this, [file] {
-        QClipboard* clipboard = QApplication::clipboard();
-        QMimeData* data = new QMimeData();
-        data->setData(QStringLiteral("text/uri-list"), QUrl::fromLocalFile(file).toEncoded()
-                                                       + QByteArray("\r\n"));
-        clipboard->setMimeData(data);
-    });
     menu.exec(globalPos);
 #endif
 }
