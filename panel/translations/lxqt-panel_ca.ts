@@ -19,7 +19,7 @@
         <translation>Afegeix l&apos;estri</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="109"/>
+        <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
         <translation>Tanca</translation>
     </message>

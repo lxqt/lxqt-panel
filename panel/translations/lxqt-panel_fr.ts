@@ -19,7 +19,7 @@
         <translation>Ajouter le widget</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="109"/>
+        <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>

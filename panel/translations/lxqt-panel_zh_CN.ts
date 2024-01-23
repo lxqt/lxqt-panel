@@ -19,7 +19,7 @@
         <translation>添加小部件</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="109"/>
+        <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
