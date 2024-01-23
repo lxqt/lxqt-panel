@@ -19,7 +19,7 @@
         <translation>위젯 추가</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="109"/>
+        <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
         <translation>닫기</translation>
     </message>
