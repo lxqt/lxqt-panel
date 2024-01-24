@@ -158,74 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="152"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
         <source>Search...</source>
         <translation>ਖੋਜੋ...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
         <source>LXQt Configuration Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
         <source>Leave</source>
         <translation>ਛੱਡੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
         <source>About LXQt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="337"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <source>Add your favorites by right clicking items from categories.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
         <source>Add to desktop</source>
         <translation>ਡੈਸਕਟਾਪ ਵਿੱਚ ਜੋੜੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
         <source>Question</source>
         <translation>ਸਵਾਲ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="346"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>ਇਸੇ ਨਾਂ ਨਾਲ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂ ਦਹੈ।
 ਕੀ ਉਸ ਉੱਤੇ ਲਿਖਣਾ ਹੈ?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="352"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
         <source>Warning</source>
         <translation>ਸਾਵਧਾਨ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
         <source>The file cannot be overwritten.</source>
         <translation>ਫਾਇਲ ਉੱਤੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
         <source>Copy</source>
         <translation>ਕਾਪੀ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
         <source>Remove from Favorites</source>
         <translation>ਪਸੰਦੀਦਾ ਵਿੱਚੋਂ ਹਟਾਓ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
         <source>Add to Favorites</source>
         <translation>ਪਸੰਦੀਦਾ ਵਿੱਚ ਜੋੜੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="554"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
         <source>No Executable</source>
         <translation>ਕੋਈ ਚੱਲਣਯੋਗ ਨਹੀਂ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="555"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; ਚੱਲਣਯੋਗ ਨੂੰ ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।</translation>
     </message>

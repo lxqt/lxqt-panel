@@ -158,74 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="152"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
         <source>Search...</source>
         <translation>Ara...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
         <source>LXQt Configuration Center</source>
         <translation>LXQt Yapılandırma Merkezi</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
         <source>Leave</source>
         <translation>Çık</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
         <source>About LXQt</source>
         <translation>LXQt Hakkında</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="337"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <source>Add your favorites by right clicking items from categories.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
         <source>Add to desktop</source>
         <translation>Masaüstüne ekle</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
         <source>Question</source>
         <translation>Soru</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="346"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Aynı isimde bir dosya zaten var. 
 Üzerine yazmak ister misin?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="352"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
         <source>The file cannot be overwritten.</source>
         <translation>Dosyanın üzerine yazılamaz.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
         <source>Remove from Favorites</source>
         <translation>Sık Kullanılanlardan Kaldır</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
         <source>Add to Favorites</source>
         <translation>Sık Kullanılanlara Ekle</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="554"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
         <source>No Executable</source>
         <translation>Çalıştırılabilir Değil</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="555"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; çalıştırılabilir dosyası bulunamıyor.</translation>
     </message>
