@@ -36,6 +36,7 @@
 
 class QLineEdit;
 class QToolButton;
+class QLabel;
 class QListView;
 class QModelIndex;
 
@@ -138,6 +139,8 @@ private:
     QLineEdit *mSearchEdit;
     QListView *mAppView;
     QListView *mCategoryView;
+
+    QLabel *mFavoritesLabel;
 
     LXQtFancyMenuAppMap *mAppMap;
     LXQtFancyMenuAppModel *mAppModel;
