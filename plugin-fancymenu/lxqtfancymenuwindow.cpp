@@ -34,6 +34,7 @@
 
 #include <QLineEdit>
 #include <QToolButton>
+#include <QLabel>
 #include <QListView>
 #include <QPainter>
 #include <QMenu>
@@ -178,6 +179,13 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mAppView->setDragEnabled(true);
     mAppView->setContextMenuPolicy(Qt::CustomContextMenu);
     mAppView->setItemDelegate(new SeparatorDelegate(this));
+
+    // label for empty Favorites
+    QVBoxLayout *appLayout = new QVBoxLayout(mAppView);
+    mFavoritesLabel = new QLabel(tr("Add your favorites by right clicking items from other categories."));
+    mFavoritesLabel->setAlignment(Qt::AlignCenter);
+    mFavoritesLabel->setWordWrap(true);
+    appLayout->addWidget(mFavoritesLabel);
 
     mCategoryView = new QListView;
     mCategoryView->setObjectName(QStringLiteral("CategoryView"));
@@ -388,14 +396,25 @@ void LXQtFancyMenuWindow::onAppViewCustomMenu(const QPoint& p)
 
 void LXQtFancyMenuWindow::setCurrentCategory(int cat)
 {
+
     QModelIndex idx = mCategoryModel->index(cat, 0);
     mCategoryView->setCurrentIndex(idx);
     mCategoryView->selectionModel()->select(idx, QItemSelectionModel::ClearAndSelect);
     mAppModel->setCurrentCategory(cat);
 
-    // If user clicked elsewhere, reset search
-    if(cat != LXQtFancyMenuAppMap::AllAppsCategory)
+    bool showFavoritesLabel = false;
+    if (cat != LXQtFancyMenuAppMap::AllAppsCategory)
+    {
+        // If user clicked elsewhere, reset search
         setSearchQuery(QString());
+
+        // show or hide the label for empty Favorites
+        if (cat == LXQtFancyMenuAppMap::FavoritesCategory && mFavorites.isEmpty())
+        {
+            showFavoritesLabel = true;
+        }
+    }
+    mFavoritesLabel->setVisible(showFavoritesLabel);
 }
 
 bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
@@ -573,6 +592,16 @@ void LXQtFancyMenuWindow::removeFromFavorites(const QString &desktopFile)
     mAppModel->reloadAppMap(false);
     mAppMap->removeFromFavorites(desktopFile);
     mAppModel->reloadAppMap(true);
+
+    if (mFavorites.isEmpty())
+    {
+        auto idx = mCategoryView->currentIndex();
+        if (idx.row() == LXQtFancyMenuAppMap::FavoritesCategory
+            && mCategoryView->selectionModel()->isSelected(idx))
+        {
+            mFavoritesLabel->show();
+        }
+    }
 
     emit favoritesChanged();
 }
