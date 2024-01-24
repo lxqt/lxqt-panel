@@ -182,7 +182,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
 
     // label for empty Favorites
     QVBoxLayout *appLayout = new QVBoxLayout(mAppView);
-    mFavoritesLabel = new QLabel(tr("Add your favorites by right clicking items from other categories."));
+    mFavoritesLabel = new QLabel(tr("Add your favorites by right clicking items from categories."));
     mFavoritesLabel->setAlignment(Qt::AlignCenter);
     mFavoritesLabel->setWordWrap(true);
     appLayout->addWidget(mFavoritesLabel);
@@ -396,7 +396,6 @@ void LXQtFancyMenuWindow::onAppViewCustomMenu(const QPoint& p)
 
 void LXQtFancyMenuWindow::setCurrentCategory(int cat)
 {
-
     QModelIndex idx = mCategoryModel->index(cat, 0);
     mCategoryView->setCurrentIndex(idx);
     mCategoryView->selectionModel()->select(idx, QItemSelectionModel::ClearAndSelect);
