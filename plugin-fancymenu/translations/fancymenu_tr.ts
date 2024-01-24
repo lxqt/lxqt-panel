@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık Kullanılanlar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm Uygulamalar</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Fancy Menü ayarları</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonrasında otomatik seç:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzen</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Düğmeler satır konumunda</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Kategoriler konumu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,17 +165,17 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt Yapılandırma Merkezi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Çık</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt Hakkında</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="337"/>
@@ -212,22 +212,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık Kullanılanlardan Kaldır</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Sık Kullanılanlara Ekle</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="554"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalıştırılabilir Değil</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="555"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt; çalıştırılabilir dosyası bulunamıyor.</translation>
     </message>
 </context>
 </TS>

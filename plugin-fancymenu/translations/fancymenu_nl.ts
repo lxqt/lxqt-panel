@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch kiezen na:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Indeling</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Instellingencentrum</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Over LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="337"/>

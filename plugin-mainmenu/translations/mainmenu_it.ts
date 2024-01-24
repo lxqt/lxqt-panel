@@ -126,7 +126,7 @@ Sovrascriverlo?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation>Pulisci campo di ricerca dopo azione</translation>
+        <translation>Cancella la ricerca quando viene visualizzato il menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
