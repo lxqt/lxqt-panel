@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation>Favoriti</translation>
+        <translation>Preferiti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Selezione automatica dopo:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
         <source>Clear search upon showing menu</source>
-        <translation>Pulisci campo di ricerca dopo azione</translation>
+        <translation>Cancella la ricerca quando viene visualizzato il menu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposizione</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centro di configurazione LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="337"/>
@@ -212,12 +212,12 @@ Sovrascriverlo?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>Remove from Favorites</source>
-        <translation>Rimuovi dai favoriti</translation>
+        <translation>Rimuovi dai preferiti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Add to Favorites</source>
-        <translation>Aggiungi ai favoriti</translation>
+        <translation>Aggiungi ai preferiti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="554"/>

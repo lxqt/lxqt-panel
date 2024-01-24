@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoris</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Toutes les Applications</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de Fancy Menu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélection auto après :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposition</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position de la rangée de boutons</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position des catégories</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Bas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Haut</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Gauche</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Droite</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,17 +165,17 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="159"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centre de configuration LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="165"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="171"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos de LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="337"/>
@@ -192,7 +192,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichier du même nom existe déjà.
-Voulez-vous l&apos;écraser&#x202f;?</translation>
+Voulez-vous l&apos;écraser ?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="352"/>
@@ -212,22 +212,22 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer des favoris</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="554"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun exécutable</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="555"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de trouver l&apos;exécutable &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>
