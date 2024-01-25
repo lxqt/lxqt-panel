@@ -177,6 +177,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mAppView->setObjectName(QStringLiteral("AppView"));
     mAppView->setSelectionMode(QListView::SingleSelection);
     mAppView->setDragEnabled(true);
+    mAppView->setMovement(QListView::Snap);
+    mAppView->setDropIndicatorShown(true);
     mAppView->setContextMenuPolicy(Qt::CustomContextMenu);
     mAppView->setItemDelegate(new SeparatorDelegate(this));
 
@@ -207,6 +209,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mCategoryModel->setAppMap(mAppMap);
     mCategoryView->setModel(mCategoryModel);
 
+    connect(mAppModel, &LXQtFancyMenuAppModel::favoritesChanged, this, &LXQtFancyMenuWindow::favoritesChanged);
     connect(mAppView, &QListView::activated, this, &LXQtFancyMenuWindow::activateAppAtIndex);
     connect(mAppView, &QListView::customContextMenuRequested, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
     connect(mCategoryView, &QListView::activated, this, &LXQtFancyMenuWindow::activateCategory);
