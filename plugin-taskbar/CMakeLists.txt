@@ -11,6 +11,7 @@ set(HEADERS
     ilxqttaskbarabstractbackend.h
     lxqttaskbartypes.h
     lxqttaskbarbackend_x11.h
+    lxqttaskbarproxymodel.h
 )
 
 set(SOURCES
@@ -23,6 +24,7 @@ set(SOURCES
 
     ilxqttaskbarabstractbackend.cpp
     lxqttaskbarbackend_x11.cpp
+    lxqttaskbarproxymodel.cpp
 )
 
 set(UIS
