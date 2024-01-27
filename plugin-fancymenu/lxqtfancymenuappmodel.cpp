@@ -135,8 +135,8 @@ QMimeData *LXQtFancyMenuAppModel::mimeData(const QModelIndexList &indexes) const
     return mimeData;
 }
 
-bool LXQtFancyMenuAppModel::dropMimeData(const QMimeData *data_, Qt::DropAction action,
-                                         int row, int column, const QModelIndex &p)
+bool LXQtFancyMenuAppModel::dropMimeData(const QMimeData *data_, Qt::DropAction /*action*/,
+                                         int row, int /*column*/, const QModelIndex &p)
 {
     if(mCurrentCategory != LXQtFancyMenuAppMap::FavoritesCategory)
         return false;
