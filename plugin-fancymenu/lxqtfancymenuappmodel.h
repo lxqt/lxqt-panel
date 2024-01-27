@@ -50,7 +50,11 @@ public:
 
     // Drag support
     Qt::ItemFlags flags(const QModelIndex &idx) const override;
+
+    virtual QStringList mimeTypes() const;
     virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
+    virtual bool dropMimeData(const QMimeData *data_, Qt::DropAction action,
+                              int row, int column, const QModelIndex &p);
     virtual Qt::DropActions supportedDragActions() const;
 
     void reloadAppMap(bool end);
@@ -63,6 +67,9 @@ public:
 
     const LXQtFancyMenuAppItem *getAppAt(int idx) const;
     LXQtFancyMenuItemType getItemTypeAt(int idx) const;
+
+signals:
+    void favoritesChanged();
 
 private:
     LXQtFancyMenuAppMap *mAppMap;

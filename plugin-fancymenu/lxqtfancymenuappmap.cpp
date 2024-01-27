@@ -112,6 +112,7 @@ void LXQtFancyMenuAppMap::setFavorites(const QStringList &favorites)
     clearFavorites();
 
     Category& favoritesCatRef = mCategories[0];
+    favoritesCatRef.apps.reserve(favorites.size());
 
     for(const QString& desktopFile : favorites)
     {
@@ -122,18 +123,39 @@ void LXQtFancyMenuAppMap::setFavorites(const QStringList &favorites)
             continue;
         favoritesCatRef.apps.append(item);
     }
+
+    favoritesCatRef.apps.squeeze();
 }
 
-bool LXQtFancyMenuAppMap::isFavorite(const QString &desktopFile) const
+QStringList LXQtFancyMenuAppMap::getFavorites() const
 {
-    const Category& favoritesCat = mCategories.at(0);
-    for(const Category::Item& item : favoritesCat.apps)
+    const Category& favoritesCatRef = mCategories[0];
+
+    QStringList favorites;
+    favorites.reserve(favoritesCatRef.apps.size());
+
+    for(const Category::Item& item : favoritesCatRef.apps)
     {
-        if(item.appItem && item.appItem->desktopFile == desktopFile)
-            return true;
+        if(item.appItem)
+        {
+            favorites.append(item.appItem->desktopFile);
+        }
     }
 
-    return false;
+    return favorites;
+}
+
+int LXQtFancyMenuAppMap::getFavoriteIndex(const QString &desktopFile) const
+{
+    const Category& favoritesCatRef = mCategories.at(0);
+    for(int i = 0; i < favoritesCatRef.apps.size(); i++)
+    {
+        const Category::Item& item = favoritesCatRef.apps.at(i);
+        if(item.appItem && item.appItem->desktopFile == desktopFile)
+            return i;
+    }
+
+    return -1;
 }
 
 void LXQtFancyMenuAppMap::addToFavorites(const QString &desktopFile)
@@ -167,6 +189,12 @@ void LXQtFancyMenuAppMap::removeFromFavorites(const QString &desktopFile)
             return;
         }
     }
+}
+
+void LXQtFancyMenuAppMap::moveFavoriteItem(int oldPos, int newPos)
+{
+    Category& favoritesCatRef = mCategories[0];
+    favoritesCatRef.apps.move(oldPos, newPos);
 }
 
 LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::getAppAt(int index)

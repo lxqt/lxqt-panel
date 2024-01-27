@@ -127,8 +127,6 @@ private:
     static const int APP_VIEW_STRETCH = 3;
     static const int CAT_VIEW_STRETCH = 2;
 
-    QStringList mFavorites;
-
     QVBoxLayout *mMainLayout;
     QHBoxLayout *mButtonsLayout;
     QHBoxLayout *mViewLayout;

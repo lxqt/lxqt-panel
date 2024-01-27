@@ -32,6 +32,8 @@
 #include <QMimeData>
 #include <QUrl>
 
+static const QLatin1String FavoritesDragMimeType("application/x-lxqtfavoritesdragrow");
+
 LXQtFancyMenuAppModel::LXQtFancyMenuAppModel(QObject *parent)
     : QAbstractListModel(parent)
     , mCurrentCategory(0)
@@ -91,37 +93,104 @@ QVariant LXQtFancyMenuAppModel::data(const QModelIndex &idx, int role) const
 
 Qt::ItemFlags LXQtFancyMenuAppModel::flags(const QModelIndex &idx) const
 {
+    Qt::ItemFlags f = QAbstractListModel::flags(idx);
+
+    if(mCurrentCategory == LXQtFancyMenuAppMap::FavoritesCategory)
+        f.setFlag(Qt::ItemIsDropEnabled); //Allow drag-drop of favorites
+
     const LXQtFancyMenuAppMap::AppItem* item = getAppAt(idx.row());
     LXQtFancyMenuItemType type = getItemTypeAt(idx.row());
     if(!item || type == LXQtFancyMenuItemType::SeparatorItem)
-        return Qt::NoItemFlags;
+        return f;
 
-    Qt::ItemFlags f = QAbstractListModel::flags(idx);
     if (idx.isValid())
-        f |= Qt::ItemIsDragEnabled;
+        f.setFlag(Qt::ItemIsDragEnabled);
     return f;
+}
+
+QStringList LXQtFancyMenuAppModel::mimeTypes() const
+{
+    return {FavoritesDragMimeType};
 }
 
 QMimeData *LXQtFancyMenuAppModel::mimeData(const QModelIndexList &indexes) const
 {
     QList<QUrl> urls;
 
+    int row = -1;
     for(const QModelIndex& idx : indexes)
     {
         const LXQtFancyMenuAppMap::AppItem* item = getAppAt(idx.row());
         if(!item)
             continue;
         urls << QUrl::fromLocalFile(item->desktopFile);
+        if(row == -1)
+            row = idx.row();
     }
 
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
+    if(row != -1)
+        mimeData->setData(FavoritesDragMimeType, QByteArray::number(row));
     return mimeData;
+}
+
+bool LXQtFancyMenuAppModel::dropMimeData(const QMimeData *data_, Qt::DropAction /*action*/,
+                                         int row, int /*column*/, const QModelIndex &p)
+{
+    if(mCurrentCategory != LXQtFancyMenuAppMap::FavoritesCategory)
+        return false;
+
+    auto urls = data_->urls();
+    if(urls.isEmpty())
+        return false;
+
+    QString desktopFile =urls.first().toLocalFile();
+
+    int oldRow = mAppMap->getFavoriteIndex(desktopFile);
+    if(oldRow == -1)
+        return false;
+
+    if(row == -1 && p.isValid())
+    {
+        // Dropped onto item but this model is a flat list
+        // If going upwards we drop above destination item
+        row = p.row();
+        if(oldRow < p.row())
+        {
+            // If going downwards we drop below destination item
+            row++;
+        }
+    }
+
+    if(row == -1)
+        return false;
+
+    // Compensate the fact that we first remove the item
+    // so all indexes are shifted by -1, store original value
+    int realRow = row;
+    if(row > oldRow)
+        row--;
+
+    if(row == oldRow)
+        return false; // No-op
+
+    // realRow is needed because beginMoveRows() behaves differenlty than
+    // QVector<...>::move() on index counting.
+    beginMoveRows(QModelIndex(), oldRow, oldRow, QModelIndex(), realRow);
+
+    mAppMap->moveFavoriteItem(oldRow, row);
+
+    endMoveRows();
+
+    emit favoritesChanged();
+
+    return true;
 }
 
 Qt::DropActions LXQtFancyMenuAppModel::supportedDragActions() const
 {
-    return Qt::CopyAction | Qt::LinkAction;
+    return Qt::CopyAction | Qt::LinkAction | Qt::MoveAction;
 }
 
 void LXQtFancyMenuAppModel::reloadAppMap(bool end)
