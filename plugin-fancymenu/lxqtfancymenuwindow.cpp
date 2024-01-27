@@ -411,7 +411,7 @@ void LXQtFancyMenuWindow::setCurrentCategory(int cat)
         setSearchQuery(QString());
 
         // show or hide the label for empty Favorites
-        if (cat == LXQtFancyMenuAppMap::FavoritesCategory && mFavorites.isEmpty())
+        if (cat == LXQtFancyMenuAppMap::FavoritesCategory && mAppMap->getFavoriteCount() == 0)
         {
             showFavoritesLabel = true;
         }
@@ -579,8 +579,6 @@ void LXQtFancyMenuWindow::runCommandHelper(const QString &cmd)
 
 void LXQtFancyMenuWindow::addToFavorites(const QString &desktopFile)
 {
-    mFavorites.append(desktopFile);
-
     mAppModel->reloadAppMap(false);
     mAppMap->addToFavorites(desktopFile);
     mAppModel->reloadAppMap(true);
@@ -590,12 +588,11 @@ void LXQtFancyMenuWindow::addToFavorites(const QString &desktopFile)
 
 void LXQtFancyMenuWindow::removeFromFavorites(const QString &desktopFile)
 {
-    mFavorites.removeOne(desktopFile);
     mAppModel->reloadAppMap(false);
     mAppMap->removeFromFavorites(desktopFile);
     mAppModel->reloadAppMap(true);
 
-    if (mFavorites.isEmpty())
+    if (mAppMap->getFavoriteCount() == 0)
     {
         auto idx = mCategoryView->currentIndex();
         if (idx.row() == LXQtFancyMenuAppMap::FavoritesCategory
@@ -669,14 +666,13 @@ void LXQtFancyMenuWindow::setCustomFont(const QFont &f)
 
 QStringList LXQtFancyMenuWindow::favorites() const
 {
-    return mFavorites;
+    return mAppMap->getFavorites();
 }
 
 void LXQtFancyMenuWindow::setFavorites(const QStringList &newFavorites)
 {
-    mFavorites = newFavorites;
     mAppModel->reloadAppMap(false);
-    mAppMap->setFavorites(mFavorites);
+    mAppMap->setFavorites(newFavorites);
     mAppModel->reloadAppMap(true);
 }
 

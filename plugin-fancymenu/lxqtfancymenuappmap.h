@@ -86,7 +86,11 @@ public:
     bool rebuildModel(const XdgMenu &menu);
 
     void setFavorites(const QStringList& favorites);
+    QStringList getFavorites() const;
+
     int  getFavoriteIndex(const QString& desktopFile) const;
+
+    inline int getFavoriteCount() const { return mCategories[0].apps.count(); }
 
     inline bool isFavorite(const QString& desktopFile) const
     {
