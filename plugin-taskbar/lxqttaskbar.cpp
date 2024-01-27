@@ -54,6 +54,8 @@
 #include <X11/Xlib.h>
 #undef Bool
 
+#include "lxqttaskbarbackend_x11.h"
+
 using namespace LXQt;
 
 /************************************************
@@ -80,7 +82,8 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mWheelDeltaThreshold(300),
     mPlugin(plugin),
     mPlaceHolder(new QWidget(this)),
-    mStyle(new LeftAlignedTextStyle())
+    mStyle(new LeftAlignedTextStyle()),
+    mBackend(nullptr)
 {
     setStyle(mStyle);
     mLayout = new LXQt::GridLayout(this);
@@ -93,6 +96,10 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
+
+    // Create model
+    //TODO: use backend factory
+    mBackend = new LXQtTaskbarX11Backend(this);
 
     QTimer::singleShot(0, this, &LXQtTaskBar::settingsChanged);
     setAcceptDrops(true);
@@ -282,7 +289,7 @@ void LXQtTaskBar::groupBecomeEmptySlot()
 void LXQtTaskBar::addWindow(WId window)
 {
     // If grouping disabled group behaves like regular button
-    const QString group_id = mGroupingEnabled ? QString::fromUtf8(KWindowInfo(window, NET::Properties(), NET::WM2WindowClass).windowClassClass()) : QString::number(window);
+    const QString group_id = mGroupingEnabled ? mBackend->getWindowClass(window) : QString::number(window);
 
     LXQtTaskGroup *group = nullptr;
     auto i_group = mKnownWindows.find(window);
@@ -534,7 +541,8 @@ void LXQtTaskBar::settingsChanged()
     if (iconByClassOld != mIconByClass)
         emit iconByClassChanged();
 
-    refreshTaskList();
+    refreshTaskList(); //TODO: remove
+    mBackend->reloadWindows();
 }
 
 /************************************************
