@@ -558,21 +558,21 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     */
 
     /********** Desktop menu **********/
-    int deskNum = KX11Extras::numberOfDesktops();
+    int deskNum = mBackend->getWorkspacesCount();
     if (deskNum > 1)
     {
-        int winDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop();
+        int winDesk = mBackend->getWindowWorkspace(mWindow);
         QMenu* deskMenu = menu->addMenu(tr("To &Desktop"));
 
         a = deskMenu->addAction(tr("&All Desktops"));
-        a->setData(NET::OnAllDesktops);
-        a->setEnabled(winDesk != NET::OnAllDesktops);
+        a->setData(int(LXQtTaskBarWorkspace::ShowOnAll));
+        a->setEnabled(winDesk != int(LXQtTaskBarWorkspace::ShowOnAll));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         deskMenu->addSeparator();
 
         for (int i = 1; i <= deskNum; ++i)
         {
-            auto deskName = KX11Extras::desktopName(i).trimmed();
+            auto deskName = mBackend->getWorkspaceName(i).trimmed();
             if (deskName.isEmpty())
                 a = deskMenu->addAction(tr("Desktop &%1").arg(i));
             else
@@ -583,7 +583,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
             connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplicationToDesktop);
         }
 
-        int curDesk = KX11Extras::currentDesktop();
+        int curDesk = mBackend->getCurrentWorkspace();
         a = menu->addAction(tr("&To Current Desktop"));
         a->setData(curDesk);
         a->setEnabled(curDesk != winDesk);
@@ -719,16 +719,13 @@ void LXQtTaskButton::setUrgencyHint(bool set)
  ************************************************/
 bool LXQtTaskButton::isOnDesktop(int desktop) const
 {
-    return KWindowInfo(mWindow, NET::WMDesktop).isOnDesktop(desktop);
+    return mBackend->getWindowWorkspace(mWindow) == desktop;
 }
 
 bool LXQtTaskButton::isOnCurrentScreen() const
 {
     QScreen *screen = parentTaskBar()->screen();
-    QRect screenGeo = screen->geometry();
-    QRect windowGeo = KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry();
-
-    return screenGeo.intersects(windowGeo);
+    return mBackend->isWindowOnScreen(screen, mWindow);
 }
 
 bool LXQtTaskButton::isMinimized() const
