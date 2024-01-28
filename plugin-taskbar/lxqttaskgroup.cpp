@@ -393,7 +393,7 @@ void LXQtTaskGroup::refreshVisibility()
     const int showDesktop = taskbar->showDesktopNum();
     for(LXQtTaskButton * btn : qAsConst(mButtonHash))
     {
-        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KX11Extras::currentDesktop() : showDesktop) : true;
+        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? mBackend->getCurrentWorkspace() : showDesktop) : true;
         visible &= taskbar->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
         visible &= taskbar->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);
@@ -650,7 +650,7 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop.testFlag(NET::WMDesktop) || prop.testFlag(NET::WMGeometry))
         {
             if (parentTaskBar()->isShowOnlyOneDesktopTasks()
-                    || parentTaskBar()->isShowOnlyCurrentScreenTasks())
+                || parentTaskBar()->isShowOnlyCurrentScreenTasks())
             {
                 needsRefreshVisibility = true;
             }
