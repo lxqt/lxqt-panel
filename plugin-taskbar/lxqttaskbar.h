@@ -37,9 +37,6 @@
 #include <QMap>
 
 #include "../panel/ilxqtpanel.h"
-#include <KX11Extras>
-#include <KWindowInfo>
-#include <NETWM>
 
 class ILXQtPanel;
 class ILXQtPanelPlugin;
@@ -107,13 +104,14 @@ protected:
     virtual void dragMoveEvent(QDragMoveEvent * event);
 
 private slots:
-    void refreshTaskList();
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
-    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+
+    void onWindowChanged(WId window, int prop);
     void onWindowAdded(WId window);
     void onWindowRemoved(WId window);
+
     void registerShortcuts();
     void shortcutRegistered();
     void activateTask(int pos);
@@ -150,7 +148,6 @@ private:
     int mWheelEventsAction;
     int mWheelDeltaThreshold;
 
-    bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 
     void wheelEvent(QWheelEvent* event);
