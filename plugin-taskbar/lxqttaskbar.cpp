@@ -28,6 +28,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include "lxqttaskbar.h"
+
 #include <QApplication>
 #include <QDebug>
 #include <QSignalMapper>
@@ -40,11 +42,12 @@
 #include <QX11Info>
 #include <QTimer>
 
+#include "ilxqtpanelplugin.h"
+#include "pluginsettings.h"
+
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
-#include <XdgIcon>
 
-#include "lxqttaskbar.h"
 #include "lxqttaskgroup.h"
 
 using namespace LXQt;
@@ -581,6 +584,11 @@ void LXQtTaskBar::realign()
     //our placement on screen could have been changed
     emit showOnlySettingChanged();
     emit refreshIconGeometry();
+}
+
+ILXQtPanel *LXQtTaskBar::panel() const
+{
+    return mPlugin->panel();
 }
 
 /************************************************

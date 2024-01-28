@@ -29,13 +29,18 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtgrouppopup.h"
+#include "lxqttaskgroup.h"
+
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
 #include <QLayout>
 #include <QPainter>
 #include <QStyleOption>
-#include <QDebug>
+
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 /************************************************
     this class is just a container of window buttons

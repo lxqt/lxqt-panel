@@ -31,6 +31,8 @@
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
+#include "ilxqtpanelplugin.h"
+
 #include <QDebug>
 #include <QMimeData>
 #include <QFocusEvent>
