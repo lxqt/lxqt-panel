@@ -49,6 +49,7 @@
 #include <LXQt/GridLayout>
 
 #include "lxqttaskgroup.h"
+#include "../panel/pluginsettings.h"
 
 #include "lxqttaskbarbackend_x11.h"
 
@@ -103,10 +104,9 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(mSignalMapper, &QSignalMapper::mappedInt, this, &LXQtTaskBar::activateTask);
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
-    connect(KX11Extras::self(), static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged)
-            , this, &LXQtTaskBar::onWindowChanged);
-    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, &LXQtTaskBar::onWindowAdded);
-    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 }
 
 /************************************************
@@ -115,45 +115,6 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
 LXQtTaskBar::~LXQtTaskBar()
 {
     delete mStyle;
-}
-
-/************************************************
-
- ************************************************/
-bool LXQtTaskBar::acceptWindow(WId window) const
-{
-    QFlags<NET::WindowTypeMask> ignoreList;
-    ignoreList |= NET::DesktopMask;
-    ignoreList |= NET::DockMask;
-    ignoreList |= NET::SplashMask;
-    ignoreList |= NET::ToolbarMask;
-    ignoreList |= NET::MenuMask;
-    ignoreList |= NET::PopupMenuMask;
-    ignoreList |= NET::NotificationMask;
-
-    KWindowInfo info(window, NET::WMWindowType | NET::WMState, NET::WM2TransientFor);
-    if (!info.valid())
-        return false;
-
-    if (NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
-        return false;
-
-    if (info.state() & NET::SkipTaskbar)
-        return false;
-
-    // WM_TRANSIENT_FOR hint not set - normal window
-    WId transFor = info.transientFor();
-    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
-        return true;
-
-    info = KWindowInfo(transFor, NET::WMWindowType);
-
-    QFlags<NET::WindowTypeMask> normalFlag;
-    normalFlag |= NET::NormalMask;
-    normalFlag |= NET::DialogMask;
-    normalFlag |= NET::UtilityMask;
-
-    return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
 /************************************************
@@ -320,7 +281,7 @@ void LXQtTaskBar::addWindow(WId window)
 
         if (mUngroupedNextToExisting)
         {
-            const QString window_class = QString::fromUtf8(KWindowInfo(window, NET::Properties(), NET::WM2WindowClass).windowClassClass());
+            const QString window_class = mBackend->getWindowClass(window);
             int src_index = mLayout->count() - 1;
             int dst_index = src_index;
             for (int i = mLayout->count() - 2; 0 <= i; --i)
@@ -328,7 +289,7 @@ void LXQtTaskBar::addWindow(WId window)
                 LXQtTaskGroup * current_group = qobject_cast<LXQtTaskGroup*>(mLayout->itemAt(i)->widget());
                 if (nullptr != current_group)
                 {
-                    const QString current_class = QString::fromUtf8(KWindowInfo((current_group->groupName()).toUInt(), NET::Properties(), NET::WM2WindowClass).windowClassClass());
+                    const QString current_class = mBackend->getWindowClass(current_group->groupName().toUInt());
                     if(current_class == window_class)
                     {
                         dst_index = i + 1;
@@ -362,43 +323,14 @@ auto LXQtTaskBar::removeWindow(windowMap_t::iterator pos) -> windowMap_t::iterat
 /************************************************
 
  ************************************************/
-void LXQtTaskBar::refreshTaskList()
-{
-    QList<WId> new_list;
-    // Just add new windows to groups, deleting is up to the groups
-    const auto wnds = KX11Extras::stackingOrder();
-    for (auto const wnd: wnds)
-    {
-        if (acceptWindow(wnd))
-        {
-            new_list << wnd;
-            addWindow(wnd);
-        }
-    }
-
-    //emulate windowRemoved if known window not reported by KWindowSystem
-    for (auto i = mKnownWindows.begin(), i_e = mKnownWindows.end(); i != i_e; )
-    {
-        if (0 > new_list.indexOf(i.key()))
-        {
-            i = removeWindow(i);
-        } else
-            ++i;
-    }
-
-    refreshPlaceholderVisibility();
-}
-
-/************************************************
-
- ************************************************/
-void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
+void LXQtTaskBar::onWindowChanged(WId window, int prop)
 {
     auto i = mKnownWindows.find(window);
     if (mKnownWindows.end() != i)
     {
-        if (!(*i)->onWindowChanged(window, prop, prop2) && acceptWindow(window))
-        { // window is removed from a group because of class change, so we should add it again
+        if (!(*i)->onWindowChanged(window, LXQtTaskBarWindowProperty(prop)))
+        {
+            // window is removed from a group because of class change, so we should add it again
             addWindow(window);
         }
     }
@@ -407,7 +339,7 @@ void LXQtTaskBar::onWindowChanged(WId window, NET::Properties prop, NET::Propert
 void LXQtTaskBar::onWindowAdded(WId window)
 {
     auto const pos = mKnownWindows.find(window);
-    if (mKnownWindows.end() == pos && acceptWindow(window))
+    if (mKnownWindows.end() == pos)
         addWindow(window);
 }
 
@@ -533,8 +465,8 @@ void LXQtTaskBar::settingsChanged()
     if (iconByClassOld != mIconByClass)
         emit iconByClassChanged();
 
-    refreshTaskList(); //TODO: remove
     mBackend->reloadWindows();
+    refreshPlaceholderVisibility();
 }
 
 /************************************************
