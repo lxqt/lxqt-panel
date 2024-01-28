@@ -31,11 +31,9 @@
 #ifndef LXQTTASKGROUP_H
 #define LXQTTASKGROUP_H
 
-#include "../panel/ilxqtpanel.h"
-#include "../panel/ilxqtpanelplugin.h"
-
 #include "lxqttaskbutton.h"
-#include <kx11extras.h>
+
+#include <KX11Extras>
 
 class QVBoxLayout;
 class ILXQtPanelPlugin;
