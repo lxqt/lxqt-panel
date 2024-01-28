@@ -31,6 +31,8 @@
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
+#include "ilxqtpanelplugin.h"
+
 #include <LXQt/Settings>
 
 #include <QDebug>
@@ -49,17 +51,15 @@
 #include <QStyleOptionToolButton>
 #include <QScreen>
 
-#include "lxqttaskbutton.h"
-#include "lxqttaskgroup.h"
-#include "lxqttaskbar.h"
-
 #include <KX11Extras>
+
 // Necessary for closeApplication()
 #include <NETWM>
 
 //NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
 #include <X11/Xlib.h>
 #undef Bool
+
 
 bool LXQtTaskButton::sDraggging = false;
 

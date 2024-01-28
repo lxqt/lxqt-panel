@@ -32,28 +32,31 @@
 #ifndef LXQTTASKBAR_H
 #define LXQTTASKBAR_H
 
-#include "../panel/ilxqtpanel.h"
-#include "../panel/ilxqtpanelplugin.h"
-
 #include <QFrame>
 #include <QBoxLayout>
 #include <QMap>
-#include <lxqt-globalkeys.h>
+
 #include "../panel/ilxqtpanel.h"
 #include <KX11Extras>
 #include <KWindowInfo>
 #include <NETWM>
 
+class ILXQtPanel;
+class ILXQtPanelPlugin;
+
 class QSignalMapper;
 
-class LXQtTaskButton;
 class LXQtTaskGroup;
 
-class ElidedButtonStyle;
 class LeftAlignedTextStyle;
 
 namespace LXQt {
 class GridLayout;
+}
+
+namespace GlobalKeyShortcut
+{
+class Action;
 }
 
 class LXQtTaskBar : public QFrame
@@ -80,7 +83,8 @@ public:
     bool isIconByClass() const { return mIconByClass; }
     int wheelEventsAction() const { return mWheelEventsAction; }
     int wheelDeltaThreshold() const { return mWheelDeltaThreshold; }
-    inline ILXQtPanel * panel() const { return mPlugin->panel(); }
+
+    ILXQtPanel * panel() const;
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
 public slots:
