@@ -144,7 +144,7 @@ void LXQtTaskButton::updateIcon()
     QIcon ico;
     if (mParentTaskBar->isIconByClass())
     {
-        ico = XdgIcon::fromTheme(QString::fromUtf8(KWindowInfo{mWindow, NET::Properties(), NET::WM2WindowClass}.windowClassClass()).toLower());
+        ico = XdgIcon::fromTheme(mBackend->getWindowClass(mWindow).toLower());
     }
     if (ico.isNull())
     {
@@ -519,8 +519,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         return;
     }
 
-    KWindowInfo info(mWindow, NET::Properties(), NET::WM2AllowedActions);
-    NET::States state = KWindowInfo(mWindow, NET::WMState).state();
+    const LXQtTaskBarWindowState state = mBackend->getWindowState(mWindow);
 
     QMenu * menu = new QMenu(tr("Application"));
     menu->setAttribute(Qt::WA_DeleteOnClose);
@@ -589,74 +588,79 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         menu->addSeparator();
         a = menu->addAction(tr("Move To N&ext Monitor"));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });
-        a->setEnabled(info.actionSupported(NET::ActionMove) && (!(state & NET::FullScreen) || ((state & NET::FullScreen) && info.actionSupported(NET::ActionFullScreen))));
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move) &&
+                      (state != LXQtTaskBarWindowState::FullScreen
+                       || ((state == LXQtTaskBarWindowState::FullScreen) && mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen))));
         a = menu->addAction(tr("Move To &Previous Monitor"));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(false); });
     }
+
     menu->addSeparator();
     a = menu->addAction(tr("&Move"));
-    a->setEnabled(info.actionSupported(NET::ActionMove) && !(state & NET::Max) && !(state & NET::FullScreen));
+    a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move)
+                  && state != LXQtTaskBarWindowState::Maximized
+                  && state != LXQtTaskBarWindowState::FullScreen);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::moveApplication);
     a = menu->addAction(tr("Resi&ze"));
-    a->setEnabled(info.actionSupported(NET::ActionResize) && !(state & NET::Max) && !(state & NET::FullScreen));
+    a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Resize)
+                  && state != LXQtTaskBarWindowState::Maximized
+                  && state != LXQtTaskBarWindowState::FullScreen);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::resizeApplication);
 
     /********** State menu **********/
     menu->addSeparator();
 
-    LXQtTaskBarWindowState windowState = mBackend->getWindowState(mWindow);
-
     a = menu->addAction(tr("Ma&ximize"));
-    a->setEnabled(info.actionSupported(NET::ActionMax)
-                  && windowState != LXQtTaskBarWindowState::Maximized
-                  && windowState != LXQtTaskBarWindowState::Hidden);
+    a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Maximize)
+                  && state != LXQtTaskBarWindowState::Maximized
+                  && state != LXQtTaskBarWindowState::Hidden);
     a->setData(int(LXQtTaskBarWindowState::Maximized));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
         a = menu->addAction(tr("Maximize vertically"));
-        a->setEnabled(info.actionSupported(NET::ActionMaxVert)
-                      && windowState != LXQtTaskBarWindowState::MaximizedVertically
-                      && windowState != LXQtTaskBarWindowState::Hidden);
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MaximizeVertically)
+                      && state != LXQtTaskBarWindowState::MaximizedVertically
+                      && state != LXQtTaskBarWindowState::Hidden);
         a->setData(int(LXQtTaskBarWindowState::MaximizedVertically));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
         a = menu->addAction(tr("Maximize horizontally"));
-        a->setEnabled(info.actionSupported(NET::ActionMaxHoriz)
-                      && windowState != LXQtTaskBarWindowState::MaximizedHorizontally
-                      && windowState != LXQtTaskBarWindowState::Hidden);
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MaximizeHorizontally)
+                      && state != LXQtTaskBarWindowState::MaximizedHorizontally
+                      && state != LXQtTaskBarWindowState::Hidden);
         a->setData(int(LXQtTaskBarWindowState::MaximizedHorizontally));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
     }
 
     a = menu->addAction(tr("&Restore"));
-    a->setEnabled(windowState == LXQtTaskBarWindowState::Hidden
-                  || windowState == LXQtTaskBarWindowState::Minimized
-                  || windowState == LXQtTaskBarWindowState::Maximized
-                  || windowState == LXQtTaskBarWindowState::MaximizedVertically
-                  || windowState == LXQtTaskBarWindowState::MaximizedHorizontally);
+    a->setEnabled(state == LXQtTaskBarWindowState::Hidden
+                  || state == LXQtTaskBarWindowState::Minimized
+                  || state == LXQtTaskBarWindowState::Maximized
+                  || state == LXQtTaskBarWindowState::MaximizedVertically
+                  || state == LXQtTaskBarWindowState::MaximizedHorizontally);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::deMaximizeApplication);
 
     a = menu->addAction(tr("Mi&nimize"));
-    a->setEnabled(info.actionSupported(NET::ActionMinimize)
-                  && windowState != LXQtTaskBarWindowState::Hidden
-                  && windowState != LXQtTaskBarWindowState::Minimized);
+    a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Minimize)
+                  && state != LXQtTaskBarWindowState::Hidden
+                  && state != LXQtTaskBarWindowState::Minimized);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::minimizeApplication);
 
-    if (windowState == LXQtTaskBarWindowState::RolledUp)
+    if (state == LXQtTaskBarWindowState::RolledUp)
     {
         a = menu->addAction(tr("Roll down"));
-        a->setEnabled(info.actionSupported(NET::ActionShade)
-                      && windowState != LXQtTaskBarWindowState::Hidden
-                      && windowState != LXQtTaskBarWindowState::Minimized);
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::RollUp)
+                      && state != LXQtTaskBarWindowState::Hidden
+                      && state != LXQtTaskBarWindowState::Minimized);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::unShadeApplication);
     }
     else
     {
         a = menu->addAction(tr("Roll up"));
-        a->setEnabled(info.actionSupported(NET::ActionShade)
-                      && windowState != LXQtTaskBarWindowState::Hidden);
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::RollUp)
+                      && state != LXQtTaskBarWindowState::Hidden);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::shadeApplication);
     }
 
@@ -667,7 +671,6 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 
     LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 
-    // FIXME: There is no info.actionSupported(NET::ActionKeepAbove)
     a = layerMenu->addAction(tr("Always on &top"));
     a->setEnabled(currentLayer != LXQtTaskBarWindowLayer::KeepAbove);
     a->setData(int(LXQtTaskBarWindowLayer::KeepAbove));
@@ -678,7 +681,6 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     a->setData(int(LXQtTaskBarWindowLayer::Normal));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
-    // FIXME: There is no info.actionSupported(NET::ActionKeepBelow)
     a = layerMenu->addAction(tr("Always on &bottom"));
     a->setEnabled(currentLayer != LXQtTaskBarWindowLayer::KeepBelow);
     a->setData(int(LXQtTaskBarWindowLayer::KeepBelow));
