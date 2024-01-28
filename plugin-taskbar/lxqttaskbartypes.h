@@ -5,6 +5,28 @@
 
 typedef quintptr WId;
 
+enum class LXQtTaskBarBackendAction
+{
+    Move = 0,
+    Resize,
+    Maximize,
+    MaximizeVertically,
+    MaximizeHorizontally,
+    Minimize,
+    RollUp,
+    FullScreen
+};
+
+enum class LXQtTaskBarWindowProperty
+{
+    Title = 0,
+    Icon,
+    State,
+    Urgency,
+    WindowClass,
+    Workspace
+};
+
 enum class LXQtTaskBarWindowState
 {
     Hidden = 0,
