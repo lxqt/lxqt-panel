@@ -8,24 +8,15 @@
 class QIcon;
 class QScreen;
 
-//FIXME: add something like bool KWindowInfo::actionSupported(...)
-
 class ILXQtTaskbarAbstractBackend : public QObject
 {
     Q_OBJECT
 
 public:
-    enum class WindowProperty
-    {
-        Title = 0,
-        Icon,
-        State,
-        Urgency,
-        WindowClass,
-        Workspace
-    };
-
     explicit ILXQtTaskbarAbstractBackend(QObject *parent = nullptr);
+
+    // Backend
+    virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const = 0;
 
     // Windows
     virtual bool reloadWindows() = 0;
