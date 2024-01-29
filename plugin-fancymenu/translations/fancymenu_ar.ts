@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>أضف مفضلاتك عن طريق النقر بزر الماوس الأيمن على العناصر من الفئات.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
