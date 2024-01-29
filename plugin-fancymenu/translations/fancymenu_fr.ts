@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation>Sélection auto après&#xa0;:</translation>
+        <translation>Sélection auto après :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajoutez vos favoris avec un clic droit sur les éléments dans les catégories.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
@@ -197,7 +197,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichier du même nom existe déjà.
-Voulez-vous l&apos;écraser&#x202f;?</translation>
+Voulez-vous l&apos;écraser ?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
