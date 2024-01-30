@@ -698,9 +698,9 @@ void LXQtFancyMenuWindow::autoSelect()
     else
     {
         idx = mAppView->indexAt(mAppView->viewport()->mapFromGlobal(QCursor::pos()));
-        if (idx.isValid() && !mAppView->selectionModel()->isSelected(idx))
+        if (idx.isValid() && !SeparatorDelegate::isSeparator(idx) && !mAppView->selectionModel()->isSelected(idx))
         {
-            mAppView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::SelectCurrent);
+            mAppView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
         }
     }
 }
