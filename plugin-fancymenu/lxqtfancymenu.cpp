@@ -270,6 +270,8 @@ void LXQtFancyMenu::saveFavorites()
     const QStringList fileList = mWindow->favorites();
 
     QList<QMap<QString, QVariant> > list;
+    list.reserve(fileList.size());
+
     for(const QString& file : fileList)
     {
         QMap<QString, QVariant> item;
@@ -277,6 +279,9 @@ void LXQtFancyMenu::saveFavorites()
         list.append(item);
     }
 
+    // HACK: force Qt to clear old array and rewrite it
+    // Otherwise it would leave garbage values inside it.
+    settings()->remove(QStringLiteral("favorites"));
     settings()->setArray(QStringLiteral("favorites"), list);
 }
 
