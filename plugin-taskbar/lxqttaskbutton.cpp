@@ -540,7 +540,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     }
 
     KWindowInfo info(mWindow, NET::Properties(), NET::WM2AllowedActions);
-    unsigned long state = KWindowInfo(mWindow, NET::WMState).state();
+    NET::States state = KWindowInfo(mWindow, NET::WMState).state();
 
     QMenu * menu = new QMenu(tr("Application"));
     menu->setAttribute(Qt::WA_DeleteOnClose);
@@ -624,42 +624,59 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     /********** State menu **********/
     menu->addSeparator();
 
+    LXQtTaskBarWindowState windowState = mBackend->getWindowState(mWindow);
+
     a = menu->addAction(tr("Ma&ximize"));
-    a->setEnabled(info.actionSupported(NET::ActionMax) && (!(state & NET::Max) || (state & NET::Hidden)));
+    a->setEnabled(info.actionSupported(NET::ActionMax)
+                  && windowState != LXQtTaskBarWindowState::Maximized
+                  && windowState != LXQtTaskBarWindowState::Hidden);
     a->setData(NET::Max);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
     if (event->modifiers() & Qt::ShiftModifier)
     {
         a = menu->addAction(tr("Maximize vertically"));
-        a->setEnabled(info.actionSupported(NET::ActionMaxVert) && !((state & NET::MaxVert) || (state & NET::Hidden)));
+        a->setEnabled(info.actionSupported(NET::ActionMaxVert)
+                      && windowState != LXQtTaskBarWindowState::MaximizedVertically
+                      && windowState != LXQtTaskBarWindowState::Hidden);
         a->setData(NET::MaxVert);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
         a = menu->addAction(tr("Maximize horizontally"));
-        a->setEnabled(info.actionSupported(NET::ActionMaxHoriz) && !((state & NET::MaxHoriz) || (state & NET::Hidden)));
+        a->setEnabled(info.actionSupported(NET::ActionMaxHoriz)
+                      && windowState != LXQtTaskBarWindowState::MaximizedHorizontally
+                      && windowState != LXQtTaskBarWindowState::Hidden);
         a->setData(NET::MaxHoriz);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
     }
 
     a = menu->addAction(tr("&Restore"));
-    a->setEnabled((state & NET::Hidden) || (state & NET::Max) || (state & NET::MaxHoriz) || (state & NET::MaxVert));
+    a->setEnabled(windowState == LXQtTaskBarWindowState::Hidden
+                  || windowState == LXQtTaskBarWindowState::Minimized
+                  || windowState == LXQtTaskBarWindowState::Maximized
+                  || windowState == LXQtTaskBarWindowState::MaximizedVertically
+                  || windowState == LXQtTaskBarWindowState::MaximizedHorizontally);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::deMaximizeApplication);
 
     a = menu->addAction(tr("Mi&nimize"));
-    a->setEnabled(info.actionSupported(NET::ActionMinimize) && !(state & NET::Hidden));
+    a->setEnabled(info.actionSupported(NET::ActionMinimize)
+                  && windowState != LXQtTaskBarWindowState::Hidden
+                  && windowState != LXQtTaskBarWindowState::Minimized);
     connect(a, &QAction::triggered, this, &LXQtTaskButton::minimizeApplication);
 
-    if (state & NET::Shaded)
+    if (windowState == LXQtTaskBarWindowState::RolledUp)
     {
         a = menu->addAction(tr("Roll down"));
-        a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
+        a->setEnabled(info.actionSupported(NET::ActionShade)
+                      && windowState != LXQtTaskBarWindowState::Hidden
+                      && windowState != LXQtTaskBarWindowState::Minimized);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::unShadeApplication);
     }
     else
     {
         a = menu->addAction(tr("Roll up"));
-        a->setEnabled(info.actionSupported(NET::ActionShade) && !(state & NET::Hidden));
+        a->setEnabled(info.actionSupported(NET::ActionShade)
+                      && windowState != LXQtTaskBarWindowState::Hidden);
         connect(a, &QAction::triggered, this, &LXQtTaskButton::shadeApplication);
     }
 
