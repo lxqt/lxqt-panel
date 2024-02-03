@@ -44,6 +44,14 @@
 #include <QX11Info>
 #include <functional>
 
+//TODO: remove
+#include <QGuiApplication> //For nativeInterface()
+#include <KX11Extras>
+#include <X11/Xlib.h>
+#undef Bool
+
+#include "ilxqttaskbarabstractbackend.h"
+
 /************************************************
 
  ************************************************/
@@ -59,14 +67,14 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     setObjectName(groupName);
     setText(groupName);
 
-    connect(this,                  &LXQtTaskGroup::clicked,               this, &LXQtTaskGroup::onClicked);
-    connect(KX11Extras::self(),    &KX11Extras::currentDesktopChanged,    this, &LXQtTaskGroup::onDesktopChanged);
-    connect(KX11Extras::self(),    &KX11Extras::activeWindowChanged,      this, &LXQtTaskGroup::onActiveWindowChanged);
-    connect(parent,                &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
-    connect(parent,                &LXQtTaskBar::refreshIconGeometry,     this, &LXQtTaskGroup::refreshIconsGeometry);
-    connect(parent,                &LXQtTaskBar::buttonStyleRefreshed,    this, &LXQtTaskGroup::setToolButtonsStyle);
-    connect(parent,                &LXQtTaskBar::showOnlySettingChanged,  this, &LXQtTaskGroup::refreshVisibility);
-    connect(parent,                &LXQtTaskBar::popupShown,              this, &LXQtTaskGroup::groupPopupShown);
+    connect(this,   &LXQtTaskGroup::clicked,                           this, &LXQtTaskGroup::onClicked);
+    connect(parent, &LXQtTaskBar::buttonRotationRefreshed,             this, &LXQtTaskGroup::setAutoRotation);
+    connect(parent, &LXQtTaskBar::refreshIconGeometry,                 this, &LXQtTaskGroup::refreshIconsGeometry);
+    connect(parent, &LXQtTaskBar::buttonStyleRefreshed,                this, &LXQtTaskGroup::setToolButtonsStyle);
+    connect(parent, &LXQtTaskBar::showOnlySettingChanged,              this, &LXQtTaskGroup::refreshVisibility);
+    connect(parent, &LXQtTaskBar::popupShown,                          this, &LXQtTaskGroup::groupPopupShown);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
 }
 
 /************************************************
@@ -99,7 +107,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 void LXQtTaskGroup::closeGroup()
 {
     for (LXQtTaskButton *button : qAsConst(mButtonHash) )
-        if (button->isOnDesktop(KX11Extras::currentDesktop()))
+        if (button->isOnDesktop(mBackend->getCurrentWorkspace()))
             button->closeApplication();
 }
 
@@ -307,7 +315,7 @@ void LXQtTaskGroup::onClicked(bool)
 {
     if (visibleButtonsCount() > 1)
     {
-        setChecked(mButtonHash.contains(KX11Extras::activeWindow()));
+        setChecked(mButtonHash.contains(mBackend->getActiveWindow()));
         setPopupVisible(true);
     }
 }
@@ -446,13 +454,13 @@ void LXQtTaskGroup::refreshIconsGeometry()
 
     if (mSingleButton)
     {
-        refreshIconGeometry(rect);
+        mBackend->refreshIconGeometry(windowId(), rect);
         return;
     }
 
     for(LXQtTaskButton *but : qAsConst(mButtonHash))
     {
-        but->refreshIconGeometry(rect);
+        mBackend->refreshIconGeometry(but->windowId(), rect);
         but->setIconSize(QSize(plugin()->panel()->iconSize(), plugin()->panel()->iconSize()));
     }
 }
