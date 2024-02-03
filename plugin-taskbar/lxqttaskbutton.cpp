@@ -51,21 +51,12 @@
 #include <QDesktopWidget>
 #include <QScreen>
 
-//TODO: remove
-#include <KX11Extras>
-
-// Necessary for closeApplication()
-#include <NETWM>
-
-//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
-#include <X11/Xlib.h>
-#undef Bool
+#include "ilxqttaskbarabstractbackend.h"
 
 #include <chrono>
 
 using namespace std::chrono_literals;
 
-#include "ilxqttaskbarabstractbackend.h"
 
 bool LXQtTaskButton::sDraggging = false;
 
