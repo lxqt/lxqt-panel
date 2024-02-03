@@ -45,7 +45,6 @@
 
 //TODO: remove
 #include <QGuiApplication> //For nativeInterface()
-#include <KX11Extras>
 #include <X11/Xlib.h>
 #undef Bool
 
@@ -670,30 +669,18 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop2.testFlag(NET::WM2Urgency))
         {
             set_urgency = true;
-            if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-            {
-                WId appRootWindow = XDefaultRootWindow(x11Application->display());
-                urgency = NETWinInfo(x11Application->connection(), window, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency();
-            }
+            //FIXME: original code here did not consider "demand attention", was it intentional?
+            urgency = mBackend->applicationDemandsAttention(window);
         }
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
 
-            if(!set_urgency)
-            {
-                if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-                {
-                    WId appRootWindow = XDefaultRootWindow(x11Application->display());
-                    urgency = NETWinInfo(x11Application->connection(), window, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency();
-                }
-            }
-
             // Force refresh urgency
-            //TODO: maybe do it in common place with NET::WM2Urgency
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
+            if (!set_urgency)
+                urgency = mBackend->applicationDemandsAttention(window);
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency));
             set_urgency = false;
-
             if (info.hasState(NET::SkipTaskbar))
                 onWindowRemoved(window);
 
