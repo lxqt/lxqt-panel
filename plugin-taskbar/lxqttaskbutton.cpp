@@ -397,7 +397,7 @@ void LXQtTaskButton::raiseApplication()
  ************************************************/
 void LXQtTaskButton::minimizeApplication()
 {
-    KX11Extras::minimizeWindow(mWindow);
+    mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::Minimized, true);
 }
 
 /************************************************
