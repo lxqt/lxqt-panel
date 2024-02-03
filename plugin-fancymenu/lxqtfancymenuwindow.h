@@ -148,6 +148,15 @@ private:
     QTimer mAutoSelTimer;
     bool mAutoSel = false;
     bool mFilterClear = false;
+
+    enum class FocusedItem
+    {
+        SearchEdit = 0,
+        AppView,
+        CategoryView
+    };
+
+    FocusedItem mFocusedItem;
 };
 
 #endif // LXQTFANCYMENUWINDOW_H
