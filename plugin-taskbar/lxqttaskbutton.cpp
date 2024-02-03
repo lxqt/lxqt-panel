@@ -28,7 +28,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqttaskbutton.h"
-#include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
 #include "ilxqtpanelplugin.h"
@@ -121,18 +120,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
         mWheelDelta = 0; // forget previous wheel deltas
     });
 
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-    {
-        WId appRootWindow = XDefaultRootWindow(x11Application->display());
-        setUrgencyHint(NETWinInfo(x11Application->connection(), mWindow, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency()
-                       || KWindowInfo{mWindow, NET::WMState}.hasState(NET::DemandsAttention));
-    }
-    else
-    {
-        qWarning() << "LXQtTaskBar: not implemented on Wayland";
-    }
-
+    setUrgencyHint(mBackend->applicationDemandsAttention(mWindow));
 
     connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::iconThemeChanged, this, &LXQtTaskButton::updateIcon);
     connect(mParentTaskBar,                   &LXQtTaskBar::iconByClassChanged,        this, &LXQtTaskButton::updateIcon);
