@@ -434,10 +434,10 @@ void LXQtTaskButton::maximizeApplication()
  ************************************************/
 void LXQtTaskButton::deMaximizeApplication()
 {
-    KX11Extras::clearState(mWindow, NET::Max);
+    mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::Maximized, false);
 
-    if (!isApplicationActive())
-        raiseApplication();
+    if(!mBackend->isWindowActive(mWindow))
+        mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
 /************************************************
