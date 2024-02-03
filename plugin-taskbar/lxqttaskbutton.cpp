@@ -158,7 +158,7 @@ void LXQtTaskButton::updateIcon()
     if (ico.isNull())
     {
         int devicePixels = mIconSize * devicePixelRatioF();
-        ico = KX11Extras::icon(mWindow, devicePixels, devicePixels);
+        ico = mBackend->getApplicationIcon(mWindow, devicePixels);
     }
     setIcon(ico.isNull() ? XdgIcon::defaultApplicationIcon() : ico);
 }
@@ -392,21 +392,7 @@ bool LXQtTaskButton::isApplicationActive() const
  ************************************************/
 void LXQtTaskButton::raiseApplication()
 {
-    KWindowInfo info(mWindow, NET::WMDesktop | NET::WMState | NET::XAWMState);
-    if (parentTaskBar()->raiseOnCurrentDesktop() && info.isMinimized())
-    {
-        KX11Extras::setOnDesktop(mWindow, KX11Extras::currentDesktop());
-    }
-    else
-    {
-        int winDesktop = info.desktop();
-        if (KX11Extras::currentDesktop() != winDesktop)
-            KX11Extras::setCurrentDesktop(winDesktop);
-    }
-    // bypass focus stealing prevention
-    KX11Extras::forceActiveWindow(mWindow);
-
-    setUrgencyHint(false);
+    mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
 /************************************************
@@ -478,8 +464,7 @@ void LXQtTaskButton::unShadeApplication()
  ************************************************/
 void LXQtTaskButton::closeApplication()
 {
-    // FIXME: Why there is no such thing in KWindowSystem??
-    NETRootInfo(QX11Info::connection(), NET::CloseWindow).closeWindowRequest(mWindow);
+    mBackend->closeWindow(mWindow);
 }
 
 /************************************************
