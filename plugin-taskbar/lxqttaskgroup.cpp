@@ -46,7 +46,6 @@
 
 //TODO: remove
 #include <QGuiApplication> //For nativeInterface()
-#include <KX11Extras>
 #include <X11/Xlib.h>
 #undef Bool
 
@@ -670,14 +669,15 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
         if (prop2.testFlag(NET::WM2Urgency))
         {
             set_urgency = true;
-            urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
+            //FIXME: original code here did not consider "demand attention", was it intentional?
+            urgency = mBackend->applicationDemandsAttention(window);
         }
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
             if (!set_urgency)
-                urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
+                urgency = mBackend->applicationDemandsAttention(window);
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency));
             set_urgency = false;
             if (info.hasState(NET::SkipTaskbar))
                 onWindowRemoved(window);

@@ -28,7 +28,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqttaskbutton.h"
-#include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
 #include "ilxqtpanelplugin.h"
@@ -125,8 +124,7 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
         mWheelDelta = 0; // forget previous wheel deltas
     });
 
-    setUrgencyHint(NETWinInfo(QX11Info::connection(), mWindow, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency()
-            || KWindowInfo{mWindow, NET::WMState}.hasState(NET::DemandsAttention));
+    setUrgencyHint(mBackend->applicationDemandsAttention(mWindow));
 
     connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::iconThemeChanged, this, &LXQtTaskButton::updateIcon);
     connect(mParentTaskBar,                   &LXQtTaskBar::iconByClassChanged,        this, &LXQtTaskButton::updateIcon);
