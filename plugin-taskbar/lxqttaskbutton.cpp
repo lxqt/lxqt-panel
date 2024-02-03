@@ -51,6 +51,7 @@
 #include <QStyleOptionToolButton>
 #include <QScreen>
 
+//TODO: remove
 #include <KX11Extras>
 
 // Necessary for closeApplication()
@@ -60,6 +61,8 @@
 #include <X11/Xlib.h>
 #undef Bool
 
+
+#include "ilxqttaskbarabstractbackend.h"
 
 bool LXQtTaskButton::sDraggging = false;
 
@@ -84,6 +87,7 @@ void LeftAlignedTextStyle::drawItemText(QPainter * painter, const QRect & rect, 
 ************************************************/
 LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget *parent) :
     QToolButton(parent),
+    mBackend(taskbar->getBackend()),
     mWindow(window),
     mUrgencyHint(false),
     mOrigin(Qt::TopLeftCorner),
@@ -144,8 +148,7 @@ LXQtTaskButton::~LXQtTaskButton() = default;
  ************************************************/
 void LXQtTaskButton::updateText()
 {
-    KWindowInfo info(mWindow, NET::WMVisibleName | NET::WMName);
-    QString title = info.visibleName().isEmpty() ? info.name() : info.visibleName();
+    QString title = mBackend->getWindowTitle(mWindow);
     setText(title.replace(QStringLiteral("&"), QStringLiteral("&&")));
     setToolTip(title);
 }
@@ -166,57 +169,6 @@ void LXQtTaskButton::updateIcon()
         ico = KX11Extras::icon(mWindow, devicePixels, devicePixels);
     }
     setIcon(ico.isNull() ? XdgIcon::defaultApplicationIcon() : ico);
-}
-
-/************************************************
-
- ************************************************/
-void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
-{
-    // NOTE: This function announces where the task icon is,
-    // such that X11 WMs can perform their related animations correctly.
-
-    WId appRootWindow = 0;
-    xcb_connection_t* x11conn = nullptr;
-
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-    {
-        appRootWindow = XDefaultRootWindow(x11Application->display());
-        x11conn = x11Application->connection();
-    }
-    else
-    {
-        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
-        return;
-    }
-
-
-    if (!x11conn) {
-        return;
-    }
-
-    NETWinInfo info(x11conn,
-                    windowId(),
-                    appRootWindow,
-                    NET::WMIconGeometry,
-                    NET::Properties2());
-    NETRect const curr = info.iconGeometry();
-
-    // see kwindowsystem -> NETWinInfo::setIconGeometry for the scale factor
-    const qreal scaleFactor = qApp->devicePixelRatio();
-    int xPos = geom.x() * scaleFactor;
-    int yPos = geom.y() * scaleFactor;
-    int w = geom.width() * scaleFactor;
-    int h = geom.height() * scaleFactor;
-    if (xPos == curr.pos.x && yPos == curr.pos.y && w == curr.size.width && h == curr.size.height)
-        return;
-    NETRect nrect;
-    nrect.pos.x = geom.x();
-    nrect.pos.y = geom.y();
-    nrect.size.height = geom.height();
-    nrect.size.width = geom.width();
-    info.setIconGeometry(nrect);
 }
 
 /************************************************
@@ -434,8 +386,7 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
  ************************************************/
 bool LXQtTaskButton::isApplicationHidden() const
 {
-    KWindowInfo info(mWindow, NET::WMState);
-    return (info.state() & NET::Hidden);
+    return false; //FIXME: unused
 }
 
 /************************************************
@@ -443,7 +394,7 @@ bool LXQtTaskButton::isApplicationHidden() const
  ************************************************/
 bool LXQtTaskButton::isApplicationActive() const
 {
-    return KX11Extras::activeWindow() == mWindow;
+    return mBackend->isWindowActive(mWindow);
 }
 
 /************************************************
@@ -588,12 +539,12 @@ void LXQtTaskButton::moveApplicationToDesktop()
         return;
 
     bool ok;
-    int desk = act->data().toInt(&ok);
+    int idx = act->data().toInt(&ok);
 
     if (!ok)
         return;
 
-    KX11Extras::setOnDesktop(mWindow, desk);
+    mBackend->setWindowOnWorkspace(mWindow, idx);
 }
 
 /************************************************
@@ -601,17 +552,7 @@ void LXQtTaskButton::moveApplicationToDesktop()
  ************************************************/
 void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
 {
-    int deskNum = KX11Extras::numberOfDesktops();
-    if (deskNum <= 1)
-        return;
-    int targetDesk = KWindowInfo(mWindow, NET::WMDesktop).desktop() + (next ? 1 : -1);
-    // wrap around
-    if (targetDesk > deskNum)
-        targetDesk = 1;
-    else if (targetDesk < 1)
-        targetDesk = deskNum;
-
-    KX11Extras::setOnDesktop(mWindow, targetDesk);
+    mBackend->moveApplicationToPrevNextDesktop(mWindow, next);
 }
 
 /************************************************
@@ -619,53 +560,7 @@ void LXQtTaskButton::moveApplicationToPrevNextDesktop(bool next)
  ************************************************/
 void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
 {
-    KWindowInfo info(mWindow, NET::WMDesktop);
-    if (!info.isOnCurrentDesktop())
-        KX11Extras::setCurrentDesktop(info.desktop());
-    if (isMinimized())
-        KX11Extras::unminimizeWindow(mWindow);
-    KX11Extras::forceActiveWindow(mWindow);
-    const QRect& windowGeometry = KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry();
-    QList<QScreen *> screens = QGuiApplication::screens();
-    if (screens.size() > 1){
-        for (int i = 0; i < screens.size(); ++i)
-        {
-            QRect screenGeometry = screens[i]->geometry();
-            if (screenGeometry.intersects(windowGeometry))
-            {
-                int targetScreen = i + (next ? 1 : -1);
-                if (targetScreen < 0)
-                    targetScreen += screens.size();
-                else if (targetScreen >= screens.size())
-                    targetScreen -= screens.size();
-                QRect targetScreenGeometry = screens[targetScreen]->geometry();
-                int X = windowGeometry.x() - screenGeometry.x() + targetScreenGeometry.x();
-                int Y = windowGeometry.y() - screenGeometry.y() + targetScreenGeometry.y();
-                NET::States state = KWindowInfo(mWindow, NET::WMState).state();
-                //      NW geometry |     y/x      |  from panel
-                const int flags = 1 | (0b011 << 8) | (0b010 << 12);
-                KX11Extras::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
-
-
-                auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-                if(x11Application)
-                {
-                    NETRootInfo(x11Application->connection(), NET::Properties(), NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
-                }
-                else
-                {
-                    //qWarning() << "LXQtTaskBar: not implemented on Wayland";
-                }
-
-                QTimer::singleShot(200, this, [this, state]
-                {
-                    KX11Extras::setState(mWindow, state);
-                    raiseApplication();
-                });
-                break;
-            }
-        }
-    }
+    mBackend->moveApplicationToPrevNextMonitor(mWindow, next, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
 /************************************************
@@ -673,26 +568,7 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
  ************************************************/
 void LXQtTaskButton::moveApplication()
 {
-    KWindowInfo info(mWindow, NET::WMDesktop);
-    if (!info.isOnCurrentDesktop())
-        KX11Extras::setCurrentDesktop(info.desktop());
-    if (isMinimized())
-        KX11Extras::unminimizeWindow(mWindow);
-    KX11Extras::forceActiveWindow(mWindow);
-    const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
-    int X = g.center().x();
-    int Y = g.center().y();
-    QCursor::setPos(X, Y);
-
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-    {
-        NETRootInfo(x11Application->connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::Move);
-    }
-    else
-    {
-        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
-    }
+    mBackend->moveApplication(mWindow);
 }
 
 /************************************************
@@ -700,26 +576,7 @@ void LXQtTaskButton::moveApplication()
  ************************************************/
 void LXQtTaskButton::resizeApplication()
 {
-    KWindowInfo info(mWindow, NET::WMDesktop);
-    if (!info.isOnCurrentDesktop())
-        KX11Extras::setCurrentDesktop(info.desktop());
-    if (isMinimized())
-        KX11Extras::unminimizeWindow(mWindow);
-    KX11Extras::forceActiveWindow(mWindow);
-    const QRect& g = KWindowInfo(mWindow, NET::WMGeometry).geometry();
-    int X = g.bottomRight().x();
-    int Y = g.bottomRight().y();
-    QCursor::setPos(X, Y);
-
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-    {
-        NETRootInfo(x11Application->connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::BottomRight);
-    }
-    else
-    {
-        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
-    }
+    mBackend->resizeApplication(mWindow);
 }
 
 /************************************************
