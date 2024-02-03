@@ -492,23 +492,7 @@ void LXQtTaskButton::setApplicationLayer()
         return;
 
     int layer = act->data().toInt();
-    switch(layer)
-    {
-        case NET::KeepAbove:
-            KWindowSystem::clearState(mWindow, NET::KeepBelow);
-            KWindowSystem::setState(mWindow, NET::KeepAbove);
-            break;
-
-        case NET::KeepBelow:
-            KWindowSystem::clearState(mWindow, NET::KeepAbove);
-            KWindowSystem::setState(mWindow, NET::KeepBelow);
-            break;
-
-        default:
-            KWindowSystem::clearState(mWindow, NET::KeepBelow);
-            KWindowSystem::clearState(mWindow, NET::KeepAbove);
-            break;
-    }
+    mBackend->setWindowLayer(mWindow, LXQtTaskBarWindowLayer(layer));
 }
 
 /************************************************
@@ -701,22 +685,23 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 
     QMenu* layerMenu = menu->addMenu(tr("&Layer"));
 
-    a = layerMenu->addAction(tr("Always on &top"));
+    LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
+
     // FIXME: There is no info.actionSupported(NET::ActionKeepAbove)
-    a->setEnabled(!(state & NET::KeepAbove));
-    a->setData(NET::KeepAbove);
+    a = layerMenu->addAction(tr("Always on &top"));
+    a->setEnabled(currentLayer != LXQtTaskBarWindowLayer::KeepAbove);
+    a->setData(int(LXQtTaskBarWindowLayer::KeepAbove));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
     a = layerMenu->addAction(tr("&Normal"));
-    a->setEnabled((state & NET::KeepAbove) || (state & NET::KeepBelow));
-    // FIXME: There is no NET::KeepNormal, so passing 0
-    a->setData(0);
+    a->setEnabled(currentLayer != LXQtTaskBarWindowLayer::Normal);
+    a->setData(int(LXQtTaskBarWindowLayer::Normal));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
-    a = layerMenu->addAction(tr("Always on &bottom"));
     // FIXME: There is no info.actionSupported(NET::ActionKeepBelow)
-    a->setEnabled(!(state & NET::KeepBelow));
-    a->setData(NET::KeepBelow);
+    a = layerMenu->addAction(tr("Always on &bottom"));
+    a->setEnabled(currentLayer != LXQtTaskBarWindowLayer::KeepBelow);
+    a->setData(int(LXQtTaskBarWindowLayer::KeepBelow));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::setApplicationLayer);
 
     /********** Kill menu **********/
