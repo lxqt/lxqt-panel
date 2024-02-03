@@ -154,7 +154,7 @@ void LXQtTaskButton::updateIcon()
     if (ico.isNull())
     {
         int devicePixels = mIconSize * devicePixelRatioF();
-        ico = KX11Extras::icon(mWindow, devicePixels, devicePixels);
+        ico = mBackend->getApplicationIcon(mWindow, devicePixels);
     }
     setIcon(ico.isNull() ? XdgIcon::defaultApplicationIcon() : ico);
 }
@@ -390,21 +390,7 @@ bool LXQtTaskButton::isApplicationActive() const
  ************************************************/
 void LXQtTaskButton::raiseApplication()
 {
-    KWindowInfo info(mWindow, NET::WMDesktop | NET::WMState | NET::XAWMState);
-    if (parentTaskBar()->raiseOnCurrentDesktop() && info.isMinimized())
-    {
-        KX11Extras::setOnDesktop(mWindow, KX11Extras::currentDesktop());
-    }
-    else
-    {
-        int winDesktop = info.desktop();
-        if (KX11Extras::currentDesktop() != winDesktop)
-            KX11Extras::setCurrentDesktop(winDesktop);
-    }
-    // bypass focus stealing prevention
-    KX11Extras::forceActiveWindow(mWindow);
-
-    setUrgencyHint(false);
+    mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
 /************************************************
@@ -476,16 +462,7 @@ void LXQtTaskButton::unShadeApplication()
  ************************************************/
 void LXQtTaskButton::closeApplication()
 {
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-    {
-        // FIXME: Why there is no such thing in KX11Extras??
-        NETRootInfo(x11Application->connection(), NET::CloseWindow).closeWindowRequest(mWindow);
-    }
-    else
-    {
-        qWarning() << "LXQtTaskBar: not implemented on Wayland";
-    }
+    mBackend->closeWindow(mWindow);
 }
 
 /************************************************
