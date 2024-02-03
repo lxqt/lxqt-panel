@@ -411,23 +411,10 @@ void LXQtTaskButton::maximizeApplication()
         return;
 
     int state = act->data().toInt();
-    switch (state)
-    {
-        case NET::MaxHoriz:
-            KX11Extras::setState(mWindow, NET::MaxHoriz);
-            break;
+    mBackend->setWindowState(mWindow, LXQtTaskBarWindowState(state), true);
 
-        case NET::MaxVert:
-            KX11Extras::setState(mWindow, NET::MaxVert);
-            break;
-
-        default:
-            KX11Extras::setState(mWindow, NET::Max);
-            break;
-    }
-
-    if (!isApplicationActive())
-        raiseApplication();
+    if(!mBackend->isWindowActive(mWindow))
+        mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
 /************************************************
@@ -630,7 +617,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     a->setEnabled(info.actionSupported(NET::ActionMax)
                   && windowState != LXQtTaskBarWindowState::Maximized
                   && windowState != LXQtTaskBarWindowState::Hidden);
-    a->setData(NET::Max);
+    a->setData(int(LXQtTaskBarWindowState::Maximized));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
     if (event->modifiers() & Qt::ShiftModifier)
@@ -639,14 +626,14 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
         a->setEnabled(info.actionSupported(NET::ActionMaxVert)
                       && windowState != LXQtTaskBarWindowState::MaximizedVertically
                       && windowState != LXQtTaskBarWindowState::Hidden);
-        a->setData(NET::MaxVert);
+        a->setData(int(LXQtTaskBarWindowState::MaximizedVertically));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
 
         a = menu->addAction(tr("Maximize horizontally"));
         a->setEnabled(info.actionSupported(NET::ActionMaxHoriz)
                       && windowState != LXQtTaskBarWindowState::MaximizedHorizontally
                       && windowState != LXQtTaskBarWindowState::Hidden);
-        a->setData(NET::MaxHoriz);
+        a->setData(int(LXQtTaskBarWindowState::MaximizedHorizontally));
         connect(a, &QAction::triggered, this, &LXQtTaskButton::maximizeApplication);
     }
 
@@ -747,7 +734,7 @@ bool LXQtTaskButton::isOnCurrentScreen() const
 
 bool LXQtTaskButton::isMinimized() const
 {
-    return KWindowInfo(mWindow,NET::WMState | NET::XAWMState).isMinimized();
+    return mBackend->getWindowState(mWindow) == LXQtTaskBarWindowState::Minimized;
 }
 
 Qt::Corner LXQtTaskButton::origin() const
