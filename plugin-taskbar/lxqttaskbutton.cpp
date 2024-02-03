@@ -446,7 +446,7 @@ void LXQtTaskButton::deMaximizeApplication()
  ************************************************/
 void LXQtTaskButton::shadeApplication()
 {
-    KX11Extras::setState(mWindow, NET::Shaded);
+    mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::RolledUp, true);
 }
 
 /************************************************
@@ -454,7 +454,7 @@ void LXQtTaskButton::shadeApplication()
  ************************************************/
 void LXQtTaskButton::unShadeApplication()
 {
-    KX11Extras::clearState(mWindow, NET::Shaded);
+    mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::RolledUp, false);
 }
 
 /************************************************
