@@ -68,6 +68,8 @@ public:
     const LXQtFancyMenuAppItem *getAppAt(int idx) const;
     LXQtFancyMenuItemType getItemTypeAt(int idx) const;
 
+    bool isInSearch() const;
+
 signals:
     void favoritesChanged();
 

@@ -138,6 +138,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     // may not be enough for a correct positioning of the popup.
     setWindowFlags(Qt::Popup);
 
+    mFocusedItem = FocusedItem::SearchEdit;
+
     SingleActivateStyle *s = new SingleActivateStyle;
     s->setParent(this);
     setStyle(s);
@@ -153,7 +155,6 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mSearchEdit->setPlaceholderText(tr("Search..."));
     mSearchEdit->setClearButtonEnabled(true);
     connect(mSearchEdit, &QLineEdit::textEdited, &mSearchTimer, qOverload<>(&QTimer::start));
-    connect(mSearchEdit, &QLineEdit::returnPressed, this, &LXQtFancyMenuWindow::activateCurrentApp);
 
     mSettingsButton = new QToolButton;
     mSettingsButton->setIcon(XdgIcon::fromTheme(QStringLiteral("preferences-system")));
@@ -213,6 +214,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mAppView, &QListView::activated, this, &LXQtFancyMenuWindow::activateAppAtIndex);
     connect(mAppView, &QListView::customContextMenuRequested, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
     connect(mCategoryView, &QListView::activated, this, &LXQtFancyMenuWindow::activateCategory);
+    connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &LXQtFancyMenuWindow::activateCategory);
 
     mMainLayout = new QVBoxLayout(this);
 
@@ -300,7 +303,10 @@ void LXQtFancyMenuWindow::activateAppAtIndex(const QModelIndex &idx)
 
 void LXQtFancyMenuWindow::activateCurrentApp()
 {
-    activateAppAtIndex(mAppView->currentIndex());
+    QModelIndex idx = mAppView->currentIndex();
+    if(!idx.isValid())
+        idx = mAppModel->index(0);
+    activateAppAtIndex(idx);
 }
 
 void LXQtFancyMenuWindow::runPowerDialog()
@@ -421,14 +427,113 @@ void LXQtFancyMenuWindow::setCurrentCategory(int cat)
 
 bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
 {
-    if(watched == mSearchEdit && e->type() == QEvent::KeyPress)
+    if(e->type() == QEvent::KeyPress
+        && (watched == mSearchEdit
+            || watched == mCategoryView->viewport()
+            || watched == mAppView->viewport()))
     {
+        /* Basically we take all keyboard events sent to:
+         *
+         * - Search QLineEdit
+         * - App QListView's viewport()
+         * - Category QListView's viewport()
+         *
+         * And we manually redirect them to the selected one.
+         * Then event gets eaten up so it doesn't get processed
+         * by it's original destination widget.
+         *
+         * If selected item is same as destination widget, no
+         * redirection happens, we call default event filter
+         * to let Qt manage it's internal state.
+         */
+
         QKeyEvent *ev = static_cast<QKeyEvent *>(e);
-        if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_Down)
+        if(ev->key() == Qt::Key_Return || ev->key() == Qt::Key_Enter)
+        {
+            if(mFocusedItem != FocusedItem::CategoryView)
+                activateCurrentApp();
+            return true;
+        }
+        else if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_Down)
         {
             // Use Up/Down arrows to navigate app view
-            QCoreApplication::sendEvent(mAppView, ev);
-            return true;
+            if(mFocusedItem == FocusedItem::SearchEdit)
+            {
+                if(ev->key() == Qt::Key_Up)
+                {
+                    // Already at top, nothing to do
+                    return QWidget::eventFilter(watched, e);
+                }
+                else if(ev->key() == Qt::Key_Down)
+                {
+                    // Go down to app view, forward event
+                    mFocusedItem = FocusedItem::AppView;
+                    QCoreApplication::sendEvent(mAppView, ev);
+                    return true;
+                }
+            }
+            else if(ev->key() == Qt::Key_Up)
+            {
+                if((mFocusedItem == FocusedItem::AppView && mAppView->currentIndex().row() == 0)
+                    || (mFocusedItem == FocusedItem::CategoryView && mCategoryView->currentIndex().row() == 0))
+                {
+                    // Go up to search edit, eat event
+                    mFocusedItem = FocusedItem::SearchEdit;
+                    return true;
+                }
+            }
+
+            QWidget *dest = nullptr;
+            if(mFocusedItem == FocusedItem::AppView)
+                dest = mAppView;
+            else if(mFocusedItem == FocusedItem::CategoryView)
+                dest = mCategoryView;
+
+            if(dest && dest != watched)
+            {
+                //Forward event
+                QCoreApplication::sendEvent(dest, ev);
+                return true;
+            }
+        }
+        else if(ev->key() == Qt::Key_Left || ev->key() == Qt::Key_Right)
+        {
+            if(mFocusedItem != FocusedItem::SearchEdit)
+            {
+                // Switch between app view and category view
+                if(mFocusedItem == FocusedItem::AppView)
+                {
+                    mFocusedItem = FocusedItem::CategoryView;
+
+                    //Clear selection in app view to tell user it's now navigating categories
+                    mAppView->selectionModel()->clearSelection();
+                }
+                else if(mFocusedItem == FocusedItem::CategoryView)
+                {
+                    mFocusedItem = FocusedItem::AppView;
+
+                    // Select current index in app view
+                    QModelIndex idx = mAppView->currentIndex();
+                    if(!idx.isValid())
+                        idx = mAppModel->index(0);
+                    mAppView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
+                }
+
+                // Eat event
+                return true;
+            }
+        }
+        else
+        {
+            // Normal keys go always to search edit
+            mFocusedItem = FocusedItem::SearchEdit;
+
+            if(watched != mSearchEdit)
+            {
+                // Forward event
+                QCoreApplication::sendEvent(mSearchEdit, ev);
+                return true;
+            }
         }
     }
     else if (mAutoSel
@@ -456,16 +561,28 @@ void LXQtFancyMenuWindow::setSearchQuery(const QString &text)
     if(mSearchEdit->text() != text)
         mSearchEdit->setText(text);
 
-    if(text.isEmpty())
+    if(!text.isEmpty())
+    {
+        setCurrentCategory(LXQtFancyMenuAppMap::AllAppsCategory);
+
+        auto apps = mAppMap->getMatchingApps(text);
+        mAppModel->showSearchResults(apps);
+    }
+    else if(text.isEmpty() && mAppModel->isInSearch())
     {
         mAppModel->endSearch();
+    }
+    else
+    {
+        // No change
         return;
     }
 
-    setCurrentCategory(LXQtFancyMenuAppMap::AllAppsCategory);
+    // Give focus to search edit
+    mFocusedItem = FocusedItem::SearchEdit;
 
-    auto apps = mAppMap->getMatchingApps(text);
-    mAppModel->showSearchResults(apps);
+    // Select first app
+    mAppView->selectionModel()->setCurrentIndex(mAppModel->index(0), QItemSelectionModel::ClearAndSelect);
 }
 
 void LXQtFancyMenuWindow::hideEvent(QHideEvent *e)
@@ -478,6 +595,8 @@ void LXQtFancyMenuWindow::hideEvent(QHideEvent *e)
     // If search is not active, switch to Favorites
     if(mSearchEdit->text().isEmpty())
         setCurrentCategory(LXQtFancyMenuAppMap::FavoritesCategory);
+
+    mFocusedItem = FocusedItem::SearchEdit;
 
     QWidget::hideEvent(e);
 }
@@ -546,6 +665,15 @@ void LXQtFancyMenuWindow::showEvent(QShowEvent *e)
 
         resize(newSize);
     }
+
+    // Give focus to search edit
+    mFocusedItem = FocusedItem::SearchEdit;
+
+    // Select current index in app view
+    QModelIndex idx = mAppView->currentIndex();
+    if(!idx.isValid())
+        idx = mAppModel->index(0);
+    mAppView->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
 
     QWidget::showEvent(e);
 }
@@ -693,10 +821,12 @@ void LXQtFancyMenuWindow::autoSelect()
         if (!SeparatorDelegate::isSeparator(idx) && !mCategoryView->selectionModel()->isSelected(idx))
         {
             activateCategory(idx);
+            mFocusedItem = FocusedItem::CategoryView;
         }
     }
     else
     {
+        mFocusedItem = FocusedItem::AppView;
         idx = mAppView->indexAt(mAppView->viewport()->mapFromGlobal(QCursor::pos()));
         if (idx.isValid() && !SeparatorDelegate::isSeparator(idx) && !mAppView->selectionModel()->isSelected(idx))
         {

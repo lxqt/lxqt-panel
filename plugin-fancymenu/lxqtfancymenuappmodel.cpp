@@ -272,3 +272,8 @@ LXQtFancyMenuItemType LXQtFancyMenuAppModel::getItemTypeAt(int idx) const
     const LXQtFancyMenuAppMap::Category::Item& item = cat.apps.at(idx);
     return item.type;
 }
+
+bool LXQtFancyMenuAppModel::isInSearch() const
+{
+    return mInSearch;
+}
