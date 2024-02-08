@@ -18,7 +18,7 @@ set(UIS
 )
 
 set(LIBRARIES
-    Qt5Xdg
+    Qt6Xdg
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})
