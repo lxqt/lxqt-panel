@@ -32,14 +32,21 @@
 #include <QTimer>
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
-#include <KWindowSystem/KWindowSystem>
-#include <KWindowSystem/KX11Extras>
-#include <QX11Info>
+
+
 #include <cmath>
 
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
+
+#include <KWindowSystem>
+#include <KWindowInfo>
+#include <KX11Extras>
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
 
 static const QString DEFAULT_SHORTCUT_TEMPLATE(QStringLiteral("Control+F%1"));
 
@@ -50,9 +57,13 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     m_desktopCount(KX11Extras::numberOfDesktops()),
     mRows(-1),
     mShowOnlyActive(false),
-    mDesktops(new NETRootInfo(QX11Info::connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout)),
+    mDesktops(nullptr),
     mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
 {
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
+    mDesktops.reset(new NETRootInfo(x11Application->connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout));
+
     m_buttons = new QButtonGroup(this);
 
     connect (m_pSignalMapper, &QSignalMapper::mappedInt, this, &DesktopSwitch::setDesktop);
@@ -196,9 +207,13 @@ bool DesktopSwitch::isWindowHighlightable(WId window)
     if (info.state() & NET::SkipTaskbar)
         return false;
 
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
+    WId appRootWindow = XDefaultRootWindow(x11Application->display());
+
     // WM_TRANSIENT_FOR hint not set - normal window
     WId transFor = info.transientFor();
-    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
+    if (transFor == 0 || transFor == window || transFor == appRootWindow)
         return true;
 
     info = KWindowInfo(transFor, NET::WMWindowType);

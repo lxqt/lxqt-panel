@@ -36,6 +36,10 @@
 #include <QScreen>
 #include <QSvgRenderer>
 
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
+
 
 const QString ColorPickerWidget::svgIcon = QStringLiteral(
     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\">"
@@ -146,10 +150,9 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
 
     if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
     {
-        Q_UNUSED(x11Application);
-        //FIXME: QDesktopWidget is not available in Qt6, screens have not WId
-        WId id = 0; /*QApplication::desktop()->winId();*/
-        QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, event->globalPos().x(), event->globalPos().y(), 1, 1);
+        WId id = XDefaultRootWindow(x11Application->display());
+        QPoint point = event->globalPosition().toPoint();
+        QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, point.x(), point.y(), 1, 1);
 
         QImage img = pixmap.toImage();
         col = QColor(img.pixel(0,0));

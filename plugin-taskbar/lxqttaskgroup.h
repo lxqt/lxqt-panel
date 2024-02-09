@@ -36,7 +36,7 @@
 #include "lxqttaskbar.h"
 #include "lxqtgrouppopup.h"
 #include "lxqttaskbutton.h"
-#include <KF5/KWindowSystem/kwindowsystem.h>
+#include <kx11extras.h>
 
 class QVBoxLayout;
 class ILXQtPanelPlugin;

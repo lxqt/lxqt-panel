@@ -26,7 +26,7 @@
 
 #include "desktopswitchconfiguration.h"
 #include "ui_desktopswitchconfiguration.h"
-#include <KWindowSystem/KX11Extras>
+#include <KX11Extras>
 #include <QTimer>
 
 DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent) :

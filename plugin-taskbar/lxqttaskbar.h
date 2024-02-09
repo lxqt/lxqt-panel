@@ -43,9 +43,9 @@
 #include <QMap>
 #include <lxqt-globalkeys.h>
 #include "../panel/ilxqtpanel.h"
-#include <KWindowSystem/KX11Extras>
-#include <KWindowSystem/KWindowInfo>
-#include <KWindowSystem/NETWM>
+#include <KX11Extras>
+#include <KWindowInfo>
+#include <NETWM>
 
 class QSignalMapper;
 class LXQtTaskButton;

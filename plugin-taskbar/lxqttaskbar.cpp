@@ -37,7 +37,6 @@
 #include <QMimeData>
 #include <QWheelEvent>
 #include <QFlag>
-#include <QX11Info>
 #include <QTimer>
 
 #include <lxqt-globalkeys.h>
@@ -46,6 +45,10 @@
 
 #include "lxqttaskbar.h"
 #include "lxqttaskgroup.h"
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
 
 using namespace LXQt;
 
@@ -131,9 +134,13 @@ bool LXQtTaskBar::acceptWindow(WId window) const
     if (info.state() & NET::SkipTaskbar)
         return false;
 
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
+    WId appRootWindow = XDefaultRootWindow(x11Application->display());
+
     // WM_TRANSIENT_FOR hint not set - normal window
     WId transFor = info.transientFor();
-    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
+    if (transFor == 0 || transFor == window || transFor == appRootWindow)
         return true;
 
     info = KWindowInfo(transFor, NET::WMWindowType);
