@@ -96,7 +96,7 @@ void StatusNotifierWidget::leaveEvent(QEvent * /*event*/)
         mHideTimer.start();
 }
 
-void StatusNotifierWidget::enterEvent(QEvent * /*event*/)
+void StatusNotifierWidget::enterEvent(QEnterEvent * /*event*/)
 {
     mHideTimer.stop();
 }

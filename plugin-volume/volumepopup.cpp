@@ -110,7 +110,7 @@ bool VolumePopup::eventFilter(QObject * watched, QEvent * event)
     return QDialog::eventFilter(watched, event);
 }
 
-void VolumePopup::enterEvent(QEvent * /*event*/)
+void VolumePopup::enterEvent(QEnterEvent * /*event*/)
 {
     emit mouseEntered();
 }

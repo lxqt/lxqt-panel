@@ -538,7 +538,7 @@ void LXQtTaskGroup::leaveEvent(QEvent *event)
 /************************************************
 
  ************************************************/
-void LXQtTaskGroup::enterEvent(QEvent *event)
+void LXQtTaskGroup::enterEvent(QEnterEvent *event)
 {
     QToolButton::enterEvent(event);
 

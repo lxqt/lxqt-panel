@@ -137,7 +137,7 @@ void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 /************************************************
  *
  ************************************************/
-void LXQtGroupPopup::enterEvent(QEvent * /*event*/)
+void LXQtGroupPopup::enterEvent(QEnterEvent * /*event*/)
 {
     mCloseTimer.stop();
 }

@@ -77,7 +77,7 @@ protected:
     QMimeData * mimeData();
 
     void leaveEvent(QEvent * event);
-    void enterEvent(QEvent * event);
+    void enterEvent(QEnterEvent *event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);

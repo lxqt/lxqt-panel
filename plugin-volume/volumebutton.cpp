@@ -77,7 +77,7 @@ void VolumeButton::setMixerCommand(const QString &command)
     m_mixerCommand = m_mixerParams.empty() ? QString{} : m_mixerParams.takeFirst();
 }
 
-void VolumeButton::enterEvent(QEvent *event)
+void VolumeButton::enterEvent(QEnterEvent *event)
 {
     // show tooltip immediately on entering widget
     QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);

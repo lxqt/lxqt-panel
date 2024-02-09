@@ -60,7 +60,7 @@ signals:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
-    void enterEvent(QEvent *event) override;
+    void enterEvent(QEnterEvent *event) override;
     void leaveEvent(QEvent *event) override;
     bool event(QEvent * event) override;
     bool eventFilter(QObject * watched, QEvent * event) override;
