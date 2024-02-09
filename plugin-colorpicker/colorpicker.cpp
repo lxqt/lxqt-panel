@@ -29,7 +29,6 @@
 #include "colorpicker.h"
 #include <QApplication>
 #include <QClipboard>
-#include <QDesktopWidget>
 #include <QBoxLayout>
 #include <QMenu>
 #include <QMouseEvent>
@@ -143,12 +142,22 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
     if (!mCapturing)
         return;
 
-    WId id = QApplication::desktop()->winId();
+    QColor col;
 
-    QPoint point = event->globalPosition().toPoint();
-    QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, point.x(), point.y(), 1, 1);
-    QImage img = pixmap.toImage();
-    QColor col = QColor(img.pixel(0,0));
+    if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+    {
+        Q_UNUSED(x11Application);
+        //FIXME: QDesktopWidget is not available in Qt6, screens have not WId
+        WId id = 0; /*QApplication::desktop()->winId();*/
+        QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, event->globalPos().x(), event->globalPos().y(), 1, 1);
+
+        QImage img = pixmap.toImage();
+        col = QColor(img.pixel(0,0));
+    }
+    else
+    {
+        qWarning() << "WAYLAND does not support grabbing windows";
+    }
 
     mColorButton->setColor(col);
     paste(col.name());
