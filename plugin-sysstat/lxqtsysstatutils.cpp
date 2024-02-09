@@ -25,7 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <qmath.h>
 
 #include "lxqtsysstatutils.h"
@@ -44,13 +44,14 @@ QString netSpeedToString(int value)
     return QStringLiteral("%1 %2B/s").arg(1 << (value % 10)).arg(prefix);
 }
 
-int netSpeedFromString(QString value)
+int netSpeedFromString(const QStringView& value)
 {
-    QRegExp re(QStringLiteral("^(\\d+) ([kMG])B/s$"));
-    if (re.exactMatch(value))
+    static QRegularExpression re(QStringLiteral("^(\\d+) ([kMG])B/s$"));
+    QRegularExpressionMatch match = re.matchView(value);
+    if (match.hasMatch())
     {
         int shift = 0;
-        switch (re.cap(2).at(0).toLatin1())
+        switch (match.capturedView(2).at(0).toLatin1())
         {
         case 'k':
             shift = 10;
@@ -65,7 +66,7 @@ int netSpeedFromString(QString value)
             break;
         }
 
-        return qCeil(qLn(re.cap(1).toInt()) / qLn(2.)) + shift;
+        return qCeil(qLn(match.capturedView(1).toInt()) / qLn(2.)) + shift;
     }
 
     return 0;
