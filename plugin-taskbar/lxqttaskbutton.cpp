@@ -395,7 +395,9 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     // release mouse appropriately, by positioning the event outside
     // the button rectangle (otherwise, the button will be toggled)
-    QMouseEvent releasingEvent(QEvent::MouseButtonRelease, QPoint(-1,-1), Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
+    QMouseEvent releasingEvent(QEvent::MouseButtonRelease,
+                               QPoint(-1,-1), mapToGlobal(QPoint(-1, -1)),
+                               Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
     mouseReleaseEvent(&releasingEvent);
 
     sDraggging = false;
