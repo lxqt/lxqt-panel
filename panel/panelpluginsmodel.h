@@ -336,6 +336,6 @@ private:
     LXQtPanel * mPanel;
 };
 
-Q_DECLARE_METATYPE(Plugin const *)
+Q_DECLARE_OPAQUE_POINTER(Plugin const *)
 
 #endif // PANELPLUGINSMODEL_H
