@@ -40,7 +40,6 @@
 
 #include <QScreen>
 #include <QWindow>
-#include <QX11Info>
 #include <QDebug>
 #include <QString>
 #include <QMenu>
@@ -49,9 +48,10 @@
 #include <XdgIcon>
 #include <XdgDirs>
 
-#include <KWindowSystem/KWindowSystem>
-#include <KWindowSystem/KX11Extras>
-#include <KWindowSystem/NETWM>
+#include <KWindowSystem>
+#include <KX11Extras>
+#include <NETWM>
+#include <KWindowInfo>
 
 // Turn on this to show the time required to load each plugin during startup
 // #define DEBUG_PLUGIN_LOADTIME
@@ -1127,7 +1127,7 @@ bool LXQtPanel::event(QEvent *event)
         // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
         // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
         // Let's use KWindowSystem for that
-        KWindowSystem::setType(effectiveWinId(), NET::Dock);
+        KX11Extras::setType(effectiveWinId(), NET::Dock);
 
         updateWmStrut(); // reserve screen space for the panel
         KX11Extras::setOnAllDesktops(effectiveWinId(), true);

@@ -36,7 +36,6 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QToolTip>
 #include "audioengine.h"
 #include <QDebug>

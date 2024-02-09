@@ -31,7 +31,7 @@
 #include "pluginsettings_p.h"
 #include "lxqtpanel.h"
 
-#include <KWindowSystem/KX11Extras>
+#include <KX11Extras>
 
 #include <QDebug>
 #include <QProcessEnvironment>

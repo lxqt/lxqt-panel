@@ -29,7 +29,6 @@
 #include "popup.h"
 #include "../panel/ilxqtpanelplugin.h"
 
-#include <QDesktopWidget>
 #include <QVBoxLayout>
 #include <QTimer>
 #include <Solid/StorageAccess>
