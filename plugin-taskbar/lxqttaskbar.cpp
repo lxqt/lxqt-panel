@@ -154,7 +154,7 @@ void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
     if (event->mimeData()->hasFormat(LXQtTaskGroup::mimeDataFormat()))
     {
         event->acceptProposedAction();
-        buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->pos());
+        buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->position().toPoint());
     } else
         event->ignore();
     QWidget::dragEnterEvent(event);
@@ -166,7 +166,7 @@ void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 void LXQtTaskBar::dragMoveEvent(QDragMoveEvent * event)
 {
     //we don't get any dragMoveEvents if dragEnter wasn't accepted
-    buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->pos());
+    buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->position().toPoint());
     QWidget::dragMoveEvent(event);
 }
 

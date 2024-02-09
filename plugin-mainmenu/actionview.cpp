@@ -284,7 +284,7 @@ QSize ActionView::minimumSizeHint() const
 void ActionView::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
-        mDragStartPosition = event->pos();
+        mDragStartPosition = event->position().toPoint();
 
     QListView::mousePressEvent(event);
 }
@@ -294,7 +294,7 @@ void ActionView::mouseMoveEvent(QMouseEvent *event)
     if (!(event->buttons() & Qt::LeftButton))
         return;
 
-    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
+    if ((event->position().toPoint() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
         return;
 
     XdgAction *a = qobject_cast<XdgAction*>(indexAt(mDragStartPosition).data(ActionView::ActionRole).value<QAction*>());

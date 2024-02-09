@@ -223,7 +223,7 @@ void LXQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
     event->acceptProposedAction();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dragging(event->source(), event->pos());
+        emit dragging(event->source(), event->position().toPoint());
         setAttribute(Qt::WA_UnderMouse, false);
     } else
     {
@@ -237,7 +237,7 @@ void LXQtTaskButton::dragMoveEvent(QDragMoveEvent * event)
 {
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dragging(event->source(), event->pos());
+        emit dragging(event->source(), event->position().toPoint());
         setAttribute(Qt::WA_UnderMouse, false);
     }
 }
@@ -253,7 +253,7 @@ void LXQtTaskButton::dropEvent(QDropEvent *event)
     mDNDTimer->stop();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
-        emit dropped(event->source(), event->pos());
+        emit dropped(event->source(), event->position().toPoint());
         setAttribute(Qt::WA_UnderMouse, false);
     }
     QToolButton::dropEvent(event);
@@ -366,7 +366,7 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     if (!(event->buttons() & Qt::LeftButton))
         return;
 
-    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
+    if ((event->position().toPoint() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
         return;
 
     QDrag *drag = new QDrag(this);

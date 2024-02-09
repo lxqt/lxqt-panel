@@ -86,7 +86,7 @@ void PluginMoveProcessor::doStart()
  ************************************************/
 void PluginMoveProcessor::mouseMoveEvent(QMouseEvent *event)
 {
-    QPoint mouse = mLayout->parentWidget()->mapFromGlobal(event->globalPos());
+    QPoint mouse = mLayout->parentWidget()->mapFromGlobal(event->globalPosition()).toPoint();
 
     MousePosInfo pos = itemByMousePos(mouse);
 

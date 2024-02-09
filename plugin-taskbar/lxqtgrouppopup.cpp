@@ -93,14 +93,14 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
     for (int i = 0; i < oldIndex && newIndex == -1; i++)
     {
         QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 > event->pos().y())
+        if (w && w->pos().y() + w->height() / 2 > event->position().y())
             newIndex = i;
     }
     const int size = layout()->count();
     for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
     {
         QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 < event->pos().y())
+        if (w && w->pos().y() + w->height() / 2 < event->position().y())
             newIndex = i;
     }
 
