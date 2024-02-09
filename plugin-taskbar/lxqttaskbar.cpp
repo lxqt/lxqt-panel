@@ -78,7 +78,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     setStyle(mStyle);
     mLayout = new LXQt::GridLayout(this);
     setLayout(mLayout);
-    mLayout->setMargin(0);
+    mLayout->setContentsMargins(QMargins());
     mLayout->setStretch(LXQt::GridLayout::StretchHorizontal | LXQt::GridLayout::StretchVertical);
     realign();
 

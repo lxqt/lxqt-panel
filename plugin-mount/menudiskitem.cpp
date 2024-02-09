@@ -65,7 +65,7 @@ MenuDiskItem::MenuDiskItem(Solid::Device device, Popup *popup):
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(mDiskButton);
     layout->addWidget(mEjectButton);
-    layout->setMargin(0);
+    layout->setContentsMargins(QMargins());
     layout->setSpacing(0);
     setLayout(layout);
 

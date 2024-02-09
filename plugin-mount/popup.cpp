@@ -61,7 +61,7 @@ Popup::Popup(ILXQtPanelPlugin * plugin, QWidget* parent):
     setObjectName(QStringLiteral("LXQtMountPopup"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setLayout(new QVBoxLayout(this));
-    layout()->setMargin(0);
+    layout()->setContentsMargins(QMargins());
 
     setAttribute(Qt::WA_AlwaysShowToolTips);
 

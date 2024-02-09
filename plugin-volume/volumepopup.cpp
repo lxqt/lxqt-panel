@@ -75,7 +75,7 @@ VolumePopup::VolumePopup(QWidget* parent):
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setSpacing(0);
-    l->setMargin(0);
+    l->setContentsMargins(QMargins());
 
     l->addWidget(m_mixerButton, 0, Qt::AlignHCenter);
     l->addWidget(m_volumeSlider, 0, Qt::AlignHCenter);

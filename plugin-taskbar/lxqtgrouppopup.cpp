@@ -55,7 +55,7 @@ LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
 
     setLayout(new QVBoxLayout);
     layout()->setSpacing(3);
-    layout()->setMargin(3);
+    layout()->setContentsMargins(3, 3, 3, 3);
 
     connect(&mCloseTimer, &QTimer::timeout, this, &LXQtGroupPopup::closeTimerSlot);
     mCloseTimer.setSingleShot(true);
