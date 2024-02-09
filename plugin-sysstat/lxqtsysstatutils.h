@@ -34,7 +34,7 @@ namespace PluginSysStat
 {
 
 QString netSpeedToString(int value);
-int netSpeedFromString(QString value);
+int netSpeedFromString(QStringView value);
 
 }
 

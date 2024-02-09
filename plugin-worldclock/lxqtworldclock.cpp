@@ -165,6 +165,8 @@ void LXQtWorldClock::restartTimer()
 
 void LXQtWorldClock::settingsChanged()
 {
+    static const QRegularExpression regexp(QLatin1String("'[^']*'"));
+
     PluginSettings *_settings = settings();
 
     QString oldFormat = mFormat;
@@ -324,7 +326,7 @@ void LXQtWorldClock::settingsChanged()
     {
         int update_interval;
         QString format = mFormat;
-        format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+        format.replace(regexp, QString());
         //don't support updating on millisecond basis -> big performance hit
         if (format.contains(QLatin1String("s")))
             update_interval = 1000;
@@ -476,7 +478,8 @@ void LXQtWorldClock::updatePopupContent()
 
 bool LXQtWorldClock::formatHasTimeZone(QString format)
 {
-    format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+    static const QRegularExpression regexp(QLatin1String("'[^']*'"));
+    format.replace(regexp, QString());
     return format.contains(QLatin1Char('t'), Qt::CaseInsensitive);
 }
 
