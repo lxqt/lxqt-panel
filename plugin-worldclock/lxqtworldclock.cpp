@@ -32,7 +32,6 @@
 
 #include <QCalendarWidget>
 #include <QDate>
-#include <QDesktopWidget>
 #include <QDialog>
 #include <QEvent>
 #include <QHBoxLayout>
