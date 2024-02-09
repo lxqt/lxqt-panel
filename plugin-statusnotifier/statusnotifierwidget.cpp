@@ -173,7 +173,7 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
         if (mShowBtn->isVisible() || mForceVisible)
         { // hide mShowBtn if no (auto-)hidden item remains
             bool showBtn = false;
-            for (const auto &name : qAsConst(mItemTitles))
+            for (const auto &name : std::as_const(mItemTitles))
             {
                 if (mAutoHideList.contains(name) || mHideList.contains(name))
                 {

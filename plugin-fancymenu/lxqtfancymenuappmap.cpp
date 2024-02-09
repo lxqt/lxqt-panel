@@ -237,7 +237,7 @@ QVector<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingAp
 
     //TODO: implement some kind of score to get better matches on top
 
-    for(const AppItem *app : qAsConst(mAppSortedByName))
+    for(const AppItem *app : std::as_const(mAppSortedByName))
     {
         if(app->title.contains(query, Qt::CaseInsensitive))
         {

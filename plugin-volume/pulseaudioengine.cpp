@@ -191,7 +191,7 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
     bool newSink = false;
     QString name = QString::fromUtf8(info->name);
 
-    for (AudioDevice *device : qAsConst(m_sinks)) {
+    for (AudioDevice *device : std::as_const(m_sinks)) {
         if (device->name() == name) {
             dev = device;
             break;

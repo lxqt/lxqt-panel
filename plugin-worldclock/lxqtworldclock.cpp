@@ -457,7 +457,7 @@ void LXQtWorldClock::updatePopupContent()
         QStringList allTimeZones;
         bool hasTimeZone = formatHasTimeZone(mFormat);
 
-        for (QString timeZoneName : qAsConst(mTimeZones))
+        for (QString timeZoneName : std::as_const(mTimeZones))
         {
             if (timeZoneName == QLatin1String("local"))
                 timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());

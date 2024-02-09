@@ -218,7 +218,7 @@ void LayoutItemGrid::rebuild()
 {
     clear();
 
-    for(QLayoutItem *item : qAsConst(mItems))
+    for(QLayoutItem *item : std::as_const(mItems))
     {
         doAddToGrid(item);
     }
