@@ -280,7 +280,7 @@ void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topL
                 Category item;
                 item.type = LXQtFancyMenuItemType::CategoryItem;
                 item.menuName = e.attribute(QLatin1String("name"));
-                item.menuTitle = e.attribute(QLatin1Literal("title"), item.menuName);
+                item.menuTitle = e.attribute(QLatin1String("title"), item.menuName);
                 QString iconName = e.attribute(QLatin1String("icon"));
                 item.icon = XdgIcon::fromTheme(iconName);
                 mCategories.append(item);
