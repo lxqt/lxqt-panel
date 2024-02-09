@@ -77,9 +77,9 @@ ConfigStyling::ConfigStyling(LXQtPanel *panel, QWidget *parent) :
  ************************************************/
 void ConfigStyling::reset()
 {
-    mFontColor.setNamedColor(mOldFontColor.name());
+    mFontColor = QColor::fromString(mOldFontColor.name());
     ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldFontColor.name()));
-    mBackgroundColor.setNamedColor(mOldBackgroundColor.name());
+    mBackgroundColor = QColor::fromString(mOldBackgroundColor.name());
     ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mOldBackgroundColor.name()));
     ui->lineEdit_customBgImage->setText(mOldBackgroundImage);
     ui->slider_opacity->setValue(mOldOpacity);
@@ -190,7 +190,7 @@ void ConfigStyling::pickFontColor()
     d.setWindowModality(Qt::WindowModal);
     if (d.exec() && d.currentColor().isValid())
     {
-        mFontColor.setNamedColor(d.currentColor().name());
+        mFontColor = QColor::fromString(d.currentColor().name());
         ui->pushButton_customFontColor->setStyleSheet(QStringLiteral("background: %1").arg(mFontColor.name()));
         editChanged();
     }
@@ -206,7 +206,7 @@ void ConfigStyling::pickBackgroundColor()
     d.setWindowModality(Qt::WindowModal);
     if (d.exec() && d.currentColor().isValid())
     {
-        mBackgroundColor.setNamedColor(d.currentColor().name());
+        mBackgroundColor = QColor::fromString(d.currentColor().name());
         ui->pushButton_customBgColor->setStyleSheet(QStringLiteral("background: %1").arg(mBackgroundColor.name()));
         editChanged();
     }
