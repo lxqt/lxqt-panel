@@ -38,9 +38,11 @@
 #include <QStringBuilder>
 #include <QMenu>
 #include <XdgIcon>
-#include <KWindowSystem/KX11Extras>
-#include <QX11Info>
 #include <functional>
+
+#include <QGuiApplication> //For nativeInterface()
+#include <KX11Extras>
+#include <X11/Xlib.h>
 
 /************************************************
 
@@ -657,18 +659,29 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
 
         bool set_urgency = false;
         bool urgency = false;
+
+        if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        {
+            WId appRootWindow = XDefaultRootWindow(x11Application->display());
+            urgency = NETWinInfo(x11Application->connection(), window, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency();
+        }
+
         if (prop2.testFlag(NET::WM2Urgency))
         {
             set_urgency = true;
-            urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
         }
         if (prop.testFlag(NET::WMState))
         {
             KWindowInfo info{window, NET::WMState};
+
+            // Force refresh urgency
             if (!set_urgency)
-                urgency = NETWinInfo(QX11Info::connection(), window, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency();
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
-            set_urgency = false;
+            {
+                //TODO: maybe do it in common place with NET::WM2Urgency
+                std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
+                set_urgency = false;
+            }
+
             if (info.hasState(NET::SkipTaskbar))
                 onWindowRemoved(window);
 

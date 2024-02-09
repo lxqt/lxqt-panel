@@ -47,17 +47,20 @@
 #include <QDragEnterEvent>
 #include <QStylePainter>
 #include <QStyleOptionToolButton>
-#include <QDesktopWidget>
 #include <QScreen>
 
 #include "lxqttaskbutton.h"
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
 
-#include <KWindowSystem/KX11Extras>
+#include <KX11Extras>
 // Necessary for closeApplication()
-#include <KWindowSystem/NETWM>
-#include <QX11Info>
+#include <NETWM>
+#include <kwindowsystem.h>
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
 
 bool LXQtTaskButton::sDraggging = false;
 
@@ -115,8 +118,18 @@ LXQtTaskButton::LXQtTaskButton(const WId window, LXQtTaskBar * taskbar, QWidget 
         mWheelDelta = 0; // forget previous wheel deltas
     });
 
-    setUrgencyHint(NETWinInfo(QX11Info::connection(), mWindow, QX11Info::appRootWindow(), NET::Properties{}, NET::WM2Urgency).urgency()
-            || KWindowInfo{mWindow, NET::WMState}.hasState(NET::DemandsAttention));
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(x11Application)
+    {
+        WId appRootWindow = XDefaultRootWindow(x11Application->display());
+        setUrgencyHint(NETWinInfo(x11Application->connection(), mWindow, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency()
+                       || KWindowInfo{mWindow, NET::WMState}.hasState(NET::DemandsAttention));
+    }
+    else
+    {
+        qWarning() << "LXQtTaskBar: not implemented on Wayland";
+    }
+
 
     connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::iconThemeChanged, this, &LXQtTaskButton::updateIcon);
     connect(mParentTaskBar,                   &LXQtTaskBar::iconByClassChanged,        this, &LXQtTaskButton::updateIcon);
@@ -164,7 +177,21 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
     // NOTE: This function announces where the task icon is,
     // such that X11 WMs can perform their related animations correctly.
 
-    xcb_connection_t* x11conn = QX11Info::connection();
+    WId appRootWindow = 0;
+    xcb_connection_t* x11conn = nullptr;
+
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(x11Application)
+    {
+        appRootWindow = XDefaultRootWindow(x11Application->display());
+        x11conn = x11Application->connection();
+    }
+    else
+    {
+        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
+        return;
+    }
+
 
     if (!x11conn) {
         return;
@@ -172,7 +199,7 @@ void LXQtTaskButton::refreshIconGeometry(QRect const & geom)
 
     NETWinInfo info(x11conn,
                     windowId(),
-                    (WId) QX11Info::appRootWindow(),
+                    appRootWindow,
                     NET::WMIconGeometry,
                     NET::Properties2());
     NETRect const curr = info.iconGeometry();
@@ -510,8 +537,16 @@ void LXQtTaskButton::unShadeApplication()
  ************************************************/
 void LXQtTaskButton::closeApplication()
 {
-    // FIXME: Why there is no such thing in KWindowSystem??
-    NETRootInfo(QX11Info::connection(), NET::CloseWindow).closeWindowRequest(mWindow);
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(x11Application)
+    {
+        // FIXME: Why there is no such thing in KWindowSystem??
+        NETRootInfo(x11Application->connection(), NET::CloseWindow).closeWindowRequest(mWindow);
+    }
+    else
+    {
+        qWarning() << "LXQtTaskBar: not implemented on Wayland";
+    }
 }
 
 /************************************************
@@ -610,7 +645,18 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 //      NW geometry |     y/x      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b010 << 12);
                 KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
-                NETRootInfo(QX11Info::connection(), NET::Properties(), NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
+
+
+                auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+                if(x11Application)
+                {
+                    NETRootInfo(x11Application->connection(), NET::Properties(), NET::WM2MoveResizeWindow).moveResizeWindowRequest(mWindow, flags, X, Y, 0, 0);
+                }
+                else
+                {
+                    //qWarning() << "LXQtTaskBar: not implemented on Wayland";
+                }
+
                 QTimer::singleShot(200, this, [this, state]
                 {
                     KWindowSystem::setState(mWindow, state);
@@ -637,7 +683,16 @@ void LXQtTaskButton::moveApplication()
     int X = g.center().x();
     int Y = g.center().y();
     QCursor::setPos(X, Y);
-    NETRootInfo(QX11Info::connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::Move);
+
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(x11Application)
+    {
+        NETRootInfo(x11Application->connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::Move);
+    }
+    else
+    {
+        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
+    }
 }
 
 /************************************************
@@ -655,7 +710,16 @@ void LXQtTaskButton::resizeApplication()
     int X = g.bottomRight().x();
     int Y = g.bottomRight().y();
     QCursor::setPos(X, Y);
-    NETRootInfo(QX11Info::connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::BottomRight);
+
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(x11Application)
+    {
+        NETRootInfo(x11Application->connection(), NET::WMMoveResize).moveResizeRequest(mWindow, X, Y, NET::BottomRight);
+    }
+    else
+    {
+        //qWarning() << "LXQtTaskBar: not implemented on Wayland";
+    }
 }
 
 /************************************************

@@ -34,7 +34,7 @@
 #include <QFrame>
 #include <QGuiApplication>
 #include <QScopedPointer>
-#include <KWindowSystem/NETWM>
+#include <NETWM>
 
 #include "desktopswitchbutton.h"
 
