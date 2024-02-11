@@ -29,7 +29,7 @@ set(UIS
 set(LIBRARIES
 )
 
-find_package(XCB REQUIRED COMPONENTS xcb xcb-xkb)
+find_package(XCB REQUIRED COMPONENTS XCB XKB)
 find_package(XKBCommon REQUIRED COMPONENTS XKBCommon X11)
 find_package(Qt5 ${QT_MINIMUM_VERSION} REQUIRED COMPONENTS X11Extras Xml)
 
