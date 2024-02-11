@@ -914,7 +914,11 @@ bool LXQtTaskButton::isOnDesktop(int desktop) const
 
 bool LXQtTaskButton::isOnCurrentScreen() const
 {
-    return QApplication::desktop()->screenGeometry(parentTaskBar()).intersects(KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry());
+    QScreen *screen = parentTaskBar()->screen();
+    QRect screenGeo = screen->geometry();
+    QRect windowGeo = KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry();
+
+    return screenGeo.intersects(windowGeo);
 }
 
 bool LXQtTaskButton::isMinimized() const
