@@ -29,6 +29,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtgrouppopup.h"
+#include "lxqttaskgroup.h"
+
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
@@ -162,6 +164,16 @@ void LXQtGroupPopup::show()
 {
     mCloseTimer.stop();
     QFrame::show();
+}
+
+int LXQtGroupPopup::indexOf(LXQtTaskButton *button)
+{
+    return layout()->indexOf(button);
+}
+
+void LXQtGroupPopup::addButton(LXQtTaskButton *button)
+{
+    layout()->addWidget(button);
 }
 
 void LXQtGroupPopup::closeTimerSlot()

@@ -45,6 +45,7 @@
 
 #include "lxqttaskbar.h"
 #include "lxqttaskgroup.h"
+#include "../panel/pluginsettings.h"
 
 //NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
 #include <X11/Xlib.h>

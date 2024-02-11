@@ -33,8 +33,7 @@
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqttaskbar.h"
-#include "lxqtgrouppopup.h"
+
 #include "lxqttaskbutton.h"
 #include <kx11extras.h>
 
