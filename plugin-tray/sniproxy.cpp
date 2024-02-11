@@ -28,26 +28,33 @@
 #include "sniproxy.h"
 
 #include <algorithm>
-#include <xcb/xcb_atom.h>
-#include <xcb/xcb_event.h>
-
-#include "xcbutils.h"
 
 #include <QDebug>
 #include <QGuiApplication>
 #include <QScreen>
 #include <QTimer>
-#include <QX11Info>
 
 #include <QBitmap>
 
 #include <KWindowSystem>
 #include <netwm.h>
 
+#include "kwindowinfo.h"
 #include "statusnotifieritemadaptor.h"
 #include "statusnotifierwatcher_interface.h"
 
 #include "xtestsender.h"
+
+
+#include <xcb/xcb_atom.h>
+#include <xcb/xcb_event.h>
+
+#include "xcbutils.h"
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
+#undef Status
 
 //#define VISUAL_DEBUG
 
@@ -59,7 +66,7 @@ static unsigned int XEMBED_VERSION = 0;
 
 int SNIProxy::s_serviceCount = 0;
 
-void xembed_message_send(Xcb::Atoms & atoms, xcb_window_t towin, long message, long d1, long d2, long d3)
+void xembed_message_send(xcb_connection_t *conn, Xcb::Atoms & atoms, xcb_window_t towin, long message, long d1, long d2, long d3)
 {
     xcb_client_message_event_t ev;
 
@@ -72,7 +79,7 @@ void xembed_message_send(Xcb::Atoms & atoms, xcb_window_t towin, long message, l
     ev.data.data32[3] = d2;
     ev.data.data32[4] = d3;
     ev.type = atoms.xembedAtom;
-    xcb_send_event(QX11Info::connection(), false, towin, XCB_EVENT_MASK_NO_EVENT, (char *)&ev);
+    xcb_send_event(conn, false, towin, XCB_EVENT_MASK_NO_EVENT, (char *)&ev);
 }
 
 static QRect findOpaqueArea(const QImage & image, int margin = 0)
@@ -103,11 +110,16 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     // there is an undocumented feature that you can register an SNI by path, however it doesn't detect an object on a service being removed, only the entire
     // service closing instead lets use one DBus connection per SNI
     m_dbus(QDBusConnection::connectToBus(QDBusConnection::SessionBus, QStringLiteral("XembedSniProxy%1").arg(s_serviceCount++)))
+    , m_connection(nullptr)
     , m_windowId(wid)
     , sendingClickEvent(false)
     , m_injectMode(Direct)
     , m_atoms{atoms}
 {
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "SNIProxy", "Expected X11 connection");
+    m_connection = x11Application->connection();
+
     resizeWindow(s_embedSize, s_embedSize);
 
     // create new SNI
@@ -122,11 +134,9 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
         qWarning() << "could not register SNI:" << reply.error().message();
     }
 
-    auto c = QX11Info::connection();
-
     // create a container window
-    auto screen = xcb_setup_roots_iterator(xcb_get_setup(c)).data;
-    m_containerWid = xcb_generate_id(c);
+    auto screen = xcb_setup_roots_iterator(xcb_get_setup(m_connection)).data;
+    m_containerWid = xcb_generate_id(m_connection);
     uint32_t values[3];
     uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_OVERRIDE_REDIRECT | XCB_CW_EVENT_MASK;
     values[0] = screen->black_pixel; // draw a solid background so the embedded icon doesn't get garbage in it
@@ -134,7 +144,7 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     values[2] = XCB_EVENT_MASK_VISIBILITY_CHANGE | // receive visibility change, to handle KWin restart #357443
                                                    // Redirect and handle structure (size, position) requests from the embedded window.
         XCB_EVENT_MASK_STRUCTURE_NOTIFY | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT;
-    xcb_create_window(c, /* connection    */
+    xcb_create_window(m_connection, /* connection    */
                       XCB_COPY_FROM_PARENT, /* depth         */
                       m_containerWid, /* window Id     */
                       screen->root, /* parent window */
@@ -163,42 +173,42 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
 #ifndef VISUAL_DEBUG
     stackContainerWindow(XCB_STACK_MODE_BELOW);
 
-    NETWinInfo wm(c, m_containerWid, screen->root, NET::Properties(), NET::Properties2());
+    NETWinInfo wm(m_connection, m_containerWid, screen->root, NET::Properties(), NET::Properties2());
     wm.setOpacity(0);
 #endif
 
-    xcb_flush(c);
+    xcb_flush(m_connection);
 
-    xcb_map_window(c, m_containerWid);
+    xcb_map_window(m_connection, m_containerWid);
 
-    xcb_reparent_window(c, m_windowId, m_containerWid, 0, 0);
+    xcb_reparent_window(m_connection, m_windowId, m_containerWid, 0, 0);
 
     /*
      * Render the embedded window offscreen
      */
-    xcb_composite_redirect_window(c, m_windowId, XCB_COMPOSITE_REDIRECT_MANUAL);
+    xcb_composite_redirect_window(m_connection, m_windowId, XCB_COMPOSITE_REDIRECT_MANUAL);
 
     /* we grab the window, but also make sure it's automatically reparented back
      * to the root window if we should die.
      */
-    xcb_change_save_set(c, XCB_SET_MODE_INSERT, m_windowId);
+    xcb_change_save_set(m_connection, XCB_SET_MODE_INSERT, m_windowId);
 
     // tell client we're embedding it
-    xembed_message_send(m_atoms, m_windowId, XEMBED_EMBEDDED_NOTIFY, 0, m_containerWid, XEMBED_VERSION);
+    xembed_message_send(m_connection, m_atoms, m_windowId, XEMBED_EMBEDDED_NOTIFY, 0, m_containerWid, XEMBED_VERSION);
 
     // move window we're embedding
     const uint32_t windowMoveConfigVals[2] = {0, 0};
 
-    xcb_configure_window(c, m_windowId, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, windowMoveConfigVals);
+    xcb_configure_window(m_connection, m_windowId, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, windowMoveConfigVals);
 
     QSize clientWindowSize = calculateClientWindowSize();
 
     // show the embedded window otherwise nothing happens
-    xcb_map_window(c, m_windowId);
+    xcb_map_window(m_connection, m_windowId);
 
-    xcb_clear_area(c, 0, m_windowId, 0, 0, clientWindowSize.width(), clientWindowSize.height());
+    xcb_clear_area(m_connection, 0, m_windowId, 0, 0, clientWindowSize.width(), clientWindowSize.height());
 
-    xcb_flush(c);
+    xcb_flush(m_connection);
 
     // guess which input injection method to use
     // we can either send an X event to the client or XTest
@@ -207,8 +217,8 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
 
     // we query if the client selected button presses in the event mask
     // if the client does supports that we send directly, otherwise we'll use xtest
-    auto waCookie = xcb_get_window_attributes(c, m_windowId);
-    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> windowAttributes(xcb_get_window_attributes_reply(c, waCookie, nullptr));
+    auto waCookie = xcb_get_window_attributes(m_connection, m_windowId);
+    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> windowAttributes(xcb_get_window_attributes_reply(m_connection, waCookie, nullptr));
     if (windowAttributes && !(windowAttributes->all_event_masks & XCB_EVENT_MASK_BUTTON_PRESS)) {
         m_injectMode = XTest;
     }
@@ -221,12 +231,15 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
 
 SNIProxy::~SNIProxy()
 {
-    auto c = QX11Info::connection();
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "SNIProxy", "Expected X11 connection");
+
+    WId appRootWindow = XDefaultRootWindow(x11Application->display());
 
     if (!m_vanished) {
-        xcb_reparent_window(c, m_windowId, QX11Info::appRootWindow(), 0, 0);
+        xcb_reparent_window(m_connection, m_windowId, appRootWindow, 0, 0);
     }
-    xcb_destroy_window(c, m_containerWid);
+    xcb_destroy_window(m_connection, m_containerWid);
     QDBusConnection::disconnectFromBus(m_dbus.name());
 }
 
@@ -246,12 +259,10 @@ void SNIProxy::update()
 
 void SNIProxy::resizeWindow(const uint16_t width, const uint16_t height) const
 {
-    auto connection = QX11Info::connection();
-
     const uint32_t windowSizeConfigVals[2] = {width, height};
-    xcb_configure_window(connection, m_windowId, XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT, windowSizeConfigVals);
+    xcb_configure_window(m_connection, m_windowId, XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT, windowSizeConfigVals);
 
-    xcb_flush(connection);
+    xcb_flush(m_connection);
 }
 
 void SNIProxy::hideContainerWindow(xcb_window_t windowId) const
@@ -264,10 +275,8 @@ void SNIProxy::hideContainerWindow(xcb_window_t windowId) const
 
 QSize SNIProxy::calculateClientWindowSize() const
 {
-    auto c = QX11Info::connection();
-
-    auto cookie = xcb_get_geometry(c, m_windowId);
-    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(c, cookie, nullptr));
+    auto cookie = xcb_get_geometry(m_connection, m_windowId);
+    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(m_connection, cookie, nullptr));
 
     QSize clientWindowSize;
     if (clientGeom) {
@@ -318,11 +327,9 @@ bool SNIProxy::isTransparentImage(const QImage &image) const
 
 QImage SNIProxy::getImageNonComposite() const
 {
-    auto c = QX11Info::connection();
-
     QSize clientWindowSize = calculateClientWindowSize();
 
-    xcb_image_t *image = xcb_image_get(c, m_windowId, 0, 0, clientWindowSize.width(), clientWindowSize.height(), 0xFFFFFFFF, XCB_IMAGE_FORMAT_Z_PIXMAP);
+    xcb_image_t *image = xcb_image_get(m_connection, m_windowId, 0, 0, clientWindowSize.width(), clientWindowSize.height(), 0xFFFFFFFF, XCB_IMAGE_FORMAT_Z_PIXMAP);
 
     // Don't hook up cleanup yet, we may use a different QImage after all
     QImage naiveConversion;
@@ -417,15 +424,13 @@ QPoint SNIProxy::calculateClickPoint() const
 {
     QPoint clickPoint = QPoint(0, 0);
 
-    auto c = QX11Info::connection();
-
     // request extent to check if shape has been set
-    xcb_shape_query_extents_cookie_t extentsCookie = xcb_shape_query_extents(c, m_windowId);
+    xcb_shape_query_extents_cookie_t extentsCookie = xcb_shape_query_extents(m_connection, m_windowId);
     // at the same time make the request for rectangles (even if this request isn't needed)
-    xcb_shape_get_rectangles_cookie_t rectaglesCookie = xcb_shape_get_rectangles(c, m_windowId, XCB_SHAPE_SK_BOUNDING);
+    xcb_shape_get_rectangles_cookie_t rectaglesCookie = xcb_shape_get_rectangles(m_connection, m_windowId, XCB_SHAPE_SK_BOUNDING);
 
-    QScopedPointer<xcb_shape_query_extents_reply_t, QScopedPointerPodDeleter> extentsReply(xcb_shape_query_extents_reply(c, extentsCookie, nullptr));
-    QScopedPointer<xcb_shape_get_rectangles_reply_t, QScopedPointerPodDeleter> rectanglesReply(xcb_shape_get_rectangles_reply(c, rectaglesCookie, nullptr));
+    QScopedPointer<xcb_shape_query_extents_reply_t, QScopedPointerPodDeleter> extentsReply(xcb_shape_query_extents_reply(m_connection, extentsCookie, nullptr));
+    QScopedPointer<xcb_shape_get_rectangles_reply_t, QScopedPointerPodDeleter> rectanglesReply(xcb_shape_get_rectangles_reply(m_connection, rectaglesCookie, nullptr));
 
     if (!extentsReply || !rectanglesReply || !extentsReply->bounding_shaped) {
         return clickPoint;
@@ -452,9 +457,8 @@ QPoint SNIProxy::calculateClickPoint() const
 
 void SNIProxy::stackContainerWindow(const uint32_t stackMode) const
 {
-    auto c = QX11Info::connection();
     const uint32_t stackData[] = {stackMode};
-    xcb_configure_window(c, m_containerWid, XCB_CONFIG_WINDOW_STACK_MODE, stackData);
+    xcb_configure_window(m_connection, m_containerWid, XCB_CONFIG_WINDOW_STACK_MODE, stackData);
 }
 
 //____________properties__________
@@ -548,17 +552,15 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
     qDebug() << "Received click" << mouseButton << "with passed x*y" << x << y;
     sendingClickEvent = true;
 
-    auto c = QX11Info::connection();
-
-    auto cookieSize = xcb_get_geometry(c, m_windowId);
-    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(c, cookieSize, nullptr));
+    auto cookieSize = xcb_get_geometry(m_connection, m_windowId);
+    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(m_connection, cookieSize, nullptr));
 
     if (!clientGeom) {
         return;
     }
 
-    auto cookie = xcb_query_pointer(c, m_windowId);
-    QScopedPointer<xcb_query_pointer_reply_t, QScopedPointerPodDeleter> pointer(xcb_query_pointer_reply(c, cookie, nullptr));
+    auto cookie = xcb_query_pointer(m_connection, m_windowId);
+    QScopedPointer<xcb_query_pointer_reply_t, QScopedPointerPodDeleter> pointer(xcb_query_pointer_reply(m_connection, cookie, nullptr));
     /*qDebug() << "samescreen" << pointer->same_screen << endl
     << "root x*y" << pointer->root_x << pointer->root_y << endl
     << "win x*y" << pointer->win_x << pointer->win_y;*/
@@ -580,10 +582,13 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         else
             configVals[1] = static_cast<uint32_t>(y - clickPoint.y());
     }
-    xcb_configure_window(c, m_containerWid, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, configVals);
+    xcb_configure_window(m_connection, m_containerWid, XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, configVals);
 
     // pull window up
     stackContainerWindow(XCB_STACK_MODE_ABOVE);
+
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    WId appRootWindow = XDefaultRootWindow(x11Application->display());
 
     // mouse down
     if (m_injectMode == Direct) {
@@ -591,9 +596,9 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         memset(event, 0x00, sizeof(xcb_button_press_event_t));
         event->response_type = XCB_BUTTON_PRESS;
         event->event = m_windowId;
-        event->time = QX11Info::getTimestamp();
+        event->time = XCB_CURRENT_TIME; //NOTE: to get proper timestamp we would need Qt Private APIs
         event->same_screen = 1;
-        event->root = QX11Info::appRootWindow();
+        event->root = appRootWindow;
         event->root_x = x;
         event->root_y = y;
         event->event_x = static_cast<int16_t>(clickPoint.x());
@@ -602,10 +607,10 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         event->state = 0;
         event->detail = mouseButton;
 
-        xcb_send_event(c, false, m_windowId, XCB_EVENT_MASK_BUTTON_PRESS, (char *)event);
+        xcb_send_event(m_connection, false, m_windowId, XCB_EVENT_MASK_BUTTON_PRESS, (char *)event);
         delete event;
     } else {
-        sendXTestPressed(QX11Info::display(), mouseButton);
+        sendXTestPressed(x11Application->display(), mouseButton);
     }
 
     // mouse up
@@ -614,9 +619,9 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         memset(event, 0x00, sizeof(xcb_button_release_event_t));
         event->response_type = XCB_BUTTON_RELEASE;
         event->event = m_windowId;
-        event->time = QX11Info::getTimestamp();
+        event->time = XCB_CURRENT_TIME; //NOTE: to get proper timestamp we would need Qt Private APIs
         event->same_screen = 1;
-        event->root = QX11Info::appRootWindow();
+        event->root = appRootWindow;
         event->root_x = x;
         event->root_y = y;
         event->event_x = static_cast<int16_t>(clickPoint.x());
@@ -625,10 +630,10 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         event->state = 0;
         event->detail = mouseButton;
 
-        xcb_send_event(c, false, m_windowId, XCB_EVENT_MASK_BUTTON_RELEASE, (char *)event);
+        xcb_send_event(m_connection, false, m_windowId, XCB_EVENT_MASK_BUTTON_RELEASE, (char *)event);
         delete event;
     } else {
-        sendXTestReleased(QX11Info::display(), mouseButton);
+        sendXTestReleased(x11Application->display(), mouseButton);
     }
 
 #ifndef VISUAL_DEBUG

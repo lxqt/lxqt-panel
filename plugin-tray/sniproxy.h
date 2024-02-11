@@ -168,6 +168,7 @@ private:
     void stackContainerWindow(const uint32_t stackMode) const;
 
     QDBusConnection m_dbus;
+    xcb_connection_t *m_connection;
     xcb_window_t m_windowId;
     xcb_window_t m_containerWid;
     static int s_serviceCount;
