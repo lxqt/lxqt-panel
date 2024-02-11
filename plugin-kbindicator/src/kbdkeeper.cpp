@@ -25,9 +25,11 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include <QDebug>
-#include <KWindowSystem/KX11Extras>
-#include <KWindowSystem/KWindowInfo>
-#include <KWindowSystem/netwm_def.h>
+
+#include <KX11Extras>
+#include <KWindowInfo>
+#include <netwm_def.h>
+
 #include "kbdkeeper.h"
 
 //--------------------------------------------------------------------------------------------------
