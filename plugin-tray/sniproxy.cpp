@@ -400,7 +400,7 @@ QImage SNIProxy::convertFromNative(xcb_image_t *xcbImage) const
 
     if (format == QImage::Format_RGB32 && xcbImage->bpp == 32) {
         QImage m = image.createHeuristicMask();
-        QBitmap mask(QPixmap::fromImage(m));
+        QBitmap mask = QBitmap::fromImage(m);
         QPixmap p = QPixmap::fromImage(image);
         p.setMask(mask);
         image = p.toImage();
