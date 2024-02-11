@@ -30,10 +30,11 @@
 #include <QDebug>
 #include <QCoreApplication>
 #include <QTimer>
-#include <QX11Info>
 #include <QDBusMetaType>
 
 #include <KSelectionOwner>
+
+#include <QGuiApplication> // For nativeInterface()
 
 #include <xcb/composite.h>
 #include <xcb/damage.h>
@@ -43,14 +44,26 @@
 #include "sniproxy.h"
 #include "xcbutils.h"
 
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
+#undef Status
+
 #define SYSTEM_TRAY_REQUEST_DOCK 0
 #define SYSTEM_TRAY_BEGIN_MESSAGE 1
 #define SYSTEM_TRAY_CANCEL_MESSAGE 2
 
 FdoSelectionManager::FdoSelectionManager()
-    : m_atoms{new Xcb::Atoms}
-    , m_selectionOwner{new KSelectionOwner{m_atoms->selectionAtom, -1, this}}
+    : m_atoms{nullptr}
+    , m_selectionOwner{nullptr}
 {
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "FdoSelectionManager", "Expected X11 connection");
+    m_connection = x11Application->connection();
+
+    m_atoms.reset(new Xcb::Atoms(m_connection, XDefaultScreen(x11Application->display())));
+    m_selectionOwner = new KSelectionOwner{m_atoms->selectionAtom, -1, this};
+
     qDebug() << "starting";
 
     // we may end up calling QCoreApplication::quit() in this method, at which point we need the event loop running
@@ -73,12 +86,11 @@ void FdoSelectionManager::init()
     qDBusRegisterMetaType<KDbusToolTipStruct>();
 
     // load damage extension
-    xcb_connection_t *c = QX11Info::connection();
-    xcb_prefetch_extension_data(c, &xcb_damage_id);
-    const auto *reply = xcb_get_extension_data(c, &xcb_damage_id);
+    xcb_prefetch_extension_data(m_connection, &xcb_damage_id);
+    const auto *reply = xcb_get_extension_data(m_connection, &xcb_damage_id);
     if (reply && reply->present) {
         m_damageEventBase = reply->first_event;
-        xcb_damage_query_version_unchecked(c, XCB_DAMAGE_MAJOR_VERSION, XCB_DAMAGE_MINOR_VERSION);
+        xcb_damage_query_version_unchecked(m_connection, XCB_DAMAGE_MAJOR_VERSION, XCB_DAMAGE_MINOR_VERSION);
     } else {
         // no XDamage means
         qCritical() << "could not load damage extension. Quitting";
@@ -97,15 +109,14 @@ bool FdoSelectionManager::addDamageWatch(xcb_window_t client)
 {
     qDebug() << "adding damage watch for " << client;
 
-    xcb_connection_t *c = QX11Info::connection();
-    const auto attribsCookie = xcb_get_window_attributes_unchecked(c, client);
+    const auto attribsCookie = xcb_get_window_attributes_unchecked(m_connection, client);
 
-    const auto damageId = xcb_generate_id(c);
+    const auto damageId = xcb_generate_id(m_connection);
     m_damageWatches[client] = damageId;
-    xcb_damage_create(c, damageId, client, XCB_DAMAGE_REPORT_LEVEL_NON_EMPTY);
+    xcb_damage_create(m_connection, damageId, client, XCB_DAMAGE_REPORT_LEVEL_NON_EMPTY);
 
     xcb_generic_error_t *error = nullptr;
-    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> attr(xcb_get_window_attributes_reply(c, attribsCookie, &error));
+    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> attr(xcb_get_window_attributes_reply(m_connection, attribsCookie, &error));
     QScopedPointer<xcb_generic_error_t, QScopedPointerPodDeleter> getAttrError(error);
     uint32_t events = XCB_EVENT_MASK_STRUCTURE_NOTIFY;
     if (!attr.isNull()) {
@@ -117,8 +128,8 @@ bool FdoSelectionManager::addDamageWatch(xcb_window_t client)
     }
     // the event mask will not be removed again. We cannot track whether another component also needs STRUCTURE_NOTIFY (e.g. KWindowSystem).
     // if we would remove the event mask again, other areas will break.
-    const auto changeAttrCookie = xcb_change_window_attributes_checked(c, client, XCB_CW_EVENT_MASK, &events);
-    QScopedPointer<xcb_generic_error_t, QScopedPointerPodDeleter> changeAttrError(xcb_request_check(c, changeAttrCookie));
+    const auto changeAttrCookie = xcb_change_window_attributes_checked(m_connection, client, XCB_CW_EVENT_MASK, &events);
+    QScopedPointer<xcb_generic_error_t, QScopedPointerPodDeleter> changeAttrError(xcb_request_check(m_connection, changeAttrCookie));
     // if window is gone by this point, it will be caught by eventFilter, so no need to check later errors.
     if (changeAttrError && changeAttrError->error_code == XCB_WINDOW) {
         return false;
@@ -127,7 +138,7 @@ bool FdoSelectionManager::addDamageWatch(xcb_window_t client)
     return true;
 }
 
-bool FdoSelectionManager::nativeEventFilter(const QByteArray &eventType, void *message, long int *result)
+bool FdoSelectionManager::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result)
 {
     Q_UNUSED(result)
 
@@ -162,7 +173,7 @@ bool FdoSelectionManager::nativeEventFilter(const QByteArray &eventType, void *m
         const auto sniProxy = m_proxies.value(damagedWId);
         if (sniProxy) {
             sniProxy->update();
-            xcb_damage_subtract(QX11Info::connection(), m_damageWatches[damagedWId], XCB_NONE, XCB_NONE);
+            xcb_damage_subtract(m_connection, m_damageWatches[damagedWId], XCB_NONE, XCB_NONE);
         }
     } else if (responseType == XCB_CONFIGURE_REQUEST) {
         const auto event = reinterpret_cast<xcb_configure_request_event_t *>(ev);
@@ -211,7 +222,7 @@ void FdoSelectionManager::undock(xcb_window_t winId, bool vanished)
     auto d_i = m_damageWatches.find(winId);
     if (d_i != m_damageWatches.end()) {
         if (!vanished) {
-            xcb_damage_destroy(QX11Info::connection(), *d_i);
+            xcb_damage_destroy(m_connection, *d_i);
         }
         m_damageWatches.erase(d_i);
     }
@@ -239,8 +250,7 @@ void FdoSelectionManager::onLostOwnership()
 
 void FdoSelectionManager::setSystemTrayVisual()
 {
-    xcb_connection_t *c = QX11Info::connection();
-    auto screen = xcb_setup_roots_iterator(xcb_get_setup(c)).data;
+    auto screen = xcb_setup_roots_iterator(xcb_get_setup(m_connection)).data;
     auto trayVisual = screen->root_visual;
     xcb_depth_iterator_t depth_iterator = xcb_screen_allowed_depths_iterator(screen);
     xcb_depth_t *depth = nullptr;
@@ -265,5 +275,5 @@ void FdoSelectionManager::setSystemTrayVisual()
         }
     }
 
-    xcb_change_property(c, XCB_PROP_MODE_REPLACE, m_selectionOwner->ownerWindow(), m_atoms->visualAtom, XCB_ATOM_VISUALID, 32, 1, &trayVisual);
+    xcb_change_property(m_connection, XCB_PROP_MODE_REPLACE, m_selectionOwner->ownerWindow(), m_atoms->visualAtom, XCB_ATOM_VISUALID, 32, 1, &trayVisual);
 }
