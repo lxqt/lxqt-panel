@@ -30,7 +30,7 @@ class ImageStretcher {
     QSvgRenderer svgrender;
     QPixmap origImage, stretchedImage;
 public:
-    bool load(QString fn);
+    bool load(const QString &fn);
     QPixmap &getImage(int w, int h);
     int origWidth();
     int origHeight();

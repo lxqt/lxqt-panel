@@ -32,16 +32,21 @@
 #include "qeyesimagewidget.h"
 
 
-bool ImageStretcher::load(QString fn) {
-    if (fn.toLower().endsWith(QString::fromUtf8(".svg"))) {
+bool ImageStretcher::load(const QString& fn)
+{
+    if (fn.endsWith(QString::fromUtf8(".svg"), Qt::CaseInsensitive))
+    {
         svg = true;
         if (!svgrender.load(fn))
             return false;
-    } else {
+    }
+    else
+    {
         if (!origImage.load(fn))
             return false;
         svg = false;
     }
+
     stretchedImage = QPixmap();
     return true;
 }
