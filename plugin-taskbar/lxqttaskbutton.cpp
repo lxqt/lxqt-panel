@@ -56,7 +56,6 @@
 #include <KX11Extras>
 // Necessary for closeApplication()
 #include <NETWM>
-#include <kwindowsystem.h>
 
 //NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
 #include <X11/Xlib.h>
@@ -489,15 +488,15 @@ void LXQtTaskButton::maximizeApplication()
     switch (state)
     {
         case NET::MaxHoriz:
-            KWindowSystem::setState(mWindow, NET::MaxHoriz);
+            KX11Extras::setState(mWindow, NET::MaxHoriz);
             break;
 
         case NET::MaxVert:
-            KWindowSystem::setState(mWindow, NET::MaxVert);
+            KX11Extras::setState(mWindow, NET::MaxVert);
             break;
 
         default:
-            KWindowSystem::setState(mWindow, NET::Max);
+            KX11Extras::setState(mWindow, NET::Max);
             break;
     }
 
@@ -510,7 +509,7 @@ void LXQtTaskButton::maximizeApplication()
  ************************************************/
 void LXQtTaskButton::deMaximizeApplication()
 {
-    KWindowSystem::clearState(mWindow, NET::Max);
+    KX11Extras::clearState(mWindow, NET::Max);
 
     if (!isApplicationActive())
         raiseApplication();
@@ -521,7 +520,7 @@ void LXQtTaskButton::deMaximizeApplication()
  ************************************************/
 void LXQtTaskButton::shadeApplication()
 {
-    KWindowSystem::setState(mWindow, NET::Shaded);
+    KX11Extras::setState(mWindow, NET::Shaded);
 }
 
 /************************************************
@@ -529,7 +528,7 @@ void LXQtTaskButton::shadeApplication()
  ************************************************/
 void LXQtTaskButton::unShadeApplication()
 {
-    KWindowSystem::clearState(mWindow, NET::Shaded);
+    KX11Extras::clearState(mWindow, NET::Shaded);
 }
 
 /************************************************
@@ -540,7 +539,7 @@ void LXQtTaskButton::closeApplication()
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
     if(x11Application)
     {
-        // FIXME: Why there is no such thing in KWindowSystem??
+        // FIXME: Why there is no such thing in KX11Extras??
         NETRootInfo(x11Application->connection(), NET::CloseWindow).closeWindowRequest(mWindow);
     }
     else
@@ -562,18 +561,18 @@ void LXQtTaskButton::setApplicationLayer()
     switch(layer)
     {
         case NET::KeepAbove:
-            KWindowSystem::clearState(mWindow, NET::KeepBelow);
-            KWindowSystem::setState(mWindow, NET::KeepAbove);
+            KX11Extras::clearState(mWindow, NET::KeepBelow);
+            KX11Extras::setState(mWindow, NET::KeepAbove);
             break;
 
         case NET::KeepBelow:
-            KWindowSystem::clearState(mWindow, NET::KeepAbove);
-            KWindowSystem::setState(mWindow, NET::KeepBelow);
+            KX11Extras::clearState(mWindow, NET::KeepAbove);
+            KX11Extras::setState(mWindow, NET::KeepBelow);
             break;
 
         default:
-            KWindowSystem::clearState(mWindow, NET::KeepBelow);
-            KWindowSystem::clearState(mWindow, NET::KeepAbove);
+            KX11Extras::clearState(mWindow, NET::KeepBelow);
+            KX11Extras::clearState(mWindow, NET::KeepAbove);
             break;
     }
 }
@@ -644,7 +643,7 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
                 NET::States state = KWindowInfo(mWindow, NET::WMState).state();
                 //      NW geometry |     y/x      |  from panel
                 const int flags = 1 | (0b011 << 8) | (0b010 << 12);
-                KWindowSystem::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
+                KX11Extras::clearState(mWindow, NET::MaxHoriz | NET::MaxVert | NET::Max | NET::FullScreen);
 
 
                 auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
@@ -659,7 +658,7 @@ void LXQtTaskButton::moveApplicationToPrevNextMonitor(bool next)
 
                 QTimer::singleShot(200, this, [this, state]
                 {
-                    KWindowSystem::setState(mWindow, state);
+                    KX11Extras::setState(mWindow, state);
                     raiseApplication();
                 });
                 break;
