@@ -30,6 +30,7 @@
 
 #include "lxqttaskgroup.h"
 #include "lxqttaskbar.h"
+#include "lxqtgrouppopup.h"
 
 #include <QDebug>
 #include <QMimeData>

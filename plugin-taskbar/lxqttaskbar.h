@@ -34,9 +34,6 @@
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqttaskbarconfiguration.h"
-#include "lxqttaskgroup.h"
-#include "lxqttaskbutton.h"
 
 #include <QFrame>
 #include <QBoxLayout>
@@ -48,8 +45,12 @@
 #include <NETWM>
 
 class QSignalMapper;
+
 class LXQtTaskButton;
+class LXQtTaskGroup;
+
 class ElidedButtonStyle;
+class LeftAlignedTextStyle;
 
 namespace LXQt {
 class GridLayout;

@@ -28,6 +28,8 @@
 
 #include "lxqttaskbarplugin.h"
 
+#include "lxqttaskbarconfiguration.h"
+
 LXQtTaskBarPlugin::LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo)
