@@ -198,7 +198,7 @@ void ColorPickerWidget::captureMouse()
 
 QIcon ColorPickerWidget::colorIcon(QColor color)
 {
-    QString data = svgIcon.arg(palette().color(QPalette::Text).name()).arg(color.name());
+    QString data = svgIcon.arg(palette().color(QPalette::Text).name(), color.name());
     QPixmap pixmap(mColorButton->iconSize());
     pixmap.fill(Qt::transparent);
     QPainter painter(&pixmap);

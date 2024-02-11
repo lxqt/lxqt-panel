@@ -243,9 +243,7 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
                                   "border-%2: 2px solid rgba(%4, %5, %6, %7); "
                                   "border-%3: -2px solid; "
                                   "background-color: transparent; }")
-                          .arg(widget->objectName())
-                          .arg(border1)
-                          .arg(border2)
+                          .arg(widget->objectName(), border1, border2)
                           .arg(Plugin::moveMarkerColor().red())
                           .arg(Plugin::moveMarkerColor().green())
                           .arg(Plugin::moveMarkerColor().blue())
