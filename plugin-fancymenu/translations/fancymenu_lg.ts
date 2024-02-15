@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="303"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Kubuuza</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="304"/>
