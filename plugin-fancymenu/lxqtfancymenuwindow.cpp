@@ -219,16 +219,15 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
 
     mMainLayout = new QVBoxLayout(this);
 
-    mMainLayout->addWidget(mSearchEdit);
-
     mViewLayout = new QHBoxLayout;
     mViewLayout->addWidget(mAppView, APP_VIEW_STRETCH);
     mViewLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
     mMainLayout->addLayout(mViewLayout);
 
     mButtonsLayout = new QHBoxLayout;
-    mButtonsLayout->addWidget(mAboutButton);
+    mButtonsLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
     mButtonsLayout->addStretch();
+    mButtonsLayout->addWidget(mAboutButton);
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addWidget(mPowerButton);
     mMainLayout->addLayout(mButtonsLayout);
