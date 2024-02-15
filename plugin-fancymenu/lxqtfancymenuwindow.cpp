@@ -217,26 +217,26 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &LXQtFancyMenuWindow::activateCategory);
 
-    mMainLayout = new QVBoxLayout(this);
-
-    mViewLayout = new QHBoxLayout;
+    mMainLayout = new QHBoxLayout(this);
     mButtonsLayout = new QHBoxLayout;
-    mLowerLayout = new QHBoxLayout;
-    
-    mViewLayout->addWidget(mAppView, APP_VIEW_STRETCH);
-    mViewLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
-    
+
+    mLeftLayout = new QVBoxLayout;
+    mRightLayout = new QVBoxLayout;
+
     mButtonsLayout->addWidget(mAboutButton);
     mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mPowerButton);
-
-    mLowerLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
-    mLowerLayout->addLayout(mButtonsLayout, CAT_VIEW_STRETCH);
     
-    mMainLayout->addLayout(mViewLayout);
-    mMainLayout->addLayout(mLowerLayout);
+    mLeftLayout->addWidget(mAppView, APP_VIEW_STRETCH);
+    mLeftLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
+    
+    mRightLayout->addWidget(mCategoryEdit, CAT_VIEW_STRETCH);
+    mRightLayout->addLayout(mButtonsLayout, CAT_VIEW_STRETCH);
+    
+    mMainLayout->addLayout(mLeftLayout);
+    mMainLayout->addLayout(mRightLayout);
 
     updateButtonIconSize();
 
