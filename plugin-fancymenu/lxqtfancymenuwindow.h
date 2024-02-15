@@ -127,10 +127,10 @@ private:
     static const int APP_VIEW_STRETCH = 3;
     static const int CAT_VIEW_STRETCH = 2;
 
-    QVBoxLayout *mMainLayout;
+    QHBoxLayout *mMainLayout;
     QHBoxLayout *mButtonsLayout;
-    QHBoxLayout *mViewLayout;
-    QHBoxLayout *mLowerLayout;
+    QHVoxLayout *mLeftLayout;
+    QHBoxLayout *mRightLayout;
 
     QToolButton *mSettingsButton;
     QToolButton *mPowerButton;
