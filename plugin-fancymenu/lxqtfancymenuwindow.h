@@ -129,7 +129,7 @@ private:
 
     QVBoxLayout *mMainLayout;
     QHBoxLayout *mButtonsLayout;
-    QHBoxLayout *mUpperLayout;
+    QHBoxLayout *mViewLayout;
     QHBoxLayout *mLowerLayout;
 
     QToolButton *mSettingsButton;
