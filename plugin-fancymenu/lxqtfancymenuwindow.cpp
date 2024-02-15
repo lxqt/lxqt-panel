@@ -227,14 +227,14 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addWidget(mPowerButton);
     
-    mLeftLayout->addWidget(mAppView, APP_VIEW_STRETCH);
-    mLeftLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
+    mLeftLayout->addWidget(mAppView);
+    mLeftLayout->addWidget(mSearchEdit);
     
-    mRightLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
-    mRightLayout->addLayout(mButtonsLayout, CAT_VIEW_STRETCH);
+    mRightLayout->addWidget(mCategoryView);
+    mRightLayout->addLayout(mButtonsLayout);
     
-    mMainLayout->addLayout(mLeftLayout);
-    mMainLayout->addLayout(mRightLayout);
+    mMainLayout->addLayout(mLeftLayout, APP_VIEW_STRETCH);
+    mMainLayout->addLayout(mRightLayout, CAT_VIEW_STRETCH);
 
     updateButtonIconSize();
 
