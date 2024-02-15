@@ -227,7 +227,9 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mViewLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
     
     mButtonsLayout->addWidget(mAboutButton);
+    mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mSettingsButton);
+    mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mPowerButton);
 
     mLowerLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
