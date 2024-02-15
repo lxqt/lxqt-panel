@@ -227,7 +227,6 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mLowerLayout = new QHBoxLayout;
 
     mButtonsLayout = new QHBoxLayout;
-    mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mAboutButton);
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addWidget(mPowerButton);
