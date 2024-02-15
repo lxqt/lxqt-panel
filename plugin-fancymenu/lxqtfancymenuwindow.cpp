@@ -232,7 +232,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mLeftLayout->addWidget(mAppView, APP_VIEW_STRETCH);
     mLeftLayout->addWidget(mSearchEdit, APP_VIEW_STRETCH);
     
-    mRightLayout->addWidget(mCategoryEdit, CAT_VIEW_STRETCH);
+    mRightLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
     mRightLayout->addLayout(mButtonsLayout, CAT_VIEW_STRETCH);
     
     mMainLayout->addLayout(mLeftLayout);
@@ -761,7 +761,7 @@ void LXQtFancyMenuWindow::setButtonPosition(LXQtFancyMenuButtonPosition pos)
 
 void LXQtFancyMenuWindow::setCategoryPosition(LXQtFancyMenuCategoryPosition pos)
 {
-    mViewLayout->removeWidget(mCategoryView);
+    mRightLayout->removeWidget(mCategoryView);
     int idx = 0;
     if(pos == LXQtFancyMenuCategoryPosition::Right)
         idx = -1;
