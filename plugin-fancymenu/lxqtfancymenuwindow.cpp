@@ -740,7 +740,7 @@ void LXQtFancyMenuWindow::setFilterClear(bool newFilterClear)
     }
 }
 
-void LXQtFancyMenuWindow::setButtonPosition(LXQtFancyMenuButtonPosition pos)
+/*void LXQtFancyMenuWindow::setButtonPosition(LXQtFancyMenuButtonPosition pos)
 {
     mMainLayout->removeItem(mButtonsLayout);
     int idx = 0;
@@ -758,7 +758,7 @@ void LXQtFancyMenuWindow::setCategoryPosition(LXQtFancyMenuCategoryPosition pos)
         idx = -1;
 
     mMainLayout->insertWidget(idx, mCategoryView, CAT_VIEW_STRETCH);
-}
+}*/
 
 void LXQtFancyMenuWindow::updateButtonIconSize()
 {
