@@ -766,7 +766,7 @@ void LXQtFancyMenuWindow::setCategoryPosition(LXQtFancyMenuCategoryPosition pos)
     if(pos == LXQtFancyMenuCategoryPosition::Right)
         idx = -1;
 
-    mViewLayout->insertWidget(idx, mCategoryView, CAT_VIEW_STRETCH);
+    mRightLayout->insertWidget(idx, mCategoryView, CAT_VIEW_STRETCH);
 }
 
 void LXQtFancyMenuWindow::updateButtonIconSize()
