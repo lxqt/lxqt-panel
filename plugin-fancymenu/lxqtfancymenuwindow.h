@@ -42,6 +42,7 @@ class QModelIndex;
 
 class QHBoxLayout;
 class QVBoxLayout;
+class QGridLayout;
 
 class XdgMenu;
 
@@ -127,7 +128,7 @@ private:
     static const int APP_VIEW_STRETCH = 3;
     static const int CAT_VIEW_STRETCH = 2;
 
-    QHBoxLayout *mMainLayout;
+    QGridLayout *mMainLayout;
     QHBoxLayout *mButtonsLayout;
     QVBoxLayout *mLeftLayout;
     QVBoxLayout *mRightLayout;
