@@ -15,4 +15,5 @@ target_link_libraries(lxqt-panel-backend-common
     Qt6::Gui
 )
 
+add_subdirectory(wayland)
 add_subdirectory(xcb)
