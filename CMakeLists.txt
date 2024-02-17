@@ -43,6 +43,8 @@ find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-globalkeys-ui ${LXQT_GLOBALKEYS_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
 
+find_package(LayerShellQt REQUIRED)
+
 # Patch Version
 set(LXQT_PANEL_PATCH_VERSION 0)
 set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})

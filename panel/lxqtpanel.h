@@ -42,6 +42,10 @@ class QMenu;
 class Plugin;
 class QAbstractItemModel;
 
+namespace LayerShellQt {
+class Window;
+}
+
 namespace LXQt {
 class Settings;
 class PluginInfo;
@@ -687,6 +691,8 @@ private:
      * @brief The animation used for showing/hiding an auto-hiding panel.
      */
     QPropertyAnimation *mAnimation;
+
+    LayerShellQt::Window *mLayerWindow;
 
     /**
      * @brief Flag for providing the configuration options in panel's context menu
