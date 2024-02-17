@@ -50,7 +50,8 @@
 #include "lxqttaskgroup.h"
 #include "../panel/pluginsettings.h"
 
-#include "lxqttaskbarbackend_x11.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/lxqtpanelapplication.h"
 
 using namespace LXQt;
 
@@ -93,9 +94,9 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mPlaceHolder->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     mLayout->addWidget(mPlaceHolder);
 
-    // Create model
-    //TODO: use backend factory
-    mBackend = new LXQtTaskbarX11Backend(this);
+    // Get backend
+    LXQtPanelApplication *a = static_cast<LXQtPanelApplication*>(qApp);
+    mBackend = a->getWMBackend();
 
     QTimer::singleShot(0, this, &LXQtTaskBar::settingsChanged);
     setAcceptDrops(true);
