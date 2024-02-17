@@ -521,7 +521,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 
     const LXQtTaskBarWindowState state = mBackend->getWindowState(mWindow);
 
-    QMenu * menu = new QMenu(tr("Application"));
+    QMenu * menu = new QMenu(tr("Application"), this);
     menu->setAttribute(Qt::WA_DeleteOnClose);
     QAction* a;
 
