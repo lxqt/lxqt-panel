@@ -57,7 +57,7 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     Q_ASSERT(parent);
 
     setObjectName(groupName);
-    setText(groupName);
+    setTextExplicitly(groupName);
 
     connect(this,   &LXQtTaskGroup::clicked,                           this, &LXQtTaskGroup::onClicked);
     connect(parent, &LXQtTaskBar::buttonRotationRefreshed,             this, &LXQtTaskGroup::setAutoRotation);
@@ -336,7 +336,7 @@ void LXQtTaskGroup::regroup()
 
         if (button)
         {
-            setText(button->text());
+            setTextExplicitly(button->text());
             setToolTip(button->toolTip());
             setWindowId(button->windowId());
         }
@@ -347,7 +347,7 @@ void LXQtTaskGroup::regroup()
     {
         mSingleButton = false;
         QString t = QString(QStringLiteral("%1 - %2 windows")).arg(mGroupName).arg(cont);
-        setText(t);
+        setTextExplicitly(t);
         setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
     }
 }
