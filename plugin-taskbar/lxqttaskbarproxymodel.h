@@ -4,7 +4,7 @@
 #include <QAbstractListModel>
 #include <QVector>
 
-#include "lxqttaskbartypes.h"
+#include "../panel/backends/lxqttaskbartypes.h"
 
 class ILXQtTaskbarAbstractBackend;
 
