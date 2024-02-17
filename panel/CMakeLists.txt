@@ -147,6 +147,7 @@ target_link_libraries(${PROJECT}
     KF6::WindowSystem
     Qt6::WaylandClient # TODO: Move to backend folder
     Qt6::Concurrent
+    LayerShellQt::Interface
     ${STATIC_PLUGINS}
 )
 
