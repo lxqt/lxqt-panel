@@ -25,22 +25,35 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
 #include "lxqtpanelapplication.h"
 #include "lxqtpanelapplication_p.h"
-#include "lxqtpanel.h"
+
 #include "config/configpaneldialog.h"
-#include <LXQt/Settings>
-#include <QtDebug>
-#include <QUuid>
-#include <QScreen>
-#include <QWindow>
+#include "lxqtpanel.h"
+
 #include <QCommandLineParser>
+#include <QScreen>
+#include <QUuid>
+#include <QWindow>
+#include <QtDebug>
+#include <LXQt/Settings>
+
+#include "backends/xcb/lxqttaskbarbackend_x11.h"
+
+ILXQtTaskbarAbstractBackend *createWMBackend()
+{
+    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        return new LXQtTaskbarX11Backend;
+
+    Q_ASSERT_X(false, "createWMBackend()", "Only X11 supported!");
+    return nullptr;
+}
 
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
     : mSettings(nullptr),
       q_ptr(q)
 {
+    mWMBackend = createWMBackend();
 }
 
 
@@ -288,6 +301,12 @@ bool LXQtPanelApplication::isPluginSingletonAndRunning(QString const & pluginId)
             return true;
 
     return false;
+}
+
+ILXQtTaskbarAbstractBackend *LXQtPanelApplication::getWMBackend() const
+{
+    Q_D(const LXQtPanelApplication);
+    return d->mWMBackend;
 }
 
 // See LXQtPanelApplication::LXQtPanelApplication for why this isn't good.

@@ -8,9 +8,6 @@ set(HEADERS
     lxqttaskgroup.h
     lxqtgrouppopup.h
 
-    ilxqttaskbarabstractbackend.h
-    lxqttaskbartypes.h
-    lxqttaskbarbackend_x11.h
     lxqttaskbarproxymodel.h
 )
 
@@ -22,8 +19,6 @@ set(SOURCES
     lxqttaskgroup.cpp
     lxqtgrouppopup.cpp
 
-    ilxqttaskbarabstractbackend.cpp
-    lxqttaskbarbackend_x11.cpp
     lxqttaskbarproxymodel.cpp
 )
 

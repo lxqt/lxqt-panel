@@ -42,7 +42,7 @@
 #include <QMenu>
 #include <XdgIcon>
 
-#include "ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 /************************************************
 
