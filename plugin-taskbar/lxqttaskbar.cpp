@@ -51,7 +51,7 @@
 #include "lxqttaskgroup.h"
 #include "../panel/pluginsettings.h"
 
-#include "lxqttaskbarbackend_x11.h"
+#include "backends/xcb/lxqttaskbarbackend_x11.h"
 
 using namespace LXQt;
 

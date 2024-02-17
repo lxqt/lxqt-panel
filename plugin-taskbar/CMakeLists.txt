@@ -10,8 +10,9 @@ set(HEADERS
 
     ilxqttaskbarabstractbackend.h
     lxqttaskbartypes.h
-    lxqttaskbarbackend_x11.h
     lxqttaskbarproxymodel.h
+
+    backends/xcb/lxqttaskbarbackend_x11.h
 )
 
 set(SOURCES
@@ -23,8 +24,9 @@ set(SOURCES
     lxqtgrouppopup.cpp
 
     ilxqttaskbarabstractbackend.cpp
-    lxqttaskbarbackend_x11.cpp
     lxqttaskbarproxymodel.cpp
+
+    backends/xcb/lxqttaskbarbackend_x11.cpp
 )
 
 set(UIS
