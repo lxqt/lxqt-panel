@@ -128,7 +128,7 @@ LXQtTaskButton::~LXQtTaskButton() = default;
 void LXQtTaskButton::updateText()
 {
     QString title = mBackend->getWindowTitle(mWindow);
-    setText(title.replace(QStringLiteral("&"), QStringLiteral("&&")));
+    setTextExplicitly(title.replace(QStringLiteral("&"), QStringLiteral("&&")));
     setToolTip(title);
 }
 
@@ -312,6 +312,30 @@ QMimeData * LXQtTaskButton::mimeData()
     stream << (qlonglong)(mWindow);
     mimedata->setData(mimeDataFormat(), ba);
     return mimedata;
+}
+
+/*!
+ * \brief LXQtTaskButton::setTextExplicitly
+ * \param str
+ *
+ * This is needed to workaround flickering caused by KAcceleratorManager
+ * This class is hooked by KDE Integration and adds accelerators to button text
+ * (Adds some '&' characters)
+ * This triggers widget update but soon after text is reset to original value
+ * This triggers a KAcceleratorManager update which again adds accelerator
+ * This happens in loop
+ *
+ * TODO: investigate proper solution
+ */
+void LXQtTaskButton::setTextExplicitly(const QString &str)
+{
+    if(str == mExplicitlySetText)
+    {
+        return;
+    }
+
+    mExplicitlySetText = str;
+    setText(mExplicitlySetText);
 }
 
 /************************************************
@@ -688,6 +712,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     menu->addSeparator();
     a = menu->addAction(XdgIcon::fromTheme(QStringLiteral("process-stop")), tr("&Close"));
     connect(a, &QAction::triggered, this, &LXQtTaskButton::closeApplication);
+
     menu->setGeometry(mParentTaskBar->panel()->calculatePopupWindowPos(mapToGlobal(event->pos()), menu->sizeHint()));
     mPlugin->willShowWindow(menu);
     menu->show();
