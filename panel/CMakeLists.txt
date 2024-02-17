@@ -3,6 +3,10 @@ set(PROJECT lxqt-panel)
 # TODO
 add_subdirectory(backends)
 
+# TODO: move to backend folder
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS WaylandClient Concurrent)
+
+
 set(PRIV_HEADERS
     panelpluginsmodel.h
     windownotifier.h
@@ -26,7 +30,11 @@ set(PRIV_HEADERS
     backends/lxqttaskbartypes.h
 
     backends/lxqttaskbardummybackend.h
+
     backends/xcb/lxqttaskbarbackend_x11.h
+
+    backends/wayland/lxqttaskbarbackendwayland.h
+    backends/wayland/lxqttaskbarplasmawindowmanagment.h
 )
 
 # using LXQt namespace in the public headers.
@@ -61,7 +69,11 @@ set(SOURCES
     backends/ilxqttaskbarabstractbackend.cpp
 
     backends/lxqttaskbardummybackend.cpp
+
     backends/xcb/lxqttaskbarbackend_x11.cpp
+
+    backends/wayland/lxqttaskbarbackendwayland.cpp
+    backends/wayland/lxqttaskbarplasmawindowmanagment.cpp
 )
 
 set(UI
@@ -116,10 +128,18 @@ add_executable(${PROJECT}
     ${UI}
 )
 
+# TODO: move to backend folder
+qt6_generate_wayland_protocol_client_sources(${PROJECT}
+FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/wayland/protocols/plasma-window-management.xml
+)
+
 target_link_libraries(${PROJECT}
     ${LIBRARIES}
     ${QTX_LIBRARIES}
     KF6::WindowSystem
+    Qt6::WaylandClient # TODO: Move to backend folder
+    Qt6::Concurrent
     ${STATIC_PLUGINS}
 )
 
