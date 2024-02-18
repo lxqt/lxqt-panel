@@ -1106,7 +1106,7 @@ bool LXQtPanel::event(QEvent *event)
     switch (event->type())
     {
     case QEvent::ContextMenu:
-        showPopupMenu();
+        showPopupMenu(static_cast<QContextMenuEvent *>(event)->globalPos());
         break;
 
     case QEvent::LayoutRequest:
@@ -1171,7 +1171,7 @@ void LXQtPanel::showEvent(QShowEvent *event)
 /************************************************
 
  ************************************************/
-void LXQtPanel::showPopupMenu(Plugin *plugin)
+void LXQtPanel::showPopupMenu(const QPoint& cursorPos, Plugin *plugin)
 {
     PopupMenu * menu = new PopupMenu(tr("Panel"), this);
     menu->setAttribute(Qt::WA_DeleteOnClose);
@@ -1239,7 +1239,7 @@ void LXQtPanel::showPopupMenu(Plugin *plugin)
      * sometimes wrongly (it seems that this bug is somehow connected to misinterpretation
      * of QDesktopWidget::availableGeometry)
      */
-    menu->setGeometry(calculatePopupWindowPos(QCursor::pos(), menu->sizeHint()));
+    menu->setGeometry(calculatePopupWindowPos(cursorPos, menu->sizeHint()));
     willShowWindow(menu);
     menu->show();
 }
