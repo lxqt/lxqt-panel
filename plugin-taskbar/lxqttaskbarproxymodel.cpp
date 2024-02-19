@@ -1,6 +1,6 @@
 #include "lxqttaskbarproxymodel.h"
 
-#include "ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 #include <QIcon>
 

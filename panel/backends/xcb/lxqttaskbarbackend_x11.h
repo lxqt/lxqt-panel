@@ -1,7 +1,7 @@
 #ifndef LXQTTASKBARBACKEND_X11_H
 #define LXQTTASKBARBACKEND_X11_H
 
-#include "ilxqttaskbarabstractbackend.h"
+#include "../ilxqttaskbarabstractbackend.h"
 
 //TODO: make PIMPL to forward declare NET::Properties, Display, xcb_connection_t
 #include <netwm_def.h>

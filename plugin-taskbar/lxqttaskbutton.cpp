@@ -51,7 +51,7 @@
 #include <QDesktopWidget>
 #include <QScreen>
 
-#include "ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 #include <chrono>
 

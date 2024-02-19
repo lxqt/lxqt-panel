@@ -37,10 +37,24 @@
 #include <QWindow>
 #include <QCommandLineParser>
 
+#include "backends/xcb/lxqttaskbarbackend_x11.h"
+
+#include <QX11Info> //TODO: remove in Qt6
+
+ILXQtTaskbarAbstractBackend *createWMBackend()
+{
+    if(QX11Info::isPlatformX11())
+        return new LXQtTaskbarX11Backend;
+
+    Q_ASSERT_X(false, "createWMBackend()", "Only X11 supported!");
+    return nullptr;
+}
+
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
     : mSettings(nullptr),
       q_ptr(q)
 {
+    mWMBackend = createWMBackend();
 }
 
 
@@ -288,6 +302,12 @@ bool LXQtPanelApplication::isPluginSingletonAndRunning(QString const & pluginId)
             return true;
 
     return false;
+}
+
+ILXQtTaskbarAbstractBackend *LXQtPanelApplication::getWMBackend() const
+{
+    Q_D(const LXQtPanelApplication);
+    return d->mWMBackend;
 }
 
 // See LXQtPanelApplication::LXQtPanelApplication for why this isn't good.

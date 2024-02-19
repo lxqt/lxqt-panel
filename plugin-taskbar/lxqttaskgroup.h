@@ -33,7 +33,7 @@
 
 #include "lxqttaskbutton.h"
 
-#include "lxqttaskbartypes.h"
+#include "../panel/backends/lxqttaskbartypes.h"
 
 class QVBoxLayout;
 class ILXQtPanelPlugin;
