@@ -50,6 +50,11 @@ void LXQtTaskbarX11Backend::onWindowChanged(WId windowId, NET::Properties prop, 
         return;
     }
 
+    if (prop.testFlag(NET::WMGeometry))
+    {
+        emit windowPropertyChanged(windowId, int(LXQtTaskBarWindowProperty::Geometry));
+    }
+
     if (prop2.testFlag(NET::WM2WindowClass))
     {
         emit windowPropertyChanged(windowId, int(LXQtTaskBarWindowProperty::WindowClass));

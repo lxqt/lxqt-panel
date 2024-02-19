@@ -22,6 +22,7 @@ enum class LXQtTaskBarWindowProperty
     Title = 0,
     Icon,
     State,
+    Geometry,
     Urgency,
     WindowClass,
     Workspace
