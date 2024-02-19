@@ -65,6 +65,9 @@ public:
 
     virtual void refreshIconGeometry(WId windowId, const QRect &geom) = 0;
 
+    // Panel internal
+    virtual bool isAreaOverlapped(const QRect& area) const = 0;
+
 signals:
     void reloaded();
 

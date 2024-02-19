@@ -585,3 +585,35 @@ void LXQtTaskbarX11Backend::refreshIconGeometry(WId windowId, QRect const & geom
     nrect.size.width = geom.width();
     info.setIconGeometry(nrect);
 }
+
+bool LXQtTaskbarX11Backend::isAreaOverlapped(const QRect &area) const
+{
+    //TODO: reuse our m_windows cache?
+    QFlags<NET::WindowTypeMask> ignoreList;
+    ignoreList |= NET::DesktopMask;
+    ignoreList |= NET::DockMask;
+    ignoreList |= NET::SplashMask;
+    ignoreList |= NET::MenuMask;
+    ignoreList |= NET::PopupMenuMask;
+    ignoreList |= NET::DropdownMenuMask;
+    ignoreList |= NET::TopMenuMask;
+    ignoreList |= NET::NotificationMask;
+
+    const auto wIds = KX11Extras::stackingOrder();
+    for (auto const wId : wIds)
+    {
+        KWindowInfo info(wId, NET::WMWindowType | NET::WMState | NET::WMFrameExtents | NET::WMDesktop);
+        if (info.valid()
+            // skip windows that are on other desktops
+            && info.isOnCurrentDesktop()
+            // skip shaded, minimized or hidden windows
+            && !(info.state() & (NET::Shaded | NET::Hidden))
+            // check against the list of ignored types
+            && !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
+        {
+            if (info.frameGeometry().intersects(area))
+                return true;
+        }
+    }
+    return false;
+}
