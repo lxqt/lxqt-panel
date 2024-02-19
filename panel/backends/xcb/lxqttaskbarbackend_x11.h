@@ -61,6 +61,9 @@ public:
 
     virtual void refreshIconGeometry(WId windowId, const QRect &geom) override;
 
+    // Panel internal
+    virtual bool isAreaOverlapped(const QRect& area) const override;
+
 private slots:
     void onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2);
     void onWindowAdded(WId windowId);
