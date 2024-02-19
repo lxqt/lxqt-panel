@@ -51,7 +51,9 @@
 #include <KWindowSystem>
 #include <KX11Extras>
 #include <NETWM>
-#include <KWindowInfo>
+
+#include "backends/ilxqttaskbarabstractbackend.h"
+
 
 // Turn on this to show the time required to load each plugin during startup
 // #define DEBUG_PLUGIN_LOADTIME
@@ -242,18 +244,21 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         QTimer::singleShot(PANEL_HIDE_FIRST_TIME, this, SLOT(hidePanel()));
     }
 
-    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, [this] {
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a->getWMBackend();
+
+    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, [this] {
         if (mHidable && mHideOnOverlap && !mHidden)
         {
             mShowDelayTimer.stop();
             hidePanel();
         }
     });
-    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, [this] {
+    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, [this] {
         if (mHidable && mHideOnOverlap && mHidden && !isPanelOverlapped())
             mShowDelayTimer.start();
     });
-    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, [this] {
+    connect(wmBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, [this] {
        if (mHidable && mHideOnOverlap)
        {
             if (!mHidden)
@@ -265,12 +270,12 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
                 mShowDelayTimer.start();
        }
     });
-    connect(KX11Extras::self(),
-            static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged),
-            this, [this] (WId /* id */, NET::Properties prop, NET::Properties2) {
+    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,
+            this, [this] (WId /* id */, int prop)
+    {
         if (mHidable && mHideOnOverlap
             // when a window is moved, resized, shaded, or minimized
-            && (prop.testFlag(NET::WMGeometry) || prop.testFlag(NET::WMState)))
+            && (prop == int(LXQtTaskBarWindowProperty::Geometry) || prop == int(LXQtTaskBarWindowProperty::State)))
         {
             if (!mHidden)
             {
@@ -419,7 +424,8 @@ LXQtPanel::~LXQtPanel()
 void LXQtPanel::show()
 {
     QWidget::show();
-    KX11Extras::setOnDesktop(effectiveWinId(), NET::OnAllDesktops);
+    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>()) //TODO: cache in bool isPlatformX11
+        KX11Extras::setOnDesktop(effectiveWinId(), NET::OnAllDesktops);
 }
 
 
@@ -1115,22 +1121,25 @@ bool LXQtPanel::event(QEvent *event)
 
     case QEvent::WinIdChange:
     {
-        // qDebug() << "WinIdChange" << hex << effectiveWinId();
-        if(effectiveWinId() == 0)
-            break;
+        if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        {
+            // qDebug() << "WinIdChange" << hex << effectiveWinId();
+            if(effectiveWinId() == 0)
+                break;
 
-        // Sometimes Qt needs to re-create the underlying window of the widget and
-        // the winId() may be changed at runtime. So we need to reset all X11 properties
-        // when this happens.
+            // Sometimes Qt needs to re-create the underlying window of the widget and
+            // the winId() may be changed at runtime. So we need to reset all X11 properties
+            // when this happens.
             qDebug() << "WinIdChange" << Qt::hex << effectiveWinId() << "handle" << windowHandle() << windowHandle()->screen();
 
-        // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
-        // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
-        // Let's use KWindowSystem for that
-        KX11Extras::setType(effectiveWinId(), NET::Dock);
+            // Qt::WA_X11NetWmWindowTypeDock becomes ineffective in Qt 5
+            // See QTBUG-39887: https://bugreports.qt-project.org/browse/QTBUG-39887
+            // Let's use KWindowSystem for that
+            KX11Extras::setType(effectiveWinId(), NET::Dock);
 
-        updateWmStrut(); // reserve screen space for the panel
-        KX11Extras::setOnAllDesktops(effectiveWinId(), true);
+            updateWmStrut(); // reserve screen space for the panel
+            KX11Extras::setOnAllDesktops(effectiveWinId(), true);
+        }
         break;
     }
     case QEvent::DragEnter:
@@ -1416,33 +1425,11 @@ void LXQtPanel::userRequestForDeletion()
 
 bool LXQtPanel::isPanelOverlapped() const
 {
-    QFlags<NET::WindowTypeMask> ignoreList;
-    ignoreList |= NET::DesktopMask;
-    ignoreList |= NET::DockMask;
-    ignoreList |= NET::SplashMask;
-    ignoreList |= NET::MenuMask;
-    ignoreList |= NET::PopupMenuMask;
-    ignoreList |= NET::DropdownMenuMask;
-    ignoreList |= NET::TopMenuMask;
-    ignoreList |= NET::NotificationMask;
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
 
-    const auto wIds = KX11Extras::stackingOrder();
-    for (auto const wId : wIds)
-    {
-        KWindowInfo info(wId, NET::WMWindowType | NET::WMState | NET::WMFrameExtents | NET::WMDesktop);
-        if (info.valid()
-            // skip windows that are on other desktops
-            && info.isOnCurrentDesktop()
-            // skip shaded, minimized or hidden windows
-            && !(info.state() & (NET::Shaded | NET::Hidden))
-            // check against the list of ignored types
-            && !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
-        {
-            if (info.frameGeometry().intersects(mGeometry))
-                return true;
-        }
-    }
-    return false;
+    //TODO: calculate geometry on wayland
+    QRect area = mGeometry;
+    return a->getWMBackend()->isAreaOverlapped(area);
 }
 
 void LXQtPanel::showPanel(bool animate)
