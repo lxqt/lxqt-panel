@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>ਹਟਾਉਣਯੋਗ ਮੀਡੀਆ/ਡਿਵਾਈਸ ਮੈਨੇਜਰ: ਗਲੋਬਲ ਸ਼ਾਰਟਕੱਟ &apos;%1&apos; ਰਜਿਸਟਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>
