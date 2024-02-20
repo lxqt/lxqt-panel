@@ -102,6 +102,7 @@ class LXQtTaskBarPlasmaWindowManagment : public QWaylandClientExtensionTemplate<
     Q_OBJECT
 public:
     static constexpr int version = 16;
+
     LXQtTaskBarPlasmaWindowManagment();
     ~LXQtTaskBarPlasmaWindowManagment();
 
