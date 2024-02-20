@@ -1123,7 +1123,7 @@ LXQtTaskBarPlasmaWindowManagment::LXQtTaskBarPlasmaWindowManagment()
 {
     connect(this, &QWaylandClientExtension::activeChanged, this, [this] {
         if (!isActive()) {
-            wl_proxy_destroy(reinterpret_cast<wl_proxy *>(object()));
+            org_kde_plasma_window_management_destroy(object());
         }
     });
 }
@@ -1131,7 +1131,7 @@ LXQtTaskBarPlasmaWindowManagment::LXQtTaskBarPlasmaWindowManagment()
 LXQtTaskBarPlasmaWindowManagment::~LXQtTaskBarPlasmaWindowManagment()
 {
     if (isActive()) {
-        wl_proxy_destroy(reinterpret_cast<wl_proxy *>(object()));
+        org_kde_plasma_window_management_destroy(object());
     }
 }
 
