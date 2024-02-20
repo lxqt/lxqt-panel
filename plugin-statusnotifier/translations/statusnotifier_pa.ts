@@ -12,7 +12,7 @@
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
         <location filename="../statusnotifierconfiguration.ui" line="38"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation type="unfinished"></translation>
+        <translation>ਆਪੇ-ਓਹਲੇ ਹੋਣ ਵਾਲੀ ਚੀਜ਼ ਇਸ ਸਮੇਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ, ਜੇ ਇਸ ਲਈ ਧਿਆਨ ਦੇਣ ਦੀ ਲੋੜ ਹੋਵੇ।</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="31"/>
