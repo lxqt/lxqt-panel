@@ -35,6 +35,7 @@ set(PRIV_HEADERS
 
     backends/wayland/lxqttaskbarbackendwayland.h
     backends/wayland/lxqttaskbarplasmawindowmanagment.h
+    backends/wayland/lxqtplasmavirtualdesktop.h
 )
 
 # using LXQt namespace in the public headers.
@@ -74,6 +75,7 @@ set(SOURCES
 
     backends/wayland/lxqttaskbarbackendwayland.cpp
     backends/wayland/lxqttaskbarplasmawindowmanagment.cpp
+    backends/wayland/lxqtplasmavirtualdesktop.cpp
 )
 
 set(UI
@@ -132,6 +134,11 @@ add_executable(${PROJECT}
 qt6_generate_wayland_protocol_client_sources(${PROJECT}
 FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/wayland/protocols/plasma-window-management.xml
+)
+
+qt6_generate_wayland_protocol_client_sources(${PROJECT}
+FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/wayland/protocols/org-kde-plasma-virtual-desktop.xml
 )
 
 target_link_libraries(${PROJECT}

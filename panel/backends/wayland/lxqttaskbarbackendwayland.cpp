@@ -1,6 +1,7 @@
 #include "lxqttaskbarbackendwayland.h"
 
 #include "lxqttaskbarplasmawindowmanagment.h"
+#include "lxqtplasmavirtualdesktop.h"
 
 #include <QIcon>
 #include <QTime>
@@ -25,6 +26,7 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
     ILXQtTaskbarAbstractBackend(parent)
 {
     m_managment.reset(new LXQtTaskBarPlasmaWindowManagment);
+    m_workspaceInfo.reset(new LXQtPlasmaWaylandWorkspaceInfo);
 
     connect(m_managment.get(), &LXQtTaskBarPlasmaWindowManagment::windowCreated, this, [this](LXQtTaskBarPlasmaWindow *window) {
         connect(window, &LXQtTaskBarPlasmaWindow::initialStateDone, this, [this, window] {
@@ -39,6 +41,17 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
     //     //     this->dataChanged(window.get(), StackingOrder);
     //     // }
     // });
+
+    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::currentDesktopChanged, this,
+            [this](){
+                int idx = m_workspaceInfo->position(m_workspaceInfo->currentDesktop());
+                emit currentWorkspaceChanged(idx);
+            });
+
+    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::numberOfDesktopsChanged,
+            this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged);
+
+    //TODO: connect name changed
 }
 
 bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
@@ -291,12 +304,13 @@ WId LXQtTaskbarWaylandBackend::getActiveWindow() const
 
 int LXQtTaskbarWaylandBackend::getWorkspacesCount() const
 {
-    return 1; //TODO
+    return m_workspaceInfo->numberOfDesktops();
 }
 
 QString LXQtTaskbarWaylandBackend::getWorkspaceName(int idx) const
 {
-    return QStringLiteral("TestWorkspace");
+    //TODO: optimize
+    return m_workspaceInfo->desktopNames().value(idx, QStringLiteral("ERROR"));
 }
 
 int LXQtTaskbarWaylandBackend::getCurrentWorkspace() const
