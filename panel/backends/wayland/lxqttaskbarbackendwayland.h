@@ -8,6 +8,7 @@
 
 class LXQtTaskBarPlasmaWindow;
 class LXQtTaskBarPlasmaWindowManagment;
+class LXQtPlasmaWaylandWorkspaceInfo;
 
 
 class LXQtTaskbarWaylandBackend : public ILXQtTaskbarAbstractBackend
@@ -76,6 +77,8 @@ private:
 
 private:
     LXQtTaskBarPlasmaWindow *getWindow(WId windowId) const;
+
+    std::unique_ptr<LXQtPlasmaWaylandWorkspaceInfo> m_workspaceInfo;
 
     std::unique_ptr<LXQtTaskBarPlasmaWindowManagment> m_managment;
 
