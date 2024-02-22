@@ -38,6 +38,7 @@
 #include <QtDebug>
 #include <LXQt/Settings>
 
+#include "backends/lxqttaskbardummybackend.h"
 #include "backends/xcb/lxqttaskbarbackend_x11.h"
 
 ILXQtTaskbarAbstractBackend *createWMBackend()
@@ -45,8 +46,13 @@ ILXQtTaskbarAbstractBackend *createWMBackend()
     if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
         return new LXQtTaskbarX11Backend;
 
-    Q_ASSERT_X(false, "createWMBackend()", "Only X11 supported!");
-    return nullptr;
+    qWarning() << "\n"
+               << "ERROR: Could not create a backend for window managment operations.\n"
+               << "Only X11 supported!\n"
+               << "Falling back to dummy backend. Some functions will not be available.\n"
+               << "\n";
+
+    return new LXQtTaskBarDummyBackend;
 }
 
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
