@@ -652,6 +652,10 @@ void LXQtPanel::setPanelGeometry(bool animate)
             setGeometry(rect);
         }
     }
+
+    // Make LayerShell apply changes immediatly
+    if(windowHandle())
+        windowHandle()->requestUpdate();
 }
 
 void LXQtPanel::setMargins()
