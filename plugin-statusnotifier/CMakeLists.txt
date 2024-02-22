@@ -1,7 +1,7 @@
 set(PLUGIN "statusnotifier")
 
 
-find_package(dbusmenu-qt6 REQUIRED)
+find_package(dbusmenu-lxqt REQUIRED)
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Concurrent)
 
 set(HEADERS
@@ -43,7 +43,7 @@ set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 list(APPEND SOURCES "${DBUS_SOURCES}")
 
 set(LIBRARIES
-    dbusmenu-qt6
+    dbusmenu-lxqt
     Qt6::Concurrent
 )
 
