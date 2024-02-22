@@ -14,3 +14,10 @@ install(FILES
     DESTINATION "${LXQT_ETC_XDG_DIR}/autostart"
     COMPONENT Runtime
 )
+
+install(FILES
+    lxqt-panel_wayland.desktop
+    DESTINATION "/usr/share/applications"
+    RENAME "lxqt-panel.desktop"
+    COMPONENT Runtime
+)
