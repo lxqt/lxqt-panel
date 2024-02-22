@@ -97,15 +97,30 @@ bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendA
 
 bool LXQtTaskbarWaylandBackend::reloadWindows()
 {
-    return false; //TODO
+    const QVector<WId> wids = getCurrentWindows();
+
+    // Force removal and re-adding
+    for(WId windowId : wids)
+    {
+        emit windowRemoved(windowId);
+    }
+    for(WId windowId : wids)
+    {
+        emit windowAdded(windowId);
+    }
+
+    return true;
 }
 
 QVector<WId> LXQtTaskbarWaylandBackend::getCurrentWindows() const
 {
-    QVector<WId> wids(windows.size());
-    for(const auto& window : std::as_const(windows))
+    QVector<WId> wids;
+    wids.reserve(wids.size());
+
+    for(const std::unique_ptr<LXQtTaskBarPlasmaWindow>& window : std::as_const(windows))
     {
-        wids << window->getWindowId();
+        if(window->acceptedInTaskBar)
+            wids << window->getWindowId();
     }
     return wids;
 }
