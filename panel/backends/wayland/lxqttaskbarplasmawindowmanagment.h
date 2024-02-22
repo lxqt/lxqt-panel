@@ -105,12 +105,19 @@ public:
     LXQtTaskBarPlasmaWindowManagment();
     ~LXQtTaskBarPlasmaWindowManagment();
 
+    inline bool isShowingDesktop() const { return m_isShowingDesktop; }
+
+protected:
+    void org_kde_plasma_window_management_show_desktop_changed(uint32_t state) override;
     void org_kde_plasma_window_management_window_with_uuid(uint32_t id, const QString &uuid) override;
     void org_kde_plasma_window_management_stacking_order_uuid_changed(const QString &uuids) override;
 
 Q_SIGNALS:
     void windowCreated(LXQtTaskBarPlasmaWindow *window);
     void stackingOrderChanged(const QString &uuids);
+
+private:
+    bool m_isShowingDesktop = false;
 };
 
 // class Q_DECL_HIDDEN WaylandTasksModel::Private

@@ -65,6 +65,10 @@ public:
     // Panel internal
     virtual bool isAreaOverlapped(const QRect& area) const override;
 
+    // Show Destop
+    virtual bool isShowingDesktop() const override;
+    virtual bool showDesktop(bool value) override;
+
 private:
     void addWindow(LXQtTaskBarPlasmaWindow *window);
     bool acceptWindow(LXQtTaskBarPlasmaWindow *window) const;
