@@ -507,6 +507,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
 
     QRect rect;
     LayerShellQt::Window::Anchors anchors;
+    LayerShellQt::Window::Anchor edge;
 
     if (isHorizontal())
     {
@@ -528,6 +529,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
         switch (mAlignment)
         {
         case LXQtPanel::AlignmentLeft:
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
             rect.moveLeft(currentScreen.left());
             break;
 
@@ -536,16 +538,24 @@ void LXQtPanel::setPanelGeometry(bool animate)
             break;
 
         case LXQtPanel::AlignmentRight:
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
             rect.moveRight(currentScreen.right());
             break;
+        }
+
+        if(lengthInPercents() && mLength == 100)
+        {
+            //Fill all available width
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
         }
 
         // Vert .......................
         if (mPosition == ILXQtPanel::PositionTop)
         {
             anchors.setFlag(LayerShellQt::Window::AnchorTop);
-            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
-            anchors.setFlag(LayerShellQt::Window::AnchorRight);
+            edge = LayerShellQt::Window::AnchorTop;
+
             if (mHidden)
                 rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE - 1);
             else
@@ -554,8 +564,8 @@ void LXQtPanel::setPanelGeometry(bool animate)
         else
         {
             anchors.setFlag(LayerShellQt::Window::AnchorBottom);
-            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
-            anchors.setFlag(LayerShellQt::Window::AnchorRight);
+            edge = LayerShellQt::Window::AnchorBottom;
+
             if (mHidden)
                 rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE + 1);
             else
@@ -582,6 +592,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
         switch (mAlignment)
         {
         case LXQtPanel::AlignmentLeft:
+            anchors.setFlag(LayerShellQt::Window::AnchorTop);
             rect.moveTop(currentScreen.top());
             break;
 
@@ -590,16 +601,24 @@ void LXQtPanel::setPanelGeometry(bool animate)
             break;
 
         case LXQtPanel::AlignmentRight:
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
             rect.moveBottom(currentScreen.bottom());
             break;
+        }
+
+        if(lengthInPercents() && mLength == 100)
+        {
+            //Fill all available width
+            anchors.setFlag(LayerShellQt::Window::AnchorTop);
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
         }
 
         // Horiz ......................
         if (mPosition == ILXQtPanel::PositionLeft)
         {
-            anchors.setFlag(LayerShellQt::Window::AnchorTop);
             anchors.setFlag(LayerShellQt::Window::AnchorLeft);
-            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
+            edge = LayerShellQt::Window::AnchorLeft;
+
             if (mHidden)
                 rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE - 1);
             else
@@ -607,9 +626,9 @@ void LXQtPanel::setPanelGeometry(bool animate)
         }
         else
         {
-            anchors.setFlag(LayerShellQt::Window::AnchorTop);
             anchors.setFlag(LayerShellQt::Window::AnchorRight);
-            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
+            edge = LayerShellQt::Window::AnchorRight;
+
             if (mHidden)
                 rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE + 1);
             else
@@ -618,7 +637,13 @@ void LXQtPanel::setPanelGeometry(bool animate)
     }
 
     if(mLayerWindow)
+    {
         mLayerWindow->setAnchors(anchors);
+        mLayerWindow->setExclusiveEdge(edge);
+
+        // Make LayerShell apply changes immediatly
+        windowHandle()->requestUpdate();
+    }
 
     if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
     if (rect != geometry())
@@ -647,10 +672,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
             setGeometry(rect);
         }
     }
-
-    // Make LayerShell apply changes immediatly
-    if(windowHandle())
-        windowHandle()->requestUpdate();
 }
 
 void LXQtPanel::setMargins()
@@ -774,6 +795,8 @@ void LXQtPanel::updateWmStrut()
     }
     else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
     {
+        //TODO: duplicated code, also set in setPanelGeometry()
+
         if (mReserveSpace)
         {
             switch (mPosition)
@@ -803,6 +826,8 @@ void LXQtPanel::updateWmStrut()
             mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorNone);
             mLayerWindow->setExclusiveZone(0);
         }
+
+        windowHandle()->requestUpdate();
     }
 }
 
