@@ -372,6 +372,23 @@ bool LXQtTaskbarWaylandBackend::isAreaOverlapped(const QRect &area) const
     return false;
 }
 
+bool LXQtTaskbarWaylandBackend::isShowingDesktop() const
+{
+    return m_managment->isShowingDesktop();
+}
+
+bool LXQtTaskbarWaylandBackend::showDesktop(bool value)
+{
+    enum LXQtTaskBarPlasmaWindowManagment::show_desktop flag_;
+    if(value)
+        flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_enabled;
+    else
+        flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_disabled;
+
+    m_managment->show_desktop(flag_);
+    return true;
+}
+
 void LXQtTaskbarWaylandBackend::addWindow(LXQtTaskBarPlasmaWindow *window)
 {
     if (findWindow(windows, window) != windows.end() || transients.contains(window))

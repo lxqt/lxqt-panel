@@ -1135,6 +1135,11 @@ LXQtTaskBarPlasmaWindowManagment::~LXQtTaskBarPlasmaWindowManagment()
     }
 }
 
+void LXQtTaskBarPlasmaWindowManagment::org_kde_plasma_window_management_show_desktop_changed(uint32_t state)
+{
+    m_isShowingDesktop = (state == show_desktop::show_desktop_enabled);
+}
+
 void LXQtTaskBarPlasmaWindowManagment::org_kde_plasma_window_management_window_with_uuid(uint32_t id, const QString &uuid)
 {
     Q_UNUSED(id)
