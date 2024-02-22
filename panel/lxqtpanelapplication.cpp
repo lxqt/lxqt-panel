@@ -107,6 +107,8 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
     QCoreApplication::setApplicationVersion(VERINFO);
 
+    QGuiApplication::setDesktopFileName(QLatin1String("lxqt-panel"));
+
     QCommandLineParser parser;
     parser.setApplicationDescription(QLatin1String("LXQt Panel"));
     parser.addHelpOption();
