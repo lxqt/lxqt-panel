@@ -25,6 +25,7 @@ set(PRIV_HEADERS
     backends/ilxqttaskbarabstractbackend.h
     backends/lxqttaskbartypes.h
 
+    backends/lxqttaskbardummybackend.h
     backends/xcb/lxqttaskbarbackend_x11.h
 )
 
@@ -59,6 +60,7 @@ set(SOURCES
 
     backends/ilxqttaskbarabstractbackend.cpp
 
+    backends/lxqttaskbardummybackend.cpp
     backends/xcb/lxqttaskbarbackend_x11.cpp
 )
 
