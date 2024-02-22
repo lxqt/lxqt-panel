@@ -677,6 +677,37 @@ void LXQtPanel::setPanelGeometry(bool animate)
             setGeometry(rect);
         }
     }
+
+    if(mLayerWindow)
+    {
+        // Emulate auto-hide on Wayland
+        // NOTE: we cannot move window out of screen so we make it smaller
+
+        // NOTE: a cleaner approach would be to use screen edge protocol
+        // but it's specific to KWin
+
+        if(mHidden && LXQtPanelWidget->isVisible())
+        {
+            // Make it blank
+            LXQtPanelWidget->hide();
+
+            // And make it small
+            if(isHorizontal())
+                resize(rect.width(), PANEL_HIDE_SIZE);
+            else
+                resize(PANEL_HIDE_SIZE, rect.height());
+        }
+        else if(!mHidden && !LXQtPanelWidget->isVisible())
+        {
+            // Restore contents
+            LXQtPanelWidget->show();
+
+            // And make it big again
+            resize(rect.size());
+        }
+
+        updateWmStrut();
+    }
 }
 
 void LXQtPanel::setMargins()
@@ -804,34 +835,37 @@ void LXQtPanel::updateWmStrut()
 
         if (mReserveSpace)
         {
+            LayerShellQt::Window::Anchor edge;
+
             switch (mPosition)
             {
             case LXQtPanel::PositionTop:
-                mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorTop);
-                mLayerWindow->setExclusiveZone(height());
+                edge = LayerShellQt::Window::AnchorTop;
                 break;
 
             case LXQtPanel::PositionBottom:
-                mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorBottom);
-                mLayerWindow->setExclusiveZone(height());
+                edge = LayerShellQt::Window::AnchorBottom;
                 break;
 
             case LXQtPanel::PositionLeft:
-                mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorLeft);
-                mLayerWindow->setExclusiveZone(width());
+                edge = LayerShellQt::Window::AnchorLeft;
                 break;
 
             case LXQtPanel::PositionRight:
-                mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorRight);
-                mLayerWindow->setExclusiveZone(width());
+                edge = LayerShellQt::Window::AnchorRight;
                 break;
             }
-        } else
+
+            mLayerWindow->setExclusiveEdge(edge);
+            mLayerWindow->setExclusiveZone(getReserveDimension());
+        }
+        else
         {
             mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorNone);
             mLayerWindow->setExclusiveZone(0);
         }
 
+        // Make LayerShell apply changes immediatly
         windowHandle()->requestUpdate();
     }
 }
