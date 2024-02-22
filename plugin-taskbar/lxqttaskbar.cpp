@@ -107,6 +107,13 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
+
+    // Consider already fetched windows
+    const auto initialWindows = mBackend->getCurrentWindows();
+    for(WId windowId : initialWindows)
+    {
+        onWindowAdded(windowId);
+    }
 }
 
 /************************************************
