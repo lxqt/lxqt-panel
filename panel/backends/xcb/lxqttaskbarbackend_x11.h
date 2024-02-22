@@ -64,6 +64,10 @@ public:
     // Panel internal
     virtual bool isAreaOverlapped(const QRect& area) const override;
 
+    // Show Destop
+    virtual bool isShowingDesktop() const override;
+    virtual bool showDesktop(bool value) override;
+
 private slots:
     void onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2);
     void onWindowAdded(WId windowId);

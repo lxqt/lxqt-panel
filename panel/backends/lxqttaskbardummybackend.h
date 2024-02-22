@@ -62,6 +62,10 @@ public:
     // Panel internal
     bool isAreaOverlapped(const QRect& area) const override;
 
+    // Show Destop
+    bool isShowingDesktop() const override;
+    bool showDesktop(bool value) override;
+
 signals:
     void reloaded();
 

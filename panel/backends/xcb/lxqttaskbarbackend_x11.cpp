@@ -617,3 +617,14 @@ bool LXQtTaskbarX11Backend::isAreaOverlapped(const QRect &area) const
     }
     return false;
 }
+
+bool LXQtTaskbarX11Backend::isShowingDesktop() const
+{
+    return KWindowSystem::showingDesktop();
+}
+
+bool LXQtTaskbarX11Backend::showDesktop(bool value)
+{
+    KWindowSystem::setShowingDesktop(value);
+    return true;
+}

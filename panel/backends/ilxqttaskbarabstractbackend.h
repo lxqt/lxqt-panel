@@ -68,6 +68,14 @@ public:
     // Panel internal
     virtual bool isAreaOverlapped(const QRect& area) const = 0;
 
+    // Show Destop TODO: split in multiple interfeces, this is becoming big
+    // NOTE: KWindowSystem already has these functions
+    // However on Wayland they are only compatible with KWin
+    // because internally it uses org_kde_plasma_window_management protocol
+    // We make this virtual so it can be implemented also for other compositors
+    virtual bool isShowingDesktop() const = 0;
+    virtual bool showDesktop(bool value) = 0;
+
 signals:
     void reloaded();
 

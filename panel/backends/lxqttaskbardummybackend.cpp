@@ -154,3 +154,13 @@ bool LXQtTaskBarDummyBackend::isAreaOverlapped(const QRect &) const
     return false;
 }
 
+bool LXQtTaskBarDummyBackend::isShowingDesktop() const
+{
+    return false;
+}
+
+bool LXQtTaskBarDummyBackend::showDesktop(bool)
+{
+    return false;
+}
+
