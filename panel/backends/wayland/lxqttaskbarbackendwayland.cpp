@@ -614,6 +614,9 @@ bool LXQtTaskbarWaylandBackend::acceptWindow(LXQtTaskBarPlasmaWindow *window) co
     if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_skiptaskbar))
         return false;
 
+    if(transients.contains(window))
+        return false;
+
     return true;
 }
 
