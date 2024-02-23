@@ -45,13 +45,17 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
     connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::currentDesktopChanged, this,
             [this](){
                 int idx = m_workspaceInfo->position(m_workspaceInfo->currentDesktop());
+                idx += 1; // Make 1-based
                 emit currentWorkspaceChanged(idx);
             });
 
     connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::numberOfDesktopsChanged,
             this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged);
 
-    //TODO: connect name changed
+    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::desktopNameChanged,
+            this, [this](int idx) {
+        emit workspaceNameChanged(idx + 1); // Make 1-based
+    });
 }
 
 bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
@@ -324,19 +328,23 @@ int LXQtTaskbarWaylandBackend::getWorkspacesCount() const
 
 QString LXQtTaskbarWaylandBackend::getWorkspaceName(int idx) const
 {
-    //TODO: optimize
-    return m_workspaceInfo->desktopNames().value(idx, QStringLiteral("ERROR"));
+    return m_workspaceInfo->getDesktopName(idx - 1); //Return to 0-based
 }
 
 int LXQtTaskbarWaylandBackend::getCurrentWorkspace() const
 {
-    return 0; //TODO
+    if(!m_workspaceInfo->currentDesktop().isValid())
+        return 0;
+    return m_workspaceInfo->position(m_workspaceInfo->currentDesktop()) + 1; // 1-based
 }
 
 bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
 {
-    Q_UNUSED(idx)
-    return false; //TODO
+    QString id = m_workspaceInfo->getDesktopId(idx - 1);
+    if(id.isEmpty())
+        return false;
+    m_workspaceInfo->requestActivate(id);
+    return true;
 }
 
 int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId windowId) const
