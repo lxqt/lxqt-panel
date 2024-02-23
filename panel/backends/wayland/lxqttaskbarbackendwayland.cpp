@@ -340,7 +340,7 @@ int LXQtTaskbarWaylandBackend::getCurrentWorkspace() const
 
 bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
 {
-    QString id = m_workspaceInfo->getDesktopId(idx - 1);
+    QString id = m_workspaceInfo->getDesktopId(idx - 1); //Return to 0-based
     if(id.isEmpty())
         return false;
     m_workspaceInfo->requestActivate(id);
@@ -349,15 +349,54 @@ bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
 
 int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId windowId) const
 {
-    Q_UNUSED(windowId)
-    return 0; //TODO
+    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
+    if(!window)
+        return 0;
+
+    // TODO: this protocol seems to allow multiple desktop for each window
+    // We do not support that yet
+    // Also from KDE Plasma task switch it's not clear how to actually put
+    // a window on multiple desktops (which is different from "All desktops")
+    QString id = window->virtualDesktops.value(0, QString());
+    if(id.isEmpty())
+        return 0;
+
+    return m_workspaceInfo->position(id) + 1; //Make 1-based
 }
 
 bool LXQtTaskbarWaylandBackend::setWindowOnWorkspace(WId windowId, int idx)
 {
-    Q_UNUSED(windowId)
-    Q_UNUSED(idx)
-    return false; //TODO
+    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
+    if(!window)
+        return false;
+
+    // Prepare for future multiple virtual desktops per window
+    QList<QString> newDesktops;
+
+    // Fill the list
+    newDesktops.append(m_workspaceInfo->getDesktopId(idx - 1)); //Return to 0-based
+
+    // Keep only valid IDs
+    newDesktops.erase(std::remove_if(newDesktops.begin(), newDesktops.end(),
+                                     [](const QString& id) { return id.isEmpty(); }),
+                      newDesktops.end());
+
+    // Add to new requested desktops
+    for(const QString& id : std::as_const(newDesktops))
+    {
+        if(!window->virtualDesktops.contains(id))
+            window->request_enter_virtual_desktop(id);
+    }
+
+    // Remove from non-requested destops
+    const QList<QString> currentDesktops = window->virtualDesktops;
+    for(const QString& id : std::as_const(currentDesktops))
+    {
+        if(!newDesktops.contains(id))
+            window->request_leave_virtual_desktop(id);
+    }
+
+    return true;
 }
 
 void LXQtTaskbarWaylandBackend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
