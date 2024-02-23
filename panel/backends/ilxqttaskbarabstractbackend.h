@@ -45,6 +45,7 @@ public:
     virtual WId getActiveWindow() const = 0;
 
     // Workspaces
+    // NOTE: indexes are 1-based, 0 means "Show on All desktops"
     virtual int getWorkspacesCount() const = 0;
     virtual QString getWorkspaceName(int idx) const = 0;
 

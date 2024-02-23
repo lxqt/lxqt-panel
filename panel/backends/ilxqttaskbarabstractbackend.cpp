@@ -17,7 +17,7 @@ void ILXQtTaskbarAbstractBackend::moveApplicationToPrevNextDesktop(WId windowId,
 
     // Wrap around
     if (targetWorkspace > count)
-        targetWorkspace = 1; //TODO: are X11 desktops 1 based?
+        targetWorkspace = 1; //Ids are 1-based
     else if (targetWorkspace < 1)
         targetWorkspace = count;
 
