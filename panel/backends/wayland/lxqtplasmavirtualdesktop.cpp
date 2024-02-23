@@ -16,6 +16,7 @@ LXQtPlasmaVirtualDesktop::~LXQtPlasmaVirtualDesktop()
 void LXQtPlasmaVirtualDesktop::org_kde_plasma_virtual_desktop_name(const QString &name)
 {
     this->name = name;
+    Q_EMIT nameChanged();
 }
 
 void LXQtPlasmaVirtualDesktop::org_kde_plasma_virtual_desktop_done()
@@ -73,6 +74,20 @@ LXQtPlasmaWaylandWorkspaceInfo::VirtualDesktopsIterator LXQtPlasmaWaylandWorkspa
     });
 }
 
+QString LXQtPlasmaWaylandWorkspaceInfo::getDesktopName(int pos) const
+{
+    if(pos < 0 || pos >= virtualDesktops.size())
+        return QString();
+    return virtualDesktops[pos]->name;
+}
+
+QString LXQtPlasmaWaylandWorkspaceInfo::getDesktopId(int pos) const
+{
+    if(pos < 0 || pos >= virtualDesktops.size())
+        return QString();
+    return virtualDesktops[pos]->id;
+}
+
 void LXQtPlasmaWaylandWorkspaceInfo::init()
 {
     virtualDesktopManagement = std::make_unique<LXQtPlasmaVirtualDesktopManagment>();
@@ -86,7 +101,6 @@ void LXQtPlasmaWaylandWorkspaceInfo::init()
             Q_EMIT numberOfDesktopsChanged();
             Q_EMIT navigationWrappingAroundChanged();
             Q_EMIT desktopIdsChanged();
-            Q_EMIT desktopNamesChanged();
             Q_EMIT desktopLayoutRowsChanged();
         }
     });
@@ -105,7 +119,6 @@ void LXQtPlasmaWaylandWorkspaceInfo::init()
 
         Q_EMIT numberOfDesktopsChanged();
         Q_EMIT desktopIdsChanged();
-        Q_EMIT desktopNamesChanged();
 
         if (currentVirtualDesktop == id) {
             currentVirtualDesktop.clear();
@@ -119,7 +132,7 @@ void LXQtPlasmaWaylandWorkspaceInfo::init()
     });
 }
 
-void LXQtPlasmaWaylandWorkspaceInfo::addDesktop(const QString &id, quint32 position)
+void LXQtPlasmaWaylandWorkspaceInfo::addDesktop(const QString &id, quint32 pos)
 {
     if (findDesktop(id) != virtualDesktops.end()) {
         return;
@@ -132,15 +145,19 @@ void LXQtPlasmaWaylandWorkspaceInfo::addDesktop(const QString &id, quint32 posit
         Q_EMIT currentDesktopChanged();
     });
 
-    connect(desktop.get(), &LXQtPlasmaVirtualDesktop::done, this, [this]() {
-        Q_EMIT desktopNamesChanged();
+    connect(desktop.get(), &LXQtPlasmaVirtualDesktop::nameChanged, this, [id, this]() {
+        Q_EMIT desktopNameChanged(position(id));
     });
 
-    virtualDesktops.insert(std::next(virtualDesktops.begin(), position), std::move(desktop));
+    connect(desktop.get(), &LXQtPlasmaVirtualDesktop::done, this, [id, this]() {
+        Q_EMIT desktopNameChanged(position(id));
+    });
+
+    virtualDesktops.insert(std::next(virtualDesktops.begin(), pos), std::move(desktop));
 
     Q_EMIT numberOfDesktopsChanged();
     Q_EMIT desktopIdsChanged();
-    Q_EMIT desktopNamesChanged();
+    Q_EMIT desktopNameChanged(position(id));
 }
 
 QVariant LXQtPlasmaWaylandWorkspaceInfo::currentDesktop() const

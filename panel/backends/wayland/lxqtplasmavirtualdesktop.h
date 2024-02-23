@@ -19,6 +19,7 @@ public:
 Q_SIGNALS:
     void done();
     void activated();
+    void nameChanged();
 
 protected:
     void org_kde_plasma_virtual_desktop_name(const QString &name) override;
@@ -63,8 +64,11 @@ public:
 
     VirtualDesktopsIterator findDesktop(const QString &id) const;
 
+    QString getDesktopName(int pos) const;
+    QString getDesktopId(int pos) const;
+
     void init();
-    void addDesktop(const QString &id, quint32 position);
+    void addDesktop(const QString &id, quint32 pos);
     QVariant currentDesktop() const;
     int numberOfDesktops() const;
     QVariantList desktopIds() const;
@@ -80,7 +84,7 @@ signals:
     void numberOfDesktopsChanged();
     void navigationWrappingAroundChanged();
     void desktopIdsChanged();
-    void desktopNamesChanged();
+    void desktopNameChanged(quint32 position);
     void desktopLayoutRowsChanged();
 };
 
