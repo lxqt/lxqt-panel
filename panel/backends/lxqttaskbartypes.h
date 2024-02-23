@@ -50,7 +50,7 @@ enum class LXQtTaskBarWindowLayer
 
 enum class LXQtTaskBarWorkspace
 {
-    ShowOnAll = -1
+    ShowOnAll = 0 // Virtual destops have 1-based indexes
 };
 
 #endif // LXQTTASKBARTYPES_H
