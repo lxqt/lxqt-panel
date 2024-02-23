@@ -111,11 +111,12 @@ void LXQtPlasmaWaylandWorkspaceInfo::init()
     connect(virtualDesktopManagement.get(), &LXQtPlasmaVirtualDesktopManagment::desktopRemoved, this, [this](const QString &id) {
 
 
-        std::remove_if(virtualDesktops.begin(), virtualDesktops.end(),
-                       [id](const std::unique_ptr<LXQtPlasmaVirtualDesktop> &desktop)
-                       {
-                           return desktop->id == id;
-                       });
+        virtualDesktops.erase(std::remove_if(virtualDesktops.begin(), virtualDesktops.end(),
+                                             [id](const std::unique_ptr<LXQtPlasmaVirtualDesktop> &desktop)
+                                             {
+                                                 return desktop->id == id;
+                                             }),
+                              virtualDesktops.end());
 
         Q_EMIT numberOfDesktopsChanged();
         Q_EMIT desktopIdsChanged();
