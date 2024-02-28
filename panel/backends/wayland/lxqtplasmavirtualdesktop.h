@@ -1,6 +1,7 @@
 #ifndef LXQTPLASMAVIRTUALDESKTOP_H
 #define LXQTPLASMAVIRTUALDESKTOP_H
 
+#include <QTime> // TODO: needed to fix compile errors about QHashPrivate
 #include <QVariant>
 #include <QtWaylandClient/QWaylandClientExtensionTemplate>
 
