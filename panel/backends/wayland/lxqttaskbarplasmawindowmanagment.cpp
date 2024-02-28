@@ -1,7 +1,5 @@
 #include "lxqttaskbarplasmawindowmanagment.h"
 
-#include <KWindowSystem>
-
 #include <QFuture>
 #include <QtConcurrent>
 #include <QGuiApplication>

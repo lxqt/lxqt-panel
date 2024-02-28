@@ -1,10 +1,13 @@
 set(PROJECT lxqt-panel)
 
-# TODO
+# Window Manager abstraction backend
 add_subdirectory(backends)
 
-# TODO: move to backend folder
-find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS WaylandClient Concurrent)
+# TODO: allow compile time selection via CMake variables
+set(PANEL_BACKENDS
+    lxqt-panel-backend-wayland
+    lxqt-panel-backend-xcb
+)
 
 
 set(PRIV_HEADERS
@@ -25,17 +28,6 @@ set(PRIV_HEADERS
     config/configstyling.h
     config/configpluginswidget.h
     config/addplugindialog.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
-
-    backends/lxqttaskbardummybackend.h
-
-    backends/xcb/lxqttaskbarbackend_x11.h
-
-    backends/wayland/lxqttaskbarbackendwayland.h
-    backends/wayland/lxqttaskbarplasmawindowmanagment.h
-    backends/wayland/lxqtplasmavirtualdesktop.h
 )
 
 # using LXQt namespace in the public headers.
@@ -44,9 +36,6 @@ set(PUB_HEADERS
     pluginsettings.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
 )
 
 set(SOURCES
@@ -66,16 +55,6 @@ set(SOURCES
     config/configstyling.cpp
     config/configpluginswidget.cpp
     config/addplugindialog.cpp
-
-    backends/ilxqttaskbarabstractbackend.cpp
-
-    backends/lxqttaskbardummybackend.cpp
-
-    backends/xcb/lxqttaskbarbackend_x11.cpp
-
-    backends/wayland/lxqttaskbarbackendwayland.cpp
-    backends/wayland/lxqttaskbarplasmawindowmanagment.cpp
-    backends/wayland/lxqtplasmavirtualdesktop.cpp
 )
 
 set(UI
@@ -130,24 +109,12 @@ add_executable(${PROJECT}
     ${UI}
 )
 
-# TODO: move to backend folder
-qt6_generate_wayland_protocol_client_sources(${PROJECT}
-FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/backends/wayland/protocols/plasma-window-management.xml
-)
-
-qt6_generate_wayland_protocol_client_sources(${PROJECT}
-FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/backends/wayland/protocols/org-kde-plasma-virtual-desktop.xml
-)
-
 target_link_libraries(${PROJECT}
     ${LIBRARIES}
     ${QTX_LIBRARIES}
     KF6::WindowSystem
+    ${PANEL_BACKENDS}
     LayerShellQt::Interface
-    Qt6::WaylandClient # TODO: Move to backend folder
-    Qt6::Concurrent
     ${STATIC_PLUGINS}
 )
 
