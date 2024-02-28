@@ -164,11 +164,11 @@ ActionView::ActionView(QWidget * parent /*= nullptr*/)
     mProxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
     mProxy->sort(0);
     {
-        QScopedPointer<QItemSelectionModel> guard{selectionModel()};
+        std::unique_ptr<QItemSelectionModel> guard{selectionModel()};
         setModel(mProxy);
     }
     {
-        QScopedPointer<QAbstractItemDelegate> guard{itemDelegate()};
+        std::unique_ptr<QAbstractItemDelegate> guard{itemDelegate()};
         setItemDelegate(new DelayedIconDelegate{this});
     }
     connect(this, &QAbstractItemView::activated, this, &ActionView::onActivated);

@@ -43,13 +43,13 @@ ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
 {
     ui->setupUi(this);
 
-    PanelPluginsModel * plugins = mPanel->mPlugins.data();
+    PanelPluginsModel * plugins = mPanel->mPlugins.get();
     {
-        QScopedPointer<QItemSelectionModel> m(ui->listView_plugins->selectionModel());
+        std::unique_ptr<QItemSelectionModel> m(ui->listView_plugins->selectionModel());
         ui->listView_plugins->setModel(plugins);
     }
     {
-        QScopedPointer<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
+        std::unique_ptr<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
         ui->listView_plugins->setItemDelegate(new LXQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
     }
 
@@ -83,11 +83,11 @@ void ConfigPluginsWidget::reset()
 
 void ConfigPluginsWidget::showAddPluginDialog()
 {
-    if (mAddPluginDialog.isNull())
+    if (!mAddPluginDialog)
     {
         mAddPluginDialog.reset(new AddPluginDialog);
-        connect(mAddPluginDialog.data(), &AddPluginDialog::pluginSelected,
-                mPanel->mPlugins.data(), &PanelPluginsModel::addPlugin);
+        connect(mAddPluginDialog.get(), &AddPluginDialog::pluginSelected,
+                mPanel->mPlugins.get(), &PanelPluginsModel::addPlugin);
     }
     mAddPluginDialog->show();
     mAddPluginDialog->raise();
@@ -96,7 +96,7 @@ void ConfigPluginsWidget::showAddPluginDialog()
 
 void ConfigPluginsWidget::resetButtons()
 {
-    PanelPluginsModel *model = mPanel->mPlugins.data();
+    PanelPluginsModel *model = mPanel->mPlugins.get();
     QItemSelectionModel *selectionModel = ui->listView_plugins->selectionModel();
     bool hasSelection = selectionModel->hasSelection();
     bool isFirstSelected = selectionModel->isSelected(model->index(0));

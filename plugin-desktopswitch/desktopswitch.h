@@ -33,7 +33,7 @@
 #include <QLabel>
 #include <QFrame>
 #include <QGuiApplication>
-#include <QScopedPointer>
+#include <memory>
 #include <NETWM>
 
 #include "desktopswitchbutton.h"
@@ -85,7 +85,7 @@ private:
     LXQt::GridLayout *mLayout;
     int mRows;
     bool mShowOnlyActive;
-    QScopedPointer<NETRootInfo> mDesktops;
+    std::unique_ptr<NETRootInfo> mDesktops;
     DesktopSwitchButton::LabelType mLabelType;
 
     void refresh();

@@ -35,7 +35,7 @@
 #include <xcb/xcb_atom.h>
 #include <xcb/xcb_event.h>
 
-#include <QScopedPointer>
+#include <memory>
 #include <QVector>
 
 /** XEMBED messages */
@@ -52,8 +52,14 @@ namespace Xcb
 {
 typedef xcb_window_t WindowId;
 
+struct ScopedCPointerDeleter
+{
+    static inline void cleanup(void *pointer) noexcept { free(pointer); }
+    void operator()(void *pointer) const noexcept { cleanup(pointer); }
+};
+
 template<typename T>
-using ScopedCPointer = QScopedPointer<T, QScopedPointerPodDeleter>;
+using ScopedCPointer = std::unique_ptr<T, ScopedCPointerDeleter>;
 
 class Atom
 {
@@ -104,7 +110,7 @@ private:
             return;
         }
         ScopedCPointer<xcb_intern_atom_reply_t> reply(xcb_intern_atom_reply(m_connection, m_cookie, nullptr));
-        if (!reply.isNull()) {
+        if (reply) {
             m_atom = reply->atom;
         }
         m_retrieved = true;

@@ -218,7 +218,7 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     // we query if the client selected button presses in the event mask
     // if the client does supports that we send directly, otherwise we'll use xtest
     auto waCookie = xcb_get_window_attributes(m_connection, m_windowId);
-    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> windowAttributes(xcb_get_window_attributes_reply(m_connection, waCookie, nullptr));
+    Xcb::ScopedCPointer<xcb_get_window_attributes_reply_t> windowAttributes(xcb_get_window_attributes_reply(m_connection, waCookie, nullptr));
     if (windowAttributes && !(windowAttributes->all_event_masks & XCB_EVENT_MASK_BUTTON_PRESS)) {
         m_injectMode = XTest;
     }
@@ -276,7 +276,7 @@ void SNIProxy::hideContainerWindow(xcb_window_t windowId) const
 QSize SNIProxy::calculateClientWindowSize() const
 {
     auto cookie = xcb_get_geometry(m_connection, m_windowId);
-    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(m_connection, cookie, nullptr));
+    Xcb::ScopedCPointer<xcb_get_geometry_reply_t> clientGeom(xcb_get_geometry_reply(m_connection, cookie, nullptr));
 
     QSize clientWindowSize;
     if (clientGeom) {
@@ -429,8 +429,8 @@ QPoint SNIProxy::calculateClickPoint() const
     // at the same time make the request for rectangles (even if this request isn't needed)
     xcb_shape_get_rectangles_cookie_t rectaglesCookie = xcb_shape_get_rectangles(m_connection, m_windowId, XCB_SHAPE_SK_BOUNDING);
 
-    QScopedPointer<xcb_shape_query_extents_reply_t, QScopedPointerPodDeleter> extentsReply(xcb_shape_query_extents_reply(m_connection, extentsCookie, nullptr));
-    QScopedPointer<xcb_shape_get_rectangles_reply_t, QScopedPointerPodDeleter> rectanglesReply(xcb_shape_get_rectangles_reply(m_connection, rectaglesCookie, nullptr));
+    Xcb::ScopedCPointer<xcb_shape_query_extents_reply_t> extentsReply(xcb_shape_query_extents_reply(m_connection, extentsCookie, nullptr));
+    Xcb::ScopedCPointer<xcb_shape_get_rectangles_reply_t> rectanglesReply(xcb_shape_get_rectangles_reply(m_connection, rectaglesCookie, nullptr));
 
     if (!extentsReply || !rectanglesReply || !extentsReply->bounding_shaped) {
         return clickPoint;
@@ -553,14 +553,14 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
     sendingClickEvent = true;
 
     auto cookieSize = xcb_get_geometry(m_connection, m_windowId);
-    QScopedPointer<xcb_get_geometry_reply_t, QScopedPointerPodDeleter> clientGeom(xcb_get_geometry_reply(m_connection, cookieSize, nullptr));
+    Xcb::ScopedCPointer<xcb_get_geometry_reply_t> clientGeom(xcb_get_geometry_reply(m_connection, cookieSize, nullptr));
 
     if (!clientGeom) {
         return;
     }
 
     auto cookie = xcb_query_pointer(m_connection, m_windowId);
-    QScopedPointer<xcb_query_pointer_reply_t, QScopedPointerPodDeleter> pointer(xcb_query_pointer_reply(m_connection, cookie, nullptr));
+    Xcb::ScopedCPointer<xcb_query_pointer_reply_t> pointer(xcb_query_pointer_reply(m_connection, cookie, nullptr));
     /*qDebug() << "samescreen" << pointer->same_screen << endl
     << "root x*y" << pointer->root_x << pointer->root_y << endl
     << "win x*y" << pointer->win_x << pointer->win_y;*/
