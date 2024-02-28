@@ -54,7 +54,7 @@ signals:
     void checkState();
     void keyboardChanged();
 private:
-    QScopedPointer<pimpl::X11Kbd> m_priv;
+    std::unique_ptr<pimpl::X11Kbd> m_priv;
 };
 
 #endif

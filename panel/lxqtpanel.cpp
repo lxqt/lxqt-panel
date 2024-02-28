@@ -221,8 +221,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(LXQt::Settings::globalSettings(), &LXQt::GlobalSettings::settingsChanged, this, [this] { update(); } );
     connect(lxqtApp,                          &LXQt::Application::themeChanged,       this, &LXQtPanel::realign);
 
-    connect(mStandaloneWindows.data(), &WindowNotifier::firstShown, this, [this] { showPanel(true); });
-    connect(mStandaloneWindows.data(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
+    connect(mStandaloneWindows.get(), &WindowNotifier::firstShown, this, [this] { showPanel(true); });
+    connect(mStandaloneWindows.get(), &WindowNotifier::lastHidden, this, &LXQtPanel::hidePanel);
 
     readSettings();
 
@@ -446,11 +446,11 @@ void LXQtPanel::loadPlugins()
     names_key += QLatin1String(CFG_KEY_PLUGINS);
     mPlugins.reset(new PanelPluginsModel(this, names_key, pluginDesktopDirs()));
 
-    connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, mLayout, &LXQtPanelLayout::addPlugin);
-    connect(mPlugins.data(), &PanelPluginsModel::pluginMovedUp, mLayout, &LXQtPanelLayout::moveUpPlugin);
+    connect(mPlugins.get(), &PanelPluginsModel::pluginAdded, mLayout, &LXQtPanelLayout::addPlugin);
+    connect(mPlugins.get(), &PanelPluginsModel::pluginMovedUp, mLayout, &LXQtPanelLayout::moveUpPlugin);
     //reemit signals
-    connect(mPlugins.data(), &PanelPluginsModel::pluginAdded, this, &LXQtPanel::pluginAdded);
-    connect(mPlugins.data(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
+    connect(mPlugins.get(), &PanelPluginsModel::pluginAdded, this, &LXQtPanel::pluginAdded);
+    connect(mPlugins.get(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
 
     const auto plugins = mPlugins->plugins();
     for (auto const & plugin : plugins)

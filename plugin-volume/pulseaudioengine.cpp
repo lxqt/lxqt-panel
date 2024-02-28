@@ -179,8 +179,8 @@ void PulseAudioEngine::removeSink(uint32_t idx)
     if (m_sinks.end() == dev_i)
         return;
 
-    QScopedPointer<AudioDevice> dev{*dev_i};
-    m_cVolumeMap.remove(dev.data());
+    std::unique_ptr<AudioDevice> dev{*dev_i};
+    m_cVolumeMap.remove(dev.get());
     m_sinks.erase(dev_i);
     emit sinkListChanged();
 }

@@ -58,7 +58,7 @@ private slots:
 
 private:
     KbdLayout                 m_layout;
-    QScopedPointer<KbdKeeper> m_keeper;
+    std::unique_ptr<KbdKeeper> m_keeper;
 };
 
 #endif

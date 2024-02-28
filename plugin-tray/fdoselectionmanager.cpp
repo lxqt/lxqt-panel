@@ -116,10 +116,10 @@ bool FdoSelectionManager::addDamageWatch(xcb_window_t client)
     xcb_damage_create(m_connection, damageId, client, XCB_DAMAGE_REPORT_LEVEL_NON_EMPTY);
 
     xcb_generic_error_t *error = nullptr;
-    QScopedPointer<xcb_get_window_attributes_reply_t, QScopedPointerPodDeleter> attr(xcb_get_window_attributes_reply(m_connection, attribsCookie, &error));
-    QScopedPointer<xcb_generic_error_t, QScopedPointerPodDeleter> getAttrError(error);
+    Xcb::ScopedCPointer<xcb_get_window_attributes_reply_t> attr(xcb_get_window_attributes_reply(m_connection, attribsCookie, &error));
+    Xcb::ScopedCPointer<xcb_generic_error_t> getAttrError(error);
     uint32_t events = XCB_EVENT_MASK_STRUCTURE_NOTIFY;
-    if (!attr.isNull()) {
+    if (attr) {
         events = events | attr->your_event_mask;
     }
     // if window is already gone, there is no need to handle it.
@@ -129,7 +129,7 @@ bool FdoSelectionManager::addDamageWatch(xcb_window_t client)
     // the event mask will not be removed again. We cannot track whether another component also needs STRUCTURE_NOTIFY (e.g. KWindowSystem).
     // if we would remove the event mask again, other areas will break.
     const auto changeAttrCookie = xcb_change_window_attributes_checked(m_connection, client, XCB_CW_EVENT_MASK, &events);
-    QScopedPointer<xcb_generic_error_t, QScopedPointerPodDeleter> changeAttrError(xcb_request_check(m_connection, changeAttrCookie));
+    Xcb::ScopedCPointer<xcb_generic_error_t> changeAttrError(xcb_request_check(m_connection, changeAttrCookie));
     // if window is gone by this point, it will be caught by eventFilter, so no need to check later errors.
     if (changeAttrError && changeAttrError->error_code == XCB_WINDOW) {
         return false;

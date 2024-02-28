@@ -57,7 +57,7 @@ private slots:
 
 private:
     Ui::ConfigPluginsWidget *ui;
-    QScopedPointer<AddPluginDialog> mAddPluginDialog;
+    std::unique_ptr<AddPluginDialog> mAddPluginDialog;
     LXQtPanel *mPanel;
 };
 
