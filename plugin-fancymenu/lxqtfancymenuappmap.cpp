@@ -230,10 +230,10 @@ LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::getAppAt(int index)
     return *mCachedIterator;
 }
 
-QVector<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps(const QString &query) const
+QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps(const QString &query) const
 {
-    QVector<const AppItem *> byName;
-    QVector<const AppItem *> byKeyword;
+    QList<const AppItem *> byName;
+    QList<const AppItem *> byKeyword;
 
     //TODO: implement some kind of score to get better matches on top
 

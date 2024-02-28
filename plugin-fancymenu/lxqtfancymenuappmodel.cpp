@@ -176,7 +176,7 @@ bool LXQtFancyMenuAppModel::dropMimeData(const QMimeData *data_, Qt::DropAction 
         return false; // No-op
 
     // realRow is needed because beginMoveRows() behaves differenlty than
-    // QVector<...>::move() on index counting.
+    // QList<...>::move() on index counting.
     beginMoveRows(QModelIndex(), oldRow, oldRow, QModelIndex(), realRow);
 
     mAppMap->moveFavoriteItem(oldRow, row);
@@ -208,7 +208,7 @@ void LXQtFancyMenuAppModel::setCurrentCategory(int category)
     endResetModel();
 }
 
-void LXQtFancyMenuAppModel::showSearchResults(const QVector<const LXQtFancyMenuAppItem *> &matches)
+void LXQtFancyMenuAppModel::showSearchResults(const QList<const LXQtFancyMenuAppItem *> &matches)
 {
     beginResetModel();
     mSearchMatches = matches;

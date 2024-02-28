@@ -620,7 +620,7 @@ void LXQtTaskGroup::wheelEvent(QWheelEvent* event)
 bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
 { // returns true if the class is preserved
     bool needsRefreshVisibility{false};
-    QVector<LXQtTaskButton *> buttons;
+    QList<LXQtTaskButton *> buttons;
     if (mButtonHash.contains(window))
         buttons.append(mButtonHash.value(window));
 

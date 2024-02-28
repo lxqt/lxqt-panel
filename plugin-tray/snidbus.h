@@ -30,7 +30,7 @@
 #include <QDBusArgument>
 #include <QImage>
 #include <QString>
-#include <QVector>
+#include <QList>
 
 // Custom message type for DBus
 struct KDbusImageStruct {
@@ -41,7 +41,7 @@ struct KDbusImageStruct {
     QByteArray data;
 };
 
-typedef QVector<KDbusImageStruct> KDbusImageVector;
+typedef QList<KDbusImageStruct> KDbusImageVector;
 
 struct KDbusToolTipStruct {
     QString icon;

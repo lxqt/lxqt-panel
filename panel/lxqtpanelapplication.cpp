@@ -47,7 +47,7 @@ LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q
 ILXQtPanel::Position LXQtPanelApplicationPrivate::computeNewPanelPosition(const LXQtPanel *p, const int screenNum)
 {
     Q_Q(LXQtPanelApplication);
-    QVector<bool> screenPositions(4, false); // false means not occupied
+    QList<bool> screenPositions(4, false); // false means not occupied
 
     for (int i = 0; i < q->mPanels.size(); ++i) {
         if (p != q->mPanels.at(i)) {

@@ -36,7 +36,7 @@
 #include <xcb/xcb_event.h>
 
 #include <memory>
-#include <QVector>
+#include <QList>
 
 /** XEMBED messages */
 #define XEMBED_EMBEDDED_NOTIFY 0
