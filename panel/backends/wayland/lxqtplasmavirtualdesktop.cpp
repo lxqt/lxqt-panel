@@ -76,14 +76,14 @@ LXQtPlasmaWaylandWorkspaceInfo::VirtualDesktopsIterator LXQtPlasmaWaylandWorkspa
 
 QString LXQtPlasmaWaylandWorkspaceInfo::getDesktopName(int pos) const
 {
-    if(pos < 0 || pos >= virtualDesktops.size())
+    if(pos < 0 || size_t(pos) >= virtualDesktops.size())
         return QString();
     return virtualDesktops[pos]->name;
 }
 
 QString LXQtPlasmaWaylandWorkspaceInfo::getDesktopId(int pos) const
 {
-    if(pos < 0 || pos >= virtualDesktops.size())
+    if(pos < 0 || size_t(pos) >= virtualDesktops.size())
         return QString();
     return virtualDesktops[pos]->id;
 }
