@@ -30,7 +30,7 @@
 #define LXQTFANCYMENUAPPMAP_H
 
 #include <QMap>
-#include <QVector>
+#include <QList>
 #include <QStringList>
 #include <QIcon>
 
@@ -74,7 +74,7 @@ public:
             LXQtFancyMenuItemType type = LXQtFancyMenuItemType::AppItem;
         };
 
-        QVector<Item> apps;
+        QList<Item> apps;
         LXQtFancyMenuItemType type;
     };
 
@@ -108,7 +108,7 @@ public:
 
     AppItem *getAppAt(int index);
 
-    QVector<const AppItem *> getMatchingApps(const QString& query) const;
+    QList<const AppItem *> getMatchingApps(const QString& query) const;
 
 private:
     void parseMenu(const QDomElement& menu, const QString &topLevelCategory);
@@ -121,7 +121,7 @@ private:
     typedef QMap<QString, AppItem *> AppMap;
     AppMap mAppSortedByDesktopFile;
     AppMap mAppSortedByName;
-    QVector<Category> mCategories;
+    QList<Category> mCategories;
 
     // Cache sort by name map access
     AppMap::const_iterator mCachedIterator;

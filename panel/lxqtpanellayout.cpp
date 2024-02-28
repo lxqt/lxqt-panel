@@ -156,7 +156,7 @@ public:
     void moveItem(int from, int to);
 
 private:
-    QVector<LayoutItemInfo> mInfoItems;
+    QList<LayoutItemInfo> mInfoItems;
     int mColCount;
     int mUsedColCount;
     int mRowCount;
@@ -648,7 +648,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     }
 
     // Calc baselines for plugins like button.
-    QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    QList<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bh = geometry.height() / baseLines.count();
     const int base_center = bh >> 1;
     const int height_remain = 0 < bh ? geometry.height() % baseLines.size() : 0;
@@ -787,7 +787,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     }
 
     // Calc baselines for plugins like button.
-    QVector<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    QList<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bw = geometry.width() / baseLines.count();
     const int base_center = bw >> 1;
     const int width_remain = 0 < bw ? geometry.width() % baseLines.size() : 0;
