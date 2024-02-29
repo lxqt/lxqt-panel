@@ -62,10 +62,3 @@ lxqt2wip_packages=(
     libsysstat-git
 )
 pacman -S --noconfirm ${lxqt2wip_packages[@]}
-
-# workaround
-cd /usr/share/cmake
-cp -R lxqt2-menu-data lxqt-menu-data
-cd lxqt-menu-data
-mv lxqt2-menu-data-config.cmake lxqt-menu-data-config.cmake
-mv lxqt2-menu-data-config-version.cmake lxqt-menu-data-config-version.cmake
