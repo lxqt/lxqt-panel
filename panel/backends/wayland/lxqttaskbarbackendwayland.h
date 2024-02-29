@@ -3,6 +3,7 @@
 
 #include "../ilxqttaskbarabstractbackend.h"
 
+#include <QTime>
 #include <QHash>
 #include <vector>
 
