@@ -250,7 +250,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         anchors.setFlag(LayerShellQt::Window::AnchorRight);
         mLayerWindow->setAnchors(anchors);
 
-        mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityNone);
+        mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
         mLayerWindow->setCloseOnDismissed(false);
 
         mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorBottom);
