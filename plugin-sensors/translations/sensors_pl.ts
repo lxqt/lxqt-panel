@@ -51,7 +51,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="152"/>
         <source>Sensors</source>
-        <translation>Sensory</translation>
+        <translation>Czujniki</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="168"/>

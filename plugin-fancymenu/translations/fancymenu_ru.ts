@@ -52,7 +52,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"> п</translation>
+        <translation> пт</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>

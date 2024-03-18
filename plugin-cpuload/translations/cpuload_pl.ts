@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Obciążenie procesora - ustawienia</translation>
+        <translation>Ustawienia obciążenia procesora</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>

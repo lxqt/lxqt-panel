@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Konfiguruj Panel</translation>
+        <translation>Konfiguruj panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Ukrywaj tylko gdy zakrywany przez okno</translation>
+        <translation>Ukrywaj tylko przy zakrywaniu przez okno</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Notka: zmiany tu dokonane nie mogą zostać zresetowane.</translation>
+        <translation>Uwaga: zmiany tu dokonane nie mogą zostać zresetowane.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -315,7 +315,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Przeźroczystość tła:</translation>
+        <translation>Przezroczystość tła:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
@@ -384,7 +384,7 @@ Koloruj ikony na podstawie stylu (palety)</translation>
     <message>
         <location filename="../lxqtpanel.cpp" line="1205"/>
         <source>Configure Panel</source>
-        <translation>Konfiguruj Panel</translation>
+        <translation>Konfiguruj panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1210"/>
