@@ -66,15 +66,15 @@ class DesktopSwitch : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~DesktopSwitch();
+    ~DesktopSwitch() override;
 
-    QString themeId() const { return QStringLiteral("DesktopSwitch"); }
-    QWidget *widget() { return &mWidget; }
-    bool isSeparate() const { return true; }
-    void realign();
+    QString themeId() const override { return QStringLiteral("DesktopSwitch"); }
+    QWidget *widget() override { return &mWidget; }
+    bool isSeparate() const override { return true; }
+    void realign() override;
 
-    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
-    QDialog *configureDialog();
+    ILXQtPanelPlugin::Flags flags() const override { return HaveConfigDialog; }
+    QDialog *configureDialog() override;
 
 private:
     QButtonGroup * m_buttons;
@@ -96,7 +96,7 @@ private slots:
     void onNumberOfDesktopsChanged(int);
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
-    virtual void settingsChanged();
+    void settingsChanged() override;
     void registerShortcuts();
     void shortcutRegistered();
     void onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2);

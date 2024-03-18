@@ -40,7 +40,7 @@ class DeviceActionMenu : public DeviceAction
     Q_OBJECT
 public:
     explicit DeviceActionMenu(LXQtMountPlugin *plugin, QObject *parent = nullptr);
-    virtual ActionId Type() const throw () { return ActionMenu; }
+    ActionId Type() const throw () override { return ActionMenu; }
 
 protected:
     void doDeviceAdded(Solid::Device device);

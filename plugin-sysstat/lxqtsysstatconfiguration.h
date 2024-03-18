@@ -50,7 +50,7 @@ class LXQtSysStatConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtSysStatConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtSysStatConfiguration();
+    ~LXQtSysStatConfiguration() override;
 
 public slots:
     void saveSettings();

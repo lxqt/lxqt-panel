@@ -44,7 +44,7 @@ class LXQT_PANEL_API PluginMoveProcessor : public QWidget
     Q_OBJECT
 public:
     explicit PluginMoveProcessor(LXQtPanelLayout *layout, Plugin *plugin);
-    ~PluginMoveProcessor();
+    ~PluginMoveProcessor() override;
 
     Plugin *plugin() const { return mPlugin; }
 

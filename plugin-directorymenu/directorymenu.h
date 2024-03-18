@@ -47,13 +47,13 @@ class DirectoryMenu :  public QObject, public ILXQtPanelPlugin
 
 public:
     DirectoryMenu(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~DirectoryMenu();
+    ~DirectoryMenu() override;
 
-    virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return QStringLiteral("DirectoryMenu"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog; }
-    QDialog *configureDialog();
-    void settingsChanged();
+    QWidget *widget() override { return &mButton; }
+    QString themeId() const override { return QStringLiteral("DirectoryMenu"); }
+    ILXQtPanelPlugin::Flags flags() const override { return HaveConfigDialog; }
+    QDialog *configureDialog() override;
+    void settingsChanged() override;
 
 private slots:
     void showMenu();

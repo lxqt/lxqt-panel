@@ -59,7 +59,7 @@ public:
 
 
     explicit Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, const QString &settingsGroup, LXQtPanel *panel);
-    ~Plugin();
+    ~Plugin() override;
 
     bool isLoaded() const { return mPlugin != 0; }
     Alignment alignment() const { return mAlignment; }
@@ -81,7 +81,7 @@ public:
 
     QString name() const { return mName; }
 
-    virtual bool eventFilter(QObject * watched, QEvent * event);
+    bool eventFilter(QObject * watched, QEvent * event) override;
 
     // For QSS properties ..................
     static QColor moveMarkerColor() { return mMoveMarkerColor; }

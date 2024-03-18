@@ -46,7 +46,7 @@ class LXQtWorldClockConfigurationTimeZones : public QDialog
 
 public:
     explicit LXQtWorldClockConfigurationTimeZones(QWidget *parent = nullptr);
-    ~LXQtWorldClockConfigurationTimeZones();
+    ~LXQtWorldClockConfigurationTimeZones() override;
 
     int updateAndExec();
 

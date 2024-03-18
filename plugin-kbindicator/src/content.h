@@ -38,14 +38,14 @@ class Content : public QWidget
     Q_OBJECT
 public:
     Content(bool layoutEnabled);
-    ~Content();
+    ~Content() override;
 
 public:
     void setEnabled(Controls cnt, bool enabled);
     QWidget* widget(Controls cnt) const;
     bool setup();
 
-    virtual bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) override;
 
     void showHorizontal();
     void showVertical();

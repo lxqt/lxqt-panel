@@ -39,7 +39,7 @@ class StatusNotifierConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit StatusNotifierConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~StatusNotifierConfiguration();
+    ~StatusNotifierConfiguration() override;
 
     void addItems(const QStringList &items);
 

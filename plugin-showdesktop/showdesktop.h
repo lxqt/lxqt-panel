@@ -45,8 +45,8 @@ class ShowDesktop :  public QObject, public ILXQtPanelPlugin
 public:
     ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return QStringLiteral("ShowDesktop"); }
+    QWidget *widget() override { return &mButton; }
+    QString themeId() const override { return QStringLiteral("ShowDesktop"); }
 private:
     GlobalKeyShortcut::Action * m_key;
 

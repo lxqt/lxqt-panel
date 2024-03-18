@@ -45,7 +45,7 @@ class AddPluginDialog : public QDialog
 
 public:
     AddPluginDialog(QWidget *parent = nullptr);
-    ~AddPluginDialog();
+    ~AddPluginDialog() override;
 
 signals:
     void pluginSelected(const LXQt::PluginInfo &plugin);

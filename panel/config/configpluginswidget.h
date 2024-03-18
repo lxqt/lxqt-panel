@@ -43,7 +43,7 @@ class ConfigPluginsWidget : public QWidget
 
 public:
     ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent = nullptr);
-    ~ConfigPluginsWidget();
+    ~ConfigPluginsWidget() override;
 
 signals:
     void changed();

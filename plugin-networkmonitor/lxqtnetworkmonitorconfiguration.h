@@ -45,7 +45,7 @@ class LXQtNetworkMonitorConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtNetworkMonitorConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtNetworkMonitorConfiguration();
+    ~LXQtNetworkMonitorConfiguration() override;
 
 private:
     Ui::LXQtNetworkMonitorConfiguration *ui;

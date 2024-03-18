@@ -39,7 +39,7 @@ class LXQtCustomCommandConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtCustomCommandConfiguration();
+    ~LXQtCustomCommandConfiguration() override;
 
 private slots:
     void autoRotateChanged(bool autoRotate);
@@ -58,7 +58,7 @@ private slots:
     void wheelDownLineEditChanged(QString wheelDown);
 
 protected slots:
-    virtual void loadSettings();
+    void loadSettings() override;
 
 private:
     Ui::LXQtCustomCommandConfiguration *ui;

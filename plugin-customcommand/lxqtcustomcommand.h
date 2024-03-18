@@ -42,16 +42,16 @@ class LXQtCustomCommand : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtCustomCommand();
+    ~LXQtCustomCommand() override;
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("Custom"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
-    void realign();
-    QDialog *configureDialog();
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("Custom"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog ; }
+    void realign() override;
+    QDialog *configureDialog() override;
 
 protected slots:
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private slots:
     void handleClick();

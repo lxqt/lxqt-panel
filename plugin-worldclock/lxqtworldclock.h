@@ -51,18 +51,18 @@ class LXQtWorldClock : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtWorldClock();
+    ~LXQtWorldClock() override;
 
-    virtual QWidget *widget() { return mMainWidget; }
-    virtual QString themeId() const { return QLatin1String("WorldClock"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
-    bool isSeparate() const { return true; }
-    void activated(ActivationReason reason);
+    QWidget *widget() override { return mMainWidget; }
+    QString themeId() const override { return QLatin1String("WorldClock"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog ; }
+    bool isSeparate() const override { return true; }
+    void activated(ActivationReason reason) override;
 
-    virtual void settingsChanged();
-    virtual void realign();
-    QDialog *configureDialog();
-    bool eventFilter(QObject * watched, QEvent * event);
+    void settingsChanged() override;
+    void realign() override;
+    QDialog *configureDialog() override;
+    bool eventFilter(QObject * watched, QEvent * event) override;
 
 private slots:
     void timeout();
@@ -132,7 +132,7 @@ signals:
     void deactivated();
 
 protected:
-    virtual bool event(QEvent* );
+    bool event(QEvent* ) override;
 
 };
 

@@ -67,13 +67,13 @@ class LXQtMainMenu : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtMainMenu();
+    ~LXQtMainMenu() override;
 
-    QString themeId() const { return QStringLiteral("MainMenu"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return HaveConfigDialog ; }
+    QString themeId() const override { return QStringLiteral("MainMenu"); }
+    ILXQtPanelPlugin::Flags flags() const override { return HaveConfigDialog ; }
 
-    QWidget *widget() { return &mButton; }
-    QDialog *configureDialog();
+    QWidget *widget() override { return &mButton; }
+    QDialog *configureDialog() override;
 
     bool isSeparate() const { return true; }
 
@@ -118,7 +118,7 @@ private:
 
 protected slots:
 
-    virtual void settingsChanged();
+    void settingsChanged() override;
     void buildMenu();
 
 private slots:

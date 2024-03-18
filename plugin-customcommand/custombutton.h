@@ -37,7 +37,7 @@ class CustomButton : public QToolButton
 
 public:
     CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~CustomButton();
+    ~CustomButton() override;
 
 public slots:
     void setAutoRotation(bool value);

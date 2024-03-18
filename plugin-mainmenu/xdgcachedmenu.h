@@ -33,7 +33,7 @@ class XdgCachedMenu : public QMenu
 public:
     XdgCachedMenu(QWidget* parent = nullptr);
     XdgCachedMenu(MenuCache* menuCache, QWidget* parent);
-    virtual ~XdgCachedMenu();
+    ~XdgCachedMenu() override;
 
 protected:
     bool event(QEvent* event);

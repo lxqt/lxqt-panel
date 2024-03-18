@@ -47,20 +47,20 @@ class LXQtSysStat : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtSysStat(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtSysStat();
+    ~LXQtSysStat() override;
 
-    virtual QWidget *widget() { return mWidget; }
-    virtual QString themeId() const { return QStringLiteral("SysStat"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
-    virtual bool isSeparate() const { return true; }
+    QWidget *widget() override { return mWidget; }
+    QString themeId() const override { return QStringLiteral("SysStat"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog; }
+    bool isSeparate() const override { return true; }
 
-    QDialog *configureDialog();
+    QDialog *configureDialog() override;
 
-    void realign();
+    void realign() override;
 
 protected slots:
     virtual void lateInit();
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private:
     QWidget *mWidget;
@@ -74,7 +74,7 @@ class LXQtSysStatTitle : public QLabel
     Q_OBJECT
 public:
     LXQtSysStatTitle(QWidget *parent = nullptr);
-    ~LXQtSysStatTitle();
+    ~LXQtSysStatTitle() override;
 
 protected:
     bool event(QEvent *e);
@@ -103,7 +103,7 @@ class LXQtSysStatContent : public QWidget
 
 public:
     LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent = nullptr);
-    ~LXQtSysStatContent();
+    ~LXQtSysStatContent() override;
 
     void updateSettings(const PluginSettings *);
 

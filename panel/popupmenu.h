@@ -44,7 +44,7 @@ public:
     bool eventFilter(QObject *object, QEvent *event);
 
 protected:
-    virtual void keyPressEvent(QKeyEvent* e);
+    void keyPressEvent(QKeyEvent* e) override;
 };
 
 #endif // POPUPMENU_H

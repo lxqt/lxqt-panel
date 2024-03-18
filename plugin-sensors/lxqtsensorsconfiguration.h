@@ -45,7 +45,7 @@ class LXQtSensorsConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtSensorsConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtSensorsConfiguration();
+    ~LXQtSensorsConfiguration() override;
 
 private:
     Ui::LXQtSensorsConfiguration *ui;

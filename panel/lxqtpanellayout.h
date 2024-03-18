@@ -48,7 +48,7 @@ class LXQT_PANEL_API LXQtPanelLayout : public QLayout
     Q_OBJECT
 public:
     explicit LXQtPanelLayout(QWidget *parent);
-    ~LXQtPanelLayout();
+    ~LXQtPanelLayout() override;
 
     void addItem(QLayoutItem *item);
     QLayoutItem *itemAt(int index) const;

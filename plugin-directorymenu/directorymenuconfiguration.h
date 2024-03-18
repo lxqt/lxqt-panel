@@ -48,7 +48,7 @@ class DirectoryMenuConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit DirectoryMenuConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~DirectoryMenuConfiguration();
+    ~DirectoryMenuConfiguration() override;
 
 private:
     Ui::DirectoryMenuConfiguration *ui;

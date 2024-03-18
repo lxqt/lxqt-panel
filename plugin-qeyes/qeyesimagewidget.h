@@ -42,7 +42,7 @@ class QEyesImageWidget : public QAbstractEyesWidget {
 private:
     void drawEye(QPainter &painter, int x, int y, int dx, int dy) override;
     void drawPupil(QPainter &painter, int x, int y) override;
-    virtual void eyeBorder(float &bx, float &by) override;
+    void eyeBorder(float &bx, float &by) override;
     void paintEvent(QPaintEvent *event) override;
 
     ImageStretcher pupil, background;

@@ -41,7 +41,7 @@ public:
     void observeWindow(QWidget * w);
     inline bool isAnyWindowShown() const { return !mShownWindows.isEmpty(); }
 
-    virtual bool eventFilter(QObject * watched, QEvent * event) override;
+    bool eventFilter(QObject * watched, QEvent * event) override;
 signals:
     void lastHidden();
     void firstShown();

@@ -47,10 +47,10 @@ class Configuration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit Configuration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~Configuration();
+    ~Configuration() override;
 
 protected slots:
-    virtual void loadSettings();
+    void loadSettings() override;
     void devAddedChanged(int index);
     void ejectPressedChanged(int index);
 

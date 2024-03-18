@@ -35,9 +35,9 @@ class QEyesVectorWidget : public QAbstractEyesWidget
     QString centerColor = QString::fromUtf8("white");
     QString peripheralColor = QString::fromUtf8("light-gray");
 
-    virtual void drawEye(QPainter &painter, int x, int y, int dx, int dy) override;
-    virtual void drawPupil(QPainter &painter, int x, int y) override;
-    virtual void eyeBorder(float &bx, float &by) override;
+    void drawEye(QPainter &painter, int x, int y, int dx, int dy) override;
+    void drawPupil(QPainter &painter, int x, int y) override;
+    void eyeBorder(float &bx, float &by) override;
 
 public:
     QEyesVectorWidget(QWidget *parent = nullptr);

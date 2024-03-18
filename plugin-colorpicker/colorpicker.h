@@ -43,7 +43,7 @@ class ColorPickerWidget : public QWidget
 
 public:
     ColorPickerWidget(QWidget* parent = nullptr);
-    ~ColorPickerWidget();
+    ~ColorPickerWidget() override;
 
     QMenu*       popupMenu() { return mColorsMenu; }
     QToolButton* pickerButton() { return mPickerButton; }
@@ -82,14 +82,14 @@ class ColorPicker : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~ColorPicker();
+    ~ColorPicker() override;
 
-    virtual QWidget *widget() override { return &mWidget; }
-    virtual QString themeId() const override { return QStringLiteral("ColorPicker"); }
+    QWidget *widget() override { return &mWidget; }
+    QString themeId() const override { return QStringLiteral("ColorPicker"); }
 
-    virtual bool isSeparate() const override { return true; }
+    bool isSeparate() const override { return true; }
 
-    virtual void realign() override;
+    void realign() override;
 
 private:
     ColorPickerWidget mWidget;

@@ -58,7 +58,7 @@ class LXQT_PANEL_API PluginSettings : public QObject
     friend class PluginSettingsFactory;
 
 public:
-    ~PluginSettings();
+    ~PluginSettings() override;
 
     QString group() const;
 

@@ -47,7 +47,7 @@ class StatusNotifierWatcher : public QObject, protected QDBusContext
 
 public:
     explicit StatusNotifierWatcher(QObject *parent = nullptr);
-    ~StatusNotifierWatcher();
+    ~StatusNotifierWatcher() override;
 
     bool isStatusNotifierHostRegistered() { return mHosts.count() > 0; }
     int protocolVersion() const { return 0; }

@@ -39,14 +39,14 @@ class LXQtNetworkMonitor: public QFrame
     Q_OBJECT
 public:
     LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~LXQtNetworkMonitor();
+    ~LXQtNetworkMonitor() override;
     virtual void settingsChanged();
 
 protected:
-    void virtual timerEvent(QTimerEvent *event);
-    void virtual paintEvent(QPaintEvent * event);
-    void virtual resizeEvent(QResizeEvent *);
-    bool virtual event(QEvent *event);
+    void timerEvent(QTimerEvent *event) override;
+    void paintEvent(QPaintEvent * event) override;
+    void resizeEvent(QResizeEvent *) override;
+    bool event(QEvent *event) override;
 
 
 private:

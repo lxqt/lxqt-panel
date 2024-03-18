@@ -49,7 +49,7 @@ public:
     };
 
     LXQtCpuLoad(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~LXQtCpuLoad();
+    ~LXQtCpuLoad() override;
 
 
     void settingsChanged();
@@ -58,9 +58,9 @@ public:
     QColor getFontColor() const { return fontColor; }
 
 protected:
-    void virtual timerEvent(QTimerEvent *event);
-    void virtual paintEvent ( QPaintEvent * event );
-    void virtual resizeEvent(QResizeEvent *);
+    void timerEvent(QTimerEvent *event) override;
+    void paintEvent ( QPaintEvent * event ) override;
+    void resizeEvent(QResizeEvent *) override;
 
 private:
     double getLoadCpu() const;

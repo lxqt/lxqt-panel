@@ -45,7 +45,7 @@ class ConfigStyling : public QWidget
 
 public:
     explicit ConfigStyling(LXQtPanel *panel, QWidget *parent = nullptr);
-    ~ConfigStyling();
+    ~ConfigStyling() override;
 
     void updateIconThemeSettings();
 

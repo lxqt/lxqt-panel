@@ -40,7 +40,7 @@ class KbdKeeper: public QObject
     Q_OBJECT
 public:
     KbdKeeper(const KbdLayout & layout, KeeperType type = KeeperType::Global);
-    virtual ~KbdKeeper();
+    ~KbdKeeper() override;
     virtual bool setup();
 
     const QString & sym() const
@@ -76,11 +76,11 @@ class WinKbdKeeper: public KbdKeeper
     Q_OBJECT
 public:
     WinKbdKeeper(const KbdLayout & layout);
-    virtual ~WinKbdKeeper();
-    virtual void switchToGroup(uint group);
+    ~WinKbdKeeper() override;
+    void switchToGroup(uint group) override;
 protected slots:
-    virtual void layoutChanged(uint group);
-    virtual void checkState();
+    void layoutChanged(uint group) override;
+    void checkState() override;
 private:
     QHash<WId, int> m_mapping;
     WId             m_active;
@@ -93,11 +93,11 @@ class AppKbdKeeper: public KbdKeeper
     Q_OBJECT
 public:
     AppKbdKeeper(const KbdLayout & layout);
-    virtual ~AppKbdKeeper();
-    virtual void switchToGroup(uint group);
+    ~AppKbdKeeper() override;
+    void switchToGroup(uint group) override;
 protected slots:
-    virtual void layoutChanged(uint group);
-    virtual void checkState();
+    void layoutChanged(uint group) override;
+    void checkState() override;
 private:
     QHash<QString, int> m_mapping;
     QString             m_active;
