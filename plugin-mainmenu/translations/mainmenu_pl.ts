@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="123"/>
         <source>Show/hide main menu</source>
-        <translation>Pokaż/ukryj główne menu</translation>
+        <translation>Pokaż/ukryj menu główne</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="522"/>
@@ -56,7 +56,7 @@ Czy chcesz go nadpisać?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu settings</source>
-        <translation>Ustawienia Głównego Menu</translation>
+        <translation>Ustawienia menu głównego</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
@@ -106,7 +106,7 @@ Czy chcesz go nadpisać?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation>Widoczne pozycje (max):</translation>
+        <translation>Widoczne pozycje (maks.):</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>

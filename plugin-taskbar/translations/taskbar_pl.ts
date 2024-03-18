@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="674"/>
         <source>Application</source>
-        <translation>Aplikacja</translation>
+        <translation>Program</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="708"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Ustawienia menedżera zadan</translation>
+        <translation>Ustawienia menedżera zadań</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>

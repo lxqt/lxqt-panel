@@ -103,7 +103,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Różnica względem URC</translation>
+        <translation>Różnica względem UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
