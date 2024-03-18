@@ -117,13 +117,13 @@ void QAbstractEyesWidget::paintEvent(QPaintEvent *) {
          * if the cursor is inside the eye, the pupil position is
          * the cursor
          */
-        if (y < 0 && dy < 0 && dy > y)
+        if (y <= 0 && dy <= 0 && dy > y)
             y = dy;
-        else if (y > 0 && dy > 0 && dy < y)
+        else if (y >= 0 && dy >= 0 && dy < y)
             y = dy;
-        if (x < 0 && dx < 0 && dx > x)
+        if (x <= 0 && dx <= 0 && dx > x)
             x = dx;
-        else if (x > 0 && dx > 0 && dx < x)
+        else if (x >= 0 && dx >= 0 && dx < x)
             x = dx;
 
         //painter.drawEllipse(QPoint(x0 + x, y0 + y), psize / 2, psize / 2);
