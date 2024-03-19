@@ -63,6 +63,14 @@
 #define CFG_KEY_SCREENNUM          "desktop"
 #define CFG_KEY_POSITION           "position"
 #define CFG_KEY_PANELSIZE          "panelSize"
+#define CFG_KEY_BOTTOMINSET        "bottomInset"
+#define CFG_KEY_TOPINSET           "topInset"
+#define CFG_KEY_LEFTINSET          "leftInset"
+#define CFG_KEY_RIGHTINSET         "rightInset"
+#define CFG_KEY_BOTTOMPADDING      "bottomPadding"
+#define CFG_KEY_TOPPADDING         "topPadding"
+#define CFG_KEY_LEFTPADDING        "leftPadding"
+#define CFG_KEY_RIGHTPADDING       "rightPadding"
 #define CFG_KEY_ICONSIZE           "iconSize"
 #define CFG_KEY_LINECNT            "lineCount"
 #define CFG_KEY_LENGTH             "width"
@@ -305,6 +313,14 @@ void LXQtPanel::readSettings()
 
     // By default we are using size & count from theme.
     setPanelSize(mSettings->value(QStringLiteral(CFG_KEY_PANELSIZE), PANEL_DEFAULT_SIZE).toInt(), false);
+    setBottomInset(mSettings->value(QStringLiteral(CFG_KEY_BOTTOMINSET), int{0}).toInt(), false);
+    setTopInset(mSettings->value(QStringLiteral(CFG_KEY_TOPINSET), int{0}).toInt(), false);
+    setLeftInset(mSettings->value(QStringLiteral(CFG_KEY_LEFTINSET), int{0}).toInt(), false);
+    setRightInset(mSettings->value(QStringLiteral(CFG_KEY_RIGHTINSET), int{0}).toInt(), false);
+    setBottomPadding(mSettings->value(QStringLiteral(CFG_KEY_BOTTOMPADDING), int{0}).toInt(), false);
+    setTopPadding(mSettings->value(QStringLiteral(CFG_KEY_TOPPADDING), int{0}).toInt(), false);
+    setLeftPadding(mSettings->value(QStringLiteral(CFG_KEY_LEFTPADDING), int{0}).toInt(), false);
+    setRightPadding(mSettings->value(QStringLiteral(CFG_KEY_RIGHTPADDING), int{0}).toInt(), false);
     setIconSize(mSettings->value(QStringLiteral(CFG_KEY_ICONSIZE), PANEL_DEFAULT_ICON_SIZE).toInt(), false);
     setLineCount(mSettings->value(QStringLiteral(CFG_KEY_LINECNT), PANEL_DEFAULT_LINE_COUNT).toInt(), false);
 
@@ -357,6 +373,14 @@ void LXQtPanel::saveSettings(bool later)
     //mSettings->setValue(CFG_KEY_PLUGINS, mPlugins->pluginNames());
 
     mSettings->setValue(QStringLiteral(CFG_KEY_PANELSIZE), mPanelSize);
+    mSettings->setValue(QStringLiteral(CFG_KEY_BOTTOMINSET), bottomInset());
+    mSettings->setValue(QStringLiteral(CFG_KEY_TOPINSET), topInset());
+    mSettings->setValue(QStringLiteral(CFG_KEY_LEFTINSET), leftInset());
+    mSettings->setValue(QStringLiteral(CFG_KEY_RIGHTINSET), rightInset());
+    mSettings->setValue(QStringLiteral(CFG_KEY_BOTTOMPADDING), bottomPadding());
+    mSettings->setValue(QStringLiteral(CFG_KEY_TOPPADDING), topPadding());
+    mSettings->setValue(QStringLiteral(CFG_KEY_LEFTPADDING), leftPadding());
+    mSettings->setValue(QStringLiteral(CFG_KEY_RIGHTPADDING), rightPadding());
     mSettings->setValue(QStringLiteral(CFG_KEY_ICONSIZE), mIconSize);
     mSettings->setValue(QStringLiteral(CFG_KEY_LINECNT), mLineCount);
 
