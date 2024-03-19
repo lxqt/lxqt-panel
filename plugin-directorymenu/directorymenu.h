@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef DIRECTORYMENU_H
-#define DIRECTORYMENU_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
  #include "directorymenuconfiguration.h"
@@ -90,7 +88,3 @@ public:
         return new DirectoryMenu(startupInfo);
     }
 };
-
-
-#endif
-

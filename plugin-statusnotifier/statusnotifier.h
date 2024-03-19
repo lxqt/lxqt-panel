@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIER_PLUGIN_H
-#define STATUSNOTIFIER_PLUGIN_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "statusnotifierwidget.h"
@@ -64,5 +63,3 @@ public:
         return new StatusNotifier(startupInfo);
     }
 };
-
-#endif // STATUSNOTIFIER_PLUGIN_H

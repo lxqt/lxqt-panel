@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _SETTINGS_H_
-#define _SETTINGS_H_
+#pragma once
 
 #include "../panel/pluginsettings.h"
 
@@ -65,5 +64,3 @@ public:
 private:
     PluginSettings *m_settings;
 };
-
-#endif

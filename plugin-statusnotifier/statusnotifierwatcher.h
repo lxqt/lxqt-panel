@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef STATUSNOTIFIERWATCHER_H
-#define STATUSNOTIFIERWATCHER_H
+#pragma once
 
 #include <QDBusConnection>
 #include <QDBusContext>
@@ -69,5 +68,3 @@ private:
     QStringList mHosts;
     QDBusServiceWatcher *mWatcher;
 };
-
-#endif // STATUSNOTIFIERWATCHER_H

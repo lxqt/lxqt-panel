@@ -23,8 +23,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTCUSTOMCOMMAND_H
-#define LXQTCUSTOMCOMMAND_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 
@@ -101,5 +100,3 @@ public:
         return new LXQtCustomCommand(startupInfo);
     }
 };
-
-#endif // LXQTCUSTOMCOMMAND_H

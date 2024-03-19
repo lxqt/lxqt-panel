@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTSENSORS_H
-#define LXQTSENSORS_H
+#pragma once
 
 #include "sensors.h"
 #include "../panel/pluginsettings.h"
@@ -78,6 +77,3 @@ private:
     void initDefaultSettings();
     PluginSettings *mSettings;
 };
-
-
-#endif // LXQTSENSORS_H

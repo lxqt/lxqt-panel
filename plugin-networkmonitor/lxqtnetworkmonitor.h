@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTNETWORKMONITOR_H
-#define LXQTNETWORKMONITOR_H
+#pragma once
+
 #include <QFrame>
 
 class ILXQtPanelPlugin;
@@ -67,8 +67,3 @@ private:
     QPixmap m_pic;
     ILXQtPanelPlugin *mPlugin;
 };
-
-
-#endif // LXQTNETWORKMONITOR_H
-
-

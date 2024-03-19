@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTSENSORSCONFIGURATION_H
-#define LXQTSENSORSCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -64,5 +63,3 @@ private slots:
     void changeProgressBarColor();
     void detectedChipSelected(int index);
 };
-
-#endif // LXQTSENSORSCONFIGURATION_H

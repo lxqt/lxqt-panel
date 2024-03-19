@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef __LXQT_PANEL_GLOBALS_H__
-#define __LXQT_PANEL_GLOBALS_H__
+#pragma once
 
 #include <QtGlobal>
 
@@ -35,5 +34,3 @@
 #else
 #define LXQT_PANEL_API Q_DECL_IMPORT
 #endif
-
-#endif // __LXQT_PANEL_GLOBALS_H__

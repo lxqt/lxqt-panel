@@ -28,9 +28,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTTASKBAR_H
-#define LXQTTASKBAR_H
+#pragma once
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
@@ -152,5 +150,3 @@ private:
     QWidget *mPlaceHolder;
     LeftAlignedTextStyle *mStyle;
 };
-
-#endif // LXQTTASKBAR_H

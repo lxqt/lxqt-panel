@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _KDBSTATE_H_
-#define _KDBSTATE_H_
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "settings.h"
@@ -70,6 +69,3 @@ private:
     KbdWatcher  m_watcher;
     Content     m_content;
 };
-
-
-#endif

@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTMOUNTPLUGIN_H
-#define LXQTMOUNTPLUGIN_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "../panel/lxqtpanel.h"
@@ -89,5 +88,3 @@ public:
         return new LXQtMountPlugin(startupInfo);
     }
 };
-
-#endif

@@ -26,9 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H
-#define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H
+#pragma once
 
 #include <QDialog>
 #include <QAbstractButton>
@@ -58,5 +56,3 @@ signals:
 private:
     Ui::LXQtWorldClockConfigurationManualFormat *ui;
 };
-
-#endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_MANUAL_FORMAT_H

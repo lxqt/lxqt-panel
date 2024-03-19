@@ -24,9 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef SPACERCONFIGURATION_H
-#define SPACERCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -60,5 +58,3 @@ private slots:
     void typeChanged(int index);
     void widthTypeChanged(bool expandableChecked);
 };
-
-#endif // SPACERCONFIGURATION_H

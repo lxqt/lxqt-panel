@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTTASKBARCONFIGURATION_H
-#define LXQTTASKBARCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -55,5 +54,3 @@ private:
 private slots:
     void saveSettings();
 };
-
-#endif // LXQTTASKBARCONFIGURATION_H

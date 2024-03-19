@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTSYSSTATUTILS_HPP
-#define LXQTSYSSTATUTILS_HPP
+#pragma once
 
 #include <QString>
 
@@ -37,5 +36,3 @@ QString netSpeedToString(int value);
 int netSpeedFromString(QString value);
 
 }
-
-#endif // LXQTSYSSTATUTILS_HPP

@@ -26,8 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PANEL_WORLDCLOCK_H
-#define LXQT_PANEL_WORLDCLOCK_H
+#pragma once
 
 #include <QTimeZone>
 
@@ -147,5 +146,3 @@ public:
         return new LXQtWorldClock(startupInfo);
     }
 };
-
-#endif // LXQT_PANEL_WORLDCLOCK_H

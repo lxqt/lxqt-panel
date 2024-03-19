@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_COLORPICKER_H
-#define LXQT_COLORPICKER_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
@@ -106,5 +105,3 @@ public:
         return new ColorPicker(startupInfo);
     }
 };
-
-#endif

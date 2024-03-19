@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef DIRECTORYMENUCONFIGURATION_H
-#define DIRECTORYMENUCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -74,5 +72,3 @@ private slots:
 
 private:
 };
-
-#endif // DIRECTORYMENUCONFIGURATION_H

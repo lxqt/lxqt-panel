@@ -1,5 +1,4 @@
-#ifndef COLORBUTTON_H
-#define COLORBUTTON_H
+#pragma once
 
 #include <QToolButton>
 
@@ -19,5 +18,3 @@ class ColorButton : public QToolButton
 
         QColor color;
 };
-
-#endif // COLORBUTTON_H

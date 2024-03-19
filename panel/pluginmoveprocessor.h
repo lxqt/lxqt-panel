@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef PLUGINMOVEPROCESSOR_H
-#define PLUGINMOVEPROCESSOR_H
+#pragma once
 
 #include <QWidget>
 #include <QVariantAnimation>
@@ -95,5 +93,3 @@ class LXQT_PANEL_API CursorAnimation: public QVariantAnimation
 public:
     void updateCurrentValue(const QVariant &value) { QCursor::setPos(value.toPoint()); }
 };
-
-#endif // PLUGINMOVEPROCESSOR_H

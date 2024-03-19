@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPLACEMENT_H
-#define CONFIGPLACEMENT_H
+#pragma once
 
 #include "../lxqtpanel.h"
 #include <QSettings>
@@ -89,5 +88,3 @@ private:
     int mOldScreenNum;
     bool mOldReserveSpace;
 };
-
-#endif

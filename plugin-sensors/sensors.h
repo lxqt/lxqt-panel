@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef SENSORS_H
-#define SENSORS_H
+#pragma once
 
 #include "chip.h"
 #include <QList>
@@ -56,5 +55,3 @@ private:
     static int mInstanceCounter;
     static bool mSensorsInitialized;
 };
-
-#endif // SENSORS_H

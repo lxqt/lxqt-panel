@@ -28,8 +28,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTTASKGROUP_H
-#define LXQTTASKGROUP_H
+#pragma once
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
@@ -117,5 +116,3 @@ private:
     void recalculateFrameIfVisible();
     void regroup();
 };
-
-#endif // LXQTTASKGROUP_H

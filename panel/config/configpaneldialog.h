@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGPANELDIALOG_H
-#define CONFIGPANELDIALOG_H
+#pragma once
 
 #include "configplacement.h"
 #include "configstyling.h"
@@ -52,5 +51,3 @@ private:
     ConfigStyling *mStylingPage;
     ConfigPluginsWidget *mPluginsPage;
 };
-
-#endif // CONFIGPANELDIALOG_H

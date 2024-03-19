@@ -26,9 +26,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQT_PANEL_WORLDCLOCK_CONFIGURATION_TIMEZONES_H
-#define LXQT_PANEL_WORLDCLOCK_CONFIGURATION_TIMEZONES_H
+#pragma once
 
 #include <QDialog>
 #include <QAbstractButton>
@@ -63,5 +61,3 @@ private:
 
     QTreeWidgetItem* makeSureParentsExist(const QStringList &parts, QMap<QString, QTreeWidgetItem*> &parentItems);
 };
-
-#endif // LXQT_PANEL_WORLDCLOCK_CONFIGURATION_TIMEZONES_H

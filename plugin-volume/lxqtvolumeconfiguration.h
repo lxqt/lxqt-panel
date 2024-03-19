@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTVOLUMECONFIGURATION_H
-#define LXQTVOLUMECONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -92,5 +91,3 @@ private:
     Ui::LXQtVolumeConfiguration *ui;
     bool mLockSettingChanges;
 };
-
-#endif // LXQTVOLUMECONFIGURATION_H

@@ -26,8 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQTPANELPLUGINCONFIGDIALOG_H
-#define LXQTPANELPLUGINCONFIGDIALOG_H
+#pragma once
 
 #include <QAbstractButton>
 #include <QDialog>
@@ -64,5 +63,3 @@ private:
     PluginSettings &mSettings;
 
 };
-
-#endif // LXQTPANELPLUGINCONFIGDIALOG_H

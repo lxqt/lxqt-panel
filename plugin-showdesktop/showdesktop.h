@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef SHOWDESKTOP_H
-#define SHOWDESKTOP_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
@@ -69,7 +67,3 @@ public:
         return new ShowDesktop(startupInfo);
     }
 };
-
-
-#endif
-

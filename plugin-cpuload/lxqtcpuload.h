@@ -25,8 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTCPULOAD_H
-#define LXQTCPULOAD_H
+#pragma once
+
 #include <QLabel>
 
 class ILXQtPanelPlugin;
@@ -82,6 +82,3 @@ private:
 
     QColor fontColor;
 };
-
-
-#endif // LXQTCPULOAD_H

@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef PLUGIN_SETTINGS_P_H
-#define PLUGIN_SETTINGS_P_H
+#pragma once
 
 #include "pluginsettings.h"
 
@@ -35,5 +34,3 @@ class PluginSettingsFactory
 public:
     static PluginSettings * create(LXQt::Settings *settings, const QString &group, QObject *parent = nullptr);
 };
-
-#endif //PLUGIN_SETTINGS_P_H

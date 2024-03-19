@@ -25,10 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTNETWORKMONITORPLUGIN_H
-#define LXQTNETWORKMONITORPLUGIN_H
-
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QObject>
@@ -67,6 +64,3 @@ public:
         return new LXQtNetworkMonitorPlugin(startupInfo);
     }
 };
-
-
-#endif // LXQTNETWORKMONITORPLUGIN_H

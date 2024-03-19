@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTPANEL_H
-#define LXQTPANEL_H
+#pragma once
 
 #include <QFrame>
 #include <QString>
@@ -708,6 +706,3 @@ private:
     // settings should be kept private for security
     LXQt::Settings *settings() const { return mSettings; }
 };
-
-
-#endif // LXQTPANEL_H

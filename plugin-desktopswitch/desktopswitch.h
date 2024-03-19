@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef DESKTOPSWITCH_H
-#define DESKTOPSWITCH_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QLabel>
@@ -134,5 +132,3 @@ public:
             return new DesktopSwitchUnsupported{startupInfo};
     }
 };
-
-#endif

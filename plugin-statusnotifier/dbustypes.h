@@ -26,10 +26,9 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#include <QDBusArgument>
+#pragma once
 
-#ifndef DBUSTYPES_H
-#define DBUSTYPES_H
+#include <QDBusArgument>
 
 struct IconPixmap {
     int width;
@@ -54,5 +53,3 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, ToolTip &toolTip)
 
 Q_DECLARE_METATYPE(IconPixmap)
 Q_DECLARE_METATYPE(ToolTip)
-
-#endif // DBUSTYPES_H

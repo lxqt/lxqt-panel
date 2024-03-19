@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef OSSENGINE_H
-#define OSSENGINE_H
+#pragma once
 
 #include "audioengine.h"
 
@@ -66,5 +65,3 @@ private:
     int m_leftVolume;
     int m_rightVolume;
 };
-
-#endif // OSSENGINE_H

@@ -18,8 +18,7 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef LXQTPANELAPPLICATION_P_H
-#define LXQTPANELAPPLICATION_P_H
+#pragma once
 
 #include "lxqtpanelapplication.h"
 
@@ -41,5 +40,3 @@ public:
 private:
     LXQtPanelApplication *const q_ptr;
 };
-
-#endif // LXQTPANELAPPLICATION_P_H

@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef PULSEAUDIOENGINE_H
-#define PULSEAUDIOENGINE_H
+#pragma once
 
 #include "audioengine.h"
 
@@ -95,5 +94,3 @@ private:
 
     QMap<AudioDevice *, pa_cvolume> m_cVolumeMap;
 };
-
-#endif // PULSEAUDIOENGINE_H

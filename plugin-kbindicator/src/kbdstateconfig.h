@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _KBDSTATECONFIG_H_
-#define _KBDSTATECONFIG_H_
+#pragma once
 
 #include <QDialog>
 
@@ -48,5 +47,3 @@ private:
 private:
     Ui::KbdStateConfig *m_ui;
 };
-
-#endif

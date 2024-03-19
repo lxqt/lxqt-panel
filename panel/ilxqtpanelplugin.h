@@ -26,8 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef ILXQTPANELPLUGIN_H
-#define ILXQTPANELPLUGIN_H
+#pragma once
 
 #include <QtPlugin>
 #include "ilxqtpanel.h"
@@ -248,5 +247,3 @@ public:
 
 Q_DECLARE_INTERFACE(ILXQtPanelPluginLibrary,
                     "lxqt.org/Panel/PluginInterface/3.0")
-
-#endif // ILXQTPANELPLUGIN_H

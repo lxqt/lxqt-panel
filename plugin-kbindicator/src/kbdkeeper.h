@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _KBDKEEPER_H_
-#define _KBDKEEPER_H_
+#pragma once
 
 #include <QHash>
 #include <QWidget>
@@ -102,5 +101,3 @@ private:
     QHash<QString, int> m_mapping;
     QString             m_active;
 };
-
-#endif

@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef MENUSTYLE_H
-#define MENUSTYLE_H
+#pragma once
 
 #include <QProxyStyle>
 
@@ -47,5 +45,3 @@ public:
 private:
     int mIconSize;
 };
-
-#endif // MENUSTYLE_H

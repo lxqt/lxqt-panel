@@ -24,9 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTBACKLIGHT_H
-#define LXQTBACKLIGHT_H
+#pragma once
 
 #include <QToolButton>
 #include "../panel/ilxqtpanelplugin.h"
@@ -82,5 +80,3 @@ public:
 protected:
     bool event(QEvent * event) override;
 };
-
-#endif // LXQTBACKLIGHT_H

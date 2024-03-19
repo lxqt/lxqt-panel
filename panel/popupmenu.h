@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef POPUPMENU_H
-#define POPUPMENU_H
+#pragma once
 
 #include <QMenu>
 #include "lxqtpanelglobals.h"
@@ -46,5 +44,3 @@ public:
 protected:
     virtual void keyPressEvent(QKeyEvent* e);
 };
-
-#endif // POPUPMENU_H

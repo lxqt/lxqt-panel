@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef VOLUMEPOPUP_H
-#define VOLUMEPOPUP_H
+#pragma once
 
 #include <QDialog>
 
@@ -82,5 +81,3 @@ private:
     Qt::Corner m_anchor;
     AudioDevice *m_device;
 };
-
-#endif // VOLUMEPOPUP_H

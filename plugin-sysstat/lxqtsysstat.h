@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTPANELSYSSTAT_H
-#define LXQTPANELSYSSTAT_H
+#pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
 #include "lxqtsysstatconfiguration.h"
@@ -223,5 +222,3 @@ public:
         return new LXQtSysStat(startupInfo);
     }
 };
-
-#endif // LXQTPANELSYSSTAT_H

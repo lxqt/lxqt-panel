@@ -24,8 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef _X11KBD_H_
-#define _X11KBD_H_
+#pragma once
 
 #include <QObject>
 #include "../controls.h"
@@ -56,5 +55,3 @@ signals:
 private:
     QScopedPointer<pimpl::X11Kbd> m_priv;
 };
-
-#endif

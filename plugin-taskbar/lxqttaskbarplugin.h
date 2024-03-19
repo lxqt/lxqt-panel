@@ -25,9 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTTASKBARPLUGIN_H
-#define LXQTTASKBARPLUGIN_H
+#pragma once
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
@@ -65,5 +63,3 @@ class LXQtTaskBarPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const { return new LXQtTaskBarPlugin(startupInfo);}
 };
-
-#endif // LXQTTASKBARPLUGIN_H

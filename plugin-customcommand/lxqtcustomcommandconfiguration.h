@@ -23,8 +23,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQTCUSTOMCOMMANDCONFIGURATION_H
-#define LXQTCUSTOMCOMMANDCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -64,5 +63,3 @@ private:
     Ui::LXQtCustomCommandConfiguration *ui;
     bool mLockSettingChanges;
 };
-
-#endif // LXQTCUSTOMCOMMANDCONFIGURATION_H

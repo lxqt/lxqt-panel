@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef CONFIGSTYLING_H
-#define CONFIGSTYLING_H
+#pragma once
 
 #include "../lxqtpanel.h"
 #include <QSettings>
@@ -77,5 +76,3 @@ private:
     QString mOldBackgroundImage;
     int mOldOpacity;
 };
-
-#endif

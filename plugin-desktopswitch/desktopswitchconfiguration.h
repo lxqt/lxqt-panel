@@ -24,9 +24,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef DESKTOPSWITCHCERCONFIGURATION_H
-#define DESKTOPSWITCHCERCONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 #include "../panel/pluginsettings.h"
@@ -60,5 +58,3 @@ private slots:
     void rowsChanged(int value);
     void labelTypeChanged(int type);
 };
-
-#endif // DESKTOPSWITCHCERCONFIGURATION_H

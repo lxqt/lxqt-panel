@@ -25,8 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-#ifndef LXQT_PLUGIN_MOUNT_CONFIGURATION_H
-#define LXQT_PLUGIN_MOUNT_CONFIGURATION_H
+#pragma once
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
 
@@ -58,5 +57,3 @@ private:
     Ui::Configuration *ui;
     bool mLockSettingChanges;
 };
-
-#endif // LXQTMOUNTCONFIGURATION_H

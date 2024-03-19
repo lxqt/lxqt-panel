@@ -27,9 +27,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTTASKBUTTON_H
-#define LXQTTASKBUTTON_H
+#pragma once
 
 #include <QToolButton>
 #include <QProxyStyle>
@@ -146,5 +144,3 @@ signals:
 };
 
 typedef QHash<WId,LXQtTaskButton*> LXQtTaskButtonHash;
-
-#endif // LXQTTASKBUTTON_H
