@@ -28,11 +28,15 @@
 #include <QAbstractNativeEventFilter>
 #include <QDebug>
 #include <QFile>
+#include <QX11Info>
 #include <QDomDocument>
 #include "kbdlayout.h"
 
 #include <xkbcommon/xkbcommon-x11.h>
 #include <xcb/xcb.h>
+#include <X11/Xlib.h>
+#include <X11/XKBlib.h>
+#include <X11/extensions/XKBrules.h>
 
 // Note: We need to override "explicit" as this is a C++ keyword. But it is
 // used as variable name in xkb.h. This is causing a failure in C++ compile
@@ -45,6 +49,56 @@
 #include "../kbdinfo.h"
 #include "../controls.h"
 
+static QString xkbRulesDir();
+static QString xkbRulesFile();
+static QString xkbRulesName();
+static void _lxqt_xkb_free_var_defs(XkbRF_VarDefsRec *var_defs);
+
+static QString xkbRulesDir()
+{
+    return QStringLiteral(XKB_RULES_DIR);
+}
+
+static QString xkbRulesFile()
+{
+    QString rulesFile;
+    const QString rules = xkbRulesName();
+    const QString xkbDir = xkbRulesDir();
+    if (!rules.isEmpty()) {
+        rulesFile = QStringLiteral("%1/rules/%2.xml").arg(xkbDir, rules);
+    } else { // default
+        rulesFile = QStringLiteral("%1/rules/evdev.xml").arg(xkbDir);
+    }
+    return rulesFile;
+}
+
+static QString xkbRulesName()
+{
+    if (!QX11Info::isPlatformX11()) {
+        return QString();
+    }
+    XkbRF_VarDefsRec v{};
+    char *file = nullptr;
+
+    if (XkbRF_GetNamesProp(QX11Info::display(), &file, &v) && file != nullptr) {
+        const QString name = QString::fromUtf8(file);
+        XFree(file);
+        _lxqt_xkb_free_var_defs(&v);
+        return name;
+    }
+    return {};
+}
+
+static void _lxqt_xkb_free_var_defs(XkbRF_VarDefsRec *var_defs)
+{
+    if (var_defs == nullptr)
+        return;
+
+    free(static_cast<void *>(var_defs->model));
+    free(static_cast<void *>(var_defs->layout));
+    free(static_cast<void *>(var_defs->variant));
+    free(static_cast<void *>(var_defs->options));
+}
 namespace pimpl {
 
 struct LangInfo
@@ -245,10 +299,11 @@ private:
         static LangInfo def{QStringLiteral("Unknown"), QStringLiteral("??"), QStringLiteral("None")};
         static QHash<QString, LangInfo> names;
         if (names.empty()){
-            if(QFile::exists(QStringLiteral("/usr/share/X11/xkb/rules/evdev.xml"))){
+            const QString rulesFile{xkbRulesFile()};
+            if(QFile::exists(rulesFile)){
                 QDomDocument doc;
 
-                QFile file(QStringLiteral("/usr/share/X11/xkb/rules/evdev.xml"));
+                QFile file(rulesFile);
                 if (file.open(QIODevice::ReadOnly)){
                     if (doc.setContent(&file)) {
                         QDomElement docElem = doc.documentElement();
