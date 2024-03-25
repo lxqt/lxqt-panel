@@ -164,11 +164,11 @@ ActionView::ActionView(QWidget * parent /*= nullptr*/)
     mProxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
     mProxy->sort(0);
     {
-        QScopedPointer<QItemSelectionModel> guard{selectionModel()};
+        std::unique_ptr<QItemSelectionModel> guard{selectionModel()};
         setModel(mProxy);
     }
     {
-        QScopedPointer<QAbstractItemDelegate> guard{itemDelegate()};
+        std::unique_ptr<QAbstractItemDelegate> guard{itemDelegate()};
         setItemDelegate(new DelayedIconDelegate{this});
     }
     connect(this, &QAbstractItemView::activated, this, &ActionView::onActivated);
@@ -284,7 +284,7 @@ QSize ActionView::minimumSizeHint() const
 void ActionView::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton)
-        mDragStartPosition = event->pos();
+        mDragStartPosition = event->position().toPoint();
 
     QListView::mousePressEvent(event);
 }
@@ -294,7 +294,7 @@ void ActionView::mouseMoveEvent(QMouseEvent *event)
     if (!(event->buttons() & Qt::LeftButton))
         return;
 
-    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
+    if ((event->position().toPoint() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
         return;
 
     XdgAction *a = qobject_cast<XdgAction*>(indexAt(mDragStartPosition).data(ActionView::ActionRole).value<QAction*>());

@@ -37,7 +37,6 @@
 #include <QMimeData>
 #include <QWheelEvent>
 #include <QFlag>
-#include <QX11Info>
 #include <QTimer>
 
 #include <lxqt-globalkeys.h>
@@ -46,6 +45,11 @@
 
 #include "lxqttaskbar.h"
 #include "lxqttaskgroup.h"
+#include "../panel/pluginsettings.h"
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
 
 using namespace LXQt;
 
@@ -78,7 +82,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     setStyle(mStyle);
     mLayout = new LXQt::GridLayout(this);
     setLayout(mLayout);
-    mLayout->setMargin(0);
+    mLayout->setContentsMargins(QMargins());
     mLayout->setStretch(LXQt::GridLayout::StretchHorizontal | LXQt::GridLayout::StretchVertical);
     realign();
 
@@ -131,9 +135,13 @@ bool LXQtTaskBar::acceptWindow(WId window) const
     if (info.state() & NET::SkipTaskbar)
         return false;
 
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
+    WId appRootWindow = XDefaultRootWindow(x11Application->display());
+
     // WM_TRANSIENT_FOR hint not set - normal window
     WId transFor = info.transientFor();
-    if (transFor == 0 || transFor == window || transFor == (WId) QX11Info::appRootWindow())
+    if (transFor == 0 || transFor == window || transFor == appRootWindow)
         return true;
 
     info = KWindowInfo(transFor, NET::WMWindowType);
@@ -154,7 +162,7 @@ void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
     if (event->mimeData()->hasFormat(LXQtTaskGroup::mimeDataFormat()))
     {
         event->acceptProposedAction();
-        buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->pos());
+        buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->position().toPoint());
     } else
         event->ignore();
     QWidget::dragEnterEvent(event);
@@ -166,7 +174,7 @@ void LXQtTaskBar::dragEnterEvent(QDragEnterEvent* event)
 void LXQtTaskBar::dragMoveEvent(QDragMoveEvent * event)
 {
     //we don't get any dragMoveEvents if dragEnter wasn't accepted
-    buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->pos());
+    buttonMove(nullptr, qobject_cast<LXQtTaskGroup *>(event->source()), event->position().toPoint());
     QWidget::dragMoveEvent(event);
 }
 

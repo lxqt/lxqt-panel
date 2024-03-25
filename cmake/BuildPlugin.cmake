@@ -36,12 +36,12 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
         set (PLUGIN_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${PROGRAM})
     endif (NOT DEFINED PLUGIN_DIR)
 
-    set(QTX_LIBRARIES Qt5::Widgets)
+    set(QTX_LIBRARIES Qt6::Widgets)
     if(QT_USE_QTXML)
-        set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt5::Xml)
+        set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt6::Xml)
     endif()
     if(QT_USE_QTDBUS)
-        set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt5::DBus)
+        set(QTX_LIBRARIES ${QTX_LIBRARIES} Qt6::DBus)
     endif()
 
     list(FIND STATIC_PLUGINS ${NAME} IS_STATIC)
@@ -52,7 +52,7 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     else() # static
         add_library(${NAME} STATIC ${SRC}) # build statically linked lib
     endif()
-    target_link_libraries(${NAME} ${QTX_LIBRARIES} lxqt ${LIBRARIES} KF5::WindowSystem)
+    target_link_libraries(${NAME} ${QTX_LIBRARIES} lxqt ${LIBRARIES} KF6::WindowSystem)
 
     install(FILES ${CONFIG_FILES}  DESTINATION ${PLUGIN_SHARE_DIR})
     install(FILES ${DESKTOP_FILES} DESTINATION ${PROG_SHARE_DIR})

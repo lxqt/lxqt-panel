@@ -29,13 +29,16 @@
 #include "colorpicker.h"
 #include <QApplication>
 #include <QClipboard>
-#include <QDesktopWidget>
 #include <QBoxLayout>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScreen>
 #include <QSvgRenderer>
+
+//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
+#include <X11/Xlib.h>
+#undef Bool
 
 
 const QString ColorPickerWidget::svgIcon = QStringLiteral(
@@ -143,11 +146,21 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
     if (!mCapturing)
         return;
 
-    WId id = QApplication::desktop()->winId();
-    QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, event->globalX(), event->globalY(), 1, 1);
+    QColor col;
 
-    QImage img = pixmap.toImage();
-    QColor col = QColor(img.pixel(0,0));
+    if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+    {
+        WId id = XDefaultRootWindow(x11Application->display());
+        QPoint point = event->globalPosition().toPoint();
+        QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, point.x(), point.y(), 1, 1);
+
+        QImage img = pixmap.toImage();
+        col = QColor(img.pixel(0,0));
+    }
+    else
+    {
+        qWarning() << "WAYLAND does not support grabbing windows";
+    }
 
     mColorButton->setColor(col);
     paste(col.name());
@@ -185,7 +198,7 @@ void ColorPickerWidget::captureMouse()
 
 QIcon ColorPickerWidget::colorIcon(QColor color)
 {
-    QString data = svgIcon.arg(palette().color(QPalette::Text).name()).arg(color.name());
+    QString data = svgIcon.arg(palette().color(QPalette::Text).name(), color.name());
     QPixmap pixmap(mColorButton->iconSize());
     pixmap.fill(Qt::transparent);
     QPainter painter(&pixmap);

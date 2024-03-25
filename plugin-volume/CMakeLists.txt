@@ -27,7 +27,7 @@ set(UIS
 set(LIBRARIES
     ${LIBRARIES}
     lxqt-globalkeys
-    Qt5Xdg
+    Qt6Xdg
 )
 
 if(PULSEAUDIO_FOUND)

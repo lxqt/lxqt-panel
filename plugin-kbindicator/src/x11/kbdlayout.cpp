@@ -97,7 +97,7 @@ public:
     bool isEnabled() const
     { return true;  }
 
-    bool nativeEventFilter(const QByteArray &eventType, void *message, long *) override
+    bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *) override
     {
         if (eventType != "xcb_generic_event_t")
             return false;

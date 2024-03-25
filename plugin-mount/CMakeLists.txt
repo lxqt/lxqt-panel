@@ -34,7 +34,7 @@ set(UIS
     configuration.ui
 )
 
-find_package(KF5Solid ${QT_MINIMUM_VERSION} REQUIRED)
-set(LIBRARIES Qt5Xdg lxqt-globalkeys KF5::Solid)
+find_package(KF6Solid ${QT_MINIMUM_VERSION} REQUIRED)
+set(LIBRARIES Qt6Xdg lxqt-globalkeys KF6::Solid)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

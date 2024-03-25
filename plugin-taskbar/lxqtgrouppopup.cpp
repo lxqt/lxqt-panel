@@ -29,6 +29,8 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtgrouppopup.h"
+#include "lxqttaskgroup.h"
+
 #include <QEnterEvent>
 #include <QDrag>
 #include <QMimeData>
@@ -55,7 +57,7 @@ LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
 
     setLayout(new QVBoxLayout);
     layout()->setSpacing(3);
-    layout()->setMargin(3);
+    layout()->setContentsMargins(3, 3, 3, 3);
 
     connect(&mCloseTimer, &QTimer::timeout, this, &LXQtGroupPopup::closeTimerSlot);
     mCloseTimer.setSingleShot(true);
@@ -93,14 +95,14 @@ void LXQtGroupPopup::dropEvent(QDropEvent *event)
     for (int i = 0; i < oldIndex && newIndex == -1; i++)
     {
         QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 > event->pos().y())
+        if (w && w->pos().y() + w->height() / 2 > event->position().y())
             newIndex = i;
     }
     const int size = layout()->count();
     for (int i = size - 1; i > oldIndex && newIndex == -1; i--)
     {
         QWidget *w = layout()->itemAt(i)->widget();
-        if (w && w->pos().y() + w->height() / 2 < event->pos().y())
+        if (w && w->pos().y() + w->height() / 2 < event->position().y())
             newIndex = i;
     }
 
@@ -137,7 +139,7 @@ void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 /************************************************
  *
  ************************************************/
-void LXQtGroupPopup::enterEvent(QEvent * /*event*/)
+void LXQtGroupPopup::enterEvent(QEnterEvent * /*event*/)
 {
     mCloseTimer.stop();
 }
@@ -162,6 +164,16 @@ void LXQtGroupPopup::show()
 {
     mCloseTimer.stop();
     QFrame::show();
+}
+
+int LXQtGroupPopup::indexOf(LXQtTaskButton *button)
+{
+    return layout()->indexOf(button);
+}
+
+void LXQtGroupPopup::addButton(LXQtTaskButton *button)
+{
+    layout()->addWidget(button);
 }
 
 void LXQtGroupPopup::closeTimerSlot()

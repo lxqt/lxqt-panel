@@ -4,15 +4,15 @@ include(CheckLibraryExists)
 
 find_package(XCB
     REQUIRED COMPONENTS
-        xcb
-        xcb-xfixes
-        xcb-damage
-        xcb-composite
-        xcb-randr
-        xcb-shm
-        xcb-util
-        xcb-image
-        xcb-shape
+        XCB
+        XFIXES
+        DAMAGE
+        COMPOSITE
+        RANDR
+        SHM
+        UTIL
+        IMAGE
+        SHAPE
 )
 find_package(PkgConfig)
 pkg_check_modules(xtst REQUIRED xtst)

@@ -26,12 +26,11 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include <QAction>
-#include <QX11Info>
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
 #include <LXQt/Notification>
-#include <KWindowSystem/KWindowSystem>
-#include <KWindowSystem/NETWM>
+#include <KWindowSystem>
+#include <NETWM>
 #include "showdesktop.h"
 #include "../panel/pluginsettings.h"
 

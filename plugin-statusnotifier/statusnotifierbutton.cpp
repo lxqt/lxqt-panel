@@ -30,7 +30,7 @@
 
 #include <QDir>
 #include <QFile>
-#include <dbusmenu-qt5/dbusmenuimporter.h>
+#include <dbusmenu-lxqt/dbusmenuimporter.h>
 #include "../panel/ilxqtpanelplugin.h"
 #include "sniasync.h"
 #include <XdgIcon>

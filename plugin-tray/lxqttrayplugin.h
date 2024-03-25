@@ -29,9 +29,10 @@
 #pragma once
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QDebug>
+
 #include <QObject>
-#include <QX11Info>
+
+#include <QDebug>
 
 class FdoSelectionManager;
 class LXQtTrayPlugin : public QObject, public ILXQtPanelPlugin
@@ -58,13 +59,5 @@ class LXQtTrayPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
     // Q_PLUGIN_METADATA(IID "lxqt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
-    {
-        // Currently only X11 supported
-        if (!QX11Info::connection()) {
-            qWarning() << "Currently tray plugin supports X11 only. Skipping.";
-            return nullptr;
-        }
-        return new LXQtTrayPlugin(startupInfo);
-    }
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const;
 };

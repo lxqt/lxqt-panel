@@ -1,6 +1,6 @@
 set(PLUGIN "sysstat")
 
-find_package(SysStat-Qt5 REQUIRED)
+find_package(SysStat-Qt6 REQUIRED)
 
 set(HEADERS
     lxqtsysstat.h
@@ -21,6 +21,6 @@ set(UIS
     lxqtsysstatcolours.ui
 )
 
-set(LIBRARIES sysstat-qt5)
+set(LIBRARIES sysstat-qt6)
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

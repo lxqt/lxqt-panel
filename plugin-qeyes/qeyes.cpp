@@ -43,7 +43,6 @@ QEyesPlugin::QEyesPlugin(const ILXQtPanelPluginStartupInfo &startupInfo) :
     w0 = new QWidget();
     l = new QVBoxLayout();
     l->setSpacing(0);
-    l->setMargin(0);
     l->setContentsMargins (0, 0, 0, 0);
     w0->setLayout(l);
 

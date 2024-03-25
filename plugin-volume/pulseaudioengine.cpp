@@ -179,8 +179,8 @@ void PulseAudioEngine::removeSink(uint32_t idx)
     if (m_sinks.end() == dev_i)
         return;
 
-    QScopedPointer<AudioDevice> dev{*dev_i};
-    m_cVolumeMap.remove(dev.data());
+    std::unique_ptr<AudioDevice> dev{*dev_i};
+    m_cVolumeMap.remove(dev.get());
     m_sinks.erase(dev_i);
     emit sinkListChanged();
 }
@@ -191,7 +191,7 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
     bool newSink = false;
     QString name = QString::fromUtf8(info->name);
 
-    for (AudioDevice *device : qAsConst(m_sinks)) {
+    for (AudioDevice *device : std::as_const(m_sinks)) {
         if (device->name() == name) {
             dev = device;
             break;

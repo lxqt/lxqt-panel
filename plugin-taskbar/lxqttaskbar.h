@@ -34,22 +34,23 @@
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqttaskbarconfiguration.h"
-#include "lxqttaskgroup.h"
-#include "lxqttaskbutton.h"
 
 #include <QFrame>
 #include <QBoxLayout>
 #include <QMap>
 #include <lxqt-globalkeys.h>
 #include "../panel/ilxqtpanel.h"
-#include <KWindowSystem/KX11Extras>
-#include <KWindowSystem/KWindowInfo>
-#include <KWindowSystem/NETWM>
+#include <KX11Extras>
+#include <KWindowInfo>
+#include <NETWM>
 
 class QSignalMapper;
+
 class LXQtTaskButton;
+class LXQtTaskGroup;
+
 class ElidedButtonStyle;
+class LeftAlignedTextStyle;
 
 namespace LXQt {
 class GridLayout;

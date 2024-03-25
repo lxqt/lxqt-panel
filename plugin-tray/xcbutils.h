@@ -35,9 +35,8 @@
 #include <xcb/xcb_atom.h>
 #include <xcb/xcb_event.h>
 
-#include <QScopedPointer>
-#include <QVector>
-#include <QX11Info>
+#include <memory>
+#include <QList>
 
 /** XEMBED messages */
 #define XEMBED_EMBEDDED_NOTIFY 0
@@ -53,13 +52,19 @@ namespace Xcb
 {
 typedef xcb_window_t WindowId;
 
+struct ScopedCPointerDeleter
+{
+    static inline void cleanup(void *pointer) noexcept { free(pointer); }
+    void operator()(void *pointer) const noexcept { cleanup(pointer); }
+};
+
 template<typename T>
-using ScopedCPointer = QScopedPointer<T, QScopedPointerPodDeleter>;
+using ScopedCPointer = std::unique_ptr<T, ScopedCPointerDeleter>;
 
 class Atom
 {
 public:
-    explicit Atom(const QByteArray &name, bool onlyIfExists = false, xcb_connection_t *c = QX11Info::connection())
+    explicit Atom(const QByteArray &name, xcb_connection_t *c, bool onlyIfExists = false)
         : m_connection(c)
         , m_retrieved(false)
         , m_cookie(xcb_intern_atom_unchecked(m_connection, onlyIfExists, name.length(), name.constData()))
@@ -105,7 +110,7 @@ private:
             return;
         }
         ScopedCPointer<xcb_intern_atom_reply_t> reply(xcb_intern_atom_reply(m_connection, m_cookie, nullptr));
-        if (!reply.isNull()) {
+        if (reply) {
             m_atom = reply->atom;
         }
         m_retrieved = true;
@@ -120,12 +125,12 @@ private:
 class Atoms
 {
 public:
-    Atoms()
-        : xembedAtom("_XEMBED")
-        , selectionAtom(xcb_atom_name_by_screen("_NET_SYSTEM_TRAY", QX11Info::appScreen()))
-        , opcodeAtom("_NET_SYSTEM_TRAY_OPCODE")
-        , messageData("_NET_SYSTEM_TRAY_MESSAGE_DATA")
-        , visualAtom("_NET_SYSTEM_TRAY_VISUAL")
+    Atoms(xcb_connection_t *c, int defaultScreen)
+        : xembedAtom("_XEMBED", c)
+        , selectionAtom(xcb_atom_name_by_screen("_NET_SYSTEM_TRAY", defaultScreen), c)
+        , opcodeAtom("_NET_SYSTEM_TRAY_OPCODE", c)
+        , messageData("_NET_SYSTEM_TRAY_MESSAGE_DATA", c)
+        , visualAtom("_NET_SYSTEM_TRAY_VISUAL", c)
     {
     }
 

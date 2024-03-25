@@ -28,7 +28,6 @@
 #include "lxqtcpuload.h"
 #include "../panel/ilxqtpanelplugin.h"
 #include "../panel/pluginsettings.h"
-#include <QtCore>
 #include <QPainter>
 #include <QLinearGradient>
 #include <QHBoxLayout>

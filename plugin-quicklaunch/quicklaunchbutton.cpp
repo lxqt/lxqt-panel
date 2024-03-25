@@ -118,7 +118,7 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & /*pos*/)
     mMoveRightAct->setEnabled(!mPlugin->panel()->isLocked() && panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);
     mDeleteAct->setEnabled(!mPlugin->panel()->isLocked());
     mPlugin->willShowWindow(mMenu);
-    mMenu->popup(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal({0, 0}), mMenu->sizeHint()).topLeft());
+    mMenu->popup(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal(QPoint(0, 0)), mMenu->sizeHint()).topLeft());
 }
 
 
@@ -132,7 +132,7 @@ void QuickLaunchButton::mousePressEvent(QMouseEvent *e)
 {
     if (e->button() == Qt::LeftButton && e->modifiers() == Qt::ControlModifier)
     {
-        mDragStart = e->pos();
+        mDragStart = e->position().toPoint();
         return;
     }
 
@@ -147,7 +147,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    if ((e->pos() - mDragStart).manhattanLength() < QApplication::startDragDistance())
+    if ((e->position().toPoint() - mDragStart).manhattanLength() < QApplication::startDragDistance())
     {
         return;
     }

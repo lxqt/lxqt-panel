@@ -31,7 +31,7 @@
 #include "pluginsettings_p.h"
 #include "lxqtpanel.h"
 
-#include <KWindowSystem/KX11Extras>
+#include <KX11Extras>
 
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -127,7 +127,7 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
     else {
         // this plugin is a dynamically loadable module
         QString baseName = QStringLiteral("lib%1.so").arg(desktopFile.id());
-        for(const QString &dirName : qAsConst(dirs))
+        for(const QString &dirName : std::as_const(dirs))
         {
             QFileInfo fi(QDir(dirName), baseName);
             if (fi.exists())

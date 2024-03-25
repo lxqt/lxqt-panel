@@ -1,8 +1,8 @@
 set(PLUGIN "statusnotifier")
 
 
-find_package(dbusmenu-qt5 REQUIRED)
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Concurrent)
+find_package(dbusmenu-lxqt REQUIRED)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Concurrent)
 
 set(HEADERS
     statusnotifier.h
@@ -32,7 +32,7 @@ set(UIS
     statusnotifierconfiguration.ui
 )
 
-qt5_add_dbus_adaptor(DBUS_SOURCES
+qt6_add_dbus_adaptor(DBUS_SOURCES
     org.kde.StatusNotifierItem.xml
     statusnotifieriteminterface.h
     StatusNotifierItemInterface
@@ -43,8 +43,8 @@ set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 list(APPEND SOURCES "${DBUS_SOURCES}")
 
 set(LIBRARIES
-    dbusmenu-qt5
-    Qt5::Concurrent
+    dbusmenu-lxqt
+    Qt6::Concurrent
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

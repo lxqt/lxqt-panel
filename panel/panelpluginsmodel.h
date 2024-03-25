@@ -263,7 +263,7 @@ private:
      *
      * \sa mPlugins
      */
-    typedef QList<QPair <QString/*name*/, QPointer<Plugin> > > pluginslist_t;
+    typedef QList<std::pair <QString/*name*/, QPointer<Plugin> > > pluginslist_t;
 
 private:
     /*!
@@ -320,7 +320,7 @@ private:
      * \brief mPlugins Stores all the Plugins.
      *
      * mPlugins is a QList of elements while each element corresponds to a
-     * single Plugin. Each element is a QPair of a QString and a QPointer
+     * single Plugin. Each element is a std::pair of a QString and a QPointer
      * while the QPointer points to a Plugin.
      *
      * To access the elements, you can use indexing or an iterator on the
@@ -335,7 +335,5 @@ private:
      */
     LXQtPanel * mPanel;
 };
-
-Q_DECLARE_METATYPE(Plugin const *)
 
 #endif // PANELPLUGINSMODEL_H

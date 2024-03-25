@@ -32,7 +32,6 @@
 
 #include <QCalendarWidget>
 #include <QDate>
-#include <QDesktopWidget>
 #include <QDialog>
 #include <QEvent>
 #include <QHBoxLayout>
@@ -165,6 +164,8 @@ void LXQtWorldClock::restartTimer()
 
 void LXQtWorldClock::settingsChanged()
 {
+    static const QRegularExpression regexp(QLatin1String("'[^']*'"));
+
     PluginSettings *_settings = settings();
 
     QString oldFormat = mFormat;
@@ -324,7 +325,7 @@ void LXQtWorldClock::settingsChanged()
     {
         int update_interval;
         QString format = mFormat;
-        format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+        format.replace(regexp, QString());
         //don't support updating on millisecond basis -> big performance hit
         if (format.contains(QLatin1String("s")))
             update_interval = 1000;
@@ -457,7 +458,7 @@ void LXQtWorldClock::updatePopupContent()
         QStringList allTimeZones;
         bool hasTimeZone = formatHasTimeZone(mFormat);
 
-        for (QString timeZoneName : qAsConst(mTimeZones))
+        for (QString timeZoneName : std::as_const(mTimeZones))
         {
             if (timeZoneName == QLatin1String("local"))
                 timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
@@ -476,7 +477,8 @@ void LXQtWorldClock::updatePopupContent()
 
 bool LXQtWorldClock::formatHasTimeZone(QString format)
 {
-    format.replace(QRegExp(QLatin1String("'[^']*'")), QString());
+    static const QRegularExpression regexp(QLatin1String("'[^']*'"));
+    format.replace(regexp, QString());
     return format.contains(QLatin1Char('t'), Qt::CaseInsensitive);
 }
 
@@ -622,7 +624,7 @@ LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
     QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
     setLayout(new QHBoxLayout(this));
-    layout()->setMargin(1);
+    layout()->setContentsMargins(1, 1, 1, 1);
 }
 
 void LXQtWorldClockPopup::show()
