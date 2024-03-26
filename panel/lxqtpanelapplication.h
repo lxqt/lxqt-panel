@@ -37,6 +37,8 @@ class QScreen;
 class LXQtPanel;
 class LXQtPanelApplicationPrivate;
 
+class ILXQtTaskbarAbstractBackend;
+
 /*!
  * \brief The LXQtPanelApplication class inherits from LXQt::Application and
  * is therefore the QApplication that we will create and execute in our
@@ -88,6 +90,8 @@ public:
      * ILXQtPanelPlugin::SingleInstance flag set, false otherwise.
      */
     bool isPluginSingletonAndRunning(QString const & pluginId) const;
+
+    ILXQtTaskbarAbstractBackend* getWMBackend() const;
 
 public slots:
     /*!

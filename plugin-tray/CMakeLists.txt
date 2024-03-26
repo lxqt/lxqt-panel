@@ -38,6 +38,7 @@ qt_add_dbus_adaptor(SOURCES org.kde.StatusNotifierItem.xml sniproxy.h SNIProxy)
 qt_add_dbus_interface(SOURCES org.kde.StatusNotifierWatcher.xml statusnotifierwatcher_interface)
 
 set(LIBRARIES
+    Qt6::GuiPrivate
     ${XCB_LIBRARIES}
     ${xtst_LDFLAGS}
 )
