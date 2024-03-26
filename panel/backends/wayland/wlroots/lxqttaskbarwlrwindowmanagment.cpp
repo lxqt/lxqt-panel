@@ -77,14 +77,14 @@ void LXQtTaskBarWlrootsWindow::activate()
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString &title)
 {
-    emit titleChanged();
     this->title = title;
+    emit titleChanged();
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString &app_id)
 {
-    emit appIdChanged();
     this->appId = app_id;
+    emit appIdChanged();
     // Code to get the icon needs to be inserted here
 }
 
