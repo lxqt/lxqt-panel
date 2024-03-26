@@ -1,7 +1,7 @@
-#ifndef LXQTTASKBARBACKENDWAYLAND_H
-#define LXQTTASKBARBACKENDWAYLAND_H
+#ifndef LXQTTASKBARBACKENDPLASMA_H
+#define LXQTTASKBARBACKENDPLASMA_H
 
-#include "../ilxqttaskbarabstractbackend.h"
+#include "../../ilxqttaskbarabstractbackend.h"
 
 #include <QTime>
 #include <QHash>
@@ -12,12 +12,12 @@ class LXQtTaskBarPlasmaWindowManagment;
 class LXQtPlasmaWaylandWorkspaceInfo;
 
 
-class LXQtTaskbarWaylandBackend : public ILXQtTaskbarAbstractBackend
+class LXQtTaskbarPlasmaBackend : public ILXQtTaskbarAbstractBackend
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarWaylandBackend(QObject *parent = nullptr);
+    explicit LXQtTaskbarPlasmaBackend(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
