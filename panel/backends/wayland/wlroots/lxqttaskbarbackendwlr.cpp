@@ -349,6 +349,8 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
             activeWindow = nullptr;
             emit activeWindowChanged(0);
         }
+
+        emit windowRemoved(window->getWindowId());
     };
 
     connect(window, &LXQtTaskBarWlrootsWindow::closed, this, removeWindow);
