@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation>Obľubené</translation>
+        <translation>Obľúbene</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Ikonka:</translation>
+        <translation>Ikona:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
         <source>Choose icon file</source>
-        <translation>Vybrať ikonu súboru</translation>
+        <translation>Vybrať súbor s ikonami</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
         <source>LXQt Configuration Center</source>
-        <translation>LXQt Konfiguračné centrum</translation>
+        <translation>Centrum nastavení LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
