@@ -1,5 +1,4 @@
-#ifndef LXQTPLASMAVIRTUALDESKTOP_H
-#define LXQTPLASMAVIRTUALDESKTOP_H
+#pragma once
 
 #include <QVariant>
 #include <QtWaylandClient/QWaylandClientExtensionTemplate>
@@ -87,5 +86,3 @@ signals:
     void desktopNameChanged(quint32 position);
     void desktopLayoutRowsChanged();
 };
-
-#endif // LXQTPLASMAVIRTUALDESKTOP_H

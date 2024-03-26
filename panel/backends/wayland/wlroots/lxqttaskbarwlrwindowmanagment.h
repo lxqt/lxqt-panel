@@ -1,5 +1,4 @@
-#ifndef LXQTTASKBARWlrootsWINDOWMANAGMENT_H
-#define LXQTTASKBARWlrootsWINDOWMANAGMENT_H
+#pragma once
 
 #include <QIcon>
 #include <QPointer>
@@ -46,7 +45,6 @@ public:
     inline WId getWindowId() const { return reinterpret_cast<WId>(this); }
 
     using state = QtWayland::zwlr_foreign_toplevel_handle_v1::state;
-    const QString uuid;
     QString title;
     QString appId;
     QIcon icon;
@@ -83,5 +81,3 @@ private:
 
     QMetaObject::Connection parentWindowUnmappedConnection;
 };
-
-#endif // LXQTTASKBARWlrootsWINDOWMANAGMENT_H

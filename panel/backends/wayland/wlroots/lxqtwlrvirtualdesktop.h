@@ -1,5 +1,4 @@
-#ifndef LXQTWlrootsVIRTUALDESKTOP_H
-#define LXQTWlrootsVIRTUALDESKTOP_H
+#pragma once
 
 #include <QVariant>
 #include <vector>
@@ -69,5 +68,3 @@ signals:
     void desktopNameChanged(quint32 position);
     void desktopLayoutRowsChanged();
 };
-
-#endif // LXQTWlrootsVIRTUALDESKTOP_H

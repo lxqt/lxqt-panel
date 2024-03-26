@@ -37,6 +37,7 @@ LXQtTaskBarWlrootsWindowManagment::~LXQtTaskBarWlrootsWindowManagment()
 
 void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel)
 {
+    qDebug() << "new toplevel created";
     emit windowCreated( new LXQtTaskBarWlrootsWindow(toplevel) );
 }
 
@@ -46,14 +47,9 @@ void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
  */
 
 LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id)
-    : zwlr_foreign_toplevel_handle_v1(id),
-    uuid(QString::number(0))
+    : zwlr_foreign_toplevel_handle_v1(id)
 {
 }
-
-/*
- * LXQtTaskBarWlrootsWindow
- */
 
 LXQtTaskBarWlrootsWindow::~LXQtTaskBarWlrootsWindow()
 {
@@ -85,10 +81,34 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(stru
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
-    // emit activeChanged();
-    // emit maximizedChanged();
-    // emit minimizedChanged();
-    // emit fullscreenChanged();
+    QFlags<LXQtTaskBarWlrootsWindow::state> wlrState;
+
+    uint32_t* statePtr = static_cast<uint32_t*>(state->data);
+    for (size_t i = 0; i < state->size / sizeof(uint32_t); i++) {
+        switch (statePtr[i]) {
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED:
+            wlrState |= state_maximized;
+            break;
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN:
+            wlrState |= state_fullscreen;
+            break;
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED:
+            wlrState |= state_minimized;
+            break;
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED:
+            wlrState |= state_activated;
+            break;
+        }
+    }
+
+    if ( windowState.testFlag( state_maximized ) ^ wlrState.testFlag( state_maximized ) )
+        emit maximizedChanged();
+    if ( windowState.testFlag( state_minimized ) ^ wlrState.testFlag( state_minimized ) )
+        emit minimizedChanged();
+    if ( windowState.testFlag( state_fullscreen ) ^ wlrState.testFlag( state_fullscreen ) )
+        emit fullscreenChanged();
+    if ( windowState.testFlag( state_activated ) ^ wlrState.testFlag( state_activated ) )
+        emit activeChanged();
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()

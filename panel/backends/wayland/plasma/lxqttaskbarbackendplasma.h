@@ -1,5 +1,4 @@
-#ifndef LXQTTASKBARBACKENDPLASMA_H
-#define LXQTTASKBARBACKENDPLASMA_H
+#pragma once
 
 #include "../../ilxqttaskbarabstractbackend.h"
 
@@ -91,5 +90,3 @@ private:
     // key=leader, values=transient children
     QMultiHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transientsDemandingAttention;
 };
-
-#endif // LXQTTASKBARBACKENDWAYLAND_H
