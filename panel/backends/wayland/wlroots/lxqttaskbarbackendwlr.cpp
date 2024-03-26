@@ -230,26 +230,7 @@ bool LXQtTaskbarWlrootsBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
     if(!window)
         return false;
 
-    // Pull forward any transient demanding attention.
-    if (auto *transientDemandingAttention = transientsDemandingAttention.value(window))
-    {
-        window = transientDemandingAttention;
-    }
-    else
-    {
-        // TODO Shouldn't KWin take care of that?
-        // Bringing a transient to the front usually brings its parent with it
-        // but focus is not handled properly.
-        // TODO take into account d->lastActivation instead
-        // of just taking the first one.
-        while (transients.key(window))
-        {
-            window = transients.key(window);
-        }
-    }
-
-    window->set_state(LXQtTaskBarWlrootsWindow::state::state_activated, LXQtTaskBarWlrootsWindow::state::state_activated);
-    return true;
+    window->activate();
 }
 
 bool LXQtTaskbarWlrootsBackend::closeWindow(WId windowId)
@@ -469,6 +450,8 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
         windows.emplace_back(window);
         updateWindowAcceptance(window);
     }
+
+    emit windowAdded( window->getWindowId() );
 }
 
 bool LXQtTaskbarWlrootsBackend::acceptWindow(LXQtTaskBarWlrootsWindow *window) const

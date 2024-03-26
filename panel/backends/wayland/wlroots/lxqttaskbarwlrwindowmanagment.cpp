@@ -10,9 +10,23 @@
 #include <QWaylandClientExtension>
 #include <QWindow>
 
+#include <qpa/qplatformnativeinterface.h>
+
 #include <fcntl.h>
 #include <sys/poll.h>
 #include <unistd.h>
+
+wl_seat *get_seat() {
+    QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
+
+    if ( !native ) {
+        return nullptr;
+    }
+
+    struct wl_seat *seat = reinterpret_cast<wl_seat *>(native->nativeResourceForIntegration( "wl_seat" ) );
+
+    return seat;
+}
 
 /*
  * LXQtTaskBarWlrootsWindowManagment
@@ -54,6 +68,11 @@ LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handl
 LXQtTaskBarWlrootsWindow::~LXQtTaskBarWlrootsWindow()
 {
     destroy();
+}
+
+void LXQtTaskBarWlrootsWindow::activate()
+{
+    zwlr_foreign_toplevel_handle_v1::activate(get_seat());
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString &title)
@@ -123,7 +142,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_closed()
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_parent(struct ::zwlr_foreign_toplevel_handle_v1 *parent)
 {
-    setParentWindow( new LXQtTaskBarWlrootsWindow(parent));
+    // setParentWindow(new LXQtTaskBarWlrootsWindow(parent));
 }
 
 void LXQtTaskBarWlrootsWindow::setParentWindow(LXQtTaskBarWlrootsWindow *parent)
