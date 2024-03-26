@@ -44,6 +44,8 @@ public:
 
     inline WId getWindowId() const { return reinterpret_cast<WId>(this); }
 
+    void activate();
+
     using state = QtWayland::zwlr_foreign_toplevel_handle_v1::state;
     QString title;
     QString appId;
