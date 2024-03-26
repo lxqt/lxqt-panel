@@ -1,4 +1,4 @@
-#include "lxqttaskbarbackendwayland.h"
+#include "lxqttaskbarbackendplasma.h"
 
 #include "lxqttaskbarplasmawindowmanagment.h"
 #include "lxqtplasmavirtualdesktop.h"
@@ -22,7 +22,7 @@ auto findWindow(const std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>>& win
     return windows.end();
 }
 
-LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
+LXQtTaskbarPlasmaBackend::LXQtTaskbarPlasmaBackend(QObject *parent) :
     ILXQtTaskbarAbstractBackend(parent)
 {
     m_managment.reset(new LXQtTaskBarPlasmaWindowManagment);
@@ -58,7 +58,7 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
     });
 }
 
-bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
+bool LXQtTaskbarPlasmaBackend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -99,7 +99,7 @@ bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendA
     return window->windowState.testFlag(state);
 }
 
-bool LXQtTaskbarWaylandBackend::reloadWindows()
+bool LXQtTaskbarPlasmaBackend::reloadWindows()
 {
     const QVector<WId> wids = getCurrentWindows();
 
@@ -116,7 +116,7 @@ bool LXQtTaskbarWaylandBackend::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtTaskbarWaylandBackend::getCurrentWindows() const
+QVector<WId> LXQtTaskbarPlasmaBackend::getCurrentWindows() const
 {
     QVector<WId> wids;
     wids.reserve(wids.size());
@@ -129,7 +129,7 @@ QVector<WId> LXQtTaskbarWaylandBackend::getCurrentWindows() const
     return wids;
 }
 
-QString LXQtTaskbarWaylandBackend::getWindowTitle(WId windowId) const
+QString LXQtTaskbarPlasmaBackend::getWindowTitle(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -138,7 +138,7 @@ QString LXQtTaskbarWaylandBackend::getWindowTitle(WId windowId) const
     return window->title;
 }
 
-bool LXQtTaskbarWaylandBackend::applicationDemandsAttention(WId windowId) const
+bool LXQtTaskbarPlasmaBackend::applicationDemandsAttention(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -147,7 +147,7 @@ bool LXQtTaskbarWaylandBackend::applicationDemandsAttention(WId windowId) const
     return window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention) || transientsDemandingAttention.contains(window);
 }
 
-QIcon LXQtTaskbarWaylandBackend::getApplicationIcon(WId windowId, int devicePixels) const
+QIcon LXQtTaskbarPlasmaBackend::getApplicationIcon(WId windowId, int devicePixels) const
 {
     Q_UNUSED(devicePixels)
 
@@ -158,7 +158,7 @@ QIcon LXQtTaskbarWaylandBackend::getApplicationIcon(WId windowId, int devicePixe
     return window->icon;
 }
 
-QString LXQtTaskbarWaylandBackend::getWindowClass(WId windowId) const
+QString LXQtTaskbarPlasmaBackend::getWindowClass(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -166,7 +166,7 @@ QString LXQtTaskbarWaylandBackend::getWindowClass(WId windowId) const
     return window->appId;
 }
 
-LXQtTaskBarWindowLayer LXQtTaskbarWaylandBackend::getWindowLayer(WId windowId) const
+LXQtTaskBarWindowLayer LXQtTaskbarPlasmaBackend::getWindowLayer(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -181,7 +181,7 @@ LXQtTaskBarWindowLayer LXQtTaskbarWaylandBackend::getWindowLayer(WId windowId) c
     return LXQtTaskBarWindowLayer::Normal;
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer)
+bool LXQtTaskbarPlasmaBackend::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -207,7 +207,7 @@ bool LXQtTaskbarWaylandBackend::setWindowLayer(WId windowId, LXQtTaskBarWindowLa
     return false;
 }
 
-LXQtTaskBarWindowState LXQtTaskbarWaylandBackend::getWindowState(WId windowId) const
+LXQtTaskBarWindowState LXQtTaskbarPlasmaBackend::getWindowState(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -225,7 +225,7 @@ LXQtTaskBarWindowState LXQtTaskbarWaylandBackend::getWindowState(WId windowId) c
     return LXQtTaskBarWindowState::Normal;
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
+bool LXQtTaskbarPlasmaBackend::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -265,7 +265,7 @@ bool LXQtTaskbarWaylandBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     return true;
 }
 
-bool LXQtTaskbarWaylandBackend::isWindowActive(WId windowId) const
+bool LXQtTaskbarPlasmaBackend::isWindowActive(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -274,7 +274,7 @@ bool LXQtTaskbarWaylandBackend::isWindowActive(WId windowId) const
     return activeWindow == window || window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active);
 }
 
-bool LXQtTaskbarWaylandBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
+bool LXQtTaskbarPlasmaBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
 {
     Q_UNUSED(onCurrentWorkSpace) //TODO
 
@@ -304,7 +304,7 @@ bool LXQtTaskbarWaylandBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
     return true;
 }
 
-bool LXQtTaskbarWaylandBackend::closeWindow(WId windowId)
+bool LXQtTaskbarPlasmaBackend::closeWindow(WId windowId)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -314,31 +314,31 @@ bool LXQtTaskbarWaylandBackend::closeWindow(WId windowId)
     return true;
 }
 
-WId LXQtTaskbarWaylandBackend::getActiveWindow() const
+WId LXQtTaskbarPlasmaBackend::getActiveWindow() const
 {
     if(activeWindow)
         return activeWindow->getWindowId();
     return 0;
 }
 
-int LXQtTaskbarWaylandBackend::getWorkspacesCount() const
+int LXQtTaskbarPlasmaBackend::getWorkspacesCount() const
 {
     return m_workspaceInfo->numberOfDesktops();
 }
 
-QString LXQtTaskbarWaylandBackend::getWorkspaceName(int idx) const
+QString LXQtTaskbarPlasmaBackend::getWorkspaceName(int idx) const
 {
     return m_workspaceInfo->getDesktopName(idx - 1); //Return to 0-based
 }
 
-int LXQtTaskbarWaylandBackend::getCurrentWorkspace() const
+int LXQtTaskbarPlasmaBackend::getCurrentWorkspace() const
 {
     if(!m_workspaceInfo->currentDesktop().isValid())
         return 0;
     return m_workspaceInfo->position(m_workspaceInfo->currentDesktop()) + 1; // 1-based
 }
 
-bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
+bool LXQtTaskbarPlasmaBackend::setCurrentWorkspace(int idx)
 {
     QString id = m_workspaceInfo->getDesktopId(idx - 1); //Return to 0-based
     if(id.isEmpty())
@@ -347,7 +347,7 @@ bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
     return true;
 }
 
-int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId windowId) const
+int LXQtTaskbarPlasmaBackend::getWindowWorkspace(WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -364,7 +364,7 @@ int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId windowId) const
     return m_workspaceInfo->position(id) + 1; //Make 1-based
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowOnWorkspace(WId windowId, int idx)
+bool LXQtTaskbarPlasmaBackend::setWindowOnWorkspace(WId windowId, int idx)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -399,12 +399,12 @@ bool LXQtTaskbarWaylandBackend::setWindowOnWorkspace(WId windowId, int idx)
     return true;
 }
 
-void LXQtTaskbarWaylandBackend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
+void LXQtTaskbarPlasmaBackend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
 {
 
 }
 
-bool LXQtTaskbarWaylandBackend::isWindowOnScreen(QScreen *screen, WId windowId) const
+bool LXQtTaskbarPlasmaBackend::isWindowOnScreen(QScreen *screen, WId windowId) const
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -413,7 +413,7 @@ bool LXQtTaskbarWaylandBackend::isWindowOnScreen(QScreen *screen, WId windowId) 
     return screen->geometry().intersects(window->geometry);
 }
 
-void LXQtTaskbarWaylandBackend::moveApplication(WId windowId)
+void LXQtTaskbarPlasmaBackend::moveApplication(WId windowId)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -423,7 +423,7 @@ void LXQtTaskbarWaylandBackend::moveApplication(WId windowId)
     window->request_move();
 }
 
-void LXQtTaskbarWaylandBackend::resizeApplication(WId windowId)
+void LXQtTaskbarPlasmaBackend::resizeApplication(WId windowId)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
@@ -433,12 +433,12 @@ void LXQtTaskbarWaylandBackend::resizeApplication(WId windowId)
     window->request_resize();
 }
 
-void LXQtTaskbarWaylandBackend::refreshIconGeometry(WId windowId, const QRect &geom)
+void LXQtTaskbarPlasmaBackend::refreshIconGeometry(WId windowId, const QRect &geom)
 {
 
 }
 
-bool LXQtTaskbarWaylandBackend::isAreaOverlapped(const QRect &area) const
+bool LXQtTaskbarPlasmaBackend::isAreaOverlapped(const QRect &area) const
 {
     for(auto &window : std::as_const(windows))
     {
@@ -448,12 +448,12 @@ bool LXQtTaskbarWaylandBackend::isAreaOverlapped(const QRect &area) const
     return false;
 }
 
-bool LXQtTaskbarWaylandBackend::isShowingDesktop() const
+bool LXQtTaskbarPlasmaBackend::isShowingDesktop() const
 {
     return m_managment->isActive() ? m_managment->isShowingDesktop() : false;
 }
 
-bool LXQtTaskbarWaylandBackend::showDesktop(bool value)
+bool LXQtTaskbarPlasmaBackend::showDesktop(bool value)
 {
     if(!m_managment->isActive())
         return false;
@@ -468,7 +468,7 @@ bool LXQtTaskbarWaylandBackend::showDesktop(bool value)
     return true;
 }
 
-void LXQtTaskbarWaylandBackend::addWindow(LXQtTaskBarPlasmaWindow *window)
+void LXQtTaskbarPlasmaBackend::addWindow(LXQtTaskBarPlasmaWindow *window)
 {
     if (findWindow(windows, window) != windows.end() || transients.contains(window))
     {
@@ -688,7 +688,7 @@ void LXQtTaskbarWaylandBackend::addWindow(LXQtTaskBarPlasmaWindow *window)
     }
 }
 
-bool LXQtTaskbarWaylandBackend::acceptWindow(LXQtTaskBarPlasmaWindow *window) const
+bool LXQtTaskbarPlasmaBackend::acceptWindow(LXQtTaskBarPlasmaWindow *window) const
 {
     if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_skiptaskbar))
         return false;
@@ -699,7 +699,7 @@ bool LXQtTaskbarWaylandBackend::acceptWindow(LXQtTaskBarPlasmaWindow *window) co
     return true;
 }
 
-void LXQtTaskbarWaylandBackend::updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window)
+void LXQtTaskbarPlasmaBackend::updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window)
 {
     if(!window->acceptedInTaskBar && acceptWindow(window))
     {
@@ -713,7 +713,7 @@ void LXQtTaskbarWaylandBackend::updateWindowAcceptance(LXQtTaskBarPlasmaWindow *
     }
 }
 
-LXQtTaskBarPlasmaWindow *LXQtTaskbarWaylandBackend::getWindow(WId windowId) const
+LXQtTaskBarPlasmaWindow *LXQtTaskbarPlasmaBackend::getWindow(WId windowId) const
 {
     for(auto &window : std::as_const(windows))
     {

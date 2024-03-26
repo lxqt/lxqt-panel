@@ -535,7 +535,7 @@ void LXQtTaskbarX11Backend::moveApplication(WId windowId)
     int X = g.center().x();
     int Y = g.center().y();
     QCursor::setPos(X, Y);
-    NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::Move);
+    // NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::Move);
 }
 
 void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
@@ -553,7 +553,7 @@ void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
     int X = g.bottomRight().x();
     int Y = g.bottomRight().y();
     QCursor::setPos(X, Y);
-    NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::BottomRight);
+    // NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::BottomRight);
 }
 
 void LXQtTaskbarX11Backend::refreshIconGeometry(WId windowId, QRect const & geom)
