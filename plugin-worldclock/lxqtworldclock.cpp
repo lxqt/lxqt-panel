@@ -135,7 +135,7 @@ void LXQtWorldClock::updateTimeText()
     if (!isUpToDate)
     {
         const QSize old_size = mContent->sizeHint();
-        mContent->setText(tzNow.toString(preformat(mFormat, timeZone, tzNow)));
+        mContent->setText(QLocale::system().toString(tzNow, preformat(mFormat, timeZone, tzNow)));
         if (old_size != mContent->sizeHint())
             mRotatedWidget->adjustContentSize();
         mRotatedWidget->update();
@@ -447,7 +447,7 @@ QString LXQtWorldClock::formatDateTime(const QDateTime &datetime, const QString 
 {
     QTimeZone timeZone(timeZoneName.toLatin1());
     QDateTime tzNow = datetime.toTimeZone(timeZone);
-    return tzNow.toString(preformat(mFormat, timeZone, tzNow));
+    return QLocale::system().toString(tzNow, preformat(mFormat, timeZone, tzNow));
 }
 
 void LXQtWorldClock::updatePopupContent()
@@ -652,7 +652,7 @@ bool LXQtWorldClock::eventFilter(QObject * watched, QEvent * event)
             timeZoneName = QString::fromLatin1(QTimeZone::systemTimeZoneId());
         QTimeZone timeZone(timeZoneName.toLatin1());
         QDateTime tzNow = now.toTimeZone(timeZone);
-        QToolTip::showText(helpEvent->globalPos(), tzNow.toString(QLocale{}.dateTimeFormat(QLocale::ShortFormat)));
+        QToolTip::showText(helpEvent->globalPos(), QLocale::system().toString(tzNow, QLocale::ShortFormat));
         return false;
     }
     return QObject::eventFilter(watched, event);
