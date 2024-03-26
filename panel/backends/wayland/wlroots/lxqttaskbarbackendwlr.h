@@ -1,5 +1,4 @@
-#ifndef LXQTTASKBARBACKENDWLROOTS_H
-#define LXQTTASKBARBACKENDWLROOTS_H
+#pragma once
 
 #include "../../ilxqttaskbarabstractbackend.h"
 
@@ -91,5 +90,3 @@ private:
     // key=leader, values=transient children
     QMultiHash<LXQtTaskBarWlrootsWindow *, LXQtTaskBarWlrootsWindow *> transientsDemandingAttention;
 };
-
-#endif // LXQTTASKBARBACKENDWAYLAND_H
