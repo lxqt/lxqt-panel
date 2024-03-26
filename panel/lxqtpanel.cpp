@@ -54,6 +54,7 @@
 
 #include "backends/ilxqttaskbarabstractbackend.h"
 
+#include <LayerShellQt/Window>
 
 // Turn on this to show the time required to load each plugin during startup
 // #define DEBUG_PLUGIN_LOADTIME
@@ -143,6 +144,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mAnimationTime(0),
     mReserveSpace(true),
     mAnimation(nullptr),
+    mLayerWindow(nullptr),
     mLockPanel(false)
 {
     //You can find information about the flags and widget attributes in your
@@ -231,6 +233,30 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     ensureVisible();
 
     loadPlugins();
+
+    if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
+    {
+        // Create backing QWindow for LayerShellQt integration
+        create();
+
+        // Init Layer Shell (Must be done before showing widget)
+        mLayerWindow = LayerShellQt::Window::get(windowHandle());
+        mLayerWindow->setLayer(LayerShellQt::Window::LayerTop);
+
+        mLayerWindow->setScope(QStringLiteral("dock"));
+
+        LayerShellQt::Window::Anchors anchors;
+        anchors.setFlag(LayerShellQt::Window::AnchorLeft);
+        anchors.setFlag(LayerShellQt::Window::AnchorBottom);
+        anchors.setFlag(LayerShellQt::Window::AnchorRight);
+        mLayerWindow->setAnchors(anchors);
+
+        mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
+        mLayerWindow->setCloseOnDismissed(false);
+
+        mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorBottom);
+        mLayerWindow->setExclusiveZone(height());
+    }
 
     // NOTE: Some (X11) WMs may need the geometry to be set before QWidget::show().
     setPanelGeometry();
@@ -485,6 +511,8 @@ void LXQtPanel::setPanelGeometry(bool animate)
     const QRect currentScreen = screens.at(mActualScreenNum)->geometry();
 
     QRect rect;
+    LayerShellQt::Window::Anchors anchors;
+    LayerShellQt::Window::Anchor edge;
 
     if (isHorizontal())
     {
@@ -506,6 +534,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
         switch (mAlignment)
         {
         case LXQtPanel::AlignmentLeft:
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
             rect.moveLeft(currentScreen.left());
             break;
 
@@ -514,13 +543,24 @@ void LXQtPanel::setPanelGeometry(bool animate)
             break;
 
         case LXQtPanel::AlignmentRight:
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
             rect.moveRight(currentScreen.right());
             break;
+        }
+
+        if(lengthInPercents() && mLength == 100)
+        {
+            //Fill all available width
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
         }
 
         // Vert .......................
         if (mPosition == ILXQtPanel::PositionTop)
         {
+            anchors.setFlag(LayerShellQt::Window::AnchorTop);
+            edge = LayerShellQt::Window::AnchorTop;
+
             if (mHidden)
                 rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE - 1);
             else
@@ -528,6 +568,9 @@ void LXQtPanel::setPanelGeometry(bool animate)
         }
         else
         {
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
+            edge = LayerShellQt::Window::AnchorBottom;
+
             if (mHidden)
                 rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE + 1);
             else
@@ -554,6 +597,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
         switch (mAlignment)
         {
         case LXQtPanel::AlignmentLeft:
+            anchors.setFlag(LayerShellQt::Window::AnchorTop);
             rect.moveTop(currentScreen.top());
             break;
 
@@ -562,13 +606,24 @@ void LXQtPanel::setPanelGeometry(bool animate)
             break;
 
         case LXQtPanel::AlignmentRight:
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
             rect.moveBottom(currentScreen.bottom());
             break;
+        }
+
+        if(lengthInPercents() && mLength == 100)
+        {
+            //Fill all available width
+            anchors.setFlag(LayerShellQt::Window::AnchorTop);
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
         }
 
         // Horiz ......................
         if (mPosition == ILXQtPanel::PositionLeft)
         {
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
+            edge = LayerShellQt::Window::AnchorLeft;
+
             if (mHidden)
                 rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE - 1);
             else
@@ -576,12 +631,25 @@ void LXQtPanel::setPanelGeometry(bool animate)
         }
         else
         {
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
+            edge = LayerShellQt::Window::AnchorRight;
+
             if (mHidden)
                 rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE + 1);
             else
                 rect.moveRight(currentScreen.right());
         }
     }
+
+    if(mLayerWindow)
+    {
+        mLayerWindow->setAnchors(anchors);
+        mLayerWindow->setExclusiveEdge(edge);
+
+        // Make LayerShell apply changes immediatly
+        windowHandle()->requestUpdate();
+    }
+
     if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
     if (rect != geometry())
     {
@@ -608,6 +676,37 @@ void LXQtPanel::setPanelGeometry(bool animate)
             setMargins();
             setGeometry(rect);
         }
+    }
+
+    if(mLayerWindow)
+    {
+        // Emulate auto-hide on Wayland
+        // NOTE: we cannot move window out of screen so we make it smaller
+
+        // NOTE: a cleaner approach would be to use screen edge protocol
+        // but it's specific to KWin
+
+        if(mHidden && LXQtPanelWidget->isVisible())
+        {
+            // Make it blank
+            LXQtPanelWidget->hide();
+
+            // And make it small
+            if(isHorizontal())
+                resize(rect.width(), PANEL_HIDE_SIZE);
+            else
+                resize(PANEL_HIDE_SIZE, rect.height());
+        }
+        else if(!mHidden && !LXQtPanelWidget->isVisible())
+        {
+            // Restore contents
+            LXQtPanelWidget->show();
+
+            // And make it big again
+            resize(rect.size());
+        }
+
+        updateWmStrut();
     }
 }
 
@@ -670,62 +769,104 @@ void LXQtPanel::updateWmStrut()
     if(wid == 0 || !isVisible())
         return;
 
-    if (mReserveSpace && QApplication::primaryScreen())
+    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
     {
-        const QRect wholeScreen = QApplication::primaryScreen()->virtualGeometry();
-        const QRect rect = geometry();
-        // NOTE: https://standards.freedesktop.org/wm-spec/wm-spec-latest.html
-        // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
-        // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
-        // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
-        // At least openbox is implemented like this.
-        switch (mPosition)
+        if (mReserveSpace && QApplication::primaryScreen())
         {
-        case LXQtPanel::PositionTop:
-            KX11Extras::setExtendedStrut(wid,
-                                            /* Left   */  0, 0, 0,
-                                            /* Right  */  0, 0, 0,
-                                            /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
-                                            /* Bottom */  0, 0, 0
-                                           );
-            break;
+            const QRect wholeScreen = QApplication::primaryScreen()->virtualGeometry();
+            const QRect rect = geometry();
+            // NOTE: https://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+            // Quote from the EWMH spec: " Note that the strut is relative to the screen edge, and not the edge of the xinerama monitor."
+            // So, we use the geometry of the whole screen to calculate the strut rather than using the geometry of individual monitors.
+            // Though the spec only mention Xinerama and did not mention XRandR, the rule should still be applied.
+            // At least openbox is implemented like this.
+            switch (mPosition)
+            {
+            case LXQtPanel::PositionTop:
+                KX11Extras::setExtendedStrut(wid,
+                                             /* Left   */  0, 0, 0,
+                                             /* Right  */  0, 0, 0,
+                                             /* Top    */  rect.top() + getReserveDimension(), rect.left(), rect.right(),
+                                             /* Bottom */  0, 0, 0
+                                             );
+                break;
 
-        case LXQtPanel::PositionBottom:
-            KX11Extras::setExtendedStrut(wid,
-                                            /* Left   */  0, 0, 0,
-                                            /* Right  */  0, 0, 0,
-                                            /* Top    */  0, 0, 0,
-                                            /* Bottom */  wholeScreen.bottom() - rect.bottom() + getReserveDimension(), rect.left(), rect.right()
-                                           );
-            break;
+            case LXQtPanel::PositionBottom:
+                KX11Extras::setExtendedStrut(wid,
+                                             /* Left   */  0, 0, 0,
+                                             /* Right  */  0, 0, 0,
+                                             /* Top    */  0, 0, 0,
+                                             /* Bottom */  wholeScreen.bottom() - rect.bottom() + getReserveDimension(), rect.left(), rect.right()
+                                             );
+                break;
 
-        case LXQtPanel::PositionLeft:
-            KX11Extras::setExtendedStrut(wid,
-                                            /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
-                                            /* Right  */  0, 0, 0,
-                                            /* Top    */  0, 0, 0,
-                                            /* Bottom */  0, 0, 0
-                                           );
+            case LXQtPanel::PositionLeft:
+                KX11Extras::setExtendedStrut(wid,
+                                             /* Left   */  rect.left() + getReserveDimension(), rect.top(), rect.bottom(),
+                                             /* Right  */  0, 0, 0,
+                                             /* Top    */  0, 0, 0,
+                                             /* Bottom */  0, 0, 0
+                                             );
 
-            break;
+                break;
 
-        case LXQtPanel::PositionRight:
+            case LXQtPanel::PositionRight:
+                KX11Extras::setExtendedStrut(wid,
+                                             /* Left   */  0, 0, 0,
+                                             /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
+                                             /* Top    */  0, 0, 0,
+                                             /* Bottom */  0, 0, 0
+                                             );
+                break;
+            }
+        } else
+        {
             KX11Extras::setExtendedStrut(wid,
-                                            /* Left   */  0, 0, 0,
-                                            /* Right  */  wholeScreen.right() - rect.right() + getReserveDimension(), rect.top(), rect.bottom(),
-                                            /* Top    */  0, 0, 0,
-                                            /* Bottom */  0, 0, 0
-                                           );
-            break;
+                                         /* Left   */  0, 0, 0,
+                                         /* Right  */  0, 0, 0,
+                                         /* Top    */  0, 0, 0,
+                                         /* Bottom */  0, 0, 0
+                                         );
+        }
     }
-    } else
+    else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
     {
-        KX11Extras::setExtendedStrut(wid,
-                                        /* Left   */  0, 0, 0,
-                                        /* Right  */  0, 0, 0,
-                                        /* Top    */  0, 0, 0,
-                                        /* Bottom */  0, 0, 0
-                                       );
+        //TODO: duplicated code, also set in setPanelGeometry()
+
+        if (mReserveSpace)
+        {
+            LayerShellQt::Window::Anchor edge;
+
+            switch (mPosition)
+            {
+            case LXQtPanel::PositionTop:
+                edge = LayerShellQt::Window::AnchorTop;
+                break;
+
+            case LXQtPanel::PositionBottom:
+                edge = LayerShellQt::Window::AnchorBottom;
+                break;
+
+            case LXQtPanel::PositionLeft:
+                edge = LayerShellQt::Window::AnchorLeft;
+                break;
+
+            case LXQtPanel::PositionRight:
+                edge = LayerShellQt::Window::AnchorRight;
+                break;
+            }
+
+            mLayerWindow->setExclusiveEdge(edge);
+            mLayerWindow->setExclusiveZone(getReserveDimension());
+        }
+        else
+        {
+            mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorNone);
+            mLayerWindow->setExclusiveZone(0);
+        }
+
+        // Make LayerShell apply changes immediatly
+        windowHandle()->requestUpdate();
     }
 }
 

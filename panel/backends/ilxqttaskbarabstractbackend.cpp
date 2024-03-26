@@ -1,4 +1,4 @@
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "ilxqttaskbarabstractbackend.h"
 
 
 ILXQtTaskbarAbstractBackend::ILXQtTaskbarAbstractBackend(QObject *parent)
