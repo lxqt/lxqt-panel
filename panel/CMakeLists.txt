@@ -1,5 +1,8 @@
 set(PROJECT lxqt-panel)
 
+# TODO
+add_subdirectory(backends)
+
 set(PRIV_HEADERS
     panelpluginsmodel.h
     windownotifier.h
@@ -18,6 +21,12 @@ set(PRIV_HEADERS
     config/configstyling.h
     config/configpluginswidget.h
     config/addplugindialog.h
+
+    backends/ilxqttaskbarabstractbackend.h
+    backends/lxqttaskbartypes.h
+
+    backends/lxqttaskbardummybackend.h
+    backends/xcb/lxqttaskbarbackend_x11.h
 )
 
 # using LXQt namespace in the public headers.
@@ -26,6 +35,9 @@ set(PUB_HEADERS
     pluginsettings.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
+
+    backends/ilxqttaskbarabstractbackend.h
+    backends/lxqttaskbartypes.h
 )
 
 set(SOURCES
@@ -45,6 +57,11 @@ set(SOURCES
     config/configstyling.cpp
     config/configpluginswidget.cpp
     config/addplugindialog.cpp
+
+    backends/ilxqttaskbarabstractbackend.cpp
+
+    backends/lxqttaskbardummybackend.cpp
+    backends/xcb/lxqttaskbarbackend_x11.cpp
 )
 
 set(UI

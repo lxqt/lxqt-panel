@@ -33,13 +33,15 @@
 
 #include <QToolButton>
 #include <QProxyStyle>
+
 #include "../panel/ilxqtpanel.h"
 
 class QPainter;
 class QPalette;
 class QMimeData;
-class LXQtTaskGroup;
 class LXQtTaskBar;
+
+class ILXQtTaskbarAbstractBackend;
 
 class LeftAlignedTextStyle : public QProxyStyle
 {
@@ -79,7 +81,6 @@ public:
 
     LXQtTaskBar * parentTaskBar() const {return mParentTaskBar;}
 
-    void refreshIconGeometry(QRect const & geom);
     static QString mimeDataFormat() { return QLatin1String("lxqt/lxqttaskbutton"); }
     /*! \return true if this button received DragEnter event (and no DragLeave event yet)
      * */
@@ -120,6 +121,10 @@ protected:
     static bool sDraggging;
 
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
+
+protected:
+    //TODO: public getter instead?
+    ILXQtTaskbarAbstractBackend *mBackend;
 
 private:
     void moveApplicationToPrevNextDesktop(bool next);

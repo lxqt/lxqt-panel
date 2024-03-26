@@ -38,6 +38,7 @@
 
 #include <KWindowSystem>
 #include <netwm.h>
+#include <qpa/qplatformnativeinterface.h> //For "gettimestamp" Xcb integration resource
 
 #include "kwindowinfo.h"
 #include "statusnotifieritemadaptor.h"
@@ -590,13 +591,17 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
     WId appRootWindow = XDefaultRootWindow(x11Application->display());
 
+    // Qt private access
+    void *ptr = qGuiApp->platformNativeInterface()->nativeResourceForScreen("gettimestamp", qGuiApp->primaryScreen());
+    xcb_timestamp_t timeStamp = reinterpret_cast<quintptr>(ptr);
+
     // mouse down
     if (m_injectMode == Direct) {
         xcb_button_press_event_t *event = new xcb_button_press_event_t;
         memset(event, 0x00, sizeof(xcb_button_press_event_t));
         event->response_type = XCB_BUTTON_PRESS;
         event->event = m_windowId;
-        event->time = XCB_CURRENT_TIME; //NOTE: to get proper timestamp we would need Qt Private APIs
+        event->time = timeStamp;
         event->same_screen = 1;
         event->root = appRootWindow;
         event->root_x = x;
@@ -619,7 +624,7 @@ void SNIProxy::sendClick(uint8_t mouseButton, int x, int y)
         memset(event, 0x00, sizeof(xcb_button_release_event_t));
         event->response_type = XCB_BUTTON_RELEASE;
         event->event = m_windowId;
-        event->time = XCB_CURRENT_TIME; //NOTE: to get proper timestamp we would need Qt Private APIs
+        event->time = timeStamp;
         event->same_screen = 1;
         event->root = appRootWindow;
         event->root_x = x;

@@ -29,10 +29,11 @@
 #include <lxqt-globalkeys.h>
 #include <XdgIcon>
 #include <LXQt/Notification>
-#include <KWindowSystem>
-#include <NETWM>
 #include "showdesktop.h"
 #include "../panel/pluginsettings.h"
+
+#include "../panel/lxqtpanelapplication.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 #define DEFAULT_SHORTCUT "Control+Alt+D"
 
@@ -69,7 +70,9 @@ void ShowDesktop::shortcutRegistered()
 
 void ShowDesktop::toggleShowingDesktop()
 {
-    KWindowSystem::setShowingDesktop(!KWindowSystem::showingDesktop());
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a->getWMBackend();
+    wmBackend->showDesktop(!wmBackend->isShowingDesktop());
 }
 
 #undef DEFAULT_SHORTCUT

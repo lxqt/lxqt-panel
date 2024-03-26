@@ -31,11 +31,9 @@
 #ifndef LXQTTASKGROUP_H
 #define LXQTTASKGROUP_H
 
-#include "../panel/ilxqtpanel.h"
-#include "../panel/ilxqtpanelplugin.h"
-
 #include "lxqttaskbutton.h"
-#include <kx11extras.h>
+
+#include "../panel/backends/lxqttaskbartypes.h"
 
 class QVBoxLayout;
 class ILXQtPanelPlugin;
@@ -62,7 +60,8 @@ public:
     // if circular is true, then it will go around the list of buttons
     LXQtTaskButton * getNextPrevChildButton(bool next, bool circular);
 
-    bool onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+    bool onWindowChanged(WId window, LXQtTaskBarWindowProperty prop);
+
     void setAutoRotation(bool value, ILXQtPanel::Position position);
     Qt::ToolButtonStyle popupButtonStyle() const;
     void setToolButtonsStyle(Qt::ToolButtonStyle style);
