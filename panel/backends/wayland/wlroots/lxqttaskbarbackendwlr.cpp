@@ -231,6 +231,7 @@ bool LXQtTaskbarWlrootsBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
         return false;
 
     window->activate();
+    return true;
 }
 
 bool LXQtTaskbarWlrootsBackend::closeWindow(WId windowId)
@@ -356,7 +357,7 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
     connect(window, &LXQtTaskBarWlrootsWindow::closed, this, removeWindow);
 
     connect(window, &LXQtTaskBarWlrootsWindow::titleChanged, this, [window, this] {
-        updateWindowAcceptance(window);
+        emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Title));
     });
 
     connect(window, &LXQtTaskBarWlrootsWindow::appIdChanged, this, [window, this] {
@@ -433,7 +434,7 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
     });
 
     auto stateChanged = [window, this] {
-        updateWindowAcceptance(window);
+        // updateWindowAcceptance(window);
     };
 
     connect(window, &LXQtTaskBarWlrootsWindow::fullscreenChanged, this, stateChanged);
@@ -450,7 +451,7 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
     else
     {
         windows.emplace_back(window);
-        updateWindowAcceptance(window);
+        // updateWindowAcceptance(window);
     }
 
     emit windowAdded( window->getWindowId() );
@@ -462,10 +463,6 @@ bool LXQtTaskbarWlrootsBackend::acceptWindow(LXQtTaskBarWlrootsWindow *window) c
         return false;
 
     return true;
-}
-
-void LXQtTaskbarWlrootsBackend::updateWindowAcceptance(LXQtTaskBarWlrootsWindow *)
-{
 }
 
 LXQtTaskBarWlrootsWindow *LXQtTaskbarWlrootsBackend::getWindow(WId windowId) const

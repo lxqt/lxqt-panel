@@ -73,7 +73,6 @@ public:
 private:
     void addWindow(LXQtTaskBarWlrootsWindow *window);
     bool acceptWindow(LXQtTaskBarWlrootsWindow *window) const;
-    void updateWindowAcceptance(LXQtTaskBarWlrootsWindow *window);
 
 private:
     LXQtTaskBarWlrootsWindow *getWindow(WId windowId) const;
