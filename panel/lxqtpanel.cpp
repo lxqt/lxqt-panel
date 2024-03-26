@@ -281,6 +281,12 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
                 mShowDelayTimer.start();
         }
     });
+    connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged, this, [this] (bool showing) {
+        if (showing && mHidable && mHideOnOverlap) {
+            showPanel(mAnimationTime > 0);
+            mHideTimer.start();
+        }
+    });
 }
 
 /************************************************
@@ -1459,7 +1465,8 @@ void LXQtPanel::hidePanelWork()
 {
     if (!testAttribute(Qt::WA_UnderMouse))
     {
-        if (!mStandaloneWindows->isAnyWindowShown())
+        if (!mStandaloneWindows->isAnyWindowShown()
+            && !(mHideOnOverlap && KWindowSystem::showingDesktop()))
         {
             if (!mHideOnOverlap || isPanelOverlapped())
             {
