@@ -37,20 +37,11 @@ bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction act
 {
     switch (action)
     {
-    case LXQtTaskBarBackendAction::Move:
-        return false;
-
-    case LXQtTaskBarBackendAction::Resize:
-        return false;
-
     case LXQtTaskBarBackendAction::Maximize:
         return true;
 
     case LXQtTaskBarBackendAction::Minimize:
         return true;
-
-    case LXQtTaskBarBackendAction::RollUp:
-        return false;
 
     case LXQtTaskBarBackendAction::FullScreen:
         return true;
@@ -132,6 +123,7 @@ LXQtTaskBarWindowLayer LXQtTaskbarWlrootsBackend::getWindowLayer(WId) const
 
 bool LXQtTaskbarWlrootsBackend::setWindowLayer(WId, LXQtTaskBarWindowLayer)
 {
+    return false;
 }
 
 LXQtTaskBarWindowState LXQtTaskbarWlrootsBackend::getWindowState(WId windowId) const
@@ -158,7 +150,6 @@ bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     if(!window)
         return false;
 
-    LXQtTaskBarWlrootsWindow::state WlrootsState;
     switch (state)
     {
     case LXQtTaskBarWindowState::Minimized:
@@ -277,40 +268,42 @@ bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int)
     return false;
 }
 
-int LXQtTaskbarWlrootsBackend::getWindowWorkspace(WId windowId) const
+int LXQtTaskbarWlrootsBackend::getWindowWorkspace(WId) const
 {
     return 1;
 }
 
 bool LXQtTaskbarWlrootsBackend::setWindowOnWorkspace(WId, int)
 {
+    return false;
 }
 
-void LXQtTaskbarWlrootsBackend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
+void LXQtTaskbarWlrootsBackend::moveApplicationToPrevNextMonitor(WId, bool, bool)
 {
 }
 
-bool LXQtTaskbarWlrootsBackend::isWindowOnScreen(QScreen *screen, WId windowId) const
+bool LXQtTaskbarWlrootsBackend::isWindowOnScreen(QScreen *, WId) const
 {
-    // Manage based on output-enter/output-leave
+    // TODO: Manage based on output-enter/output-leave
     return true;
 }
 
-void LXQtTaskbarWlrootsBackend::moveApplication(WId windowId)
+void LXQtTaskbarWlrootsBackend::moveApplication(WId)
 {
 }
 
-void LXQtTaskbarWlrootsBackend::resizeApplication(WId windowId)
+void LXQtTaskbarWlrootsBackend::resizeApplication(WId)
 {
 }
 
-void LXQtTaskbarWlrootsBackend::refreshIconGeometry(WId windowId, const QRect &geom)
+void LXQtTaskbarWlrootsBackend::refreshIconGeometry(WId, const QRect &)
 {
 
 }
 
-bool LXQtTaskbarWlrootsBackend::isAreaOverlapped(const QRect &area) const
+bool LXQtTaskbarWlrootsBackend::isAreaOverlapped(const QRect &) const
 {
+    return false;
 }
 
 bool LXQtTaskbarWlrootsBackend::isShowingDesktop() const
@@ -318,8 +311,9 @@ bool LXQtTaskbarWlrootsBackend::isShowingDesktop() const
     return m_managment->isShowingDesktop();
 }
 
-bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
+bool LXQtTaskbarWlrootsBackend::showDesktop(bool)
 {
+    return false;
 }
 
 void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
