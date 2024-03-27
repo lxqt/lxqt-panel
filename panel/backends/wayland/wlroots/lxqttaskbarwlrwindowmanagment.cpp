@@ -55,7 +55,6 @@ LXQtTaskBarWlrootsWindowManagment::~LXQtTaskBarWlrootsWindowManagment()
 
 void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel)
 {
-    qDebug() << "new toplevel created";
     emit windowCreated( new LXQtTaskBarWlrootsWindow(toplevel) );
 }
 
@@ -89,7 +88,6 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QStri
 
     if ( titleRecieved && appIdRecieved )
     {
-        qDebug() << "--------------> windowReady!!" << getWindowId() << title << appId;
         emit windowReady();
     }
 }
@@ -104,7 +102,6 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QStr
 
     if ( appIdRecieved && titleRecieved )
     {
-        qDebug() << "--------------> windowReady!!" << getWindowId() << title << appId;
         emit windowReady();
     }
 }
@@ -121,39 +118,70 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(stru
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
-    QFlags<LXQtTaskBarWlrootsWindow::state> wlrState;
+    auto *states   = static_cast<uint32_t *>(state->data);
+    int  numStates = static_cast<int>(state->size / sizeof(uint32_t) );
 
-    uint32_t* statePtr = static_cast<uint32_t*>(state->data);
-    for (size_t i = 0; i < state->size / sizeof(uint32_t); i++) {
-        switch (statePtr[i]) {
-        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED:
-            wlrState |= state_maximized;
-            break;
-        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN:
-            wlrState |= state_fullscreen;
-            break;
-        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED:
-            wlrState |= state_minimized;
-            break;
-        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED:
-            wlrState |= state_activated;
-            break;
+    for ( int i = 0; i < numStates; i++ ) {
+        switch ( (uint32_t)states[ i ] ) {
+            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED: {
+                m_pendingState.maximized = true;
+                break;
+            }
+
+            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED: {
+                m_pendingState.minimized = true;
+                break;
+            }
+
+            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
+                m_pendingState.activated = true;
+                break;
+            }
+
+            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN: {
+                m_pendingState.fullscreen = true;
+                break;
+            }
         }
     }
-
-    if ( windowState.testFlag( state_maximized ) ^ wlrState.testFlag( state_maximized ) )
-        emit maximizedChanged();
-    if ( windowState.testFlag( state_minimized ) ^ wlrState.testFlag( state_minimized ) )
-        emit minimizedChanged();
-    if ( windowState.testFlag( state_fullscreen ) ^ wlrState.testFlag( state_fullscreen ) )
-        emit fullscreenChanged();
-    if ( windowState.testFlag( state_activated ) ^ wlrState.testFlag( state_activated ) )
-        emit activeChanged();
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
 {
-    emit done();
+    /**
+     * Update windowState flags before emitting the signals.
+     * Otherwise, windowState.testFlag(...) will return wrong information!!
+     */
+    windowState = QFlags<state>();
+    if ( m_pendingState.maximized ) windowState |= state_maximized;
+    if ( m_pendingState.minimized ) windowState |= state_minimized;
+    if ( m_pendingState.activated ) windowState |= state_activated;
+    if ( m_pendingState.fullscreen ) windowState |= state_fullscreen;
+
+    /** Emit the signals. */
+    if ( m_viewState.maximized != m_pendingState.maximized )
+        emit maximizedChanged();
+
+    if ( m_viewState.minimized != m_pendingState.minimized )
+        emit minimizedChanged();
+
+    if ( m_viewState.activated!= m_pendingState.activated )
+        emit activeChanged();
+
+    if ( m_viewState.fullscreen != m_pendingState.fullscreen )
+        emit fullscreenChanged();
+
+    /** Store m_pendingState into m_viewState for the next run */
+    m_viewState.maximized = m_pendingState.maximized;
+    m_viewState.minimized = m_pendingState.minimized;
+    m_viewState.activated = m_pendingState.activated;
+    m_viewState.fullscreen = m_pendingState.fullscreen;
+
+    /** Reset m_pendingState for the next run */
+    m_pendingState.maximized = false;
+    m_pendingState.minimized = false;
+    m_pendingState.activated = false;
+    m_pendingState.fullscreen = false;
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_closed()
