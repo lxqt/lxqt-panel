@@ -68,6 +68,9 @@ Q_SIGNALS:
     void closed();
     void parentChanged();
 
+    /** We wait to get the title and appId to emit this */
+    void windowReady();
+
 protected:
     void zwlr_foreign_toplevel_handle_v1_title(const QString &title);
     void zwlr_foreign_toplevel_handle_v1_app_id(const QString &app_id);
@@ -82,4 +85,7 @@ private:
     void setParentWindow(LXQtTaskBarWlrootsWindow *parent);
 
     QMetaObject::Connection parentWindowUnmappedConnection;
+
+    mutable bool titleRecieved = false;
+    mutable bool appIdRecieved = false;
 };

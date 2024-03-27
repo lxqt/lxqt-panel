@@ -29,30 +29,8 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     m_workspaceInfo.reset(new LXQtWlrootsWaylandWorkspaceInfo);
 
     connect(m_managment.get(), &LXQtTaskBarWlrootsWindowManagment::windowCreated, this, [this](LXQtTaskBarWlrootsWindow *window) {
+        qDebug() << "--------------> window created" << window->title << window->appId;
         addWindow(window);
-    });
-
-    // connect(m_managment.get(), &LXQtTaskBarWlrootsWindowManagment::stackingOrderChanged,
-    //         this, [this](const QString &order) {
-    //     // stackingOrder = order.split(QLatin1Char(';'));
-    //     // for (const auto &window : std::as_const(windows)) {
-    //     //     this->dataChanged(window.get(), StackingOrder);
-    //     // }
-    // });
-
-    connect(m_workspaceInfo.get(), &LXQtWlrootsWaylandWorkspaceInfo::currentDesktopChanged, this,
-            [this](){
-                int idx = m_workspaceInfo->position(m_workspaceInfo->currentDesktop());
-                idx += 1; // Make 1-based
-                emit currentWorkspaceChanged(idx);
-            });
-
-    connect(m_workspaceInfo.get(), &LXQtWlrootsWaylandWorkspaceInfo::numberOfDesktopsChanged,
-            this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged);
-
-    connect(m_workspaceInfo.get(), &LXQtWlrootsWaylandWorkspaceInfo::desktopNameChanged,
-            this, [this](int idx) {
-        emit workspaceNameChanged(idx + 1); // Make 1-based
     });
 }
 
@@ -111,6 +89,8 @@ QVector<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
     {
         wids << window->getWindowId();
     }
+
+    qDebug() << "--------------> current windows" << wids;
     return wids;
 }
 
@@ -323,6 +303,12 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
         return;
     }
 
+    /** Add the window once it's ready */
+    connect(window, &LXQtTaskBarWlrootsWindow::windowReady, this, [window, this] {
+        qDebug() << "--------------> windowReady; adding window";
+        emit windowAdded( window->getWindowId() );
+    });
+
     auto removeWindow = [window, this]
     {
         auto it = findWindow(windows, window);
@@ -453,8 +439,6 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
         windows.emplace_back(window);
         // updateWindowAcceptance(window);
     }
-
-    emit windowAdded( window->getWindowId() );
 }
 
 bool LXQtTaskbarWlrootsBackend::acceptWindow(LXQtTaskBarWlrootsWindow *window) const
