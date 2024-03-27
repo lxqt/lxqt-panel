@@ -1,4 +1,5 @@
 #include "lxqttaskbarwlrwindowmanagment.h"
+#include "icontools.hpp"
 
 #include <QString>
 #include <QFuture>
@@ -10,6 +11,8 @@
 #include <QUuid>
 #include <QWaylandClientExtension>
 #include <QWindow>
+
+#include <xdgdesktopfile.h>
 
 #include <qpa/qplatformnativeinterface.h>
 
@@ -96,6 +99,8 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QStr
     this->appId = app_id;
     appIdRecieved = true;
     emit appIdChanged();
+
+    this->icon = getIconForAppId( app_id );
 
     if ( appIdRecieved && titleRecieved )
     {

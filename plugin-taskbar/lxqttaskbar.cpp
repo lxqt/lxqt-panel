@@ -105,11 +105,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
-    // connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
-    qDebug() << connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, [=](WId window){
-        qDebug() << "--------------> onWindowAdded" << window;
-        onWindowAdded(window);
-    });
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 
     // Consider already fetched windows
@@ -255,8 +251,6 @@ void LXQtTaskBar::addWindow(WId window)
     // If grouping disabled group behaves like regular button
     const QString group_id = mGroupingEnabled ? mBackend->getWindowClass(window) : QString::number(window);
 
-    qDebug() << "-------------->" << group_id;
-
     LXQtTaskGroup *group = nullptr;
     auto i_group = mKnownWindows.find(window);
     if (mKnownWindows.end() != i_group)
@@ -351,7 +345,6 @@ void LXQtTaskBar::onWindowChanged(WId window, int prop)
 
 void LXQtTaskBar::onWindowAdded(WId window)
 {
-    qDebug() << "--------------> onWindowAdded" << window;
     auto const pos = mKnownWindows.find(window);
     if (mKnownWindows.end() == pos)
         addWindow(window);
