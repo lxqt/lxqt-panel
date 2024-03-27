@@ -8,10 +8,12 @@ add_library(lxqt-panel-backend-wlroots STATIC
     lxqttaskbarbackendwlr.h
     lxqttaskbarwlrwindowmanagment.h
     lxqtwlrvirtualdesktop.h
+    icontools.hpp
 
     lxqttaskbarbackendwlr.cpp
     lxqttaskbarwlrwindowmanagment.cpp
     lxqtwlrvirtualdesktop.cpp
+    icontools.cpp
 )
 
 qt6_generate_wayland_protocol_client_sources(lxqt-panel-backend-wlroots
@@ -23,5 +25,6 @@ target_link_libraries(lxqt-panel-backend-wlroots
     Qt6::GuiPrivate
     Qt6::WaylandClient
     Qt6::Concurrent
+    Qt6Xdg
     lxqt-panel-backend-common
 )
