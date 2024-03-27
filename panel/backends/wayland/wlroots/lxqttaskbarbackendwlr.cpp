@@ -29,7 +29,6 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     m_workspaceInfo.reset(new LXQtWlrootsWaylandWorkspaceInfo);
 
     connect(m_managment.get(), &LXQtTaskBarWlrootsWindowManagment::windowCreated, this, [this](LXQtTaskBarWlrootsWindow *window) {
-        qDebug() << "--------------> window created" << window->title << window->appId;
         addWindow(window);
     });
 }
@@ -90,7 +89,6 @@ QVector<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
         wids << window->getWindowId();
     }
 
-    qDebug() << "--------------> current windows" << wids;
     return wids;
 }
 
@@ -165,31 +163,59 @@ bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     {
     case LXQtTaskBarWindowState::Minimized:
     {
-        WlrootsState = LXQtTaskBarWlrootsWindow::state::state_minimized;
+        if ( set ) {
+            window->set_minimized();
+        }
+
+        else {
+            window->unset_minimized();
+        }
+
         break;
     }
     case LXQtTaskBarWindowState::Maximized:
     case LXQtTaskBarWindowState::MaximizedVertically:
     case LXQtTaskBarWindowState::MaximizedHorizontally:
     {
-        WlrootsState = LXQtTaskBarWlrootsWindow::state::state_maximized;
+        if ( set ) {
+            window->set_maximized();
+        }
+
+        else {
+            window->unset_maximized();
+        }
+
         break;
     }
     case LXQtTaskBarWindowState::Normal:
     {
-        WlrootsState = LXQtTaskBarWlrootsWindow::state::state_maximized;
-        set = !set; //TODO: correct
+        /** Restore if maximized/minimized */
+        if ( window->windowState.testFlag(LXQtTaskBarWlrootsWindow::state_minimized) ) {
+            window->unset_minimized();
+        }
+
+        if ( window->windowState.testFlag(LXQtTaskBarWlrootsWindow::state_maximized) ) {
+            window->unset_maximized();
+        }
         break;
     }
-    case LXQtTaskBarWindowState::RolledUp:
+
+    case LXQtTaskBarWindowState::FullScreen:
     {
+        if ( set ) {
+            window->set_fullscreen(nullptr);
+        }
+
+        else {
+            window->unset_fullscreen();
+        }
         break;
     }
+
     default:
         return false;
     }
 
-    window->set_state(WlrootsState, set ? WlrootsState : 0);
     return true;
 }
 
@@ -305,7 +331,6 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
 
     /** Add the window once it's ready */
     connect(window, &LXQtTaskBarWlrootsWindow::windowReady, this, [window, this] {
-        qDebug() << "--------------> windowReady; adding window";
         emit windowAdded( window->getWindowId() );
     });
 
@@ -361,7 +386,7 @@ void LXQtTaskbarWlrootsBackend::addWindow(LXQtTaskBarWlrootsWindow *window)
     }
 
     connect(window, &LXQtTaskBarWlrootsWindow::activeChanged, this, [window, this] {
-        const bool active = window->windowState & LXQtTaskBarWlrootsWindow::state::state_activated;
+        const bool active = window->windowState.testFlag( LXQtTaskBarWlrootsWindow::state::state_activated );
 
         LXQtTaskBarWlrootsWindow *effectiveWindow = window;
 

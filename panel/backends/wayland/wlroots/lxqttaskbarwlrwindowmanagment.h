@@ -53,8 +53,6 @@ public:
     QFlags<state> windowState;
     QPointer<LXQtTaskBarWlrootsWindow> parentWindow;
 
-    void set_state( LXQtTaskBarWlrootsWindow::state, bool ) {};
-
 Q_SIGNALS:
     void titleChanged();
     void appIdChanged();
@@ -86,6 +84,17 @@ private:
 
     QMetaObject::Connection parentWindowUnmappedConnection;
 
-    mutable bool titleRecieved = false;
-    mutable bool appIdRecieved = false;
+    typedef struct view_state_t
+    {
+        bool maximized  = false;
+        bool minimized  = false;
+        bool activated  = false;
+        bool fullscreen = false;
+    } ViewState;
+
+    ViewState m_viewState;
+    ViewState m_pendingState;
+
+    bool titleRecieved = false;
+    bool appIdRecieved = false;
 };
