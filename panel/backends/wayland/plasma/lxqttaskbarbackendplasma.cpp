@@ -118,6 +118,7 @@ bool LXQtTaskbarPlasmaBackend::reloadWindows()
 
 QVector<WId> LXQtTaskbarPlasmaBackend::getCurrentWindows() const
 {
+    qDebug() << "--------------> Retrieving current window list";
     QVector<WId> wids;
     wids.reserve(wids.size());
 
