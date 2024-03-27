@@ -20,7 +20,7 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
     QList<QByteArray> desktopsList = qgetenv("XDG_CURRENT_DESKTOP").toLower().split(':');
     qDebug() << "--------------> Current desktop" << desktopsList;
     for( QByteArray desktop: desktopsList ) {
-        if ( desktop == "plasma" || desktop == "kde" )
+        if ( desktop == "plasma" || desktop == "kde" || desktop == "kwin_wayland" )
         {
             qDebug() << "--------------> Using plasma backend";
             m_backend = new LXQtTaskbarPlasmaBackend();
@@ -29,28 +29,28 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
 
         else if ( desktop == "wayfire" )
         {
-            qDebug() << "--------------> Using wlroots backend";
+            qDebug() << "--------------> Using wayfire backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "sway" )
         {
-            qDebug() << "--------------> Using wlroots backend";
+            qDebug() << "--------------> Using sway backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "labwc" )
         {
-            qDebug() << "--------------> Using wlroots backend";
+            qDebug() << "--------------> Using labwc backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "hyprland" )
         {
-            qDebug() << "--------------> Using wlroots backend";
+            qDebug() << "--------------> Using hyprland backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
@@ -59,6 +59,10 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
         {
             // m_backend = nullptr;
         }
+    }
+
+    if ( m_backend == nullptr ) {
+        qDebug() << "-------------->  Using dummy backend. No window management will be done";
     }
 }
 

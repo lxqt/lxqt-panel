@@ -1,5 +1,6 @@
 #include "lxqttaskbarwlrwindowmanagment.h"
 
+#include <QString>
 #include <QFuture>
 #include <QtConcurrent>
 #include <QGuiApplication>
@@ -63,6 +64,8 @@ void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
 LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id)
     : zwlr_foreign_toplevel_handle_v1(id)
 {
+    title = QString::fromUtf8( "untitled" );
+    appId = QString::fromUtf8( "unknown" );
 }
 
 LXQtTaskBarWlrootsWindow::~LXQtTaskBarWlrootsWindow()
@@ -78,14 +81,27 @@ void LXQtTaskBarWlrootsWindow::activate()
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString &title)
 {
     this->title = title;
+    titleRecieved = true;
     emit titleChanged();
+
+    if ( titleRecieved && appIdRecieved )
+    {
+        qDebug() << "--------------> windowReady!!" << getWindowId() << title << appId;
+        emit windowReady();
+    }
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString &app_id)
 {
     this->appId = app_id;
+    appIdRecieved = true;
     emit appIdChanged();
-    // Code to get the icon needs to be inserted here
+
+    if ( appIdRecieved && titleRecieved )
+    {
+        qDebug() << "--------------> windowReady!!" << getWindowId() << title << appId;
+        emit windowReady();
+    }
 }
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_enter(struct ::wl_output *output)
