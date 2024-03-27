@@ -64,6 +64,17 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
     if ( m_backend == nullptr ) {
         qDebug() << "-------------->  Using dummy backend. No window management will be done";
     }
+
+    else {
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::reloaded,                this, &ILXQtTaskbarAbstractBackend::reloaded );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowAdded,             this, &ILXQtTaskbarAbstractBackend::windowAdded );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowRemoved,           this, &ILXQtTaskbarAbstractBackend::windowRemoved );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,   this, &ILXQtTaskbarAbstractBackend::windowPropertyChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::workspacesCountChanged,  this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::workspaceNameChanged,    this, &ILXQtTaskbarAbstractBackend::workspaceNameChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,     this, &ILXQtTaskbarAbstractBackend::activeWindowChanged );
+    }
 }
 
 

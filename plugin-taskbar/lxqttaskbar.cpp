@@ -105,7 +105,11 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
+    // connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
+    qDebug() << connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, [=](WId window){
+        qDebug() << "--------------> onWindowAdded" << window;
+        onWindowAdded(window);
+    });
     connect(mBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 
     // Consider already fetched windows
