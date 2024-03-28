@@ -1,5 +1,4 @@
 #include "lxqttaskbarwlrwindowmanagment.h"
-#include "icontools.hpp"
 
 #include <QString>
 #include <QFuture>
@@ -12,7 +11,7 @@
 #include <QWaylandClientExtension>
 #include <QWindow>
 
-#include <xdgdesktopfile.h>
+#include <xdgicon.h>
 
 #include <qpa/qplatformnativeinterface.h>
 
@@ -98,7 +97,11 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QStr
     appIdRecieved = true;
     emit appIdChanged();
 
-    this->icon = getIconForAppId( app_id );
+    this->icon = XdgIcon::fromTheme(appId);
+    if ( this->icon.pixmap(64).width() == 0 )
+    {
+        this->icon = XdgIcon::fromTheme(appId.toLower());
+    }
 
     if ( appIdRecieved && titleRecieved )
     {
