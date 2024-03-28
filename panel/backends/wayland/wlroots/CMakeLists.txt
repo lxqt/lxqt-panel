@@ -8,12 +8,10 @@ add_library(lxqt-panel-backend-wlroots STATIC
     lxqttaskbarbackendwlr.h
     lxqttaskbarwlrwindowmanagment.h
     lxqtwlrvirtualdesktop.h
-    icontools.hpp
 
     lxqttaskbarbackendwlr.cpp
     lxqttaskbarwlrwindowmanagment.cpp
     lxqtwlrvirtualdesktop.cpp
-    icontools.cpp
 )
 
 qt6_generate_wayland_protocol_client_sources(lxqt-panel-backend-wlroots
