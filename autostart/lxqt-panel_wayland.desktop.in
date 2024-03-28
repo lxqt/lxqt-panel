@@ -3,7 +3,7 @@ Type=Application
 TryExec=lxqt-panel
 
 # NOTE: KWin wants absolute path here, make sure it's correct
-Exec=/usr/local/bin/lxqt-panel
+Exec=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_BINDIR@/lxqt-panel
 
 # NOTE: adding KDE to make it work under Plasma Wayland session
 OnlyShowIn=LXQt;KDE
