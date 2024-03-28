@@ -58,7 +58,10 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
 
 private slots:
+    void startCapturingColor();
+    void setCapturedColor(const QColor& color);
     void captureMouse();
+    void gotColorResponse(uint result, const QVariantMap& map);
 
 private:
     static const QString svgIcon;
@@ -92,7 +95,12 @@ public:
     virtual void realign() override;
 
 private:
+    void queryXDGSupport();
+
+private:
     ColorPickerWidget mWidget;
+
+    bool m_hasScreenshotPortalWithColorPicking = false;
 };
 
 class ColorPickerLibrary: public QObject, public ILXQtPanelPluginLibrary

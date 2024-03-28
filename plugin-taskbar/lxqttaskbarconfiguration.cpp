@@ -29,7 +29,9 @@
 
 #include "lxqttaskbarconfiguration.h"
 #include "ui_lxqttaskbarconfiguration.h"
-#include <KX11Extras>
+
+#include "../panel/lxqtpanelapplication.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),
@@ -52,11 +54,14 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui->wheelEventsActionCB->addItem(tr("Scroll up to move to next desktop, down to previous"), 4);
     ui->wheelEventsActionCB->addItem(tr("Scroll up to move to previous desktop, down to next"), 5);
 
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a->getWMBackend();
+
     ui->showDesktopNumCB->addItem(tr("Current"), 0);
     //Note: in KWindowSystem desktops are numbered from 1..N
-    const int desk_cnt = KX11Extras::numberOfDesktops();
+    const int desk_cnt = wmBackend->getWorkspacesCount();
     for (int i = 1; desk_cnt >= i; ++i)
-        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(KX11Extras::desktopName(i)), i);
+        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(wmBackend->getWorkspaceName(i)), i);
 
     loadSettings();
     ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));

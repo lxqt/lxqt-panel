@@ -1,5 +1,15 @@
 set(PROJECT lxqt-panel)
 
+# Window Manager abstraction backend
+add_subdirectory(backends)
+
+# TODO: allow compile time selection via CMake variables
+set(PANEL_BACKENDS
+    lxqt-panel-backend-wayland
+    lxqt-panel-backend-xcb
+)
+
+
 set(PRIV_HEADERS
     panelpluginsmodel.h
     windownotifier.h
@@ -103,6 +113,8 @@ target_link_libraries(${PROJECT}
     ${LIBRARIES}
     ${QTX_LIBRARIES}
     KF6::WindowSystem
+    ${PANEL_BACKENDS}
+    LayerShellQt::Interface
     ${STATIC_PLUGINS}
 )
 

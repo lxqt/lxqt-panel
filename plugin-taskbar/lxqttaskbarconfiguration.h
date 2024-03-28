@@ -29,8 +29,8 @@
 #define LXQTTASKBARCONFIGURATION_H
 
 #include "../panel/lxqtpanelpluginconfigdialog.h"
-#include "../panel/pluginsettings.h"
-#include <QAbstractButton>
+
+class PluginSettings;
 
 namespace Ui {
     class LXQtTaskbarConfiguration;

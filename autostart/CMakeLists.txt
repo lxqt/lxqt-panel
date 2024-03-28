@@ -14,3 +14,12 @@ install(FILES
     DESTINATION "${LXQT_ETC_XDG_DIR}/autostart"
     COMPONENT Runtime
 )
+
+configure_file(lxqt-panel_wayland.desktop.in lxqt-panel_wayland.desktop @ONLY)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-panel_wayland.desktop"
+    DESTINATION "/usr/share/applications"
+    RENAME "lxqt-panel.desktop"
+    COMPONENT Runtime
+)

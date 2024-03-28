@@ -380,9 +380,9 @@ void Plugin::saveSettings()
 /************************************************
 
  ************************************************/
-void Plugin::contextMenuEvent(QContextMenuEvent * /*event*/)
+void Plugin::contextMenuEvent(QContextMenuEvent * event)
 {
-    mPanel->showPopupMenu(this);
+    mPanel->showPopupMenu(event->globalPos(), this);
 }
 
 

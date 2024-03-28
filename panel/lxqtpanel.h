@@ -42,6 +42,10 @@ class QMenu;
 class Plugin;
 class QAbstractItemModel;
 
+namespace LayerShellQt {
+class Window;
+}
+
 namespace LXQt {
 class Settings;
 class PluginInfo;
@@ -135,10 +139,11 @@ public:
      * is given as parameter, the menu will be divided in two groups:
      * plugin-specific options and panel-related options. As these two are
      * shown together, this menu has to be created by LXQtPanel.
+     * @param cursorPos The global cursor pos
      * @param plugin The plugin whose menu options will be included in the
      * context menu.
      */
-    void showPopupMenu(Plugin *plugin = 0);
+    void showPopupMenu(const QPoint &cursorPos, Plugin *plugin = nullptr);
 
     // ILXQtPanel overrides ........
     ILXQtPanel::Position position() const override { return mPosition; }
@@ -687,6 +692,8 @@ private:
      * @brief The animation used for showing/hiding an auto-hiding panel.
      */
     QPropertyAnimation *mAnimation;
+
+    LayerShellQt::Window *mLayerWindow;
 
     /**
      * @brief Flag for providing the configuration options in panel's context menu
