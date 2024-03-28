@@ -1,16 +1,6 @@
-#ifndef LXQTTASKBARBACKENDWAYLAND_H
-#define LXQTTASKBARBACKENDWAYLAND_H
+#pragma once
 
 #include "../ilxqttaskbarabstractbackend.h"
-
-#include <QTime>
-#include <QHash>
-#include <vector>
-
-class LXQtTaskBarPlasmaWindow;
-class LXQtTaskBarPlasmaWindowManagment;
-class LXQtPlasmaWaylandWorkspaceInfo;
-
 
 class LXQtTaskbarWaylandBackend : public ILXQtTaskbarAbstractBackend
 {
@@ -20,76 +10,77 @@ public:
     explicit LXQtTaskbarWaylandBackend(QObject *parent = nullptr);
 
     // Backend
-    virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
+    bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
 
     // Windows
-    virtual bool reloadWindows() override;
+    bool reloadWindows() override;
 
-    virtual QVector<WId> getCurrentWindows() const override;
-    virtual QString getWindowTitle(WId windowId) const override;
-    virtual bool applicationDemandsAttention(WId windowId) const override;
-    virtual QIcon getApplicationIcon(WId windowId, int devicePixels) const override;
-    virtual QString getWindowClass(WId windowId) const override;
+    QVector<WId> getCurrentWindows() const override;
 
-    virtual LXQtTaskBarWindowLayer getWindowLayer(WId windowId) const override;
-    virtual bool setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer) override;
+    QString getWindowTitle(WId windowId) const override;
 
-    virtual LXQtTaskBarWindowState getWindowState(WId windowId) const override;
-    virtual bool setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set) override;
+    bool applicationDemandsAttention(WId windowId) const override;
 
-    virtual bool isWindowActive(WId windowId) const override;
-    virtual bool raiseWindow(WId windowId, bool onCurrentWorkSpace) override;
+    QIcon getApplicationIcon(WId windowId, int fallbackDevicePixels) const override;
 
-    virtual bool closeWindow(WId windowId) override;
+    QString getWindowClass(WId windowId) const override;
 
-    virtual WId getActiveWindow() const override;
+    LXQtTaskBarWindowLayer getWindowLayer(WId windowId) const override;
+    bool setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer) override;
+
+    LXQtTaskBarWindowState getWindowState(WId windowId) const override;
+    bool setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set = true) override;
+
+    bool isWindowActive(WId windowId) const override;
+    bool raiseWindow(WId windowId, bool onCurrentWorkSpace) override;
+
+    bool closeWindow(WId windowId) override;
+
+    WId getActiveWindow() const override;
 
     // Workspaces
-    virtual int getWorkspacesCount() const override;
-    virtual QString getWorkspaceName(int idx) const override;
+    int getWorkspacesCount() const override;
+    QString getWorkspaceName(int idx) const override;
 
-    virtual int getCurrentWorkspace() const override;
-    virtual bool setCurrentWorkspace(int idx) override;
+    int getCurrentWorkspace() const override;
+    bool setCurrentWorkspace(int idx) override;
 
-    virtual int getWindowWorkspace(WId windowId) const override;
-    virtual bool setWindowOnWorkspace(WId windowId, int idx) override;
+    int getWindowWorkspace(WId windowId) const override;
+    bool setWindowOnWorkspace(WId windowId, int idx) override;
 
-    virtual void moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop) override;
+    void moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop) override;
 
-    virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
+    bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
     // X11 Specific
-    virtual void moveApplication(WId windowId) override;
-    virtual void resizeApplication(WId windowId) override;
+    void moveApplication(WId windowId) override;
+    void resizeApplication(WId windowId) override;
 
-    virtual void refreshIconGeometry(WId windowId, const QRect &geom) override;
+    void refreshIconGeometry(WId windowId, const QRect &geom) override;
 
     // Panel internal
-    virtual bool isAreaOverlapped(const QRect& area) const override;
+    bool isAreaOverlapped(const QRect& area) const override;
 
     // Show Destop
-    virtual bool isShowingDesktop() const override;
-    virtual bool showDesktop(bool value) override;
+    bool isShowingDesktop() const override;
+    bool showDesktop(bool value) override;
 
 private:
-    void addWindow(LXQtTaskBarPlasmaWindow *window);
-    bool acceptWindow(LXQtTaskBarPlasmaWindow *window) const;
-    void updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window);
+    ILXQtTaskbarAbstractBackend *m_backend = nullptr;
 
-private:
-    LXQtTaskBarPlasmaWindow *getWindow(WId windowId) const;
+signals:
+    void reloaded();
 
-    std::unique_ptr<LXQtPlasmaWaylandWorkspaceInfo> m_workspaceInfo;
+    // Windows
+    void windowAdded(WId windowId);
+    void windowRemoved(WId windowId);
+    void windowPropertyChanged(WId windowId, int prop);
 
-    std::unique_ptr<LXQtTaskBarPlasmaWindowManagment> m_managment;
+    // Workspaces
+    void workspacesCountChanged();
+    void workspaceNameChanged(int idx);
+    void currentWorkspaceChanged(int idx);
 
-    QHash<LXQtTaskBarPlasmaWindow *, QTime> lastActivated;
-    LXQtTaskBarPlasmaWindow *activeWindow = nullptr;
-    std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>> windows;
-    // key=transient child, value=leader
-    QHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transients;
-    // key=leader, values=transient children
-    QMultiHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transientsDemandingAttention;
+    // TODO: needed?
+    void activeWindowChanged(WId windowId);
 };
-
-#endif // LXQTTASKBARBACKENDWAYLAND_H

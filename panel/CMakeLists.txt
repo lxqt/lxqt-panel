@@ -5,6 +5,8 @@ add_subdirectory(backends)
 
 # TODO: allow compile time selection via CMake variables
 set(PANEL_BACKENDS
+    lxqt-panel-backend-plasma
+    lxqt-panel-backend-wlroots
     lxqt-panel-backend-wayland
     lxqt-panel-backend-xcb
 )

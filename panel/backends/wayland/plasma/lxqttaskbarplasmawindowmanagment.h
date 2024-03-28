@@ -1,5 +1,4 @@
-#ifndef LXQTTASKBARPLASMAWINDOWMANAGMENT_H
-#define LXQTTASKBARPLASMAWINDOWMANAGMENT_H
+#pragma once
 
 #include <QIcon>
 #include <QPointer>
@@ -158,5 +157,3 @@ private:
 // private:
 //     WaylandTasksModel *q;
 // };
-
-#endif // LXQTTASKBARPLASMAWINDOWMANAGMENT_H

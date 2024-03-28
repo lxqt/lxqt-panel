@@ -1,722 +1,234 @@
 #include "lxqttaskbarbackendwayland.h"
-
-#include "lxqttaskbarplasmawindowmanagment.h"
-#include "lxqtplasmavirtualdesktop.h"
+#include "plasma/lxqttaskbarbackendplasma.h"
+#include "wlroots/lxqttaskbarbackendwlr.h"
 
 #include <QIcon>
-#include <QTime>
-#include <QScreen>
 
-auto findWindow(const std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>>& windows, LXQtTaskBarPlasmaWindow *window)
+LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
+    : ILXQtTaskbarAbstractBackend(parent)
 {
-    //TODO: use algorithms
-    auto end = windows.end();
-    for(auto it = windows.begin(); it != end; it++)
-    {
-        if((*it).get() == window)
+    /**
+     * HACK: For now, we will simply concentrate on plasma and wlroots.
+     * Eventually, we should be dynamically loading different plugins.
+     */
+
+    /**
+     * Let's get our DE:
+     * If plasma/kde is in desktopsList, we'll use the plasma backend.
+     * If wayfire/sway/labwc/hyprland/wlroots is in desktopsList, we'll use the wlroots backend.
+     */
+    QList<QByteArray> desktopsList = qgetenv("XDG_CURRENT_DESKTOP").toLower().split(':');
+    qDebug() << "--------------> Current desktop" << desktopsList;
+    for( QByteArray desktop: desktopsList ) {
+        if ( desktop == "plasma" || desktop == "kde" || desktop == "kwin_wayland" )
         {
-            return it;
+            qDebug() << "--------------> Using plasma backend";
+            m_backend = new LXQtTaskbarPlasmaBackend();
+            break;
+        }
+
+        else if ( desktop == "wayfire" )
+        {
+            qDebug() << "--------------> Using wayfire backend";
+            m_backend = new LXQtTaskbarWlrootsBackend();
+            break;
+        }
+
+        else if ( desktop == "sway" )
+        {
+            qDebug() << "--------------> Using sway backend";
+            m_backend = new LXQtTaskbarWlrootsBackend();
+            break;
+        }
+
+        else if ( desktop == "labwc" )
+        {
+            qDebug() << "--------------> Using labwc backend";
+            m_backend = new LXQtTaskbarWlrootsBackend();
+            break;
+        }
+
+        else if ( desktop == "hyprland" )
+        {
+            qDebug() << "--------------> Using hyprland backend";
+            m_backend = new LXQtTaskbarWlrootsBackend();
+            break;
+        }
+
+        else
+        {
+            // m_backend = nullptr;
         }
     }
 
-    return windows.end();
-}
-
-LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent) :
-    ILXQtTaskbarAbstractBackend(parent)
-{
-    m_managment.reset(new LXQtTaskBarPlasmaWindowManagment);
-    m_workspaceInfo.reset(new LXQtPlasmaWaylandWorkspaceInfo);
-
-    connect(m_managment.get(), &LXQtTaskBarPlasmaWindowManagment::windowCreated, this, [this](LXQtTaskBarPlasmaWindow *window) {
-        connect(window, &LXQtTaskBarPlasmaWindow::initialStateDone, this, [this, window] {
-            addWindow(window);
-        });
-    });
-
-    // connect(m_managment.get(), &LXQtTaskBarPlasmaWindowManagment::stackingOrderChanged,
-    //         this, [this](const QString &order) {
-    //     // stackingOrder = order.split(QLatin1Char(';'));
-    //     // for (const auto &window : std::as_const(windows)) {
-    //     //     this->dataChanged(window.get(), StackingOrder);
-    //     // }
-    // });
-
-    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::currentDesktopChanged, this,
-            [this](){
-                int idx = m_workspaceInfo->position(m_workspaceInfo->currentDesktop());
-                idx += 1; // Make 1-based
-                emit currentWorkspaceChanged(idx);
-            });
-
-    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::numberOfDesktopsChanged,
-            this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged);
-
-    connect(m_workspaceInfo.get(), &LXQtPlasmaWaylandWorkspaceInfo::desktopNameChanged,
-            this, [this](int idx) {
-        emit workspaceNameChanged(idx + 1); // Make 1-based
-    });
-}
-
-bool LXQtTaskbarWaylandBackend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
-{
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    LXQtTaskBarPlasmaWindow::state state;
-
-    switch (action)
-    {
-    case LXQtTaskBarBackendAction::Move:
-        state = LXQtTaskBarPlasmaWindow::state::state_movable;
-        break;
-
-    case LXQtTaskBarBackendAction::Resize:
-        state = LXQtTaskBarPlasmaWindow::state::state_resizable;
-        break;
-
-    case LXQtTaskBarBackendAction::Maximize:
-        state = LXQtTaskBarPlasmaWindow::state::state_maximizable;
-        break;
-
-    case LXQtTaskBarBackendAction::Minimize:
-        state = LXQtTaskBarPlasmaWindow::state::state_minimizable;
-        break;
-
-    case LXQtTaskBarBackendAction::RollUp:
-        state = LXQtTaskBarPlasmaWindow::state::state_shadeable;
-        break;
-
-    case LXQtTaskBarBackendAction::FullScreen:
-        state = LXQtTaskBarPlasmaWindow::state::state_fullscreenable;
-        break;
-
-    default:
-        return false;
+    if ( m_backend == nullptr ) {
+        qDebug() << "-------------->  Using dummy backend. No window management will be done";
     }
 
-    return window->windowState.testFlag(state);
+    else {
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::reloaded,                this, &ILXQtTaskbarAbstractBackend::reloaded );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowAdded,             this, &ILXQtTaskbarAbstractBackend::windowAdded );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowRemoved,           this, &ILXQtTaskbarAbstractBackend::windowRemoved );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,   this, &ILXQtTaskbarAbstractBackend::windowPropertyChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::workspacesCountChanged,  this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::workspaceNameChanged,    this, &ILXQtTaskbarAbstractBackend::workspaceNameChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged );
+        connect(m_backend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,     this, &ILXQtTaskbarAbstractBackend::activeWindowChanged );
+    }
+}
+
+
+/************************************************
+ *   Windows function
+ ************************************************/
+bool LXQtTaskbarWaylandBackend::supportsAction(WId id, LXQtTaskBarBackendAction act) const
+{
+    return ( m_backend == nullptr ? false : m_backend->supportsAction(id, act) );
 }
 
 bool LXQtTaskbarWaylandBackend::reloadWindows()
 {
-    const QVector<WId> wids = getCurrentWindows();
-
-    // Force removal and re-adding
-    for(WId windowId : wids)
-    {
-        emit windowRemoved(windowId);
-    }
-    for(WId windowId : wids)
-    {
-        emit windowAdded(windowId);
-    }
-
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->reloadWindows() );
 }
 
 QVector<WId> LXQtTaskbarWaylandBackend::getCurrentWindows() const
 {
-    QVector<WId> wids;
-    wids.reserve(wids.size());
-
-    for(const std::unique_ptr<LXQtTaskBarPlasmaWindow>& window : std::as_const(windows))
-    {
-        if(window->acceptedInTaskBar)
-            wids << window->getWindowId();
-    }
-    return wids;
+    return ( m_backend == nullptr ? QVector<WId>() : m_backend->getCurrentWindows() );
 }
 
-QString LXQtTaskbarWaylandBackend::getWindowTitle(WId windowId) const
+QString LXQtTaskbarWaylandBackend::getWindowTitle(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return QString();
-
-    return window->title;
+    return ( m_backend == nullptr ? QString() : m_backend->getWindowTitle(id) );
 }
 
-bool LXQtTaskbarWaylandBackend::applicationDemandsAttention(WId windowId) const
+bool LXQtTaskbarWaylandBackend::applicationDemandsAttention(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    return window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention) || transientsDemandingAttention.contains(window);
+    return ( m_backend == nullptr ? false : m_backend->applicationDemandsAttention(id) );
 }
 
-QIcon LXQtTaskbarWaylandBackend::getApplicationIcon(WId windowId, int devicePixels) const
+QIcon LXQtTaskbarWaylandBackend::getApplicationIcon(WId id, int fallbackDevicePixels) const
 {
-    Q_UNUSED(devicePixels)
-
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return QIcon();
-
-    return window->icon;
+    return ( m_backend == nullptr ? QIcon() : m_backend->getApplicationIcon(id, fallbackDevicePixels) );
 }
 
-QString LXQtTaskbarWaylandBackend::getWindowClass(WId windowId) const
+QString LXQtTaskbarWaylandBackend::getWindowClass(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return QString();
-    return window->appId;
+    return ( m_backend == nullptr ? QString() : m_backend->getWindowClass(id) );
 }
 
-LXQtTaskBarWindowLayer LXQtTaskbarWaylandBackend::getWindowLayer(WId windowId) const
+LXQtTaskBarWindowLayer LXQtTaskbarWaylandBackend::getWindowLayer(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return LXQtTaskBarWindowLayer::Normal;
-
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_keep_above))
-        return LXQtTaskBarWindowLayer::KeepAbove;
-
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_keep_below))
-        return LXQtTaskBarWindowLayer::KeepBelow;
-
-    return LXQtTaskBarWindowLayer::Normal;
+    return ( m_backend == nullptr ? LXQtTaskBarWindowLayer::Normal : m_backend->getWindowLayer(id) );
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer)
+bool LXQtTaskbarWaylandBackend::setWindowLayer(WId id, LXQtTaskBarWindowLayer lyr)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    if(getWindowLayer(windowId) == layer)
-        return true; //TODO: make more efficient
-
-    LXQtTaskBarPlasmaWindow::state plasmaState = LXQtTaskBarPlasmaWindow::state::state_keep_above;
-    switch (layer)
-    {
-    case LXQtTaskBarWindowLayer::Normal:
-    case LXQtTaskBarWindowLayer::KeepAbove:
-        break;
-    case LXQtTaskBarWindowLayer::KeepBelow:
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_keep_below;
-        break;
-    default:
-        return false;
-    }
-
-    window->set_state(plasmaState, layer == LXQtTaskBarWindowLayer::Normal ? 0 : plasmaState);
-    return false;
+    return ( m_backend == nullptr ? false : m_backend->setWindowLayer(id, lyr) );
 }
 
-LXQtTaskBarWindowState LXQtTaskbarWaylandBackend::getWindowState(WId windowId) const
+LXQtTaskBarWindowState LXQtTaskbarWaylandBackend::getWindowState(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return LXQtTaskBarWindowState::Normal;
-
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_minimized))
-        return LXQtTaskBarWindowState::Hidden;
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_maximizable))
-        return LXQtTaskBarWindowState::Maximized;
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_shaded))
-        return LXQtTaskBarWindowState::RolledUp;
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_fullscreen))
-        return LXQtTaskBarWindowState::FullScreen;
-
-    return LXQtTaskBarWindowState::Normal;
+    return ( m_backend == nullptr ? LXQtTaskBarWindowState::Normal : m_backend->getWindowState(id) );
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
+bool LXQtTaskbarWaylandBackend::setWindowState(WId id, LXQtTaskBarWindowState state, bool set)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    LXQtTaskBarPlasmaWindow::state plasmaState;
-    switch (state)
-    {
-    case LXQtTaskBarWindowState::Minimized:
-    {
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_minimized;
-        break;
-    }
-    case LXQtTaskBarWindowState::Maximized:
-    case LXQtTaskBarWindowState::MaximizedVertically:
-    case LXQtTaskBarWindowState::MaximizedHorizontally:
-    {
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_maximized;
-        break;
-    }
-    case LXQtTaskBarWindowState::Normal:
-    {
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_maximized;
-        set = !set; //TODO: correct
-        break;
-    }
-    case LXQtTaskBarWindowState::RolledUp:
-    {
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_shaded;
-        break;
-    }
-    default:
-        return false;
-    }
-
-    window->set_state(plasmaState, set ? plasmaState : 0);
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->setWindowState(id, state, set) );
 }
 
-bool LXQtTaskbarWaylandBackend::isWindowActive(WId windowId) const
+bool LXQtTaskbarWaylandBackend::isWindowActive(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    return activeWindow == window || window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active);
+    return ( m_backend == nullptr ? false : m_backend->isWindowActive(id) );
 }
 
-bool LXQtTaskbarWaylandBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
+bool LXQtTaskbarWaylandBackend::raiseWindow(WId id, bool yes)
 {
-    Q_UNUSED(onCurrentWorkSpace) //TODO
-
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    // Pull forward any transient demanding attention.
-    if (auto *transientDemandingAttention = transientsDemandingAttention.value(window))
-    {
-        window = transientDemandingAttention;
-    }
-    else
-    {
-        // TODO Shouldn't KWin take care of that?
-        // Bringing a transient to the front usually brings its parent with it
-        // but focus is not handled properly.
-        // TODO take into account d->lastActivation instead
-        // of just taking the first one.
-        while (transients.key(window))
-        {
-            window = transients.key(window);
-        }
-    }
-
-    window->set_state(LXQtTaskBarPlasmaWindow::state::state_active, LXQtTaskBarPlasmaWindow::state::state_active);
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->raiseWindow(id, yes) );
 }
 
-bool LXQtTaskbarWaylandBackend::closeWindow(WId windowId)
+bool LXQtTaskbarWaylandBackend::closeWindow(WId id)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    window->close();
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->closeWindow(id) );
 }
 
 WId LXQtTaskbarWaylandBackend::getActiveWindow() const
 {
-    if(activeWindow)
-        return activeWindow->getWindowId();
-    return 0;
+    return ( m_backend == nullptr ? 0 : m_backend->getActiveWindow() );
 }
 
+
+/************************************************
+ *   Workspaces
+ ************************************************/
 int LXQtTaskbarWaylandBackend::getWorkspacesCount() const
 {
-    return m_workspaceInfo->numberOfDesktops();
+    return ( m_backend == nullptr ? 1 : m_backend->getWorkspacesCount() ); // Fake 1 workspace
 }
 
-QString LXQtTaskbarWaylandBackend::getWorkspaceName(int idx) const
+QString LXQtTaskbarWaylandBackend::getWorkspaceName(int ws) const
 {
-    return m_workspaceInfo->getDesktopName(idx - 1); //Return to 0-based
+    return ( m_backend == nullptr ? QString() : m_backend->getWorkspaceName( ws ) );
 }
 
 int LXQtTaskbarWaylandBackend::getCurrentWorkspace() const
 {
-    if(!m_workspaceInfo->currentDesktop().isValid())
-        return 0;
-    return m_workspaceInfo->position(m_workspaceInfo->currentDesktop()) + 1; // 1-based
+    return ( m_backend == nullptr ? 0 : m_backend->getCurrentWorkspace() );
 }
 
-bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int idx)
+bool LXQtTaskbarWaylandBackend::setCurrentWorkspace(int ws)
 {
-    QString id = m_workspaceInfo->getDesktopId(idx - 1); //Return to 0-based
-    if(id.isEmpty())
-        return false;
-    m_workspaceInfo->requestActivate(id);
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->setCurrentWorkspace(ws) );
 }
 
-int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId windowId) const
+int LXQtTaskbarWaylandBackend::getWindowWorkspace(WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return 0;
-
-    // TODO: this protocol seems to allow multiple desktop for each window
-    // We do not support that yet
-    // Also from KDE Plasma task switch it's not clear how to actually put
-    // a window on multiple desktops (which is different from "All desktops")
-    QString id = window->virtualDesktops.value(0, QString());
-    if(id.isEmpty())
-        return 0;
-
-    return m_workspaceInfo->position(id) + 1; //Make 1-based
+    return ( m_backend == nullptr ? 0 : m_backend->getWindowWorkspace( id ) );
 }
 
-bool LXQtTaskbarWaylandBackend::setWindowOnWorkspace(WId windowId, int idx)
+bool LXQtTaskbarWaylandBackend::setWindowOnWorkspace(WId id, int ws)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    // Prepare for future multiple virtual desktops per window
-    QList<QString> newDesktops;
-
-    // Fill the list
-    newDesktops.append(m_workspaceInfo->getDesktopId(idx - 1)); //Return to 0-based
-
-    // Keep only valid IDs
-    newDesktops.erase(std::remove_if(newDesktops.begin(), newDesktops.end(),
-                                     [](const QString& id) { return id.isEmpty(); }),
-                      newDesktops.end());
-
-    // Add to new requested desktops
-    for(const QString& id : std::as_const(newDesktops))
-    {
-        if(!window->virtualDesktops.contains(id))
-            window->request_enter_virtual_desktop(id);
-    }
-
-    // Remove from non-requested destops
-    const QList<QString> currentDesktops = window->virtualDesktops;
-    for(const QString& id : std::as_const(currentDesktops))
-    {
-        if(!newDesktops.contains(id))
-            window->request_leave_virtual_desktop(id);
-    }
-
-    return true;
+    return ( m_backend == nullptr ? false : m_backend->setWindowOnWorkspace(id, ws) );
 }
 
-void LXQtTaskbarWaylandBackend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
+void LXQtTaskbarWaylandBackend::moveApplicationToPrevNextMonitor(WId id, bool next, bool raise)
 {
-
+    ( m_backend == nullptr ? void() : m_backend->moveApplicationToPrevNextMonitor( id, next, raise) );
 }
 
-bool LXQtTaskbarWaylandBackend::isWindowOnScreen(QScreen *screen, WId windowId) const
+bool LXQtTaskbarWaylandBackend::isWindowOnScreen(QScreen *scrn, WId id) const
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return false;
-
-    return screen->geometry().intersects(window->geometry);
+    return ( m_backend == nullptr ? false : m_backend->isWindowOnScreen(scrn, id) );
 }
 
-void LXQtTaskbarWaylandBackend::moveApplication(WId windowId)
+/************************************************
+ *   X11 Specific
+ ************************************************/
+void LXQtTaskbarWaylandBackend::moveApplication(WId id)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return;
-
-    window->set_state(LXQtTaskBarPlasmaWindow::state::state_active, LXQtTaskBarPlasmaWindow::state::state_active);
-    window->request_move();
+    ( m_backend == nullptr ? void() : m_backend->moveApplication(id) );
 }
 
-void LXQtTaskbarWaylandBackend::resizeApplication(WId windowId)
+void LXQtTaskbarWaylandBackend::resizeApplication(WId id)
 {
-    LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
-    if(!window)
-        return;
-
-    window->set_state(LXQtTaskBarPlasmaWindow::state::state_active, LXQtTaskBarPlasmaWindow::state::state_active);
-    window->request_resize();
+    ( m_backend == nullptr ? void() : m_backend->resizeApplication(id) );
 }
 
-void LXQtTaskbarWaylandBackend::refreshIconGeometry(WId windowId, const QRect &geom)
+void LXQtTaskbarWaylandBackend::refreshIconGeometry(WId id, QRect const &rect)
 {
-
+    ( m_backend == nullptr ? void() : m_backend->refreshIconGeometry(id, rect) );
 }
 
-bool LXQtTaskbarWaylandBackend::isAreaOverlapped(const QRect &area) const
+bool LXQtTaskbarWaylandBackend::isAreaOverlapped(const QRect &rect) const
 {
-    for(auto &window : std::as_const(windows))
-    {
-        if(window->geometry.intersects(area))
-            return true;
-    }
-    return false;
+    return ( m_backend == nullptr ? false : m_backend->isAreaOverlapped(rect) );
 }
 
 bool LXQtTaskbarWaylandBackend::isShowingDesktop() const
 {
-    return m_managment->isShowingDesktop();
+    return ( m_backend == nullptr ? false : m_backend->isShowingDesktop() );
 }
 
-bool LXQtTaskbarWaylandBackend::showDesktop(bool value)
+bool LXQtTaskbarWaylandBackend::showDesktop(bool yes)
 {
-    enum LXQtTaskBarPlasmaWindowManagment::show_desktop flag_;
-    if(value)
-        flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_enabled;
-    else
-        flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_disabled;
-
-    m_managment->show_desktop(flag_);
-    return true;
-}
-
-void LXQtTaskbarWaylandBackend::addWindow(LXQtTaskBarPlasmaWindow *window)
-{
-    if (findWindow(windows, window) != windows.end() || transients.contains(window))
-    {
-        return;
-    }
-
-    auto removeWindow = [window, this]
-    {
-        auto it = findWindow(windows, window);
-        if (it != windows.end())
-        {
-            if(window->acceptedInTaskBar)
-                emit windowRemoved(window->getWindowId());
-            windows.erase(it);
-            transientsDemandingAttention.remove(window);
-            lastActivated.remove(window);
-        }
-        else
-        {
-            // Could be a transient.
-            // Removing a transient might change the demands attention state of the leader.
-            if (transients.remove(window))
-            {
-                if (LXQtTaskBarPlasmaWindow *leader = transientsDemandingAttention.key(window)) {
-                    transientsDemandingAttention.remove(leader, window);
-                    emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-                }
-            }
-        }
-
-        if (activeWindow == window)
-        {
-            activeWindow = nullptr;
-            emit activeWindowChanged(0);
-        }
-    };
-
-    connect(window, &LXQtTaskBarPlasmaWindow::unmapped, this, removeWindow);
-
-    connect(window, &LXQtTaskBarPlasmaWindow::titleChanged, this, [window, this] {
-        updateWindowAcceptance(window);
-        if(window->acceptedInTaskBar)
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Title));
-    });
-
-    connect(window, &LXQtTaskBarPlasmaWindow::iconChanged, this, [window, this] {
-        updateWindowAcceptance(window);
-        if(window->acceptedInTaskBar)
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Icon));
-    });
-
-    connect(window, &LXQtTaskBarPlasmaWindow::geometryChanged, this, [window, this] {
-        updateWindowAcceptance(window);
-        if(window->acceptedInTaskBar)
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Geometry));
-    });
-
-    connect(window, &LXQtTaskBarPlasmaWindow::appIdChanged, this, [window, this] {
-        emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::WindowClass));
-    });
-
-    if (window->windowState & LXQtTaskBarPlasmaWindow::state::state_active) {
-        LXQtTaskBarPlasmaWindow *effectiveActive = window;
-        while (effectiveActive->parentWindow) {
-            effectiveActive = effectiveActive->parentWindow;
-        }
-
-        lastActivated[effectiveActive] = QTime::currentTime();
-        activeWindow = effectiveActive;
-    }
-
-    connect(window, &LXQtTaskBarPlasmaWindow::activeChanged, this, [window, this] {
-        const bool active = window->windowState & LXQtTaskBarPlasmaWindow::state::state_active;
-
-        LXQtTaskBarPlasmaWindow *effectiveWindow = window;
-
-        while (effectiveWindow->parentWindow)
-        {
-            effectiveWindow = effectiveWindow->parentWindow;
-        }
-
-        if (active)
-        {
-            lastActivated[effectiveWindow] = QTime::currentTime();
-
-            if (activeWindow != effectiveWindow)
-            {
-                activeWindow = effectiveWindow;
-                emit activeWindowChanged(activeWindow->getWindowId());
-            }
-        }
-        else
-        {
-            if (activeWindow == effectiveWindow)
-            {
-                activeWindow = nullptr;
-                emit activeWindowChanged(0);
-            }
-        }
-    });
-
-    connect(window, &LXQtTaskBarPlasmaWindow::parentWindowChanged, this, [window, this] {
-        LXQtTaskBarPlasmaWindow *leader = window->parentWindow.data();
-
-        // Migrate demanding attention to new leader.
-        if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention))
-        {
-            if (auto *oldLeader = transientsDemandingAttention.key(window))
-            {
-                if (window->parentWindow != oldLeader)
-                {
-                    transientsDemandingAttention.remove(oldLeader, window);
-                    transientsDemandingAttention.insert(leader, window);
-                    emit windowPropertyChanged(oldLeader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-                    emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-                }
-            }
-        }
-
-        if (transients.remove(window))
-        {
-            if (leader)
-            {
-                // leader change.
-                transients.insert(window, leader);
-            }
-            else
-            {
-                // lost a leader, add to regular windows list.
-                Q_ASSERT(findWindow(windows, window) == windows.end());
-
-                windows.emplace_back(window);
-            }
-        }
-        else if (leader)
-        {
-            // gained a leader, remove from regular windows list.
-            auto it = findWindow(windows, window);
-            Q_ASSERT(it != windows.end());
-
-            windows.erase(it);
-            lastActivated.remove(window);
-        }
-    });
-
-    auto stateChanged = [window, this] {
-        updateWindowAcceptance(window);
-        if(window->acceptedInTaskBar)
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::State));
-    };
-
-    connect(window, &LXQtTaskBarPlasmaWindow::fullscreenChanged, this, stateChanged);
-
-    connect(window, &LXQtTaskBarPlasmaWindow::maximizedChanged, this, stateChanged);
-
-    connect(window, &LXQtTaskBarPlasmaWindow::minimizedChanged, this, stateChanged);
-
-    connect(window, &LXQtTaskBarPlasmaWindow::shadedChanged, this, stateChanged);
-
-    auto workspaceChanged = [window, this] {
-        updateWindowAcceptance(window);
-        if(window->acceptedInTaskBar)
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Workspace));
-    };
-
-    connect(window, &LXQtTaskBarPlasmaWindow::virtualDesktopEntered, this, workspaceChanged);
-    connect(window, &LXQtTaskBarPlasmaWindow::virtualDesktopLeft, this, workspaceChanged);
-
-    connect(window, &LXQtTaskBarPlasmaWindow::demandsAttentionChanged, this, [window, this] {
-        // Changes to a transient's state might change demands attention state for leader.
-        if (auto *leader = transients.value(window))
-        {
-            if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention))
-            {
-                if (!transientsDemandingAttention.values(leader).contains(window))
-                {
-                    transientsDemandingAttention.insert(leader, window);
-                    emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-                }
-            }
-            else if (transientsDemandingAttention.remove(window))
-            {
-                emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-            }
-        }
-        else
-        {
-            emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-        }
-    });
-
-    connect(window, &LXQtTaskBarPlasmaWindow::skipTaskbarChanged, this, [window, this] {
-        updateWindowAcceptance(window);
-    });
-
-    // QObject::connect(window, &PlasmaWindow::applicationMenuChanged, q, [window, this] {
-    //     this->dataChanged(window, QList<int>{ApplicationMenuServiceName, ApplicationMenuObjectPath});
-    // });
-
-    // Handle transient.
-    if (LXQtTaskBarPlasmaWindow *leader = window->parentWindow.data())
-    {
-        transients.insert(window, leader);
-
-        // Update demands attention state for leader.
-        if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention))
-        {
-            transientsDemandingAttention.insert(leader, window);
-            if(leader->acceptedInTaskBar)
-                emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-        }
-    }
-    else
-    {
-        windows.emplace_back(window);
-        updateWindowAcceptance(window);
-    }
-}
-
-bool LXQtTaskbarWaylandBackend::acceptWindow(LXQtTaskBarPlasmaWindow *window) const
-{
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_skiptaskbar))
-        return false;
-
-    if(transients.contains(window))
-        return false;
-
-    return true;
-}
-
-void LXQtTaskbarWaylandBackend::updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window)
-{
-    if(!window->acceptedInTaskBar && acceptWindow(window))
-    {
-        window->acceptedInTaskBar = true;
-        emit windowAdded(window->getWindowId());
-    }
-    else if(window->acceptedInTaskBar && !acceptWindow(window))
-    {
-        window->acceptedInTaskBar = false;
-        emit windowRemoved(window->getWindowId());
-    }
-}
-
-LXQtTaskBarPlasmaWindow *LXQtTaskbarWaylandBackend::getWindow(WId windowId) const
-{
-    for(auto &window : std::as_const(windows))
-    {
-        if(window->getWindowId() == windowId)
-            return window.get();
-    }
-
-    return nullptr;
+    return ( m_backend == nullptr ? false : m_backend->showDesktop(yes) );
 }
