@@ -55,6 +55,13 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
             break;
         }
 
+        else if ( desktop == "wlroots" )
+        {
+            qDebug() << "--------------> Using generic wlroots backend";
+            m_backend = new LXQtTaskbarWlrootsBackend();
+            break;
+        }
+
         else
         {
             // m_backend = nullptr;
