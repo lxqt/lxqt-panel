@@ -83,7 +83,7 @@ private:
 
     QHash<LXQtTaskBarWlrootsWindow *, QTime> lastActivated;
     LXQtTaskBarWlrootsWindow *activeWindow = nullptr;
-    std::vector<std::unique_ptr<LXQtTaskBarWlrootsWindow>> windows;
+    std::vector<LXQtTaskBarWlrootsWindow *> windows;
     // key=transient child, value=leader
     QHash<LXQtTaskBarWlrootsWindow *, LXQtTaskBarWlrootsWindow *> transients;
     // key=leader, values=transient children

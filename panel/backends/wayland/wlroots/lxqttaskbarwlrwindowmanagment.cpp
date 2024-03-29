@@ -19,42 +19,61 @@
 #include <sys/poll.h>
 #include <unistd.h>
 
-wl_seat *get_seat() {
+static inline wl_seat *get_seat()
+{
     QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
 
-    if ( !native ) {
+    if (!native)
+    {
         return nullptr;
     }
 
-    struct wl_seat *seat = reinterpret_cast<wl_seat *>(native->nativeResourceForIntegration( "wl_seat" ) );
+    struct wl_seat *seat = reinterpret_cast<wl_seat *>(native->nativeResourceForIntegration("wl_seat"));
 
     return seat;
 }
+
 
 /*
  * LXQtTaskBarWlrootsWindowManagment
  */
 
-LXQtTaskBarWlrootsWindowManagment::LXQtTaskBarWlrootsWindowManagment()
-    : QWaylandClientExtensionTemplate(version)
+LXQtTaskBarWlrootsWindowManagment::LXQtTaskBarWlrootsWindowManagment() : QWaylandClientExtensionTemplate(version)
 {
-    connect(this, &QWaylandClientExtension::activeChanged, this, [this] {
-        if (!isActive()) {
+    /** Automatically destroy thie object */
+    connect(
+        this, &QWaylandClientExtension::activeChanged, this, [ this ] {
+        if (!isActive())
+        {
             zwlr_foreign_toplevel_manager_v1_destroy(object());
         }
     });
 }
 
+
 LXQtTaskBarWlrootsWindowManagment::~LXQtTaskBarWlrootsWindowManagment()
 {
-    if (isActive()) {
+    if (isActive())
+    {
         zwlr_foreign_toplevel_manager_v1_destroy(object());
     }
 }
 
+
 void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel)
 {
-    emit windowCreated( new LXQtTaskBarWlrootsWindow(toplevel) );
+    /**
+     * A window was created.
+     * Wait for the window to become ready, i.e. wait for done() event to be sent by the compositor.
+     * Once we recieve done(), emit the windowReady() signal.
+     */
+
+    auto w = new LXQtTaskBarWlrootsWindow(toplevel);
+
+    connect(w, &LXQtTaskBarWlrootsWindow::windowReady, [w, this] () {
+        qDebug() << "------------> a window was created" << w << w->getWindowId() << w->appId << w->title;
+        emit windowCreated(w);
+    });
 }
 
 
@@ -62,157 +81,312 @@ void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
  * LXQtTaskBarWlrootsWindow
  */
 
-LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id)
-    : zwlr_foreign_toplevel_handle_v1(id)
+LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id) : zwlr_foreign_toplevel_handle_v1(id)
 {
-    title = QString::fromUtf8( "untitled" );
-    appId = QString::fromUtf8( "unknown" );
+    /** Set a default non-null title and appId */
+    title = QString::fromUtf8("untitled");
+    appId = QString::fromUtf8("unknown");
 }
+
 
 LXQtTaskBarWlrootsWindow::~LXQtTaskBarWlrootsWindow()
 {
     destroy();
 }
 
+
 void LXQtTaskBarWlrootsWindow::activate()
 {
+    /**
+     * Activate on default seat.
+     * TODO: Worry about multi-seat setups, when we have no other worries :P
+     */
     zwlr_foreign_toplevel_handle_v1::activate(get_seat());
 }
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString &title)
-{
-    this->title = title;
-    titleRecieved = true;
-    emit titleChanged();
 
-    if ( titleRecieved && appIdRecieved )
-    {
-        emit windowReady();
-    }
+void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString& title)
+{
+    /** Store the incoming title in pending */
+    m_pendingState.title        = title;
+    m_pendingState.titleChanged = true;
 }
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString &app_id)
-{
-    this->appId = app_id;
-    appIdRecieved = true;
-    emit appIdChanged();
 
+void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString& app_id)
+{
+    /** Store the incoming appId in pending */
+    m_pendingState.appId        = app_id;
+    m_pendingState.appIdChanged = true;
+
+    /** Update the icon */
     this->icon = XdgIcon::fromTheme(appId);
-    if ( this->icon.pixmap(64).width() == 0 )
+
+    /** Sometimes, appId can be capitalized, for example, Pulsar. So try lower-case. */
+    if (this->icon.pixmap(64).width() == 0)
     {
         this->icon = XdgIcon::fromTheme(appId.toLower());
     }
 
-    if ( appIdRecieved && titleRecieved )
+    /** We did not get any icon from app-id. Let's use application-x-executable */
+    if (this->icon.pixmap(64).width() == 0)
     {
-        emit windowReady();
+        this->icon = XdgIcon::fromTheme(QString::fromUtf8("application-x-executable"));
     }
 }
 
+
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_enter(struct ::wl_output *output)
 {
-    emit outputEnter();
+    /** This view was added to an output */
+    m_pendingState.outputs << output;
+    m_pendingState.outputsChanged = true;
 }
+
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(struct ::wl_output *output)
 {
-    emit outputLeave();
+    /** This view was removed from an output; store it in pending. */
+    m_pendingState.outputsLeft << output;
+
+    if (m_pendingState.outputs.contains(output))
+    {
+        m_pendingState.outputs.removeAll(output);
+    }
+
+    m_pendingState.outputsChanged = true;
 }
+
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
-    auto *states   = static_cast<uint32_t *>(state->data);
-    int  numStates = static_cast<int>(state->size / sizeof(uint32_t) );
+    /** State of this window was changed; store it in pending. */
+    auto *states    = static_cast<uint32_t *>(state->data);
+    int   numStates = static_cast<int>(state->size / sizeof(uint32_t));
 
-    for ( int i = 0; i < numStates; i++ ) {
-        switch ( (uint32_t)states[ i ] ) {
-            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED: {
-                m_pendingState.maximized = true;
-                break;
-            }
+    for (int i = 0; i < numStates; i++)
+    {
+        switch ((uint32_t)states[ i ])
+        {
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED: {
+            m_pendingState.maximized        = true;
+            m_pendingState.maximizedChanged = true;
+            break;
+        }
 
-            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED: {
-                m_pendingState.minimized = true;
-                break;
-            }
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED: {
+            m_pendingState.minimized        = true;
+            m_pendingState.minimizedChanged = true;
+            break;
+        }
 
-            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
-                m_pendingState.activated = true;
-                break;
-            }
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
+            m_pendingState.activated        = true;
+            m_pendingState.activatedChanged = true;
+            break;
+        }
 
-            case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN: {
-                m_pendingState.fullscreen = true;
-                break;
-            }
+        case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN: {
+            m_pendingState.fullscreen        = true;
+            m_pendingState.fullscreenChanged = true;
+            break;
+        }
         }
     }
 }
 
+
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
 {
     /**
-     * Update windowState flags before emitting the signals.
-     * Otherwise, windowState.testFlag(...) will return wrong information!!
+     * All the states/properties have been sent.
+     * We can now emit the signals and clear the pending state:
+     * 1. Update all the variables first.
+     * 2. Then clear the m_pendingState.<variable>
+     * 3. Emit the changed signals.
+     * 4. Finally, cleanr the m_pendingState.<variable>Changed flags.
      */
-    windowState = QFlags<state>();
-    if ( m_pendingState.maximized ) windowState |= state_maximized;
-    if ( m_pendingState.minimized ) windowState |= state_minimized;
-    if ( m_pendingState.activated ) windowState |= state_activated;
-    if ( m_pendingState.fullscreen ) windowState |= state_fullscreen;
 
-    /** Emit the signals. */
-    if ( m_viewState.maximized != m_pendingState.maximized )
-        emit maximizedChanged();
+    // (1) title, if it changed
+    if (m_pendingState.titleChanged)
+    {
+        windowState.title = m_pendingState.title;
+    }
 
-    if ( m_viewState.minimized != m_pendingState.minimized )
-        emit minimizedChanged();
+    // (2) appId, if it changed
+    if (m_pendingState.appIdChanged)
+    {
+        windowState.appId = m_pendingState.appId;
+    }
 
-    if ( m_viewState.activated!= m_pendingState.activated )
-        emit activeChanged();
+    // (3) outputs, if they changed
+    if (m_pendingState.outputsChanged)
+    {
+        for (::wl_output *op: m_pendingState.outputsLeft)
+        {
+            if (windowState.outputs.contains(op))
+            {
+                windowState.outputs.removeAll(op);
+            }
+        }
 
-    if ( m_viewState.fullscreen != m_pendingState.fullscreen )
-        emit fullscreenChanged();
+        for (::wl_output *op: m_pendingState.outputs)
+        {
+            if (!windowState.outputs.contains(op))
+            {
+                windowState.outputs << op;
+            }
+        }
+    }
 
-    /** Store m_pendingState into m_viewState for the next run */
-    m_viewState.maximized = m_pendingState.maximized;
-    m_viewState.minimized = m_pendingState.minimized;
-    m_viewState.activated = m_pendingState.activated;
-    m_viewState.fullscreen = m_pendingState.fullscreen;
+    // (4) states, if they changed. Don't trust the changed flag.
+    if (m_pendingState.maximized != windowState.maximized)
+    {
+        windowState.maximized           = m_pendingState.maximized;
+        m_pendingState.maximizedChanged = true;
+    }
 
-    /** Reset m_pendingState for the next run */
-    m_pendingState.maximized = false;
-    m_pendingState.minimized = false;
-    m_pendingState.activated = false;
+    if (m_pendingState.minimized != windowState.minimized)
+    {
+        windowState.minimized           = m_pendingState.minimized;
+        m_pendingState.minimizedChanged = true;
+    }
+
+    if (m_pendingState.activated != windowState.activated)
+    {
+        windowState.activated           = m_pendingState.activated;
+        m_pendingState.activatedChanged = true;
+    }
+
+    if (m_pendingState.fullscreen != windowState.fullscreen)
+    {
+        windowState.fullscreen           = m_pendingState.fullscreen;
+        m_pendingState.fullscreenChanged = true;
+    }
+
+    // (5) parent, if it changed.
+    if (m_pendingState.parentChanged)
+    {
+        if (m_pendingState.parent)
+        {
+            setParentWindow(new LXQtTaskBarWlrootsWindow(m_pendingState.parent));
+        }
+
+        else
+        {
+            setParentWindow(nullptr);
+        }
+    }
+
+    /** 2. Clear all m_pendingState.<variables> for next run */
+    m_pendingState.title = QString();
+    m_pendingState.appId = QString();
+    m_pendingState.outputs.clear();
+    m_pendingState.maximized  = false;
+    m_pendingState.minimized  = false;
+    m_pendingState.activated  = false;
     m_pendingState.fullscreen = false;
+    m_pendingState.parent     = nullptr;
+
+    /**
+     * 3. Emit signals
+     *    (a) First time done was emitted after the window was created.
+     *    (b) Other times.
+     */
+
+    /** (a) First time done was emitted */
+    if (initDone == false)
+    {
+        qDebug() << "    " << this << getWindowId();
+        qDebug() << "    titleChanged" << m_pendingState.titleChanged << windowState.title;
+        qDebug() << "    appIdChanged" << m_pendingState.appIdChanged << windowState.appId;
+        qDebug() << "    outputsChanged" << m_pendingState.outputsChanged << windowState.outputs;
+        qDebug() << "    maximizedChanged" << m_pendingState.maximizedChanged << windowState.maximized;
+        qDebug() << "    minimizedChanged" << m_pendingState.minimizedChanged << windowState.minimized;
+        qDebug() << "    activatedChanged" << m_pendingState.activatedChanged << windowState.activated;
+        qDebug() << "    fullscreenChanged" << m_pendingState.fullscreenChanged << windowState.fullscreen;
+        qDebug() << "    parentChanged" << m_pendingState.parentChanged << windowState.parent;
+
+        /**
+         * All the states/properties are already set.
+         * Any query will give valid results.
+         */
+        initDone = true;
+        emit windowReady();
+    }
+
+    /** (b) All the subsequent times */
+    else
+    {
+        if (m_pendingState.titleChanged)
+            emit titleChanged();
+        if (m_pendingState.appIdChanged)
+            emit appIdChanged();
+        if (m_pendingState.outputsChanged)
+            emit outputsChanged();
+        if (m_pendingState.maximizedChanged)
+            emit maximizedChanged();
+        if (m_pendingState.minimizedChanged)
+            emit minimizedChanged();
+        if (m_pendingState.activatedChanged)
+            emit activatedChanged();
+        if (m_pendingState.fullscreenChanged)
+            emit fullscreenChanged();
+        if (m_pendingState.parentChanged)
+            emit parentChanged();
+
+        emit stateChanged();
+    }
+
+    /** 4. Clear m+m_pendingState.<variable>Changed flags */
+    m_pendingState.titleChanged      = false;
+    m_pendingState.appIdChanged      = false;
+    m_pendingState.outputsChanged    = false;
+    m_pendingState.maximizedChanged  = false;
+    m_pendingState.minimizedChanged  = false;
+    m_pendingState.activatedChanged  = false;
+    m_pendingState.fullscreenChanged = false;
+    m_pendingState.parentChanged     = false;
 }
+
 
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_closed()
 {
+    /** This window was closed */
     emit closed();
 }
 
+
 void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_parent(struct ::zwlr_foreign_toplevel_handle_v1 *parent)
 {
-    // setParentWindow(new LXQtTaskBarWlrootsWindow(parent));
+    /** Parent of this window changed; store it in pending. */
+    m_pendingState.parent        = parent;
+    m_pendingState.parentChanged = true;
 }
+
 
 void LXQtTaskBarWlrootsWindow::setParentWindow(LXQtTaskBarWlrootsWindow *parent)
 {
     const auto old = parentWindow;
+
     QObject::disconnect(parentWindowUnmappedConnection);
 
-    if (parent) {
+    if (parent)
+    {
         parentWindow = QPointer<LXQtTaskBarWlrootsWindow>(parent);
-        parentWindowUnmappedConnection = QObject::connect(parent, &LXQtTaskBarWlrootsWindow::closed, this, [this] {
+        parentWindowUnmappedConnection = QObject::connect(
+            parent, &LXQtTaskBarWlrootsWindow::closed, this, [ this ] {
             setParentWindow(nullptr);
         });
-    } else {
+    }
+    else
+    {
         parentWindow = QPointer<LXQtTaskBarWlrootsWindow>();
         parentWindowUnmappedConnection = QMetaObject::Connection();
     }
 
-    if (parentWindow.data() != old.data()) {
+    if (parentWindow.data() != old.data())
+    {
         Q_EMIT parentChanged();
     }
 }

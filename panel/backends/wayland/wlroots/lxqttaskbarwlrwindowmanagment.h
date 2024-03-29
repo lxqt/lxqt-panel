@@ -34,6 +34,46 @@ private:
     bool m_isShowingDesktop = false;
 };
 
+using WindowState = QtWayland::zwlr_foreign_toplevel_handle_v1::state;
+
+class WindowProperties {
+    public:
+        /** Title of the window */
+        QString title = QString::fromUtf8( "untitled" );
+        bool titleChanged = false;
+
+        /** appId of the window */
+        QString appId = QString::fromUtf8( "unidentified" );
+        bool appIdChanged = false;
+
+        /** List of outputs which the window is currently on */
+        QList<::wl_output *> outputs;
+        bool outputsChanged = false;
+
+        /** Is maximized */
+        bool maximized = false;
+        bool maximizedChanged = false;
+
+        /** Is minimized */
+        bool minimized = false;
+        bool minimizedChanged = false;
+
+        /** Is active */
+        bool activated = false;
+        bool activatedChanged = false;
+
+        /** Is fullscreen */
+        bool fullscreen = false;
+        bool fullscreenChanged = false;
+
+        /** Parent of this view, can be null */
+        ::zwlr_foreign_toplevel_handle_v1 * parent = nullptr;
+        bool parentChanged = false;
+
+        /** List of outputs from which window has left */
+        QList<::wl_output *> outputsLeft;
+};
+
 class LXQtTaskBarWlrootsWindow : public QObject,
                                 public QtWayland::zwlr_foreign_toplevel_handle_v1
 {
@@ -46,28 +86,36 @@ public:
 
     void activate();
 
-    using state = QtWayland::zwlr_foreign_toplevel_handle_v1::state;
-    QString title;
-    QString appId;
-    QIcon icon;
-    QFlags<state> windowState;
-    QPointer<LXQtTaskBarWlrootsWindow> parentWindow;
+    mutable QString title;
+    mutable QString appId;
+    mutable QIcon icon;
+    mutable WindowProperties windowState;
+    mutable QPointer<LXQtTaskBarWlrootsWindow> parentWindow;
 
 Q_SIGNALS:
     void titleChanged();
     void appIdChanged();
-    void outputEnter();
-    void outputLeave();
-    void activeChanged();
+    void outputsChanged();
+
+    /** Individual state change signals */
     void maximizedChanged();
     void minimizedChanged();
+    void activatedChanged();
     void fullscreenChanged();
-    void done();
-    void closed();
+
     void parentChanged();
 
-    /** We wait to get the title and appId to emit this */
+    /** Bulk state change signal */
+    void stateChanged();
+
+    /** First state change signal: Before this, the window did not have a valid state */
     void windowReady();
+
+    /** All state changes have been sent. */
+    void done();
+
+    /** Window closed signal */
+    void closed();
 
 protected:
     void zwlr_foreign_toplevel_handle_v1_title(const QString &title);
@@ -84,17 +132,7 @@ private:
 
     QMetaObject::Connection parentWindowUnmappedConnection;
 
-    typedef struct view_state_t
-    {
-        bool maximized  = false;
-        bool minimized  = false;
-        bool activated  = false;
-        bool fullscreen = false;
-    } ViewState;
+    WindowProperties m_pendingState;
 
-    ViewState m_viewState;
-    ViewState m_pendingState;
-
-    bool titleRecieved = false;
-    bool appIdRecieved = false;
+    bool initDone = false;
 };
