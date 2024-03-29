@@ -37,14 +37,14 @@ class QEyesPlugin :  public QObject, public ILXQtPanelPlugin
 public:
     QEyesPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() override { return w0; }
-    virtual QString themeId()  const override{
+    QWidget *widget() override { return w0; }
+    QString themeId() const override{
         return QStringLiteral("QEyesPlugin");
     }
-    virtual void realign() override;
-    virtual Flags flags() const override { return HaveConfigDialog ; }
-    virtual QDialog * configureDialog() override;
-    virtual void settingsChanged() override;
+    void realign() override;
+    Flags flags() const override { return HaveConfigDialog ; }
+    QDialog * configureDialog() override;
+    void settingsChanged() override;
     static const QString internalEye;
 
 private:

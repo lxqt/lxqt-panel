@@ -49,7 +49,7 @@ class LXQtWorldClockConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtWorldClockConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtWorldClockConfiguration();
+    ~LXQtWorldClockConfiguration() override;
 
 public slots:
     void saveSettings();

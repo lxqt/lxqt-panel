@@ -62,7 +62,7 @@ public:
 public:
     StatusNotifierItemInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = nullptr);
 
-    ~StatusNotifierItemInterface();
+    ~StatusNotifierItemInterface() override;
 
     Q_PROPERTY(QString AttentionIconName READ attentionIconName)
     inline QString attentionIconName() const

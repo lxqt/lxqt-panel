@@ -62,7 +62,7 @@ class LXQtTaskBar : public QFrame
 
 public:
     explicit LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    virtual ~LXQtTaskBar();
+    ~LXQtTaskBar() override;
 
     void realign();
 
@@ -95,8 +95,8 @@ signals:
     void popupShown(LXQtTaskGroup* sender);
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent * event);
-    virtual void dragMoveEvent(QDragMoveEvent * event);
+    void dragEnterEvent(QDragEnterEvent * event) override;
+    void dragMoveEvent(QDragMoveEvent * event) override;
 
 private slots:
     void refreshTaskList();

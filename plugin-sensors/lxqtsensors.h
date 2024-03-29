@@ -56,7 +56,7 @@ class LXQtSensors : public QFrame
     Q_OBJECT
 public:
     LXQtSensors(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~LXQtSensors();
+    ~LXQtSensors() override;
 
     void settingsChanged();
     void realign();

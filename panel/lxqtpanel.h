@@ -115,7 +115,7 @@ public:
      * @param parent Parent QWidget, can be omitted.
      */
     LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidget *parent = nullptr);
-    virtual ~LXQtPanel();
+    ~LXQtPanel() override;
 
     /**
      * @brief Returns the name of this panel which is also used as identifier

@@ -39,17 +39,17 @@ class LXQtCpuLoadPlugin: public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     explicit LXQtCpuLoadPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtCpuLoadPlugin();
+    ~LXQtCpuLoadPlugin() override;
 
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("CpuLoad"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog; }
+    QWidget *widget() override ;
+    QString themeId() const override { return QStringLiteral("CpuLoad"); }
 
     bool isSeparate() const { return true; }
     QDialog *configureDialog();
 
 protected:
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private:
     QWidget *mWidget;

@@ -40,19 +40,19 @@ class LXQtSensorsPlugin: public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     explicit LXQtSensorsPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtSensorsPlugin();
+    ~LXQtSensorsPlugin() override;
 
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog; }
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("Sensors"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog; }
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("Sensors"); }
 
-    bool isSeparate() const { return true; }
-    QDialog *configureDialog();
+    bool isSeparate() const override { return true; }
+    QDialog *configureDialog() override;
 
-    void realign();
+    void realign() override;
 
 protected:
-    virtual void settingsChanged();
+    void settingsChanged() override;
 
 private:
     LXQtSensors *mWidget;

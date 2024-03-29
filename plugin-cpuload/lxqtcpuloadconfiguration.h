@@ -45,7 +45,7 @@ class LXQtCpuLoadConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit LXQtCpuLoadConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~LXQtCpuLoadConfiguration();
+    ~LXQtCpuLoadConfiguration() override;
 
 private:
     Ui::LXQtCpuLoadConfiguration *ui;

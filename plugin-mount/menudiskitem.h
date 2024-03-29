@@ -41,7 +41,7 @@ class MenuDiskItem : public QFrame
 
 public:
     explicit MenuDiskItem(Solid::Device device, Popup *popup);
-    ~MenuDiskItem();
+    ~MenuDiskItem() override;
 
     QString deviceUdi() const { return mDevice.udi(); }
     void setMountStatus(bool mounted);

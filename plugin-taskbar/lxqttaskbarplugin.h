@@ -40,19 +40,19 @@ class LXQtTaskBarPlugin : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtTaskBarPlugin();
+    ~LXQtTaskBarPlugin() override;
 
-    QString themeId() const { return QStringLiteral("TaskBar"); }
-    virtual Flags flags() const { return HaveConfigDialog | NeedsHandle; }
+    QString themeId() const override { return QStringLiteral("TaskBar"); }
+    Flags flags() const override { return HaveConfigDialog | NeedsHandle; }
 
-    QWidget *widget() { return mTaskBar; }
-    QDialog *configureDialog();
+    QWidget *widget() override { return mTaskBar; }
+    QDialog *configureDialog() override;
 
-    void settingsChanged() { mTaskBar->settingsChanged(); }
-    void realign();
+    void settingsChanged() override { mTaskBar->settingsChanged(); }
+    void realign() override;
 
-    bool isSeparate() const { return true; }
-    bool isExpandable() const { return true; }
+    bool isSeparate() const override { return true; }
+    bool isExpandable() const override { return true; }
 private:
     LXQtTaskBar *mTaskBar;
 };

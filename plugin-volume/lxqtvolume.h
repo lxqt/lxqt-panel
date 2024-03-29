@@ -51,17 +51,17 @@ class LXQtVolume : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtVolume();
+    ~LXQtVolume() override;
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("Volume"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment | HaveConfigDialog ; }
-    void realign();
-    QDialog *configureDialog();
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("Volume"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment | HaveConfigDialog ; }
+    void realign() override;
+    QDialog *configureDialog() override;
 
     void setAudioEngine(AudioEngine *engine);
 protected slots:
-    virtual void settingsChanged();
+    void settingsChanged() override;
     void handleSinkListChanged();
     void handleShortcutVolumeUp();
     void handleShortcutVolumeDown();

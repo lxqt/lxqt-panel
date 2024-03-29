@@ -46,7 +46,7 @@ class LXQtGroupPopup: public QFrame
 
 public:
     LXQtGroupPopup(LXQtTaskGroup *group);
-    ~LXQtGroupPopup();
+    ~LXQtGroupPopup() override;
 
     void hide(bool fast = false);
     void show();

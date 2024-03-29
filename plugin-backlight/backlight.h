@@ -47,11 +47,11 @@ class LXQtBacklight : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtBacklight();
+    ~LXQtBacklight() override;
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("Backlight"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment ; }
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("Backlight"); }
+    ILXQtPanelPlugin::Flags flags() const override { return PreferRightAlignment ; }
 
 protected Q_SLOTS:
     void showSlider(bool);

@@ -67,7 +67,7 @@ public:
      * \param argv
      */
     explicit LXQtPanelApplication(int& argc, char** argv);
-    ~LXQtPanelApplication();
+    ~LXQtPanelApplication() override;
 
     void setIconTheme(const QString &iconTheme);
 

@@ -48,7 +48,7 @@ public:
     AlsaEngine(QObject *parent = nullptr);
     static AlsaEngine *instance();
 
-    virtual const QString backendName() const { return QLatin1String("Alsa"); }
+    const QString backendName() const override { return QLatin1String("Alsa"); }
 
     int volumeMax(AudioDevice *device) const;
     AlsaDevice *getDeviceByAlsaElem(snd_mixer_elem_t *elem) const;

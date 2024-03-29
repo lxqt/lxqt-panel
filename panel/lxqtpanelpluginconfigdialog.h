@@ -43,12 +43,12 @@ class LXQT_PANEL_API LXQtPanelPluginConfigDialog : public QDialog
 public:
     explicit LXQtPanelPluginConfigDialog(PluginSettings &settings, QWidget *parent = nullptr);
     explicit LXQtPanelPluginConfigDialog(PluginSettings *settings, QWidget *parent = nullptr) : LXQtPanelPluginConfigDialog(*settings, parent) {}
-    virtual ~LXQtPanelPluginConfigDialog();
+    ~LXQtPanelPluginConfigDialog() override;
 
     PluginSettings &settings() const;
 
 protected:
-    virtual void closeEvent(QCloseEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 protected slots:
     /*

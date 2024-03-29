@@ -40,13 +40,13 @@ class LXQtTrayPlugin : public QObject, public ILXQtPanelPlugin
     Q_OBJECT
 public:
     explicit LXQtTrayPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
-    ~LXQtTrayPlugin();
+    ~LXQtTrayPlugin() override;
 
-    virtual QWidget *widget();
-    virtual QString themeId() const { return QStringLiteral("Tray"); }
-    virtual Flags flags() const { return PreferRightAlignment | SingleInstance | NeedsHandle; }
+    QWidget *widget() override;
+    QString themeId() const override { return QStringLiteral("Tray"); }
+    Flags flags() const override { return PreferRightAlignment | SingleInstance | NeedsHandle; }
 
-    bool isSeparate() const { return true; }
+    bool isSeparate() const override { return true; }
 
 private:
     std::unique_ptr<FdoSelectionManager> mManager;

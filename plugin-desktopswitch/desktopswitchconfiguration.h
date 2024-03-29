@@ -46,7 +46,7 @@ class DesktopSwitchConfiguration : public LXQtPanelPluginConfigDialog
 
 public:
     explicit DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
-    ~DesktopSwitchConfiguration();
+    ~DesktopSwitchConfiguration() override;
 
 private:
     Ui::DesktopSwitchConfiguration *ui;
@@ -55,7 +55,7 @@ private slots:
     /*
        Saves settings in conf file.
     */
-    void loadSettings();
+    void loadSettings() override;
     void loadDesktopsNames();
     void rowsChanged(int value);
     void labelTypeChanged(int type);

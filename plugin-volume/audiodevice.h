@@ -46,7 +46,7 @@ class AudioDevice : public QObject
 
 public:
     AudioDevice(AudioDeviceType t, AudioEngine *engine, QObject *parent = nullptr);
-    ~AudioDevice();
+    ~AudioDevice() override;
 
     // the volume can range from 0 to 100.
     int volume() const { return m_volume; }

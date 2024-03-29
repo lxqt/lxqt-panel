@@ -37,7 +37,7 @@ class EjectActionOptical : public EjectAction
     Q_OBJECT
 public:
     explicit EjectActionOptical(LXQtMountPlugin *plugin, QObject *parent = nullptr);
-    virtual ActionId Type() const throw () { return ActionOptical; }
+    ActionId Type() const throw () override { return ActionOptical; }
 
 protected:
     void doEjectPressed(void);

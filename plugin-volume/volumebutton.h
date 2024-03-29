@@ -39,7 +39,7 @@ class VolumeButton : public QToolButton
     Q_OBJECT
 public:
     VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent = nullptr);
-    ~VolumeButton();
+    ~VolumeButton() override;
 
     void setMuteOnMiddleClick(bool state);
     void setMixerCommand(const QString &command);

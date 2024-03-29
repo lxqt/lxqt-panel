@@ -53,7 +53,7 @@ public:
                       QString const & namesKey,
                       QStringList const & desktopDirs,
                       QObject * parent = nullptr);
-    ~PanelPluginsModel();
+    ~PanelPluginsModel() override;
 
     /*!
      * \brief rowCount returns the number of Plugins. It overrides/implements
@@ -62,7 +62,7 @@ public:
      * Plugins. If it is given and a valid model index, the method returns 0
      * because PanelPluginsModel is not a hierarchical model.
      */
-    virtual int rowCount(const QModelIndex & parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
     /*!
      * \brief data returns the Plugin data as defined by the Model/View
      * architecture. The Plugins itself can be accessed with the role
@@ -78,13 +78,13 @@ public:
      * 3. Qt::UserRole to return a Plugin*.
      * \return The data as determined by index and role.
      */
-    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
     /*!
      * \brief flags returns the item flags for the given model index. For
      * all Plugins, this is the same:
      * Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren.
      */
-    virtual Qt::ItemFlags flags(const QModelIndex & index) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
     /*!
      * \brief pluginNames returns a list of names for all the Plugins in

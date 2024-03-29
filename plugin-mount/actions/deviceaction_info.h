@@ -40,7 +40,7 @@ class DeviceActionInfo : public DeviceAction
     Q_OBJECT
 public:
     explicit DeviceActionInfo(LXQtMountPlugin *plugin, QObject *parent = nullptr);
-    virtual ActionId Type() const throw () { return ActionInfo; }
+    ActionId Type() const throw () override { return ActionInfo; }
 
 protected:
     void doDeviceAdded(Solid::Device device);

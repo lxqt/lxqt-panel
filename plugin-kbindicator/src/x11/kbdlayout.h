@@ -40,7 +40,7 @@ class X11Kbd: public QObject
     Q_OBJECT
 public:
     X11Kbd();
-    virtual ~X11Kbd();
+    ~X11Kbd() override;
 
     bool init();
     bool isEnabled() const;

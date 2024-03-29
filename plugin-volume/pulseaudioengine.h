@@ -50,11 +50,11 @@ class PulseAudioEngine : public AudioEngine
 
 public:
     PulseAudioEngine(QObject *parent = nullptr);
-    ~PulseAudioEngine();
+    ~PulseAudioEngine() override;
 
-    virtual const QString backendName() const { return QLatin1String("PulseAudio"); }
+    const QString backendName() const override { return QLatin1String("PulseAudio"); }
 
-    int volumeMax(AudioDevice */*device*/) const { return m_maximumVolume; }
+    int volumeMax(AudioDevice */*device*/) const override { return m_maximumVolume; }
 
     void requestSinkInfoUpdate(uint32_t idx);
     void removeSink(uint32_t idx);
@@ -65,11 +65,11 @@ public:
     pa_threaded_mainloop *mainloop() const { return m_mainLoop; }
 
 public slots:
-    void commitDeviceVolume(AudioDevice *device);
+    void commitDeviceVolume(AudioDevice *device) override;
     void retrieveSinkInfo(uint32_t idx);
-    void setMute(AudioDevice *device, bool state);
+    void setMute(AudioDevice *device, bool state) override;
     void setContextState(pa_context_state_t state);
-    void setIgnoreMaxVolume(bool ignore);
+    void setIgnoreMaxVolume(bool ignore) override;
 
 signals:
     void sinkInfoChanged(uint32_t idx);

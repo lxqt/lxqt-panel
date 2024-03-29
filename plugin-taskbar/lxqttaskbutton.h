@@ -46,7 +46,7 @@ class LeftAlignedTextStyle : public QProxyStyle
     using QProxyStyle::QProxyStyle;
 public:
 
-    virtual void drawItemText(QPainter * painter, const QRect & rect, int flags
+    void drawItemText(QPainter * painter, const QRect & rect, int flags
             , const QPalette & pal, bool enabled, const QString & text
             , QPalette::ColorRole textRole = QPalette::NoRole) const override;
 };
@@ -60,7 +60,7 @@ class LXQtTaskButton : public QToolButton
 
 public:
     explicit LXQtTaskButton(const WId window, LXQtTaskBar * taskBar, QWidget *parent = nullptr);
-    virtual ~LXQtTaskButton();
+    ~LXQtTaskButton() override;
 
     bool isApplicationHidden() const;
     bool isApplicationActive() const;
@@ -103,17 +103,17 @@ public slots:
     void updateIcon();
 
 protected:
-    virtual void changeEvent(QEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent * event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void wheelEvent(QWheelEvent* event);
-    virtual void contextMenuEvent(QContextMenuEvent *event);
-    void paintEvent(QPaintEvent *);
+    void changeEvent(QEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent * event) override;
+    void dragLeaveEvent(QDragLeaveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void wheelEvent(QWheelEvent* event) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
+    void paintEvent(QPaintEvent *) override;
 
     void setWindowId(WId wid) {mWindow = wid;}
     virtual QMimeData * mimeData();

@@ -39,9 +39,9 @@ class DomPlugin: public QObject, public ILXQtPanelPlugin
 public:
     DomPlugin(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return QStringLiteral("Dom"); }
-    virtual ILXQtPanelPlugin::Flags flags() const { return  PreferRightAlignment; }
+    QWidget *widget() override { return &mButton; }
+    QString themeId() const override { return QStringLiteral("Dom"); }
+    ILXQtPanelPlugin::Flags flags() const override { return  PreferRightAlignment; }
 
 private slots:
     void showDialog();
