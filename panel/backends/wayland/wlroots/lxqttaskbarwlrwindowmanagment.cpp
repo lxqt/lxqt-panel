@@ -35,10 +35,10 @@ static inline wl_seat *get_seat()
 
 
 /*
- * LXQtTaskBarWlrootsWindowManagment
+ * LXQtTaskbarWlrootsWindowManagment
  */
 
-LXQtTaskBarWlrootsWindowManagment::LXQtTaskBarWlrootsWindowManagment() : QWaylandClientExtensionTemplate(version)
+LXQtTaskbarWlrootsWindowManagment::LXQtTaskbarWlrootsWindowManagment() : QWaylandClientExtensionTemplate(version)
 {
     /** Automatically destroy thie object */
     connect(
@@ -51,7 +51,7 @@ LXQtTaskBarWlrootsWindowManagment::LXQtTaskBarWlrootsWindowManagment() : QWaylan
 }
 
 
-LXQtTaskBarWlrootsWindowManagment::~LXQtTaskBarWlrootsWindowManagment()
+LXQtTaskbarWlrootsWindowManagment::~LXQtTaskbarWlrootsWindowManagment()
 {
     if (isActive())
     {
@@ -60,7 +60,7 @@ LXQtTaskBarWlrootsWindowManagment::~LXQtTaskBarWlrootsWindowManagment()
 }
 
 
-void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel)
+void LXQtTaskbarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel)
 {
     /**
      * A window was created.
@@ -68,34 +68,30 @@ void LXQtTaskBarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
      * Once we recieve done(), emit the windowReady() signal.
      */
 
-    auto w = new LXQtTaskBarWlrootsWindow(toplevel);
+    auto w = new LXQtTaskbarWlrootsWindow(toplevel);
 
-    connect(w, &LXQtTaskBarWlrootsWindow::windowReady, [w, this] () {
-        qDebug() << "------------> a window was created" << w << w->getWindowId() << w->appId << w->title;
-        emit windowCreated(w);
+    connect(w, &LXQtTaskbarWlrootsWindow::windowReady, [w, this] () {
+        emit windowCreated(w->getWindowId());
     });
 }
 
 
 /*
- * LXQtTaskBarWlrootsWindow
+ * LXQtTaskbarWlrootsWindow
  */
 
-LXQtTaskBarWlrootsWindow::LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id) : zwlr_foreign_toplevel_handle_v1(id)
+LXQtTaskbarWlrootsWindow::LXQtTaskbarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id) : zwlr_foreign_toplevel_handle_v1(id)
 {
-    /** Set a default non-null title and appId */
-    title = QString::fromUtf8("untitled");
-    appId = QString::fromUtf8("unknown");
 }
 
 
-LXQtTaskBarWlrootsWindow::~LXQtTaskBarWlrootsWindow()
+LXQtTaskbarWlrootsWindow::~LXQtTaskbarWlrootsWindow()
 {
     destroy();
 }
 
 
-void LXQtTaskBarWlrootsWindow::activate()
+void LXQtTaskbarWlrootsWindow::activate()
 {
     /**
      * Activate on default seat.
@@ -105,7 +101,7 @@ void LXQtTaskBarWlrootsWindow::activate()
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString& title)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QString& title)
 {
     /** Store the incoming title in pending */
     m_pendingState.title        = title;
@@ -113,19 +109,19 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_title(const QStri
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString& app_id)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QString& app_id)
 {
     /** Store the incoming appId in pending */
     m_pendingState.appId        = app_id;
     m_pendingState.appIdChanged = true;
 
     /** Update the icon */
-    this->icon = XdgIcon::fromTheme(appId);
+    this->icon = XdgIcon::fromTheme(app_id);
 
     /** Sometimes, appId can be capitalized, for example, Pulsar. So try lower-case. */
     if (this->icon.pixmap(64).width() == 0)
     {
-        this->icon = XdgIcon::fromTheme(appId.toLower());
+        this->icon = XdgIcon::fromTheme(app_id.toLower());
     }
 
     /** We did not get any icon from app-id. Let's use application-x-executable */
@@ -136,7 +132,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QStr
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_enter(struct ::wl_output *output)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_enter(struct ::wl_output *output)
 {
     /** This view was added to an output */
     m_pendingState.outputs << output;
@@ -144,7 +140,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_enter(stru
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(struct ::wl_output *output)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(struct ::wl_output *output)
 {
     /** This view was removed from an output; store it in pending. */
     m_pendingState.outputsLeft << output;
@@ -158,7 +154,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(stru
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
     /** State of this window was changed; store it in pending. */
     auto *states    = static_cast<uint32_t *>(state->data);
@@ -196,7 +192,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *s
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
 {
     /**
      * All the states/properties have been sent.
@@ -269,7 +265,7 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
     {
         if (m_pendingState.parent)
         {
-            setParentWindow(new LXQtTaskBarWlrootsWindow(m_pendingState.parent));
+            setParentWindow(new LXQtTaskbarWlrootsWindow(m_pendingState.parent));
         }
 
         else
@@ -297,16 +293,6 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
     /** (a) First time done was emitted */
     if (initDone == false)
     {
-        qDebug() << "    " << this << getWindowId();
-        qDebug() << "    titleChanged" << m_pendingState.titleChanged << windowState.title;
-        qDebug() << "    appIdChanged" << m_pendingState.appIdChanged << windowState.appId;
-        qDebug() << "    outputsChanged" << m_pendingState.outputsChanged << windowState.outputs;
-        qDebug() << "    maximizedChanged" << m_pendingState.maximizedChanged << windowState.maximized;
-        qDebug() << "    minimizedChanged" << m_pendingState.minimizedChanged << windowState.minimized;
-        qDebug() << "    activatedChanged" << m_pendingState.activatedChanged << windowState.activated;
-        qDebug() << "    fullscreenChanged" << m_pendingState.fullscreenChanged << windowState.fullscreen;
-        qDebug() << "    parentChanged" << m_pendingState.parentChanged << windowState.parent;
-
         /**
          * All the states/properties are already set.
          * Any query will give valid results.
@@ -350,14 +336,14 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_closed()
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_closed()
 {
     /** This window was closed */
     emit closed();
 }
 
 
-void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_parent(struct ::zwlr_foreign_toplevel_handle_v1 *parent)
+void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_parent(struct ::zwlr_foreign_toplevel_handle_v1 *parent)
 {
     /** Parent of this window changed; store it in pending. */
     m_pendingState.parent        = parent;
@@ -365,28 +351,21 @@ void LXQtTaskBarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_parent(struct ::z
 }
 
 
-void LXQtTaskBarWlrootsWindow::setParentWindow(LXQtTaskBarWlrootsWindow *parent)
+void LXQtTaskbarWlrootsWindow::setParentWindow(LXQtTaskbarWlrootsWindow *parent)
 {
-    const auto old = parentWindow;
-
     QObject::disconnect(parentWindowUnmappedConnection);
 
     if (parent)
     {
-        parentWindow = QPointer<LXQtTaskBarWlrootsWindow>(parent);
+        parentWindow = parent->getWindowId();
         parentWindowUnmappedConnection = QObject::connect(
-            parent, &LXQtTaskBarWlrootsWindow::closed, this, [ this ] {
+            parent, &LXQtTaskbarWlrootsWindow::closed, this, [ this ] {
             setParentWindow(nullptr);
         });
     }
     else
     {
-        parentWindow = QPointer<LXQtTaskBarWlrootsWindow>();
+        parentWindow = 0;
         parentWindowUnmappedConnection = QMetaObject::Connection();
-    }
-
-    if (parentWindow.data() != old.data())
-    {
-        Q_EMIT parentChanged();
     }
 }
