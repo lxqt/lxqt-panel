@@ -9,17 +9,17 @@
 
 typedef quintptr WId;
 
-class LXQtTaskBarWlrootsWindow;
+class LXQtTaskbarWlrootsWindow;
 
-class LXQtTaskBarWlrootsWindowManagment : public QWaylandClientExtensionTemplate<LXQtTaskBarWlrootsWindowManagment>,
+class LXQtTaskbarWlrootsWindowManagment : public QWaylandClientExtensionTemplate<LXQtTaskbarWlrootsWindowManagment>,
                                          public QtWayland::zwlr_foreign_toplevel_manager_v1
 {
     Q_OBJECT
 public:
     static constexpr int version = 16;
 
-    LXQtTaskBarWlrootsWindowManagment();
-    ~LXQtTaskBarWlrootsWindowManagment();
+    LXQtTaskbarWlrootsWindowManagment();
+    ~LXQtTaskbarWlrootsWindowManagment();
 
     inline bool isShowingDesktop() const { return m_isShowingDesktop; }
 
@@ -28,7 +28,7 @@ protected:
     void zwlr_foreign_toplevel_manager_v1_finished() {};
 
 Q_SIGNALS:
-    void windowCreated(LXQtTaskBarWlrootsWindow *window);
+    void windowCreated(WId wid);
 
 private:
     bool m_isShowingDesktop = false;
@@ -74,23 +74,21 @@ class WindowProperties {
         QList<::wl_output *> outputsLeft;
 };
 
-class LXQtTaskBarWlrootsWindow : public QObject,
+class LXQtTaskbarWlrootsWindow : public QObject,
                                 public QtWayland::zwlr_foreign_toplevel_handle_v1
 {
     Q_OBJECT
 public:
-    LXQtTaskBarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id);
-    ~LXQtTaskBarWlrootsWindow();
+    LXQtTaskbarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id);
+    ~LXQtTaskbarWlrootsWindow();
 
     inline WId getWindowId() const { return reinterpret_cast<WId>(this); }
 
     void activate();
 
-    mutable QString title;
-    mutable QString appId;
-    mutable QIcon icon;
-    mutable WindowProperties windowState;
-    mutable QPointer<LXQtTaskBarWlrootsWindow> parentWindow;
+    QIcon icon;
+    WindowProperties windowState;
+    WId parentWindow;
 
 Q_SIGNALS:
     void titleChanged();
@@ -128,7 +126,7 @@ protected:
     void zwlr_foreign_toplevel_handle_v1_parent(struct ::zwlr_foreign_toplevel_handle_v1 *parent);
 
 private:
-    void setParentWindow(LXQtTaskBarWlrootsWindow *parent);
+    void setParentWindow(LXQtTaskbarWlrootsWindow *parent);
 
     QMetaObject::Connection parentWindowUnmappedConnection;
 

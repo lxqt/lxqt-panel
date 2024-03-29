@@ -6,8 +6,8 @@
 #include <QHash>
 #include <vector>
 
-class LXQtTaskBarWlrootsWindow;
-class LXQtTaskBarWlrootsWindowManagment;
+class LXQtTaskbarWlrootsWindow;
+class LXQtTaskbarWlrootsWindowManagment;
 class LXQtWlrootsWaylandWorkspaceInfo;
 
 
@@ -71,21 +71,21 @@ public:
     virtual bool showDesktop(bool value) override;
 
 private:
-    void addWindow(LXQtTaskBarWlrootsWindow *window);
-    bool acceptWindow(LXQtTaskBarWlrootsWindow *window) const;
+    void addWindow(WId wid);
+    bool acceptWindow(WId wid) const;
 
 private:
-    LXQtTaskBarWlrootsWindow *getWindow(WId windowId) const;
+    /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */
+    LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
     std::unique_ptr<LXQtWlrootsWaylandWorkspaceInfo> m_workspaceInfo;
 
-    std::unique_ptr<LXQtTaskBarWlrootsWindowManagment> m_managment;
+    std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
 
-    QHash<LXQtTaskBarWlrootsWindow *, QTime> lastActivated;
-    LXQtTaskBarWlrootsWindow *activeWindow = nullptr;
-    std::vector<LXQtTaskBarWlrootsWindow *> windows;
+    QHash<WId, QTime> lastActivated;
+    WId activeWindow = 0;
+    std::vector<WId> windows;
+
     // key=transient child, value=leader
-    QHash<LXQtTaskBarWlrootsWindow *, LXQtTaskBarWlrootsWindow *> transients;
-    // key=leader, values=transient children
-    QMultiHash<LXQtTaskBarWlrootsWindow *, LXQtTaskBarWlrootsWindow *> transientsDemandingAttention;
+    QHash<WId, WId> transients;
 };
