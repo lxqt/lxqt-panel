@@ -439,7 +439,8 @@ void LXQtTaskButton::deMaximizeApplication()
 {
     mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::Maximized, false);
 
-    if(!mBackend->isWindowActive(mWindow))
+    /** This guard is unnecessary */
+    // if(!mBackend->isWindowActive(mWindow))
         mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 

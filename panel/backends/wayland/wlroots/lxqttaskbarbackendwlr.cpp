@@ -188,14 +188,13 @@ bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     }
     case LXQtTaskBarWindowState::Normal:
     {
-        /** Restore if maximized/minimized */
-        if ( window->windowState.minimized) {
-            window->unset_minimized();
+        if (set)
+        {
+            if ( window->windowState.maximized) {
+                window->unset_maximized();
+            }
         }
 
-        if ( window->windowState.maximized) {
-            window->unset_maximized();
-        }
         break;
     }
 
@@ -229,7 +228,7 @@ bool LXQtTaskbarWlrootsBackend::isWindowActive(WId windowId) const
 
 bool LXQtTaskbarWlrootsBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
 {
-    Q_UNUSED(onCurrentWorkSpace) //TODO
+    Q_UNUSED(onCurrentWorkSpace) // Cannot be done on a generic wlroots-based compositor!
 
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
     if(!window)

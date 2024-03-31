@@ -37,7 +37,6 @@ LXQtTaskBarPlugin::LXQtTaskBarPlugin(const ILXQtPanelPluginStartupInfo &startupI
     ILXQtPanelPlugin(startupInfo)
 
 {
-    qDebug() << "--------------> Init plugin taskbar";
     mTaskBar = new LXQtTaskBar(this);
 }
 
