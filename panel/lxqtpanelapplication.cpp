@@ -47,12 +47,10 @@
 ILXQtTaskbarAbstractBackend *createWMBackend()
 {
     if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>()){
-        qDebug() << "--------------> X11Application";
         return new LXQtTaskbarX11Backend;
     }
 
     else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>()){
-        qDebug() << "--------------> WaylandApplication";
         return new LXQtTaskbarWaylandBackend;
     }
 

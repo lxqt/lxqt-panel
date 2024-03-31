@@ -18,46 +18,39 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
      * If wayfire/sway/labwc/hyprland/wlroots is in desktopsList, we'll use the wlroots backend.
      */
     QList<QByteArray> desktopsList = qgetenv("XDG_CURRENT_DESKTOP").toLower().split(':');
-    qDebug() << "--------------> Current desktop" << desktopsList;
     for( QByteArray desktop: desktopsList ) {
         if ( desktop == "plasma" || desktop == "kde" || desktop == "kwin_wayland" )
         {
-            qDebug() << "--------------> Using plasma backend";
             m_backend = new LXQtTaskbarPlasmaBackend();
             break;
         }
 
         else if ( desktop == "wayfire" )
         {
-            qDebug() << "--------------> Using wayfire backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "sway" )
         {
-            qDebug() << "--------------> Using sway backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "labwc" )
         {
-            qDebug() << "--------------> Using labwc backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "hyprland" )
         {
-            qDebug() << "--------------> Using hyprland backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
 
         else if ( desktop == "wlroots" )
         {
-            qDebug() << "--------------> Using generic wlroots backend";
             m_backend = new LXQtTaskbarWlrootsBackend();
             break;
         }
@@ -69,7 +62,6 @@ LXQtTaskbarWaylandBackend::LXQtTaskbarWaylandBackend(QObject *parent)
     }
 
     if ( m_backend == nullptr ) {
-        qDebug() << "-------------->  Using dummy backend. No window management will be done";
     }
 
     else {
