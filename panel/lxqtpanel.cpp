@@ -514,7 +514,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
 
     QRect rect;
     LayerShellQt::Window::Anchors anchors;
-    LayerShellQt::Window::Anchor edge;
+    LayerShellQt::Window::Anchor edge = LayerShellQt::Window::AnchorBottom;
 
     if (isHorizontal())
     {
