@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 TryExec=lxqt-panel
+NoDisplay=true
 
 # NOTE: KWin wants absolute path here, get it from CMake install path
 Exec=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_BINDIR@/lxqt-panel

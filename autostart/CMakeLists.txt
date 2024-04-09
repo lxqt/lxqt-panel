@@ -1,9 +1,9 @@
-set(DESKTOP_FILES lxqt-panel.desktop.in)
+set(AUTOSTART_DESKTOP_FILES_IN lxqt-panel.desktop.in)
 
 # Translations **********************************
 lxqt_translate_desktop(DESKTOP_FILES
     SOURCES
-        ${DESKTOP_FILES_IN}
+        ${AUTOSTART_DESKTOP_FILES_IN}
     USE_YAML
 )
 add_custom_target(lxqt_panel_autostart_desktop_files ALL DEPENDS ${DESKTOP_FILES})
