@@ -837,7 +837,7 @@ void LXQtPanel::updateWmStrut()
 
         if (mReserveSpace)
         {
-            LayerShellQt::Window::Anchor edge;
+            LayerShellQt::Window::Anchor edge = LayerShellQt::Window::AnchorBottom;
 
             switch (mPosition)
             {
