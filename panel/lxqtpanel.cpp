@@ -238,23 +238,30 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
         // Create backing QWindow for LayerShellQt integration
         create();
 
-        // Init Layer Shell (Must be done before showing widget)
-        mLayerWindow = LayerShellQt::Window::get(windowHandle());
-        mLayerWindow->setLayer(LayerShellQt::Window::LayerTop);
+        if(!windowHandle())
+        {
+            qWarning() << "LXQtPanel: could not create QWindow for LayerShellQt integration.";
+        }
+        else
+        {
+            // Init Layer Shell (Must be done before showing widget)
+            mLayerWindow = LayerShellQt::Window::get(windowHandle());
+            mLayerWindow->setLayer(LayerShellQt::Window::LayerTop);
 
-        mLayerWindow->setScope(QStringLiteral("dock"));
+            mLayerWindow->setScope(QStringLiteral("dock"));
 
-        LayerShellQt::Window::Anchors anchors;
-        anchors.setFlag(LayerShellQt::Window::AnchorLeft);
-        anchors.setFlag(LayerShellQt::Window::AnchorBottom);
-        anchors.setFlag(LayerShellQt::Window::AnchorRight);
-        mLayerWindow->setAnchors(anchors);
+            LayerShellQt::Window::Anchors anchors;
+            anchors.setFlag(LayerShellQt::Window::AnchorLeft);
+            anchors.setFlag(LayerShellQt::Window::AnchorBottom);
+            anchors.setFlag(LayerShellQt::Window::AnchorRight);
+            mLayerWindow->setAnchors(anchors);
 
-        mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
-        mLayerWindow->setCloseOnDismissed(false);
+            mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityOnDemand);
+            mLayerWindow->setCloseOnDismissed(false);
 
-        mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorBottom);
-        mLayerWindow->setExclusiveZone(height());
+            mLayerWindow->setExclusiveEdge(LayerShellQt::Window::AnchorBottom);
+            mLayerWindow->setExclusiveZone(height());
+        }
     }
 
     // NOTE: Some (X11) WMs may need the geometry to be set before QWidget::show().
@@ -824,7 +831,7 @@ void LXQtPanel::updateWmStrut()
                                          );
         }
     }
-    else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
+    else if(mLayerWindow && qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
     {
         //TODO: duplicated code, also set in setPanelGeometry()
 
@@ -860,7 +867,7 @@ void LXQtPanel::updateWmStrut()
             mLayerWindow->setExclusiveZone(0);
         }
 
-        // Make LayerShell apply changes immediatly
+        // Make LayerShellQt apply changes immediatly
         windowHandle()->requestUpdate();
     }
 }
