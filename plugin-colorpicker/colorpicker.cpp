@@ -80,7 +80,7 @@ void ColorPicker::realign()
 
 ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
 {
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     mSeparator = new QFrame();
     mSeparator->setFrameShape(QFrame::VLine);
@@ -93,12 +93,14 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
     mPickerButton->setAccessibleName(mPickerButton->objectName());
     mPickerButton->setAutoRaise(true);
     mPickerButton->setIcon(QIcon::fromTheme(QLatin1String("color-picker"), QIcon::fromTheme(QLatin1String("color-select-symbolic"))));
+    mPickerButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     mColorButton = new ColorButton();
     mColorButton->setObjectName(QStringLiteral("ColorPickerColorButton"));
     mColorButton->setAccessibleName(mColorButton->objectName());
     mColorButton->setAutoRaise(true);
     mColorButton->setStyleSheet(QStringLiteral("::menu-indicator{ image: none; }"));
+    mColorButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QBoxLayout *layout = new QBoxLayout(QBoxLayout::LeftToRight);
     layout->setContentsMargins(0, 0, 0, 0);
