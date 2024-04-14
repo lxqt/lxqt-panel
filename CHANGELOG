@@ -4,6 +4,7 @@ lxqt-panel-2.0.0 / 2024-04-17
  * Removed spaces from saved settings of Custom Command plugin.
  * Added the SVG format to the panel background picker dialog.
  * Ported to Qt6.
+ * Added Wayland support for positioning the panel by using layer shell.
 
 lxqt-panel-1.4.0 / 2023-11-05
 ==============================
