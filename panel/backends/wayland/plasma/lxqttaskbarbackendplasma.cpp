@@ -450,11 +450,14 @@ bool LXQtTaskbarPlasmaBackend::isAreaOverlapped(const QRect &area) const
 
 bool LXQtTaskbarPlasmaBackend::isShowingDesktop() const
 {
-    return m_managment->isShowingDesktop();
+    return m_managment->isActive() ? m_managment->isShowingDesktop() : false;
 }
 
 bool LXQtTaskbarPlasmaBackend::showDesktop(bool value)
 {
+    if(!m_managment->isActive())
+        return false;
+
     enum LXQtTaskBarPlasmaWindowManagment::show_desktop flag_;
     if(value)
         flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_enabled;

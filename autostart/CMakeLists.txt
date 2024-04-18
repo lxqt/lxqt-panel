@@ -1,4 +1,4 @@
-file(GLOB DESKTOP_FILES_IN *.desktop.in)
+set(DESKTOP_FILES lxqt-panel.desktop.in)
 
 # Translations **********************************
 lxqt_translate_desktop(DESKTOP_FILES
@@ -15,8 +15,10 @@ install(FILES
     COMPONENT Runtime
 )
 
+configure_file(lxqt-panel_wayland.desktop.in lxqt-panel_wayland.desktop @ONLY)
+
 install(FILES
-    lxqt-panel_wayland.desktop
+    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-panel_wayland.desktop"
     DESTINATION "/usr/share/applications"
     RENAME "lxqt-panel.desktop"
     COMPONENT Runtime
