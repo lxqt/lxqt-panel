@@ -91,6 +91,8 @@ lxqt_translate_ts(QM_FILES SOURCES
 
 lxqt_app_translation_loader(SOURCES ${PROJECT_NAME})
 
+set(CMAKE_EXECUTABLE_ENABLE_EXPORTS TRUE)
+
 add_executable(${PROJECT}
     ${PUB_HEADERS}
     ${PRIV_HEADERS}
