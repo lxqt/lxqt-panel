@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="800"/>
         <source>Always on &amp;top</source>
-        <translation>Всегда на&amp;верху</translation>
+        <translation>Вс&amp;егда на переднем плане</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="806"/>

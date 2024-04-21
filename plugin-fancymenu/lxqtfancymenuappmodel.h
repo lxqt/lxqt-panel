@@ -59,7 +59,7 @@ public:
 
     void reloadAppMap(bool end);
     void setCurrentCategory(int category);
-    void showSearchResults(const QVector<const LXQtFancyMenuAppItem *> &matches);
+    void showSearchResults(const QList<const LXQtFancyMenuAppItem *> &matches);
     void endSearch();
 
     LXQtFancyMenuAppMap *appMap() const;
@@ -77,7 +77,7 @@ private:
     LXQtFancyMenuAppMap *mAppMap;
     int mCurrentCategory;
 
-    QVector<const LXQtFancyMenuAppItem *> mSearchMatches;
+    QList<const LXQtFancyMenuAppItem *> mSearchMatches;
     bool mInSearch;
 };
 

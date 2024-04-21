@@ -57,7 +57,7 @@ public slots:
 
 protected:
     void leaveEvent(QEvent *event) override;
-    void enterEvent(QEvent *event) override;
+    void enterEvent(QEnterEvent *event) override;
 
 private:
     ILXQtPanelPlugin *mPlugin;

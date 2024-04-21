@@ -11,13 +11,14 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="228"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation type="unfinished"></translation>
+        <translation>ਫਾਇਲ/URL &apos;%1&apos; ਨੂੰ ਫ਼ੌਰੀ-ਲਾਂਚ ਵਿੱਚ ਹੁਣ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="334"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>ਐਪਲੀਕਸ਼ਨ ਆਈਕਾਨ
+ਇੱਥੇ ਰੱਖੋ</translation>
     </message>
 </context>
 <context>
@@ -25,7 +26,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + DND)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>

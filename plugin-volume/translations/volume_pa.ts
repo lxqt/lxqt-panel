@@ -16,12 +16,12 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="76"/>
         <source>Mute/unmute sound volume</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਾਊਂਡ ਵਾਲੀਅਮ ਨੂੰ ਮੌਨ/ਅਣ-ਮੌਨ ਕਰੋ</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਵਾਲੀਅਮ ਕੰਟਰੋਲ: ਅੱਗੇ ਦਿੱਤੇ ਸ਼ਾਰਟਕੱਟਾਂ ਨੂੰ ਰਜਿਸਟਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="290"/>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation type="unfinished"></translation>
+        <translation>ਮਿਡਲ ਕਲਿੱਕ ਉੱਤੇ ਮੌਨ ਕਰੋ</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation type="unfinished"></translation>
+        <translation>ਵਾਲੀਅਮ ਨੂੰ 100% (0dB) ਤੋਂ ਵੱਧ ਜਾਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕੀਬੋਰਡ ਨਾਲ ਵਾਲੀਅਮ ਬਦਲਣ ਬਾਰੇ ਸੂਚਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation type="unfinished"></translation>
+        <translation>ਵਾਲੀਅਮ ਅਡਜਸਟ ਸਟੈਪ</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>

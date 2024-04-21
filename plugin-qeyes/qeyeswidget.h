@@ -44,7 +44,7 @@ protected:
 
 private:
     void leaveEvent(QEvent *) override;
-    void enterEvent(QEvent *) override;
+    void enterEvent(QEnterEvent *) override;
     void mouseMoveEvent(QMouseEvent  *) override;
 
 protected:

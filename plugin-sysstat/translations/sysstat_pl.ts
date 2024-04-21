@@ -48,7 +48,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice</translation>
+        <translation>&amp;Priorytet</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimalna szerokość jeśli panel jest poziomy.&lt;/p&gt;&lt;p&gt;Minimalna wysokość jeśli panel jest pionowy.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimalna szerokość, jeśli panel jest poziomy.&lt;/p&gt;&lt;p&gt;Minimalna wysokość, jeśli panel jest pionowy.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX KBs</translation>
+        <translation>XXX KB/s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom colour ...</source>
-        <translation>Niestandardowy kolot…</translation>
+        <translation>Niestandardowy kolor…</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
@@ -236,137 +236,137 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation>cpu</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
         <source>cpu0</source>
-        <translation>cpu0</translation>
+        <translation>CPU0</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="56"/>
         <source>cpu1</source>
-        <translation>cpu1</translation>
+        <translation>CPU1</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="57"/>
         <source>cpu2</source>
-        <translation>cpu2</translation>
+        <translation>CPU2</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="58"/>
         <source>cpu3</source>
-        <translation>cpu3</translation>
+        <translation>CPU3</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="59"/>
         <source>cpu4</source>
-        <translation>cpu4</translation>
+        <translation>CPU4</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="60"/>
         <source>cpu5</source>
-        <translation>cpu5</translation>
+        <translation>CPU5</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="61"/>
         <source>cpu6</source>
-        <translation>cpu6</translation>
+        <translation>CPU6</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="62"/>
         <source>cpu7</source>
-        <translation>cpu7</translation>
+        <translation>CPU7</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="63"/>
         <source>cpu8</source>
-        <translation>cpu8</translation>
+        <translation>CPU8</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="64"/>
         <source>cpu9</source>
-        <translation>cpu9</translation>
+        <translation>CPU9</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="65"/>
         <source>cpu10</source>
-        <translation>cpu10</translation>
+        <translation>CPU10</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="66"/>
         <source>cpu11</source>
-        <translation>cpu11</translation>
+        <translation>CPU11</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="67"/>
         <source>cpu12</source>
-        <translation>cpu12</translation>
+        <translation>CPU12</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="68"/>
         <source>cpu13</source>
-        <translation>cpu13</translation>
+        <translation>CPU13</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="69"/>
         <source>cpu14</source>
-        <translation>cpu14</translation>
+        <translation>CPU14</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="70"/>
         <source>cpu15</source>
-        <translation>cpu15</translation>
+        <translation>CPU15</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="71"/>
         <source>cpu16</source>
-        <translation>cpu16</translation>
+        <translation>CPU16</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="72"/>
         <source>cpu17</source>
-        <translation>cpu17</translation>
+        <translation>CPU17</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="73"/>
         <source>cpu18</source>
-        <translation>cpu18</translation>
+        <translation>CPU18</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="74"/>
         <source>cpu19</source>
-        <translation>cpu19</translation>
+        <translation>CPU19</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="75"/>
         <source>cpu20</source>
-        <translation>cpu20</translation>
+        <translation>CPU20</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="76"/>
         <source>cpu21</source>
-        <translation>cpu21</translation>
+        <translation>CPU21</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="77"/>
         <source>cpu22</source>
-        <translation>cpu22</translation>
+        <translation>CPU22</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="78"/>
         <source>cpu23</source>
-        <translation>cpu23</translation>
+        <translation>CPU23</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation>pamięć</translation>
+        <translation>Pamięć</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation>pamięć wymiany</translation>
+        <translation>Pamięć wymiany</translation>
     </message>
 </context>
 <context>
@@ -375,31 +375,31 @@
         <location filename="../lxqtsysstat.cpp" line="400"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;użytkownik: %2%&lt;br&gt;nice: %3%&lt;br&gt;inne: %4%&lt;br&gt;częst.: %5%</translation>
+        <translation>System: %1%&lt;br&gt;Użytkownik: %2%&lt;br&gt;Priorytet: %3%&lt;br&gt;Inne: %4%&lt;br&gt;Częst.: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="449"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>system: %1%&lt;br&gt;użytkownik: %2%&lt;br&gt;nice: %3%&lt;br&gt;inne: %4%&lt;br&gt;częst.: n/a</translation>
+        <translation>System: %1%&lt;br&gt;Użytkownik: %2%&lt;br&gt;Priorytet: %3%&lt;br&gt;Inne: %4%&lt;br&gt;Częst.: n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="491"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>aplikacje: %1%&lt;br&gt;bufory: %2%&lt;br&gt;w pamięci podr.: %3%</translation>
+        <translation>Aplikacje: %1%&lt;br&gt;Bufory: %2%&lt;br&gt;Buforowane: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="525"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
-        <translation>użyto: %1%</translation>
+        <translation>Używane: %1%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="555"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
-        <translation>min: %1%&lt;br&gt;maks: %2%</translation>
+        <translation>Min: %1%&lt;br&gt;Maks: %2%</translation>
     </message>
 </context>
 </TS>

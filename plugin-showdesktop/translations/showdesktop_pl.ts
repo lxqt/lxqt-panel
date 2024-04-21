@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Pokaż Pulpit: Globalny skrót &apos;%1&apos; nie może zostać zarejestrowany</translation>
+        <translation>Pokaż pulpit: globalny skrót &apos;%1&apos; nie może zostać zarejestrowany</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>

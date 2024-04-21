@@ -39,12 +39,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Penempatan</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gaya</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ubah penempatan</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ubah Gaya</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>

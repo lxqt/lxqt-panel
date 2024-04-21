@@ -25,7 +25,7 @@ set(UIS
 set(LIBRARIES
     lxqt
     lxqt-globalkeys
-    Qt5Xdg
+    Qt6Xdg
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

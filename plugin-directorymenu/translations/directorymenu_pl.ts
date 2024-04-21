@@ -34,7 +34,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BaseDirectoryName</translation>
+        <translation>Nazwa katalogu podstawowego</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>

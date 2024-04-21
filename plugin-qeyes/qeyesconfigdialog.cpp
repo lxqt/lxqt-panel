@@ -80,14 +80,19 @@ void QEyesConfigDialog::showEvent(QShowEvent *) {
                                 QStringLiteral("2")).toInt();
     old_type_eyes = _settings->value(QStringLiteral("eye_type"),
                                 QEyesPlugin::internalEye).toString();
+
     buildList();
+
     bool found = false;
-    for (const auto &key : types.keys()) {
-        if (old_type_eyes == types[key]) {
+    for (const auto &item : std::as_const(types))
+    {
+        if (old_type_eyes == item)
+        {
             found = true;
             break;
         }
     }
+
     if (!found)
         old_type_eyes = QEyesPlugin::internalEye;
 
@@ -96,8 +101,11 @@ void QEyesConfigDialog::showEvent(QShowEvent *) {
 
     typesWidget->clear();
     typesWidget->addItem(tr("QEyes default"));
-    for (const auto &key: types.keys())
-        typesWidget->addItem(key);
+
+    for (auto it = types.constBegin(), end = types.constEnd(); it != end; it++)
+    {
+        typesWidget->addItem(it.key());
+    }
 
     resetValue();
 
@@ -107,11 +115,14 @@ void QEyesConfigDialog::showEvent(QShowEvent *) {
     numEyesWidget->blockSignals(false);
 }
 
-void QEyesConfigDialog::resetValue() {
+void QEyesConfigDialog::resetValue()
+{
     int actIndex = 0;
     int c = 1;  // 0 is <internal>
-    for (const auto &key : types.keys()) {
-        if (old_type_eyes == types[key])
+
+    for (const auto &item : std::as_const(types))
+    {
+        if (old_type_eyes == item)
             actIndex = c;
         c++;
     }

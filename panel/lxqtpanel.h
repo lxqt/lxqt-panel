@@ -42,6 +42,10 @@ class QMenu;
 class Plugin;
 class QAbstractItemModel;
 
+namespace LayerShellQt {
+class Window;
+}
+
 namespace LXQt {
 class Settings;
 class PluginInfo;
@@ -470,12 +474,12 @@ private:
      * @brief Pointer to the PanelPluginsModel which will store all the Plugins
      * that are loaded.
      */
-    QScopedPointer<PanelPluginsModel> mPlugins;
+    std::unique_ptr<PanelPluginsModel> mPlugins;
     /**
      * @brief object for storing info if some standalone window is shown
      * (for preventing hide)
      */
-    QScopedPointer<WindowNotifier> mStandaloneWindows;
+    std::unique_ptr<WindowNotifier> mStandaloneWindows;
 
     /**
      * @brief Returns the screen index of a screen on which this panel could
@@ -687,6 +691,8 @@ private:
      * @brief The animation used for showing/hiding an auto-hiding panel.
      */
     QPropertyAnimation *mAnimation;
+
+    LayerShellQt::Window *mLayerWindow;
 
     /**
      * @brief Flag for providing the configuration options in panel's context menu

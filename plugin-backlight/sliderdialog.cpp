@@ -38,7 +38,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);
-    layout->setMargin(2);
+    layout->setContentsMargins(2, 2, 2, 2);
 
     m_upButton = new QToolButton();
     m_upButton->setText(QStringLiteral("☀"));

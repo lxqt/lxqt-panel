@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtfancymenu.cpp" line="93"/>
         <source>Show/hide main menu</source>
-        <translation>Pokaż/ukryj główne menu</translation>
+        <translation>Pokaż/ukryj menu główne</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation>Wszystkie aplikacje</translation>
+        <translation>Wszystkie programy</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation>Ustawienia Fancy Menu</translation>
+        <translation>Ustawienia wymyślnego menu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Wciśnij przycisk aby ustawić skrót:</translation>
+        <translation>Wciśnij przycisk, aby ustawić skrót:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation>Statusbenachrichtigungseinstellungen</translation>
+        <translation>Einstellungen Statusmeldungen</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="28"/>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="72"/>
         <source>Change visibility of items</source>
-        <translation>Sichtbarkeit der Einträge ändern</translation>
+        <translation>Ändere Sichtbarkeit der Einträge</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="85"/>
@@ -42,17 +42,17 @@
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always show</source>
-        <translation>Immer anzeigen</translation>
+        <translation>Immer sichtbar</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Auto-hide</source>
-        <translation>Automatisch ausblenden</translation>
+        <translation>Automatisch verbergen</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="84"/>
         <source>Always hide</source>
-        <translation>Immer ausblenden</translation>
+        <translation>Immer verbergen</translation>
     </message>
 </context>
 </TS>

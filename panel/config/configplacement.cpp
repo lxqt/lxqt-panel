@@ -30,7 +30,7 @@
 
 #include "../lxqtpanellimits.h"
 
-#include <KWindowSystem/KWindowSystem>
+#include <KWindowSystem>
 #include <QDebug>
 #include <QListView>
 #include <QScreen>

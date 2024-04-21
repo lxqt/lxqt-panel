@@ -119,7 +119,7 @@ int LXQtWorldClockConfigurationTimeZones::updateAndExec()
         if (qStrings.size() == 1)
             qStrings.prepend(tr("Other"));
 
-        QTreeWidgetItem *tzItem = new QTreeWidgetItem(QStringList() << qStrings[qStrings.length() - 1] << timeZone.displayName(now) << timeZone.comment() << QLocale::countryToString(timeZone.country()));
+        QTreeWidgetItem *tzItem = new QTreeWidgetItem(QStringList() << qStrings[qStrings.length() - 1] << timeZone.displayName(now) << timeZone.comment() << QLocale::territoryToString(timeZone.territory()));
         tzItem->setData(0, Qt::UserRole, ianaId);
 
         makeSureParentsExist(qStrings, parentItems)->addChild(tzItem);

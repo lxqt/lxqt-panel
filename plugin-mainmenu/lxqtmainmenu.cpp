@@ -54,6 +54,7 @@
     #include <QClipboard>
     #include <QMimeData>
     #include <XdgAction>
+#include <QFile>
 #endif
 
 #define DEFAULT_SHORTCUT "Alt+F1"

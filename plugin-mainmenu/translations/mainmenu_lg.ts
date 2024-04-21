@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Kubuuza</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="531"/>

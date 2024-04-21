@@ -6,42 +6,42 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਪੇਸਰ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਪੇਸ ਚੌੜਾਈ:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="40"/>
         <source>Space type:</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਪੇਸ ਦੀ ਕਿਸਮ:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="57"/>
         <source>fixed</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਥਿਰ</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="71"/>
         <source>expandable</source>
-        <translation type="unfinished"></translation>
+        <translation>ਫੈਲਣਯੋਗ</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation type="unfinished"></translation>
+        <translation>ਲਾਈਨ</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation type="unfinished"></translation>
+        <translation>ਬਿੰਦੀਦਾਰ</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation type="unfinished"></translation>
+        <translation>ਅਦਿੱਖ</translation>
     </message>
 </context>
 </TS>

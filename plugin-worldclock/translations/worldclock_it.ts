@@ -315,7 +315,7 @@
 &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;Il minuto senza zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;Il minuto con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;Il secondo senza uno zero iniziale (0 a 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Il secondo secondo con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;Il secondo con uno zero iniziale (00 a 59)&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;AP &lt;i&gt;o&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;Usa visualizzazione AM/PM. &lt;b&gt;A/AP&lt;/b&gt; sarà sostituito con &quot;AM&quot; o &quot;PM&quot;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;ap &lt;i&gt;o&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;Usa visualizzazione am/pm. &lt;b&gt;a/ap&lt;/b&gt; sarà sostituito con &quot;am&quot; o &quot;pm&quot;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;Il fuso orario (p.e. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;

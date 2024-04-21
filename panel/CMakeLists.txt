@@ -74,7 +74,7 @@ endif ()
 
 project(${PROJECT})
 
-set(QTX_LIBRARIES Qt5::Widgets Qt5::Xml Qt5::DBus)
+set(QTX_LIBRARIES Qt6::Widgets Qt6::Xml Qt6::DBus)
 
 # Translations
 lxqt_translate_ts(QM_FILES SOURCES
@@ -102,7 +102,8 @@ add_executable(${PROJECT}
 target_link_libraries(${PROJECT}
     ${LIBRARIES}
     ${QTX_LIBRARIES}
-    KF5::WindowSystem
+    KF6::WindowSystem
+    LayerShellQt::Interface
     ${STATIC_PLUGINS}
 )
 

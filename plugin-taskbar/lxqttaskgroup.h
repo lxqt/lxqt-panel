@@ -33,10 +33,9 @@
 
 #include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqttaskbar.h"
-#include "lxqtgrouppopup.h"
+
 #include "lxqttaskbutton.h"
-#include <KF5/KWindowSystem/kwindowsystem.h>
+#include <kx11extras.h>
 
 class QVBoxLayout;
 class ILXQtPanelPlugin;
@@ -77,7 +76,7 @@ protected:
     QMimeData * mimeData();
 
     void leaveEvent(QEvent * event);
-    void enterEvent(QEvent * event);
+    void enterEvent(QEnterEvent *event);
     void dragEnterEvent(QDragEnterEvent * event);
     void dragLeaveEvent(QDragLeaveEvent * event);
     void contextMenuEvent(QContextMenuEvent * event);

@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mėgstamos</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visos programos</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Prašmatnaus meniu nustatymai</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatiškai pasirinkti po:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Išdėstymas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Mygtukų eilutės vieta</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Kategorijų vieta</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Apačia</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Viršus</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Kairė</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Dešinė</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,22 +165,22 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt konfigūravimo centras</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Išeiti</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridėkite mėgstamas programas spusteldami ant elementų kategorijose dešiniuoju pelės mygtuku.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
@@ -217,22 +217,22 @@ Ar norite jį perrašyti?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Šalinti iš mėgstamų</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridėti į mėgstamas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Nėra vykdomojo</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyksta rasti &lt;b&gt;%1&lt;/b&gt; vykdomojo.</translation>
     </message>
 </context>
 </TS>

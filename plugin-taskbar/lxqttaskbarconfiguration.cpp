@@ -29,7 +29,7 @@
 
 #include "lxqttaskbarconfiguration.h"
 #include "ui_lxqttaskbarconfiguration.h"
-#include <KWindowSystem/KX11Extras>
+#include <KX11Extras>
 
 LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),

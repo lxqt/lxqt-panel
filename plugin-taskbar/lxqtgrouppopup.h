@@ -37,9 +37,8 @@
 #include <QTimer>
 #include <QEvent>
 
-#include "lxqttaskbutton.h"
-#include "lxqttaskgroup.h"
-#include "lxqttaskbar.h"
+class LXQtTaskButton;
+class LXQtTaskGroup;
 
 class LXQtGroupPopup: public QFrame
 {
@@ -53,11 +52,11 @@ public:
     void show();
 
     // Layout
-    int indexOf(LXQtTaskButton *button) { return layout()->indexOf(button); }
+    int indexOf(LXQtTaskButton *button);
     int count() { return layout()->count(); }
     QLayoutItem * itemAt(int i) { return layout()->itemAt(i); }
     int spacing() { return layout()->spacing(); }
-    void addButton(LXQtTaskButton* button) { layout()->addWidget(button); }
+    void addButton(LXQtTaskButton* button);
     void removeWidget(QWidget *button) { layout()->removeWidget(button); }
 
 protected:
@@ -65,7 +64,7 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *event);
     void dropEvent(QDropEvent * event);
     void leaveEvent(QEvent * event);
-    void enterEvent(QEvent * event);
+    void enterEvent(QEnterEvent *event);
     void paintEvent(QPaintEvent * event);
 
     void closeTimerSlot();

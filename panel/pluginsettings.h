@@ -90,7 +90,7 @@ private:
     explicit PluginSettings(LXQt::Settings *settings, const QString &group, QObject *parent = nullptr);
 
 private:
-    QScopedPointer<PluginSettingsPrivate> d_ptr;
+    std::unique_ptr<PluginSettingsPrivate> d_ptr;
     Q_DECLARE_PRIVATE(PluginSettings)
 };
 

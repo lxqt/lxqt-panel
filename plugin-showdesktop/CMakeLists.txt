@@ -11,7 +11,7 @@ set(SOURCES
 set(LIBRARIES
     ${LIBRARIES}
     lxqt-globalkeys
-    Qt5Xdg
+    Qt6Xdg
 )
 
 BUILD_LXQT_PLUGIN(${PLUGIN})

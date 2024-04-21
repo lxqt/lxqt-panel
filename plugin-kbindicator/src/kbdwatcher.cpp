@@ -61,7 +61,7 @@ void KbdWatcher::createKeeper(KeeperType type)
         break;
     }
 
-    connect(m_keeper.data(), &KbdKeeper::changed, this, &KbdWatcher::keeperChanged);
+    connect(m_keeper.get(), &KbdKeeper::changed, this, &KbdWatcher::keeperChanged);
 
     m_keeper->setup();
     keeperChanged();

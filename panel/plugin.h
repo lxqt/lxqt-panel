@@ -130,5 +130,6 @@ private slots:
 
 };
 
+Q_DECLARE_METATYPE(Plugin const *)
 
 #endif // PLUGIN_H

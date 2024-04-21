@@ -47,7 +47,7 @@ LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q
 ILXQtPanel::Position LXQtPanelApplicationPrivate::computeNewPanelPosition(const LXQtPanel *p, const int screenNum)
 {
     Q_Q(LXQtPanelApplication);
-    QVector<bool> screenPositions(4, false); // false means not occupied
+    QList<bool> screenPositions(4, false); // false means not occupied
 
     for (int i = 0; i < q->mPanels.size(); ++i) {
         if (p != q->mPanels.at(i)) {
@@ -131,7 +131,7 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
         panels << QStringLiteral("panel1");
     }
 
-    for(const QString& i : qAsConst(panels))
+    for(const QString& i : std::as_const(panels))
     {
         addPanel(i);
     }
@@ -199,7 +199,7 @@ void LXQtPanelApplication::reloadPanelsAsNeeded()
     for(const QString& name : names)
     {
         bool found = false;
-        for(LXQtPanel* panel : qAsConst(mPanels))
+        for(LXQtPanel* panel : std::as_const(mPanels))
         {
             if(panel->name() == name)
             {
@@ -246,7 +246,7 @@ void LXQtPanelApplication::screenDestroyed(QObject* screenObj)
     QScreen* screen = static_cast<QScreen*>(screenObj);
     bool reloadNeeded = false;
     qApp->setQuitOnLastWindowClosed(false);
-    for(LXQtPanel* panel : qAsConst(mPanels))
+    for(LXQtPanel* panel : std::as_const(mPanels))
     {
         QWindow* panelWindow = panel->windowHandle();
         if(panelWindow && panelWindow->screen() == screen)
@@ -300,7 +300,7 @@ void LXQtPanelApplication::setIconTheme(const QString &iconTheme)
     if (newTheme != QIcon::themeName())
     {
         QIcon::setThemeName(newTheme);
-        for(LXQtPanel* panel : qAsConst(mPanels))
+        for(LXQtPanel* panel : std::as_const(mPanels))
         {
             panel->update();
             panel->updateConfigDialog();

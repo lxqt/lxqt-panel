@@ -39,18 +39,30 @@ Configuration::Configuration(PluginSettings *settings, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->devAddedLabel->sizePolicy().setHorizontalStretch(1);
+    // Set size policies
+    QSizePolicy sp = ui->devAddedLabel->sizePolicy();
+    sp.setHorizontalStretch(1);
+    ui->devAddedLabel->setSizePolicy(sp);
 
+    sp = ui->devAddedCombo->sizePolicy();
+    sp.setHorizontalStretch(1);
+    ui->devAddedCombo->setSizePolicy(sp);
+
+    sp = ui->ejectPressedLabel->sizePolicy();
+    sp.setHorizontalStretch(1);
+    ui->ejectPressedLabel->setSizePolicy(sp);
+
+    sp = ui->ejectPressedCombo->sizePolicy();
+    sp.setHorizontalStretch(1);
+    ui->ejectPressedCombo->setSizePolicy(sp);
+
+    // Fill combo boxes
     ui->devAddedCombo->addItem(tr("Popup menu"), QLatin1String(ACT_SHOW_MENU));
     ui->devAddedCombo->addItem(tr("Show info"),  QLatin1String(ACT_SHOW_INFO));
     ui->devAddedCombo->addItem(tr("Do nothing"), QLatin1String(ACT_NOTHING));
-    ui->devAddedCombo->sizePolicy().setHorizontalStretch(1);
-
-    ui->ejectPressedLabel->sizePolicy().setHorizontalStretch(1);
 
     ui->ejectPressedCombo->addItem(tr("Do nothing"), QLatin1String(ACT_NOTHING));
     ui->ejectPressedCombo->addItem(tr("Eject All Optical Drives"), QLatin1String(ACT_EJECT_OPTICAL));
-    ui->ejectPressedCombo->sizePolicy().setHorizontalStretch(1);
 
     adjustSize();
 

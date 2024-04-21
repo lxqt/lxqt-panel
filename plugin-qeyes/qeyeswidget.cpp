@@ -53,7 +53,7 @@ void QAbstractEyesWidget::leaveEvent(QEvent *) {
     timer.start();
 }
 
-void QAbstractEyesWidget::enterEvent(QEvent *) {
+void QAbstractEyesWidget::enterEvent(QEnterEvent *) {
     timer.stop();
 }
 
