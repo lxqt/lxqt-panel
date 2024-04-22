@@ -88,7 +88,7 @@ public:
 
     QIcon icon;
     WindowProperties windowState;
-    WId parentWindow;
+    WId parentWindow = 0;
 
 Q_SIGNALS:
     void titleChanged();
