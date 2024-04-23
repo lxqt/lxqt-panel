@@ -19,6 +19,186 @@
 #include <sys/poll.h>
 #include <unistd.h>
 
+#include <filesystem>
+
+QString U8Str( const char *str ) {
+    return QString::fromUtf8( str );
+}
+
+static inline QString getPixmapIcon(QString name)
+{
+    QStringList paths{
+        U8Str("/usr/local/share/pixmaps/"),
+        U8Str("/usr/share/pixmaps/"),
+    };
+
+    QStringList sfxs{
+        U8Str( ".svg" ), U8Str( ".png" ), U8Str( ".xpm" )
+    };
+
+    for (QString path: paths)
+    {
+        for (QString sfx: sfxs)
+        {
+            if (QFile::exists(path + name + sfx))
+            {
+                return path + name + sfx;
+            }
+        }
+    }
+
+    return QString();
+}
+
+
+QIcon getIconForAppId(QString mAppId)
+{
+    if (mAppId.isEmpty() or (mAppId == U8Str("Unknown")))
+    {
+        return QIcon();
+    }
+
+    /** Wine apps */
+    if (mAppId.endsWith(U8Str(".exe")))
+    {
+        return QIcon::fromTheme(U8Str("wine"));
+    }
+
+    /** Check if a theme icon exists called @mAppId */
+    if (QIcon::hasThemeIcon(mAppId))
+    {
+        return QIcon::fromTheme(mAppId);
+    }
+
+    /** Check if the theme icon is @mAppId, but all lower-case letters */
+    else if (QIcon::hasThemeIcon(mAppId.toLower()))
+    {
+        return QIcon::fromTheme(mAppId.toLower());
+    }
+
+    QStringList appDirs = {
+        QDir::home().filePath(U8Str(".local/share/applications/")),
+        U8Str("/usr/local/share/applications/"),
+        U8Str("/usr/share/applications/"),
+    };
+
+    /**
+     * Assume mAppId == desktop-file-name (ideal situation)
+     * or mAppId.toLower() == desktop-file-name (cheap fallback)
+     */
+    QString iconName;
+
+    for (QString path: appDirs)
+    {
+        /** Get the icon name from desktop (mAppId: as it is) */
+        if (QFile::exists(path + mAppId + U8Str(".desktop")))
+        {
+            QSettings desktop(path + mAppId + U8Str(".desktop"), QSettings::IniFormat);
+            iconName = desktop.value(U8Str("Desktop Entry/Icon")).toString();
+        }
+
+        /** Get the icon name from desktop (mAppId: all lower-case letters) */
+        else if (QFile::exists(path + mAppId.toLower() + U8Str(".desktop")))
+        {
+            QSettings desktop(path + mAppId.toLower() + U8Str(".desktop"), QSettings::IniFormat);
+            iconName = desktop.value(U8Str("Desktop Entry/Icon")).toString();
+        }
+
+        /** No icon specified: try else-where */
+        if (iconName.isEmpty())
+        {
+            continue;
+        }
+
+        /** We got an iconName, and it's in the current theme */
+        if (QIcon::hasThemeIcon(iconName))
+        {
+            return QIcon::fromTheme(iconName);
+        }
+
+        /** Not a theme icon, but an absolute path */
+        else if (QFile::exists(iconName))
+        {
+            return QIcon(iconName);
+        }
+
+        /** Not theme icon or absolute path. So check /usr/share/pixmaps/ */
+        else
+        {
+            iconName = getPixmapIcon(iconName);
+
+            if (not iconName.isEmpty())
+            {
+                return QIcon(iconName);
+            }
+        }
+    }
+
+    /* Check all desktop files for @mAppId */
+    for (QString path: appDirs)
+    {
+        QStringList desktops = QDir(path).entryList({ U8Str("*.desktop") });
+        for (QString dskf: desktops)
+        {
+            QSettings desktop(path + dskf, QSettings::IniFormat);
+
+            QString exec = desktop.value(U8Str("Desktop Entry/Exec"), U8Str("abcd1234/-")).toString();
+            QString name = desktop.value(U8Str("Desktop Entry/Name"), U8Str("abcd1234/-")).toString();
+            QString cls  = desktop.value(U8Str("Desktop Entry/StartupWMClass"), U8Str("abcd1234/-")).toString();
+
+            QString execPath = U8Str(std::filesystem::path(exec.toStdString()).filename().c_str());
+
+            if (mAppId.compare(execPath, Qt::CaseInsensitive) == 0)
+            {
+                iconName = desktop.value(U8Str("Desktop Entry/Icon")).toString();
+            }
+
+            else if (mAppId.compare(name, Qt::CaseInsensitive) == 0)
+            {
+                iconName = desktop.value(U8Str("Desktop Entry/Icon")).toString();
+            }
+
+            else if (mAppId.compare(cls, Qt::CaseInsensitive) == 0)
+            {
+                iconName = desktop.value(U8Str("Desktop Entry/Icon")).toString();
+            }
+
+            if (not iconName.isEmpty())
+            {
+                if (QIcon::hasThemeIcon(iconName))
+                {
+                    return QIcon::fromTheme(iconName);
+                }
+
+                else if (QFile::exists(iconName))
+                {
+                    return QIcon(iconName);
+                }
+
+                else
+                {
+                    iconName = getPixmapIcon(iconName);
+
+                    if (not iconName.isEmpty())
+                    {
+                        return QIcon(iconName);
+                    }
+                }
+            }
+        }
+    }
+
+    iconName = getPixmapIcon(iconName);
+
+    if (not iconName.isEmpty())
+    {
+        return QIcon(iconName);
+    }
+
+    return QIcon();
+}
+
+
 static inline wl_seat *get_seat()
 {
     QPlatformNativeInterface *native = QGuiApplication::platformNativeInterface();
@@ -116,13 +296,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_app_id(const QStr
     m_pendingState.appIdChanged = true;
 
     /** Update the icon */
-    this->icon = XdgIcon::fromTheme(app_id);
-
-    /** Sometimes, appId can be capitalized, for example, Pulsar. So try lower-case. */
-    if (this->icon.pixmap(64).width() == 0)
-    {
-        this->icon = XdgIcon::fromTheme(app_id.toLower());
-    }
+    this->icon = getIconForAppId(app_id);
 
     /** We did not get any icon from app-id. Let's use application-x-executable */
     if (this->icon.pixmap(64).width() == 0)
