@@ -141,7 +141,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
-        <translation>Сбросить</translation>
+        <translation>Сброс</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>

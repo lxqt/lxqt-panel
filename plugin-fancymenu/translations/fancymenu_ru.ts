@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation>Сбросить</translation>
+        <translation>Сброс</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtfancymenu.cpp" line="93"/>
         <source>Show/hide main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar/anubrir menú principal</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Toles aplicaciones</translation>
     </message>
 </context>
 <context>
@@ -32,17 +32,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Xenerales</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Iconu:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Testu del botón:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
@@ -67,12 +67,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
         <source>Menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheru del menú</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheru del menú:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
@@ -87,7 +87,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Guetar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
@@ -107,12 +107,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición de les categoríes</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reafitar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imáxenes (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheros del menú (*.menu)</translation>
     </message>
 </context>
 <context>
@@ -160,12 +160,12 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Guetar…</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centru de configuración del LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Tocante al LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
@@ -211,7 +211,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
@@ -231,7 +231,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nun se pue alcontrar l’executable &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

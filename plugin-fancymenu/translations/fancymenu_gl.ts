@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation>Todas as Aplicacións</translation>
+        <translation>Todas as aplicacións</translation>
     </message>
 </context>
 <context>
