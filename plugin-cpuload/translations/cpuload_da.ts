@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="127"/>
+        <location filename="../lxqtcpuload.cpp" line="126"/>
         <source>CPU load %1%</source>
         <translation>CPU-belastning %1%</translation>
     </message>

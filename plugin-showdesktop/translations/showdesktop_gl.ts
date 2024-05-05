@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="44"/>
+        <location filename="../showdesktop.cpp" line="43"/>
         <source>Show desktop</source>
         <translation>Amosar o escritorio</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="66"/>
+        <location filename="../showdesktop.cpp" line="65"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Amosar o escritorio: Non é posíbel rexistrar o atallo global «%1»</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="51"/>
+        <location filename="../showdesktop.cpp" line="50"/>
         <source>Show Desktop</source>
         <translation>Amosar o escritorio</translation>
     </message>

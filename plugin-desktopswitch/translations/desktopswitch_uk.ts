@@ -4,14 +4,14 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="88"/>
+        <location filename="../desktopswitch.cpp" line="99"/>
         <source>Switch to desktop %1</source>
         <translatorcomment>Перейти на стільницю %1 </translatorcomment>
         <translation>Перемкнутися до стільниці %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="149"/>
         <location filename="../desktopswitch.cpp" line="160"/>
+        <location filename="../desktopswitch.cpp" line="171"/>
         <source>Desktop %1</source>
         <translation>Стільниця %1</translation>
     </message>
