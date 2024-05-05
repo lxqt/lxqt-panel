@@ -267,7 +267,7 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
@@ -343,7 +343,7 @@ Colorize icons based on widget style (palette)</source>
 Вы также возможно захотите отключить:
 
 Настройка внешнего вида LXQt →
-Тема Значков →
+Тема значков →
 Цвет значков в соответствии с палитрой виджетов</translation>
     </message>
     <message>

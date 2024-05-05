@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation>Reiniciar</translation>
+        <translation>Restablecer</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
@@ -207,7 +207,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
         <source>The file cannot be overwritten.</source>
-        <translation>El archivo no puede ser sobrescrito.</translation>
+        <translation>El archivo no puede sobrescribirse.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
@@ -227,7 +227,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
         <source>No Executable</source>
-        <translation>No Ejecutable</translation>
+        <translation>Ningún ejecutable</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
