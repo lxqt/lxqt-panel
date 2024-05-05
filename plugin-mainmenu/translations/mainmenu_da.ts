@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="113"/>
+        <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Search...</source>
         <translation>Søg...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="123"/>
+        <location filename="../lxqtmainmenu.cpp" line="124"/>
         <source>Show/hide main menu</source>
         <translation>Vis/skjul hovedmenu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="522"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Add to desktop</source>
         <translation>Tilføj til skrivebord</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>Question</source>
         <translation>Spørgsmål</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="532"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Der findes allerede en fil med det samme navn.
 Vil du overskrive den?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>The file cannot be overwritten.</source>
         <translation>Filen kan ikke overskrives.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="544"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Copy</source>
         <translation>Kopiér</translation>
     </message>

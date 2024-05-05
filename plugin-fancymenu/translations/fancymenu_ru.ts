@@ -158,79 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
         <translation>Найти...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
         <translation>Центр настройки LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
         <translation>Выйти</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
         <translation>Нажатие правой кнопкой мыши по категории добавляет её в избранное.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>Add to desktop</source>
         <translation>Добавить на рабочий стол</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
         <source>Question</source>
         <translation>Вопрос</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Файл с тем же именем уже существует.
 Вы хотите перезаписать его?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
         <source>The file cannot be overwritten.</source>
         <translation>Файл не может быть перезаписан.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
         <source>Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
         <translation>Убрать из Избранного</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
         <translation>Добавить в Избранное</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
         <translation>Не исполняемый</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>Исполняемый файл &lt;b&gt;%1&lt;/b&gt; не найден.</translation>
     </message>

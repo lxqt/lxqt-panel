@@ -376,45 +376,45 @@ Obarvit ikony podle stylu prvku (paleta)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1176"/>
-        <location filename="../lxqtpanel.cpp" line="1202"/>
+        <location filename="../lxqtpanel.cpp" line="1325"/>
+        <location filename="../lxqtpanel.cpp" line="1351"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1205"/>
+        <location filename="../lxqtpanel.cpp" line="1354"/>
         <source>Configure Panel</source>
         <translation>Nastavit panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1210"/>
+        <location filename="../lxqtpanel.cpp" line="1359"/>
         <source>Manage Widgets</source>
         <translation>Spravovat ovládací prvky</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1216"/>
+        <location filename="../lxqtpanel.cpp" line="1365"/>
         <source>Add New Panel</source>
         <translation>Přidat nový panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1223"/>
+        <location filename="../lxqtpanel.cpp" line="1372"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Odstranit panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1228"/>
+        <location filename="../lxqtpanel.cpp" line="1377"/>
         <source>Lock This Panel</source>
         <translation>Zamknout tento panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1384"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Odstranit panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1534"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Odstranění panelu nelze vrátit zpět.

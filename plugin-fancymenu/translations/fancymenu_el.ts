@@ -158,79 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
         <translation>Αναζήτηση...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
         <translation>Κέντρο διαμόρφωσης LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
         <translation>Περί του LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
         <translation>Προσθήκη σελιδοδεικτών με δεξί κλικ στα αντικείμενα στις κατηγορίες.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>Add to desktop</source>
         <translation>Προσθήκη στην επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
         <source>Question</source>
         <translation>Ερώτηση</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Ένα αρχείο με το ίδιο όνομα υπάρχει ήδη.
 Επιθυμείτε να το αντικαταστήσετε;</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
         <source>Warning</source>
         <translation>Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
         <source>The file cannot be overwritten.</source>
         <translation>Το αρχείο δεν μπορεί να αντικατασταθεί.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
         <source>Copy</source>
         <translation>Αντιγραφή</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
         <translation>Αφαίρεση από τους σελιδοδείκτες</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
         <translation>Προσθήκη στους σελιδοδείκτες</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
         <translation>Μη εκτελέσιμο</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>Αδύνατη η εύρεση του εκτελέσιμου &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>

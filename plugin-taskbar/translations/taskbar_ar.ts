@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="681"/>
+        <location filename="../lxqttaskbar.cpp" line="689"/>
         <source>Activate task %1</source>
         <translation>فعّل المهمة %1</translation>
     </message>
@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="674"/>
+        <location filename="../lxqttaskbutton.cpp" line="739"/>
         <source>Application</source>
         <translation>التطبيق</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="708"/>
+        <location filename="../lxqttaskbutton.cpp" line="773"/>
         <source>To &amp;Desktop</source>
         <translation>إلى س&amp;طح المكتب</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="710"/>
+        <location filename="../lxqttaskbutton.cpp" line="775"/>
         <source>&amp;All Desktops</source>
         <translation>&amp;كل أسطح المكتب</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="720"/>
+        <location filename="../lxqttaskbutton.cpp" line="785"/>
         <source>Desktop &amp;%1</source>
         <translation>سطح المكتب &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="730"/>
+        <location filename="../lxqttaskbutton.cpp" line="795"/>
         <source>&amp;To Current Desktop</source>
         <translation>إ&amp;لى سطح المكتب الحالي</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="739"/>
+        <location filename="../lxqttaskbutton.cpp" line="804"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation>الانتقال إلى جهاز العرض التالي</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="742"/>
+        <location filename="../lxqttaskbutton.cpp" line="807"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>الانتقال إلى جهاز العرض السابق</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="746"/>
+        <location filename="../lxqttaskbutton.cpp" line="811"/>
         <source>&amp;Move</source>
         <translation>ا&amp;نقل</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="749"/>
+        <location filename="../lxqttaskbutton.cpp" line="814"/>
         <source>Resi&amp;ze</source>
         <translation>&amp;غيّر المقاس</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="756"/>
+        <location filename="../lxqttaskbutton.cpp" line="821"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;كبّر</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="763"/>
+        <location filename="../lxqttaskbutton.cpp" line="828"/>
         <source>Maximize vertically</source>
         <translation>كبّر رأسيا</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="768"/>
+        <location filename="../lxqttaskbutton.cpp" line="833"/>
         <source>Maximize horizontally</source>
         <translation>كبّر أفقيا</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="774"/>
+        <location filename="../lxqttaskbutton.cpp" line="839"/>
         <source>&amp;Restore</source>
         <translation>ا&amp;ستعِد</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="778"/>
+        <location filename="../lxqttaskbutton.cpp" line="843"/>
         <source>Mi&amp;nimize</source>
         <translation>&amp;صغّر</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="784"/>
+        <location filename="../lxqttaskbutton.cpp" line="849"/>
         <source>Roll down</source>
         <translation>لُفّ لأسفل</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="790"/>
+        <location filename="../lxqttaskbutton.cpp" line="855"/>
         <source>Roll up</source>
         <translation>لُفّ لأعلى</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="798"/>
+        <location filename="../lxqttaskbutton.cpp" line="863"/>
         <source>&amp;Layer</source>
         <translation>ال&amp;طبقة</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="800"/>
+        <location filename="../lxqttaskbutton.cpp" line="865"/>
         <source>Always on &amp;top</source>
         <translation>&amp;فوق الكل دائما</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="806"/>
+        <location filename="../lxqttaskbutton.cpp" line="871"/>
         <source>&amp;Normal</source>
         <translation>&amp;عادي</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="812"/>
+        <location filename="../lxqttaskbutton.cpp" line="877"/>
         <source>Always on &amp;bottom</source>
         <translation>&amp;تحت الكل دائما</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="820"/>
+        <location filename="../lxqttaskbutton.cpp" line="885"/>
         <source>&amp;Close</source>
         <translation>أ&amp;غلِق</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="82"/>
+        <location filename="../lxqttaskgroup.cpp" line="85"/>
         <source>Group</source>
         <translation>المجموعة</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="84"/>
+        <location filename="../lxqttaskgroup.cpp" line="87"/>
         <source>Close group</source>
         <translation>أغلِق المجموعة</translation>
     </message>

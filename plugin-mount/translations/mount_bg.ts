@@ -37,23 +37,23 @@
         <translation>При натискане на бутона за извеждане на устройство:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="60"/>
         <source>Popup menu</source>
         <translation>Изскачащо меню</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="61"/>
         <source>Show info</source>
         <translation>Показване на информация</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="46"/>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="62"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Do nothing</source>
         <translation>Без извършване на действие</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="52"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
         <translation>Извеждане на всички оптични устройства</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="68"/>
+        <location filename="../popup.cpp" line="67"/>
         <source>No devices are available</source>
         <translation>Не са налични устройства</translation>
     </message>
