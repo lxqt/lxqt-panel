@@ -96,7 +96,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation>Макс. ширина поле:</translation>
+        <translation>Максимална ширина на поле:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
@@ -136,7 +136,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Натисни бутона за запис на комбинация:</translation>
+        <translation>Натиснете бутона за запис на комбинация:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>

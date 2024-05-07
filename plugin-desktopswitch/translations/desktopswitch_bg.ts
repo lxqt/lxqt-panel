@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch settings</source>
-        <translation>Настройки на DesktopSwitch</translation>
+        <translation>Настройки за превключване на плота</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Надписи на десктопа:</translation>
+        <translation>Етикет:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation>Номера</translation>
+        <translation>Номер</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation>Имена</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Ако опцията е избрана, добавката ще бъде само индикатор</translation>
+        <translation>Ако опцията е избрана, панелът ще бъде само индикатор</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Имена на плот</translation>
+        <translation>Име на плот</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="71"/>
