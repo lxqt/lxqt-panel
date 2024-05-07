@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Информирай при промяна на звука с клавиатурата</translation>
+        <translation>Информиране при промяна на звука с клавиатурата</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
