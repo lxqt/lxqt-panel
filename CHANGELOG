@@ -1,3 +1,8 @@
+lxqt-panel-2.0.1 / 2024-05-08
+==============================
+ * Fixed a runtime failure in the plugin loader.
+ * Workaround for Removable Media plugin with a GLib-mounted encrypted volume.
+
 lxqt-panel-2.0.0 / 2024-04-17
 ==============================
  * Added Fancy Menu plugin.
