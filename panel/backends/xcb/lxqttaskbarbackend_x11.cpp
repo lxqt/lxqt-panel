@@ -520,6 +520,25 @@ bool LXQtTaskbarX11Backend::isWindowOnScreen(QScreen *screen, WId windowId) cons
     return screen->geometry().intersects(r);
 }
 
+bool LXQtTaskbarX11Backend::setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft)
+{
+    NETRootInfo mDesktops(m_xcbConnection, NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout);
+
+    if (orientation == Qt::Horizontal)
+    {
+        mDesktops.setDesktopLayout(NET::OrientationHorizontal,
+                                   columns, rows,
+                                   rightToLeft ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+    }
+    else
+    {
+        mDesktops.setDesktopLayout(NET::OrientationHorizontal,
+                                   rows, columns,
+                                   rightToLeft ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+    }
+    return true;
+}
+
 /************************************************
  *   X11 Specific
  ************************************************/

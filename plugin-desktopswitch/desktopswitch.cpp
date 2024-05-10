@@ -245,14 +245,9 @@ void DesktopSwitch::settingsChanged()
         // "DesktopSwitch::realign()". Therefore, the desktop layout should not be changed
         // inside the latter method.
         int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
-        if (panel()->isHorizontal())
-        {
-            //mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
-        else
-        {
-            //mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
+        mBackend->setDesktopLayout(panel()->isHorizontal() ? Qt::Horizontal : Qt::Vertical,
+                                   mRows, columns, mWidget.isRightToLeft());
+
         realign(); // in case it isn't called when the desktop layout changes
     }
     if (need_refresh)

@@ -60,6 +60,8 @@ public:
 
     virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const = 0;
 
+    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft) = 0;
+
     // X11 Specific
     virtual void moveApplication(WId windowId) = 0;
     virtual void resizeApplication(WId windowId) = 0;
