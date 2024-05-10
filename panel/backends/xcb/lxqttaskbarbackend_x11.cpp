@@ -40,10 +40,18 @@ LXQtTaskbarX11Backend::LXQtTaskbarX11Backend(QObject *parent)
 void LXQtTaskbarX11Backend::onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2)
 {
     if(!m_windows.contains(windowId))
+    {
+        // If already known window changes its property in a way
+        // it's now acceptable, add it again to taskbar
+        if(acceptWindow(windowId))
+            onWindowAdded(windowId);
         return;
+    }
 
     if(!acceptWindow(windowId))
     {
+        // If already known window changes its property in a way
+        // it's not anymore accepted, remove it from taskbar
         onWindowRemoved(windowId);
         return;
     }
