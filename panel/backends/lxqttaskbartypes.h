@@ -14,7 +14,8 @@ enum class LXQtTaskBarBackendAction
     MaximizeHorizontally,
     Minimize,
     RollUp,
-    FullScreen
+    FullScreen,
+    DesktopSwitch
 };
 
 enum class LXQtTaskBarWindowProperty

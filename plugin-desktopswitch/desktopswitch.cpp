@@ -318,11 +318,12 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 
 ILXQtPanelPlugin *DesktopSwitchPluginLibrary::instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
 {
-    return new DesktopSwitch{startupInfo};
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a ? a->getWMBackend() : nullptr;
+    if(!wmBackend || !wmBackend->supportsAction(0, LXQtTaskBarBackendAction::DesktopSwitch))
+        return new DesktopSwitchUnsupported{startupInfo};
 
-    //TODO: detect dummy backend and show unsupported message?
-    // Or instead remove it and make just a message box at application start
-    //return new DesktopSwitchUnsupported{startupInfo};
+    return new DesktopSwitch{startupInfo};
 }
 
 DesktopSwitchUnsupported::DesktopSwitchUnsupported(const ILXQtPanelPluginStartupInfo &startupInfo)

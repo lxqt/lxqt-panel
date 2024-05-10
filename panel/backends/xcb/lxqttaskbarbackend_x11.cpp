@@ -202,6 +202,9 @@ bool LXQtTaskbarX11Backend::supportsAction(WId windowId, LXQtTaskBarBackendActio
         x11Action = NET::ActionFullScreen;
         break;
 
+    case LXQtTaskBarBackendAction::DesktopSwitch:
+        return true;
+
     default:
         return false;
     }
