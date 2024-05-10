@@ -131,7 +131,7 @@ bool LXQtTaskBarDummyBackend::isWindowOnScreen(QScreen *, WId) const
     return false;
 }
 
-bool setDesktopLayout(Qt::Orientation, int, int, bool)
+bool LXQtTaskBarDummyBackend::setDesktopLayout(Qt::Orientation, int, int, bool)
 {
     return false;
 }
