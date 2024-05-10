@@ -123,7 +123,7 @@ void DesktopSwitch::shortcutRegistered()
 
 void DesktopSwitch::onWindowChanged(WId id, int prop)
 {
-    if (prop == int(LXQtTaskBarWindowProperty::State) && isWindowHighlightable(id))
+    if (prop == int(LXQtTaskBarWindowProperty::State))
     {
         int desktop = mBackend->getWindowWorkspace(id);
         if (desktop == int(LXQtTaskBarWorkspace::ShowOnAll))
@@ -177,13 +177,6 @@ void DesktopSwitch::refresh()
         mWidget.layout()->removeWidget(b);
         delete b;
     }
-}
-
-bool DesktopSwitch::isWindowHighlightable(WId)
-{
-    // Backend should emit signals only for higlightable windows and ignore others
-    // TODO: check
-    return true;
 }
 
 DesktopSwitch::~DesktopSwitch() = default;
