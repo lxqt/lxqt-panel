@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="44"/>
+        <location filename="../showdesktop.cpp" line="43"/>
         <source>Show desktop</source>
         <translation>Näita töölauda</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="66"/>
+        <location filename="../showdesktop.cpp" line="65"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Näita töölauda: üldist kiirklahvi „%1“ ei õnnestu salvestada</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="51"/>
+        <location filename="../showdesktop.cpp" line="50"/>
         <source>Show Desktop</source>
         <translation>Näita töölauda</translation>
     </message>

@@ -37,23 +37,23 @@
         <translation>當退出按鈕按下時：</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="60"/>
         <source>Popup menu</source>
         <translation>彈出式選單</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="61"/>
         <source>Show info</source>
         <translation>顯示資訊</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="46"/>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="62"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Do nothing</source>
         <translation>什麼都不做</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="52"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
         <translation>退出所有光碟</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="68"/>
+        <location filename="../popup.cpp" line="67"/>
         <source>No devices are available</source>
         <translation>沒有可用裝置</translation>
     </message>

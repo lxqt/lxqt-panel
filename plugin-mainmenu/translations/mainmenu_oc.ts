@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="113"/>
+        <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Search...</source>
         <translation>Cercar...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="123"/>
+        <location filename="../lxqtmainmenu.cpp" line="124"/>
         <source>Show/hide main menu</source>
         <translation>Afichar/Amagar lo menú principal</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="522"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Add to desktop</source>
         <translation>Apondre al burèu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>Question</source>
         <translation>Question</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="532"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichièr amb aqueste nom existís ja.
 Lo volètz remplaçar&#x202f;?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Warning</source>
         <translation>Avertiment</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>The file cannot be overwritten.</source>
         <translation>Lo fichièr pòt pas èsser remplaçat.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="544"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>

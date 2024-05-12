@@ -34,7 +34,7 @@
         <translation>Настройка QEyes</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="98"/>
+        <location filename="../qeyesconfigdialog.cpp" line="103"/>
         <source>QEyes default</source>
         <translation>Стандартно для QEyes</translation>
     </message>

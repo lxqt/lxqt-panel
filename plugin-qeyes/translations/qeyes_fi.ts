@@ -34,7 +34,7 @@
         <translation>QEyesin asetukset</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="98"/>
+        <location filename="../qeyesconfigdialog.cpp" line="103"/>
         <source>QEyes default</source>
         <translation>QEyesin oletus</translation>
     </message>

@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="227"/>
+        <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
         <translation>Ne pas tenir compte de l&apos;erreur</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="228"/>
+        <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Le fichier/l&apos;URL &apos;%1&apos; ne peut pas être inclus dans le lancement rapide pour l&apos;instant</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="334"/>
+        <location filename="../lxqtquicklaunch.cpp" line="336"/>
         <source>Drop application
 icons here</source>
         <translation>Déposer les icônes

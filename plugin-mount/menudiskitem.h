@@ -44,7 +44,7 @@ public:
     ~MenuDiskItem();
 
     QString deviceUdi() const { return mDevice.udi(); }
-    void setMountStatus(bool mounted);
+    void setMountStatus();
 
 private:
     void updateMountStatus();

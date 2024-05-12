@@ -267,7 +267,7 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
@@ -343,7 +343,7 @@ Colorize icons based on widget style (palette)</source>
 Вы также возможно захотите отключить:
 
 Настройка внешнего вида LXQt →
-Тема Значков →
+Тема значков →
 Цвет значков в соответствии с палитрой виджетов</translation>
     </message>
     <message>
@@ -376,45 +376,45 @@ Colorize icons based on widget style (palette)</source>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1176"/>
-        <location filename="../lxqtpanel.cpp" line="1202"/>
+        <location filename="../lxqtpanel.cpp" line="1325"/>
+        <location filename="../lxqtpanel.cpp" line="1351"/>
         <source>Panel</source>
         <translation>Панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1205"/>
+        <location filename="../lxqtpanel.cpp" line="1354"/>
         <source>Configure Panel</source>
         <translation>Настроить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1210"/>
+        <location filename="../lxqtpanel.cpp" line="1359"/>
         <source>Manage Widgets</source>
         <translation>Управление виджетами</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1216"/>
+        <location filename="../lxqtpanel.cpp" line="1365"/>
         <source>Add New Panel</source>
         <translation>Добавить новую панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1223"/>
+        <location filename="../lxqtpanel.cpp" line="1372"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Удалить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1228"/>
+        <location filename="../lxqtpanel.cpp" line="1377"/>
         <source>Lock This Panel</source>
         <translation>Закрепить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1384"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Удалить панель</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1534"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Удаление панели не может быть отменено.

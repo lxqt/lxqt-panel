@@ -4,12 +4,12 @@
 <context>
     <name>ColorPickerWidget</name>
     <message>
-        <location filename="../colorpicker.cpp" line="209"/>
+        <location filename="../colorpicker.cpp" line="222"/>
         <source>Clear list</source>
         <translation>Svuota lista</translation>
     </message>
     <message>
-        <location filename="../colorpicker.cpp" line="239"/>
+        <location filename="../colorpicker.cpp" line="252"/>
         <source>empty</source>
         <translation>vuoto</translation>
     </message>

@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="211"/>
         <source>Use %1 to display command output</source>
-        <translation>Използвайте %1 за да покажете изходът от командата</translation>
+        <translation>Използвайте %1, за да покажете изходът от командата</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="145"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Командата извежда изображение</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="268"/>
         <source>Click</source>
-        <translation>Клик</translation>
+        <translation>Кликване</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="299"/>
