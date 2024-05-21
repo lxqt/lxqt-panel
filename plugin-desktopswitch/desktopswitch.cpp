@@ -58,7 +58,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mRows(-1),
     mShowOnlyActive(false),
     mDesktops(nullptr),
-    mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
+    mLabelType(DesktopSwitchButton::LABEL_TYPE_INVALID)
 {
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
     Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
