@@ -36,6 +36,7 @@ static const QLatin1String FavoritesDragMimeType("application/x-lxqtfavoritesdra
 
 LXQtFancyMenuAppModel::LXQtFancyMenuAppModel(QObject *parent)
     : QAbstractListModel(parent)
+    , mAppMap(nullptr)
     , mCurrentCategory(0)
     , mInSearch(false)
 {
