@@ -63,7 +63,7 @@ public:
     void setKeeperType(KeeperType type) const;
 
 private:
-    PluginSettings *m_settings;
+    PluginSettings *m_settings{nullptr};
 };
 
 #endif
