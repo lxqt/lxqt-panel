@@ -7,7 +7,7 @@
         <location filename="../src/content.cpp" line="46"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="49"/>
@@ -19,7 +19,7 @@
         <location filename="../src/content.cpp" line="53"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="55"/>
@@ -31,7 +31,7 @@
         <location filename="../src/content.cpp" line="60"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="62"/>
