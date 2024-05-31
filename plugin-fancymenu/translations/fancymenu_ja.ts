@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation>カテゴリの中から項目を右クリックでお気に入りを追加します。</translation>
+        <translation>カテゴリの中から項目を右クリックでお気に入りに追加します。</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
