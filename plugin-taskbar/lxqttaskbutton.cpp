@@ -30,7 +30,7 @@
 #include "lxqttaskbutton.h"
 #include "lxqttaskbar.h"
 
-#include "ilxqtpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 
 #include <LXQt/Settings>
 
