@@ -115,7 +115,14 @@ LXQtSysStatContent::LXQtSysStatContent(ILXQtPanelPlugin *plugin, QWidget *parent
     mStat(nullptr),
     mUpdateInterval(0),
     mMinimalSize(0),
+    mGridLines(0),
     mTitleFontPixelHeight(0),
+    mUseFrequency(true),
+    mNetMaximumSpeed(0),
+    mNetRealMaximumSpeed(0),
+    mLogarithmicScale(true),
+    mLogScaleSteps(0),
+    mLogScaleMax(0),
     mUseThemeColours(true),
     mHistoryOffset(0)
 {

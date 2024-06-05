@@ -288,8 +288,8 @@ private:
 private:
     struct xkb_context    *m_context    = nullptr;
     xcb_connection_t      *m_connection = nullptr;
-    int32_t                m_deviceId;
-    uint8_t                m_eventType;
+    int32_t                m_deviceId   = 0;
+    uint8_t                m_eventType  = 0;
     xkb_state             *m_state      = nullptr;
     xkb_keymap            *m_keymap     = nullptr;
     ::X11Kbd              *m_pub;

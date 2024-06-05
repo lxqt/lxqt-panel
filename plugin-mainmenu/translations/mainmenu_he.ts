@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="113"/>
+        <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Search...</source>
         <translation>חיפוש…</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="123"/>
+        <location filename="../lxqtmainmenu.cpp" line="124"/>
         <source>Show/hide main menu</source>
         <translation>הצגת/הסתרת תפריט ראשי</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="522"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Add to desktop</source>
         <translation>הוספה לשולחן העבודה</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>Question</source>
         <translation>שאלה</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="532"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>כבר קיים קובץ בשם הזה.
 לשכתב אותו?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Warning</source>
         <translation>אזהרה</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>The file cannot be overwritten.</source>
         <translation>לא ניתן לשכתב את הקובץ.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="544"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Copy</source>
         <translation>העתקה</translation>
     </message>

@@ -320,7 +320,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Прозрачност на панела изисква композитен мениджър.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Прозрачност на панела изисква програма за изграждане на ефекти.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
@@ -370,45 +370,45 @@ Colorize icons based on widget style (palette)</source>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1176"/>
-        <location filename="../lxqtpanel.cpp" line="1202"/>
+        <location filename="../lxqtpanel.cpp" line="1325"/>
+        <location filename="../lxqtpanel.cpp" line="1351"/>
         <source>Panel</source>
         <translation>Панел</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1205"/>
+        <location filename="../lxqtpanel.cpp" line="1354"/>
         <source>Configure Panel</source>
         <translation>Конфигуриране на панела</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1210"/>
+        <location filename="../lxqtpanel.cpp" line="1359"/>
         <source>Manage Widgets</source>
         <translation>Управление на приставки</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1216"/>
+        <location filename="../lxqtpanel.cpp" line="1365"/>
         <source>Add New Panel</source>
         <translation>Добавяне на нов панел</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1223"/>
+        <location filename="../lxqtpanel.cpp" line="1372"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Премахване на панел</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1228"/>
+        <location filename="../lxqtpanel.cpp" line="1377"/>
         <source>Lock This Panel</source>
         <translation>Заключване на панела</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1384"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Премахване на панел</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1534"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Премахването на панел е необратимо.

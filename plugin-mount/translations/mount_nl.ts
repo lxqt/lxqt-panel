@@ -37,23 +37,23 @@
         <translation>Na indrukken van uitwerpsneltoets:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="60"/>
         <source>Popup menu</source>
         <translation>Uitklapmenu</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="61"/>
         <source>Show info</source>
         <translation>Informatie tonen</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="46"/>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="62"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Do nothing</source>
         <translation>Niets doen</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="52"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
         <translation>Alle optische schijven uitwerpen</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="68"/>
+        <location filename="../popup.cpp" line="67"/>
         <source>No devices are available</source>
         <translation>Er zijn geen apparaten beschikbaar</translation>
     </message>

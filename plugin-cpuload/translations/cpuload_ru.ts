@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="127"/>
+        <location filename="../lxqtcpuload.cpp" line="126"/>
         <source>CPU load %1%</source>
         <translation>Загрузка процессора %1%</translation>
     </message>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Интервал обновления:</translation>
+        <translation>Период обновления:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>

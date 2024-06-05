@@ -100,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="59"/>
+        <location filename="../volumepopup.cpp" line="58"/>
         <source>Launch mixer</source>
         <translation>Starta mixer</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="60"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Mi&amp;xer</source>
         <translation>Mi&amp;xer</translation>
     </message>

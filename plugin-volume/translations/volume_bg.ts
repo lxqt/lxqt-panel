@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Информирай при промяна на звука с клавиатурата</translation>
+        <translation>Информиране при промяна на звука с клавиатурата</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
@@ -100,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="59"/>
+        <location filename="../volumepopup.cpp" line="58"/>
         <source>Launch mixer</source>
         <translation>Стартиране на миксер</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="60"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Миксер</translation>
     </message>

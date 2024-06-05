@@ -181,9 +181,10 @@ private:
 
  ************************************************/
 LayoutItemGrid::LayoutItemGrid()
+    : mColCount(0),
+      mLineSize(0),
+      mHoriz(true)
 {
-    mLineSize = 0;
-    mHoriz = true;
     clear();
 }
 

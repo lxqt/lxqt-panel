@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="44"/>
+        <location filename="../showdesktop.cpp" line="43"/>
         <source>Show desktop</source>
         <translation>Mostrar área de trabalho</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="66"/>
+        <location filename="../showdesktop.cpp" line="65"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Exibir Área De Trabalho: Atalho Global &apos;%1&apos; não pode ser registrado</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="51"/>
+        <location filename="../showdesktop.cpp" line="50"/>
         <source>Show Desktop</source>
         <translation>Exibir Área de Trabalho</translation>
     </message>

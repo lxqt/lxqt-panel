@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="113"/>
+        <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Search...</source>
         <translation>Hľadať...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="123"/>
+        <location filename="../lxqtmainmenu.cpp" line="124"/>
         <source>Show/hide main menu</source>
         <translation>Zobraziť/skryť hlavné menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="522"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Add to desktop</source>
         <translation>Pridať na plochu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>Question</source>
         <translation>Otázka</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="532"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Súbor s rovnakým názvom už existuje.
 Prajete si ho prepísať?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Warning</source>
         <translation>Upozornenie</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>The file cannot be overwritten.</source>
         <translation>Súbor nie je možné prepísať.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="544"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Copy</source>
         <translation>Kopírovať</translation>
     </message>

@@ -52,7 +52,8 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     m_desktopCount(0),
     mRows(-1),
     mShowOnlyActive(false),
-    mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
+    mDesktops(nullptr),
+    mLabelType(DesktopSwitchButton::LABEL_TYPE_INVALID)
 {
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     mBackend = a->getWMBackend();

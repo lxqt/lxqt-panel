@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.18.0 FATAL_ERROR)
 # CMP0000: Call the cmake_minimum_required() command at the beginning of the top-level
 # CMakeLists.txt file even before calling the project() command.
 # The cmake_minimum_required(VERSION) command implicitly invokes the cmake_policy(VERSION)
@@ -46,7 +46,7 @@ find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(LayerShellQt REQUIRED)
 
 # Patch Version
-set(LXQT_PANEL_PATCH_VERSION 0)
+set(LXQT_PANEL_PATCH_VERSION 1)
 set(LXQT_PANEL_VERSION ${LXQT_MAJOR_VERSION}.${LXQT_MINOR_VERSION}.${LXQT_PANEL_PATCH_VERSION})
 add_definitions("-DLXQT_PANEL_VERSION=\"${LXQT_PANEL_VERSION}\"")
 

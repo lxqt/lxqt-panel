@@ -37,23 +37,23 @@
         <translation>Eject-painiketta painettaessa:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="60"/>
         <source>Popup menu</source>
         <translation>Näytä valikko</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="61"/>
         <source>Show info</source>
         <translation>Näytä ilmoitus</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="46"/>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="62"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Do nothing</source>
         <translation>Älä tee mitään</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="52"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
         <translation>Poista kaikki optiset levyt</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="68"/>
+        <location filename="../popup.cpp" line="67"/>
         <source>No devices are available</source>
         <translation>Ei laitteita</translation>
     </message>
