@@ -30,6 +30,9 @@
 #include "../panel/lxqtpanelapplication.h"
 #include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
+#include <KX11Extras>
+#include <QTimer>
+
 DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::DesktopSwitchConfiguration)
@@ -76,14 +79,19 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
 
         //TODO: on Wayland we cannot set desktop names in a standart way
         // On KWin we could use DBus org.kde.KWin as done by kcm_kwin_virtualdesktops
-        edit->setReadOnly(true);
-
-        // C++11 rocks!
-        //QTimer *timer = new QTimer(this);
-        //timer->setInterval(400);
-        //timer->setSingleShot(true);
-        //connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
-        //connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
+        if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        {
+            // C++11 rocks!
+            QTimer *timer = new QTimer(this);
+            timer->setInterval(400);
+            timer->setSingleShot(true);
+            connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
+            connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
+        }
+        else
+        {
+            edit->setReadOnly(true);
+        }
     }
 }
 
