@@ -29,10 +29,8 @@
 #ifndef LXQTTASKBARPLUGIN_H
 #define LXQTTASKBARPLUGIN_H
 
-#include "../panel/ilxqtpanel.h"
 #include "../panel/ilxqtpanelplugin.h"
-#include "lxqttaskbar.h"
-#include <QDebug>
+
 class LXQtTaskBar;
 
 class LXQtTaskBarPlugin : public QObject, public ILXQtPanelPlugin
@@ -45,10 +43,10 @@ public:
     QString themeId() const { return QStringLiteral("TaskBar"); }
     virtual Flags flags() const { return HaveConfigDialog | NeedsHandle; }
 
-    QWidget *widget() { return mTaskBar; }
+    QWidget *widget();
     QDialog *configureDialog();
 
-    void settingsChanged() { mTaskBar->settingsChanged(); }
+    void settingsChanged();
     void realign();
 
     bool isSeparate() const { return true; }

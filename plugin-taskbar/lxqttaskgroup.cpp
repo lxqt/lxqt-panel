@@ -32,6 +32,8 @@
 #include "lxqttaskbar.h"
 #include "lxqtgrouppopup.h"
 
+#include "../panel/ilxqtpanelplugin.h"
+
 #include <QDebug>
 #include <QMimeData>
 #include <QFocusEvent>
@@ -39,11 +41,8 @@
 #include <QStringBuilder>
 #include <QMenu>
 #include <XdgIcon>
-#include <functional>
 
-#include <QGuiApplication> //For nativeInterface()
-#include <KX11Extras>
-#include <X11/Xlib.h>
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 /************************************************
 
@@ -60,14 +59,14 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     setObjectName(groupName);
     setText(groupName);
 
-    connect(this,                  &LXQtTaskGroup::clicked,               this, &LXQtTaskGroup::onClicked);
-    connect(KX11Extras::self(),    &KX11Extras::currentDesktopChanged,    this, &LXQtTaskGroup::onDesktopChanged);
-    connect(KX11Extras::self(),    &KX11Extras::activeWindowChanged,      this, &LXQtTaskGroup::onActiveWindowChanged);
-    connect(parent,                &LXQtTaskBar::buttonRotationRefreshed, this, &LXQtTaskGroup::setAutoRotation);
-    connect(parent,                &LXQtTaskBar::refreshIconGeometry,     this, &LXQtTaskGroup::refreshIconsGeometry);
-    connect(parent,                &LXQtTaskBar::buttonStyleRefreshed,    this, &LXQtTaskGroup::setToolButtonsStyle);
-    connect(parent,                &LXQtTaskBar::showOnlySettingChanged,  this, &LXQtTaskGroup::refreshVisibility);
-    connect(parent,                &LXQtTaskBar::popupShown,              this, &LXQtTaskGroup::groupPopupShown);
+    connect(this,   &LXQtTaskGroup::clicked,                           this, &LXQtTaskGroup::onClicked);
+    connect(parent, &LXQtTaskBar::buttonRotationRefreshed,             this, &LXQtTaskGroup::setAutoRotation);
+    connect(parent, &LXQtTaskBar::refreshIconGeometry,                 this, &LXQtTaskGroup::refreshIconsGeometry);
+    connect(parent, &LXQtTaskBar::buttonStyleRefreshed,                this, &LXQtTaskGroup::setToolButtonsStyle);
+    connect(parent, &LXQtTaskBar::showOnlySettingChanged,              this, &LXQtTaskGroup::refreshVisibility);
+    connect(parent, &LXQtTaskBar::popupShown,                          this, &LXQtTaskGroup::groupPopupShown);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
 }
 
 /************************************************
@@ -100,7 +99,7 @@ void LXQtTaskGroup::contextMenuEvent(QContextMenuEvent *event)
 void LXQtTaskGroup::closeGroup()
 {
     for (LXQtTaskButton *button : std::as_const(mButtonHash) )
-        if (button->isOnDesktop(KX11Extras::currentDesktop()))
+        if (button->isOnDesktop(mBackend->getCurrentWorkspace()))
             button->closeApplication();
 }
 
@@ -308,7 +307,7 @@ void LXQtTaskGroup::onClicked(bool)
 {
     if (visibleButtonsCount() > 1)
     {
-        setChecked(mButtonHash.contains(KX11Extras::activeWindow()));
+        setChecked(mButtonHash.contains(mBackend->getActiveWindow()));
         setPopupVisible(true);
     }
 }
@@ -387,7 +386,7 @@ void LXQtTaskGroup::refreshVisibility()
     const int showDesktop = taskbar->showDesktopNum();
     for(LXQtTaskButton * btn : std::as_const(mButtonHash))
     {
-        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? KX11Extras::currentDesktop() : showDesktop) : true;
+        bool visible = taskbar->isShowOnlyOneDesktopTasks() ? btn->isOnDesktop(0 == showDesktop ? mBackend->getCurrentWorkspace() : showDesktop) : true;
         visible &= taskbar->isShowOnlyCurrentScreenTasks() ? btn->isOnCurrentScreen() : true;
         visible &= taskbar->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);
@@ -447,13 +446,13 @@ void LXQtTaskGroup::refreshIconsGeometry()
 
     if (mSingleButton)
     {
-        refreshIconGeometry(rect);
+        mBackend->refreshIconGeometry(windowId(), rect);
         return;
     }
 
     for(LXQtTaskButton *but : std::as_const(mButtonHash))
     {
-        but->refreshIconGeometry(rect);
+        mBackend->refreshIconGeometry(but->windowId(), rect);
         but->setIconSize(QSize(plugin()->panel()->iconSize(), plugin()->panel()->iconSize()));
     }
 }
@@ -617,8 +616,10 @@ void LXQtTaskGroup::wheelEvent(QWheelEvent* event)
 /************************************************
 
  ************************************************/
-bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2)
-{ // returns true if the class is preserved
+bool LXQtTaskGroup::onWindowChanged(WId window, LXQtTaskBarWindowProperty prop)
+{
+    // Returns true if the class is preserved
+
     bool needsRefreshVisibility{false};
     QList<LXQtTaskButton *> buttons;
     if (mButtonHash.contains(window))
@@ -631,65 +632,47 @@ bool LXQtTaskGroup::onWindowChanged(WId window, NET::Properties prop, NET::Prope
     if (!buttons.isEmpty())
     {
         // if class is changed the window won't belong to our group any more
-        if (parentTaskBar()->isGroupingEnabled() && prop2.testFlag(NET::WM2WindowClass))
+        if (parentTaskBar()->isGroupingEnabled() && prop == LXQtTaskBarWindowProperty::WindowClass)
         {
-            KWindowInfo info(window, NET::Properties(), NET::WM2WindowClass);
-            if (QString::fromUtf8(info.windowClassClass()) != mGroupName)
+            if (mBackend->getWindowClass(windowId()) != mGroupName)
             {
                 onWindowRemoved(window);
                 return false;
             }
         }
         // window changed virtual desktop
-        if (prop.testFlag(NET::WMDesktop) || prop.testFlag(NET::WMGeometry))
+        if (prop == LXQtTaskBarWindowProperty::Workspace)
         {
             if (parentTaskBar()->isShowOnlyOneDesktopTasks()
-                    || parentTaskBar()->isShowOnlyCurrentScreenTasks())
+                || parentTaskBar()->isShowOnlyCurrentScreenTasks())
             {
                 needsRefreshVisibility = true;
             }
         }
 
-        if (prop.testFlag(NET::WMVisibleName) || prop.testFlag(NET::WMName))
+        if (prop == LXQtTaskBarWindowProperty::Title)
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateText));
 
         // XXX: we are setting window icon geometry -> don't need to handle NET::WMIconGeometry
         // Icon of the button can be based on windowClass
-        if (prop.testFlag(NET::WMIcon) || prop2.testFlag(NET::WM2WindowClass))
+        if (prop == LXQtTaskBarWindowProperty::Icon)
             std::for_each(buttons.begin(), buttons.end(), std::mem_fn(&LXQtTaskButton::updateIcon));
 
         bool set_urgency = false;
         bool urgency = false;
 
-        if (prop2.testFlag(NET::WM2Urgency))
+        if (prop == LXQtTaskBarWindowProperty::Urgency)
         {
             set_urgency = true;
-            if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-            {
-                WId appRootWindow = XDefaultRootWindow(x11Application->display());
-                urgency = NETWinInfo(x11Application->connection(), window, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency();
-            }
+            //FIXME: original code here did not consider "demand attention", was it intentional?
+            urgency = mBackend->applicationDemandsAttention(window);
         }
-        if (prop.testFlag(NET::WMState))
+        if (prop == LXQtTaskBarWindowProperty::State)
         {
-            KWindowInfo info{window, NET::WMState};
-
-            if(!set_urgency)
-            {
-                if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-                {
-                    WId appRootWindow = XDefaultRootWindow(x11Application->display());
-                    urgency = NETWinInfo(x11Application->connection(), window, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency();
-                }
-            }
-
-            // Force refresh urgency
-            //TODO: maybe do it in common place with NET::WM2Urgency
-            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency || info.hasState(NET::DemandsAttention)));
+            if (!set_urgency)
+                urgency = mBackend->applicationDemandsAttention(window);
+            std::for_each(buttons.begin(), buttons.end(), std::bind(&LXQtTaskButton::setUrgencyHint, std::placeholders::_1, urgency));
             set_urgency = false;
-
-            if (info.hasState(NET::SkipTaskbar))
-                onWindowRemoved(window);
 
             if (parentTaskBar()->isShowOnlyMinimizedTasks())
             {

@@ -26,6 +26,10 @@
 
 #include "desktopswitchconfiguration.h"
 #include "ui_desktopswitchconfiguration.h"
+
+#include "../panel/lxqtpanelapplication.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+
 #include <KX11Extras>
 #include <QTimer>
 
@@ -64,18 +68,30 @@ void DesktopSwitchConfiguration::loadSettings()
 
 void DesktopSwitchConfiguration::loadDesktopsNames()
 {
-    int n = KX11Extras::numberOfDesktops();
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a->getWMBackend();
+
+    int n = wmBackend->getWorkspacesCount();
     for (int i = 1; i <= n; i++)
     {
-        QLineEdit *edit = new QLineEdit(KX11Extras::desktopName(i), this);
+        QLineEdit *edit = new QLineEdit(wmBackend->getWorkspaceName(i), this);
         ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
 
-        // C++11 rocks!
-        QTimer *timer = new QTimer(this);
-        timer->setInterval(400);
-        timer->setSingleShot(true);
-        connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
-        connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
+        //TODO: on Wayland we cannot set desktop names in a standart way
+        // On KWin we could use DBus org.kde.KWin as done by kcm_kwin_virtualdesktops
+        if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        {
+            // C++11 rocks!
+            QTimer *timer = new QTimer(this);
+            timer->setInterval(400);
+            timer->setSingleShot(true);
+            connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
+            connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
+        }
+        else
+        {
+            edit->setReadOnly(true);
+        }
     }
 }
 

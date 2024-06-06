@@ -25,6 +25,7 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <QLabel>
 #include <QButtonGroup>
 #include <QWheelEvent>
 #include <QtDebug>
@@ -33,6 +34,8 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>
 
+#include "../panel/lxqtpanelapplication.h"
+#include "../panel/backends/ilxqttaskbarabstractbackend.h"
 
 #include <cmath>
 
@@ -40,29 +43,22 @@
 #include "desktopswitchbutton.h"
 #include "desktopswitchconfiguration.h"
 
-#include <KWindowSystem>
-#include <KWindowInfo>
-#include <KX11Extras>
-
-//NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
-#include <X11/Xlib.h>
-#undef Bool
-
 static const QString DEFAULT_SHORTCUT_TEMPLATE(QStringLiteral("Control+F%1"));
 
 DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     QObject(),
     ILXQtPanelPlugin(startupInfo),
     m_pSignalMapper(new QSignalMapper(this)),
-    m_desktopCount(KX11Extras::numberOfDesktops()),
+    m_desktopCount(0),
     mRows(-1),
     mShowOnlyActive(false),
-    mDesktops(nullptr),
     mLabelType(DesktopSwitchButton::LABEL_TYPE_INVALID)
 {
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
-    mDesktops.reset(new NETRootInfo(x11Application->connection(), NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout));
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    mBackend = a->getWMBackend();
+
+
+    m_desktopCount = mBackend->getWorkspacesCount();
 
     m_buttons = new QButtonGroup(this);
 
@@ -74,17 +70,16 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     settingsChanged();
 
-    onCurrentDesktopChanged(KX11Extras::currentDesktop());
+    onCurrentDesktopChanged(mBackend->getCurrentWorkspace());
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
     connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
 
-    connect(KX11Extras::self(), &KX11Extras::numberOfDesktopsChanged, this, &DesktopSwitch::onNumberOfDesktopsChanged);
-    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged,   this, &DesktopSwitch::onCurrentDesktopChanged);
-    connect(KX11Extras::self(), &KX11Extras::desktopNamesChanged,     this, &DesktopSwitch::onDesktopNamesChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::workspacesCountChanged,  this, &DesktopSwitch::onNumberOfDesktopsChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &DesktopSwitch::onCurrentDesktopChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::workspaceNameChanged,    this, &DesktopSwitch::onDesktopNamesChanged);
 
-    connect(KX11Extras::self(), static_cast<void (KX11Extras::*)(WId, NET::Properties, NET::Properties2)>(&KX11Extras::windowChanged),
-            this, &DesktopSwitch::onWindowChanged);
+    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &DesktopSwitch::onWindowChanged);
 }
 
 void DesktopSwitch::registerShortcuts()
@@ -126,19 +121,18 @@ void DesktopSwitch::shortcutRegistered()
     }
 }
 
-void DesktopSwitch::onWindowChanged(WId id, NET::Properties properties, NET::Properties2 /*properties2*/)
+void DesktopSwitch::onWindowChanged(WId id, int prop)
 {
-    if (properties.testFlag(NET::WMState) && isWindowHighlightable(id))
+    if (prop == int(LXQtTaskBarWindowProperty::State))
     {
-        KWindowInfo info = KWindowInfo(id, NET::WMDesktop | NET::WMState);
-        int desktop = info.desktop();
-        if (!info.valid() || info.onAllDesktops())
+        int desktop = mBackend->getWindowWorkspace(id);
+        if (desktop == int(LXQtTaskBarWorkspace::ShowOnAll))
             return;
         else
         {
             DesktopSwitchButton *button = static_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1));
             if(button)
-                button->setUrgencyHint(id, info.hasState(NET::DemandsAttention));
+                button->setUrgencyHint(id, mBackend->applicationDemandsAttention(id));
         }
     }
 }
@@ -148,7 +142,7 @@ void DesktopSwitch::refresh()
     const QList<QAbstractButton*> btns = m_buttons->buttons();
 
     int i = 0;
-    const int current_desktop = KX11Extras::currentDesktop();
+    const int current_desktop = mBackend->getCurrentWorkspace();
     const int current_cnt = btns.count();
     const int border = qMin(btns.count(), m_desktopCount);
     //update existing buttons
@@ -156,9 +150,9 @@ void DesktopSwitch::refresh()
     {
         DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
         button->update(i, mLabelType,
-                       KX11Extras::desktopName(i + 1).isEmpty() ?
+                       mBackend->getWorkspaceName(i + 1).isEmpty() ?
                        tr("Desktop %1").arg(i + 1) :
-                       KX11Extras::desktopName(i + 1));
+                       mBackend->getWorkspaceName(i + 1));
         button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
@@ -167,9 +161,9 @@ void DesktopSwitch::refresh()
     for ( ; i < m_desktopCount; ++i)
     {
         b = new DesktopSwitchButton(&mWidget, i, mLabelType,
-                KX11Extras::desktopName(i+1).isEmpty() ?
+                mBackend->getWorkspaceName(i+1).isEmpty() ?
                 tr("Desktop %1").arg(i+1) :
-                KX11Extras::desktopName(i+1));
+                mBackend->getWorkspaceName(i+1));
         mWidget.layout()->addWidget(b);
         m_buttons->addButton(b, i);
         b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
@@ -185,56 +179,16 @@ void DesktopSwitch::refresh()
     }
 }
 
-bool DesktopSwitch::isWindowHighlightable(WId window)
-{
-    // this method was borrowed from the taskbar plugin
-    QFlags<NET::WindowTypeMask> ignoreList;
-    ignoreList |= NET::DesktopMask;
-    ignoreList |= NET::DockMask;
-    ignoreList |= NET::SplashMask;
-    ignoreList |= NET::ToolbarMask;
-    ignoreList |= NET::MenuMask;
-    ignoreList |= NET::PopupMenuMask;
-    ignoreList |= NET::NotificationMask;
-
-    KWindowInfo info(window, NET::WMWindowType | NET::WMState, NET::WM2TransientFor);
-    if (!info.valid())
-        return false;
-
-    if (NET::typeMatchesMask(info.windowType(NET::AllTypesMask), ignoreList))
-        return false;
-
-    if (info.state() & NET::SkipTaskbar)
-        return false;
-
-    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    Q_ASSERT_X(x11Application, "DesktopSwitch", "Expected X11 connection");
-    WId appRootWindow = XDefaultRootWindow(x11Application->display());
-
-    // WM_TRANSIENT_FOR hint not set - normal window
-    WId transFor = info.transientFor();
-    if (transFor == 0 || transFor == window || transFor == appRootWindow)
-        return true;
-
-    info = KWindowInfo(transFor, NET::WMWindowType);
-
-    QFlags<NET::WindowTypeMask> normalFlag;
-    normalFlag |= NET::NormalMask;
-    normalFlag |= NET::DialogMask;
-    normalFlag |= NET::UtilityMask;
-
-    return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
-}
-
 DesktopSwitch::~DesktopSwitch() = default;
 
 void DesktopSwitch::setDesktop(int desktop)
 {
-    KX11Extras::setCurrentDesktop(desktop + 1);
+    mBackend->setCurrentWorkspace(desktop + 1);
 }
 
-void DesktopSwitch::onNumberOfDesktopsChanged(int count)
+void DesktopSwitch::onNumberOfDesktopsChanged()
 {
+    int count = mBackend->getWorkspacesCount();
     qDebug() << "Desktop count changed from" << m_desktopCount << "to" << count;
     m_desktopCount = count;
     refresh();
@@ -291,14 +245,9 @@ void DesktopSwitch::settingsChanged()
         // "DesktopSwitch::realign()". Therefore, the desktop layout should not be changed
         // inside the latter method.
         int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
-        if (panel()->isHorizontal())
-        {
-            mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
-        else
-        {
-            mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
+        mBackend->setDesktopLayout(panel()->isHorizontal() ? Qt::Horizontal : Qt::Vertical,
+                                   mRows, columns, mWidget.isRightToLeft());
+
         realign(); // in case it isn't called when the desktop layout changes
     }
     if (need_refresh)
@@ -345,9 +294,12 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     if(abs(m_mouseWheelThresholdCounter) < 100)
         return;
 
-    int max = KX11Extras::numberOfDesktops();
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a->getWMBackend();
+
+    int max = wmBackend->getWorkspacesCount();
     int delta = rotationSteps < 0 ? 1 : -1;
-    int current = KX11Extras::currentDesktop() + delta;
+    int current = wmBackend->getCurrentWorkspace() + delta;
 
     if (current > max){
         current = 1;
@@ -356,5 +308,33 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
         current = max;
 
     m_mouseWheelThresholdCounter = 0;
-    KX11Extras::setCurrentDesktop(current);
+    wmBackend->setCurrentWorkspace(current);
+}
+
+ILXQtPanelPlugin *DesktopSwitchPluginLibrary::instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
+{
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a ? a->getWMBackend() : nullptr;
+    if(!wmBackend || !wmBackend->supportsAction(0, LXQtTaskBarBackendAction::DesktopSwitch))
+        return new DesktopSwitchUnsupported{startupInfo};
+
+    return new DesktopSwitch{startupInfo};
+}
+
+DesktopSwitchUnsupported::DesktopSwitchUnsupported(const ILXQtPanelPluginStartupInfo &startupInfo)
+    : ILXQtPanelPlugin(startupInfo)
+    , mLabel(new QLabel(tr("n/a")))
+{
+    mLabel->setToolTip(tr("DesktopSwitch is unsupported on current platform: %1").arg(QGuiApplication::platformName()));
+}
+
+DesktopSwitchUnsupported::~DesktopSwitchUnsupported()
+{
+    delete mLabel;
+    mLabel = nullptr;
+}
+
+QWidget *DesktopSwitchUnsupported::widget()
+{
+    return mLabel;
 }

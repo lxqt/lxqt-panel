@@ -30,20 +30,18 @@
 #define DESKTOPSWITCH_H
 
 #include "../panel/ilxqtpanelplugin.h"
-#include <QLabel>
 #include <QFrame>
-#include <QGuiApplication>
-#include <memory>
-#include <NETWM>
 
 #include "desktopswitchbutton.h"
 
+class QLabel;
 class QSignalMapper;
 class QButtonGroup;
-class NETRootInfo;
 namespace LXQt {
 class GridLayout;
 }
+
+class ILXQtTaskbarAbstractBackend;
 
 class DesktopSwitchWidget: public QFrame
 {
@@ -85,39 +83,34 @@ private:
     LXQt::GridLayout *mLayout;
     int mRows;
     bool mShowOnlyActive;
-    std::unique_ptr<NETRootInfo> mDesktops;
+    ILXQtTaskbarAbstractBackend *mBackend;
     DesktopSwitchButton::LabelType mLabelType;
 
     void refresh();
-    bool isWindowHighlightable(WId window);
 
 private slots:
     void setDesktop(int desktop);
-    void onNumberOfDesktopsChanged(int);
+    void onNumberOfDesktopsChanged();
     void onCurrentDesktopChanged(int);
     void onDesktopNamesChanged();
     virtual void settingsChanged();
     void registerShortcuts();
     void shortcutRegistered();
-    void onWindowChanged(WId id, NET::Properties properties, NET::Properties2 properties2);
+    void onWindowChanged(WId id, int prop);
 };
 
 class DesktopSwitchUnsupported : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 public:
-    DesktopSwitchUnsupported(const ILXQtPanelPluginStartupInfo &startupInfo)
-        : ILXQtPanelPlugin(startupInfo)
-        , mLabel{tr("n/a")}
-    {
-        mLabel.setToolTip(tr("DesktopSwitch is unsupported on current platform: %1").arg(QGuiApplication::platformName()));
-    }
+    DesktopSwitchUnsupported(const ILXQtPanelPluginStartupInfo &startupInfo);
+    ~DesktopSwitchUnsupported();
 
     QString themeId() const { return QStringLiteral("DesktopSwitchUnsupported"); }
-    QWidget *widget() { return &mLabel; }
+    QWidget *widget();
     bool isSeparate() const { return true; }
 private:
-    QLabel mLabel;
+    QLabel *mLabel;
 };
 
 class DesktopSwitchPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
@@ -126,13 +119,7 @@ class DesktopSwitchPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
     // Q_PLUGIN_METADATA(IID "lxqt.org/Panel/PluginInterface/3.0")
     Q_INTERFACES(ILXQtPanelPluginLibrary)
 public:
-    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
-    {
-        if (QGuiApplication::platformName() == QStringLiteral("xcb"))
-            return new DesktopSwitch{startupInfo};
-        else
-            return new DesktopSwitchUnsupported{startupInfo};
-    }
+    ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const;
 };
 
 #endif

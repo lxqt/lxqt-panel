@@ -32,28 +32,30 @@
 #ifndef LXQTTASKBAR_H
 #define LXQTTASKBAR_H
 
-#include "../panel/ilxqtpanel.h"
-#include "../panel/ilxqtpanelplugin.h"
-
 #include <QFrame>
 #include <QBoxLayout>
 #include <QMap>
-#include <lxqt-globalkeys.h>
+
 #include "../panel/ilxqtpanel.h"
-#include <KX11Extras>
-#include <KWindowInfo>
-#include <NETWM>
+
+class ILXQtPanel;
+class ILXQtPanelPlugin;
 
 class QSignalMapper;
 
-class LXQtTaskButton;
 class LXQtTaskGroup;
 
-class ElidedButtonStyle;
 class LeftAlignedTextStyle;
+
+class ILXQtTaskbarAbstractBackend;
 
 namespace LXQt {
 class GridLayout;
+}
+
+namespace GlobalKeyShortcut
+{
+class Action;
 }
 
 class LXQtTaskBar : public QFrame
@@ -80,8 +82,11 @@ public:
     bool isIconByClass() const { return mIconByClass; }
     int wheelEventsAction() const { return mWheelEventsAction; }
     int wheelDeltaThreshold() const { return mWheelDeltaThreshold; }
-    inline ILXQtPanel * panel() const { return mPlugin->panel(); }
+
+    ILXQtPanel * panel() const;
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
+
+    inline ILXQtTaskbarAbstractBackend *getBackend() const { return mBackend; }
 
 public slots:
     void settingsChanged();
@@ -99,13 +104,14 @@ protected:
     virtual void dragMoveEvent(QDragMoveEvent * event);
 
 private slots:
-    void refreshTaskList();
     void refreshButtonRotation();
     void refreshPlaceholderVisibility();
     void groupBecomeEmptySlot();
-    void onWindowChanged(WId window, NET::Properties prop, NET::Properties2 prop2);
+
+    void onWindowChanged(WId window, int prop);
     void onWindowAdded(WId window);
     void onWindowRemoved(WId window);
+
     void registerShortcuts();
     void shortcutRegistered();
     void activateTask(int pos);
@@ -142,7 +148,6 @@ private:
     int mWheelEventsAction;
     int mWheelDeltaThreshold;
 
-    bool acceptWindow(WId window) const;
     void setButtonStyle(Qt::ToolButtonStyle buttonStyle);
 
     void wheelEvent(QWheelEvent* event);
@@ -152,6 +157,8 @@ private:
     ILXQtPanelPlugin *mPlugin;
     QWidget *mPlaceHolder;
     LeftAlignedTextStyle *mStyle;
+
+    ILXQtTaskbarAbstractBackend *mBackend;
 };
 
 #endif // LXQTTASKBAR_H
