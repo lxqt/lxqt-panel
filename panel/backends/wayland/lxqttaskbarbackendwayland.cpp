@@ -440,6 +440,12 @@ bool LXQtTaskbarWaylandBackend::isWindowOnScreen(QScreen *screen, WId windowId) 
     return screen->geometry().intersects(window->geometry);
 }
 
+bool LXQtTaskbarWaylandBackend::setDesktopLayout(Qt::Orientation, int, int, bool)
+{
+    //TODO: implement
+    return false;
+}
+
 void LXQtTaskbarWaylandBackend::moveApplication(WId windowId)
 {
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
