@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="113"/>
+        <location filename="../lxqtmainmenu.cpp" line="114"/>
         <source>Search...</source>
         <translation>Traži …</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="123"/>
+        <location filename="../lxqtmainmenu.cpp" line="124"/>
         <source>Show/hide main menu</source>
         <translation>Prikaži/sakrij glavni izbornik</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="522"/>
+        <location filename="../lxqtmainmenu.cpp" line="523"/>
         <source>Add to desktop</source>
         <translation>Dodaj na radnu površinu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="531"/>
         <source>Question</source>
         <translation>Pitanje</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="532"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Datoteka s istim imenom već postoji.
 Želiš li je prepisati?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="537"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Warning</source>
         <translation>Upozorenje</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>The file cannot be overwritten.</source>
         <translation>Datoteka se ne može prepisati.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="544"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Copy</source>
         <translation>Kopiraj</translation>
     </message>

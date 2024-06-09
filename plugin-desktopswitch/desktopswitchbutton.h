@@ -43,6 +43,7 @@ class DesktopSwitchButton : public QToolButton
 
 public:
     enum LabelType { // Must match with combobox indexes
+        LABEL_TYPE_INVALID = -1,
         LABEL_TYPE_NUMBER = 0,
         LABEL_TYPE_NAME = 1,
         LABEL_TYPE_NONE = 2

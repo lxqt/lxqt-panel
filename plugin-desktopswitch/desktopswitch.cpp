@@ -52,7 +52,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     m_desktopCount(0),
     mRows(-1),
     mShowOnlyActive(false),
-    mLabelType(static_cast<DesktopSwitchButton::LabelType>(-1))
+    mLabelType(DesktopSwitchButton::LABEL_TYPE_INVALID)
 {
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     mBackend = a->getWMBackend();
@@ -123,7 +123,7 @@ void DesktopSwitch::shortcutRegistered()
 
 void DesktopSwitch::onWindowChanged(WId id, int prop)
 {
-    if (prop == int(LXQtTaskBarWindowProperty::State) && isWindowHighlightable(id))
+    if (prop == int(LXQtTaskBarWindowProperty::State))
     {
         int desktop = mBackend->getWindowWorkspace(id);
         if (desktop == int(LXQtTaskBarWorkspace::ShowOnAll))
@@ -177,13 +177,6 @@ void DesktopSwitch::refresh()
         mWidget.layout()->removeWidget(b);
         delete b;
     }
-}
-
-bool DesktopSwitch::isWindowHighlightable(WId)
-{
-    // Backend should emit signals only for higlightable windows and ignore others
-    // TODO: check
-    return true;
 }
 
 DesktopSwitch::~DesktopSwitch() = default;
@@ -252,14 +245,9 @@ void DesktopSwitch::settingsChanged()
         // "DesktopSwitch::realign()". Therefore, the desktop layout should not be changed
         // inside the latter method.
         int columns = static_cast<int>(ceil(static_cast<float>(m_desktopCount) / mRows));
-        if (panel()->isHorizontal())
-        {
-            //mDesktops->setDesktopLayout(NET::OrientationHorizontal, columns, mRows, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
-        else
-        {
-            //mDesktops->setDesktopLayout(NET::OrientationHorizontal, mRows, columns, mWidget.isRightToLeft() ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
-        }
+        mBackend->setDesktopLayout(panel()->isHorizontal() ? Qt::Horizontal : Qt::Vertical,
+                                   mRows, columns, mWidget.isRightToLeft());
+
         realign(); // in case it isn't called when the desktop layout changes
     }
     if (need_refresh)
@@ -325,11 +313,12 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 
 ILXQtPanelPlugin *DesktopSwitchPluginLibrary::instance(const ILXQtPanelPluginStartupInfo &startupInfo) const
 {
-    return new DesktopSwitch{startupInfo};
+    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
+    auto wmBackend = a ? a->getWMBackend() : nullptr;
+    if(!wmBackend || !wmBackend->supportsAction(0, LXQtTaskBarBackendAction::DesktopSwitch))
+        return new DesktopSwitchUnsupported{startupInfo};
 
-    //TODO: detect dummy backend and show unsupported message?
-    // Or instead remove it and make just a message box at application start
-    //return new DesktopSwitchUnsupported{startupInfo};
+    return new DesktopSwitch{startupInfo};
 }
 
 DesktopSwitchUnsupported::DesktopSwitchUnsupported(const ILXQtPanelPluginStartupInfo &startupInfo)

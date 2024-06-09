@@ -100,12 +100,12 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="59"/>
+        <location filename="../volumepopup.cpp" line="58"/>
         <source>Launch mixer</source>
         <translation>執行混音器</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="60"/>
+        <location filename="../volumepopup.cpp" line="59"/>
         <source>Mi&amp;xer</source>
         <translation>混音器 (&amp;x)</translation>
     </message>

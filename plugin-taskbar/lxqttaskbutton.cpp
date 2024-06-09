@@ -30,7 +30,7 @@
 #include "lxqttaskbutton.h"
 #include "lxqttaskbar.h"
 
-#include "ilxqtpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 
 #include <LXQt/Settings>
 
@@ -439,8 +439,7 @@ void LXQtTaskButton::deMaximizeApplication()
 {
     mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::Maximized, false);
 
-    /** This guard is unnecessary */
-    // if(!mBackend->isWindowActive(mWindow))
+    if(!mBackend->isWindowActive(mWindow))
         mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
@@ -692,6 +691,8 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
 
     QMenu* layerMenu = menu->addMenu(tr("&Layer"));
     layerMenu->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::SetLayer));
+
+    LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 
     LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 

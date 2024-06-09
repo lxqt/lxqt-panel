@@ -137,6 +137,20 @@ void Popup::onDeviceRemoved(QString const & udi)
 
 void Popup::showEvent(QShowEvent *event)
 {
+    // NOTE: This is a workaround for the lack of "Solid::StorageAccess::accessibilityChanged"
+    // when an encrypted volume is mounted by GLib/GIO.
+    const int size = layout()->count() - 1;
+    for (int i = size; 0 <= i; --i)
+    {
+        QWidget *w = layout()->itemAt(i)->widget();
+        if (w == mPlaceholder)
+            continue;
+        if (MenuDiskItem *it = static_cast<MenuDiskItem *>(w))
+        {
+            it->setMountStatus();
+        }
+    }
+
     mPlaceholder->setVisible(mDisplayCount == 0);
     realign();
     setFocus();

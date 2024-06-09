@@ -29,7 +29,7 @@
 #ifndef LXQTTASKBARPLUGIN_H
 #define LXQTTASKBARPLUGIN_H
 
-#include "ilxqtpanelplugin.h"
+#include "../panel/ilxqtpanelplugin.h"
 
 class LXQtTaskBar;
 

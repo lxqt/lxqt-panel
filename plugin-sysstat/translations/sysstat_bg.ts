@@ -206,12 +206,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation>Използвай цветове от т&amp;емата</translation>
+        <translation>Използване на цветове от т&amp;емата</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation>Използвай со&amp;бствени цветове</translation>
+        <translation>Използване на со&amp;бствени цветове</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>

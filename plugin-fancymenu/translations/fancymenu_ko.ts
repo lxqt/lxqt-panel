@@ -158,79 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
         <translation>검색...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
         <translation>LXQt 구성 센터</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
         <translation>나가기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
         <translation>LXQt 정보</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
         <translation>범주에서 항목을 마우스 오른쪽 버튼으로 클릭하여 즐겨찾기를 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>Add to desktop</source>
         <translation>바탕화면에 추가</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
         <source>Question</source>
         <translation>질문</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>같은 이름의 파일이 이미 있습니다.
 덮어쓰시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
         <source>The file cannot be overwritten.</source>
         <translation>파일을 덮어쓸 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
         <source>Copy</source>
         <translation>복사</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
         <translation>즐겨찾기에서 제거하기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
         <translation>즐겨찾기에 추가하기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
         <translation>실행파일 없음</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; 실행 파일을 찾을 수 없습니다.</translation>
     </message>

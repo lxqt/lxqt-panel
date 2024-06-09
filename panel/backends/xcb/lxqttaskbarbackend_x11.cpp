@@ -1,3 +1,31 @@
+/* BEGIN_COMMON_COPYRIGHT_HEADER
+ * (c)LGPL2+
+ *
+ * LXQt - a lightweight, Qt based, desktop toolset
+ * https://lxqt.org
+ *
+ * Copyright: 2023 LXQt team
+ * Authors:
+ *  Filippo Gentile <filippogentile@disroot.org>
+ *
+ * This program or library is free software; you can redistribute it
+ * and/or modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General
+ * Public License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA
+ *
+ * END_COMMON_COPYRIGHT_HEADER */
+
+
 #include "lxqttaskbarbackend_x11.h"
 
 #include <KX11Extras>
@@ -40,10 +68,18 @@ LXQtTaskbarX11Backend::LXQtTaskbarX11Backend(QObject *parent)
 void LXQtTaskbarX11Backend::onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2)
 {
     if(!m_windows.contains(windowId))
+    {
+        // If already known window changes its property in a way
+        // it's now acceptable, add it again to taskbar
+        if(acceptWindow(windowId))
+            onWindowAdded(windowId);
         return;
+    }
 
     if(!acceptWindow(windowId))
     {
+        // If already known window changes its property in a way
+        // it's not anymore accepted, remove it from taskbar
         onWindowRemoved(windowId);
         return;
     }
@@ -201,6 +237,9 @@ bool LXQtTaskbarX11Backend::supportsAction(WId windowId, LXQtTaskBarBackendActio
     case LXQtTaskBarBackendAction::FullScreen:
         x11Action = NET::ActionFullScreen;
         break;
+
+    case LXQtTaskBarBackendAction::DesktopSwitch:
+        return true;
 
     default:
         return false;
@@ -517,6 +556,25 @@ bool LXQtTaskbarX11Backend::isWindowOnScreen(QScreen *screen, WId windowId) cons
     return screen->geometry().intersects(r);
 }
 
+bool LXQtTaskbarX11Backend::setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft)
+{
+    NETRootInfo mDesktops(m_xcbConnection, NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout);
+
+    if (orientation == Qt::Horizontal)
+    {
+        mDesktops.setDesktopLayout(NET::OrientationHorizontal,
+                                   columns, rows,
+                                   rightToLeft ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+    }
+    else
+    {
+        mDesktops.setDesktopLayout(NET::OrientationHorizontal,
+                                   rows, columns,
+                                   rightToLeft ? NET::DesktopLayoutCornerTopRight : NET::DesktopLayoutCornerTopLeft);
+    }
+    return true;
+}
+
 /************************************************
  *   X11 Specific
  ************************************************/
@@ -535,7 +593,7 @@ void LXQtTaskbarX11Backend::moveApplication(WId windowId)
     int X = g.center().x();
     int Y = g.center().y();
     QCursor::setPos(X, Y);
-    // NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::Move);
+    NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::Move);
 }
 
 void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
@@ -553,7 +611,7 @@ void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
     int X = g.bottomRight().x();
     int Y = g.bottomRight().y();
     QCursor::setPos(X, Y);
-    // NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::BottomRight);
+    NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::BottomRight);
 }
 
 void LXQtTaskbarX11Backend::refreshIconGeometry(WId windowId, QRect const & geom)

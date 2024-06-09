@@ -41,8 +41,8 @@
 #include <QFlag>
 #include <QTimer>
 
-#include "ilxqtpanelplugin.h"
-#include "pluginsettings.h"
+#include "../panel/ilxqtpanelplugin.h"
+#include "../panel/pluginsettings.h"
 
 #include <lxqt-globalkeys.h>
 #include <LXQt/GridLayout>

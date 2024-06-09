@@ -5,7 +5,6 @@ add_subdirectory(backends)
 
 # TODO: allow compile time selection via CMake variables
 set(PANEL_BACKENDS
-    lxqt-panel-backend-plasma
     lxqt-panel-backend-wlroots
     lxqt-panel-backend-wayland
     lxqt-panel-backend-xcb
@@ -119,6 +118,8 @@ target_link_libraries(${PROJECT}
     LayerShellQt::Interface
     ${STATIC_PLUGINS}
 )
+
+set_property(TARGET ${PROJECT} PROPERTY ENABLE_EXPORTS TRUE)
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
 install(FILES ${CONFIG_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/lxqt)

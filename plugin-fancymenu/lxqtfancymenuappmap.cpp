@@ -48,12 +48,14 @@ LXQtFancyMenuAppMap::LXQtFancyMenuAppMap()
     Category favorites;
     favorites.menuTitle = LXQtFancyMenuAppMapStrings::tr("Favorites");
     favorites.icon = XdgIcon::fromTheme(QLatin1String("bookmarks"));
+    favorites.type = LXQtFancyMenuItemType::CategoryItem;
     mCategories.append(favorites);
 
     //Add All Apps category
     Category allAppsCategory;
     allAppsCategory.menuTitle = LXQtFancyMenuAppMapStrings::tr("All Applications");
     allAppsCategory.icon = XdgIcon::fromTheme(QLatin1String("folder"));
+    allAppsCategory.type = LXQtFancyMenuItemType::CategoryItem;
     mCategories.append(allAppsCategory);
 
     //Add separator

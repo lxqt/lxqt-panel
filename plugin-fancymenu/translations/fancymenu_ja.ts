@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ファンシーメニューの設定</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">自動選択の待ち時間:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ボタンの位置</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
@@ -132,7 +132,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -158,79 +158,79 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
         <translation>検索...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt コンフィグレーションセンター</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">離席しますか？</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
         <translation>LXQt について</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>カテゴリの中から項目を右クリックでお気に入りに追加します。</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>Add to desktop</source>
         <translation>デスクトップに追加する</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
         <source>Question</source>
         <translation>質問</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>同じ名前のファイルが既に存在します。
 上書きしますか？</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
         <source>The file cannot be overwritten.</source>
         <translation>ファイルを上書き出来ません。</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
         <source>Copy</source>
         <translation>コピー</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りから削除</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
         <translation type="unfinished">お気に入りに追加</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
         <translation type="unfinished">実行可能ファイルがありません</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>実行ファイル &lt;b&gt;%1&lt;/b&gt; が見つかりません。</translation>
     </message>

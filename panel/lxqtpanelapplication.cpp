@@ -41,18 +41,13 @@
 #include "backends/lxqttaskbardummybackend.h"
 #include "backends/xcb/lxqttaskbarbackend_x11.h"
 #include "backends/wayland/lxqttaskbarbackendwayland.h"
-#include "backends/wayland/plasma/lxqttaskbarbackendplasma.h"
-#include "backends/wayland/wlroots/lxqttaskbarbackendwlr.h"
 
 ILXQtTaskbarAbstractBackend *createWMBackend()
 {
-    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>()){
+    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
         return new LXQtTaskbarX11Backend;
-    }
-
-    else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>()){
+    else if(qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
         return new LXQtTaskbarWaylandBackend;
-    }
 
     qWarning() << "\n"
                << "ERROR: Could not create a backend for window managment operations.\n"

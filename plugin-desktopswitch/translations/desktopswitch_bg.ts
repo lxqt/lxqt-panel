@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="88"/>
+        <location filename="../desktopswitch.cpp" line="99"/>
         <source>Switch to desktop %1</source>
         <translation>Премини към плот %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="149"/>
         <location filename="../desktopswitch.cpp" line="160"/>
+        <location filename="../desktopswitch.cpp" line="171"/>
         <source>Desktop %1</source>
         <translation>Плот %1</translation>
     </message>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.h" line="111"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>n/a</translation>
     </message>
     <message>
         <location filename="../desktopswitch.h" line="113"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>DesktopSwitch не се поддържа на текущата платформа: %1</translation>
     </message>
 </context>
 </TS>

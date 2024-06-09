@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation>Obľúbené</translation>
+        <translation>Priljubljene</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation>Všetky aplikácie</translation>
+        <translation>Vsi programi</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation>Nastavenia Fancy Menu</translation>
+        <translation type="unfinished">Nastavitve Fancy menija</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation>Automatický výber po:</translation>
+        <translation>Samodejno izberi po:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation>Rozloženie</translation>
+        <translation>Postavitev</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation>Pozícia riadka tlačidiel</translation>
+        <translation>Lokacija vrstice z gumbi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation>Pozícia kategórií</translation>
+        <translation>Lokacija kategorij</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation>Dole</translation>
+        <translation>Spodaj</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation>Hore</translation>
+        <translation>Zgoraj</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation>Vľavo</translation>
+        <translation>Levo</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation>Vpravo</translation>
+        <translation>Desno</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -158,81 +158,81 @@
 <context>
     <name>LXQtFancyMenuWindow</name>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="153"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
         <translation>Išči...</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="160"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation>Centrum nastavení LXQt</translation>
+        <translation>Nastavitveno središče za LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="166"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation>Opustiť</translation>
+        <translation>Odjava</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="172"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation>O prostredí LXQt</translation>
+        <translation>O LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="185"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation>Pridajte svoje obľúbené položky kliknutím pravým tlačidlom myši na položky z kategórií.</translation>
+        <translation>Dodaj priljubljene z desnim klikom na predmete iz kategorij.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="345"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
         <source>Add to desktop</source>
         <translation>Dodaj na namizje</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="353"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
         <source>Question</source>
         <translation>Vprašanje</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Súbor s rovnakým názvom už existuje.
-Chcete ho prepísať?</translation>
+        <translation>Datoteka z istim imenom že obstaja.
+Ali jo želite prepisati?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="360"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
         <source>Warning</source>
-        <translation>Upozornenie</translation>
+        <translation>Opozorilo</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="361"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Súbor nemôže byť prepísaný.</translation>
+        <translation>Datoteka ne more biti prepisana.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="368"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
         <source>Copy</source>
         <translation>Kopiraj</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="381"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
-        <translation>Odstrániť z obľúbených</translation>
+        <translation>Odstrani iz priljubljenih</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="388"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
-        <translation>Pridať k obľúbeným</translation>
+        <translation>Dodaj med priljubljene</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="572"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
-        <translation>Nespustiteľné</translation>
+        <translation>Ni izvedljive datoteke</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="573"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation>Nie je možné nájsť &lt;b&gt;%1&lt;/b&gt; spustiteľné.</translation>
+        <translation>Ni možno najti &lt;b&gt;%1&lt;/b&gt; izvedljive datoteke.</translation>
     </message>
 </context>
 </TS>
