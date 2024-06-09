@@ -690,6 +690,9 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     menu->addSeparator();
 
     QMenu* layerMenu = menu->addMenu(tr("&Layer"));
+    layerMenu->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::SetLayer));
+
+    LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 
     LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 
