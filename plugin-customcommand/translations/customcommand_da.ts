@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation>Custom kommando indstilinger</translation>
+        <translation>Indstilling af brugerdefineret kommando</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="198"/>
         <source>Select Font</source>
-        <translation>Vælg font</translation>
+        <translation>Vælg skrifttype</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="128"/>
         <source>Font</source>
-        <translation>Font</translation>
+        <translation>Skrifttype</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="162"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="211"/>
         <source>Use %1 to display command output</source>
-        <translation>Brug %1 til at vise kommando output</translation>
+        <translation>Brug %1 til at vise kommando uddata</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="145"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="155"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation>Roter automatisk når skærmen er lodret</translation>
+        <translation>Roter automatisk når panelet er lodret</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="240"/>
         <source>echo Configure...</source>
-        <translation>echo konfigurer...</translation>
+        <translation>echo Indstil...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="243"/>
@@ -107,12 +107,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="86"/>
         <source> second(s)</source>
-        <translation> sekunder</translation>
+        <translation> sekund(er)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommando udsender et billede</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>

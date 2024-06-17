@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Lydstyrkekontrol: følgende genveje kan ikke registreres: %1</translation>
+        <translation>Lydstyrkekontrol: Følgende genveje kan ikke registreres: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="290"/>
