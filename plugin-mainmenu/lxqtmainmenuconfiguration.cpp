@@ -106,6 +106,9 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterClear"), value);
     });
+    connect(ui->writeToSearch, &QCheckBox::toggled, this, [this] (bool enabled) {
+        this->settings().setValue(QStringLiteral("writeToSearch"), enabled);
+    });
 }
 
 LXQtMainMenuConfiguration::~LXQtMainMenuConfiguration()
