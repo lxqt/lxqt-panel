@@ -6,7 +6,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="126"/>
         <source>Open</source>
-        <translation>Åbn</translation>
+        <translation>Åben</translation>
     </message>
     <message>
         <location filename="../directorymenu.cpp" line="130"/>

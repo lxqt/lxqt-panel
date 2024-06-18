@@ -86,7 +86,7 @@ Vil du overskrive den?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation>Menu-fil:</translation>
+        <translation>Menufil:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Tilføj plugins</translation>
+        <translation>Tilføj udvidelsesmodul</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation>Tilføj widget</translation>
+        <translation>Tilføj udvidelsesmodul</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(kan kun køre én instans af gangen)</translation>
+        <translation>(kun én instans kan køre ad gangen)</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Konfigurér panel</translation>
+        <translation>Indstil panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation>Widgets</translation>
+        <translation>Udvidelsesmoduler</translation>
     </message>
 </context>
 <context>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure placement</source>
-        <translation>Konfigurer placering</translation>
+        <translation>Indstil placering</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation>Reserver plads på skærm</translation>
+        <translation>Reservér plads på skærm</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
@@ -248,12 +248,12 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Konfigurér plugins</translation>
+        <translation>Indstil udvidelsesmoduler</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Bemærk: ændringer foretaget på denne side kan ikke nulstilles.</translation>
+        <translation>Bemærk: Ændringer foretaget på denne side kan ikke nulstilles.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Konfigurér</translation>
+        <translation>Indstil</translation>
     </message>
 </context>
 <context>
@@ -295,12 +295,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>Konfigurer stil</translation>
+        <translation>Indstil stil</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
         <source>Custom styling</source>
-        <translation>Brugerdefineret udseende</translation>
+        <translation>Brugerdefineret stil</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
@@ -315,12 +315,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Baggrundens opacity:</translation>
+        <translation>Baggrundens gennemsigtighed:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Komposition kræves for at panelet kan være gennemsigtigt.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Kompositing kræves for at panelet kan være gennemsigtigt.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
@@ -337,12 +337,12 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>En delvis løsning til widgetstile som
+        <translation>En delvis løsning til widgetstil som
 ikke kan give et separat tema til panelet.
 
-Vil ønsker måske også at deaktivere:
+Du ønsker måske også at deaktivere:
 
-Konfiguration af LXQt udseende →
+Indstilling af LXQt udseende →
 Ikontema →
 Farvelæg ikoner baseret på widgetstil (palet)</translation>
     </message>
@@ -384,12 +384,12 @@ Farvelæg ikoner baseret på widgetstil (palet)</translation>
     <message>
         <location filename="../lxqtpanel.cpp" line="1354"/>
         <source>Configure Panel</source>
-        <translation>Konfigurér panel</translation>
+        <translation>Indstil panel</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1359"/>
         <source>Manage Widgets</source>
-        <translation>Håndtér widgets</translation>
+        <translation>Håndtér kontroller</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1365"/>
@@ -426,7 +426,7 @@ Vil du fjerne panelet?</translation>
     <message>
         <location filename="../plugin.cpp" line="445"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Konfigurér &quot;%1&quot;</translation>
+        <translation>Indstil &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="450"/>
@@ -444,12 +444,12 @@ Vil du fjerne panelet?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="95"/>
         <source>Use alternate configuration file.</source>
-        <translation>Brug alternativ konfigurationsfil.</translation>
+        <translation>Brug alternativ indstillingsfil.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="96"/>
         <source>Configuration file</source>
-        <translation>Konfigurationsfil</translation>
+        <translation>Indstillingsfil</translation>
     </message>
 </context>
 </TS>
