@@ -1,7 +1,14 @@
 set(PROJECT lxqt-panel)
 
-# TODO
+# Window Manager abstraction backend
 add_subdirectory(backends)
+
+# TODO: allow compile time selection via CMake variables
+set(PANEL_BACKENDS
+    lxqt-panel-backend-wayland
+    lxqt-panel-backend-xcb
+)
+
 
 set(PRIV_HEADERS
     panelpluginsmodel.h
@@ -21,12 +28,6 @@ set(PRIV_HEADERS
     config/configstyling.h
     config/configpluginswidget.h
     config/addplugindialog.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
-
-    backends/lxqttaskbardummybackend.h
-    backends/xcb/lxqttaskbarbackend_x11.h
 )
 
 # using LXQt namespace in the public headers.
@@ -35,9 +36,6 @@ set(PUB_HEADERS
     pluginsettings.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
 )
 
 set(SOURCES
@@ -57,11 +55,6 @@ set(SOURCES
     config/configstyling.cpp
     config/configpluginswidget.cpp
     config/addplugindialog.cpp
-
-    backends/ilxqttaskbarabstractbackend.cpp
-
-    backends/lxqttaskbardummybackend.cpp
-    backends/xcb/lxqttaskbarbackend_x11.cpp
 )
 
 set(UI
@@ -120,6 +113,7 @@ target_link_libraries(${PROJECT}
     ${LIBRARIES}
     ${QTX_LIBRARIES}
     KF6::WindowSystem
+    ${PANEL_BACKENDS}
     LayerShellQt::Interface
     ${STATIC_PLUGINS}
 )
