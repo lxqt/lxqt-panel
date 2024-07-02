@@ -76,8 +76,10 @@ CustomButton::~CustomButton() = default;
 
 void CustomButton::wheelEvent(QWheelEvent *event)
 {
-    int y = event->angleDelta().y();
-    emit wheelScrolled(y);
+    QPoint anglePoint = event->angleDelta();
+    bool horizontal(qAbs(event->angleDelta().x()) > qAbs(anglePoint.y()));
+    int delta = horizontal ? anglePoint.x() : anglePoint.y();
+    emit wheelScrolled(delta);
     event->accept();
 }
 
