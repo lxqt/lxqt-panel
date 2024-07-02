@@ -214,11 +214,11 @@ void LXQtCustomCommand::updateButton() {
     mButton->updateWidth();
 }
 
-void LXQtCustomCommand::handleWheelScrolled(int yDelta)
+void LXQtCustomCommand::handleWheelScrolled(int delta)
 {
-    if (yDelta > 0 && !mWheelUp.isEmpty())
+    if (delta > 0 && !mWheelUp.isEmpty())
         runDetached(mWheelUp);
-    else if (yDelta < 0 && !mWheelDown.isEmpty())
+    else if (delta < 0 && !mWheelDown.isEmpty())
         runDetached(mWheelDown);
 }
 

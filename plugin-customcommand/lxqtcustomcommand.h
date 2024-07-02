@@ -56,7 +56,7 @@ protected slots:
 private slots:
     void handleClick();
     void handleFinished(int exitCode, QProcess::ExitStatus exitStatus);
-    void handleWheelScrolled(int yDelta);
+    void handleWheelScrolled(int delta);
     void updateButton();
     void runCommand();
     void runDetached(QString command);
