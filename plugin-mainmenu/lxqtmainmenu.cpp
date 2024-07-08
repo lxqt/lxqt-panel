@@ -78,12 +78,6 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mMenuCacheNotify = nullptr;
 #endif
 
-    mDelayedPopup.setSingleShot(true);
-    mDelayedPopup.setInterval(200);
-    connect(&mDelayedPopup, &QTimer::timeout, this, &LXQtMainMenu::showHideMenu);
-    mHideTimer.setSingleShot(true);
-    mHideTimer.setInterval(250);
-
     mSearchTimer.setSingleShot(true);
     connect(&mSearchTimer, &QTimer::timeout, this, &LXQtMainMenu::searchMenu);
     mSearchTimer.setInterval(350); // typing speed (not very fast)
@@ -133,14 +127,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
             else
                 mShortcutSeq = mShortcut->shortcut();
         });
-        connect(mShortcut, &GlobalKeyShortcut::Action::activated, this, [this] {
-            if (!mHideTimer.isActive())
-                // Delay this a little -- if we don't do this, search field
-                // won't be able to capture focus
-                // See <https://github.com/lxqt/lxqt-panel/pull/131> and
-                // <https://github.com/lxqt/lxqt-panel/pull/312>
-                mDelayedPopup.start();
-        });
+        connect(mShortcut, &GlobalKeyShortcut::Action::activated, this, &LXQtMainMenu::showHideMenu);
     }
 }
 
@@ -431,8 +418,6 @@ void LXQtMainMenu::buildMenu()
     mMenu->addSeparator();
 
     menuInstallEventFilter(mMenu, this);
-    connect(mMenu, &QMenu::aboutToHide, &mHideTimer, QOverload<>::of(&QTimer::start));
-    connect(mMenu, &QMenu::aboutToShow, &mHideTimer, &QTimer::stop);
 
     mMenu->addSeparator();
     mMenu->addAction(mSearchViewAction);
@@ -668,7 +653,6 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
             if (press == mShortcutSeq)
             {
-                mHideTimer.start();
                 mMenu->hide(); // close the app menu
                 return true;
             }
