@@ -27,7 +27,7 @@ namespace LXQt {
 class Settings;
 }
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 class LXQtPanelApplicationPrivate {
     Q_DECLARE_PUBLIC(LXQtPanelApplication)
@@ -37,9 +37,11 @@ public:
     ~LXQtPanelApplicationPrivate() {};
 
     LXQt::Settings *mSettings;
-    ILXQtTaskbarAbstractBackend *mWMBackend;
+    ILXQtAbstractWMInterface *mWMBackend;
 
     ILXQtPanel::Position computeNewPanelPosition(const LXQtPanel *p, const int screenNum);
+
+    void loadBackend();
 
 private:
     LXQtPanelApplication *const q_ptr;
