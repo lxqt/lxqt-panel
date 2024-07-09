@@ -1,14 +1,14 @@
-#ifndef LXQTTASKBARDUMMYBACKEND_H
-#define LXQTTASKBARDUMMYBACKEND_H
+#ifndef LXQT_DUMMY_WM_BACKEND_H
+#define LXQT_DUMMY_WM_BACKEND_H
 
-#include "ilxqttaskbarabstractbackend.h"
+#include "ilxqtabstractwmiface.h"
 
-class LXQtTaskBarDummyBackend : public ILXQtTaskbarAbstractBackend
+class LXQtDummyWMBackend : public ILXQtAbstractWMInterface
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskBarDummyBackend(QObject *parent = nullptr);
+    explicit LXQtDummyWMBackend(QObject *parent = nullptr);
 
     // Backend
     bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
@@ -85,4 +85,4 @@ signals:
     void activeWindowChanged(WId windowId);
 };
 
-#endif // LXQTTASKBARDUMMYBACKEND_H
+#endif // LXQT_DUMMY_WM_BACKEND_H

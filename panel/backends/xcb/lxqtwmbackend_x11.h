@@ -1,20 +1,19 @@
-#ifndef LXQTTASKBARBACKEND_X11_H
-#define LXQTTASKBARBACKEND_X11_H
+#ifndef LXQT_WM_BACKEND_X11_H
+#define LXQT_WM_BACKEND_X11_H
 
-#include "../ilxqttaskbarabstractbackend.h"
+#include "../ilxqtabstractwmiface.h"
 
-//TODO: make PIMPL to forward declare NET::Properties, Display, xcb_connection_t
 #include <netwm_def.h>
 
 typedef struct _XDisplay Display;
 struct xcb_connection_t;
 
-class LXQtTaskbarX11Backend : public ILXQtTaskbarAbstractBackend
+class LXQtWMBackendX11 : public ILXQtAbstractWMInterface
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarX11Backend(QObject *parent = nullptr);
+    explicit LXQtWMBackendX11(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
@@ -86,4 +85,15 @@ private:
     QVector<WId> m_windows;
 };
 
-#endif // LXQTTASKBARBACKEND_X11_H
+class LXQtWMBackendX11Library: public QObject, public ILXQtWMBackendLibrary
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "lxqt.org/Panel/WMInterface/1.0")
+    Q_INTERFACES(ILXQtWMBackendLibrary)
+public:
+    int getBackendScore() const override;
+
+    ILXQtAbstractWMInterface* instance() const override;
+};
+
+#endif // LXQT_WM_BACKEND_X11_H

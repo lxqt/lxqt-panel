@@ -1,6 +1,6 @@
 set(PROJECT lxqt-panel)
 
-# TODO
+# Window Manager backends
 add_subdirectory(backends)
 
 set(PRIV_HEADERS
@@ -21,12 +21,6 @@ set(PRIV_HEADERS
     config/configstyling.h
     config/configpluginswidget.h
     config/addplugindialog.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
-
-    backends/lxqttaskbardummybackend.h
-    backends/xcb/lxqttaskbarbackend_x11.h
 )
 
 # using LXQt namespace in the public headers.
@@ -35,9 +29,6 @@ set(PUB_HEADERS
     pluginsettings.h
     ilxqtpanelplugin.h
     ilxqtpanel.h
-
-    backends/ilxqttaskbarabstractbackend.h
-    backends/lxqttaskbartypes.h
 )
 
 set(SOURCES
@@ -57,11 +48,6 @@ set(SOURCES
     config/configstyling.cpp
     config/configpluginswidget.cpp
     config/addplugindialog.cpp
-
-    backends/ilxqttaskbarabstractbackend.cpp
-
-    backends/lxqttaskbardummybackend.cpp
-    backends/xcb/lxqttaskbarbackend_x11.cpp
 )
 
 set(UI
@@ -122,6 +108,7 @@ target_link_libraries(${PROJECT}
     KF6::WindowSystem
     LayerShellQt::Interface
     ${STATIC_PLUGINS}
+    lxqt-panel-backend-common
 )
 
 set_property(TARGET ${PROJECT} PROPERTY ENABLE_EXPORTS TRUE)

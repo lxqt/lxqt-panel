@@ -1,19 +1,20 @@
-#ifndef ILXQTTASKBARABSTRACTBACKEND_H
-#define ILXQTTASKBARABSTRACTBACKEND_H
+#ifndef ILXQT_ABSTRACT_WM_INTERFACE_H
+#define ILXQT_ABSTRACT_WM_INTERFACE_H
 
 #include <QObject>
 
+#include "../lxqtpanelglobals.h"
 #include "lxqttaskbartypes.h"
 
 class QIcon;
 class QScreen;
 
-class ILXQtTaskbarAbstractBackend : public QObject
+class LXQT_PANEL_API ILXQtAbstractWMInterface : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit ILXQtTaskbarAbstractBackend(QObject *parent = nullptr);
+    explicit ILXQtAbstractWMInterface(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const = 0;
@@ -96,4 +97,28 @@ signals:
     void activeWindowChanged(WId windowId);
 };
 
-#endif // ILXQTTASKBARABSTRACTBACKEND_H
+class LXQT_PANEL_API ILXQtWMBackendLibrary
+{
+public:
+    /**
+     Destroys the ILXQtWMBackendLibrary object.
+     **/
+    virtual ~ILXQtWMBackendLibrary() {}
+
+    /**
+    Returns the score of this backend for current detected environment.
+    This is used to select correct backend at runtime
+     **/
+    virtual int getBackendScore() const = 0;
+
+    /**
+    Returns the root component object of the backend. When the library is finally unloaded, the root component will automatically be deleted.
+     **/
+    virtual ILXQtAbstractWMInterface* instance() const = 0;
+};
+
+
+Q_DECLARE_INTERFACE(ILXQtWMBackendLibrary,
+                    "lxqt.org/Panel/WMInterface/1.0")
+
+#endif // ILXQT_ABSTRACT_WM_INTERFACE_H

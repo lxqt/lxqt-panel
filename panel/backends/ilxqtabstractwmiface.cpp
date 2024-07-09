@@ -1,13 +1,13 @@
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "ilxqtabstractwmiface.h"
 
 
-ILXQtTaskbarAbstractBackend::ILXQtTaskbarAbstractBackend(QObject *parent)
+ILXQtAbstractWMInterface::ILXQtAbstractWMInterface(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void ILXQtTaskbarAbstractBackend::moveApplicationToPrevNextDesktop(WId windowId, bool next)
+void ILXQtAbstractWMInterface::moveApplicationToPrevNextDesktop(WId windowId, bool next)
 {
     int count = getWorkspacesCount();
     if (count <= 1)
