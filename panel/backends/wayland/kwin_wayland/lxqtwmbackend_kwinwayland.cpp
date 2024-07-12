@@ -87,6 +87,9 @@ LXQtWMBackend_KWinWayland::LXQtWMBackend_KWinWayland(QObject *parent) :
 
 bool LXQtWMBackend_KWinWayland::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
 {
+    if(action == LXQtTaskBarBackendAction::DesktopSwitch)
+        return true;
+
     LXQtTaskBarPlasmaWindow *window = getWindow(windowId);
     if(!window)
         return false;
