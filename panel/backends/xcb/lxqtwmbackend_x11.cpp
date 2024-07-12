@@ -690,9 +690,11 @@ bool LXQtWMBackendX11::showDesktop(bool value)
 int LXQtWMBackendX11Library::getBackendScore() const
 {
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    if(x11Application)
-        return 80;
-    return 30;
+    if(!x11Application)
+        return 0;
+
+    // Generic X11 backend
+    return 80;
 }
 
 ILXQtAbstractWMInterface *LXQtWMBackendX11Library::instance() const

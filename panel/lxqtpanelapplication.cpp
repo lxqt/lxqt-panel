@@ -81,19 +81,23 @@ QString findBestBackend()
                 if(score > lastBackendScore)
                 {
                     lastBackendFile = absPath;
-                    lastBackendScore = lastBackendScore;
+                    lastBackendScore = score;
                 }
             }
             loader.unload();
         }
     }
 
+    if(lastBackendScore == 0)
+        return QString(); // No available backend is good for this environment
+
     return lastBackendFile;
 }
 
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
-    : mSettings(nullptr),
-      q_ptr(q)
+    : mSettings(nullptr)
+    , mWMBackend(nullptr)
+    , q_ptr(q)
 {
 
 }
@@ -136,7 +140,14 @@ void LXQtPanelApplicationPrivate::loadBackend()
     {
         loader.setFileName(preferredBackend);
         loader.load();
-        if(!loader.isLoaded() || !loader.instance() || !qobject_cast<ILXQtWMBackendLibrary *>(loader.instance()))
+
+        QObject *plugin = loader.instance();
+        ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+        if(backend)
+        {
+            mWMBackend = backend->instance();
+        }
+        else
         {
             // Plugin not valid
             loader.unload();
@@ -148,16 +159,33 @@ void LXQtPanelApplicationPrivate::loadBackend()
     {
         // If user prefferred is not valid, find best available backend
         QString fileName = findBestBackend();
-        mSettings->setValue(QStringLiteral("preferred_backend"), fileName);
-        loader.setFileName(fileName);
-        loader.load();
+
+        if(!fileName.isEmpty())
+        {
+            loader.setFileName(fileName);
+            loader.load();
+
+            QObject *plugin = loader.instance();
+            ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+            if(backend)
+            {
+                // Save this backend for next startup
+                preferredBackend = fileName;
+                mSettings->setValue(QStringLiteral("preferred_backend"), preferredBackend);
+
+                mWMBackend = backend->instance();
+            }
+            else
+            {
+                // Plugin not valid
+                loader.unload();
+            }
+        }
     }
 
-    QObject *plugin = loader.instance();
-    ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
-    if(backend)
+    if(mWMBackend)
     {
-        mWMBackend = backend->instance();
+        qDebug() << "Panel backend:" << preferredBackend;
     }
     else
     {
