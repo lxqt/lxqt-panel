@@ -211,7 +211,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colours</source>
-        <translation type="unfinished">&amp;Käytä omia värejä</translation>
+        <translation>&amp;Käytä omia värejä</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
