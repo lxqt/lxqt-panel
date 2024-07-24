@@ -19,17 +19,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation type="unfinished">Näyttömuoto</translation>
+        <translation>Näyttö&amp;muoto</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation type="unfinished">Aika</translation>
+        <translation>&amp;Aika</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation type="unfinished">Muoto:</translation>
+        <translation>&amp;Muoto:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation type="unfinished">Näytä sekunnit</translation>
+        <translation>&amp;Näytä sekunnit</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation type="unfinished">Aikavyöhyke</translation>
+        <translation>&amp;Aikavyöhyke</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation type="unfinished">Käytä 12-tuntista muotoa</translation>
+        <translation>Käytä &amp;12-tuntista muotoa</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
@@ -135,12 +135,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation type="unfinished">Päiväys</translation>
+        <translation>&amp;Päiväys</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation type="unfinished">Sijainti:</translation>
+        <translation>&amp;Sijainti:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
@@ -155,87 +155,87 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation type="unfinished">Näytä vuosi</translation>
+        <translation>&amp;Näytä vuosi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation type="unfinished">Näytä viikonpäivä</translation>
+        <translation>Näytä &amp;viikonpäivä</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation type="unfinished">Lisää päivänumeroon etunolla</translation>
+        <translation>Lisää päivänumeroon &amp;etunolla</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation type="unfinished">Pitkät kuukauden ja viikonpäivänimet</translation>
+        <translation>Pitkät &amp;kuukauden ja viikonpäivänimet</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation type="unfinished">Edistynyt oma muoto</translation>
+        <translation>Edistynyt &amp;oma muoto</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation type="unfinished">Mukauta...</translation>
+        <translation>&amp;Mukauta...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation type="unfinished">Aikavyöhykkeet</translation>
+        <translation>Aikavy&amp;öhykkeet</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation type="unfinished">Lisää...</translation>
+        <translation>&amp;Lisää...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished">Poista</translation>
+        <translation>&amp;Poista</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation type="unfinished">Aseta oletukseksi</translation>
+        <translation>&amp;Aseta oletukseksi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation type="unfinished">Muuta omaa nimeä ...</translation>
+        <translation>&amp;Muuta omaa nimeä...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation type="unfinished">Siirrä ylös</translation>
+        <translation>Siirrä &amp;ylös</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation type="unfinished">Siirrä alas</translation>
+        <translation>Siirrä &amp;alas</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
         <source>&amp;General</source>
-        <translation type="unfinished">Yleiset</translation>
+        <translation>&amp;Yleiset</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation type="unfinished">Kierrä automaattisesti kun paneeli on pystysuorassa</translation>
+        <translation>Kierrä automaattisesti kun paneeli on &amp;pystysuorassa</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation type="unfinished">Näytä viikkonumerot ponnahduskalenterissa</translation>
+        <translation>Näytä viikkonumerot &amp;ponnahduskalenterissa</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>S&amp;how tooltip</source>
-        <translation type="unfinished">Näytä työkaluvihje</translation>
+        <translation>Näytä &amp;työkaluvihje</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation type="unfinished">Maailmankellon oman muodon määritys</translation>
+        <translation>Maailmankellon oman muodon &amp;määritys</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
