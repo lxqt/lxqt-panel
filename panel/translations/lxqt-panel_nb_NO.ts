@@ -16,7 +16,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation>Legg til widget</translation>
+        <translation>Legg til modul</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation>Widgeter</translation>
+        <translation>Moduler</translation>
     </message>
 </context>
 <context>
@@ -87,13 +87,13 @@
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation>pk</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation> pk</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Obs: Forandringer gjort på denne siden kan ikke stilles om.</translation>
+        <translation>Merk: Forandringer gjort på denne siden kan ikke tilbakestilles.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -389,7 +389,7 @@ Fargelegg symboler basert på widget-stil (pallett)</translation>
     <message>
         <location filename="../lxqtpanel.cpp" line="1359"/>
         <source>Manage Widgets</source>
-        <translation>Styr widgeter</translation>
+        <translation>Håndter moduler</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1365"/>

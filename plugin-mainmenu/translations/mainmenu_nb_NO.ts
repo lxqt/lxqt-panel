@@ -136,7 +136,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Klikk knappen for ny tastatursnarevei:</translation>
+        <translation>Klikk knappen for å registrere tastatursnarvei:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>

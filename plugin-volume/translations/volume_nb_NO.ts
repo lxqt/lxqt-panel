@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="137"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Volumkontroll: Den følgende tastatursnareveien kan ikke registreres: %1</translation>
+        <translation>Volumkontroll: De følgende tastatursnarveiene kan ikke registreres: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="290"/>

@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="65"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Vis skrivebord: Global tastatursnarevei &apos;%1&apos; kan ikke registreres</translation>
+        <translation>Vis skrivebord: Global tastatursnarvei &apos;%1&apos; kan ikke registreres</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="50"/>
