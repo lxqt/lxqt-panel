@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Klikk knappen for ny tastatursnarevei:</translation>
+        <translation>Klikk knappen for å registrere tastatursnarvei:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>

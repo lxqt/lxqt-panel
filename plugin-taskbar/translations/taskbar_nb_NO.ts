@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Legg mimimerte vinduer øverst på skrivebordet i bruk</translation>
+        <translation>Løft opp minimerte vinduer på gjeldende skrivebord</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -202,7 +202,7 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="201"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="227"/>
         <source> px</source>
-        <translation> pk</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
