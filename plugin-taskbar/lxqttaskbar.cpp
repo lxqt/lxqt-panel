@@ -50,7 +50,7 @@
 #include "lxqttaskgroup.h"
 #include "../panel/pluginsettings.h"
 
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 #include "../panel/lxqtpanelapplication.h"
 
 using namespace LXQt;
@@ -104,9 +104,9 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     connect(mSignalMapper, &QSignalMapper::mappedInt, this, &LXQtTaskBar::activateTask);
     QTimer::singleShot(0, this, &LXQtTaskBar::registerShortcuts);
 
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, &LXQtTaskBar::onWindowAdded);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
+    connect(mBackend, &ILXQtAbstractWMInterface::windowPropertyChanged, this, &LXQtTaskBar::onWindowChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::windowAdded, this, &LXQtTaskBar::onWindowAdded);
+    connect(mBackend, &ILXQtAbstractWMInterface::windowRemoved, this, &LXQtTaskBar::onWindowRemoved);
 
     // Consider already fetched windows
     const auto initialWindows = mBackend->getCurrentWindows();

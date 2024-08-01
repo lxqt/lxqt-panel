@@ -6,7 +6,7 @@
 
 #include "../panel/backends/lxqttaskbartypes.h"
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 class LXQtTaskBarProxyModelWindow
 {
@@ -64,8 +64,8 @@ public:
 
     QIcon getWindowIcon(int itemRow, int windowIdxInGroup, int devicePixels) const;
 
-    ILXQtTaskbarAbstractBackend *backend() const;
-    void setBackend(ILXQtTaskbarAbstractBackend *newBackend);
+    ILXQtAbstractWMInterface *backend() const;
+    void setBackend(ILXQtAbstractWMInterface *newBackend);
 
     bool groupByWindowClass() const;
     void setGroupByWindowClass(bool newGroupByWindowClass);
@@ -90,7 +90,7 @@ private:
     }
 
 private:
-    ILXQtTaskbarAbstractBackend *m_backend;
+    ILXQtAbstractWMInterface *m_backend;
 
     QVector<LXQtTaskBarProxyModelItem> m_items;
 

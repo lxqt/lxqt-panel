@@ -36,6 +36,9 @@
 #include <QScreen>
 #include <QSvgRenderer>
 
+#include <QDBusConnection>
+#include <QDBusPendingReply>
+
 //NOTE: Xlib.h defines Bool which conflicts with QJsonValue::Type enum
 #include <X11/Xlib.h>
 #undef Bool
@@ -77,6 +80,33 @@ void ColorPicker::realign()
     mWidget.update(panel()->lineCount() <= 1 ? panel()->isHorizontal() : !panel()->isHorizontal());
 }
 
+void ColorPicker::queryXDGSupport()
+{
+    if (qEnvironmentVariableIntValue("QT_NO_XDG_DESKTOP_PORTAL") > 0) {
+        return;
+    }
+    QDBusMessage message = QDBusMessage::createMethodCall(
+        QLatin1String("org.freedesktop.portal.Desktop"),
+        QLatin1String("/org/freedesktop/portal/desktop"),
+        QLatin1String("org.freedesktop.DBus.Properties"),
+        QLatin1String("Get"));
+    message << QLatin1String("org.freedesktop.portal.Screenshot")
+            << QLatin1String("version");
+
+    QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+    auto watcher = new QDBusPendingCallWatcher(pendingCall);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, watcher,
+                     [this](QDBusPendingCallWatcher *watcher) {
+                         watcher->deleteLater();
+                         QDBusPendingReply<QVariant> reply = *watcher;
+                         if (!reply.isError() && reply.value().toUInt() >= 2)
+                             m_hasScreenshotPortalWithColorPicking = true;
+                     });
+
+    //TODO: show error tooltip if not supported
+    //NOTE: on Wayland we cannot pick color without it
+}
+
 
 ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
 {
@@ -108,7 +138,8 @@ ColorPickerWidget::ColorPickerWidget(QWidget *parent) : QWidget(parent)
     layout->addWidget(mColorButton);
     setLayout(layout);
 
-    connect(mPickerButton, &QToolButton::clicked, this, &ColorPickerWidget::captureMouse);
+    connect(mPickerButton, &QToolButton::clicked, this, &ColorPickerWidget::startCapturingColor);
+
     connect(mColorButton, &QToolButton::clicked, this, [&]()
     {
        buildMenu();
@@ -162,22 +193,7 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
         qWarning() << "WAYLAND does not support grabbing windows";
     }
 
-    mColorButton->setColor(col);
-    paste(col.name());
-
-    if (mColorsList.contains(col))
-    {
-        mColorsList.move(mColorsList.indexOf(col), 0);
-    }
-    else
-    {
-        mColorsList.prepend(col);
-    }
-
-    if (mColorsList.size() > 10)
-    {
-        mColorsList.removeLast();
-    }
+    setCapturedColor(col);
 
     mCapturing = false;
     releaseMouse();
@@ -188,11 +204,123 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
+void ColorPickerWidget::startCapturingColor()
+{
+    //NOTE: see qt6 `src/gui/platform/unix/qgenericunixservices.cpp`
+
+    // Make double sure that we are in a wayland environment. In particular check
+    // WAYLAND_DISPLAY so also XWayland apps benefit from portal-based color picking.
+    // Outside wayland we'll rather rely on other means than the XDG desktop portal.
+    if (!qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")
+        || QGuiApplication::platformName().startsWith(QLatin1String("wayland")))
+    {
+        // On Wayland use XDG Desktop Portal
+
+        QString m_parentWindowId; //TODO
+
+        QDBusMessage message = QDBusMessage::createMethodCall(
+            QLatin1String("org.freedesktop.portal.Desktop"),
+            QLatin1String("/org/freedesktop/portal/desktop"),
+            QLatin1String("org.freedesktop.portal.Screenshot"),
+            QLatin1String("PickColor"));
+        message << m_parentWindowId << QVariantMap();
+
+        QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+        auto watcher = new QDBusPendingCallWatcher(pendingCall, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this,
+                [this](QDBusPendingCallWatcher *watcher) {
+                    watcher->deleteLater();
+                    QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+                    if (reply.isError()) {
+                        qWarning("DBus call to pick color failed: %s",
+                                 qPrintable(reply.error().message()));
+                        setCapturedColor({});
+                    } else {
+                        QDBusConnection::sessionBus().connect(
+                            QLatin1String("org.freedesktop.portal.Desktop"),
+                            reply.value().path(),
+                            QLatin1String("org.freedesktop.portal.Request"),
+                            QLatin1String("Response"),
+                            this,
+                            // clang-format off
+                            SLOT(gotColorResponse(uint,QVariantMap))
+                            // clang-format on
+                            );
+                    }
+                });
+    }
+    else if (qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+    {
+        // On X11 grab mouse and let `mouseReleaseEvent()` retrieve color
+        captureMouse();
+    }
+}
+
+void ColorPickerWidget::setCapturedColor(const QColor &color)
+{
+    mColorButton->setColor(color);
+    paste(color.name());
+
+    if (mColorsList.contains(color))
+    {
+        mColorsList.move(mColorsList.indexOf(color), 0);
+    }
+    else
+    {
+        mColorsList.prepend(color);
+    }
+
+    if (mColorsList.size() > 10)
+    {
+        mColorsList.removeLast();
+    }
+}
+
 
 void ColorPickerWidget::captureMouse()
 {
     grabMouse(Qt::CrossCursor);
     mCapturing = true;
+}
+
+struct XDGDesktopColor
+{
+    double r = 0;
+    double g = 0;
+    double b = 0;
+
+    QColor toQColor() const
+    {
+        constexpr auto rgbMax = 255;
+        return { static_cast<int>(r * rgbMax), static_cast<int>(g * rgbMax),
+                static_cast<int>(b * rgbMax) };
+    }
+};
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, XDGDesktopColor &myStruct)
+{
+    argument.beginStructure();
+    argument >> myStruct.r >> myStruct.g >> myStruct.b;
+    argument.endStructure();
+    return argument;
+}
+
+void ColorPickerWidget::gotColorResponse(uint result, const QVariantMap &map)
+{
+    auto colorProp = QStringLiteral("color");
+
+    if (result != 0)
+        return;
+    if (map.contains(colorProp))
+    {
+        XDGDesktopColor color{};
+        map.value(colorProp).value<QDBusArgument>() >> color;
+        setCapturedColor(color.toQColor());
+    }
+    else
+    {
+        setCapturedColor({});
+    }
 }
 
 

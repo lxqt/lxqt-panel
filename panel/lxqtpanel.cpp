@@ -52,7 +52,7 @@
 #include <KX11Extras>
 #include <NETWM>
 
-#include "backends/ilxqttaskbarabstractbackend.h"
+#include "backends/ilxqtabstractwmiface.h"
 
 
 #include <LayerShellQt/Window>
@@ -281,18 +281,18 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     auto wmBackend = a->getWMBackend();
 
-    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowAdded, this, [this] {
+    connect(wmBackend, &ILXQtAbstractWMInterface::windowAdded, this, [this] {
         if (mHidable && mHideOnOverlap && !mHidden)
         {
             mShowDelayTimer.stop();
             hidePanel();
         }
     });
-    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowRemoved, this, [this] {
+    connect(wmBackend, &ILXQtAbstractWMInterface::windowRemoved, this, [this] {
         if (mHidable && mHideOnOverlap && mHidden && !isPanelOverlapped())
             mShowDelayTimer.start();
     });
-    connect(wmBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, [this] {
+    connect(wmBackend, &ILXQtAbstractWMInterface::currentWorkspaceChanged, this, [this] {
        if (mHidable && mHideOnOverlap)
        {
             if (!mHidden)
@@ -304,7 +304,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
                 mShowDelayTimer.start();
        }
     });
-    connect(wmBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,
+    connect(wmBackend, &ILXQtAbstractWMInterface::windowPropertyChanged,
             this, [this] (WId /* id */, int prop)
     {
         if (mHidable && mHideOnOverlap
