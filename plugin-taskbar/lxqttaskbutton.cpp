@@ -50,7 +50,7 @@
 #include <QStyleOptionToolButton>
 #include <QScreen>
 
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 
 

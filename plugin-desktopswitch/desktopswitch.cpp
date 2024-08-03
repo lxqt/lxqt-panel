@@ -35,7 +35,7 @@
 #include <LXQt/GridLayout>
 
 #include "../panel/lxqtpanelapplication.h"
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 #include <cmath>
 
@@ -75,11 +75,11 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
 
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::workspacesCountChanged,  this, &DesktopSwitch::onNumberOfDesktopsChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &DesktopSwitch::onCurrentDesktopChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::workspaceNameChanged,    this, &DesktopSwitch::onDesktopNamesChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::workspacesCountChanged,  this, &DesktopSwitch::onNumberOfDesktopsChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::currentWorkspaceChanged, this, &DesktopSwitch::onCurrentDesktopChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::workspaceNameChanged,    this, &DesktopSwitch::onDesktopNamesChanged);
 
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged, this, &DesktopSwitch::onWindowChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::windowPropertyChanged, this, &DesktopSwitch::onWindowChanged);
 }
 
 void DesktopSwitch::registerShortcuts()

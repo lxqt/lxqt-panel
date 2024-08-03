@@ -1,6 +1,6 @@
 #include "lxqttaskbarproxymodel.h"
 
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 #include <QIcon>
 
@@ -209,12 +209,12 @@ void LXQtTaskBarProxyModel::setGroupByWindowClass(bool newGroupByWindowClass)
 
 }
 
-ILXQtTaskbarAbstractBackend *LXQtTaskBarProxyModel::backend() const
+ILXQtAbstractWMInterface *LXQtTaskBarProxyModel::backend() const
 {
     return m_backend;
 }
 
-void LXQtTaskBarProxyModel::setBackend(ILXQtTaskbarAbstractBackend *newBackend)
+void LXQtTaskBarProxyModel::setBackend(ILXQtAbstractWMInterface *newBackend)
 {
     beginResetModel();
 
@@ -222,11 +222,11 @@ void LXQtTaskBarProxyModel::setBackend(ILXQtTaskbarAbstractBackend *newBackend)
 
     if(m_backend)
     {
-        disconnect(m_backend, &ILXQtTaskbarAbstractBackend::windowAdded,
+        disconnect(m_backend, &ILXQtAbstractWMInterface::windowAdded,
                    this, &LXQtTaskBarProxyModel::onWindowAdded);
-        disconnect(m_backend, &ILXQtTaskbarAbstractBackend::windowRemoved,
+        disconnect(m_backend, &ILXQtAbstractWMInterface::windowRemoved,
                    this, &LXQtTaskBarProxyModel::onWindowRemoved);
-        disconnect(m_backend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,
+        disconnect(m_backend, &ILXQtAbstractWMInterface::windowPropertyChanged,
                    this, &LXQtTaskBarProxyModel::onWindowPropertyChanged);
     }
 
@@ -234,11 +234,11 @@ void LXQtTaskBarProxyModel::setBackend(ILXQtTaskbarAbstractBackend *newBackend)
 
     if(m_backend)
     {
-        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowAdded,
+        connect(m_backend, &ILXQtAbstractWMInterface::windowAdded,
                 this, &LXQtTaskBarProxyModel::onWindowAdded);
-        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowRemoved,
+        connect(m_backend, &ILXQtAbstractWMInterface::windowRemoved,
                 this, &LXQtTaskBarProxyModel::onWindowRemoved);
-        connect(m_backend, &ILXQtTaskbarAbstractBackend::windowPropertyChanged,
+        connect(m_backend, &ILXQtAbstractWMInterface::windowPropertyChanged,
                 this, &LXQtTaskBarProxyModel::onWindowPropertyChanged);
 
         // Reload current windows

@@ -41,7 +41,7 @@ class QPalette;
 class QMimeData;
 class LXQtTaskBar;
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 class LeftAlignedTextStyle : public QProxyStyle
 {
@@ -124,7 +124,7 @@ protected:
 
 protected:
     //TODO: public getter instead?
-    ILXQtTaskbarAbstractBackend *mBackend;
+    ILXQtAbstractWMInterface *mBackend;
 
 private:
     void moveApplicationToPrevNextDesktop(bool next);

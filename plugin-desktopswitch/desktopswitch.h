@@ -41,7 +41,7 @@ namespace LXQt {
 class GridLayout;
 }
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 class DesktopSwitchWidget: public QFrame
 {
@@ -83,7 +83,7 @@ private:
     LXQt::GridLayout *mLayout;
     int mRows;
     bool mShowOnlyActive;
-    ILXQtTaskbarAbstractBackend *mBackend;
+    ILXQtAbstractWMInterface *mBackend;
     DesktopSwitchButton::LabelType mLabelType;
 
     void refresh();

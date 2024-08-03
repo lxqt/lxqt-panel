@@ -38,28 +38,68 @@
 #include <QtDebug>
 #include <LXQt/Settings>
 
-#include "backends/lxqttaskbardummybackend.h"
-#include "backends/xcb/lxqttaskbarbackend_x11.h"
+#include <QPluginLoader>
+#include <QDir>
+#include <QProcessEnvironment>
 
-ILXQtTaskbarAbstractBackend *createWMBackend()
+#include "backends/lxqtdummywmbackend.h"
+
+QString findBestBackend()
 {
-    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-        return new LXQtTaskbarX11Backend;
+    QStringList dirs;
+    dirs << QProcessEnvironment::systemEnvironment().value(QStringLiteral("LXQTPANEL_PLUGIN_PATH")).split(QStringLiteral(":"));
+    dirs << QStringLiteral(PLUGIN_DIR);
 
-    qWarning() << "\n"
-               << "ERROR: Could not create a backend for window managment operations.\n"
-               << "Only X11 supported!\n"
-               << "Falling back to dummy backend. Some functions will not be available.\n"
-               << "\n";
+    QString lastBackendFile;
+    int lastBackendScore = 0;
 
-    return new LXQtTaskBarDummyBackend;
+    for(const QString& dir : std::as_const(dirs))
+    {
+        QDir backendsDir(dir);
+        backendsDir.cd(QLatin1String("backend"));
+
+        const auto entryList = backendsDir.entryList(QDir::Files);
+        for(const QString& fileName : entryList)
+        {
+            const QString absPath = backendsDir.absoluteFilePath(fileName);
+            QPluginLoader loader(absPath);
+            loader.load();
+            if(!loader.isLoaded())
+            {
+                QString err = loader.errorString();
+                qWarning() << "Backend error:" << err;
+            }
+
+            QObject *plugin = loader.instance();
+            if(!plugin)
+                continue;
+
+            ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+            if(backend)
+            {
+                int score = backend->getBackendScore();
+                if(score > lastBackendScore)
+                {
+                    lastBackendFile = absPath;
+                    lastBackendScore = score;
+                }
+            }
+            loader.unload();
+        }
+    }
+
+    if(lastBackendScore == 0)
+        return QString(); // No available backend is good for this environment
+
+    return lastBackendFile;
 }
 
 LXQtPanelApplicationPrivate::LXQtPanelApplicationPrivate(LXQtPanelApplication *q)
-    : mSettings(nullptr),
-      q_ptr(q)
+    : mSettings(nullptr)
+    , mWMBackend(nullptr)
+    , q_ptr(q)
 {
-    mWMBackend = createWMBackend();
+
 }
 
 
@@ -88,6 +128,79 @@ ILXQtPanel::Position LXQtPanelApplicationPrivate::computeNewPanelPosition(const 
     }
 
     return static_cast<ILXQtPanel::Position> (availablePosition);
+}
+
+void LXQtPanelApplicationPrivate::loadBackend()
+{
+    QPluginLoader loader;
+
+    // First try to load user preferred backend
+    QString preferredBackend = mSettings->value(QStringLiteral("preferred_backend")).toString();
+    if(!preferredBackend.isEmpty())
+    {
+        loader.setFileName(preferredBackend);
+        loader.load();
+
+        QObject *plugin = loader.instance();
+        ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+        if(backend)
+        {
+            mWMBackend = backend->instance();
+        }
+        else
+        {
+            // Plugin not valid
+            loader.unload();
+            preferredBackend.clear();
+        }
+    }
+
+    if(preferredBackend.isEmpty())
+    {
+        // If user prefferred is not valid, find best available backend
+        QString fileName = findBestBackend();
+
+        if(!fileName.isEmpty())
+        {
+            loader.setFileName(fileName);
+            loader.load();
+
+            QObject *plugin = loader.instance();
+            ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+            if(backend)
+            {
+                // Save this backend for next startup
+                preferredBackend = fileName;
+                mSettings->setValue(QStringLiteral("preferred_backend"), preferredBackend);
+
+                mWMBackend = backend->instance();
+            }
+            else
+            {
+                // Plugin not valid
+                loader.unload();
+            }
+        }
+    }
+
+    if(mWMBackend)
+    {
+        qDebug() << "Panel backend:" << preferredBackend;
+    }
+    else
+    {
+        // If no backend can be found fall back to dummy backend
+        loader.unload();
+        mWMBackend = new LXQtDummyWMBackend;
+
+        qWarning() << "\n"
+                   << "ERROR: Could not create a backend for window managment operations.\n"
+                   << "Only X11 supported!\n"
+                   << "Falling back to dummy backend. Some functions will not be available.\n"
+                   << "\n";
+    }
+
+    mWMBackend->setParent(q_ptr);
 }
 
 LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
@@ -123,6 +236,8 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
         d->mSettings = new LXQt::Settings(QLatin1String("panel"), this);
     else
         d->mSettings = new LXQt::Settings(configFile, QSettings::IniFormat, this);
+
+    d->loadBackend();
 
     // This is a workaround for Qt 5 bug #40681.
     const auto allScreens = screens();
@@ -309,7 +424,7 @@ bool LXQtPanelApplication::isPluginSingletonAndRunning(QString const & pluginId)
     return false;
 }
 
-ILXQtTaskbarAbstractBackend *LXQtPanelApplication::getWMBackend() const
+ILXQtAbstractWMInterface *LXQtPanelApplication::getWMBackend() const
 {
     Q_D(const LXQtPanelApplication);
     return d->mWMBackend;
