@@ -315,7 +315,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Bakgrunnsgjennomsiktighet:</translation>
+        <translation>Bakgrunnsugjennomsiktighet:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>

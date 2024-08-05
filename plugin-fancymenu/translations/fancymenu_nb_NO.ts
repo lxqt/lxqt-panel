@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoritter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle programmer</translation>
     </message>
 </context>
 <context>
@@ -217,12 +217,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern fra favoritter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til i favoritter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="703"/>

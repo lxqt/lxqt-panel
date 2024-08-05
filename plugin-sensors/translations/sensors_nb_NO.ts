@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Blink med statuslinjen når temperaturen er for høy</translation>
+        <translation>Blinkende statuslinjer når temperaturen er for høy</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="138"/>

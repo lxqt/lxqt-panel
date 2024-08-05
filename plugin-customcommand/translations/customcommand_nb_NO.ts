@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="240"/>
         <source>echo Configure...</source>
-        <translation type="unfinished">skriv ut oppsett …</translation>
+        <translation>echo Oppsett…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="243"/>
