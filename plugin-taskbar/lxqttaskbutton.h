@@ -122,6 +122,8 @@ protected:
 
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
+    void setTextExplicitly(const QString& str);
+
 protected:
     //TODO: public getter instead?
     ILXQtTaskbarAbstractBackend *mBackend;
@@ -137,6 +139,8 @@ private:
     ILXQtPanelPlugin * mPlugin;
     int mIconSize;
     int mWheelDelta;
+
+    QString mExplicitlySetText;
 
     // Timer for when draggind something into a button (the button's window
     // must be activated so that the use can continue dragging to the window

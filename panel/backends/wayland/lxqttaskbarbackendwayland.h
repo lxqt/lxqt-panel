@@ -25,24 +25,26 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
-
-#ifndef LXQTTASKBARBACKEND_X11_H
-#define LXQTTASKBARBACKEND_X11_H
+#ifndef LXQTTASKBARBACKENDWAYLAND_H
+#define LXQTTASKBARBACKENDWAYLAND_H
 
 #include "../ilxqttaskbarabstractbackend.h"
 
-//TODO: make PIMPL to forward declare NET::Properties, Display, xcb_connection_t
-#include <netwm_def.h>
+#include <QTime>
+#include <QHash>
+#include <vector>
 
-typedef struct _XDisplay Display;
-struct xcb_connection_t;
+class LXQtTaskBarPlasmaWindow;
+class LXQtTaskBarPlasmaWindowManagment;
+class LXQtPlasmaWaylandWorkspaceInfo;
 
-class LXQtTaskbarX11Backend : public ILXQtTaskbarAbstractBackend
+
+class LXQtTaskbarWaylandBackend : public ILXQtTaskbarAbstractBackend
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarX11Backend(QObject *parent = nullptr);
+    explicit LXQtTaskbarWaylandBackend(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
@@ -98,20 +100,25 @@ public:
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-private slots:
-    void onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2);
-    void onWindowAdded(WId windowId);
-    void onWindowRemoved(WId windowId);
+private:
+    void addWindow(LXQtTaskBarPlasmaWindow *window);
+    bool acceptWindow(LXQtTaskBarPlasmaWindow *window) const;
+    void updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window);
 
 private:
-    bool acceptWindow(WId windowId) const;
-    void addWindow_internal(WId windowId, bool emitAdded = true);
+    LXQtTaskBarPlasmaWindow *getWindow(WId windowId) const;
 
-private:
-    Display *m_X11Display;
-    xcb_connection_t *m_xcbConnection;
+    std::unique_ptr<LXQtPlasmaWaylandWorkspaceInfo> m_workspaceInfo;
 
-    QVector<WId> m_windows;
+    std::unique_ptr<LXQtTaskBarPlasmaWindowManagment> m_managment;
+
+    QHash<LXQtTaskBarPlasmaWindow *, QTime> lastActivated;
+    LXQtTaskBarPlasmaWindow *activeWindow = nullptr;
+    std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>> windows;
+    // key=transient child, value=leader
+    QHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transients;
+    // key=leader, values=transient children
+    QMultiHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transientsDemandingAttention;
 };
 
-#endif // LXQTTASKBARBACKEND_X11_H
+#endif // LXQTTASKBARBACKENDWAYLAND_H

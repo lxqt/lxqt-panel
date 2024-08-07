@@ -1,48 +1,22 @@
-/* BEGIN_COMMON_COPYRIGHT_HEADER
- * (c)LGPL2+
- *
- * LXQt - a lightweight, Qt based, desktop toolset
- * https://lxqt.org
- *
- * Copyright: 2023 LXQt team
- * Authors:
- *  Filippo Gentile <filippogentile@disroot.org>
- *
- * This program or library is free software; you can redistribute it
- * and/or modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General
- * Public License along with this library; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301 USA
- *
- * END_COMMON_COPYRIGHT_HEADER */
+#pragma once
+
+#include "../../ilxqttaskbarabstractbackend.h"
+
+#include <QTime>
+#include <QHash>
+#include <vector>
+
+class LXQtTaskbarWlrootsWindow;
+class LXQtTaskbarWlrootsWindowManagment;
+class LXQtWlrootsWaylandWorkspaceInfo;
 
 
-#ifndef LXQTTASKBARBACKEND_X11_H
-#define LXQTTASKBARBACKEND_X11_H
-
-#include "../ilxqttaskbarabstractbackend.h"
-
-//TODO: make PIMPL to forward declare NET::Properties, Display, xcb_connection_t
-#include <netwm_def.h>
-
-typedef struct _XDisplay Display;
-struct xcb_connection_t;
-
-class LXQtTaskbarX11Backend : public ILXQtTaskbarAbstractBackend
+class LXQtTaskbarWlrootsBackend : public ILXQtTaskbarAbstractBackend
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarX11Backend(QObject *parent = nullptr);
+    explicit LXQtTaskbarWlrootsBackend(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
@@ -83,8 +57,6 @@ public:
 
     virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
-    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft) override;
-
     // X11 Specific
     virtual void moveApplication(WId windowId) override;
     virtual void resizeApplication(WId windowId) override;
@@ -98,20 +70,22 @@ public:
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-private slots:
-    void onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2);
-    void onWindowAdded(WId windowId);
-    void onWindowRemoved(WId windowId);
+private:
+    void addWindow(WId wid);
+    bool acceptWindow(WId wid) const;
 
 private:
-    bool acceptWindow(WId windowId) const;
-    void addWindow_internal(WId windowId, bool emitAdded = true);
+    /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */
+    LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
-private:
-    Display *m_X11Display;
-    xcb_connection_t *m_xcbConnection;
+    std::unique_ptr<LXQtWlrootsWaylandWorkspaceInfo> m_workspaceInfo;
 
-    QVector<WId> m_windows;
+    std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
+
+    QHash<WId, QTime> lastActivated;
+    WId activeWindow = 0;
+    std::vector<WId> windows;
+
+    // key=transient child, value=leader
+    QHash<WId, WId> transients;
 };
-
-#endif // LXQTTASKBARBACKEND_X11_H

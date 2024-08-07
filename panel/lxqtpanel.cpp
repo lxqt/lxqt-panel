@@ -54,7 +54,6 @@
 
 #include "backends/ilxqttaskbarabstractbackend.h"
 
-
 #include <LayerShellQt/Window>
 
 // Turn on this to show the time required to load each plugin during startup
@@ -1416,48 +1415,60 @@ Plugin* LXQtPanel::findPlugin(const ILXQtPanelPlugin* iPlugin) const
  ************************************************/
 QRect LXQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const
 {
-    int x = absolutePos.x(), y = absolutePos.y();
+    QPoint localPos = mapFromGlobal(absolutePos);
+    int x = localPos.x(), y = localPos.y();
 
     switch (position())
     {
     case ILXQtPanel::PositionTop:
-        y = mGeometry.bottom();
+        y = geometry().height();
         break;
 
     case ILXQtPanel::PositionBottom:
-        y = mGeometry.top() - windowSize.height();
+        y = 0 - windowSize.height();
         break;
 
     case ILXQtPanel::PositionLeft:
-        x = mGeometry.right();
+        x = geometry().right();
         break;
 
     case ILXQtPanel::PositionRight:
-        x = mGeometry.left() - windowSize.width();
+        x = geometry().left() - windowSize.width();
         break;
     }
 
     QRect res(QPoint(x, y), windowSize);
 
-    QRect panelScreen;
-    const auto screens = QApplication::screens();
-    if (mActualScreenNum < screens.size())
-        panelScreen = screens.at(mActualScreenNum)->geometry();
-    // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
-    // multihead setup with different resolutions. In this case, the size of the work area is limited
-    // by the smallest monitor and may be much smaller than the current screen and we will place the
-    // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.
-    if (res.right() > panelScreen.right())
-        res.moveRight(panelScreen.right());
+    // Map to global coordinates
+    res = QRect(mapToGlobal(res.topLeft()), mapToGlobal(res.bottomRight()));
 
-    if (res.bottom() > panelScreen.bottom())
-        res.moveBottom(panelScreen.bottom());
+    if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+    {
+        //On X11 we clamp rects inside screen area.
+        //NOTE: On Wayland it's done by compositor
 
-    if (res.left() < panelScreen.left())
-        res.moveLeft(panelScreen.left());
+        QRect panelScreen;
+        const auto screens = QApplication::screens();
+        if (mActualScreenNum < screens.size())
+            panelScreen = screens.at(mActualScreenNum)->geometry();
 
-    if (res.top() < panelScreen.top())
-        res.moveTop(panelScreen.top());
+        // NOTE: We cannot use AvailableGeometry() which returns the work area here because when in a
+        // multihead setup with different resolutions. In this case, the size of the work area is limited
+        // by the smallest monitor and may be much smaller than the current screen and we will place the
+        // menu at the wrong place. This is very bad for UX. So let's use the full size of the screen.
+
+        if (res.right() > panelScreen.right())
+            res.moveRight(panelScreen.right());
+
+        if (res.bottom() > panelScreen.bottom())
+            res.moveBottom(panelScreen.bottom() - mGeometry.top());
+
+        if (res.left() < panelScreen.left())
+            res.moveLeft(panelScreen.left());
+
+        if (res.top() < panelScreen.top())
+            res.moveTop(panelScreen.top() - mGeometry.top());
+    }
 
     return res;
 }
@@ -1479,7 +1490,7 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
     }
 
     // Note: assuming there are not contentMargins around the "BackgroundWidget" (LXQtPanelWidget)
-    return calculatePopupWindowPos(mGeometry.topLeft() + panel_plugin->geometry().topLeft(), windowSize);
+    return calculatePopupWindowPos(mapToGlobal(panel_plugin->geometry().topLeft()), windowSize);
 }
 
 
