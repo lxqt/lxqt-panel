@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
         <source>&amp;Grid</source>
-        <translation>&amp;Koordinatsystem</translation>
+        <translation>&amp;Rutenett</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="40"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation>Hukommelse</translation>
+        <translation>Minne</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
@@ -141,17 +141,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
         <source>&amp;Grid lines</source>
-        <translation>&amp;Linjer i koordinatsystemet</translation>
+        <translation>&amp;Rutenettlinjer</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal bredde hvis panelet er vannrett./p&gt;&lt;p&gt;Minimal høyde hvis panelet er vannrett.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal bredde hvis panelet er horisontalt.&lt;/p&gt;&lt;p&gt;Minimal høyde hvis panelet er vertikalt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> pk</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation>Hukommelse</translation>
+        <translation>Minne</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation>hukommelse</translation>
+        <translation>minne</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
