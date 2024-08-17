@@ -151,11 +151,10 @@ void LXQtPanelApplicationPrivate::loadBackend()
         {
             // Plugin not valid
             loader.unload();
-            preferredBackend.clear();
         }
     }
 
-    if(preferredBackend.isEmpty())
+    if(!mWMBackend)
     {
         // If user prefferred is not valid, find best available backend
         QString fileName = findBestBackend();
@@ -169,10 +168,6 @@ void LXQtPanelApplicationPrivate::loadBackend()
             ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
             if(backend)
             {
-                // Save this backend for next startup
-                preferredBackend = fileName;
-                mSettings->setValue(QStringLiteral("preferred_backend"), preferredBackend);
-
                 mWMBackend = backend->instance();
             }
             else
@@ -185,7 +180,7 @@ void LXQtPanelApplicationPrivate::loadBackend()
 
     if(mWMBackend)
     {
-        qDebug() << "Panel backend:" << preferredBackend;
+        qDebug() << "\nPanel backend:" << preferredBackend << "\n";
     }
     else
     {
@@ -195,7 +190,6 @@ void LXQtPanelApplicationPrivate::loadBackend()
 
         qWarning() << "\n"
                    << "ERROR: Could not create a backend for window managment operations.\n"
-                   << "Only X11 supported!\n"
                    << "Falling back to dummy backend. Some functions will not be available.\n"
                    << "\n";
     }
