@@ -598,11 +598,17 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
         }
         else
         {
-            if (activeWindow == effectiveWindow)
-            {
-                activeWindow = nullptr;
-                emit activeWindowChanged(0);
-            }
+            // NOTE: LXQtTaskGroup does not handle well null active window
+            // This  would break minimize on click functionality.
+            // Since window is deactivated because another window became active,
+            // we pretend to still be active until we receive signal from newly active
+            // window which will register itself and emit activeWindowChanged() as above
+
+            // if (activeWindow == effectiveWindow)
+            // {
+            //     activeWindow = nullptr;
+            //     emit activeWindowChanged(0);
+            // }
         }
     });
 
