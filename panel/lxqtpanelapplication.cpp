@@ -226,6 +226,7 @@ void LXQtPanelApplicationPrivate::loadBackend()
             if(backend)
             {
                 mWMBackend = backend->instance();
+                preferredBackend = fileName;
             }
             else
             {
