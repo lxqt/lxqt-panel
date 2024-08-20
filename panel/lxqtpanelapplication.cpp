@@ -44,48 +44,100 @@
 
 #include "backends/lxqtdummywmbackend.h"
 
+
+static inline QList<QByteArray> detectDesktopEnvironment()
+{
+    const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
+    if (!xdgCurrentDesktop.isEmpty())
+    {
+        // KDE, GNOME, UNITY, LXDE, MATE, XFCE...
+        // But also LXQt:$COMPOSITOR:wlroots
+        QList<QByteArray> list = xdgCurrentDesktop.toUpper().split(':');
+        if(!list.isEmpty())
+        {
+            if(list.first() == QByteArrayLiteral("LXQT"))
+                list.removeFirst();
+            if(!list.isEmpty())
+                return list;
+        }
+    }
+
+    // Classic fallbacks
+    if (!qEnvironmentVariableIsEmpty("KDE_FULL_SESSION"))
+        return {QByteArrayLiteral("KDE")};
+
+    // Fallback to checking $DESKTOP_SESSION (unreliable)
+    QByteArray desktopSession = qgetenv("DESKTOP_SESSION");
+
+    // This can be a path in /usr/share/xsessions
+    int slash = desktopSession.lastIndexOf('/');
+    // try decoding just the basename
+    desktopSession = desktopSession.mid(slash + 1);
+
+    if (desktopSession == "kde" || desktopSession == "plasma")
+        return {QByteArrayLiteral("KDE")};
+
+    return {};
+}
+
 QString findBestBackend()
 {
     QStringList dirs;
-    dirs << QProcessEnvironment::systemEnvironment().value(QStringLiteral("LXQTPANEL_PLUGIN_PATH")).split(QStringLiteral(":"));
+
+    // LXQTPANEL_PLUGIN_PATH is not always defined, skip if empty
+    QStringList pluginPaths = QProcessEnvironment::systemEnvironment()
+                                  .value(QStringLiteral("LXQTPANEL_PLUGIN_PATH"))
+                                  .split(QStringLiteral(":"), Qt::SkipEmptyParts);
+    if(!pluginPaths.isEmpty())
+        dirs << pluginPaths;
+
     dirs << QStringLiteral(PLUGIN_DIR);
 
     QString lastBackendFile;
     int lastBackendScore = 0;
 
-    for(const QString& dir : std::as_const(dirs))
+    QList<QByteArray> desktops = detectDesktopEnvironment();
+    for(const QByteArray& desktop : desktops)
     {
-        QDir backendsDir(dir);
-        backendsDir.cd(QLatin1String("backend"));
+        QString key = QString::fromUtf8(desktop);
 
-        const auto entryList = backendsDir.entryList(QDir::Files);
-        for(const QString& fileName : entryList)
+        for(const QString& dir : std::as_const(dirs))
         {
-            const QString absPath = backendsDir.absoluteFilePath(fileName);
-            QPluginLoader loader(absPath);
-            loader.load();
-            if(!loader.isLoaded())
-            {
-                QString err = loader.errorString();
-                qWarning() << "Backend error:" << err;
-            }
+            QDir backendsDir(dir);
+            backendsDir.cd(QLatin1String("backend"));
 
-            QObject *plugin = loader.instance();
-            if(!plugin)
-                continue;
-
-            ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
-            if(backend)
+            const auto entryList = backendsDir.entryList(QDir::Files);
+            for(const QString& fileName : entryList)
             {
-                int score = backend->getBackendScore();
-                if(score > lastBackendScore)
+                const QString absPath = backendsDir.absoluteFilePath(fileName);
+                QPluginLoader loader(absPath);
+                loader.load();
+                if(!loader.isLoaded())
                 {
-                    lastBackendFile = absPath;
-                    lastBackendScore = score;
+                    QString err = loader.errorString();
+                    qWarning() << "Backend error:" << err;
                 }
+
+                QObject *plugin = loader.instance();
+                if(!plugin)
+                    continue;
+
+                ILXQtWMBackendLibrary *backend = qobject_cast<ILXQtWMBackendLibrary *>(plugin);
+                if(backend)
+                {
+                    int score = backend->getBackendScore(key);
+                    if(score > lastBackendScore)
+                    {
+                        lastBackendFile = absPath;
+                        lastBackendScore = score;
+                    }
+                }
+                loader.unload();
             }
-            loader.unload();
         }
+
+        // Double the score before going to next key
+        lastBackendScore *= 2;
     }
 
     if(lastBackendScore == 0)

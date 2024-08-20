@@ -687,8 +687,10 @@ bool LXQtWMBackendX11::showDesktop(bool value)
     return true;
 }
 
-int LXQtWMBackendX11Library::getBackendScore() const
+int LXQtWMBackendX11Library::getBackendScore(const QString &key) const
 {
+    Q_UNUSED(key)
+
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
     if(!x11Application)
         return 0;
