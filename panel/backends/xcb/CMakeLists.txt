@@ -1,6 +1,9 @@
-set(NAME xcb_backend)
+set(PLATFORM_NAME xcb)
+
+set(PREFIX_NAME wmbackend)
 set(PROGRAM "lxqt-panel")
 set(BACKEND "backend")
+set(NAME ${PREFIX_NAME}_${PLATFORM_NAME})
 project(${PROGRAM}_${BACKEND}_${NAME})
 
 set(PROG_SHARE_DIR ${CMAKE_INSTALL_FULL_DATAROOTDIR}/lxqt/${PROGRAM}/${BACKEND})
