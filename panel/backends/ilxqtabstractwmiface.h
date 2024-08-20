@@ -137,7 +137,7 @@ public:
     Returns the score of this backend for current detected environment.
     This is used to select correct backend at runtime
      **/
-    virtual int getBackendScore() const = 0;
+    virtual int getBackendScore(const QString& key) const = 0;
 
     /**
     Returns the root component object of the backend. When the library is finally unloaded, the root component will automatically be deleted.
