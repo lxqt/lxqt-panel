@@ -104,8 +104,13 @@ QString findBestBackend()
         for(const QString& dir : std::as_const(dirs))
         {
             QDir backendsDir(dir);
-            backendsDir.cd(QLatin1String("backend"));
 
+            if ( QFile::exists( dir + QStringLiteral("/backend") ) )
+            {
+                backendsDir.cd(QLatin1String("backend"));
+            }
+
+            backendsDir.setNameFilters({QLatin1String("libwmbackend_*.so")});
             const auto entryList = backendsDir.entryList(QDir::Files);
             for(const QString& fileName : entryList)
             {
