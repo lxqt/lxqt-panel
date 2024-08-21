@@ -47,6 +47,7 @@ struct LXQtFancyMenuAppItem
     QString title;
     QString comment;
     QStringList keywords;
+    QStringList exec;
     QIcon icon;
     XdgDesktopFile desktopFileCache;
 };
