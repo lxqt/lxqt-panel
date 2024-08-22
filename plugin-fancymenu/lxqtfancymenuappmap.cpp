@@ -236,6 +236,7 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
 {
     QList<const AppItem *> byName;
     QList<const AppItem *> byKeyword;
+    QList<const AppItem *> exec;
 
     //TODO: implement some kind of score to get better matches on top
 
@@ -261,10 +262,19 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
                 break;
             }
         }
+
+        for(const QString& key : app->exec)
+        {
+            if(key.contains(query, Qt::CaseInsensitive))
+            {
+                exec.append(app);
+                break;
+            }
+        }
     }
 
     // Give priority to title matches
-    byName += byKeyword;
+    byName += byKeyword + exec;
 
     return byName;
 }
@@ -375,5 +385,8 @@ LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::loadAppItem(const QString &de
     item->desktopFileCache = f;
 
     item->keywords << f.localizedValue(QLatin1String("Keywords")).toString().split(QLatin1Char(';'));
+
+    item->exec = f.expandExecString();
+
     return item;
 }
