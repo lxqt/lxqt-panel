@@ -773,7 +773,8 @@ int LXQtWMBackendKWinWaylandLibrary::getBackendScore(const QString &key) const
         return 0;
 
     // Detect KWin Plasma
-    if(key == QLatin1String("KDE") || key == QLatin1String("KWIN"))
+    // The key will be kwin_wayland, not anything else.
+    if(key == QLatin1String("kwin_wayland"))
         return 100;
 
     // It's not useful for other wayland compositors
