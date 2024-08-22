@@ -1416,28 +1416,35 @@ Plugin* LXQtPanel::findPlugin(const ILXQtPanelPlugin* iPlugin) const
  ************************************************/
 QRect LXQtPanel::calculatePopupWindowPos(QPoint const & absolutePos, QSize const & windowSize) const
 {
-    int x = absolutePos.x(), y = absolutePos.y();
+    // Using of anchors makes coordinates be absolute under some Wayland compositors.
+    // Therefore, to cover both X11 and Wayland, we first use the local coordinates
+    // and then map them to the global coordinates.
+    QPoint localPos = mapFromGlobal(absolutePos);
+    int x = localPos.x(), y = localPos.y();
 
     switch (position())
     {
     case ILXQtPanel::PositionTop:
-        y = mGeometry.bottom();
+        y = mGeometry.height();
         break;
 
     case ILXQtPanel::PositionBottom:
-        y = mGeometry.top() - windowSize.height();
+        y = -windowSize.height();
         break;
 
     case ILXQtPanel::PositionLeft:
-        x = mGeometry.right();
+        x = mGeometry.width();
         break;
 
     case ILXQtPanel::PositionRight:
-        x = mGeometry.left() - windowSize.width();
+        x = -windowSize.width();
         break;
     }
 
-    QRect res(QPoint(x, y), windowSize);
+    QRect res(mapToGlobal(QPoint(x, y)), windowSize);
+
+    if (qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
+        return res;
 
     QRect panelScreen;
     const auto screens = QApplication::screens();
@@ -1479,7 +1486,7 @@ QRect LXQtPanel::calculatePopupWindowPos(const ILXQtPanelPlugin *plugin, const Q
     }
 
     // Note: assuming there are not contentMargins around the "BackgroundWidget" (LXQtPanelWidget)
-    return calculatePopupWindowPos(mGeometry.topLeft() + panel_plugin->geometry().topLeft(), windowSize);
+    return calculatePopupWindowPos(mapToGlobal(panel_plugin->geometry().topLeft()), windowSize);
 }
 
 
