@@ -26,59 +26,27 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 
-#ifndef LXQTTASKBARTYPES_H
-#define LXQTTASKBARTYPES_H
+#include "ilxqtabstractwmiface.h"
 
-#include <QtGlobal>
-
-typedef quintptr WId;
-
-enum class LXQtTaskBarBackendAction
+ILXQtAbstractWMInterface::ILXQtAbstractWMInterface(QObject *parent)
+    : QObject(parent)
 {
-    Move = 0,
-    Resize,
-    Maximize,
-    MaximizeVertically,
-    MaximizeHorizontally,
-    Minimize,
-    RollUp,
-    FullScreen,
-    DesktopSwitch
-};
 
-enum class LXQtTaskBarWindowProperty
+}
+
+void ILXQtAbstractWMInterface::moveApplicationToPrevNextDesktop(WId windowId, bool next)
 {
-    Title = 0,
-    Icon,
-    State,
-    Geometry,
-    Urgency,
-    WindowClass,
-    Workspace
-};
+    int count = getWorkspacesCount();
+    if (count <= 1)
+        return;
 
-enum class LXQtTaskBarWindowState
-{
-    Hidden = 0,
-    FullScreen,
-    Minimized,
-    Maximized,
-    MaximizedVertically,
-    MaximizedHorizontally,
-    Normal,
-    RolledUp //Shaded
-};
+    int targetWorkspace = getWindowWorkspace(windowId) + (next ? 1 : -1);
 
-enum class LXQtTaskBarWindowLayer
-{
-    KeepBelow = 0,
-    Normal,
-    KeepAbove
-};
+    // Wrap around
+    if (targetWorkspace > count)
+        targetWorkspace = 1; //Ids are 1-based
+    else if (targetWorkspace < 1)
+        targetWorkspace = count;
 
-enum class LXQtTaskBarWorkspace
-{
-    ShowOnAll = 0 // Virtual destops have 1-based indexes
-};
-
-#endif // LXQTTASKBARTYPES_H
+    setWindowOnWorkspace(windowId, targetWorkspace);
+}

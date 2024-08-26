@@ -42,7 +42,7 @@
 #include <QMenu>
 #include <XdgIcon>
 
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 /************************************************
 
@@ -65,8 +65,8 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     connect(parent, &LXQtTaskBar::buttonStyleRefreshed,                this, &LXQtTaskGroup::setToolButtonsStyle);
     connect(parent, &LXQtTaskBar::showOnlySettingChanged,              this, &LXQtTaskGroup::refreshVisibility);
     connect(parent, &LXQtTaskBar::popupShown,                          this, &LXQtTaskGroup::groupPopupShown);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
 }
 
 /************************************************

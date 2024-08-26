@@ -37,7 +37,7 @@ class QScreen;
 class LXQtPanel;
 class LXQtPanelApplicationPrivate;
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 /*!
  * \brief The LXQtPanelApplication class inherits from LXQt::Application and
@@ -91,7 +91,7 @@ public:
      */
     bool isPluginSingletonAndRunning(QString const & pluginId) const;
 
-    ILXQtTaskbarAbstractBackend* getWMBackend() const;
+    ILXQtAbstractWMInterface* getWMBackend() const;
 
 public slots:
     /*!

@@ -33,7 +33,7 @@
 #include "../panel/pluginsettings.h"
 
 #include "../panel/lxqtpanelapplication.h"
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 #define DEFAULT_SHORTCUT "Control+Alt+D"
 
