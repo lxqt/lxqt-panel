@@ -214,13 +214,24 @@ void LXQtPanelApplicationPrivate::loadBackend()
     // The preferred backend
     QString preferredBackend;
 
-    for( QString backend: preferredBackends ) {
-        QStringList parts = backend.split(QStringLiteral(":"));
-        if (( parts[0] == xdgCurrentDesktops[ 1 ] ) && testBackend(parts[1])) {
-            preferredBackend = parts[1];
-            break;
-        }
-    }
+	for ( QString xdgCurrentDesktop: xdgCurrentDesktops )
+	{
+		for ( QString backend: preferredBackends )
+		{
+			QStringList parts = backend.split(QStringLiteral(":"));
+            // Invalid format
+            if (parts.count() != 2)
+            {
+                continue;
+            }
+
+			if ((parts[0] == xdgCurrentDesktop) && testBackend(parts[1]))
+			{
+				preferredBackend = parts[1];
+				break;
+			}
+		}
+	}
 
     /** No special considerations. Attempt auto-detection of the platform */
     if ( preferredBackend.isEmpty() ) {
@@ -233,16 +244,20 @@ void LXQtPanelApplicationPrivate::loadBackend()
 
         // It's wayland
         else {
-            QMap<QString, int> backendScoreMap = getBackendScoreMap( xdgCurrentDesktops[ 1 ] );
-
             int bestScore = 0;
-            for( QString backend: backendScoreMap.keys() ) {
-                if ( backendScoreMap[ backend ] > bestScore ) {
-                    bestScore = backendScoreMap[ backend ];
-                    // No need to call testBackend().
-                    // We can be sure the plugin can be loaded.
-                    // Because we have a score.
-                    preferredBackend = backend;
+            for ( QString xdgCurrentDesktop: xdgCurrentDesktops )
+        	{
+                QMap<QString, int> backendScoreMap = getBackendScoreMap( xdgCurrentDesktop );
+                for( QString backend: backendScoreMap.keys() )
+                {
+                    if ( backendScoreMap[ backend ] > bestScore )
+                    {
+                        bestScore = backendScoreMap[ backend ];
+                        // No need to call testBackend().
+                        // We can be sure the plugin can be loaded.
+                        // Because we have a score.
+                        preferredBackend = backend;
+                    }
                 }
             }
         }
