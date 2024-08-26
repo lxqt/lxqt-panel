@@ -34,6 +34,7 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_backlightButton = new QToolButton();
     // use our own icon
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
+    m_backlightButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::showSlider);
 
