@@ -1,20 +1,22 @@
-#ifndef LXQTTASKBARBACKEND_X11_H
-#define LXQTTASKBARBACKEND_X11_H
+#pragma once
 
-#include "../ilxqttaskbarabstractbackend.h"
+#include "../../ilxqtabstractwmiface.h"
 
-//TODO: make PIMPL to forward declare NET::Properties, Display, xcb_connection_t
-#include <netwm_def.h>
+#include <QTime>
+#include <QHash>
+#include <vector>
 
-typedef struct _XDisplay Display;
-struct xcb_connection_t;
+class LXQtTaskbarWlrootsWindow;
+class LXQtTaskbarWlrootsWindowManagment;
+class LXQtWlrootsWaylandWorkspaceInfo;
 
-class LXQtTaskbarX11Backend : public ILXQtTaskbarAbstractBackend
+
+class LXQtTaskbarWlrootsBackend : public ILXQtAbstractWMInterface
 {
     Q_OBJECT
 
 public:
-    explicit LXQtTaskbarX11Backend(QObject *parent = nullptr);
+    explicit LXQtTaskbarWlrootsBackend(QObject *parent = nullptr);
 
     // Backend
     virtual bool supportsAction(WId windowId, LXQtTaskBarBackendAction action) const override;
@@ -55,7 +57,7 @@ public:
 
     virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
-    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft) override;
+    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft);
 
     // X11 Specific
     virtual void moveApplication(WId windowId) override;
@@ -70,20 +72,32 @@ public:
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-private slots:
-    void onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2);
-    void onWindowAdded(WId windowId);
-    void onWindowRemoved(WId windowId);
+private:
+    void addWindow(WId wid);
+    bool acceptWindow(WId wid) const;
 
 private:
-    bool acceptWindow(WId windowId) const;
-    void addWindow_internal(WId windowId, bool emitAdded = true);
+    /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */
+    LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
-private:
-    Display *m_X11Display;
-    xcb_connection_t *m_xcbConnection;
+    std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
 
-    QVector<WId> m_windows;
+    QHash<WId, QTime> lastActivated;
+    WId activeWindow = 0;
+    std::vector<WId> windows;
+
+    // key=transient child, value=leader
+    QHash<WId, WId> transients;
 };
 
-#endif // LXQTTASKBARBACKEND_X11_H
+
+class LXQtWMBackendWlrootsLibrary: public QObject, public ILXQtWMBackendLibrary
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "lxqt.org/Panel/WMInterface/1.0")
+    Q_INTERFACES(ILXQtWMBackendLibrary)
+public:
+    int getBackendScore(const QString& key) const override;
+
+    ILXQtAbstractWMInterface* instance() const override;
+};

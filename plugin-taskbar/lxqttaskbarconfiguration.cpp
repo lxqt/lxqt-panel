@@ -31,7 +31,7 @@
 #include "ui_lxqttaskbarconfiguration.h"
 
 #include "../panel/lxqtpanelapplication.h"
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),
