@@ -42,7 +42,7 @@
 #include <QMenu>
 #include <XdgIcon>
 
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 /************************************************
 
@@ -57,7 +57,7 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     Q_ASSERT(parent);
 
     setObjectName(groupName);
-    setText(groupName);
+    setTextExplicitly(groupName);
 
     connect(this,   &LXQtTaskGroup::clicked,                           this, &LXQtTaskGroup::onClicked);
     connect(parent, &LXQtTaskBar::buttonRotationRefreshed,             this, &LXQtTaskGroup::setAutoRotation);
@@ -65,8 +65,8 @@ LXQtTaskGroup::LXQtTaskGroup(const QString &groupName, WId window, LXQtTaskBar *
     connect(parent, &LXQtTaskBar::buttonStyleRefreshed,                this, &LXQtTaskGroup::setToolButtonsStyle);
     connect(parent, &LXQtTaskBar::showOnlySettingChanged,              this, &LXQtTaskGroup::refreshVisibility);
     connect(parent, &LXQtTaskBar::popupShown,                          this, &LXQtTaskGroup::groupPopupShown);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
-    connect(mBackend, &ILXQtTaskbarAbstractBackend::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::currentWorkspaceChanged, this, &LXQtTaskGroup::onDesktopChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::activeWindowChanged,   this, &LXQtTaskGroup::onActiveWindowChanged);
 }
 
 /************************************************
@@ -336,7 +336,7 @@ void LXQtTaskGroup::regroup()
 
         if (button)
         {
-            setText(button->text());
+            setTextExplicitly(button->text());
             setToolTip(button->toolTip());
             setWindowId(button->windowId());
         }
@@ -347,7 +347,7 @@ void LXQtTaskGroup::regroup()
     {
         mSingleButton = false;
         QString t = QString(QStringLiteral("%1 - %2 windows")).arg(mGroupName).arg(cont);
-        setText(t);
+        setTextExplicitly(t);
         setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
     }
 }

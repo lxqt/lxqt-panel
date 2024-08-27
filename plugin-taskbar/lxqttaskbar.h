@@ -47,7 +47,7 @@ class LXQtTaskGroup;
 
 class LeftAlignedTextStyle;
 
-class ILXQtTaskbarAbstractBackend;
+class ILXQtAbstractWMInterface;
 
 namespace LXQt {
 class GridLayout;
@@ -86,7 +86,7 @@ public:
     ILXQtPanel * panel() const;
     inline ILXQtPanelPlugin * plugin() const { return mPlugin; }
 
-    inline ILXQtTaskbarAbstractBackend *getBackend() const { return mBackend; }
+    inline ILXQtAbstractWMInterface *getBackend() const { return mBackend; }
 
 public slots:
     void settingsChanged();
@@ -158,7 +158,7 @@ private:
     QWidget *mPlaceHolder;
     LeftAlignedTextStyle *mStyle;
 
-    ILXQtTaskbarAbstractBackend *mBackend;
+    ILXQtAbstractWMInterface *mBackend;
 };
 
 #endif // LXQTTASKBAR_H

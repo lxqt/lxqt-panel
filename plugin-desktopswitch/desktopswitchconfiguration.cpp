@@ -28,7 +28,7 @@
 #include "ui_desktopswitchconfiguration.h"
 
 #include "../panel/lxqtpanelapplication.h"
-#include "../panel/backends/ilxqttaskbarabstractbackend.h"
+#include "../panel/backends/ilxqtabstractwmiface.h"
 
 #include <KX11Extras>
 #include <QTimer>

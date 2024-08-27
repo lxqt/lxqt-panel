@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+TryExec=lxqt-panel
+NoDisplay=true
+
+# NOTE: KWin wants absolute path here, get it from CMake install path
+Exec=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_BINDIR@/lxqt-panel
+
+# NOTE: adding KDE to make it work under Plasma Wayland session
+OnlyShowIn=LXQt;KDE
+X-LXQt-Module=true
+
+# Make KWin recognize us as priviledged client
+X-KDE-Wayland-Interfaces=org_kde_plasma_window_management

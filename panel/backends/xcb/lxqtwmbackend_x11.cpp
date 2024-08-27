@@ -1,4 +1,32 @@
-#include "lxqttaskbarbackend_x11.h"
+/* BEGIN_COMMON_COPYRIGHT_HEADER
+ * (c)LGPL2+
+ *
+ * LXQt - a lightweight, Qt based, desktop toolset
+ * https://lxqt.org
+ *
+ * Copyright: 2023 LXQt team
+ * Authors:
+ *  Filippo Gentile <filippogentile@disroot.org>
+ *
+ * This program or library is free software; you can redistribute it
+ * and/or modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General
+ * Public License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA
+ *
+ * END_COMMON_COPYRIGHT_HEADER */
+
+
+#include "lxqtwmbackend_x11.h"
 
 #include <KX11Extras>
 #include <KWindowSystem>
@@ -16,28 +44,28 @@
 #include <X11/Xlib.h>
 #undef Bool
 
-LXQtTaskbarX11Backend::LXQtTaskbarX11Backend(QObject *parent)
-    : ILXQtTaskbarAbstractBackend(parent)
+LXQtWMBackendX11::LXQtWMBackendX11(QObject *parent)
+    : ILXQtAbstractWMInterface(parent)
 {
     auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
-    Q_ASSERT_X(x11Application, "LXQtTaskbarX11Backend", "Constructed without X11 connection");
+    Q_ASSERT_X(x11Application, "LXQtWMBackendX11", "Constructed without X11 connection");
     m_X11Display = x11Application->display();
     m_xcbConnection = x11Application->connection();
 
-    connect(KX11Extras::self(), &KX11Extras::windowChanged, this, &LXQtTaskbarX11Backend::onWindowChanged);
-    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, &LXQtTaskbarX11Backend::onWindowAdded);
-    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &LXQtTaskbarX11Backend::onWindowRemoved);
+    connect(KX11Extras::self(), &KX11Extras::windowChanged, this, &LXQtWMBackendX11::onWindowChanged);
+    connect(KX11Extras::self(), &KX11Extras::windowAdded, this, &LXQtWMBackendX11::onWindowAdded);
+    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &LXQtWMBackendX11::onWindowRemoved);
 
-    connect(KX11Extras::self(), &KX11Extras::numberOfDesktopsChanged, this, &ILXQtTaskbarAbstractBackend::workspacesCountChanged);
-    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, &ILXQtTaskbarAbstractBackend::currentWorkspaceChanged);
+    connect(KX11Extras::self(), &KX11Extras::numberOfDesktopsChanged, this, &ILXQtAbstractWMInterface::workspacesCountChanged);
+    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, &ILXQtAbstractWMInterface::currentWorkspaceChanged);
 
-    connect(KX11Extras::self(), &KX11Extras::activeWindowChanged,   this, &ILXQtTaskbarAbstractBackend::activeWindowChanged);
+    connect(KX11Extras::self(), &KX11Extras::activeWindowChanged,   this, &ILXQtAbstractWMInterface::activeWindowChanged);
 }
 
 /************************************************
  *   Model slots
  ************************************************/
-void LXQtTaskbarX11Backend::onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2)
+void LXQtWMBackendX11::onWindowChanged(WId windowId, NET::Properties prop, NET::Properties2 prop2)
 {
     if(!m_windows.contains(windowId))
     {
@@ -97,7 +125,7 @@ void LXQtTaskbarX11Backend::onWindowChanged(WId windowId, NET::Properties prop, 
         emit windowPropertyChanged(windowId, int(LXQtTaskBarWindowProperty::Urgency));
 }
 
-void LXQtTaskbarX11Backend::onWindowAdded(WId windowId)
+void LXQtWMBackendX11::onWindowAdded(WId windowId)
 {
     if(m_windows.contains(windowId))
         return;
@@ -108,7 +136,7 @@ void LXQtTaskbarX11Backend::onWindowAdded(WId windowId)
     addWindow_internal(windowId);
 }
 
-void LXQtTaskbarX11Backend::onWindowRemoved(WId windowId)
+void LXQtWMBackendX11::onWindowRemoved(WId windowId)
 {
     const int row = m_windows.indexOf(windowId);
     if(row == -1)
@@ -122,7 +150,7 @@ void LXQtTaskbarX11Backend::onWindowRemoved(WId windowId)
 /************************************************
  *   Model private functions
  ************************************************/
-bool LXQtTaskbarX11Backend::acceptWindow(WId windowId) const
+bool LXQtWMBackendX11::acceptWindow(WId windowId) const
 {
     QFlags<NET::WindowTypeMask> ignoreList;
     ignoreList |= NET::DesktopMask;
@@ -161,7 +189,7 @@ bool LXQtTaskbarX11Backend::acceptWindow(WId windowId) const
     return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
-void LXQtTaskbarX11Backend::addWindow_internal(WId windowId, bool emitAdded)
+void LXQtWMBackendX11::addWindow_internal(WId windowId, bool emitAdded)
 {
     m_windows.append(windowId);
     if(emitAdded)
@@ -172,7 +200,7 @@ void LXQtTaskbarX11Backend::addWindow_internal(WId windowId, bool emitAdded)
 /************************************************
  *   Windows function
  ************************************************/
-bool LXQtTaskbarX11Backend::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
+bool LXQtWMBackendX11::supportsAction(WId windowId, LXQtTaskBarBackendAction action) const
 {
     NET::Action x11Action;
 
@@ -221,7 +249,7 @@ bool LXQtTaskbarX11Backend::supportsAction(WId windowId, LXQtTaskBarBackendActio
     return info.actionSupported(x11Action);
 }
 
-bool LXQtTaskbarX11Backend::reloadWindows()
+bool LXQtWMBackendX11::reloadWindows()
 {
     QVector<WId> oldWindows;
     qSwap(oldWindows, m_windows);
@@ -254,37 +282,37 @@ bool LXQtTaskbarX11Backend::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtTaskbarX11Backend::getCurrentWindows() const
+QVector<WId> LXQtWMBackendX11::getCurrentWindows() const
 {
     return m_windows;
 }
 
-QString LXQtTaskbarX11Backend::getWindowTitle(WId windowId) const
+QString LXQtWMBackendX11::getWindowTitle(WId windowId) const
 {
     KWindowInfo info(windowId, NET::WMVisibleName | NET::WMName);
     QString title = info.visibleName().isEmpty() ? info.name() : info.visibleName();
     return title;
 }
 
-bool LXQtTaskbarX11Backend::applicationDemandsAttention(WId windowId) const
+bool LXQtWMBackendX11::applicationDemandsAttention(WId windowId) const
 {
     WId appRootWindow = XDefaultRootWindow(m_X11Display);
     return NETWinInfo(m_xcbConnection, windowId, appRootWindow, NET::Properties{}, NET::WM2Urgency).urgency()
            || KWindowInfo{windowId, NET::WMState}.hasState(NET::DemandsAttention);
 }
 
-QIcon LXQtTaskbarX11Backend::getApplicationIcon(WId windowId, int devicePixels) const
+QIcon LXQtWMBackendX11::getApplicationIcon(WId windowId, int devicePixels) const
 {
     return KX11Extras::icon(windowId, devicePixels, devicePixels);
 }
 
-QString LXQtTaskbarX11Backend::getWindowClass(WId windowId) const
+QString LXQtWMBackendX11::getWindowClass(WId windowId) const
 {
     KWindowInfo info(windowId, NET::Properties(), NET::WM2WindowClass);
     return QString::fromUtf8(info.windowClassClass());
 }
 
-LXQtTaskBarWindowLayer LXQtTaskbarX11Backend::getWindowLayer(WId windowId) const
+LXQtTaskBarWindowLayer LXQtWMBackendX11::getWindowLayer(WId windowId) const
 {
     NET::States state = KWindowInfo(windowId, NET::WMState).state();
     if(state.testFlag(NET::KeepAbove))
@@ -294,7 +322,7 @@ LXQtTaskBarWindowLayer LXQtTaskbarX11Backend::getWindowLayer(WId windowId) const
     return LXQtTaskBarWindowLayer::Normal;
 }
 
-bool LXQtTaskbarX11Backend::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer)
+bool LXQtWMBackendX11::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer)
 {
     switch(layer)
     {
@@ -317,7 +345,7 @@ bool LXQtTaskbarX11Backend::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer 
     return true;
 }
 
-LXQtTaskBarWindowState LXQtTaskbarX11Backend::getWindowState(WId windowId) const
+LXQtTaskBarWindowState LXQtWMBackendX11::getWindowState(WId windowId) const
 {
     KWindowInfo info(windowId,NET::WMState | NET::XAWMState);
     if(info.isMinimized())
@@ -340,7 +368,7 @@ LXQtTaskBarWindowState LXQtTaskbarX11Backend::getWindowState(WId windowId) const
     return LXQtTaskBarWindowState::Normal;
 }
 
-bool LXQtTaskbarX11Backend::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
+bool LXQtWMBackendX11::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
 {
     // NOTE: window activation is left to the caller
 
@@ -393,12 +421,12 @@ bool LXQtTaskbarX11Backend::setWindowState(WId windowId, LXQtTaskBarWindowState 
     return true;
 }
 
-bool LXQtTaskbarX11Backend::isWindowActive(WId windowId) const
+bool LXQtWMBackendX11::isWindowActive(WId windowId) const
 {
     return KX11Extras::activeWindow() == windowId;
 }
 
-bool LXQtTaskbarX11Backend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
+bool LXQtWMBackendX11::raiseWindow(WId windowId, bool onCurrentWorkSpace)
 {
     if (onCurrentWorkSpace && getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
     {
@@ -418,14 +446,14 @@ bool LXQtTaskbarX11Backend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
     return true;
 }
 
-bool LXQtTaskbarX11Backend::closeWindow(WId windowId)
+bool LXQtWMBackendX11::closeWindow(WId windowId)
 {
     // FIXME: Why there is no such thing in KWindowSystem??
     NETRootInfo(m_xcbConnection, NET::CloseWindow).closeWindowRequest(windowId);
     return true;
 }
 
-WId LXQtTaskbarX11Backend::getActiveWindow() const
+WId LXQtWMBackendX11::getActiveWindow() const
 {
     return KX11Extras::activeWindow();
 }
@@ -434,22 +462,22 @@ WId LXQtTaskbarX11Backend::getActiveWindow() const
 /************************************************
  *   Workspaces
  ************************************************/
-int LXQtTaskbarX11Backend::getWorkspacesCount() const
+int LXQtWMBackendX11::getWorkspacesCount() const
 {
     return KX11Extras::numberOfDesktops();
 }
 
-QString LXQtTaskbarX11Backend::getWorkspaceName(int idx) const
+QString LXQtWMBackendX11::getWorkspaceName(int idx) const
 {
     return KX11Extras::desktopName(idx);
 }
 
-int LXQtTaskbarX11Backend::getCurrentWorkspace() const
+int LXQtWMBackendX11::getCurrentWorkspace() const
 {
     return KX11Extras::currentDesktop();
 }
 
-bool LXQtTaskbarX11Backend::setCurrentWorkspace(int idx)
+bool LXQtWMBackendX11::setCurrentWorkspace(int idx)
 {
     if(KX11Extras::currentDesktop() == idx)
         return true;
@@ -458,19 +486,19 @@ bool LXQtTaskbarX11Backend::setCurrentWorkspace(int idx)
     return true;
 }
 
-int LXQtTaskbarX11Backend::getWindowWorkspace(WId windowId) const
+int LXQtWMBackendX11::getWindowWorkspace(WId windowId) const
 {
     KWindowInfo info(windowId, NET::WMDesktop);
     return info.desktop();
 }
 
-bool LXQtTaskbarX11Backend::setWindowOnWorkspace(WId windowId, int idx)
+bool LXQtWMBackendX11::setWindowOnWorkspace(WId windowId, int idx)
 {
     KX11Extras::setOnDesktop(windowId, idx);
     return true;
 }
 
-void LXQtTaskbarX11Backend::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
+void LXQtWMBackendX11::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
 {
     KWindowInfo info(windowId, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
@@ -516,7 +544,7 @@ void LXQtTaskbarX11Backend::moveApplicationToPrevNextMonitor(WId windowId, bool 
     }
 }
 
-bool LXQtTaskbarX11Backend::isWindowOnScreen(QScreen *screen, WId windowId) const
+bool LXQtWMBackendX11::isWindowOnScreen(QScreen *screen, WId windowId) const
 {
     //TODO: old code was:
     //return QApplication::desktop()->screenGeometry(parentTaskBar()).intersects(KWindowInfo(mWindow, NET::WMFrameExtents).frameGeometry());
@@ -528,7 +556,7 @@ bool LXQtTaskbarX11Backend::isWindowOnScreen(QScreen *screen, WId windowId) cons
     return screen->geometry().intersects(r);
 }
 
-bool LXQtTaskbarX11Backend::setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft)
+bool LXQtWMBackendX11::setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft)
 {
     NETRootInfo mDesktops(m_xcbConnection, NET::NumberOfDesktops | NET::CurrentDesktop | NET::DesktopNames, NET::WM2DesktopLayout);
 
@@ -550,7 +578,7 @@ bool LXQtTaskbarX11Backend::setDesktopLayout(Qt::Orientation orientation, int ro
 /************************************************
  *   X11 Specific
  ************************************************/
-void LXQtTaskbarX11Backend::moveApplication(WId windowId)
+void LXQtWMBackendX11::moveApplication(WId windowId)
 {
     KWindowInfo info(windowId, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
@@ -568,7 +596,7 @@ void LXQtTaskbarX11Backend::moveApplication(WId windowId)
     NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::Move);
 }
 
-void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
+void LXQtWMBackendX11::resizeApplication(WId windowId)
 {
     KWindowInfo info(windowId, NET::WMDesktop);
     if (!info.isOnCurrentDesktop())
@@ -586,7 +614,7 @@ void LXQtTaskbarX11Backend::resizeApplication(WId windowId)
     NETRootInfo(m_xcbConnection, NET::WMMoveResize).moveResizeRequest(windowId, X, Y, NET::BottomRight);
 }
 
-void LXQtTaskbarX11Backend::refreshIconGeometry(WId windowId, QRect const & geom)
+void LXQtWMBackendX11::refreshIconGeometry(WId windowId, QRect const & geom)
 {
     // NOTE: This function announces where the task icon is,
     // such that X11 WMs can perform their related animations correctly.
@@ -616,7 +644,7 @@ void LXQtTaskbarX11Backend::refreshIconGeometry(WId windowId, QRect const & geom
     info.setIconGeometry(nrect);
 }
 
-bool LXQtTaskbarX11Backend::isAreaOverlapped(const QRect &area) const
+bool LXQtWMBackendX11::isAreaOverlapped(const QRect &area) const
 {
     //TODO: reuse our m_windows cache?
     QFlags<NET::WindowTypeMask> ignoreList;
@@ -648,13 +676,30 @@ bool LXQtTaskbarX11Backend::isAreaOverlapped(const QRect &area) const
     return false;
 }
 
-bool LXQtTaskbarX11Backend::isShowingDesktop() const
+bool LXQtWMBackendX11::isShowingDesktop() const
 {
     return KWindowSystem::showingDesktop();
 }
 
-bool LXQtTaskbarX11Backend::showDesktop(bool value)
+bool LXQtWMBackendX11::showDesktop(bool value)
 {
     KWindowSystem::setShowingDesktop(value);
     return true;
+}
+
+int LXQtWMBackendX11Library::getBackendScore(const QString &key) const
+{
+    Q_UNUSED(key)
+
+    auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    if(!x11Application)
+        return 0;
+
+    // Generic X11 backend
+    return 80;
+}
+
+ILXQtAbstractWMInterface *LXQtWMBackendX11Library::instance() const
+{
+    return new LXQtWMBackendX11;
 }
