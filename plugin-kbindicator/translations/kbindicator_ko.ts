@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>키보드 레이아웃 표시기</translation>
+        <translation>키보드 자판 표시기</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
