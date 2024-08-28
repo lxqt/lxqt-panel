@@ -33,6 +33,7 @@
 #include <QIcon>
 #include <QTime>
 #include <QScreen>
+#include <QGuiApplication>
 
 auto findWindow(const std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>>& windows, LXQtTaskBarPlasmaWindow *window)
 {
