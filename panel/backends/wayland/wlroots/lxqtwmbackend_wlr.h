@@ -75,6 +75,9 @@ public:
 private:
     void addWindow(WId wid);
     bool acceptWindow(WId wid) const;
+    WId findWindow(WId tgt) const;
+    WId findTopParent(WId winId) const;
+    bool equalIds(WId windowId1, WId windowId2) const;
 
 private:
     /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */

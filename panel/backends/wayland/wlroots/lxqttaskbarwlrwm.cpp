@@ -262,6 +262,7 @@ void LXQtTaskbarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
 
 LXQtTaskbarWlrootsWindow::LXQtTaskbarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id) : zwlr_foreign_toplevel_handle_v1(id)
 {
+    ID = id;
 }
 
 
@@ -379,9 +380,16 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
      */
 
     // (1) title, if it changed
+    bool checkActivation;
     if (m_pendingState.titleChanged)
     {
         windowState.title = m_pendingState.title;
+        // prevent deactivation on title change
+        checkActivation = m_pendingState.activatedChanged;
+    }
+    else
+    {
+        checkActivation = true;
     }
 
     // (2) appId, if it changed
@@ -423,7 +431,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
         m_pendingState.minimizedChanged = true;
     }
 
-    if (m_pendingState.activated != windowState.activated)
+    if (checkActivation && m_pendingState.activated != windowState.activated)
     {
         windowState.activated           = m_pendingState.activated;
         m_pendingState.activatedChanged = true;
