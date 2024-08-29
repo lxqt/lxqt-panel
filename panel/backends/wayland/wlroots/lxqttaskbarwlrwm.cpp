@@ -347,6 +347,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *s
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED: {
             m_pendingState.minimized        = true;
             m_pendingState.minimizedChanged = true;
+            m_pendingState.activated        = false;
             break;
         }
 
