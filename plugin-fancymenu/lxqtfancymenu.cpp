@@ -200,7 +200,7 @@ void LXQtFancyMenu::settingsChanged()
     setMenuFontSize();
 
     //clear the search to not leaving the menu in wrong state
-    mFilterClear = settings()->value(QStringLiteral("filterClear"), false).toBool();
+    mFilterClear = settings()->value(QStringLiteral("filterClear"), true).toBool();
     mWindow->setFilterClear(mFilterClear);
 
     bool buttonsAtTop = settings()->value(QStringLiteral("buttonsAtTop"), false).toBool();

@@ -142,7 +142,7 @@ void LXQtFancyMenuConfiguration::loadSettings()
     systemFont.fromString(lxqtSettings.value(QStringLiteral("font"), this->font()).toString());
     lxqtSettings.endGroup();
     ui->customFontSizeSB->setValue(settings().value(QStringLiteral("customFontSize"), systemFont.pointSize()).toInt());
-    ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), false).toBool());
+    ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), true).toBool());
 
     ui->autoSelSB->setValue(settings().value(QStringLiteral("autoSelDelay"), 250).toInt());
     ui->autoSelCB->setChecked(settings().value(QStringLiteral("autoSel"), false).toBool());
