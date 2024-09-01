@@ -123,11 +123,11 @@ void DirectoryMenu::addActions(QMenu* menu, const QString& path)
 {
     mPathStrings.push_back(path);
 
-    QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("folder")), tr("Open"));
+    QAction* openDirectoryAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("document-open")), tr("Open"));
     connect(openDirectoryAction, &QAction::triggered, mOpenDirectorySignalMapper, [this] { mOpenDirectorySignalMapper->map(); } );
     mOpenDirectorySignalMapper->setMapping(openDirectoryAction, mPathStrings.back());
 
-    QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("folder")), tr("Open in terminal"));
+    QAction* openTerminalAction = menu->addAction(XdgIcon::fromTheme(QStringLiteral("utilities-terminal")), tr("Open in terminal"));
     connect(openTerminalAction, &QAction::triggered, mOpenTerminalSignalMapper, [this] { mOpenTerminalSignalMapper->map(); } );
     mOpenTerminalSignalMapper->setMapping(openTerminalAction, mPathStrings.back());
 
