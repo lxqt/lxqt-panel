@@ -262,6 +262,7 @@ void LXQtTaskbarWlrootsWindowManagment::zwlr_foreign_toplevel_manager_v1_topleve
 
 LXQtTaskbarWlrootsWindow::LXQtTaskbarWlrootsWindow(::zwlr_foreign_toplevel_handle_v1 *id) : zwlr_foreign_toplevel_handle_v1(id)
 {
+    ID = id;
 }
 
 
@@ -330,6 +331,9 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(stru
 
 void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
+    // This is needed with all states. See zwlr_foreign_toplevel_handle_v1_done().
+    m_pendingState.activatedChanged = true;
+
     /** State of this window was changed; store it in pending. */
     auto *states    = static_cast<uint32_t *>(state->data);
     int   numStates = static_cast<int>(state->size / sizeof(uint32_t));
@@ -353,7 +357,6 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *s
 
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
             m_pendingState.activated        = true;
-            m_pendingState.activatedChanged = true;
             break;
         }
 
@@ -375,7 +378,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
      * 1. Update all the variables first.
      * 2. Then clear the m_pendingState.<variable>
      * 3. Emit the changed signals.
-     * 4. Finally, cleanr the m_pendingState.<variable>Changed flags.
+     * 4. Finally, clean the m_pendingState.<variable>Changed flags.
      */
 
     // (1) title, if it changed
@@ -410,7 +413,8 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
         }
     }
 
-    // (4) states, if they changed. Don't trust the changed flag.
+    // (4) states, if they changed.
+    // Don't trust the changed flag for the maximized, minimized and fullscreen states.
     if (m_pendingState.maximized != windowState.maximized)
     {
         windowState.maximized           = m_pendingState.maximized;
@@ -423,16 +427,18 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
         m_pendingState.minimizedChanged = true;
     }
 
-    if (m_pendingState.activated != windowState.activated)
-    {
-        windowState.activated           = m_pendingState.activated;
-        m_pendingState.activatedChanged = true;
-    }
-
     if (m_pendingState.fullscreen != windowState.fullscreen)
     {
         windowState.fullscreen           = m_pendingState.fullscreen;
         m_pendingState.fullscreenChanged = true;
+    }
+
+    // WARNING: If "activatedChanged" isn't trusted, the activation state might
+    // be incorrect under some circumstances, e.g., when an overlay window is shown.
+    // See zwlr_foreign_toplevel_handle_v1_state().
+    if (m_pendingState.activatedChanged)
+    {
+        windowState.activated = m_pendingState.activated;
     }
 
     // (5) parent, if it changed.
@@ -489,12 +495,14 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
             emit maximizedChanged();
         if (m_pendingState.minimizedChanged)
             emit minimizedChanged();
-        if (m_pendingState.activatedChanged)
-            emit activatedChanged();
         if (m_pendingState.fullscreenChanged)
             emit fullscreenChanged();
+        // NOTE: parentChanged is emitted before activatedChanged
+        // to guarantee correct activation states of child windows later
         if (m_pendingState.parentChanged)
             emit parentChanged();
+        if (m_pendingState.activatedChanged)
+            emit activatedChanged();
 
         emit stateChanged();
     }

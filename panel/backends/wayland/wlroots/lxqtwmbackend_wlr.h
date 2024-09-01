@@ -72,11 +72,23 @@ public:
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-private:
+private slots:
     void addWindow(WId wid);
-    bool acceptWindow(WId wid) const;
+    void removeWindow();
+    void removeTransient();
+    void onActivatedChanged();
+    void onParentChanged();
+    void onTitleChanged();
+    void onAppIdChanged();
+    void onStateChanged();
 
 private:
+    void addToWindows(WId winId);
+    bool acceptWindow(WId wid) const;
+    WId findWindow(WId tgt) const;
+    WId findTopParent(WId winId) const;
+    bool equalIds(WId windowId1, WId windowId2) const;
+
     /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */
     LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
