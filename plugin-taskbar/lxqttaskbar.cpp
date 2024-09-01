@@ -62,7 +62,7 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     QFrame(parent),
     mSignalMapper(new QSignalMapper(this)),
     mButtonStyle(Qt::ToolButtonTextBesideIcon),
-    mButtonWidth(400),
+    mButtonWidth(220),
     mButtonHeight(100),
     mCloseOnMiddleClick(true),
     mRaiseOnCurrentDesktop(true),
@@ -423,7 +423,7 @@ void LXQtTaskBar::settingsChanged()
     bool showOnlyMinimizedTasksOld = mShowOnlyMinimizedTasks;
     const bool iconByClassOld = mIconByClass;
 
-    mButtonWidth = mPlugin->settings()->value(QStringLiteral("buttonWidth"), 400).toInt();
+    mButtonWidth = mPlugin->settings()->value(QStringLiteral("buttonWidth"), 220).toInt();
     mButtonHeight = mPlugin->settings()->value(QStringLiteral("buttonHeight"), 100).toInt();
     QString s = mPlugin->settings()->value(QStringLiteral("buttonStyle")).toString().toUpper();
 

@@ -107,7 +107,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->middleClickCB->setChecked(settings().value(QStringLiteral("closeOnMiddleClick"), true).toBool());
     ui->raiseOnCurrentDesktopCB->setChecked(settings().value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool());
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(settings().value(QStringLiteral("buttonStyle"), QLatin1String("IconText"))));
-    ui->buttonWidthSB->setValue(settings().value(QStringLiteral("buttonWidth"), 400).toInt());
+    ui->buttonWidthSB->setValue(settings().value(QStringLiteral("buttonWidth"), 220).toInt());
     ui->buttonHeightSB->setValue(settings().value(QStringLiteral("buttonHeight"), 100).toInt());
     ui->groupingGB->setChecked(settings().value(QStringLiteral("groupingEnabled"),true).toBool());
     ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"),true).toBool());
