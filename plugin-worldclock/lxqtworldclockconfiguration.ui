@@ -402,8 +402,8 @@
       <attribute name="title">
        <string>Time &amp;zones</string>
       </attribute>
-      <layout class="QHBoxLayout" name="_7">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
         <widget class="QTableWidget" name="timeZonesTW">
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
@@ -438,7 +438,7 @@
          </column>
         </widget>
        </item>
-       <item>
+       <item row="0" column="1">
         <layout class="QVBoxLayout" name="_2">
          <item>
           <widget class="QPushButton" name="addPB">
@@ -511,6 +511,16 @@
           </spacer>
          </item>
         </layout>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
