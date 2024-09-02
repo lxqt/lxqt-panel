@@ -17,7 +17,7 @@
         <translation>喜爱</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
         <translation>全部应用</translation>
     </message>

@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="99"/>
+        <location filename="../desktopswitch.cpp" line="94"/>
         <source>Switch to desktop %1</source>
         <translation>切换至桌面 %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="160"/>
-        <location filename="../desktopswitch.cpp" line="171"/>
+        <location filename="../desktopswitch.cpp" line="154"/>
+        <location filename="../desktopswitch.cpp" line="165"/>
         <source>Desktop %1</source>
         <translation>桌面 %1</translation>
     </message>
@@ -68,7 +68,7 @@
         <translation>桌面名称</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="71"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
         <source>Desktop %1:</source>
         <translation>桌面 %1:</translation>
     </message>
@@ -76,12 +76,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.h" line="111"/>
+        <location filename="../desktopswitch.cpp" line="326"/>
         <source>n/a</source>
         <translation>n/a</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.h" line="113"/>
+        <location filename="../desktopswitch.cpp" line="328"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>当前平台不支持 DesktopSwitch：%1</translation>
     </message>

@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="689"/>
+        <location filename="../lxqttaskbar.cpp" line="636"/>
         <source>Activate task %1</source>
         <translation>Aktivēt uzdevumu %1</translation>
     </message>
@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="739"/>
+        <location filename="../lxqttaskbutton.cpp" line="546"/>
         <source>Application</source>
         <translation>Lietotne</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="773"/>
+        <location filename="../lxqttaskbutton.cpp" line="580"/>
         <source>To &amp;Desktop</source>
         <translation>Uz &amp;darbvirsmu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="775"/>
+        <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>&amp;All Desktops</source>
         <translation>Visa&amp;as darbvirsmas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="785"/>
+        <location filename="../lxqttaskbutton.cpp" line="592"/>
         <source>Desktop &amp;%1</source>
         <translation>Darbvirsma &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="795"/>
+        <location filename="../lxqttaskbutton.cpp" line="602"/>
         <source>&amp;To Current Desktop</source>
         <translation>Uz &amp;tekošo/pašreizējo darbvirsmu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="804"/>
+        <location filename="../lxqttaskbutton.cpp" line="611"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="807"/>
+        <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>Pārvietot/pārnest uz ie&amp;priekšējo ekrānu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="811"/>
+        <location filename="../lxqttaskbutton.cpp" line="621"/>
         <source>&amp;Move</source>
         <translation>Pārnest/pārvietot (&amp;Move)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="814"/>
+        <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Resi&amp;ze</source>
         <translation>Mainīt i&amp;zmēru</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="821"/>
+        <location filename="../lxqttaskbutton.cpp" line="635"/>
         <source>Ma&amp;ximize</source>
         <translation>Maksimizēt</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="828"/>
+        <location filename="../lxqttaskbutton.cpp" line="644"/>
         <source>Maximize vertically</source>
         <translation>Maksimizēt vertikāli</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="833"/>
+        <location filename="../lxqttaskbutton.cpp" line="651"/>
         <source>Maximize horizontally</source>
         <translation>Maksimizēt horizontāli</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="839"/>
+        <location filename="../lxqttaskbutton.cpp" line="659"/>
         <source>&amp;Restore</source>
         <translation>Atg&amp;riezt</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="843"/>
+        <location filename="../lxqttaskbutton.cpp" line="667"/>
         <source>Mi&amp;nimize</source>
         <translation>Mi&amp;nimizēt</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="849"/>
+        <location filename="../lxqttaskbutton.cpp" line="675"/>
         <source>Roll down</source>
         <translation>Tīt lejā/notīt</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="855"/>
+        <location filename="../lxqttaskbutton.cpp" line="683"/>
         <source>Roll up</source>
         <translation>Tīt augšā/uztīt</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="863"/>
+        <location filename="../lxqttaskbutton.cpp" line="692"/>
         <source>&amp;Layer</source>
         <translation>S&amp;lānis</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="865"/>
+        <location filename="../lxqttaskbutton.cpp" line="696"/>
         <source>Always on &amp;top</source>
         <translation>Vienmēr virspusē/priekšplānā (&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="871"/>
+        <location filename="../lxqttaskbutton.cpp" line="701"/>
         <source>&amp;Normal</source>
         <translation>Parasts/&amp;normāls</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="877"/>
+        <location filename="../lxqttaskbutton.cpp" line="706"/>
         <source>Always on &amp;bottom</source>
         <translation>Vienmēr apakšā/di&amp;benplānā</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="885"/>
+        <location filename="../lxqttaskbutton.cpp" line="713"/>
         <source>&amp;Close</source>
         <translation>Aizvērt (&amp;C)</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="85"/>
+        <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Group</source>
         <translation>Grupa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="87"/>
+        <location filename="../lxqttaskgroup.cpp" line="86"/>
         <source>Close group</source>
         <translation>Aizvērt grupu</translation>
     </message>
@@ -168,7 +168,7 @@
         <translation>Aizvērt ar peles vidējo pogu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>Pārslēgt logus ar peles ritentiņu</translation>
     </message>
@@ -235,47 +235,47 @@
         <translation>Izmantot WindowClass ikonas, ja pieejamas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Icon and text</source>
         <translation>Ikona un teksts</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only icon</source>
         <translation>Tikai ikona</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Only text</source>
         <translation>Tikai teksts</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Disabled</source>
         <translation>Atspējots</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation>Ripinot uz augšu logu maksimizē , uz leju - minimizē.</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation>Ripinot uz augšu logu minimizē, uz leju - maksimizē.</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation>Ripināt uz augšu, lai pārceltu uz nākamo darbvirsmu, uz leju — uz iepriekšējo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation>Ripināt uz augšu, lai pārceltu uz iepriekšējo darbvirsmu, uz leju — uz nākošo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
         <translation>Tekošais/pašreizējais</translation>
     </message>

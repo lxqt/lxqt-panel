@@ -17,7 +17,7 @@
         <translation>즐겨찾기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
         <translation>모든 응용프로그램</translation>
     </message>

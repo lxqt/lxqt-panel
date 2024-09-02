@@ -17,7 +17,7 @@
         <translation>Gogokoak</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
         <translation>Aplikazio Guztiak</translation>
     </message>

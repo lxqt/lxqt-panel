@@ -126,12 +126,17 @@
         <translation>IANA ID</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>Show &amp;week numbers in popup calendar</source>
         <translation>ポップアップするカレンダーに週番号を表示する(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
         <source>S&amp;how tooltip</source>
         <translation>ツールチップを表示する(&amp;H)</translation>
     </message>
@@ -228,12 +233,12 @@
         <translation>下へ移動(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
         <source>&amp;General</source>
         <translation>全般(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>パネルが垂直ならば回転させる(&amp;R)</translation>
     </message>

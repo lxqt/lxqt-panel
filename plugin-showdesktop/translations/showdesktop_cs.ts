@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="43"/>
+        <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
         <translation>Ukázat plochu</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="65"/>
+        <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Ukázat plochu: Globální zkratku „%1“ nelze zaregistrovat</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="50"/>
+        <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
         <translation>Ukázat plochu</translation>
     </message>

@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="43"/>
+        <location filename="../showdesktop.cpp" line="44"/>
         <source>Show desktop</source>
         <translation>바탕화면 표시</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="65"/>
+        <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>바탕화면 표시: &apos;%1&apos; 전역 단축키를 등록할 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="50"/>
+        <location filename="../showdesktop.cpp" line="51"/>
         <source>Show Desktop</source>
         <translation>바탕화면 표시</translation>
     </message>

@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="689"/>
+        <location filename="../lxqttaskbar.cpp" line="636"/>
         <source>Activate task %1</source>
         <translation>ਟਾਸਕ %1 ਸਰਗਰਮ</translation>
     </message>
@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="739"/>
+        <location filename="../lxqttaskbutton.cpp" line="546"/>
         <source>Application</source>
         <translation>ਐਪਲੀਕੇਸ਼ਨ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="773"/>
+        <location filename="../lxqttaskbutton.cpp" line="580"/>
         <source>To &amp;Desktop</source>
         <translation>ਡੈਸਕਟਾਪ ਤੇ(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="775"/>
+        <location filename="../lxqttaskbutton.cpp" line="582"/>
         <source>&amp;All Desktops</source>
         <translation>ਸਾਰੇ ਡੈਸਕਟਾਪ(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="785"/>
+        <location filename="../lxqttaskbutton.cpp" line="592"/>
         <source>Desktop &amp;%1</source>
         <translation>ਡੈਸਕਟਾਪ &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="795"/>
+        <location filename="../lxqttaskbutton.cpp" line="602"/>
         <source>&amp;To Current Desktop</source>
         <translation>ਮੌਜੂਦਾ ਡੈਸਕਟਾਪ ਉੱਤੇ(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="804"/>
+        <location filename="../lxqttaskbutton.cpp" line="611"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation>ਅਗਲੇ ਮਾਨੀਟਰ ਉੱਤੇ ਭੇਜੋ(&amp;e)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="807"/>
+        <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>ਪਿਛਲੇ ਮਾਨੀਟਰ ਉੱਤੇ ਭੇਜੋ(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="811"/>
+        <location filename="../lxqttaskbutton.cpp" line="621"/>
         <source>&amp;Move</source>
         <translation>ਭੇਜੋ(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="814"/>
+        <location filename="../lxqttaskbutton.cpp" line="626"/>
         <source>Resi&amp;ze</source>
         <translation>ਮੁੜ-ਆਕਾਰ(&amp;z)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="821"/>
+        <location filename="../lxqttaskbutton.cpp" line="635"/>
         <source>Ma&amp;ximize</source>
         <translation>ਵੱਧ ਤੋਂ ਵੱਧ(&amp;x)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="828"/>
+        <location filename="../lxqttaskbutton.cpp" line="644"/>
         <source>Maximize vertically</source>
         <translation>ਖੜ੍ਹਵੇਂ ਰੂਪ ਵਿੱਚ ਵੱਧ ਤੋਂ ਵੱਧ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="833"/>
+        <location filename="../lxqttaskbutton.cpp" line="651"/>
         <source>Maximize horizontally</source>
         <translation>ਲੇਟਵੇਂ ਰੂਪ ਵਿੱਚ ਵੱਧ ਤੋਂ ਵੱਧ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="839"/>
+        <location filename="../lxqttaskbutton.cpp" line="659"/>
         <source>&amp;Restore</source>
         <translation>ਬਹਾਲ ਕਰੋ(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="843"/>
+        <location filename="../lxqttaskbutton.cpp" line="667"/>
         <source>Mi&amp;nimize</source>
         <translation>ਘੱਟੋ-ਘੱਟ(n)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="849"/>
+        <location filename="../lxqttaskbutton.cpp" line="675"/>
         <source>Roll down</source>
         <translation>ਹੇਠਾਂ ਵੱਲ ਰੋਲ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="855"/>
+        <location filename="../lxqttaskbutton.cpp" line="683"/>
         <source>Roll up</source>
         <translation>ਉੱਤੇ ਵੱਲ ਰੋਲ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="863"/>
+        <location filename="../lxqttaskbutton.cpp" line="692"/>
         <source>&amp;Layer</source>
         <translation>ਲੇਅਰ(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="865"/>
+        <location filename="../lxqttaskbutton.cpp" line="696"/>
         <source>Always on &amp;top</source>
         <translation>ਹਮੇਸ਼ਾਂ ਉਤੇ ਵੇਖਾਓ(&amp;t)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="871"/>
+        <location filename="../lxqttaskbutton.cpp" line="701"/>
         <source>&amp;Normal</source>
         <translation>ਸਧਾਰਨ(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="877"/>
+        <location filename="../lxqttaskbutton.cpp" line="706"/>
         <source>Always on &amp;bottom</source>
         <translation>ਹਮੇਸ਼ਾਂ ਹੇਠਾਂ(&amp;b)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="885"/>
+        <location filename="../lxqttaskbutton.cpp" line="713"/>
         <source>&amp;Close</source>
         <translation>ਬੰਦ ਕਰੋ(&amp;C)</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="85"/>
+        <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Group</source>
         <translation>ਗਰੁੱਪ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="87"/>
+        <location filename="../lxqttaskgroup.cpp" line="86"/>
         <source>Close group</source>
         <translation>ਗਰੁੱਪ ਬੰਦ ਕਰੋ</translation>
     </message>
@@ -168,7 +168,7 @@
         <translation>ਮਿਡਲ-ਕਲਿੱਕ ਉੱਤੇ ਬੰਦ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="49"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>ਵੀਲ੍ਹ ਸਕਰੋਲ ਕਰਨ ਨਾਲ ਵਿੰਡੋ ਵਿੱਚ ਘੁੰਮਾਓ</translation>
     </message>
@@ -235,47 +235,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="44"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Icon and text</source>
         <translation>ਆਈਕਾਨ ਤੇ ਲਿਖਤ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="45"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only icon</source>
         <translation>ਸਿਰਫ਼ ਆਈਕਾਨ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Only text</source>
         <translation>ਸਿਰਫ਼ ਲਿਖਤ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Disabled</source>
         <translation>ਅਸਮਰੱਥ ਹੈ</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
         <translation>ਮੌਜੂਦਾ</translation>
     </message>

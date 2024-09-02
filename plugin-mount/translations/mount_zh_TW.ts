@@ -105,18 +105,18 @@
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <location filename="../menudiskitem.cpp" line="153"/>
+        <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
         <translation>掛載 &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; 失敗：%2</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="155"/>
-        <location filename="../menudiskitem.cpp" line="176"/>
+        <location filename="../menudiskitem.cpp" line="158"/>
+        <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
         <translation>可卸除式裝置管理員</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="174"/>
+        <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>卸載 &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; 失敗：%2</translation>
     </message>

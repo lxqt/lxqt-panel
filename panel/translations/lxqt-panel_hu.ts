@@ -376,45 +376,45 @@ Színes ikonok az elemek stílusából (paletta)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1325"/>
-        <location filename="../lxqtpanel.cpp" line="1351"/>
+        <location filename="../lxqtpanel.cpp" line="1334"/>
+        <location filename="../lxqtpanel.cpp" line="1360"/>
         <source>Panel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1354"/>
+        <location filename="../lxqtpanel.cpp" line="1363"/>
         <source>Configure Panel</source>
         <translation>Panel beállítása</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1359"/>
+        <location filename="../lxqtpanel.cpp" line="1368"/>
         <source>Manage Widgets</source>
         <translation>Bővítmények kezelése</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1365"/>
+        <location filename="../lxqtpanel.cpp" line="1374"/>
         <source>Add New Panel</source>
         <translation>Új panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1372"/>
+        <location filename="../lxqtpanel.cpp" line="1381"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Panel törlése</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1377"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Lock This Panel</source>
         <translation>Panel zárolása</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1533"/>
+        <location filename="../lxqtpanel.cpp" line="1549"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Panel törlése</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1534"/>
+        <location filename="../lxqtpanel.cpp" line="1550"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>A panel törlése végleges.
@@ -442,12 +442,12 @@ Valóban törli?</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="95"/>
+        <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
         <translation>Egyéni beállítófájl használata.</translation>
     </message>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="96"/>
+        <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
         <translation>Beállítófájl</translation>
     </message>
