@@ -376,45 +376,45 @@ Acoloreix les icones en funció de l&apos;estil de l&apos;estri (paleta)</transl
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1325"/>
-        <location filename="../lxqtpanel.cpp" line="1351"/>
+        <location filename="../lxqtpanel.cpp" line="1334"/>
+        <location filename="../lxqtpanel.cpp" line="1360"/>
         <source>Panel</source>
         <translation>Tauler</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1354"/>
+        <location filename="../lxqtpanel.cpp" line="1363"/>
         <source>Configure Panel</source>
         <translation>Configura el tauler</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1359"/>
+        <location filename="../lxqtpanel.cpp" line="1368"/>
         <source>Manage Widgets</source>
         <translation>Gestiona els estris</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1365"/>
+        <location filename="../lxqtpanel.cpp" line="1374"/>
         <source>Add New Panel</source>
         <translation>Afegeix un tauler nou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1372"/>
+        <location filename="../lxqtpanel.cpp" line="1381"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Suprimeix el tauler</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1377"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Lock This Panel</source>
         <translation>Bloqueja aquest tauler</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1533"/>
+        <location filename="../lxqtpanel.cpp" line="1549"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Supressió del tauler</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1534"/>
+        <location filename="../lxqtpanel.cpp" line="1550"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>La supressió d&apos;un tauler no es pot desfer.
@@ -442,12 +442,12 @@ Voleu suprimir el tauler?</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="95"/>
+        <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
         <translation>Utilitza un fitxer de configuració alternatiu.</translation>
     </message>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="96"/>
+        <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
         <translation>Fitxer de configuració</translation>
     </message>

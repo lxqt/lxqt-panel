@@ -218,22 +218,27 @@
         <translation>ਹੇਠਾਂ ਭੇਜੋ(&amp;w)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="519"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
+        <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
         <source>&amp;General</source>
         <translation>ਆਮ(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>ਜਦੋ ਪੈਨਲ ਖੜ੍ਹਵਾਂ ਹੋਵੇ ਤਾਂ ਆਪੇ ਘੁੰਮਾਓ(&amp;r)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>Show &amp;week numbers in popup calendar</source>
         <translation>ਪੌਪਅੱਪ ਕੈਲੰਡਰ ਵਿੱਚ ਹਫ਼ਤੇ ਦਾ ਨੰਬਰ ਵੇਖਾਓ(&amp;w)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
         <source>S&amp;how tooltip</source>
         <translation>ਟੂਲਟਿੱਪ ਵੇਖਾਓ(&amp;h)</translation>
     </message>

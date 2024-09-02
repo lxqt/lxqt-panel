@@ -105,18 +105,18 @@
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <location filename="../menudiskitem.cpp" line="153"/>
+        <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
         <translation>Het aankoppelen van &lt;b&gt;&lt;nobr&gt;&apos;%1&apos;&lt;/nobr&gt;&lt;/b&gt; is mislukt: %2</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="155"/>
-        <location filename="../menudiskitem.cpp" line="176"/>
+        <location filename="../menudiskitem.cpp" line="158"/>
+        <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
         <translation>Verwijderbare schijven/apparaten beheren</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="174"/>
+        <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>Het ontkoppelen van &lt;strong&gt;&lt;nobr&gt;&apos;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; is mislukt: %2</translation>
     </message>

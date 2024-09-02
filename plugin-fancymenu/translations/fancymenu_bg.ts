@@ -17,7 +17,7 @@
         <translation>Любими</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="55"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
         <translation>Всички програми</translation>
     </message>

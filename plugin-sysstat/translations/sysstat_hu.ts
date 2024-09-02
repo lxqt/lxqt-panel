@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="400"/>
+        <location filename="../lxqtsysstat.cpp" line="407"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation type="unfinished">rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;egyéb: %4%&lt;br&gt;frekvencia: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="449"/>
+        <location filename="../lxqtsysstat.cpp" line="456"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>rendszer: %1%&lt;br&gt;felhasználó: %2%&lt;br&gt;nice: %3%&lt;br&gt;más: %4%&lt;br&gt;freq: n/a</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="491"/>
+        <location filename="../lxqtsysstat.cpp" line="498"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>alkalmazások: %1%&lt;br&gt;pufferek: %2%&lt;br&gt;gyorsítótárazva: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="525"/>
+        <location filename="../lxqtsysstat.cpp" line="532"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>használt: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="555"/>
+        <location filename="../lxqtsysstat.cpp" line="562"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation></translation>

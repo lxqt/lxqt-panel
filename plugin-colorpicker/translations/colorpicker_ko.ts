@@ -4,12 +4,12 @@
 <context>
     <name>ColorPickerWidget</name>
     <message>
-        <location filename="../colorpicker.cpp" line="222"/>
+        <location filename="../colorpicker.cpp" line="224"/>
         <source>Clear list</source>
         <translation>목록 지우기</translation>
     </message>
     <message>
-        <location filename="../colorpicker.cpp" line="252"/>
+        <location filename="../colorpicker.cpp" line="254"/>
         <source>empty</source>
         <translation>비어있음</translation>
     </message>

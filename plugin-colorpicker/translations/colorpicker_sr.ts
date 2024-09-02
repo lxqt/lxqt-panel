@@ -4,12 +4,12 @@
 <context>
     <name>ColorPickerWidget</name>
     <message>
-        <location filename="../colorpicker.cpp" line="222"/>
+        <location filename="../colorpicker.cpp" line="224"/>
         <source>Clear list</source>
         <translation>Очисти листу</translation>
     </message>
     <message>
-        <location filename="../colorpicker.cpp" line="252"/>
+        <location filename="../colorpicker.cpp" line="254"/>
         <source>empty</source>
         <translation>празно</translation>
     </message>
