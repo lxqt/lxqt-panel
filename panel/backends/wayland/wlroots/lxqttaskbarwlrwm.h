@@ -89,6 +89,7 @@ public:
     QIcon icon;
     WindowProperties windowState;
     WId parentWindow = 0;
+    ::zwlr_foreign_toplevel_handle_v1 *ID = nullptr;
 
 Q_SIGNALS:
     void titleChanged();
