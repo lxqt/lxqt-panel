@@ -331,9 +331,6 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_output_leave(stru
 
 void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *state)
 {
-    // This is needed with all states. See zwlr_foreign_toplevel_handle_v1_done().
-    m_pendingState.activatedChanged = true;
-
     /** State of this window was changed; store it in pending. */
     auto *states    = static_cast<uint32_t *>(state->data);
     int   numStates = static_cast<int>(state->size / sizeof(uint32_t));
@@ -343,30 +340,38 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *s
         switch ((uint32_t)states[ i ])
         {
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MAXIMIZED: {
-            m_pendingState.maximized        = true;
-            m_pendingState.maximizedChanged = true;
+            m_pendingState.maximized = true;
             break;
         }
 
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_MINIMIZED: {
-            m_pendingState.minimized        = true;
-            m_pendingState.minimizedChanged = true;
-            m_pendingState.activated        = false;
+            m_pendingState.minimized = true;
+            m_pendingState.activated = false; // a minimized window isn't be active
             break;
         }
 
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
-            m_pendingState.activated        = true;
+            m_pendingState.activated = true;
+            m_pendingState.minimized = false;; // an active window isn't minimized
             break;
         }
 
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_FULLSCREEN: {
-            m_pendingState.fullscreen        = true;
-            m_pendingState.fullscreenChanged = true;
+            m_pendingState.fullscreen = true;
             break;
         }
         }
     }
+
+    /* WARNING:
+       These are needed with all states, also when "numStates" is zero.
+       Without them, states might be incorrect under some circumstances, e.g.,
+       an active task button might be deactivated if an overlay window is shown.
+    */
+    m_pendingState.activatedChanged  = true;
+    m_pendingState.maximizedChanged  = (windowState.maximized  != m_pendingState.maximized);
+    m_pendingState.minimizedChanged  = (windowState.minimized  != m_pendingState.minimized);
+    m_pendingState.fullscreenChanged = (windowState.fullscreen != m_pendingState.fullscreen);
 }
 
 
@@ -414,31 +419,24 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
     }
 
     // (4) states, if they changed.
-    // Don't trust the changed flag for the maximized, minimized and fullscreen states.
-    if (m_pendingState.maximized != windowState.maximized)
+    if (m_pendingState.maximizedChanged)
     {
-        windowState.maximized           = m_pendingState.maximized;
-        m_pendingState.maximizedChanged = true;
+        windowState.maximized = m_pendingState.maximized;
     }
 
-    if (m_pendingState.minimized != windowState.minimized)
+    if (m_pendingState.minimizedChanged)
     {
-        windowState.minimized           = m_pendingState.minimized;
-        m_pendingState.minimizedChanged = true;
+        windowState.minimized = m_pendingState.minimized;
     }
 
-    if (m_pendingState.fullscreen != windowState.fullscreen)
-    {
-        windowState.fullscreen           = m_pendingState.fullscreen;
-        m_pendingState.fullscreenChanged = true;
-    }
-
-    // WARNING: If "activatedChanged" isn't trusted, the activation state might
-    // be incorrect under some circumstances, e.g., when an overlay window is shown.
-    // See zwlr_foreign_toplevel_handle_v1_state().
     if (m_pendingState.activatedChanged)
     {
         windowState.activated = m_pendingState.activated;
+    }
+
+    if (m_pendingState.fullscreenChanged)
+    {
+        windowState.fullscreen = m_pendingState.fullscreen;
     }
 
     // (5) parent, if it changed.
