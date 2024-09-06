@@ -123,6 +123,15 @@ bool LXQtWMBackend_KWinWayland::supportsAction(WId windowId, LXQtTaskBarBackendA
         state = LXQtTaskBarPlasmaWindow::state::state_fullscreenable;
         break;
 
+    case LXQtTaskBarBackendAction::DesktopSwitch:
+        return true;
+
+    case LXQtTaskBarBackendAction::MoveToLayer:
+        return true;
+
+    case LXQtTaskBarBackendAction::MoveToOutput:
+        return true;
+
     default:
         return false;
     }
