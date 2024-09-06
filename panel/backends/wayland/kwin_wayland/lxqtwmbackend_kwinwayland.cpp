@@ -230,20 +230,24 @@ bool LXQtWMBackend_KWinWayland::setWindowLayer(WId windowId, LXQtTaskBarWindowLa
     if(getWindowLayer(windowId) == layer)
         return true; //TODO: make more efficient
 
-    LXQtTaskBarPlasmaWindow::state plasmaState = LXQtTaskBarPlasmaWindow::state::state_keep_above;
+    LXQtTaskBarPlasmaWindow::state above = LXQtTaskBarPlasmaWindow::state::state_keep_above;
+    LXQtTaskBarPlasmaWindow::state below = LXQtTaskBarPlasmaWindow::state::state_keep_below;
     switch (layer)
     {
     case LXQtTaskBarWindowLayer::Normal:
+        window->set_state(above, 0);
+        window->set_state(below, 0);
+        break;
     case LXQtTaskBarWindowLayer::KeepAbove:
+        window->set_state(above, above);
         break;
     case LXQtTaskBarWindowLayer::KeepBelow:
-        plasmaState = LXQtTaskBarPlasmaWindow::state::state_keep_below;
+        window->set_state(below, below);
         break;
     default:
         return false;
     }
 
-    window->set_state(plasmaState, layer == LXQtTaskBarWindowLayer::Normal ? 0 : plasmaState);
     return false;
 }
 
