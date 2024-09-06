@@ -609,11 +609,13 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     {
         menu->addSeparator();
         a = menu->addAction(tr("Move To N&ext Monitor"));
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });
         a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move) &&
                       (state != LXQtTaskBarWindowState::FullScreen
                        || ((state == LXQtTaskBarWindowState::FullScreen) && mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen))));
         a = menu->addAction(tr("Move To &Previous Monitor"));
+        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(false); });
     }
 
@@ -690,6 +692,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     menu->addSeparator();
 
     QMenu* layerMenu = menu->addMenu(tr("&Layer"));
+    layerMenu->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToLayer));
 
     LXQtTaskBarWindowLayer currentLayer = mBackend->getWindowLayer(mWindow);
 
