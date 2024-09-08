@@ -258,8 +258,8 @@ LXQtTaskBarWindowState LXQtWMBackend_KWinWayland::getWindowState(WId windowId) c
         return LXQtTaskBarWindowState::Normal;
 
     if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_minimized))
-        return LXQtTaskBarWindowState::Hidden;
-    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_maximizable))
+        return LXQtTaskBarWindowState::Minimized;
+    if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_maximized))
         return LXQtTaskBarWindowState::Maximized;
     if(window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_shaded))
         return LXQtTaskBarWindowState::RolledUp;
@@ -326,6 +326,8 @@ bool LXQtWMBackend_KWinWayland::raiseWindow(WId windowId, bool onCurrentWorkSpac
     if(!window)
         return false;
 
+    LXQtTaskBarPlasmaWindow *child = window;
+
     // Pull forward any transient demanding attention.
     if (auto *transientDemandingAttention = transientsDemandingAttention.value(window))
     {
@@ -336,15 +338,17 @@ bool LXQtWMBackend_KWinWayland::raiseWindow(WId windowId, bool onCurrentWorkSpac
         // TODO Shouldn't KWin take care of that?
         // Bringing a transient to the front usually brings its parent with it
         // but focus is not handled properly.
-        // TODO take into account d->lastActivation instead
-        // of just taking the first one.
-        while (transients.key(window))
+        while (transients.key(child))
         {
-            window = transients.key(window);
+            child = transients.key(child);
         }
     }
 
     window->set_state(LXQtTaskBarPlasmaWindow::state::state_active, LXQtTaskBarPlasmaWindow::state::state_active);
+    if (child != window)
+    {
+        child->set_state(LXQtTaskBarPlasmaWindow::state::state_active, LXQtTaskBarPlasmaWindow::state::state_active);
+    }
     return true;
 }
 
@@ -445,7 +449,9 @@ bool LXQtWMBackend_KWinWayland::setWindowOnWorkspace(WId windowId, int idx)
 
 void LXQtWMBackend_KWinWayland::moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop)
 {
-
+    Q_UNUSED(windowId)
+    Q_UNUSED(next)
+    Q_UNUSED(raiseOnCurrentDesktop)
 }
 
 bool LXQtWMBackend_KWinWayland::isWindowOnScreen(QScreen *screen, WId windowId) const
@@ -485,7 +491,8 @@ void LXQtWMBackend_KWinWayland::resizeApplication(WId windowId)
 
 void LXQtWMBackend_KWinWayland::refreshIconGeometry(WId windowId, const QRect &geom)
 {
-
+    Q_UNUSED(windowId)
+    Q_UNUSED(geom)
 }
 
 bool LXQtWMBackend_KWinWayland::isAreaOverlapped(const QRect &area) const
@@ -674,6 +681,13 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
         updateWindowAcceptance(window);
         if(window->acceptedInTaskBar)
             emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::State));
+        // make sure that a minimized window isn't considered active
+        if (window == activeWindow &&
+            window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_minimized))
+        {
+            activeWindow = nullptr;
+            emit activeWindowChanged(0);
+        }
     };
 
     connect(window, &LXQtTaskBarPlasmaWindow::fullscreenChanged, this, stateChanged);
@@ -782,21 +796,21 @@ LXQtTaskBarPlasmaWindow *LXQtWMBackend_KWinWayland::getWindow(WId windowId) cons
 
 int LXQtWMBackendKWinWaylandLibrary::getBackendScore(const QString &key) const
 {
-    auto *waylandApplication = qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>();
-    if(!waylandApplication)
+    auto waylandApplication = qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>();
+    if(waylandApplication == nullptr)
         return 0;
 
-	// Detect KWin Plasma (Wayland)
-	if(key == QLatin1String("KDE") || key == QLatin1String("KWIN"))
-	{
-		return 100;
-	}
+    // Detect KWin Plasma (Wayland)
+    if(key == QLatin1String("KDE") || key == QLatin1String("KWIN"))
+    {
+        return 100;
+    }
 
     // kwin_wayland compositor, but not full-blown DE
     else if (key == QLatin1String("kwin_wayland"))
-	{
+    {
         return 100;
-	}
+    }
 
     // It's not useful for other wayland compositors
     return 0;
