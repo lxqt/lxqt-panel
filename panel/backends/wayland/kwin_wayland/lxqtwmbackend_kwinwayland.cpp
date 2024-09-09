@@ -126,6 +126,9 @@ bool LXQtWMBackend_KWinWayland::supportsAction(WId windowId, LXQtTaskBarBackendA
     case LXQtTaskBarBackendAction::DesktopSwitch:
         return true;
 
+    case LXQtTaskBarBackendAction::MoveToDesktop:
+        return true;
+
     case LXQtTaskBarBackendAction::MoveToLayer:
         return true;
 
