@@ -95,7 +95,7 @@ void LXQtWMBackendX11::onWindowChanged(WId windowId, NET::Properties prop, NET::
     }
 
     // window changed virtual desktop
-    if (prop.testFlag(NET::WMDesktop) || prop.testFlag(NET::WMGeometry))
+    if (prop.testFlag(NET::WMDesktop))
     {
         emit windowPropertyChanged(windowId, int(LXQtTaskBarWindowProperty::Workspace));
     }
