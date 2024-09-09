@@ -578,6 +578,7 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     {
         int winDesk = mBackend->getWindowWorkspace(mWindow);
         QMenu* deskMenu = menu->addMenu(tr("To &Desktop"));
+        deskMenu->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToDesktop));
 
         a = deskMenu->addAction(tr("&All Desktops"));
         a->setData(int(LXQtTaskBarWorkspace::ShowOnAll));
