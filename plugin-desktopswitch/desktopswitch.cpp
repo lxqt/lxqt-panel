@@ -80,6 +80,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     connect(mBackend, &ILXQtAbstractWMInterface::workspaceNameChanged,    this, &DesktopSwitch::onDesktopNamesChanged);
 
     connect(mBackend, &ILXQtAbstractWMInterface::windowPropertyChanged, this, &DesktopSwitch::onWindowChanged);
+    connect(mBackend, &ILXQtAbstractWMInterface::windowRemoved, this, &DesktopSwitch::onWindowRemoved);
 }
 
 void DesktopSwitch::registerShortcuts()
@@ -123,18 +124,33 @@ void DesktopSwitch::shortcutRegistered()
 
 void DesktopSwitch::onWindowChanged(WId id, int prop)
 {
-    if (prop == int(LXQtTaskBarWindowProperty::State))
+    if (prop == int(LXQtTaskBarWindowProperty::State)
+        || prop == int(LXQtTaskBarWindowProperty::Urgency)
+        || prop == int(LXQtTaskBarWindowProperty::Workspace))
     {
         int desktop = mBackend->getWindowWorkspace(id);
         if (desktop == int(LXQtTaskBarWorkspace::ShowOnAll))
             return;
-        else
-        {
-            DesktopSwitchButton *button = static_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1));
-            if(button)
-                button->setUrgencyHint(id, mBackend->applicationDemandsAttention(id));
+        if (prop == int(LXQtTaskBarWindowProperty::Workspace))
+        { // remove the urgent hint from desktops that do not contain the window
+            const auto buttons = m_buttons->buttons();
+            for (auto button : buttons)
+            {
+                qobject_cast<DesktopSwitchButton*>(button)->setUrgencyHint(id, desktop != m_buttons->id(button) + 1 ? false : mBackend->applicationDemandsAttention(id));
+            }
+        }
+        else if (auto button = qobject_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1)))
+        { // set the urgent hint based on whether the window demands attention
+            button->setUrgencyHint(id, mBackend->applicationDemandsAttention(id));
         }
     }
+}
+
+void DesktopSwitch::onWindowRemoved(WId id)
+{
+    const auto buttons = m_buttons->buttons();
+    for (auto button : buttons)
+        qobject_cast<DesktopSwitchButton*>(button)->setUrgencyHint(id, false);
 }
 
 void DesktopSwitch::refresh()

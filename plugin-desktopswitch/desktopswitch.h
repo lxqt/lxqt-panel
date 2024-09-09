@@ -97,6 +97,7 @@ private slots:
     void registerShortcuts();
     void shortcutRegistered();
     void onWindowChanged(WId id, int prop);
+    void onWindowRemoved(WId id);
 };
 
 class DesktopSwitchUnsupported : public QObject, public ILXQtPanelPlugin
