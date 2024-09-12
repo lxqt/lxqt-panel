@@ -34,9 +34,7 @@
 class QStandardItemModel;
 
 //==============================
-#ifdef HAVE_MENU_CACHE
-class QSortFilterProxyModel;
-#else
+
 #include <QSortFilterProxyModel>
 class FilterProxyModel : public QSortFilterProxyModel
 {
@@ -45,18 +43,20 @@ public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
-    void setfilerString(const QString &str) {
-        filterStr_ = str;
-        invalidateFilter();
-    }
+    void setfilterString(const QString &str);
 
 protected:
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
+
+#ifndef HAVE_MENU_CACHE
     bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
+#endif
+
 
 private:
     QString filterStr_;
 };
-#endif
+
 //==============================
 class ActionView : public QListView
 {

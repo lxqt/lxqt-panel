@@ -30,6 +30,7 @@
 #include "lxqtmainmenuconfiguration.h"
 #include "../panel/lxqtpanel.h"
 #include "actionview.h"
+#include "qnamespace.h"
 #include <QAction>
 #include <QTimer>
 #include <QMessageBox>
@@ -103,6 +104,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     connect(&mButton, &QToolButton::clicked, this, &LXQtMainMenu::showHideMenu);
 
     mSearchView = new ActionView;
+    mSearchView->installEventFilter(this);
     mSearchView->setVisible(false);
     mSearchView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mSearchView, &QAbstractItemView::activated, this, &LXQtMainMenu::showHideMenu);
@@ -110,6 +112,7 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     connect(mSearchView, &QWidget::customContextMenuRequested, this, &LXQtMainMenu::onRequestingCustomMenu);
     mSearchViewAction->setDefaultWidget(mSearchView);
     mSearchEdit = new QLineEdit;
+    mSearchEdit->installEventFilter(this);
     mSearchEdit->setClearButtonEnabled(true);
     mSearchEdit->setPlaceholderText(LXQtMainMenu::tr("Search..."));
     connect(mSearchEdit, &QLineEdit::textChanged, this, [this] (QString const &) {
@@ -274,6 +277,7 @@ void LXQtMainMenu::settingsChanged()
     mFilterShow = settings()->value(QStringLiteral("filterShow"), true).toBool();
     mFilterClear = settings()->value(QStringLiteral("filterClear"), false).toBool();
     mFilterShowHideMenu = settings()->value(QStringLiteral("filterShowHideMenu"), true).toBool();
+    mWriteToSearch = settings()->value(QStringLiteral("writeToSearch"), false).toBool();
     if (mMenu)
     {
         mSearchEdit->setVisible(mFilterMenu || mFilterShow);
@@ -384,7 +388,7 @@ void LXQtMainMenu::searchMenu()
  ************************************************/
 void LXQtMainMenu::setSearchFocus(QAction *action)
 {
-    if (mFilterMenu || mFilterShow)
+    if (!mWriteToSearch && (mFilterMenu || mFilterShow))
     {
         if(action == mSearchEditAction)
             mSearchEdit->setFocus();
@@ -399,6 +403,7 @@ static void menuInstallEventFilter(QMenu * menu, QObject * watcher)
     {
         if (action->menu())
             menuInstallEventFilter(action->menu(), watcher); // recursion
+        else action->installEventFilter(watcher);
     }
     menu->installEventFilter(watcher);
 }
@@ -626,99 +631,96 @@ QDialog *LXQtMainMenu::configureDialog()
 // functor used to match a QAction by prefix
 struct MatchAction
 {
-    MatchAction(QString key):key_(key) {}
+    MatchAction(QChar key): key_(key) {}
     bool operator()(QAction* action) { return action->text().startsWith(key_, Qt::CaseInsensitive); }
-    QString key_;
+    QChar key_;
 };
 
 bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
 {
-    if(obj == mButton.parentWidget())
+    QKeyEvent* keyEvent = nullptr;
+    if(event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
+        keyEvent = static_cast<QKeyEvent*>(event);
+
+    // Check if the close/open shortcut has been triggered
+    // close the menu if so
+    if(event->type() == QEvent::KeyRelease)
     {
-        // the application is given a new QStyle
-        if(event->type() == QEvent::StyleChange)
+        static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
+        // if our shortcut key is pressed while the menu is open, close the menu
+        QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+        switch (keyEvent->key()) {
+            case Qt::Key_Alt:
+                mod &= ~Qt::AltModifier;
+                break;
+            case Qt::Key_Control:
+                mod &= ~Qt::ControlModifier;
+                break;
+            case Qt::Key_Shift:
+                mod &= ~Qt::ShiftModifier;
+                break;
+            case Qt::Key_Super_L:
+            case Qt::Key_Super_R:
+                mod &= ~Qt::MetaModifier;
+                break;
+        }
+        const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
+        if (press == mShortcutSeq)
         {
-            setMenuFontSize();
-            setButtonIcon();
+            mHideTimer.start();
+            mMenu->hide(); // close the app menu
+            return true;
         }
     }
-    else if(QMenu* menu = qobject_cast<QMenu*>(obj))
-    {
-        if(event->type() == QEvent::KeyRelease)
-        {
-            static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
-            // if our shortcut key is pressed while the menu is open, close the menu
-            QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-            QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
-            switch (keyEvent->key()) {
-                case Qt::Key_Alt:
-                    mod &= ~Qt::AltModifier;
-                    break;
-                case Qt::Key_Control:
-                    mod &= ~Qt::ControlModifier;
-                    break;
-                case Qt::Key_Shift:
-                    mod &= ~Qt::ShiftModifier;
-                    break;
-                case Qt::Key_Super_L:
-                case Qt::Key_Super_R:
-                    mod &= ~Qt::MetaModifier;
-                    break;
-            }
-            const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
-            if (press == mShortcutSeq)
-            {
-                mHideTimer.start();
-                mMenu->hide(); // close the app menu
-                return true;
-            }
-            else // go to the menu item which starts with the pressed key if there is an active action.
-            {
-                QString key = keyEvent->text();
-                if(key.isEmpty())
-                    return false;
-                QAction* action = menu->activeAction();
-                if(action !=nullptr) {
-                    QList<QAction*> actions = menu->actions();
-                    QList<QAction*>::iterator it = std::find(actions.begin(), actions.end(), action);
-                    it = std::find_if(it + 1, actions.end(), MatchAction(key));
-                    if(it == actions.end())
-                        it = std::find_if(actions.begin(), it, MatchAction(key));
-                    if(it != actions.end())
-                        menu->setActiveAction(*it);
-                }
-            }
-        }
 
-        if (obj == mMenu)
+    if(obj == mButton.parentWidget() && event->type() == QEvent::StyleChange)
+    {
+        setMenuFontSize();
+        setButtonIcon();
+    }
+
+    // Redirect arrow up and arrow down keys to the view that shows search results
+    // so one can browse among them. Only do this when mWriteToSearch = true
+    else if(mWriteToSearch && obj == mSearchEdit && event->type() == QEvent::KeyPress &&
+            (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down))
+    {
+        qApp->sendEvent(mSearchView, keyEvent);
+        return true;
+    }
+
+    // Redirect text edition input to the search edit line, without consideration to focus
+    // Only do this when mWriteToSearch = true
+    else if(mWriteToSearch && obj != mSearchEdit && event->type() == QEvent::KeyPress &&
+            (keyEvent->key() == Qt::Key_Backspace ||
+             keyEvent->key() == Qt::Key_Space ||
+             (keyEvent->text().size() == 1 && keyEvent->text()[0].isLetterOrNumber())))
+    {
+        QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+        qApp->sendEvent(mSearchEdit, keyEvent);
+        return true;
+    }
+    else if (obj == mMenu)
+    {
+        if (event->type() == QEvent::Resize)
         {
-            if (event->type() == QEvent::Resize)
+            QResizeEvent * e = dynamic_cast<QResizeEvent *>(event);
+            if (e->oldSize().isValid() && e->oldSize() != e->size())
             {
-                QResizeEvent * e = dynamic_cast<QResizeEvent *>(event);
-                if (e->oldSize().isValid() && e->oldSize() != e->size())
-                {
-                    mMenu->move(calculatePopupWindowPos(e->size()).topLeft());
-                }
-            } else if (event->type() == QEvent::KeyPress)
-            {
-                QKeyEvent * e = dynamic_cast<QKeyEvent*>(event);
-                if (Qt::Key_Escape == e->key())
-                {
-                    if (!mSearchEdit->text().isEmpty())
-                    {
-                        mSearchEdit->setText(QString{});
-                        //filter out this to not close the menu
-                        return true;
-                    }
-                }
-            } else if (QEvent::ActionChanged == event->type()
-                    || QEvent::ActionAdded == event->type())
-            {
-                //filter this if we are performing heavy changes to reduce flicker
-                if (mHeavyMenuChanges)
-                    return true;
+                mMenu->move(calculatePopupWindowPos(e->size()).topLeft());
             }
         }
+        else if (event->type() == QEvent::KeyPress &&
+                 keyEvent->key() == Qt::Key_Escape &&
+                 !mSearchEdit->text().isEmpty())
+        {
+            mSearchEdit->clear();
+            //filter out this to not close the menu
+            return true;
+        }
+        else if (mHeavyMenuChanges &&
+                 (QEvent::ActionChanged == event->type() ||
+                  QEvent::ActionAdded == event->type()))
+            return true;
     }
     return false;
 }
