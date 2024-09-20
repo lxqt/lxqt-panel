@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;참고:&lt;/b&gt; 시계를 마우스 가운데로 클릭하여 구성된 모든 시간대의 시간과 날짜를 확인합니다.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
         <source>S&amp;how tooltip</source>
-        <translation>도구설명 표시(&amp;H)</translation>
+        <translation>툴팁 표시(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>

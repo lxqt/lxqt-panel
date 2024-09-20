@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Σημείωση:&lt;/b&gt; Κάνετε μεσαίο κλικ στο ρολόι για εμφάνιση της ώρας και της ημερομηνίας όλων των διαμορφωμένων ζωνών ώρας.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
