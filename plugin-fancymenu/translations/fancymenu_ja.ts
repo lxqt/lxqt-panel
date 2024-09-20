@@ -19,7 +19,7 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
-        <translation type="unfinished">すべてのアプリケーション</translation>
+        <translation>すべてのアプリケーション</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu settings</source>
-        <translation type="unfinished">ファンシーメニューの設定</translation>
+        <translation>ファンシーメニューの設定</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished">自動選択の待ち時間:</translation>
+        <translation>自動選択の待ち時間:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished">カテゴリの位置</translation>
+        <translation>カテゴリの位置</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished">離席しますか？</translation>
+        <translation>離席しますか？</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
@@ -222,12 +222,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished">お気に入りに追加</translation>
+        <translation>お気に入りに追加</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
         <source>No Executable</source>
-        <translation type="unfinished">実行可能ファイルがありません</translation>
+        <translation>実行可能ファイルがありません</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="704"/>

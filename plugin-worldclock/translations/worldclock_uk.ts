@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Примітка:&lt;/b&gt; Натискання на годинник середньою кнопкою миші, щоб переглянути час і дату в усіх обраних часових поясах.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>

@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Забележка:&lt;/b&gt; Кликнете със среден бутон върху часовника, за да видите часа и датата за всички конфигурирани часови зони.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
