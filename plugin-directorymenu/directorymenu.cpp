@@ -101,11 +101,8 @@ void DirectoryMenu::openDirectory(const QString& path)
 
 void DirectoryMenu::openInTerminal(const QString& path)
 {
-    // Create list of arguments
-    QStringList args;
-    args << QStringLiteral("--workdir") << QDir::toNativeSeparators(path);
-    // Execute the default terminal program with arguments
-    QProcess::startDetached(mDefaultTerminal, args);
+    // Execute the default terminal program in the given working directory
+    QProcess::startDetached(mDefaultTerminal, QStringList(), QDir::toNativeSeparators(path));
 }
 
 void DirectoryMenu::addMenu(QString path)
@@ -192,5 +189,5 @@ void DirectoryMenu::settingsChanged()
     }
 
     // Set default terminal
-    mDefaultTerminal = settings()->value(QStringLiteral("defaultTerminal"), QString()).toString();
+    mDefaultTerminal = settings()->value(QStringLiteral("defaultTerminal"), QStringLiteral("xterm")).toString();
 }
