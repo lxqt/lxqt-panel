@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
-        <translation>Fehler beim fallen lassen</translation>
+        <translation>Fehler beim Ablegen</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
@@ -17,8 +17,8 @@
         <location filename="../lxqtquicklaunch.cpp" line="336"/>
         <source>Drop application
 icons here</source>
-        <translation>Anwendungsymbol
-hier fallen lassen</translation>
+        <translation>Anwendungsymbole
+hierhin ziehen</translation>
     </message>
 </context>
 <context>
