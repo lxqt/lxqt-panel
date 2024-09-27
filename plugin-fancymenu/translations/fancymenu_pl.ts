@@ -77,7 +77,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
         <source>Keyboard Shortcut</source>
-        <translation>Skrót klawiatury</translation>
+        <translation>Skrót klawiaturowy</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
