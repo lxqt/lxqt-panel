@@ -200,6 +200,14 @@ void StatusNotifierWidget::settingsChanged()
     mAutoHideList = mPlugin->settings()->value(QStringLiteral("autoHideList")).toStringList();
     mHideList = mPlugin->settings()->value(QStringLiteral("hideList")).toStringList();
 
+    bool is_status_notifier_direction_right_to_left = mPlugin->settings()->value(QStringLiteral("is_status_notifier_direction_right_to_left"), false).toBool();
+    if(is_status_notifier_direction_right_to_left){
+        setLayoutDirection(Qt::RightToLeft);
+    }
+    else{
+        setLayoutDirection(Qt::LeftToRight);
+    }
+
     // show/hide items as well as showBtn appropriately
     const auto allButtons = findChildren<StatusNotifierButton *>(QString(), Qt::FindDirectChildrenOnly);
     bool showBtn = false;
