@@ -45,7 +45,10 @@ StatusNotifierConfiguration::StatusNotifierConfiguration(PluginSettings *setting
     ui->tableWidget->sortByColumn(0, Qt::AscendingOrder);
 
     loadSettings();
-
+    
+    connect(ui->is_starting_right, &QCheckBox::toggled, this, [this] (bool value) {
+        this->settings().setValue(QStringLiteral("is_status_notifier_direction_right_to_left"), value);
+    });
     connect(ui->attentionSB, &QAbstractSpinBox::editingFinished, this, &StatusNotifierConfiguration::saveSettings);
 }
 
@@ -56,6 +59,8 @@ StatusNotifierConfiguration::~StatusNotifierConfiguration()
 
 void StatusNotifierConfiguration::loadSettings()
 {
+    ui->is_starting_right->setChecked(
+        settings().value(QStringLiteral("is_status_notifier_direction_right_to_left"), false).toBool());
     ui->attentionSB->setValue(settings().value(QStringLiteral("attentionPeriod"), 5).toInt());
     mAutoHideList = settings().value(QStringLiteral("autoHideList")).toStringList();
     mHideList = settings().value(QStringLiteral("hideList")).toStringList();
@@ -63,6 +68,8 @@ void StatusNotifierConfiguration::loadSettings()
 
 void StatusNotifierConfiguration::saveSettings()
 {
+    settings().setValue(QStringLiteral("is_status_notifier_direction_right_to_left"),
+        ui->is_starting_right->isChecked());
     settings().setValue(QStringLiteral("attentionPeriod"), ui->attentionSB->value());
     settings().setValue(QStringLiteral("autoHideList"), mAutoHideList);
     settings().setValue(QStringLiteral("hideList"), mHideList);
