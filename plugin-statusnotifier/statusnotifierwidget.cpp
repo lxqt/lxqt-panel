@@ -196,6 +196,17 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
 
 void StatusNotifierWidget::settingsChanged()
 {
+     LXQt::GridLayout *layout = qobject_cast<LXQt::GridLayout*>(this->layout());
+
+     bool insertNewItemToStartOfStatusNotifier = mPlugin->settings()->value(QStringLiteral("insertNewItemToStartOfStatusNotifier"), false).toBool();
+     if(insertNewItemToStartOfStatusNotifier){
+         layout->setItemAppendingLocation(LXQt::GridLayout::ItemAppendingLocation::BeforeFirstOfList);
+     }
+     else{
+         layout->setItemAppendingLocation(LXQt::GridLayout::ItemAppendingLocation::AfterLastOfList);
+     }
+ 
+
     mAttentionPeriod = mPlugin->settings()->value(QStringLiteral("attentionPeriod"), 5).toInt();
     mAutoHideList = mPlugin->settings()->value(QStringLiteral("autoHideList")).toStringList();
     mHideList = mPlugin->settings()->value(QStringLiteral("hideList")).toStringList();
