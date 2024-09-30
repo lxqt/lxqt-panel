@@ -18,6 +18,17 @@
     <number>5</number>
    </property>
    <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QCheckBox" name="orderCB">
+       <property name="text">
+        <string>Reverse the order of items</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="spacing">
       <number>5</number>

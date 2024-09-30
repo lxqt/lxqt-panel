@@ -46,6 +46,7 @@ StatusNotifierConfiguration::StatusNotifierConfiguration(PluginSettings *setting
 
     loadSettings();
 
+    connect(ui->orderCB, &QCheckBox::toggled, this, &StatusNotifierConfiguration::saveSettings);
     connect(ui->attentionSB, &QAbstractSpinBox::editingFinished, this, &StatusNotifierConfiguration::saveSettings);
 }
 
@@ -56,6 +57,7 @@ StatusNotifierConfiguration::~StatusNotifierConfiguration()
 
 void StatusNotifierConfiguration::loadSettings()
 {
+    ui->orderCB->setChecked(settings().value(QStringLiteral("reverseOrder"), false).toBool());
     ui->attentionSB->setValue(settings().value(QStringLiteral("attentionPeriod"), 5).toInt());
     mAutoHideList = settings().value(QStringLiteral("autoHideList")).toStringList();
     mHideList = settings().value(QStringLiteral("hideList")).toStringList();
@@ -63,6 +65,7 @@ void StatusNotifierConfiguration::loadSettings()
 
 void StatusNotifierConfiguration::saveSettings()
 {
+    settings().setValue(QStringLiteral("reverseOrder"), ui->orderCB->isChecked());
     settings().setValue(QStringLiteral("attentionPeriod"), ui->attentionSB->value());
     settings().setValue(QStringLiteral("autoHideList"), mAutoHideList);
     settings().setValue(QStringLiteral("hideList"), mHideList);

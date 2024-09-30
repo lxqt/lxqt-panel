@@ -196,6 +196,16 @@ void StatusNotifierWidget::itemRemoved(const QString &serviceAndPath)
 
 void StatusNotifierWidget::settingsChanged()
 {
+    LXQt::GridLayout *layout = qobject_cast<LXQt::GridLayout*>(this->layout());
+    if (mPlugin->settings()->value(QStringLiteral("reverseOrder"), false).toBool())
+    {
+        layout->setItemsOrder(LXQt::GridLayout::ItemsOrder::LastToFirst);
+    }
+    else
+    {
+        layout->setItemsOrder(LXQt::GridLayout::ItemsOrder::FirstToLast);
+    }
+
     mAttentionPeriod = mPlugin->settings()->value(QStringLiteral("attentionPeriod"), 5).toInt();
     mAutoHideList = mPlugin->settings()->value(QStringLiteral("autoHideList")).toStringList();
     mHideList = mPlugin->settings()->value(QStringLiteral("hideList")).toStringList();
