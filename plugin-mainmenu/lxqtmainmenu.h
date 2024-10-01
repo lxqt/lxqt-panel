@@ -110,8 +110,6 @@ private:
     XdgMenu mXdgMenu;
 #endif
 
-    QTimer mDelayedPopup;
-    QTimer mHideTimer;
     QTimer mSearchTimer;
     QString mShortcutSeq;
     QString mMenuFile;
