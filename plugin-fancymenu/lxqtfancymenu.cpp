@@ -314,7 +314,7 @@ void LXQtFancyMenu::setButtonIcon()
     if (settings()->value(QStringLiteral("ownIcon"), false).toBool())
     {
         mButton.setStyleSheet(QStringLiteral("#FancyMenu { qproperty-icon: url(%1); }")
-                .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()));
+                .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR "/helix.svg")).toString()));
     } else
     {
         mButton.setStyleSheet(QString());
@@ -352,6 +352,7 @@ bool LXQtFancyMenu::eventFilter(QObject *obj, QEvent *event)
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
             QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+            QList<Qt::Key> keys = {static_cast<Qt::Key>(keyEvent->key())};
             switch (keyEvent->key())
             {
             case Qt::Key_Alt:
@@ -363,18 +364,22 @@ bool LXQtFancyMenu::eventFilter(QObject *obj, QEvent *event)
             case Qt::Key_Shift:
                 mod &= ~Qt::ShiftModifier;
                 break;
+            case Qt::Key_Meta:
+                keys << Qt::Key_Super_L << Qt::Key_Super_R;
+                [[fallthrough]];
             case Qt::Key_Super_L:
             case Qt::Key_Super_R:
                 mod &= ~Qt::MetaModifier;
                 break;
             }
-            const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
-            if (press == mShortcutSeq)
+            for (const auto & key : std::as_const(keys))
             {
-                //TODO: isn't timer already fired by hide() ???
-                mHideTimer.start();
-                mWindow->hide(); // close the app menu
-                return true;
+                const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(key)).remove(0, 4);
+                if (press == mShortcutSeq)
+                {
+                    mWindow->hide(); // close the app menu
+                    return true;
+                }
             }
             //TODO: go to item which starts with pressed letter
         }

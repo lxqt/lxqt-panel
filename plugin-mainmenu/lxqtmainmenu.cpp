@@ -604,7 +604,7 @@ void LXQtMainMenu::setButtonIcon()
     if (settings()->value(QStringLiteral("ownIcon"), false).toBool())
     {
         mButton.setStyleSheet(QStringLiteral("#MainMenu { qproperty-icon: url(%1); }")
-                .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR"/helix.svg")).toString()));
+                .arg(settings()->value(QLatin1String("icon"), QLatin1String(LXQT_GRAPHICS_DIR "/helix.svg")).toString()));
     } else
     {
         mButton.setStyleSheet(QString());
@@ -650,6 +650,7 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
             QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+            QList<Qt::Key> keys = {static_cast<Qt::Key>(keyEvent->key())};
             switch (keyEvent->key()) {
                 case Qt::Key_Alt:
                     mod &= ~Qt::AltModifier;
@@ -660,33 +661,37 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
                 case Qt::Key_Shift:
                     mod &= ~Qt::ShiftModifier;
                     break;
+                case Qt::Key_Meta:
+                    keys << Qt::Key_Super_L << Qt::Key_Super_R;
+                    [[fallthrough]];
                 case Qt::Key_Super_L:
                 case Qt::Key_Super_R:
                     mod &= ~Qt::MetaModifier;
                     break;
             }
-            const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(keyEvent->key())).remove(0, 4);
-            if (press == mShortcutSeq)
+            for (const auto & key : std::as_const(keys))
             {
-                mHideTimer.start();
-                mMenu->hide(); // close the app menu
-                return true;
-            }
-            else // go to the menu item which starts with the pressed key if there is an active action.
-            {
-                QString key = keyEvent->text();
-                if(key.isEmpty())
-                    return false;
-                QAction* action = menu->activeAction();
-                if(action !=nullptr) {
-                    QList<QAction*> actions = menu->actions();
-                    QList<QAction*>::iterator it = std::find(actions.begin(), actions.end(), action);
-                    it = std::find_if(it + 1, actions.end(), MatchAction(key));
-                    if(it == actions.end())
-                        it = std::find_if(actions.begin(), it, MatchAction(key));
-                    if(it != actions.end())
-                        menu->setActiveAction(*it);
+                const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(key)).remove(0, 4);
+                if (press == mShortcutSeq)
+                {
+                    mMenu->hide(); // close the app menu
+                    return true;
                 }
+            }
+
+            // go to the menu item which starts with the pressed key if there is an active action.
+            QString key = keyEvent->text();
+            if(key.isEmpty())
+                return false;
+            QAction* action = menu->activeAction();
+            if(action !=nullptr) {
+                QList<QAction*> actions = menu->actions();
+                QList<QAction*>::iterator it = std::find(actions.begin(), actions.end(), action);
+                it = std::find_if(it + 1, actions.end(), MatchAction(key));
+                if(it == actions.end())
+                    it = std::find_if(actions.begin(), it, MatchAction(key));
+                if(it != actions.end())
+                    menu->setActiveAction(*it);
             }
         }
 
