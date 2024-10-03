@@ -22,97 +22,97 @@
         <translation>바탕화면으로(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="582"/>
+        <location filename="../lxqttaskbutton.cpp" line="583"/>
         <source>&amp;All Desktops</source>
         <translation>모든 바탕화면(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="592"/>
+        <location filename="../lxqttaskbutton.cpp" line="593"/>
         <source>Desktop &amp;%1</source>
         <translation>바탕화면 &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="602"/>
+        <location filename="../lxqttaskbutton.cpp" line="603"/>
         <source>&amp;To Current Desktop</source>
         <translation>현재 바탕화면으로(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="611"/>
+        <location filename="../lxqttaskbutton.cpp" line="612"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation>다음 모니터로 이동(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="616"/>
+        <location filename="../lxqttaskbutton.cpp" line="618"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>이전 모니터로 이동(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="621"/>
+        <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Move</source>
         <translation>이동(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="626"/>
+        <location filename="../lxqttaskbutton.cpp" line="629"/>
         <source>Resi&amp;ze</source>
         <translation>크기 조정(&amp;Z)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="635"/>
+        <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Ma&amp;ximize</source>
         <translation>최대화(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="644"/>
+        <location filename="../lxqttaskbutton.cpp" line="647"/>
         <source>Maximize vertically</source>
         <translation>세로로 최대화</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="651"/>
+        <location filename="../lxqttaskbutton.cpp" line="654"/>
         <source>Maximize horizontally</source>
         <translation>가로로 최대화</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="659"/>
+        <location filename="../lxqttaskbutton.cpp" line="662"/>
         <source>&amp;Restore</source>
         <translation>복원(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="667"/>
+        <location filename="../lxqttaskbutton.cpp" line="670"/>
         <source>Mi&amp;nimize</source>
         <translation>최소화(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="675"/>
+        <location filename="../lxqttaskbutton.cpp" line="678"/>
         <source>Roll down</source>
         <translation>아래로 내리기</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="683"/>
+        <location filename="../lxqttaskbutton.cpp" line="686"/>
         <source>Roll up</source>
         <translation>위로 올리기</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="692"/>
+        <location filename="../lxqttaskbutton.cpp" line="695"/>
         <source>&amp;Layer</source>
         <translation>레이어(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="696"/>
+        <location filename="../lxqttaskbutton.cpp" line="700"/>
         <source>Always on &amp;top</source>
         <translation>항상 맨 위(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="701"/>
+        <location filename="../lxqttaskbutton.cpp" line="705"/>
         <source>&amp;Normal</source>
         <translation>정상(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="706"/>
+        <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>Always on &amp;bottom</source>
         <translation>항상 맨 아래(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="713"/>
+        <location filename="../lxqttaskbutton.cpp" line="717"/>
         <source>&amp;Close</source>
         <translation>닫기(&amp;C)</translation>
     </message>

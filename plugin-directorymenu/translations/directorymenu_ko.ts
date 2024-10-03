@@ -4,12 +4,12 @@
 <context>
     <name>DirectoryMenu</name>
     <message>
-        <location filename="../directorymenu.cpp" line="126"/>
+        <location filename="../directorymenu.cpp" line="123"/>
         <source>Open</source>
         <translation>열기</translation>
     </message>
     <message>
-        <location filename="../directorymenu.cpp" line="130"/>
+        <location filename="../directorymenu.cpp" line="127"/>
         <source>Open in terminal</source>
         <translation>터미널에서 열기</translation>
     </message>

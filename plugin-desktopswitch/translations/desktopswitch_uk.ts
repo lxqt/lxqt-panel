@@ -4,14 +4,14 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="94"/>
+        <location filename="../desktopswitch.cpp" line="95"/>
         <source>Switch to desktop %1</source>
         <translatorcomment>Перейти на стільницю %1 </translatorcomment>
         <translation>Перемкнутися до стільниці %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="154"/>
-        <location filename="../desktopswitch.cpp" line="165"/>
+        <location filename="../desktopswitch.cpp" line="170"/>
+        <location filename="../desktopswitch.cpp" line="181"/>
         <source>Desktop %1</source>
         <translation>Стільниця %1</translation>
     </message>
@@ -77,12 +77,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="326"/>
+        <location filename="../desktopswitch.cpp" line="342"/>
         <source>n/a</source>
         <translation>н/д</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="328"/>
+        <location filename="../desktopswitch.cpp" line="344"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch не підтримується на цій платформі: %1</translation>
     </message>
