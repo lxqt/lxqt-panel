@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="94"/>
+        <location filename="../desktopswitch.cpp" line="95"/>
         <source>Switch to desktop %1</source>
         <translation>%1 ਡੈਸਕਟਾਪ ਉੱਤੇ ਜਾਓ</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="154"/>
-        <location filename="../desktopswitch.cpp" line="165"/>
+        <location filename="../desktopswitch.cpp" line="170"/>
+        <location filename="../desktopswitch.cpp" line="181"/>
         <source>Desktop %1</source>
         <translation>ਡੈਸਕਟਾਪ %1</translation>
     </message>
@@ -76,12 +76,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="326"/>
+        <location filename="../desktopswitch.cpp" line="342"/>
         <source>n/a</source>
         <translation>ਲਾਗੂ ਨਹੀਂ</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="328"/>
+        <location filename="../desktopswitch.cpp" line="344"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>ਡੈਸਕਟਾਪ-ਸਵਿੱਚ ਮੌਜੂਦਾ ਪਲੇਟਫਾਰਮ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ: %1</translation>
     </message>
