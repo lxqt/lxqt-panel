@@ -33,6 +33,32 @@
 #include <QSocketNotifier>
 #include <QtDebug>
 
+MixerHandler::MixerHandler(snd_mixer_t * mixer, QObject * parent /*= nullptr*/)
+    : QObject{parent}
+    , m_mixer{mixer}
+{
+    if (nullptr != m_mixer)
+    {
+        // setup eventloop handling
+        struct pollfd pfd;
+        if (snd_mixer_poll_descriptors(m_mixer, &pfd, 1)) {
+            QSocketNotifier *notifier = new QSocketNotifier(pfd.fd, QSocketNotifier::Read, this);
+            connect(notifier, &QSocketNotifier::activated, this, [this] {
+                const int err = snd_mixer_handle_events(m_mixer);
+                if (0 > err)
+                    emit handlingError(err);
+            });
+        }
+    }
+}
+
+MixerHandler::~MixerHandler()
+{
+    if (nullptr != m_mixer)
+        snd_mixer_close(m_mixer);
+}
+
+
 AlsaEngine *AlsaEngine::m_instance = nullptr;
 
 static int alsa_elem_event_callback(snd_mixer_elem_t *elem, unsigned int /*mask*/)
@@ -121,13 +147,12 @@ void AlsaEngine::updateDevice(AlsaDevice *device)
     }
 }
 
-void AlsaEngine::driveAlsaEventHandling(int fd)
-{
-    snd_mixer_handle_events(m_mixerMap.value(fd));
-}
-
 void AlsaEngine::discoverDevices()
 {
+    std::for_each(m_sinks.begin(), m_sinks.end(), std::default_delete<AudioDevice>{});
+    m_sinks.clear();
+    m_mixers.clear();
+
     int error;
     int cardNum = -1;
     const int BUFF_SIZE = 64;
@@ -174,13 +199,11 @@ void AlsaEngine::discoverDevices()
             // setup event handler for mixer
             snd_mixer_set_callback(mixer, alsa_mixer_event_callback);
 
-            // setup eventloop handling
-            struct pollfd pfd;
-            if (snd_mixer_poll_descriptors(mixer, &pfd, 1)) {
-                QSocketNotifier *notifier = new QSocketNotifier(pfd.fd, QSocketNotifier::Read, this);
-                connect(notifier, &QSocketNotifier::activated, this, [this] (QSocketDescriptor socket, QSocketNotifier::Type) { this->driveAlsaEventHandling(socket); });
-                m_mixerMap.insert(pfd.fd, mixer);
-            }
+            m_mixers.emplace_back(mixer);
+            connect(&m_mixers.back(), &MixerHandler::handlingError, this, [this] (int err) {
+                qWarning() << "Mixer handling failed(" << snd_strerror(err) << "), reloading ...";
+                QTimer::singleShot(0, this, [this] { discoverDevices(); });
+            });
 
             snd_mixer_elem_t *mixerElem = nullptr;
             mixerElem = snd_mixer_first_elem(mixer);
@@ -219,4 +242,5 @@ void AlsaEngine::discoverDevices()
     }
 
     snd_config_update_free_global();
+    emit sinkListChanged();
 }

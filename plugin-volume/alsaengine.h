@@ -31,14 +31,25 @@
 #include "audioengine.h"
 
 #include <QObject>
-#include <QList>
-#include <QMap>
-#include <QTimer>
 
 #include <alsa/asoundlib.h>
 
 class AlsaDevice;
-class QSocketNotifier;
+
+class MixerHandler : public QObject
+{
+    Q_OBJECT
+public:
+    MixerHandler(snd_mixer_t * mixer, QObject * parent = nullptr);
+    MixerHandler(const MixerHandler & ) = delete;
+    ~MixerHandler();
+
+signals:
+    void handlingError(int err);
+
+private:
+    snd_mixer_t * m_mixer;
+};
 
 class AlsaEngine : public AudioEngine
 {
@@ -58,12 +69,9 @@ public slots:
     void setMute(AudioDevice *device, bool state);
     void updateDevice(AlsaDevice *device);
 
-private slots:
-    void driveAlsaEventHandling(int fd);
-
 private:
     void discoverDevices();
-    QMap<int, snd_mixer_t *> m_mixerMap;
+    std::list<MixerHandler> m_mixers;
     static AlsaEngine *m_instance;
 };
 
