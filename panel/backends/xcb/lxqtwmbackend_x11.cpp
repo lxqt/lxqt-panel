@@ -284,7 +284,6 @@ bool LXQtWMBackendX11::reloadWindows()
         }
     }
 
-    //TODO: refreshPlaceholderVisibility()
     emit reloaded();
 
     return true;
