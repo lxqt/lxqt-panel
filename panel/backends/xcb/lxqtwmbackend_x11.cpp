@@ -189,11 +189,10 @@ bool LXQtWMBackendX11::acceptWindow(WId windowId) const
     return !NET::typeMatchesMask(info.windowType(NET::AllTypesMask), normalFlag);
 }
 
-void LXQtWMBackendX11::addWindow_internal(WId windowId, bool emitAdded)
+void LXQtWMBackendX11::addWindow_internal(WId windowId)
 {
     m_windows.append(windowId);
-    if(emitAdded)
-        emit windowAdded(windowId);
+    emit windowAdded(windowId);
 }
 
 
@@ -260,28 +259,28 @@ bool LXQtWMBackendX11::supportsAction(WId windowId, LXQtTaskBarBackendAction act
 
 bool LXQtWMBackendX11::reloadWindows()
 {
-    QVector<WId> oldWindows;
-    qSwap(oldWindows, m_windows);
+    QVector<WId> knownWindows;
+    qSwap(knownWindows, m_windows);
+    QList<WId> new_list;
 
     // Just add new windows to groups, deleting is up to the groups
-    const auto x11windows = KX11Extras::stackingOrder();
-    for (auto const windowId: x11windows)
+    const auto wnds = KX11Extras::stackingOrder();
+    for (auto const wnd: wnds)
     {
-        if (acceptWindow(windowId))
+        if (acceptWindow(wnd))
         {
-            bool emitAdded = !oldWindows.contains(windowId);
-            addWindow_internal(windowId, emitAdded);
+            new_list << wnd;
+            addWindow_internal(wnd);
         }
     }
 
     //emulate windowRemoved if known window not reported by KWindowSystem
-    for (auto i = oldWindows.begin(), i_e = oldWindows.end(); i != i_e; i++)
+    for (auto i = knownWindows.begin(), i_e = knownWindows.end(); i != i_e; i++)
     {
-        WId windowId = *i;
-        if (!m_windows.contains(windowId))
+        WId wnd = *i;
+        if (!new_list.contains(wnd))
         {
-            //TODO: more efficient method?
-            emit windowRemoved(windowId);
+            emit windowRemoved(wnd);
         }
     }
 

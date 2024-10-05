@@ -104,7 +104,7 @@ private slots:
 
 private:
     bool acceptWindow(WId windowId) const;
-    void addWindow_internal(WId windowId, bool emitAdded = true);
+    void addWindow_internal(WId windowId);
 
 private:
     Display *m_X11Display;
