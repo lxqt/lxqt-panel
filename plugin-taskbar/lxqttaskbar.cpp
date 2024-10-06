@@ -296,7 +296,7 @@ void LXQtTaskBar::addWindow(WId window)
                 LXQtTaskGroup * current_group = qobject_cast<LXQtTaskGroup*>(mLayout->itemAt(i)->widget());
                 if (nullptr != current_group)
                 {
-                    const QString current_class = mBackend->getWindowClass(current_group->groupName().toUInt());
+                    const QString current_class = mBackend->getWindowClass(current_group->groupName().toULong());
                     if(current_class == window_class)
                     {
                         dst_index = i + 1;
