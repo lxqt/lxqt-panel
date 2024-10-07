@@ -11,7 +11,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordine inverso per gli elementi</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
