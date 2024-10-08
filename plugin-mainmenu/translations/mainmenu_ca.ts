@@ -55,7 +55,7 @@ Voleu sobreescriure&apos;l?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Ajusts del menú principal</translation>
     </message>
     <message>

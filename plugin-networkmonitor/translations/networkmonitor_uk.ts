@@ -53,7 +53,7 @@
     <name>LXQtNetworkMonitorConfiguration</name>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
-        <source>Network Monitor settings</source>
+        <source>Network Monitor Settings</source>
         <translation>Налаштуванян монітору мережі</translation>
     </message>
     <message>

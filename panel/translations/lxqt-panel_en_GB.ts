@@ -56,8 +56,8 @@
     <name>ConfigPlacement</name>
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
-        <source>Configure placement</source>
-        <translation>Configure placement</translation>
+        <source>Configure Placement</source>
+        <translation>Configure Placement</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>

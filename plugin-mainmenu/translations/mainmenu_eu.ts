@@ -55,7 +55,7 @@ Gainidatzi nahi al duzu?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Menu Nagusiaren Ezarpenak</translation>
     </message>
     <message>

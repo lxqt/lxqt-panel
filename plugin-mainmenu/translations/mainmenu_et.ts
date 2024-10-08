@@ -55,7 +55,7 @@ Kas sa soovid seda üle kirjutada?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Põhimenüü seadistused</translation>
     </message>
     <message>

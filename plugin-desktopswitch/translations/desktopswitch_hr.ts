@@ -19,7 +19,7 @@
     <name>DesktopSwitchConfiguration</name>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
-        <source>DesktopSwitch settings</source>
+        <source>DesktopSwitch Settings</source>
         <translation>Prebacivanje između radnih površina – Postavke</translation>
     </message>
     <message>

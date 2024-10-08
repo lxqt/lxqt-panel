@@ -54,7 +54,7 @@
     <name>KbdStateConfig</name>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
-        <source>Keyboard state settings</source>
+        <source>Keyboard State Settings</source>
         <translation>키보드 상태 설정</translation>
     </message>
     <message>

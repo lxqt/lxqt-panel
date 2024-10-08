@@ -26,7 +26,7 @@
     <name>LXQtFancyMenuConfiguration</name>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
-        <source>Fancy Menu settings</source>
+        <source>Fancy Menu Settings</source>
         <translation>Fancy Menü ayarları</translation>
     </message>
     <message>
