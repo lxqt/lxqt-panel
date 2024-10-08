@@ -55,7 +55,7 @@ Deseja substituir o ficheiro existente?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Definições do Menu principal</translation>
     </message>
     <message>

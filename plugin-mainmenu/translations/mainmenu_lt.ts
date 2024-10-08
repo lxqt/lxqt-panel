@@ -55,7 +55,7 @@ Ar norite jį perrašyti?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Pagrindinio meniu nustatymai</translation>
     </message>
     <message>

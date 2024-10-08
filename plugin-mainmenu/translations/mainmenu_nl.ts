@@ -50,7 +50,7 @@ Wilt u dit overschrijven?</translation>
     <name>LXQtMainMenuConfiguration</name>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Hoofdmenu-instellingen</translation>
     </message>
     <message>

@@ -30,7 +30,7 @@
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="69"/>
-        <source>QEyes setting</source>
+        <source>QEyes Settings</source>
         <translation>Definição QEyes</translation>
     </message>
     <message>

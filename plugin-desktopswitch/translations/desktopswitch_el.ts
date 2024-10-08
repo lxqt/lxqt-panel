@@ -19,7 +19,7 @@
     <name>DesktopSwitchConfiguration</name>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
-        <source>DesktopSwitch settings</source>
+        <source>DesktopSwitch Settings</source>
         <translation>Ρυθμίσεις εναλλαγής των επιφανειών εργασίας</translation>
     </message>
     <message>

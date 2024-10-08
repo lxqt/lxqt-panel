@@ -55,7 +55,7 @@ Chcete ho přepsat?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Nastavení hlavní nabídky</translation>
     </message>
     <message>

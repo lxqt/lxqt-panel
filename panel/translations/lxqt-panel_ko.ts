@@ -56,7 +56,7 @@
     <name>ConfigPlacement</name>
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
-        <source>Configure placement</source>
+        <source>Configure Placement</source>
         <translation>배치 구성하기</translation>
     </message>
     <message>

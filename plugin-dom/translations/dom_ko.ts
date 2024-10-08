@@ -5,7 +5,7 @@
     <name>TreeWindow</name>
     <message>
         <location filename="../treewindow.ui" line="14"/>
-        <source>Panel DOM tree</source>
+        <source>Panel DOM Tree</source>
         <translation>패널 DOM 트리</translation>
     </message>
     <message>

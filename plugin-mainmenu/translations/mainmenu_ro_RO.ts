@@ -54,7 +54,7 @@ Do you want to overwrite it?</source>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
-        <source>Main Menu settings</source>
+        <source>Main Menu Settings</source>
         <translation>Setari pentru Meniul Principal</translation>
     </message>
     <message>

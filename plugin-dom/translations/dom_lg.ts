@@ -5,7 +5,7 @@
     <name>TreeWindow</name>
     <message>
         <location filename="../treewindow.ui" line="14"/>
-        <source>Panel DOM tree</source>
+        <source>Panel DOM Tree</source>
         <translation>Enkwatagana ya DOM ey&apos;ebitundu by&apos;olubaawo</translation>
     </message>
     <message>
