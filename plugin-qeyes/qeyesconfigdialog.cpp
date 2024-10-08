@@ -66,7 +66,7 @@ QEyesConfigDialog::QEyesConfigDialog(PluginSettings *sts,
     l1->addWidget(b, 50, 20);
     connect(b, &QPushButton::clicked, this, &QEyesConfigDialog::resetValue);
 
-    setWindowTitle(tr("QEyes setting"));
+    setWindowTitle(tr("QEyes Settings"));
 
     connect(numEyesWidget, qOverload<int>(&QSpinBox::valueChanged),
         this, &QEyesConfigDialog::updateValues);
