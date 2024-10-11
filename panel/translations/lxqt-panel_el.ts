@@ -320,7 +320,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Για την διαφάνεια του πίνακα απαιτείται το χαρακτηριστικό γραφικών σύνθεσης.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Για την διαφάνεια του πίνακα απαιτείται το χαρακτηριστικό σύνθεσης γραφικών.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
