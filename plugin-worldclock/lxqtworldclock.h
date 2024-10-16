@@ -67,7 +67,6 @@ public:
 private slots:
     void timeout();
     void wheelScrolled(int);
-    void deletePopup();
     void updateTimeText();
 
 private:
@@ -127,13 +126,6 @@ public:
     LXQtWorldClockPopup(QWidget *parent = nullptr);
 
     void show();
-
-signals:
-    void deactivated();
-
-protected:
-    virtual bool event(QEvent* );
-
 };
 
 class LXQtWorldClockLibrary: public QObject, public ILXQtPanelPluginLibrary
