@@ -174,13 +174,16 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mAboutButton->setToolTip(mAboutButton->text());
     connect(mAboutButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runAboutgDialog);
 
-    mAppView = new QListView;
+    // NOTE: Qt 6.8.0 has a bug that does not allow context menus with the Qt::Popup flag.
+    // As a workaround, we set the context menu policy to Qt::PreventContextMenu and use
+    // ListView, which signals the release of the right mouse button with that policy.
+    mAppView = new ListView;
     mAppView->setObjectName(QStringLiteral("AppView"));
     mAppView->setSelectionMode(QListView::SingleSelection);
     mAppView->setDragEnabled(true);
     mAppView->setMovement(QListView::Snap);
     mAppView->setDropIndicatorShown(true);
-    mAppView->setContextMenuPolicy(Qt::CustomContextMenu);
+    mAppView->setContextMenuPolicy(Qt::PreventContextMenu);
     mAppView->setItemDelegate(new SeparatorDelegate(this));
 
     // label for empty Favorites
@@ -211,8 +214,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mCategoryView->setModel(mCategoryModel);
 
     connect(mAppModel, &LXQtFancyMenuAppModel::favoritesChanged, this, &LXQtFancyMenuWindow::favoritesChanged);
-    connect(mAppView, &QListView::activated, this, &LXQtFancyMenuWindow::activateAppAtIndex);
-    connect(mAppView, &QListView::customContextMenuRequested, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
+    connect(mAppView, &QListView::clicked, this, &LXQtFancyMenuWindow::activateAppAtIndex);
+    connect(mAppView, &ListView::rightClicked, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
     connect(mCategoryView, &QListView::activated, this, &LXQtFancyMenuWindow::activateCategory);
     connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &LXQtFancyMenuWindow::activateCategory);

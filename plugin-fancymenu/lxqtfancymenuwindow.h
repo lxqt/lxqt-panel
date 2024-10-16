@@ -33,6 +33,7 @@
 #include <QTimer>
 
 #include "lxqtfancymenutypes.h"
+#include "listView.h"
 
 class QLineEdit;
 class QToolButton;
@@ -135,7 +136,7 @@ private:
     QToolButton *mPowerButton;
     QToolButton *mAboutButton;
     QLineEdit *mSearchEdit;
-    QListView *mAppView;
+    ListView *mAppView;
     QListView *mCategoryView;
 
     QLabel *mFavoritesLabel;
