@@ -393,7 +393,10 @@ void LXQtWorldClock::activated(ActivationReason reason)
     if (!mPopup)
     {
         mPopup = new LXQtWorldClockPopup(mContent);
-        connect(mPopup, &LXQtWorldClockPopup::deactivated, this, &LXQtWorldClock::deletePopup);
+        connect(mPopup, &QObject::destroyed, this, [this]() {
+            mPopupContent = nullptr;
+            mPopup = nullptr;
+        });
 
         if (reason == ILXQtPanelPlugin::Trigger)
         {
@@ -432,15 +435,8 @@ void LXQtWorldClock::activated(ActivationReason reason)
     }
     else
     {
-        deletePopup();
+        delete mPopup;
     }
-}
-
-void LXQtWorldClock::deletePopup()
-{
-    mPopupContent = nullptr;
-    mPopup->deleteLater();
-    mPopup = nullptr;
 }
 
 QString LXQtWorldClock::formatDateTime(const QDateTime &datetime, const QString &timeZoneName)
@@ -623,6 +619,7 @@ void ActiveLabel::mouseReleaseEvent(QMouseEvent* event)
 LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
     QDialog(parent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     setLayout(new QHBoxLayout(this));
     layout()->setContentsMargins(1, 1, 1, 1);
 }
@@ -631,14 +628,6 @@ void LXQtWorldClockPopup::show()
 {
     QDialog::show();
     activateWindow();
-}
-
-bool LXQtWorldClockPopup::event(QEvent *event)
-{
-    if (event->type() == QEvent::Close)
-        emit deactivated();
-
-    return QDialog::event(event);
 }
 
 bool LXQtWorldClock::eventFilter(QObject * watched, QEvent * event)
