@@ -175,9 +175,9 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mAboutButton, &QToolButton::clicked, this, &LXQtFancyMenuWindow::runAboutgDialog);
 
     // NOTE: Qt 6.8.0 has a bug that does not allow context menus with the Qt::Popup flag.
-    // As a workaround, we set the context menu policy to Qt::PreventContextMenu and use
-    // ListView, which signals the release of the right mouse button with that policy.
-    mAppView = new ListView;
+    // As a workaround, we set the context menu policy to Qt::PreventContextMenu and handle
+    // the RightButton releases in eventFilter.
+    mAppView = new QListView;
     mAppView->setObjectName(QStringLiteral("AppView"));
     mAppView->setSelectionMode(QListView::SingleSelection);
     mAppView->setDragEnabled(true);
@@ -214,8 +214,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mCategoryView->setModel(mCategoryModel);
 
     connect(mAppModel, &LXQtFancyMenuAppModel::favoritesChanged, this, &LXQtFancyMenuWindow::favoritesChanged);
-    connect(mAppView, &QListView::clicked, this, &LXQtFancyMenuWindow::activateAppAtIndex);
-    connect(mAppView, &ListView::rightClicked, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
+    connect(mAppView, &QListView::activated, this, &LXQtFancyMenuWindow::activateAppAtIndex);
+    //connect(mAppView, &QListView::customContextMenuRequested, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
     connect(mCategoryView, &QListView::activated, this, &LXQtFancyMenuWindow::activateCategory);
     connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &LXQtFancyMenuWindow::activateCategory);
@@ -537,6 +537,17 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
                 QCoreApplication::sendEvent(mSearchEdit, ev);
                 return true;
             }
+        }
+    }
+    else if (e->type() == QEvent::MouseButtonRelease
+             && (watched == mAppView->viewport()))
+    {
+        QMouseEvent *ev = static_cast<QMouseEvent *>(e);
+        if (ev->button() == Qt::RightButton)
+        {
+            onAppViewCustomMenu(ev->position().toPoint());
+            ev->accept();
+            return true;
         }
     }
     else if (mAutoSel

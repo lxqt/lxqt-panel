@@ -8,7 +8,6 @@ set(HEADERS
     lxqtfancymenuappmodel.h
     lxqtfancymenucategoriesmodel.h
     lxqtfancymenutypes.h
-    listView.h
 )
 
 set(SOURCES
