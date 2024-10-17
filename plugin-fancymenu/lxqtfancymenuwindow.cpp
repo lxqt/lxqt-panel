@@ -214,7 +214,7 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     mCategoryView->setModel(mCategoryModel);
 
     connect(mAppModel, &LXQtFancyMenuAppModel::favoritesChanged, this, &LXQtFancyMenuWindow::favoritesChanged);
-    connect(mAppView, &QListView::activated, this, &LXQtFancyMenuWindow::activateAppAtIndex);
+    connect(mAppView, &QListView::clicked, this, &LXQtFancyMenuWindow::activateAppAtIndex);
     //connect(mAppView, &QListView::customContextMenuRequested, this, &LXQtFancyMenuWindow::onAppViewCustomMenu);
     connect(mCategoryView, &QListView::activated, this, &LXQtFancyMenuWindow::activateCategory);
     connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
@@ -545,9 +545,8 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
         QMouseEvent *ev = static_cast<QMouseEvent *>(e);
         if (ev->button() == Qt::RightButton)
         {
-            onAppViewCustomMenu(ev->position().toPoint());
-            ev->accept();
-            return true;
+            QPoint p = ev->position().toPoint();
+            QTimer::singleShot(0, this, [this, p]() {onAppViewCustomMenu(p);});
         }
     }
     else if (mAutoSel
