@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Stapgrootte bij volume-aanpassing</translation>
+        <translation>Stapgrootte bij volumeaanpassing</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
