@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="678"/>
         <source>Roll down</source>
-        <translation>Uitrollen</translation>
+        <translation>Afrollen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="686"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Alleen vensters van huidig werkblad tonen</translation>
+        <translation>Alleen vensters van een bepaald werkblad tonen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
         <source>Maximum button width</source>
-        <translation>Maximale knopbreedte</translation>
+        <translation>Maximale itembreedte</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="125"/>
@@ -202,17 +202,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation>Drempelwaarde wieldelta</translation>
+        <translation>Gevoeligheid van muiswiel</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation>Gelijkaardige knoppen naast elkaar tonen</translation>
+        <translation>Items van hetzelfde programma naast elkaar zetten</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation>Maximale knophoogte</translation>
+        <translation>Maximale itemhoogte</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
@@ -222,12 +222,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Knoppen automatisch d&amp;raaien indien paneel verticaal is</translation>
+        <translation>Items automatisch d&amp;raaien indien paneel verticaal is</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
         <source>Button style</source>
-        <translation>Knopstijl</translation>
+        <translation>Itemstijl</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
-        <translation>Huidig</translation>
+        <translation>Huidig werkblad</translation>
     </message>
 </context>
 </TS>
