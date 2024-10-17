@@ -680,6 +680,9 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             }
 
             // go to the menu item which starts with the pressed key if there is an active action.
+            // Note: avoid menu navigation, if any of search widgets has focus
+            if (mSearchEdit->hasFocus() || mSearchView->hasFocus())
+                return false;
             QString key = keyEvent->text();
             if(key.isEmpty())
                 return false;
