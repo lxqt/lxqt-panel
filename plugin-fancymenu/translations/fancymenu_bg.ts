@@ -178,59 +178,59 @@
         <translation>Относно LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
         <translation>Добавете вашите предпочитани програми, като щракнете с десния бутон върху елементи от категориите.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
         <translation>Добавяне към работния плот</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
         <translation>Въпрос</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Вече съществува файл със същото име.
 Искате ли да го презапишете?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
         <translation>Файлът не може да бъде презаписан.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
         <translation>Копиране</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
         <translation>Премахване от Любими</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
         <translation>Добавяне към Любими</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
         <source>No Executable</source>
         <translation>Няма изпълним файл</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>Не може да се намери изпълним файл &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>

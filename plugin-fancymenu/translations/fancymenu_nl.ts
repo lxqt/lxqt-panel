@@ -178,59 +178,59 @@
         <translation>Over LXQt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="188"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
         <translation>Voeg items toe aan uw favorieten met behulp van het rechtermuisknopmenu.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="354"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
         <translation>Op bureaublad plaatsen</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="362"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
         <translation>Vraag</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="363"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Er is al een bestand met dezelfde naam.
 Wilt u dit overschrijven?</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="369"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
         <translation>Waarschuwing</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="370"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
         <translation>Dit bestand kan niet worden overschreven.</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="377"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
         <translation>Kopiëren</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="390"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
         <translation>Verwijderen uit favorieten</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="397"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
         <translation>Toevoegen aan favorieten</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="703"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
         <source>No Executable</source>
         <translation>Geen uitvoerbaar bestand</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="704"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>Het uitvoerbare bestand &lt;b&gt;%1&lt;/b&gt; is niet aangetroffen.</translation>
     </message>

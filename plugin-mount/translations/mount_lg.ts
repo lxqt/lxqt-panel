@@ -37,23 +37,23 @@
         <translation>Bw&apos;onyiga eppeesa ery&apos;okufulumya ekitereka data:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="44"/>
+        <location filename="../configuration.cpp" line="60"/>
         <source>Popup menu</source>
         <translation>Menyu eboneka</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="45"/>
+        <location filename="../configuration.cpp" line="61"/>
         <source>Show info</source>
         <translation>Akaboozi akalaga ebifa ku kitereka data kaboneka</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="46"/>
-        <location filename="../configuration.cpp" line="51"/>
+        <location filename="../configuration.cpp" line="62"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Do nothing</source>
         <translation>Tewaba kikolebwa</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="52"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
         <translation>CD ne DVD zonna zifuluma</translation>
     </message>
@@ -105,18 +105,18 @@
 <context>
     <name>MenuDiskItem</name>
     <message>
-        <location filename="../menudiskitem.cpp" line="153"/>
+        <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
         <translation>Okuwanga &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; kugaanye: %2</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="155"/>
-        <location filename="../menudiskitem.cpp" line="176"/>
+        <location filename="../menudiskitem.cpp" line="158"/>
+        <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
         <translation>Ekiteekateeka ebitereka data ebyetongovu</translation>
     </message>
     <message>
-        <location filename="../menudiskitem.cpp" line="174"/>
+        <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
         <translation>Okuwangula &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; kugaanye: %2</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../popup.cpp" line="68"/>
+        <location filename="../popup.cpp" line="67"/>
         <source>No devices are available</source>
         <translation>Tewali bitereka data ebyetongovu</translation>
     </message>

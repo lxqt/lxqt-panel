@@ -4,17 +4,17 @@
 <context>
     <name>LXQtQuickLaunch</name>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="227"/>
+        <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
         <translation>Okuteekawo kulemye</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="228"/>
+        <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
         <translation>Tekisoboka kakano okuteeka URL eya fayiro &apos;%1&apos; ku ttandikiro</translation>
     </message>
     <message>
-        <location filename="../lxqtquicklaunch.cpp" line="334"/>
+        <location filename="../lxqtquicklaunch.cpp" line="336"/>
         <source>Drop application
 icons here</source>
         <translation>Teeka wano obufaananyi
