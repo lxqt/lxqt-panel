@@ -19,7 +19,7 @@
         <translation>Teekawo akatundu</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.ui" line="109"/>
+        <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
         <translation>Mala</translation>
     </message>
@@ -378,45 +378,45 @@ lw&apos;obutundu bw&apos;awakolerwa</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1176"/>
-        <location filename="../lxqtpanel.cpp" line="1202"/>
+        <location filename="../lxqtpanel.cpp" line="1334"/>
+        <location filename="../lxqtpanel.cpp" line="1360"/>
         <source>Panel</source>
         <translation>Lubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1205"/>
+        <location filename="../lxqtpanel.cpp" line="1363"/>
         <source>Configure Panel</source>
         <translation>Teekateeka lubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1210"/>
+        <location filename="../lxqtpanel.cpp" line="1368"/>
         <source>Manage Widgets</source>
         <translation>Teekateeka Butundu</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1216"/>
+        <location filename="../lxqtpanel.cpp" line="1374"/>
         <source>Add New Panel</source>
         <translation>Yongerwo olubaawo olulala</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1223"/>
+        <location filename="../lxqtpanel.cpp" line="1381"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Gyawo olubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1228"/>
+        <location filename="../lxqtpanel.cpp" line="1386"/>
         <source>Lock This Panel</source>
         <translation>Olubaawo luno lusibirewo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1384"/>
+        <location filename="../lxqtpanel.cpp" line="1549"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Gyawo olubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1385"/>
+        <location filename="../lxqtpanel.cpp" line="1550"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Olubaawo bw&apos;olugyawo okuluzzawo olina okutandika lupya.
@@ -426,17 +426,17 @@ Luno ddala oyagala okulugyawo?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="438"/>
+        <location filename="../plugin.cpp" line="445"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Teekateka &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="443"/>
+        <location filename="../plugin.cpp" line="450"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Simbuliza &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="451"/>
+        <location filename="../plugin.cpp" line="458"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Gyawo &quot;%1&quot;</translation>
     </message>
@@ -444,12 +444,12 @@ Luno ddala oyagala okulugyawo?</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="95"/>
+        <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
         <translation>Kozesa fayiro ey&apos;enteekateeka ndala.</translation>
     </message>
     <message>
-        <location filename="../lxqtpanelapplication.cpp" line="96"/>
+        <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
         <translation>Fayiro ey&apos;enteekateeka</translation>
     </message>

@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="88"/>
+        <location filename="../desktopswitch.cpp" line="95"/>
         <source>Switch to desktop %1</source>
         <translation>Genda ku awakolerwa %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="149"/>
-        <location filename="../desktopswitch.cpp" line="160"/>
+        <location filename="../desktopswitch.cpp" line="170"/>
+        <location filename="../desktopswitch.cpp" line="181"/>
         <source>Desktop %1</source>
         <translation>Awakolerwa %1</translation>
     </message>
@@ -68,7 +68,7 @@
         <translation>Entuuma y&apos;awakolerwa</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="71"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
         <source>Desktop %1:</source>
         <translation>Awakolerwa %1:</translation>
     </message>
@@ -76,12 +76,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.h" line="111"/>
+        <location filename="../desktopswitch.cpp" line="342"/>
         <source>n/a</source>
         <translation>Awakolerwa tewakyusibwa</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.h" line="113"/>
+        <location filename="../desktopswitch.cpp" line="344"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>Ku sisitemu eno tekisoboka okyusa awakolerwa: %1</translation>
     </message>
