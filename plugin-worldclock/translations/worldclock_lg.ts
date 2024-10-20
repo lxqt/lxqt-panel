@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Genderera:&lt;/b&gt; Akasonga bw&apos;okateeka ku ssaawa n&apos;onyiga eppeesa ly&apos;akasongesebwa erya wakati ekulaga obudde n&apos;ennaku ebya mu buli ttwale ly&apos;obudde eritegekedwa ku sisitemu yo.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
