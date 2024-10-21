@@ -32,7 +32,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="83"/>
         <source>Change visibility of items</source>
-        <translation>Endre elementssynlighet</translation>
+        <translation>Endre elementsynlighet</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="96"/>
