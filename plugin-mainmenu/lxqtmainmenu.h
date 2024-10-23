@@ -126,7 +126,7 @@ private slots:
     void showHideMenu();
     void searchMenu();
     void setSearchFocus(QAction *action);
-    void onRequestingCustomMenu(const QPoint& p);
+    void onRequestingCustomMenu(const QPoint& p, QObject * sender);
 };
 
 class LXQtMainMenuPluginLibrary: public QObject, public ILXQtPanelPluginLibrary

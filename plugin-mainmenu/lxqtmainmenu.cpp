@@ -104,10 +104,13 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
 
     mSearchView = new ActionView;
     mSearchView->setVisible(false);
+    // NOTE: Qt 6.8.0 has a bug that does not allow context menus with the Qt::Popup flag.
+    // As a workaround, we at least fully handle the the RightButton releases in eventFilter.
     mSearchView->setContextMenuPolicy(Qt::CustomContextMenu);
+    mSearchView->viewport()->installEventFilter(this);
     connect(mSearchView, &QAbstractItemView::activated, this, &LXQtMainMenu::showHideMenu);
     connect(mSearchView, &ActionView::requestShowHideMenu, this, &LXQtMainMenu::showHideMenu);
-    connect(mSearchView, &QWidget::customContextMenuRequested, this, &LXQtMainMenu::onRequestingCustomMenu);
+    connect(mSearchView, &QWidget::customContextMenuRequested, this, std::bind(&LXQtMainMenu::onRequestingCustomMenu, this, std::placeholders::_1, mSearchView));
     mSearchViewAction->setDefaultWidget(mSearchView);
     mSearchEdit = new QLineEdit;
     mSearchEdit->setClearButtonEnabled(true);
@@ -465,34 +468,38 @@ void LXQtMainMenu::addContextMenu(QMenu *menu)
     {
         if (action->menu())
         {
+            // NOTE: Qt 6.8.0 has a bug that does not allow context menus with the Qt::Popup flag.
+            // As a workaround, we at least fully handle the the RightButton releases in eventFilter.
             action->menu()->setContextMenuPolicy(Qt::CustomContextMenu);
-            connect(action->menu(), &QWidget::customContextMenuRequested, this, &LXQtMainMenu::onRequestingCustomMenu);
+            connect(action->menu(), &QWidget::customContextMenuRequested, this, std::bind(&LXQtMainMenu::onRequestingCustomMenu, this, std::placeholders::_1, action->menu()));
             addContextMenu(action->menu());
         }
     }
 }
 
-void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p)
+void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p, QObject * sender)
 {
 #ifdef HAVE_MENU_CACHE
     Q_UNUSED(p)
     return;
 #else
-    QMenu *parentMenu = qobject_cast<QMenu*>(QObject::sender());
-    ActionView *parentView = qobject_cast<ActionView*>(QObject::sender());
+    QMenu *parentMenu = qobject_cast<QMenu*>(sender);
+    ActionView *parentView = qobject_cast<ActionView*>(sender);
     QAction *action;
     QPoint globalPos;
     if (parentView != nullptr) {
-        action = parentView->indexAt(p).data(ActionView::ActionRole).value<QAction*>();
+        action = parentView->currentIndex().data(ActionView::ActionRole).value<QAction*>();
         if (action == nullptr)
             return;
         globalPos = parentView->mapToGlobal(p);
     }
     else if (parentMenu != nullptr) {
-        action = parentMenu->actionAt(p);
+        action = parentMenu->activeAction();
+        if (action == nullptr)
+            action = parentMenu->actionAt(p);
         if (action == nullptr || action->menu() != nullptr || action->isSeparator())
             return;
-        globalPos = parentMenu->mapToGlobal(p);
+        globalPos = parentMenu->mapToGlobal(parentMenu->actionGeometry(action).center());
     }
     else {
         return;
@@ -725,6 +732,31 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
             }
         }
     }
+    if (event->type() == QEvent::MouseButtonRelease)
+    {
+        QMenu * menu = qobject_cast<QMenu*>(obj);
+        QObject * sender = (obj == mSearchView->viewport() ? static_cast<QObject *>(mSearchView) : (menu != nullptr ? menu : nullptr));
+        QMouseEvent * e = static_cast<QMouseEvent *>(event);
+        if (sender != nullptr && e->button() == Qt::RightButton)
+        {
+            QPoint p = e->position().toPoint();
+            if (mSearchView == sender)
+            {
+                const auto & index = mSearchView->indexAt(p);
+                if (index != mSearchView->currentIndex())
+                    mSearchView->setCurrentIndex(index);
+            } else if (menu != nullptr)
+            {
+                const auto & action = menu->actionAt(p);
+                if (menu->activeAction() != action)
+                    menu->setActiveAction(action);
+            }
+            QTimer::singleShot(0, this, [this, sender, p]() {onRequestingCustomMenu(p, sender);});
+            e->accept();
+            return true;
+        }
+    }
+
     return false;
 }
 
