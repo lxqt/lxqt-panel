@@ -620,11 +620,13 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
                 emit activeWindowChanged(activeWindow->getWindowId());
             }
         }
+#if (QT_VERSION >= QT_VERSION_CHECK(6,8,0))
         else if (activeWindow == effectiveWindow)
         {
             activeWindow = nullptr;
             emit activeWindowChanged(0);
         }
+#endif
     });
 
     connect(window, &LXQtTaskBarPlasmaWindow::parentWindowChanged, this, [window, this] {
