@@ -215,7 +215,11 @@ void LXQtSensorsConfiguration::detectedChipSelected(int index)
             enabledCheckbox = new QCheckBox(ui->chipFeaturesT);
             enabledCheckbox->setChecked(settings().value(QStringLiteral("enabled")).toBool());
             // Connect here after the setChecked call because we don't want to send signal
+#if (QT_VERSION >= QT_VERSION_CHECK(6,7,0))
+            connect(enabledCheckbox, &QCheckBox::checkStateChanged, this, &LXQtSensorsConfiguration::saveSettings);
+#else
             connect(enabledCheckbox, &QCheckBox::stateChanged, this, &LXQtSensorsConfiguration::saveSettings);
+#endif
             ui->chipFeaturesT->setCellWidget(j, 0, enabledCheckbox);
 
             chipFeatureLabel = new QTableWidgetItem(chipFeatureLabels[j]);
