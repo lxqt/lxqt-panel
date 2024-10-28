@@ -45,6 +45,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QDropEvent>
+#include <QPainter>
 #include <XdgIcon>
 #include <XdgDirs>
 
@@ -1317,6 +1318,22 @@ bool LXQtPanel::event(QEvent *event)
         mShowDelayTimer.stop();
         hidePanel();
         break;
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6,8,0))
+    case QEvent::Paint:
+    // NOTE: Starting from Qt 6.8.0, random artifacts are possible in
+    // translucent windows under Wayland. This a workaround.
+    if (QGuiApplication::platformName() == QStringLiteral("wayland"))
+    {
+        QPainter p(this);
+        p.setClipRegion(static_cast<QPaintEvent*>(event)->region());
+        auto origMode = p.compositionMode();
+        p.setCompositionMode(QPainter::CompositionMode_Clear);
+        p.fillRect(rect(), Qt::transparent);
+        p.setCompositionMode(origMode);
+    }
+    break;
+#endif
 
     default:
         break;
