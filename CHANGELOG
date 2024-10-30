@@ -1,3 +1,29 @@
+lxqt-panel-2.1.0 / 2024-11-05
+==============================
+ * Refactored Window Manager interaction and added 2 Wayland back-ends for task-bar.
+ * Made horizontal wheel scrolling work with Custom Command.
+ * Fixed main popup positions under Wayland.
+ * Made Fancy Menu filtering work with exec name.
+ * Set size policy in `plugin-backlight` and `plugin-colorpicker`.
+ * Always consider minimized windows deactivated with wlroots.
+ * Improved `plugin-directorymenu` icons.
+ * Fixed issues in wlroots task buttons.
+ * Optionally disable move-to-layer and move-to-output.
+ * Fixed keep_below state in LXQtWMBackend_KWinWayland.
+ * Fixed issues in kwin_wayland task buttons.
+ * Split DesktopSwitch and MoveToDesktop.
+ * Fixed the urgent hint of desktop switcher.
+ * Fixed default terminal of directorymenu plugin.
+ * Added an option to reverse the order of tray items.
+ * Fixed closing of menu with "Meta" shortcut in mainmenu/fancymenu.
+ * Fixed a regression in reloading X11 taskbar.
+ * Fixed putting of same-class task buttons under Wayland.
+ * Handle errors and clean up the code of the volume plugin with Alsa.
+ * Capitalize plugin config titles.
+ * Don't use invalid value of `DesktopSwitchButton::LabelType` in `plugin-desktopswitch`.
+ * Don't use uninitialized variables/struct members in `plugin-fancymenu`, and initialize in the constructor.
+ * Initialize every member in the constructors of the panel, `plugin-sysstat` and `plugin-kbindicator`.
+
 lxqt-panel-2.0.1 / 2024-05-08
 ==============================
  * Fixed a runtime failure in the plugin loader.
