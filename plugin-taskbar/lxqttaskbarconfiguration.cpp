@@ -68,7 +68,11 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     /* We use clicked() and activated(int) because these signals aren't emitting after programmatically
         change of state */
     connect(ui->limitByDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
+#if (QT_VERSION >= QT_VERSION_CHECK(6,7,0))
+    connect(ui->limitByDesktopCB, &QCheckBox::checkStateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);
+#else
     connect(ui->limitByDesktopCB, &QCheckBox::stateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);
+#endif
     connect(ui->showDesktopNumCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByScreenCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByMinimizedCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
