@@ -23,6 +23,12 @@ lxqt-panel-2.1.0 / 2024-11-05
  * Don't use invalid value of `DesktopSwitchButton::LabelType` in `plugin-desktopswitch`.
  * Don't use uninitialized variables/struct members in `plugin-fancymenu`, and initialize in the constructor.
  * Initialize every member in the constructors of the panel, `plugin-sysstat` and `plugin-kbindicator`.
+ * Fixed a crash is worldclock popup on Wayland with Qt 6.8.0.
+ * Workaround for lack of context menu with Qt 6.8.0 in Fancy Menu.
+ * Prevent panel from accepting focus with some Wayland compositors.
+ * Workaround for translucency artifacts with Qt 6.8.0 on Wayland.
+ * Workaround for the lack of context menu with Qt 6.8.0 in Main Menu.
+ * Silenced compilation warning about `QCheckBox::stateChanged`.
 
 lxqt-panel-2.0.1 / 2024-05-08
 ==============================
