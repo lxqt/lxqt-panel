@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="114"/>
+        <location filename="../lxqtmainmenu.cpp" line="117"/>
         <source>Search...</source>
         <translation>Meklēt...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="124"/>
+        <location filename="../lxqtmainmenu.cpp" line="127"/>
         <source>Show/hide main menu</source>
         <translation>Rādīt/nerādīt galveno izvēlni</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="523"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Add to desktop</source>
         <translation>Likt uz darbvirsmas</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Question</source>
         <translation>Jautājums</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="532"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Fails ar šādu nosaukumu jau pastāv.
 Vēlaties tam pārrakstīt pa virsu?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Warning</source>
         <translation>Brīdinājums</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="546"/>
         <source>The file cannot be overwritten.</source>
         <translation>Fails nevar tikt pārrakstīts (pa virsu).</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="552"/>
         <source>Copy</source>
         <translation>Kopēt</translation>
     </message>
