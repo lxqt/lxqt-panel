@@ -217,7 +217,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation>Putt knapper av samme tyoe ved siden av hverandre</translation>
+        <translation>Plasser knapper av samme klasse ved siden av hverandre</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
@@ -232,17 +232,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>Bruk symboler fra WindowClass, hvis tilgjengelig</translation>
+        <translation>Bruk ikoner fra WindowClass, hvis tilgjengelig</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Icon and text</source>
-        <translation>Symbol og tekst</translation>
+        <translation>Ikon og tekst</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only icon</source>
-        <translation>Bare symbol</translation>
+        <translation>Kun ikon</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>

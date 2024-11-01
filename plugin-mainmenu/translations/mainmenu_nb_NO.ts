@@ -61,7 +61,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Symbol:</translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
@@ -146,7 +146,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Choose icon file</source>
-        <translation>Velg symbolfil</translation>
+        <translation>Velg ikonfil</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
