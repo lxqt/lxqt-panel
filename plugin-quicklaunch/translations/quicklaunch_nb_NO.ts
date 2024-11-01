@@ -18,7 +18,7 @@
         <source>Drop application
 icons here</source>
         <translation>Slipp program-
-symboler her</translation>
+ikoner her</translation>
     </message>
 </context>
 <context>

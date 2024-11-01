@@ -39,7 +39,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation>Symbol:</translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
@@ -85,7 +85,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Choose Icon</source>
-        <translation>Velg symbol</translation>
+        <translation>Velg ikon</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
@@ -110,7 +110,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>En feil oppstod da symbolet ble lastet inn.</translation>
+        <translation>En feil oppstod da ikonet ble lastet inn.</translation>
     </message>
 </context>
 </TS>

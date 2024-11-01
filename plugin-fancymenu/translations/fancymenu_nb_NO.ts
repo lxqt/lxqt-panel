@@ -37,7 +37,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Symbol:</translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
         <source>Choose icon file</source>
-        <translation>Velg symbolfil</translation>
+        <translation>Velg ikonfil</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>

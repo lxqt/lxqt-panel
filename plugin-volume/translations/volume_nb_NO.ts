@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
         <source>Behavior</source>
-        <translation>Oppførsel</translation>
+        <translation>Virkemåte</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
@@ -79,17 +79,17 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation>Alltid gi beskjed om volumforandringer</translation>
+        <translation>Alltid varsle om volumforandringer</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Gi varsel om volumforandringer fra tastaturet</translation>
+        <translation>Varsle om volumforandringer med tastaturet</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>Volumjusteringssteg</translation>
+        <translation>Volumjusteringstrinn</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>

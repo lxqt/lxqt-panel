@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Symbolstørrelse:</translation>
+        <translation>Ikonstørrelse:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -337,24 +337,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>En delvis fiks for widget-stiler som ikke
-kan gi et eget tema til panelet.
+        <translation>En delvis løsning for widget-stiler som
+ikke kan gi et separat tema til panelet.
 
-Du ønsker kanskje også å skru av:
+Du ønsker kanskje også å slå av:
 
 LXQt Utseendeinnstillinger →
-Symboltema →
-Fargelegg symboler basert på widget-stil (pallett)</translation>
+Ikontema →
+Fargelegg ikoner basert på widget-stil (palett)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation>Overkjør symbo&amp;ltema</translation>
+        <translation>Overstyr ikon&amp;tema</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
         <source>Icon theme for panels:</source>
-        <translation>Symboltema for paneler:</translation>
+        <translation>Ikontema for paneler:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="189"/>
