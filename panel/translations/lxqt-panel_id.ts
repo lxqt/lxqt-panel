@@ -376,45 +376,45 @@ Warnai ikon berdasarkan gaya widget (palette)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1334"/>
-        <location filename="../lxqtpanel.cpp" line="1360"/>
+        <location filename="../lxqtpanel.cpp" line="1361"/>
+        <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Panel</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1363"/>
+        <location filename="../lxqtpanel.cpp" line="1390"/>
         <source>Configure Panel</source>
         <translation>Konfigurasi Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1368"/>
+        <location filename="../lxqtpanel.cpp" line="1395"/>
         <source>Manage Widgets</source>
         <translation>Kelola Widget</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1374"/>
+        <location filename="../lxqtpanel.cpp" line="1401"/>
         <source>Add New Panel</source>
         <translation>Tambah Panel Baru</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1381"/>
+        <location filename="../lxqtpanel.cpp" line="1408"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Hapus Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1413"/>
         <source>Lock This Panel</source>
         <translation>Kunci Panel Ini</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1549"/>
+        <location filename="../lxqtpanel.cpp" line="1576"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Hapus Panel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1550"/>
+        <location filename="../lxqtpanel.cpp" line="1577"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Penghapusan panel tidak dapat dibatalkan.

@@ -378,45 +378,45 @@ LXQT Διαμόρφωση εμφάνισης→
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1334"/>
-        <location filename="../lxqtpanel.cpp" line="1360"/>
+        <location filename="../lxqtpanel.cpp" line="1361"/>
+        <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Panel</source>
         <translation>Πίνακας</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1363"/>
+        <location filename="../lxqtpanel.cpp" line="1390"/>
         <source>Configure Panel</source>
         <translation>Διαμόρφωση του πίνακα</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1368"/>
+        <location filename="../lxqtpanel.cpp" line="1395"/>
         <source>Manage Widgets</source>
         <translation>Διαχείριση των γραφικών συστατικών</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1374"/>
+        <location filename="../lxqtpanel.cpp" line="1401"/>
         <source>Add New Panel</source>
         <translation>Προσθήκη νέου πίνακα</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1381"/>
+        <location filename="../lxqtpanel.cpp" line="1408"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Αφαίρεση πίνακα</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1413"/>
         <source>Lock This Panel</source>
         <translation>Κλείδωμα του πίνακα</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1549"/>
+        <location filename="../lxqtpanel.cpp" line="1576"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Αφαίρεση πίνακα</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1550"/>
+        <location filename="../lxqtpanel.cpp" line="1577"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Η αφαίρεση ενός πίνακα δεν μπορεί να αναιρεθεί.

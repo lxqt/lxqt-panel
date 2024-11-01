@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="114"/>
+        <location filename="../lxqtmainmenu.cpp" line="117"/>
         <source>Search...</source>
         <translation>ابحث…</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="124"/>
+        <location filename="../lxqtmainmenu.cpp" line="127"/>
         <source>Show/hide main menu</source>
         <translation>اعرض/أخفِ القائمة الرئيسية</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="523"/>
+        <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Add to desktop</source>
         <translation>أضف إلى سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="531"/>
+        <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Question</source>
         <translation>سؤال</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="532"/>
+        <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>يوجد ملف بنفس الاسم بالفعل.
 هل تريد الكتابة عليه؟</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Warning</source>
         <translation>تحذير</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="546"/>
         <source>The file cannot be overwritten.</source>
         <translation>لا يمكن الكتابة فوق الملف.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="552"/>
         <source>Copy</source>
         <translation>نسخ</translation>
     </message>
