@@ -146,6 +146,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mAnimationTime(0),
     mReserveSpace(true),
     mAnimation(nullptr),
+    mWAnimation(nullptr),
     mLayerWindow(nullptr),
     mLockPanel(false)
 {
@@ -313,6 +314,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
             }
             else if (!isPanelOverlapped())
                 mShowDelayTimer.start();
+            else
+                mShowDelayTimer.stop(); // workspace may be changed and restored quickly
        }
     });
     connect(wmBackend, &ILXQtAbstractWMInterface::windowPropertyChanged,
@@ -329,6 +332,8 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
             }
             else if (!isPanelOverlapped())
                 mShowDelayTimer.start();
+            else
+                mShowDelayTimer.stop(); // geometry or state may be changed and restored quickly
         }
     });
 }
@@ -458,6 +463,7 @@ LXQtPanel::~LXQtPanel()
 {
     mLayout->setEnabled(false);
     delete mAnimation;
+    delete mWAnimation;
     delete mConfigDialog.data();
     // do not save settings because of "user deleted panel" functionality saveSettings();
 }
@@ -522,6 +528,29 @@ int LXQtPanel::getReserveDimension()
     return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
+QMargins LXQtPanel::layerWindowMargins()
+{
+    QMargins margins;
+    if (!mHidden)
+        return margins;
+    int offset = PANEL_HIDE_SIZE - qMax(PANEL_MINIMUM_SIZE, mPanelSize); // negative
+    if (isHorizontal())
+    {
+        if (mPosition == ILXQtPanel::PositionTop)
+            margins = QMargins(0, offset, 0, 0);
+        else
+            margins = QMargins(0, 0, 0, offset);
+    }
+    else
+    {
+        if (mPosition == ILXQtPanel::PositionLeft)
+            margins = QMargins(offset, 0, 0, 0);
+        else
+            margins = QMargins(0, 0, offset, 0);
+    }
+    return margins;
+}
+
 void LXQtPanel::setPanelGeometry(bool animate)
 {
     const auto screens = QApplication::screens();
@@ -531,7 +560,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
 
     QRect rect;
     LayerShellQt::Window::Anchors anchors;
-    LayerShellQt::Window::Anchor edge = LayerShellQt::Window::AnchorBottom;
 
     if (isHorizontal())
     {
@@ -578,7 +606,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
         if (mPosition == ILXQtPanel::PositionTop)
         {
             anchors.setFlag(LayerShellQt::Window::AnchorTop);
-            edge = LayerShellQt::Window::AnchorTop;
 
             if (mHidden)
                 rect.moveBottom(currentScreen.top() + PANEL_HIDE_SIZE - 1);
@@ -588,7 +615,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
         else
         {
             anchors.setFlag(LayerShellQt::Window::AnchorBottom);
-            edge = LayerShellQt::Window::AnchorBottom;
 
             if (mHidden)
                 rect.moveTop(currentScreen.bottom() - PANEL_HIDE_SIZE + 1);
@@ -641,7 +667,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
         if (mPosition == ILXQtPanel::PositionLeft)
         {
             anchors.setFlag(LayerShellQt::Window::AnchorLeft);
-            edge = LayerShellQt::Window::AnchorLeft;
 
             if (mHidden)
                 rect.moveRight(currentScreen.left() + PANEL_HIDE_SIZE - 1);
@@ -651,7 +676,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
         else
         {
             anchors.setFlag(LayerShellQt::Window::AnchorRight);
-            edge = LayerShellQt::Window::AnchorRight;
 
             if (mHidden)
                 rect.moveLeft(currentScreen.right() - PANEL_HIDE_SIZE + 1);
@@ -660,17 +684,47 @@ void LXQtPanel::setPanelGeometry(bool animate)
         }
     }
 
+    if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
     if(mLayerWindow)
     {
+        // NOTE: On Wayland, QVariantAnimation is used to set appropriate negative margins.
         mLayerWindow->setAnchors(anchors);
-        mLayerWindow->setExclusiveEdge(edge);
-
-        // Make LayerShell apply changes immediatly
-        windowHandle()->requestUpdate();
+        setFixedSize(rect.size());
+        if (animate)
+        {
+            if (mWAnimation == nullptr)
+            {
+                mWAnimation = new QVariantAnimation(this);
+                mWAnimation->setEasingCurve(QEasingCurve::Linear);
+                connect(mWAnimation, &QVariantAnimation::finished, this, [this] {
+                    if (mHidden)
+                        setMargins();
+                });
+                connect(mWAnimation, &QVariantAnimation::valueChanged, this,
+                        [this] (const QVariant &value) {
+                    QMargins margins = layerWindowMargins();
+                    QMarginsF m((mWAnimation->endValue().toReal() - value.toReal())
+                                * mLayerWindow->margins().toMarginsF() / 100
+                                + value.toReal() * margins.toMarginsF() / 100);
+                    mLayerWindow->setMargins(m.toMargins());
+                    windowHandle()->requestUpdate();
+                });
+            }
+            mWAnimation->setDuration(mAnimationTime);
+            mWAnimation->setStartValue(static_cast<qreal>(0));
+            mWAnimation->setEndValue(static_cast<qreal>(100));
+            if (!mHidden)
+                setMargins();
+            mWAnimation->start();
+        }
+        else
+        {
+            setMargins();
+            mLayerWindow->setMargins(layerWindowMargins());
+            windowHandle()->requestUpdate();
+        }
     }
-
-    if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
-    if (rect != geometry())
+    else if (rect != geometry())
     {
         setFixedSize(rect.size());
         if (animate)
@@ -695,37 +749,6 @@ void LXQtPanel::setPanelGeometry(bool animate)
             setMargins();
             setGeometry(rect);
         }
-    }
-
-    if(mLayerWindow)
-    {
-        // Emulate auto-hide on Wayland
-        // NOTE: we cannot move window out of screen so we make it smaller
-
-        // NOTE: a cleaner approach would be to use screen edge protocol
-        // but it's specific to KWin
-
-        if(mHidden && LXQtPanelWidget->isVisible())
-        {
-            // Make it blank
-            LXQtPanelWidget->hide();
-
-            // And make it small
-            if(isHorizontal())
-                resize(rect.width(), PANEL_HIDE_SIZE);
-            else
-                resize(PANEL_HIDE_SIZE, rect.height());
-        }
-        else if(!mHidden && !LXQtPanelWidget->isVisible())
-        {
-            // Restore contents
-            LXQtPanelWidget->show();
-
-            // And make it big again
-            resize(rect.size());
-        }
-
-        updateWmStrut();
     }
 }
 
@@ -850,9 +873,10 @@ void LXQtPanel::updateWmStrut()
     }
     else if(mLayerWindow && qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>())
     {
-        //TODO: duplicated code, also set in setPanelGeometry()
-
-        if (mReserveSpace)
+        if (mReserveSpace
+            // NOTE: For some reason, no space is reserved with a negative layer margin.
+            // However, there is no reason to reserve space for a hiding panel on Wayland.
+            && !mHidable)
         {
             LayerShellQt::Window::Anchor edge = LayerShellQt::Window::AnchorBottom;
 
