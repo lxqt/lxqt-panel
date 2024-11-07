@@ -1,3 +1,8 @@
+lxqt-panel-2.1.1 / 2024-11-07
+==============================
+ * Fixed destination dir of `lxqt-panel_wayland.desktop` to prevent packaging failure.
+ * Made auto-hiding on overlapping work under `kwin_wayland`. Also, made auto-hiding animation work on Wayland in general.
+
 lxqt-panel-2.1.0 / 2024-11-05
 ==============================
  * Refactored Window Manager interaction and added 2 Wayland back-ends for task-bar.
