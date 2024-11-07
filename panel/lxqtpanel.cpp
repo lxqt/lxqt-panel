@@ -323,7 +323,10 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     {
         if (mHidable && mHideOnOverlap
             // when a window is moved, resized, shaded, or minimized
-            && (prop == int(LXQtTaskBarWindowProperty::Geometry) || prop == int(LXQtTaskBarWindowProperty::State)))
+            && (prop == int(LXQtTaskBarWindowProperty::Geometry)
+                || prop == int(LXQtTaskBarWindowProperty::State)
+                // on Wayland, workspace change is not seen as geometry change
+                || (mLayerWindow && prop == int(LXQtTaskBarWindowProperty::Workspace))))
         {
             if (!mHidden)
             {
