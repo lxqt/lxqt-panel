@@ -696,29 +696,40 @@ void LXQtPanel::setPanelGeometry(bool animate)
             {
                 mWAnimation = new QVariantAnimation(this);
                 mWAnimation->setEasingCurve(QEasingCurve::Linear);
+                mWAnimation->setStartValue(static_cast<qreal>(0));
+                mWAnimation->setEndValue(static_cast<qreal>(1));
                 connect(mWAnimation, &QVariantAnimation::finished, this, [this] {
                     if (mHidden)
+                    {
                         setMargins();
+                        // "setWindowOpacity()" does not work on Wayland
+                        if (!mVisibleMargin)
+                            LXQtPanelWidget->setVisible(false);
+                    }
                 });
                 connect(mWAnimation, &QVariantAnimation::valueChanged, this,
                         [this] (const QVariant &value) {
                     QMargins margins = layerWindowMargins();
                     QMarginsF m((mWAnimation->endValue().toReal() - value.toReal())
-                                * mLayerWindow->margins().toMarginsF() / 100
-                                + value.toReal() * margins.toMarginsF() / 100);
+                                * mLayerWindow->margins().toMarginsF()
+                                + value.toReal() * margins.toMarginsF());
                     mLayerWindow->setMargins(m.toMargins());
                     windowHandle()->requestUpdate();
                 });
             }
             mWAnimation->setDuration(mAnimationTime);
-            mWAnimation->setStartValue(static_cast<qreal>(0));
-            mWAnimation->setEndValue(static_cast<qreal>(100));
             if (!mHidden)
+            {
                 setMargins();
+                if (!mVisibleMargin)
+                    LXQtPanelWidget->setVisible(true);
+            }
             mWAnimation->start();
         }
         else
         {
+            if (!mVisibleMargin)
+                LXQtPanelWidget->setVisible(!mHidden);
             setMargins();
             mLayerWindow->setMargins(layerWindowMargins());
             windowHandle()->requestUpdate();
