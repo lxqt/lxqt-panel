@@ -502,8 +502,13 @@ bool LXQtWMBackend_KWinWayland::isAreaOverlapped(const QRect &area) const
 {
     for(auto &window : std::as_const(windows))
     {
-        if(window->geometry.intersects(area))
+        if(!window->wasUnmapped
+           && getWindowWorkspace(window->getWindowId()) == getCurrentWorkspace()
+           && !window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_minimized)
+           && window->geometry.intersects(area))
+        {
             return true;
+        }
     }
     return false;
 }

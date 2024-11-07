@@ -532,6 +532,14 @@ private:
      * @return The height/width of the panel.
      */
     int getReserveDimension();
+
+    /**
+     * @brief Calculates the margins of the layer window under Wayland
+     * by considering the hidden state of the panel.
+     * @return The margins of the layer window.
+     */
+    QMargins layerWindowMargins();
+
     /**
      * @brief Stores the geometry of the non-hidden panel, for use in
      * calculatePopupWindowPos()
@@ -691,7 +699,8 @@ private:
     /**
      * @brief The animation used for showing/hiding an auto-hiding panel.
      */
-    QPropertyAnimation *mAnimation;
+    QPropertyAnimation *mAnimation; // on X11
+    QVariantAnimation *mWAnimation; // on Wayland
 
     LayerShellQt::Window *mLayerWindow;
 
