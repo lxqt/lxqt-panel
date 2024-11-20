@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<TS version="2.1" language="en_GB">
 <context>
     <name>LXQtWorldClock</name>
     <message>
@@ -14,243 +14,243 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Pasaulio laikrodžių nustatymai</translation>
+        <translation>World Clock Settings</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
         <source>Display &amp;format</source>
-        <translation>Rodymo &amp;formatas</translation>
+        <translation>Display &amp;format</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="30"/>
         <source>&amp;Time</source>
-        <translation>&amp;Laikas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="39"/>
         <source>F&amp;ormat:</source>
-        <translation>F&amp;ormatas:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="50"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation>Trumpas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation>Ilgas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="287"/>
         <source>Custom</source>
-        <translation>Tinkintas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="89"/>
         <source>Sho&amp;w seconds</source>
-        <translation>R&amp;odyti sekundes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Papildyti &amp;valandą nuliu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>La&amp;iko juosta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>&amp;Pozicija:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
         <source>For&amp;mat:</source>
-        <translation>For&amp;matas:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
-        <translation>Žemiau</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
-        <translation>Aukščiau</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="248"/>
         <source>Before</source>
-        <translation>Prieš</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="164"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="253"/>
         <source>After</source>
-        <translation>Po</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Poslinkis nuo UTC (Suderintojo pasaulinio laiko)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation>Santrumpa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation>IANA id</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Custom name</source>
-        <translation>Tinkintas pavadinimas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>Na&amp;udoti 12 valandų formatą</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation>Vietos identifikatorius</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation>&amp;Data</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Po&amp;zicija:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation>Fo&amp;rmatas:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation>ISO 8601</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
         <source>Show &amp;year</source>
-        <translation>Rodyti &amp;metus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Rodyti savaitės &amp;dieną</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>Papildyti &amp;dieną nuliu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>I&amp;lgi mėnesių ir savaitės dienų pavadinimai</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>Iš&amp;plėstinis rankinis formatas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customise ...</source>
-        <translation>&amp;Tinkinti ...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation>Laiko &amp;juostos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Pridėti ...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
         <source>&amp;Remove</source>
-        <translation>Ša&amp;linti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Nustatyti &amp;numatytąja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>&amp;Taisyti tinkintą pavadinimą ...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>Pa&amp;kelti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>&amp;Nuleisti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation>&lt;b&gt;Pastaba:&lt;/b&gt; Spustelėkite viduriniuoju pelės mygtuku ant laikrodžio, kad pamatytumėte visų sukonfigūruotų laiko juostų datą ir laiką.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
         <source>&amp;General</source>
-        <translation>&amp;Bendra</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Automatiškai pasuk&amp;ti, kai skydelis yra vertikalus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation>Rodyti iškylančiajame kalendoriuje &amp;savaičių numerius</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
         <source>S&amp;how tooltip</source>
-        <translation>Ro&amp;dyti paaiškinimą</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
-        <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy MMM d, ddd&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
         <source>Input custom time zone name</source>
-        <translation>Įrašykite tinkintą laiko juostos pavadinimą</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation>Pasaulio laikrodžių rankinė formato konfigūracija</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
@@ -297,41 +297,7 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation>&lt;h1&gt;Tinkintos datos/laiko formato sintaksė&lt;/h1&gt;
-&lt;p&gt;Datos šablonas yra simbolių eilutė, kurioje tam tikros simbolių eilutės, formatuojant, yra pakeičiamos datos ir laiko duomenimis iš kalendoriaus arba analizuojant, yra naudojamos kalendoriaus duomenų kūrimui.&lt;/p&gt;
-&lt;p&gt;Žemiau esančioje datų laukelio simbolių lentelėje yra simboliai, kurie naudojami šablonuose, siekiant rodyti atitinkamus nurodytos lokalės formatus, tokie simboliai kaip pvz., yyyy, kurie yra skirti metams. Simboliai gali būti naudojami kelis kartus. Pavyzdžiui, jeigu y yra naudojama metams, tai „yy“ gali atvaizduoti „99“, tuo tarpu „yyyy“ atvaizduos „1999“. Daugelyje skaitmeninių laukelių simbolių skaičius nustato laukelio plotį. Pavyzdžiui, jeigu h yra valanda, tai „h“ gali atvaizduoti „5“, tačiau „hh“ atvaizduos „05“. Kai kuriems simboliams skaičius nustato, ar turėtų būti naudojama pilna, ar sutrumpinta forma, tačiau gali būti ir kiti pasirinkimai, kaip tai yra nurodyta žemiau.&lt;/p&gt;
-&lt;p&gt;Dvi kabutės, nesvarbu ar viengubų kabučių viduje ar išorėje, atvaizduoja viengubą kabutę. Viengubų kabučių viduje esantis tekstas niekaip nėra interpretuojamas (išskyrus dvi viengubas kabutes viena šalia kitos). Kita vertus visos ASCII raidės nuo a iki z ir nuo A iki Z yra rezervuotos kaip sintaksės simboliai, ir yra reikalaujama, kad jos būtų kabutėse, jeigu norima jas atvaizduoti kaip įprastas raides. Be to, tam tikri ASCII punktuacijos simboliai ateityje gali tapti kintamaisiais (pvz., „:“ gali būti interpretuojamas kaip laiko skirtuvas, o „/“ kaip datos skirtuvas, ir rodinyje gali būti pakeisti atitinkamais lokalės simboliais.&lt;br /&gt;&lt;/p&gt;
-&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kodas&lt;/th&gt;&lt;th&gt;Reikšmė&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;diena kaip skaičius be priekinio nulio (nuo 1 iki 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;diena kaip skaičius su priekiniu nuliu (nuo 01 iki 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;sutrumpintas lokalizuotas dienos pavadinimas (pvz., nuo „Pir“ iki „Sek“).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;ilgas lokalizuotas dienos pavadinimas (pvz., nuo „Pirmadienis“ iki „Sekmadienis“).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mėnesis kaip skaičius be priekinio nulio (1-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mėnesis kaip skaičius su priekiniu nuliu (01-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;sutrumpintas lokalizuotas mėnesio pavadinimas (pvz., nuo „Sau“ iki „Gru“).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;ilgas lokalizuotas mėnesio pavadinimas (pvz., nuo „Sausis“ iki „Gruodis“).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;metai kaip dviejų skaitmenų skaičius (00-99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;metai kaip keturių skaitmenų skaičius&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;valanda be priekinio nulio (nuo 0 iki 23 arba nuo 1 iki 12, jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;valanda su priekiniu nuliu (nuo 00 iki 23 arba nuo 01 iki 12, jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;valanda be priekinio nulio (nuo 0 iki 23, netgi jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;valanda su priekiniu nuliu (nuo 00 iki 23, netgi jeigu yra rodoma AM/PM formatu)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minutė be priekinio nulio (nuo 0 iki 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minutė su priekiniu nuliu (nuo 00 iki 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekundė be priekinio nulio (nuo 0 iki 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekundė su priekiniu nuliu (nuo 00 iki 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;arba&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;naudoti AM/PM formatą. &lt;b&gt;A/AP&lt;/b&gt; bus pakeista arba į „AM“, arba į „PM“.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;arba&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;naudoti am/pm formatą. &lt;b&gt;a/ap&lt;/b&gt; bus pakeista arba į „am“, arba į „pm“.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;laiko juosta (pvz., „CEST“)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;poslinkis nuo UTC (Suderintojo pasaulinio laiko)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;laiko juostos IANA id&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;laiko juostos santrumpa&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;trumpasis laiko juostos pavadinimas&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;ilgasis laiko juostos pavadinimas&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;tinkintas laiko juostos pavadinimas. Jūs galite jį pakeisti konfigūracijos lango „Laiko juostų“ kortelėje&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Pastabos:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Bet kurie šablone esantys simboliai, kurie nėra rėžyje [„a“..„z“] ir [„A“..„Z“] bus laikomi cituotu tekstu. Pavyzdžiui, tokie simboliai kaip „:“, „.“, „ “, „#“ ir „@“ bus rodomi galutiniame laiko tekste netgi tuo atveju, jeigu jie nėra viengubose kabutėse. Viengubos kabutės yra naudojamos raidžių „ištrūkimui“. Dvi viengubos kabutės iš eilės, nesvarbu, ar cituojamos sekos viduje, ar išorėje, atvaizduoja „tikrąsias“ viengubas kabutes.&lt;/li&gt;&lt;li&gt;Mažiausias atnaujinimo intervalas yra 1 sekundė. Jeigu laiko atvaizdavimui yra naudojama z ar zzz, tuomet laikas bus rodomas su milisekundėmis, tačiau jis nebus atnaujinamas kas milisekundę (tam, kad būtų išvengta našumo sumažėjimo).&lt;/li&gt;&lt;ul&gt;
-</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -339,43 +305,43 @@
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="14"/>
         <source>World Clock Time Zones</source>
-        <translation>Pasaulio laikrodžių laiko juostos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="36"/>
         <source>Time zone</source>
-        <translation>Laiko juosta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="41"/>
         <source>Name</source>
-        <translation>Pavadinimas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="46"/>
         <source>Comment</source>
-        <translation>Komentaras</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.ui" line="51"/>
         <source>Country</source>
-        <translation>Šalis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="117"/>
         <source>UTC</source>
-        <translation>UTC (Suderintasis pasaulinis laikas)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="120"/>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="128"/>
         <source>Other</source>
-        <translation>Kita</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationtimezones.cpp" line="129"/>
         <source>Local timezone</source>
-        <translation>Vietinė laiko juosta</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
