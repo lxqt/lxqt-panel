@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<TS version="2.1" language="en_GB">
 <context>
     <name>LXQtCpuLoad</name>
     <message>
         <location filename="../lxqtcpuload.cpp" line="126"/>
         <source>CPU load %1%</source>
-        <translation>Processorbelasting %1%</translation>
+        <translation>CPU load %1%</translation>
     </message>
 </context>
 <context>
@@ -14,22 +14,22 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Instellingen voor processorbelasting</translation>
+        <translation>CPU Load Settings</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Algemeen</translation>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
         <source>Show text</source>
-        <translation>Tekst tonen</translation>
+        <translation>Show text</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
         <source>Update interval:</source>
-        <translation>Bijwerkinterval:</translation>
+        <translation>Update interval:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
@@ -39,32 +39,32 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
         <source>Bar orientation:</source>
-        <translation>Balkrichting:</translation>
+        <translation>Bar orientation:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
         <source>Bar width:</source>
-        <translation>Balkbreedte:</translation>
+        <translation>Bar width:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
-        <translation>Van onder naar boven</translation>
+        <translation>Bottom up</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
-        <translation>Van boven naar onder</translation>
+        <translation>Top down</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
-        <translation>Van links naar rechts</translation>
+        <translation>Left to right</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
-        <translation>Van rechts naar links</translation>
+        <translation>Right to left</translation>
     </message>
 </context>
 </TS>
