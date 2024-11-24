@@ -1,3 +1,7 @@
+lxqt-panel-2.1.2 / 2024-11-24
+==============================
+ * Fixed changing of desktop names under X11.
+
 lxqt-panel-2.1.1 / 2024-11-07
 ==============================
  * Fixed destination dir of `lxqt-panel_wayland.desktop` to prevent packaging failure.
