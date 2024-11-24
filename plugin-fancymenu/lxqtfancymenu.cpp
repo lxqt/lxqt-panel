@@ -348,6 +348,10 @@ bool LXQtFancyMenu::eventFilter(QObject *obj, QEvent *event)
     {
         if(event->type() == QEvent::KeyRelease)
         {
+            if (mShortcutSeq.isEmpty())
+            {
+                return false;
+            }
             static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
             // if our shortcut key is pressed while the menu is open, close the menu
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
