@@ -653,40 +653,39 @@ bool LXQtMainMenu::eventFilter(QObject *obj, QEvent *event)
     {
         if(event->type() == QEvent::KeyRelease)
         {
-            if (mShortcutSeq.isEmpty())
-            {
-                return false;
-            }
-            static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
-            // if our shortcut key is pressed while the menu is open, close the menu
-            QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-            QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
-            QList<Qt::Key> keys = {static_cast<Qt::Key>(keyEvent->key())};
-            switch (keyEvent->key()) {
-                case Qt::Key_Alt:
-                    mod &= ~Qt::AltModifier;
-                    break;
-                case Qt::Key_Control:
-                    mod &= ~Qt::ControlModifier;
-                    break;
-                case Qt::Key_Shift:
-                    mod &= ~Qt::ShiftModifier;
-                    break;
-                case Qt::Key_Meta:
-                    keys << Qt::Key_Super_L << Qt::Key_Super_R;
-                    [[fallthrough]];
-                case Qt::Key_Super_L:
-                case Qt::Key_Super_R:
-                    mod &= ~Qt::MetaModifier;
-                    break;
-            }
-            for (const auto & key : std::as_const(keys))
-            {
-                const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(key)).remove(0, 4);
-                if (press == mShortcutSeq)
+           QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+
+           // if our shortcut key is pressed while the menu is open, close the menu
+            if (!mShortcutSeq.isEmpty()) {
+                static const auto key_meta = QMetaEnum::fromType<Qt::Key>();
+                QFlags<Qt::KeyboardModifier> mod = keyEvent->modifiers();
+                QList<Qt::Key> keys = {static_cast<Qt::Key>(keyEvent->key())};
+                switch (keyEvent->key()) {
+                    case Qt::Key_Alt:
+                        mod &= ~Qt::AltModifier;
+                        break;
+                    case Qt::Key_Control:
+                        mod &= ~Qt::ControlModifier;
+                        break;
+                    case Qt::Key_Shift:
+                        mod &= ~Qt::ShiftModifier;
+                        break;
+                    case Qt::Key_Meta:
+                        keys << Qt::Key_Super_L << Qt::Key_Super_R;
+                        [[fallthrough]];
+                    case Qt::Key_Super_L:
+                    case Qt::Key_Super_R:
+                        mod &= ~Qt::MetaModifier;
+                        break;
+                }
+                for (const auto & key : std::as_const(keys))
                 {
-                    mMenu->hide(); // close the app menu
-                    return true;
+                    const QString press = QKeySequence{static_cast<int>(mod)}.toString() % QString::fromLatin1(key_meta.valueToKey(key)).remove(0, 4);
+                    if (press == mShortcutSeq)
+                    {
+                        mMenu->hide(); // close the app menu
+                        return true;
+                    }
                 }
             }
 
