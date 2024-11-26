@@ -352,13 +352,18 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
     d->loadBackend();
 
-    // This is a workaround for Qt 5 bug #40681.
-    const auto allScreens = screens();
-    for(QScreen* screen : allScreens)
+    if (QGuiApplication::platformName() == QStringLiteral("xcb"))
     {
-        connect(screen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
+        // This is a workaround for Qt 5 bug #40681.
+        const auto allScreens = screens();
+        for(QScreen* screen : allScreens)
+        {
+            connect(screen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
+        }
+        connect(this, &QGuiApplication::screenAdded, this, &LXQtPanelApplication::handleScreenAdded);
+
     }
-    connect(this, &QGuiApplication::screenAdded, this, &LXQtPanelApplication::handleScreenAdded);
+
     connect(this, &QCoreApplication::aboutToQuit, this, &LXQtPanelApplication::cleanup);
 
 
