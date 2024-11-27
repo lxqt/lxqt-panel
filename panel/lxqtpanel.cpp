@@ -688,9 +688,20 @@ void LXQtPanel::setPanelGeometry(bool animate)
     }
 
     if (!mHidden || !mGeometry.isValid()) mGeometry = rect;
-    if(mLayerWindow)
+    if (mLayerWindow)
     {
         // NOTE: On Wayland, QVariantAnimation is used to set appropriate negative margins.
+        auto screen = screens.at(mActualScreenNum);
+        if (screen != windowHandle()->screen())
+        {
+            // WARNING: An already visible window is not shown on a new screen under Wayland.
+            if (isVisible())
+            {
+                hide();
+                QTimer::singleShot(0, this, &QWidget::show);
+            }
+            windowHandle()->setScreen(screen);
+        }
         mLayerWindow->setAnchors(anchors);
         setFixedSize(rect.size());
         if (animate)
@@ -1203,6 +1214,15 @@ void LXQtPanel::setPosition(int screen, ILXQtPanel::Position position, bool save
         // this corner case triggers #40681.)
         // When using other kind of multihead settings, such as Xinerama, this might be different and
         // unless Qt developers can fix their bug, we have no way to workaround that.
+        if (mLayerWindow)
+        {
+            // WARNING: An already visible window is not shown on a new screen under Wayland.
+            if (isVisible())
+            {
+                hide();
+                QTimer::singleShot(0, this, &QWidget::show);
+            }
+        }
         windowHandle()->setScreen(qApp->screens().at(screen));
     }
 
