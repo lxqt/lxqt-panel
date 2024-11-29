@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="oc">
+<TS version="2.1" language="kab">
 <context>
     <name>AddPluginDialog</name>
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Apondon d’empeutons</translation>
+        <translation>Rnu isiɣzaf</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Recercar :</translation>
+        <translation>Nadi:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation>Apondre lo widget</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
-        <translation>Tampar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -34,17 +34,17 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Configurar lo tablèu de bòrd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation>Emplaçament</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation>Estil</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation>Configurar l’emplaçament</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
         <source>Size</source>
-        <translation>Talha</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Talha :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largor :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -98,12 +98,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Talha de l’icòna :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Linhas :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -267,7 +267,7 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
@@ -277,17 +277,17 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Rnu</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>Suprimir</translation>
+        <translation>Kkes</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Configurar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -295,27 +295,27 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>Configurar l’estil</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
         <source>Custom styling</source>
-        <translation>Estil personalizat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
         <source>Font color:</source>
-        <translation>Color de polissa :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="105"/>
         <source>Background color:</source>
-        <translation>Color de fons :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Opacitat del fons :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
@@ -325,7 +325,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
         <source>Background image:</source>
-        <translation>Imatge de fons :</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="256"/>
@@ -353,17 +353,17 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../config/configstyling.cpp" line="189"/>
         <location filename="../config/configstyling.cpp" line="205"/>
         <source>Pick color</source>
-        <translation>Causir una color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Pick image</source>
-        <translation>Causir un imatge</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
-        <translation>Imatges (*.png *.gif *.jpg *.svg)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -372,12 +372,12 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1361"/>
         <location filename="../lxqtpanel.cpp" line="1387"/>
         <source>Panel</source>
-        <translation>Panèl</translation>
+        <translation>Afeggag</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1390"/>
         <source>Configure Panel</source>
-        <translation>Configurar lo tablèu de bòrd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1395"/>
@@ -387,7 +387,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../lxqtpanel.cpp" line="1401"/>
         <source>Add New Panel</source>
-        <translation>Apondre un panèl novèl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1408"/>
@@ -428,7 +428,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="458"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Suprimir « %1 »</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -436,12 +436,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
-        <translation>Utilizar un fichièr de configuracion alternatiu.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
-        <translation>Fichièr de configuracion</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

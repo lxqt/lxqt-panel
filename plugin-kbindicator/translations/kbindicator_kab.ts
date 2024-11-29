@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="oc">
+<TS version="2.1" language="kab">
 <context>
     <name>Content</name>
     <message>
         <location filename="../src/content.cpp" line="46"/>
         <source>C</source>
         <comment>Label for CapsLock indicator</comment>
-        <translation>M</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="49"/>
         <source>CapsLock</source>
         <comment>Tooltip for CapsLock indicator</comment>
-        <translation>Ver. Maj.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="53"/>
         <source>N</source>
         <comment>Label for NumLock indicator</comment>
-        <translation>N</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="55"/>
         <source>NumLock</source>
         <comment>Tooltip for NumLock indicator</comment>
-        <translation>Ver. Num.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="60"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation>D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="62"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>Ver. Def.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
-        <translation>Disposicion</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
-        <translation>Varianta</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Indicador de verrolhatge</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation>Fenèstra</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Aplicacion</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
