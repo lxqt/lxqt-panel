@@ -1,3 +1,8 @@
+lxqt-panel-2.1.3 / 2024-12-01
+==============================
+ * Taken into account an empty shortcut in Fancy/Main Menu. This also fixes searching with non-Latin keyboard layouts under Wayland.
+ * Fixed bugs about multi-screen setups on Wayland.
+
 lxqt-panel-2.1.2 / 2024-11-24
 ==============================
  * Fixed changing of desktop names under X11.
