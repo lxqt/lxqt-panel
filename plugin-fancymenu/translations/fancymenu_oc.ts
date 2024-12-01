@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorits</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Totas las aplicacions</translation>
     </message>
 </context>
 <context>
@@ -37,17 +37,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Icòna&#x202f;:</translation>
+        <translation>Icòna :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>Tèxt del boton&#x202f;:</translation>
+        <translation>Tèxt del boton :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Talha de la poliça personalizada&#x202f;:</translation>
+        <translation>Talha de la poliça personalizada :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
         <source>Menu file:</source>
-        <translation>Fichièr de menú&#x202f;:</translation>
+        <translation>Fichièr de menú :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Clicatz lo boton per enregistrar l’acorchi&#x202f;:</translation>
+        <translation>Clicatz lo boton per enregistrar l’acorchi :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>A prepaus de LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
@@ -197,7 +197,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichièr amb aqueste nom existís ja.
-Lo volètz remplaçar&#x202f;?</translation>
+Lo volètz remplaçar ?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
@@ -217,17 +217,17 @@ Lo volètz remplaçar&#x202f;?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Tirar dels favorits</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Apondre als favorits</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Non executable</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>

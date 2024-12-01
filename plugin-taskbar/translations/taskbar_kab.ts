@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="oc">
+<TS version="2.1" language="kab">
 <context>
     <name>LXQtTaskBar</name>
     <message>
         <location filename="../lxqttaskbar.cpp" line="636"/>
         <source>Activate task %1</source>
-        <translation>Activar la prètzfach %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14,22 +14,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="546"/>
         <source>Application</source>
-        <translation>Aplicacion</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="580"/>
         <source>To &amp;Desktop</source>
-        <translation>Cap al &amp;burèu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="583"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;Totes los burèus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="593"/>
         <source>Desktop &amp;%1</source>
-        <translation>Burèu &amp;%1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="603"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Move</source>
-        <translation>&amp;Desplaçar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="629"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="662"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Restaurar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="670"/>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="705"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Normal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="710"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="717"/>
         <source>&amp;Close</source>
-        <translation>&amp;Tampar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../lxqttaskgroup.cpp" line="84"/>
         <source>Group</source>
-        <translation>Grop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskgroup.cpp" line="86"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation>Aparéncia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
-        <translation>Actual</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

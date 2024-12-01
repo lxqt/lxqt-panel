@@ -19,12 +19,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="580"/>
         <source>To &amp;Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>To &amp;Desktop</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="583"/>
         <source>&amp;All Desktops</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;All Desktops</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="593"/>

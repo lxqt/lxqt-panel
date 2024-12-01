@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="kab">
 <context>
     <name>Button</name>
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Removable media/devices manager</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14,17 +14,17 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Removable Media Settings</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
         <source>Behaviour</source>
-        <translation>Behaviour</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="32"/>
         <source>When a device is connected:</source>
-        <translation>When a device is connected:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="42"/>
