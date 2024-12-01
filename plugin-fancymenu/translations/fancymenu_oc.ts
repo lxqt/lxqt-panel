@@ -37,17 +37,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Icòna :</translation>
+        <translation>Icòna&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>Tèxt del boton :</translation>
+        <translation>Tèxt del boton&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Talha de la poliça personalizada :</translation>
+        <translation>Talha de la poliça personalizada&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
         <source>Menu file:</source>
-        <translation>Fichièr de menú :</translation>
+        <translation>Fichièr de menú&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Clicatz lo boton per enregistrar l’acorchi :</translation>
+        <translation>Clicatz lo boton per enregistrar l’acorchi&#x202f;:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
@@ -197,7 +197,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichièr amb aqueste nom existís ja.
-Lo volètz remplaçar ?</translation>
+Lo volètz remplaçar&#x202f;?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>

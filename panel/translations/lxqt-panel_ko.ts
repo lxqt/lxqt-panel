@@ -376,45 +376,45 @@ LXQt 모양새 구성 →
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1361"/>
-        <location filename="../lxqtpanel.cpp" line="1387"/>
+        <location filename="../lxqtpanel.cpp" line="1419"/>
+        <location filename="../lxqtpanel.cpp" line="1445"/>
         <source>Panel</source>
         <translation>패널</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1390"/>
+        <location filename="../lxqtpanel.cpp" line="1448"/>
         <source>Configure Panel</source>
         <translation>패널 구성하기</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1395"/>
+        <location filename="../lxqtpanel.cpp" line="1453"/>
         <source>Manage Widgets</source>
         <translation>위젯 관리</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1401"/>
+        <location filename="../lxqtpanel.cpp" line="1459"/>
         <source>Add New Panel</source>
         <translation>새 패널 추가</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1408"/>
+        <location filename="../lxqtpanel.cpp" line="1466"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>패널 제거</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1413"/>
+        <location filename="../lxqtpanel.cpp" line="1471"/>
         <source>Lock This Panel</source>
         <translation>이 패널 잠그기</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1576"/>
+        <location filename="../lxqtpanel.cpp" line="1634"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>패널 제거</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1577"/>
+        <location filename="../lxqtpanel.cpp" line="1635"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>패널 제거는 취소할 수 없습니다.

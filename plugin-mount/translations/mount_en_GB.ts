@@ -73,7 +73,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Removable media/devices manager</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Removable media/devices manager</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
@@ -113,7 +113,7 @@
         <location filename="../menudiskitem.cpp" line="158"/>
         <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Removable media/devices manager</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="177"/>

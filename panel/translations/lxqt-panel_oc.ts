@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Recercar :</translation>
+        <translation>Recercar&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Talha :</translation>
+        <translation>Talha&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largor :</translation>
+        <translation>Largor&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Talha de l’icòna :</translation>
+        <translation>Talha de l’icòna&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -369,45 +369,45 @@ Colorize icons based on widget style (palette)</source>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1361"/>
-        <location filename="../lxqtpanel.cpp" line="1387"/>
+        <location filename="../lxqtpanel.cpp" line="1419"/>
+        <location filename="../lxqtpanel.cpp" line="1445"/>
         <source>Panel</source>
         <translation>Panèl</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1390"/>
+        <location filename="../lxqtpanel.cpp" line="1448"/>
         <source>Configure Panel</source>
         <translation>Configurar lo tablèu de bòrd</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1395"/>
+        <location filename="../lxqtpanel.cpp" line="1453"/>
         <source>Manage Widgets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1401"/>
+        <location filename="../lxqtpanel.cpp" line="1459"/>
         <source>Add New Panel</source>
         <translation>Apondre un panèl novèl</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1408"/>
+        <location filename="../lxqtpanel.cpp" line="1466"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1413"/>
+        <location filename="../lxqtpanel.cpp" line="1471"/>
         <source>Lock This Panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1576"/>
+        <location filename="../lxqtpanel.cpp" line="1634"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1577"/>
+        <location filename="../lxqtpanel.cpp" line="1635"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation type="unfinished"></translation>
