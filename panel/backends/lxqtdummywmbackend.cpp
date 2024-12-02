@@ -152,6 +152,11 @@ void LXQtDummyWMBackend::moveApplicationToPrevNextMonitor(WId, bool, bool)
     //No-op
 }
 
+int LXQtDummyWMBackend::onAllWorkspacesEnum() const
+{
+    return 0;
+}
+
 bool LXQtDummyWMBackend::isWindowOnScreen(QScreen *, WId) const
 {
     return false;

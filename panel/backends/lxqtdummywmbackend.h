@@ -79,6 +79,8 @@ public:
 
     void moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop) override;
 
+    int onAllWorkspacesEnum() const override;
+
     bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
     virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft) override;

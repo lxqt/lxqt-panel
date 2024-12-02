@@ -554,6 +554,11 @@ void LXQtWMBackendX11::moveApplicationToPrevNextMonitor(WId windowId, bool next,
     }
 }
 
+int LXQtWMBackendX11::onAllWorkspacesEnum() const
+{
+    return NET::OnAllDesktops;
+}
+
 bool LXQtWMBackendX11::isWindowOnScreen(QScreen *screen, WId windowId) const
 {
     //TODO: old code was:
