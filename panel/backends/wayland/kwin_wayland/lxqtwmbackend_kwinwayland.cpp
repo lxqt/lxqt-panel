@@ -500,10 +500,11 @@ void LXQtWMBackend_KWinWayland::refreshIconGeometry(WId windowId, const QRect &g
 
 bool LXQtWMBackend_KWinWayland::isAreaOverlapped(const QRect &area) const
 {
+    int d;
     for(auto &window : std::as_const(windows))
     {
         if(!window->wasUnmapped
-           && getWindowWorkspace(window->getWindowId()) == getCurrentWorkspace()
+           && ((d = getWindowWorkspace(window->getWindowId())) == getCurrentWorkspace() || d <= 0)
            && !window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_minimized)
            && window->geometry.intersects(area))
         {
