@@ -742,7 +742,8 @@ void LXQtTaskButton::setUrgencyHint(bool set)
  ************************************************/
 bool LXQtTaskButton::isOnDesktop(int desktop) const
 {
-    return mBackend->getWindowWorkspace(mWindow) == desktop;
+    int d = mBackend->getWindowWorkspace(mWindow);
+    return d == desktop || d <= 0; // means "on all desktops"
 }
 
 bool LXQtTaskButton::isOnCurrentScreen() const
