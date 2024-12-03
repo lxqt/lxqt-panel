@@ -79,9 +79,4 @@ enum class LXQtTaskBarWindowLayer
     KeepAbove
 };
 
-enum class LXQtTaskBarWorkspace
-{
-    ShowOnAll = 0 // Virtual destops have 1-based indexes
-};
-
 #endif // LXQTTASKBARTYPES_H

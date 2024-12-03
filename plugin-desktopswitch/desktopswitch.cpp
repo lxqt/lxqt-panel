@@ -129,7 +129,7 @@ void DesktopSwitch::onWindowChanged(WId id, int prop)
         || prop == int(LXQtTaskBarWindowProperty::Workspace))
     {
         int desktop = mBackend->getWindowWorkspace(id);
-        if (desktop == int(LXQtTaskBarWorkspace::ShowOnAll))
+        if (desktop == mBackend->onAllWorkspacesEnum())
             return;
         if (prop == int(LXQtTaskBarWindowProperty::Workspace))
         { // remove the urgent hint from desktops that do not contain the window

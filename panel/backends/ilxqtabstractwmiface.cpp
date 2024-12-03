@@ -50,3 +50,10 @@ void ILXQtAbstractWMInterface::moveApplicationToPrevNextDesktop(WId windowId, bo
 
     setWindowOnWorkspace(windowId, targetWorkspace);
 }
+
+int ILXQtAbstractWMInterface::onAllWorkspacesEnum() const
+{
+    // Virtual destops have 1-based indexes.
+    // NOTE: The real value of this enum may be negative (as in X11).
+    return 0;
+}
