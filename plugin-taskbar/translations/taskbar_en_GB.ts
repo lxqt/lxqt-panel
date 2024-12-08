@@ -29,17 +29,17 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="593"/>
         <source>Desktop &amp;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Desktop &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="603"/>
         <source>&amp;To Current Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;To Current Desktop</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="612"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Move To N&amp;ext Monitor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="618"/>
