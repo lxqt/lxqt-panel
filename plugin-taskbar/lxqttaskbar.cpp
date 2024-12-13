@@ -382,7 +382,7 @@ void LXQtTaskBar::refreshPlaceholderVisibility()
     bool haveVisibleWindow = false;
     for (auto i = mKnownWindows.cbegin(), i_e = mKnownWindows.cend(); i_e != i; ++i)
     {
-        if ((*i)->isVisible())
+        if ((*i)->isVisibleTo(this))
         {
             haveVisibleWindow = true;
             break;
