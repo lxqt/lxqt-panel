@@ -263,7 +263,7 @@ void LXQtPanelApplicationPrivate::loadBackend()
         }
     }
 
-    if ( preferredBackend.isEmpty() && xdgCurrentDesktops.contains( QStringLiteral("wlroots") ) )
+    if ( preferredBackend.isEmpty() && xdgSessionType == QStringLiteral("wayland") ) )
     {
         qDebug() << "Specialized backend unavailable. Falling back to generic wlroots";
         preferredBackend = QStringLiteral("wlroots");
