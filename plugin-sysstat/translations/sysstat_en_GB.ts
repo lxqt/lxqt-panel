@@ -200,7 +200,7 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
-        <source>Colours</source>
+        <source>Colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>

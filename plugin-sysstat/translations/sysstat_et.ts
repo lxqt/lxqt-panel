@@ -200,7 +200,7 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
-        <source>Colours</source>
+        <source>Colors</source>
         <translation>Värvid</translation>
     </message>
     <message>

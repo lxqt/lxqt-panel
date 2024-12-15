@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
-        <source>Behaviour</source>
+        <source>Behavior</source>
         <translation>Toiminta</translation>
     </message>
     <message>

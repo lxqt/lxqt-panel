@@ -194,7 +194,7 @@
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
-        <source>&amp;Customise ...</source>
+        <source>&amp;Customize ...</source>
         <translation>指定(&amp;C) ...</translation>
     </message>
     <message>
