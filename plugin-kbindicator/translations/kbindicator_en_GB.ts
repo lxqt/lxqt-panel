@@ -31,13 +31,13 @@
         <location filename="../src/content.cpp" line="60"/>
         <source>S</source>
         <comment>Label for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="62"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation type="unfinished"></translation>
+        <translation>ScrollLock</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>

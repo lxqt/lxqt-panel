@@ -29,12 +29,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="188"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Run with &quot;bash -c&quot;</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="198"/>
         <source>Select Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Font</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
