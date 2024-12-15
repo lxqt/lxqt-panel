@@ -309,7 +309,7 @@
      <item>
       <widget class="QGroupBox" name="coloursGB">
        <property name="title">
-        <string>Colours</string>
+        <string>Colors</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_8" columnstretch="2,3">
         <property name="horizontalSpacing">
