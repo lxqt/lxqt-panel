@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="618"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Move To &amp;Previous Monitor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
