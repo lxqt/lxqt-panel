@@ -248,6 +248,8 @@ void LXQtTaskBar::groupBecomeEmptySlot()
  ************************************************/
 void LXQtTaskBar::addWindow(WId window)
 {
+    if (mExcludedList.contains(mBackend->getWindowClass(window), Qt::CaseInsensitive))
+        return;
     // If grouping disabled group behaves like regular button
     const QString group_id = mGroupingEnabled ? mBackend->getWindowClass(window) : QString::number(window);
 
@@ -447,6 +449,17 @@ void LXQtTaskBar::settingsChanged()
     mIconByClass = mPlugin->settings()->value(QStringLiteral("iconByClass"), false).toBool();
     mWheelEventsAction = mPlugin->settings()->value(QStringLiteral("wheelEventsAction"), 1).toInt();
     mWheelDeltaThreshold = mPlugin->settings()->value(QStringLiteral("wheelDeltaThreshold"), 300).toInt();
+
+    mExcludedList = mPlugin->settings()->value(QStringLiteral("excludedList")).toString()
+                    .split(QRegularExpression(QStringLiteral("\\s*,\\s*")), Qt::SkipEmptyParts);
+    const auto wins = mBackend->getCurrentWindows();
+    for(WId win : wins)
+    {
+        if (mExcludedList.contains(mBackend->getWindowClass(win), Qt::CaseInsensitive))
+            onWindowRemoved(win);
+        else
+            onWindowAdded(win);
+    }
 
     // Delete all groups if grouping or ungrouped next to existing feature toggled and start over
     if (groupingEnabledOld != mGroupingEnabled || ungroupedNextToExistingOld != mUngroupedNextToExisting)
