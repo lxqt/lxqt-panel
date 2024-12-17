@@ -114,23 +114,23 @@
          </widget>
         </item>
         <item>
-        <widget class="QSpinBox" name="wheelDeltaThresholdSB">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="minimum">
-          <number>0</number>
-         </property>
-         <property name="maximum">
-          <number>300</number>
-         </property>
-        </widget>
+         <widget class="QSpinBox" name="wheelDeltaThresholdSB">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>300</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -245,6 +245,23 @@
        <widget class="QCheckBox" name="iconByClassCB">
         <property name="text">
          <string>Use icons by WindowClass, if available</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="excludeL">
+        <property name="toolTip">
+         <string>Comma separated list of window classes</string>
+        </property>
+        <property name="text">
+         <string>Exclude from taskbar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="excludeLE">
+        <property name="toolTip">
+         <string>Comma separated list of window classes</string>
         </property>
        </widget>
       </item>

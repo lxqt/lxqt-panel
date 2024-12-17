@@ -91,6 +91,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->iconByClassCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelEventsActionCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelDeltaThresholdSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->excludeLE, &QLineEdit::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
@@ -119,6 +120,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->iconByClassCB->setChecked(settings().value(QStringLiteral("iconByClass"), false).toBool());
     ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 0).toInt()));
     ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
+    ui->excludeLE->setText(settings().value(QStringLiteral("excludedList")).toString());
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
@@ -139,4 +141,5 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue(QStringLiteral("iconByClass"),ui->iconByClassCB->isChecked());
     settings().setValue(QStringLiteral("wheelEventsAction"),ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
     settings().setValue(QStringLiteral("wheelDeltaThreshold"),ui->wheelDeltaThresholdSB->value());
+    settings().setValue(QStringLiteral("excludedList"),ui->excludeLE->text());
 }

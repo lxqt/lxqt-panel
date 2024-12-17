@@ -159,6 +159,8 @@ private:
     LeftAlignedTextStyle *mStyle;
 
     ILXQtAbstractWMInterface *mBackend;
+
+    QStringList mExcludedList;
 };
 
 #endif // LXQTTASKBAR_H
