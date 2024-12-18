@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="636"/>
+        <location filename="../lxqttaskbar.cpp" line="649"/>
         <source>Activate task %1</source>
         <translation>작업 %1 활성화</translation>
     </message>
@@ -233,6 +233,17 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
         <source>Button style</source>
         <translation>버튼 스타일</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
+        <source>Comma separated list of window classes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
+        <source>Exclude from taskbar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
