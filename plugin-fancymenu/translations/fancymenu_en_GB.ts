@@ -42,12 +42,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Button text:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Custom font size:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>

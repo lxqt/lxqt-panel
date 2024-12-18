@@ -39,7 +39,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Icon:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>

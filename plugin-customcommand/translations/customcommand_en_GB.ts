@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="135"/>

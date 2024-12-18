@@ -42,7 +42,7 @@
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>

@@ -38,7 +38,7 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="546"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>The file cannot be overwritten.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="552"/>
