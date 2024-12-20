@@ -284,7 +284,8 @@ QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopF
 
 QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType) const
 {
-    QStringList groups = mPanel->settings()->childGroups();
+    QSettings userSettings(QSettings::UserScope, mPanel->settings());
+    QStringList groups = userSettings.childGroups();
     groups.sort();
 
     // Generate new section name
