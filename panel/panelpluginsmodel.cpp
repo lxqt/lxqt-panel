@@ -284,7 +284,8 @@ QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopF
 
 QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType) const
 {
-    QSettings userSettings(QSettings::UserScope, mPanel->settings());
+    QString userConfigDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+    QSettings userSettings(QStringLiteral("%1/lxqt/panel.conf").arg(userConfigDir), QSettings::IniFormat);
     QStringList groups = userSettings.childGroups();
     groups.sort();
 
