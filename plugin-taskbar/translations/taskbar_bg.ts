@@ -171,12 +171,12 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>Списък с класове на прозорци, разделени със запетая</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Изключване от лентата на задачите</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
