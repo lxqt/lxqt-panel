@@ -40,11 +40,12 @@ ConfigPanelDialog::ConfigPanelDialog(LXQtPanel *panel, QWidget *parent):
     connect(this, &ConfigPanelDialog::reset, mPlacementPage, &ConfigPlacement::reset);
 
     mStylingPage = new ConfigStyling(panel, this);
-    addPage(mStylingPage, tr("Styling"), QStringList() << QLatin1String("colormanagement") << QLatin1String("preferences-desktop-theme") << QStringLiteral("preferences-desktop"));
+    addPage(mStylingPage, tr("Styling"), QStringList() << QStringLiteral("colormanagement") << QStringLiteral("preferences-desktop-theme")
+        << QStringLiteral("preferences-desktop"));
     connect(this, &ConfigPanelDialog::reset, mStylingPage, &ConfigStyling::reset);
 
     mPluginsPage = new ConfigPluginsWidget(panel, this);
-    addPage(mPluginsPage, tr("Widgets"), QStringList() << QLatin1String("preferences-plugin") << QLatin1String("preferences-desktop"));
+    addPage(mPluginsPage, tr("Widgets"), QStringList() << QStringLiteral("preferences-plugin") << QStringLiteral("preferences-desktop"));
     connect(this, &ConfigPanelDialog::reset, mPluginsPage, &ConfigPluginsWidget::reset);
 
     connect(this, &ConfigPanelDialog::accepted, panel, [panel] {
