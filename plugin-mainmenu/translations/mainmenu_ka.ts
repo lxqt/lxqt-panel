@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="ka">
 <context>
     <name>LXQtMainMenu</name>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="117"/>
         <source>Search...</source>
-        <translation>Search...</translation>
+        <translation>ძებნა...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="127"/>
         <source>Show/hide main menu</source>
-        <translation>Show/hide main menu</translation>
+        <translation>მთავარი მენიუს ჩვენება/დამალვა</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="530"/>
         <source>Add to desktop</source>
-        <translation>Add to desktop</translation>
+        <translation>სამუშაო მაგიდაზე დამატება</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="538"/>
         <source>Question</source>
-        <translation>Question</translation>
+        <translation>კითხვა</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="539"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>A file with the same name already exists.
-Do you want to overwrite it?</translation>
+        <translation>ფაილი ამ სახელით უკვე არსებობს.
+გნებავთ, გადააწეროთ თავზე?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="545"/>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation>გაფრთხილება</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="546"/>
         <source>The file cannot be overwritten.</source>
-        <translation>The file cannot be overwritten.</translation>
+        <translation>ფაილის თავზე გადაწერა შეუძლებელია.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="552"/>
         <source>Copy</source>
-        <translation>Copy</translation>
+        <translation>კოპირება</translation>
     </message>
 </context>
 <context>
@@ -51,117 +51,117 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation>ზოგადი</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu Settings</source>
-        <translation>Main Menu Settings</translation>
+        <translation>მთავარი მენიუს მორგება</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Icon:</translation>
+        <translation>ხატულა:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>Button text:</translation>
+        <translation>ღილაკის ტექსტი:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation type="unfinished"></translation>
+        <translation>მორგებული ფონტის ზომა:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> წრტ</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ფაილი:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნა</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>მაქს. ელემენტის სიგანე:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>შესაბამისი ჩანაწერების ჩვენება:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>მაქსიმალური ხილული ელემენტი:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Filter menu entries</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ელემენტების გაფილტვრა</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> პქს</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს პუნქტების დამალვა ძებნისას</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნის დახურვა მენიუს ჩვენებისას</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>კლავიატურის მალსახმობი</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>დააწკაპუნეთ ღილაკზე მალსახმობის ჩასაწერად:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩამოყრა</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ ხატულას ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულებები (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
         <source>Choose menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ მენიუს ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ფაილები (*.menu)</translation>
     </message>
 </context>
 </TS>

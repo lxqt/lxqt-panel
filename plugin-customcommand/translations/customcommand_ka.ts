@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="ka">
 <context>
     <name>LXQtCustomCommand</name>
     <message>
         <location filename="../lxqtcustomcommand.cpp" line="186"/>
         <source>Error</source>
-        <translation>Error</translation>
+        <translation>შეცდომა</translation>
     </message>
 </context>
 <context>
@@ -14,47 +14,47 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation>Custom Command Configuration</translation>
+        <translation>მომხმარებლის ბრძანების მორგება</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation>Display</translation>
+        <translation>ჩვენება</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="181"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Use icon from theme or browse file</translation>
+        <translation>გამოიყენეთ ხატულა თემიდან ან აირჩიეთ ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="188"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation>Run with &quot;bash -c&quot;</translation>
+        <translation>გაშვება ბრძანებით &quot;bash -c&quot;</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="198"/>
         <source>Select Font</source>
-        <translation>Select Font</translation>
+        <translation>აირჩიეთ ფონტი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>ტექსტი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="135"/>
         <source>Command</source>
-        <translation>Command</translation>
+        <translation>ბრძანება</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="128"/>
         <source>Font</source>
-        <translation>Font</translation>
+        <translation>ფონტი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="162"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> პქს</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="208"/>
@@ -64,27 +64,27 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="211"/>
         <source>Use %1 to display command output</source>
-        <translation type="unfinished"></translation>
+        <translation>%1-ის გამოყენება ბრძანების გამოტანილი ინფორმაციის საჩვენებლად</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="145"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>ხატულა</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="108"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="155"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>ავტომობრუნება, როცა პანელი ვერტიკალურია</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="240"/>
         <source>echo Configure...</source>
-        <translation type="unfinished"></translation>
+        <translation>echo მორგება...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="243"/>
@@ -92,57 +92,57 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="285"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>გასაშვები ბრძანება</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="118"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>მაქს სიგანე</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="70"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation>ბრძანების გამეორების დრო:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="86"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> წამი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="250"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>ბრძანება გამოსახულებას გამოიტანს</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="262"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>თაგუნას ბრძანებები</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="268"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>წკაპი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="299"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation>რგოლი მაღლა</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="309"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation>რგოლი დაბლა</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="147"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ ხატულას ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="147"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულებები (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>

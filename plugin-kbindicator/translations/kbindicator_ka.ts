@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="ka">
 <context>
     <name>Content</name>
     <message>
@@ -42,12 +42,12 @@
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
-        <translation>Layout</translation>
+        <translation>განლაგება</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
-        <translation>Variant</translation>
+        <translation>ვარიანტი</translation>
     </message>
 </context>
 <context>
@@ -55,67 +55,67 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard State Settings</source>
-        <translation>Keyboard State Settings</translation>
+        <translation>კლავიატურის მდგომარეობის მორგება</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Lock Indicators</translation>
+        <translation>დაბლოკვის მაჩვენებლები</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
         <source>Show Caps Lock</source>
-        <translation>Show Caps Lock</translation>
+        <translation>CapsLock-ის ჩვენება</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="33"/>
         <source>Show Num Lock</source>
-        <translation>Show Num Lock</translation>
+        <translation>NumLock-ის ჩვენება</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>ScrollLock-ის ჩვენება</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>კლავიატურის განლაგების მაჩვენებელი</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
+        <translation>გადართვის პოლიტიკა</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>ალმების ბილიკის ნიმუში:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>ფაილის ბილიკის ნიმუში ქვეყნის ალმებისთვის. უნდა შეიცავდეს &lt;strong&gt;%1&lt;/strong&gt;-ს, რომელიც ჩანაცვლდება ქვეყნის ორასოიანი ISO კოდით (პატარა ასოებით.&lt;br&gt;&lt;br&gt;მაგალითად: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგებების მორგება</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>გლობალური</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ფანჯარა</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>აპლიკაცია</translation>
     </message>
 </context>
 </TS>
