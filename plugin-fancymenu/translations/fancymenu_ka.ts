@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="ka">
 <context>
     <name>LXQtFancyMenu</name>
     <message>
         <location filename="../lxqtfancymenu.cpp" line="93"/>
         <source>Show/hide main menu</source>
-        <translation>Show/hide main menu</translation>
+        <translation>მთავარი მენიუს ჩვენება/დამალვა</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation>Favourites</translation>
+        <translation>სანიშნეები</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
-        <translation>All Applications</translation>
+        <translation>ყველა აპლიკაცია</translation>
     </message>
 </context>
 <context>
@@ -27,132 +27,132 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation>Fancy Menu Settings</translation>
+        <translation>ლამაზი მენიუს მორგება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation>ზოგადი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
         <source>Icon:</source>
-        <translation>Icon:</translation>
+        <translation>ხატულა:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
         <source>Button text:</source>
-        <translation>Button text:</translation>
+        <translation>ღილაკის ტექსტი:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
         <source>Custom font size:</source>
-        <translation>Custom font size:</translation>
+        <translation>მორგებული ფონტის ზომა:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation> pt</translation>
+        <translation> წრტ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
         <source>Auto-select after:</source>
-        <translation>Auto-select after:</translation>
+        <translation>ავტომონიშვნის დრო:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation> მწმ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
         <source>Menu file</source>
-        <translation>Menu file</translation>
+        <translation>მენიუს ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ფაილი:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>კლავიატურის მალსახმობი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>დააწკაპუნეთ ღილაკზე მალსახმობის ჩასაწერად:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნის დახურვა მენიუს ჩვენებისას</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>ღილაკის მწკრივის მდებარეობა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>კატეგორიების მდებარეობა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩამოყრა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>ქვემოთ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>ზემოთ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>მარცხნივ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>მარჯვნივ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ ხატულას ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულებები (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
         <source>Choose menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ მენიუს ფაილი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>მენიუს ფაილები (*.menu)</translation>
     </message>
 </context>
 <context>
@@ -160,78 +160,79 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნა...</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt-ის მორგების ცენტრი</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>გასვლა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt-ის შესახებ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>დაამატეთ თქვენი რჩეულები მათზე კატეგორიებში მარჯვენა წკაპით.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>სამუშაო მაგიდაზე დამატება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>კითხვა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>ფაილი ამ სახელით უკვე არსებობს.
+გნებავთ, გადააწეროთ თავზე?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>გაფრთხილება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>ფაილის თავზე გადაწერა შეუძლებელია.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>კოპირება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>რჩეულებიდან წაშლა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>რჩეულებში დამატება</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>გაშვებადი არაა</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>გამშვები ფაილი &lt;b&gt;%1&lt;/b&gt; აღმოჩენილი არაა.</translation>
     </message>
 </context>
 </TS>

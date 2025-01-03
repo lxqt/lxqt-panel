@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB">
+<TS version="2.1" language="ka">
 <context>
     <name>DirectoryMenu</name>
     <message>
         <location filename="../directorymenu.cpp" line="123"/>
         <source>Open</source>
-        <translation>Open</translation>
+        <translation>გახსნა</translation>
     </message>
     <message>
         <location filename="../directorymenu.cpp" line="127"/>
         <source>Open in terminal</source>
-        <translation>Open in terminal</translation>
+        <translation>ტერმინალში გახსნა</translation>
     </message>
 </context>
 <context>
@@ -19,98 +19,98 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Directory Menu Settings</translation>
+        <translation>საქაღალდის მენიუს მორგება</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Appearance</translation>
+        <translation>გარეგნობა</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Base directory:</translation>
+        <translation>საბაზისო საქაღალდე:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BaseDirectoryName</translation>
+        <translation>საბაზისოსაქაღალდისსახელი</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
         <source>Icon:</source>
-        <translation>Icon:</translation>
+        <translation>ხატულა:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Label</source>
-        <translation>Label</translation>
+        <translation>ჭდე</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
         <source>Button style</source>
-        <translation>Button style</translation>
+        <translation>ღილაკის სტილი</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>ტერმინალი</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
         <location filename="../directorymenuconfiguration.cpp" line="131"/>
         <source>Choose Default Terminal</source>
-        <translation>Choose Default Terminal</translation>
+        <translation>აირჩიეთ ნაგულისხმევი ტერმინალი</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="54"/>
         <source>Only icon</source>
-        <translation type="unfinished"></translation>
+        <translation>მხოლოდ ხატულა</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="55"/>
         <source>Only text</source>
-        <translation type="unfinished"></translation>
+        <translation>მხოლოდ ტექსტური</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>ხატულა და ტექსტი</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
         <source>Choose Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ საბაზისო საქაღალდე</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Choose Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ ხატულა</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>ხატულები (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ ჭდე</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>ჭდე:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>Directory Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>კატალოგის მენიუ</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>An error occurred while loading the icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>შეცდომა ხატულას ჩატვირთვისას.</translation>
     </message>
 </context>
 </TS>
