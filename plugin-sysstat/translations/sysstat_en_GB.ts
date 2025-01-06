@@ -78,7 +78,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation type="unfinished"></translation>
+        <translation>Cache&amp;d</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>

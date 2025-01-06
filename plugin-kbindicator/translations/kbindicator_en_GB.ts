@@ -75,7 +75,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Show Scroll Lock</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
