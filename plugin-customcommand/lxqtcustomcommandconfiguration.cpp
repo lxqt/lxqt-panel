@@ -48,14 +48,15 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
     connect(ui->outputImageCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::outputImageCheckBoxChanged);
     connect(ui->repeatCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::repeatCheckBoxChanged);
-    connect(ui->repeatTimerSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
-    connect(ui->iconLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
+    connect(ui->repeatTimerSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
+    connect(ui->iconLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
     connect(ui->iconBrowseButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::iconBrowseButtonClicked);
-    connect(ui->textLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::textLineEditChanged);
-    connect(ui->maxWidthSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged);
-    connect(ui->clickLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::clickLineEditChanged);
-    connect(ui->wheelUpLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::wheelUpLineEditChanged);
-    connect(ui->wheelDownLineEdit, &QLineEdit::textChanged, this, &LXQtCustomCommandConfiguration::wheelDownLineEditChanged);
+    connect(ui->textLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::textLineEditChanged);
+    connect(ui->tooltipLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::tooltipLineEditChanged);
+    connect(ui->maxWidthSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged);
+    connect(ui->clickLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::clickLineEditChanged);
+    connect(ui->wheelUpLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::wheelUpLineEditChanged);
+    connect(ui->wheelDownLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::wheelDownLineEditChanged);
 }
 
 LXQtCustomCommandConfiguration::~LXQtCustomCommandConfiguration()
@@ -77,6 +78,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
     ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());
     ui->iconLineEdit->setText(settings().value(QStringLiteral("icon"), QString()).toString());
     ui->textLineEdit->setText(settings().value(QStringLiteral("text"), QStringLiteral("%1")).toString());
+    ui->tooltipLineEdit->setText(settings().value(QStringLiteral("tooltip"), QString()).toString());
     ui->maxWidthSpinBox->setValue(settings().value(QStringLiteral("maxWidth"), 200).toInt());
     ui->clickLineEdit->setText(settings().value(QStringLiteral("click"), QString()).toString());
     ui->wheelUpLineEdit->setText(settings().value(QStringLiteral("wheelUp"), QString()).toString());
@@ -130,16 +132,16 @@ void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
     ui->repeatTimerSpinBox->setEnabled(repeat);
 }
 
-void LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged(int repeatTimer)
+void LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("repeatTimer"), repeatTimer);
+        settings().setValue(QStringLiteral("repeatTimer"), ui->repeatTimerSpinBox->value());
 }
 
-void LXQtCustomCommandConfiguration::iconLineEditChanged(QString icon)
+void LXQtCustomCommandConfiguration::iconLineEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("icon"), icon);
+        settings().setValue(QStringLiteral("icon"), ui->iconLineEdit->text());
 }
 
 void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
@@ -148,32 +150,38 @@ void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
     ui->iconLineEdit->setText(fileName);
 }
 
-void LXQtCustomCommandConfiguration::textLineEditChanged(QString text)
+void LXQtCustomCommandConfiguration::textLineEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("text"), text);
+        settings().setValue(QStringLiteral("text"), ui->textLineEdit->text());
 }
 
-void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged(int maxWidth)
+void LXQtCustomCommandConfiguration::tooltipLineEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("maxWidth"), maxWidth);
+        settings().setValue(QStringLiteral("tooltip"), ui->tooltipLineEdit->text());
 }
 
-void LXQtCustomCommandConfiguration::clickLineEditChanged(QString click)
+void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("click"), click.trimmed());
+        settings().setValue(QStringLiteral("maxWidth"), ui->maxWidthSpinBox->value());
 }
 
-void LXQtCustomCommandConfiguration::wheelUpLineEditChanged(QString wheelUp)
+void LXQtCustomCommandConfiguration::clickLineEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelUp"), wheelUp.trimmed());
+        settings().setValue(QStringLiteral("click"), ui->clickLineEdit->text().trimmed());
 }
 
-void LXQtCustomCommandConfiguration::wheelDownLineEditChanged(QString wheelDown)
+void LXQtCustomCommandConfiguration::wheelUpLineEditChanged()
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("wheelDown"), wheelDown.trimmed());
+        settings().setValue(QStringLiteral("wheelUp"), ui->wheelUpLineEdit->text().trimmed());
+}
+
+void LXQtCustomCommandConfiguration::wheelDownLineEditChanged()
+{
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("wheelDown"), ui->wheelDownLineEdit->text().trimmed());
 }

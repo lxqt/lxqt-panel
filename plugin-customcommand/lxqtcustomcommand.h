@@ -83,6 +83,7 @@ private:
     int mRepeatTimer;
     QString mIcon;
     QString mText;
+    QString mTooltip;
     int mMaxWidth;
     QString mClick;
     QString mWheelUp;
