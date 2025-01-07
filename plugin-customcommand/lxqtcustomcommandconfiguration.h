@@ -48,14 +48,15 @@ private slots:
     void runWithBashCheckBoxChanged(bool runWithBash);
     void outputImageCheckBoxChanged(bool outputImage);
     void repeatCheckBoxChanged(bool repeat);
-    void repeatTimerSpinBoxChanged(int repeatTimer);
-    void iconLineEditChanged(QString icon);
+    void repeatTimerSpinBoxChanged();
+    void iconLineEditChanged();
     void iconBrowseButtonClicked();
-    void textLineEditChanged(QString text);
-    void maxWidthSpinBoxChanged(int maxWidth);
-    void clickLineEditChanged(QString click);
-    void wheelUpLineEditChanged(QString wheelUp);
-    void wheelDownLineEditChanged(QString wheelDown);
+    void textLineEditChanged();
+    void tooltipLineEditChanged();
+    void maxWidthSpinBoxChanged();
+    void clickLineEditChanged();
+    void wheelUpLineEditChanged();
+    void wheelDownLineEditChanged();
 
 protected slots:
     virtual void loadSettings();

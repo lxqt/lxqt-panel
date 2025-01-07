@@ -105,6 +105,7 @@ void LXQtCustomCommand::settingsChanged()
     int oldRepeatTimer = mRepeatTimer;
     QString oldIcon = mIcon;
     QString oldText = mText;
+    QString oldTooltip = mTooltip;
     int oldMaxWidth = mMaxWidth;
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
@@ -117,6 +118,7 @@ void LXQtCustomCommand::settingsChanged()
     mRepeatTimer = qMax(1, mRepeatTimer);
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
+    mTooltip = settings()->value(QStringLiteral("tooltip"), QString()).toString();
     mMaxWidth = settings()->value(QStringLiteral("maxWidth"), 200).toInt();
     mClick = settings()->value(QStringLiteral("click"), QString()).toString().trimmed();
     mWheelUp = settings()->value(QStringLiteral("wheelUp"), QString()).toString().trimmed();
@@ -147,7 +149,7 @@ void LXQtCustomCommand::settingsChanged()
         mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
-    else if (oldText != mText)
+    else if (oldText != mText || oldTooltip != mTooltip)
         updateButton();
 
     if (mFirstRun || oldMaxWidth != mMaxWidth)
@@ -210,6 +212,8 @@ void LXQtCustomCommand::updateButton() {
         else
              mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     }
+
+    mButton->setToolTip(mTooltip);
 
     mButton->updateWidth();
 }
