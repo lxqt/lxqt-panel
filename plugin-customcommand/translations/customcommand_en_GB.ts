@@ -64,12 +64,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="211"/>
         <source>Use %1 to display command output</source>
-        <translation type="unfinished"></translation>
+        <translation>Use %1 to display command output</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="145"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icon</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="108"/>

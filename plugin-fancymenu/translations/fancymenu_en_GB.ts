@@ -72,7 +72,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
         <source>Menu file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu file:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>

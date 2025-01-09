@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="654"/>
         <source>Maximize horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximise horizontally</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="662"/>
