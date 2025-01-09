@@ -379,13 +379,13 @@ void LXQtPanel::readSettings()
 
     QColor color = mSettings->value(QStringLiteral(CFG_KEY_FONTCOLOR), QString()).value<QColor>();
     if (color.isValid())
-        setFontColor(color, true);
+        setFontColor(color, false);
 
-    setOpacity(mSettings->value(QStringLiteral(CFG_KEY_OPACITY), 100).toInt(), true);
+    setOpacity(mSettings->value(QStringLiteral(CFG_KEY_OPACITY), 100).toInt(), false);
     mReserveSpace = mSettings->value(QStringLiteral(CFG_KEY_RESERVESPACE), true).toBool();
     color = mSettings->value(QStringLiteral(CFG_KEY_BACKGROUNDCOLOR), QString()).value<QColor>();
     if (color.isValid())
-        setBackgroundColor(color, true);
+        setBackgroundColor(color, false);
 
     QString image = mSettings->value(QStringLiteral(CFG_KEY_BACKGROUNDIMAGE), QString()).toString();
     if (!image.isEmpty())
@@ -1287,7 +1287,7 @@ void LXQtPanel::setBackgroundImage(QString path, bool save)
  ************************************************/
 void LXQtPanel::setOpacity(int opacity, bool save)
 {
-    mOpacity = opacity;
+    mOpacity = qBound(0, opacity, 100);
     updateStyleSheet();
 
     if (save)

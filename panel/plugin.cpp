@@ -370,10 +370,20 @@ void Plugin::settingsChanged()
  ************************************************/
 void Plugin::saveSettings()
 {
-    mSettings->setValue(QStringLiteral("alignment"), (mAlignment == AlignLeft) ? QStringLiteral("Left") : QStringLiteral("Right"));
-    mSettings->setValue(QStringLiteral("type"), mDesktopFile.id());
-    mSettings->sync();
-
+    bool syncSettings = false;
+    const QString alignment(mAlignment == AlignLeft ? QStringLiteral("Left") : QStringLiteral("Right"));
+    if (mSettings->value(QStringLiteral("alignment")).toString() != alignment)
+    {
+        mSettings->setValue(QStringLiteral("alignment"), alignment);
+        syncSettings = true;
+    }
+    if (mSettings->value(QStringLiteral("type")).toString() != mDesktopFile.id())
+    {
+        mSettings->setValue(QStringLiteral("type"), mDesktopFile.id());
+        syncSettings = true;
+    }
+    if (syncSettings)
+        mSettings->sync();
 }
 
 
