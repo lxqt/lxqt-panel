@@ -226,7 +226,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Memory</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
