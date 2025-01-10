@@ -640,14 +640,11 @@ bool LXQtTaskGroup::onWindowChanged(WId window, LXQtTaskBarWindowProperty prop)
                 return false;
             }
         }
-        // window changed virtual desktop
-        if (prop == LXQtTaskBarWindowProperty::Workspace)
+        // window changed virtual desktop or may change screen
+        if ((prop == LXQtTaskBarWindowProperty::Workspace && parentTaskBar()->isShowOnlyOneDesktopTasks()) ||
+            (prop == LXQtTaskBarWindowProperty::Geometry && parentTaskBar()->isShowOnlyCurrentScreenTasks()))
         {
-            if (parentTaskBar()->isShowOnlyOneDesktopTasks()
-                || parentTaskBar()->isShowOnlyCurrentScreenTasks())
-            {
-                needsRefreshVisibility = true;
-            }
+            needsRefreshVisibility = true;
         }
 
         if (prop == LXQtTaskBarWindowProperty::Title)
