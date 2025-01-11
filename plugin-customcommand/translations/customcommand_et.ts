@@ -117,7 +117,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Kohtspikker</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="272"/>
