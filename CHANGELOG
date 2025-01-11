@@ -1,3 +1,13 @@
+lxqt-panel-2.1.4 / 2025-01-11
+==============================
+ * Fixed Task Manager when a window is shown on all desktops.
+ * Fixed handling of windows that are on all desktops.
+ * Check visibility of task buttons only relative to task-bar (this fixes icon shift with auto-hiding on Wayland).
+ * Added exclusion list to Task Manager's config.
+ * Added X11-only info for kbindicator.
+ * Added configurable tooltip to Custom Command plugin.
+ * Fixed regression in showing only task buttons of the current screen.
+
 lxqt-panel-2.1.3 / 2024-12-01
 ==============================
  * Taken into account an empty shortcut in Fancy/Main Menu. This also fixes searching with non-Latin keyboard layouts under Wayland.
