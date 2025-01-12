@@ -38,6 +38,7 @@ DomPlugin::DomPlugin(const ILXQtPanelPluginStartupInfo &startupInfo):
     mButton.setAutoRaise(true);
     mButton.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     mButton.setIcon(XdgIcon::fromTheme(QStringLiteral("preferences-plugin")));
+    mButton.setToolTip(tr("Panel DOM Tree"));
     connect(&mButton, &QToolButton::clicked, this, &DomPlugin::showDialog);
 }
 
