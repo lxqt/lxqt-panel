@@ -44,6 +44,8 @@ public:
 private slots:
     void autoRotateChanged(bool autoRotate);
     void fontButtonClicked();
+    void textColorChanged();
+    void textColorResetButtonClicked();
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
     void outputImageCheckBoxChanged(bool outputImage);

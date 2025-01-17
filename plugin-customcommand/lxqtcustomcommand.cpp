@@ -110,6 +110,7 @@ void LXQtCustomCommand::settingsChanged()
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
     mFont = settings()->value(QStringLiteral("font"), QString()).toString(); // the default font should be empty
+    QColor textColor = QColor::fromString(settings()->value(QStringLiteral("textColor")).toString());
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString().trimmed();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     mOutputImage = settings()->value(QStringLiteral("outputImage"), false).toBool();
@@ -138,6 +139,12 @@ void LXQtCustomCommand::settingsChanged()
             mButton->setFont(newFont);
             updateButton();
         }
+    }
+    if (textColor.isValid()) {
+        mButton->setStyleSheet(QStringLiteral("QToolButton{color: %1}").arg(textColor.name()));
+    }
+    else {
+        mButton->setStyleSheet(QString());
     }
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputImage != mOutputImage || oldRepeat != mRepeat)
         shouldRun = true;

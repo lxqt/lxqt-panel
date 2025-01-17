@@ -44,6 +44,8 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
 
     connect(ui->autoRotateCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::autoRotateChanged);
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
+    connect(ui->textColorLabel, &ColorLabel::colorChanged, this, &LXQtCustomCommandConfiguration::textColorChanged);
+    connect(ui->textColorResetButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::textColorResetButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
     connect(ui->outputImageCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::outputImageCheckBoxChanged);
@@ -70,6 +72,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
 
     ui->autoRotateCheckBox->setChecked(settings().value(QStringLiteral("autoRotate"), true).toBool());
     ui->fontButton->setText(settings().value(QStringLiteral("font"), font().toString()).toString());
+    ui->textColorLabel->setColor(QColor::fromString(settings().value(QStringLiteral("textColor")).toString()));
     ui->commandPlainTextEdit->setPlainText(settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString());
     ui->runWithBashCheckBox->setChecked(settings().value(QStringLiteral("runWithBash"), true).toBool());
     ui->outputImageCheckBox->setChecked(settings().value(QStringLiteral("outputImage"), false).toBool());
@@ -105,6 +108,20 @@ void LXQtCustomCommandConfiguration::fontButtonClicked()
         ui->fontButton->setText(fontString);
         settings().setValue(QStringLiteral("font"), fontString);
     }
+}
+
+void LXQtCustomCommandConfiguration::textColorChanged()
+{
+    QColor color = ui->textColorLabel->getColor();
+    QColor oldColor = QColor::fromString(settings().value(QStringLiteral("textColor")).toString());
+    if (color != oldColor)
+        settings().setValue(QStringLiteral("textColor"), color.name());
+}
+
+void LXQtCustomCommandConfiguration::textColorResetButtonClicked()
+{
+    ui->textColorLabel->reset();
+    settings().remove(QStringLiteral("textColor"));
 }
 
 void LXQtCustomCommandConfiguration::commandPlainTextEditChanged()
