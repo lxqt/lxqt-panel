@@ -33,7 +33,7 @@ ColorLabel::ColorLabel(QWidget* parent, Qt::WindowFlags f)
 {
     setFrameStyle(QFrame::Panel | QFrame::Sunken);
     setLineWidth(1);
-    setToolTip(tr("Click to change color."));
+    setToolTip(tr("Click to change color"));
 }
 
 ColorLabel::~ColorLabel() {}
