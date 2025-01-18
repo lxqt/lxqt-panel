@@ -4,6 +4,7 @@ set(HEADERS
     lxqtcustomcommand.h
     custombutton.h
     lxqtcustomcommandconfiguration.h
+    colorLabel.h
 )
 
 set(SOURCES
@@ -11,6 +12,7 @@ set(SOURCES
     lxqtcustomcommand.cpp
     custombutton.cpp
     lxqtcustomcommandconfiguration.cpp
+    colorLabel.cpp
 )
 
 set(UIS
