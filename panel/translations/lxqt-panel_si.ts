@@ -416,17 +416,17 @@ Do you want to remove this panel?</source>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="455"/>
         <source>Configure &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="450"/>
+        <location filename="../plugin.cpp" line="460"/>
         <source>Move &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="458"/>
+        <location filename="../plugin.cpp" line="468"/>
         <source>Remove &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
