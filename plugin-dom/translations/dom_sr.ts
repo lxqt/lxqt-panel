@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sr">
 <context>
+    <name>DomPlugin</name>
+    <message>
+        <location filename="../domplugin.cpp" line="41"/>
+        <source>Panel DOM Tree</source>
+        <translation type="unfinished">Панел DOM дрво</translation>
+    </message>
+</context>
+<context>
     <name>TreeWindow</name>
     <message>
         <location filename="../treewindow.ui" line="14"/>

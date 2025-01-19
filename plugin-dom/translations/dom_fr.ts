@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr">
 <context>
+    <name>DomPlugin</name>
+    <message>
+        <location filename="../domplugin.cpp" line="41"/>
+        <source>Panel DOM Tree</source>
+        <translation type="unfinished">Arborescence DOM du tableau de bord</translation>
+    </message>
+</context>
+<context>
     <name>TreeWindow</name>
     <message>
         <location filename="../treewindow.ui" line="14"/>
