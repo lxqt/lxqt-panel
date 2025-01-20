@@ -352,16 +352,20 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
     d->loadBackend();
 
-    if (QGuiApplication::platformName() == QStringLiteral("xcb"))
+    const auto allScreens = screens();
+
+    if (QGuiApplication::platformName() != QStringLiteral("wayland"))
     {
         // This is a workaround for Qt 5 bug #40681.
-        const auto allScreens = screens();
         for(QScreen* screen : allScreens)
         {
             connect(screen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
         }
         connect(this, &QGuiApplication::screenAdded, this, &LXQtPanelApplication::handleScreenAdded);
-
+    }
+    else
+    {
+        connect(this, &QGuiApplication::screenAdded, this, &LXQtPanelApplication::handleWaylandScreenAdded);
     }
 
     connect(this, &QCoreApplication::aboutToQuit, this, &LXQtPanelApplication::cleanup);
@@ -383,10 +387,37 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
         panels << QStringLiteral("panel1");
     }
 
-    for(const QString& i : std::as_const(panels))
+    for (const QString& i : std::as_const(panels))
     {
+        if (QGuiApplication::platformName() == QStringLiteral("wayland"))
+        {
+            // On Wayland, add a panel that has screen name only if its screen exists.
+            bool found = false;
+            d->mSettings->beginGroup(i);
+            auto screenName = d->mSettings->value(QStringLiteral(CFG_KEY_SCREENNAME)).toString();
+            d->mSettings->endGroup();
+            if (screenName.isEmpty())
+                found = true; // add the panel, anyway
+            else
+            {
+                for (const auto& screen : allScreens)
+                {
+                    if (screen->name() == screenName)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (!found)
+                continue;
+        }
+
         addPanel(i);
     }
+    // if no panel can be added on Wayland, forcefully add the first one
+    if (mPanels.isEmpty())
+        addPanel(panels.at(0));
 }
 
 LXQtPanelApplication::~LXQtPanelApplication()
@@ -436,6 +467,29 @@ void LXQtPanelApplication::handleScreenAdded(QScreen* newScreen)
 {
     // qDebug() << "LXQtPanelApplication::handleScreenAdded" << newScreen;
     connect(newScreen, &QScreen::destroyed, this, &LXQtPanelApplication::screenDestroyed);
+}
+
+void LXQtPanelApplication::handleWaylandScreenAdded(QScreen* newScreen)
+{
+    Q_D(LXQtPanelApplication);
+
+    const QStringList names = d->mSettings->value(QStringLiteral("panels")).toStringList();
+    for (const QString& name : names)
+    {
+        d->mSettings->beginGroup(name);
+        auto screenName = d->mSettings->value(QStringLiteral(CFG_KEY_SCREENNAME)).toString();
+        d->mSettings->endGroup();
+        if (screenName == newScreen->name())
+        {
+            for (const auto& panel : std::as_const(mPanels))
+            {
+                if (panel->name() == name)
+                    return; // the panel already exists (and is hidden)
+            }
+            addPanel(name);
+            return;
+        }
+    }
 }
 
 void LXQtPanelApplication::reloadPanelsAsNeeded()

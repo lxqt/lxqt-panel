@@ -160,6 +160,12 @@ private slots:
      */
     void handleScreenAdded(QScreen* newScreen);
     /*!
+     * \brief Adds the panel whose screen name is that of the new screen
+     * on Wayland if it does not exist.
+     * \param newScreen The QScreen that was created and added.
+     */
+    void handleWaylandScreenAdded(QScreen* newScreen);
+    /*!
      * \brief Handles screen destruction. This is a workaround for a Qt bug.
      * For further information, see the implementation notes.
      * \param screenObj The QScreen that was destroyed.
