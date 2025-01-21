@@ -481,13 +481,18 @@ void LXQtPanelApplication::handleWaylandScreenAdded(QScreen* newScreen)
         d->mSettings->endGroup();
         if (screenName == newScreen->name())
         {
+            bool alreadyExists = false;
             for (const auto& panel : std::as_const(mPanels))
             {
                 if (panel->name() == name)
-                    return; // the panel already exists (and is hidden)
+                { // the panel already exists (and is hidden)
+                    alreadyExists = true;
+                    break;
+                }
             }
+            if (alreadyExists)
+                continue;
             addPanel(name);
-            return;
         }
     }
 }
