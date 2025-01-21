@@ -21,6 +21,13 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="1">
+    <widget class="QRadioButton" name="sizeFixedRB">
+     <property name="text">
+      <string>fixed</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="2">
     <widget class="QSpinBox" name="sizeSB">
      <property name="minimum">
@@ -34,27 +41,17 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QRadioButton" name="sizeExpandRB">
+     <property name="text">
+      <string>expandable</string>
+     </property>
+    </widget>
+   </item>
    <item row="2" column="0">
     <widget class="QLabel" name="labelType">
      <property name="text">
       <string>Space type:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="3">
-    <widget class="QDialogButtonBox" name="buttons">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QRadioButton" name="sizeFixedRB">
-     <property name="text">
-      <string>fixed</string>
      </property>
     </widget>
    </item>
@@ -65,10 +62,13 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1" colspan="2">
-    <widget class="QRadioButton" name="sizeExpandRB">
-     <property name="text">
-      <string>expandable</string>
+   <item row="3" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttons">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Close</set>
      </property>
     </widget>
    </item>
