@@ -21,6 +21,13 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="1">
+    <widget class="QRadioButton" name="sizeFixedRB">
+     <property name="text">
+      <string>fixed</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="2">
     <widget class="QSpinBox" name="sizeSB">
      <property name="minimum">
@@ -31,13 +38,6 @@
      </property>
      <property name="value">
       <number>8</number>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QRadioButton" name="sizeFixedRB">
-     <property name="text">
-      <string>fixed</string>
      </property>
     </widget>
    </item>
