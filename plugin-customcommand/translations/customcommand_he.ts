@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>לחיצה לשינוי צבע</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>בחירת צבע</translation>
     </message>
 </context>
 <context>
@@ -120,12 +120,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="52"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>צבע טקסט</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="62"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>איפוס</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="172"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>חלונית מידע</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>

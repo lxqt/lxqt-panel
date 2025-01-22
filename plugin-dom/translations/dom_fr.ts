@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished">Arborescence DOM du tableau de bord</translation>
+        <translation>Arborescence DOM du tableau de bord</translation>
     </message>
 </context>
 <context>
