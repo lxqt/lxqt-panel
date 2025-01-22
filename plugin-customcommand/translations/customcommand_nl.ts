@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik om de kleur te wĳzigen</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kleur kiezen</translation>
     </message>
 </context>
 <context>
@@ -120,12 +120,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="52"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstkleur</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="62"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaardwaarden</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="172"/>

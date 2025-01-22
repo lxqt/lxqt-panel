@@ -14,7 +14,7 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM Tree</source>
-        <translation></translation>
+        <translation>Panel DOM Tree</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>

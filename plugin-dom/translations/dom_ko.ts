@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished">패널 DOM 트리</translation>
+        <translation>패널 DOM 트리</translation>
     </message>
 </context>
 <context>

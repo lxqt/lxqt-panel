@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished">شجرة DOM للوحة</translation>
+        <translation>لوحة شجرة DOM</translation>
     </message>
 </context>
 <context>
@@ -14,18 +14,18 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM Tree</source>
-        <translation>شجرة DOM للوحة</translation>
+        <translation>لوحة شجرة DOM</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation>الصفة</translation>
+        <translation>ميزة</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
         <source>Value</source>
-        <translation>القيمة</translation>
+        <translation>قيمة</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="76"/>
@@ -35,7 +35,7 @@
     <message>
         <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation>النوع</translation>
+        <translation>نوع</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="106"/>

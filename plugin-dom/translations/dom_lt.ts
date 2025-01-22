@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished">Skydelio DOM medis</translation>
+        <translation>Skydelio DOM medis</translation>
     </message>
 </context>
 <context>
