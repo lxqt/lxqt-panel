@@ -139,6 +139,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     mPosition(ILXQtPanel::PositionBottom),
     mScreenNum(0), //whatever (avoid conditional on uninitialized value)
     mActualScreenNum(0),
+    mWaylandScreenNum(-1), // not set yet (on Wayland)
     mHidable(false),
     mVisibleMargin(true),
     mHideOnOverlap(false),
@@ -215,8 +216,11 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
     connect(qApp, &QApplication::screenRemoved, this, [this] (QScreen* oldScreen) {
         disconnect(oldScreen, &QScreen::virtualGeometryChanged, this, &LXQtPanel::ensureVisible);
         disconnect(oldScreen, &QScreen::geometryChanged, this, &LXQtPanel::ensureVisible);
-        // wait until the screen is really removed because it may contain the panel
-        QTimer::singleShot(0, this, &LXQtPanel::ensureVisible);
+        if (QGuiApplication::platformName() != QStringLiteral("wayland"))
+        {
+            // wait until the screen is really removed because it may contain the panel
+            QTimer::singleShot(0, this, &LXQtPanel::ensureVisible);
+        }
     });
     const auto screens = QApplication::screens();
     for(const auto& screen : screens)
@@ -370,10 +374,39 @@ void LXQtPanel::readSettings()
               mSettings->value(QStringLiteral(CFG_KEY_PERCENT), true).toBool(),
               false);
 
-    mScreenNum = mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), 0).toInt();
-    setPosition(mScreenNum,
-                strToPosition(mSettings->value(QStringLiteral(CFG_KEY_POSITION)).toString(), PositionBottom),
-                false);
+    const auto screens = QApplication::screens();
+    mScreenNum = qBound(0, mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), 0).toInt(), screens.size() - 1);
+    if (QGuiApplication::platformName() == QStringLiteral("wayland"))
+    {
+        // On Wayland, first check the screen name, and if it does not exist, add it.
+        mScreenName = mSettings->value(QStringLiteral(CFG_KEY_SCREENNAME)).toString();
+        mWaylandScreenNum = mScreenNum;
+        if (mScreenName.isEmpty())
+        {
+            mScreenName = screens.at(mWaylandScreenNum)->name();
+            QTimer::singleShot(0, this, [this] { saveSettings(true); }); // save the found name
+        }
+        else
+        {
+            for (int i = 0; i < screens.size(); ++i)
+            {
+                if (screens.at(i)->name() == mScreenName)
+                {
+                    mWaylandScreenNum = i;
+                    break;
+                }
+            }
+        }
+        setPosition(mWaylandScreenNum,
+                    strToPosition(mSettings->value(QStringLiteral(CFG_KEY_POSITION)).toString(), PositionBottom),
+                    false);
+    }
+    else
+    {
+        setPosition(mScreenNum,
+                    strToPosition(mSettings->value(QStringLiteral(CFG_KEY_POSITION)).toString(), PositionBottom),
+                    false);
+    }
 
     setAlignment(Alignment(mSettings->value(QStringLiteral(CFG_KEY_ALIGNMENT), mAlignment).toInt()), false);
 
@@ -422,6 +455,16 @@ void LXQtPanel::saveSettings(bool later)
     mSettings->setValue(QStringLiteral(CFG_KEY_PERCENT), mLengthInPercents);
 
     mSettings->setValue(QStringLiteral(CFG_KEY_SCREENNUM), mScreenNum);
+    if (mWaylandScreenNum >= 0) // on Wayland
+    {
+        if (mScreenName.isEmpty())
+        {
+            const auto screens = QApplication::screens();
+            if (mWaylandScreenNum < screens.size())
+                mScreenName = screens.at(mWaylandScreenNum)->name();
+        }
+        mSettings->setValue(QStringLiteral(CFG_KEY_SCREENNAME), mScreenName);
+    }
     mSettings->setValue(QStringLiteral(CFG_KEY_POSITION), positionToStr(mPosition));
 
     mSettings->setValue(QStringLiteral(CFG_KEY_ALIGNMENT), mAlignment);
@@ -449,10 +492,33 @@ void LXQtPanel::saveSettings(bool later)
  ************************************************/
 void LXQtPanel::ensureVisible()
 {
-    if (!canPlacedOn(mScreenNum, mPosition))
-        setPosition(findAvailableScreen(mPosition), mPosition, false);
+    if (!mScreenName.isEmpty() && QGuiApplication::platformName() == QStringLiteral("wayland"))
+    {
+        // Find the Wayland screen number based on the screen name.
+        mWaylandScreenNum = -1; // first unset it
+        const auto screens = QApplication::screens();
+        for (int i = 0; i < screens.size(); ++i)
+        {
+            if (screens.at(i)->name() == mScreenName)
+            {
+                mWaylandScreenNum = i;
+                break;
+            }
+        }
+        if (mWaylandScreenNum < 0)
+            return;
+        if (!canPlacedOn(mWaylandScreenNum, mPosition))
+            setPosition(findAvailableScreen(mPosition), mPosition, false);
+        else
+            mActualScreenNum = mWaylandScreenNum;
+    }
     else
-        mActualScreenNum = mScreenNum;
+    {
+        if (!canPlacedOn(mScreenNum, mPosition))
+            setPosition(findAvailableScreen(mPosition), mPosition, false);
+        else
+            mActualScreenNum = mScreenNum;
+    }
 
     // the screen size might be changed
     realign();
@@ -1012,7 +1078,8 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
  ************************************************/
 int LXQtPanel::findAvailableScreen(LXQtPanel::Position position)
 {
-    int current = mScreenNum;
+    int current = (mWaylandScreenNum >= 0 ? mWaylandScreenNum // on Wayland
+                                          : mScreenNum);
 
     for (int i = current; i < QApplication::screens().size(); ++i)
         if (canPlacedOn(i, position))
@@ -1181,8 +1248,9 @@ void LXQtPanel::setLength(int length, bool inPercents, bool save)
  ************************************************/
 void LXQtPanel::setPosition(int screen, ILXQtPanel::Position position, bool save)
 {
-    if (mScreenNum == screen &&
-            mPosition == position)
+    if ((mWaylandScreenNum >= 0 ? mWaylandScreenNum // on Wayland
+                                : mScreenNum) == screen
+        && mPosition == position)
         return;
 
     mActualScreenNum = screen;
@@ -1191,7 +1259,13 @@ void LXQtPanel::setPosition(int screen, ILXQtPanel::Position position, bool save
 
     if (save)
     {
-        mScreenNum = screen;
+        if (mWaylandScreenNum >= 0)
+        {
+            mWaylandScreenNum = screen;
+            mScreenName = qApp->screens().at(screen)->name();
+        }
+        else
+            mScreenNum = screen;
         saveSettings(true);
     }
 

@@ -38,6 +38,8 @@
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 
+#define CFG_KEY_SCREENNAME "screen-name" // also used by LXQtPanelApplication (on Wayland)
+
 class QMenu;
 class Plugin;
 class QAbstractItemModel;
@@ -220,7 +222,7 @@ public:
     int length() const { return mLength; }
     bool lengthInPercents() const { return mLengthInPercents; }
     LXQtPanel::Alignment alignment() const { return mAlignment; }
-    int screenNum() const { return mScreenNum; }
+    int screenNum() const { return (mWaylandScreenNum >= 0 ? mWaylandScreenNum : mScreenNum); }
     QColor fontColor() const { return mFontColor; }
     QColor backgroundColor() const { return mBackgroundColor; }
     QString backgroundImage() const { return mBackgroundImage; }
@@ -616,6 +618,23 @@ private:
      * \sa mScreenNum, canPlacedOn(), findAvailableScreen().
      */
     int mActualScreenNum;
+    /**
+     * @brief The Wayland screen number, which is found based on the screen name.
+     * It can be different from mScreenNum and is not saved to the config file.
+     * Its initial value is -1, meaning that it is not set yet.
+     *
+     * \sa mScreenNum, canPlacedOn(), findAvailableScreen().
+     */
+    int mWaylandScreenNum;
+    /**
+     * @brief The name of the Wayland screen, on which this panel should be
+     * shown. If the panel cannot be shown on that screen, LXQtPanel will
+     * determine another screen. The screen that the panel is actually
+     * shown on is stored in mActualScreenNum.
+     *
+     * \sa mScreenNum, mActualScreenNum.
+     */
+    QString mScreenName;
     /**
      * @brief QTimer for delayed saving of changed settings. In many cases,
      * instead of storing changes to disk immediately we start this timer.
