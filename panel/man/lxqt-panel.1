@@ -1,35 +1,39 @@
-.TH lxqt-panel "1" "2015-11-05" "LXQt 0.10.0" "LXQt Desktop Panel Module"
+.TH lxqt-panel "1" "January 2025" "LXQt 2.1.0" "LXQt Panel Module"
 .SH NAME
 lxqt-panel \- Desktop panel for \fBLXQt\fR: The Lightweight Qt Desktop Environment
 .SH SYNOPSIS
-.B lxqt-panel
+.B lxqt-panel [OPTION]
 .br
+.SH OPTIONS
+-h, --help                          Displays help on commandline options.
+.br
+--help-all                          Displays help, including generic Qt options.
+.br
+-v, --version                       Displays version information.
+.br
+-c, --config, --configfile  <file>  Use specific configuration file.
 .SH DESCRIPTION
-This module adds a panel, with optional plugins, to the desktop.
+This module adds one or more panel(s) with optional plugins to the desktop.
 .SH BEHAVIOR
-The panel can be run independently of \fBLXQt\fR, autostarted at logon, and have
-multiple instances. A horizontal bottom panel shows by default on the desktop,
-but the alignment, size, autohide, transparency (requires compositor), and other
-attributes are user configurable.
+Under LXQt the panel module is started automatically and by default a horizontal bottom
+panel is created on the desktop, containing several plugins: fancymenu, desktopswitch,
+quicklaunch, taskbar, statusnotifier, tray, mount, volume, worldclock, showdesktop.
 .P
-The panel is comprised of plugins which provide a visual widget; like the menu,
-clock, or volume. They can be added or removed in the panel Widget settings.
+The panel can be run independently of \fBLXQt\fR, autostarted at logon.
+Outside LXQt an empty bottom panel is added.
+.SH CONFIGURATION
+Position, alignment, size, autohide, transparency (requires compositor), and other
+attributes are configurable by right click.
 .P
-Several plugins are loaded by default; the desktop menu and windows workspaces
-are also managed here.
-.SH CONFIGURATIONS
-Right-click over any plugin to reach the panel Configure settings option, or
-that of each respective plugin.
+The panel is comprised of plugins which provide a visual widget. They can be added, moved
+or removed in the panel widget settings and by right click menu on the widget itself.
 .SH "REPORTING BUGS"
-Report bugs to https://github.com/lxqt/lxqt/issues
+Report bugs to https://github.com/lxqt/lxqt-panel/issues
 .SH "SEE ALSO"
 .\" any module must refer to the session application, for module overview and initiation
-\fBstartlxqt.1\fR  LXQt session initialization and launch script (e.g. in \fB.xinitrc\fR)
+\fBlxqt-session.1\fR  General LXQt overview
 .P
-\fBlxqt-session.1\fR  LXQt \fIoverview\fR and complete session environment
+\fBlxqt-config-session.1\fR Session Settings
 .P
-\fBlxqt-config-session.1\fR  LXQt default and autostart applications settings,
-plus environment settings
-.P
-\fBlxqt-config.1\fR  LXQt settings Configuration Center interface
+\fBlxqt-config.1\fR  LXQt Configuration Center
 .P
