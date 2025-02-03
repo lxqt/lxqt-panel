@@ -83,12 +83,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;wap</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Applications</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>

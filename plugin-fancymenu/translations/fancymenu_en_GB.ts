@@ -77,12 +77,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Keyboard Shortcut</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Click the button to record shortcut:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>

@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="662"/>
         <source>&amp;Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restore</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="670"/>
         <source>Mi&amp;nimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Mi&amp;nimise</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="678"/>

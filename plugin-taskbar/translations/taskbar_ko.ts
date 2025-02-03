@@ -238,17 +238,17 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>쉼표로 구분된 창 클래스 목록</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>작업 표시줄에서 제외</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Icon and text</source>
-        <translation>아이콘 및 글자</translation>
+        <translation>아이콘 및 텍스트</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Only text</source>
-        <translation>글자만</translation>
+        <translation>텍스트만</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
