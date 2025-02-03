@@ -76,12 +76,12 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
         <source> pt</source>
-        <translation type="unfinished"></translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
         <source>Menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu file</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>

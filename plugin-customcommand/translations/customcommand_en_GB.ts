@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Click to change colour</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Colour</translation>
     </message>
 </context>
 <context>

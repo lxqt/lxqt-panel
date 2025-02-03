@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>クリックして色を変更します</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>色の選択</translation>
     </message>
 </context>
 <context>
@@ -120,12 +120,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="52"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストの色</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="62"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>リセット</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="172"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールチップ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>

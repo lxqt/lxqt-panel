@@ -80,13 +80,13 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
-        <translation type="unfinished"></translation>
+        <translation>Below</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
-        <translation type="unfinished"></translation>
+        <translation>Above</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>

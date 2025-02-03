@@ -75,7 +75,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>Icon and text</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>

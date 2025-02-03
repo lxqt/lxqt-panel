@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Keyboard Layout Indicator</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
