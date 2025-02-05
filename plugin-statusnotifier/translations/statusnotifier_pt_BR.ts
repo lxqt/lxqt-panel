@@ -6,12 +6,12 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações do Notificador de Status</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverter a ordem dos itens</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
@@ -27,37 +27,37 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="52"/>
         <source> minute(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> minuto(s)</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="83"/>
         <source>Change visibility of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar visibilidade dos itens</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="96"/>
         <source>Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Item</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="101"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Visibilidade</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Always show</source>
-        <translation type="unfinished"></translation>
+        <translation>Sempre mostrar</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Auto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Esconder automaticamente</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Always hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Sempre esconder</translation>
     </message>
 </context>
 </TS>
