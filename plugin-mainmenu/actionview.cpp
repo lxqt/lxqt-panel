@@ -45,6 +45,8 @@
 #include <QMimeData>
 #include <QUrl>
 
+#include <algorithm>
+
 //==============================
 #ifdef HAVE_MENU_CACHE
 #include <QSortFilterProxyModel>
@@ -130,7 +132,7 @@ namespace
             }
 #endif
             QSize s = QStyledItemDelegate::sizeHint(option, index);
-            s.setWidth(qMin(mMaxItemWidth, s.width()));
+            s.setWidth(std::min(mMaxItemWidth, s.width()));
             return s;
         }
     private:

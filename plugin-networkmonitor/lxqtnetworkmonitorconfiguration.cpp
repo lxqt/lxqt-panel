@@ -29,6 +29,8 @@
 #include "lxqtnetworkmonitorconfiguration.h"
 #include "ui_lxqtnetworkmonitorconfiguration.h"
 
+#include <algorithm>
+
 extern "C" {
 #include <statgrab.h>
 }
@@ -86,7 +88,7 @@ void LXQtNetworkMonitorConfiguration::loadSettings()
         ui->interfaceCB->addItem(QLatin1String(stats[ix].interface_name));
 
     QString interface = settings().value(QStringLiteral("interface")).toString();
-    ui->interfaceCB->setCurrentIndex(qMax(qMin(0, count - 1), ui->interfaceCB->findText(interface)));
+    ui->interfaceCB->setCurrentIndex(std::clamp(count - 1, ui->interfaceCB->findText(interface), 0));
 
     mLockSettingChanges = false;
 }

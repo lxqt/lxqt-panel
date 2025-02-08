@@ -47,6 +47,8 @@
 #include <QToolButton>
 #include <QStyle>
 
+#include <algorithm>
+
 #define ANIMATION_DURATION 250
 
 class ItemMoveAnimation : public QVariantAnimation
@@ -255,9 +257,9 @@ void LayoutItemGrid::doAddToGrid(QLayoutItem *item)
 
     int idx = mNextRow * mColCount + mNextCol;
     mInfoItems[idx] = info;
-    mUsedColCount = qMax(mUsedColCount, mNextCol + 1);
+    mUsedColCount = std::max(mUsedColCount, mNextCol + 1);
     mExpandable = mExpandable || info.expandable;
-    mRowCount = qMax(mRowCount, mNextRow+1);
+    mRowCount = std::max(mRowCount, mNextRow+1);
 
     if (info.separate || mNextCol >= mColCount-1)
     {
@@ -337,7 +339,7 @@ void LayoutItemGrid::update()
                 QSize sz = info.item->sizeHint();
                 info.geometry = QRect(QPoint(x,y), sz);
                 y += sz.height();
-                rw = qMax(rw, sz.width());
+                rw = std::max(rw, sz.width());
             }
             x += rw;
 
@@ -345,7 +347,7 @@ void LayoutItemGrid::update()
                 mExpandableSize += rw;
 
             mSizeHint.setWidth(x);
-            mSizeHint.rheight() = qMax(mSizeHint.rheight(), y);
+            mSizeHint.rheight() = std::max(mSizeHint.rheight(), y);
         }
     }
     else
@@ -365,7 +367,7 @@ void LayoutItemGrid::update()
                 QSize sz = info.item->sizeHint();
                 info.geometry = QRect(QPoint(x,y), sz);
                 x += sz.width();
-                rh = qMax(rh, sz.height());
+                rh = std::max(rh, sz.height());
             }
             y += rh;
 
@@ -373,7 +375,7 @@ void LayoutItemGrid::update()
                 mExpandableSize += rh;
 
             mSizeHint.setHeight(y);
-            mSizeHint.rwidth() = qMax(mSizeHint.rwidth(), x);
+            mSizeHint.rwidth() = std::max(mSizeHint.rwidth(), x);
         }
     }
 
@@ -386,7 +388,7 @@ void LayoutItemGrid::update()
  ************************************************/
 void LayoutItemGrid::setLineSize(int value)
 {
-    mLineSize = qMax(1, value);
+    mLineSize = std::max(1, value);
     invalidate();
 }
 
@@ -396,7 +398,7 @@ void LayoutItemGrid::setLineSize(int value)
  ************************************************/
 void LayoutItemGrid::setColCount(int value)
 {
-    mColCount = qMax(1, value);
+    mColCount = std::max(1, value);
     rebuild();
 }
 
@@ -577,11 +579,11 @@ QSize LXQtPanelLayout::sizeHint() const
     if (isHorizontal())
     {
         return QSize(ls.width() + rs.width(),
-                     qMax(ls.height(), rs.height()));
+                     std::max(ls.height(), rs.height()));
     }
     else
     {
-        return QSize(qMax(ls.width(), rs.width()),
+        return QSize(std::max(ls.width(), rs.width()),
                      ls.height() + rs.height());
     }
 }
@@ -649,7 +651,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     }
 
     // Calc baselines for plugins like button.
-    QList<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    QList<int> baseLines(std::max(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bh = geometry.height() / baseLines.count();
     const int base_center = bh >> 1;
     const int height_remain = 0 < bh ? geometry.height() % baseLines.size() : 0;
@@ -702,10 +704,10 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     int height = bh + (0 < remain-- ? 1 : 0);
                     if (!info.item->expandingDirections().testFlag(Qt::Orientation::Vertical))
-                        height = qMin(info.geometry.height(), height);
-                    height = qMin(geometry.height(), height);
+                        height = std::min(info.geometry.height(), height);
+                    height = std::min(geometry.height(), height);
                     rect.setHeight(height);
-                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
+                    rect.setWidth(std::min(info.geometry.width(), geometry.width()));
                     if (height < bh)
                         rect.moveCenter(QPoint(0, baseLines[c] + base_center));
                     else
@@ -713,7 +715,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                     rect.moveLeft(left);
                 }
 
-                rw = qMax(rw, rect.width());
+                rw = std::max(rw, rect.width());
                 if (visual_h_reversed)
                     rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
@@ -750,10 +752,10 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                 {
                     int height = bh + (0 < remain-- ? 1 : 0);
                     if (!info.item->expandingDirections().testFlag(Qt::Orientation::Vertical))
-                        height = qMin(info.geometry.height(), height);
-                    height = qMin(geometry.height(), height);
+                        height = std::min(info.geometry.height(), height);
+                    height = std::min(geometry.height(), height);
                     rect.setHeight(height);
-                    rect.setWidth(qMin(info.geometry.width(), geometry.width()));
+                    rect.setWidth(std::min(info.geometry.width(), geometry.width()));
                     if (height < bh)
                         rect.moveCenter(QPoint(0, baseLines[c] + base_center));
                     else
@@ -761,7 +763,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
                     rect.moveRight(right);
                 }
 
-                rw = qMax(rw, rect.width());
+                rw = std::max(rw, rect.width());
                 if (visual_h_reversed)
                     rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
@@ -788,7 +790,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     }
 
     // Calc baselines for plugins like button.
-    QList<int> baseLines(qMax(mLeftGrid->colCount(), mRightGrid->colCount()));
+    QList<int> baseLines(std::max(mLeftGrid->colCount(), mRightGrid->colCount()));
     const int bw = geometry.width() / baseLines.count();
     const int base_center = bw >> 1;
     const int width_remain = 0 < bw ? geometry.width() % baseLines.size() : 0;
@@ -838,11 +840,11 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setHeight(std::min(info.geometry.height(), geometry.height()));
                     int width = bw + (0 < remain-- ? 1 : 0);
                     if (!info.item->expandingDirections().testFlag(Qt::Orientation::Horizontal))
-                        width = qMin(info.geometry.width(), width);
-                    width = qMin(geometry.width(), width);
+                        width = std::min(info.geometry.width(), width);
+                    width = std::min(geometry.width(), width);
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
@@ -851,7 +853,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                     rect.moveTop(top);
                 }
 
-                rh = qMax(rh, rect.height());
+                rh = std::max(rh, rect.height());
                 if (visual_h_reversed)
                     rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);
@@ -886,11 +888,11 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                 }
                 else
                 {
-                    rect.setHeight(qMin(info.geometry.height(), geometry.height()));
+                    rect.setHeight(std::min(info.geometry.height(), geometry.height()));
                     int width = bw + (0 < remain-- ? 1 : 0);
                     if (!info.item->expandingDirections().testFlag(Qt::Orientation::Horizontal))
-                        width = qMin(info.geometry.width(), width);
-                    width = qMin(geometry.width(), width);
+                        width = std::min(info.geometry.width(), width);
+                    width = std::min(geometry.width(), width);
                     rect.setWidth(width);
                     if (width < bw)
                         rect.moveCenter(QPoint(baseLines[c] + base_center, 0));
@@ -899,7 +901,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
                     rect.moveBottom(bottom);
                 }
 
-                rh = qMax(rh, rect.height());
+                rh = std::max(rh, rect.height());
                 if (visual_h_reversed)
                     rect.moveLeft(geometry.left() + geometry.right() - rect.x() - rect.width() + 1);
                 setItemGeometry(info.item, rect, mAnimate);

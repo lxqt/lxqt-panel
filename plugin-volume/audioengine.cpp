@@ -32,6 +32,8 @@
 #include <QMetaType>
 #include <QtDebug>
 
+#include <algorithm>
+
 AudioEngine::AudioEngine(QObject *parent) :
     QObject(parent)
 {
@@ -47,8 +49,8 @@ int AudioEngine::volumeBounded(int volume, AudioDevice* device) const
 {
     int maximum = volumeMax(device);
     double v = ((double) volume / 100.0) * maximum;
-    double bounded = qBound<double>(0, v, maximum);
-    return qRound((bounded / maximum) * 100);
+    double bounded = std::clamp<double>(v, 0.0, maximum);
+    return std::round((bounded / maximum) * 100);
 }
 
 

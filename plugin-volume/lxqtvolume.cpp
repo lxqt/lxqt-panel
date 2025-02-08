@@ -215,7 +215,7 @@ void LXQtVolume::handleSinkListChanged()
     {
         if (m_engine->sinks().count() > 0)
         {
-            m_defaultSink = m_engine->sinks().at(qBound(0, m_defaultSinkIndex, m_engine->sinks().count()-1));
+            m_defaultSink = m_engine->sinks().at(std::clamp<qsizetype>(m_defaultSinkIndex, 0, m_engine->sinks().count()-1));
             m_volumeButton->volumePopup()->setDevice(m_defaultSink);
             connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
             connect(m_defaultSink, &AudioDevice::muteChanged, this, [this] { LXQtVolume::showNotification(false); });

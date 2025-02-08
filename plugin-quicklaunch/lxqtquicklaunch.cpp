@@ -44,6 +44,7 @@
 #include <LXQt/GridLayout>
 #include "../panel/pluginsettings.h"
 
+#include <algorithm>
 
 LXQtQuickLaunch::LXQtQuickLaunch(ILXQtPanelPlugin *plugin, QWidget* parent) :
     QFrame(parent),
@@ -242,8 +243,8 @@ void LXQtQuickLaunch::switchButtons(QuickLaunchButton *button1, QuickLaunchButto
     int n1 = mLayout->indexOf(button1);
     int n2 = mLayout->indexOf(button2);
 
-    int l = qMin(n1, n2);
-    int m = qMax(n1, n2);
+    int l = std::min(n1, n2);
+    int m = std::max(n1, n2);
 
     mLayout->moveItem(l, m);
     mLayout->moveItem(m-1, l);
