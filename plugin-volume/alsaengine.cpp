@@ -33,6 +33,7 @@
 #include <QSocketNotifier>
 #include <QtDebug>
 
+#include <cmath>
 #include <algorithm>
 
 MixerHandler::MixerHandler(snd_mixer_t * mixer, QObject * parent /*= nullptr*/)

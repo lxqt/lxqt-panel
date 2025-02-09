@@ -30,6 +30,8 @@
 #include <QDebug>
 #include "sliderdialog.h"
 
+#include <cmath>
+#include <algorithm>
 
 SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {

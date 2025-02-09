@@ -39,6 +39,7 @@
 #include <QVBoxLayout>
 #include <QCoreApplication>
 
+#include <cmath>
 #include <algorithm>
 
 LXQtSysStat::LXQtSysStat(const ILXQtPanelPluginStartupInfo &startupInfo):
