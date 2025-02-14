@@ -74,6 +74,7 @@ private:
     int getMaxLength();
 
     // old values for reset
+    int mOldPadding;
     int mOldPanelSize;
     int mOldIconSize;
     int mOldLineCount;
