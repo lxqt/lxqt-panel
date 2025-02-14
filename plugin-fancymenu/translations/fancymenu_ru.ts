@@ -117,7 +117,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation>Снизу</translation>
+        <translation>Внизу</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>

@@ -87,12 +87,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Search</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Clear search upon showing menu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>

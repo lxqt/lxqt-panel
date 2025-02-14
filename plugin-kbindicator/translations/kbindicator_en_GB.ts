@@ -85,12 +85,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Switching policy</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Flags path pattern:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>

@@ -80,12 +80,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
         <source>Choose Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose Base Directory</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Choose Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose Icon</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>

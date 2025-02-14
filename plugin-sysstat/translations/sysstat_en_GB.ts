@@ -93,7 +93,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Buffers</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>

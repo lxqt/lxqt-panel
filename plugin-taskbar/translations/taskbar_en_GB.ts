@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="678"/>
         <source>Roll down</source>
-        <translation type="unfinished"></translation>
+        <translation>Roll down</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="686"/>
         <source>Roll up</source>
-        <translation type="unfinished"></translation>
+        <translation>Roll up</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="695"/>
