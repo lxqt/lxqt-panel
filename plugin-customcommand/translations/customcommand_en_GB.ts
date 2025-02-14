@@ -87,12 +87,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Browse</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorotate when the panel is vertical</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="94"/>
