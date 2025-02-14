@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>ਖੋਜੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>ਵੱਧ ਤੋਂ ਵੱਧ ਆਈਟਮ ਚੌੜਾਈ:</translation>
     </message>
@@ -104,12 +104,12 @@ Do you want to overwrite it?</source>
         <translation>ਮਿਲਦੀਆਂ ਐਂਟਰੀਆਂ ਵੇਖਾਓ:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>ਵੱਧ ਤੋਂ ਵੱਧ ਦਿਸਣ ਵਾਲੀਆਂ ਆਈਟਮਾਂ:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>ਮੇਨੂ ਆਈਟਮਾਂ ਫਿਲਟਰ ਕਰੋ</translation>
     </message>
@@ -134,7 +134,7 @@ Do you want to overwrite it?</source>
         <translation>ਕੀਬੋਰਡ ਸ਼ਾਰਟਕੱਟ</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>ਸ਼ਾਰਟਕੱਟ ਰਿਕਾਰਡ ਕਰਨ ਦੌਰਾਨ ਬਟਨ ਨੂੰ ਕਲਿੱਕ ਕਰੋ:</translation>
     </message>

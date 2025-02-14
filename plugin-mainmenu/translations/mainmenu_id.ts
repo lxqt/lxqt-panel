@@ -93,7 +93,7 @@ Do you want to overwrite it?</source>
         <translation>Cari</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maks. lebar item:</translation>
     </message>
@@ -103,12 +103,12 @@ Do you want to overwrite it?</source>
         <translation>Tampilkan entri yang cocok:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maksimal item yang terlihat:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filter entri menu</translation>
     </message>
@@ -133,7 +133,7 @@ Do you want to overwrite it?</source>
         <translation>Pintasan Keyboard</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klik tombol untuk merekam pintasan:</translation>
     </message>

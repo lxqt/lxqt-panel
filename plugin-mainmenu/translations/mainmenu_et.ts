@@ -94,7 +94,7 @@ Kas sa soovid seda üle kirjutada?</translation>
         <translation>Kust otsime</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Tulemuste suurim laius:</translation>
     </message>
@@ -104,12 +104,12 @@ Kas sa soovid seda üle kirjutada?</translation>
         <translation>Näita otsingutulemusi:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Kirjete arv:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtreeri menüükirjeid</translation>
     </message>
@@ -134,7 +134,7 @@ Kas sa soovid seda üle kirjutada?</translation>
         <translation>Kiirklahv</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Kiirklahvi salvestamiseks klõpsi nuppu:</translation>
     </message>

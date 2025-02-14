@@ -94,7 +94,7 @@ Deseja substituir o ficheiro existente?</translation>
         <translation>Pesquisar</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Largura máxima do item:</translation>
     </message>
@@ -104,12 +104,12 @@ Deseja substituir o ficheiro existente?</translation>
         <translation>Mostrar entradas coincidentes:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>N.º máximo de itens visíveis:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrar entradas de menu</translation>
     </message>
@@ -134,7 +134,7 @@ Deseja substituir o ficheiro existente?</translation>
         <translation>Atalho de teclado</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Clique no botão para registar o atalho:</translation>
     </message>

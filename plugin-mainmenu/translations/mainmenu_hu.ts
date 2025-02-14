@@ -94,7 +94,7 @@ Felül szeretné írni?</translation>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maximum elemszélesség:</translation>
     </message>
@@ -104,12 +104,12 @@ Felül szeretné írni?</translation>
         <translation>Egyezések:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maximálisan látható elemek:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Menüelemek keresése</translation>
     </message>
@@ -134,7 +134,7 @@ Felül szeretné írni?</translation>
         <translation>Gyorsbillentyű</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Gyorsbillentyű beállítása:</translation>
     </message>

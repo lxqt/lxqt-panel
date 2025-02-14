@@ -94,7 +94,7 @@ Ar norite jį perrašyti?</translation>
         <translation>Paieška</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Didžiausias elemento plotis:</translation>
     </message>
@@ -104,12 +104,12 @@ Ar norite jį perrašyti?</translation>
         <translation>Rodyti atitinkančius įrašus:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Daugiausia matomų elementų:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtruoti meniu įrašus</translation>
     </message>
@@ -134,7 +134,7 @@ Ar norite jį perrašyti?</translation>
         <translation>Spartusis klavišas</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Spustelėkite mygtuką, kad įrašytumėte spartųjį klavišą:</translation>
     </message>

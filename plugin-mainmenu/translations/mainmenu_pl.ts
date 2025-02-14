@@ -94,7 +94,7 @@ Czy chcesz go nadpisać?</translation>
         <translation>Wyszukiwanie</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maksymalna szerokość elementu:</translation>
     </message>
@@ -104,12 +104,12 @@ Czy chcesz go nadpisać?</translation>
         <translation>Pokazuj pasujące elementy:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Widoczne pozycje (maks.):</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtruj pozycje menu</translation>
     </message>
@@ -134,7 +134,7 @@ Czy chcesz go nadpisać?</translation>
         <translation>Skrót klawiatury</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Wciśnij przycisk aby ustawić skrót:</translation>
     </message>

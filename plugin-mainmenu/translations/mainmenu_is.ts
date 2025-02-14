@@ -94,7 +94,7 @@ Viltu skrifa yfir hana?</translation>
         <translation>Leita</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Hámarksbreidd:</translation>
     </message>
@@ -104,12 +104,12 @@ Viltu skrifa yfir hana?</translation>
         <translation>Sýna samsvarandi færslur:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Hámark sýnilegra hluta:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Síaðar valmyndarfærslur</translation>
     </message>
@@ -134,7 +134,7 @@ Viltu skrifa yfir hana?</translation>
         <translation>Lyklaborðsskammval</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Sláðu á lykilinn til að skrá nýtt skammval:</translation>
     </message>

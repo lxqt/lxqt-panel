@@ -94,7 +94,7 @@ Wilt u dit overschrijven?</translation>
         <translation>Sneltoets</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klik op de knop om de sneltoets vast te leggen:</translation>
     </message>
@@ -104,7 +104,7 @@ Wilt u dit overschrijven?</translation>
         <translation>Zoeken</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maximale itembreedte:</translation>
     </message>
@@ -114,12 +114,12 @@ Wilt u dit overschrijven?</translation>
         <translation>Overeenkomende onderdelen tonen:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maximaal aantal getoonde items:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Menu-items filteren</translation>
     </message>

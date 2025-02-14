@@ -14,17 +14,17 @@
         <translation>רוחב הרווח:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="40"/>
+        <location filename="../spacerconfiguration.ui" line="54"/>
         <source>Space type:</source>
         <translation>סוג רווח:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="57"/>
+        <location filename="../spacerconfiguration.ui" line="27"/>
         <source>fixed</source>
         <translation>קבוע</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="71"/>
+        <location filename="../spacerconfiguration.ui" line="47"/>
         <source>expandable</source>
         <translation>מתרחב</translation>
     </message>

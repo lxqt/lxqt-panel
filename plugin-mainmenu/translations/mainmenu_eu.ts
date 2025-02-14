@@ -94,7 +94,7 @@ Gainidatzi nahi al duzu?</translation>
         <translation>Bilatu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Max. elementuaren zabalera:</translation>
     </message>
@@ -104,12 +104,12 @@ Gainidatzi nahi al duzu?</translation>
         <translation>Erakutsi bat datozen sarrerak:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Gehienezko elementu ikusgai:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Iragazi menuko sarrerak</translation>
     </message>
@@ -134,7 +134,7 @@ Gainidatzi nahi al duzu?</translation>
         <translation>Teklatuko lasterbidea</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klikatu botoia lasterbidea grabatzeko:</translation>
     </message>

@@ -93,7 +93,7 @@ Do you want to overwrite it?</source>
         <translation>Cautare</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Lățime maxima obiect:</translation>
     </message>
@@ -103,12 +103,12 @@ Do you want to overwrite it?</source>
         <translation>Arata valorile identice:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Numar maxim de obiecte vizibile:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Intrări pentru meniul Filtre</translation>
     </message>
@@ -133,7 +133,7 @@ Do you want to overwrite it?</source>
         <translation>Tastă rapidă</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Apăsați butonul pentru a memora tasta rapidă:</translation>
     </message>

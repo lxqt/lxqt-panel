@@ -14,17 +14,17 @@
         <translation>Space width:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="40"/>
+        <location filename="../spacerconfiguration.ui" line="54"/>
         <source>Space type:</source>
         <translation>Space type:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="57"/>
+        <location filename="../spacerconfiguration.ui" line="27"/>
         <source>fixed</source>
         <translation>fixed</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="71"/>
+        <location filename="../spacerconfiguration.ui" line="47"/>
         <source>expandable</source>
         <translation>expandable</translation>
     </message>

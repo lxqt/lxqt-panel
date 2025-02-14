@@ -94,7 +94,7 @@ Sovrascriverlo?</translation>
         <translation>Ricerca</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Dimensione massima:</translation>
     </message>
@@ -104,12 +104,12 @@ Sovrascriverlo?</translation>
         <translation>Mostra risultati:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Numero massimo:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtra le categorie</translation>
     </message>
@@ -134,7 +134,7 @@ Sovrascriverlo?</translation>
         <translation>Scorciatoia da tastiera</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Fai clic sul pulsante per impostare una scorciatoia:</translation>
     </message>

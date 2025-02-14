@@ -94,7 +94,7 @@ Você deseja sobrescrevê-lo?</translation>
         <translation>Pesquisar</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Largura máx. do item:</translation>
     </message>
@@ -104,12 +104,12 @@ Você deseja sobrescrevê-lo?</translation>
         <translation>Exibir entradas correspondentes:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Número máximo de itens:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrar entradas do menu</translation>
     </message>
@@ -134,7 +134,7 @@ Você deseja sobrescrevê-lo?</translation>
         <translation>Atalho de teclado</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Clique no botão para gravar o atalho:</translation>
     </message>

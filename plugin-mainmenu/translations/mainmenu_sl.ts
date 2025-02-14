@@ -93,7 +93,7 @@ Do you want to overwrite it?</source>
         <translation>Iskanje</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maks. širina vnosa:</translation>
     </message>
@@ -103,12 +103,12 @@ Do you want to overwrite it?</source>
         <translation>Prikaz ujemanj iskanja:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Največje število elementov:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Ne išči po kategorijah</translation>
     </message>
@@ -133,7 +133,7 @@ Do you want to overwrite it?</source>
         <translation>Tipkovna bližnjica</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Kliknite gumb za nastavitev bližnjice:</translation>
     </message>

@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>Tipkovni prečac</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Pritisni gumb za snimanje pračaca:</translation>
     </message>
@@ -104,7 +104,7 @@ Do you want to overwrite it?</source>
         <translation>Pretraga</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maks. širina elementa:</translation>
     </message>
@@ -114,12 +114,12 @@ Do you want to overwrite it?</source>
         <translation>Prikaži poklapajuće unose:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maks. broj vidljivih elemenata:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtriraj unose izbornika</translation>
     </message>

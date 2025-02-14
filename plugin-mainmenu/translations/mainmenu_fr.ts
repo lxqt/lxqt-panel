@@ -94,7 +94,7 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
         <translation>Recherche</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Largeur maxi d&apos;une entrée :</translation>
     </message>
@@ -104,12 +104,12 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
         <translation>Afficher les entrées correspondantes :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Nombre maximum d&apos;éléments visibles :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrer les entrées de menu</translation>
     </message>
@@ -134,7 +134,7 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
         <translation>Raccourci clavier</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Cliquer sur le bouton pour enregistrer le raccourci :</translation>
     </message>
