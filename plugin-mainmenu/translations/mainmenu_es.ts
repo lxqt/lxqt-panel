@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Ancho máximo del elemento:</translation>
     </message>
@@ -104,12 +104,12 @@ Do you want to overwrite it?</source>
         <translation>Mostrar entradas coincidentes:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Número máximo de elementos visibles:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrar las entradas del menú</translation>
     </message>
@@ -134,7 +134,7 @@ Do you want to overwrite it?</source>
         <translation>Atajo de teclado</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Presione el botón para registrar el atajo:</translation>
     </message>

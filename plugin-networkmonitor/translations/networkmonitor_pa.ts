@@ -62,32 +62,32 @@
         <translation>ਆਮ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
         <source>Interface</source>
         <translation>ਇੰਟਰਫੇਸ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Modem</source>
         <translation>ਮਾਡਮ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Monitor</source>
         <translation>ਮਾਨੀਟਰ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Network</source>
         <translation>ਨੈੱਟਵਰਕ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
         <source>Wireless</source>
         <translation>ਬੇਤਾਰ</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
         <source>Icon</source>
         <translation>ਆਈਕਾਨ</translation>
     </message>

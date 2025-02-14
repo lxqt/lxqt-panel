@@ -194,43 +194,43 @@
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
-        <source>Top of desktop</source>
-        <translation>Em cima</translation>
+        <source>Top of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
-        <source>Left of desktop</source>
-        <translation>À esquerda</translation>
+        <source>Left of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
-        <source>Right of desktop</source>
-        <translation>À direita</translation>
+        <source>Right of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
-        <source>Bottom of desktop</source>
-        <translation>Em baixo</translation>
+        <source>Bottom of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
-        <source>Top of desktop %1</source>
-        <translation>Em cima, ambiente de trabalho %1</translation>
+        <source>Top of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
-        <source>Left of desktop %1</source>
-        <translation>À esquerda, ambiente de trabalho %1</translation>
+        <source>Left of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
-        <source>Right of desktop %1</source>
-        <translation>À direita, ambiente de trabalho %1</translation>
+        <source>Right of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
-        <source>Bottom of desktop %1</source>
-        <translation>Em baixo, ambiente de trabalho %1</translation>
+        <source>Bottom of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -376,45 +376,45 @@ Colorir ícones tendo por base o estilo do widget (paleta)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1419"/>
-        <location filename="../lxqtpanel.cpp" line="1445"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>Painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1448"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>Configurar painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1453"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>Gerir widgets</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1459"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>Adicionar novo painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1466"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Remover painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1471"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>Bloquear este painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1634"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Remover painel</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1635"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Não pode reverter a remoção de um painel.

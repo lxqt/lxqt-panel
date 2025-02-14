@@ -14,17 +14,17 @@
         <translation>间隔宽度:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="40"/>
+        <location filename="../spacerconfiguration.ui" line="54"/>
         <source>Space type:</source>
         <translation>间隔类型:</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="57"/>
+        <location filename="../spacerconfiguration.ui" line="27"/>
         <source>fixed</source>
         <translation>固定</translation>
     </message>
     <message>
-        <location filename="../spacerconfiguration.ui" line="71"/>
+        <location filename="../spacerconfiguration.ui" line="47"/>
         <source>expandable</source>
         <translation>扩展</translation>
     </message>

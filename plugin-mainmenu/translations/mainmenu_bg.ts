@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>Търсене</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Максимална ширина на поле:</translation>
     </message>
@@ -104,12 +104,12 @@ Do you want to overwrite it?</source>
         <translation>Показване на съвпаденията:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Максимум видими полета:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Филтриране на полетата на менюто</translation>
     </message>
@@ -134,7 +134,7 @@ Do you want to overwrite it?</source>
         <translation>Клавишна комбинация</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Натиснете бутона за запис на комбинация:</translation>
     </message>

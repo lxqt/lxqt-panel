@@ -194,43 +194,43 @@
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
-        <source>Top of desktop</source>
-        <translation>ਡੈਸਕਟਾਪ ਦੇ ਉੱਤੇ</translation>
+        <source>Top of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
-        <source>Left of desktop</source>
-        <translation>ਡੈਸਕਟਾਪ ਦੇ ਖੱਬੇ</translation>
+        <source>Left of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
-        <source>Right of desktop</source>
-        <translation>ਡੈਸਕਟਾਪ ਦੇ ਸੱਜੇ</translation>
+        <source>Right of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
-        <source>Bottom of desktop</source>
-        <translation>ਡੈਸਕਟਾਪ ਦੇ ਹੇਠਾਂ</translation>
+        <source>Bottom of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
-        <source>Top of desktop %1</source>
-        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਉੱਤੇ</translation>
+        <source>Top of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
-        <source>Left of desktop %1</source>
-        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਖੱਬੇ</translation>
+        <source>Left of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
-        <source>Right of desktop %1</source>
-        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਸੱਜੇ</translation>
+        <source>Right of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
-        <source>Bottom of desktop %1</source>
-        <translation>ਡੈਸਕਟਾਪ %1 ਦੇ ਹੇਠਾਂ</translation>
+        <source>Bottom of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -369,45 +369,45 @@ Colorize icons based on widget style (palette)</source>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1419"/>
-        <location filename="../lxqtpanel.cpp" line="1445"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>ਪੈਨਲ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1448"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>ਪੈਨਲ ਦੀ ਸੰਰਨਾ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1453"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>ਵਿਜੈਟ ਦਾ ਇੰਤਜ਼ਾਮ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1459"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>ਨਵਾਂ ਪੈਨਲ ਜੋੜੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1466"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>ਪੈਨਲ ਨੂੰ ਹਟਾਓ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1471"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>ਇਹ ਪੈਨਲ ਨੂੰ ਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1634"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>ਪੈਨਲ ਨੂੰ ਹਟਾਓ</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1635"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>ਪੈਨਲ ਨੂੰ ਹਟਾਉਣ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।

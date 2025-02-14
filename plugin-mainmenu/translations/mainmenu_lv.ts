@@ -94,7 +94,7 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
         <translation>Meklēšana</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maksimālais vienības platums:</translation>
     </message>
@@ -104,12 +104,12 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
         <translation>Parādīt sakrītošos ierakstus/punktus:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Redzamo elementu maks. skaits:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrēt izvēlnes elementus/punktus</translation>
     </message>
@@ -134,7 +134,7 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
         <translation>Tastatūras īsceļi</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Nospiediet pogu, lai ierakstītu īsceļu:</translation>
     </message>

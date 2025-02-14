@@ -94,7 +94,7 @@ Lo volètz remplaçar&#x202f;?</translation>
         <translation>Recercar</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Largor maxi d’una entrada&#x202f;:</translation>
     </message>
@@ -104,12 +104,12 @@ Lo volètz remplaçar&#x202f;?</translation>
         <translation>Mostrar las entradas correspondentas&#x202f;:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Nombre maximum d’elements visibles&#x202f;:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrar las entradas de menú</translation>
     </message>
@@ -134,7 +134,7 @@ Lo volètz remplaçar&#x202f;?</translation>
         <translation>Acorchi de clavièr</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Clicatz lo boton per enregistrar l’acorchi&#x202f;:</translation>
     </message>

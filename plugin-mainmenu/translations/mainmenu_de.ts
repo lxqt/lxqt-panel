@@ -94,7 +94,7 @@ Möchten Sie diese überschreiben?</translation>
         <translation>Tastenkürzel</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klicken Sie auf die Schaltfläche, um ein Tastenkürzel aufzunehmen:</translation>
     </message>
@@ -104,7 +104,7 @@ Möchten Sie diese überschreiben?</translation>
         <translation>Suchen</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Max. Elementbreite:</translation>
     </message>
@@ -114,12 +114,12 @@ Möchten Sie diese überschreiben?</translation>
         <translation>Passende Einträge anzeigen:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maximal sichtbare Einträge:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Menüeinträge filtern</translation>
     </message>

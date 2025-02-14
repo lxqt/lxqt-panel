@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>Søk</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maks. elementbredde:</translation>
     </message>
@@ -104,12 +104,12 @@ Do you want to overwrite it?</source>
         <translation>Vis matchende oppføringer:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maks. synlige elementer:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrer menyoppføringer</translation>
     </message>
@@ -134,7 +134,7 @@ Do you want to overwrite it?</source>
         <translation>Tastatursnarvei</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klikk knappen for å registrere tastatursnarvei:</translation>
     </message>

@@ -62,32 +62,32 @@
         <translation>Általános</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
         <source>Interface</source>
         <translation>Eszköz</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="56"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Modem</source>
         <translation>Modem</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="65"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Monitor</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="74"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Network</source>
         <translation>Hálózat</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
         <source>Wireless</source>
         <translation>Vezeték nélküli</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="95"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>

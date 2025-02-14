@@ -95,7 +95,7 @@ Do you want to overwrite it?</source>
         <translation>البحث</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>أقصى عرض للعنصر:</translation>
     </message>
@@ -105,12 +105,12 @@ Do you want to overwrite it?</source>
         <translation>اعرض المدخلات المتطابقة:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>أقصى عدد للعناصر الظاهرة:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>رشّح مدخلات القائمة</translation>
     </message>
@@ -135,7 +135,7 @@ Do you want to overwrite it?</source>
         <translation>اختصار لوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>انقر الزرّ لتسجيل اختصار:</translation>
     </message>

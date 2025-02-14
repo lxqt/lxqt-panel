@@ -19,32 +19,32 @@
         <translation>更新间隔（秒）</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
         <translation>温度条宽度</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Temperature scale</source>
         <translation>温标</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="116"/>
         <source>Celsius</source>
         <translation>摄氏度</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="126"/>
         <source>Fahrenheit</source>
         <translation>华氏度</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
         <translation>当温度过高时闪烁状态栏</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
         <source>Warning about high temperature</source>
         <translation>高温警告</translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>传感器</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
         <translation>检测到的芯片:</translation>
     </message>

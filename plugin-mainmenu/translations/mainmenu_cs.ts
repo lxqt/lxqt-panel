@@ -94,7 +94,7 @@ Chcete ho přepsat?</translation>
         <translation>Hledat</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Největší šířka položky:</translation>
     </message>
@@ -104,12 +104,12 @@ Chcete ho přepsat?</translation>
         <translation>Zobrazit odpovídající položky:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Nejvýše viditelných položek:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrovat položky nabídky</translation>
     </message>
@@ -134,7 +134,7 @@ Chcete ho přepsat?</translation>
         <translation>Klávesová zkratka</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klávesovou zkratku zaznamenáte kliknutím na tlačítko:</translation>
     </message>

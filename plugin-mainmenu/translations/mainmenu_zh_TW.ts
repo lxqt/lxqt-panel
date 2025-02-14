@@ -94,7 +94,7 @@ Do you want to overwrite it?</source>
         <translation>搜尋</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>最大物件寬度：</translation>
     </message>
@@ -104,12 +104,12 @@ Do you want to overwrite it?</source>
         <translation>顯示符合項目：</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>最大可見物件：</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>過濾選單項目</translation>
     </message>
@@ -134,7 +134,7 @@ Do you want to overwrite it?</source>
         <translation>快捷鍵</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>按下按鈕並設定為快捷鍵：</translation>
     </message>

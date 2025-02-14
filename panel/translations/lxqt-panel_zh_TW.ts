@@ -194,43 +194,43 @@
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
-        <source>Top of desktop</source>
-        <translation>桌面頂端</translation>
+        <source>Top of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
-        <source>Left of desktop</source>
-        <translation>桌面左方</translation>
+        <source>Left of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
-        <source>Right of desktop</source>
-        <translation>桌面右方</translation>
+        <source>Right of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
-        <source>Bottom of desktop</source>
-        <translation>桌面底端</translation>
+        <source>Bottom of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
-        <source>Top of desktop %1</source>
-        <translation>桌面頂端 %1</translation>
+        <source>Top of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
-        <source>Left of desktop %1</source>
-        <translation>桌面左方 %1</translation>
+        <source>Left of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
-        <source>Right of desktop %1</source>
-        <translation>桌面右方 %1</translation>
+        <source>Right of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
-        <source>Bottom of desktop %1</source>
-        <translation>桌面底端 %1</translation>
+        <source>Bottom of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -376,45 +376,45 @@ LXQt外觀配置→
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1419"/>
-        <location filename="../lxqtpanel.cpp" line="1445"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1448"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>配置面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1453"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>管理小工具</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1459"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>新增面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1466"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>移除面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1471"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>鎖定此面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1634"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>移除面板</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1635"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>移除面板是不可回復的。

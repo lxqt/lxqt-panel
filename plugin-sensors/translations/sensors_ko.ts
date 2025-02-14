@@ -19,32 +19,32 @@
         <translation>업데이트 간격(초)</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
         <translation>온도 막대 폭</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Temperature scale</source>
         <translation>온도 눈금</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="116"/>
         <source>Celsius</source>
         <translation>섭씨</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="126"/>
         <source>Fahrenheit</source>
         <translation>화씨</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
         <translation>온도가 너무 높으면 상태 표시줄 깜박임</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
         <source>Warning about high temperature</source>
         <translation>고온에 대한 경고</translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>센서</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
         <translation>감지된 칩:</translation>
     </message>

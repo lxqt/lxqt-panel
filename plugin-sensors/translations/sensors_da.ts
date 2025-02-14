@@ -19,32 +19,32 @@
         <translation>Genopfriskningsinterval (sekunder)</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
         <translation>Temperaturbjælkens bredde</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Temperature scale</source>
         <translation>Temperaturskala</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="116"/>
         <source>Celsius</source>
         <translation>Celsius</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="126"/>
         <source>Fahrenheit</source>
         <translation>Fahrenheit</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
         <translation>Få statuslinjerne til at blinke når temperaturen er for høj</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
         <source>Warning about high temperature</source>
         <translation>Advarsel om høj temperatur</translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>Sensorer</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
         <translation>Fundne chips:</translation>
     </message>

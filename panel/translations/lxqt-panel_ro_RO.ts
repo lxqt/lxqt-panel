@@ -194,43 +194,43 @@
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
-        <source>Top of desktop</source>
-        <translation>Partea de sus a ecranului</translation>
+        <source>Top of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
-        <source>Left of desktop</source>
-        <translation>Stânga ecranului</translation>
+        <source>Left of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
-        <source>Right of desktop</source>
-        <translation>Dreapta ecranului</translation>
+        <source>Right of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
-        <source>Bottom of desktop</source>
-        <translation>Partea de jos a ecranului</translation>
+        <source>Bottom of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
-        <source>Top of desktop %1</source>
-        <translation>Partea de sus a ecranului %1</translation>
+        <source>Top of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
-        <source>Left of desktop %1</source>
-        <translation>Stânga ecranului %1</translation>
+        <source>Left of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
-        <source>Right of desktop %1</source>
-        <translation>Dreapta ecranului %1</translation>
+        <source>Right of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
-        <source>Bottom of desktop %1</source>
-        <translation>Partea de jos a ecranului %1</translation>
+        <source>Bottom of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -376,45 +376,45 @@ Colorează pictogramele pe baza stilului widgetului (paletei)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1419"/>
-        <location filename="../lxqtpanel.cpp" line="1445"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>Panou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1448"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>Configurează panoul</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1453"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>Gestionează Widget-uri</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1459"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>Adauga Panou nou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1466"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Șterge Panou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1471"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>Blocheaza acest Panou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1634"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Șterge panou</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1635"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Înlăturarea acestui panou nu poate fi anulata.

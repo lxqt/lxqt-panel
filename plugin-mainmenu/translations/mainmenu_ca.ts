@@ -94,7 +94,7 @@ Voleu sobreescriure&apos;l?</translation>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Amplada màx. de l&apos;ítem:</translation>
     </message>
@@ -104,12 +104,12 @@ Voleu sobreescriure&apos;l?</translation>
         <translation>Mostra les entrades coincidents:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Nombre màxim d&apos;ítems visibles:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtra les entrades del menú</translation>
     </message>
@@ -134,7 +134,7 @@ Voleu sobreescriure&apos;l?</translation>
         <translation>Drecera de teclat</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Feu clic al botó per enregistrar la drecera:</translation>
     </message>

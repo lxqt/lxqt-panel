@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lg">
+<TS version="2.1" language="de">
 <context>
     <name>AddPluginDialog</name>
     <message>
@@ -194,43 +194,43 @@
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
-        <source>Top of desktop</source>
-        <translation>Waggulu ku lutimbe</translation>
+        <source>Top of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
-        <source>Left of desktop</source>
-        <translation>Ku kkono w&apos;olutimbe</translation>
+        <source>Left of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
-        <source>Right of desktop</source>
-        <translation>Ku ddyo w&apos;olutimbe</translation>
+        <source>Right of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
-        <source>Bottom of desktop</source>
-        <translation>Ku lutimbe wansi</translation>
+        <source>Bottom of screen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
-        <source>Top of desktop %1</source>
-        <translation>Waggulu ku lutimbe namba %1</translation>
+        <source>Top of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
-        <source>Left of desktop %1</source>
-        <translation>Ku kkono w&apos;olutimbe namba %1</translation>
+        <source>Left of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
-        <source>Right of desktop %1</source>
-        <translation>Ku ddyo w&apos;olutimbe namba %1</translation>
+        <source>Right of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
-        <source>Bottom of desktop %1</source>
-        <translation>Ku lutimbe namba %1 wansi</translation>
+        <source>Bottom of screen %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -378,45 +378,45 @@ lw&apos;obutundu bw&apos;awakolerwa</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1334"/>
-        <location filename="../lxqtpanel.cpp" line="1360"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>Lubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1363"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>Teekateeka lubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1368"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>Teekateeka Butundu</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1374"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>Yongerwo olubaawo olulala</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1381"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Gyawo olubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1386"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>Olubaawo luno lusibirewo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1549"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Gyawo olubaawo</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1550"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Olubaawo bw&apos;olugyawo okuluzzawo olina okutandika lupya.
@@ -426,17 +426,17 @@ Luno ddala oyagala okulugyawo?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="445"/>
+        <location filename="../plugin.cpp" line="455"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Teekateka &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="450"/>
+        <location filename="../plugin.cpp" line="460"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Simbuliza &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="458"/>
+        <location filename="../plugin.cpp" line="468"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Gyawo &quot;%1&quot;</translation>
     </message>

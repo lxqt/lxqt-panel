@@ -94,7 +94,7 @@ Vil du overskrive den?</translation>
         <translation>Søg</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
         <translation>Maks. bredde for objekt:</translation>
     </message>
@@ -104,12 +104,12 @@ Vil du overskrive den?</translation>
         <translation>Vis tilhørende punkter:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
         <translation>Maksimum synlige objekter:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
         <source>Filter menu entries</source>
         <translation>Filtrér menupunkter</translation>
     </message>
@@ -134,7 +134,7 @@ Vil du overskrive den?</translation>
         <translation>Tastaturgenvej</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="146"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klik på knappen for at optage genvej:</translation>
     </message>

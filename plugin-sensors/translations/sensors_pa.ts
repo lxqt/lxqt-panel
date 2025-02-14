@@ -19,32 +19,32 @@
         <translation>ਅੱਪਡੇਟ ਦਾ ਅੰਤਰਾਲ (ਸਕਿੰਟ)</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
         <translation>ਤਾਪਮਾਨ ਪੱਟੀ ਦੀ ਚੌੜਾਈ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Temperature scale</source>
         <translation>ਤਾਪਮਾਨ ਸਕੇਲ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="116"/>
         <source>Celsius</source>
         <translation>ਸੈਲਸੀਅਸ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="126"/>
         <source>Fahrenheit</source>
         <translation>ਫਾਹਰਨਹੀਟ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
         <translation>ਜੇ ਤਾਪਮਾਨ ਬਹੁਤ ਜਿਆਦਾ ਹੋੇ ਤਾਂ ਸਥਿਤੀ ਪੱਟੀ ਨੂੰ ਝਪਕਾਓ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
         <source>Warning about high temperature</source>
         <translation>ਵੱਧ ਤਾਪਮਾਨ ਬਾਰੇ ਸਾਵਧਾਨ</translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>ਸੈਂਸਰ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
         <translation>ਖੋਜੀਆਂ ਚਿੱਪਾਂ:</translation>
     </message>
