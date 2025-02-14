@@ -151,10 +151,10 @@ void ConfigPlacement::fillComboBox_position()
     int screenCount = QApplication::screens().size();
     if (screenCount == 1)
     {
-        addPosition(tr("Top of desktop"), 0, LXQtPanel::PositionTop);
-        addPosition(tr("Left of desktop"), 0, LXQtPanel::PositionLeft);
-        addPosition(tr("Right of desktop"), 0, LXQtPanel::PositionRight);
-        addPosition(tr("Bottom of desktop"), 0, LXQtPanel::PositionBottom);
+        addPosition(tr("Top of screen"), 0, LXQtPanel::PositionTop);
+        addPosition(tr("Left of screen"), 0, LXQtPanel::PositionLeft);
+        addPosition(tr("Right of screen"), 0, LXQtPanel::PositionRight);
+        addPosition(tr("Bottom of screen"), 0, LXQtPanel::PositionBottom);
     }
     else
     {
@@ -163,10 +163,10 @@ void ConfigPlacement::fillComboBox_position()
             if (screenNum)
                 ui->comboBox_position->insertSeparator(9999);
 
-            addPosition(tr("Top of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionTop);
-            addPosition(tr("Left of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionLeft);
-            addPosition(tr("Right of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionRight);
-            addPosition(tr("Bottom of desktop %1").arg(screenNum +1), screenNum, LXQtPanel::PositionBottom);
+            addPosition(tr("Top of screen %1").arg(screenNum +1), screenNum, LXQtPanel::PositionTop);
+            addPosition(tr("Left of screen %1").arg(screenNum +1), screenNum, LXQtPanel::PositionLeft);
+            addPosition(tr("Right of screen %1").arg(screenNum +1), screenNum, LXQtPanel::PositionRight);
+            addPosition(tr("Bottom of screen %1").arg(screenNum +1), screenNum, LXQtPanel::PositionBottom);
         }
     }
 }
