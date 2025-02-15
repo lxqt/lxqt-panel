@@ -175,7 +175,6 @@ void VolumePopup::updateStockIcon()
     else
         iconName = QLatin1String("audio-volume-high");
 
-    iconName.append(QLatin1String("-panel"));
     m_muteToggleButton->setIcon(XdgIcon::fromTheme(iconName));
     emit stockIconChanged(iconName);
 }
