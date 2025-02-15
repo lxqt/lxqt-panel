@@ -103,8 +103,6 @@ void TreeWindow::initPropertiesView()
     item = new QTableWidgetItem(QStringLiteral("Class hierarchy"));
     ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 0, item);
     ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 1, new QTableWidgetItem());
-f
-
 }
 
 
