@@ -163,7 +163,7 @@ void DirectoryMenu::settingsChanged()
     if(!icon.isNull())
     {
         QIcon buttonIcon = QIcon(icon);
-        if(!buttonIcon.pixmap(QSize(24,24)).isNull())
+        if(!buttonIcon.pixmap(QSize(24, 24)).isNull())
         {
             mButton.setIcon(buttonIcon);
             customIcon = true;

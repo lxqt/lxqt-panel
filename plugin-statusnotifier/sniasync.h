@@ -34,7 +34,7 @@
 template<typename>
 struct remove_class_type { using type = void; }; // bluff
 template<typename C, typename R, typename... ArgTypes>
-struct  remove_class_type<R (C::*)(ArgTypes...)> { using type = R(ArgTypes...); };
+struct remove_class_type<R (C::*)(ArgTypes...)> { using type = R(ArgTypes...); };
 template<typename C, typename R, typename... ArgTypes>
 struct remove_class_type<R (C::*)(ArgTypes...) const> { using type = R(ArgTypes...); };
 
@@ -57,7 +57,7 @@ struct call_signature<R (*)(ArgTypes...)> { using type = R (ArgTypes...); };
 template <typename C, typename R, typename... ArgTypes>
 struct call_signature<R (C::*)(ArgTypes...)> { using type = R (ArgTypes...); };
 template<typename C, typename R, typename... ArgTypes>
-struct call_signature<R (C::*)(ArgTypes...) const>  { using type = R(ArgTypes...); };
+struct call_signature<R (C::*)(ArgTypes...) const> { using type = R(ArgTypes...); };
 
 template <typename> struct is_valid_signature : public std::false_type {};
 template <typename Arg>

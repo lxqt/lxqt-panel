@@ -154,6 +154,6 @@ signals:
     void dragging(QObject * dragSource, QPoint const & pos);
 };
 
-typedef QHash<WId,LXQtTaskButton*> LXQtTaskButtonHash;
+typedef QHash<WId, LXQtTaskButton*> LXQtTaskButtonHash;
 
 #endif // LXQTTASKBUTTON_H

@@ -89,7 +89,7 @@ public:
     void setFavorites(const QStringList& favorites);
     QStringList getFavorites() const;
 
-    int  getFavoriteIndex(const QString& desktopFile) const;
+    int getFavoriteIndex(const QString& desktopFile) const;
 
     inline int getFavoriteCount() const { return mCategories[0].apps.count(); }
 

@@ -69,7 +69,7 @@ private:
     QAction       *mClearListAction { nullptr };
     QFrame        *mSeparator       { nullptr };
     bool           mCapturing       { false };
-    QList <QColor> mColorsList      {};
+    QList<QColor>  mColorsList      {};
 
     QIcon colorIcon(QColor color);
     void  buildMenu();

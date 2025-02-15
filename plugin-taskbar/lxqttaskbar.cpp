@@ -443,9 +443,9 @@ void LXQtTaskBar::settingsChanged()
     mAutoRotate = mPlugin->settings()->value(QStringLiteral("autoRotate"), true).toBool();
     mCloseOnMiddleClick = mPlugin->settings()->value(QStringLiteral("closeOnMiddleClick"), true).toBool();
     mRaiseOnCurrentDesktop = mPlugin->settings()->value(QStringLiteral("raiseOnCurrentDesktop"), false).toBool();
-    mGroupingEnabled = mPlugin->settings()->value(QStringLiteral("groupingEnabled"),true).toBool();
-    mShowGroupOnHover = mPlugin->settings()->value(QStringLiteral("showGroupOnHover"),true).toBool();
-    mUngroupedNextToExisting = mPlugin->settings()->value(QStringLiteral("ungroupedNextToExisting"),false).toBool();
+    mGroupingEnabled = mPlugin->settings()->value(QStringLiteral("groupingEnabled"), true).toBool();
+    mShowGroupOnHover = mPlugin->settings()->value(QStringLiteral("showGroupOnHover"), true).toBool();
+    mUngroupedNextToExisting = mPlugin->settings()->value(QStringLiteral("ungroupedNextToExisting"), false).toBool();
     mIconByClass = mPlugin->settings()->value(QStringLiteral("iconByClass"), false).toBool();
     mWheelEventsAction = mPlugin->settings()->value(QStringLiteral("wheelEventsAction"), 1).toInt();
     mWheelDeltaThreshold = mPlugin->settings()->value(QStringLiteral("wheelDeltaThreshold"), 300).toInt();

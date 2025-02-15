@@ -80,7 +80,7 @@ void DirectoryMenuConfiguration::loadSettings()
     if(!mIcon.isNull())
     {
         QIcon buttonIcon = QIcon(mIcon);
-        if(!buttonIcon.pixmap(QSize(24,24)).isNull())
+        if(!buttonIcon.pixmap(QSize(24, 24)).isNull())
         {
             ui->iconB->setIcon(buttonIcon);
             iconSet = true;
@@ -168,7 +168,7 @@ void DirectoryMenuConfiguration::showIconDialog()
     {
         QIcon newIcon = QIcon(d.selectedFiles().constFirst());
 
-        if(newIcon.pixmap(QSize(24,24)).isNull())
+        if(newIcon.pixmap(QSize(24, 24)).isNull())
         {
             QMessageBox::warning(this, tr("Directory Menu"), tr("An error occurred while loading the icon."));
             return;

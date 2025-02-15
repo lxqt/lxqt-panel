@@ -59,18 +59,18 @@ LXQtSysStatColours::LXQtSysStatColours(QWidget *parent) :
     mDefaultColours[QStringLiteral("netTransmitted")] = QColor("#808000");
 
     //
-    mShowColourMap[QStringLiteral("grid")] = ui->gridB;
-    mShowColourMap[QStringLiteral("title")] = ui->titleB;
-    mShowColourMap[QStringLiteral("cpuSystem")] = ui->cpuSystemB;
-    mShowColourMap[QStringLiteral("cpuUser")] = ui->cpuUserB;
-    mShowColourMap[QStringLiteral("cpuNice")] = ui->cpuNiceB;
-    mShowColourMap[QStringLiteral("cpuOther")] = ui->cpuOtherB;
-    mShowColourMap[QStringLiteral("cpuFrequency")] = ui->cpuFrequencyB;
-    mShowColourMap[QStringLiteral("memApps")] = ui->memAppsB;
-    mShowColourMap[QStringLiteral("memBuffers")] = ui->memBuffersB;
-    mShowColourMap[QStringLiteral("memCached")] = ui->memCachedB;
-    mShowColourMap[QStringLiteral("memSwap")] = ui->memSwapB;
-    mShowColourMap[QStringLiteral("netReceived")] = ui->netReceivedB;
+    mShowColourMap[QStringLiteral("grid")]           = ui->gridB;
+    mShowColourMap[QStringLiteral("title")]          = ui->titleB;
+    mShowColourMap[QStringLiteral("cpuSystem")]      = ui->cpuSystemB;
+    mShowColourMap[QStringLiteral("cpuUser")]        = ui->cpuUserB;
+    mShowColourMap[QStringLiteral("cpuNice")]        = ui->cpuNiceB;
+    mShowColourMap[QStringLiteral("cpuOther")]       = ui->cpuOtherB;
+    mShowColourMap[QStringLiteral("cpuFrequency")]   = ui->cpuFrequencyB;
+    mShowColourMap[QStringLiteral("memApps")]        = ui->memAppsB;
+    mShowColourMap[QStringLiteral("memBuffers")]     = ui->memBuffersB;
+    mShowColourMap[QStringLiteral("memCached")]      = ui->memCachedB;
+    mShowColourMap[QStringLiteral("memSwap")]        = ui->memSwapB;
+    mShowColourMap[QStringLiteral("netReceived")]    = ui->netReceivedB;
     mShowColourMap[QStringLiteral("netTransmitted")] = ui->netTransmittedB;
 
     auto iterator = mShowColourMap.constBegin();

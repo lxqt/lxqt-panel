@@ -179,7 +179,7 @@ void ConfigPlacement::fillComboBox_alignment()
 {
     ui->comboBox_alignment->setItemData(0, QVariant(LXQtPanel::AlignmentLeft));
     ui->comboBox_alignment->setItemData(1, QVariant(LXQtPanel::AlignmentCenter));
-    ui->comboBox_alignment->setItemData(2,  QVariant(LXQtPanel::AlignmentRight));
+    ui->comboBox_alignment->setItemData(2, QVariant(LXQtPanel::AlignmentRight));
 
 
     if (mPosition   == ILXQtPanel::PositionTop ||
@@ -277,7 +277,7 @@ void ConfigPlacement::widthTypeChanged()
     else
     {
         // Pixels ...............................
-        int v =  max / 100.0 * ui->spinBox_length->value();
+        int v = max / 100.0 * ui->spinBox_length->value();
         ui->spinBox_length->setRange(-max, max);
         ui->spinBox_length->setValue(v);
     }

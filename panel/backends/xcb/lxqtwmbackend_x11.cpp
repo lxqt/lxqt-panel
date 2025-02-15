@@ -357,7 +357,7 @@ bool LXQtWMBackendX11::setWindowLayer(WId windowId, LXQtTaskBarWindowLayer layer
 
 LXQtTaskBarWindowState LXQtWMBackendX11::getWindowState(WId windowId) const
 {
-    KWindowInfo info(windowId,NET::WMState | NET::XAWMState);
+    KWindowInfo info(windowId, NET::WMState | NET::XAWMState);
     if(info.isMinimized())
         return LXQtTaskBarWindowState::Minimized;
 

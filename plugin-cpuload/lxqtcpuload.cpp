@@ -140,7 +140,7 @@ void LXQtCpuLoad::paintEvent ( QPaintEvent * )
     QRectF r = rect();
 
     QRectF r1;
-    QLinearGradient shade(0,0,1,1);
+    QLinearGradient shade(0, 0, 1, 1);
     if (m_barOrientation == RightToLeftBar || m_barOrientation == LeftToRightBar)
     {
         float vo = (r.height() - static_cast<double>(m_barWidth))/2.0;

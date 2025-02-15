@@ -56,7 +56,7 @@ QPixmap & ImageStretcher::ImageStretcher::getImage(int w, int h) {
         return stretchedImage;
     if (svg) {
         stretchedImage = QPixmap(w, h);
-        stretchedImage.fill(QColor(0,0,0,0));
+        stretchedImage.fill(QColor(0, 0, 0, 0));
         QPainter painter(&stretchedImage);
         svgrender.render(&painter, stretchedImage.rect());
     } else {

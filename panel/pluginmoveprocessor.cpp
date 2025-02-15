@@ -76,7 +76,7 @@ void PluginMoveProcessor::start()
 void PluginMoveProcessor::doStart()
 {
     setMouseTracking(true);
-    show(); //  Only visible widgets can grab mouse input.
+    show(); // Only visible widgets can grab mouse input.
     grabMouse(mLayout->isHorizontal() ? Qt::SizeHorCursor : Qt::SizeVerCursor);
 }
 

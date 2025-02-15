@@ -88,23 +88,21 @@ void TreeWindow::initPropertiesView()
     ui->propertiesView->setColumnCount(2);
 
     QTableWidgetItem *item;
-    item = new  QTableWidgetItem(QStringLiteral("Object name"));
+    item = new QTableWidgetItem(QStringLiteral("Object name"));
     ui->propertiesView->setItem(PROP_OBJECT_NAME, 0, item);
     ui->propertiesView->setItem(PROP_OBJECT_NAME, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem(QStringLiteral("Class name"));
+    item = new QTableWidgetItem(QStringLiteral("Class name"));
     ui->propertiesView->setItem(PROP_CLASS_NAME, 0, item);
     ui->propertiesView->setItem(PROP_CLASS_NAME, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem(QStringLiteral("Text"));
+    item = new QTableWidgetItem(QStringLiteral("Text"));
     ui->propertiesView->setItem(PROP_TEXT, 0, item);
     ui->propertiesView->setItem(PROP_TEXT, 1, new QTableWidgetItem());
 
-    item = new  QTableWidgetItem(QStringLiteral("Class hierarchy"));
+    item = new QTableWidgetItem(QStringLiteral("Class hierarchy"));
     ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 0, item);
     ui->propertiesView->setItem(PROP_CLASS_HIERARCHY, 1, new QTableWidgetItem());
-
-
 }
 
 
@@ -159,7 +157,7 @@ void TreeWindow::clearPropertiesView()
 {
     for (int i=0; i<ui->propertiesView->rowCount(); ++i)
         ui->propertiesView->item(i, 1)->setText(QLatin1String(""));
-    for (int i = ui->allPropertiesView->rowCount(); 0 <=  i; --i)
+    for (int i = ui->allPropertiesView->rowCount(); 0 <= i; --i)
         ui->allPropertiesView->removeRow(i);
     ui->allPropertiesView->setRowCount(0);
 }

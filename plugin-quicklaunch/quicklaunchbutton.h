@@ -44,7 +44,7 @@ public:
     QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin * plugin, QWidget* parent = nullptr);
     ~QuickLaunchButton();
 
-    QHash<QString,QString> settingsMap();
+    QHash<QString, QString> settingsMap();
 
 signals:
     void buttonDeleted();

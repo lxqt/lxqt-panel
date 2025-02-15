@@ -94,8 +94,7 @@ public:
         xkb_context_unref(m_context);
     }
 
-    bool isEnabled() const
-    { return true;  }
+    bool isEnabled() const { return true; }
 
     bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *) override
     {
@@ -187,7 +186,7 @@ private:
         if (masks.contains(cnt))
             return masks[cnt];
 
-        xkb_mod_index_t index =  xkb_keymap_led_get_index(m_keymap, modName(cnt));
+        xkb_mod_index_t index = xkb_keymap_led_get_index(m_keymap, modName(cnt));
 
         xcb_generic_error_t *error = nullptr;
         quint8 mask = 0;
@@ -257,7 +256,7 @@ private:
                         for(int i = 0; i < layout.childNodes().count(); ++i){
                             auto conf = layout.childNodes().at(i).firstChildElement(QStringLiteral("configItem"));
                             names.insert(
-                                conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(),{
+                                conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(), {
                                     conf.firstChildElement(QStringLiteral("description")).firstChild().toText().data(),
                                     conf.firstChildElement(QStringLiteral("name")).firstChild().toText().data(),
                                     QStringLiteral("None")

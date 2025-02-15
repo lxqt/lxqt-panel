@@ -33,7 +33,7 @@
 
 #include "desktopswitchbutton.h"
 
-DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, LabelType labelType,  const QString &title)
+DesktopSwitchButton::DesktopSwitchButton(QWidget * parent, int index, LabelType labelType, const QString &title)
     : QToolButton(parent),
     mUrgencyHint(false)
 {
