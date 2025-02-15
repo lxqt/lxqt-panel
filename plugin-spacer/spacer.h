@@ -50,7 +50,7 @@ private:
     QString mOrientation;
 };
 
-class Spacer :  public QObject, public ILXQtPanelPlugin
+class Spacer : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
 

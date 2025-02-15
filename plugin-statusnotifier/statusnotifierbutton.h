@@ -46,7 +46,7 @@ class StatusNotifierButton : public QToolButton
     Q_OBJECT
 
 public:
-    StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin,  QWidget *parent = nullptr);
+    StatusNotifierButton(QString service, QString objectPath, ILXQtPanelPlugin* plugin, QWidget *parent = nullptr);
     ~StatusNotifierButton();
 
     enum Status

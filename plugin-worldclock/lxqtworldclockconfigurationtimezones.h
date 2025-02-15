@@ -54,7 +54,7 @@ public:
 
 public slots:
     void itemSelectionChanged();
-    void itemDoubleClicked(QTreeWidgetItem*,int);
+    void itemDoubleClicked(QTreeWidgetItem*, int);
 
 private:
     Ui::LXQtWorldClockConfigurationTimeZones *ui;

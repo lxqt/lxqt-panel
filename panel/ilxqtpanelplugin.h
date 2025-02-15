@@ -207,7 +207,7 @@ public:
         mPanel->pluginFlagsChanged(this);
     }
 
-    virtual bool isSeparate() const { return false;  }
+    virtual bool isSeparate() const { return false; }
     virtual bool isExpandable() const { return false; }
 private:
     PluginSettings *mSettings;

@@ -157,7 +157,7 @@ void ColorPickerWidget::mouseReleaseEvent(QMouseEvent *event)
         QPixmap pixmap = qApp->primaryScreen()->grabWindow(id, point.x(), point.y(), 1, 1);
 
         QImage img = pixmap.toImage();
-        col = QColor(img.pixel(0,0));
+        col = QColor(img.pixel(0, 0));
     }
     else
     {

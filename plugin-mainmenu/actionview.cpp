@@ -271,7 +271,7 @@ QSize ActionView::viewportSizeHint() const
     {
         const bool scrollable = mMaxItemsToShow < count;
         s.setWidth(sizeHintForColumn(0) + (scrollable ? verticalScrollBar()->sizeHint().width() : 0));
-        s.setHeight(sizeHintForRow(0) * (scrollable ? mMaxItemsToShow  : count));
+        s.setHeight(sizeHintForRow(0) * (scrollable ? mMaxItemsToShow : count));
     }
     return s;
 }

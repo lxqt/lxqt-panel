@@ -218,11 +218,10 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
     if (newSink) {
         //keep the sinks sorted by index()
         m_sinks.insert(
-                std::lower_bound(m_sinks.begin(), m_sinks.end(), dev,  [] (AudioDevice const * const a, AudioDevice const * const b) {
-                    return a->name() < b->name();
-                    })
-                , dev
-                );
+            std::lower_bound(m_sinks.begin(), m_sinks.end(), dev, [] (AudioDevice const * const a, AudioDevice const * const b) {
+                return a->name() < b->name();
+            })
+        , dev);
         emit sinkListChanged();
     }
 }

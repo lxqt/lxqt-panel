@@ -144,19 +144,19 @@ SNIProxy::SNIProxy(xcb_window_t wid, Xcb::Atoms & atoms, QObject *parent)
     values[2] = XCB_EVENT_MASK_VISIBILITY_CHANGE | // receive visibility change, to handle KWin restart #357443
                                                    // Redirect and handle structure (size, position) requests from the embedded window.
         XCB_EVENT_MASK_STRUCTURE_NOTIFY | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT;
-    xcb_create_window(m_connection, /* connection    */
-                      XCB_COPY_FROM_PARENT, /* depth         */
-                      m_containerWid, /* window Id     */
+    xcb_create_window(m_connection, /* connection */
+                      XCB_COPY_FROM_PARENT, /* depth */
+                      m_containerWid, /* window Id */
                       screen->root, /* parent window */
                       0,
-                      0, /* x, y          */
+                      0, /* x, y */
                       s_embedSize,
                       s_embedSize, /* width, height */
-                      0, /* border_width  */
-                      XCB_WINDOW_CLASS_INPUT_OUTPUT, /* class         */
-                      screen->root_visual, /* visual        */
+                      0, /* border_width */
+                      XCB_WINDOW_CLASS_INPUT_OUTPUT, /* class */
+                      screen->root_visual, /* visual */
                       mask,
-                      values); /* masks         */
+                      values); /* masks */
 
     /*
         We need the window to exist and be mapped otherwise the child won't render it's contents

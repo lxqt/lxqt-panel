@@ -207,8 +207,8 @@ void LayoutItemGrid::clear()
     mExpandable = false;
     mExpandableSize = 0;
     mUsedColCount = 0;
-    mSizeHint = QSize(0,0);
-    mMinSize = QSize(0,0);
+    mSizeHint = QSize(0, 0);
+    mMinSize = QSize(0, 0);
 }
 
 
@@ -318,7 +318,7 @@ LayoutItemInfo &LayoutItemGrid::itemInfo(int row, int col)
 void LayoutItemGrid::update()
 {
     mExpandableSize = 0;
-    mSizeHint = QSize(0,0);
+    mSizeHint = QSize(0, 0);
 
     if (mHoriz)
     {
@@ -335,7 +335,7 @@ void LayoutItemGrid::update()
                     continue;
 
                 QSize sz = info.item->sizeHint();
-                info.geometry = QRect(QPoint(x,y), sz);
+                info.geometry = QRect(QPoint(x, y), sz);
                 y += sz.height();
                 rw = qMax(rw, sz.width());
             }
@@ -363,7 +363,7 @@ void LayoutItemGrid::update()
                     continue;
 
                 QSize sz = info.item->sizeHint();
-                info.geometry = QRect(QPoint(x,y), sz);
+                info.geometry = QRect(QPoint(x, y), sz);
                 x += sz.width();
                 rh = qMax(rh, sz.height());
             }
@@ -643,7 +643,7 @@ void LXQtPanelLayout::setGeometryHoriz(const QRect &geometry)
     double expFactor;
     {
         int expWidth = mLeftGrid->expandableSize() + mRightGrid->expandableSize();
-        int nonExpWidth = mLeftGrid->sizeHint().width()  - mLeftGrid->expandableSize() +
+        int nonExpWidth = mLeftGrid->sizeHint().width() - mLeftGrid->expandableSize() +
                       mRightGrid->sizeHint().width() - mRightGrid->expandableSize();
         expFactor = expWidth ? ((1.0 * geometry.width() - nonExpWidth) / expWidth) : 1;
     }
@@ -782,7 +782,7 @@ void LXQtPanelLayout::setGeometryVert(const QRect &geometry)
     double expFactor;
     {
         int expHeight = mLeftGrid->expandableSize() + mRightGrid->expandableSize();
-        int nonExpHeight = mLeftGrid->sizeHint().height()  - mLeftGrid->expandableSize() +
+        int nonExpHeight = mLeftGrid->sizeHint().height() - mLeftGrid->expandableSize() +
                            mRightGrid->sizeHint().height() - mRightGrid->expandableSize();
         expFactor = expHeight ? ((1.0 * geometry.height() - nonExpHeight) / expHeight) : 1;
     }

@@ -114,9 +114,9 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->buttonStyleCB->setCurrentIndex(ui->buttonStyleCB->findData(settings().value(QStringLiteral("buttonStyle"), QLatin1String("IconText"))));
     ui->buttonWidthSB->setValue(settings().value(QStringLiteral("buttonWidth"), 220).toInt());
     ui->buttonHeightSB->setValue(settings().value(QStringLiteral("buttonHeight"), 100).toInt());
-    ui->groupingGB->setChecked(settings().value(QStringLiteral("groupingEnabled"),true).toBool());
-    ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"),true).toBool());
-    ui->ungroupedNextToExistingCB->setChecked(settings().value(QStringLiteral("ungroupedNextToExisting"),false).toBool());
+    ui->groupingGB->setChecked(settings().value(QStringLiteral("groupingEnabled"), true).toBool());
+    ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"), true).toBool());
+    ui->ungroupedNextToExistingCB->setChecked(settings().value(QStringLiteral("ungroupedNextToExisting"), false).toBool());
     ui->iconByClassCB->setChecked(settings().value(QStringLiteral("iconByClass"), false).toBool());
     ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 0).toInt()));
     ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
@@ -135,11 +135,11 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue(QStringLiteral("autoRotate"), ui->autoRotateCB->isChecked());
     settings().setValue(QStringLiteral("closeOnMiddleClick"), ui->middleClickCB->isChecked());
     settings().setValue(QStringLiteral("raiseOnCurrentDesktop"), ui->raiseOnCurrentDesktopCB->isChecked());
-    settings().setValue(QStringLiteral("groupingEnabled"),ui->groupingGB->isChecked());
-    settings().setValue(QStringLiteral("showGroupOnHover"),ui->showGroupOnHoverCB->isChecked());
-    settings().setValue(QStringLiteral("ungroupedNextToExisting"),ui->ungroupedNextToExistingCB->isChecked());
-    settings().setValue(QStringLiteral("iconByClass"),ui->iconByClassCB->isChecked());
-    settings().setValue(QStringLiteral("wheelEventsAction"),ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
-    settings().setValue(QStringLiteral("wheelDeltaThreshold"),ui->wheelDeltaThresholdSB->value());
-    settings().setValue(QStringLiteral("excludedList"),ui->excludeLE->text());
+    settings().setValue(QStringLiteral("groupingEnabled"), ui->groupingGB->isChecked());
+    settings().setValue(QStringLiteral("showGroupOnHover"), ui->showGroupOnHoverCB->isChecked());
+    settings().setValue(QStringLiteral("ungroupedNextToExisting"), ui->ungroupedNextToExistingCB->isChecked());
+    settings().setValue(QStringLiteral("iconByClass"), ui->iconByClassCB->isChecked());
+    settings().setValue(QStringLiteral("wheelEventsAction"), ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
+    settings().setValue(QStringLiteral("wheelDeltaThreshold"), ui->wheelDeltaThresholdSB->value());
+    settings().setValue(QStringLiteral("excludedList"), ui->excludeLE->text());
 }

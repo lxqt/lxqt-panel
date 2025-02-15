@@ -308,7 +308,7 @@ QMimeData * LXQtTaskButton::mimeData()
 {
     QMimeData *mimedata = new QMimeData;
     QByteArray ba;
-    QDataStream stream(&ba,QIODevice::WriteOnly);
+    QDataStream stream(&ba, QIODevice::WriteOnly);
     stream << (qlonglong)(mWindow);
     mimedata->setData(mimeDataFormat(), ba);
     return mimedata;
@@ -377,7 +377,7 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     // release mouse appropriately, by positioning the event outside
     // the button rectangle (otherwise, the button will be toggled)
     QMouseEvent releasingEvent(QEvent::MouseButtonRelease,
-                               QPoint(-1,-1), mapToGlobal(QPoint(-1, -1)),
+                               QPoint(-1, -1), mapToGlobal(QPoint(-1, -1)),
                                Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
     mouseReleaseEvent(&releasingEvent);
 

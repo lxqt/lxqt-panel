@@ -628,7 +628,7 @@ void LXQtFancyMenuWindow::showEvent(QShowEvent *e)
     QRect r;
     for (int i = 0; i < model->rowCount(); ++i)
     {
-        QModelIndex indx = model->index(i,0);
+        QModelIndex indx = model->index(i, 0);
         if (indx.isValid())
         {
             r = r.united(mCategoryView->visualRect(indx));

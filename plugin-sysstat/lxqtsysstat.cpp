@@ -164,17 +164,17 @@ void LXQtSysStatContent::SETNAME##Colour(QColor value) \
     } \
 }
 
-QSS_COLOUR(grid,      setGrid)
-QSS_COLOUR(title,     setTitle)
-QSS_COLOUR(cpuSystem, setCpuSystem)
-QSS_COLOUR(cpuUser,   setCpuUser)
-QSS_COLOUR(cpuNice,   setCpuNice)
-QSS_COLOUR(cpuOther,  setCpuOther)
-QSS_COLOUR(frequency, setFrequency)
-QSS_COLOUR(memApps,   setMemApps)
-QSS_COLOUR(memBuffers,setMemBuffers)
-QSS_COLOUR(memCached, setMemCached)
-QSS_COLOUR(swapUsed,  setSwapUsed)
+QSS_COLOUR(grid,       setGrid)
+QSS_COLOUR(title,      setTitle)
+QSS_COLOUR(cpuSystem,  setCpuSystem)
+QSS_COLOUR(cpuUser,    setCpuUser)
+QSS_COLOUR(cpuNice,    setCpuNice)
+QSS_COLOUR(cpuOther,   setCpuOther)
+QSS_COLOUR(frequency,  setFrequency)
+QSS_COLOUR(memApps,    setMemApps)
+QSS_COLOUR(memBuffers, setMemBuffers)
+QSS_COLOUR(memCached,  setMemCached)
+QSS_COLOUR(swapUsed,   setSwapUsed)
 
 QSS_NET_COLOUR(netReceived,    setNetReceived)
 QSS_NET_COLOUR(netTransmitted, setNetTransmitted)

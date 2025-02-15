@@ -103,7 +103,7 @@ QuickLaunchButton::QuickLaunchButton(QuickLaunchAction * act, ILXQtPanelPlugin *
 QuickLaunchButton::~QuickLaunchButton() = default;
 
 
-QHash<QString,QString> QuickLaunchButton::settingsMap()
+QHash<QString, QString> QuickLaunchButton::settingsMap()
 {
     Q_ASSERT(mAct);
     return mAct->settingsMap();

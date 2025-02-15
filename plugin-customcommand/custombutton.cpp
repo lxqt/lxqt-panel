@@ -63,7 +63,7 @@ CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setAutoRaise(true);
-    setContentsMargins(0,0,0,0);
+    setContentsMargins(0, 0, 0, 0);
     setMinimumWidth(1);
     setMinimumHeight(1);
     setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
