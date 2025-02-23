@@ -457,17 +457,18 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
                 activateCurrentApp();
             return true;
         }
-        else if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_Down)
+        else if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_PageUp
+                || ev->key() == Qt::Key_Down || ev->key() == Qt::Key_PageDown)
         {
             // Use Up/Down arrows to navigate app view
             if(mFocusedItem == FocusedItem::SearchEdit)
             {
-                if(ev->key() == Qt::Key_Up)
+                if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_PageUp)
                 {
                     // Already at top, nothing to do
                     return QWidget::eventFilter(watched, e);
                 }
-                else if(ev->key() == Qt::Key_Down)
+                else
                 {
                     // Go down to app view, forward event
                     mFocusedItem = FocusedItem::AppView;
@@ -475,7 +476,7 @@ bool LXQtFancyMenuWindow::eventFilter(QObject *watched, QEvent *e)
                     return true;
                 }
             }
-            else if(ev->key() == Qt::Key_Up)
+            else if(ev->key() == Qt::Key_Up || ev->key() == Qt::Key_PageUp)
             {
                 if((mFocusedItem == FocusedItem::AppView && mAppView->currentIndex().row() == 0)
                     || (mFocusedItem == FocusedItem::CategoryView && mCategoryView->currentIndex().row() == 0))
