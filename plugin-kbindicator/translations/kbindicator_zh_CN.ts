@@ -100,7 +100,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation>配置布局</translation>
+        <translation>設定配置</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>

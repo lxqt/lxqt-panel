@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>配置面板</translation>
+        <translation>設定面板</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation>配置布局</translation>
+        <translation>設定位置</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕上方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕左方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕右方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕下方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕上方 %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕左方 %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕右方 %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>螢幕下方 %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>配置外掛</translation>
+        <translation>設定外掛</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>配置</translation>
+        <translation>設定</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>配置樣式</translation>
+        <translation>設定樣式</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
@@ -337,14 +337,14 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>幾則無法將面板變更為其他主題的
-小部件樣式的解決方案。
+        <translation>有些用於小工具樣式
+無法提供個別的主題予面板。
 
-您可能還想禁用：
+您可能也想停用：
 
-LXQt外觀配置→
-圖標主題→
-根據小部件樣式（調色板）著色圖標</translation>
+LXQt 外觀設定→
+圖示主題→
+配色圖示依據小工具樣式(調色板)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
@@ -384,7 +384,7 @@ LXQt外觀配置→
     <message>
         <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
-        <translation>配置面板</translation>
+        <translation>設定面板</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1527"/>
@@ -426,7 +426,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="455"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>配置 &quot;%1&quot;</translation>
+        <translation>設定 &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="460"/>
@@ -444,12 +444,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
-        <translation>使用替代的配置檔案。</translation>
+        <translation>使用替用的設定檔案。</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
-        <translation>配置檔案</translation>
+        <translation>設定檔案</translation>
     </message>
 </context>
 </TS>

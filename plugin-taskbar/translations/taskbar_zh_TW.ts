@@ -166,12 +166,12 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>逗號分隔的視窗類別列表</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>從工作列排除</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished">滾輪位移臨界值</translation>
+        <translation>滾輪位移臨界值 Delta Threshold</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
