@@ -31,6 +31,7 @@
 #include <QStyleOptionToolButton>
 #include <QProxyStyle>
 
+#include <cmath>
 #include <algorithm>
 
 class LeftAlignedTextStyle : public QProxyStyle

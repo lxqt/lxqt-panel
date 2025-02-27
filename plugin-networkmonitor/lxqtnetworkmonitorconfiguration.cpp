@@ -88,7 +88,7 @@ void LXQtNetworkMonitorConfiguration::loadSettings()
         ui->interfaceCB->addItem(QLatin1String(stats[ix].interface_name));
 
     QString interface = settings().value(QStringLiteral("interface")).toString();
-    ui->interfaceCB->setCurrentIndex(std::clamp(count - 1, ui->interfaceCB->findText(interface), 0));
+    ui->interfaceCB->setCurrentIndex(std::max(std::min(0, count - 1), ui->interfaceCB->findText(interface)));
 
     mLockSettingChanges = false;
 }
