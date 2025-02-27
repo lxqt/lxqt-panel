@@ -11,7 +11,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>反轉項目排序</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="101"/>
         <source>Visibility</source>
-        <translation type="unfinished">可見性</translation>
+        <translation>可見性</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>

@@ -47,7 +47,7 @@
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
-        <translation type="unfinished">種類</translation>
+        <translation>變型</translation>
     </message>
 </context>
 <context>
@@ -90,12 +90,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation>國旗圖檔路徑:</translation>
+        <translation>旗幟圖檔路徑：</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished">國旗圖檔路徑的樣式。一定要包含&lt;strong&gt;%1&lt;/strong&gt;，以便填入兩個字母的 ISO 國家代碼。&lt;br&gt;&lt;br&gt;例如：/usr/share/iso-flags-svg/country-squared/%1.svg</translation>
+        <translation>旗幟圖樣檔案路徑。必須包含 &lt;strong&gt;%1&lt;/strong&gt;，由兩個字母的 ISO 國家代碼所取代。&lt;br&gt;&lt;br&gt;例如： /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation>依視窗</translation>
+        <translation>視窗</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>依應用程式</translation>
+        <translation>應用程式</translation>
     </message>
 </context>
 </TS>

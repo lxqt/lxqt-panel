@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="95"/>
         <source>Switch to desktop %1</source>
-        <translation>切換到桌面 %1</translation>
+        <translation>切換至桌面 %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="170"/>
@@ -55,12 +55,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>若是勾選，小工具將會是個指示器</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>僅顯示作用視窗</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="78"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">桌面 %1:</translation>
+        <translation>桌面 %1：</translation>
     </message>
 </context>
 <context>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="342"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>不適用</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="344"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面切換功能不支援於目前平台：%1</translation>
     </message>
 </context>
 </TS>
