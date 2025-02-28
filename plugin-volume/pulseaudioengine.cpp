@@ -32,6 +32,9 @@
 #include <QMetaType>
 #include <QtDebug>
 
+#include <cmath>
+#include <algorithm>
+
 //#define PULSEAUDIO_ENGINE_DEBUG
 
 static void sinkInfoCallback(pa_context *context, const pa_sink_info *info, int isLast, void *userdata)
@@ -213,7 +216,7 @@ void PulseAudioEngine::addOrUpdateSink(const pa_sink_info *info)
 
     pa_volume_t v = pa_cvolume_avg(&(info->volume));
     // convert real volume to percentage
-    dev->setVolumeNoCommit(qRound((static_cast<double>(v) * 100.0) / m_maximumVolume));
+    dev->setVolumeNoCommit(std::round((static_cast<double>(v) * 100.0) / m_maximumVolume));
 
     if (newSink) {
         //keep the sinks sorted by index()

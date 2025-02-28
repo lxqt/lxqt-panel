@@ -30,6 +30,8 @@
 #include <QDebug>
 #include "sliderdialog.h"
 
+#include <cmath>
+#include <algorithm>
 
 SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint)
 {
@@ -56,7 +58,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 
     if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
         // Set the minimum to 5% of the maximum to prevent a black screen
-        int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
+        int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
         int maxBacklight = m_backlight->getMaxBacklight();
         int interval = maxBacklight - minBacklight;
         if(interval <= 100) {
@@ -75,7 +77,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
         m_upButton->setEnabled(false);
         m_downButton->setEnabled(false);
     }
-    
+
     connect(m_slider,     &QSlider::valueChanged, this, &SliderDialog::sliderValueChanged);
     connect(m_upButton,   &QToolButton::clicked,  this, &SliderDialog::upButtonClicked);
     connect(m_downButton, &QToolButton::clicked,  this, &SliderDialog::downButtonClicked);
@@ -85,7 +87,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 void SliderDialog::sliderValueChanged(int value)
 {
     // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
+    int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
     int maxBacklight = m_backlight->getMaxBacklight();
     int interval = maxBacklight - minBacklight;
     if(interval > 100)
@@ -97,7 +99,7 @@ void SliderDialog::sliderValueChanged(int value)
 void SliderDialog::updateBacklight()
 {
     // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = qMax(qRound((qreal)(m_backlight->getMaxBacklight())*0.05), 1);
+    int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
     int maxBacklight = m_backlight->getMaxBacklight();
     int interval = maxBacklight - minBacklight;
     if(interval <= 100)

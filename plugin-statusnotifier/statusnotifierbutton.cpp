@@ -363,7 +363,7 @@ void StatusNotifierButton::resetIcon()
 void StatusNotifierButton::setAutoHide(bool autoHide, int minutes, bool forcedVisible)
 {
     if (autoHide)
-        mHideTimer.setInterval(qBound(1, minutes, 60) * 60000);
+        mHideTimer.setInterval(std::clamp(minutes, 1, 60) * 60000);
     if (mAutoHide != autoHide)
     {
         mAutoHide = autoHide;

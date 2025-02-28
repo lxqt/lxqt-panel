@@ -42,6 +42,8 @@
 #include <QMenu>
 #include <XdgIcon>
 
+#include <algorithm>
+
 #include "../panel/backends/ilxqtabstractwmiface.h"
 
 /************************************************
@@ -495,8 +497,8 @@ int LXQtTaskGroup::recalculateFrameWidth() const
     int max = 100 * fm.horizontalAdvance(QLatin1Char(' ')); // elide after the max width
     int txtWidth = 0;
     for (LXQtTaskButton *btn : std::as_const(mButtonHash))
-        txtWidth = qMax(fm.horizontalAdvance(btn->text()), txtWidth);
-    return iconSize().width() + qMin(txtWidth, max) + 30/* give enough room to margins and borders*/;
+        txtWidth = std::max(fm.horizontalAdvance(btn->text()), txtWidth);
+    return iconSize().width() + std::min(txtWidth, max) + 30/* give enough room to margins and borders*/;
 }
 
 /************************************************

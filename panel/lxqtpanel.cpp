@@ -53,6 +53,8 @@
 #include <KX11Extras>
 #include <NETWM>
 
+#include <algorithm>
+
 #include "backends/ilxqtabstractwmiface.h"
 
 
@@ -375,7 +377,7 @@ void LXQtPanel::readSettings()
               false);
 
     const auto screens = QApplication::screens();
-    mScreenNum = qBound(0, mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), 0).toInt(), screens.size() - 1);
+    mScreenNum = std::clamp<int>(mSettings->value(QStringLiteral(CFG_KEY_SCREENNUM), 0).toInt(), 0, screens.size() - 1);
     if (QGuiApplication::platformName() == QStringLiteral("wayland"))
     {
         // On Wayland, first check the screen name, and if it does not exist, add it.
@@ -594,7 +596,7 @@ void LXQtPanel::loadPlugins()
  ************************************************/
 int LXQtPanel::getReserveDimension()
 {
-    return mHidable ? PANEL_HIDE_SIZE : qMax(PANEL_MINIMUM_SIZE, mPanelSize);
+    return mHidable ? PANEL_HIDE_SIZE : std::max(PANEL_MINIMUM_SIZE, mPanelSize);
 }
 
 QMargins LXQtPanel::layerWindowMargins()
@@ -602,7 +604,7 @@ QMargins LXQtPanel::layerWindowMargins()
     QMargins margins;
     if (!mHidden)
         return margins;
-    int offset = PANEL_HIDE_SIZE - qMax(PANEL_MINIMUM_SIZE, mPanelSize); // negative
+    int offset = PANEL_HIDE_SIZE - std::max(PANEL_MINIMUM_SIZE, mPanelSize); // negative
     if (isHorizontal())
     {
         if (mPosition == ILXQtPanel::PositionTop)
@@ -633,7 +635,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
     if (isHorizontal())
     {
         // Horiz panel ***************************
-        rect.setHeight(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setHeight(std::max(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setWidth(currentScreen.width() * mLength / 100.0);
         else
@@ -644,7 +646,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
                 rect.setWidth(mLength);
         }
 
-        rect.setWidth(qMax(rect.size().width(), mLayout->minimumSize().width()));
+        rect.setWidth(std::max(rect.size().width(), mLayout->minimumSize().width()));
 
         // Horiz ......................
         switch (mAlignment)
@@ -694,7 +696,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
     else
     {
         // Vert panel ***************************
-        rect.setWidth(qMax(PANEL_MINIMUM_SIZE, mPanelSize));
+        rect.setWidth(std::max(PANEL_MINIMUM_SIZE, mPanelSize));
         if (mLengthInPercents)
             rect.setHeight(currentScreen.height() * mLength / 100.0);
         else
@@ -705,7 +707,7 @@ void LXQtPanel::setPanelGeometry(bool animate)
                 rect.setHeight(mLength);
         }
 
-        rect.setHeight(qMax(rect.size().height(), mLayout->minimumSize().height()));
+        rect.setHeight(std::max(rect.size().height(), mLayout->minimumSize().height()));
 
         // Vert .......................
         switch (mAlignment)
@@ -1361,7 +1363,7 @@ void LXQtPanel::setBackgroundImage(QString path, bool save)
  ************************************************/
 void LXQtPanel::setOpacity(int opacity, bool save)
 {
-    mOpacity = qBound(0, opacity, 100);
+    mOpacity = std::clamp(opacity, 0, 100);
     updateStyleSheet();
 
     if (save)

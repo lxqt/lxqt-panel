@@ -33,6 +33,9 @@
 #include <QSocketNotifier>
 #include <QtDebug>
 
+#include <cmath>
+#include <algorithm>
+
 MixerHandler::MixerHandler(snd_mixer_t * mixer, QObject * parent /*= nullptr*/)
     : QObject{parent}
     , m_mixer{mixer}
@@ -114,7 +117,7 @@ void AlsaEngine::commitDeviceVolume(AudioDevice *device)
     if (!dev || !dev->element())
         return;
 
-    long value = dev->volumeMin() + qRound(static_cast<double>(dev->volume()) / 100.0 * (dev->volumeMax() - dev->volumeMin()));
+    long value = dev->volumeMin() + std::round(static_cast<double>(dev->volume()) / 100.0 * (dev->volumeMax() - dev->volumeMin()));
     snd_mixer_selem_set_playback_volume_all(dev->element(), value);
 }
 
@@ -138,7 +141,7 @@ void AlsaEngine::updateDevice(AlsaDevice *device)
     long value;
     snd_mixer_selem_get_playback_volume(device->element(), (snd_mixer_selem_channel_id_t)0, &value);
     // qDebug() << "updateDevice:" << device->name() << value;
-    device->setVolumeNoCommit(qRound((static_cast<double>(value - device->volumeMin()) * 100.0) / (device->volumeMax() - device->volumeMin())));
+    device->setVolumeNoCommit(std::round((static_cast<double>(value - device->volumeMin()) * 100.0) / (device->volumeMax() - device->volumeMin())));
 
     if (snd_mixer_selem_has_playback_switch(device->element())) {
         int mute;

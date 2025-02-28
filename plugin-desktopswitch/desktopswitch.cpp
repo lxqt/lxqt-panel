@@ -38,6 +38,7 @@
 #include "../panel/backends/ilxqtabstractwmiface.h"
 
 #include <cmath>
+#include <algorithm>
 
 #include "desktopswitch.h"
 #include "desktopswitchbutton.h"
@@ -160,7 +161,7 @@ void DesktopSwitch::refresh()
     int i = 0;
     const int current_desktop = mBackend->getCurrentWorkspace();
     const int current_cnt = btns.count();
-    const int border = qMin(btns.count(), m_desktopCount);
+    const int border = std::min(btns.count(), (qsizetype) m_desktopCount);
     //update existing buttons
     for ( ; i < border; ++i)
     {
@@ -301,7 +302,7 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
 {
     // Without some sort of threshold which has to be passed, scrolling is too sensitive
     QPoint angleDelta = e->angleDelta();
-    Qt::Orientation orient = (qAbs(angleDelta.x()) > qAbs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
+    Qt::Orientation orient = (std::abs(angleDelta.x()) > std::abs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
     int rotationSteps = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
 
     m_mouseWheelThresholdCounter -= rotationSteps;

@@ -34,6 +34,8 @@
 #include <LXQt/Globals>
 #include <QDebug>
 
+#include <algorithm>
+
 LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
         ILXQtPanelPlugin(startupInfo),
@@ -116,7 +118,7 @@ void LXQtCustomCommand::settingsChanged()
     mOutputImage = settings()->value(QStringLiteral("outputImage"), false).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
     mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
-    mRepeatTimer = qMax(1, mRepeatTimer);
+    mRepeatTimer = std::max(1, mRepeatTimer);
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
     mTooltip = settings()->value(QStringLiteral("tooltip"), QString()).toString();

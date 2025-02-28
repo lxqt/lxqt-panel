@@ -39,6 +39,9 @@
 #include <QVBoxLayout>
 #include <QCoreApplication>
 
+#include <cmath>
+#include <algorithm>
+
 LXQtSysStat::LXQtSysStat(const ILXQtPanelPluginStartupInfo &startupInfo):
     QObject(),
     ILXQtPanelPlugin(startupInfo),
@@ -188,7 +191,7 @@ void LXQtSysStatContent::mixNetColours()
     QColor netReceivedColour_hsv = mColours.netReceivedColour.toHsv();
     QColor netTransmittedColour_hsv = mColours.netTransmittedColour.toHsv();
     qreal hue = (netReceivedColour_hsv.hueF() + netTransmittedColour_hsv.hueF()) / 2;
-    if (qAbs(netReceivedColour_hsv.hueF() - netTransmittedColour_hsv.hueF()) > 0.5)
+    if (std::abs(netReceivedColour_hsv.hueF() - netTransmittedColour_hsv.hueF()) > 0.5)
         hue += 0.5;
     mNetBothColour.setHsvF(
         hue,
@@ -382,12 +385,6 @@ void LXQtSysStatContent::reset()
     }
 }
 
-template <typename T>
-T clamp(const T &value, const T &min, const T &max)
-{
-    return qMin(qMax(value, min), max);
-}
-
 // QPainter.drawLine with pen set to Qt::transparent doesn't clear anything
 void LXQtSysStatContent::clearLine()
 {
@@ -407,11 +404,11 @@ void LXQtSysStatContent::cpuLoadFrequencyUpdate(float user, float nice, float sy
     toolTipInfo(tr("system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: %5%", "CPU tooltip information")
             .arg(y_system).arg(y_user).arg(y_nice).arg(y_other).arg(y_freq));
 
-    y_system = clamp(y_system, 0, 99);
-    y_user   = clamp(y_user + y_system, 0, 99);
-    y_nice   = clamp(y_nice + y_user  , 0, 99);
-    y_other  = clamp(y_other, 0, 99);
-    y_freq   = clamp(y_freq, 0, 99);
+    y_system = std::clamp(y_system, 0, 99);
+    y_user   = std::clamp(y_user + y_system, 0, 99);
+    y_nice   = std::clamp(y_nice + y_user, 0, 99);
+    y_other  = std::clamp(y_other, 0, 99);
+    y_freq   = std::clamp(y_freq, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -456,10 +453,10 @@ void LXQtSysStatContent::cpuLoadUpdate(float user, float nice, float system, flo
     toolTipInfo(tr("system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%<br>freq: n/a", "CPU tooltip information")
             .arg(y_system).arg(y_user).arg(y_nice).arg(y_other));
 
-    y_system = clamp(y_system, 0, 99);
-    y_user   = clamp(y_user + y_system, 0, 99);
-    y_nice   = clamp(y_nice + y_user, 0, 99);
-    y_other  = clamp(y_other + y_nice, 0, 99);
+    y_system = std::clamp(y_system, 0, 99);
+    y_user   = std::clamp(y_user + y_system, 0, 99);
+    y_nice   = std::clamp(y_nice + y_user, 0, 99);
+    y_other  = std::clamp(y_other + y_nice, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -498,9 +495,9 @@ void LXQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
     toolTipInfo(tr("apps: %1%<br>buffers: %2%<br>cached: %3%", "Memory tooltip information")
         .arg(y_apps).arg(y_buffers).arg(y_cached));
 
-    y_apps    = clamp(y_apps, 0, 99);
-    y_buffers = clamp(y_buffers + y_apps, 0, 99);
-    y_cached  = clamp(y_cached + y_buffers, 0, 99);
+    y_apps    = std::clamp(y_apps, 0, 99);
+    y_buffers = std::clamp(y_buffers + y_apps, 0, 99);
+    y_cached  = std::clamp(y_cached + y_buffers, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -531,7 +528,7 @@ void LXQtSysStatContent::swapUpdate(float used)
 
     toolTipInfo(tr("used: %1%", "Swap tooltip information").arg(y_used));
 
-    y_used = clamp(y_used, 0, 99);
+    y_used = std::clamp(y_used, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);
@@ -548,8 +545,10 @@ void LXQtSysStatContent::swapUpdate(float used)
 
 void LXQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
 {
-    qreal min_value = qMin(qMax(static_cast<qreal>(qMin(received, transmitted)) / mNetRealMaximumSpeed, static_cast<qreal>(0.0)), static_cast<qreal>(1.0));
-    qreal max_value = qMin(qMax(static_cast<qreal>(qMax(received, transmitted)) / mNetRealMaximumSpeed, static_cast<qreal>(0.0)), static_cast<qreal>(1.0));
+    qreal min_value = std::clamp(static_cast<qreal>(std::min(received, transmitted)) / mNetRealMaximumSpeed,
+                                 static_cast<qreal>(0.0), static_cast<qreal>(1.0));
+    qreal max_value = std::clamp(static_cast<qreal>(std::max(received, transmitted)) / mNetRealMaximumSpeed,
+                                 static_cast<qreal>(0.0), static_cast<qreal>(1.0));
     if (mLogarithmicScale)
     {
         min_value = qLn(min_value * (mLogScaleMax - 1.0) + 1.0) / qLn(2.0) / static_cast<qreal>(mLogScaleSteps);
@@ -561,8 +560,8 @@ void LXQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
 
     toolTipInfo(tr("min: %1%<br>max: %2%", "Network tooltip information").arg(y_min_value).arg(y_max_value));
 
-    y_min_value = clamp(y_min_value, 0, 99);
-    y_max_value = clamp(y_max_value + y_min_value, 0, 99);
+    y_min_value = std::clamp(y_min_value, 0, 99);
+    y_max_value = std::clamp(y_max_value + y_min_value, 0, 99);
 
     clearLine();
     QPainter painter(&mHistoryImage);

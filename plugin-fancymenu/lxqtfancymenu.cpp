@@ -50,6 +50,8 @@
 
 #include <QDir>
 
+#include <algorithm>
+
 #define DEFAULT_SHORTCUT "Alt+F1"
 
 LXQtFancyMenu::LXQtFancyMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
@@ -210,7 +212,7 @@ void LXQtFancyMenu::settingsChanged()
     mWindow->setCategoryPosition(categoriesAtRight ? LXQtFancyMenuCategoryPosition::Right : LXQtFancyMenuCategoryPosition::Left);
 
     mWindow->setAutoSelection(settings()->value(QStringLiteral("autoSel"), false).toBool());
-    int delay = qBound(50, settings()->value(QStringLiteral("autoSelDelay"), 250).toInt(), 1000);
+    int delay = std::clamp(settings()->value(QStringLiteral("autoSelDelay"), 250).toInt(), 50, 1000);
     mWindow->setAutoSelectionDelay(delay);
 
     realign();

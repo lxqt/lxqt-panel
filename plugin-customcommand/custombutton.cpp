@@ -31,6 +31,9 @@
 #include <QStyleOptionToolButton>
 #include <QProxyStyle>
 
+#include <cmath>
+#include <algorithm>
+
 class LeftAlignedTextStyle : public QProxyStyle
 {
     using QProxyStyle::QProxyStyle;
@@ -77,7 +80,7 @@ CustomButton::~CustomButton() = default;
 void CustomButton::wheelEvent(QWheelEvent *event)
 {
     QPoint anglePoint = event->angleDelta();
-    bool horizontal(qAbs(event->angleDelta().x()) > qAbs(anglePoint.y()));
+    bool horizontal(std::abs(event->angleDelta().x()) > std::abs(anglePoint.y()));
     int delta = horizontal ? anglePoint.x() : anglePoint.y();
     emit wheelScrolled(delta);
     event->accept();
@@ -91,7 +94,7 @@ void CustomButton::setMaxWidth(int maxWidth)
 
 void CustomButton::updateWidth()
 {
-    int newWidth = qMin(sizeHint().width(), mMaxWidth);
+    int newWidth = std::min(sizeHint().width(), mMaxWidth);
     if (mOrigin == Qt::TopLeftCorner) {
         setFixedWidth(newWidth);
 

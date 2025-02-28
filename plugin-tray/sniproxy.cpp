@@ -36,6 +36,8 @@
 
 #include <QBitmap>
 
+#include <algorithm>
+
 #include <KWindowSystem>
 #include <netwm.h>
 
@@ -484,7 +486,7 @@ KDbusImageVector SNIProxy::IconPixmap() const
     // add pixmaps up to s_embedSize resolution (for the SNI presenter to be able to choose, if needed)
     for (int s = 16; s <= s_embedSize && !m_iconImage.isNull(); s <<= 1)
     {
-        if (qMax(m_iconImage.size().width(), m_iconImage.size().height()) < s)
+        if (std::max(m_iconImage.size().width(), m_iconImage.size().height()) < s)
         {
             v << m_iconImage.scaled(s, s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         }
