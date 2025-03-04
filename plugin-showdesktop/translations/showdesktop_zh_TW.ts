@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="66"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>顯示桌面:全域快捷鍵&apos;%1&apos;無法被註冊</translation>
+        <translation>顯示桌面：整體快速鍵 &apos;%1&apos; 無法註冊</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="51"/>

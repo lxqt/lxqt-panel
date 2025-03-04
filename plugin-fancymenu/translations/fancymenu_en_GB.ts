@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>

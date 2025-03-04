@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="695"/>
         <source>&amp;Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Layer</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="700"/>
         <source>Always on &amp;top</source>
-        <translation type="unfinished"></translation>
+        <translation>Always on &amp;top</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="705"/>

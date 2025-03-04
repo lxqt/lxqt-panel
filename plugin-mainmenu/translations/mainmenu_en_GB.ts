@@ -96,7 +96,7 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. item width:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>

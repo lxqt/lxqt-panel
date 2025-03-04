@@ -95,7 +95,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose Label</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
