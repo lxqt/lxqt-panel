@@ -95,12 +95,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose Label</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>Label:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>

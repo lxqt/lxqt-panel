@@ -67,7 +67,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
         <source>Menu file</source>
-        <translation>選單文件</translation>
+        <translation>選單檔案</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
         <source>Click the button to record shortcut:</source>
-        <translation>按下按鈕並設定為快捷鍵：</translation>
+        <translation>點按按鈕並設定為快速鍵：</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Layout</source>
-        <translation>布置型式</translation>
+        <translation>配置型式</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>添加至桌面</translation>
+        <translation>增加至桌面</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
@@ -232,7 +232,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation>找不到 &lt;b&gt;%1&lt;/b&gt; 可用執行。</translation>
+        <translation>查無 &lt;b&gt;%1&lt;/b&gt; 可用執行。</translation>
     </message>
 </context>
 </TS>

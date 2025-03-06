@@ -96,17 +96,17 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
         <source>Max. item width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. item width:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
         <source>Show matching entries:</source>
-        <translation type="unfinished"></translation>
+        <translation>Show matching entries:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
         <source>Maximum visible items:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximum visible items:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>

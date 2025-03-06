@@ -103,12 +103,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Received</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Transmitted</translation>
     </message>
 </context>
 <context>

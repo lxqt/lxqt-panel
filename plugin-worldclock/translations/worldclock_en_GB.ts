@@ -103,17 +103,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation type="unfinished"></translation>
+        <translation>Offset from UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
         <source>Abbreviation</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbreviation</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation type="unfinished"></translation>
+        <translation>IANA id</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
