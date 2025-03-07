@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="94"/>
         <source>echo Configure...</source>
-        <translation type="unfinished"></translation>
+        <translation>echo Configure...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
@@ -105,7 +105,7 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="342"/>
         <source>Command to run</source>
-        <translation type="unfinished"></translation>
+        <translation>Command to run</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="258"/>

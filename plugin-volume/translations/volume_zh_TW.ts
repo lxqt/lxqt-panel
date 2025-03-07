@@ -79,22 +79,22 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation>音量改變時總是通知</translation>
+        <translation>音量變更時總是提示通知</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>使用鍵盤改變音量時顯示通知</translation>
+        <translation>使用鍵盤變更音量時顯示提示通知</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
         <source>Volume adjust step</source>
-        <translation>音量調整步驟</translation>
+        <translation>音量調整幅度</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
-        <translation>外掛音量調整程式</translation>
+        <translation>外部混音器</translation>
     </message>
 </context>
 <context>
