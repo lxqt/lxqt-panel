@@ -344,7 +344,7 @@ Colorize icons based on widget style (palette)</source>
 
 LXQt 外觀設定→
 圖示主題→
-配色圖示依據小工具樣式(調色板)</translation>
+配色圖示依據小工具樣式(調色盤)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>

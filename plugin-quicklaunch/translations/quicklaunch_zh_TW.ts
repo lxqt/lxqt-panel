@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="229"/>
         <source>Drop Error</source>
-        <translation>移入錯誤</translation>
+        <translation>放置錯誤</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>檔案位址&apos;%1&apos;現在無法嵌入至快速啟動</translation>
+        <translation>檔案位址 &apos;%1&apos; 現在不可嵌入至快速啟動</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="336"/>
@@ -26,17 +26,17 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>（Ctrl + 拖曳）</translation>
+        <translation>(Ctrl + 拖放)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation>往左移</translation>
+        <translation>往左移動</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation>往右移</translation>
+        <translation>往右移動</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
@@ -46,7 +46,7 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation>重新載入</translation>
+        <translation>重新整理</translation>
     </message>
 </context>
 </TS>
