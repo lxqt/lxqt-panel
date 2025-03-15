@@ -297,7 +297,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Vlastná syntax formátu dátumu/času&lt;/h1&gt;
+&lt;p&gt;Vzor dátumu je reťazec znakov, v ktorom sú špecifické reťazce znakov nahradené údajmi dátumu a času z kalendára pri formátovaní alebo sa používajú na generovanie údajov pre kalendár pri analýze.&lt;/p&gt;
+&lt;p&gt;Tabuľka symbolov poľa dátumu nižšie obsahuje znaky používané vo vzoroch na zobrazenie vhodných formátov pre dané miestne nastavenie, ako napríklad yyyy pre rok. Znaky môžu byť použité viackrát. Napríklad, ak sa pre rok použije y, „yy“ môže vytvoriť „99“, zatiaľ čo „yyyy“ vytvorí „1999“. Pre väčšinu číselných polí počet znakov určuje šírku poľa. Napríklad, ak h je hodina, „h“ môže vytvoriť „5“, ale „hh“ vytvorí „05“. Pre niektoré znaky počet určuje, či sa má použiť skrátená alebo úplná forma, ale môžu mať aj iné možnosti, ako je uvedené nižšie.&lt;/p&gt;
+&lt;p&gt;Dve jednoduché úvodzovky predstavujú doslovné jednoduché úvodzovky, či už vo vnútri alebo mimo jednoduchých úvodzoviek. Text v jednoduchých úvodzovkách nie je žiadnym spôsobom interpretovaný (okrem dvoch susediacich jednoduchých úvodzoviek). V opačnom prípade sú všetky písmená ASCII od a po z a od A po Z vyhradené ako znaky syntaxe a vyžadujú citácie, ak majú reprezentovať doslovné znaky. Okrem toho sa niektoré interpunkčné znaky ASCII môžu v budúcnosti stať premenlivými (napr. „:“ sa bude interpretovať ako oddeľovač času a „/“ ako oddeľovač dátumu a na displeji sa nahradí príslušnými znakmi citlivými na miestne nastavenie).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kód&lt;/th&gt;&lt;th&gt;Význam&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;deň ako číslo bez úvodnej nuly (1 až 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;deň ako číslo s nulou na začiatku (01 až 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;skrátený lokalizovaný názov dňa (napr. „Pon“ až „Ne“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;dlhý lokalizovaný názov dňa (napr. „pondelok“ až „nedeľa“).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mesiac ako číslo bez úvodnej nuly (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mesiac ako číslo s nulou na začiatku (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;skrátený lokalizovaný názov mesiaca (napr. &apos;Jan&apos; až &apos;Dec&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;dlhý lokalizovaný názov mesiaca (napr. &apos;Január&apos; až &apos;December&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;rok ako dvojciferné číslo (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;rok ako štvormiestne číslo&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;hodina bez úvodnej nuly (0 až 23 alebo 1 až 12, ak sa zobrazuje AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;hodina s nulou na začiatku (00 až 23 alebo 01 až 12, ak sa zobrazuje AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;hodina bez úvodnej nuly (0 až 23, dokonca aj pri zobrazení AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;hodina s úvodnou nulou (00 až 23, dokonca aj pri zobrazení AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minúta bez úvodnej nuly (0 až 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minúta s úvodnou nulou (00 až 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;druhá bez úvodnej nuly (0 až 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;druhá s úvodnou nulou (00 až 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;alebo&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;použite zobrazenie AM/PM. &lt;b&gt;A/AP&lt;/b&gt; bude nahradené buď „AM“ alebo „PM“.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;alebo&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;použite zobrazenie ráno/popoludní. &lt;b&gt;a/ap&lt;/b&gt; bude nahradené buď &quot;am&quot; alebo &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;časové pásmo (napr. „CEST“)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;posun od UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;ID časového pásma IANA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;skratka časového pásma&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;krátky zobrazovaný názov časového pásma&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;dlhý zobrazovaný názov časového pásma&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;vlastný názov časového pásma. Môžete to zmeniť na karte „Časové pásma“ v konfiguračnom okne&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Poznámky:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Akékoľvek znaky vo vzore, ktoré nie sú v rozsahu [&apos;a&apos;..&apos;z&apos;] a [&apos;A&apos;..&apos;Z&apos;], budú považované za text v úvodzovkách. Napríklad znaky ako &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; a &apos;@&apos; sa objavia vo výslednom časovom texte, aj keď nie sú uzavreté v jednoduchých úvodzovkách. Jednoduchá úvodzovka sa používa na „únikové“ písmená. Dve jednoduché úvodzovky za sebou, či už vo vnútri alebo mimo sekvencie úvodzoviek, predstavujú „skutočné“ jednoduché úvodzovky.&lt;/li&gt;&lt;li&gt;Minimálny interval aktualizácie je 1 sekunda. Ak je nakonfigurované z alebo zzz, čas sa zobrazuje v milisekundách, ale neaktualizuje sa na milisekúnd (aby sa predišlo veľkému zásahu do výkonu).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>

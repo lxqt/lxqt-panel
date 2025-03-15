@@ -79,12 +79,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation>音量變更時總是提示通知</translation>
+        <translation>音量變更時總是通知</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>使用鍵盤變更音量時顯示提示通知</translation>
+        <translation>使用鍵盤變更音量時顯示通知</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>

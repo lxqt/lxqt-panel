@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano viršus</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano kairė</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano dešinė</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano apačia</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano %1 viršus</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano %1 kairė</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano %1 dešinė</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekrano %1 apačia</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
