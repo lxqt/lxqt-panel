@@ -197,7 +197,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>已經有相同名稱的檔案。
-您要覆蓋它嗎？</translation>
+確定要覆寫它嗎？</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>

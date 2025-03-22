@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>一般</translation>
+        <translation>常規</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>

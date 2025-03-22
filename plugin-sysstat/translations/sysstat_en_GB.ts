@@ -116,12 +116,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>System Statistics Settings</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation type="unfinished">Graph</translation>
+        <translation>Graph</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
