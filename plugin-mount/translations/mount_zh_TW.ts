@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="65"/>
         <source>Eject All Optical Drives</source>
-        <translation>退出所有光碟</translation>
+        <translation>退出全部光碟</translation>
     </message>
 </context>
 <context>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation>退出所有光碟</translation>
+        <translation>退出全部光碟</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="79"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>可卸除式裝置管理員：無法註冊全域快捷鍵「%1」</translation>
+        <translation>可卸除式裝置管理員：整體快捷鍵 &quot;%1&quot; 無法註冊</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="116"/>

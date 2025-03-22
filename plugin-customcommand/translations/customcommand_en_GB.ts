@@ -110,7 +110,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="258"/>
         <source>Max Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Max Width</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="156"/>

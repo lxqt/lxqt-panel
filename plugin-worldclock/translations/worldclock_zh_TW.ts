@@ -298,9 +298,9 @@
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
         <translation>&lt;h1&gt;自訂 日期/時間 格式語法&lt;/h1&gt;
-&lt;p&gt;日期模式是一串字符，其中特定的字串在格式化時被替換為日曆中的日期和時間數據，或在解析時用於生成日曆的數據。&lt;/p&gt;
-&lt;p&gt;下面的日期欄位符號表包含模式中使用的字符，以顯示給定區域設定的適當格式，例如 yyyy 表示年份。字元可以多次使用。例如，如果使用 y 表示年份，則“yy”可能會產生“99”，而“yyyy”產生“1999”。對於大多數數字字段，字元數指定了字段寬度。例如，如果 h 是小時，則“h”可能產生“5”，但“hh”產生“05”。對於某些字符，計數指定是否應使用縮寫或完整形式，但可能有其他選擇，如下所示。&lt;/p&gt;
-&lt;p&gt;兩個單引號代表一個文字單引號，可以在單引號內或單引號外。單引號內的文字不會以任何方式解釋（兩個相鄰的單引號除外）。否則，從 a 到 z 和從 A 到 Z 的所有 ASCII 字母都保留為語法字符，如果它們要表示文字字符，則需要引用。此外，某些 ASCII 標點符號將來可能會發生變化（例如“：”被解釋為時間分隔符，而“/”被解釋為日期分隔符，並在顯示中被相應的區域敏感字元取代）。&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;日期型式是一串字符，其中特定的字串在格式化時被替換為日曆中的日期和時間資料，或在解析時用於生成日曆的資料。&lt;/p&gt;
+&lt;p&gt;下面的日期欄位符號表包含型式中使用的字符，以顯示給定區域設定的適當格式，例如 yyyy 表示年份。字元可以多次使用。例如，如果使用 y 表示年份，則“yy”可能會產生“99”，而“yyyy”產生“1999”。對於大多數數字字段，字元數指定了字段寬度。例如，如果 h 是小時，則“h”可能產生“5”，但“hh”產生“05”。對於某些字符，計數指定是否應使用縮寫或完整形式，但可能有其他選擇，如下所示。&lt;/p&gt;
+&lt;p&gt;兩個單引號代表一個文字單引號，可以在單引號內或單引號外。單引號內的文字不會以任何方式解釋（兩個相鄰的單引號除外）。否則，從 a 到 z 和從 A 到 Z 的全部 ASCII 字母都保留為語法字符，如果它們要表示文字字符，則需要引用。此外，某些 ASCII 標點符號將來可能會發生變化（例如“：”被解釋為時間分隔符，而“/”被解釋為日期分隔符，並在顯示中被相應的區域敏感字元取代）。&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
 &lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;代碼&lt;/th&gt;&lt;th&gt;意義&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;日期數字，前位無零 (1 to 31)&lt;/td&gt;&lt;/tr&gt;
@@ -330,7 +330,7 @@
 &lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;時區短式顯示名稱&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;時區長式顯示名稱&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;時區自訂名稱。您可變更 &apos;時區&apos; 分頁於設定視窗&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;模式中任何不在 [&apos;a&apos;..&apos;z&apos;] 和 [&apos;A&apos;..&apos;Z&apos;] 範圍內的字元都將被視為引用文字。例如，即使未用單引號括起來，&apos;:&apos;、&apos;.&apos;、&apos; &apos;、&apos;#&apos; 和 &apos;@&apos; 等字元，也會出現在結果時間文字中。單引號用於“轉義”字母。連續的兩個單引號，無論是在引用序列之內或之外，都代表「真正的」單引號。&lt;/li&gt;&lt;li&gt;最小更新間隔為 1 秒。如果設定 z 或 zzz，時間將以毫秒分數顯示，但不以毫秒為基礎更新(避免對效能造成重大影響)。&lt;/li&gt;&lt;ul&gt;
+&lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;型式中任何不在 [&apos;a&apos;..&apos;z&apos;] 和 [&apos;A&apos;..&apos;Z&apos;] 範圍內的字元都將被視為引用文字。例如，即使未用單引號括起來，&apos;:&apos;、&apos;.&apos;、&apos; &apos;、&apos;#&apos; 和 &apos;@&apos; 等字元，也會出現在結果時間文字中。單引號用於“轉義”字母。連續的兩個單引號，無論是在引用序列之內或之外，都代表「真正的」單引號。&lt;/li&gt;&lt;li&gt;最小更新間隔為 1 秒。如果設定 z 或 zzz，時間將以毫秒分數顯示，但不以毫秒為基礎更新(避免對效能造成重大影響)。&lt;/li&gt;&lt;ul&gt;
 </translation>
     </message>
 </context>
