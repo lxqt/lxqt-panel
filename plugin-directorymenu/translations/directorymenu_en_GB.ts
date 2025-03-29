@@ -105,7 +105,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>Directory Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Directory Menu</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>

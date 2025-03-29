@@ -37,12 +37,12 @@
         <location filename="../src/content.cpp" line="62"/>
         <source>ScrollLock</source>
         <comment>Tooltip for ScrollLock indicator</comment>
-        <translation>滾動鎖定鍵</translation>
+        <translation>捲動鎖定</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
-        <translation>鍵盤布局</translation>
+        <translation>配置</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
@@ -75,12 +75,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation>顯示滾動鎖定狀態</translation>
+        <translation>顯示捲動鎖定狀態</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation>鍵盤布局指示器</translation>
+        <translation>鍵盤配置指示器</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
@@ -100,12 +100,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation>設定鍵盤布局</translation>
+        <translation>設定鍵盤配置</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation>全域</translation>
+        <translation>整體</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>

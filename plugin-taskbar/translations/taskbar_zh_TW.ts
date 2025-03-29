@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="649"/>
         <source>Activate task %1</source>
-        <translation>啟用任務 %1</translation>
+        <translation>啟動任務 %1</translation>
     </message>
 </context>
 <context>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="580"/>
         <source>To &amp;Desktop</source>
-        <translation>傳送到桌面(&amp;D)</translation>
+        <translation>至桌面(&amp;D)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="583"/>
         <source>&amp;All Desktops</source>
-        <translation>傳送到全部桌面(&amp;A)</translation>
+        <translation>全部桌面(&amp;A)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="593"/>
@@ -34,32 +34,32 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="603"/>
         <source>&amp;To Current Desktop</source>
-        <translation>傳送到當前桌面(&amp;T)</translation>
+        <translation>至目前桌面(&amp;T)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="612"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation>移動到下一個螢幕(&amp;N)</translation>
+        <translation>移至下一個顯示器(&amp;E)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="618"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation>移動到前一個螢幕(&amp;P)</translation>
+        <translation>移至上一個顯示器(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="624"/>
         <source>&amp;Move</source>
-        <translation>移動 (&amp;M)</translation>
+        <translation>移動(&amp;M)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="629"/>
         <source>Resi&amp;ze</source>
-        <translation>變更大小 (&amp;z)</translation>
+        <translation>調整大小(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="638"/>
         <source>Ma&amp;ximize</source>
-        <translation>最大化(&amp;x)</translation>
+        <translation>最大化(&amp;X)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="647"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="662"/>
         <source>&amp;Restore</source>
-        <translation>恢復(&amp;R)</translation>
+        <translation>還原(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="670"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="678"/>
         <source>Roll down</source>
-        <translation>放下視窗</translation>
+        <translation>捲下</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="686"/>
         <source>Roll up</source>
-        <translation>捲起視窗</translation>
+        <translation>捲上</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="695"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>一般</translation>
+        <translation>通則</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>僅顯示面板視窗 (&amp;p)</translation>
+        <translation>僅顯示面板視窗(&amp;P)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>在當前桌面展開最小化的視窗</translation>
+        <translation>在目前桌面展開最小化的視窗</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
@@ -181,12 +181,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation>視窗群組 (&amp;g)</translation>
+        <translation>視窗群組(&amp;G)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>當滑鼠懸停時顯示彈出式預覽</translation>
+        <translation>當滑鼠懸停時顯示彈出窗框</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
@@ -223,17 +223,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation>最大按鈕高度</translation>
+        <translation>按鈕高度最大化</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
         <source>Use icons by WindowClass, if available</source>
-        <translation>如果可以的話，使用WindowClass的圖示</translation>
+        <translation>若是可用，依照 WindowClass 使用圖示</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>當面板垂直時自動旋轉按鈕 (&amp;r)</translation>
+        <translation>當面板垂直時自動旋轉按鈕(&amp;R)</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -288,7 +288,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
-        <translation>現在</translation>
+        <translation>目前</translation>
     </message>
 </context>
 </TS>

@@ -109,7 +109,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="710"/>
         <source>Always on &amp;bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Always on &amp;bottom</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="717"/>

@@ -120,7 +120,7 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
         <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
         <source>Custom name</source>
-        <translation type="unfinished"></translation>
+        <translation>Custom name</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>

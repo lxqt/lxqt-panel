@@ -97,7 +97,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="94"/>
         <source>echo Configure...</source>
-        <translation>echo 請設定…</translation>
+        <translation>echo 設定…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="298"/>
         <source>Click</source>
-        <translation>點擊</translation>
+        <translation>點按</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="315"/>
