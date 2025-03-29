@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>搜尋:</translation>
+        <translation>搜尋：</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation>布局</translation>
+        <translation>位置</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>對齊和位置</translation>
+        <translation>對齊與位置</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
@@ -119,20 +119,20 @@
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation>向左</translation>
+        <translation>靠左</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation>中間</translation>
+        <translation>置中</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation>向右</translation>
+        <translation>靠右</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>自動隱藏 (&amp;u)</translation>
+        <translation>自動隱藏(&amp;U)</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation> 毫秒</translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -190,7 +190,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation>在螢幕上保留空間</translation>
+        <translation>在顯示上保留空間</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;面板透明度需要合成&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;面板透明度需要進行合成。&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
@@ -349,7 +349,7 @@ LXQt 外觀設定→
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation>覆寫圖示主題(&amp;T)</translation>
+        <translation>覆蓋圖示主題(&amp;T)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
@@ -360,12 +360,12 @@ LXQt 外觀設定→
         <location filename="../config/configstyling.cpp" line="189"/>
         <location filename="../config/configstyling.cpp" line="205"/>
         <source>Pick color</source>
-        <translation>選擇顏色</translation>
+        <translation>選用顏色</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Pick image</source>
-        <translation>選擇圖片</translation>
+        <translation>選用圖片</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
@@ -417,8 +417,8 @@ LXQt 外觀設定→
         <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>移除面板是不可回復的。
-你想移除此面板嗎？</translation>
+        <translation>移除面板是不可還原的。
+確定移除此面板嗎？</translation>
     </message>
 </context>
 <context>

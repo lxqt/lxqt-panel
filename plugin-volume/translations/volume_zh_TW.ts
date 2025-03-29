@@ -44,7 +44,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>設置裝置</translation>
+        <translation>裝置控制</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../volumepopup.cpp" line="59"/>
         <source>Mi&amp;xer</source>
-        <translation>混音器 (&amp;x)</translation>
+        <translation>混音器(&amp;X)</translation>
     </message>
 </context>
 </TS>

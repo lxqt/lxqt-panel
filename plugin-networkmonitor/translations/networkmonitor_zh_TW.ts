@@ -54,12 +54,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor Settings</source>
-        <translation>網路顯示器設定</translation>
+        <translation>網路監示器設定</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>一般</translation>
+        <translation>通則</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Monitor</source>
-        <translation>監視器</translation>
+        <translation>監示器</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
