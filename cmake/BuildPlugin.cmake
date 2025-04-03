@@ -37,14 +37,28 @@ MACRO (BUILD_LXQT_PLUGIN NAME)
     endif (NOT DEFINED PLUGIN_DIR)
 
     list(FIND STATIC_PLUGINS ${NAME} IS_STATIC)
-    set(SRC ${HEADERS} ${SOURCES} ${QM_LOADER} ${MOC_SOURCES} ${${PROJECT_NAME}_QM_FILES} ${RESOURCES} ${UIS} ${DESKTOP_FILES})
+    set(SRC
+        ${HEADERS}
+        ${SOURCES}
+        ${QM_LOADER}
+        ${MOC_SOURCES}
+        ${${PROJECT_NAME}_QM_FILES}
+        ${RESOURCES}
+        ${UIS}
+        ${DESKTOP_FILES}
+    )
     if (${IS_STATIC} EQUAL -1) # not static
         add_library(${NAME} MODULE ${SRC}) # build dynamically loadable modules
         install(TARGETS ${NAME} DESTINATION ${PLUGIN_DIR}) # install the *.so file
     else() # static
         add_library(${NAME} STATIC ${SRC}) # build statically linked lib
     endif()
-    target_link_libraries(${NAME} Qt6::Widgets lxqt ${LIBRARIES} KF6::WindowSystem)
+    target_link_libraries(${NAME}
+        Qt6::Widgets
+        lxqt
+        ${LIBRARIES}
+        KF6::WindowSystem
+    )
 
     install(FILES ${CONFIG_FILES}  DESTINATION ${PLUGIN_SHARE_DIR})
     install(FILES ${DESKTOP_FILES} DESTINATION ${PROG_SHARE_DIR})
