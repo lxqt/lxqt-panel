@@ -26,11 +26,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "actionview.h"
-#ifdef HAVE_MENU_CACHE
-    #include "xdgcachedmenu.h"
-#else
-    #include <XdgAction>
-#endif
+#include <XdgAction>
 
 #include <QAction>
 #include <QWidgetAction>
@@ -48,9 +44,6 @@
 #include <algorithm>
 
 //==============================
-#ifdef HAVE_MENU_CACHE
-#include <QSortFilterProxyModel>
-#else
 FilterProxyModel::FilterProxyModel(QObject* parent) :
     QSortFilterProxyModel(parent) {
 }
@@ -78,7 +71,6 @@ bool FilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex& sourc
     }
     return false;
 }
-#endif
 //==============================
 namespace
 {
@@ -112,15 +104,6 @@ namespace
         {
             QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
             //the XdgCachedMenuAction/XdgAction does load the icon upon showing its menu
-#ifdef HAVE_MENU_CACHE
-            if (icon.isNull())
-            {
-                XdgCachedMenuAction * cached_action = qobject_cast<XdgCachedMenuAction *>(qvariant_cast<QAction *>(index.data(ActionView::ActionRole)));
-                Q_ASSERT(nullptr != cached_action);
-                cached_action->updateIcon();
-                const_cast<QAbstractItemModel *>(index.model())->setData(index, cached_action->icon(), Qt::DecorationRole);
-            }
-#else
             if (icon.isNull())
             {
                 XdgAction * action = qobject_cast<XdgAction *>(qvariant_cast<QAction *>(index.data(ActionView::ActionRole)));
@@ -130,7 +113,6 @@ namespace
                   const_cast<QAbstractItemModel *>(index.model())->setData(index, action->icon(), Qt::DecorationRole);
                 }
             }
-#endif
             QSize s = QStyledItemDelegate::sizeHint(option, index);
             s.setWidth(std::min(mMaxItemWidth, s.width()));
             return s;
@@ -144,11 +126,7 @@ namespace
 ActionView::ActionView(QWidget * parent /*= nullptr*/)
     : QListView(parent)
     , mModel{new QStandardItemModel{this}}
-#ifdef HAVE_MENU_CACHE
-    , mProxy{new QSortFilterProxyModel{this}}
-#else
     , mProxy{new FilterProxyModel{this}}
-#endif
     , mMaxItemsToShow(10)
 {
     setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -229,11 +207,7 @@ void ActionView::fillActions(QMenu * menu)
 
 void ActionView::setFilter(QString const & filter)
 {
-#ifdef HAVE_MENU_CACHE
-    mProxy->setFilterFixedString(filter);
-#else
     mProxy->setfilerString(filter);
-#endif
     const int count = mProxy->rowCount();
     if (0 < count)
     {

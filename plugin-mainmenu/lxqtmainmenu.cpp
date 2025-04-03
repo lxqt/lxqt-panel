@@ -47,15 +47,11 @@
 #include <XdgMenuWidget>
 #include <XdgIcon>
 
-#ifdef HAVE_MENU_CACHE
-    #include "xdgcachedmenu.h"
-#else
     #include <QStandardPaths>
     #include <QClipboard>
     #include <QMimeData>
     #include <XdgAction>
     #include <QFile>
-#endif
 
 #define DEFAULT_SHORTCUT "Alt+F1"
 
@@ -73,11 +69,6 @@ LXQtMainMenu::LXQtMainMenu(const ILXQtPanelPluginStartupInfo &startupInfo):
     mFilterShowHideMenu(true),
     mHeavyMenuChanges(false)
 {
-#ifdef HAVE_MENU_CACHE
-    mMenuCache = nullptr;
-    mMenuCacheNotify = nullptr;
-#endif
-
     mDelayedPopup.setSingleShot(true);
     mDelayedPopup.setInterval(200);
     connect(&mDelayedPopup, &QTimer::timeout, this, &LXQtMainMenu::showHideMenu);
@@ -160,13 +151,6 @@ LXQtMainMenu::~LXQtMainMenu()
         mMenu->removeAction(mSearchViewAction);
         delete mMenu;
     }
-#ifdef HAVE_MENU_CACHE
-    if(mMenuCache)
-    {
-        menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
-        menu_cache_unref(mMenuCache);
-    }
-#endif
 }
 
 
@@ -203,14 +187,6 @@ void LXQtMainMenu::showMenu()
     }
 }
 
-#ifdef HAVE_MENU_CACHE
-// static
-void LXQtMainMenu::menuCacheReloadNotify(MenuCache* cache, gpointer user_data)
-{
-    reinterpret_cast<LXQtMainMenu*>(user_data)->buildMenu();
-}
-#endif
-
 /************************************************
 
  ************************************************/
@@ -237,21 +213,6 @@ void LXQtMainMenu::settingsChanged()
     if (mMenuFile != menu_file)
     {
         mMenuFile = menu_file;
-#ifdef HAVE_MENU_CACHE
-        menu_cache_init(0);
-        if(mMenuCache)
-        {
-            menu_cache_remove_reload_notify(mMenuCache, mMenuCacheNotify);
-            menu_cache_unref(mMenuCache);
-        }
-        mMenuCache = menu_cache_lookup(mMenuFile.toLocal8Bit().constData());
-        if (MenuCacheDir * root = menu_cache_dup_root_dir(mMenuCache))
-        {
-            menu_cache_item_unref(MENU_CACHE_ITEM(root));
-            buildMenu();
-        }
-        mMenuCacheNotify = menu_cache_add_reload_notify(mMenuCache, (MenuCacheReloadNotify)menuCacheReloadNotify, this);
-#else
         mXdgMenu.setEnvironments(QStringList() << QStringLiteral("X-LXQT") << QStringLiteral("LXQt"));
         mXdgMenu.setLogDir(mLogDir);
 
@@ -266,7 +227,6 @@ void LXQtMainMenu::settingsChanged()
             QMessageBox::warning(nullptr, QStringLiteral("Parse error"), mXdgMenu.errorString());
             return;
         }
-#endif
     }
 
     setMenuFontSize();
@@ -308,21 +268,6 @@ static bool filterMenu(QMenu * menu, QString const & filter)
         {
             //real menu action -> app
             bool visible(filter.isEmpty() || action->text().contains(filter, Qt::CaseInsensitive) || action->toolTip().contains(filter, Qt::CaseInsensitive));
-#ifndef HAVE_MENU_CACHE
-            if(!visible)
-            {
-                if (XdgAction * xdgAction = qobject_cast<XdgAction *>(action))
-                {
-                    const XdgDesktopFile& df = xdgAction->desktopFile();
-                    QStringList list = df.expandExecString();
-                    if (!list.isEmpty())
-                    {
-                        if (list.at(0).contains(filter, Qt::CaseInsensitive))
-                            visible = true;
-                    }
-                }
-            }
-#endif
             action->setVisible(visible);
             has_visible |= action->isVisible();
         }
@@ -417,12 +362,8 @@ void LXQtMainMenu::buildMenu()
         mMenu->removeAction(mSearchViewAction);
         delete mMenu;
     }
-#ifdef HAVE_MENU_CACHE
-    mMenu = new XdgCachedMenu(mMenuCache, &mButton);
-#else
     mMenu = new XdgMenuWidget(mXdgMenu, QLatin1String(""), &mButton);
     addContextMenu(mMenu);
-#endif
     mMenu->setObjectName(QStringLiteral("TopLevelMainMenu"));
     setTranslucentMenus(mMenu);
     // Note: the QWidget::ensurePolished() workarounds problem with transparent
@@ -479,10 +420,6 @@ void LXQtMainMenu::addContextMenu(QMenu *menu)
 
 void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p, QObject * sender)
 {
-#ifdef HAVE_MENU_CACHE
-    Q_UNUSED(p)
-    return;
-#else
     QMenu *parentMenu = qobject_cast<QMenu*>(sender);
     ActionView *parentView = qobject_cast<ActionView*>(sender);
     QAction *action;
@@ -558,7 +495,6 @@ void LXQtMainMenu::onRequestingCustomMenu(const QPoint& p, QObject * sender)
         clipboard->setMimeData(data);
     });
     menu.exec(globalPos);
-#endif
 }
 
 /************************************************
