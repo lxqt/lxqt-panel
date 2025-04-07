@@ -34,9 +34,6 @@
 class QStandardItemModel;
 
 //==============================
-#ifdef HAVE_MENU_CACHE
-class QSortFilterProxyModel;
-#else
 #include <QSortFilterProxyModel>
 class FilterProxyModel : public QSortFilterProxyModel
 {
@@ -56,7 +53,6 @@ protected:
 private:
     QString filterStr_;
 };
-#endif
 //==============================
 class ActionView : public QListView
 {
@@ -119,11 +115,7 @@ private:
 private:
     QStandardItemModel * mModel;
     QPoint mDragStartPosition;
-#ifdef HAVE_MENU_CACHE
-    QSortFilterProxyModel * mProxy;
-#else
     FilterProxyModel * mProxy;
-#endif
     int mMaxItemsToShow;
 };
 

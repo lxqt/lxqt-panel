@@ -32,10 +32,6 @@
 #include "../panel/ilxqtpanelplugin.h"
 #include <XdgMenu>
 
-#ifdef HAVE_MENU_CACHE
-#include <menu-cache/menu-cache.h>
-#endif
-
 #include <QLabel>
 #include <QToolButton>
 #include <QDomElement>
@@ -102,13 +98,7 @@ private:
     bool mFilterShowHideMenu; //!< while searching all (original) menu entries should be hidden
     bool mHeavyMenuChanges; //!< flag for filtering some mMenu events while heavy changes are performed
 
-#ifdef HAVE_MENU_CACHE
-    MenuCache* mMenuCache;
-    MenuCacheNotifyId mMenuCacheNotify;
-    static void menuCacheReloadNotify(MenuCache* cache, gpointer user_data);
-#else
     XdgMenu mXdgMenu;
-#endif
 
     QTimer mDelayedPopup;
     QTimer mHideTimer;
