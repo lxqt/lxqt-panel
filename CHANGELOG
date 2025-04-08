@@ -1,3 +1,19 @@
+lxqt-panel-2.2.0 / 2025-04-17
+==============================
+ * Handle Wayland screens by using their names, not numbers.
+ * Added tooltip to plugin-dom.
+ * Prevent redundant writing to the config file on startup.
+ * Added an option for the text color of Custom Command.
+ * Corrected the order of focusing in config dialogs by reordering blocks in ui files.
+ * Updated manpage.
+ * Changed "desktop" to "screen" in Panel's config dialog.
+ * Tidy up some whitespaces in the code.
+ * Enabled PageDown/PageUp for Fancy Menu.
+ * Replaced qMin, qMax, qBound, qRound and qAbs with standard functions.
+ * Cleaned up the config ui files of Main Menu and Fancy Menu.
+ * Removed menu-cache support.
+ * Removed debug messages for "UnknownProperty" errors in Status Notifier.
+
 lxqt-panel-2.1.4 / 2025-01-11
 ==============================
  * Fixed Task Manager when a window is shown on all desktops.
