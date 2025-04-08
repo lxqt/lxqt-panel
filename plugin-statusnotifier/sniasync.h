@@ -72,14 +72,21 @@ public:
     template <typename F>
     inline void propertyGetAsync(QString const &name, F finished)
     {
+        static const std::vector<QString> ignored_errors = {
+            QStringLiteral("org.freedesktop.DBus.Error.UnknownProperty")
+                , QStringLiteral("org.freedesktop.DBus.Error.InvalidArgs")
+                , QStringLiteral("org.freedesktop.DBus.Error.Failed")
+        };
+
         static_assert(is_valid_signature<typename call_signature<F>::type>::value, "need callable (lambda, *function, callable obj) (Arg) -> void");
         connect(new QDBusPendingCallWatcher{asyncPropGet(name), this},
                 &QDBusPendingCallWatcher::finished,
+                this,
                 [this, finished, name] (QDBusPendingCallWatcher * call)
                 {
                     QDBusPendingReply<QVariant> reply = *call;
-                    if (reply.isError())
-                        qDebug().noquote().nospace() << "Error on DBus request(" << mSni.service() << ',' << mSni.path() << "): " << reply.error();
+                    if (reply.isError() && ignored_errors.cend() == std::find(ignored_errors.cbegin(), ignored_errors.cend(), reply.error().name()))
+                        qDebug().noquote().nospace() << "Error on DBus request(" << mSni.service() << ',' << mSni.path() << ',' << name << "): " << reply.error();
                     finished(qdbus_cast<typename std::function<typename call_signature<F>::type>::argument_type>(reply.value()));
                     call->deleteLater();
                 }
