@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; Clique com o botão do meio do mouse sobre o relógio para visualizar hora e data de todos os fusos horários configurados.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="529"/>

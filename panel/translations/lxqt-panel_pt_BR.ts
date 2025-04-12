@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Configurar painel</translation>
+        <translation>Configurar Painel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation>Configurar posicionamento</translation>
+        <translation>Configurar Posicionamento</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -148,7 +148,7 @@
         <location filename="../config/configplacement.ui" line="262"/>
         <location filename="../config/configplacement.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Zero desativa animação</translation>
+        <translation>Zero desativa animações</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="265"/>
@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Topo da tela</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquerda da tela</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Direita da tela</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Fundo da tela</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Topo da tela %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquerda da tela %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Direita da tela %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fundo da tela %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../config/configplacement.cpp" line="196"/>
         <source>Bottom</source>
-        <translation>Base</translation>
+        <translation>Fundo</translation>
     </message>
 </context>
 <context>
@@ -248,17 +248,17 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Configurar plugins</translation>
+        <translation>Configurar Plugins</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Nota: quaisquer mudanças feitas nesta página, não poderão ser restauradas.</translation>
+        <translation>Nota: mudanças feitas nesta página não poderão ser restauradas.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Mover acima</translation>
+        <translation>Mover para cima</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -272,7 +272,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Mover abaixo</translation>
+        <translation>Mover para baixo</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>

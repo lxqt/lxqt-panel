@@ -135,12 +135,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="194"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>O comando produz uma imagem</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Dica</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
