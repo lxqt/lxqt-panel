@@ -513,6 +513,13 @@
         </layout>
        </item>
        <item row="1" column="0" colspan="2">
+        <widget class="QCheckBox" name="wheelCB">
+         <property name="text">
+          <string>Change displayed time zone with mouse wheel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
         <widget class="QLabel" name="label">
          <property name="text">
           <string>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</string>

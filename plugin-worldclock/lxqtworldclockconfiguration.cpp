@@ -86,6 +86,8 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     connect(ui->showWeekNumberCB,     &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->showTooltipCB,        &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
 
+    connect(ui->wheelCB,              &QCheckBox::clicked, this, &LXQtWorldClockConfiguration::saveSettings);
+
     loadSettings();
 }
 
@@ -236,6 +238,8 @@ void LXQtWorldClockConfiguration::loadSettings()
     ui->autorotateCB->setChecked(settings().value(QStringLiteral("autoRotate"), true).toBool());
     ui->showWeekNumberCB->setChecked(settings().value(QL1S("showWeekNumber"), true).toBool());
 
+    ui->wheelCB->setChecked(settings().value(QLatin1String("timeZoneWheel"), true).toBool());
+
     mLockCascadeSettingChanges = false;
 }
 
@@ -381,6 +385,8 @@ void LXQtWorldClockConfiguration::saveSettings()
     settings().setValue(QLatin1String("autoRotate"), ui->autorotateCB->isChecked());
     settings().setValue(QL1S("showWeekNumber"), ui->showWeekNumberCB->isChecked());
     settings().setValue(QLatin1String("showTooltip"), ui->showTooltipCB->isChecked());
+
+    settings().setValue(QLatin1String("timeZoneWheel"), ui->wheelCB->isChecked());
 }
 
 void LXQtWorldClockConfiguration::timeFormatChanged(int index)
