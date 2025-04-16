@@ -48,6 +48,7 @@ LXQtWorldClock::LXQtWorldClock(const ILXQtPanelPluginStartupInfo &startupInfo):
     mPopup(nullptr),
     mTimer(new QTimer(this)),
     mUpdateInterval(1),
+    mTimeZoneWheel(true),
     mAutoRotate(true),
     mShowWeekNumber(true),
     mShowTooltip(false),
@@ -231,6 +232,8 @@ void LXQtWorldClock::settingsChanged()
     QString timezonePosition = _settings->value(QLatin1String("timezonePosition"), QString()).toString();
     QString timezoneFormatType = _settings->value(QLatin1String("timezoneFormatType"), QString()).toString();
 
+    mTimeZoneWheel = _settings->value(QLatin1String("timeZoneWheel"), true).toBool();
+
     // date
     bool showDate = _settings->value(QLatin1String("showDate"), false).toBool();
 
@@ -371,7 +374,7 @@ QDialog *LXQtWorldClock::configureDialog()
 
 void LXQtWorldClock::wheelScrolled(int delta)
 {
-    if (mTimeZones.count() > 1)
+    if (mTimeZoneWheel && mTimeZones.count() > 1)
     {
         mActiveTimeZone = mTimeZones[(mTimeZones.indexOf(mActiveTimeZone) + ((delta > 0) ? -1 : 1) + mTimeZones.size()) % mTimeZones.size()];
         setTimeText();
