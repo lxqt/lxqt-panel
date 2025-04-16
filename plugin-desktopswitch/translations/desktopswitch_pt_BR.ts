@@ -78,12 +78,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="342"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>n/d</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="344"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>O DesktopSwitch não é suportado na plataforma atual: %1</translation>
     </message>
 </context>
 </TS>
