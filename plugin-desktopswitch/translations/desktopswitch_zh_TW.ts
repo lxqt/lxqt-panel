@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="95"/>
+        <location filename="../desktopswitch.cpp" line="96"/>
         <source>Switch to desktop %1</source>
         <translation>切換至桌面 %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="170"/>
-        <location filename="../desktopswitch.cpp" line="181"/>
+        <location filename="../desktopswitch.cpp" line="171"/>
+        <location filename="../desktopswitch.cpp" line="182"/>
         <source>Desktop %1</source>
         <translation>桌面 %1</translation>
     </message>
@@ -76,12 +76,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="342"/>
+        <location filename="../desktopswitch.cpp" line="343"/>
         <source>n/a</source>
         <translation>不適用</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="344"/>
+        <location filename="../desktopswitch.cpp" line="345"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>桌面切換功能不支援於目前平台：%1</translation>
     </message>

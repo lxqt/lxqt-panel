@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="117"/>
+        <location filename="../lxqtmainmenu.cpp" line="108"/>
         <source>Search...</source>
         <translation>Søg...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="127"/>
+        <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
         <translation>Vis/skjul hovedmenu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="467"/>
         <source>Add to desktop</source>
         <translation>Tilføj til skrivebord</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="475"/>
         <source>Question</source>
         <translation>Spørgsmål</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="476"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Der findes allerede en fil med det samme navn.
 Vil du overskrive den?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="482"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="546"/>
+        <location filename="../lxqtmainmenu.cpp" line="483"/>
         <source>The file cannot be overwritten.</source>
         <translation>Filen kan ikke overskrives.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="552"/>
+        <location filename="../lxqtmainmenu.cpp" line="489"/>
         <source>Copy</source>
         <translation>Kopiér</translation>
     </message>
@@ -59,82 +59,82 @@ Vil du overskrive den?</translation>
         <translation>Indstillinger for hovedmenu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>Ikon:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>Knaptekst:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>Brugerdefineret skriftstørrelse:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
         <source>Menu file</source>
         <translation>Menufil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="102"/>
         <source>Menu file:</source>
         <translation>Menufil:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="147"/>
         <source>Search</source>
         <translation>Søg</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
         <translation>Maks. bredde for objekt:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
         <translation>Vis tilhørende punkter:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
         <translation>Maksimum synlige objekter:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
         <translation>Filtrér menupunkter</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
         <translation>Skjul menupunkter under søgning</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
         <translation>Ryd søgning når menuen vises</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
         <translation>Tastaturgenvej</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klik på knappen for at optage genvej:</translation>
     </message>

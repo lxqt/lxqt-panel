@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="95"/>
+        <location filename="../desktopswitch.cpp" line="96"/>
         <source>Switch to desktop %1</source>
         <translation>Prejsť na plochu %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="170"/>
-        <location filename="../desktopswitch.cpp" line="181"/>
+        <location filename="../desktopswitch.cpp" line="171"/>
+        <location filename="../desktopswitch.cpp" line="182"/>
         <source>Desktop %1</source>
         <translation>Plocha %1</translation>
     </message>
@@ -76,12 +76,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="342"/>
+        <location filename="../desktopswitch.cpp" line="343"/>
         <source>n/a</source>
         <translation>n/a</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="344"/>
+        <location filename="../desktopswitch.cpp" line="345"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch nie je podporovaný na aktuálnej platforme: %1</translation>
     </message>

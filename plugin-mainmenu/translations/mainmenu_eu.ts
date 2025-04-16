@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="117"/>
+        <location filename="../lxqtmainmenu.cpp" line="108"/>
         <source>Search...</source>
         <translation>Bilatu...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="127"/>
+        <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
         <translation>Erakutsi/ezkutatu menu nagusia</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="467"/>
         <source>Add to desktop</source>
         <translation>Gehitu mahaigainean</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="475"/>
         <source>Question</source>
         <translation>Galdera</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="476"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Izen bereko fitxategi bat existitzen da dagoeneko.
 Gainidatzi nahi al duzu?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="482"/>
         <source>Warning</source>
         <translation>Abisua</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="546"/>
+        <location filename="../lxqtmainmenu.cpp" line="483"/>
         <source>The file cannot be overwritten.</source>
         <translation>Ezin da fitxategia gainidatzi.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="552"/>
+        <location filename="../lxqtmainmenu.cpp" line="489"/>
         <source>Copy</source>
         <translation>Kopiatu</translation>
     </message>
@@ -59,82 +59,82 @@ Gainidatzi nahi al duzu?</translation>
         <translation>Menu Nagusiaren Ezarpenak</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>Ikonoa:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>Botoiaren testua:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>Letra tamaina pertsonalizatua:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
         <source>Menu file</source>
         <translation>Menu fitxategia</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="102"/>
         <source>Menu file:</source>
         <translation>Menu fitxategia:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="147"/>
         <source>Search</source>
         <translation>Bilatu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
         <translation>Max. elementuaren zabalera:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
         <translation>Erakutsi bat datozen sarrerak:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
         <translation>Gehienezko elementu ikusgai:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
         <translation>Iragazi menuko sarrerak</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
         <translation>Ezkutatu menuko sarrerak bilatzen ari zaren bitartean</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
         <translation>Garbitu bilaketa menua erakustean</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
         <translation>Teklatuko lasterbidea</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
         <translation>Klikatu botoia lasterbidea grabatzeko:</translation>
     </message>

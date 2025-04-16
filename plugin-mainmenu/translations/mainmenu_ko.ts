@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="117"/>
+        <location filename="../lxqtmainmenu.cpp" line="108"/>
         <source>Search...</source>
         <translation>검색...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="127"/>
+        <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
         <translation>메뉴 표시/숨김</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="467"/>
         <source>Add to desktop</source>
         <translation>바탕화면에 추가</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="475"/>
         <source>Question</source>
         <translation>질문</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="476"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>같은 이름의 파일이 이미 있습니다.
 덮어쓰시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="482"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="546"/>
+        <location filename="../lxqtmainmenu.cpp" line="483"/>
         <source>The file cannot be overwritten.</source>
         <translation>파일을 덮어쓸 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="552"/>
+        <location filename="../lxqtmainmenu.cpp" line="489"/>
         <source>Copy</source>
         <translation>복사</translation>
     </message>
@@ -59,82 +59,82 @@ Do you want to overwrite it?</source>
         <translation>기본 메뉴 설정</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>아이콘:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>버튼 텍스트:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>사용자 지정 글꼴 크기:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
         <source>Menu file</source>
         <translation>메뉴 파일</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="102"/>
         <source>Menu file:</source>
         <translation>메뉴 파일:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="147"/>
         <source>Search</source>
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
         <translation>최대 항목 너비:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
         <translation>일치하는 항목 표시:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
         <translation>최대 표시 항목:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
         <translation>필터 메뉴 항목</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
         <translation> 픽셀</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
         <translation>검색하는 동안 메뉴 항목 숨김</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
         <translation>메뉴 표시 시 검색 지우기</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
         <translation>키보드 단축키</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
         <translation>단축키를 기록하려면 버튼 클릭:</translation>
     </message>

@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="84"/>
+        <location filename="../lxqttaskgroup.cpp" line="86"/>
         <source>Group</source>
         <translation>Gruppo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="86"/>
+        <location filename="../lxqttaskgroup.cpp" line="88"/>
         <source>Close group</source>
         <translation>Chiudi gruppo</translation>
     </message>

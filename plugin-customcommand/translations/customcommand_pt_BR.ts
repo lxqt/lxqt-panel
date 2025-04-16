@@ -17,7 +17,7 @@
 <context>
     <name>LXQtCustomCommand</name>
     <message>
-        <location filename="../lxqtcustomcommand.cpp" line="195"/>
+        <location filename="../lxqtcustomcommand.cpp" line="197"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>

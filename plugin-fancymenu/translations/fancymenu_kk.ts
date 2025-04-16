@@ -4,7 +4,7 @@
 <context>
     <name>LXQtFancyMenu</name>
     <message>
-        <location filename="../lxqtfancymenu.cpp" line="93"/>
+        <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
         <translation>Басты мәзірді көрсету/жасыру</translation>
     </message>
@@ -35,77 +35,77 @@
         <translation>Жалпы</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>Таңбаша:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>Батырма мәтіні:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>Қаріп өлшемін таңдау:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> п</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
         <source>Menu file</source>
         <translation>Мәзір файлы</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
         <translation>Мәзір файлы:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
         <translation>Пернетақта жарлығы</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
         <translation>Пернетақта жарлығын жазып алу үшін батырманы басыңыз:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
         <source>Search</source>
         <translation>Іздеу</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="182"/>
         <source>Clear search upon showing menu</source>
         <translation>Мәзірді көрсеткен кезде іздеу өрісін тазарту</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
         <translation type="unfinished"></translation>
     </message>
@@ -225,12 +225,12 @@ Do you want to overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation type="unfinished"></translation>
     </message>
