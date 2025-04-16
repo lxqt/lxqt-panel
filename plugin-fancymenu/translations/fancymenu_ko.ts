@@ -4,7 +4,7 @@
 <context>
     <name>LXQtFancyMenu</name>
     <message>
-        <location filename="../lxqtfancymenu.cpp" line="93"/>
+        <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
         <translation>기본 메뉴 표시/숨김</translation>
     </message>
@@ -35,77 +35,77 @@
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>아이콘:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>버튼 텍스트:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>사용자 지정 글꼴 크기:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
         <translation>다음 이후 자동 선택:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
         <translation> ms</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
         <source>Menu file</source>
         <translation>메뉴 파일</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
         <translation>메뉴 파일:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
         <translation>키보드 단축키</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
         <translation>단축키를 기록하려면 버튼 클릭:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
         <source>Search</source>
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="182"/>
         <source>Clear search upon showing menu</source>
         <translation>메뉴 표시 시 검색 지우기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
         <translation>레이아웃</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
         <translation>버튼 줄 위치</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
         <translation>범주 위치</translation>
     </message>
@@ -225,12 +225,12 @@ Do you want to overwrite it?</source>
         <translation>즐겨찾기에 추가하기</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
         <translation>실행파일 없음</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; 실행 파일을 찾을 수 없습니다.</translation>
     </message>

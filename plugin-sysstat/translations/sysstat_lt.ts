@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="407"/>
+        <location filename="../lxqtsysstat.cpp" line="404"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>sistema: %1%&lt;br&gt;naudotojas: %2%&lt;br&gt;nice: %3%&lt;br&gt;kita: %4%&lt;br&gt;dažnis: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="456"/>
+        <location filename="../lxqtsysstat.cpp" line="453"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>sistema: %1%&lt;br&gt;naudotojas: %2%&lt;br&gt;nice: %3%&lt;br&gt;kita: %4%&lt;br&gt;dažnis: nėra</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="498"/>
+        <location filename="../lxqtsysstat.cpp" line="495"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>programos: %1%&lt;br&gt;buferiai: %2%&lt;br&gt;yra podėlyje: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="532"/>
+        <location filename="../lxqtsysstat.cpp" line="529"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>panaudota: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="562"/>
+        <location filename="../lxqtsysstat.cpp" line="561"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>min.: %1%&lt;br&gt;maks.: %2%</translation>

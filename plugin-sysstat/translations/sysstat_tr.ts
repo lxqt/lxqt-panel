@@ -373,31 +373,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="407"/>
+        <location filename="../lxqtsysstat.cpp" line="404"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frek: %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="456"/>
+        <location filename="../lxqtsysstat.cpp" line="453"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>sistem: %1%&lt;br&gt;kullanıcı: %2%&lt;br&gt;nice: %3%&lt;br&gt;diğer: %4%&lt;br&gt;frek: n/a</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="498"/>
+        <location filename="../lxqtsysstat.cpp" line="495"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>uygulama: %1%&lt;br&gt;tampon: %2%&lt;br&gt;önbellek: %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="532"/>
+        <location filename="../lxqtsysstat.cpp" line="529"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>kullanılan: %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="562"/>
+        <location filename="../lxqtsysstat.cpp" line="561"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>min: %1%&lt;br&gt;maks: %2%</translation>

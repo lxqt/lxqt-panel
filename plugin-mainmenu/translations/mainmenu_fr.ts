@@ -4,44 +4,44 @@
 <context>
     <name>LXQtMainMenu</name>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="117"/>
+        <location filename="../lxqtmainmenu.cpp" line="108"/>
         <source>Search...</source>
         <translation>Rechercher...</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="127"/>
+        <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
         <translation>Afficher/Cacher le menu principal</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="530"/>
+        <location filename="../lxqtmainmenu.cpp" line="467"/>
         <source>Add to desktop</source>
         <translation>Ajouter au bureau</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="538"/>
+        <location filename="../lxqtmainmenu.cpp" line="475"/>
         <source>Question</source>
         <translation>Question</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="539"/>
+        <location filename="../lxqtmainmenu.cpp" line="476"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichier du même nom existe déjà.
 Voulez-vous l&apos;écraser&#x202f;?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="545"/>
+        <location filename="../lxqtmainmenu.cpp" line="482"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="546"/>
+        <location filename="../lxqtmainmenu.cpp" line="483"/>
         <source>The file cannot be overwritten.</source>
         <translation>Le fichier ne peut pas être écrasé.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="552"/>
+        <location filename="../lxqtmainmenu.cpp" line="489"/>
         <source>Copy</source>
         <translation>Copier</translation>
     </message>
@@ -59,82 +59,82 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
         <translation>Paramétres du menu principal</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>Icône :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>Texte du bouton :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>Taille de police personnalisée :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="105"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
         <source>Menu file</source>
         <translation>Fichier du menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="111"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="102"/>
         <source>Menu file:</source>
         <translation>Fichier du menu :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="147"/>
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
         <translation>Largeur maxi d&apos;une entrée :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="169"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
         <translation>Afficher les entrées correspondantes :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
         <translation>Nombre maximum d&apos;éléments visibles :</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="162"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
         <translation>Filtrer les entrées de menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
         <translation>Masquer les entrées du menu pendant la recherche</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
         <translation>Remettre à zéro la recherche lors de l&apos;affichage du menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="127"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
         <translation>Raccourci clavier</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.ui" line="133"/>
+        <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
         <translation>Cliquer sur le bouton pour enregistrer le raccourci :</translation>
     </message>

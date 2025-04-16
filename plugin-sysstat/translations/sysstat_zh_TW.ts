@@ -372,31 +372,31 @@
 <context>
     <name>LXQtSysStatContent</name>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="407"/>
+        <location filename="../lxqtsysstat.cpp" line="404"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
         <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其它： %4%&lt;br&gt;頻率： %5%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="456"/>
+        <location filename="../lxqtsysstat.cpp" line="453"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
         <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其它： %4%&lt;br&gt;頻率： n/a</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="498"/>
+        <location filename="../lxqtsysstat.cpp" line="495"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
         <translation>應用： %1%&lt;br&gt;緩衝： %2%&lt;br&gt;快取： %3%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="532"/>
+        <location filename="../lxqtsysstat.cpp" line="529"/>
         <source>used: %1%</source>
         <comment>Swap tooltip information</comment>
         <translation>已經使用： %1%</translation>
     </message>
     <message>
-        <location filename="../lxqtsysstat.cpp" line="562"/>
+        <location filename="../lxqtsysstat.cpp" line="561"/>
         <source>min: %1%&lt;br&gt;max: %2%</source>
         <comment>Network tooltip information</comment>
         <translation>最小： %1%&lt;br&gt;最大： %2%</translation>
