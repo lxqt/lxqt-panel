@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="245"/>
+        <location filename="../lxqtworldclock.cpp" line="248"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;dddd, d. MMMM yyyy&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
         <source>Custom name</source>
         <translation>Brugerdefineret navn</translation>
     </message>
@@ -219,36 +219,41 @@
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
+        <source>Change displayed time zone with mouse wheel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
         <translation>&lt;b&gt;Bemærk:&lt;/b&gt; Midtklik på uret for at se klokkeslæt og dato for alle indstillede tidszoner.</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="536"/>
         <source>&amp;General</source>
         <translation>&amp;Generelt</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="542"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>&amp;Roter automatisk når panelet er lodret</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="552"/>
         <source>Show &amp;week numbers in popup calendar</source>
         <translation>Vis &amp;ugenumre i pop op-kalender</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="562"/>
         <source>S&amp;how tooltip</source>
         <translation>Vis &amp;værktøjstip</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="108"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;dddd, d. MMMM yyyy&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="590"/>
         <source>Input custom time zone name</source>
         <translation>Input brugerdefineret tidszone og navn</translation>
     </message>
