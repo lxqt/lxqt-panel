@@ -4,7 +4,7 @@
 <context>
     <name>LXQtWorldClock</name>
     <message>
-        <location filename="../lxqtworldclock.cpp" line="245"/>
+        <location filename="../lxqtworldclock.cpp" line="248"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="585"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
         <source>Custom name</source>
         <translation>Nga erinnya lwe weyiiyiza</translation>
     </message>
@@ -219,36 +219,41 @@
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
+        <source>Change displayed time zone with mouse wheel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
         <translation>&lt;b&gt;Genderera:&lt;/b&gt; Akasonga bw&apos;okateeka ku ssaawa n&apos;onyiga eppeesa ly&apos;akasongesebwa erya wakati ekulaga obudde n&apos;ennaku ebya mu buli ttwale ly&apos;obudde eritegekedwa ku sisitemu yo.</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="529"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="536"/>
         <source>&amp;General</source>
         <translation>E&amp;bya wamu</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="535"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="542"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
         <translation>&amp;Essaawa yetereeze olubaawo bwe lubeera busimbalaala</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="545"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="552"/>
         <source>Show &amp;week numbers in popup calendar</source>
         <translation>&amp;Kalenda erage n&apos;ennamba za wiiki</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.ui" line="555"/>
+        <location filename="../lxqtworldclockconfiguration.ui" line="562"/>
         <source>S&amp;how tooltip</source>
         <translation>&amp;Akaboozi ak&apos;ongera okutangaaza kabonekenga</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="106"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="108"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="584"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="590"/>
         <source>Input custom time zone name</source>
         <translation>Wandika erinnya ly&apos;e weyiiyizza</translation>
     </message>
