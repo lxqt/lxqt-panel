@@ -83,6 +83,7 @@ private:
     QString mDefaultTimeZone;
     QString mActiveTimeZone;
     QString mFormat;
+    bool mTimeZoneWheel;
 
     bool mAutoRotate;
     bool mShowWeekNumber;
