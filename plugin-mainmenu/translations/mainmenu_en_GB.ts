@@ -116,27 +116,27 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
-        <translation type="unfinished"></translation>
+        <translation>Hide menu entries while searching</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Clear search upon showing menu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Keyboard Shortcut</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
-        <translation type="unfinished"></translation>
+        <translation>Click the button to record shortcut:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>

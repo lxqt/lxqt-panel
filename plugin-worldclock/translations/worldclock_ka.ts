@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>ნაჩვენები დროის სარტყლის შეცვლა თაგუნას ბორბლით</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>

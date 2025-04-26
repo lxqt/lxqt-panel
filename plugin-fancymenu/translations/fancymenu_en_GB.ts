@@ -117,27 +117,27 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Bottom</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Top</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Left</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Right</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose icon file</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>

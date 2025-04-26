@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>&amp;Pozice:</translation>
+        <translation>&amp;Poloha:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Klepnutím doprostřed hodin zobrazíte čas a datum pro všechna nastavená časová pásma.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>

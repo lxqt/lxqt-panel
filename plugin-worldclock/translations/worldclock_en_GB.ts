@@ -125,32 +125,32 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Use 12-hour format</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
         <source>Location identifier</source>
-        <translation type="unfinished"></translation>
+        <translation>Location identifier</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="212"/>
         <source>&amp;Date</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Date</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation type="unfinished"></translation>
+        <translation>Po&amp;sition:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
         <source>Fo&amp;rmat:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fo&amp;rmat:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="282"/>
         <source>ISO 8601</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO 8601</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="316"/>
