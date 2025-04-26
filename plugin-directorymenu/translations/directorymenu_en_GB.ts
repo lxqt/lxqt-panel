@@ -110,7 +110,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>An error occurred while loading the icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>An error occurred while loading the icon.</translation>
     </message>
 </context>
 </TS>

@@ -115,32 +115,32 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="156"/>
         <source>Repeat command after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Repeat command after:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="52"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Text Colour</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="62"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reset</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="172"/>
         <source> second(s)</source>
-        <translation type="unfinished"></translation>
+        <translation> second(s)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="194"/>
         <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Command outputs an image</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooltip</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
