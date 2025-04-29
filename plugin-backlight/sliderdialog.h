@@ -41,13 +41,14 @@ class SliderDialog: public QDialog
 public:
     SliderDialog(QWidget *parent);
     void updateBacklight();
+    void handleWheelEvent(QWheelEvent* event);
 
 Q_SIGNALS:
     void dialogClosed();
 
 protected:
     bool event(QEvent *event) override;
-    
+
 private:
     QSlider *m_slider;
     QToolButton *m_upButton, *m_downButton;

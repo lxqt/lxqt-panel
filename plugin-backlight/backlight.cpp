@@ -25,7 +25,7 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "backlight.h"
-#include <QEvent>
+#include <QWheelEvent>
 
 LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
         QObject(),
@@ -34,6 +34,10 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_backlightButton = new QToolButton();
     // use our own icon
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
+
+    // NOTE: Redirect (mouse) events to LXQtBacklight event filter
+    m_backlightButton->setMouseTracking(true);
+    m_backlightButton->installEventFilter(this);
 
     connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::showSlider);
 
@@ -59,6 +63,27 @@ void LXQtBacklight::deleteSlider()
     }
     m_backlightSlider = nullptr;
     //printf("Deleted\n");
+}
+
+bool LXQtBacklight::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_backlightButton) {
+        if (event->type() == QEvent::Wheel) {
+            if(! m_backlightSlider) {
+                // NOTE: Workaround ot prevent crash
+                // TODO: The event can probably be handled directly in the plugin
+                m_backlightSlider = new SliderDialog(m_backlightButton);
+                connect(m_backlightSlider, &SliderDialog::dialogClosed, this, &LXQtBacklight::deleteSlider);
+                //printf("New Slider\n");
+            }
+            qInfo() << "Handling backlight wheel event (2)";
+            auto ev = static_cast<QWheelEvent*>(event);
+            m_backlightSlider->handleWheelEvent(ev);
+            return true;
+        }
+    }
+
+    return QObject::eventFilter(obj, event);
 }
 
 void LXQtBacklight::showSlider(bool)
