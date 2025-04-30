@@ -417,7 +417,7 @@ LXQt 外觀設定→
         <location filename="../lxqtpanel.cpp" line="1711"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>移除面板是不可還原的。
+        <translation>移除面板是不可撤銷動作的。
 確定移除此面板嗎？</translation>
     </message>
 </context>

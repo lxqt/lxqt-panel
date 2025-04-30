@@ -111,7 +111,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
-        <translation>過濾選單項目</translation>
+        <translation>篩選選單項目</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
