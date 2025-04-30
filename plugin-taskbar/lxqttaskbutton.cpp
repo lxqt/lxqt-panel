@@ -350,7 +350,7 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     if ((event->position().toPoint() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
         return;
 
-    QDrag *drag = new QDrag(this);
+    QPointer<QDrag> drag = new QDrag(this);
     drag->setMimeData(mimeData());
     QIcon ico = icon();
     QPixmap img = ico.pixmap(ico.actualSize({32, 32}));

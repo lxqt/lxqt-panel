@@ -157,7 +157,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    QDrag *drag = new QDrag(this);
+    QPointer<QDrag> drag = new QDrag(this);
     ButtonMimeData *mimeData = new ButtonMimeData();
     mimeData->setButton(this);
     drag->setMimeData(mimeData);
@@ -165,7 +165,7 @@ void QuickLaunchButton::mouseMoveEvent(QMouseEvent *e)
     drag->exec(Qt::MoveAction);
 
     // Icon was dropped outside the panel, remove button
-    if (!drag->target())
+    if (drag && !drag->target())
     {
         selfRemove();
     }
