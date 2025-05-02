@@ -1,3 +1,4 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=LXQtPanel/Plugin
+Icon=temperature-normal
