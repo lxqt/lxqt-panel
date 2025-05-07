@@ -63,7 +63,7 @@ class LXQtTaskbarWayfireBackend : public ILXQtAbstractWMInterface
 
     // Workspaces
     virtual int getWorkspacesCount() const override;
-    virtual QString getWorkspaceName(int idx) const override;
+    virtual QString getWorkspaceName(int idx, QString outputName = QString()) const override;
 
     // Get/Set the current workspace
     virtual int getCurrentWorkspace() const override;

@@ -202,28 +202,23 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     });
 
     // emit currentWorkspaceChanged(idx)
-    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceChanged, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceChanged, [this] ( QJsonDocument respJson )
     {
-        // QJsonObject response = respJson.object();
+        QJsonObject response = respJson.object();
 
-        // QJsonObject wsInfo = response[QStringLiteral("new-workspace")].toObject();
-        // QJsonObject output = response[QStringLiteral("output-data")].toObject();
+        QJsonObject wsInfo = response[QStringLiteral("new-workspace")].toObject();
 
-        ///** Same output and wset */
-        // QJsonObject wset = response[QStringLiteral("wset-data")].toObject();
+        QJsonObject output    = response[QStringLiteral("output-data")].toObject();
+        QString outputName    = output[QStringLiteral("name")].toString();
+        QJsonObject workspace = output[QStringLiteral("workspace")].toObject();
 
-        // if ((output[QStringLiteral("id")].toInt() == mScreenId) && (wset[QStringLiteral("index")].toInt()
-        // == mWSetId))
-        // {
-        // mWS.row    = wsInfo[QStringLiteral("y")].toInt();
-        // mWS.column = wsInfo[QStringLiteral("x")].toInt();
+        int64_t nRows = workspace[QStringLiteral("grid_height")].toInt();
+        int64_t nCols = workspace[QStringLiteral("grid_width")].toInt();
 
-        // if ((bool)tasksSett->value("ShowCurrentWorkspaceOnly") == true)
-        // {
-        // clearLayout();
-        // populateLayout();
-        // }
-        // }
+        int64_t row    = wsInfo[QStringLiteral("y")].toInt();
+        int64_t column = wsInfo[QStringLiteral("x")].toInt();
+
+        emit currentWorkspaceChanged(row * nRows + column + 1, outputName);
     });
 
     // emit windowAdded(WId)
@@ -606,14 +601,19 @@ WId LXQtTaskbarWayfireBackend::getActiveWindow() const
 
 int LXQtTaskbarWayfireBackend::getWorkspacesCount() const
 {
-    return 4;
+    QJsonObject wsetsInfo = mWayfire->getWorkspaceSetsInfo().at(0).toObject();
+    QJsonObject workspace = wsetsInfo[QStringLiteral("workspace")].toObject();
+    int64_t nRows = workspace[QStringLiteral("grid_height")].toInt();
+    int64_t nCols = workspace[QStringLiteral("grid_width")].toInt();
+
+    qDebug() << QJsonDocument(wsetsInfo).toJson().data();
+
+    return (nRows * nCols);
 }
 
-QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x) const
+QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x, QString outputName) const
 {
-    QJsonObject nameObj = mWayfire->getWorkspaceName(x);
-
-    return nameObj[QStringLiteral("value")].toString();
+    return mWayfire->getWorkspaceName(x, outputName);
 }
 
 int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
@@ -621,9 +621,9 @@ int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
     return 1;
 }
 
-bool LXQtTaskbarWayfireBackend::setCurrentWorkspace(int)
+bool LXQtTaskbarWayfireBackend::setCurrentWorkspace(int x)
 {
-    return false;
+    return mWayfire->switchToWorkspace(mWayfire->getActiveOutput(), x);
 }
 
 int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId) const

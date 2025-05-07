@@ -356,25 +356,47 @@ bool LXQt::Panel::Wayfire::showDesktop(WaylandId opId) const
     return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
 }
 
-QJsonObject LXQt::Panel::Wayfire::getWorkspaceSetsInfo() const
+QJsonArray LXQt::Panel::Wayfire::getWorkspaceSetsInfo() const
 {
     QJsonObject request;
     request[QStringLiteral("method")] = QStringLiteral("window-rules/list-wsets");
 
-    return genericRequest(QJsonDocument(request)).object();
+    return genericRequest(QJsonDocument(request)).array();
 }
 
-QJsonObject LXQt::Panel::Wayfire::getWorkspaceName(int x) const
+QString LXQt::Panel::Wayfire::getWorkspaceName(int x, QString outputName) const
 {
+    QString targetKey = QString::fromUtf8("%1_workspace_%2").arg(outputName).arg(x);
+
     QJsonObject request;
     request[QStringLiteral("method")] = QStringLiteral("wayfire/get-config-option");
-    request[QStringLiteral("option")] = QStringLiteral("workspace-names/eDP-1_workspace_1");
+    request[QStringLiteral("data")]   = QJsonObject({
+        {QStringLiteral("option"), QStringLiteral("workspace-names/names")},
+    });
 
-    QJsonDocument wsNameDoc = genericRequest(QJsonDocument(request));
+    QJsonObject wsNamesObj = genericRequest(QJsonDocument(request)).object();
 
-    qDebug() << wsNameDoc.toJson().constData();
+    QJsonArray wsNameList = wsNamesObj[QStringLiteral("value")].toArray();
 
-    return wsNameDoc.object();
+    for ( int i = 0; i < wsNameList.size(); i++ )
+    {
+        QJsonArray wsNamePair = wsNameList[i].toArray();
+
+        if (wsNamePair.size() != 2)
+        {
+            qDebug() << "Invalid name-pair recieved";
+            continue;
+        }
+
+        QString key = wsNamePair[0].toString();
+        if (key == targetKey)
+        {
+            QString name = wsNamePair[1].toString();
+            return name;
+        }
+    }
+
+    return QString::fromUtf8("Workspace %1").arg(x);
 }
 
 bool LXQt::Panel::Wayfire::setWorkspaceName(int, QString) const
@@ -384,15 +406,12 @@ bool LXQt::Panel::Wayfire::setWorkspaceName(int, QString) const
 
 bool LXQt::Panel::Wayfire::switchToWorkspace(WaylandId opId, int64_t nth) const
 {
-    int64_t row;
-    int64_t col;
+    QJsonObject wsetsInfo = getWorkspaceSetsInfo().at(0).toObject();
+    QJsonObject workspace = wsetsInfo[QStringLiteral("workspace")].toObject();
+    int64_t nCols = workspace[QStringLiteral("grid_width")].toInt();
 
-    QJsonObject wsetsInfo = getWorkspaceSetsInfo();
-    int64_t nRows = wsetsInfo[ QStringLiteral("grid_height")].toInt();
-    int64_t nCols = wsetsInfo[ QStringLiteral("grid_width")].toInt();
-
-    row = (int)(nth / nRows);
-    col = nth % nCols;
+    int64_t row = floor((nth - 1) / nCols);
+    int64_t col = (nth - 1) % nCols;
 
     QJsonObject request;
     request[QStringLiteral("method")] = QStringLiteral("vswitch/set-workspace");
@@ -415,16 +434,20 @@ QJsonArray LXQt::Panel::Wayfire::listViews() const
     QJsonArray response = genericRequest(QJsonDocument(request)).array();
 
     QJsonArray views;
-    for( QJsonValue viewVal: response ) {
-        if ( viewVal.isObject() ) {
+    for ( QJsonValue viewVal : response )
+    {
+        if (viewVal.isObject())
+        {
             QJsonObject view = viewVal.toObject();
             // Ghost windows of Xwayland
-            if (view[QStringLiteral("pid")].toInt() == -1) {
+            if (view[QStringLiteral("pid")].toInt() == -1)
+            {
                 continue;
             }
 
             // Proper toplevel view
-            if (view[QStringLiteral("role")] == QStringLiteral("toplevel")) {
+            if (view[QStringLiteral("role")] == QStringLiteral("toplevel"))
+            {
                 views << view;
             }
         }
@@ -496,7 +519,7 @@ bool LXQt::Panel::Wayfire::minimizeView(WaylandId viewId, bool yes) const
     QJsonObject request;
 
     request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-minimized");
-    request[QStringLiteral("data")] = QJsonObject({
+    request[QStringLiteral("data")]   = QJsonObject({
         {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
         {QStringLiteral("state"), yes}
     });
@@ -513,8 +536,22 @@ bool LXQt::Panel::Wayfire::minimizeView(WaylandId viewId, bool yes) const
 
 bool LXQt::Panel::Wayfire::maximizeView(WaylandId viewId, int edges) const
 {
-    QJsonObject viewInfo = getViewInfo( viewId );
+    QJsonObject request;
 
+    request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-tiled");
+    request[QStringLiteral("data")]   = QJsonObject({
+        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+        {QStringLiteral("edges"), edges}
+    });
+
+    QJsonDocument reply = genericRequest(QJsonDocument(request));
+
+    if (reply[QStringLiteral("result")] != QStringLiteral("ok"))
+    {
+        qWarning() << QJsonDocument(reply).toJson().data() << "\n";
+    }
+
+    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
 }
 
 bool LXQt::Panel::Wayfire::fullscreenView(WaylandId viewId, bool yes) const
