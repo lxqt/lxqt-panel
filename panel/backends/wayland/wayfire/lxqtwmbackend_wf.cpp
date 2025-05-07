@@ -175,8 +175,10 @@ QIcon getIconForAppId(QString mAppId)
 LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     ILXQtAbstractWMInterface(parent)
 {
+    mWayfire.reset(new LXQt::Panel::Wayfire());
+
     // emit workspaceCountChanged()
-    connect(&mWayfire, &LXQt::Panel::Wayfire::workspaceSetChanged, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceSetChanged, [this] ( QJsonDocument )
     {
         // QJsonObject response = respJson.object();
 
@@ -185,46 +187,47 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         // if (output[QStringLiteral("id")].toInt() == mScreenId)
         // {
-        //     mWSetId = wsInfo[QStringLiteral("index")].toInt();
+        // mWSetId = wsInfo[QStringLiteral("index")].toInt();
 
-        //     QJsonObject ws = wsInfo[QStringLiteral("workspace")].toObject();
-        //     mWS.row    = ws[QStringLiteral("y")].toInt();
-        //     mWS.column = ws[QStringLiteral("x")].toInt();
+        // QJsonObject ws = wsInfo[QStringLiteral("workspace")].toObject();
+        // mWS.row    = ws[QStringLiteral("y")].toInt();
+        // mWS.column = ws[QStringLiteral("x")].toInt();
 
-        //     if ((bool)tasksSett->value(QStringLiteral("ShowCurrentWSetOnly")) == true)
-        //     {
-        //         clearLayout();
-        //         populateLayout();
-        //     }
+        // if ((bool)tasksSett->value(QStringLiteral("ShowCurrentWSetOnly")) == true)
+        // {
+        // clearLayout();
+        // populateLayout();
+        // }
         // }
     });
 
     // emit currentWorkspaceChanged(idx)
-    connect(&mWayfire, &LXQt::Panel::Wayfire::workspaceChanged, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceChanged, [this] ( QJsonDocument )
     {
         // QJsonObject response = respJson.object();
 
         // QJsonObject wsInfo = response[QStringLiteral("new-workspace")].toObject();
         // QJsonObject output = response[QStringLiteral("output-data")].toObject();
 
-        // /** Same output and wset */
+        ///** Same output and wset */
         // QJsonObject wset = response[QStringLiteral("wset-data")].toObject();
 
-        // if ((output[QStringLiteral("id")].toInt() == mScreenId) && (wset[QStringLiteral("index")].toInt() == mWSetId))
+        // if ((output[QStringLiteral("id")].toInt() == mScreenId) && (wset[QStringLiteral("index")].toInt()
+        // == mWSetId))
         // {
-        //     mWS.row    = wsInfo[QStringLiteral("y")].toInt();
-        //     mWS.column = wsInfo[QStringLiteral("x")].toInt();
+        // mWS.row    = wsInfo[QStringLiteral("y")].toInt();
+        // mWS.column = wsInfo[QStringLiteral("x")].toInt();
 
-        //     if ((bool)tasksSett->value("ShowCurrentWorkspaceOnly") == true)
-        //     {
-        //         clearLayout();
-        //         populateLayout();
-        //     }
+        // if ((bool)tasksSett->value("ShowCurrentWorkspaceOnly") == true)
+        // {
+        // clearLayout();
+        // populateLayout();
+        // }
         // }
     });
 
     // emit windowAdded(WId)
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewMapped, [this] ( QJsonDocument respJson )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewMapped, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
 
@@ -248,17 +251,17 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     });
 
     // emit windowPropertyChanged(WId, state) for all windows
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewFocused, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewFocused, [this] ( QJsonDocument )
     {
         for ( WaylandId viewId : mViews.keys())
         {
             emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
         }
 
-        emit activeWindowChanged(mWayfire.getActiveView());
+        emit activeWindowChanged(mWayfire->getActiveView());
     });
 
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewTitleChanged, [this] ( QJsonDocument respJson )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewTitleChanged, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QStringLiteral("view")].toObject();
@@ -273,7 +276,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Title);
     });
 
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewAppIdChanged, [this] ( QJsonDocument respJson )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewAppIdChanged, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QStringLiteral("view")].toObject();
@@ -289,12 +292,12 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Icon);
     });
 
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewOutputChanged, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewOutputChanged, [this] ( QJsonDocument )
     {
         // no-op
     });
 
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewWorkspaceChanged, [this] ( QJsonDocument respJson )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewWorkspaceChanged, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QStringLiteral("view")].toObject();
@@ -309,7 +312,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Workspace);
     });
 
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewUnmapped, [this] ( QJsonDocument respJson )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewUnmapped, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QStringLiteral("view")].toObject();
@@ -323,6 +326,8 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         emit windowRemoved(viewId);
     });
+
+    mWayfire->connectToServer();
 }
 
 bool LXQtTaskbarWayfireBackend::supportsAction(WId, LXQtTaskBarBackendAction action) const
@@ -380,7 +385,7 @@ bool LXQtTaskbarWayfireBackend::reloadWindows()
         emit windowRemoved(windowId);
     }
 
-    QJsonArray views = mWayfire.listViews();
+    QJsonArray views = mWayfire->listViews();
     while (views.count())
     {
         QJsonObject view = views.takeAt(0).toObject();
@@ -514,25 +519,25 @@ bool LXQtTaskbarWayfireBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     {
       case LXQtTaskBarWindowState::Minimized:
     {
-        mWayfire.minimizeView(viewId, set);
+        mWayfire->minimizeView(viewId, set);
         break;
     }
 
       case LXQtTaskBarWindowState::Maximized:
     {
-        mWayfire.maximizeView(viewId, (set ? 15 : 0));
+        mWayfire->maximizeView(viewId, (set ? 15 : 0));
         break;
     }
 
       case LXQtTaskBarWindowState::MaximizedVertically:
     {
-        mWayfire.maximizeView(viewId, (set ? 3 : 0));
+        mWayfire->maximizeView(viewId, (set ? 3 : 0));
         break;
     }
 
       case LXQtTaskBarWindowState::MaximizedHorizontally:
     {
-        mWayfire.maximizeView(viewId, (set ? 12 : 0));
+        mWayfire->maximizeView(viewId, (set ? 12 : 0));
         break;
     }
 
@@ -540,7 +545,7 @@ bool LXQtTaskbarWayfireBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
     {
         if (set)
         {
-            mWayfire.restoreView(viewId);
+            mWayfire->restoreView(viewId);
         }
 
         break;
@@ -548,7 +553,7 @@ bool LXQtTaskbarWayfireBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
 
       case LXQtTaskBarWindowState::FullScreen:
     {
-        mWayfire.fullscreenView(viewId, set);
+        mWayfire->fullscreenView(viewId, set);
         break;
     }
 
@@ -567,7 +572,7 @@ bool LXQtTaskbarWayfireBackend::isWindowActive(WId windowId) const
         return false;
     }
 
-    return (mWayfire.getActiveView() == viewId);
+    return (mWayfire->getActiveView() == viewId);
 }
 
 bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
@@ -580,7 +585,7 @@ bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
         return false;
     }
 
-    return mWayfire.focusView(viewId);
+    return mWayfire->focusView(viewId);
 }
 
 bool LXQtTaskbarWayfireBackend::closeWindow(WId windowId)
@@ -591,22 +596,22 @@ bool LXQtTaskbarWayfireBackend::closeWindow(WId windowId)
         return false;
     }
 
-    return mWayfire.closeView(viewId);
+    return mWayfire->closeView(viewId);
 }
 
 WId LXQtTaskbarWayfireBackend::getActiveWindow() const
 {
-    return mWayfire.getActiveView();
+    return mWayfire->getActiveView();
 }
 
 int LXQtTaskbarWayfireBackend::getWorkspacesCount() const
 {
-    return 1;
+    return 4;
 }
 
 QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x) const
 {
-    QJsonObject nameObj = mWayfire.getWorkspaceName(x);
+    QJsonObject nameObj = mWayfire->getWorkspaceName(x);
 
     return nameObj[QStringLiteral("value")].toString();
 }
@@ -689,13 +694,13 @@ bool LXQtTaskbarWayfireBackend::showDesktop(bool yes)
 
     mIsDesktopShowing = yes;
 
-    return mWayfire.showDesktop(mWayfire.getActiveOutput());
+    return mWayfire->showDesktop(mWayfire->getActiveOutput());
 }
 
 int LXQtWMBackendWayfireLibrary::getBackendScore(const QString& key) const
 {
     // Only wayfire is supported
-    if (key == QStringLiteral("wayfire"))
+    if ((key == QStringLiteral("wayfire")) || (key == QStringLiteral("Wayfire")))
     {
         return 100;
     }

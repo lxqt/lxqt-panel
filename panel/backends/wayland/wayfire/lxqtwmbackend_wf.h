@@ -96,28 +96,9 @@ class LXQtTaskbarWayfireBackend : public ILXQtAbstractWMInterface
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-  private slots:
-    void addWindow(WId wid);
-    void removeWindow();
-    void removeTransient();
-    void onActivatedChanged();
-    void onParentChanged();
-    void onTitleChanged();
-    void onAppIdChanged();
-    void onStateChanged();
-
   private:
-    void addToWindows(WId winId);
-    bool acceptWindow(WId wid) const;
-    WId findWindow(WId tgt) const;
-    WId findTopParent(WId winId) const;
-    bool equalIds(WId windowId1, WId windowId2) const;
-
-    /** Convert WId (i.e. quintptr into LXQtTaskbarWayfireWindow*) */
-    LXQtTaskbarWayfireWindow *getWindow(WId windowId) const;
-
     // std::unique_ptr<LXQtTaskbarWayfireWindowManagment> mManagment;
-    LXQt::Panel::Wayfire mWayfire;
+    QScopedPointer<LXQt::Panel::Wayfire> mWayfire;
 
     // Hash-map of view ids, vs their properties
     QHash<WaylandId, QJsonObject> mViews;

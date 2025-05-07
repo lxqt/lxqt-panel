@@ -138,12 +138,12 @@ bool LXQt::Panel::WayfireImpl::writeJson(QJsonDocument j)
     if (ret == -1)
     {
         // Handle write error
-        qDebug() << "Failed to write size to socket:" << strerror(errno);
+        qWarning() << "Failed to write size to socket:" << strerror(errno);
         // throw std::runtime_error("Failed to write size to socket");
     } else if (ret != sizeof(size))
     {
         // Handle partial write
-        qDebug() << "Partial write of size to socket:" << ret << "bytes written, expected" << sizeof(size);
+        qWarning() << "Partial write of size to socket:" << ret << "bytes written, expected" << sizeof(size);
         // throw std::runtime_error("Partial write of size to socket");
     }
 
@@ -158,12 +158,12 @@ bool LXQt::Panel::WayfireImpl::writeJson(QJsonDocument j)
         if (ret == -1)
         {
             // Handle write error
-            qDebug() << "Failed to write JSON data to socket:" << strerror(errno);
+            qWarning() << "Failed to write JSON data to socket:" << strerror(errno);
             return false;
         } else if (ret == 0)
         {
             // Handle socket closed by peer
-            qDebug() << "Socket closed by peer while writing JSON data";
+            qWarning() << "Socket closed by peer while writing JSON data";
             return false;
         }
 
@@ -412,7 +412,25 @@ QJsonArray LXQt::Panel::Wayfire::listViews() const
     QJsonObject request;
     request[QStringLiteral("method")] = QStringLiteral("window-rules/list-views");
 
-    return genericRequest(QJsonDocument(request)).array();
+    QJsonArray response = genericRequest(QJsonDocument(request)).array();
+
+    QJsonArray views;
+    for( QJsonValue viewVal: response ) {
+        if ( viewVal.isObject() ) {
+            QJsonObject view = viewVal.toObject();
+            // Ghost windows of Xwayland
+            if (view[QStringLiteral("pid")].toInt() == -1) {
+                continue;
+            }
+
+            // Proper toplevel view
+            if (view[QStringLiteral("role")] == QStringLiteral("toplevel")) {
+                views << view;
+            }
+        }
+    }
+
+    return views;
 }
 
 WaylandId LXQt::Panel::Wayfire::getActiveView() const
@@ -478,11 +496,8 @@ bool LXQt::Panel::Wayfire::minimizeView(WaylandId viewId, bool yes) const
     QJsonObject request;
 
     request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-minimized");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)}
-    });
-
     request[QStringLiteral("data")] = QJsonObject({
+        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
         {QStringLiteral("state"), yes}
     });
 
@@ -490,7 +505,7 @@ bool LXQt::Panel::Wayfire::minimizeView(WaylandId viewId, bool yes) const
 
     if (reply[QStringLiteral("result")] != QStringLiteral("ok"))
     {
-        qDebug() << QJsonDocument(reply).toJson().data() << "\n";
+        qWarning() << QJsonDocument(reply).toJson().data() << "\n";
     }
 
     return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
