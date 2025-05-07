@@ -350,7 +350,7 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
     if ((event->position().toPoint() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance())
         return;
 
-    QDrag *drag = new QDrag(this);
+    QPointer<QDrag> drag = new QDrag(this);
     drag->setMimeData(mimeData());
     QIcon ico = icon();
     QPixmap img = ico.pixmap(ico.actualSize({32, 32}));
@@ -372,7 +372,8 @@ void LXQtTaskButton::mouseMoveEvent(QMouseEvent* event)
 
     // if button is dropped out of panel (e.g. on desktop)
     // it is not deleted automatically by Qt
-    drag->deleteLater();
+    if (drag)
+        drag->deleteLater();
 
     // release mouse appropriately, by positioning the event outside
     // the button rectangle (otherwise, the button will be toggled)
