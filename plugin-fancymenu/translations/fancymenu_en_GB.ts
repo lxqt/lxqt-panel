@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Images (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
