@@ -2,7 +2,7 @@
 #include "lxqtwmbackend_wlr.h"
 
 #include <QIcon>
-#include <QTime>
+#include <QDateTime>
 #include <QScreen>
 #include <algorithm>
 
@@ -330,26 +330,19 @@ bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
     if (value)
     {
         showDesktopWins.clear();
-        WId currActiveWin = activeWindow;
-        const QVector<WId> wids = getCurrentWindows();
-        for (auto windowId : wids)
+        QVector<WId> wids = getCurrentWindows();
+        std::sort(wids.begin(), wids.end(), [this](WId id1, WId id2) {
+            // sort the list by activation time to keep the z-order on restoring
+            return (lastActivated.value(id1) < lastActivated.value(id2));
+        });
+        for (auto windowId : std::as_const(wids))
         {
-            if (windowId == 0
-                 // will be added to the end, in order to be the last restored window
-                 // and so, to get the focus
-                || windowId == currActiveWin
-                // was minimized before showing the desktop and so, should not be restored later
-                || getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
-            {
+            if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
+            { // was minimized before showing the desktop and so, should not be restored later
                 continue;
             }
             setWindowState(windowId, LXQtTaskBarWindowState::Minimized, true);
             showDesktopWins.push_back(windowId);
-        }
-        if (currActiveWin != 0)
-        {
-            setWindowState(currActiveWin, LXQtTaskBarWindowState::Minimized, true);
-            showDesktopWins.push_back(currActiveWin);
         }
     }
     else
@@ -421,7 +414,7 @@ void LXQtTaskbarWlrootsBackend::addWindow(WId winId)
 
     if (window->windowState.activated) {
         WId pId = findTopParent(winId);
-        lastActivated[pId] = QTime::currentTime();
+        setLastActivated(pId);
         activeWindow = pId;
         emit activeWindowChanged(activeWindow);
     }
@@ -510,7 +503,7 @@ void LXQtTaskbarWlrootsBackend::onActivatedChanged()
 
         if (window->windowState.activated)
         {
-            lastActivated[effectiveWindow] = QTime::currentTime();
+            setLastActivated(effectiveWindow);
 
             if (activeWindow != effectiveWindow)
             {
@@ -568,7 +561,7 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
                 // because "LXQtTaskbarWlrootsWindow::activatedChanged" might not be emitted for it.
                 if (window->windowState.activated)
                 {
-                    lastActivated[window->getWindowId()] = QTime::currentTime();
+                    setLastActivated(window->getWindowId());
                     activeWindow = window->getWindowId();
                     emit activeWindowChanged(activeWindow);
                 }
@@ -596,8 +589,7 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
             if (activeWindow == window->getWindowId())
             {
                 WId pId = findTopParent(window->getWindowId());
-
-                lastActivated[pId] = QTime::currentTime();
+                setLastActivated(pId);
                 activeWindow = pId;
                 emit activeWindowChanged(activeWindow);
             }
@@ -656,6 +648,14 @@ bool LXQtTaskbarWlrootsBackend::equalIds(WId windowId1, WId windowId2) const
         return win1->ID == win2->ID;
     }
     return false;
+}
+
+void LXQtTaskbarWlrootsBackend::setLastActivated(WId id)
+{
+    auto t = QDateTime::currentMSecsSinceEpoch();
+    while (lastActivated.key(t) != 0)
+        ++t; // make sure the times are not equal
+    lastActivated[id] = t;
 }
 
 
