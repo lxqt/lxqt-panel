@@ -88,13 +88,14 @@ private:
     WId findWindow(WId tgt) const;
     WId findTopParent(WId winId) const;
     bool equalIds(WId windowId1, WId windowId2) const;
+    void setLastActivated(WId id);
 
     /** Convert WId (i.e. quintptr into LXQtTaskbarWlrootsWindow*) */
     LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
     std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
 
-    QHash<WId, QTime> lastActivated;
+    QHash<WId, qint64> lastActivated;
     WId activeWindow = 0;
     std::vector<WId> windows;
 

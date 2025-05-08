@@ -352,7 +352,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_state(wl_array *s
 
         case ZWLR_FOREIGN_TOPLEVEL_HANDLE_V1_STATE_ACTIVATED: {
             m_pendingState.activated = true;
-            m_pendingState.minimized = false;; // an active window isn't minimized
+            m_pendingState.minimized = false; // an active window isn't minimized
             break;
         }
 
