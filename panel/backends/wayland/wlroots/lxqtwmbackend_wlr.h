@@ -98,6 +98,9 @@ private:
     WId activeWindow = 0;
     std::vector<WId> windows;
 
+    // for showing desktop
+    std::vector<WId> showDesktopWins;
+
     // key=transient child, value=leader
     QHash<WId, WId> transients;
 };

@@ -304,9 +304,62 @@ bool LXQtTaskbarWlrootsBackend::isShowingDesktop() const
     return m_managment->isShowingDesktop();
 }
 
-bool LXQtTaskbarWlrootsBackend::showDesktop(bool)
+bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
 {
-    return false;
+    if (isShowingDesktop() == value)
+        return false;
+
+    // If the windows are going to be restored but all of them are already restored,
+    // removed or closed (e.g., by the user), show the desktop instead.
+    if (!value)
+    {
+        bool hasMinimized = false;
+        for (auto windowId : std::as_const(showDesktopWins))
+        {
+            if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized
+                && std::find(windows.begin(), windows.end(), windowId) != windows.end())
+            {
+                hasMinimized = true;
+                break;
+            }
+        }
+        if (!hasMinimized)
+            value = true;
+    }
+
+    if (value)
+    {
+        showDesktopWins.clear();
+        WId currActiveWin = activeWindow;
+        const QVector<WId> wids = getCurrentWindows();
+        for (auto windowId : wids)
+        {
+            if (windowId == 0
+                 // will be added to the end, in order to be the last restored window
+                 // and so, to get the focus
+                || windowId == currActiveWin
+                // was minimized before showing the desktop and so, should not be restored later
+                || getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
+            {
+                continue;
+            }
+            setWindowState(windowId, LXQtTaskBarWindowState::Minimized, true);
+            showDesktopWins.push_back(windowId);
+        }
+        if (currActiveWin != 0)
+        {
+            setWindowState(currActiveWin, LXQtTaskBarWindowState::Minimized, true);
+            showDesktopWins.push_back(currActiveWin);
+        }
+    }
+    else
+    {
+        for (auto windowId : std::as_const(showDesktopWins))
+            setWindowState(windowId, LXQtTaskBarWindowState::Minimized, false);
+        showDesktopWins.clear();
+    }
+    m_managment->setShowingDesktop(!showDesktopWins.empty());
+    return true;
 }
 
 WId LXQtTaskbarWlrootsBackend::findWindow(WId tgt) const

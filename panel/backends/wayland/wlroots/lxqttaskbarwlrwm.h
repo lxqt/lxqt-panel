@@ -22,6 +22,7 @@ public:
     ~LXQtTaskbarWlrootsWindowManagment();
 
     inline bool isShowingDesktop() const { return m_isShowingDesktop; }
+    inline void setShowingDesktop(bool show) { m_isShowingDesktop = show; }
 
 protected:
     void zwlr_foreign_toplevel_manager_v1_toplevel(struct ::zwlr_foreign_toplevel_handle_v1 *toplevel);
