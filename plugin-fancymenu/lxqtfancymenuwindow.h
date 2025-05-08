@@ -42,6 +42,7 @@ class QModelIndex;
 
 class QHBoxLayout;
 class QVBoxLayout;
+class QGridLayout;
 
 class XdgMenu;
 
@@ -127,9 +128,10 @@ private:
     static const int APP_VIEW_STRETCH = 3;
     static const int CAT_VIEW_STRETCH = 2;
 
-    QVBoxLayout *mMainLayout;
+    QGridLayout *mMainLayout;
     QHBoxLayout *mButtonsLayout;
-    QHBoxLayout *mViewLayout;
+    QVBoxLayout *mLeftLayout;
+    QVBoxLayout *mRightLayout;
 
     QToolButton *mSettingsButton;
     QToolButton *mPowerButton;

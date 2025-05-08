@@ -220,21 +220,20 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     connect(mCategoryView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &LXQtFancyMenuWindow::activateCategory);
 
-    mMainLayout = new QVBoxLayout(this);
-
-    mMainLayout->addWidget(mSearchEdit);
-
-    mViewLayout = new QHBoxLayout;
-    mViewLayout->addWidget(mAppView, APP_VIEW_STRETCH);
-    mViewLayout->addWidget(mCategoryView, CAT_VIEW_STRETCH);
-    mMainLayout->addLayout(mViewLayout);
-
+    mMainLayout = new QGridLayout(this);
     mButtonsLayout = new QHBoxLayout;
+
     mButtonsLayout->addWidget(mAboutButton);
-    mButtonsLayout->addStretch();
     mButtonsLayout->addWidget(mSettingsButton);
     mButtonsLayout->addWidget(mPowerButton);
-    mMainLayout->addLayout(mButtonsLayout);
+
+    mMainLayout->setColumnStretch(0,3);
+    mMainLayout->setColumnStretch(1,2);
+    
+    mMainLayout->addWidget(mAppView, 0, 0);
+    mMainLayout->addWidget(mCategoryView, 0, 1);
+    mMainLayout->addWidget(mSearchEdit, 1, 0);
+    mMainLayout->addLayout(mButtonsLayout, 1, 1);
 
     updateButtonIconSize();
 
@@ -760,22 +759,10 @@ void LXQtFancyMenuWindow::setFilterClear(bool newFilterClear)
 
 void LXQtFancyMenuWindow::setButtonPosition(LXQtFancyMenuButtonPosition pos)
 {
-    mMainLayout->removeItem(mButtonsLayout);
-    int idx = 0;
-    if(pos == LXQtFancyMenuButtonPosition::Bottom)
-        idx = -1;
-
-    mMainLayout->insertLayout(idx, mButtonsLayout);
 }
 
 void LXQtFancyMenuWindow::setCategoryPosition(LXQtFancyMenuCategoryPosition pos)
 {
-    mViewLayout->removeWidget(mCategoryView);
-    int idx = 0;
-    if(pos == LXQtFancyMenuCategoryPosition::Right)
-        idx = -1;
-
-    mViewLayout->insertWidget(idx, mCategoryView, CAT_VIEW_STRETCH);
 }
 
 void LXQtFancyMenuWindow::updateButtonIconSize()
