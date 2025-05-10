@@ -31,7 +31,7 @@
 #include "lxqtplasmavirtualdesktop.h"
 
 #include <QIcon>
-#include <QTime>
+#include <QDateTime>
 #include <QScreen>
 #include <QGuiApplication>
 
@@ -524,13 +524,69 @@ bool LXQtWMBackend_KWinWayland::showDesktop(bool value)
     if(!m_managment->isActive())
         return false;
 
-    enum LXQtTaskBarPlasmaWindowManagment::show_desktop flag_;
+    // NOTE: Kwin's way of showing desktop is buggy. So, we do it ourself.
+    /*enum LXQtTaskBarPlasmaWindowManagment::show_desktop flag_;
     if(value)
         flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_enabled;
     else
         flag_ = LXQtTaskBarPlasmaWindowManagment::show_desktop::show_desktop_disabled;
 
-    m_managment->show_desktop(flag_);
+    m_managment->show_desktop(flag_);*/
+
+    if (isShowingDesktop() == value)
+        return false;
+
+    // If the windows are going to be restored but all of them are already restored,
+    // removed or closed (e.g., by the user), show the desktop instead.
+    if (!value)
+    {
+        bool hasMinimized = false;
+        for (auto windowId : std::as_const(showDesktopWins))
+        {
+            if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized
+                && findWindow(windows, getWindow(windowId)) != windows.end())
+            {
+                hasMinimized = true;
+                break;
+            }
+        }
+        if (!hasMinimized)
+            value = true;
+    }
+
+    if (value)
+    {
+        showDesktopWins.clear();
+        QVector<WId> wids = getCurrentWindows();
+        std::sort(wids.begin(), wids.end(), [this](WId id1, WId id2) {
+            // sort the list by activation time to keep the z-order on restoring
+            return (lastActivated.value(id1) < lastActivated.value(id2));
+        });
+        for (auto windowId : std::as_const(wids))
+        {
+            if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
+            { // was minimized before showing the desktop and so, should not be restored later
+                continue;
+            }
+            setWindowState(windowId, LXQtTaskBarWindowState::Minimized, true);
+            showDesktopWins.push_back(windowId);
+        }
+    }
+    else
+    {
+        for (auto windowId : std::as_const(showDesktopWins))
+            setWindowState(windowId, LXQtTaskBarWindowState::Minimized, false);
+        if (getActiveWindow() == 0 && !showDesktopWins.empty())
+        { // raise the last window if it is on the current desktop
+            auto id = showDesktopWins.back();
+            int d = getWindowWorkspace(id);
+            if (d == getCurrentWorkspace() || d == onAllWorkspacesEnum())
+                raiseWindow(id, false);
+        }
+        showDesktopWins.clear();
+    }
+    m_managment->setShowingDesktop(!showDesktopWins.empty());
+
     return true;
 }
 
@@ -550,7 +606,7 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
                 emit windowRemoved(window->getWindowId());
             windows.erase(it);
             transientsDemandingAttention.remove(window);
-            lastActivated.remove(window);
+            lastActivated.remove(window->getWindowId());
         }
         else
         {
@@ -602,7 +658,7 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
             effectiveActive = effectiveActive->parentWindow;
         }
 
-        lastActivated[effectiveActive] = QTime::currentTime();
+        setLastActivated(effectiveActive->getWindowId());
         activeWindow = effectiveActive;
     }
 
@@ -618,7 +674,7 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
 
         if (active)
         {
-            lastActivated[effectiveWindow] = QTime::currentTime();
+            setLastActivated(effectiveWindow->getWindowId());
 
             if (activeWindow != effectiveWindow)
             {
@@ -675,7 +731,7 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
             Q_ASSERT(it != windows.end());
 
             windows.erase(it);
-            lastActivated.remove(window);
+            lastActivated.remove(window->getWindowId());
         }
     });
 
@@ -794,6 +850,14 @@ LXQtTaskBarPlasmaWindow *LXQtWMBackend_KWinWayland::getWindow(WId windowId) cons
     }
 
     return nullptr;
+}
+
+void LXQtWMBackend_KWinWayland::setLastActivated(WId id)
+{
+    auto t = QDateTime::currentMSecsSinceEpoch();
+    while (lastActivated.key(t) != 0)
+        ++t; // make sure the times are not equal
+    lastActivated[id] = t;
 }
 
 int LXQtWMBackendKWinWaylandLibrary::getBackendScore(const QString &key) const
