@@ -104,6 +104,7 @@ private:
     void addWindow(LXQtTaskBarPlasmaWindow *window);
     bool acceptWindow(LXQtTaskBarPlasmaWindow *window) const;
     void updateWindowAcceptance(LXQtTaskBarPlasmaWindow *window);
+    void setLastActivated(WId id);
 
 private:
     LXQtTaskBarPlasmaWindow *getWindow(WId windowId) const;
@@ -112,13 +113,16 @@ private:
 
     std::unique_ptr<LXQtTaskBarPlasmaWindowManagment> m_managment;
 
-    QHash<LXQtTaskBarPlasmaWindow *, QTime> lastActivated;
+    QHash<WId, qint64> lastActivated;
     LXQtTaskBarPlasmaWindow *activeWindow = nullptr;
     std::vector<std::unique_ptr<LXQtTaskBarPlasmaWindow>> windows;
     // key=transient child, value=leader
     QHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transients;
     // key=leader, values=transient children
     QMultiHash<LXQtTaskBarPlasmaWindow *, LXQtTaskBarPlasmaWindow *> transientsDemandingAttention;
+
+    // for showing desktop
+    std::vector<WId> showDesktopWins;
 };
 
 class LXQtWMBackendKWinWaylandLibrary: public QObject, public ILXQtWMBackendLibrary
