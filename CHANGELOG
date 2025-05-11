@@ -1,3 +1,13 @@
+lxqt-panel-2.2.1 / 2025-05-17
+==============================
+ * Made "Show Desktop" work under Wayland compositors compatible with wlroots.
+ * Workaround for kwin_wayland's problems with showing desktop.
+ * Prevented a rare DND crash in Task Manager under Wayland.
+ * Removed ancient QT_USE_XXXX variables and dropped QTX_LIBRARIES.
+ * Made timezone switching by mouse wheel optional in World Clock.
+ * Added an icon for plugin-sensors.
+ * Code cleanup.
+
 lxqt-panel-2.2.0 / 2025-04-17
 ==============================
  * Handle Wayland screens by using their names, not numbers.
