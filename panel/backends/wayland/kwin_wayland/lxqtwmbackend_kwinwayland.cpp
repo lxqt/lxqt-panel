@@ -284,7 +284,15 @@ bool LXQtWMBackend_KWinWayland::setWindowState(WId windowId, LXQtTaskBarWindowSt
     case LXQtTaskBarWindowState::Minimized:
     {
         plasmaState = LXQtTaskBarPlasmaWindow::state::state_minimized;
-        break;
+        // KWin minimizes/restores the parent when it minimizes/restores its child
+        // but not conversely. Therefore, all children are also minimized/restored here.
+        window->set_state(plasmaState, set ? plasmaState : 0);
+        auto win = window;
+        while (auto child = transients.key(win)){
+            win = child;
+            win->set_state(plasmaState, set ? plasmaState : 0);
+        }
+        return true;
     }
     case LXQtTaskBarWindowState::Maximized:
     case LXQtTaskBarWindowState::MaximizedVertically:
@@ -576,12 +584,9 @@ bool LXQtWMBackend_KWinWayland::showDesktop(bool value)
     {
         for (auto windowId : std::as_const(showDesktopWins))
             setWindowState(windowId, LXQtTaskBarWindowState::Minimized, false);
-        if (getActiveWindow() == 0 && !showDesktopWins.empty())
-        { // raise the last window if it is on the current desktop
-            auto id = showDesktopWins.back();
-            int d = getWindowWorkspace(id);
-            if (d == getCurrentWorkspace() || d == onAllWorkspacesEnum())
-                raiseWindow(id, false);
+        if (!showDesktopWins.empty())
+        { // raise the last window
+            raiseWindow(showDesktopWins.back(), false);
         }
         showDesktopWins.clear();
     }
