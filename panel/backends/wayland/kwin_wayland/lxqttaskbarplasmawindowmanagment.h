@@ -115,6 +115,7 @@ public:
     ~LXQtTaskBarPlasmaWindowManagment();
 
     inline bool isShowingDesktop() const { return m_isShowingDesktop; }
+    inline void setShowingDesktop(bool show) { m_isShowingDesktop = show; }
 
 protected:
     void org_kde_plasma_window_management_show_desktop_changed(uint32_t state) override;
