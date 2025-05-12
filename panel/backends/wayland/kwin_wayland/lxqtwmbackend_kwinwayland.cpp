@@ -288,7 +288,8 @@ bool LXQtWMBackend_KWinWayland::setWindowState(WId windowId, LXQtTaskBarWindowSt
         // but not conversely. Therefore, all children are also minimized/restored here.
         window->set_state(plasmaState, set ? plasmaState : 0);
         auto win = window;
-        while (auto child = transients.key(win)){
+        while (auto child = transients.key(win))
+        {
             win = child;
             win->set_state(plasmaState, set ? plasmaState : 0);
         }
@@ -619,7 +620,8 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
             // Removing a transient might change the demands attention state of the leader.
             if (transients.remove(window))
             {
-                if (LXQtTaskBarPlasmaWindow *leader = transientsDemandingAttention.key(window)) {
+                if (LXQtTaskBarPlasmaWindow *leader = transientsDemandingAttention.key(window))
+                {
                     transientsDemandingAttention.remove(leader, window);
                     emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
                 }
@@ -707,9 +709,13 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
                 if (window->parentWindow != oldLeader)
                 {
                     transientsDemandingAttention.remove(oldLeader, window);
-                    transientsDemandingAttention.insert(leader, window);
                     emit windowPropertyChanged(oldLeader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
-                    emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
+                    if (!window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active)
+                        && !leader->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active))
+                    {
+                        transientsDemandingAttention.insert(leader, window);
+                        emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
+                    }
                 }
             }
         }
@@ -776,7 +782,9 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
         {
             if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention))
             {
-                if (!transientsDemandingAttention.values(leader).contains(window))
+                if (!window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active)
+                    && !leader->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active)
+                    && !transientsDemandingAttention.values(leader).contains(window))
                 {
                     transientsDemandingAttention.insert(leader, window);
                     emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
@@ -807,10 +815,12 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
         transients.insert(window, leader);
 
         // Update demands attention state for leader.
-        if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention))
+        if (window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_demands_attention)
+            && !window->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active)
+            && !leader->windowState.testFlag(LXQtTaskBarPlasmaWindow::state::state_active))
         {
             transientsDemandingAttention.insert(leader, window);
-            if(leader->acceptedInTaskBar)
+            if (leader->acceptedInTaskBar)
                 emit windowPropertyChanged(leader->getWindowId(), int(LXQtTaskBarWindowProperty::Urgency));
         }
     }
