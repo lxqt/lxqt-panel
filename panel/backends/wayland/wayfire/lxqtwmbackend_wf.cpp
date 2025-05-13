@@ -10,6 +10,17 @@
 #define QSL QStringLiteral
 #define U8Str QString::fromUtf8
 
+static inline QJsonObject updateJsonObject(QJsonObject source, QJsonObject other)
+{
+    /** Overwrite all (key,value) pairs of @osurce from @other */
+    for ( QString key : other.keys())
+    {
+        source[key] = other[key];
+    }
+
+    return source;
+}
+
 static inline bool isValidToplevel(QJsonObject view)
 {
     if (view.isEmpty())
@@ -18,13 +29,19 @@ static inline bool isValidToplevel(QJsonObject view)
     }
 
     /** Ghost view: these are unmapped xwayland views */
-    if (view[QSL("pid")].toInt() == -1)
+    if (view[QSL("pid")].toInt() <= 1)
     {
         return false;
     }
 
     /** We want only the "toplevel" views */
     if (view[QSL("role")].toString() != QSL("toplevel"))
+    {
+        return false;
+    }
+
+    /** We want only the mapped views */
+    if (view[QSL("mapped")].toBool() == false)
     {
         return false;
     }
@@ -264,9 +281,16 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         }
 
         WaylandId viewId(view[QSL("id")].toInt());
-        mViews[viewId] = view;
 
-        emit activeWindowChanged(mWayfire.getActiveView());
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        emit activeWindowChanged(viewId);
     });
 
     connect(&mWayfire, &LXQt::Panel::Wayfire::viewTitleChanged, [this] ( QJsonDocument respJson )
@@ -280,15 +304,15 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
             return;
         }
 
-        /** Filter non-toplevel views */
-        if (!isValidToplevel(view))
-        {
-            return;
-        }
-
         WaylandId viewId(view[QSL("id")].toInt());
 
-        mViews[viewId] = view;
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Title);
     });
@@ -306,7 +330,13 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        mViews[viewId] = view;
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::WindowClass);
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Icon);
@@ -325,7 +355,13 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        mViews[viewId] = view;
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
     });
 
     connect(&mWayfire, &LXQt::Panel::Wayfire::viewWorkspaceChanged, [this] ( QJsonDocument respJson )
@@ -341,7 +377,17 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        mViews[viewId] = view;
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+        mViews[viewId][QSL("workspace")] = QJsonObject({
+            {QSL("x"), response[QSL("to")][QSL("x")]},
+            {QSL("y"), response[QSL("to")][QSL("y")]}
+        });
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Workspace);
     });
@@ -493,7 +539,7 @@ QString LXQtTaskbarWayfireBackend::getWindowClass(WId windowId) const
     return mViews[viewId][QSL("app-id")].toString();
 }
 
-LXQtTaskBarWindowLayer LXQtTaskbarWayfireBackend::getWindowLayer(WId windowId) const
+LXQtTaskBarWindowLayer LXQtTaskbarWayfireBackend::getWindowLayer(WId) const
 {
     return LXQtTaskBarWindowLayer::Normal;
 }
@@ -652,7 +698,7 @@ QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x, QString outputName) c
 
 int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
 {
-    QJsonObject outputInfo = mWayfire.getOutputInfo( mWayfire.getActiveOutput() );
+    QJsonObject outputInfo = mWayfire.getOutputInfo(mWayfire.getActiveOutput());
     QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
 
     int nCols  = outputWS[QSL("grid_width")].toInt();  // Total columns in workspace grid
@@ -671,6 +717,21 @@ int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId windowId) const
 {
     WaylandId viewId(windowId);
     QJsonObject viewInfo = mWayfire.getViewInfo(viewId);
+
+    QJsonObject outputInfo = mWayfire.getOutputInfo(WaylandId(viewInfo[QSL("output-id")].toInt()));
+    QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
+
+    int nRows = outputWS[QSL("grid_height")].toInt(); // Total rows in workspace grid
+    int nCols = outputWS[QSL("grid_width")].toInt();  // Total columns in workspace grid
+
+    if (viewInfo.contains(QSL("workspace")))
+    {
+        int currentRow = viewInfo[QSL("workspace")][QSL("y")].toInt(); // Current workspace row (0-based)
+        int currentCol = viewInfo[QSL("workspace")][QSL("x")].toInt(); // Current workspace column (0-based)
+
+        return currentRow * nCols + currentCol + 1;
+    }
+
     QJsonObject viewGeom = viewInfo[QSL("geometry")].toObject();
 
     // Calculate the center of the window
@@ -679,9 +740,7 @@ int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId windowId) const
         viewGeom[QSL("y")].toInt() + viewGeom[QSL("height")].toInt() / 2
     );
 
-    QJsonObject outputInfo = mWayfire.getOutputInfo(WaylandId(viewInfo[QSL("output-id")].toInt()));
     QJsonObject outputGeom = outputInfo[QSL("geometry")].toObject();
-    QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
 
     QRect opGeom(
         outputGeom[QSL("x")].toInt(),
@@ -689,9 +748,6 @@ int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId windowId) const
         outputGeom[QSL("width")].toInt(),
         outputGeom[QSL("height")].toInt()
     );
-
-    int nRows = outputWS[QSL("grid_height")].toInt(); // Total rows in workspace grid
-    int nCols = outputWS[QSL("grid_width")].toInt();  // Total columns in workspace grid
 
     int currentRow = outputWS[QSL("y")].toInt(); // Current workspace row (0-based)
     int currentCol = outputWS[QSL("x")].toInt(); // Current workspace column (0-based)
@@ -722,12 +778,12 @@ int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId windowId) const
     {
         if (it.value().contains(viewCenter))
         {
-            return it.key();
+            return it.key() + 1;
         }
     }
 
     // Fallback: If not found, assume current workspace
-    return currentRow * nCols + currentCol;
+    return currentRow * nCols + currentCol + 1;
 }
 
 bool LXQtTaskbarWayfireBackend::setWindowOnWorkspace(WId windowId, int idx)
