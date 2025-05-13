@@ -570,11 +570,13 @@ bool LXQt::Panel::Wayfire::maximizeView(WaylandId viewId, int edges) const
 
     // request[QSL("method")] = QSL("wm-actions/set-tiled");
     // request[QSL("data")]   = QJsonObject({
-    // {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
-    // {QSL("edges"), edges}
+    //     {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+    //     {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
+    //     {QSL("id"), QJsonValue::fromVariant((quint64)viewId)},
+    //     {QSL("edges"), edges}
     // });
 
-    request[QSL("method")] = (edges ? QSL("slot_c") : QSL("restore"));
+    request[QSL("method")] = (edges ? QSL("grid/slot_c") : QSL("grid/restore"));
     request[QSL("data")]   = QJsonObject({
         {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
     });
@@ -620,7 +622,7 @@ bool LXQt::Panel::Wayfire::restoreView(WaylandId viewId) const
     {
         return minimizeView(viewId, false);
     }
-    /** The view is maximized, unmaximize it */
+    /** The view is fullscreened, un-fullscreen it */
     else if (viewInfo[QSL("fullscreen")] == true)
     {
         return fullscreenView(viewId, false);
