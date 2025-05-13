@@ -652,7 +652,14 @@ QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x, QString outputName) c
 
 int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
 {
-    return 1;
+    QJsonObject outputInfo = mWayfire.getOutputInfo( mWayfire.getActiveOutput() );
+    QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
+
+    int nCols  = outputWS[QSL("grid_width")].toInt();  // Total columns in workspace grid
+    int curRow = outputWS[QSL("y")].toInt(); // Current workspace row (0-based)
+    int curCol = outputWS[QSL("x")].toInt(); // Current workspace column (0-based)
+
+    return curRow * nCols + curCol + 1;
 }
 
 bool LXQtTaskbarWayfireBackend::setCurrentWorkspace(int x)
