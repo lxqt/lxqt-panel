@@ -263,36 +263,6 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         emit windowAdded(view[QSL("id")].toInt());
     });
 
-    // emit windowPropertyChanged(WId, state) for all windows
-    connect(&mWayfire, &LXQt::Panel::Wayfire::viewFocused, [this] ( QJsonDocument respJson )
-    {
-        for ( WaylandId viewId : mViews.keys())
-        {
-            emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
-        }
-
-        QJsonObject response = respJson.object();
-        QJsonObject view     = response[QSL("view")].toObject();
-
-        /** Filter non-toplevel views */
-        if (!isValidToplevel(view))
-        {
-            return;
-        }
-
-        WaylandId viewId(view[QSL("id")].toInt());
-
-        if (mViews.contains(viewId))
-        {
-            mViews[viewId] = view;
-            emit windowAdded(viewId);
-        }
-
-        mViews[viewId] = updateJsonObject(mViews[viewId], view);
-
-        emit activeWindowChanged(viewId);
-    });
-
     connect(&mWayfire, &LXQt::Panel::Wayfire::viewTitleChanged, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
@@ -340,6 +310,111 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::WindowClass);
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Icon);
+    });
+
+    // emit windowPropertyChanged(WId, State) for all windows
+    connect(&mWayfire, &LXQt::Panel::Wayfire::viewFocused, [this] ( QJsonDocument respJson )
+    {
+        for ( WaylandId viewId : mViews.keys())
+        {
+            emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
+        }
+
+        QJsonObject response = respJson.object();
+        QJsonObject view     = response[QSL("view")].toObject();
+
+        /** Filter non-toplevel views */
+        if (!isValidToplevel(view))
+        {
+            return;
+        }
+
+        WaylandId viewId(view[QSL("id")].toInt());
+
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        emit activeWindowChanged(viewId);
+    });
+
+    // emit windowPropertyChanged(WId, State)
+    connect(&mWayfire, &LXQt::Panel::Wayfire::viewMinimized, [this] ( QJsonDocument respJson )
+    {
+        QJsonObject response = respJson.object();
+        QJsonObject view     = response[QSL("view")].toObject();
+
+        /** Filter non-toplevel views */
+        if (!isValidToplevel(view))
+        {
+            return;
+        }
+
+        WaylandId viewId(view[QSL("id")].toInt());
+
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
+    });
+
+    // emit windowPropertyChanged(WId, State)
+    connect(&mWayfire, &LXQt::Panel::Wayfire::viewTiled, [this] ( QJsonDocument respJson )
+    {
+        QJsonObject response = respJson.object();
+        QJsonObject view     = response[QSL("view")].toObject();
+
+        /** Filter non-toplevel views */
+        if (!isValidToplevel(view))
+        {
+            return;
+        }
+
+        WaylandId viewId(view[QSL("id")].toInt());
+
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
+    });
+
+    // emit windowPropertyChanged(WId, Geometry)
+    connect(&mWayfire, &LXQt::Panel::Wayfire::viewGeometryChanged, [this] ( QJsonDocument respJson )
+    {
+        QJsonObject response = respJson.object();
+        QJsonObject view     = response[QSL("view")].toObject();
+
+        /** Filter non-toplevel views */
+        if (!isValidToplevel(view))
+        {
+            return;
+        }
+
+        WaylandId viewId(view[QSL("id")].toInt());
+
+        if (mViews.contains(viewId))
+        {
+            mViews[viewId] = view;
+            emit windowAdded(viewId);
+        }
+
+        mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Geometry);
     });
 
     connect(&mWayfire, &LXQt::Panel::Wayfire::viewOutputChanged, [this] ( QJsonDocument respJson )
@@ -412,10 +487,10 @@ bool LXQtTaskbarWayfireBackend::supportsAction(WId, LXQtTaskBarBackendAction act
     switch (action)
     {
       case LXQtTaskBarBackendAction::Move:
-        return true;
+        return false;
 
       case LXQtTaskBarBackendAction::Resize:
-        return true;
+        return false;
 
       case LXQtTaskBarBackendAction::Maximize:
         return true;
@@ -554,10 +629,10 @@ LXQtTaskBarWindowState LXQtTaskbarWayfireBackend::getWindowState(WId windowId) c
     WaylandId viewId(windowId);
     if (!mViews.contains(viewId))
     {
-        return LXQtTaskBarWindowState::Minimized;
+        return LXQtTaskBarWindowState::Hidden;
     }
 
-    if (mViews[viewId][QSL("mapped")].toBool())
+    if (!mViews[viewId][QSL("mapped")].toBool())
     {
         return LXQtTaskBarWindowState::Hidden;
     }
@@ -573,7 +648,7 @@ LXQtTaskBarWindowState LXQtTaskbarWayfireBackend::getWindowState(WId windowId) c
     }
 
     // WLR_EDGE_TOP | WLR_EDGE_BOTTOM | WLR_EDGE_LEFT | WLR_EDGE_RIGHT == 1 | 2 | 4 | 8 == 15
-    if (mViews[viewId][QSL("tiled")].toInt() == 15)
+    if (mViews[viewId][QSL("tiled")].toInt() > 0)
     {
         return LXQtTaskBarWindowState::Maximized;
     }
@@ -825,7 +900,7 @@ void LXQtTaskbarWayfireBackend::moveApplicationToPrevNextMonitor(WId viewId, boo
     for (int i = 0; i < outputs.size(); i++)
     {
         QJsonObject output = outputs[i].toObject();
-        if (output[QSL("id")].toInt() == currentOutputId.id)
+        if (output[QSL("id")].toInt() == (int)currentOutputId.id)
         {
             currentIndex = i;
             break;
@@ -865,7 +940,7 @@ void LXQtTaskbarWayfireBackend::moveApplicationToPrevNextMonitor(WId viewId, boo
     for (const QJsonValue & wsVal : wsets)
     {
         QJsonObject ws = wsVal.toObject();
-        if (ws[QSL("output-id")].toInt() == targetOutputId.id)
+        if (ws[QSL("output-id")].toInt() == (int)targetOutputId.id)
         {
             targetWsetId = WaylandId(ws[QSL("id")].toInt());
             break;
