@@ -98,14 +98,13 @@ class LXQtTaskbarWayfireBackend : public ILXQtAbstractWMInterface
 
   private:
     // std::unique_ptr<LXQtTaskbarWayfireWindowManagment> mManagment;
-    QScopedPointer<LXQt::Panel::Wayfire> mWayfire;
+    LXQt::Panel::Wayfire mWayfire;
 
     // Hash-map of view ids, vs their properties
     QHash<WaylandId, QJsonObject> mViews;
 
     // key=transient child, value=leader
     QHash<WaylandId, WaylandId> transients;
-
 
     // Is Desktop Shown
     bool mIsDesktopShowing = false;

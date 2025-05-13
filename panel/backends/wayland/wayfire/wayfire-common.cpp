@@ -29,6 +29,8 @@
 #include <errno.h>
 
 
+#define QSL QStringLiteral
+
 LXQt::Panel::WayfireImpl::WayfireImpl() : QRunnable()
 {
     wfSock.fd = -1;
@@ -103,7 +105,7 @@ void LXQt::Panel::WayfireImpl::run()
             QJsonDocument resp = readJson();
 
             /** This is an event */
-            if (resp.isObject() && resp.object().contains(QStringLiteral("event")))
+            if (resp.isObject() && resp.object().contains(QSL("event")))
             {
                 emit wayfireEvent(resp);
             }
@@ -283,7 +285,7 @@ bool LXQt::Panel::Wayfire::connectToServer() const
 
     /** Make a request and forget about it. */
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/events/watch");
+    request[QSL("method")] = QSL("window-rules/events/watch");
     genericRequest(QJsonDocument(request));
 
     return true;
@@ -293,7 +295,7 @@ QJsonArray LXQt::Panel::Wayfire::listOutputs() const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/list-outputs");
+    request[QSL("method")] = QSL("window-rules/list-outputs");
 
     QJsonDocument response = genericRequest(QJsonDocument(request));
 
@@ -305,18 +307,30 @@ QJsonArray LXQt::Panel::Wayfire::listOutputs() const
     return QJsonArray();
 }
 
+QJsonObject LXQt::Panel::Wayfire::getOutputInfo(WaylandId opId) const
+{
+    QJsonObject request;
+
+    request[QSL("method")] = QSL("window-rules/output-info");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("id"), QJsonValue::fromVariant((quint64)opId)},
+    });
+
+    return genericRequest(QJsonDocument(request)).object();
+}
+
 WaylandId LXQt::Panel::Wayfire::getActiveOutput() const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/get-focused-output");
+    request[QSL("method")] = QSL("window-rules/get-focused-output");
 
     QJsonObject reply = genericRequest(QJsonDocument(request)).object();
 
-    if (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"))
+    if (reply[QSL("result")].toString() == QSL("ok"))
     {
-        QJsonObject opInfo = reply[QStringLiteral("info")].toObject();
-        uint32_t opId = opInfo[QStringLiteral("id")].toInt();
+        QJsonObject opInfo = reply[QSL("info")].toObject();
+        uint32_t opId = opInfo[QSL("id")].toInt();
 
         return WaylandId(opId);
     }
@@ -327,14 +341,14 @@ WaylandId LXQt::Panel::Wayfire::getActiveOutput() const
 bool LXQt::Panel::Wayfire::focusOutput(WaylandId opId) const
 {
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("oswitch/switch-output");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("output-id"), QJsonValue::fromVariant((quint64)opId)},
+    request[QSL("method")] = QSL("oswitch/switch-output");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    if (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"))
+    if (reply[QSL("result")].toString() == QSL("ok"))
     {
         return true;
     }
@@ -346,20 +360,20 @@ bool LXQt::Panel::Wayfire::showDesktop(WaylandId opId) const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("wm-actions/toggle_showdesktop");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("output_id"), QJsonValue::fromVariant((quint64)opId)},
+    request[QSL("method")] = QSL("wm-actions/toggle_showdesktop");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("output_id"), QJsonValue::fromVariant((quint64)opId)},
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 QJsonArray LXQt::Panel::Wayfire::getWorkspaceSetsInfo() const
 {
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/list-wsets");
+    request[QSL("method")] = QSL("window-rules/list-wsets");
 
     return genericRequest(QJsonDocument(request)).array();
 }
@@ -369,14 +383,14 @@ QString LXQt::Panel::Wayfire::getWorkspaceName(int x, QString outputName) const
     QString targetKey = QString::fromUtf8("%1_workspace_%2").arg(outputName).arg(x);
 
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("wayfire/get-config-option");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("option"), QStringLiteral("workspace-names/names")},
+    request[QSL("method")] = QSL("wayfire/get-config-option");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("option"), QSL("workspace-names/names")},
     });
 
     QJsonObject wsNamesObj = genericRequest(QJsonDocument(request)).object();
 
-    QJsonArray wsNameList = wsNamesObj[QStringLiteral("value")].toArray();
+    QJsonArray wsNameList = wsNamesObj[QSL("value")].toArray();
 
     for ( int i = 0; i < wsNameList.size(); i++ )
     {
@@ -404,32 +418,44 @@ bool LXQt::Panel::Wayfire::setWorkspaceName(int, QString) const
     return false;
 }
 
-bool LXQt::Panel::Wayfire::switchToWorkspace(WaylandId opId, int64_t nth) const
+bool LXQt::Panel::Wayfire::switchToWorkspace(WaylandId opId, int64_t nth, WaylandId viewId) const
 {
     QJsonObject wsetsInfo = getWorkspaceSetsInfo().at(0).toObject();
-    QJsonObject workspace = wsetsInfo[QStringLiteral("workspace")].toObject();
-    int64_t nCols = workspace[QStringLiteral("grid_width")].toInt();
+    QJsonObject workspace = wsetsInfo[QSL("workspace")].toObject();
+    int64_t nCols = workspace[QSL("grid_width")].toInt();
 
     int64_t row = floor((nth - 1) / nCols);
     int64_t col = (nth - 1) % nCols;
 
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("vswitch/set-workspace");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("output-id"), QJsonValue::fromVariant((quint64)opId)},
-        {QStringLiteral("x"), QJsonValue::fromVariant((quint64)col)},
-        {QStringLiteral("y"), QJsonValue::fromVariant((quint64)row)},
-    });
+    request[QSL("method")] = QSL("vswitch/set-workspace");
+    if (viewId)
+    {
+        request[QSL("data")] = QJsonObject({
+            {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
+            {QSL("x"), QJsonValue::fromVariant((quint64)col)},
+            {QSL("y"), QJsonValue::fromVariant((quint64)row)},
+            {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
+        });
+    } else
+    {
+        request[QSL("data")] = QJsonObject({
+            {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
+            {QSL("x"), QJsonValue::fromVariant((quint64)col)},
+
+            {QSL("y"), QJsonValue::fromVariant((quint64)row)},
+        });
+    }
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 QJsonArray LXQt::Panel::Wayfire::listViews() const
 {
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/list-views");
+    request[QSL("method")] = QSL("window-rules/list-views");
 
     QJsonArray response = genericRequest(QJsonDocument(request)).array();
 
@@ -440,13 +466,13 @@ QJsonArray LXQt::Panel::Wayfire::listViews() const
         {
             QJsonObject view = viewVal.toObject();
             // Ghost windows of Xwayland
-            if (view[QStringLiteral("pid")].toInt() == -1)
+            if (view[QSL("pid")].toInt() == -1)
             {
                 continue;
             }
 
             // Proper toplevel view
-            if (view[QStringLiteral("role")] == QStringLiteral("toplevel"))
+            if (view[QSL("role")] == QSL("toplevel"))
             {
                 views << view;
             }
@@ -460,14 +486,14 @@ WaylandId LXQt::Panel::Wayfire::getActiveView() const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/get-focused-view");
+    request[QSL("method")] = QSL("window-rules/get-focused-view");
 
     QJsonObject reply = genericRequest(QJsonDocument(request)).object();
 
-    if (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"))
+    if (reply[QSL("result")].toString() == QSL("ok"))
     {
-        QJsonObject viewInfo = reply[QStringLiteral("info")].toObject();
-        uint32_t viewId = viewInfo[QStringLiteral("id")].toInt();
+        QJsonObject viewInfo = reply[QSL("info")].toObject();
+        uint32_t viewId = viewInfo[QSL("id")].toInt();
 
         return WaylandId(viewId);
     }
@@ -479,16 +505,16 @@ QJsonObject LXQt::Panel::Wayfire::getViewInfo(WaylandId viewId) const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/view-info");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("id"), QJsonValue::fromVariant((quint64)viewId)}
+    request[QSL("method")] = QSL("window-rules/view-info");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("id"), QJsonValue::fromVariant((quint64)viewId)}
     });
 
     QJsonObject reply = genericRequest(QJsonDocument(request)).object();
 
-    if (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"))
+    if (reply[QSL("result")].toString() == QSL("ok"))
     {
-        return reply[QStringLiteral("info")].toObject();
+        return reply[QSL("info")].toObject();
     }
 
     return QJsonObject();
@@ -498,75 +524,84 @@ bool LXQt::Panel::Wayfire::focusView(WaylandId viewId) const
 {
     QJsonObject viewInfo = getViewInfo(viewId);
 
-    if ((viewInfo.isEmpty() == false) && (viewInfo[QStringLiteral("minimized")].toBool() == true))
+    if ((viewInfo.isEmpty() == false) && (viewInfo[QSL("minimized")].toBool() == true))
     {
         minimizeView(viewId, false);
     }
 
     QJsonObject request;
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/focus-view");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("id"), QJsonValue::fromVariant((quint64)viewId)}
+    request[QSL("method")] = QSL("window-rules/focus-view");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("id"), QJsonValue::fromVariant((quint64)viewId)}
     });
 
     QJsonObject reply = genericRequest(QJsonDocument(request)).object();
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 bool LXQt::Panel::Wayfire::minimizeView(WaylandId viewId, bool yes) const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-minimized");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
-        {QStringLiteral("state"), yes}
+    request[QSL("method")] = QSL("wm-actions/set-minimized");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+        {QSL("state"), yes}
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    if (reply[QStringLiteral("result")] != QStringLiteral("ok"))
+    if (reply[QSL("result")] != QSL("ok"))
     {
         qWarning() << QJsonDocument(reply).toJson().data() << "\n";
     }
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 bool LXQt::Panel::Wayfire::maximizeView(WaylandId viewId, int edges) const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-tiled");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
-        {QStringLiteral("edges"), edges}
+    /**
+     * Support for this does not yet exist in Wayfire. Pending PR from Marcus Britanicus.
+     */
+
+    // request[QSL("method")] = QSL("wm-actions/set-tiled");
+    // request[QSL("data")]   = QJsonObject({
+    // {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+    // {QSL("edges"), edges}
+    // });
+
+    request[QSL("method")] = (edges ? QSL("slot_c") : QSL("restore"));
+    request[QSL("data")]   = QJsonObject({
+        {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    if (reply[QStringLiteral("result")] != QStringLiteral("ok"))
+    if (reply[QSL("result")] != QSL("ok"))
     {
         qWarning() << QJsonDocument(reply).toJson().data() << "\n";
     }
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 bool LXQt::Panel::Wayfire::fullscreenView(WaylandId viewId, bool yes) const
 {
     QJsonObject request;
 
-    request[QStringLiteral("method")] = QStringLiteral("wm-actions/set-fullscreen");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("view_id"), QJsonValue::fromVariant((quint64)viewId)},
-        {QStringLiteral("state"), yes}
+    request[QSL("method")] = QSL("wm-actions/set-fullscreen");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+        {QSL("state"), yes}
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 bool LXQt::Panel::Wayfire::restoreView(WaylandId viewId) const
@@ -578,18 +613,20 @@ bool LXQt::Panel::Wayfire::restoreView(WaylandId viewId) const
         return false;
     }
 
+    qDebug() << "Restoring view" << viewId;
+
     /** If it's minimized, unminimize it */
-    if (viewInfo[QStringLiteral("minimized")] == true)
+    if (viewInfo[QSL("minimized")] == true)
     {
         return minimizeView(viewId, false);
     }
     /** The view is maximized, unmaximize it */
-    else if (viewInfo[QStringLiteral("fullscreen")] == true)
+    else if (viewInfo[QSL("fullscreen")] == true)
     {
         return fullscreenView(viewId, false);
     }
     /** The view is maximized, unmaximize it */
-    else if (viewInfo[QStringLiteral("tiled-edges")] == 15)
+    else if (viewInfo[QSL("tiled-edges")] != 0)
     {
         return maximizeView(viewId, false);
     }
@@ -597,18 +634,45 @@ bool LXQt::Panel::Wayfire::restoreView(WaylandId viewId) const
     return false;
 }
 
-bool LXQt::Panel::Wayfire::closeView(WaylandId viewId) const
+bool LXQt::Panel::Wayfire::sendViewToWorkspace(WaylandId viewId, int nth) const
 {
-    QJsonObject request;
+    QJsonObject wsetsInfo = getWorkspaceSetsInfo().at(0).toObject();
+    QJsonObject workspace = wsetsInfo[QSL("workspace")].toObject();
+    QJsonObject viewInfo  = getViewInfo(viewId);
 
-    request[QStringLiteral("method")] = QStringLiteral("window-rules/close-view");
-    request[QStringLiteral("data")]   = QJsonObject({
-        {QStringLiteral("id"), QJsonValue::fromVariant((quint64)viewId)}
+    int64_t nCols = workspace[QSL("grid_width")].toInt();
+
+    int64_t row = floor((nth - 1) / nCols);
+    int64_t col = (nth - 1) % nCols;
+
+    quint64 opId = viewInfo[QSL("output-id")].toInt();
+
+    QJsonObject request;
+    request[QSL("method")] = QSL("vswitch/send-view");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
+        {QSL("x"), QJsonValue::fromVariant((quint64)col)},
+        {QSL("y"), QJsonValue::fromVariant((quint64)row)},
+        {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
     });
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
-    return (reply[QStringLiteral("result")].toString() == QStringLiteral("ok"));
+    return (reply[QSL("result")].toString() == QSL("ok"));
+}
+
+bool LXQt::Panel::Wayfire::closeView(WaylandId viewId) const
+{
+    QJsonObject request;
+
+    request[QSL("method")] = QSL("window-rules/close-view");
+    request[QSL("data")]   = QJsonObject({
+        {QSL("id"), QJsonValue::fromVariant((quint64)viewId)}
+    });
+
+    QJsonDocument reply = genericRequest(QJsonDocument(request));
+
+    return (reply[QSL("result")].toString() == QSL("ok"));
 }
 
 QJsonDocument LXQt::Panel::Wayfire::genericRequest(QJsonDocument request) const
@@ -616,7 +680,7 @@ QJsonDocument LXQt::Panel::Wayfire::genericRequest(QJsonDocument request) const
     if (!impl->mConnected)
     {
         QJsonDocument reply{
-            {QStringLiteral("result"), QStringLiteral("failed")}
+            {QSL("result"), QSL("failed")}
         };
         return reply;
     }
@@ -648,51 +712,51 @@ QJsonDocument LXQt::Panel::Wayfire::genericRequest(QJsonDocument request) const
 
 void LXQt::Panel::Wayfire::parseEvents(QJsonDocument response)
 {
-    QString event = response[QStringLiteral("event")].toString();
+    QString event = response[QSL("event")].toString();
 
-    if (event == QStringLiteral("view-mapped"))
+    if (event == QSL("view-mapped"))
     {
         emit viewMapped(response);
-    } else if (event == QStringLiteral("view-focused"))
+    } else if (event == QSL("view-focused"))
     {
         emit viewFocused(response);
-    } else if (event == QStringLiteral("view-title-changed"))
+    } else if (event == QSL("view-title-changed"))
     {
         emit viewTitleChanged(response);
-    } else if (event == QStringLiteral("view-app-id-changed"))
+    } else if (event == QSL("view-app-id-changed"))
     {
         emit viewAppIdChanged(response);
-    } else if (event == QStringLiteral("view-geometry-changed"))
+    } else if (event == QSL("view-geometry-changed"))
     {
         emit viewGeometryChanged(response);
-    } else if (event == QStringLiteral("view-tiled"))
+    } else if (event == QSL("view-tiled"))
     {
         emit viewTitleChanged(response);
-    } else if (event == QStringLiteral("view-minimized"))
+    } else if (event == QSL("view-minimized"))
     {
         emit viewMinimized(response);
-    } else if (event == QStringLiteral("view-set-output"))
+    } else if (event == QSL("view-set-output"))
     {
         emit viewOutputChanged(response);
-    } else if (event == QStringLiteral("view-workspace-changed"))
+    } else if (event == QSL("view-workspace-changed"))
     {
         emit viewWorkspaceChanged(response);
-    } else if (event == QStringLiteral("view-unmapped"))
+    } else if (event == QSL("view-unmapped"))
     {
         emit viewUnmapped(response);
-    } else if (event == QStringLiteral("output-added"))
+    } else if (event == QSL("output-added"))
     {
         emit outputAdded(response);
-    } else if (event == QStringLiteral("output-removed"))
+    } else if (event == QSL("output-removed"))
     {
         emit outputRemoved(response);
-    } else if (event == QStringLiteral("output-gain-focus"))
+    } else if (event == QSL("output-gain-focus"))
     {
         emit outputFocused(response);
-    } else if (event == QStringLiteral("output-wset-changed"))
+    } else if (event == QSL("output-wset-changed"))
     {
         emit workspaceSetChanged(response);
-    } else if (event == QStringLiteral("wset-workspace-changed"))
+    } else if (event == QSL("wset-workspace-changed"))
     {
         emit workspaceChanged(response);
     } else
