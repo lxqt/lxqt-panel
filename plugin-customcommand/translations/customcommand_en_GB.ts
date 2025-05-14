@@ -145,7 +145,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
         <source>Mouse Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Mouse Commands</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="298"/>
