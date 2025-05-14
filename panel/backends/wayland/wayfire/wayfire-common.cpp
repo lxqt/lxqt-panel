@@ -638,25 +638,41 @@ bool LXQt::Panel::Wayfire::restoreView(WaylandId viewId) const
 
 bool LXQt::Panel::Wayfire::sendViewToWorkspace(WaylandId viewId, int nth) const
 {
-    QJsonObject wsetsInfo = getWorkspaceSetsInfo().at(0).toObject();
-    QJsonObject workspace = wsetsInfo[QSL("workspace")].toObject();
-    QJsonObject viewInfo  = getViewInfo(viewId);
-
-    int64_t nCols = workspace[QSL("grid_width")].toInt();
-
-    int64_t row = floor((nth - 1) / nCols);
-    int64_t col = (nth - 1) % nCols;
-
-    quint64 opId = viewInfo[QSL("output-id")].toInt();
-
     QJsonObject request;
-    request[QSL("method")] = QSL("vswitch/send-view");
-    request[QSL("data")]   = QJsonObject({
-        {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
-        {QSL("x"), QJsonValue::fromVariant((quint64)col)},
-        {QSL("y"), QJsonValue::fromVariant((quint64)row)},
-        {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
-    });
+
+    /** Set view sticky */
+    if ( nth == 0 ) {
+        QJsonObject viewInfo = getViewInfo( viewId );
+        request[QSL("method")] = QSL("wm-actions/set-sticky");
+        request[QSL("data")]   = QJsonObject({
+            {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
+            {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+            {QSL("state"), !viewInfo[QSL("sticky")].toBool()},
+        });
+    }
+
+    /** Send view to a specific desktop */
+    else {
+        QJsonObject wsetsInfo = getWorkspaceSetsInfo().at(0).toObject();
+        QJsonObject workspace = wsetsInfo[QSL("workspace")].toObject();
+        QJsonObject viewInfo  = getViewInfo(viewId);
+
+        int64_t nCols = workspace[QSL("grid_width")].toInt();
+
+        int64_t row = floor((nth - 1) / nCols);
+        int64_t col = (nth - 1) % nCols;
+
+        quint64 opId = viewInfo[QSL("output-id")].toInt();
+
+        request[QSL("method")] = QSL("vswitch/send-view");
+        request[QSL("data")]   = QJsonObject({
+            {QSL("output-id"), QJsonValue::fromVariant((quint64)opId)},
+            {QSL("x"), QJsonValue::fromVariant((quint64)col)},
+            {QSL("y"), QJsonValue::fromVariant((quint64)row)},
+            {QSL("view-id"), QJsonValue::fromVariant((quint64)viewId)},
+            {QSL("view_id"), QJsonValue::fromVariant((quint64)viewId)},
+        });
+    }
 
     QJsonDocument reply = genericRequest(QJsonDocument(request));
 
