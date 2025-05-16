@@ -749,7 +749,7 @@ void LXQt::Panel::Wayfire::parseEvents(QJsonDocument response)
         emit viewGeometryChanged(response);
     } else if (event == QSL("view-tiled"))
     {
-        emit viewTitleChanged(response);
+        emit viewTiled(response);
     } else if (event == QSL("view-minimized"))
     {
         emit viewMinimized(response);
