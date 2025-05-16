@@ -70,13 +70,11 @@ bool LXQtBacklight::eventFilter(QObject *obj, QEvent *event)
     if (obj == m_backlightButton) {
         if (event->type() == QEvent::Wheel) {
             if(! m_backlightSlider) {
-                // NOTE: Workaround ot prevent crash
+                // NOTE: Workaround to prevent crash
                 // TODO: The event can probably be handled directly in the plugin
                 m_backlightSlider = new SliderDialog(m_backlightButton);
                 connect(m_backlightSlider, &SliderDialog::dialogClosed, this, &LXQtBacklight::deleteSlider);
-                //printf("New Slider\n");
             }
-            qInfo() << "Handling backlight wheel event (2)";
             auto ev = static_cast<QWheelEvent*>(event);
             m_backlightSlider->handleWheelEvent(ev);
             return true;

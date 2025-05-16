@@ -107,19 +107,15 @@ void SliderDialog::updateBacklight()
 }
 
 void SliderDialog::handleWheelEvent(QWheelEvent *event) {
-    qInfo() << "Handling bakclight wheel event SET BACKLIGHT VALUE";
     auto cur_pos = m_slider->sliderPosition();
     // auto cur_pos = m_backlight->getBacklight();
     auto delta = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep;
     auto step = delta * m_slider->singleStep();
     auto value = cur_pos + step;
-    qInfo() << "Handling bakclight wheel event SET BACKLIGHT VALUE" << delta << cur_pos << step << "->" << value;
-
-
+    qInfo().nospace() << "Handling backlight wheel event (set value: " << value << ")";
     // m_slider->setSliderPosition(m_slider->sliderPosition()
     //                   + (event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_slider->singleStep()));
     m_slider->setValue(value);
-
 }
 
 void SliderDialog::downButtonClicked(bool)
