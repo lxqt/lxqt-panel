@@ -241,7 +241,7 @@ int LXQtTaskbarWlrootsBackend::getWorkspacesCount() const
     return 1;
 }
 
-QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int) const
+QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const
 {
     return QStringLiteral("Desktop 1");
 }
