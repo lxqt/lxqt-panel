@@ -661,38 +661,53 @@ void LXQtTaskbarWlrootsBackend::setLastActivated(WId id)
 
 int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
 {
-	if (key == QStringLiteral("wlroots"))
-	{
-		return 50;
-	}
+    if (key == QStringLiteral("wlroots"))
+    {
+        return 50;
+    }
 
-	else if (key == QStringLiteral("wayfire"))
-	{
-		return 30;
-	}
+    if (key == QStringLiteral("smithay"))
+    {
+        return 50;
+    }
 
-	else if (key == QStringLiteral("sway"))
-	{
-		return 30;
-	}
+    if (key == QStringLiteral("aquamarine"))
+    {
+        return 50;
+    }
 
-	else if (key == QStringLiteral("hyprland"))
-	{
-		return 30;
-	}
+    else if (key == QStringLiteral("wayfire"))
+    {
+        return 30;
+    }
 
-	else if (key == QStringLiteral("labwc"))
-	{
-		return 30;
-	}
+    else if (key == QStringLiteral("sway"))
+    {
+        return 30;
+    }
 
-	else if (key == QStringLiteral("river"))
-	{
-		return 30;
-	}
+    else if (key == QStringLiteral("Hyprland"))
+    {
+        return 30;
+    }
 
-	// Unsupported
-	return 0;
+    else if (key == QStringLiteral("labwc"))
+    {
+        return 30;
+    }
+
+    else if (key == QStringLiteral("river"))
+    {
+        return 30;
+    }
+
+    else if (key == QStringLiteral("niri"))
+    {
+        return 30;
+    }
+
+    // Unsupported
+    return 0;
 }
 
 
