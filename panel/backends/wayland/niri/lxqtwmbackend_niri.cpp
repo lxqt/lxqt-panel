@@ -661,41 +661,11 @@ void LXQtTaskbarNiriBackend::setLastActivated(WId id)
 
 int LXQtWMBackendNiriLibrary::getBackendScore(const QString& key) const
 {
-    if (key == QStringLiteral("smithay"))
+    // Only Niri is supported
+    if ((key == QSL("niri")) || (key == QSL("Niri")))
     {
-        return 50;
+        return 100;
     }
-
-    if (key == QStringLiteral("niri"))
-    {
-        return 50;
-    }
-
-    else if (key == QStringLiteral("wayfire"))
-    {
-        return 30;
-    }
-
-    else if (key == QStringLiteral("sway"))
-    {
-        return 30;
-    }
-
-    else if (key == QStringLiteral("hyprland"))
-    {
-        return 30;
-    }
-
-    else if (key == QStringLiteral("labwc"))
-    {
-        return 30;
-    }
-
-    else if (key == QStringLiteral("river"))
-    {
-        return 30;
-    }
-
     // Unsupported
     return 0;
 }
