@@ -881,14 +881,10 @@ int LXQtWMBackendKWinWaylandLibrary::getBackendScore(const QString &key) const
     if(waylandApplication == nullptr)
         return 0;
 
-    // Detect KWin Plasma (Wayland)
-    if(key == QLatin1String("KDE") || key == QLatin1String("KWIN"))
-    {
-        return 100;
-    }
-
-    // kwin_wayland compositor, but not full-blown DE
-    else if (key == QLatin1String("kwin_wayland"))
+    static const QStringList supportedList = {QStringLiteral("KDE"),
+                                              QStringLiteral("KWIN"),
+                                              QStringLiteral("kwin_wayland")};
+    if (supportedList.contains(key, Qt::CaseInsensitive))
     {
         return 100;
     }
