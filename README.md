@@ -14,7 +14,7 @@ Provides clock and calendar functionality and can display various time zones in 
 
 #### Quick launch (plugin-quicklaunch)
 
-A plugin to launch applications from the panel. By default it is empty and displays a message "Drop application icons here". Applications need to be available in panel's main menu and can be included into plugin-quicklaunch by drag & drop.
+A plugin to launch applications from the panel. By default it is empty and displays a message "Drop application icons here". Applications need to be available in fancy menu or main menu and can be included into plugin-quicklaunch by drag & drop.
 
 #### Status Notifier Plugin (plugin-statusnotifier) / System Tray (plugin-tray)
 
@@ -28,6 +28,18 @@ Both plugins are maintained in parallel as not all relevant applications are com
 #### Volume control (plugin-volume)
 
 As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio can be used as backend. The plugin itself is providing a control to adjust the main volume only but it allows for launching specific UIs of the backend in use like e. g. [pavucontrol-qt](https://github.com/lxqt/pavucontrol-qt) to adjust PulseAudio.
+
+### Wayland Backends
+
+Wayland backends enable to some extent taskbar and switch desktop functions. Two Wayland backends are available: kwin_wayland and one for wlroots-compatible compositors, which will be automatically detected for all seven currently supported compositors.
+
+For special cases the backend to load can be forced manually for any desktop specified in `XDG_CURRENT_DESKTOP` by a comma-separated list in `~/.config/lxqt/panel.conf`:
+```
+[General]
+…
+preferred_backend=labwc:wlroots, niri:wlroots, xyz:my_own_backend
+…
+```
 
 ## Installation
 
