@@ -31,9 +31,10 @@ As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio
 
 ### Wayland Backends
 
-Wayland backends enable to some extent taskbar and switch desktop functions. Two Wayland backends are available: kwin_wayland and one for wlroots-compatible compositors, which will be automatically detected for all seven currently supported compositors.
+Wayland backends enable some functionalities related to task-bar as well as desktop switching and showing desktop. Two Wayland backends are available: kwin_wayland and another one for wlroots-compatible compositors. They are automatically detected for all seven compositors that are currently supported.
 
-For special cases the backend to load can be forced manually for any desktop specified in `XDG_CURRENT_DESKTOP` by a comma-separated list in `~/.config/lxqt/panel.conf`:
+In addition, the backend to load can be forced manually for any desktop specified in XDG_CURRENT_DESKTOP by a comma-separated list in ~/.config/lxqt/panel.conf:
+
 ```
 [General]
 …
