@@ -225,7 +225,7 @@ void LXQtPanelApplicationPrivate::loadBackend()
                 continue;
             }
 
-			if ((parts[0] == xdgCurrentDesktop) && testBackend(parts[1]))
+			if (parts[0].compare(xdgCurrentDesktop, Qt::CaseInsensitive) == 0 && testBackend(parts[1]))
 			{
 				preferredBackend = parts[1];
 				break;
@@ -263,7 +263,7 @@ void LXQtPanelApplicationPrivate::loadBackend()
         }
     }
 
-    if ( preferredBackend.isEmpty() && xdgCurrentDesktops.contains( QStringLiteral("wlroots") ) )
+    if (preferredBackend.isEmpty() && xdgCurrentDesktops.contains(QStringLiteral("wlroots"), Qt::CaseInsensitive))
     {
         qDebug() << "Specialized backend unavailable. Falling back to generic wlroots";
         preferredBackend = QStringLiteral("wlroots");

@@ -661,38 +661,26 @@ void LXQtTaskbarWlrootsBackend::setLastActivated(WId id)
 
 int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
 {
-	if (key == QStringLiteral("wlroots"))
-	{
-		return 50;
-	}
+    if (key.compare(QStringLiteral("wlroots"), Qt::CaseInsensitive))
+    {
+        return 50;
+    }
 
-	else if (key == QStringLiteral("wayfire"))
-	{
-		return 30;
-	}
+    static const QStringList supportedList = {QStringLiteral("labwc"),
+                                              QStringLiteral("sway"),
+                                              QStringLiteral("wayfire"),
+                                              // The following compositors are also supported,
+                                              // although they are not based on wlroots.
+                                              QStringLiteral("hyprland"),
+                                              QStringLiteral("river"),
+                                              QStringLiteral("niri")};
+    if (supportedList.contains(key, Qt::CaseInsensitive))
+    {
+        return 30;
+    }
 
-	else if (key == QStringLiteral("sway"))
-	{
-		return 30;
-	}
-
-	else if (key == QStringLiteral("hyprland"))
-	{
-		return 30;
-	}
-
-	else if (key == QStringLiteral("labwc"))
-	{
-		return 30;
-	}
-
-	else if (key == QStringLiteral("river"))
-	{
-		return 30;
-	}
-
-	// Unsupported
-	return 0;
+    // Unsupported
+    return 0;
 }
 
 
