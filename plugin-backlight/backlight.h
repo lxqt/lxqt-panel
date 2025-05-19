@@ -57,6 +57,9 @@ protected Q_SLOTS:
     void showSlider(bool);
     void deleteSlider();
 
+protected:
+    bool eventFilter(QObject* obj, QEvent* event) override;
+
 private:
     QToolButton *m_backlightButton;
     SliderDialog *m_backlightSlider;
