@@ -661,7 +661,7 @@ void LXQtTaskbarWlrootsBackend::setLastActivated(WId id)
 
 int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
 {
-    if (key.compare(QStringLiteral("wlroots"), Qt::CaseInsensitive))
+    if (key.compare(QStringLiteral("wlroots"), Qt::CaseInsensitive) == 0)
     {
         return 50;
     }
