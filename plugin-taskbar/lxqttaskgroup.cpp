@@ -195,7 +195,6 @@ LXQtTaskButton * LXQtTaskGroup::getNextPrevChildButton(bool next, bool circular)
 void LXQtTaskGroup::onActiveWindowChanged(WId window)
 {
     LXQtTaskButton *button = mButtonHash.value(window, nullptr);
-    qDebug() << "[Taskbar Group] onActiveChanged" << (button ? button->windowId() : 0);
     for (LXQtTaskButton *btn : std::as_const(mButtonHash))
         btn->setChecked(false);
 
@@ -206,6 +205,14 @@ void LXQtTaskGroup::onActiveWindowChanged(WId window)
             button->setUrgencyHint(false);
     }
     setChecked(nullptr != button);
+
+    qDebug() << "==================================";
+    qDebug() << "[Taskbar Group]" << groupName() << "onActiveChanged" << window << (button ? true : false);
+    if (button)
+        qDebug() << "Button checked" << button->isChecked() << checkedButton();
+
+    qDebug() << "Group checked" << isChecked();
+    qDebug() << "==================================";
 }
 
 /************************************************

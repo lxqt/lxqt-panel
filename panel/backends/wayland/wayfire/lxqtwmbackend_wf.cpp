@@ -235,7 +235,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         int64_t row    = wsInfo[QSL("y")].toInt();
         int64_t column = wsInfo[QSL("x")].toInt();
 
-        qDebug() << "Workspace changed";
+        qDebug() << "[Slot] Workspace changed";
 
         emit currentWorkspaceChanged(row * nRows + column + 1, outputName);
     });
@@ -262,7 +262,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = view;
 
-        qDebug() << "View mapped" << viewId;
+        qDebug() << "[Slot] View mapped" << viewId;
 
         emit windowAdded(view[QSL("id")].toInt());
     });
@@ -288,7 +288,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View title changed" << viewId << mViews[viewId][QSL("title")].toString();
+        qDebug() << "[Slot] View title changed" << viewId << mViews[viewId][QSL("title")].toString();
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Title);
     });
@@ -314,7 +314,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View app-id changed" << viewId << mViews[viewId][QSL("app-id")].toString();
+        qDebug() << "[Slot] View app-id changed" << viewId << mViews[viewId][QSL("app-id")].toString();
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::WindowClass);
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Icon);
@@ -402,7 +402,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View tiled" << viewId;
+        qDebug() << "[Slot] View tiled" << viewId;
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
     });
@@ -429,7 +429,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View geometry changed" << viewId;
+        qDebug() << "[Slot] View geometry changed" << viewId;
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Geometry);
     });
@@ -460,7 +460,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View output changed" << viewId << oldOp << newOp;
+        qDebug() << "[Slot] View output changed" << viewId << oldOp << newOp;
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Geometry);
     });
@@ -490,7 +490,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
             {QSL("y"), response[QSL("to")][QSL("y")]}
         });
 
-        qDebug() << "View workspace changed" << viewId;
+        qDebug() << "[Slot] View workspace changed" << viewId;
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Workspace);
     });
@@ -502,11 +502,12 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        mViews.remove(viewId);
-
-        qDebug() << "View unmapped" << viewId;
-
-        emit windowRemoved(viewId);
+        if ( mViews.contains(viewId))
+        {
+            mViews.remove(viewId);
+            qDebug() << "[Slot] View unmapped" << viewId;
+            emit windowRemoved(viewId);
+        }
     });
 
     mWayfire.connectToServer();
