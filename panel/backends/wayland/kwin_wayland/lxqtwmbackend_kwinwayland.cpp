@@ -741,6 +741,8 @@ void LXQtWMBackend_KWinWayland::addWindow(LXQtTaskBarPlasmaWindow *window)
             auto it = findWindow(windows, window);
             Q_ASSERT(it != windows.end());
 
+            if(window->acceptedInTaskBar)
+                emit windowRemoved(window->getWindowId());
             windows.erase(it);
             lastActivated.remove(window->getWindowId());
         }
