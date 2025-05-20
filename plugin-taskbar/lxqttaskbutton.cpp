@@ -238,10 +238,16 @@ void LXQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
     if (!sDraggging && event->button() == Qt::LeftButton)
     {
-        if (isChecked())
+        qDebug() << "==================================================";
+        qDebug() << "--> button is checked" << isChecked();
+        if (isChecked()){
+            qDebug() << "minimizeApplication() called";
             minimizeApplication();
-        else
+        }
+        else{
+            qDebug() << "raiseApplication() called";
             raiseApplication();
+        }
     }
     QToolButton::mouseReleaseEvent(event);
 }
@@ -405,6 +411,7 @@ bool LXQtTaskButton::isApplicationActive() const
  ************************************************/
 void LXQtTaskButton::raiseApplication()
 {
+    qDebug() << "--> raising window" << mWindow;
     mBackend->raiseWindow(mWindow, parentTaskBar()->raiseOnCurrentDesktop());
 }
 
@@ -413,6 +420,7 @@ void LXQtTaskButton::raiseApplication()
  ************************************************/
 void LXQtTaskButton::minimizeApplication()
 {
+    qDebug() << "--> minimizing window" << mWindow;
     mBackend->setWindowState(mWindow, LXQtTaskBarWindowState::Minimized, true);
 }
 

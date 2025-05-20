@@ -255,7 +255,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             emit windowRemoved(viewId);
         }
@@ -280,7 +280,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -306,7 +306,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -325,6 +325,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         for ( WaylandId viewId : mViews.keys())
         {
+            qDebug() << "[Slot] Window property changed" << viewId;
             emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
         }
 
@@ -339,7 +340,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -347,7 +348,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View focused" << viewId;
+        qDebug() << "[Slot] View focused" << viewId;
 
         emit activeWindowChanged(viewId);
     });
@@ -366,7 +367,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -374,7 +375,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
-        qDebug() << "View minimized" << viewId;
+        qDebug() << "[Slot] View minimized" << viewId;
 
         emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::State);
     });
@@ -393,7 +394,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -420,7 +421,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -445,16 +446,23 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         }
 
         WaylandId viewId(view[QSL("id")].toInt());
+        QString oldOp;
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
+        } else {
+            oldOp = mViews[viewId][QSL("output-name")].toString();
         }
 
-        qDebug() << "View output changed" << viewId;
+        QString newOp = view[QSL("output-name")].toString();
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
+
+        qDebug() << "View output changed" << viewId << oldOp << newOp;
+
+        emit windowPropertyChanged(viewId, (int)LXQtTaskBarWindowProperty::Geometry);
     });
 
     connect(&mWayfire, &LXQt::Panel::Wayfire::viewWorkspaceChanged, [this] ( QJsonDocument respJson )
@@ -470,7 +478,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if (mViews.contains(viewId))
+        if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
@@ -649,7 +657,6 @@ bool LXQtTaskbarWayfireBackend::setWindowLayer(WId, LXQtTaskBarWindowLayer)
 LXQtTaskBarWindowState LXQtTaskbarWayfireBackend::getWindowState(WId windowId) const
 {
     WaylandId viewId(windowId);
-    qDebug() << "View tiling state:" << mViews[viewId][QSL("tiled")].toInt();
     if (!mViews.contains(viewId))
     {
         return LXQtTaskBarWindowState::Hidden;
@@ -671,19 +678,19 @@ LXQtTaskBarWindowState LXQtTaskbarWayfireBackend::getWindowState(WId windowId) c
     }
 
     // WLR_EDGE_TOP | WLR_EDGE_BOTTOM | WLR_EDGE_LEFT | WLR_EDGE_RIGHT == 1 | 2 | 4 | 8 == 15
-    if (mViews[viewId][QSL("tiled")].toInt() > 0)
+    if (mViews[viewId][QSL("tiled-edges")].toInt() > 0)
     {
         return LXQtTaskBarWindowState::Maximized;
     }
 
     // // WLR_EDGE_TOP | WLR_EDGE_BOTTOM == 1 | 2 == 3
-    // if (mViews[viewId][QSL("tiled")].toInt() == 3)
+    // if (mViews[viewId][QSL("tiled-edges")].toInt() == 3)
     // {
     //     return LXQtTaskBarWindowState::MaximizedVertically;
     // }
 
     // // WLR_EDGE_LEFT | WLR_EDGE_RIGHT == 4 | 8 == 12
-    // if (mViews[viewId][QSL("tiled")].toInt() == 12)
+    // if (mViews[viewId][QSL("tiled-edges")].toInt() == 12)
     // {
     //     return LXQtTaskBarWindowState::MaximizedHorizontally;
     // }
@@ -760,6 +767,13 @@ bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
         return false;
     }
 
+    if (getWindowState(windowId)==LXQtTaskBarWindowState::Minimized)
+    {
+        qDebug() << "Unminimizing view first" << windowId;
+        mWayfire.minimizeView(WaylandId(windowId), false);
+    }
+
+    qDebug() << "Focusing view" << windowId;
     return mWayfire.focusView(viewId);
 }
 
