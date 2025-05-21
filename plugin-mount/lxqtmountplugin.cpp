@@ -25,6 +25,8 @@
  *
  * END_COMMON_COPYRIGHT_HEADER */
 
+#include <QGuiApplication>
+
 #include "lxqtmountplugin.h"
 #include "configuration.h"
 
@@ -45,7 +47,7 @@ LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo)
     mKeyEject(nullptr)
 {
     mButton = new Button;
-    mPopup = new Popup(this);
+    mPopup = new Popup(this, mButton);
 
     connect(mButton, &QToolButton::clicked, mPopup, &Popup::showHide);
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
@@ -56,7 +58,6 @@ LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo)
 LXQtMountPlugin::~LXQtMountPlugin()
 {
     delete mButton;
-    delete mPopup;
 }
 
 
@@ -102,6 +103,15 @@ void LXQtMountPlugin::settingsChanged()
     QString s = settings()->value(QLatin1String(CFG_KEY_ACTION)).toString();
     DeviceAction::ActionId devActionId = DeviceAction::stringToActionId(s, DeviceAction::ActionMenu);
 
+    if (devActionId == DeviceAction::ActionMenu
+        && QGuiApplication::platformName() == QStringLiteral("wayland"))
+    {
+        // WARNING: Wayland considers the popup as a standalone window until the first input
+        // interaction happens with the panel. To avoid this inconsistent behavior, the
+        // automatic showing of the popup is disabled on Wayland.
+        devActionId = DeviceAction::ActionInfo;
+    }
+
     if (mDeviceAction == nullptr || mDeviceAction->Type() != devActionId)
     {
         delete mDeviceAction;
@@ -131,6 +141,6 @@ void LXQtMountPlugin::settingsChanged()
          delete mEjectAction;
          mEjectAction = EjectAction::create(ejActionId, this, this);
 
-         connect(mKeyEject, &GlobalKeyShortcut::Action::activated, mEjectAction, &EjectAction::onEjectPressed); 
+         connect(mKeyEject, &GlobalKeyShortcut::Action::activated, mEjectAction, &EjectAction::onEjectPressed);
     }
 }
