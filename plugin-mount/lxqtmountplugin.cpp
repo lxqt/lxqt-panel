@@ -47,7 +47,7 @@ LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo)
     mKeyEject(nullptr)
 {
     mButton = new Button;
-    mPopup = new Popup(this, mButton);
+    mPopup = new Popup(this);
 
     connect(mButton, &QToolButton::clicked, mPopup, &Popup::showHide);
     connect(mPopup, &Popup::visibilityChanged, mButton, &QToolButton::setDown);
@@ -58,6 +58,7 @@ LXQtMountPlugin::LXQtMountPlugin(const ILXQtPanelPluginStartupInfo &startupInfo)
 LXQtMountPlugin::~LXQtMountPlugin()
 {
     delete mButton;
+    delete mPopup;
 }
 
 
