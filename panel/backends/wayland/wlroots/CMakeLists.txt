@@ -17,7 +17,7 @@ if (NOT DEFINED PLUGIN_DIR)
     set (PLUGIN_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${PROGRAM})
 endif (NOT DEFINED PLUGIN_DIR)
 
-set(QTX_LIBRARIES Qt6::Gui Qt6::GuiPrivate)
+set(QTX_LIBRARIES Qt6::Gui Qt6::GuiPrivate Qt6::WaylandClient Qt6::WaylandClientPrivate)
 
 set(
     SRC
@@ -28,7 +28,7 @@ set(
 add_library(${NAME} MODULE ${SRC}) # build dynamically loadable modules
 install(TARGETS ${NAME} DESTINATION ${PLUGIN_DIR}/${BACKEND}) # install the *.so file
 
-target_link_libraries(${NAME} ${QTX_LIBRARIES} Qt6::Concurrent Qt6::WaylandClient Qt6Xdg)
+target_link_libraries(${NAME} ${QTX_LIBRARIES} Qt6::Concurrent Qt6Xdg)
 
 qt6_generate_wayland_protocol_client_sources(${NAME} FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/wlr-foreign-toplevel-management-unstable-v1.xml

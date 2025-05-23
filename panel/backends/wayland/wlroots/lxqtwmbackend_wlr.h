@@ -81,6 +81,7 @@ private slots:
     void onTitleChanged();
     void onAppIdChanged();
     void onStateChanged();
+    void onOutputsChanged();
 
 private:
     void addToWindows(WId winId);
