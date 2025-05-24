@@ -204,7 +204,7 @@ void LXQtTaskGroup::onActiveWindowChanged(WId window)
         if (button->hasUrgencyHint())
             button->setUrgencyHint(false);
     }
-    setChecked(nullptr != button);
+    setChecked(nullptr != button && button->isVisibleTo(mPopup));
 }
 
 /************************************************
@@ -393,6 +393,9 @@ void LXQtTaskGroup::refreshVisibility()
         visible &= taskbar->isShowOnlyMinimizedTasks() ? btn->isMinimized() : true;
         btn->setVisible(visible);
         will |= visible;
+        // correct the checked state if this button is checked
+        if (btn->isChecked())
+            setChecked(visible);
     }
 
     bool is = isVisible();
