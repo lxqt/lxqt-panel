@@ -278,12 +278,12 @@ bool LXQtTaskbarWlrootsBackend::isWindowOnScreen(QScreen *screen, WId windowId) 
     if(window)
     {
         QtWaylandClient::QWaylandScreen *waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle());
-        if (waylandScreen) {
+        if (waylandScreen)
+        {
             wl_output *output = waylandScreen->output();
-            return window->windowState.outputs.contains( output );
+            return window->windowState.outputs.contains(output);
         }
     }
-
     return false;
 }
 
@@ -481,6 +481,7 @@ void LXQtTaskbarWlrootsBackend::removeWindow()
         disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
         disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
         disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this, &LXQtTaskbarWlrootsBackend::onOutputsChanged);
 
         WId winId = window->getWindowId();
         eraseWindow(windows, winId);
@@ -588,6 +589,7 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
             disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
             disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
             disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this, &LXQtTaskbarWlrootsBackend::onOutputsChanged);
             eraseWindow(windows, window->getWindowId());
             lastActivated.remove(window->getWindowId());
             // announce that it's removed
@@ -630,7 +632,7 @@ void LXQtTaskbarWlrootsBackend::onStateChanged()
 void LXQtTaskbarWlrootsBackend::onOutputsChanged()
 {
     if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
-        emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Workspace));
+        emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Geometry));
 }
 
 bool LXQtTaskbarWlrootsBackend::acceptWindow(WId window) const
