@@ -57,7 +57,9 @@ LXQtWMBackendX11::LXQtWMBackendX11(QObject *parent)
     connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &LXQtWMBackendX11::onWindowRemoved);
 
     connect(KX11Extras::self(), &KX11Extras::numberOfDesktopsChanged, this, &ILXQtAbstractWMInterface::workspacesCountChanged);
-    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, &ILXQtAbstractWMInterface::currentWorkspaceChanged);
+    connect(KX11Extras::self(), &KX11Extras::currentDesktopChanged, this, [this](int x) {
+        emit currentWorkspaceChanged(x, QString()); // without specifying an output name
+    });
     connect(KX11Extras::self(), &KX11Extras::desktopNamesChanged, this, [this]() {
         emit workspaceNameChanged(-1); // without specifying an index
     });
@@ -477,7 +479,7 @@ int LXQtWMBackendX11::getWorkspacesCount() const
     return KX11Extras::numberOfDesktops();
 }
 
-QString LXQtWMBackendX11::getWorkspaceName(int idx) const
+QString LXQtWMBackendX11::getWorkspaceName(int idx, QString) const
 {
     return KX11Extras::desktopName(idx);
 }

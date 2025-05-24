@@ -205,6 +205,14 @@ void LXQtTaskGroup::onActiveWindowChanged(WId window)
             button->setUrgencyHint(false);
     }
     setChecked(nullptr != button);
+
+    qDebug() << "==================================";
+    qDebug() << "[Taskbar Group]" << groupName() << "onActiveChanged" << window << (button ? true : false);
+    if (button)
+        qDebug() << "Button checked" << button->isChecked() << checkedButton();
+
+    qDebug() << "Group checked" << isChecked();
+    qDebug() << "==================================";
 }
 
 /************************************************
