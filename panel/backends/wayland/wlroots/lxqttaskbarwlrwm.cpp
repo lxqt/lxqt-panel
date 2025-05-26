@@ -457,6 +457,7 @@ void LXQtTaskbarWlrootsWindow::zwlr_foreign_toplevel_handle_v1_done()
     m_pendingState.title = QString();
     m_pendingState.appId = QString();
     m_pendingState.outputs.clear();
+    m_pendingState.outputsLeft.clear();
     m_pendingState.maximized  = false;
     m_pendingState.minimized  = false;
     m_pendingState.activated  = false;
