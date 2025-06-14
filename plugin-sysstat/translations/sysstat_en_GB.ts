@@ -201,7 +201,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Colours</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
