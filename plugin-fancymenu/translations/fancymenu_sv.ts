@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr">
+<TS version="2.1" language="sv">
 <context>
     <name>LXQtFancyMenu</name>
     <message>
         <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
-        <translation>Prikaži/sakrij glavni izbornik</translation>
+        <translation>Visa/dölj huvudmenyn</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
         <source>Favorites</source>
-        <translation>Favoriti</translation>
+        <translation>Favoriter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
         <source>All Applications</source>
-        <translation>Sve aplikacije</translation>
+        <translation>Alla program</translation>
     </message>
 </context>
 <context>
@@ -27,27 +27,27 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation>Postavke elegantnog izbornika</translation>
+        <translation>Inställningar för Fancy Menu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Opće</translation>
+        <translation>Allmänt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
-        <translation>Ikona:</translation>
+        <translation>Ikon:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
-        <translation>Tekst gumba:</translation>
+        <translation>Knapptext:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
-        <translation>Prilagođena veličina fonta:</translation>
+        <translation>Anpassad teckenstorlek:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation>Odaberi automatski nakon:</translation>
+        <translation>Välj automatiskt efter:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
@@ -67,92 +67,92 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
         <source>Menu file</source>
-        <translation>Datoteka izbornika</translation>
+        <translation>Menyfil</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
-        <translation>Datoteka izbornika:</translation>
+        <translation>Menyfil:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
-        <translation>Tipkovni prečac</translation>
+        <translation>Tangentbordsgenväg</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Pritisni gumb za snimanje pračaca:</translation>
+        <translation>Tryck på knappen för att registrera kortkommando:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
         <source>Search</source>
-        <translation>Pretraga</translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="182"/>
         <source>Clear search upon showing menu</source>
-        <translation>Ukloni pretragu pri prikazu izbornika</translation>
+        <translation>Töm sökfältet när menyn öppnas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation>Raspored</translation>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation>Položaj reda gumba</translation>
+        <translation>Knappradens placering</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation>Položaj kategorija</translation>
+        <translation>Kategoriernas placering</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation>Resetiraj</translation>
+        <translation>Återställ</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation>Dolje</translation>
+        <translation>Under</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation>Gore</translation>
+        <translation>Över</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation>Lijevo</translation>
+        <translation>Vänster</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation>Desno</translation>
+        <translation>Höger</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
         <source>Choose icon file</source>
-        <translation>Odaberi datoteku ikone</translation>
+        <translation>Välj en ikon</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
         <source>Images (*.svg *.png)</source>
-        <translation>Slike (*.svg *.png)</translation>
+        <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
         <source>Choose menu file</source>
-        <translation>Odaberi datoteku izbornika</translation>
+        <translation>Välj en menyfil</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
         <source>Menu files (*.menu)</source>
-        <translation>Datoteke izbornika (*.menu)</translation>
+        <translation>Menyfiler (*.menu)</translation>
     </message>
 </context>
 <context>
@@ -160,79 +160,79 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
-        <translation>Traži …</translation>
+        <translation>Sök...</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation>Centar LXQt konfiguracije</translation>
+        <translation>Systeminställningar</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation>Napusti</translation>
+        <translation>Avsluta</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation>O LXQt</translation>
+        <translation>Om LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation>Dodaj svoje favorite klikom desne tipke miša na stavke iz kategorija.</translation>
+        <translation>Lägg till dina favoriter genom att högerklicka på objekt från kategorier.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>Dodaj na radnu površinu</translation>
+        <translation>Lägg till på skrivbord</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
-        <translation>Pitanje</translation>
+        <translation>Fråga</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Datoteka s istim imenom već postoji.
-Želiš li je prepisati?</translation>
+        <translation>Det finns redan en fil med samma namn.
+Vill du ersätta den?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
-        <translation>Upozorenje</translation>
+        <translation>Varning</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Datoteka se ne može prepisati.</translation>
+        <translation>Filen kan inte överskrivas.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
-        <translation>Kopiraj</translation>
+        <translation>Kopiera</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation>Ukloni iz favorita</translation>
+        <translation>Ta bort från favoriter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation>Dodaj u favorite</translation>
+        <translation>Lägg till i favoriter</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation>Nema izvršne datoteke</translation>
+        <translation>Ingen körbar fil</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation>Izvršna datoteka &lt;b&gt;%1&lt;/b&gt; se ne može pronaći.</translation>
+        <translation>Det går inte att hitta den körbara filen &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>
