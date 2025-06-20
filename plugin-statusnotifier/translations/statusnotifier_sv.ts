@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr">
+<TS version="2.1" language="sv">
 <context>
     <name>StatusNotifierConfiguration</name>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="14"/>
         <source>Status Notifier Settings</source>
-        <translation>Obavijesti o stanju – postavke</translation>
+        <translation>Inställningar för statusaviseraren</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation>Preokreni redoslijed stavki</translation>
+        <translation>Vänd ordning på elementen</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
         <location filename="../statusnotifierconfiguration.ui" line="49"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>Automatski skrivajući element ostat će vidljiv ovoliko dugo ako zahtijeva pažnju.</translation>
+        <translation>Ett program som automatiskt döljs kommer visas den här tiden om det behöver uppmärkas.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="42"/>
         <source>Attention period:</source>
-        <translation>Vrijeme pažnje:</translation>
+        <translation>Visningstid:</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="52"/>
         <source> minute(s)</source>
-        <translation> min</translation>
+        <translation> minut(er)</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="83"/>
         <source>Change visibility of items</source>
-        <translation>Promijeni vidljivost</translation>
+        <translation>Ändra ikonsynligheten</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="96"/>
         <source>Item</source>
-        <translation>Element</translation>
+        <translation>Program</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="101"/>
         <source>Visibility</source>
-        <translation>Vidljivost</translation>
+        <translation>Synlighet</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Always show</source>
-        <translation>Uvijek prikaži</translation>
+        <translation>Alltid synlig</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Auto-hide</source>
-        <translation>Automatski sakrij</translation>
+        <translation>Dölj automatiskt</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Always hide</source>
-        <translation>Uvijek sakrij</translation>
+        <translation>Alltid dold</translation>
     </message>
 </context>
 </TS>
