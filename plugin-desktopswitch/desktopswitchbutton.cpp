@@ -29,6 +29,7 @@
 #include <QToolButton>
 #include <QStyle>
 #include <QVariant>
+#include <QTimer>
 #include <lxqt-globalkeys.h>
 
 #include "desktopswitchbutton.h"
@@ -74,12 +75,16 @@ void DesktopSwitchButton::setUrgencyHint(WId id, bool urgent)
     else
         mUrgentWIds.remove(id);
 
-    if (mUrgencyHint != !mUrgentWIds.empty())
-    {
-        mUrgencyHint = !mUrgentWIds.empty();
-        setProperty("urgent", mUrgencyHint);
-        style()->unpolish(this);
-        style()->polish(this);
-        QToolButton::update();
-    }
+    // Add a small delay because, under some circumstances, urgencies may
+    // be added and removed instantly, while repolishing can be costly.
+    QTimer::singleShot(50, this, [this]() {
+        if (mUrgencyHint != !mUrgentWIds.empty())
+        {
+            mUrgencyHint = !mUrgentWIds.empty();
+            setProperty("urgent", mUrgencyHint);
+            style()->unpolish(this);
+            style()->polish(this);
+            QToolButton::update();
+        }
+    });
 }
