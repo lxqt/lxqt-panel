@@ -1,3 +1,11 @@
+lxqt-panel-2.2.2 / 2025-06-22
+==============================
+ * Made searching for backend in EVs case-insensitive.
+ * Added backend info to README.
+ * Added a missing removal signal to kwin_wayland backend.
+ * Disabled automatic showing of mount popup on Wayland.
+ * Support showing of current screen windows in the wlroots taskbar.
+
 lxqt-panel-2.2.1 / 2025-05-17
 ==============================
  * Made "Show Desktop" work under Wayland compositors compatible with wlroots.
