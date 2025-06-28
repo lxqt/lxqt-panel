@@ -34,7 +34,7 @@
 #include "lxqtfancymenutypes.h"
 
 class LXQtFancyMenuAppMap;
-class LXQtFancyMenuAppItem;
+struct LXQtFancyMenuAppItem;
 
 class LXQtFancyMenuAppModel : public QAbstractListModel
 {
