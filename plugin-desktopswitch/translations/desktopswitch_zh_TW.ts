@@ -40,7 +40,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation>數量</translation>
+        <translation>數字</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>

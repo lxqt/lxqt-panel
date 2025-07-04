@@ -46,7 +46,7 @@ indító ikonokat</translation>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Újratöltés</translation>
     </message>
 </context>
 </TS>
