@@ -375,13 +375,13 @@
         <location filename="../lxqtsysstat.cpp" line="404"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其它： %4%&lt;br&gt;頻率： %5%</translation>
+        <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其他： %4%&lt;br&gt;頻率： %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="453"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其它： %4%&lt;br&gt;頻率： n/a</translation>
+        <translation>系統： %1%&lt;br&gt;使用者： %2%&lt;br&gt;優等： %3%&lt;br&gt;其他： %4%&lt;br&gt;頻率： n/a</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="495"/>
