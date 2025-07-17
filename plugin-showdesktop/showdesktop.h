@@ -31,6 +31,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QToolButton>
+#include <QTimer>
 
 
 namespace GlobalKeyShortcut
@@ -45,8 +46,10 @@ class ShowDesktop :  public QObject, public ILXQtPanelPlugin
 public:
     ShowDesktop(const ILXQtPanelPluginStartupInfo &startupInfo);
 
-    virtual QWidget *widget() { return &mButton; }
-    virtual QString themeId() const { return QStringLiteral("ShowDesktop"); }
+    virtual QWidget *widget() override { return &mButton; }
+    virtual QString themeId() const override { return QStringLiteral("ShowDesktop"); }
+
+    virtual bool eventFilter(QObject * watched, QEvent * event) override;
 private:
     GlobalKeyShortcut::Action * m_key;
 
@@ -55,6 +58,7 @@ private slots:
     void shortcutRegistered();
 
 private:
+    QTimer mDNDTimer;
     QToolButton mButton;
 };
 
