@@ -123,7 +123,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->showGroupOnHoverCB->setChecked(settings().value(QStringLiteral("showGroupOnHover"), true).toBool());
     ui->ungroupedNextToExistingCB->setChecked(settings().value(QStringLiteral("ungroupedNextToExisting"), false).toBool());
     ui->iconByClassCB->setChecked(settings().value(QStringLiteral("iconByClass"), false).toBool());
-    ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 0).toInt()));
+    ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 1).toInt()));
     ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
     ui->excludeLE->setText(settings().value(QStringLiteral("excludedList")).toString());
 }
