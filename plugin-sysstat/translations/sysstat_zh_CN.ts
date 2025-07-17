@@ -53,7 +53,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation>其它(&amp;H)</translation>
+        <translation>其他(&amp;H)</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
