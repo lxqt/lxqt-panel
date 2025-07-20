@@ -211,8 +211,11 @@ void DesktopSwitch::onNumberOfDesktopsChanged()
     refresh();
 }
 
-void DesktopSwitch::onCurrentDesktopChanged(int current)
+void DesktopSwitch::onCurrentDesktopChanged(int current, const QString& screenName)
 {
+    if (!screenName.isEmpty() && panel()->screenName() != screenName)
+        return;
+
     if (mShowOnlyActive)
     {
         mLayout->setEnabled(false);

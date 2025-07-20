@@ -70,7 +70,7 @@ public:
 
     // Workspaces
     virtual int getWorkspacesCount() const override;
-    virtual QString getWorkspaceName(int idx) const override;
+    virtual QString getWorkspaceName(int idx, QString screenName = QString()) const override;
 
     virtual int getCurrentWorkspace() const override;
     virtual bool setCurrentWorkspace(int idx) override;

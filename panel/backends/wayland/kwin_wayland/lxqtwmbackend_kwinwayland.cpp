@@ -386,7 +386,7 @@ int LXQtWMBackend_KWinWayland::getWorkspacesCount() const
     return m_workspaceInfo->numberOfDesktops();
 }
 
-QString LXQtWMBackend_KWinWayland::getWorkspaceName(int idx) const
+QString LXQtWMBackend_KWinWayland::getWorkspaceName(int idx, QString) const
 {
     return m_workspaceInfo->getDesktopName(idx - 1); //Return to 0-based
 }

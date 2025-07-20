@@ -91,7 +91,7 @@ private:
 private slots:
     void setDesktop(int desktop);
     void onNumberOfDesktopsChanged();
-    void onCurrentDesktopChanged(int);
+    void onCurrentDesktopChanged(int current, const QString& screenName = QString());
     void onDesktopNamesChanged();
     virtual void settingsChanged();
     void registerShortcuts();

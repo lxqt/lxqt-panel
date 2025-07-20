@@ -122,7 +122,7 @@ int LXQtDummyWMBackend::getWorkspacesCount() const
     return 1; // Fake 1 workspace
 }
 
-QString LXQtDummyWMBackend::getWorkspaceName(int) const
+QString LXQtDummyWMBackend::getWorkspaceName(int, QString) const
 {
     return QString();
 }

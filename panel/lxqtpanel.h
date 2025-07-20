@@ -155,6 +155,7 @@ public:
     void willShowWindow(QWidget * w) override;
     void pluginFlagsChanged(const ILXQtPanelPlugin * plugin) override;
     bool isLocked() const override { return mLockPanel; }
+    QString screenName() const override { return mScreenName; }
     // ........ end of ILXQtPanel overrides
 
     /**

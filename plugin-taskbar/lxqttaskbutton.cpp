@@ -236,14 +236,14 @@ void LXQtTaskButton::mousePressEvent(QMouseEvent* event)
  ************************************************/
 void LXQtTaskButton::mouseReleaseEvent(QMouseEvent* event)
 {
+    QToolButton::mouseReleaseEvent(event);
     if (!sDraggging && event->button() == Qt::LeftButton)
     {
-        if (isChecked())
+        if (!isChecked())
             minimizeApplication();
         else
             raiseApplication();
     }
-    QToolButton::mouseReleaseEvent(event);
 }
 
 /************************************************
@@ -609,16 +609,17 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     /********** Move/Resize **********/
     if (QGuiApplication::screens().size() > 1)
     {
+        bool enable(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move) &&
+                    mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput) &&
+                    (state != LXQtTaskBarWindowState::FullScreen
+                     || ((state == LXQtTaskBarWindowState::FullScreen) && mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen))));
         menu->addSeparator();
         a = menu->addAction(tr("Move To N&ext Monitor"));
-        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });
-        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move) &&
-                      (state != LXQtTaskBarWindowState::FullScreen
-                       || ((state == LXQtTaskBarWindowState::FullScreen) && mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen))));
+        a->setEnabled(enable);
         a = menu->addAction(tr("Move To &Previous Monitor"));
-        a->setEnabled(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(false); });
+        a->setEnabled(enable);
     }
 
     menu->addSeparator();
