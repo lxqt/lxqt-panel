@@ -609,10 +609,9 @@ void LXQtTaskButton::contextMenuEvent(QContextMenuEvent* event)
     /********** Move/Resize **********/
     if (QGuiApplication::screens().size() > 1)
     {
-        bool enable(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::Move) &&
-                    mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput) &&
-                    (state != LXQtTaskBarWindowState::FullScreen
-                     || ((state == LXQtTaskBarWindowState::FullScreen) && mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen))));
+        bool enable(mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::MoveToOutput)
+                    && (state != LXQtTaskBarWindowState::FullScreen
+                        || mBackend->supportsAction(mWindow, LXQtTaskBarBackendAction::FullScreen)));
         menu->addSeparator();
         a = menu->addAction(tr("Move To N&ext Monitor"));
         connect(a, &QAction::triggered, this, [this] { moveApplicationToPrevNextMonitor(true); });

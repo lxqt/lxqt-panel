@@ -808,13 +808,13 @@ int LXQtTaskbarWayfireBackend::getWindowWorkspace(WId windowId) const
 
     QJsonObject viewGeom = viewInfo[QSL("geometry")].toObject();
 
+    QJsonObject outputGeom = outputInfo[QSL("geometry")].toObject();
+
     // Calculate the center of the window
     QPoint viewCenter(
-        viewGeom[QSL("x")].toInt() + viewGeom[QSL("width")].toInt() / 2,
-        viewGeom[QSL("y")].toInt() + viewGeom[QSL("height")].toInt() / 2
+        outputGeom[QSL("x")].toInt() + viewGeom[QSL("x")].toInt() + viewGeom[QSL("width")].toInt() / 2,
+        outputGeom[QSL("y")].toInt() + viewGeom[QSL("y")].toInt() + viewGeom[QSL("height")].toInt() / 2
     );
-
-    QJsonObject outputGeom = outputInfo[QSL("geometry")].toObject();
 
     QRect opGeom(
         outputGeom[QSL("x")].toInt(),
