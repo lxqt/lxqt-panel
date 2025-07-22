@@ -223,20 +223,17 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
     connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceChanged, [this] ( QJsonDocument respJson )
     {
-        QJsonObject response = respJson.object();
+        QJsonObject response   = respJson.object();
+        QJsonObject output     = response[QSL("output-data")].toObject();
+        QString outputName     = output[QSL("name")].toString();
+        QJsonObject outputInfo = mWayfire->getOutputInfo(mWayfire->getActiveOutput());
+        QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
 
-        QJsonObject wsInfo = response[QSL("new-workspace")].toObject();
+        int nCols  = outputWS[QSL("grid_width")].toInt();  // Total columns in workspace grid
+        int curRow = outputWS[QSL("y")].toInt(); // Current workspace row (0-based)
+        int curCol = outputWS[QSL("x")].toInt(); // Current workspace column (0-based)
 
-        QJsonObject output    = response[QSL("output-data")].toObject();
-        QString outputName    = output[QSL("name")].toString();
-        QJsonObject workspace = output[QSL("workspace")].toObject();
-
-        int64_t nRows = workspace[QSL("grid_height")].toInt();
-
-        int64_t row    = wsInfo[QSL("y")].toInt();
-        int64_t column = wsInfo[QSL("x")].toInt();
-
-        emit currentWorkspaceChanged(row * nRows + column + 1, outputName);
+        emit currentWorkspaceChanged(curRow * nCols + curCol + 1, outputName);
     });
 
     connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewMapped, [this] ( QJsonDocument respJson )
