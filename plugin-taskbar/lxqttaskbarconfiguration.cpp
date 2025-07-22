@@ -61,7 +61,12 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     //Note: in KWindowSystem desktops are numbered from 1..N
     const int desk_cnt = wmBackend->getWorkspacesCount();
     for (int i = 1; desk_cnt >= i; ++i)
-        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(wmBackend->getWorkspaceName(i)), i);
+    {
+        auto deskName = wmBackend->getWorkspaceName(i);
+        if (deskName.isEmpty())
+            deskName = tr("Desktop %1").arg(i);
+        ui->showDesktopNumCB->addItem(QString(QStringLiteral("%1 - %2")).arg(i).arg(deskName), i);
+    }
 
     loadSettings();
     ui->ungroupedNextToExistingCB->setEnabled(!(ui->groupingGB->isChecked()));

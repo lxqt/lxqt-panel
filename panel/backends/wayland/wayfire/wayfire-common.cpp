@@ -404,7 +404,7 @@ QString LXQt::Panel::Wayfire::getWorkspaceName(int x, const QString &outputName)
         }
     }
 
-    return QString::fromUtf8("Workspace %1").arg(x);
+    return QString(); // the front-end sets the name
 }
 
 bool LXQt::Panel::Wayfire::setWorkspaceName(int, const QString&) const
