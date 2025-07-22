@@ -242,20 +242,19 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewMapped, [this] ( QJsonDocument respJson )
     {
         QJsonObject response = respJson.object();
-
-        QJsonObject view = response[QSL("view")].toObject();
-
-        /** Filter non-toplevel views */
-        if (!isValidToplevel(view))
-        {
-            return;
-        }
-
+        QJsonObject view     = response[QSL("view")].toObject();
         WaylandId viewId(view[QSL("id")].toInt());
 
         if (mViews.contains(viewId))
         {
             emit windowRemoved(viewId);
+        }
+
+        /** Filter non-toplevel views */
+        if (!isValidToplevel(view))
+        {
+            mViews.remove(viewId);
+            return;
         }
 
         mViews[viewId] = view;
@@ -267,14 +266,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -291,14 +294,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -316,14 +323,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -340,14 +351,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -364,14 +379,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -388,14 +407,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -412,25 +435,30 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
 
-        WaylandId viewId(view[QSL("id")].toInt());
-        QString oldOp;
+        //QString oldOp;
 
         if (!mViews.contains(viewId))
         {
             mViews[viewId] = view;
             emit windowAdded(viewId);
-        } else {
+        }/* else {
             oldOp = mViews[viewId][QSL("output-name")].toString();
         }
 
-        QString newOp = view[QSL("output-name")].toString();
+        QString newOp = view[QSL("output-name")].toString();*/
 
         mViews[viewId] = updateJsonObject(mViews[viewId], view);
 
@@ -441,14 +469,18 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
     {
         QJsonObject response = respJson.object();
         QJsonObject view     = response[QSL("view")].toObject();
+        WaylandId viewId(view[QSL("id")].toInt());
 
         /** Filter non-toplevel views */
         if (!isValidToplevel(view))
         {
+            if (mViews.contains(viewId))
+            {
+                mViews.remove(viewId);
+                emit windowRemoved(viewId);
+            }
             return;
         }
-
-        WaylandId viewId(view[QSL("id")].toInt());
 
         if (!mViews.contains(viewId))
         {
@@ -472,7 +504,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 
         WaylandId viewId(view[QSL("id")].toInt());
 
-        if ( mViews.contains(viewId))
+        if (mViews.contains(viewId))
         {
             mViews.remove(viewId);
             emit windowRemoved(viewId);
