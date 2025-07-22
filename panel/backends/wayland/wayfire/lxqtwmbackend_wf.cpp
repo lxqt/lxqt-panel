@@ -723,8 +723,6 @@ bool LXQtTaskbarWayfireBackend::isWindowActive(WId windowId) const
 
 bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpace)
 {
-    Q_UNUSED(onCurrentWorkSpace) // Cannot be done on a generic wlroots-based compositor!
-
     WaylandId viewId(windowId);
     if (!mViews.contains(viewId))
     {
@@ -736,7 +734,10 @@ bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
         mWayfire->minimizeView(WaylandId(windowId), false);
     }
 
-    return mWayfire->focusView(viewId);
+    bool raised = mWayfire->focusView(viewId);
+    if (onCurrentWorkSpace)
+        mWayfire->sendViewToWorkspace(viewId, getCurrentWorkspace());
+    return raised;
 }
 
 bool LXQtTaskbarWayfireBackend::closeWindow(WId windowId)
