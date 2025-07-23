@@ -1033,8 +1033,28 @@ void LXQtTaskbarWayfireBackend::refreshIconGeometry(WId, const QRect &)
     // no-op
 }
 
-bool LXQtTaskbarWayfireBackend::isAreaOverlapped(const QRect &) const
+bool LXQtTaskbarWayfireBackend::isAreaOverlapped(const QRect &area) const
 {
+    int d;
+    const auto keys = mViews.keys();
+    for (const WaylandId viewId : keys)
+    {
+        auto id = WaylandId(viewId);
+        if (((d = getWindowWorkspace(id) == getCurrentWorkspace()) || d == onAllWorkspacesEnum())
+            && getWindowState(id) != LXQtTaskBarWindowState::Minimized)
+        {
+            QJsonObject viewInfo = mWayfire->getViewInfo(viewId);
+            QJsonObject viewGeom = viewInfo[QSL("geometry")].toObject();
+            QJsonObject outputInfo = mWayfire->getOutputInfo(WaylandId(viewInfo[QSL("output-id")].toInt()));
+            QJsonObject outputGeom = outputInfo[QSL("geometry")].toObject();
+            QRect viewRect(outputGeom[QSL("x")].toInt() + viewGeom[QSL("x")].toInt(),
+                           outputGeom[QSL("y")].toInt() + viewGeom[QSL("y")].toInt(),
+                           viewGeom[QSL("width")].toInt(),
+                           viewGeom[QSL("height")].toInt());
+            if (viewRect.intersects(area))
+                return true;
+        }
+    }
     return false;
 }
 
