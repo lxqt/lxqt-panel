@@ -549,9 +549,9 @@ bool LXQtTaskbarWayfireBackend::supportsAction(WId, LXQtTaskBarBackendAction act
       case LXQtTaskBarBackendAction::MoveToDesktop:
         return true;
 
-      /** Pin Above and Normal are available */
+      /** Not implemented yet */
       case LXQtTaskBarBackendAction::MoveToLayer:
-        return true;
+        return false;
 
       /** Available via wsets plugin */
       case LXQtTaskBarBackendAction::MoveToOutput:
