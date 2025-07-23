@@ -761,6 +761,10 @@ bool LXQtTaskbarWayfireBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
     if (getWindowState(windowId)==LXQtTaskBarWindowState::Minimized)
     {
         mWayfire->minimizeView(WaylandId(windowId), false);
+        // Wayfire::focusView() does not switch the workspace if the window was minimized,
+        // although it reports that the window is focused. This is a workaround:
+        if (!onCurrentWorkSpace)
+            setCurrentWorkspace(getWindowWorkspace(windowId));
     }
 
     bool raised = mWayfire->focusView(viewId);
