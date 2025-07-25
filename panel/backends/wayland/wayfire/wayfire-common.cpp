@@ -465,8 +465,8 @@ QJsonArray LXQt::Panel::Wayfire::listViews() const
                 continue;
             }
 
-            // Proper toplevel view
-            if (view[QSL("role")] == QSL("toplevel"))
+            // Proper toplevel and mapped views
+            if (view[QSL("role")].toString() == QSL("toplevel") && view[QSL("mapped")].toBool())
             {
                 views << view;
             }
