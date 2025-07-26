@@ -69,7 +69,7 @@ public:
 
     // Workspaces
     int getWorkspacesCount() const override;
-    QString getWorkspaceName(int idx) const override;
+    QString getWorkspaceName(int idx, QString outputName = QString()) const override;
 
     int getCurrentWorkspace() const override;
     bool setCurrentWorkspace(int idx) override;

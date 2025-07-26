@@ -74,7 +74,10 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
     int n = wmBackend->getWorkspacesCount();
     for (int i = 1; i <= n; i++)
     {
-        QLineEdit *edit = new QLineEdit(wmBackend->getWorkspaceName(i), this);
+        auto deskName = wmBackend->getWorkspaceName(i);
+        if (deskName.isEmpty())
+            deskName = tr("Desktop %1").arg(i);
+        QLineEdit *edit = new QLineEdit(deskName, this);
         ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
 
         //TODO: on Wayland we cannot set desktop names in a standart way
