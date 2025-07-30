@@ -76,25 +76,25 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtMainMenuConfiguration::shortcutReset);
 
     connect(ui->customFontCB, &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::customFontChanged);
-    connect(ui->customFontSizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtMainMenuConfiguration::customFontSizeChanged);
+    connect(ui->customFontSizeSB, &QSpinBox::valueChanged, this, &LXQtMainMenuConfiguration::customFontSizeChanged);
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
 
     connect(ui->filterMenuCB, &QCheckBox::toggled, this, [this] (bool value) {
-        ui->filterClearCB->setEnabled(value || ui->filterShowCB->isChecked());
+        ui->filterClearCB->setEnabled(value || ui->filterShowGB->isChecked());
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterMenu"), value);
     });
-    connect(ui->filterShowCB, &QCheckBox::toggled, this, [this] (bool value) {
+    connect(ui->filterShowGB, &QGroupBox::toggled, this, [this] (bool value) {
         ui->filterClearCB->setEnabled(value || ui->filterMenuCB->isChecked());
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShow"), value);
     });
-    connect(ui->filterShowMaxItemsSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+    connect(ui->filterShowMaxItemsSB, &QSpinBox::valueChanged, this, [this] (int value) {
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
     });
-    connect(ui->filterShowMaxWidthSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+    connect(ui->filterShowMaxWidthSB, &QSpinBox::valueChanged, this, [this] (int value) {
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
     });
@@ -140,14 +140,9 @@ void LXQtMainMenuConfiguration::loadSettings()
     const bool filter_menu = settings().value(QStringLiteral("filterMenu"), true).toBool();
     ui->filterMenuCB->setChecked(filter_menu);
     const bool filter_show = settings().value(QStringLiteral("filterShow"), true).toBool();
-    ui->filterShowCB->setChecked(filter_show);
-    ui->filterShowMaxItemsL->setEnabled(filter_show);
-    ui->filterShowMaxItemsSB->setEnabled(filter_show);
+    ui->filterShowGB->setChecked(filter_show);
     ui->filterShowMaxItemsSB->setValue(settings().value(QStringLiteral("filterShowMaxItems"), 10).toInt());
-    ui->filterShowMaxWidthL->setEnabled(filter_show);
-    ui->filterShowMaxWidthSB->setEnabled(filter_show);
     ui->filterShowMaxWidthSB->setValue(settings().value(QStringLiteral("filterShowMaxWidth"), 300).toInt());
-    ui->filterShowHideMenuCB->setEnabled(filter_show);
     ui->filterShowHideMenuCB->setChecked(settings().value(QStringLiteral("filterShowHideMenu"), true).toBool());
     ui->filterClearCB->setChecked(settings().value(QStringLiteral("filterClear"), false).toBool());
     ui->filterClearCB->setEnabled(filter_menu || filter_show);
