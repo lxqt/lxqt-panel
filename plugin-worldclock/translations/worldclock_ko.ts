@@ -220,7 +220,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>마우스 휠로 표시된 시간대 변경하기</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
