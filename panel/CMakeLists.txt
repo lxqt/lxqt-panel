@@ -114,7 +114,7 @@ target_link_libraries(${PROJECT}
 set_property(TARGET ${PROJECT} PROPERTY ENABLE_EXPORTS TRUE)
 
 install(TARGETS ${PROJECT} RUNTIME DESTINATION bin)
-install(FILES ${CONFIG_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/lxqt)
+install(FILES ${CONFIG_FILES} DESTINATION "${LXQT_ETC_XDG_DIR}/lxqt")
 install(FILES ${PUB_HEADERS} DESTINATION include/lxqt)
 install(FILES
     man/lxqt-panel.1
