@@ -154,52 +154,57 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="filterShowCB">
-        <property name="text">
+      <item row="1" column="0" colspan="3">
+       <widget class="QGroupBox" name="filterShowGB">
+        <property name="title">
          <string>Show matching entries:</string>
         </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="filterShowMaxItemsL">
-        <property name="text">
-         <string>Maximum visible items:</string>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QSpinBox" name="filterShowMaxItemsSB">
-        <property name="maximum">
-         <number>20</number>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="filterShowMaxWidthL">
-        <property name="text">
-         <string>Max. item width:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QSpinBox" name="filterShowMaxWidthSB">
-        <property name="suffix">
-         <string> px</string>
-        </property>
-        <property name="minimum">
-         <number>40</number>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1" colspan="2">
-       <widget class="QCheckBox" name="filterShowHideMenuCB">
-        <property name="text">
-         <string>Hide menu entries while searching</string>
-        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="filterShowMaxItemsL">
+           <property name="text">
+            <string>Maximum visible items:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="filterShowMaxItemsSB">
+           <property name="maximum">
+            <number>20</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="filterShowMaxWidthL">
+           <property name="text">
+            <string>Max. item width:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="filterShowMaxWidthSB">
+           <property name="suffix">
+            <string> px</string>
+           </property>
+           <property name="minimum">
+            <number>40</number>
+           </property>
+           <property name="maximum">
+            <number>1000</number>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QCheckBox" name="filterShowHideMenuCB">
+           <property name="text">
+            <string>Hide menu entries while searching</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item row="4" column="0" colspan="3">
@@ -251,144 +256,24 @@
    <signal>toggled(bool)</signal>
    <receiver>customFontSizeSB</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>60</x>
-     <y>249</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>280</x>
-     <y>277</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>showTextCB</sender>
    <signal>toggled(bool)</signal>
    <receiver>textLE</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>239</x>
-     <y>39</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>313</x>
-     <y>68</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>iconCB</sender>
    <signal>toggled(bool)</signal>
    <receiver>iconLE</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>91</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>284</x>
-     <y>53</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>iconCB</sender>
    <signal>toggled(bool)</signal>
    <receiver>iconPB</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>91</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>431</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>filterShowCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>filterShowMaxItemsSB</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>172</x>
-     <y>374</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>393</x>
-     <y>374</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>filterShowCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>filterShowMaxItemsL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>374</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>269</x>
-     <y>374</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>filterShowCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>filterShowMaxWidthSB</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>352</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>396</x>
-     <y>378</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>filterShowCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>filterShowMaxWidthL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>352</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>269</x>
-     <y>378</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>filterShowCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>filterShowHideMenuCB</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>110</x>
-     <y>374</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>332</x>
-     <y>437</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>
