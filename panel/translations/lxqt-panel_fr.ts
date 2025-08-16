@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Haut de l’écran</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Gauche de l’écran</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Droite de l’écran</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Bas de l’écran</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Haut de l’écran %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gauche de l’écran %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Droite de l’écran %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bas de l’écran %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Remarque&#x202f;: les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
+        <translation>Remarque : les modifications effectuées dans cette page ne peuvent pas être réinitialisées.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
