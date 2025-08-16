@@ -220,12 +220,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer le fuseau horaire affiché avec la molette de la souris</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Note :&lt;/b&gt; Cliquez avec le bouton du milieu sur l’horloge pour afficher l’heure et la date de tous les fuseaux horaires configurés.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>

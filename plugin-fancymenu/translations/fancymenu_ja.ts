@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
-        <translation>ショートカットを記録するには次のボタンをクリック:</translation>
+        <translation>ショートカットを登録するにはボタンをクリックします:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>デスクトップに追加する</translation>
+        <translation>デスクトップに追加</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>

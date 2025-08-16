@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cliquez pour changer la couleur</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner la couleur</translation>
     </message>
 </context>
 <context>
@@ -115,17 +115,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="156"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après&#xa0;:</translation>
+        <translation>Répéter la commande après :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="52"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur du texte</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="62"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="172"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Info-bulle</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>

@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="467"/>
         <source>Add to desktop</source>
-        <translation>デスクトップに追加する</translation>
+        <translation>デスクトップに追加</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="475"/>
@@ -136,7 +136,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
-        <translation>ショートカットを記録するには次のボタンをクリック:</translation>
+        <translation>ショートカットを登録するにはボタンをクリックします:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
