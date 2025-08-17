@@ -993,7 +993,12 @@ void LXQtPanel::updateWmStrut()
             }
 
             mLayerWindow->setExclusiveEdge(edge);
-            mLayerWindow->setExclusiveZone(getReserveDimension());
+	    const auto screens = QApplication::screens();
+            if (mActualScreenNum < screens.size()){
+                mLayerWindow->setExclusiveZone(getReserveDimension() * screens.at(mActualScreenNum)->devicePixelRatio());
+            } else{
+                mLayerWindow->setExclusiveZone(getReserveDimension());
+            }
         }
         else
         {
