@@ -311,7 +311,7 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     m_mouseWheelThresholdCounter -= rotationSteps;
 
     // If the user hasn't scrolled far enough in one direction (positive or negative): do nothing
-    if(abs(m_mouseWheelThresholdCounter) < 100)
+    if(std::abs(m_mouseWheelThresholdCounter) < 100)
         return;
 
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);

@@ -58,7 +58,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 
     if(m_backlight->isBacklightAvailable() || m_backlight->isBacklightOff()) {
         // Set the minimum to 5% of the maximum to prevent a black screen
-        int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
+        int minBacklight = std::max(std::round(static_cast<double>(m_backlight->getMaxBacklight())*0.05), 1.0);
         int maxBacklight = m_backlight->getMaxBacklight();
         int interval = maxBacklight - minBacklight;
         if(interval <= 100) {
@@ -69,7 +69,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
             m_slider->setMaximum(100);
             // Set the minimum to 5% of the maximum to prevent a black screen
             m_slider->setMinimum(5);
-            m_slider->setValue( (m_backlight->getBacklight() * 100) / maxBacklight);
+            m_slider->setValue(std::round(static_cast<double>(m_backlight->getBacklight() * 100) / maxBacklight));
         }
     } else {
         m_slider->setValue(0);
@@ -87,7 +87,7 @@ SliderDialog::SliderDialog(QWidget *parent) : QDialog(parent, Qt::Dialog | Qt::W
 void SliderDialog::sliderValueChanged(int value)
 {
     // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
+    int minBacklight = std::max(std::round(static_cast<double>(m_backlight->getMaxBacklight())*0.05), 1.0);
     int maxBacklight = m_backlight->getMaxBacklight();
     int interval = maxBacklight - minBacklight;
     if(interval > 100)
@@ -99,13 +99,15 @@ void SliderDialog::sliderValueChanged(int value)
 void SliderDialog::updateBacklight()
 {
     // Set the minimum to 5% of the maximum to prevent a black screen
-    int minBacklight = std::max(std::round((qreal)(m_backlight->getMaxBacklight())*0.05), 1.0);
+    int minBacklight = std::max(std::round(static_cast<double>(m_backlight->getMaxBacklight())*0.05), 1.0);
     int maxBacklight = m_backlight->getMaxBacklight();
     int interval = maxBacklight - minBacklight;
+    disconnect(m_slider, &QSlider::valueChanged, this, &SliderDialog::sliderValueChanged);
     if(interval <= 100)
         m_slider->setValue(m_backlight->getBacklight());
     else
-        m_slider->setValue( (m_backlight->getBacklight() * 100) / maxBacklight);
+        m_slider->setValue(std::round(static_cast<double>(m_backlight->getBacklight() * 100) / maxBacklight));
+    connect(m_slider, &QSlider::valueChanged, this, &SliderDialog::sliderValueChanged);
 }
 
 void SliderDialog::downButtonClicked(bool)
