@@ -9,6 +9,7 @@
 class LXQtTaskbarWlrootsWindow;
 class LXQtTaskbarWlrootsWindowManagment;
 class LXQtWlrootsWaylandWorkspaceInfo;
+class LXQt::Taskbar::WorkspaceManagerV1;
 
 
 class LXQtTaskbarWlrootsBackend : public ILXQtAbstractWMInterface
@@ -93,6 +94,7 @@ private:
     LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
     std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
+    std::unique_ptr<LXQt::Taskbar::WorkspaceManagerV1> m_wsmgr;
 
     QHash<WId, QTime> lastActivated;
     WId activeWindow = 0;

@@ -1,4 +1,5 @@
 #include "lxqttaskbarwlrwm.h"
+#include "workspaces.hpp"
 #include "lxqtwmbackend_wlr.h"
 
 #include <QIcon>
@@ -22,6 +23,7 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     ILXQtAbstractWMInterface(parent)
 {
     m_managment.reset(new LXQtTaskbarWlrootsWindowManagment);
+    m_wsmgr.reset(new LXQt::Taskbar::WorkspaceManagerV1);
 
     connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this, &LXQtTaskbarWlrootsBackend::addWindow);
 }
@@ -236,9 +238,9 @@ WId LXQtTaskbarWlrootsBackend::getActiveWindow() const
     return activeWindow;
 }
 
-int LXQtTaskbarWlrootsBackend::getWorkspacesCount() const
+int LXQtTaskbarWlrootsBackend::getWorkspacesCount( QScreen *screen ) const
 {
-    return 1;
+    return m_wsmgr->workspaceCount( screen );
 }
 
 QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const

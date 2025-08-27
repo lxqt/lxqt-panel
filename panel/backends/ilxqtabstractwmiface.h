@@ -75,7 +75,7 @@ public:
 
     // Workspaces
     // NOTE: indexes are 1-based, 0 means "Show on All desktops"
-    virtual int getWorkspacesCount() const = 0;
+    virtual int getWorkspacesCount(QScreen *screen = nullptr) const = 0;
     virtual QString getWorkspaceName(int idx, QString outputName = QString()) const = 0;
 
     virtual int getCurrentWorkspace() const = 0;
