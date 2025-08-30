@@ -112,12 +112,14 @@ void SliderDialog::updateBacklight()
 
 void SliderDialog::downButtonClicked(bool)
 {
-    m_slider->setValue(m_slider->value() - 1);
+    if (m_slider->isEnabled()) // also called by LXQtBacklight
+        m_slider->setValue(m_slider->value() - 1);
 }
 
 void SliderDialog::upButtonClicked(bool)
 {
-    m_slider->setValue(m_slider->value() + 1);
+    if (m_slider->isEnabled()) // also called by LXQtBacklight
+        m_slider->setValue(m_slider->value() + 1);
 }
 
 
