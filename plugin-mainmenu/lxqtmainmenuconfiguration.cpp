@@ -124,10 +124,11 @@ void LXQtMainMenuConfiguration::loadSettings()
 
     QString menuFile = settings().value(QStringLiteral("menu_file"), QString()).toString();
     if (menuFile.isEmpty())
-    {
         menuFile = XdgMenu::getMenuFileName();
-    }
+    else if (!menuFile.contains(QLatin1String("/")))
+        menuFile = XdgMenu::getMenuFileName(menuFile);
     ui->menuFilePathLE->setText(menuFile);
+
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 
     ui->customFontCB->setChecked(settings().value(QStringLiteral("customFont"), false).toBool());
