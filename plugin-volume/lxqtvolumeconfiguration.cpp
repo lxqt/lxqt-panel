@@ -39,6 +39,8 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     mLockSettingChanges(false)
 {
     ui->setupUi(this);
+    if (QGuiApplication::platformName() == QStringLiteral("wayland"))
+       ui->showKeyboardNotificationsCheckBox->setEnabled(false); // we cannot watch it on Wayland
 
     loadSettings();
     connect(ui->devAddedCombo,                     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtVolumeConfiguration::sinkSelectionChanged);
