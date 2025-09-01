@@ -35,8 +35,10 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceAdded, this,
         &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
 
-    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] () {
-
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] ()
+    {
+        qDebug() << "Current workspace changed" << m_wsmgr->currentWorkspaceIndex();
+        emit currentWorkspaceChanged(m_wsmgr->currentWorkspaceIndex(), QString());
     });
 }
 
@@ -299,7 +301,9 @@ int LXQtTaskbarWlrootsBackend::getCurrentWorkspace() const
 
 bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx)
 {
+    qDebug() << "Setting current workspace" << idx;
     m_wsmgr->setCurrentWorkspaceIndex(idx);
+    m_wsmgr->commit();
 
     /** Currently we always assume that this is true */
     return true;

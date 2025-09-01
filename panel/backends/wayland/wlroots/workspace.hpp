@@ -111,7 +111,7 @@ class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_w
     Q_OBJECT;
 
   public:
-    WorkspaceHandleV1(struct ::ext_workspace_handle_v1 *object);
+    WorkspaceHandleV1(struct ::ext_workspace_handle_v1 *object, int index);
     virtual ~WorkspaceHandleV1();
 
     /**
@@ -125,13 +125,13 @@ class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_w
      * These functions are complete, and we do not have to re-implement them here.
      */
 
-    QString getId() const;
-    QString getName() const;
-    QList<int> getCoordinates() const;
-    uint32_t getState() const;
-    uint32_t getCapabilities() const;
+    QString id() const;
+    QString name() const;
+    QList<int> coordinates() const;
+    uint32_t state() const;
+    uint32_t capabilities() const;
 
-    int getIndex() const;
+    int index() const;
 
     Q_SIGNAL void idChanged(const QString& id);
     Q_SIGNAL void nameChanged(const QString& name);
