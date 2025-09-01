@@ -27,9 +27,17 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     ILXQtAbstractWMInterface(parent)
 {
     m_managment.reset(new LXQtTaskbarWlrootsWindowManagment);
+    m_wsmgr.reset(new LXQt::Taskbar::WorkspaceManagerV1);
 
     connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this,
         &LXQtTaskbarWlrootsBackend::addWindow);
+
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceAdded, this,
+        &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
+
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] () {
+
+    });
 }
 
 bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction action) const
@@ -43,6 +51,9 @@ bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction act
         return true;
 
       case LXQtTaskBarBackendAction::FullScreen:
+        return true;
+
+      case LXQtTaskBarBackendAction::DesktopSwitch:
         return true;
 
       default:
