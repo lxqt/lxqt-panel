@@ -1,5 +1,6 @@
 #include "lxqttaskbarwlrwm.h"
 #include "lxqtwmbackend_wlr.h"
+#include "workspace.hpp"
 
 #include <QIcon>
 #include <QDateTime>
@@ -9,12 +10,14 @@
 #include <private/qwaylandscreen_p.h>
 
 // Function to erase a window from the vector
-void eraseWindow(std::vector<WId>& windows, WId tgt) {
+void eraseWindow(std::vector<WId>& windows, WId tgt)
+{
     // Use std::vector::iterator to find the window
     auto it = std::find(windows.begin(), windows.end(), tgt);
 
     // Check if the window was found
-    if (it != windows.end()) {
+    if (it != windows.end())
+    {
         // If found, erase the element pointed to by the iterator
         windows.erase(it);
     }
@@ -25,23 +28,24 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
 {
     m_managment.reset(new LXQtTaskbarWlrootsWindowManagment);
 
-    connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this, &LXQtTaskbarWlrootsBackend::addWindow);
+    connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this,
+        &LXQtTaskbarWlrootsBackend::addWindow);
 }
 
 bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction action) const
 {
     switch (action)
     {
-    case LXQtTaskBarBackendAction::Maximize:
+      case LXQtTaskBarBackendAction::Maximize:
         return true;
 
-    case LXQtTaskBarBackendAction::Minimize:
+      case LXQtTaskBarBackendAction::Minimize:
         return true;
 
-    case LXQtTaskBarBackendAction::FullScreen:
+      case LXQtTaskBarBackendAction::FullScreen:
         return true;
 
-    default:
+      default:
         return false;
     }
 
@@ -53,11 +57,12 @@ bool LXQtTaskbarWlrootsBackend::reloadWindows()
     const QVector<WId> wids = getCurrentWindows();
 
     // Force removal and re-adding
-    for(WId windowId : wids)
+    for (WId windowId : wids)
     {
         emit windowRemoved(windowId);
     }
-    for(WId windowId : wids)
+
+    for (WId windowId : wids)
     {
         emit windowAdded(windowId);
     }
@@ -69,7 +74,8 @@ QVector<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
 {
     QVector<WId> wids;
 
-    for( WId wid: windows ){
+    for ( WId wid : windows )
+    {
         wids << wid;
     }
 
@@ -79,8 +85,10 @@ QVector<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
 QString LXQtTaskbarWlrootsBackend::getWindowTitle(WId windowId) const
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return QString();
+    }
 
     return window->windowState.title;
 }
@@ -95,8 +103,10 @@ QIcon LXQtTaskbarWlrootsBackend::getApplicationIcon(WId windowId, int devicePixe
     Q_UNUSED(devicePixels)
 
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return QIcon();
+    }
 
     return window->icon;
 }
@@ -104,8 +114,11 @@ QIcon LXQtTaskbarWlrootsBackend::getApplicationIcon(WId windowId, int devicePixe
 QString LXQtTaskbarWlrootsBackend::getWindowClass(WId windowId) const
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return QString();
+    }
+
     return window->windowState.appId;
 }
 
@@ -122,17 +135,25 @@ bool LXQtTaskbarWlrootsBackend::setWindowLayer(WId, LXQtTaskBarWindowLayer)
 LXQtTaskBarWindowState LXQtTaskbarWlrootsBackend::getWindowState(WId windowId) const
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return LXQtTaskBarWindowState::Normal;
+    }
 
-    if(window->windowState.minimized)
+    if (window->windowState.minimized)
+    {
         return LXQtTaskBarWindowState::Minimized;
+    }
 
-    if(window->windowState.maximized)
+    if (window->windowState.maximized)
+    {
         return LXQtTaskBarWindowState::Maximized;
+    }
 
-    if(window->windowState.fullscreen)
+    if (window->windowState.fullscreen)
+    {
         return LXQtTaskBarWindowState::FullScreen;
+    }
 
     return LXQtTaskBarWindowState::Normal;
 }
@@ -140,42 +161,47 @@ LXQtTaskBarWindowState LXQtTaskbarWlrootsBackend::getWindowState(WId windowId) c
 bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowState state, bool set)
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return false;
+    }
 
     switch (state)
     {
-    case LXQtTaskBarWindowState::Minimized:
+      case LXQtTaskBarWindowState::Minimized:
     {
-        if ( set ) {
+        if (set)
+        {
             window->set_minimized();
-        }
-
-        else {
+        } else
+        {
             window->unset_minimized();
         }
 
         break;
     }
-    case LXQtTaskBarWindowState::Maximized:
-    case LXQtTaskBarWindowState::MaximizedVertically:
-    case LXQtTaskBarWindowState::MaximizedHorizontally:
-    {
-        if ( set ) {
-            window->set_maximized();
-        }
 
-        else {
+      case LXQtTaskBarWindowState::Maximized:
+      case LXQtTaskBarWindowState::MaximizedVertically:
+      case LXQtTaskBarWindowState::MaximizedHorizontally:
+    {
+        if (set)
+        {
+            window->set_maximized();
+        } else
+        {
             window->unset_maximized();
         }
 
         break;
     }
-    case LXQtTaskBarWindowState::Normal:
+
+      case LXQtTaskBarWindowState::Normal:
     {
         if (set)
         {
-            if ( window->windowState.maximized) {
+            if (window->windowState.maximized)
+            {
                 window->unset_maximized();
             }
         }
@@ -183,19 +209,20 @@ bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
         break;
     }
 
-    case LXQtTaskBarWindowState::FullScreen:
+      case LXQtTaskBarWindowState::FullScreen:
     {
-        if ( set ) {
+        if (set)
+        {
             window->set_fullscreen(nullptr);
-        }
-
-        else {
+        } else
+        {
             window->unset_fullscreen();
         }
+
         break;
     }
 
-    default:
+      default:
         return false;
     }
 
@@ -205,8 +232,10 @@ bool LXQtTaskbarWlrootsBackend::setWindowState(WId windowId, LXQtTaskBarWindowSt
 bool LXQtTaskbarWlrootsBackend::isWindowActive(WId windowId) const
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return false;
+    }
 
     return activeWindow == windowId || window->windowState.activated;
 }
@@ -216,8 +245,10 @@ bool LXQtTaskbarWlrootsBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
     Q_UNUSED(onCurrentWorkSpace) // Cannot be done on a generic wlroots-based compositor!
 
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return false;
+    }
 
     window->activate();
     return true;
@@ -226,8 +257,10 @@ bool LXQtTaskbarWlrootsBackend::raiseWindow(WId windowId, bool onCurrentWorkSpac
 bool LXQtTaskbarWlrootsBackend::closeWindow(WId windowId)
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(!window)
+    if (!window)
+    {
         return false;
+    }
 
     window->close();
     return true;
@@ -240,7 +273,7 @@ WId LXQtTaskbarWlrootsBackend::getActiveWindow() const
 
 int LXQtTaskbarWlrootsBackend::getWorkspacesCount() const
 {
-    return 1;
+    return m_wsmgr->workspaceCount();
 }
 
 QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const
@@ -250,12 +283,15 @@ QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const
 
 int LXQtTaskbarWlrootsBackend::getCurrentWorkspace() const
 {
-    return 1;
+    return m_wsmgr->currentWorkspaceIndex();
 }
 
-bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int)
+bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx)
 {
-    return false;
+    m_wsmgr->setCurrentWorkspaceIndex(idx);
+
+    /** Currently we always assume that this is true */
+    return true;
 }
 
 int LXQtTaskbarWlrootsBackend::getWindowWorkspace(WId) const
@@ -275,19 +311,22 @@ void LXQtTaskbarWlrootsBackend::moveApplicationToPrevNextMonitor(WId, bool, bool
 bool LXQtTaskbarWlrootsBackend::isWindowOnScreen(QScreen *screen, WId windowId) const
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(windowId);
-    if(window)
+    if (window)
     {
-        QtWaylandClient::QWaylandScreen *waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle());
+        QtWaylandClient::QWaylandScreen *waylandScreen =
+            dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle());
         if (waylandScreen)
         {
             wl_output *output = waylandScreen->output();
             return window->windowState.outputs.contains(output);
         }
     }
+
     return false;
 }
 
-bool LXQtTaskbarWlrootsBackend::setDesktopLayout(Qt::Orientation, int, int, bool) {
+bool LXQtTaskbarWlrootsBackend::setDesktopLayout(Qt::Orientation, int, int, bool)
+{
     // Wlroots has no support for workspace as of 2024-August-20
     return false;
 }
@@ -302,7 +341,6 @@ void LXQtTaskbarWlrootsBackend::resizeApplication(WId)
 
 void LXQtTaskbarWlrootsBackend::refreshIconGeometry(WId, const QRect &)
 {
-
 }
 
 bool LXQtTaskbarWlrootsBackend::isAreaOverlapped(const QRect &) const
@@ -318,7 +356,9 @@ bool LXQtTaskbarWlrootsBackend::isShowingDesktop() const
 bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
 {
     if (isShowingDesktop() == value)
+    {
         return false;
+    }
 
     // If the windows are going to be restored but all of them are already restored,
     // removed or closed (e.g., by the user), show the desktop instead.
@@ -327,52 +367,64 @@ bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
         bool hasMinimized = false;
         for (auto windowId : std::as_const(showDesktopWins))
         {
-            if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized
-                && std::find(windows.begin(), windows.end(), windowId) != windows.end())
+            if ((getWindowState(windowId) == LXQtTaskBarWindowState::Minimized) &&
+                (std::find(windows.begin(), windows.end(), windowId) != windows.end()))
             {
                 hasMinimized = true;
                 break;
             }
         }
+
         if (!hasMinimized)
+        {
             value = true;
+        }
     }
 
     if (value)
     {
         showDesktopWins.clear();
         QVector<WId> wids = getCurrentWindows();
-        std::sort(wids.begin(), wids.end(), [this](WId id1, WId id2) {
+        std::sort(wids.begin(), wids.end(), [this] (WId id1, WId id2)
+        {
             // sort the list by activation time to keep the z-order on restoring
             return (lastActivated.value(id1) < lastActivated.value(id2));
         });
         for (auto windowId : std::as_const(wids))
         {
             if (getWindowState(windowId) == LXQtTaskBarWindowState::Minimized)
-            { // was minimized before showing the desktop and so, should not be restored later
+            {
+                // was minimized before showing the desktop and so, should not be restored later
                 continue;
             }
+
             setWindowState(windowId, LXQtTaskBarWindowState::Minimized, true);
             showDesktopWins.push_back(windowId);
         }
-    }
-    else
+    } else
     {
         for (auto windowId : std::as_const(showDesktopWins))
+        {
             setWindowState(windowId, LXQtTaskBarWindowState::Minimized, false);
+        }
+
         showDesktopWins.clear();
     }
+
     m_managment->setShowingDesktop(!showDesktopWins.empty());
     return true;
 }
 
 WId LXQtTaskbarWlrootsBackend::findWindow(WId tgt) const
 {
-    for (auto id : std::as_const(windows)) {
-        if (equalIds(id, tgt)) {
+    for (auto id : std::as_const(windows))
+    {
+        if (equalIds(id, tgt))
+        {
             return id;
         }
     }
+
     return 0;
 }
 
@@ -391,15 +443,20 @@ WId LXQtTaskbarWlrootsBackend::findTopParent(WId winId) const
                 break;
             }
         }
+
         if (window)
+        {
             winId = window;
-        else
+        } else
         {
             window = findWindow(winId);
             if (window)
+            {
                 winId = window;
+            }
         }
     }
+
     return winId;
 }
 
@@ -419,27 +476,30 @@ void LXQtTaskbarWlrootsBackend::addWindow(WId winId)
     }
 
     LXQtTaskbarWlrootsWindow *window = getWindow(winId);
-    if (window == nullptr) {
+    if (window == nullptr)
+    {
         return;
     }
 
-    if (window->windowState.activated) {
+    if (window->windowState.activated)
+    {
         WId pId = findTopParent(winId);
         setLastActivated(pId);
         activeWindow = pId;
         emit activeWindowChanged(activeWindow);
     }
 
-    connect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this, &LXQtTaskbarWlrootsBackend::onActivatedChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this, &LXQtTaskbarWlrootsBackend::onParentChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this,
+        &LXQtTaskbarWlrootsBackend::onActivatedChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this,
+        &LXQtTaskbarWlrootsBackend::onParentChanged);
 
     // add it either to transients or windows
     if (WId leader = window->parentWindow)
     {
         transients.insert(winId, leader);
         connect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeTransient);
-    }
-    else
+    } else
     {
         addToWindows(winId);
     }
@@ -448,21 +508,28 @@ void LXQtTaskbarWlrootsBackend::addWindow(WId winId)
 void LXQtTaskbarWlrootsBackend::addToWindows(WId winId)
 {
     LXQtTaskbarWlrootsWindow *window = getWindow(winId);
-    if (window == nullptr) {
+    if (window == nullptr)
+    {
         return;
     }
 
     windows.push_back(winId);
 
     connect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeWindow);
-    connect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this, &LXQtTaskbarWlrootsBackend::onTitleChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this, &LXQtTaskbarWlrootsBackend::onAppIdChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-    connect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this, &LXQtTaskbarWlrootsBackend::onOutputsChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this,
+        &LXQtTaskbarWlrootsBackend::onTitleChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this,
+        &LXQtTaskbarWlrootsBackend::onAppIdChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this,
+        &LXQtTaskbarWlrootsBackend::onStateChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this,
+        &LXQtTaskbarWlrootsBackend::onStateChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this,
+        &LXQtTaskbarWlrootsBackend::onStateChanged);
+    connect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this,
+        &LXQtTaskbarWlrootsBackend::onOutputsChanged);
 
-    emit windowAdded( winId );
+    emit windowAdded(winId);
     emit windowPropertyChanged(winId, int(LXQtTaskBarWindowProperty::WindowClass));
     emit windowPropertyChanged(winId, int(LXQtTaskBarWindowProperty::Title));
     emit windowPropertyChanged(winId, int(LXQtTaskBarWindowProperty::Icon));
@@ -471,17 +538,25 @@ void LXQtTaskbarWlrootsBackend::addToWindows(WId winId)
 
 void LXQtTaskbarWlrootsBackend::removeWindow()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
     {
         disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeWindow);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this, &LXQtTaskbarWlrootsBackend::onParentChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this, &LXQtTaskbarWlrootsBackend::onActivatedChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this, &LXQtTaskbarWlrootsBackend::onTitleChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this, &LXQtTaskbarWlrootsBackend::onAppIdChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this, &LXQtTaskbarWlrootsBackend::onOutputsChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this,
+            &LXQtTaskbarWlrootsBackend::onParentChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this,
+            &LXQtTaskbarWlrootsBackend::onActivatedChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this,
+            &LXQtTaskbarWlrootsBackend::onTitleChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this,
+            &LXQtTaskbarWlrootsBackend::onAppIdChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this,
+            &LXQtTaskbarWlrootsBackend::onStateChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this,
+            &LXQtTaskbarWlrootsBackend::onStateChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this,
+            &LXQtTaskbarWlrootsBackend::onStateChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this,
+            &LXQtTaskbarWlrootsBackend::onOutputsChanged);
 
         WId winId = window->getWindowId();
         eraseWindow(windows, winId);
@@ -499,18 +574,21 @@ void LXQtTaskbarWlrootsBackend::removeWindow()
 
 void LXQtTaskbarWlrootsBackend::removeTransient()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
     {
-        disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeTransient);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this, &LXQtTaskbarWlrootsBackend::onParentChanged);
-        disconnect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this, &LXQtTaskbarWlrootsBackend::onActivatedChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this,
+            &LXQtTaskbarWlrootsBackend::removeTransient);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::parentChanged, this,
+            &LXQtTaskbarWlrootsBackend::onParentChanged);
+        disconnect(window, &LXQtTaskbarWlrootsWindow::activatedChanged, this,
+            &LXQtTaskbarWlrootsBackend::onActivatedChanged);
         transients.remove(window->getWindowId());
     }
 }
 
 void LXQtTaskbarWlrootsBackend::onActivatedChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
     {
         WId effectiveWindow = findTopParent(window->getWindowId());
 
@@ -523,18 +601,19 @@ void LXQtTaskbarWlrootsBackend::onActivatedChanged()
                 activeWindow = effectiveWindow;
                 emit activeWindowChanged(activeWindow);
             }
-        }
-        else
+        } else
         {
             // First check if it has an active child (transient) window.
             for (auto i = transients.cbegin(), end = transients.cend(); i != end; ++i)
             {
-                if (window->getWindowId() != i.key() && equalIds(findTopParent(i.key()), effectiveWindow))
+                if ((window->getWindowId() != i.key()) && equalIds(findTopParent(i.key()), effectiveWindow))
                 {
                     if (auto win = getWindow(i.key()))
                     {
                         if (win->windowState.activated)
+                        {
                             return;
+                        }
                     }
                 }
             }
@@ -550,9 +629,9 @@ void LXQtTaskbarWlrootsBackend::onActivatedChanged()
 
 void LXQtTaskbarWlrootsBackend::onParentChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
     {
-       WId leader = window->parentWindow;
+        WId leader = window->parentWindow;
 
         /** Basically, check if this window is a transient */
         if (transients.remove(window->getWindowId()))
@@ -561,16 +640,17 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
             {
                 // leader change.
                 transients.insert(window->getWindowId(), leader);
-            }
-            else
+            } else
             {
                 // lost a leader, add to regular windows list.
                 Q_ASSERT(findWindow(leader) == 0);
 
-                disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeTransient);
+                disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this,
+                    &LXQtTaskbarWlrootsBackend::removeTransient);
                 addToWindows(window->getWindowId());
 
-                // Correct the activation state if an active window that has lost its leader was active before,
+                // Correct the activation state if an active window that has lost its leader was active
+                // before,
                 // because "LXQtTaskbarWlrootsWindow::activatedChanged" might not be emitted for it.
                 if (window->windowState.activated)
                 {
@@ -579,17 +659,23 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
                     emit activeWindowChanged(activeWindow);
                 }
             }
-        }
-        else if (leader)
+        } else if (leader)
         {
             // remove it from regular windows list
-            disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeWindow);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this, &LXQtTaskbarWlrootsBackend::onTitleChanged);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this, &LXQtTaskbarWlrootsBackend::onAppIdChanged);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this, &LXQtTaskbarWlrootsBackend::onStateChanged);
-            disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this, &LXQtTaskbarWlrootsBackend::onOutputsChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::closed, this,
+                &LXQtTaskbarWlrootsBackend::removeWindow);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::titleChanged, this,
+                &LXQtTaskbarWlrootsBackend::onTitleChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::appIdChanged, this,
+                &LXQtTaskbarWlrootsBackend::onAppIdChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::fullscreenChanged, this,
+                &LXQtTaskbarWlrootsBackend::onStateChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::maximizedChanged, this,
+                &LXQtTaskbarWlrootsBackend::onStateChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::minimizedChanged, this,
+                &LXQtTaskbarWlrootsBackend::onStateChanged);
+            disconnect(window, &LXQtTaskbarWlrootsWindow::outputsChanged, this,
+                &LXQtTaskbarWlrootsBackend::onOutputsChanged);
             eraseWindow(windows, window->getWindowId());
             lastActivated.remove(window->getWindowId());
             // announce that it's removed
@@ -597,7 +683,8 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
 
             // add it to transients
             transients.insert(window->getWindowId(), leader);
-            connect(window, &LXQtTaskbarWlrootsWindow::closed, this, &LXQtTaskbarWlrootsBackend::removeTransient);
+            connect(window, &LXQtTaskbarWlrootsWindow::closed, this,
+                &LXQtTaskbarWlrootsBackend::removeTransient);
 
             // Correct the activation state if a window that has got a leader was active before.
             if (activeWindow == window->getWindowId())
@@ -613,41 +700,52 @@ void LXQtTaskbarWlrootsBackend::onParentChanged()
 
 void LXQtTaskbarWlrootsBackend::onTitleChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
+    {
         emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Title));
+    }
 }
 
 void LXQtTaskbarWlrootsBackend::onAppIdChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
+    {
         emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::WindowClass));
+    }
 }
 
 void LXQtTaskbarWlrootsBackend::onStateChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
+    {
         emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::State));
+    }
 }
 
 void LXQtTaskbarWlrootsBackend::onOutputsChanged()
 {
-    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow *>(QObject::sender()))
+    if (auto window = qobject_cast<LXQtTaskbarWlrootsWindow*>(QObject::sender()))
+    {
         emit windowPropertyChanged(window->getWindowId(), int(LXQtTaskBarWindowProperty::Geometry));
+    }
 }
 
 bool LXQtTaskbarWlrootsBackend::acceptWindow(WId window) const
 {
-    if(transients.contains(window))
+    if (transients.contains(window))
+    {
         return false;
+    }
 
     return true;
 }
 
-LXQtTaskbarWlrootsWindow *LXQtTaskbarWlrootsBackend::getWindow(WId windowId) const
+LXQtTaskbarWlrootsWindow*LXQtTaskbarWlrootsBackend::getWindow(WId windowId) const
 {
     /** Easiest way is to convert the quintptr to the actual pointer */
-    LXQtTaskbarWlrootsWindow *win = reinterpret_cast<LXQtTaskbarWlrootsWindow *>( windowId );
-    if ( win ) {
+    LXQtTaskbarWlrootsWindow *win = reinterpret_cast<LXQtTaskbarWlrootsWindow*>(windowId);
+    if (win)
+    {
         return win;
     }
 
@@ -656,17 +754,23 @@ LXQtTaskbarWlrootsWindow *LXQtTaskbarWlrootsBackend::getWindow(WId windowId) con
 
 bool LXQtTaskbarWlrootsBackend::equalIds(WId windowId1, WId windowId2) const
 {
-    if (windowId1 == windowId2) {
+    if (windowId1 == windowId2)
+    {
         return true;
     }
-    LXQtTaskbarWlrootsWindow *win1 = reinterpret_cast<LXQtTaskbarWlrootsWindow *>( windowId1 );
-    LXQtTaskbarWlrootsWindow *win2 = reinterpret_cast<LXQtTaskbarWlrootsWindow *>( windowId2 );
-    if (win1 == nullptr && win2 == nullptr) {
+
+    LXQtTaskbarWlrootsWindow *win1 = reinterpret_cast<LXQtTaskbarWlrootsWindow*>(windowId1);
+    LXQtTaskbarWlrootsWindow *win2 = reinterpret_cast<LXQtTaskbarWlrootsWindow*>(windowId2);
+    if ((win1 == nullptr) && (win2 == nullptr))
+    {
         return true;
     }
-    if (win1 != nullptr && win2 != nullptr) {
+
+    if ((win1 != nullptr) && (win2 != nullptr))
+    {
         return win1->ID == win2->ID;
     }
+
     return false;
 }
 
@@ -674,10 +778,12 @@ void LXQtTaskbarWlrootsBackend::setLastActivated(WId id)
 {
     auto t = QDateTime::currentMSecsSinceEpoch();
     while (lastActivated.key(t) != 0)
+    {
         ++t; // make sure the times are not equal
+    }
+
     lastActivated[id] = t;
 }
-
 
 int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
 {
@@ -687,13 +793,13 @@ int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
     }
 
     static const QStringList supportedList = {QStringLiteral("labwc"),
-                                              QStringLiteral("sway"),
-                                              QStringLiteral("wayfire"),
-                                              // The following compositors are also supported,
-                                              // although they are not based on wlroots.
-                                              QStringLiteral("hyprland"),
-                                              QStringLiteral("river"),
-                                              QStringLiteral("niri")};
+        QStringLiteral("sway"),
+        QStringLiteral("wayfire"),
+        // The following compositors are also supported,
+        // although they are not based on wlroots.
+        QStringLiteral("hyprland"),
+        QStringLiteral("river"),
+        QStringLiteral("niri")};
     if (supportedList.contains(key, Qt::CaseInsensitive))
     {
         return 30;
@@ -703,8 +809,7 @@ int LXQtWMBackendWlrootsLibrary::getBackendScore(const QString& key) const
     return 0;
 }
 
-
-ILXQtAbstractWMInterface *LXQtWMBackendWlrootsLibrary::instance() const
+ILXQtAbstractWMInterface*LXQtWMBackendWlrootsLibrary::instance() const
 {
     return new LXQtTaskbarWlrootsBackend(nullptr);
 }

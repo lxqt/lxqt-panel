@@ -10,12 +10,21 @@ class LXQtTaskbarWlrootsWindow;
 class LXQtTaskbarWlrootsWindowManagment;
 class LXQtWlrootsWaylandWorkspaceInfo;
 
+namespace LXQt
+{
+namespace Taskbar
+{
+class WorkspaceManagerV1;
+class WorkspaceGroupHandleV1;
+class WorkspaceHandleV1;
+}
+}
 
 class LXQtTaskbarWlrootsBackend : public ILXQtAbstractWMInterface
 {
     Q_OBJECT
 
-public:
+  public:
     explicit LXQtTaskbarWlrootsBackend(QObject *parent = nullptr);
 
     // Backend
@@ -53,7 +62,8 @@ public:
     virtual int getWindowWorkspace(WId windowId) const override;
     virtual bool setWindowOnWorkspace(WId windowId, int idx) override;
 
-    virtual void moveApplicationToPrevNextMonitor(WId windowId, bool next, bool raiseOnCurrentDesktop) override;
+    virtual void moveApplicationToPrevNextMonitor(WId windowId, bool next,
+        bool raiseOnCurrentDesktop) override;
 
     virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
@@ -63,7 +73,7 @@ public:
     virtual void moveApplication(WId windowId) override;
     virtual void resizeApplication(WId windowId) override;
 
-    virtual void refreshIconGeometry(WId windowId, const QRect &geom) override;
+    virtual void refreshIconGeometry(WId windowId, const QRect & geom) override;
 
     // Panel internal
     virtual bool isAreaOverlapped(const QRect& area) const override;
@@ -72,7 +82,7 @@ public:
     virtual bool isShowingDesktop() const override;
     virtual bool showDesktop(bool value) override;
 
-private slots:
+  private slots:
     void addWindow(WId wid);
     void removeWindow();
     void removeTransient();
@@ -83,7 +93,7 @@ private slots:
     void onStateChanged();
     void onOutputsChanged();
 
-private:
+  private:
     void addToWindows(WId winId);
     bool acceptWindow(WId wid) const;
     WId findWindow(WId tgt) const;
@@ -95,6 +105,7 @@ private:
     LXQtTaskbarWlrootsWindow *getWindow(WId windowId) const;
 
     std::unique_ptr<LXQtTaskbarWlrootsWindowManagment> m_managment;
+    std::unique_ptr<LXQt::Taskbar::WorkspaceManagerV1> m_wsmgr;
 
     QHash<WId, qint64> lastActivated;
     WId activeWindow = 0;
@@ -108,13 +119,14 @@ private:
 };
 
 
-class LXQtWMBackendWlrootsLibrary: public QObject, public ILXQtWMBackendLibrary
+class LXQtWMBackendWlrootsLibrary : public QObject, public ILXQtWMBackendLibrary
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "lxqt.org/Panel/WMInterface/1.0")
     Q_INTERFACES(ILXQtWMBackendLibrary)
-public:
+
+  public:
     int getBackendScore(const QString& key) const override;
 
-    ILXQtAbstractWMInterface* instance() const override;
+    ILXQtAbstractWMInterface * instance() const override;
 };
