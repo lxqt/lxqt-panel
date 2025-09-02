@@ -40,7 +40,7 @@ int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
 {
     for ( WorkspaceHandleV1 *ws : workspaceMap.values())
     {
-        if (ws->state() && WorkspaceHandleV1::state_active)
+        if (ws->state() & WorkspaceHandleV1::state_active)
         {
             return ws->index();
         }
