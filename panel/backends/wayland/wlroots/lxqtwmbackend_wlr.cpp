@@ -56,7 +56,7 @@ bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction act
         return true;
 
       case LXQtTaskBarBackendAction::DesktopSwitch:
-        return true;
+        return (m_wsmgr && m_wsmgr->isActive());
 
       default:
         return false;
