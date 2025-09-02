@@ -248,20 +248,21 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_coordinates(wl_ar
 
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_state(uint32_t state_)
 {
+    auto old_state = m_state;
+    m_state = state_;
+    qDebug() << "State:" << m_name << m_state;
+
     /** Check if this workspace was activated */
-    if (!(m_state & state_active) && (state_ & state_active))
+    if (!(old_state & state_active) && (state_ & state_active))
     {
         emit activated();
     }
 
     /** Check if this workspace was deactivated */
-    if ((m_state & state_active) && !(state_ & state_active))
+    if ((old_state & state_active) && !(state_ & state_active))
     {
         emit deactivated();
     }
-
-    m_state = state_;
-    qDebug() << "State:" << m_name << m_state;
 
     emit stateChanged(m_state);
 }
