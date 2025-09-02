@@ -158,6 +158,6 @@ class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_w
     QString m_id;
     QString m_name;
     QList<int> m_coordinates;
-    uint32_t m_state;
+    uint32_t m_state = 0;
     uint32_t m_capabilities;
 };
