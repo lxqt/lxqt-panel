@@ -70,7 +70,7 @@ public:
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment ; }
 
 protected Q_SLOTS:
-    void togleSlider();
+    void toggleSlider();
 
 private:
     BacklightButton *m_backlightButton;

@@ -70,7 +70,7 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
         else
             m_backlightSlider->downButtonClicked(true);
     });
-    connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::togleSlider);
+    connect(m_backlightButton, &QToolButton::clicked, this, &LXQtBacklight::toggleSlider);
 }
 
 
@@ -85,7 +85,7 @@ QWidget *LXQtBacklight::widget()
     return m_backlightButton;
 }
 
-void LXQtBacklight::togleSlider()
+void LXQtBacklight::toggleSlider()
 {
     if (m_backlightSlider->isVisible())
         m_backlightSlider->hide();
