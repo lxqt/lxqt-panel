@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>DirectoryMenu</name>
     <message>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="14"/>
         <source>Directory Menu Settings</source>
-        <translation>Configuração do Menu de diretórios</translation>
+        <translation>Configurações do menu de diretório</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="20"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>Nome do diretório base</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -65,12 +65,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="54"/>
         <source>Only icon</source>
-        <translation>Apenas o ícone</translation>
+        <translation>Só ícone</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="55"/>
         <source>Only text</source>
-        <translation>Apenas o texto</translation>
+        <translation>Só texto</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="56"/>
@@ -80,12 +80,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="115"/>
         <source>Choose Base Directory</source>
-        <translation>Escolha o diretório base</translation>
+        <translation>Escolher diretório base</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
         <source>Choose Icon</source>
-        <translation>Escolha o ícone</translation>
+        <translation>Escolher ícone</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="164"/>
@@ -95,7 +95,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="188"/>
         <source>Choose Label</source>
-        <translation>Escolha o rótulo</translation>
+        <translation>Escolher rótulo</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="189"/>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>Directory Menu</source>
-        <translation>Menu de diretórios</translation>
+        <translation>Menu de diretório</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="173"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Ocorreu um erro ao carregar o ícone.</translation>
+        <translation>Um erro ocorreu ao carregar o ícone.</translation>
     </message>
 </context>
 </TS>
