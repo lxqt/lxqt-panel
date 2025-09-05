@@ -29,6 +29,8 @@
 #define LXQTBACKLIGHT_H
 
 #include <QToolButton>
+#include <QWheelEvent>
+#include <QTimer>
 #include "../panel/ilxqtpanelplugin.h"
 #include "sliderdialog.h"
 
@@ -40,7 +42,21 @@ namespace GlobalKeyShortcut
 class Action;
 }
 
+class BacklightButton : public QToolButton {
+    Q_OBJECT
+public:
+    BacklightButton(QWidget *parent = nullptr);
+     ~BacklightButton() {};
 
+signals:
+    void wheel(bool up);
+
+protected:
+    void wheelEvent(QWheelEvent *e) override;
+
+private:
+    int m_mouseWheelThresholdCounter;
+};
 
 class LXQtBacklight : public QObject, public ILXQtPanelPlugin
 {
@@ -54,12 +70,12 @@ public:
     virtual ILXQtPanelPlugin::Flags flags() const { return PreferRightAlignment ; }
 
 protected Q_SLOTS:
-    void showSlider(bool);
-    void deleteSlider();
+    void toggleSlider();
 
 private:
-    QToolButton *m_backlightButton;
+    BacklightButton *m_backlightButton;
     SliderDialog *m_backlightSlider;
+    QTimer m_updateTimer;
 };
 
 
@@ -73,14 +89,6 @@ public:
     {
         return new LXQtBacklight(startupInfo);
     }
-};
-
-class Slider: public QSlider
-{
-public:
-    Slider(QWidget *parent);
-protected:
-    bool event(QEvent * event) override;
 };
 
 #endif // LXQTBACKLIGHT_H
