@@ -6,7 +6,7 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Definições do espaçador</translation>
+        <translation>Configurações do espaçador</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
