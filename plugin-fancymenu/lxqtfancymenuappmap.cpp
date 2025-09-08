@@ -281,6 +281,7 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
 
 void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topLevelCategory)
 {
+    bool catAdded = false;
     QDomElement e = menu.firstChildElement();
     while(!e.isNull())
     {
@@ -296,6 +297,7 @@ void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topL
                 QString iconName = e.attribute(QLatin1String("icon"));
                 item.icon = XdgIcon::fromTheme(iconName);
                 mCategories.append(item);
+                catAdded = true;
 
                 //Merge sub menu to parent
                 parseMenu(e, item.menuName);
@@ -312,6 +314,13 @@ void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topL
                 parseAppLink(e, topLevelCategory);
             else if(e.tagName() == QLatin1String("Separator"))
                 parseSeparator(e, topLevelCategory);
+        }
+        else if(catAdded && e.tagName() == QLatin1String("Separator"))
+        {
+            Category item;
+            item.type = LXQtFancyMenuItemType::SeparatorItem;
+            mCategories.append(item);
+            catAdded = false;
         }
 
         e = e.nextSiblingElement();
