@@ -208,7 +208,7 @@ void LXQtMainMenu::settingsChanged()
 
     QString menu_file = settings()->value(QStringLiteral("menu_file"), QString()).toString();
     if (menu_file.isEmpty())
-        menu_file = XdgMenu::getMenuFileName();
+        menu_file = XdgMenu::getMenuFileName(QLatin1String("applications.menu"));
     else if (!menu_file.contains(QLatin1String("/")))
         menu_file = XdgMenu::getMenuFileName(menu_file);
 
