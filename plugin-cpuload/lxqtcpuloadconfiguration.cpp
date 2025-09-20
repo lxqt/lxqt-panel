@@ -48,10 +48,10 @@ LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(PluginSettings *settings, QWi
 
     loadSettings();
 
-    connect(ui->showTextCB,            &QCheckBox::toggled,                                  this, &LXQtCpuLoadConfiguration::showTextChanged);
-    connect(ui->barWidthSB,            QOverload<int>::of(&QSpinBox::valueChanged),          this, &LXQtCpuLoadConfiguration::barWidthChanged);
-    connect(ui->updateIntervalSpinBox, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LXQtCpuLoadConfiguration::updateIntervalChanged);
-    connect(ui->barOrientationCOB,     QOverload<int>::of(&QComboBox::currentIndexChanged),  this, &LXQtCpuLoadConfiguration::barOrientationChanged);
+    connect(ui->showTextCB,            &QCheckBox::toggled,             this, &LXQtCpuLoadConfiguration::showTextChanged);
+    connect(ui->barWidthSB,            &QSpinBox::valueChanged,         this, &LXQtCpuLoadConfiguration::barWidthChanged);
+    connect(ui->updateIntervalSpinBox, &QDoubleSpinBox::valueChanged,   this, &LXQtCpuLoadConfiguration::updateIntervalChanged);
+    connect(ui->barOrientationCOB,     &QComboBox::currentIndexChanged, this, &LXQtCpuLoadConfiguration::barOrientationChanged);
 }
 
 LXQtCpuLoadConfiguration::~LXQtCpuLoadConfiguration()

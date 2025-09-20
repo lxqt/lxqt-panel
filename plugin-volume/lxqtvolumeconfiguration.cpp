@@ -41,14 +41,14 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     ui->setupUi(this);
 
     loadSettings();
-    connect(ui->devAddedCombo,                     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtVolumeConfiguration::sinkSelectionChanged);
-    connect(ui->buttons,                           &QDialogButtonBox::clicked,                          this, &LXQtVolumeConfiguration::dialogButtonsAction);
-    connect(ui->muteOnMiddleClickCheckBox,         &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::muteOnMiddleClickChanged);
-    connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,                             this, &LXQtVolumeConfiguration::mixerLineEditChanged);
-    connect(ui->stepSpinBox,                       QOverload<int>::of(&QSpinBox::valueChanged),         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);
-    connect(ui->ignoreMaxVolumeCheckBox,           &QCheckBox::toggled,                                 this, &LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged);
-    connect(ui->alwaysShowNotificationsCheckBox,  &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::alwaysShowNotificationsCheckBoxChanged);
-    connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled,                           this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
+    connect(ui->devAddedCombo,                     &QComboBox::currentIndexChanged, this, &LXQtVolumeConfiguration::sinkSelectionChanged);
+    connect(ui->buttons,                           &QDialogButtonBox::clicked,      this, &LXQtVolumeConfiguration::dialogButtonsAction);
+    connect(ui->muteOnMiddleClickCheckBox,         &QCheckBox::toggled,             this, &LXQtVolumeConfiguration::muteOnMiddleClickChanged);
+    connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,         this, &LXQtVolumeConfiguration::mixerLineEditChanged);
+    connect(ui->stepSpinBox,                       &QSpinBox::valueChanged,         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);
+    connect(ui->ignoreMaxVolumeCheckBox,           &QCheckBox::toggled,             this, &LXQtVolumeConfiguration::ignoreMaxVolumeCheckBoxChanged);
+    connect(ui->alwaysShowNotificationsCheckBox,   &QAbstractButton::toggled,       this, &LXQtVolumeConfiguration::alwaysShowNotificationsCheckBoxChanged);
+    connect(ui->showKeyboardNotificationsCheckBox, &QAbstractButton::toggled,       this, &LXQtVolumeConfiguration::showKeyboardNotificationsCheckBoxChanged);
 
     if (ossAvailable)
         connect(ui->ossRadioButton, &QRadioButton::toggled, this, &LXQtVolumeConfiguration::audioEngineChanged);

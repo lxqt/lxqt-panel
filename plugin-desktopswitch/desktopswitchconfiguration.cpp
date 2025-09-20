@@ -45,9 +45,9 @@ DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings,
 
     loadSettings();
 
-    connect(ui->rowsSB,           QOverload<int>::of(&QSpinBox::valueChanged),         this, &DesktopSwitchConfiguration::rowsChanged);
-    connect(ui->labelTypeCB,      QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DesktopSwitchConfiguration::labelTypeChanged);
-    connect(ui->showOnlyActiveCB, &QAbstractButton::toggled,                           this, [this] (bool checked) {
+    connect(ui->rowsSB,           &QSpinBox::valueChanged,         this, &DesktopSwitchConfiguration::rowsChanged);
+    connect(ui->labelTypeCB,      &QComboBox::currentIndexChanged, this, &DesktopSwitchConfiguration::labelTypeChanged);
+    connect(ui->showOnlyActiveCB, &QAbstractButton::toggled,       this, [this] (bool checked) {
         this->settings().setValue(QStringLiteral("showOnlyActive"), checked);
     });
 

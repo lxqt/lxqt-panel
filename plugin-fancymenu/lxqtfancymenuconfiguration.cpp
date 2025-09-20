@@ -81,12 +81,12 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtFancyMenuConfiguration::shortcutReset);
 
     connect(ui->customFontCB, &QAbstractButton::toggled, this, &LXQtFancyMenuConfiguration::customFontChanged);
-    connect(ui->customFontSizeSB, QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtFancyMenuConfiguration::customFontSizeChanged);
+    connect(ui->customFontSizeSB, &QSpinBox::valueChanged, this, &LXQtFancyMenuConfiguration::customFontSizeChanged);
 
     connect(ui->autoSelCB, &QAbstractButton::toggled, this, [this] (bool checked) {
         this->settings().setValue(QStringLiteral("autoSel"), checked);
     });
-    connect(ui->autoSelSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+    connect(ui->autoSelSB, &QSpinBox::valueChanged, this, [this] (int value) {
         this->settings().setValue(QStringLiteral("autoSelDelay"), value);
     });
 
@@ -97,8 +97,8 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
             this->settings().setValue(QStringLiteral("filterClear"), value);
     });
 
-    connect(ui->buttRowPosCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtFancyMenuConfiguration::buttonRowPositionChanged);
-    connect(ui->categoryViewPosCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtFancyMenuConfiguration::categoryPositionChanged);
+    connect(ui->buttRowPosCB, &QComboBox::activated, this, &LXQtFancyMenuConfiguration::buttonRowPositionChanged);
+    connect(ui->categoryViewPosCB, &QComboBox::activated, this, &LXQtFancyMenuConfiguration::categoryPositionChanged);
 }
 
 LXQtFancyMenuConfiguration::~LXQtFancyMenuConfiguration()

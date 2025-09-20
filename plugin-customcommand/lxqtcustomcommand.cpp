@@ -64,7 +64,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
     connect(mButton, &CustomButton::wheelScrolled, this, &LXQtCustomCommand::handleWheelScrolled);
     connect(mTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mDelayedRunTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
-    connect(mProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &LXQtCustomCommand::handleFinished);
+    connect(mProcess, &QProcess::finished, this, &LXQtCustomCommand::handleFinished);
 
     settingsChanged();
 }

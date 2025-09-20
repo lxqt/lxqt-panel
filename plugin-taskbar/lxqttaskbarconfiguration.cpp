@@ -78,11 +78,11 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
 #else
     connect(ui->limitByDesktopCB, &QCheckBox::stateChanged, ui->showDesktopNumCB, &QWidget::setEnabled);
 #endif
-    connect(ui->showDesktopNumCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->showDesktopNumCB, &QComboBox::activated, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByScreenCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->limitByMinimizedCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->raiseOnCurrentDesktopCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->buttonStyleCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->buttonStyleCB, &QComboBox::activated, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->buttonWidthSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->buttonHeightSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->autoRotateCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
@@ -94,7 +94,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->showGroupOnHoverCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->ungroupedNextToExistingCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->iconByClassCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
-    connect(ui->wheelEventsActionCB, QOverload<int>::of(&QComboBox::activated), this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->wheelEventsActionCB, &QComboBox::activated, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelDeltaThresholdSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->excludeLE, &QLineEdit::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
 }

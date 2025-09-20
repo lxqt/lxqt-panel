@@ -90,11 +90,11 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShow"), value);
     });
-    connect(ui->filterShowMaxItemsSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+    connect(ui->filterShowMaxItemsSB, &QSpinBox::valueChanged, this, [this] (int value) {
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShowMaxItems"), value);
     });
-    connect(ui->filterShowMaxWidthSB, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
+    connect(ui->filterShowMaxWidthSB, &QSpinBox::valueChanged, this, [this] (int value) {
         if (!mLockSettingChanges)
             this->settings().setValue(QStringLiteral("filterShowMaxWidth"), value);
     });
