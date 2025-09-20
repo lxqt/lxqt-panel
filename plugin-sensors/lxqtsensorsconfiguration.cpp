@@ -46,14 +46,14 @@ LXQtSensorsConfiguration::LXQtSensorsConfiguration(PluginSettings *settings, QWi
     // We load settings here cause we have to set up dynamic widgets
     loadSettings();
 
-    connect(ui->buttons,                        &QDialogButtonBox::clicked,                  this, &LXQtSensorsConfiguration::dialogButtonsAction);
-    connect(ui->updateIntervalSB,               QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtSensorsConfiguration::saveSettings);
-    connect(ui->tempBarWidthSB,                 QOverload<int>::of(&QSpinBox::valueChanged), this, &LXQtSensorsConfiguration::saveSettings);
-    connect(ui->detectedChipsCB,                QOverload<int>::of(&QComboBox::activated),   this, &LXQtSensorsConfiguration::detectedChipSelected);
-    connect(ui->celsiusTempScaleRB,             &QRadioButton::toggled,                      this, &LXQtSensorsConfiguration::saveSettings);
+    connect(ui->buttons,                        &QDialogButtonBox::clicked, this, &LXQtSensorsConfiguration::dialogButtonsAction);
+    connect(ui->updateIntervalSB,               &QSpinBox::valueChanged,    this, &LXQtSensorsConfiguration::saveSettings);
+    connect(ui->tempBarWidthSB,                 &QSpinBox::valueChanged,    this, &LXQtSensorsConfiguration::saveSettings);
+    connect(ui->detectedChipsCB,                &QComboBox::activated,      this, &LXQtSensorsConfiguration::detectedChipSelected);
+    connect(ui->celsiusTempScaleRB,             &QRadioButton::toggled,     this, &LXQtSensorsConfiguration::saveSettings);
     // We don't need signal from the other radio box as celsiusTempScaleRB will send one
     //connect(ui->fahrenheitTempScaleRB, SIGNAL(toggled(bool)), this, SLOT(saveSettings()));
-    connect(ui->warningAboutHighTemperatureChB, &QCheckBox::toggled,                         this, &LXQtSensorsConfiguration::saveSettings);
+    connect(ui->warningAboutHighTemperatureChB, &QCheckBox::toggled,        this, &LXQtSensorsConfiguration::saveSettings);
 
     /**
      * Signals for enable/disable and bar color change are set in the loadSettings method because

@@ -46,7 +46,7 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
     connect(m_ui->showLayout, &QGroupBox::clicked, this, &KbdStateConfig::save);
     connect(m_ui->layoutFlagPattern, &QLineEdit::textEdited, this, &KbdStateConfig::save);
 
-    connect(m_ui->modes, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [this] {
+    connect(m_ui->modes, &QButtonGroup::buttonClicked, this, [this] {
         KbdStateConfig::save();
     });
 

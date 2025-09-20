@@ -89,7 +89,7 @@ void StatusNotifierConfiguration::addItems(const QStringList &items)
             cb->setCurrentIndex(1);
         else if (mHideList.contains(item))
             cb->setCurrentIndex(2);
-        connect(cb, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this, item] (int indx) {
+        connect(cb, &QComboBox::currentIndexChanged, this, [this, item] (int indx) {
             if (indx == 0)
             {
                 mAutoHideList.removeAll(item);

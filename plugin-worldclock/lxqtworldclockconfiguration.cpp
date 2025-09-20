@@ -52,16 +52,16 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtWorldClockConfiguration::dialogButtonsAction);
 
-    connect(ui->timeFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timeFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timeShowSecondsCB,    &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timePadHourCB,        &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timeAMPMCB,           &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timezoneGB,           &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
-    connect(ui->timezonePositionCB,   QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
-    connect(ui->timezoneFormatCB,     QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timezonePositionCB,   &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->timezoneFormatCB,     &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->dateGB,               &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
-    connect(ui->datePositionCB,       QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
-    connect(ui->dateFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->datePositionCB,       &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
+    connect(ui->dateFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->dateShowYearCB,       &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->dateShowDoWCB,        &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->datePadDayCB,         &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
@@ -69,9 +69,9 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     connect(ui->advancedManualGB,     &QGroupBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->customisePB,          &QPushButton::clicked,           this, &LXQtWorldClockConfiguration::customiseManualFormatClicked);
 
-    connect(ui->timeFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::timeFormatChanged);
+    connect(ui->timeFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::timeFormatChanged);
     connect(ui->dateGB,               &QGroupBox::toggled,             this, &LXQtWorldClockConfiguration::dateGroupToggled);
-    connect(ui->dateFormatCB,         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtWorldClockConfiguration::dateFormatChanged);
+    connect(ui->dateFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::dateFormatChanged);
     connect(ui->advancedManualGB,     &QGroupBox::toggled,             this, &LXQtWorldClockConfiguration::advancedFormatToggled);
 
     connect(ui->timeZonesTW,          &QTableWidget::itemSelectionChanged, this, &LXQtWorldClockConfiguration::updateTimeZoneButtons);

@@ -54,7 +54,7 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));
     ui->buttonStyleCB->addItem(tr("Only text"), QLatin1String("Text"));
     ui->buttonStyleCB->addItem(tr("Icon and text"), QLatin1String("IconText"));
-    connect(ui->buttonStyleCB, QOverload<int>::of(&QComboBox::activated), this, &DirectoryMenuConfiguration::saveSettings);
+    connect(ui->buttonStyleCB, &QComboBox::activated, this, &DirectoryMenuConfiguration::saveSettings);
 
     loadSettings();
     ui->baseDirectoryB->setIcon(mDefaultIcon);

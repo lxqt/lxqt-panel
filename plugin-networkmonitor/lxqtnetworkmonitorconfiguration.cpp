@@ -49,9 +49,9 @@ LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(PluginSettings 
     setObjectName(QStringLiteral("NetworkMonitorConfigurationWindow"));
     ui->setupUi(this);
 
-    connect(ui->buttons,     &QDialogButtonBox::clicked,                          this, &LXQtNetworkMonitorConfiguration::dialogButtonsAction);
-    connect(ui->iconCB,      QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtNetworkMonitorConfiguration::saveSettings);
-    connect(ui->interfaceCB, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LXQtNetworkMonitorConfiguration::saveSettings);
+    connect(ui->buttons,     &QDialogButtonBox::clicked,      this, &LXQtNetworkMonitorConfiguration::dialogButtonsAction);
+    connect(ui->iconCB,      &QComboBox::currentIndexChanged, this, &LXQtNetworkMonitorConfiguration::saveSettings);
+    connect(ui->interfaceCB, &QComboBox::currentIndexChanged, this, &LXQtNetworkMonitorConfiguration::saveSettings);
 
     loadSettings();
 }

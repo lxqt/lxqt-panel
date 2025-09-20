@@ -118,7 +118,7 @@ namespace
             return s;
         }
     private:
-        int mMaxItemWidth{300};
+        int mMaxItemWidth = 300;
     };
 
 }

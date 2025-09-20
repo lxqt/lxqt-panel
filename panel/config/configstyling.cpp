@@ -59,16 +59,16 @@ ConfigStyling::ConfigStyling(LXQtPanel *panel, QWidget *parent) :
     // reset configurations from file
     reset();
 
-    connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,       this, &ConfigStyling::editChanged);
-    connect(ui->pushButton_customFontColor, &QPushButton::clicked,     this, &ConfigStyling::pickFontColor);
-    connect(ui->checkBox_customBgColor,     &QCheckBox::toggled,       this, &ConfigStyling::editChanged);
-    connect(ui->pushButton_customBgColor,   &QPushButton::clicked,     this, &ConfigStyling::pickBackgroundColor);
-    connect(ui->checkBox_customBgImage,     &QCheckBox::toggled,       this, &ConfigStyling::editChanged);
-    connect(ui->lineEdit_customBgImage,     &QLineEdit::textChanged,   this, &ConfigStyling::editChanged);
-    connect(ui->pushButton_customBgImage,   &QPushButton::clicked,     this, &ConfigStyling::pickBackgroundImage);
-    connect(ui->slider_opacity,             &QSlider::valueChanged,    this, &ConfigStyling::editChanged);
-    connect(ui->groupBox_icon,              &QGroupBox::clicked,                       this, &ConfigStyling::editChanged);
-    connect(ui->comboBox_icon,              QOverload<int>::of(&QComboBox::activated), this, &ConfigStyling::editChanged);
+    connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
+    connect(ui->pushButton_customFontColor, &QPushButton::clicked,   this, &ConfigStyling::pickFontColor);
+    connect(ui->checkBox_customBgColor,     &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
+    connect(ui->pushButton_customBgColor,   &QPushButton::clicked,   this, &ConfigStyling::pickBackgroundColor);
+    connect(ui->checkBox_customBgImage,     &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
+    connect(ui->lineEdit_customBgImage,     &QLineEdit::textChanged, this, &ConfigStyling::editChanged);
+    connect(ui->pushButton_customBgImage,   &QPushButton::clicked,   this, &ConfigStyling::pickBackgroundImage);
+    connect(ui->slider_opacity,             &QSlider::valueChanged,  this, &ConfigStyling::editChanged);
+    connect(ui->groupBox_icon,              &QGroupBox::clicked,     this, &ConfigStyling::editChanged);
+    connect(ui->comboBox_icon,              &QComboBox::activated,   this, &ConfigStyling::editChanged);
 }
 
 
