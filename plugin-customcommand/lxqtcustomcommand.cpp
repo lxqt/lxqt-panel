@@ -27,6 +27,7 @@
 #include "custombutton.h"
 #include "lxqtcustomcommandconfiguration.h"
 
+#include <QByteArray>
 #include <QProcess>
 #include <QTimer>
 #include <QVBoxLayout>
@@ -65,6 +66,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
     connect(mTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mDelayedRunTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mProcess, &QProcess::finished, this, &LXQtCustomCommand::handleFinished);
+    connect(mProcess, &QProcess::readyReadStandardOutput, this, &LXQtCustomCommand::handleOutput);
 
     settingsChanged();
 }
@@ -169,11 +171,13 @@ void LXQtCustomCommand::settingsChanged()
 
     if (mFirstRun) {
         mFirstRun = false;
-        runCommand();
+        shouldRun = true;
     }
     // Delay timer for running command, avoids multiple calls on settings change while typing command or clicking "Reset"
-    else if (shouldRun)
+    if (shouldRun) {
+        mProcess->close();
         mDelayedRunTimer->start();
+    }
 }
 
 void LXQtCustomCommand::handleClick()
@@ -184,22 +188,28 @@ void LXQtCustomCommand::handleClick()
 
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
 {
-    if (exitCode == 0) {
-        if(mOutputImage) {
-            mOutputByteArray = mProcess->readAllStandardOutput();
-        } else {
-            mOutput = QString::fromUtf8(mProcess->readAllStandardOutput());
-            if (mOutput.endsWith(QStringLiteral("\n")))
-                mOutput.chop(1);
-        }
-    }
-    else
+    if (exitCode != 0) 
         mOutput = tr("Error");
-
+    
     updateButton();
     if (mRepeat)
         mTimer->start();
 }
+
+void LXQtCustomCommand::handleOutput()
+{
+    QByteArray data = mProcess->readAllStandardOutput();
+    if(mOutputImage) {
+        mOutputByteArray = data;
+    } else {
+        mOutput = QString::fromUtf8(data);
+        if (mOutput.endsWith(QStringLiteral("\n")))
+            mOutput.chop(1);
+    }
+    qDebug() << "mOutput" << mOutput;
+    updateButton();
+}
+
 
 void LXQtCustomCommand::updateButton() {
 
