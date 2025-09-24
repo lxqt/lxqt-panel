@@ -206,7 +206,6 @@ void LXQtCustomCommand::handleOutput()
         if (mOutput.endsWith(QStringLiteral("\n")))
             mOutput.chop(1);
     }
-    qDebug() << "mOutput" << mOutput;
     updateButton();
 }
 
