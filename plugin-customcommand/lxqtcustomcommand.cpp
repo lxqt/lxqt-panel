@@ -191,22 +191,26 @@ void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exit
     if (exitCode != 0) 
         mOutput = tr("Error");
     
-    updateButton();
     if (mRepeat)
         mTimer->start();
 }
 
 void LXQtCustomCommand::handleOutput()
 {
-    QByteArray data = mProcess->readAllStandardOutput();
-    if(mOutputImage) {
-        mOutputByteArray = data;
-    } else {
-        mOutput = QString::fromUtf8(data);
-        if (mOutput.endsWith(QStringLiteral("\n")))
-            mOutput.chop(1);
+    bool something_read = false;
+    while (mProcess->canReadLine()) {
+        mOutputByteArray = mProcess->readLine();
+        something_read = true;
     }
-    updateButton();
+
+    if (something_read) {
+        if (!mOutputImage) {
+            mOutput = QString::fromUtf8(mOutputByteArray.trimmed());
+            // we don't need the raw data
+            mOutputByteArray.clear();
+        }
+        updateButton();
+    }
 }
 
 
