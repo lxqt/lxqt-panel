@@ -156,7 +156,7 @@ void LXQtCustomCommand::settingsChanged()
     if (mFirstRun || oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
-    if (oldIcon != mIcon) {
+    if (oldIcon != mIcon || (oldOutputImage && !mOutputImage)) {
         mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
@@ -218,9 +218,11 @@ void LXQtCustomCommand::handleOutput()
 
 void LXQtCustomCommand::updateButton() {
 
-    if(mOutputImage) {
+    if (mOutputImage) {
         QPixmap pixmap;
         pixmap.loadFromData(mOutputByteArray);
+        if (pixmap.isNull())
+            pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
         QIcon icon(pixmap);
         mButton->setIcon(icon);
         mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
