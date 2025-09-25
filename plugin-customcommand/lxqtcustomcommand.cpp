@@ -188,8 +188,10 @@ void LXQtCustomCommand::handleClick()
 
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
 {
-    if (exitCode != 0) 
+    if (exitCode != 0) {
         mOutput = tr("Error");
+        updateButton();
+    }
     
     if (mRepeat)
         mTimer->start();
