@@ -79,6 +79,7 @@ private:
     QString mFont;
     QString mCommand;
     bool mRunWithBash;
+    bool mOutputStructured; //TODO: do proper enum (text, image, structured)
     bool mOutputImage;
     bool mRepeat;
     int mRepeatTimer;

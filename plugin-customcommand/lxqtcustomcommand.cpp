@@ -44,9 +44,9 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mTimer(new QTimer(this)),
         mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
-        mOutput(QString()),
         mAutoRotate(true),
         mRunWithBash(true),
+        mOutputStructured(true),
         mOutputImage(false),
         mRepeat(true),
         mRepeatTimer(5),
@@ -189,7 +189,7 @@ void LXQtCustomCommand::handleClick()
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
 {
     if (exitCode != 0) {
-        mOutput = tr("Error");
+        mOutputByteArray = QByteArray::fromStdString(tr("Error").toStdString());
         updateButton();
     }
     
@@ -205,41 +205,65 @@ void LXQtCustomCommand::handleOutput()
         something_read = true;
     }
 
-    if (something_read) {
-        if (!mOutputImage) {
-            mOutput = QString::fromUtf8(mOutputByteArray.trimmed());
-            // we don't need the raw data
-            mOutputByteArray.clear();
-        }
+    if (something_read)
         updateButton();
-    }
 }
 
 
 void LXQtCustomCommand::updateButton() {
 
-    if (mOutputImage) {
+    QString tool_tip = mTooltip;
+    const auto iconsetter = [this](const QByteArray & iconData) {
         QPixmap pixmap;
-        pixmap.loadFromData(mOutputByteArray);
+        pixmap.loadFromData(iconData);
         if (pixmap.isNull())
-            pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
+            pixmap.loadFromData(iconData);
         QIcon icon(pixmap);
         mButton->setIcon(icon);
-        mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    };
+    if (mOutputStructured) {
+        for (const auto & variable : mOutputByteArray.split(' ')) {
+            const auto & name_value = variable.split(':');
+            bool error = false;
+            QByteArray value;
+            if (name_value.size() != 2)
+                error = true;
+            if (!error) {
+                const auto decoded = QByteArray::fromBase64Encoding(name_value[1]);
+                if (decoded.decodingStatus == QByteArray::Base64DecodingStatus::Ok)
+                    value = decoded.decoded;
+                else
+                    error = true;
+            }
+            if (error) {
+                qWarning() << tr("customcommand: Can't parse name-value(%1) from input: %2")
+                    .arg(name_value.empty() ? QString{} : QString::fromUtf8(name_value[0])).arg(QString::fromUtf8(mOutputByteArray));
+                continue;
+            }
+            if (name_value[0] == "text") {
+                mButton->setText(QString::fromUtf8(value));
+            } else if (name_value[0] == "tooltip") {
+                tool_tip = QString::fromUtf8(value);
+            } else if (name_value[0] == "icon") {
+                iconsetter(value);
+            } else {
+                qWarning() << tr("customcommand: Unsupported parameter(%1) to set").arg(QString::fromUtf8(name_value[0]));
+            }
+        }
+    } else if (mOutputImage) {
+        iconsetter(QByteArray::fromBase64(mOutputByteArray));
     } else {
         QString newText = mText;
         if (newText.contains(QStringLiteral("%1")))
-            newText = newText.arg(mOutput);
+            newText = newText.arg(QString::fromUtf8(mOutputByteArray.trimmed()));
 
         mButton->setText(newText);
-
-        if (mButton->icon().isNull())
-             mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
-        else
-             mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     }
-
-    mButton->setToolTip(mTooltip);
+    if (mButton->icon().isNull())
+         mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    else
+         mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mButton->setToolTip(tool_tip);
 
     mButton->updateWidth();
 }
