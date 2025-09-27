@@ -219,11 +219,15 @@ void LXQtCustomCommand::handleOutput()
 void LXQtCustomCommand::updateButton() {
 
     if (mOutputImage) {
-        QPixmap pixmap;
-        pixmap.loadFromData(mOutputByteArray);
-        if (pixmap.isNull())
-            pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
-        QIcon icon(pixmap);
+        QString iconString = QString::fromUtf8(mOutputByteArray.trimmed());
+        QIcon icon = XdgIcon::fromTheme(iconString, QIcon(iconString));
+        if (icon.isNull()) {
+            QPixmap pixmap;
+            pixmap.loadFromData(mOutputByteArray);
+            if (pixmap.isNull())
+                pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
+            icon = QIcon(pixmap);
+        }
         mButton->setIcon(icon);
         mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     } else {
