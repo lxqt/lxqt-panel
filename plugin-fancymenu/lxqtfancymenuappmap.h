@@ -119,13 +119,12 @@ private:
     AppItem *loadAppItem(const QString& desktopFile);
 
 private:
-    typedef QMap<QString, AppItem *> AppMap;
-    AppMap mAppSortedByDesktopFile;
-    AppMap mAppSortedByName;
+    QMap<QString, AppItem *> mAppSortedByDesktopFile;
+    QList<AppItem *> mAppSortedByName;
     QList<Category> mCategories;
 
     // Cache sort by name map access
-    AppMap::const_iterator mCachedIterator;
+    QList<AppItem *>::const_iterator mCachedIterator;
     int mCachedIndex;
 };
 
