@@ -45,7 +45,10 @@
 
 //==============================
 FilterProxyModel::FilterProxyModel(QObject* parent) :
-    QSortFilterProxyModel(parent) {
+    QSortFilterProxyModel(parent)
+{
+    setSortCaseSensitivity(Qt::CaseInsensitive);
+    setSortLocaleAware(true);
 }
 
 FilterProxyModel::~FilterProxyModel() = default;
