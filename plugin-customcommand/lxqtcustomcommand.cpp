@@ -31,9 +31,9 @@
 #include <QProcess>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <XdgIcon>
+#include <QIcon>
+#include <QFileInfo>
 #include <LXQt/Globals>
-#include <QDebug>
 
 #include <algorithm>
 
@@ -41,13 +41,13 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         QObject(),
         ILXQtPanelPlugin(startupInfo),
         mProcess(new QProcess(this)),
+        mTerminating(false),
         mTimer(new QTimer(this)),
         mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
-        mOutput(QString()),
         mAutoRotate(true),
         mRunWithBash(true),
-        mOutputImage(false),
+        mOutputFormat(OutputFormat_t::OUTPUT_BEGIN),
         mRepeat(true),
         mRepeatTimer(5),
         mMaxWidth(200)
@@ -74,8 +74,11 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
 LXQtCustomCommand::~LXQtCustomCommand()
 {
     // Ensure process is closed before exiting and avoids warning from QProcess.
-    mProcess->close();
+    mTerminating = true;
+    mProcess->terminate();
     delete mButton;
+    mProcess->waitForFinished(200);
+    mProcess->close();
 }
 
 QWidget *LXQtCustomCommand::widget()
@@ -104,7 +107,7 @@ void LXQtCustomCommand::settingsChanged()
     QString oldFont = mFont;
     QString oldCommand = mCommand;
     bool oldRunWithBash = mRunWithBash;
-    bool oldOutputImage = mOutputImage;
+    LXQtCustomCommandConfiguration::OutputFormat_t oldOutputFormat = mOutputFormat;
     bool oldRepeat = mRepeat;
     int oldRepeatTimer = mRepeatTimer;
     QString oldIcon = mIcon;
@@ -117,7 +120,11 @@ void LXQtCustomCommand::settingsChanged()
     QColor textColor = QColor::fromString(settings()->value(QStringLiteral("textColor")).toString());
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString().trimmed();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
-    mOutputImage = settings()->value(QStringLiteral("outputImage"), false).toBool();
+    // backward compatibility check
+    if (settings()->contains(QStringLiteral("outputFormat")))
+        mOutputFormat = static_cast<LXQtCustomCommandConfiguration::OutputFormat_t>(settings()->value(QStringLiteral("outputFormat")).toInt());
+    else
+        mOutputFormat = settings()->value(QStringLiteral("outputImage"), false).toBool() ? OutputFormat_t::OUTPUT_ICON : OutputFormat_t::OUTPUT_TEXT;
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
     mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
     mRepeatTimer = std::max(1, mRepeatTimer);
@@ -150,14 +157,14 @@ void LXQtCustomCommand::settingsChanged()
     else {
         mButton->setStyleSheet(QString());
     }
-    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputImage != mOutputImage || oldRepeat != mRepeat)
+    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputFormat != mOutputFormat || oldRepeat != mRepeat)
         shouldRun = true;
 
     if (mFirstRun || oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
-    if (oldIcon != mIcon || (oldOutputImage && !mOutputImage)) {
-        mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
+    if (oldIcon != mIcon || (oldOutputFormat != OutputFormat_t::OUTPUT_TEXT && mOutputFormat == OutputFormat_t::OUTPUT_TEXT)) {
+        mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
     else if (oldText != mText || oldTooltip != mTooltip)
@@ -175,7 +182,10 @@ void LXQtCustomCommand::settingsChanged()
     }
     // Delay timer for running command, avoids multiple calls on settings change while typing command or clicking "Reset"
     if (shouldRun) {
-        mProcess->close();
+        if (mProcess->state() == QProcess::Running) {
+            mTerminating = true;
+            mProcess->terminate();
+        }
         mDelayedRunTimer->start();
     }
 }
@@ -186,15 +196,16 @@ void LXQtCustomCommand::handleClick()
         runDetached(mClick);
 }
 
-void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
+void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitCode != 0) {
-        mOutput = tr("Error");
-        updateButton();
+    if (!mTerminating)
+    {
+        if (exitStatus != QProcess::NormalExit || exitCode != 0)
+            qWarning().nospace() << "customcommand: non-gracefull command finish(" << exitStatus << ',' << exitCode << "): " << mProcess->readAllStandardError();
+        
+        if (mRepeat)
+            mTimer->start();
     }
-    
-    if (mRepeat)
-        mTimer->start();
 }
 
 void LXQtCustomCommand::handleOutput()
@@ -205,45 +216,86 @@ void LXQtCustomCommand::handleOutput()
         something_read = true;
     }
 
-    if (something_read) {
-        if (!mOutputImage) {
-            mOutput = QString::fromUtf8(mOutputByteArray.trimmed());
-            // we don't need the raw data
-            mOutputByteArray.clear();
-        }
+    if (something_read)
         updateButton();
-    }
 }
 
 
 void LXQtCustomCommand::updateButton() {
-
-    if (mOutputImage) {
-        QString iconString = QString::fromUtf8(mOutputByteArray.trimmed());
-        QIcon icon = XdgIcon::fromTheme(iconString, QIcon(iconString));
-        if (icon.isNull()) {
-            QPixmap pixmap;
-            pixmap.loadFromData(mOutputByteArray);
-            if (pixmap.isNull())
-                pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
-            icon = QIcon(pixmap);
+    const auto iconsetter = [this](const QByteArray & iconData, const bool decoded) {
+        QIcon icon;
+        if (iconData.size() > 0) {
+            const QString iconString = QString::fromUtf8(iconData.trimmed());
+            static const QRegularExpression re_no_xdg_name{QStringLiteral("[^[:alnum:]-]")};
+            if (!iconString.contains(re_no_xdg_name))
+                icon = QIcon::fromTheme(iconString);
+            if (icon.isNull() && !iconString.contains(QChar::Null) && QFileInfo::exists(iconString))
+                icon = QIcon{iconString};
+            if (icon.isNull()) {
+                QPixmap pixmap;
+                pixmap.loadFromData(iconData);
+                if (pixmap.isNull() && !decoded)
+                    pixmap.loadFromData(QByteArray::fromBase64(iconData));
+                icon = QIcon{pixmap};
+            }
         }
         mButton->setIcon(icon);
-        mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    } else {
-        QString newText = mText;
-        if (newText.contains(QStringLiteral("%1")))
-            newText = newText.arg(mOutput);
+    };
+    switch (mOutputFormat) {
+        case OutputFormat_t::OUTPUT_STRUCTURED:
+            if (mOutputByteArray.size() > 0) {
+                for (const auto & variable : mOutputByteArray.split(' ')) {
+                    const auto & name_value = variable.split(':');
+                    bool error = false;
+                    QByteArray value;
+                    if (name_value.size() != 2)
+                        error = true;
+                    if (!error) {
+                        const auto decoded = QByteArray::fromBase64Encoding(name_value[1]);
+                        if (decoded.decodingStatus == QByteArray::Base64DecodingStatus::Ok)
+                            value = decoded.decoded;
+                        else
+                            error = true;
+                    }
+                    if (error) {
+                        qWarning().nospace() << "customcommand: Can't parse name-value(" << (name_value.empty() ? QString{} : QString::fromUtf8(name_value[0]))
+                            << ") from input: " << QString::fromUtf8(mOutputByteArray);
+                        continue;
+                    }
+                    if (name_value[0] == "text") {
+                        mButton->setText(QString::fromUtf8(value));
+                    } else if (name_value[0] == "tooltip") {
+                        mButton->setToolTip(QString::fromUtf8(value));
+                    } else if (name_value[0] == "icon") {
+                        iconsetter(value, true);
+                    } else {
+                        qWarning().nospace() << "customcommand: Unsupported parameter(" << QString::fromUtf8(name_value[0]) << ") to set";
+                    }
+                }
+            }
+            break;
+        case OutputFormat_t::OUTPUT_ICON:
+            iconsetter(mOutputByteArray, false);
+            mButton->setText(QString{});
+            break;
+        case OutputFormat_t::OUTPUT_TEXT:
+            {
+                QString newText = mText;
+                if (newText.contains(QStringLiteral("%1")))
+                    newText = newText.arg(QString::fromUtf8(mOutputByteArray.trimmed()));
 
-        mButton->setText(newText);
-
-        if (mButton->icon().isNull())
-             mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
-        else
-             mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+                mButton->setText(newText);
+            }
+            break;
+        case OutputFormat_t::OUTPUT_END:
+            assert(false);
     }
-
-    mButton->setToolTip(mTooltip);
+    if (mButton->icon().isNull())
+         mButton->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    else if (mButton->text().isEmpty())
+        mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    else
+         mButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     mButton->updateWidth();
 }
@@ -258,13 +310,13 @@ void LXQtCustomCommand::handleWheelScrolled(int delta)
 
 void LXQtCustomCommand::runCommand()
 {
+    if (mProcess->state() == QProcess::Running)
+        mProcess->close();
+
+    mTerminating = false;
+
     if (mCommand.isEmpty())
         return;
-
-    if (mProcess->state() != QProcess::NotRunning) {
-        mDelayedRunTimer->start();
-        return;
-    }
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     QStringList args;

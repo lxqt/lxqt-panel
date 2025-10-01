@@ -27,6 +27,7 @@
 #define LXQTCUSTOMCOMMAND_H
 
 #include "../panel/ilxqtpanelplugin.h"
+#include "lxqtcustomcommandconfiguration.h"
 
 #include <QToolButton>
 #include <QTimer>
@@ -35,11 +36,13 @@
 #include <LXQt/RotatedWidget>
 
 class CustomButton;
-class LXQtCustomCommandConfiguration;
 
 class LXQtCustomCommand : public QObject, public ILXQtPanelPlugin
 {
     Q_OBJECT
+
+    using OutputFormat_t = LXQtCustomCommandConfiguration::OutputFormat_t;
+
 public:
     LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupInfo);
     ~LXQtCustomCommand();
@@ -68,18 +71,18 @@ private:
     QPointer<LXQtCustomCommandConfiguration> mConfigDialog;
 
     QProcess *mProcess;
+    bool mTerminating;
     QTimer *mTimer;
     QTimer *mDelayedRunTimer;
 
     bool mFirstRun;
-    QString mOutput;
     QByteArray mOutputByteArray;
 
     bool mAutoRotate;
     QString mFont;
     QString mCommand;
     bool mRunWithBash;
-    bool mOutputImage;
+    OutputFormat_t mOutputFormat;
     bool mRepeat;
     int mRepeatTimer;
     QString mIcon;

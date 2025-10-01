@@ -38,6 +38,17 @@ class LXQtCustomCommandConfiguration : public LXQtPanelPluginConfigDialog
     Q_OBJECT
 
 public:
+    enum OutputFormat_t {
+        OUTPUT_BEGIN
+            , OUTPUT_TEXT = OUTPUT_BEGIN
+            , OUTPUT_ICON
+            , OUTPUT_STRUCTURED
+            , OUTPUT_END
+    };
+
+    static const QStringList msOutputFormatStrings;
+
+public:
     explicit LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent = nullptr);
     ~LXQtCustomCommandConfiguration();
 
@@ -48,7 +59,7 @@ private slots:
     void textColorResetButtonClicked();
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
-    void outputImageCheckBoxChanged(bool outputImage);
+    void outputFormatComboBoxChanged(int index);
     void repeatCheckBoxChanged(bool repeat);
     void repeatTimerSpinBoxChanged();
     void iconLineEditChanged();

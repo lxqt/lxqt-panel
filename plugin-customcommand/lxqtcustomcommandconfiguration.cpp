@@ -24,19 +24,35 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtcustomcommandconfiguration.h"
+#include "lxqtcustomcommand.h"
 #include "ui_lxqtcustomcommandconfiguration.h"
 
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QFontDialog>
+#include <qnamespace.h>
+
+//Note: strings can't actually be translated here (in static initialization time)
+//      the QT_TR_NOOP here is just for qt translate tools to get the strings for translation
+const QStringList LXQtCustomCommandConfiguration::msOutputFormatStrings = {
+    QStringLiteral(QT_TR_NOOP("Text only"))
+    , QStringLiteral(QT_TR_NOOP("Icon only"))
+    , QStringLiteral(QT_TR_NOOP("Structured"))
+};
 
 LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtCustomCommandConfiguration),
     mLockSettingChanges(false)
 {
+    assert(msOutputFormatStrings.size() == OUTPUT_END);
+
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
+
+    //Note: translation is needed here in runtime (translator is attached already)
+    for (int format = OUTPUT_BEGIN; format < OUTPUT_END; ++format)
+        ui->outputFormatComboBox->addItem(tr(msOutputFormatStrings[format].toStdString().c_str()), format);
 
     loadSettings();
 
@@ -48,7 +64,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->textColorResetButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::textColorResetButtonClicked);
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
-    connect(ui->outputImageCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::outputImageCheckBoxChanged);
+    connect(ui->outputFormatComboBox, &QComboBox::currentIndexChanged, this, &LXQtCustomCommandConfiguration::outputFormatComboBoxChanged);
     connect(ui->repeatCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::repeatCheckBoxChanged);
     connect(ui->repeatTimerSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
     connect(ui->iconLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
@@ -75,7 +91,13 @@ void LXQtCustomCommandConfiguration::loadSettings()
     ui->textColorLabel->setColor(QColor::fromString(settings().value(QStringLiteral("textColor")).toString()));
     ui->commandPlainTextEdit->setPlainText(settings().value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString());
     ui->runWithBashCheckBox->setChecked(settings().value(QStringLiteral("runWithBash"), true).toBool());
-    ui->outputImageCheckBox->setChecked(settings().value(QStringLiteral("outputImage"), false).toBool());
+    // backward compatibility check
+    if (settings().contains(QStringLiteral("outputFormat")))
+        ui->outputFormatComboBox->setCurrentIndex(ui->outputFormatComboBox->findData(settings().value(QStringLiteral("outputFormat")).toInt()));
+    else {
+        const bool image = settings().value(QStringLiteral("outputImage"), false).toBool();
+        ui->outputFormatComboBox->setCurrentIndex(ui->outputFormatComboBox->findData(image ? OUTPUT_ICON : OUTPUT_TEXT));
+    }
     ui->repeatCheckBox->setChecked(settings().value(QStringLiteral("repeat"), true).toBool());
     ui->repeatTimerSpinBox->setEnabled(ui->repeatCheckBox->isChecked());
     ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());
@@ -136,10 +158,12 @@ void LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged(bool runWithBash
         settings().setValue(QStringLiteral("runWithBash"), runWithBash);
 }
 
-void LXQtCustomCommandConfiguration::outputImageCheckBoxChanged(bool outputImage)
+void LXQtCustomCommandConfiguration::outputFormatComboBoxChanged(int index)
 {
-    if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("outputImage"), outputImage);
+    if (!mLockSettingChanges) {
+        settings().setValue(QStringLiteral("outputFormat"), ui->outputFormatComboBox->itemData(index, Qt::UserRole));
+        settings().remove(QStringLiteral("outputImage"));
+    }
 }
 
 void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
