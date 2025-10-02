@@ -27,6 +27,7 @@
 #include "custombutton.h"
 #include "lxqtcustomcommandconfiguration.h"
 
+#include <QByteArray>
 #include <QProcess>
 #include <QTimer>
 #include <QVBoxLayout>
@@ -65,6 +66,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
     connect(mTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mDelayedRunTimer, &QTimer::timeout, this, &LXQtCustomCommand::runCommand);
     connect(mProcess, &QProcess::finished, this, &LXQtCustomCommand::handleFinished);
+    connect(mProcess, &QProcess::readyReadStandardOutput, this, &LXQtCustomCommand::handleOutput);
 
     settingsChanged();
 }
@@ -154,7 +156,7 @@ void LXQtCustomCommand::settingsChanged()
     if (mFirstRun || oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
-    if (oldIcon != mIcon) {
+    if (oldIcon != mIcon || (oldOutputImage && !mOutputImage)) {
         mButton->setIcon(XdgIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
@@ -169,11 +171,13 @@ void LXQtCustomCommand::settingsChanged()
 
     if (mFirstRun) {
         mFirstRun = false;
-        runCommand();
+        shouldRun = true;
     }
     // Delay timer for running command, avoids multiple calls on settings change while typing command or clicking "Reset"
-    else if (shouldRun)
+    if (shouldRun) {
+        mProcess->close();
         mDelayedRunTimer->start();
+    }
 }
 
 void LXQtCustomCommand::handleClick()
@@ -184,29 +188,46 @@ void LXQtCustomCommand::handleClick()
 
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus /*exitStatus*/)
 {
-    if (exitCode == 0) {
-        if(mOutputImage) {
-            mOutputByteArray = mProcess->readAllStandardOutput();
-        } else {
-            mOutput = QString::fromUtf8(mProcess->readAllStandardOutput());
-            if (mOutput.endsWith(QStringLiteral("\n")))
-                mOutput.chop(1);
-        }
-    }
-    else
+    if (exitCode != 0) {
         mOutput = tr("Error");
-
-    updateButton();
+        updateButton();
+    }
+    
     if (mRepeat)
         mTimer->start();
 }
 
+void LXQtCustomCommand::handleOutput()
+{
+    bool something_read = false;
+    while (mProcess->canReadLine()) {
+        mOutputByteArray = mProcess->readLine();
+        something_read = true;
+    }
+
+    if (something_read) {
+        if (!mOutputImage) {
+            mOutput = QString::fromUtf8(mOutputByteArray.trimmed());
+            // we don't need the raw data
+            mOutputByteArray.clear();
+        }
+        updateButton();
+    }
+}
+
+
 void LXQtCustomCommand::updateButton() {
 
-    if(mOutputImage) {
-        QPixmap pixmap;
-        pixmap.loadFromData(mOutputByteArray);
-        QIcon icon(pixmap);
+    if (mOutputImage) {
+        QString iconString = QString::fromUtf8(mOutputByteArray.trimmed());
+        QIcon icon = XdgIcon::fromTheme(iconString, QIcon(iconString));
+        if (icon.isNull()) {
+            QPixmap pixmap;
+            pixmap.loadFromData(mOutputByteArray);
+            if (pixmap.isNull())
+                pixmap.loadFromData(QByteArray::fromBase64(mOutputByteArray));
+            icon = QIcon(pixmap);
+        }
         mButton->setIcon(icon);
         mButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     } else {
