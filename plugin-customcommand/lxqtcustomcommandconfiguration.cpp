@@ -171,7 +171,7 @@ void LXQtCustomCommandConfiguration::outputFormatComboBoxChanged(int index)
 void LXQtCustomCommandConfiguration::parseOnExitCheckBoxChanged(bool parseOnExit)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("perseOnExit"), parseOnExit);
+        settings().setValue(QStringLiteral("parseOnExit"), parseOnExit);
 }
 
 void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)
