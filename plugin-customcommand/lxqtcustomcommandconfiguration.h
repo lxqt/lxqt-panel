@@ -60,6 +60,7 @@ private slots:
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
     void outputFormatComboBoxChanged(int index);
+    void parseOnExitCheckBoxChanged(bool parseOnExit);
     void repeatCheckBoxChanged(bool repeat);
     void repeatTimerSpinBoxChanged();
     void iconLineEditChanged();
