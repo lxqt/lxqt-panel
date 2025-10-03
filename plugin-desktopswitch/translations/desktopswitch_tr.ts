@@ -68,7 +68,12 @@
         <translation>Masaüstü isimleri</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished">%1 Masaüstü</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
         <source>Desktop %1:</source>
         <translation>%1 Masaüstü:</translation>
     </message>
@@ -76,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="343"/>
+        <location filename="../desktopswitch.cpp" line="346"/>
         <source>n/a</source>
         <translation>yok</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="345"/>
+        <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch geçerli platformda desteklenmiyor: %1</translation>
     </message>

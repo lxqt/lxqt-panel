@@ -4,12 +4,12 @@
 <context>
     <name>ColorPickerWidget</name>
     <message>
-        <location filename="../colorpicker.cpp" line="209"/>
+        <location filename="../colorpicker.cpp" line="224"/>
         <source>Clear list</source>
         <translation>Ebiri ku lukalala byonna bigyeko</translation>
     </message>
     <message>
-        <location filename="../colorpicker.cpp" line="239"/>
+        <location filename="../colorpicker.cpp" line="254"/>
         <source>empty</source>
         <translation>Lwereere</translation>
     </message>
