@@ -201,13 +201,11 @@ void LXQtCustomCommand::handleClick()
 
 void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-
     if (!mTerminating)
     {
         if (exitStatus != QProcess::NormalExit || exitCode != 0)
             qWarning().nospace() << "customcommand: non-gracefull command finish(" << exitStatus << ',' << exitCode << "): " << mProcess->readAllStandardError();
-
-        if (mParseOnExit) {
+        else if (mParseOnExit) {
             mOutputByteArray = mProcess->readAllStandardOutput();
             updateButton();
         }
