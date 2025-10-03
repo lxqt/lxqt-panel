@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="95"/>
+        <location filename="../desktopswitch.cpp" line="96"/>
         <source>Switch to desktop %1</source>
         <translation>Genda ku awakolerwa %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="170"/>
-        <location filename="../desktopswitch.cpp" line="181"/>
+        <location filename="../desktopswitch.cpp" line="171"/>
+        <location filename="../desktopswitch.cpp" line="182"/>
         <source>Desktop %1</source>
         <translation>Awakolerwa %1</translation>
     </message>
@@ -68,7 +68,12 @@
         <translation>Entuuma y&apos;awakolerwa</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished">Awakolerwa %1</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
         <source>Desktop %1:</source>
         <translation>Awakolerwa %1:</translation>
     </message>
@@ -76,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="342"/>
+        <location filename="../desktopswitch.cpp" line="346"/>
         <source>n/a</source>
         <translation>Awakolerwa tewakyusibwa</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="344"/>
+        <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>Ku sisitemu eno tekisoboka okyusa awakolerwa: %1</translation>
     </message>

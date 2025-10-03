@@ -266,7 +266,7 @@
         <translation>إعداد تنسيق يدوي للساعة العالمية</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="83"/>
+        <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="75"/>
         <source>&lt;h1&gt;Custom Date/Time Format Syntax&lt;/h1&gt;
 &lt;p&gt;A date pattern is a string of characters, where specific strings of characters are replaced with date and time data from a calendar when formatting or used to generate data for a calendar when parsing.&lt;/p&gt;
 &lt;p&gt;The Date Field Symbol Table below contains the characters used in patterns to show the appropriate formats for a given locale, such as yyyy for the year. Characters may be used multiple times. For example, if y is used for the year, &apos;yy&apos; might produce &apos;99&apos;, whereas &apos;yyyy&apos; produces &apos;1999&apos;. For most numerical fields, the number of characters specifies the field width. For example, if h is the hour, &apos;h&apos; might produce &apos;5&apos;, but &apos;hh&apos; produces &apos;05&apos;. For some characters, the count specifies whether an abbreviated or full form should be used, but may have other choices, as given below.&lt;/p&gt;

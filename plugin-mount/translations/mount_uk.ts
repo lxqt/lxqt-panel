@@ -37,23 +37,23 @@
         <translation>Коли натиснено кнопку від&apos;єднання:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="60"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
         <translation>Вигулькне меню</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="61"/>
+        <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
         <translation>Показати інформацію</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="62"/>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="67"/>
+        <location filename="../configuration.cpp" line="69"/>
         <source>Do nothing</source>
         <translation>Нічого не робити</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="65"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
         <translation>Від&apos;єднати всі оптичні носії</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtMountPlugin</name>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Менеджер знімних медіапристроїв: Глобальний ярлик &apos;%1&apos; не може бути зарєєстрований</translation>
     </message>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
         <translation>Від&apos;єднати знімний носій</translation>
     </message>

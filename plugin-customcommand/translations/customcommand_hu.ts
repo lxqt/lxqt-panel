@@ -15,14 +15,6 @@
     </message>
 </context>
 <context>
-    <name>LXQtCustomCommand</name>
-    <message>
-        <location filename="../lxqtcustomcommand.cpp" line="197"/>
-        <source>Error</source>
-        <translation>Hiba</translation>
-    </message>
-</context>
-<context>
     <name>LXQtCustomCommandConfiguration</name>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
@@ -35,7 +27,7 @@
         <translation>Megjelenés</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="211"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="222"/>
         <source>Use icon from theme or browse file</source>
         <translation>Ikon használata ikontémából vagy fájl tallózása</translation>
     </message>
@@ -50,7 +42,7 @@
         <translation>Betűtípus kiválasztása</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="228"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="239"/>
         <source>Text</source>
         <translation>Szöveg</translation>
     </message>
@@ -65,27 +57,27 @@
         <translation>Betűtípus</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="279"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="238"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="249"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="252"/>
         <source>Use %1 to display command output</source>
         <translation>%1 használata a parancskimenet megjelenítéséhez</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="201"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="212"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="218"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="229"/>
         <source>Browse</source>
         <translation>Tallózás</translation>
     </message>
@@ -101,14 +93,24 @@
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="308"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="342"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="319"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="336"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="353"/>
         <source>Command to run</source>
         <translation>Futtatandó parancs</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="258"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="196"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Text only&lt;/span&gt; - command outputs plain text to be used as text of the button&lt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Icon only&lt;/span&gt; - command outputs icon in form of:&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;theme name&lt;/span&gt; - name of icon resolved to image based on XDG spec&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;image file path&lt;/span&gt; - path to file with image to show&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;image data stream&lt;/span&gt; - plain image stream&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;base64 encoded image data stream&lt;/span&gt; - as above but base64 encoded&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Stuctured&lt;/span&gt; - command outputs structured variables to be used for button visualization in form &amp;quot;&lt;span style=&quot; text-decoration: underline;&quot;&gt;name1:base64value1 name2:base64value2 ...&lt;/span&gt;&amp;quot;. Handled names are:&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;text&lt;/span&gt; - string to be used as text of the button&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;icon&lt;/span&gt; - icon to be show in the button, in the same form as in &lt;span style=&quot; font-weight:700;&quot;&gt;Icon only&lt;/span&gt; output&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;tooltip&lt;/span&gt; - string to be used as tooltip of the button&lt;br/&gt;Example of script generating structured output:&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;echo &amp;quot;text:$(echo -n &amp;quot;My text&amp;quot; | base64 --wrap=0) icon:$(base64 --wrap=0 my_image.svg) tooltip:$(echo -n &amp;quot;This is my pretty tooltip&amp;quot; | base64 --wrap=0)&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="199"/>
+        <source>Output format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="269"/>
         <source>Max Width</source>
         <translation>Maximum szélesség</translation>
     </message>
@@ -133,42 +135,52 @@
         <translation> másodperc</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="194"/>
-        <source>Command outputs an image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="248"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="259"/>
         <source>Tooltip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="292"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
         <source>Mouse Commands</source>
         <translation>Egérparancsok</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="298"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="309"/>
         <source>Click</source>
         <translation>Kattintás</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="315"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="326"/>
         <source>Wheel Up</source>
         <translation>Felfelé görgetés</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="332"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="343"/>
         <source>Wheel Down</source>
         <translation>Lefelé görgetés</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
+        <source>Text only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
+        <source>Icon only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
+        <source>Structured</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="190"/>
         <source>Select Icon File</source>
         <translation>Ikonfájl kiválasztása</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="190"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Képek (*.png *.svg *.xpm *.jpg)</translation>
     </message>

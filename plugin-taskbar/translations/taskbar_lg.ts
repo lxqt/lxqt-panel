@@ -4,7 +4,7 @@
 <context>
     <name>LXQtTaskBar</name>
     <message>
-        <location filename="../lxqttaskbar.cpp" line="636"/>
+        <location filename="../lxqttaskbar.cpp" line="649"/>
         <source>Activate task %1</source>
         <translation>Zuukusa omulimu gwa %1</translation>
     </message>
@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="546"/>
+        <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>Application</source>
         <translation>Puloguramu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="580"/>
+        <location filename="../lxqttaskbutton.cpp" line="581"/>
         <source>To &amp;Desktop</source>
         <translation>Kyusa &amp;awakolerwa kwe lirabikira</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="583"/>
+        <location filename="../lxqttaskbutton.cpp" line="584"/>
         <source>&amp;All Desktops</source>
         <translation>Lirabikire ku wakolerwa &amp;zonna</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="593"/>
+        <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Desktop &amp;%1</source>
         <translation>Awakolerwa namba &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="603"/>
+        <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>&amp;To Current Desktop</source>
         <translation>Lirabikire &amp;wano</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="612"/>
+        <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation>Lig&amp;ende ku lutimbe oluddako</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="618"/>
+        <location filename="../lxqttaskbutton.cpp" line="619"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation>Ligende ku lutimbe ol&amp;ukulembera kweliri kakano</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="624"/>
+        <location filename="../lxqttaskbutton.cpp" line="625"/>
         <source>&amp;Move</source>
         <translation>Ddirisa &amp;lijulule</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="629"/>
+        <location filename="../lxqttaskbutton.cpp" line="630"/>
         <source>Resi&amp;ze</source>
         <translation>K&amp;yusa bunene bw&apos;eddirisa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="638"/>
+        <location filename="../lxqttaskbutton.cpp" line="639"/>
         <source>Ma&amp;ximize</source>
         <translation>Ddirisa li&amp;bune olutimbe</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="647"/>
+        <location filename="../lxqttaskbutton.cpp" line="648"/>
         <source>Maximize vertically</source>
         <translation>Obugulumivu bw&apos;eddirisa bwenkane obw&apos;olutimbe</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="654"/>
+        <location filename="../lxqttaskbutton.cpp" line="655"/>
         <source>Maximize horizontally</source>
         <translation>Obugazi bw&apos;eddirisa bwenkane obw&apos;olutimbe</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="662"/>
+        <location filename="../lxqttaskbutton.cpp" line="663"/>
         <source>&amp;Restore</source>
         <translation>&amp;Komyawo ddirisa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="670"/>
+        <location filename="../lxqttaskbutton.cpp" line="671"/>
         <source>Mi&amp;nimize</source>
         <translation>Eddirisa lizi&amp;ngeko</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="678"/>
+        <location filename="../lxqttaskbutton.cpp" line="679"/>
         <source>Roll down</source>
         <translation>Komyawo akatimbe ku mutwe gw&apos;eddirisa</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="686"/>
+        <location filename="../lxqttaskbutton.cpp" line="687"/>
         <source>Roll up</source>
         <translation>Ddirisa lirabikeko mutwe gwokka</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="695"/>
+        <location filename="../lxqttaskbutton.cpp" line="696"/>
         <source>&amp;Layer</source>
         <translation>&amp;Ensoosawaza</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="700"/>
+        <location filename="../lxqttaskbutton.cpp" line="701"/>
         <source>Always on &amp;top</source>
         <translation>Lis&amp;ookenga ku bwanjo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="705"/>
+        <location filename="../lxqttaskbutton.cpp" line="706"/>
         <source>&amp;Normal</source>
         <translation>&amp;Teriba na nkizo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="710"/>
+        <location filename="../lxqttaskbutton.cpp" line="711"/>
         <source>Always on &amp;bottom</source>
         <translation>Lise&amp;mbenga mabega</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="717"/>
+        <location filename="../lxqttaskbutton.cpp" line="718"/>
         <source>&amp;Close</source>
         <translation>&amp;Gala ddirisa</translation>
     </message>
@@ -120,12 +120,12 @@
 <context>
     <name>LXQtTaskGroup</name>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="84"/>
+        <location filename="../lxqttaskgroup.cpp" line="86"/>
         <source>Group</source>
         <translation>Ttuluba</translation>
     </message>
     <message>
-        <location filename="../lxqttaskgroup.cpp" line="86"/>
+        <location filename="../lxqttaskgroup.cpp" line="88"/>
         <source>Close group</source>
         <translation>Gala ettuluba lyonna</translation>
     </message>
@@ -166,6 +166,17 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
         <source>Close on middle-click</source>
         <translation>Eppeesa ery&apos;okukasongesebwa erya mu makkati lye liggalanga ddirisa</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
+        <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
+        <source>Comma separated list of window classes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
+        <source>Exclude from taskbar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
@@ -278,6 +289,11 @@
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
         <translation>Agali w&apos;okolera kakano gokka</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -37,23 +37,23 @@
         <translation>როცა დააწვებით ამოღების ღილაკს:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="60"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
         <translation>მხტუნარა მენიუ</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="61"/>
+        <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
         <translation>ინფორმაციის ჩვენება</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="62"/>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="67"/>
+        <location filename="../configuration.cpp" line="69"/>
         <source>Do nothing</source>
         <translation>არაფრის კეთება</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="65"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
         <translation>ყველა ოპტიკური დისკის ამოღება</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtMountPlugin</name>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>მოხსნადი მედიის/მოწყობილობების მმართველი: გლობალური მალსახმობის &apos;%1&apos; რეგისტრაცია შეუძლებელია</translation>
     </message>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
         <translation>მოხსნადი მოწყობილობის ამოღება</translation>
     </message>

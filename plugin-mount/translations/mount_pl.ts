@@ -37,23 +37,23 @@
         <translation>Po naciśnięciu przycisku wysuwania:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="60"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
         <translation>Wyskakujące menu</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="61"/>
+        <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
         <translation>Pokaż informacje</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="62"/>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="67"/>
+        <location filename="../configuration.cpp" line="69"/>
         <source>Do nothing</source>
         <translation>Nic nie rób</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="65"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
         <translation>Wysuń wszystkie nośniki optyczne</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtMountPlugin</name>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Menedżer nośników wymiennych: Globalny skrót &apos;% 1&apos; nie może zostać zarejestrowany</translation>
     </message>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
         <translation>Wysuń nośniki wymienne</translation>
     </message>

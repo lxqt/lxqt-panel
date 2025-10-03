@@ -68,7 +68,12 @@
         <translation>სამუშაო მაგიდის სახელები</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished">სამუშაო მაგიდა %1</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
         <source>Desktop %1:</source>
         <translation>სამუშაო მაგიდა %1:</translation>
     </message>
@@ -76,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="343"/>
+        <location filename="../desktopswitch.cpp" line="346"/>
         <source>n/a</source>
         <translation>n/a</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="345"/>
+        <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>სამუშაო მაგიდის გადართვა მხარდაჭერილი არაა მიმდინარე პლატფორმაზე: %1</translation>
     </message>

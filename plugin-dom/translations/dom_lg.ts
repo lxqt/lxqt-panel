@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="lg">
 <context>
+    <name>DomPlugin</name>
+    <message>
+        <location filename="../domplugin.cpp" line="41"/>
+        <source>Panel DOM Tree</source>
+        <translation type="unfinished">Enkwatagana ya DOM ey&apos;ebitundu by&apos;olubaawo</translation>
+    </message>
+</context>
+<context>
     <name>TreeWindow</name>
     <message>
         <location filename="../treewindow.ui" line="14"/>

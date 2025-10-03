@@ -14,34 +14,34 @@
         <translation>顯示/隱藏 主選單</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="467"/>
+        <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
         <translation>加到桌面</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="475"/>
+        <location filename="../lxqtmainmenu.cpp" line="477"/>
         <source>Question</source>
         <translation>問題</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="476"/>
+        <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>已經有同樣名稱的檔案。
 確定要覆蓋它嗎？</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="482"/>
+        <location filename="../lxqtmainmenu.cpp" line="484"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="483"/>
+        <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
         <translation>這個檔案無法被覆蓋。</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="489"/>
+        <location filename="../lxqtmainmenu.cpp" line="491"/>
         <source>Copy</source>
         <translation>複製</translation>
     </message>
@@ -144,22 +144,22 @@ Do you want to overwrite it?</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
         <source>Choose icon file</source>
         <translation>選擇圖示檔案</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Images (*.svg *.png)</source>
         <translation>圖片 (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
         <source>Choose menu file</source>
         <translation>選擇選單文件</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
         <source>Menu files (*.menu)</source>
         <translation>選單檔案 (*.menu)</translation>
     </message>
