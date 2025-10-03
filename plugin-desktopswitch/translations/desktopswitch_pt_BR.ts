@@ -78,7 +78,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="343"/>
         <source>n/a</source>
-        <translation>n/d</translation>
+        <translation>n.a</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="345"/>
