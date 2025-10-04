@@ -83,6 +83,7 @@ private:
     QString mCommand;
     bool mRunWithBash;
     OutputFormat_t mOutputFormat;
+    bool mContinuousOutput;
     bool mRepeat;
     int mRepeatTimer;
     QString mIcon;
