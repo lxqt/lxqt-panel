@@ -48,7 +48,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mAutoRotate(true),
         mRunWithBash(true),
         mOutputFormat(OutputFormat_t::OUTPUT_BEGIN),
-        mParseOnExit(true),
+        mContinuousOutput(false),
         mRepeat(true),
         mRepeatTimer(5),
         mMaxWidth(200)
@@ -109,7 +109,7 @@ void LXQtCustomCommand::settingsChanged()
     QString oldCommand = mCommand;
     bool oldRunWithBash = mRunWithBash;
     LXQtCustomCommandConfiguration::OutputFormat_t oldOutputFormat = mOutputFormat;
-    bool oldParseOnExit = mParseOnExit;
+    bool oldContinuousOutput = mContinuousOutput;
     bool oldRepeat = mRepeat;
     int oldRepeatTimer = mRepeatTimer;
     QString oldIcon = mIcon;
@@ -127,7 +127,7 @@ void LXQtCustomCommand::settingsChanged()
         mOutputFormat = static_cast<LXQtCustomCommandConfiguration::OutputFormat_t>(settings()->value(QStringLiteral("outputFormat")).toInt());
     else
         mOutputFormat = settings()->value(QStringLiteral("outputImage"), false).toBool() ? OutputFormat_t::OUTPUT_ICON : OutputFormat_t::OUTPUT_TEXT;
-    mParseOnExit = settings()->value(QStringLiteral("parseOnExit"), true).toBool();
+    mContinuousOutput = settings()->value(QStringLiteral("continuousOutput"), false).toBool();
     mRepeat = settings()->value(QStringLiteral("repeat"), true).toBool();
     mRepeatTimer = settings()->value(QStringLiteral("repeatTimer"), 5).toInt();
     mRepeatTimer = std::max(1, mRepeatTimer);
@@ -160,7 +160,7 @@ void LXQtCustomCommand::settingsChanged()
     else {
         mButton->setStyleSheet(QString());
     }
-    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputFormat != mOutputFormat || oldParseOnExit != mParseOnExit || oldRepeat != mRepeat)
+    if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputFormat != mOutputFormat || oldContinuousOutput != mContinuousOutput || oldRepeat != mRepeat)
         shouldRun = true;
 
     if (mFirstRun || oldRepeatTimer != mRepeatTimer)
@@ -205,7 +205,7 @@ void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus exitSt
     {
         if (exitStatus != QProcess::NormalExit || exitCode != 0)
             qWarning().nospace() << "customcommand: non-gracefull command finish(" << exitStatus << ',' << exitCode << "): " << mProcess->readAllStandardError();
-        else if (mParseOnExit) {
+        else if (!mContinuousOutput) {
             mOutputByteArray = mProcess->readAllStandardOutput();
             updateButton();
         }
@@ -216,7 +216,7 @@ void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus exitSt
 
 void LXQtCustomCommand::handleOutput()
 {
-    if (mParseOnExit) 
+    if (!mContinuousOutput) 
         return;
 
     bool something_read = false;

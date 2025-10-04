@@ -65,7 +65,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->commandPlainTextEdit, &QPlainTextEdit::textChanged, this, &LXQtCustomCommandConfiguration::commandPlainTextEditChanged);
     connect(ui->runWithBashCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::runWithBashCheckBoxChanged);
     connect(ui->outputFormatComboBox, &QComboBox::currentIndexChanged, this, &LXQtCustomCommandConfiguration::outputFormatComboBoxChanged);
-    connect(ui->parseOnExitCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::parseOnExitCheckBoxChanged);
+    connect(ui->continuousOutputCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::continuousOutputCheckBoxChanged);
     connect(ui->repeatCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::repeatCheckBoxChanged);
     connect(ui->repeatTimerSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::repeatTimerSpinBoxChanged);
     connect(ui->iconLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::iconLineEditChanged);
@@ -99,7 +99,7 @@ void LXQtCustomCommandConfiguration::loadSettings()
         const bool image = settings().value(QStringLiteral("outputImage"), false).toBool();
         ui->outputFormatComboBox->setCurrentIndex(ui->outputFormatComboBox->findData(image ? OUTPUT_ICON : OUTPUT_TEXT));
     }
-    ui->parseOnExitCheckBox->setChecked(settings().value(QStringLiteral("parseOnExit"), true).toBool());
+    ui->continuousOutputCheckBox->setChecked(settings().value(QStringLiteral("continuousOutput"), false).toBool());
     ui->repeatCheckBox->setChecked(settings().value(QStringLiteral("repeat"), true).toBool());
     ui->repeatTimerSpinBox->setEnabled(ui->repeatCheckBox->isChecked());
     ui->repeatTimerSpinBox->setValue(settings().value(QStringLiteral("repeatTimer"), 5).toInt());
@@ -168,10 +168,10 @@ void LXQtCustomCommandConfiguration::outputFormatComboBoxChanged(int index)
     }
 }
 
-void LXQtCustomCommandConfiguration::parseOnExitCheckBoxChanged(bool parseOnExit)
+void LXQtCustomCommandConfiguration::continuousOutputCheckBoxChanged(bool continuousOutput)
 {
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("parseOnExit"), parseOnExit);
+        settings().setValue(QStringLiteral("continuousOutput"), continuousOutput);
 }
 
 void LXQtCustomCommandConfiguration::repeatCheckBoxChanged(bool repeat)

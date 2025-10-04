@@ -295,12 +295,12 @@
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QCheckBox" name="parseOnExitCheckBox">
+         <widget class="QCheckBox" name="continuousOutputCheckBox">
           <property name="text">
-           <string>Parse after the command exits</string>
+           <string>Continuous output (processed line by line)</string>
           </property>
           <property name="checked">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -394,7 +394,7 @@
   <tabstop>textColorResetButton</tabstop>
   <tabstop>commandPlainTextEdit</tabstop>
   <tabstop>runWithBashCheckBox</tabstop>
-  <tabstop>parseOnExitCheckBox</tabstop>
+  <tabstop>continuousOutputCheckBox</tabstop>
   <tabstop>repeatCheckBox</tabstop>
   <tabstop>repeatTimerSpinBox</tabstop>
   <tabstop>outputFormatComboBox</tabstop>
