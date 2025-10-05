@@ -78,6 +78,7 @@ protected slots:
 private:
     Ui::LXQtCustomCommandConfiguration *ui;
     bool mLockSettingChanges;
+    QString mHelpText;
 };
 
 #endif // LXQTCUSTOMCOMMANDCONFIGURATION_H
