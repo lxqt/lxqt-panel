@@ -46,7 +46,7 @@
 #define HELP_STRUC_DESC2 tr("name1:base64value1 name2:base64value2  ...")
 #define HELP_STRUC_DESC3 tr("Handled names are:")
 #define HELP_STRUC_DESC4 tr("string to be used as text of the button")
-#define HELP_STRUC_DESC5 tr("icon to be show in the button, in the same form as in")
+#define HELP_STRUC_DESC5 tr("icon to be shown in the button, in the same form as in")
 #define HELP_STRUC_DESC6 tr("output")
 #define HELP_STRUC_DESC7 tr("string to be used as tooltip of the button")
 #define HELP_STRUC_DESC8 tr("All values should be encoded in base64")
