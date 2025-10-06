@@ -166,7 +166,7 @@ void LXQtCustomCommand::settingsChanged()
     if (mFirstRun || oldRepeatTimer != mRepeatTimer)
         mTimer->setInterval(mRepeatTimer * 1000);
 
-    if (oldIcon != mIcon || (oldOutputFormat != OutputFormat_t::OUTPUT_TEXT && mOutputFormat == OutputFormat_t::OUTPUT_TEXT)) {
+    if (oldIcon != mIcon) {
         mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
@@ -189,6 +189,10 @@ void LXQtCustomCommand::settingsChanged()
             mTerminating = true;
             mProcess->terminate();
         }
+        mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
+        mButton->setText(QString{});
+        mButton->setToolTip(QString{});
+        mButton->updateWidth();
         mDelayedRunTimer->start();
     }
 }
