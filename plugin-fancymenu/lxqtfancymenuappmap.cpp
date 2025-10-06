@@ -32,6 +32,7 @@
 #include <XdgIcon>
 
 #include <QCoreApplication>
+#include <QCollator>
 
 class LXQtFancyMenuAppMapStrings
 {
@@ -325,6 +326,17 @@ void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topL
 
         e = e.nextSiblingElement();
     }
+
+    // Build sorted list of all apps
+    mAppSortedByName = mAppSortedByDesktopFile.values();
+
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+
+    std::sort(mAppSortedByName.begin(), mAppSortedByName.end(),
+              [&](AppItem* a, AppItem* b) {
+                  return collator.compare(a->title, b->title) < 0;
+              });
 }
 
 void LXQtFancyMenuAppMap::parseAppLink(const QDomElement &app, const QString& topLevelCategory)
@@ -341,7 +353,6 @@ void LXQtFancyMenuAppMap::parseAppLink(const QDomElement &app, const QString& to
             return; // Invalid app
 
         mAppSortedByDesktopFile.insert(appItem->desktopFile, appItem);
-        mAppSortedByName.insert(appItem->title, appItem);
     }
 
     // Now add app to category
