@@ -30,6 +30,7 @@
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QFontDialog>
+#include <QFontDatabase>
 #include <QWhatsThis>
 #include <qnamespace.h>
 
@@ -74,6 +75,9 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
 
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
+
+    const QFont monoFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+    ui->commandPlainTextEdit->setFont(monoFont);
 
     mHelpText = QStringLiteral("<html><head/><body><p><span style=\" font-weight:700;\">%1</span> - %2</p>"
     "<p><span style=\" font-weight:700;\">%3</span> - %4<br/>"
