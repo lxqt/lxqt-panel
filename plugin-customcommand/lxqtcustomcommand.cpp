@@ -170,8 +170,11 @@ void LXQtCustomCommand::settingsChanged()
         mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
         updateButton();
     }
-    else if (oldText != mText || oldTooltip != mTooltip)
+    else if (oldText != mText)
         updateButton();
+
+    if (oldTooltip != mTooltip)
+        mButton->setToolTip(mTooltip);
 
     if (mFirstRun || oldMaxWidth != mMaxWidth)
         mButton->setMaxWidth(mMaxWidth);
@@ -191,7 +194,7 @@ void LXQtCustomCommand::settingsChanged()
         }
         mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
         mButton->setText(QString{});
-        mButton->setToolTip(QString{});
+        mButton->setToolTip(mTooltip);
         mButton->updateWidth();
         mDelayedRunTimer->start();
     }
