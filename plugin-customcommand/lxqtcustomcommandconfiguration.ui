@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>535</height>
+    <width>488</width>
+    <height>572</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,17 +22,82 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0" colspan="3">
-         <widget class="QCheckBox" name="autoRotateCheckBox">
+        <item row="2" column="2">
+         <widget class="QPushButton" name="textColorResetButton">
           <property name="text">
-           <string>Autorotate when the panel is vertical</string>
+           <string>Reset</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="fontLabel">
+        <item row="7" column="1" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="outputFormatLabel">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Output format:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="helpToolButton">
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset theme="help-about"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="outputFormatComboBox"/>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <widget class="ColorLabel" name="textColorLabel"/>
+        </item>
+        <item row="3" column="0" rowspan="5">
+         <widget class="QLabel" name="commandLabel">
           <property name="text">
-           <string>Font</string>
+           <string>Command</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1" colspan="2">
+         <widget class="QSpinBox" name="maxWidthSpinBox">
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>10</number>
+          </property>
+          <property name="maximum">
+           <number>9999</number>
+          </property>
+          <property name="singleStep">
+           <number>5</number>
+          </property>
+          <property name="value">
+           <number>200</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1" colspan="2">
+         <widget class="QCheckBox" name="runWithBashCheckBox">
+          <property name="text">
+           <string>Run with &quot;bash -c&quot;</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -53,29 +118,6 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="ColorLabel" name="textColorLabel"/>
-        </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="textColorResetButton">
-          <property name="text">
-           <string>Reset</string>
-          </property>
-          <property name="autoDefault">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0" rowspan="4">
-         <widget class="QLabel" name="commandLabel">
-          <property name="text">
-           <string>Command</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="1" colspan="2">
          <widget class="QPlainTextEdit" name="commandPlainTextEdit">
           <property name="minimumSize">
@@ -93,22 +135,49 @@
           <property name="plainText">
            <string>echo Configure...</string>
           </property>
+          <property name="tabStopDistance">
+           <double>40.000000000000000</double>
+          </property>
           <property name="placeholderText">
            <string>Command to run</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="1" colspan="2">
-         <widget class="QCheckBox" name="runWithBashCheckBox">
+        <item row="11" column="0">
+         <widget class="QLabel" name="maxWidthLabel">
           <property name="text">
-           <string>Run with &quot;bash -c&quot;</string>
+           <string>Max Width</string>
           </property>
-          <property name="checked">
-           <bool>true</bool>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="5" column="1" colspan="2">
+        <item row="0" column="0" colspan="3">
+         <widget class="QCheckBox" name="autoRotateCheckBox">
+          <property name="text">
+           <string>Autorotate when the panel is vertical</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="fontLabel">
+          <property name="text">
+           <string>Font</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="iconLabel">
+          <property name="text">
+           <string>Icon</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1" colspan="2">
          <widget class="QFrame" name="frame">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -123,10 +192,10 @@
            </size>
           </property>
           <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+           <enum>QFrame::Shape::NoFrame</enum>
           </property>
           <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+           <enum>QFrame::Shadow::Raised</enum>
           </property>
           <property name="lineWidth">
            <number>0</number>
@@ -188,62 +257,7 @@
           </layout>
          </widget>
         </item>
-        <item row="6" column="1" colspan="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="outputFormatLabel">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Text only&lt;/span&gt; - command outputs plain text to be used as text of the button&lt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Icon only&lt;/span&gt; - command outputs icon in form of:&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;theme name&lt;/span&gt; - name of icon resolved to image based on XDG spec&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;image file path&lt;/span&gt; - path to file with image to show&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;image data stream&lt;/span&gt; - plain image stream&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;base64 encoded image data stream&lt;/span&gt; - as above but base64 encoded&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Stuctured&lt;/span&gt; - command outputs structured variables to be used for button visualization in form &amp;quot;&lt;span style=&quot; text-decoration: underline;&quot;&gt;name1:base64value1 name2:base64value2 ...&lt;/span&gt;&amp;quot;. Handled names are:&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;text&lt;/span&gt; - string to be used as text of the button&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;icon&lt;/span&gt; - icon to be show in the button, in the same form as in &lt;span style=&quot; font-weight:700;&quot;&gt;Icon only&lt;/span&gt; output&lt;br/&gt;&amp;nbsp;&amp;nbsp;- &lt;span style=&quot; font-style:italic;&quot;&gt;tooltip&lt;/span&gt; - string to be used as tooltip of the button&lt;br/&gt;Example of script generating structured output:&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;echo &amp;quot;text:$(echo -n &amp;quot;My text&amp;quot; | base64 --wrap=0) icon:$(base64 --wrap=0 my_image.svg) tooltip:$(echo -n &amp;quot;This is my pretty tooltip&amp;quot; | base64 --wrap=0)&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string>Output format:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="outputFormatComboBox">
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="iconLabel">
-          <property name="text">
-           <string>Icon</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLineEdit" name="iconLineEdit">
-          <property name="placeholderText">
-           <string>Use icon from theme or browse file</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="2">
-         <widget class="QPushButton" name="iconBrowseButton">
-          <property name="text">
-           <string>Browse</string>
-          </property>
-          <property name="autoDefault">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="textLabel">
-          <property name="text">
-           <string>Text</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="1" colspan="2">
+        <item row="9" column="1" colspan="2">
          <widget class="QLineEdit" name="textLineEdit">
           <property name="text">
            <string>%1</string>
@@ -253,42 +267,50 @@
           </property>
          </widget>
         </item>
-        <item row="9" column="0">
+        <item row="10" column="0">
          <widget class="QLabel" name="tooltipLabel">
           <property name="text">
            <string>Tooltip</string>
           </property>
          </widget>
         </item>
-        <item row="9" column="1" colspan="2">
-         <widget class="QLineEdit" name="tooltipLineEdit"/>
-        </item>
-        <item row="10" column="0">
-         <widget class="QLabel" name="maxWidthLabel">
+        <item row="9" column="0">
+         <widget class="QLabel" name="textLabel">
           <property name="text">
-           <string>Max Width</string>
+           <string>Text</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
         <item row="10" column="1" colspan="2">
-         <widget class="QSpinBox" name="maxWidthSpinBox">
-          <property name="suffix">
-           <string> px</string>
+         <widget class="QLineEdit" name="tooltipLineEdit"/>
+        </item>
+        <item row="8" column="2">
+         <widget class="QPushButton" name="iconBrowseButton">
+          <property name="text">
+           <string>Browse</string>
           </property>
-          <property name="minimum">
-           <number>10</number>
+          <property name="autoDefault">
+           <bool>false</bool>
           </property>
-          <property name="maximum">
-           <number>9999</number>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="iconLineEdit">
+          <property name="placeholderText">
+           <string>Use icon from theme or browse file</string>
           </property>
-          <property name="singleStep">
-           <number>5</number>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QCheckBox" name="continuousOutputCheckBox">
+          <property name="text">
+           <string>Continuous output (processed line by line)</string>
           </property>
-          <property name="value">
-           <number>200</number>
+          <property name="checked">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -309,7 +331,7 @@
          <string>Click</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -326,7 +348,7 @@
          <string>Wheel Up</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -343,7 +365,7 @@
          <string>Wheel Down</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -360,10 +382,10 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Close|QDialogButtonBox::Reset</set>
+      <set>QDialogButtonBox::StandardButton::Close|QDialogButtonBox::StandardButton::Reset</set>
      </property>
     </widget>
    </item>
@@ -376,6 +398,25 @@
    <header>colorLabel.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>autoRotateCheckBox</tabstop>
+  <tabstop>fontButton</tabstop>
+  <tabstop>textColorResetButton</tabstop>
+  <tabstop>commandPlainTextEdit</tabstop>
+  <tabstop>runWithBashCheckBox</tabstop>
+  <tabstop>continuousOutputCheckBox</tabstop>
+  <tabstop>repeatCheckBox</tabstop>
+  <tabstop>repeatTimerSpinBox</tabstop>
+  <tabstop>outputFormatComboBox</tabstop>
+  <tabstop>iconLineEdit</tabstop>
+  <tabstop>iconBrowseButton</tabstop>
+  <tabstop>textLineEdit</tabstop>
+  <tabstop>tooltipLineEdit</tabstop>
+  <tabstop>maxWidthSpinBox</tabstop>
+  <tabstop>clickLineEdit</tabstop>
+  <tabstop>wheelUpLineEdit</tabstop>
+  <tabstop>wheelDownLineEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

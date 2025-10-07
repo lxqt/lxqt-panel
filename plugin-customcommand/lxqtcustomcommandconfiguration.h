@@ -60,6 +60,7 @@ private slots:
     void commandPlainTextEditChanged();
     void runWithBashCheckBoxChanged(bool runWithBash);
     void outputFormatComboBoxChanged(int index);
+    void continuousOutputCheckBoxChanged(bool continuousOutput);
     void repeatCheckBoxChanged(bool repeat);
     void repeatTimerSpinBoxChanged();
     void iconLineEditChanged();
@@ -77,6 +78,7 @@ protected slots:
 private:
     Ui::LXQtCustomCommandConfiguration *ui;
     bool mLockSettingChanges;
+    QString mHelpText;
 };
 
 #endif // LXQTCUSTOMCOMMANDCONFIGURATION_H
