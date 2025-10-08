@@ -88,10 +88,10 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     "%15<br/>"
     "- <span style=\" font-style:italic;\">text</span> - %16<br/>"
     "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span><br/>"
-    "- <span style=\" font-style:italic;\">tooltip</span> - %19<br/>"
-    "<span style=\" text-decoration: underline;\">%20</span><br/><br/>"
-    "%21<br/>"
-    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%22\" | base64 --wrap=0) icon:$(base64 --wrap=0 %23.svg) tooltip:$(echo -n \"%24\" | base64 --wrap=0)\"</span></p></body></html>")
+    "- <span style=\" font-style:italic;\">tooltip</span> - %18<br/>"
+    "<span style=\" text-decoration: underline;\">%19</span><br/><br/>"
+    "%20<br/>"
+    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%21\" | base64 --wrap=0) icon:$(base64 --wrap=0 %22.svg) tooltip:$(echo -n \"%23\" | base64 --wrap=0)\"</span></p></body></html>")
     .arg(msOutputFormatStrings[OUTPUT_TEXT],
         HELP_TEXT_DESC,
         msOutputFormatStrings[OUTPUT_ICON],
