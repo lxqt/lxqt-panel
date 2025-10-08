@@ -48,10 +48,9 @@
 #define HELP_STRUC_DESC3 LXQtCustomCommandConfiguration::tr("Handled names are:")
 #define HELP_STRUC_DESC4 LXQtCustomCommandConfiguration::tr("string to be used as text of the button")
 #define HELP_STRUC_DESC5 LXQtCustomCommandConfiguration::tr("icon to be shown in the button, in the same form as in")
-#define HELP_STRUC_DESC6 LXQtCustomCommandConfiguration::tr("output")
-#define HELP_STRUC_DESC7 LXQtCustomCommandConfiguration::tr("string to be used as tooltip of the button")
-#define HELP_STRUC_DESC8 LXQtCustomCommandConfiguration::tr("All values should be encoded in base64")
-#define HELP_STRUC_DESC9 LXQtCustomCommandConfiguration::tr("Example of script generating structured output:")
+#define HELP_STRUC_DESC6 LXQtCustomCommandConfiguration::tr("string to be used as tooltip of the button")
+#define HELP_STRUC_DESC7 LXQtCustomCommandConfiguration::tr("All values should be encoded in base64")
+#define HELP_STRUC_DESC8 LXQtCustomCommandConfiguration::tr("Example of script generating structured output:")
 #define HELP_STRUC_EXAMPLE1 LXQtCustomCommandConfiguration::tr("My Text")
 #define HELP_STRUC_EXAMPLE2 LXQtCustomCommandConfiguration::tr("my_image")
 #define HELP_STRUC_EXAMPLE3 LXQtCustomCommandConfiguration::tr("My Tooltip")
@@ -88,7 +87,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     "<p><span style=\" font-weight:700;\">%12</span> - %13 \"<span style=\" text-decoration: underline;\">%14</span>\".<br/>"
     "%15<br/>"
     "- <span style=\" font-style:italic;\">text</span> - %16<br/>"
-    "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span> %18<br/>"
+    "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span>.<br/>"
     "- <span style=\" font-style:italic;\">tooltip</span> - %19<br/>"
     "<span style=\" text-decoration: underline;\">%20</span><br/><br/>"
     "%21<br/>"
@@ -113,7 +112,6 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
         HELP_STRUC_DESC6,
         HELP_STRUC_DESC7,
         HELP_STRUC_DESC8,
-        HELP_STRUC_DESC9,
         HELP_STRUC_EXAMPLE1,
         HELP_STRUC_EXAMPLE2,
         HELP_STRUC_EXAMPLE3
