@@ -34,27 +34,26 @@
 #include <QWhatsThis>
 #include <qnamespace.h>
 
-#define HELP_TEXT_DESC tr("command outputs plain text to be used as text of the button")
-#define HELP_ICON_DESC1 tr("command outputs icon in form of:")
-#define HELP_ICON_DESC2 tr("theme name")
-#define HELP_ICON_DESC3 tr("name of icon resolved to image based on XDG spec")
-#define HELP_ICON_DESC4 tr("image file path")
-#define HELP_ICON_DESC5 tr("image data stream")
-#define HELP_ICON_DESC6 tr("plain image stream")
-#define HELP_ICON_DESC7 tr("base64 encoded image data stream")
-#define HELP_ICON_DESC8 tr("as above but base64 encoded")
-#define HELP_STRUC_DESC1 tr("command outputs structured variables to be used for button visualization in form")
-#define HELP_STRUC_DESC2 tr("name1:base64value1 name2:base64value2  ...")
-#define HELP_STRUC_DESC3 tr("Handled names are:")
-#define HELP_STRUC_DESC4 tr("string to be used as text of the button")
-#define HELP_STRUC_DESC5 tr("icon to be shown in the button, in the same form as in")
-#define HELP_STRUC_DESC6 tr("output")
-#define HELP_STRUC_DESC7 tr("string to be used as tooltip of the button")
-#define HELP_STRUC_DESC8 tr("All values should be encoded in base64")
-#define HELP_STRUC_DESC9 tr("Example of script generating structured output:")
-#define HELP_STRUC_EXAMPLE1 tr("My Text")
-#define HELP_STRUC_EXAMPLE2 tr("my_image")
-#define HELP_STRUC_EXAMPLE3 tr("My Tooltip")
+#define HELP_TEXT_DESC LXQtCustomCommandConfiguration::tr("command outputs plain text to be used as text of the button")
+#define HELP_ICON_DESC1 LXQtCustomCommandConfiguration::tr("command outputs icon in form of:")
+#define HELP_ICON_DESC2 LXQtCustomCommandConfiguration::tr("theme name")
+#define HELP_ICON_DESC3 LXQtCustomCommandConfiguration::tr("name of icon resolved to image based on XDG spec")
+#define HELP_ICON_DESC4 LXQtCustomCommandConfiguration::tr("image file path")
+#define HELP_ICON_DESC5 LXQtCustomCommandConfiguration::tr("image data stream")
+#define HELP_ICON_DESC6 LXQtCustomCommandConfiguration::tr("plain image stream")
+#define HELP_ICON_DESC7 LXQtCustomCommandConfiguration::tr("base64 encoded image data stream")
+#define HELP_ICON_DESC8 LXQtCustomCommandConfiguration::tr("as above but base64 encoded")
+#define HELP_STRUC_DESC1 LXQtCustomCommandConfiguration::tr("command outputs structured variables to be used for button visualization in form of:")
+#define HELP_STRUC_DESC2 LXQtCustomCommandConfiguration::tr("name1:base64value1 name2:base64value2  ...")
+#define HELP_STRUC_DESC3 LXQtCustomCommandConfiguration::tr("Handled names are:")
+#define HELP_STRUC_DESC4 LXQtCustomCommandConfiguration::tr("string to be used as text of the button")
+#define HELP_STRUC_DESC5 LXQtCustomCommandConfiguration::tr("icon to be shown in the button, in the same form as explained before")
+#define HELP_STRUC_DESC6 LXQtCustomCommandConfiguration::tr("string to be used as tooltip of the button")
+#define HELP_STRUC_DESC7 LXQtCustomCommandConfiguration::tr("All values should be encoded in base64")
+#define HELP_STRUC_DESC8 LXQtCustomCommandConfiguration::tr("Example of script generating structured output:")
+#define HELP_STRUC_EXAMPLE1 LXQtCustomCommandConfiguration::tr("My Text")
+#define HELP_STRUC_EXAMPLE2 LXQtCustomCommandConfiguration::tr("my_image")
+#define HELP_STRUC_EXAMPLE3 LXQtCustomCommandConfiguration::tr("My Tooltip")
 
 
 
@@ -75,7 +74,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
 
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
-
+    
     const QFont monoFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
     ui->commandPlainTextEdit->setFont(monoFont);
 
@@ -88,11 +87,11 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     "<p><span style=\" font-weight:700;\">%12</span> - %13 \"<span style=\" text-decoration: underline;\">%14</span>\".<br/>"
     "%15<br/>"
     "- <span style=\" font-style:italic;\">text</span> - %16<br/>"
-    "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span> %18<br/>"
-    "- <span style=\" font-style:italic;\">tooltip</span> - %19<br/>"
-    "<span style=\" text-decoration: underline;\">%20</span><br/><br/>"
-    "%21<br/>"
-    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%22\" | base64 --wrap=0) icon:$(base64 --wrap=0 %23.svg) tooltip:$(echo -n \"%24\" | base64 --wrap=0)\"</span></p></body></html>")
+    "- <span style=\" font-style:italic;\">icon</span> - %17<br/>"
+    "- <span style=\" font-style:italic;\">tooltip</span> - %18<br/>"
+    "<span style=\" text-decoration: underline;\">%19</span><br/><br/>"
+    "%20<br/>"
+    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%21\" | base64 --wrap=0) icon:$(base64 --wrap=0 %22.svg) tooltip:$(echo -n \"%23\" | base64 --wrap=0)\"</span></p></body></html>")
     .arg(msOutputFormatStrings[OUTPUT_TEXT],
         HELP_TEXT_DESC,
         msOutputFormatStrings[OUTPUT_ICON],
@@ -113,7 +112,6 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
         HELP_STRUC_DESC6,
         HELP_STRUC_DESC7,
         HELP_STRUC_DESC8,
-        HELP_STRUC_DESC9,
         HELP_STRUC_EXAMPLE1,
         HELP_STRUC_EXAMPLE2,
         HELP_STRUC_EXAMPLE3
