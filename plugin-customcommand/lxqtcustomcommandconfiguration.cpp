@@ -87,7 +87,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     "<p><span style=\" font-weight:700;\">%12</span> - %13 \"<span style=\" text-decoration: underline;\">%14</span>\".<br/>"
     "%15<br/>"
     "- <span style=\" font-style:italic;\">text</span> - %16<br/>"
-    "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span>.<br/>"
+    "- <span style=\" font-style:italic;\">icon</span> - %17 <span style=\" font-weight:700;\">%3</span><br/>"
     "- <span style=\" font-style:italic;\">tooltip</span> - %19<br/>"
     "<span style=\" text-decoration: underline;\">%20</span><br/><br/>"
     "%21<br/>"
