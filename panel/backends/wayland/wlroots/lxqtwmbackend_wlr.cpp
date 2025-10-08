@@ -1,5 +1,6 @@
 #include "lxqttaskbarwlrwm.h"
 #include "lxqtwmbackend_wlr.h"
+#include "workspace.hpp"
 
 #include <QIcon>
 #include <QDateTime>
@@ -24,8 +25,17 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     ILXQtAbstractWMInterface(parent)
 {
     m_managment.reset(new LXQtTaskbarWlrootsWindowManagment);
+    m_wsmgr.reset(new LXQt::Taskbar::WorkspaceManagerV1);
 
     connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this, &LXQtTaskbarWlrootsBackend::addWindow);
+
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceAdded, this, &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
+
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] ()
+    {
+        qDebug() << "Current workspace changed" << m_wsmgr->currentWorkspaceIndex();
+        emit currentWorkspaceChanged(m_wsmgr->currentWorkspaceIndex(), QString());
+    });
 }
 
 bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction action) const
@@ -39,6 +49,9 @@ bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction act
         return true;
 
     case LXQtTaskBarBackendAction::FullScreen:
+        return true;
+
+    case LXQtTaskBarBackendAction::DesktopSwitch:
         return true;
 
     default:
@@ -240,22 +253,26 @@ WId LXQtTaskbarWlrootsBackend::getActiveWindow() const
 
 int LXQtTaskbarWlrootsBackend::getWorkspacesCount() const
 {
-    return 1;
+    return m_wsmgr->workspaceCount();
 }
 
 QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const
 {
-    return QStringLiteral("Desktop 1");
+    return QString();
 }
 
 int LXQtTaskbarWlrootsBackend::getCurrentWorkspace() const
 {
-    return 1;
+    return m_wsmgr->currentWorkspaceIndex();
 }
 
-bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int)
+bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx)
 {
-    return false;
+    m_wsmgr->setCurrentWorkspaceIndex(idx);
+    m_wsmgr->commit();
+
+    /** Currently we always assume that this is true */
+    return true;
 }
 
 int LXQtTaskbarWlrootsBackend::getWindowWorkspace(WId) const
