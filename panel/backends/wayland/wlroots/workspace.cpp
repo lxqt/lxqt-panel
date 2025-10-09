@@ -81,8 +81,9 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace(
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::deactivated, this,
         &WorkspaceManagerV1::currentWorkspaceChanged);
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::removed, this, [this, workspace_] {
-        emit workspaceRemoved(workspaceMap[workspace_]);
+        auto w = workspaceMap.value(workspace_);
         workspaceMap.remove(workspace_);
+        emit workspaceRemoved(w);
     });
 }
 
@@ -280,10 +281,5 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_capabilities(uint
 
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_removed()
 {
-    if (workspaceMap.contains(object()))
-    {
-        workspaceMap.remove(object());
-    }
-
     emit removed();
 }

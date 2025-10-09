@@ -30,7 +30,7 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
     connect(m_managment.get(), &LXQtTaskbarWlrootsWindowManagment::windowCreated, this, &LXQtTaskbarWlrootsBackend::addWindow);
 
     connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceAdded, this, &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
-
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceRemoved, this, &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
     connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] ()
     {
         qDebug() << "Current workspace changed" << m_wsmgr->currentWorkspaceIndex();
