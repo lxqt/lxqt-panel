@@ -277,7 +277,8 @@ bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx)
 
 int LXQtTaskbarWlrootsBackend::getWindowWorkspace(WId) const
 {
-    return 1;
+    // Until this works, get the current workspace to not affect the taskbar
+    return getCurrentWorkspace();
 }
 
 bool LXQtTaskbarWlrootsBackend::setWindowOnWorkspace(WId, int)
