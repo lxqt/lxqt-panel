@@ -132,8 +132,6 @@ class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_w
     uint32_t state() const;
     uint32_t capabilities() const;
 
-    int index() const;
-
     Q_SIGNAL void idChanged(const QString& id);
     Q_SIGNAL void nameChanged(const QString& name);
     Q_SIGNAL void coordinatesChanged(QList<int> coordinates);

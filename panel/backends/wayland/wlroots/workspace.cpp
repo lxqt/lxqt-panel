@@ -38,11 +38,21 @@ int LXQt::Taskbar::WorkspaceManagerV1::workspaceCount(QScreen*)
 
 int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
 {
-    for ( WorkspaceHandleV1 *ws : workspaceMap.values())
+    QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
+    for (WorkspaceHandleV1 *ws : workspaceMap.values())
     {
-        if (ws->state() & WorkspaceHandleV1::state_active)
+        map[ws->coordinates()] = ws;
+    }
+    if (!map.isEmpty())
+    {
+        int index = 0;
+        for (WorkspaceHandleV1 *ws : std::as_const(map))
         {
-            return ws->index();
+            ++index;
+            if (ws->state() & WorkspaceHandleV1::state_active)
+            {
+                return index;
+            }
         }
     }
 
@@ -51,12 +61,24 @@ int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
 
 void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx)
 {
-    for ( WorkspaceHandleV1 *ws : workspaceMap.values())
+    if (idx <= 0) return;
+    QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
+    for (WorkspaceHandleV1 *ws : workspaceMap.values())
     {
-        if (ws->index() == idx)
+        map[ws->coordinates()] = ws;
+    }
+    if (idx <= map.size())
+    {
+        int index = 0;
+        for (WorkspaceHandleV1 *ws : std::as_const(map))
         {
-            qDebug() << ws->name() << "Activating";
-            ws->activate();
+            ++index;
+            if (index == idx)
+            {
+                qDebug() << ws->name() << "Activating";
+                ws->activate();
+                return;
+            }
         }
     }
 }
@@ -211,11 +233,6 @@ uint32_t LXQt::Taskbar::WorkspaceHandleV1::state() const
 uint32_t LXQt::Taskbar::WorkspaceHandleV1::capabilities() const
 {
     return m_capabilities;
-}
-
-int LXQt::Taskbar::WorkspaceHandleV1::index() const
-{
-    return m_coordinates[0];
 }
 
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_id(const QString& id_)
