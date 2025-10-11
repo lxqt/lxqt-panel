@@ -62,32 +62,32 @@
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
         <translation>인터페이스</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
         <source>Modem</source>
         <translation>모뎀</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
         <translation>모니터</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Network</source>
         <translation>네트워크</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
         <translation>무선</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
         <translation>아이콘</translation>
     </message>

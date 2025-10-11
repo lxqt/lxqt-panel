@@ -12,12 +12,12 @@
 <context>
     <name>LXQtFancyMenuAppMapStrings</name>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
         <translation>喜爱</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
         <translation>全部应用</translation>
     </message>

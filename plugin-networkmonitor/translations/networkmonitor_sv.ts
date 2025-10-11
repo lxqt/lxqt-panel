@@ -62,32 +62,32 @@
         <translation>Allmänt</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
         <translation>Gränssnitt</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
         <source>Modem</source>
         <translation>Modem</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
         <translation>Bildskärm</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Network</source>
         <translation>Nätverk</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
         <translation>Trådlös</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>

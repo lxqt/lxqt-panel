@@ -68,7 +68,12 @@
         <translation>Názov plochy</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="78"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished">Plocha %1</translation>
+    </message>
+    <message>
+        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
         <source>Desktop %1:</source>
         <translation>Plocha %1:</translation>
     </message>
@@ -76,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="343"/>
+        <location filename="../desktopswitch.cpp" line="346"/>
         <source>n/a</source>
         <translation>n/a</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="345"/>
+        <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch nie je podporovaný na aktuálnej platforme: %1</translation>
     </message>

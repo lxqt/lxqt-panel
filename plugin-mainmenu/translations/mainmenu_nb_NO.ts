@@ -14,34 +14,34 @@
         <translation>Vis eller skjul hovedmeny</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="467"/>
+        <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
         <translation>Legg til på skrivebordet</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="475"/>
+        <location filename="../lxqtmainmenu.cpp" line="477"/>
         <source>Question</source>
         <translation>Spørsmål</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="476"/>
+        <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>En fil ved samme navn finnes allerede.
 Ønsker du å overskrive den?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="482"/>
+        <location filename="../lxqtmainmenu.cpp" line="484"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="483"/>
+        <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
         <translation>Filen kan ikke overskrives.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="489"/>
+        <location filename="../lxqtmainmenu.cpp" line="491"/>
         <source>Copy</source>
         <translation>Kopier</translation>
     </message>
@@ -144,22 +144,22 @@ Do you want to overwrite it?</source>
         <translation>Nullstill</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
         <source>Choose icon file</source>
         <translation>Velg ikonfil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Images (*.svg *.png)</source>
         <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
         <source>Choose menu file</source>
         <translation>Velg menyfil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
         <source>Menu files (*.menu)</source>
         <translation>Menyfiler (*.menu)</translation>
     </message>

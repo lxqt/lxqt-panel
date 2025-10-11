@@ -22,27 +22,27 @@
         <translation>Загальне</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
         <source>Show text</source>
         <translation>Показувати текст</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
         <translation>Період поновлення:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
         <translation>сек</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
         <translation>Орієнтація панелі:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
         <translation>Ширина панелі:</translation>
     </message>

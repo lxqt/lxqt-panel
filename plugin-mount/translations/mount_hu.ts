@@ -37,23 +37,23 @@
         <translation>A kiadás gomb megnyomásakor:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="60"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
         <translation>Felugró menü</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="61"/>
+        <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
         <translation>Információ megjelenítése</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="62"/>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="67"/>
+        <location filename="../configuration.cpp" line="69"/>
         <source>Do nothing</source>
         <translation>Ne tegyen semmit</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="65"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
         <translation>Összes optikai meghajtó kiadása</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtMountPlugin</name>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Cserélhetőeszköz-kezelő: A &apos;%1&apos; globális gyorsbillentyű nem regisztrálható</translation>
     </message>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
         <translation>Eltávolítható adathordozó kiadása</translation>
     </message>

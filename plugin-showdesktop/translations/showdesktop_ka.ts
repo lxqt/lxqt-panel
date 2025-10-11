@@ -4,17 +4,17 @@
 <context>
     <name>ShowDesktop</name>
     <message>
-        <location filename="../showdesktop.cpp" line="44"/>
+        <location filename="../showdesktop.cpp" line="46"/>
         <source>Show desktop</source>
         <translation>სამუშაო მაგიდის ჩვენება</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="66"/>
+        <location filename="../showdesktop.cpp" line="91"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>სამუშაო მაგიდის ჩვენება: გლობალური მალსახმობის &apos;%1&apos; რეგისტრაცია შეუძლებელია</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="51"/>
+        <location filename="../showdesktop.cpp" line="53"/>
         <source>Show Desktop</source>
         <translation>სამუშაო მაგიდის ჩვენება</translation>
     </message>

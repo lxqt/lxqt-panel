@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negativna vrijednost piksela postavlja duljinu ploče na toliki broj piksela minus dostupnog prostora na ekranu.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Npr. „Duljina” postavljena na −100 px, s veličinom ekrana od 1000 px, tada će stvarna duljina ploče biti 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Negativna vrijednost piksela postavlja duljinu ploče na toliki broj piksela minus dostupnog prostora na ekranu.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Npr. „Duljina” postavljena na −100&#xa0;px, s veličinom ekrana od 1000&#xa0;px, tada će stvarna duljina ploče biti 900&#xa0;px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
