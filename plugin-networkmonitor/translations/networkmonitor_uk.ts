@@ -62,32 +62,32 @@
         <translation>Загальне</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
         <translation>Адаптер</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
         <source>Modem</source>
         <translation>Модем</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
         <translation>Монітор</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Network</source>
         <translation>Мережевий</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
         <translation>Бездротовий</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
         <translation>Піктограма</translation>
     </message>

@@ -22,27 +22,27 @@
         <translation>Ogólne</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
         <source>Show text</source>
         <translation>Pokaż tekst</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
         <translation>Odświeżanie widoku:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
         <translation>sek</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
         <translation>Położenie paska stanu:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
         <translation>Szerokość paska:</translation>
     </message>

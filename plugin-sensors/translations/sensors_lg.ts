@@ -19,32 +19,32 @@
         <translation>Bwangu bw&apos;okukebera obubaka (sikonda)</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="49"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
         <translation>Bugazi bw&apos;enkumbo za buli kikebedwa</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="104"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
         <source>Temperature scale</source>
         <translation>Ebipimo by&apos;ebbugumu</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="116"/>
         <source>Celsius</source>
         <translation>°C</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="120"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="126"/>
         <source>Fahrenheit</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="132"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
         <translation>Okulabula akatundu katandika okutemya</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="138"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
         <source>Warning about high temperature</source>
         <translation>Ebbugumu bwe liyitirira wabewo okulabula</translation>
     </message>
@@ -54,7 +54,7 @@
         <translation>Ebirabiriza</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.ui" line="168"/>
+        <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
         <translation>Ebirabiriza ebizuulidwa ku sisitemu:</translation>
     </message>

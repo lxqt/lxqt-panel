@@ -14,34 +14,34 @@
         <translation>Näita või peida põhimenüüd</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="467"/>
+        <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
         <translation>Lisa töölauale</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="475"/>
+        <location filename="../lxqtmainmenu.cpp" line="477"/>
         <source>Question</source>
         <translation>Küsimus</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="476"/>
+        <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Sellise nimega fail on juba olemas.
 Kas sa soovid seda üle kirjutada?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="482"/>
+        <location filename="../lxqtmainmenu.cpp" line="484"/>
         <source>Warning</source>
         <translation>Hoiatus</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="483"/>
+        <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
         <translation>Faili ülekirjutamine ei õnnestu.</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="489"/>
+        <location filename="../lxqtmainmenu.cpp" line="491"/>
         <source>Copy</source>
         <translation>Kopeeri</translation>
     </message>
@@ -144,22 +144,22 @@ Kas sa soovid seda üle kirjutada?</translation>
         <translation>Lähtesta</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
         <source>Choose icon file</source>
         <translation>Vali ikooni fail</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Images (*.svg *.png)</source>
         <translation>Pildid (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
         <source>Choose menu file</source>
         <translation>Vali põhimenüü fail</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
         <source>Menu files (*.menu)</source>
         <translation>Menüüfailid (*.menu)</translation>
     </message>

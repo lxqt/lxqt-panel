@@ -4,7 +4,7 @@
 <context>
     <name>LXQtFancyMenu</name>
     <message>
-        <location filename="../lxqtfancymenu.cpp" line="93"/>
+        <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
         <translation>Laga/kisa menyu eya bulijjo</translation>
     </message>
@@ -12,12 +12,12 @@
 <context>
     <name>LXQtFancyMenuAppMapStrings</name>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="49"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
         <translation>By&apos;ojjumbira</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuappmap.cpp" line="56"/>
+        <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
         <translation>Puloguramu zonna</translation>
     </message>
@@ -35,77 +35,77 @@
         <translation>Eby&apos;awamu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="35"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
         <translation>Kafaananyi:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="59"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
         <translation>Ebigambo ebya ku ppeesa:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="76"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
         <translation>Obunene bw&apos;ennukuta:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="86"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
         <source> pt</source>
         <translation> pt</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="99"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
         <translation>Sisitemu eronde kino bwe wayitawo ebbanga lya:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="109"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
         <translation> ms</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="134"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
         <source>Menu file</source>
         <translation>Fayiro omuva menyu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="140"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
         <translation>Fayiro omuva menyu:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="156"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
         <translation>mapeesa agagonza emirimu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="175"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
         <translation>Nyiga ku mapeesa aganaagonzanga emirimu:</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="185"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
         <source>Search</source>
         <translation>Noonya</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="191"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="182"/>
         <source>Clear search upon showing menu</source>
         <translation>Menyu olulabika olukalala lw&apos;ebizuulidwa luveewo</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
         <translation>Entegeka</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="210"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
         <translation>Amapeesa wegaba galabikira</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.ui" line="217"/>
+        <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
         <translation>Ebiti webirabikira</translation>
     </message>
@@ -225,12 +225,12 @@ Oyagala okugigyawo ozewo eno?</translation>
         <translation>Gyongere ku by&apos;ojjumbira</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="716"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
         <translation>Tewali puloguramu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
+        <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
         <translation>Puloguramu &lt;b&gt;%1&lt;/b&gt; embuze.</translation>
     </message>

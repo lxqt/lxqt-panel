@@ -37,23 +37,23 @@
         <translation>Quando o botão de ejeção é pressionado:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="60"/>
+        <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
         <translation>Menu popup</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="61"/>
+        <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
         <translation>Exibir informações</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="62"/>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="67"/>
+        <location filename="../configuration.cpp" line="69"/>
         <source>Do nothing</source>
         <translation>Não fazer nada</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="65"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
         <translation>Ejetar Todas as Unidades Ópticas</translation>
     </message>
@@ -92,12 +92,12 @@
 <context>
     <name>LXQtMountPlugin</name>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="79"/>
+        <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Gerenciador de mídias/dispositivos removíveis: O atalho global &apos;%1&apos; não pode ser registrado</translation>
     </message>
     <message>
-        <location filename="../lxqtmountplugin.cpp" line="116"/>
+        <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
         <translation>Ejetar mídia removível</translation>
     </message>

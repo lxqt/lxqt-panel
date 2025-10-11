@@ -12,107 +12,107 @@
 <context>
     <name>LXQtTaskButton</name>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="546"/>
+        <location filename="../lxqttaskbutton.cpp" line="547"/>
         <source>Application</source>
         <translation>Aplikasi</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="580"/>
+        <location filename="../lxqttaskbutton.cpp" line="581"/>
         <source>To &amp;Desktop</source>
         <translation>Untuk &amp;Desktop</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="583"/>
+        <location filename="../lxqttaskbutton.cpp" line="584"/>
         <source>&amp;All Desktops</source>
         <translation>Semua Desktop</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="593"/>
+        <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Desktop &amp;%1</source>
         <translation>Desktop &amp;%1</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="603"/>
+        <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>&amp;To Current Desktop</source>
         <translation>Untuk Desktop Saat Ini</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="612"/>
+        <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To N&amp;ext Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="618"/>
+        <location filename="../lxqttaskbutton.cpp" line="619"/>
         <source>Move To &amp;Previous Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="624"/>
+        <location filename="../lxqttaskbutton.cpp" line="625"/>
         <source>&amp;Move</source>
         <translation>&amp;Pindah</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="629"/>
+        <location filename="../lxqttaskbutton.cpp" line="630"/>
         <source>Resi&amp;ze</source>
         <translation>Ubah ukuran</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="638"/>
+        <location filename="../lxqttaskbutton.cpp" line="639"/>
         <source>Ma&amp;ximize</source>
         <translation>Maksimalkan</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="647"/>
+        <location filename="../lxqttaskbutton.cpp" line="648"/>
         <source>Maximize vertically</source>
         <translation>Maksimalkan secara vertikal</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="654"/>
+        <location filename="../lxqttaskbutton.cpp" line="655"/>
         <source>Maximize horizontally</source>
         <translation>Maksimalkan secara horizontal</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="662"/>
+        <location filename="../lxqttaskbutton.cpp" line="663"/>
         <source>&amp;Restore</source>
         <translation>Pulihkan</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="670"/>
+        <location filename="../lxqttaskbutton.cpp" line="671"/>
         <source>Mi&amp;nimize</source>
         <translation>Minimalkan</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="678"/>
+        <location filename="../lxqttaskbutton.cpp" line="679"/>
         <source>Roll down</source>
         <translation>Gulung kebawah</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="686"/>
+        <location filename="../lxqttaskbutton.cpp" line="687"/>
         <source>Roll up</source>
         <translation>Gulung keatas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="695"/>
+        <location filename="../lxqttaskbutton.cpp" line="696"/>
         <source>&amp;Layer</source>
         <translation>Lapisan</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="700"/>
+        <location filename="../lxqttaskbutton.cpp" line="701"/>
         <source>Always on &amp;top</source>
         <translation>Selalu diatas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="705"/>
+        <location filename="../lxqttaskbutton.cpp" line="706"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="710"/>
+        <location filename="../lxqttaskbutton.cpp" line="711"/>
         <source>Always on &amp;bottom</source>
         <translation>Selalu dibawah</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbutton.cpp" line="717"/>
+        <location filename="../lxqttaskbutton.cpp" line="718"/>
         <source>&amp;Close</source>
         <translation>Tutup</translation>
     </message>
@@ -289,6 +289,11 @@
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
         <translation>Saat ini</translation>
+    </message>
+    <message>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <source>Desktop %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

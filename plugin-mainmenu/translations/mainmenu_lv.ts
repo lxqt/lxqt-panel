@@ -14,34 +14,34 @@
         <translation>Rādīt/nerādīt galveno izvēlni</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="467"/>
+        <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
         <translation>Likt uz darbvirsmas</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="475"/>
+        <location filename="../lxqtmainmenu.cpp" line="477"/>
         <source>Question</source>
         <translation>Jautājums</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="476"/>
+        <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Fails ar šādu nosaukumu jau pastāv.
 Vēlaties tam pārrakstīt pa virsu?</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="482"/>
+        <location filename="../lxqtmainmenu.cpp" line="484"/>
         <source>Warning</source>
         <translation>Brīdinājums</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="483"/>
+        <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
         <translation>Fails nevar tikt pārrakstīts (pa virsu).</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenu.cpp" line="489"/>
+        <location filename="../lxqtmainmenu.cpp" line="491"/>
         <source>Copy</source>
         <translation>Kopēt</translation>
     </message>
@@ -144,22 +144,22 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
         <translation>Atstatīt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="176"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
         <source>Choose icon file</source>
         <translation>Izvēlēties ikonas failu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="178"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Images (*.svg *.png)</source>
         <translation>Attēli (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="190"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
         <source>Choose menu file</source>
         <translation>Izvēlēties izvēlnes failu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="192"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
         <source>Menu files (*.menu)</source>
         <translation>Izvēlnes faili (*.menu)</translation>
     </message>

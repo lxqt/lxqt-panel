@@ -22,27 +22,27 @@
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
         <source>Show text</source>
         <translation>Metni göster</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
         <translation>Güncelleme aralığı:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
         <translation>sn</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
         <translation>Çubuk yönelimi:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
         <translation>Çubuk genişliği:</translation>
     </message>

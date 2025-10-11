@@ -22,27 +22,27 @@
         <translation>ทั่วไป</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="35"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
         <source>Show text</source>
         <translation>แสดงข้อความ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="42"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
         <translation>ทิ้งระยะการปรับข้อมูล:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="49"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
         <translation>วิ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="71"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
         <translation>การจัดเรียง:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.ui" line="81"/>
+        <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
         <translation type="unfinished"></translation>
     </message>

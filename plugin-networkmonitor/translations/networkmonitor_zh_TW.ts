@@ -62,32 +62,32 @@
         <translation>通則</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="82"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
         <translation>介面</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
         <source>Modem</source>
         <translation>數據機</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
         <translation>監示器</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Network</source>
         <translation>網路</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="70"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
         <translation>無線</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="35"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
         <translation>圖示</translation>
     </message>
