@@ -39,7 +39,7 @@ int LXQt::Taskbar::WorkspaceManagerV1::workspaceCount(QScreen*)
 int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
 {
     QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
-    for (WorkspaceHandleV1 *ws : workspaceMap.values())
+    for (WorkspaceHandleV1 *ws : std::as_const(workspaceMap))
     {
         map[ws->coordinates()] = ws;
     }
@@ -63,7 +63,7 @@ void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx)
 {
     if (idx <= 0) return;
     QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
-    for (WorkspaceHandleV1 *ws : workspaceMap.values())
+    for (WorkspaceHandleV1 *ws : std::as_const(workspaceMap))
     {
         map[ws->coordinates()] = ws;
     }
@@ -75,7 +75,7 @@ void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx)
             ++index;
             if (index == idx)
             {
-                qDebug() << ws->name() << "Activating";
+                //qDebug() << ws->name() << "Activating";
                 ws->activate();
                 return;
             }
@@ -95,7 +95,7 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace(
     workspaceMap[workspace_] = new WorkspaceHandleV1(workspace_, workspaceMap.count() + 1);
     emit workspaceAdded(workspaceMap[workspace_]);
 
-    qDebug() << "Workspace added";
+    //qDebug() << "Workspace added";
 
     /** Automatically destroy thie object */
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::activated, this,
@@ -238,7 +238,7 @@ uint32_t LXQt::Taskbar::WorkspaceHandleV1::capabilities() const
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_id(const QString& id_)
 {
     m_id = id_;
-    qDebug() << "ID:" << m_id;
+    //qDebug() << "ID:" << m_id;
 
     emit idChanged(m_id);
 }
@@ -246,7 +246,7 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_id(const QString&
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_name(const QString& name_)
 {
     m_name = name_;
-    qDebug() << "Name:" << m_name;
+    //qDebug() << "Name:" << m_name;
 
     emit nameChanged(m_name);
 }
@@ -263,7 +263,7 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_coordinates(wl_ar
         m_coordinates.append(data[i]);
     }
 
-    qDebug() << "Coords:" << m_name << m_coordinates;
+    //qDebug() << "Coords:" << m_name << m_coordinates;
 
     emit coordinatesChanged(m_coordinates);
 }
@@ -283,7 +283,7 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_state(uint32_t st
         emit deactivated();
     }
 
-    qDebug() << "State:" << m_name << m_state;
+    //qDebug() << "State:" << m_name << m_state;
 
     emit stateChanged(m_state);
 }
@@ -291,7 +291,7 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_state(uint32_t st
 void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_capabilities(uint32_t capabilities_)
 {
     m_capabilities = capabilities_;
-    qDebug() << "Caps:" << m_name << m_capabilities;
+    //qDebug() << "Caps:" << m_name << m_capabilities;
 
     emit capabilitiesChanged(m_capabilities);
 }
