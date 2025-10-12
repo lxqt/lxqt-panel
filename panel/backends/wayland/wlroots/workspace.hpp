@@ -65,7 +65,7 @@ class LXQt::Taskbar::WorkspaceManagerV1 : public QWaylandClientExtensionTemplate
 
 class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::ext_workspace_group_handle_v1
 {
-    Q_OBJECT;
+    Q_OBJECT
 
   public:
     WorkspaceGroupHandleV1(struct ::ext_workspace_group_handle_v1 *object);
@@ -109,7 +109,7 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
 
 class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_workspace_handle_v1
 {
-    Q_OBJECT;
+    Q_OBJECT
 
   public:
     WorkspaceHandleV1(struct ::ext_workspace_handle_v1 *object, int index);

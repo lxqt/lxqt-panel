@@ -52,7 +52,7 @@ struct WaylandId
 
 class LXQt::Panel::WayfireImpl : public QThread
 {
-    Q_OBJECT;
+    Q_OBJECT
 
   public:
     WayfireImpl(QObject *parent = nullptr);

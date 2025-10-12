@@ -98,10 +98,10 @@ public slots:
     void setSearchQuery(const QString& text);
 
 protected:
-    void hideEvent(QHideEvent *e);
-    void showEvent(QShowEvent *e);
-    void keyPressEvent(QKeyEvent *e);
-    void paintEvent(QPaintEvent *e);
+    void hideEvent(QHideEvent *e) override;
+    void showEvent(QShowEvent *e) override;
+    void keyPressEvent(QKeyEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
 
 private slots:
     void activateCategory(const QModelIndex& idx);

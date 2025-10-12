@@ -80,7 +80,7 @@ class LXQtTaskbarWayfireBackend : public ILXQtAbstractWMInterface
     virtual bool isWindowOnScreen(QScreen *screen, WId windowId) const override;
 
     // Not supported on wayfire at the moment
-    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft);
+    virtual bool setDesktopLayout(Qt::Orientation orientation, int rows, int columns, bool rightToLeft) override;
 
     // X11 Specific
     virtual void moveApplication(WId windowId) override;
