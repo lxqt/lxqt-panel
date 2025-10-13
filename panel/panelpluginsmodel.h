@@ -155,7 +155,6 @@ public:
     bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) override;
 
 signals:
-    void itemMoved(int from, int to, bool withAnimation);
     /*!
      * \brief pluginAdded gets emitted whenever a new Plugin is added
      * to the panel.
@@ -317,6 +316,20 @@ private:
      * \brief removePlugin Removes a given Plugin from the model.
      */
     void removePlugin(pluginslist_t::iterator plugin);
+    /*!
+     * \brief movePlugin moves a Plugin in the underlying data.
+     *
+     * This method does the list reordering and calls all the needed
+     * model methods to properly emit model signals etc.
+     *
+     * \param from index to move from
+     * \param to index to move to (can be greater than the current last index)
+     * \return index of the new position
+     *
+     * \note This method is the "real" implementation of the model's move
+     * itself. Called by /sa movePlugin and /sa moveRows.
+     */
+    int movePlugin(const int from, int to);
 
     /*!
      * \brief mNamesKey The key to the settings-entry that stores the

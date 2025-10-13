@@ -182,6 +182,16 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
     const int to =
         std::find_if(mPlugins.begin(), mPlugins.end(), [nameAfter] (pluginslist_t::const_reference obj) { return nameAfter == obj.first; })
         - mPlugins.begin();
+
+    if (from != movePlugin(from, to))
+        emit pluginMoved(plugin);
+}
+
+int PanelPluginsModel::movePlugin(const int from, int to)
+{
+    if (to > mPlugins.size())
+        to = mPlugins.size();
+
     /* 'from' is the current position of the Plugin to be moved ("moved Plugin"),
      * 'to' is the position of the Plugin behind the one that is being moved
      * ("behind Plugin"). There are several cases to distinguish:
@@ -212,10 +222,13 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
         // For the QList::move method, use the right position
         mPlugins.move(from, to_plugins);
         endMoveRows();
-        emit pluginMoved(plugin);
         mPanelSettings->setValue(mNamesKey, pluginNames());
+        return to_plugins;
     }
+
+    return from;
 }
+
 Qt::DropActions PanelPluginsModel::supportedDropActions() const
 {
     return Qt::MoveAction;
@@ -223,14 +236,35 @@ Qt::DropActions PanelPluginsModel::supportedDropActions() const
 
 bool PanelPluginsModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) {
     const auto sourceIndex = index(sourceRow);
-    const auto destIndex = index(destinationChild);
-    if (sourceParent == destinationParent && count == 1 && sourceIndex.isValid()) {
-        auto sourceName = pluginNames().at(sourceIndex.row());
-        auto destName = destIndex.isValid() ? pluginNames().at(destIndex.row()) : QString();
-        if (auto plugin = pluginByName(sourceName)) {
-            movePlugin(plugin, destName);
-            int destRow = destinationChild > sourceRow ? destinationChild -1 : destinationChild;
-            emit itemMoved(sourceRow, destRow, true);
+    if (sourceParent == destinationParent && count == 1 && sourceIndex.isValid() && destinationChild >= 0 && destinationChild <= mPlugins.size()) {
+        const auto dest = movePlugin(sourceRow, destinationChild);
+        if (sourceRow != dest)
+        {
+            pluginslist_t::const_reference moved_plugin = mPlugins[dest];
+            emit pluginMoved(moved_plugin.second);
+            if (!moved_plugin.second.isNull())
+            {
+                if (sourceRow < dest) {
+                    // moved downwards
+                    for (int row = sourceRow; row < dest; ++row)
+                    {
+                        pluginslist_t::const_reference after_plugin = mPlugins[row];
+                        //emit signal for layout only in case plugin is loaded/displayed
+                        if (!after_plugin.second.isNull())
+                            emit pluginMovedUp(after_plugin.second.data());
+                    }
+                } else
+                {
+                    // moved upwards
+                    for (int row = sourceRow; row > dest; --row)
+                    {
+                        pluginslist_t::const_reference before_plugin = mPlugins[row];
+                        //emit signal for layout only in case plugin is loaded/displayed
+                        if (!before_plugin.second.isNull())
+                            emit pluginMovedUp(moved_plugin.second.data());
+                    }
+                }
+            }
             return true;
         }
     }

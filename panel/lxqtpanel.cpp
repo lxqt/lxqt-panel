@@ -579,7 +579,6 @@ void LXQtPanel::loadPlugins()
     //reemit signals
     connect(mPlugins.get(), &PanelPluginsModel::pluginAdded, this, &LXQtPanel::pluginAdded);
     connect(mPlugins.get(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
-    connect(mPlugins.get(), &PanelPluginsModel::itemMoved, mLayout, &LXQtPanelLayout::moveItem);
 
     const auto plugins = mPlugins->plugins();
     for (auto const & plugin : plugins)
