@@ -27,12 +27,12 @@
 #define PANELPLUGINSMODEL_H
 
 #include <QAbstractListModel>
-#include <memory>
 
 namespace LXQt
 {
     class PluginInfo;
     struct PluginData;
+    class Settings;
 }
 
 class LXQtPanel;
@@ -50,6 +50,7 @@ class PanelPluginsModel : public QAbstractListModel
     Q_OBJECT
 public:
     PanelPluginsModel(LXQtPanel * panel,
+                      LXQt::Settings * settings,
                       QString const & namesKey,
                       QStringList const & desktopDirs,
                       QObject * parent = nullptr);
@@ -201,12 +202,13 @@ public slots:
     /*!
      * \brief addPlugin Adds a new Plugin to the model.
      *
+     * \param panel The parent panel of the plugin
      * \param desktopFile The PluginInfo (which inherits XdgDesktopFile)
      * for the Plugin that should be added.
      *
      * \note AddPluginDialog::pluginSelected is connected to this slot.
      */
-    void addPlugin(const LXQt::PluginInfo &desktopFile);
+    void addPlugin(LXQtPanel * panel, const LXQt::PluginInfo &desktopFile);
     /*!
      * \brief removePlugin Removes a Plugin from the model.
      *
@@ -268,12 +270,14 @@ private:
 private:
     /*!
      * \brief loadPlugins Loads all the Plugins.
+     * \param panel The parent panel of these plugins
      * \param desktopDirs These directories are scanned for corresponding
      * .desktop-files which are necessary to load the plugins.
      */
-    void loadPlugins(QStringList const & desktopDirs);
+    void loadPlugins(LXQtPanel * panel, QStringList const & desktopDirs);
     /*!
      * \brief loadPlugin Loads a Plugin and connects signals and slots.
+     * \param panel The parent panel of the plugin
      * \param desktopFile The desktop file that specifies how to load the
      * Plugin.
      * \param settingsGroup QString which specifies the settings group. This
@@ -281,7 +285,7 @@ private:
      * its settings.
      * \return A QPointer to the Plugin that was loaded.
      */
-    QPointer<Plugin> loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup);
+    QPointer<Plugin> loadPlugin(LXQtPanel * panel, LXQt::PluginInfo const & desktopFile, QString const & settingsGroup);
     /*!
      * \brief findNewPluginSettingsGroup Creates a name for a new Plugin
      * that is not yet present in the settings file. Whenever multiple
@@ -331,9 +335,9 @@ private:
      */
     pluginslist_t mPlugins;
     /*!
-     * \brief mPanel Stores a reference to the LXQtPanel.
+     * \brief mPanelSettings Stores a reference to settings of LXQtPanel.
      */
-    LXQtPanel * mPanel;
+    LXQt::Settings * mPanelSettings;
 };
 
 #endif // PANELPLUGINSMODEL_H

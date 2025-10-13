@@ -87,7 +87,7 @@ void ConfigPluginsWidget::showAddPluginDialog()
     {
         mAddPluginDialog.reset(new AddPluginDialog);
         connect(mAddPluginDialog.get(), &AddPluginDialog::pluginSelected,
-                mPanel->mPlugins.get(), &PanelPluginsModel::addPlugin);
+                this, [this](const LXQt::PluginInfo & desktopFile) { mPanel->mPlugins->addPlugin(mPanel, desktopFile); });
     }
     mAddPluginDialog->show();
     mAddPluginDialog->raise();

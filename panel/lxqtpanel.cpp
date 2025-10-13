@@ -572,7 +572,7 @@ void LXQtPanel::loadPlugins()
     QString names_key(mConfigGroup);
     names_key += QLatin1Char('/');
     names_key += QLatin1String(CFG_KEY_PLUGINS);
-    mPlugins.reset(new PanelPluginsModel(this, names_key, pluginDesktopDirs()));
+    mPlugins.reset(new PanelPluginsModel(this, settings(), names_key, pluginDesktopDirs()));
 
     connect(mPlugins.get(), &PanelPluginsModel::pluginAdded, mLayout, &LXQtPanelLayout::addPlugin);
     connect(mPlugins.get(), &PanelPluginsModel::pluginMovedUp, mLayout, &LXQtPanelLayout::moveUpPlugin);
