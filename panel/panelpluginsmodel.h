@@ -154,6 +154,7 @@ public:
     bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) override;
 
 signals:
+    void itemMoved(int from, int to, bool withAnimation);
     /*!
      * \brief pluginAdded gets emitted whenever a new Plugin is added
      * to the panel.

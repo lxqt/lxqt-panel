@@ -231,7 +231,7 @@ bool PanelPluginsModel::moveRows(const QModelIndex &sourceParent, int sourceRow,
         if (auto plugin = pluginByName(sourceName)) {
             movePlugin(plugin, destName);
             int destRow = destinationChild > sourceRow ? destinationChild -1 : destinationChild;
-            mPanel->moveItem(sourceRow, destRow, true);
+            emit itemMoved(sourceRow, destRow, true);
             return true;
         }
     }

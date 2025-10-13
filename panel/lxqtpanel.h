@@ -484,8 +484,6 @@ private:
      * (for preventing hide)
      */
     std::unique_ptr<WindowNotifier> mStandaloneWindows;
-    
-    void moveItem(int from, int to, bool withAnimation=false);
 
     /**
      * @brief Returns the screen index of a screen on which this panel could

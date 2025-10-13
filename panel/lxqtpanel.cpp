@@ -579,6 +579,7 @@ void LXQtPanel::loadPlugins()
     //reemit signals
     connect(mPlugins.get(), &PanelPluginsModel::pluginAdded, this, &LXQtPanel::pluginAdded);
     connect(mPlugins.get(), &PanelPluginsModel::pluginRemoved, this, &LXQtPanel::pluginRemoved);
+    connect(mPlugins.get(), &PanelPluginsModel::itemMoved, mLayout, &LXQtPanelLayout::moveItem);
 
     const auto plugins = mPlugins->plugins();
     for (auto const & plugin : plugins)
@@ -1072,15 +1073,6 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
     }
 
     return false;
-}
-
-
-/************************************************
-
- ************************************************/
-void LXQtPanel::moveItem(int from, int to, bool withAnimation)
-{
-    mLayout->moveItem(from, to, withAnimation);
 }
 
 
