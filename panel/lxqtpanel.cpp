@@ -1078,6 +1078,15 @@ bool LXQtPanel::canPlacedOn(int screenNum, LXQtPanel::Position position)
 /************************************************
 
  ************************************************/
+void LXQtPanel::moveItem(int from, int to, bool withAnimation)
+{
+    mLayout->moveItem(from, to, withAnimation);
+}
+
+
+/************************************************
+
+ ************************************************/
 int LXQtPanel::findAvailableScreen(LXQtPanel::Position position)
 {
     int current = (mWaylandScreenNum >= 0 ? mWaylandScreenNum // on Wayland

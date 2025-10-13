@@ -150,6 +150,9 @@ public:
      */
     void movePlugin(Plugin * plugin, QString const & nameAfter);
 
+    Qt::DropActions supportedDropActions() const;
+    bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild);
+
 signals:
     /*!
      * \brief pluginAdded gets emitted whenever a new Plugin is added

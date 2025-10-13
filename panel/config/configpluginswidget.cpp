@@ -52,6 +52,11 @@ ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
         std::unique_ptr<QAbstractItemDelegate> d(ui->listView_plugins->itemDelegate());
         ui->listView_plugins->setItemDelegate(new LXQt::HtmlDelegate(QSize(16, 16), ui->listView_plugins));
     }
+    ui->listView_plugins->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->listView_plugins->setDragEnabled(true);
+    ui->listView_plugins->viewport()->setAcceptDrops(true);
+    ui->listView_plugins->setDragDropMode(QAbstractItemView::InternalMove);
+    ui->listView_plugins->setDropIndicatorShown(true);
 
     resetButtons();
 
@@ -65,6 +70,7 @@ ConfigPluginsWidget::ConfigPluginsWidget(LXQtPanel *panel, QWidget* parent) :
     connect(ui->pushButton_removePlugin, &QToolButton::clicked, this, [this, plugins] { plugins->onRemovePlugin(ui->listView_plugins->currentIndex()); });
 
     connect(ui->pushButton_pluginConfig, &QToolButton::clicked, this, [this, plugins] { plugins->onConfigurePlugin(ui->listView_plugins->currentIndex()); });
+    connect(ui->listView_plugins, &QAbstractItemView::doubleClicked, plugins, &PanelPluginsModel::onConfigurePlugin);
 
     connect(plugins, &PanelPluginsModel::pluginAdded,   this, &ConfigPluginsWidget::resetButtons);
     connect(plugins, &PanelPluginsModel::pluginRemoved, this, &ConfigPluginsWidget::resetButtons);
