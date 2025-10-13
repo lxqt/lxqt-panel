@@ -86,9 +86,11 @@ QVariant PanelPluginsModel::data(const QModelIndex & index, int role/* = Qt::Dis
     return ret;
 }
 
-Qt::ItemFlags PanelPluginsModel::flags(const QModelIndex & /*index*/) const
+Qt::ItemFlags PanelPluginsModel::flags(const QModelIndex & index) const
 {
-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
+    if (!index.isValid())
+        return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren | Qt::ItemIsDropEnabled;
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren | Qt::ItemIsDragEnabled;
 }
 
 QStringList PanelPluginsModel::pluginNames() const
@@ -213,6 +215,26 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
         emit pluginMoved(plugin);
         mPanelSettings->setValue(mNamesKey, pluginNames());
     }
+}
+Qt::DropActions PanelPluginsModel::supportedDropActions() const
+{
+    return Qt::MoveAction;
+}
+
+bool PanelPluginsModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) {
+    const auto sourceIndex = index(sourceRow);
+    const auto destIndex = index(destinationChild);
+    if (sourceParent == destinationParent && count == 1 && sourceIndex.isValid()) {
+        auto sourceName = pluginNames().at(sourceIndex.row());
+        auto destName = destIndex.isValid() ? pluginNames().at(destIndex.row()) : QString();
+        if (auto plugin = pluginByName(sourceName)) {
+            movePlugin(plugin, destName);
+            int destRow = destinationChild > sourceRow ? destinationChild -1 : destinationChild;
+            emit itemMoved(sourceRow, destRow, true);
+            return true;
+        }
+    }
+    return false;
 }
 
 void PanelPluginsModel::loadPlugins(LXQtPanel * panel, QStringList const & desktopDirs)
