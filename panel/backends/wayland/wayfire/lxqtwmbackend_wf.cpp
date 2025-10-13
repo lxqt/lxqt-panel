@@ -216,7 +216,7 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
 {
     mWayfire.reset(new LXQt::Panel::Wayfire);
 
-    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceSetChanged, [this] ( QJsonDocument )
+    connect(mWayfire.get(), &LXQt::Panel::Wayfire::workspaceSetChanged, [] ( QJsonDocument )
     {
         // no-op
     });
