@@ -150,8 +150,8 @@ public:
      */
     void movePlugin(Plugin * plugin, QString const & nameAfter);
 
-    Qt::DropActions supportedDropActions() const;
-    bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild);
+    Qt::DropActions supportedDropActions() const override;
+    bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) override;
 
 signals:
     /*!
