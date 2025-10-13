@@ -184,6 +184,8 @@ Plugin::Plugin(const LXQt::PluginInfo &desktopFile, LXQt::Settings *settings, co
     // while the plugin is still being initialized
     connect(mSettings, &PluginSettings::settingsChanged,
             this, &Plugin::settingsChanged);
+
+    connect(mPanel, &LXQtPanel::realigned, this, &Plugin::realign);
 }
 
 

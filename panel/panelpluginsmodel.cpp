@@ -26,7 +26,6 @@
 #include "panelpluginsmodel.h"
 #include "plugin.h"
 #include "ilxqtpanelplugin.h"
-#include "lxqtpanel.h"
 #include "lxqtpanelapplication.h"
 #include <QPointer>
 #include <XdgIcon>
@@ -35,14 +34,15 @@
 #include <QDebug>
 
 PanelPluginsModel::PanelPluginsModel(LXQtPanel * panel,
+                                     LXQt::Settings * settings,
                                      QString const & namesKey,
                                      QStringList const & desktopDirs,
                                      QObject * parent/* = nullptr*/)
     : QAbstractListModel{parent},
     mNamesKey(namesKey),
-    mPanel(panel)
+    mPanelSettings(settings)
 {
-    loadPlugins(desktopDirs);
+    loadPlugins(panel, desktopDirs);
 }
 
 PanelPluginsModel::~PanelPluginsModel()
@@ -127,21 +127,21 @@ Plugin const * PanelPluginsModel::pluginByID(QString id) const
     return nullptr;
 }
 
-void PanelPluginsModel::addPlugin(const LXQt::PluginInfo &desktopFile)
+void PanelPluginsModel::addPlugin(LXQtPanel * panel, const LXQt::PluginInfo &desktopFile)
 {
     if (dynamic_cast<LXQtPanelApplication const *>(qApp)->isPluginSingletonAndRunning(desktopFile.id()))
         return;
 
     QString name = findNewPluginSettingsGroup(desktopFile.id());
 
-    QPointer<Plugin> plugin = loadPlugin(desktopFile, name);
+    QPointer<Plugin> plugin = loadPlugin(panel, desktopFile, name);
     if (plugin.isNull())
         return;
 
     beginInsertRows(QModelIndex(), mPlugins.size(), mPlugins.size());
     mPlugins.append({name, plugin});
     endInsertRows();
-    mPanel->settings()->setValue(mNamesKey, pluginNames());
+    mPanelSettings->setValue(mNamesKey, pluginNames());
     emit pluginAdded(plugin.data());
 }
 
@@ -149,14 +149,14 @@ void PanelPluginsModel::removePlugin(pluginslist_t::iterator plugin)
 {
     if (mPlugins.end() != plugin)
     {
-        mPanel->settings()->remove(plugin->first);
+        mPanelSettings->remove(plugin->first);
         Plugin * p = plugin->second.data();
         const int row = plugin - mPlugins.begin();
         beginRemoveRows(QModelIndex(), row, row);
         mPlugins.erase(plugin);
         endRemoveRows();
         emit pluginRemoved(p); // p can be nullptr
-        mPanel->settings()->setValue(mNamesKey, pluginNames());
+        mPanelSettings->setValue(mNamesKey, pluginNames());
         if (nullptr != p)
             p->deleteLater();
     }
@@ -211,13 +211,13 @@ void PanelPluginsModel::movePlugin(Plugin * plugin, QString const & nameAfter)
         mPlugins.move(from, to_plugins);
         endMoveRows();
         emit pluginMoved(plugin);
-        mPanel->settings()->setValue(mNamesKey, pluginNames());
+        mPanelSettings->setValue(mNamesKey, pluginNames());
     }
 }
 
-void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
+void PanelPluginsModel::loadPlugins(LXQtPanel * panel, QStringList const & desktopDirs)
 {
-    QStringList plugin_names = mPanel->settings()->value(mNamesKey).toStringList();
+    QStringList plugin_names = mPanelSettings->value(mNamesKey).toStringList();
 
 #ifdef DEBUG_PLUGIN_LOADTIME
     QElapsedTimer timer;
@@ -227,10 +227,10 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
     for (auto const & name : std::as_const(plugin_names))
     {
         pluginslist_t::iterator i = mPlugins.insert(mPlugins.end(), {name, nullptr});
-        QString type = mPanel->settings()->value(name + QStringLiteral("/type")).toString();
+        QString type = mPanelSettings->value(name + QStringLiteral("/type")).toString();
         if (type.isEmpty())
         {
-            qWarning() << QStringLiteral("Section \"%1\" not found in %2.").arg(name, mPanel->settings()->fileName());
+            qWarning() << QStringLiteral("Section \"%1\" not found in %2.").arg(name, mPanelSettings->fileName());
             continue;
         }
 #ifdef WITH_SCREENSAVER_FALLBACK
@@ -241,15 +241,14 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
             const QString & lock_desktop = QStringLiteral(LXQT_LOCK_DESKTOP);
             qWarning().noquote() << "Found deprecated plugin of type 'screensaver', migrating to 'quicklaunch' with '" << lock_desktop << '\'';
             type = QStringLiteral("quicklaunch");
-            LXQt::Settings * settings = mPanel->settings();
-            settings->beginGroup(name);
-            settings->remove(QString{});//remove all existing keys
-            settings->setValue(QStringLiteral("type"), type);
-            settings->beginWriteArray(QStringLiteral("apps"), 1);
-            settings->setArrayIndex(0);
-            settings->setValue(QStringLiteral("desktop"), lock_desktop);
-            settings->endArray();
-            settings->endGroup();
+            mPanelSettings->beginGroup(name);
+            mPanelSettings->remove(QString{});//remove all existing keys
+            mPanelSettings->setValue(QStringLiteral("type"), type);
+            mPanelSettings->beginWriteArray(QStringLiteral("apps"), 1);
+            mPanelSettings->setArrayIndex(0);
+            mPanelSettings->setValue(QStringLiteral("desktop"), lock_desktop);
+            mPanelSettings->endArray();
+            mPanelSettings->endGroup();
         }
 #endif
 
@@ -260,7 +259,7 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
             continue;
         }
 
-        i->second = loadPlugin(list.first(), name);
+        i->second = loadPlugin(panel, list.first(), name);
 #ifdef DEBUG_PLUGIN_LOADTIME
         qDebug() << "load plugin" << type << "takes" << (timer.elapsed() - lastTime) << "ms";
         lastTime = timer.elapsed();
@@ -268,12 +267,11 @@ void PanelPluginsModel::loadPlugins(QStringList const & desktopDirs)
     }
 }
 
-QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopFile, QString const & settingsGroup)
+QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQtPanel * panel, LXQt::PluginInfo const & desktopFile, QString const & settingsGroup)
 {
-    std::unique_ptr<Plugin> plugin(new Plugin(desktopFile, mPanel->settings(), settingsGroup, mPanel));
+    std::unique_ptr<Plugin> plugin(new Plugin(desktopFile, mPanelSettings, settingsGroup, panel));
     if (plugin->isLoaded())
     {
-        connect(mPanel, &LXQtPanel::realigned, plugin.get(), &Plugin::realign);
         connect(plugin.get(), &Plugin::remove,
                 this, static_cast<void (PanelPluginsModel::*)()>(&PanelPluginsModel::removePlugin));
         return plugin.release();
@@ -284,7 +282,7 @@ QPointer<Plugin> PanelPluginsModel::loadPlugin(LXQt::PluginInfo const & desktopF
 
 QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType) const
 {
-    QStringList groups = mPanel->settings()->childGroups();
+    QStringList groups = mPanelSettings->childGroups();
     groups.sort();
 
     // Generate new section name
@@ -329,7 +327,7 @@ void PanelPluginsModel::onMovePluginUp(QModelIndex const & index)
     if (!moved_plugin.second.isNull() && !prev_plugin.second.isNull())
         emit pluginMovedUp(moved_plugin.second.data());
 
-    mPanel->settings()->setValue(mNamesKey, pluginNames());
+    mPanelSettings->setValue(mNamesKey, pluginNames());
 }
 
 void PanelPluginsModel::onMovePluginDown(QModelIndex const & index)
@@ -352,7 +350,7 @@ void PanelPluginsModel::onMovePluginDown(QModelIndex const & index)
     if (!moved_plugin.second.isNull() && !next_plugin.second.isNull())
         emit pluginMovedUp(next_plugin.second.data());
 
-    mPanel->settings()->setValue(mNamesKey, pluginNames());
+    mPanelSettings->setValue(mNamesKey, pluginNames());
 }
 
 void PanelPluginsModel::onConfigurePlugin(QModelIndex const & index)
