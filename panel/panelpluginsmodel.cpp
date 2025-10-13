@@ -225,9 +225,9 @@ Qt::DropActions PanelPluginsModel::supportedDropActions() const
 bool PanelPluginsModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) {
     const auto sourceIndex = index(sourceRow);
     const auto destIndex = index(destinationChild);
-    if (sourceParent == destinationParent && count == 1 && sourceIndex.isValid() && destIndex.isValid()) {
+    if (sourceParent == destinationParent && count == 1 && sourceIndex.isValid()) {
         auto sourceName = pluginNames().at(sourceIndex.row());
-        auto destName = pluginNames().at(destIndex.row());
+        auto destName = destIndex.isValid() ? pluginNames().at(destIndex.row()) : QString();
         if (auto plugin = pluginByName(sourceName)) {
             movePlugin(plugin, destName);
             int destRow = destinationChild > sourceRow ? destinationChild -1 : destinationChild;
