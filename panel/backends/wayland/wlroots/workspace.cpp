@@ -194,6 +194,8 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace(
             &WorkspaceManagerV1::activation, Qt::QueuedConnection);
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::deactivated, this,
             &WorkspaceManagerV1::activation, Qt::QueuedConnection);
+    connect(workspaceMap[workspace_], &WorkspaceHandleV1::nameChanged, this,
+            &WorkspaceManagerV1::nameChanged, Qt::QueuedConnection);
 }
 
 void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_done()

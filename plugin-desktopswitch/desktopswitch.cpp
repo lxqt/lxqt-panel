@@ -181,10 +181,8 @@ void DesktopSwitch::refresh()
     for ( ; i < border; ++i)
     {
         DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
-        button->update(i, mLabelType,
-                       mBackend->getWorkspaceName(i + 1, screenName).isEmpty() ?
-                       tr("Desktop %1").arg(i + 1) :
-                       mBackend->getWorkspaceName(i + 1, screenName));
+        auto deskName = mBackend->getWorkspaceName(i + 1, screenName);
+        button->update(i, mLabelType, deskName.isEmpty() ? tr("Desktop %1").arg(i + 1) : deskName);
         button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
@@ -192,10 +190,9 @@ void DesktopSwitch::refresh()
     QAbstractButton *b;
     for ( ; i < m_desktopCount; ++i)
     {
+        auto deskName = mBackend->getWorkspaceName(i + 1, screenName);
         b = new DesktopSwitchButton(&mWidget, i, mLabelType,
-                mBackend->getWorkspaceName(i+1, screenName).isEmpty() ?
-                tr("Desktop %1").arg(i+1) :
-                mBackend->getWorkspaceName(i+1, screenName));
+                deskName.isEmpty() ? tr("Desktop %1").arg(i+1) : deskName);
         mWidget.layout()->addWidget(b);
         m_buttons->addButton(b, i);
         b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);

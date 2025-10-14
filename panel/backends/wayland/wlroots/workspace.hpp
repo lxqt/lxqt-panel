@@ -42,6 +42,7 @@ class LXQt::Taskbar::WorkspaceManagerV1 : public QWaylandClientExtensionTemplate
     Q_SIGNAL void workspaceGroupAdded(WorkspaceGroupHandleV1 *workspace_group);
     Q_SIGNAL void workspaceAdded(WorkspaceHandleV1 *workspace);
     Q_SIGNAL void workspaceRemoved(WorkspaceHandleV1 *workspace);
+    Q_SIGNAL void nameChanged();
 
     /** A workspace became active or inactive. */
     Q_SIGNAL void currentWorkspaceChanged(const QList<QScreen*> &screens);

@@ -38,6 +38,9 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
             emit currentWorkspaceChanged(m_wsmgr->currentWorkspaceIndex(scrn), scrn->name());
         }
     });
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::nameChanged, this, [this]() {
+        emit workspaceNameChanged(-1); // without specifying an index
+    });
 }
 
 bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction action) const
