@@ -64,7 +64,7 @@ private slots:
     void doStart();
     void doFinish(bool cancel);
 
-private:
+public:
     enum MarkType
     {
         TopMark,
@@ -73,6 +73,7 @@ private:
         RightMark
     };
 
+private:
     struct MousePosInfo
     {
         int index;
