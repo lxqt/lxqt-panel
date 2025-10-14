@@ -31,10 +31,12 @@ LXQtTaskbarWlrootsBackend::LXQtTaskbarWlrootsBackend(QObject *parent) :
 
     connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceAdded, this, &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
     connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::workspaceRemoved, this, &LXQtTaskbarWlrootsBackend::workspacesCountChanged);
-    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] ()
+    connect(m_wsmgr.get(), &LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceChanged, this, [this] (const QList<QScreen*> &screens)
     {
-        //qDebug() << "Current workspace changed" << m_wsmgr->currentWorkspaceIndex();
-        emit currentWorkspaceChanged(m_wsmgr->currentWorkspaceIndex(), QString());
+        for (auto scrn : screens)
+        {
+            emit currentWorkspaceChanged(m_wsmgr->currentWorkspaceIndex(scrn), scrn->name());
+        }
     });
 }
 
@@ -251,24 +253,24 @@ WId LXQtTaskbarWlrootsBackend::getActiveWindow() const
     return activeWindow;
 }
 
-int LXQtTaskbarWlrootsBackend::getWorkspacesCount() const
+int LXQtTaskbarWlrootsBackend::getWorkspacesCount(QScreen *screen) const
 {
-    return m_wsmgr->workspaceCount();
+    return m_wsmgr->workspaceCount(screen);
 }
 
-QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int, QString) const
+QString LXQtTaskbarWlrootsBackend::getWorkspaceName(int idx, QString sceenName) const
 {
-    return QString();
+    return m_wsmgr->workspaceName(idx, sceenName);
 }
 
-int LXQtTaskbarWlrootsBackend::getCurrentWorkspace() const
+int LXQtTaskbarWlrootsBackend::getCurrentWorkspace(QScreen *screen) const
 {
-    return m_wsmgr->currentWorkspaceIndex();
+    return m_wsmgr->currentWorkspaceIndex(screen);
 }
 
-bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx)
+bool LXQtTaskbarWlrootsBackend::setCurrentWorkspace(int idx, QScreen *screen)
 {
-    m_wsmgr->setCurrentWorkspaceIndex(idx);
+    m_wsmgr->setCurrentWorkspaceIndex(idx, screen);
     m_wsmgr->commit();
 
     /** Currently we always assume that this is true */

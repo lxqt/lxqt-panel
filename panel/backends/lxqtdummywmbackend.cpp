@@ -117,7 +117,7 @@ WId LXQtDummyWMBackend::getActiveWindow() const
 /************************************************
  *   Workspaces
  ************************************************/
-int LXQtDummyWMBackend::getWorkspacesCount() const
+int LXQtDummyWMBackend::getWorkspacesCount(QScreen*) const
 {
     return 1; // Fake 1 workspace
 }
@@ -127,12 +127,12 @@ QString LXQtDummyWMBackend::getWorkspaceName(int, QString) const
     return QString();
 }
 
-int LXQtDummyWMBackend::getCurrentWorkspace() const
+int LXQtDummyWMBackend::getCurrentWorkspace(QScreen*) const
 {
     return 0;
 }
 
-bool LXQtDummyWMBackend::setCurrentWorkspace(int)
+bool LXQtDummyWMBackend::setCurrentWorkspace(int, QScreen*)
 {
     return false;
 }

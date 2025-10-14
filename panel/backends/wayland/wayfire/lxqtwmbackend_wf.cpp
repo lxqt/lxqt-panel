@@ -789,7 +789,7 @@ WId LXQtTaskbarWayfireBackend::getActiveWindow() const
     return mWayfire->getActiveView();
 }
 
-int LXQtTaskbarWayfireBackend::getWorkspacesCount() const
+int LXQtTaskbarWayfireBackend::getWorkspacesCount(QScreen*) const
 {
     QJsonObject wsetsInfo = mWayfire->getWorkspaceSetsInfo().at(0).toObject();
     QJsonObject workspace = wsetsInfo[QSL("workspace")].toObject();
@@ -804,7 +804,7 @@ QString LXQtTaskbarWayfireBackend::getWorkspaceName(int x, QString outputName) c
     return mWayfire->getWorkspaceName(x, outputName);
 }
 
-int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
+int LXQtTaskbarWayfireBackend::getCurrentWorkspace(QScreen*) const
 {
     QJsonObject outputInfo = mWayfire->getOutputInfo(mWayfire->getActiveOutput());
     QJsonObject outputWS   = outputInfo[QSL("workspace")].toObject();
@@ -816,7 +816,7 @@ int LXQtTaskbarWayfireBackend::getCurrentWorkspace() const
     return curRow * nCols + curCol + 1;
 }
 
-bool LXQtTaskbarWayfireBackend::setCurrentWorkspace(int x)
+bool LXQtTaskbarWayfireBackend::setCurrentWorkspace(int x, QScreen*)
 {
     return mWayfire->switchToWorkspace(mWayfire->getActiveOutput(), x);
 }

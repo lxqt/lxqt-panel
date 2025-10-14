@@ -474,7 +474,7 @@ WId LXQtWMBackendX11::getActiveWindow() const
 /************************************************
  *   Workspaces
  ************************************************/
-int LXQtWMBackendX11::getWorkspacesCount() const
+int LXQtWMBackendX11::getWorkspacesCount(QScreen*) const
 {
     return KX11Extras::numberOfDesktops();
 }
@@ -484,12 +484,12 @@ QString LXQtWMBackendX11::getWorkspaceName(int idx, QString) const
     return KX11Extras::desktopName(idx);
 }
 
-int LXQtWMBackendX11::getCurrentWorkspace() const
+int LXQtWMBackendX11::getCurrentWorkspace(QScreen*) const
 {
     return KX11Extras::currentDesktop();
 }
 
-bool LXQtWMBackendX11::setCurrentWorkspace(int idx)
+bool LXQtWMBackendX11::setCurrentWorkspace(int idx, QScreen*)
 {
     if(KX11Extras::currentDesktop() == idx)
         return true;

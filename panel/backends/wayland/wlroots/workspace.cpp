@@ -2,8 +2,11 @@
 
 #include <QMap>
 
+#include <private/qwaylandscreen_p.h>
+
 /** ext_workspace_handle_v1 <-> WorkspaceHandleV1 map */
 QMap<struct ::ext_workspace_handle_v1*, LXQt::Taskbar::WorkspaceHandleV1*> workspaceMap;
+QList<LXQt::Taskbar::WorkspaceGroupHandleV1*> workspaceGroups;
 
 /**
  * Implementation of the LXQt::TaskBar::WorkspaceManagerV1 class
@@ -31,17 +34,45 @@ LXQt::Taskbar::WorkspaceManagerV1::~WorkspaceManagerV1()
     }
 }
 
-int LXQt::Taskbar::WorkspaceManagerV1::workspaceCount(QScreen*)
+int LXQt::Taskbar::WorkspaceManagerV1::workspaceCount(QScreen *screen)
 {
+    if (screen)
+    {
+        if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle()))
+        {
+            wl_output *output = waylandScreen->output();
+            for (auto *wg : std::as_const(workspaceGroups))
+            {
+                if (wg->outputs().contains(output))
+                    return wg->workspaces().count();
+            }
+        }
+    }
+
     return workspaceMap.count();
 }
 
-int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
+int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen *screen)
 {
-    QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
-    for (WorkspaceHandleV1 *ws : std::as_const(workspaceMap))
+    QMap<QList<int>, WorkspaceHandleV1*> map; // sorted by key
+    if (screen)
     {
-        map[ws->coordinates()] = ws;
+        if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle()))
+        {
+            wl_output *output = waylandScreen->output();
+            for (auto *wg : std::as_const(workspaceGroups))
+            {
+                if (wg->outputs().contains(output))
+                {
+                    const auto workspaces = wg->workspaces();
+                    for (WorkspaceHandleV1 *ws : workspaces)
+                    {
+                        map[ws->coordinates()] = ws;
+                    }
+                    break;
+                }
+            }
+        }
     }
     if (!map.isEmpty())
     {
@@ -59,13 +90,67 @@ int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen*)
     return -1;
 }
 
-void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx)
+QString LXQt::Taskbar::WorkspaceManagerV1::workspaceName(int idx, const QString &sceenName)
+{
+    QMap<QList<int>, WorkspaceHandleV1*> map;
+    const auto screens = QGuiApplication::screens();
+    for (const auto& scr : screens)
+    {
+        if (scr->name() == sceenName)
+        {
+            for (auto *wg : std::as_const(workspaceGroups))
+            {
+                if (wg->screens().contains(scr))
+                {
+                    const auto workspaces = wg->workspaces();
+                    for (WorkspaceHandleV1 *ws : workspaces)
+                    {
+                        map[ws->coordinates()] = ws;
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    if (idx <= map.size())
+    {
+        int index = 0;
+        for (WorkspaceHandleV1 *ws : std::as_const(map))
+        {
+            ++index;
+            if (index == idx)
+            {
+                return ws->name();
+            }
+        }
+    }
+
+    return QString();
+}
+
+void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx, QScreen *screen)
 {
     if (idx <= 0) return;
-    QMap<QList<int>, LXQt::Taskbar::WorkspaceHandleV1*> map; // sorted by key
-    for (WorkspaceHandleV1 *ws : std::as_const(workspaceMap))
+    QMap<QList<int>, WorkspaceHandleV1*> map; // sorted by key
+    if (screen)
     {
-        map[ws->coordinates()] = ws;
+        if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(screen->handle()))
+        {
+            wl_output *output = waylandScreen->output();
+            for (auto *wg : std::as_const(workspaceGroups))
+            {
+                if (wg->outputs().contains(output))
+                {
+                    const auto workspaces = wg->workspaces();
+                    for (WorkspaceHandleV1 *ws : workspaces)
+                    {
+                        map[ws->coordinates()] = ws;
+                    }
+                    break;
+                }
+            }
+        }
     }
     if (idx <= map.size())
     {
@@ -86,27 +171,29 @@ void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx)
 void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace_group(
     struct ::ext_workspace_group_handle_v1 *workspace_group)
 {
-    emit workspaceGroupAdded(new WorkspaceGroupHandleV1(workspace_group));
+    auto wg = new WorkspaceGroupHandleV1(workspace_group);
+    if (!workspaceGroups.contains(wg))
+    {
+        workspaceGroups << wg;
+        emit workspaceGroupAdded(wg);
+        connect(wg, &WorkspaceGroupHandleV1::workspaceAdded, this, &WorkspaceManagerV1::workspaceAdded);
+        connect(wg, &WorkspaceGroupHandleV1::workspaceRemoved, this, &WorkspaceManagerV1::workspaceRemoved);
+
+        connect(this, &WorkspaceManagerV1::activation, wg, [this, wg]() {
+                emit currentWorkspaceChanged(wg->screens());
+        });
+    }
 }
 
 void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace(
     struct ::ext_workspace_handle_v1 *workspace_)
 {
     workspaceMap[workspace_] = new WorkspaceHandleV1(workspace_, workspaceMap.count() + 1);
-    emit workspaceAdded(workspaceMap[workspace_]);
 
-    //qDebug() << "Workspace added";
-
-    /** Automatically destroy thie object */
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::activated, this,
-        &WorkspaceManagerV1::currentWorkspaceChanged);
+            &WorkspaceManagerV1::activation, Qt::QueuedConnection);
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::deactivated, this,
-        &WorkspaceManagerV1::currentWorkspaceChanged);
-    connect(workspaceMap[workspace_], &WorkspaceHandleV1::removed, this, [this, workspace_] {
-        auto w = workspaceMap.value(workspace_);
-        workspaceMap.remove(workspace_);
-        emit workspaceRemoved(w);
-    });
+            &WorkspaceManagerV1::activation, Qt::QueuedConnection);
 }
 
 void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_done()
@@ -147,49 +234,78 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_capabi
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output_enter(
     struct ::wl_output *output)
 {
-    if (!outputs.contains(output))
+    if (!m_outputs.contains(output))
     {
-        outputs << output;
+        m_outputs << output;
 
         emit outputEnter(output);
+
+        const auto screens = QGuiApplication::screens();
+        for (const auto& scr : screens)
+        {
+            if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
+            {
+                if (output == waylandScreen->output() && !m_screens.contains(scr))
+                {
+                    m_screens << scr;
+                    break;
+                }
+            }
+        }
     }
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output_leave(
     struct ::wl_output *output)
 {
-    if (outputs.contains(output))
+    if (m_outputs.contains(output))
     {
-        outputs.removeAll(output);
+        m_outputs.removeAll(output);
 
         emit outputLeave(output);
+
+        const auto screens = QGuiApplication::screens();
+        for (const auto& scr : screens)
+        {
+            if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
+            {
+                if (output == waylandScreen->output())
+                {
+                    m_screens.removeAll(scr);
+                    break;
+                }
+            }
+        }
     }
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_workspace_enter(
     struct ::ext_workspace_handle_v1 *workspace)
 {
-    if (!workspaces.contains(workspaceMap[workspace]))
+    if (!m_workspaces.contains(workspaceMap[workspace]))
     {
-        workspaces << workspaceMap[workspace];
+        m_workspaces << workspaceMap[workspace];
 
         emit workspaceAdded(workspaceMap[workspace]);
+        //qDebug() << "Workspace added";
     }
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_workspace_leave(
     struct ::ext_workspace_handle_v1 *workspace)
 {
-    if (workspaces.contains(workspaceMap[workspace]))
+    if (m_workspaces.contains(workspaceMap[workspace]))
     {
-        workspaces.removeAll(workspaceMap[workspace]);
-
-        emit workspaceRemoved(workspaceMap[workspace]);
+        auto w = workspaceMap.value(workspace);
+        workspaceMap.remove(workspace);
+        m_workspaces.removeAll(w);
+        emit workspaceRemoved(w);
     }
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_removed()
 {
+    workspaceGroups.removeAll(this);
     emit removed();
 }
 

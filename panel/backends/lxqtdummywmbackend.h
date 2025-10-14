@@ -68,11 +68,11 @@ public:
     WId getActiveWindow() const override;
 
     // Workspaces
-    int getWorkspacesCount() const override;
+    int getWorkspacesCount(QScreen *screen = nullptr) const override;
     QString getWorkspaceName(int idx, QString outputName = QString()) const override;
 
-    int getCurrentWorkspace() const override;
-    bool setCurrentWorkspace(int idx) override;
+    int getCurrentWorkspace(QScreen *screen = nullptr) const override;
+    bool setCurrentWorkspace(int idx, QScreen *screen = nullptr) override;
 
     int getWindowWorkspace(WId windowId) const override;
     bool setWindowOnWorkspace(WId windowId, int idx) override;
