@@ -239,21 +239,21 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output
     if (!m_outputs.contains(output))
     {
         m_outputs << output;
-
-        emit outputEnter(output);
-
         const auto screens = QGuiApplication::screens();
         for (const auto& scr : screens)
         {
             if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
             {
-                if (output == waylandScreen->output() && !m_screens.contains(scr))
+                if (output == waylandScreen->output())
                 {
-                    m_screens << scr;
+                    if (!m_screens.contains(scr))
+                        m_screens << scr;
                     break;
                 }
             }
         }
+
+        emit outputEnter(output);
     }
 }
 
@@ -263,9 +263,6 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output
     if (m_outputs.contains(output))
     {
         m_outputs.removeAll(output);
-
-        emit outputLeave(output);
-
         const auto screens = QGuiApplication::screens();
         for (const auto& scr : screens)
         {
@@ -279,11 +276,17 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output
             }
         }
     }
+
+    emit outputLeave(output);
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_workspace_enter(
     struct ::ext_workspace_handle_v1 *workspace)
 {
+    if (!workspaceGroups.contains(this))
+    {
+        workspaceGroups << this;
+    }
     if (!m_workspaces.contains(workspaceMap[workspace]))
     {
         m_workspaces << workspaceMap[workspace];
@@ -301,6 +304,10 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_worksp
         auto w = workspaceMap.value(workspace);
         workspaceMap.remove(workspace);
         m_workspaces.removeAll(w);
+        if (m_workspaces.isEmpty())
+        {
+            workspaceGroups.removeAll(this);
+        }
         emit workspaceRemoved(w);
     }
 }
