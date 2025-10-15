@@ -287,7 +287,7 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_worksp
     {
         workspaceGroups << this;
     }
-    if (!m_workspaces.contains(workspaceMap[workspace]))
+    if (workspaceMap.contains(workspace) && !m_workspaces.contains(workspaceMap[workspace]))
     {
         m_workspaces << workspaceMap[workspace];
 
@@ -299,7 +299,7 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_worksp
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_workspace_leave(
     struct ::ext_workspace_handle_v1 *workspace)
 {
-    if (m_workspaces.contains(workspaceMap[workspace]))
+    if (workspaceMap.contains(workspace) && m_workspaces.contains(workspaceMap[workspace]))
     {
         auto w = workspaceMap.value(workspace);
         workspaceMap.remove(workspace);
