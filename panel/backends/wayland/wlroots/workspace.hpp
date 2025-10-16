@@ -77,10 +77,6 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
         return m_workspaces;
     }
 
-    QList<QScreen*> screens() const {
-        return m_screens;
-    }
-
     /**
      * Note: QtWayland::ext_workspace_group_handle_v1 has following member functions:
      *  - create_workspace( QString )
@@ -113,9 +109,6 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
 
     /** Track workspaces that are a part of this workspace group */
     QList<WorkspaceHandleV1*> m_workspaces;
-
-    /** Track screens of this workspace group */
-    QList<QScreen*> m_screens;
 };
 
 class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_workspace_handle_v1

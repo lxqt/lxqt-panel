@@ -98,16 +98,20 @@ QString LXQt::Taskbar::WorkspaceManagerV1::workspaceName(int idx, const QString 
     {
         if (scr->name() == sceenName)
         {
-            for (auto *wg : std::as_const(workspaceGroups))
+            if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
             {
-                if (wg->screens().contains(scr))
+                wl_output *output = waylandScreen->output();
+                for (auto *wg : std::as_const(workspaceGroups))
                 {
-                    const auto workspaces = wg->workspaces();
-                    for (WorkspaceHandleV1 *ws : workspaces)
+                    if (wg->outputs().contains(output))
                     {
-                        map[ws->coordinates()] = ws;
+                        const auto workspaces = wg->workspaces();
+                        for (WorkspaceHandleV1 *ws : workspaces)
+                        {
+                            map[ws->coordinates()] = ws;
+                        }
+                        break;
                     }
-                    break;
                 }
             }
             break;
@@ -180,7 +184,19 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace_group
         connect(wg, &WorkspaceGroupHandleV1::workspaceRemoved, this, &WorkspaceManagerV1::workspaceRemoved);
 
         connect(this, &WorkspaceManagerV1::activation, wg, [this, wg]() {
-                emit currentWorkspaceChanged(wg->screens());
+            QList<QScreen*> scrns;
+            const auto screens = QGuiApplication::screens();
+            for (const auto& scr : screens)
+            {
+                if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
+                {
+                    if (wg->outputs().contains(waylandScreen->output()))
+                    {
+                        scrns << scr;
+                    }
+                }
+            }
+            emit currentWorkspaceChanged(scrns);
         });
     }
 }
@@ -243,46 +259,14 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output
     struct ::wl_output *output)
 {
     if (!m_outputs.contains(output))
-    {
         m_outputs << output;
-        const auto screens = QGuiApplication::screens();
-        for (const auto& scr : screens)
-        {
-            if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
-            {
-                if (output == waylandScreen->output())
-                {
-                    if (!m_screens.contains(scr))
-                        m_screens << scr;
-                    break;
-                }
-            }
-        }
-
-        emit outputEnter(output);
-    }
+    emit outputEnter(output);
 }
 
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_output_leave(
     struct ::wl_output *output)
 {
-    if (m_outputs.contains(output))
-    {
-        m_outputs.removeAll(output);
-        const auto screens = QGuiApplication::screens();
-        for (const auto& scr : screens)
-        {
-            if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
-            {
-                if (output == waylandScreen->output())
-                {
-                    m_screens.removeAll(scr);
-                    break;
-                }
-            }
-        }
-    }
-
+    m_outputs.removeAll(output);
     emit outputLeave(output);
 }
 
