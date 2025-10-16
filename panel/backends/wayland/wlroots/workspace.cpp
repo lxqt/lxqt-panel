@@ -196,8 +196,12 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace(
             &WorkspaceManagerV1::activation, Qt::QueuedConnection);
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::nameChanged, this,
             &WorkspaceManagerV1::nameChanged, Qt::QueuedConnection);
+
+    // handle coordinates change as renaming plus activation
     connect(workspaceMap[workspace_], &WorkspaceHandleV1::coordinatesChanged, this,
             &WorkspaceManagerV1::nameChanged, Qt::QueuedConnection);
+    connect(workspaceMap[workspace_], &WorkspaceHandleV1::coordinatesChanged, this,
+            &WorkspaceManagerV1::activation, Qt::QueuedConnection);
 }
 
 void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_done()
