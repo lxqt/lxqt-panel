@@ -30,6 +30,41 @@
 #include "plugin.h"
 #include "lxqtpanellayout.h"
 #include <QMouseEvent>
+#include <QProxyStyle>
+#include <QStyleOption>
+#include <QPainter>
+
+class BorderStyle : public QProxyStyle {
+public:
+    using QProxyStyle::QProxyStyle;
+    QColor color;
+    PluginMoveProcessor::MarkType mark;
+
+    void drawPrimitive(PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget = nullptr) const override 
+    {
+        QLine line;
+        switch(mark) {
+        case PluginMoveProcessor::TopMark:
+            line = QLine(option->rect.topLeft(), option->rect.topRight()).translated(0, 1);
+            break;
+
+        case PluginMoveProcessor::BottomMark:
+            line = QLine(option->rect.bottomLeft(), option->rect.bottomRight()).translated(0, -1);
+            break;
+
+        case PluginMoveProcessor::LeftMark:
+            line = QLine(option->rect.topLeft(), option->rect.bottomLeft()).translated(1, 0);
+            break;
+
+        case PluginMoveProcessor::RightMark:
+            line = QLine(option->rect.topRight(), option->rect.bottomRight()).translated(-1, 0);
+            break;
+        }
+        QProxyStyle::drawPrimitive(element, option, painter, widget);
+        painter->setPen(QPen(color, 2));
+        painter->drawLine(line);
+    }
+};
 
 
 /************************************************
@@ -205,50 +240,37 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
     QWidget *widget = (item) ? item->widget() : nullptr;
 
     static QWidget *prevWidget = nullptr;
-    if (prevWidget && prevWidget != widget)
-        prevWidget->setStyleSheet(QLatin1String(""));
+    if (prevWidget && prevWidget != widget){
+        prevWidget->setStyle(nullptr);
+        prevWidget->setContentsMargins(QMargins());
+    }
 
     prevWidget = widget;
 
     if (!widget)
         return;
 
-    QString border1;
-    QString border2;
-    switch(markType)
-    {
-    case TopMark:
-        border1 = QLatin1String("top");
-        border2 = QLatin1String("bottom");
+    static BorderStyle borderStyle;
+    borderStyle.color = Plugin::moveMarkerColor();
+    borderStyle.mark = markType;
+    widget->setStyle(&borderStyle);
+    switch (markType) {
+    case TopMark: 
+        widget->setContentsMargins(0,2,0,0);
         break;
 
     case BottomMark:
-        border1 = QLatin1String("bottom");
-        border2 = QLatin1String("top");
+        widget->setContentsMargins(0,0,0,2);
         break;
 
     case LeftMark:
-        border1 = QLatin1String("left");
-        border2 = QLatin1String("right");
+        widget->setContentsMargins(2,0,0,0);
         break;
 
     case RightMark:
-        border1 = QLatin1String("right");
-        border2 = QLatin1String("left");
+        widget->setContentsMargins(0,0,2,0);
         break;
-
     }
-
-    widget->setStyleSheet(QString::fromLatin1("#%1 {"
-                                  "border-%2: 2px solid rgba(%4, %5, %6, %7); "
-                                  "border-%3: -2px solid; "
-                                  "background-color: transparent; }")
-                          .arg(widget->objectName(), border1, border2)
-                          .arg(Plugin::moveMarkerColor().red())
-                          .arg(Plugin::moveMarkerColor().green())
-                          .arg(Plugin::moveMarkerColor().blue())
-                          .arg(Plugin::moveMarkerColor().alpha())
-                          );
 }
 
 
