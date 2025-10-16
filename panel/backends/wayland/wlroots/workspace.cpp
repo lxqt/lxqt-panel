@@ -302,10 +302,6 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_worksp
     if (workspaceMap.contains(workspace) && m_workspaces.contains(workspaceMap[workspace]))
     {
         m_workspaces.removeAll(workspaceMap[workspace]);
-        if (m_workspaces.isEmpty())
-        {
-            workspaceGroups.removeAll(this);
-        }
         emit workspaceRemoved(workspaceMap[workspace]);
     }
 }
@@ -313,6 +309,7 @@ void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_worksp
 void LXQt::Taskbar::WorkspaceGroupHandleV1::ext_workspace_group_handle_v1_removed()
 {
     workspaceGroups.removeAll(this);
+    deleteLater();
     emit removed();
 }
 
@@ -425,5 +422,6 @@ void LXQt::Taskbar::WorkspaceHandleV1::ext_workspace_handle_v1_removed()
     {
         workspaceMap.remove(key);
     }
+    deleteLater();
     emit removed();
 }
