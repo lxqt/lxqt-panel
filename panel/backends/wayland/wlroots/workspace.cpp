@@ -198,6 +198,29 @@ void LXQt::Taskbar::WorkspaceManagerV1::ext_workspace_manager_v1_workspace_group
             }
             emit currentWorkspaceChanged(scrns);
         });
+
+        /* NOTE: This is a workaround for a Qt/QtWayland issue, because of which, the
+                 QScreen corresponding to a new output may be created with a delay and
+                 mess with the desktop switcher on the new screen. The issue usually
+                 happened on re-plugging an external monitor or resuming from suspension. */
+        connect(qGuiApp, &QGuiApplication::screenAdded, wg, [this, wg]() {
+            QList<QScreen*> scrns;
+            const auto screens = QGuiApplication::screens();
+            for (const auto& scr : screens)
+            {
+                if (auto waylandScreen = dynamic_cast<QtWaylandClient::QWaylandScreen*>(scr->handle()))
+                {
+                    if (wg->outputs().contains(waylandScreen->output()))
+                    {
+                        scrns << scr;
+                    }
+                }
+            }
+
+            emit workspaceAdded(nullptr);
+            emit currentWorkspaceChanged(scrns);
+            emit nameChanged();
+        });
     }
 }
 
