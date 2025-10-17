@@ -34,23 +34,19 @@ class LXQt::Taskbar::WorkspaceManagerV1 : public QWaylandClientExtensionTemplate
     WorkspaceManagerV1();
     virtual ~WorkspaceManagerV1();
 
-    /**
-     * TODO: We have to eventually implement @screen.
-     */
     int workspaceCount(QScreen *screen = nullptr);
-
-    /**
-     * TODO: We have to eventually implement @screen.
-     */
     int currentWorkspaceIndex(QScreen *screen = nullptr);
-    void setCurrentWorkspaceIndex(int idx     = 0);
+    QString workspaceName(int idx, const QString &sceenName);
+    void setCurrentWorkspaceIndex(int idx = 0, QScreen *screen = nullptr);
 
     Q_SIGNAL void workspaceGroupAdded(WorkspaceGroupHandleV1 *workspace_group);
     Q_SIGNAL void workspaceAdded(WorkspaceHandleV1 *workspace);
     Q_SIGNAL void workspaceRemoved(WorkspaceHandleV1 *workspace);
+    Q_SIGNAL void nameChanged();
 
     /** A workspace became active or inactive. */
-    Q_SIGNAL void currentWorkspaceChanged();
+    Q_SIGNAL void currentWorkspaceChanged(const QList<QScreen*> &screens);
+    Q_SIGNAL void activation();
 
     Q_SIGNAL void done();
     Q_SIGNAL void finished();
@@ -72,6 +68,14 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
     virtual ~WorkspaceGroupHandleV1();
 
     bool canCreateWorkspace() const;
+
+    QList<struct ::wl_output*> outputs() const {
+        return m_outputs;
+    }
+
+    QList<WorkspaceHandleV1*> workspaces() const {
+        return m_workspaces;
+    }
 
     /**
      * Note: QtWayland::ext_workspace_group_handle_v1 has following member functions:
@@ -98,13 +102,13 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
 
   private:
     /** Track on which outputs this workspace group is visible */
-    QList<struct ::wl_output*> outputs;
+    QList<struct ::wl_output*> m_outputs;
 
     /** Store the capabilities */
     uint32_t m_supported_capabilities;
 
-    /** Track on which workspaces are a part of this workspace group */
-    QList<WorkspaceHandleV1*> workspaces;
+    /** Track workspaces that are a part of this workspace group */
+    QList<WorkspaceHandleV1*> m_workspaces;
 };
 
 class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_workspace_handle_v1

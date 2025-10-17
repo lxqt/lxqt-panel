@@ -59,7 +59,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
     mBackend = a->getWMBackend();
 
 
-    m_desktopCount = mBackend->getWorkspacesCount();
+    m_desktopCount = mBackend->getWorkspacesCount(getScreen());
 
     m_buttons = new QButtonGroup(this);
 
@@ -71,7 +71,7 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     settingsChanged();
 
-    onCurrentDesktopChanged(mBackend->getCurrentWorkspace());
+    onCurrentDesktopChanged(mBackend->getCurrentWorkspace(getScreen()));
     QTimer::singleShot(0, this, SLOT(registerShortcuts()));
 
     connect(m_buttons, &QButtonGroup::idClicked, this, &DesktopSwitch::setDesktop);
@@ -82,6 +82,19 @@ DesktopSwitch::DesktopSwitch(const ILXQtPanelPluginStartupInfo &startupInfo) :
 
     connect(mBackend, &ILXQtAbstractWMInterface::windowPropertyChanged, this, &DesktopSwitch::onWindowChanged);
     connect(mBackend, &ILXQtAbstractWMInterface::windowRemoved, this, &DesktopSwitch::onWindowRemoved);
+}
+
+QScreen* DesktopSwitch::getScreen() const
+{
+    const auto screens = QApplication::screens();
+    for (const auto& screen : screens)
+    {
+        if (screen->name() == panel()->screenName())
+        {
+            return screen;
+        }
+    }
+    return nullptr;
 }
 
 void DesktopSwitch::registerShortcuts()
@@ -156,20 +169,20 @@ void DesktopSwitch::onWindowRemoved(WId id)
 
 void DesktopSwitch::refresh()
 {
+    QScreen *scrn = getScreen();
+    const QString screenName = scrn ? scrn->name() : QString();
     const QList<QAbstractButton*> btns = m_buttons->buttons();
 
     int i = 0;
-    const int current_desktop = mBackend->getCurrentWorkspace();
+    const int current_desktop = mBackend->getCurrentWorkspace(scrn);
     const int current_cnt = btns.count();
     const int border = std::min(btns.count(), (qsizetype) m_desktopCount);
     //update existing buttons
     for ( ; i < border; ++i)
     {
         DesktopSwitchButton * button = qobject_cast<DesktopSwitchButton*>(btns[i]);
-        button->update(i, mLabelType,
-                       mBackend->getWorkspaceName(i + 1).isEmpty() ?
-                       tr("Desktop %1").arg(i + 1) :
-                       mBackend->getWorkspaceName(i + 1));
+        auto deskName = mBackend->getWorkspaceName(i + 1, screenName);
+        button->update(i, mLabelType, deskName.isEmpty() ? tr("Desktop %1").arg(i + 1) : deskName);
         button->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
     }
 
@@ -177,10 +190,9 @@ void DesktopSwitch::refresh()
     QAbstractButton *b;
     for ( ; i < m_desktopCount; ++i)
     {
+        auto deskName = mBackend->getWorkspaceName(i + 1, screenName);
         b = new DesktopSwitchButton(&mWidget, i, mLabelType,
-                mBackend->getWorkspaceName(i+1).isEmpty() ?
-                tr("Desktop %1").arg(i+1) :
-                mBackend->getWorkspaceName(i+1));
+                deskName.isEmpty() ? tr("Desktop %1").arg(i+1) : deskName);
         mWidget.layout()->addWidget(b);
         m_buttons->addButton(b, i);
         b->setVisible(!mShowOnlyActive || i + 1 == current_desktop);
@@ -200,12 +212,12 @@ DesktopSwitch::~DesktopSwitch() = default;
 
 void DesktopSwitch::setDesktop(int desktop)
 {
-    mBackend->setCurrentWorkspace(desktop + 1);
+    mBackend->setCurrentWorkspace(desktop + 1, getScreen());
 }
 
 void DesktopSwitch::onNumberOfDesktopsChanged()
 {
-    int count = mBackend->getWorkspacesCount();
+    int count = mBackend->getWorkspacesCount(getScreen());
     qDebug() << "Desktop count changed from" << m_desktopCount << "to" << count;
     m_desktopCount = count;
     refresh();
@@ -317,9 +329,9 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     auto wmBackend = a->getWMBackend();
 
-    int max = wmBackend->getWorkspacesCount();
+    int max = wmBackend->getWorkspacesCount(screen());
     int delta = rotationSteps < 0 ? 1 : -1;
-    int current = wmBackend->getCurrentWorkspace() + delta;
+    int current = wmBackend->getCurrentWorkspace(screen()) + delta;
 
     if (current > max){
         current = 1;
@@ -328,7 +340,7 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
         current = max;
 
     m_mouseWheelThresholdCounter = 0;
-    wmBackend->setCurrentWorkspace(current);
+    wmBackend->setCurrentWorkspace(current, screen());
 }
 
 ILXQtPanelPlugin *DesktopSwitchPluginLibrary::instance(const ILXQtPanelPluginStartupInfo &startupInfo) const

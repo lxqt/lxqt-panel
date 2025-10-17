@@ -31,6 +31,7 @@
 #include "../panel/backends/ilxqtabstractwmiface.h"
 
 #include <KX11Extras>
+#include <QScreen>
 #include <QTimer>
 
 DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings, QWidget *parent) :
@@ -71,10 +72,10 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     auto wmBackend = a->getWMBackend();
 
-    int n = wmBackend->getWorkspacesCount();
+    int n = wmBackend->getWorkspacesCount(screen());
     for (int i = 1; i <= n; i++)
     {
-        auto deskName = wmBackend->getWorkspaceName(i);
+        auto deskName = wmBackend->getWorkspaceName(i, screen() ? screen()->name() : QString());
         if (deskName.isEmpty())
             deskName = tr("Desktop %1").arg(i);
         QLineEdit *edit = new QLineEdit(deskName, this);

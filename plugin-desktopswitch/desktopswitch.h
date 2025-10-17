@@ -31,6 +31,7 @@
 
 #include "../panel/ilxqtpanelplugin.h"
 #include <QFrame>
+#include <QScreen>
 
 #include "desktopswitchbutton.h"
 
@@ -87,6 +88,7 @@ private:
     DesktopSwitchButton::LabelType mLabelType;
 
     void refresh();
+    QScreen* getScreen() const;
 
 private slots:
     void setDesktop(int desktop);
