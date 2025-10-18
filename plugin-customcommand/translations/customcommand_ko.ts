@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>출력 형식:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>연속 출력 (한 줄씩 처리됨)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,117 +167,117 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>명령어는 버튼의 텍스트로 사용될 일반 텍스트를 출력합니다</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>명령어 출력 아이콘 형식:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>테마 이름</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>XDG 사양에 따라 이미지로 확인된 아이콘 이름</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 파일 경로</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 데이터 스트림</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>일반 이미지 스트림</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>base64로 인코딩된 이미지 데이터 스트림</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>위와 같지만 base64로 인코딩됨</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>명령은 버튼 시각화에 사용될 구조화된 변수를 다음과 같은 형태로 출력함:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>이름1:base64value1 이름2:base64value2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>처리된 이름들:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>버튼의 텍스트로 사용할 문자열</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>이전에 설명한 것과 동일한 형식으로 버튼에 표시될 아이콘</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>버튼의 툴팁으로 사용할 문자열</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 값은 base64로 인코딩해야 합니다</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>구조화된 출력을 생성하는 스크립트의 예:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>내 글</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>내_이미지</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>내 툴팁</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트만</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>아이콘만</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>구조화됨</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>

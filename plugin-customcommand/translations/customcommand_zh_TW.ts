@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>輸出格式：</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>連續輸出 (逐行處理)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,122 +167,122 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>指令輸出純文字使用作為按鈕的文字</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>指令輸出圖示的形式為：</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>主題名稱</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>基於 XDG 規格解析成圖片的圖示名稱</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>圖片檔案路徑</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>圖片資料串流</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>純圖片串流</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Base64 編碼的圖片資料串流</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>如同上述，但採用 Base64 編碼</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>指令輸出結構化的參數用於按鈕視覺化的形式為：</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>名稱1:base64value1 名稱2:base64value2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>所處理的名稱是：</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>使用作為按鈕文字的字串</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>按鈕中顯示的圖示，其形式與先前所述相同</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>使用作為按鈕工具提示的字串</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>全部的值均應以 base64 編碼</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>生成結構化輸出的腳本範例：</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>我的文字</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>我的圖片(_I)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>我的工具提示</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>僅有文字</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>僅有圖示</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>結構化的</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
         <source>Select Icon File</source>
-        <translation>選擇圖示檔</translation>
+        <translation>選擇圖示檔案</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
