@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqttaskbar.cpp" line="649"/>
         <source>Activate task %1</source>
-        <translation>فعّل المهمة %1</translation>
+        <translation>فعّل المهمة 1%</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Desktop &amp;%1</source>
-        <translation>سطح المكتب &amp;%1</translation>
+        <translation>سطح المكتب &amp;1%</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>سطح المكتب %1</translation>
     </message>
 </context>
 </TS>
