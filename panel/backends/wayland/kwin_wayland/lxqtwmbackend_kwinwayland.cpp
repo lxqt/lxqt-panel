@@ -381,7 +381,7 @@ WId LXQtWMBackend_KWinWayland::getActiveWindow() const
     return 0;
 }
 
-int LXQtWMBackend_KWinWayland::getWorkspacesCount() const
+int LXQtWMBackend_KWinWayland::getWorkspacesCount(QScreen*) const
 {
     return m_workspaceInfo->numberOfDesktops();
 }
@@ -391,14 +391,14 @@ QString LXQtWMBackend_KWinWayland::getWorkspaceName(int idx, QString) const
     return m_workspaceInfo->getDesktopName(idx - 1); //Return to 0-based
 }
 
-int LXQtWMBackend_KWinWayland::getCurrentWorkspace() const
+int LXQtWMBackend_KWinWayland::getCurrentWorkspace(QScreen*) const
 {
     if(!m_workspaceInfo->currentDesktop().isValid())
         return 0;
     return m_workspaceInfo->position(m_workspaceInfo->currentDesktop()) + 1; // 1-based
 }
 
-bool LXQtWMBackend_KWinWayland::setCurrentWorkspace(int idx)
+bool LXQtWMBackend_KWinWayland::setCurrentWorkspace(int idx, QScreen*)
 {
     QString id = m_workspaceInfo->getDesktopId(idx - 1); //Return to 0-based
     if(id.isEmpty())
