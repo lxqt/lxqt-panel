@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished">Enkwatagana ya DOM ey&apos;ebitundu by&apos;olubaawo</translation>
+        <translation>Enkwatagana ya DOM ey&apos;ebitundu by&apos;olubaawo</translation>
     </message>
 </context>
 <context>
