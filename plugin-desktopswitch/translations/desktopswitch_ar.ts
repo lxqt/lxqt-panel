@@ -70,12 +70,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="79"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">سطح المكتب %1</translation>
+        <translation>سطح المكتب 1%</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="81"/>
         <source>Desktop %1:</source>
-        <translation>سطح المكتب %1:</translation>
+        <translation>سطح المكتب 1%:</translation>
     </message>
 </context>
 <context>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation>تبديل سطح المكتب غير معتمد في النظام الأساسي الحالي:%1</translation>
+        <translation>تبديل سطح المكتب غير معتمد في النظام الأساسي الحالي:1%</translation>
     </message>
 </context>
 </TS>

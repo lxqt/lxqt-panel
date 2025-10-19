@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="79"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">%1 바탕화면</translation>
+        <translation>바탕화면 %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="81"/>

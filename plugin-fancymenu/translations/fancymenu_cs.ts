@@ -232,7 +232,7 @@ Chcete ho přepsat?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nebylo možné nalézt spustitelný soubor &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>
