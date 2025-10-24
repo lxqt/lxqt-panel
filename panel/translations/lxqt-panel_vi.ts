@@ -6,27 +6,27 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm plugin</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm tiện ích</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation type="unfinished"></translation>
+        <translation>(chỉ một phiên bản có thể chạy cùng lúc)</translation>
     </message>
 </context>
 <context>
@@ -34,22 +34,22 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình thanh panel</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí hiển thị</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểu dáng</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiện ích</translation>
     </message>
 </context>
 <context>
@@ -57,160 +57,160 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình vị trí hiển thị</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Giá trị pixel âm sẽ thiết lập chiều dài của thanh panel ngắn hơn số pixel tương ứng so với không gian màn hình khả dụng.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Ví dụ: Nếu “Chiều dài” được đặt là -100px, và kích thước màn hình là 1000px, thì chiều dài thực tế của thanh panel sẽ là 900px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều dài:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation type="unfinished"></translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước biểu tượng:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dòng:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Căn chỉnh &amp; Vị trí</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>Căn chỉnh:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Trái</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Giữa</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Phải</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>T&amp;ự động ẩn</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
         <location filename="../config/configplacement.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Giá trị 0 nghĩa là không có hiệu ứng chuyển động</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời gian hiệu ứng:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> giây</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
         <location filename="../config/configplacement.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Giá trị 0 nghĩa là không có độ trễ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiển thị với độ trễ:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Lề mỏng hiển thị cho thanh panel ẩn</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation type="unfinished"></translation>
+        <translation>Chỉ ẩn khi cửa sổ bị che</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation type="unfinished"></translation>
+        <translation>Không cho phép cửa sổ phóng to đi xuống dưới thanh panel</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation type="unfinished"></translation>
+        <translation>Dành không gian trên màn hình</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Đỉnh màn hình</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Trái màn hình</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Phải màn hình</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Đáy màn hình</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
