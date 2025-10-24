@@ -166,12 +166,12 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilkuilla eroteltu lista ikkunaluokista</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Piilota tehtäväpalkista</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Työpöytä %1</translation>
     </message>
 </context>
 </TS>

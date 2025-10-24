@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<TS version="2.1" language="vi">
 <context>
     <name>AddPluginDialog</name>
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Lisää lisäosia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Etsi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation>Lisää pienoisohjelma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
-        <translation>Sulje</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(vain yksi voi olla kerrallaan käytössä)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -34,22 +34,22 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Muokkaa paneelia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
         <source>Placement</source>
-        <translation>Sijoittelu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation>Tyyli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation>Vempaimet</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -57,190 +57,190 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation>Määritä sijoittelu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
         <source>Size</source>
-        <translation>Koko</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negatiivinen pikseliarvo asettaa paneelin pituuden yhtä monta pikseliä käytettävissä olevaa näyttötilaa pienemmäksi.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Esimerkiksi jos &quot;Pituus&quot; on asetettu arvoon -100px, ja näytön koko on 1000px, tulee paneelin pituudeksi 900px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Koko:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Pituus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
         <source>%</source>
-        <translation>%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation>px</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Kuvakkeiden koko:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Rivejä:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Kohdistus &amp;&amp; sijainti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
         <source>Alignment:</source>
-        <translation>Kohdistus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation>Vasemmalla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation>Keskellä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation>Oikealla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
         <source>Position:</source>
-        <translation>Sijainti:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>A&amp;utomaattinen piilotus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
         <location filename="../config/configplacement.ui" line="285"/>
         <source>Zero means no animation</source>
-        <translation>Nolla = ei animaatiota</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation>Animaation kesto:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
         <location filename="../config/configplacement.ui" line="311"/>
         <source>Zero means no delay</source>
-        <translation>Nolla = ei viivettä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="304"/>
         <source>Show with delay:</source>
-        <translation>Esiintulemisen viive:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation>Näytä ohut osa piiloitetusta paneelista</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Piilota vain toisen ikkunan päälle mentäessä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Älä salli suurennettujen ikkunoiden mennä paneelin alle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
         <source>Reserve space on display</source>
-        <translation>Varaa tilaa näytöltä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation>Näytön ylälaidassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation>Näytön vasemmassa laidassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation>Näytön oikeassa laidassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation>Näytön alalaidassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation>%1. näytön yläreunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation>%1. näytön vasemmassa reunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation>%1. näytön oikeassa reunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation>%1. näytön alareunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
         <source>Top</source>
-        <translation>Yläreunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="196"/>
         <source>Bottom</source>
-        <translation>Alareunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -248,17 +248,17 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Säädä lisäosia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Huomautus: tälle sivulle tehtyjä muutoksia ei voi resetoida.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
         <source>Move up</source>
-        <translation>Siirrä ylös</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
@@ -267,27 +267,27 @@
         <location filename="../config/configpluginswidget.ui" line="164"/>
         <location filename="../config/configpluginswidget.ui" line="185"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="126"/>
         <source>Move down</source>
-        <translation>Siirrä alas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation>Lisää</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
         <source>Remove</source>
-        <translation>Poista</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation>Asetukset</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -295,37 +295,37 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>Määritä tyyli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
         <source>Custom styling</source>
-        <translation>Ulkoasun muokkaaminen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
         <source>Font color:</source>
-        <translation>Fontin väri:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="105"/>
         <source>Background color:</source>
-        <translation>Taustaväri:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Taustan läpinäkyvyys:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Kompositointi tarvitaan läpinäkyvää paneelia varten&lt;/small&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
         <source>Background image:</source>
-        <translation>Taustakuva:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="256"/>
@@ -337,40 +337,33 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Osittainen kiertotapa pienoisohjelmatyyleille,
-jotka eivät voi antaa erillistä teemaa paneelille.
-
-Saatat myös haluta poistaa käytöstä:
-
-LXQt:n ulkoasun hallinta →
-Kuvaketeema →
-Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation>Ohita &amp;kuvaketeema</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
         <source>Icon theme for panels:</source>
-        <translation>Kuvaketeema paneeleille:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="189"/>
         <location filename="../config/configstyling.cpp" line="205"/>
         <source>Pick color</source>
-        <translation>Valitse väri</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Pick image</source>
-        <translation>Valitse kuva</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
-        <translation>Kuvat (*.png *.gif *.jpg *.svg)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -379,46 +372,45 @@ Väritä kuvakkeet pienoisohjelmatyylin (paletti) mukaan</translation>
         <location filename="../lxqtpanel.cpp" line="1495"/>
         <location filename="../lxqtpanel.cpp" line="1521"/>
         <source>Panel</source>
-        <translation>Paneeli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1524"/>
         <source>Configure Panel</source>
-        <translation>Muokkaa paneelia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1529"/>
         <source>Manage Widgets</source>
-        <translation>Hallitse pienoisohjelmia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1535"/>
         <source>Add New Panel</source>
-        <translation>Luo uusi paneeli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1542"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Poista paneeli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1547"/>
         <source>Lock This Panel</source>
-        <translation>Lukitse paneeli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1710"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Poista paneeli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1711"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Paneelin poistoa ei voi peruuttaa.
-Haluatko varmasti poistaa tämän paneelin?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -426,17 +418,17 @@ Haluatko varmasti poistaa tämän paneelin?</translation>
     <message>
         <location filename="../plugin.cpp" line="455"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Säädä &quot;%1&quot;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="460"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>Siirrä &quot;%1&quot;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="468"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>Poista &quot;%1&quot;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -444,12 +436,12 @@ Haluatko varmasti poistaa tämän paneelin?</translation>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
-        <translation>Käytä vaihtoehtoista asetustiedostoa.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
-        <translation>Asetustiedosto</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
