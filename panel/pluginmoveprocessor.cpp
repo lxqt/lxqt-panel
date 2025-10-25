@@ -30,6 +30,7 @@
 #include "plugin.h"
 #include "lxqtpanellayout.h"
 #include <QMouseEvent>
+#include <QStyle> // just for a workaround with Qt >= 6.9
 
 
 /************************************************
@@ -205,8 +206,16 @@ void PluginMoveProcessor::drawMark(QLayoutItem *item, MarkType markType)
     QWidget *widget = (item) ? item->widget() : nullptr;
 
     static QWidget *prevWidget = nullptr;
-    if (prevWidget && prevWidget != widget)
+    if (prevWidget && prevWidget != widget) {
         prevWidget->setStyleSheet(QLatin1String(""));
+#if (QT_VERSION >= QT_VERSION_CHECK(6,9,0))
+        // NOTE: This is a workaround for a Qt regression, because of which,
+        // the stylesheet remains visible.
+        prevWidget->style()->unpolish(prevWidget);
+        prevWidget->style()->polish(prevWidget);
+        prevWidget->update();
+#endif
+    }
 
     prevWidget = widget;
 
