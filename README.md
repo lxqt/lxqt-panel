@@ -8,6 +8,12 @@ The elements available in lxqt-panel are called "plugin" technically. This appli
 Configuration dialogue "Add Plugins", see [below](https://github.com/lxqt/lxqt-panel#customizing), is listing all available plugins plus a short description and hence provides an overview of the available ones.
 Notes on some of the plugins, sorted by terms used within the GUI in alphabetical order, technical term in parenthesis:
 
+#### Custom Command (plugin-customcommand)
+
+Allows showing the output of commands or scripts on the panel, as text or images, and executing commands on click and/or wheel up/down.
+
+![Custom command plugin settings](customcommand.png)
+
 #### Date & time / World clock (plugin-worldclock)
 
 Provides clock and calendar functionality and can display various time zones in addition.
@@ -31,7 +37,7 @@ As indicated by the name, a volume control. Technically Alsa, OSS and PulseAudio
 
 ### Wayland Backends
 
-Wayland backends enable some functionalities related to task-bar as well as desktop switching and showing desktop. Two Wayland backends are available: kwin_wayland and another one for wlroots-compatible compositors. They are automatically detected for all seven compositors that are currently supported.
+Wayland backends enable some functionalities related to task-bar as well as desktop switching and showing desktop. Three Wayland backends are available: kwin_wayland, Wayfire and one for wlroots-compatible compositors. They are automatically detected for all seven compositors that are currently supported.
 
 In addition, the backend to load can be forced manually for any desktop specified in XDG_CURRENT_DESKTOP by a comma-separated list in ~/.config/lxqt/panel.conf:
 
@@ -73,7 +79,9 @@ In section "Panel" topics "Configure Panel" and "Manage Widgets" open different 
 Pane "Widgets" allows for configuring and removing all plugins currently included in lxqt-panel. The plus sign opens another dialogue "Add plugins" which is used to add plugins. It comes with a list of all plugins plus some short descriptions and can hence serve as overview what plugins are available.
 
 Sometimes right-clicking over particular plugins may bring up a context menu dealing with the respective plugin's functionality *only* which means the plugin in question cannot be configured the usual way. This affects e. g. plugin-quicklaunch as soon as items were added (the context menu is limited to topics dealing with the items included in plugin-quicklaunch).
-Currently there are two ways to deal with this. Some themes like e. g. `Frost` come with handles at the plugins' left end providing the regular context menu. Also, it can be assumed at least one plugin is included in the panel that's always featuring the regular context menu like e. g. plugin-mainmenu. Either way pane "Widgets" of "Configure Panel" can be accessed and used to configure the particular plugin.
+Currently there are two ways to deal with this. Some themes like e. g. `Frost` come with handles at the plugins' left end providing the regular context menu. Also, it can be assumed at least one plugin is included in the panel that's always featuring the regular context menu like e. g. plugin-mainmenu. Either way pane "Widgets" of "Configure Panel" can be accessed and used to configure and move the particpaneular plugin by DND or using the arrows.
+
+See also [LXQt Wiki: LXQt-Panel](https://lxqt-project.org/wiki/LXQt-Panel).
 
 ### Translation
 
