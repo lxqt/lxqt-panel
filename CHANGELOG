@@ -1,3 +1,28 @@
+lxqt-panel-2.3.0 / 2025-11-05
+==============================
+ * Added Wayfire backend.
+ * Made Desktop Switcher work with Wayland compositors that support ext-workspaces-v1 protocol (like labwc, niri, …).
+ * Activate Show Desktop plugin on drag-and-drop.
+ * Made the initial config file available outside LXQt.
+ * Updated the button of Custom Command every time it receives output.
+ * Added support for structured output to Custom Command.
+ * Added a 50-ms delay before making desktop switcher urgent.
+ * Fixed building with Qt 6.10.
+ * Fixed building with C++20.
+ * Fix a discrepancy in the default action of mouse wheel in Task Manager plugin.
+ * Accept base-names of menu files in Fancy Menu and Main Menu plugins.
+ * Used `lxqt-panel-applications.menu` in Fancy Menu by default.
+ * Added category separators of menu files to Fancy Menu.
+ * Prevented changing backlight on showing the backlight slider.
+ * Adjust backlight with mouse wheel on the button of backlight plugin.
+ * Silenced some compilation warnings.
+ * Cleaned up some ui files.
+ * Removed unneeded QOverloads.
+ * Used locale-aware sorting in Fancy Menu and Main Menu.
+ * Follow better model/view architcture for PanelPluginsModel.
+ * Properly handle plugin move by configview.
+ * Workaround for a Qt regression that prevented plugin move indicators from being removed.
+
 lxqt-panel-2.2.2 / 2025-06-22
 ==============================
  * Made searching for backend in EVs case-insensitive.
