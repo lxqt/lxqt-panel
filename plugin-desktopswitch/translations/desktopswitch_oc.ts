@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Se marcat, lo widget serà pas qu’un indicador</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="79"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">Burèu %1</translation>
+        <translation>Burèu %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="81"/>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="346"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>n/a</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="348"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>DesktopSwitch es pas compatible amb la platafòrma actuala : %1</translation>
     </message>
 </context>
 </TS>

@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Настройки на контрол на звука</translation>
+        <translation>Настройки на управление на звука</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Устройство за контрол</translation>
+        <translation>Устройство за управление</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Разрешаване сила на звука над 100 % (0 dB)</translation>
+        <translation>Разрешаване сила на звука над 100% (0 dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation>Винаги информирай при промяна на звука</translation>
+        <translation>Винаги да се информира при промяна на звука</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>

@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(само една инстанция може да се изпълнява едновременно)</translation>
+        <translation>(само един екземпляр може да се изпълнява едновременно)</translation>
     </message>
 </context>
 <context>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
         <source>Rows:</source>
-        <translation>Брой редове:</translation>
+        <translation>Редове:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
@@ -119,20 +119,20 @@
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation>Ляво</translation>
+        <translation>ляво</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation>Център</translation>
+        <translation>центрирано</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation>Дясно</translation>
+        <translation>дясно</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
@@ -195,22 +195,22 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation>Горният край на екрана</translation>
+        <translation>в горния край на екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation>Левият край на екрана</translation>
+        <translation>в левия край на екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation>Десният край на екрана</translation>
+        <translation>В десния край на екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation>Долният край на екрана</translation>
+        <translation>в долния край на екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
@@ -235,12 +235,12 @@
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
         <source>Top</source>
-        <translation>Горе</translation>
+        <translation>горе</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="196"/>
         <source>Bottom</source>
-        <translation>Долу</translation>
+        <translation>отдолу</translation>
     </message>
 </context>
 <context>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Прозрачност на панела изисква програма за изграждане на ефекти.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Прозрачност на панела изисква програма за изобразяване на ефекти.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>

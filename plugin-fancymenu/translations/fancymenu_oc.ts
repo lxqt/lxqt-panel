@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuracion de menú elegant</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -37,17 +37,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
-        <translation>Icòna&#x202f;:</translation>
+        <translation>Icòna :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
         <source>Button text:</source>
-        <translation>Tèxt del boton&#x202f;:</translation>
+        <translation>Tèxt del boton :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
-        <translation>Talha de la poliça personalizada&#x202f;:</translation>
+        <translation>Talha de la poliça personalizada :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccion auto aprèp :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
-        <translation>Fichièr de menú&#x202f;:</translation>
+        <translation>Fichièr de menú :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Clicatz lo boton per enregistrar l’acorchi&#x202f;:</translation>
+        <translation>Clicatz lo boton per enregistrar l’acorchi :</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Agençament</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posicion de la fila de botons</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posicion de las categorias</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Bas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Naut</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquèrra</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Drecha</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,12 +165,12 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centre de configuracion de l’LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortir</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustatz vòstres favorits en un clic suls elements dins las categorias.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
@@ -197,7 +197,7 @@
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Un fichièr amb aqueste nom existís ja.
-Lo volètz remplaçar&#x202f;?</translation>
+Lo volètz remplaçar ?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
@@ -232,7 +232,7 @@ Lo volètz remplaçar&#x202f;?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibla de trobar l’executable &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

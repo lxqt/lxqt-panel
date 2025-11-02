@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Recercar&#x202f;:</translation>
+        <translation>Recercar :</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Widgets</translation>
     </message>
 </context>
 <context>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Talha&#x202f;:</translation>
+        <translation>Talha :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largor&#x202f;:</translation>
+        <translation>Largor :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Talha de l’icòna&#x202f;:</translation>
+        <translation>Talha de l’icòna :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -108,41 +108,41 @@
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhament &amp;&amp; posicion</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
         <source>Alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhament :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquèr</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centre</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Drech</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
         <source>Position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Posicion :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Am&amp;agament automatic</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
@@ -153,7 +153,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="265"/>
         <source>Animation duration:</source>
-        <translation type="unfinished"></translation>
+        <translation>Durada de l’animacion :</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="288"/>
@@ -277,7 +277,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="147"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Apondre</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="161"/>
@@ -342,7 +342,7 @@ Colorize icons based on widget style (palette)</source>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Subrecargar lo &amp;tèma d’icònas</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
@@ -418,12 +418,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="455"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar « %1 »</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="460"/>
         <source>Move &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Desplaçar « %1 »</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="468"/>
