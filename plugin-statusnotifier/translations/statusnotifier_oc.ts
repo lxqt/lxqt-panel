@@ -11,13 +11,13 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Invertir l’òrdre dels elements</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
         <location filename="../statusnotifierconfiguration.ui" line="49"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un element d’amagar automaticament demorarà visible durant aqueste periòde se requerís atencion.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="42"/>

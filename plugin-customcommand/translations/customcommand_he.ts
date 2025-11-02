@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>תבנית פלט:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>פלט רציף (מעובד שורה אחר שורה)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,117 +167,117 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>הפקודה פולטת טקסט פשוט לשימוש בתור הטקסט של הכפתור</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>הפקודה פולטת סמל בצורת:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>שם ערכת העיצוב</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>שם הסמל נפתר לתמונה לפי מפרט XDG</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>נתיב קובץ תמונה</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>תזרים נתוני תמונה</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>תזרים תמונה פשוטה</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>תזרים נתוני תמונה בקידוד base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>כמו לעיל אבל בקידוד base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>הפקודה פולטת משתנים במבנים מוסכמים לשימוש להצגת כפתורים בצורת:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>שם1:ערך1ב־base64 שם2:ערך2ב־base64  …</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>השמות שמטופלים הם:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>מחרוזת לשימוש כטקסט הכפתור</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>סמל שיופיע על הכפתור, באותה צורה כפי שכבר הוסבר</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>מחרוזת לשימוש כחלונית עצה של הכפתור</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>את כל הערכים יש לקודד ב־base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>דוגמה לסקריפט שמייצר פלט בתבנית מוסכמת:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>הטקסט שלי</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>התמונה_שלי</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>חלונית העצה שלי</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>טקסט בלבד</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>סמל בלבד</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>תבנית מוסכמת</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>

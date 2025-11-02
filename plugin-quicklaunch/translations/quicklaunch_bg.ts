@@ -30,12 +30,12 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation>Преместване на наляво</translation>
+        <translation>Преместване наляво</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation>Преместване на надясно</translation>
+        <translation>Преместване надясно</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="63"/>

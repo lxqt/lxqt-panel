@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.ui" line="42"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action when eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activar l&apos;accion seguenta quand la tòca d&apos;ejeccion es quichada (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; per defaut)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
@@ -63,12 +63,12 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo periferic &lt;b&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/b&gt; es connectat.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Lo periferic &lt;b&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/b&gt; es levat.</translation>
+        <translation>Lo periferic &lt;b&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/b&gt; es levat.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionari dels mèdias/periferics amovibles : acorchi global « %1 » se podiá pas enregistrar</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="127"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Mo montatge de &lt;b&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/b&gt; a fracassat&#xa0;: %2</translation>
+        <translation>Mo montatge de &lt;b&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/b&gt; a fracassat : %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="158"/>
@@ -118,7 +118,7 @@
     <message>
         <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Lo desmontatge de &lt;strong&gt;&lt;nobr&gt;«&#xa0;%1&#xa0;»&lt;/nobr&gt;&lt;/strong&gt; a fracassat&#xa0;: %2</translation>
+        <translation>Lo desmontatge de &lt;strong&gt;&lt;nobr&gt;« %1 »&lt;/nobr&gt;&lt;/strong&gt; a fracassat : %2</translation>
     </message>
 </context>
 <context>

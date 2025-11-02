@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="91"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar lo burèu : l’acorchi global « %1 » se podiá pas enregistrar</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="53"/>

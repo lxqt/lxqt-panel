@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Po&amp;sicion&#xa0;:</translation>
+        <translation>Po&amp;sicion :</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
@@ -220,12 +220,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar lo fus orari afichat amb la rodeta de la mirga</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Nòta :&lt;/b&gt; fasètz un clic amb la rodeta sul relòtge per afichar l’ora e la data de totes los fuses oraris configurats.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>
@@ -302,7 +302,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Sintaxi del format de data/ora personalizat&lt;/h1&gt;
+&lt;p&gt;Un modèl de data es una cadena de caractèrs, ont de cadenas de caractèrs especificas son remplaçadas per de donadas de data e d&apos;ora d&apos;un calendièr al moment del formatatge, o utilizadas per generar de donadas per un calendièr al moment de l&apos;analisi.&lt;/p&gt;
+&lt;p&gt;La Taula dels Simbòls de Camp de Data çaijós conten los caractèrs utilizats dins los modèls per afichar los formats apropriats per una lenga donada, coma yyyy per l&apos;annada. Los caractèrs pòdon èsser utilizats mantun còp. Per exemple, se y es utilizat per l&apos;annada, &apos;yy&apos; poiriá produire &apos;99&apos;, mentre que &apos;yyyy&apos; produiriá &apos;1999&apos;. Per la màger part dels camps numerics, lo nombre de caractèrs especifica la largor del camp. Per exemple, se h es l&apos;ora, &apos;h&apos; poiriá produire &apos;5&apos;, mas &apos;hh&apos; produiriá &apos;05&apos;. Per d&apos;unes caractèrs, lo nombre especifica se una forma abreujada o completa deu èsser utilizada, mas pòt aver d&apos;autras causidas, coma indicat çaijós.&lt;/p&gt;
+&lt;p&gt;Dos apostròfes simples representan un apostròfe simplaliteral, que siá a l&apos;interior o a l&apos;exterior d&apos;apostròfes simples. Lo tèxte entre apostròfes simples es pas interpretat de cap de biais (levat per dos apostròfes simples adjacentes). Autrament, totas las letras ASCII de a a z e de A a Z son reservadas coma caractèrs de sintaxi, e demandan d&apos;èsser entre apostròfes se devon representar de caractèrs literals. En mai d&apos;aquò, d&apos;unes caractèrs de pontuacion ASCII poirián venir de variablas a l&apos;avenir (per ex. &quot;:&quot; interpretat coma lo separador d&apos;ora e &apos;/&apos; coma un separador de data, e remplaçats per los caractèrs respectius adaptats a la lenga a l&apos;afichatge).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Còdi&lt;/th&gt;&lt;th&gt;Significacion&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;lo jorn en nombre sens zèro davant (1 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;lo jorn en nombre amb un zèro davant (01 a 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;lo nom del jorn abreujat e localizat (ex. &apos;dil&apos; a &apos;dim&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;lo nom del jorn long e localizat (ex. &apos;diluns&apos; a &apos;dimenge&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;lo mes en nombre sens zèro davant (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;lo mes en nombre amb un zèro davant (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;lo nom del mes abreujat e localizat (ex. &apos;gen&apos; a &apos;dec&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;lo nom del mes long e localizat (ex. &apos;genièr&apos; a &apos;decembre&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;l&apos;annada en nombre de dos chifres (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;l&apos;annada en nombre de quatre chifres&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;l&apos;ora sens zèro davant (0 a 23 o 1 a 12 se afichatge AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;l&apos;ora amb un zèro davant (00 a 23 o 01 a 12 se afichatge AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;l&apos;ora sens zèro davant (0 a 23, quitament amb afichatge AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;l&apos;ora amb un zèro davant (00 a 23, quitament amb afichatge AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;la minuta sens zèro davant (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;la minuta amb un zèro davant (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;la segonda sens zèro davant (0 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;la segonda amb un zèro davant (00 a 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;o&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;utilizar l&apos;afichatge AM/PM. &lt;b&gt;A/AP&lt;/b&gt; serà remplaçat per &quot;AM&quot; o &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;o&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;utilizar l&apos;afichatge am/pm. &lt;b&gt;a/ap&lt;/b&gt; serà remplaçat per &quot;am&quot; o &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;lo fus orari (ex. &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;lo descalatge respècte a UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;l&apos;identificant IANA del fus orari&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;l&apos;abreviacion del fus orari&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;lo nom d&apos;afichatge cort del fus orari&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;lo nom d&apos;afichatge long del fus orari&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;lo nom personalizat del fus orari. Lo podètz cambiar dins l&apos;onglet &apos;Fuses oraris&apos; de la fenèstra de configuracion&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Nòtas:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Totes los caractèrs del modèl que son pas dins los intervals de [&apos;a&apos;..&apos;z&apos;] e [&apos;A&apos;..&apos;Z&apos;] seràn tractats coma de tèxte entre apostròfes. Per exemple, de caractèrs coma &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; e &apos;@&apos; apareisseràn dins lo tèxte de l&apos;ora resultant quitament s&apos;eles son pas clauses entre apostròfes simples. L&apos;apostròf simpla es utilizada per &apos;escapar&apos; las letras. Dos apostròfes simples a la seguida, que sián a l&apos;interior o a l&apos;exterior d&apos;una sequéncia entre apostròfes, representan una &apos;vertadièra&apos; apostròf simpla.&lt;/li&gt;&lt;li&gt;L&apos;interval minimal de mesa a jorn es de 1 segonda. Se z o zzz es configurat, l&apos;ora es afichada amb la fraccion de las millisegondas, mas es pas mesa a jorn a la millisegonda (per evitar un gròs impacte sus las performàncias).&lt;/li&gt;&lt;ul&gt;
+</translation>
     </message>
 </context>
 <context>
