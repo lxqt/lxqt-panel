@@ -424,17 +424,17 @@ Weet u zeker dat u wilt doorgaan?</translation>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="455"/>
+        <location filename="../plugin.cpp" line="457"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>‘%1’ instellen</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="460"/>
+        <location filename="../plugin.cpp" line="462"/>
         <source>Move &quot;%1&quot;</source>
         <translation>‘%1’ verplaatsen</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="468"/>
+        <location filename="../plugin.cpp" line="470"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>‘%1’ verwijderen</translation>
     </message>

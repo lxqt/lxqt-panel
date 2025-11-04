@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="96"/>
+        <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
         <translation>%1 바탕화면으로 전환</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="171"/>
-        <location filename="../desktopswitch.cpp" line="182"/>
+        <location filename="../desktopswitch.cpp" line="185"/>
+        <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
         <translation>%1 바탕화면</translation>
     </message>
@@ -68,12 +68,12 @@
         <translation>바탕화면 이름</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
         <translation>바탕화면 %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
         <translation>%1 바탕화면:</translation>
     </message>
@@ -81,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="346"/>
+        <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
         <translation>해당 없음</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="348"/>
+        <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch는 현재 플랫폼에서 지원되지 않습니다: %1</translation>
     </message>

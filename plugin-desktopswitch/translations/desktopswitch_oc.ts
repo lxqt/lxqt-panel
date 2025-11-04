@@ -4,13 +4,13 @@
 <context>
     <name>DesktopSwitch</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="96"/>
+        <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
         <translation>Bascular al burèu %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="171"/>
-        <location filename="../desktopswitch.cpp" line="182"/>
+        <location filename="../desktopswitch.cpp" line="185"/>
+        <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
         <translation>Burèu %1</translation>
     </message>
@@ -68,12 +68,12 @@
         <translation>Noms dels burèus</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="79"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
         <translation>Burèu %1</translation>
     </message>
     <message>
-        <location filename="../desktopswitchconfiguration.cpp" line="81"/>
+        <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
         <translation>Burèu %1 :</translation>
     </message>
@@ -81,12 +81,12 @@
 <context>
     <name>DesktopSwitchUnsupported</name>
     <message>
-        <location filename="../desktopswitch.cpp" line="346"/>
+        <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
         <translation>n/a</translation>
     </message>
     <message>
-        <location filename="../desktopswitch.cpp" line="348"/>
+        <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
         <translation>DesktopSwitch es pas compatible amb la platafòrma actuala : %1</translation>
     </message>

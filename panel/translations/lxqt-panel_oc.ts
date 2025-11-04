@@ -11,7 +11,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Recercar :</translation>
+        <translation>Recercar&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
@@ -72,12 +72,12 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation>Talha :</translation>
+        <translation>Talha&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
         <source>Length:</source>
-        <translation>Largor :</translation>
+        <translation>Largor&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="96"/>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Talha de l’icòna :</translation>
+        <translation>Talha de l’icòna&#x202f;:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -416,17 +416,17 @@ Do you want to remove this panel?</source>
 <context>
     <name>Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="455"/>
+        <location filename="../plugin.cpp" line="457"/>
         <source>Configure &quot;%1&quot;</source>
         <translation>Configurar « %1 »</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="460"/>
+        <location filename="../plugin.cpp" line="462"/>
         <source>Move &quot;%1&quot;</source>
         <translation>Desplaçar « %1 »</translation>
     </message>
     <message>
-        <location filename="../plugin.cpp" line="468"/>
+        <location filename="../plugin.cpp" line="470"/>
         <source>Remove &quot;%1&quot;</source>
         <translation>Suprimir « %1 »</translation>
     </message>

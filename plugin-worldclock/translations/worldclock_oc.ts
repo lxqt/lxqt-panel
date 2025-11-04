@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Po&amp;sicion :</translation>
+        <translation>Po&amp;sicion&#xa0;:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
