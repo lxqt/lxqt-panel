@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pidev väljund (töödeldud ridahaaval)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,12 +167,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>käsu väljundiks on tavatekst, mida saab kasutada nupu tekstina</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>käsu väljundiks on ikoon järgmises vormingus:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>ikooni nimi, mis järgib pildi nime vastavalt XDG spetsifikatsioonile</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
@@ -197,47 +197,47 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>pildi tavaline sisuvoog</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>base64 kodeeringus pildi sisuvoog</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>sama, kui ülal, aga base64 kodeeringus</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>käsi väljundiks on struktureeritud muutujad, mida saab kasutada nupu visualiseerimiseks järgmises vormingus:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>nimi1:base64väärtus1 nimi2:base64väärtus2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>Käsitletavad nimed on:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>sõne, mida kasutatakse nupu tekstina</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>ikoon, mida kuvatakse nupul, kasutusel on eespool kirjeldatud vorming</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>sõne, mida kasutatakse nupu kohtvihjena</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
@@ -247,7 +247,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skripti näidis, mis lood struktureeritud sisu:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>

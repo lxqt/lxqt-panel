@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Top of screen</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Left of screen</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Right of screen</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Bottom of screen</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Top of screen %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Left of screen %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Right of screen %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="169"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bottom of screen %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
@@ -305,12 +305,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
         <source>Font color:</source>
-        <translation>Font color:</translation>
+        <translation>Font colour:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="105"/>
         <source>Background color:</source>
-        <translation>Background color:</translation>
+        <translation>Background colour:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
@@ -360,7 +360,7 @@ Colourise icons based on widget style (palette)</translation>
         <location filename="../config/configstyling.cpp" line="189"/>
         <location filename="../config/configstyling.cpp" line="205"/>
         <source>Pick color</source>
-        <translation>Pick colour</translation>
+        <translation>Pick Colour</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="223"/>
