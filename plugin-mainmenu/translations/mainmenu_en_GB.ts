@@ -146,22 +146,22 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
         <source>Choose icon file</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose icon file</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
         <source>Images (*.svg *.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Images (*.svg *.png)</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
         <source>Choose menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose menu file</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu files (*.menu)</translation>
     </message>
 </context>
 </TS>
