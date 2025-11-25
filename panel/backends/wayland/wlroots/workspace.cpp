@@ -1,5 +1,6 @@
 #include "workspace.hpp"
 
+#include <QGuiApplication>
 #include <QMap>
 
 #include <private/qwaylandscreen_p.h>

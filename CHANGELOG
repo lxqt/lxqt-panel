@@ -1,3 +1,7 @@
+lxqt-panel-2.3.1 / 2025-11-25
+==============================
+ * Fixed build failure with Qt < 6.8.
+
 lxqt-panel-2.3.0 / 2025-11-05
 ==============================
  * Added Wayfire backend.
