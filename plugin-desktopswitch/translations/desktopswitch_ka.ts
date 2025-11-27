@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">სამუშაო მაგიდა %1</translation>
+        <translation>სამუშაო მაგიდა %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
