@@ -6,7 +6,7 @@
 #include <private/qwaylandscreen_p.h>
 
 /** ext_workspace_handle_v1 <-> WorkspaceHandleV1 map */
-QMap<struct ::ext_workspace_handle_v1*, LXQt::Taskbar::WorkspaceHandleV1*> workspaceMap;
+QMap<struct ::ext_workspace_handle_v1*, QPointer<LXQt::Taskbar::WorkspaceHandleV1>> workspaceMap;
 QList<LXQt::Taskbar::WorkspaceGroupHandleV1*> workspaceGroups;
 
 /**
@@ -66,9 +66,10 @@ int LXQt::Taskbar::WorkspaceManagerV1::currentWorkspaceIndex(QScreen *screen)
                 if (wg->outputs().contains(output))
                 {
                     const auto workspaces = wg->workspaces();
-                    for (WorkspaceHandleV1 *ws : workspaces)
+                    for (const auto& ws : workspaces)
                     {
-                        map[ws->coordinates()] = ws;
+                        if (ws)
+                            map[ws->coordinates()] = ws;
                     }
                     break;
                 }
@@ -107,9 +108,10 @@ QString LXQt::Taskbar::WorkspaceManagerV1::workspaceName(int idx, const QString 
                     if (wg->outputs().contains(output))
                     {
                         const auto workspaces = wg->workspaces();
-                        for (WorkspaceHandleV1 *ws : workspaces)
+                        for (const auto& ws : workspaces)
                         {
-                            map[ws->coordinates()] = ws;
+                            if (ws)
+                                map[ws->coordinates()] = ws;
                         }
                         break;
                     }
@@ -148,9 +150,10 @@ void LXQt::Taskbar::WorkspaceManagerV1::setCurrentWorkspaceIndex(int idx, QScree
                 if (wg->outputs().contains(output))
                 {
                     const auto workspaces = wg->workspaces();
-                    for (WorkspaceHandleV1 *ws : workspaces)
+                    for (const auto& ws : workspaces)
                     {
-                        map[ws->coordinates()] = ws;
+                        if (ws)
+                            map[ws->coordinates()] = ws;
                     }
                     break;
                 }

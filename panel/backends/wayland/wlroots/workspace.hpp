@@ -4,6 +4,7 @@
 #include <QString>
 #include <QList>
 #include <QScreen>
+#include <QPointer>
 
 #include <string>
 #include "wayland-ext-workspace-v1-client-protocol.h"
@@ -73,7 +74,7 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
         return m_outputs;
     }
 
-    QList<WorkspaceHandleV1*> workspaces() const {
+    QList<QPointer<WorkspaceHandleV1>> workspaces() const {
         return m_workspaces;
     }
 
@@ -108,7 +109,7 @@ class LXQt::Taskbar::WorkspaceGroupHandleV1 : public QObject, public QtWayland::
     uint32_t m_supported_capabilities;
 
     /** Track workspaces that are a part of this workspace group */
-    QList<WorkspaceHandleV1*> m_workspaces;
+    QList<QPointer<WorkspaceHandleV1>> m_workspaces;
 };
 
 class LXQt::Taskbar::WorkspaceHandleV1 : public QObject, public QtWayland::ext_workspace_handle_v1
