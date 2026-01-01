@@ -310,112 +310,42 @@ Colorize icons based on widget style (palette)</string>
    <signal>toggled(bool)</signal>
    <receiver>pushButton_customBgColor</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>144</x>
-     <y>332</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>350</x>
-     <y>350</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customBgImage</sender>
    <signal>toggled(bool)</signal>
    <receiver>lineEdit_customBgImage</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>137</x>
-     <y>403</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>149</x>
-     <y>440</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customBgImage</sender>
    <signal>toggled(bool)</signal>
    <receiver>pushButton_customBgImage</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>125</x>
-     <y>403</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>350</x>
-     <y>441</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customFontColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>pushButton_customFontColor</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>190</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>350</x>
-     <y>312</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>slider_opacity</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>99</x>
-     <y>333</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>114</x>
-     <y>367</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>label_2</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>34</x>
-     <y>341</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>32</x>
-     <y>362</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>checkBox_customBgColor</sender>
    <signal>toggled(bool)</signal>
    <receiver>compositingL</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>

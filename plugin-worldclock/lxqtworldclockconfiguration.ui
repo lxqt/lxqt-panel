@@ -628,32 +628,12 @@
    <signal>accepted()</signal>
    <receiver>LXQtWorldClockConfiguration</receiver>
    <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>104</x>
-     <y>438</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>253</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
    <receiver>LXQtWorldClockConfiguration</receiver>
    <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>85</x>
-     <y>438</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>62</x>
-     <y>253</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
  <slots>

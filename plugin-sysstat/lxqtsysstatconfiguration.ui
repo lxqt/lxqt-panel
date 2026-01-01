@@ -398,64 +398,24 @@
    <signal>accepted()</signal>
    <receiver>LXQtSysStatConfiguration</receiver>
    <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>95</x>
-     <y>433</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>295</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
    <receiver>LXQtSysStatConfiguration</receiver>
    <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>76</x>
-     <y>433</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>62</x>
-     <y>296</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>typeCOB</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>dataSW</receiver>
    <slot>setCurrentIndex(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>386</x>
-     <y>203</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>342</x>
-     <y>264</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>useCustomColoursRB</sender>
    <signal>toggled(bool)</signal>
    <receiver>customColoursB</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>366</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>240</x>
-     <y>365</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>
