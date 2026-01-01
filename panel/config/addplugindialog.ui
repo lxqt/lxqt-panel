@@ -133,16 +133,6 @@
    <signal>clicked()</signal>
    <receiver>AddPluginDialog</receiver>
    <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>279</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>118</x>
-     <y>270</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>

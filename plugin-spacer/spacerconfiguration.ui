@@ -81,32 +81,12 @@
    <signal>clicked(QAbstractButton*)</signal>
    <receiver>SpacerConfiguration</receiver>
    <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>sizeFixedRB</sender>
    <signal>toggled(bool)</signal>
    <receiver>sizeSB</receiver>
    <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>152</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>244</x>
-     <y>21</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>
