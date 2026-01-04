@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>687</height>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>World Clock Settings</string>
   </property>
-  <layout class="QVBoxLayout" name="_6">
+  <layout class="QVBoxLayout" name="verticalLayout_1">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
@@ -23,378 +23,385 @@
       <attribute name="title">
        <string>Display &amp;format</string>
       </attribute>
-      <layout class="QVBoxLayout" name="_8" stretch="0,0,0,0,0">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QGroupBox" name="timeGB">
-         <property name="title">
-          <string>&amp;Time</string>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding"></sizepolicy>
          </property>
-         <layout class="QFormLayout" name="formLayout">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-          </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="timeFormatL">
-            <property name="text">
-             <string>F&amp;ormat:</string>
-            </property>
-            <property name="buddy">
-             <cstring>timeFormatCB</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="timeFormatCB">
-            <item>
-             <property name="text">
-              <string>Short</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Long</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Custom</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QWidget" name="timeCustomLabelW" native="true"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QWidget" name="timeCustomW" native="true">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QCheckBox" name="timeShowSecondsCB">
-               <property name="text">
-                <string>Sho&amp;w seconds</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="timePadHourCB">
-               <property name="text">
-                <string>Pad &amp;hour with zero</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="timeAMPMCB">
-               <property name="text">
-                <string>&amp;Use 12-hour format</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="timezoneGB">
-         <property name="title">
-          <string>T&amp;ime zone</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-         <layout class="QFormLayout" name="formLayout_3">
-          <item row="0" column="0">
-           <widget class="QLabel" name="timezonePositionL">
-            <property name="text">
-             <string>&amp;Position:</string>
-            </property>
-            <property name="buddy">
-             <cstring>timezonePositionCB</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="timezoneFormatL">
-            <property name="text">
-             <string>For&amp;mat:</string>
-            </property>
-            <property name="buddy">
-             <cstring>timezoneFormatCB</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="timezonePositionCB">
-            <item>
-             <property name="text">
-              <string>Below</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Above</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Before</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>After</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="timezoneFormatCB">
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <item>
-             <property name="text">
-              <string>Short</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Long</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Offset from UTC</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Abbreviation</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Location identifier</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Custom name</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="dateGB">
-         <property name="title">
-          <string>&amp;Date</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-         <layout class="QFormLayout" name="formLayout_2">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-          </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="datePositionL">
-            <property name="text">
-             <string>Po&amp;sition:</string>
-            </property>
-            <property name="buddy">
-             <cstring>datePositionCB</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="datePositionCB">
-            <item>
-             <property name="text">
-              <string>Below</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Above</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Before</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>After</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="dateFormatL">
-            <property name="text">
-             <string>Fo&amp;rmat:</string>
-            </property>
-            <property name="buddy">
-             <cstring>dateFormatCB</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="dateFormatCB">
-            <item>
-             <property name="text">
-              <string>Short</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Long</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>ISO 8601</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Custom</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QWidget" name="dateCustomLabelW" native="true"/>
-          </item>
-          <item row="2" column="1">
-           <widget class="QWidget" name="dateCustomW" native="true">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QCheckBox" name="dateShowYearCB">
-               <property name="text">
-                <string>Show &amp;year</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="dateShowDoWCB">
-               <property name="text">
-                <string>Show day of wee&amp;k</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="datePadDayCB">
-               <property name="text">
-                <string>Pad d&amp;ay with zero</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="dateLongNamesCB">
-               <property name="text">
-                <string>&amp;Long month and day of week names</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="advancedManualGB">
-         <property name="title">
-          <string>Ad&amp;vanced manual format</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <spacer name="_3">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="customisePB">
-              <property name="text">
-               <string>&amp;Customize ...</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <spacer name="_1">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
+         <property name="minimumSize">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>560</width>
+           <height>400</height>
           </size>
          </property>
-        </spacer>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="timezoneGB">
+             <property name="title">
+              <string>T&amp;ime zone</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="timezonePositionL">
+                <property name="text">
+                 <string>&amp;Position:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>timezonePositionCB</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="timezoneFormatL">
+                <property name="text">
+                 <string>For&amp;mat:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>timezoneFormatCB</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="timezonePositionCB">
+                <item>
+                 <property name="text">
+                  <string>Below</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Above</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Before</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>After</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="timezoneFormatCB">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Short</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Long</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Offset from UTC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Abbreviation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Location identifier</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Custom name</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="dateGB">
+             <property name="title">
+              <string>&amp;Date</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QFormLayout" name="formLayout_2">
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="datePositionL">
+                <property name="text">
+                 <string>Po&amp;sition:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>datePositionCB</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="datePositionCB">
+                <item>
+                 <property name="text">
+                  <string>Below</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Above</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Before</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>After</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="dateFormatL">
+                <property name="text">
+                 <string>Fo&amp;rmat:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>dateFormatCB</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="dateFormatCB">
+                <item>
+                 <property name="text">
+                  <string>Short</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Long</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>ISO 8601</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Custom</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QWidget" name="dateCustomLabelW" native="true"/>
+              </item>
+              <item row="2" column="1">
+               <widget class="QWidget" name="dateCustomW" native="true">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="dateShowYearCB">
+                   <property name="text">
+                    <string>Show &amp;year</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="dateShowDoWCB">
+                   <property name="text">
+                    <string>Show day of wee&amp;k</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="datePadDayCB">
+                   <property name="text">
+                    <string>Pad d&amp;ay with zero</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="dateLongNamesCB">
+                   <property name="text">
+                    <string>&amp;Long month and day of week names</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="advancedManualGB">
+             <property name="title">
+              <string>Ad&amp;vanced manual format</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <spacer name="_3">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="customisePB">
+                  <property name="text">
+                   <string>&amp;Customize ...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="timeGB">
+             <property name="title">
+              <string>&amp;Time</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout">
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow</enum>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="timeFormatL">
+                <property name="text">
+                 <string>F&amp;ormat:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>timeFormatCB</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="timeFormatCB">
+                <item>
+                 <property name="text">
+                  <string>Short</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Long</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Custom</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QWidget" name="timeCustomLabelW" native="true"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QWidget" name="timeCustomW" native="true">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="timeShowSecondsCB">
+                   <property name="text">
+                    <string>Sho&amp;w seconds</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="timePadHourCB">
+                   <property name="text">
+                    <string>Pad &amp;hour with zero</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="timeAMPMCB">
+                   <property name="text">
+                    <string>&amp;Use 12-hour format</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -535,7 +542,7 @@
       <attribute name="title">
        <string>&amp;General</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
         <widget class="QCheckBox" name="autorotateCB">
          <property name="text">
