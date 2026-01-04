@@ -59,6 +59,8 @@ ConfigStyling::ConfigStyling(LXQtPanel *panel, QWidget *parent) :
     // reset configurations from file
     reset();
 
+    ui->slider_opacity->setToolTip(QString::number(mOldOpacity));
+
     connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
     connect(ui->pushButton_customFontColor, &QPushButton::clicked,   this, &ConfigStyling::pickFontColor);
     connect(ui->checkBox_customBgColor,     &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
@@ -70,7 +72,6 @@ ConfigStyling::ConfigStyling(LXQtPanel *panel, QWidget *parent) :
     connect(ui->groupBox_icon,              &QGroupBox::clicked,     this, &ConfigStyling::editChanged);
     connect(ui->comboBox_icon,              &QComboBox::activated,   this, &ConfigStyling::editChanged);
 }
-
 
 /************************************************
  *
@@ -177,6 +178,8 @@ void ConfigStyling::editChanged()
         mPanel->setIconTheme(QString());
     else if (!ui->comboBox_icon->currentText().isEmpty())
         mPanel->setIconTheme(ui->comboBox_icon->currentText());
+
+    ui->slider_opacity->setToolTip(QString::number(ui->slider_opacity->value()));
 }
 
 
