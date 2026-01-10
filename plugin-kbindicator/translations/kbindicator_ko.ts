@@ -47,7 +47,7 @@
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Variant</source>
-        <translation>변종</translation>
+        <translation>종류</translation>
     </message>
 </context>
 <context>
