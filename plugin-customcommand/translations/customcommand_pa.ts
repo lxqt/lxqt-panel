@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>ਰੰਗ ਬਦਲਣ ਲਈ ਕਲਿੱਕ ਕਰੋ</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>ਰੰਗ ਨੂੰ ਚੁਣੋ</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>ਆਉਟਪੁੱਟ ਫਾਰਮੈਟ:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
@@ -122,12 +122,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>ਲਿਖਤ ਦਾ ਰੰਗ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ਮੁੜ-ਸੈੱਟ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
@@ -177,7 +177,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>ਥੀਮ ਦਾ ਨਾਂ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
@@ -187,7 +187,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>ਚਿੱਤਰ ਫ਼ਾਇਲ ਦਾ ਮਾਰਗ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
@@ -267,12 +267,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਿਰਫ਼ ਲਿਖਤ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਿਰਫ਼ ਆਈਕਾਨ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>

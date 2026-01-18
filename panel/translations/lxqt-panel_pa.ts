@@ -195,7 +195,7 @@
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਕਰੀਨ ਦੇ ਉੱਤੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
@@ -205,17 +205,17 @@
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਕਰੀਨ ਦੇ ਸੱਜੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="157"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਕਰੀਨ ਦੇ ਹੇਠਾਂ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ਸਕਰੀਨ %1 ਦੇ ਉੱਤੇ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>

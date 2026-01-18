@@ -42,7 +42,7 @@
     <message>
         <location filename="../src/content.cpp" line="104"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>ਖਾਕਾ</translation>
     </message>
     <message>
         <location filename="../src/content.cpp" line="104"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard State Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕੀਬੋਰਡ ਹਾਲਤ ਦੀਆਂ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
@@ -80,12 +80,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
         <source>Keyboard Layout Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>ਕੀਬੋਰਡ ਖਾਤਾ ਸੰਕੇਤਕ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="62"/>
         <source>Switching policy</source>
-        <translation type="unfinished"></translation>
+        <translation>ਬਦਲਣ ਦੀ ਨੀਤੀ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
@@ -100,22 +100,22 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>ਖਾਕਿਆਂ ਦੀ ਸੰਰਚਨਾ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>ਗਲੋਬਲ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="79"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ਵਿੰਡੋ</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>ਐਪਲੀਕੇਸ਼ਨ</translation>
     </message>
 </context>
 </TS>
