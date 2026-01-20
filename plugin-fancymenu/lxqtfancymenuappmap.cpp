@@ -235,49 +235,69 @@ LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::getAppAt(int index)
 
 QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps(const QString &query) const
 {
-    QList<const AppItem *> byName;
+    QList<const AppItem *> startsWithTitle;
+    QList<const AppItem *> containsTitle;
     QList<const AppItem *> byKeyword;
-    QList<const AppItem *> exec;
+    QList<const AppItem *> byExec;
 
-    //TODO: implement some kind of score to get better matches on top
+    // Pre-allocate with reasonable capacity
+    startsWithTitle.reserve(10);
+    containsTitle.reserve(50);
+    byKeyword.reserve(50);
+    byExec.reserve(50);
 
     for(const AppItem *app : std::as_const(mAppSortedByName))
     {
-        if(app->title.contains(query, Qt::CaseInsensitive))
+        // Check name first
+        if (app->title.startsWith(query, Qt::CaseInsensitive))
         {
-            byName.append(app);
-            continue;
+            startsWithTitle.append(app);
+            continue; // Skip other checks
         }
 
-        if(app->comment.contains(query, Qt::CaseInsensitive))
+        bool found = false;
+
+        if (app->title.contains(query, Qt::CaseInsensitive))
+        {
+            containsTitle.append(app);
+            found = true;
+        }
+        // Check comment
+        else if (app->comment.contains(query, Qt::CaseInsensitive))
         {
             byKeyword.append(app);
-            continue;
+            found = true;
         }
-
-        for(const QString& key : app->keywords)
+        else
         {
-            if(key.startsWith(query, Qt::CaseInsensitive))
+            // Check keywords
+            for(const QString& key : app->keywords)
             {
-                byKeyword.append(app);
-                break;
+                if(key.startsWith(query, Qt::CaseInsensitive))
+                {
+                    byKeyword.append(app);
+                    found = true;
+                    break;
+                }
             }
-        }
 
-        for(const QString& key : app->exec)
-        {
-            if(key.contains(query, Qt::CaseInsensitive))
+            // Check exec
+            if (!found)
             {
-                exec.append(app);
-                break;
+                for(const QString& execStr : app->exec)
+                {
+                    if(execStr.contains(query, Qt::CaseInsensitive))
+                    {
+                        byExec.append(app);
+                        break;
+                    }
+                }
             }
         }
     }
 
-    // Give priority to title matches
-    byName += byKeyword + exec;
-
-    return byName;
+    startsWithTitle += containsTitle + byKeyword + byExec;
+    return startsWithTitle;
 }
 
 void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topLevelCategory)
