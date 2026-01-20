@@ -248,11 +248,11 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
 
     for(const AppItem *app : std::as_const(mAppSortedByName))
     {
-        // Check name first
+        // Check name
         if (app->title.startsWith(query, Qt::CaseInsensitive))
         {
             startsWithTitle.append(app);
-            continue; // Skip other checks
+            continue;
         }
 
         bool found = false;
