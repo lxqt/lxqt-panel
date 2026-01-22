@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorit</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Semua Aplikasi</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Menu Fancy</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih otomatis setelah:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation>md</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Tata Letak</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posisi baris tombol</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posisi kategori</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Bawah</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Atas</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiri</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanan</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,73 +165,74 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat Konfigurasi LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Tinggalkan</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Tentang LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan favorit Anda dengan klik kanan item dari kategori.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan ke desktop</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Pertanyaan</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas dengan nama yang sama sudah ada.
+Apakah Anda ingin menimpanya?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Peringatan</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas tidak dapat ditimpa.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus dari Favorit</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan ke Favorit</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak Ada Berkas Eksekusi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat menemukan berkas eksekusi &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

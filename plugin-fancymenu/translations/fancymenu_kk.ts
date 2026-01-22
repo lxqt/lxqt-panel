@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Таңдамалы</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Барлық қолданбалар</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Сәнді мәзір баптаулары</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Автотаңдау, кейін:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> мс</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
@@ -97,17 +97,17 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Жайма</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Батырмалардың қатарда орналасуы</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Санаттардың орналасуы</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Төменде</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Жоғарыда</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Сол жақта</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Оң жақта</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
@@ -165,22 +165,22 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt баптаулар орталығы</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Шығу</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt туралы</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Санатты тышқанның оң жағымен шерту оны таңдамалыларға қосады.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
@@ -217,22 +217,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Таңдамалылардан өшіру</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Таңдамалыларға қосу</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Орындалатын емес</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;%1&lt;/b&gt; орындалатын файлы табылмады.</translation>
     </message>
 </context>
 </TS>

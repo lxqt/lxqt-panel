@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr">
+<TS version="2.1" language="kk">
 <context>
     <name>DesktopSwitch</name>
     <message>
         <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
-        <translation>Prebaci na radnu površinu %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="185"/>
         <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
-        <translation>Radna površina %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -20,62 +20,62 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch Settings</source>
-        <translation>Prebacivanje između radnih površina – Postavke</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation>Broj redaka:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Oznake za radnu površinu:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation>Izgled</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation>Brojevi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation>Imena</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Bez</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Ako je označeno, programčić će biti samo indikator</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation>Prikaži samo aktivne radne površine</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Imena radnih površina</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation>Radna površina %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
-        <translation>Radna površina %1:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation>--</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation>DesktopSwitch nije podržan na trenutačnoj platformi: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
