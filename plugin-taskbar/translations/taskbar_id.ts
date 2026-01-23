@@ -39,12 +39,12 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Pindahkan Ke Monitor &amp;Berikutnya</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="619"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Pindahkan Ke Monitor &amp;Sebelumnya</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="625"/>
@@ -212,12 +212,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Roda Mouse</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Ambang Batas Delta Roda</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation type="unfinished"></translation>
+        <translation>Letakkan tombol dari kelas yang sama berdekatan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
@@ -238,12 +238,12 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>Daftar kelas jendela yang dipisahkan koma</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Kecualikan dari bilah tugas</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
@@ -263,27 +263,27 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Dinonaktifkan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Gulir ke atas untuk menaikkan, ke bawah untuk meminimalkan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished"></translation>
+        <translation>Gulir ke atas untuk meminimalkan, ke bawah untuk menaikkan</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Gulir ke atas untuk pindah ke desktop berikutnya, ke bawah ke sebelumnya</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation type="unfinished"></translation>
+        <translation>Gulir ke atas untuk pindah ke desktop sebelumnya, ke bawah ke berikutnya</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Desktop %1</translation>
     </message>
 </context>
 </TS>
