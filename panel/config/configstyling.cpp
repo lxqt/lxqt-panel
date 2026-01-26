@@ -59,7 +59,7 @@ ConfigStyling::ConfigStyling(LXQtPanel *panel, QWidget *parent) :
     // reset configurations from file
     reset();
 
-    ui->slider_opacity->setToolTip(QString::number(mOldOpacity));
+    ui->slider_opacity->setToolTip(QString::number(mOldOpacity) + QStringLiteral("%"));
 
     connect(ui->checkBox_customFontColor,   &QCheckBox::toggled,     this, &ConfigStyling::editChanged);
     connect(ui->pushButton_customFontColor, &QPushButton::clicked,   this, &ConfigStyling::pickFontColor);
@@ -179,7 +179,7 @@ void ConfigStyling::editChanged()
     else if (!ui->comboBox_icon->currentText().isEmpty())
         mPanel->setIconTheme(ui->comboBox_icon->currentText());
 
-    ui->slider_opacity->setToolTip(QString::number(ui->slider_opacity->value()));
+    ui->slider_opacity->setToolTip(QString::number(ui->slider_opacity->value()) + QStringLiteral("%"));
 }
 
 
