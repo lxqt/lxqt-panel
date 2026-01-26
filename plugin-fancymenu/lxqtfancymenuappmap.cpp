@@ -235,52 +235,51 @@ LXQtFancyMenuAppMap::AppItem *LXQtFancyMenuAppMap::getAppAt(int index)
 
 QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps(const QString &query) const
 {
-    QList<const AppItem *> byName;
-    QList<const AppItem *> byKeyword;
-    QList<const AppItem *> exec;
-
-    //TODO: implement some kind of score to get better matches on top
+    QList<const AppItem *> matches;
 
     for(const AppItem *app : std::as_const(mAppSortedByName))
     {
         if(app->title.contains(query, Qt::CaseInsensitive))
         {
-            byName.append(app);
+            matches.append(app);
             continue;
         }
 
         if(app->comment.contains(query, Qt::CaseInsensitive))
         {
-            byKeyword.append(app);
+            matches.append(app);
             continue;
         }
 
+        bool found = false;
         for(const QString& key : app->keywords)
         {
             if(key.startsWith(query, Qt::CaseInsensitive))
             {
-                byKeyword.append(app);
+                matches.append(app);
+                found = true;
                 break;
             }
         }
+        if(found) continue;
 
         for(const QString& key : app->exec)
         {
             if(key.contains(query, Qt::CaseInsensitive))
             {
-                exec.append(app);
+                matches.append(app);
                 break;
             }
         }
     }
 
-    // Give priority to title matches and to the app whose title starts with
-    // the filter string, and sort the other items.
-    byName += byKeyword + exec;
+    // Give the priority to the apps whose titles start with
+    // or contain the filter string, and sort the other items.
     QCollator collator;
     collator.setCaseSensitivity(Qt::CaseInsensitive);
-    std::sort(byName.begin(), byName.end(),
+    std::sort(matches.begin(), matches.end(),
               [&collator, query](const AppItem* a, const AppItem* b) {
+        // starting
         if(a->title.startsWith(query, Qt::CaseInsensitive))
         {
             if(!b->title.startsWith(query, Qt::CaseInsensitive))
@@ -288,10 +287,19 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
         }
         else if(b->title.startsWith(query, Qt::CaseInsensitive))
             return false;
+        // containing
+        if(a->title.contains(query, Qt::CaseInsensitive))
+        {
+            if(!b->title.contains(query, Qt::CaseInsensitive))
+                return true;
+        }
+        else if(b->title.contains(query, Qt::CaseInsensitive))
+            return false;
+        // otherwise
         return collator.compare(a->title, b->title) < 0;
     });
 
-    return byName;
+    return matches;
 }
 
 void LXQtFancyMenuAppMap::parseMenu(const QDomElement &menu, const QString& topLevelCategory)
