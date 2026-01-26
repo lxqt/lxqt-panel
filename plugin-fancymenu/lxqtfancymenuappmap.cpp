@@ -274,8 +274,22 @@ QList<const LXQtFancyMenuAppMap::AppItem *> LXQtFancyMenuAppMap::getMatchingApps
         }
     }
 
-    // Give priority to title matches
+    // Give priority to title matches and to the app whose title starts with
+    // the filter string, and sort the other items.
     byName += byKeyword + exec;
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    std::sort(byName.begin(), byName.end(),
+              [&collator, query](const AppItem* a, const AppItem* b) {
+        if(a->title.startsWith(query, Qt::CaseInsensitive))
+        {
+            if(!b->title.startsWith(query, Qt::CaseInsensitive))
+                return true;
+        }
+        else if(b->title.startsWith(query, Qt::CaseInsensitive))
+            return false;
+        return collator.compare(a->title, b->title) < 0;
+    });
 
     return byName;
 }
