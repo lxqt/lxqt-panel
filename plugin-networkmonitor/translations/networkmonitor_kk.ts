@@ -6,47 +6,47 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Желілік интерфейс &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
         <source>Transmitted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Жіберілді %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Received %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Қабылданды %1</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="206"/>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>Б</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>KiB</source>
-        <translation type="unfinished"></translation>
+        <translation>КиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>МиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>ГиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>TiB</source>
-        <translation type="unfinished"></translation>
+        <translation>ТиБ</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
         <source>PiB</source>
-        <translation type="unfinished"></translation>
+        <translation>ПиБ</translation>
     </message>
 </context>
 <context>
@@ -54,42 +54,42 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Желілік монитор баптаулары</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Жалпы</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
         <source>Modem</source>
-        <translation type="unfinished"></translation>
+        <translation>Модем</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Монитор</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Желі</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
-        <translation type="unfinished"></translation>
+        <translation>Сымсыз</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Таңбаша</translation>
     </message>
 </context>
 </TS>

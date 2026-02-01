@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 жұмыс үстеліне ауысу</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="185"/>
         <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 жұмыс үстелі</translation>
     </message>
 </context>
 <context>
@@ -20,62 +20,62 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Жұмыс үстелін ауыстырушы баптаулары</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
         <source>Number of rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Жолдар саны:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Жұмыс үстелінің белгілері:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Сыртқы түрі</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="54"/>
         <source>Numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Сандар</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Атаулар</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Жоқ</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Белгіленген болса, виджет тек индикатор болады</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Тек белсенді жұмыс үстелін көрсету</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation type="unfinished"></translation>
+        <translation>Жұмыс үстелдерінің атаулары</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 жұмыс үстелі</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 жұмыс үстелі:</translation>
     </message>
 </context>
 <context>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>қ/ж</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Жұмыс үстелін ауыстырушы ағымдағы %1 платформасында қолдау көрсетілмейді</translation>
     </message>
 </context>
 </TS>

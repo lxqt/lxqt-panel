@@ -156,17 +156,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation type="unfinished"></translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Use &amp;frequency</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>

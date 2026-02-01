@@ -147,12 +147,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
         <source>Choose menu file</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose menu file</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
         <source>Menu files (*.menu)</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu files (*.menu)</translation>
     </message>
 </context>
 <context>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
-        <translation type="unfinished"></translation>
+        <translation>Search...</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>

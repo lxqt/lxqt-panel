@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Output format:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Continuous output (processed line by line)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="331"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Click</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
