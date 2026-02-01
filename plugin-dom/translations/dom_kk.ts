@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Панельдің DOM ағашы</translation>
     </message>
 </context>
 <context>
@@ -14,33 +14,33 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Панельдің DOM ағашы</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation type="unfinished"></translation>
+        <translation>Қасиет</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Мән</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Барлық қасиеттер</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Түрі</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation type="unfinished"></translation>
+        <translation>Жолдық мән</translation>
     </message>
 </context>
 </TS>
