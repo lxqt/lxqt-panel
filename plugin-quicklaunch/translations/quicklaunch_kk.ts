@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>Drop Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Тастау қатесі</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="231"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; файлы/URL-адресі әзірше жылдам іске қосуға ендіріле алмайды</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="337"/>
         <source>Drop application
 icons here</source>
-        <translation type="unfinished"></translation>
+        <translation>Бағдарлама таңбашаларын
+осында тастаңыз</translation>
     </message>
 </context>
 <context>
@@ -25,27 +26,27 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Ctrl + DND)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation type="unfinished"></translation>
+        <translation>Солға жылжыту</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation type="unfinished"></translation>
+        <translation>Оңға жылжыту</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
-        <translation type="unfinished"></translation>
+        <translation>Жылдам іске қосудан өшіру</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Жаңарту</translation>
     </message>
 </context>
 </TS>
