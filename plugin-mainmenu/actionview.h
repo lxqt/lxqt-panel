@@ -42,9 +42,14 @@ public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
-    void setfilerString(const QString &str) {
+    void setFilterString(const QString& str)
+    {
+        if (filterStr_ == str)
+            return;
+
+        beginFilterChange();
         filterStr_ = str;
-        invalidateFilter();
+        endFilterChange();
     }
 
 protected:
