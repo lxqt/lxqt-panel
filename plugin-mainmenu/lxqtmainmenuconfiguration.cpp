@@ -129,6 +129,10 @@ void LXQtMainMenuConfiguration::loadSettings()
         menuFile = XdgMenu::getMenuFileName(menuFile);
     ui->menuFilePathLE->setText(menuFile);
 
+    if (QGuiApplication::platformName() != QStringLiteral("xcb")) {
+        ui->shortcutGB->setEnabled(false);
+        ui->shortcutGB->setToolTip(QStringLiteral("Currently not possible under Wayland"));
+    }
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 
     ui->customFontCB->setChecked(settings().value(QStringLiteral("customFont"), false).toBool());

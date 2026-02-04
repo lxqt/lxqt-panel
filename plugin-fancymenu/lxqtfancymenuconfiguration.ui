@@ -142,7 +142,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="shortcutGB">
      <property name="title">
       <string>Keyboard Shortcut</string>
      </property>
