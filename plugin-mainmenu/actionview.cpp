@@ -210,7 +210,7 @@ void ActionView::fillActions(QMenu * menu)
 
 void ActionView::setFilter(QString const & filter)
 {
-    mProxy->setfilerString(filter);
+    mProxy->setFilterString(filter);
     const int count = mProxy->rowCount();
     if (0 < count)
     {
