@@ -133,8 +133,13 @@ void LXQtFancyMenuConfiguration::loadSettings()
     else if (!menuFile.contains(QLatin1String("/")))
         menuFile = XdgMenu::getMenuFileName(menuFile);
     ui->menuFilePathLE->setText(menuFile);
-    ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 
+    if (QGuiApplication::platformName() != QStringLiteral("xcb")) {
+        ui->shortcutGB->setEnabled(false);
+        ui->shortcutGB->setToolTip(QStringLiteral("Modify or add a shortcut to 'lxqt-qdbus openmenu'\nin the compositor settings under Wayland"));
+    }
+
+    ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
     ui->customFontCB->setChecked(settings().value(QStringLiteral("customFont"), false).toBool());
     LXQt::Settings lxqtSettings(QStringLiteral("lxqt")); //load system font size as init value
     QFont systemFont;
