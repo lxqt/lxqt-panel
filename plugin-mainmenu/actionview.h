@@ -30,7 +30,6 @@
 
 #include <QListView>
 #include <QPoint>
-#include <QtCore/qtversion.h>
 
 class QStandardItemModel;
 
@@ -47,14 +46,14 @@ public:
     {
         if (filterStr_ == str)
             return;
-        #if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
-            beginFilterChange();
-            filterStr_ = str;
-            endFilterChange();
-        #else
-            filterStr_ = str;
-            invalidateFilter();
-        #endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+        filterStr_ = str;
+        endFilterChange();
+#else
+        filterStr_ = str;
+        invalidateFilter();
+#endif
     }
 
 protected:
