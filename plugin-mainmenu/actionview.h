@@ -30,6 +30,7 @@
 
 #include <QListView>
 #include <QPoint>
+#include <QtCore/qtversion.h>
 
 class QStandardItemModel;
 
@@ -42,6 +43,8 @@ public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+
     void setFilterString(const QString& str)
     {
         if (filterStr_ == str)
@@ -51,6 +54,15 @@ public:
         filterStr_ = str;
         endFilterChange();
     }
+
+#else
+
+    void setFilterString(const QString& str)
+    {
+        invalidateFilter();
+    }
+
+#endif
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
