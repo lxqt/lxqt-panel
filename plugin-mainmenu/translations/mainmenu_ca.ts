@@ -144,22 +144,27 @@ Voleu sobreescriure&apos;l?</translation>
         <translation>Restableix</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <source>Currently not possible under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Choose icon file</source>
         <translation>Trieu el fitxer de la icona</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
         <source>Images (*.svg *.png)</source>
         <translation>Imatges (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
         <source>Choose menu file</source>
         <translation>Trieu el fitxer del menú</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
         <source>Menu files (*.menu)</source>
         <translation>Fitxers de menús (*.menu)</translation>
     </message>

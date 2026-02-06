@@ -143,22 +143,27 @@ Do you want to overwrite it?</source>
         <translation>Ponastavi</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <source>Currently not possible under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Choose icon file</source>
         <translation>Izberite ikono</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
         <source>Images (*.svg *.png)</source>
         <translation>Sličice (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
         <source>Choose menu file</source>
         <translation>Izberite datoteko z menijem</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
         <source>Menu files (*.menu)</source>
         <translation>Menijske datoteke (*.menu)</translation>
     </message>

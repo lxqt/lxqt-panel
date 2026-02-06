@@ -135,22 +135,28 @@
         <translation>Справа</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
+in the compositor settings under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Выберите файл значка</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Изображения (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Выбрать файл меню</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Файл меню (*.menu)</translation>
     </message>
