@@ -144,22 +144,27 @@ Voulez-vous l&apos;écraser&#x202f;?</translation>
         <translation>Réinitialiser</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <source>Currently not possible under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Choose icon file</source>
         <translation>Choisir un fichier d&apos;icône</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
         <source>Images (*.svg *.png)</source>
         <translation>Images (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
         <source>Choose menu file</source>
         <translation>Choisir un fichier de menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
         <source>Menu files (*.menu)</source>
         <translation>Fichiers de menu (*.menu)</translation>
     </message>

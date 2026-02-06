@@ -135,22 +135,28 @@
         <translation>右侧</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
+in the compositor settings under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>选择图标文件</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>图像 (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>选择菜单文件</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>菜单文件 (*.menu)</translation>
     </message>

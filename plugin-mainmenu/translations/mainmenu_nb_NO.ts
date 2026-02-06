@@ -144,22 +144,27 @@ Do you want to overwrite it?</source>
         <translation>Nullstill</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="177"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <source>Currently not possible under Wayland</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Choose icon file</source>
         <translation>Velg ikonfil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="179"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
         <source>Images (*.svg *.png)</source>
         <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="191"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
         <source>Choose menu file</source>
         <translation>Velg menyfil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="193"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
         <source>Menu files (*.menu)</source>
         <translation>Menyfiler (*.menu)</translation>
     </message>
