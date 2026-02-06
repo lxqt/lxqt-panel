@@ -43,26 +43,19 @@ public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
-
     void setFilterString(const QString& str)
     {
         if (filterStr_ == str)
             return;
-
-        beginFilterChange();
-        filterStr_ = str;
-        endFilterChange();
+        #if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+            beginFilterChange();
+            filterStr_ = str;
+            endFilterChange();
+        #else
+            filterStr_ = str;
+            invalidateFilter();
+        #endif
     }
-
-#else
-
-    void setFilterString(const QString& str)
-    {
-        invalidateFilter();
-    }
-
-#endif
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
