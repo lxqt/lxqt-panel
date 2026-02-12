@@ -334,7 +334,6 @@ void LXQtCustomCommand::runCommand()
     if (mCommand.isEmpty())
         return;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     QStringList args;
     if (mRunWithBash)
         args << QStringLiteral("bash") << QStringLiteral("-c") << mCommand;
@@ -342,23 +341,10 @@ void LXQtCustomCommand::runCommand()
         args = QProcess::splitCommand(mCommand);
 
     mProcess->start(args.takeFirst(), args);
-#else
-    QString exec;
-    if (mRunWithBash)
-        exec = QString(QStringLiteral("bash -c \"%1\"")).arg(mCommand);
-    else
-        exec = mCommand;
-
-    mProcess->start(exec);
-#endif
 }
 
 void LXQtCustomCommand::runDetached(QString command)
 {
-#if (QT_VERSION >= QT_VERSION_CHECK(5,15,0))
     QStringList args = QProcess::splitCommand(command);
     QProcess::startDetached(args.takeFirst(), args);
-#else
-    QProcess::startDetached(command);
-#endif
 }
