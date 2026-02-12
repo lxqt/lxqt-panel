@@ -146,7 +146,7 @@ Wilt u dit overschrijven?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Currently not possible under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Momenteel niet mogelijk op Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
