@@ -70,7 +70,6 @@ bool ShowDesktop::eventFilter(QObject * watched, QEvent * event)
     {
         if (event->type() == QEvent::DragEnter)
         {
-            static_cast<QDragEnterEvent *>(event)->acceptProposedAction();
             mDNDTimer.start();
         } else if (event->type() == QEvent::DragLeave)
         {
