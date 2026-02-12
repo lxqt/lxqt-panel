@@ -147,7 +147,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Currently not possible under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>غير ممكن حاليًا في نظام وايلاند</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
