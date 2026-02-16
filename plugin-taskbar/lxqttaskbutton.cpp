@@ -177,7 +177,6 @@ void LXQtTaskButton::dragEnterEvent(QDragEnterEvent *event)
 {
     // It must be here otherwise dragLeaveEvent and dragMoveEvent won't be called
     // on the other hand drop and dragmove events of parent widget won't be called
-    event->acceptProposedAction();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
         emit dragging(event->source(), event->position().toPoint());
@@ -210,6 +209,7 @@ void LXQtTaskButton::dropEvent(QDropEvent *event)
     mDNDTimer->stop();
     if (event->mimeData()->hasFormat(mimeDataFormat()))
     {
+        event->acceptProposedAction();
         emit dropped(event->source(), event->position().toPoint());
         setAttribute(Qt::WA_UnderMouse, false);
     }
