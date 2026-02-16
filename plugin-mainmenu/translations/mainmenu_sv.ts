@@ -146,7 +146,7 @@ Vill du ersätta den?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Currently not possible under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>För närvarande inte möjligt under Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
