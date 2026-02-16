@@ -157,22 +157,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
         <source>Wheel Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Wheel Up</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="365"/>
         <source>Wheel Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Wheel Down</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>command outputs plain text to be used as the text of the button</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>command outputs icon in form of:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>

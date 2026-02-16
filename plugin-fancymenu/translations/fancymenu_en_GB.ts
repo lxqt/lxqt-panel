@@ -138,7 +138,8 @@
         <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
+in the compositor settings under Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
@@ -176,12 +177,12 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Leave</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>About LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
