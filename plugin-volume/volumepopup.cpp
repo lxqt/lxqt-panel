@@ -196,8 +196,21 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event)
 {
-    m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
-            + (event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_volumeSlider->singleStep()));
+    // With a hig res mouse wheel, event->angleDelta().y() may be
+    // less than QWheelEvent::DefaultDeltasPerStep, so we need to
+    // accomulate the fraction between each handleWheelEvent call.
+    // We can declare it static, because even if it would another
+    // instance of VolumePopup, this would impact onlythe start
+    // of the strokes.
+    static int fractionalAngleDelta = 0;
+
+    fractionalAngleDelta += event->angleDelta().y();
+    if (fractionalAngleDelta / QWheelEvent::DefaultDeltasPerStep != 0) {
+        m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
+            + (fractionalAngleDelta / QWheelEvent::DefaultDeltasPerStep *
+	    m_volumeSlider->singleStep()));
+	fractionalAngleDelta %= QWheelEvent::DefaultDeltasPerStep;
+    }
 }
 
 void VolumePopup::setDevice(AudioDevice *device)
