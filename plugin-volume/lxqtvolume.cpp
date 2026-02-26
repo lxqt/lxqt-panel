@@ -44,8 +44,6 @@
 #include <lxqt-globalkeys.h>
 #include <LXQt/Notification>
 
-#include <algorithm>
-
 #define DEFAULT_UP_SHORTCUT "XF86AudioRaiseVolume"
 #define DEFAULT_DOWN_SHORTCUT "XF86AudioLowerVolume"
 #define DEFAULT_MUTE_SHORTCUT "XF86AudioMute"
@@ -217,7 +215,7 @@ void LXQtVolume::handleSinkListChanged()
     {
         if (m_engine->sinks().count() > 0)
         {
-            m_defaultSink = m_engine->sinks().at(std::clamp<qsizetype>(m_defaultSinkIndex, 0, m_engine->sinks().count()-1));
+            m_defaultSink = m_engine->sinks().at(qBound(0, m_defaultSinkIndex, m_engine->sinks().count() - 1));
             m_volumeButton->volumePopup()->setSinks(m_engine->sinks(), m_defaultSink);
             connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
             connect(m_defaultSink, &AudioDevice::muteChanged, this, [this] { LXQtVolume::showNotification(false); });
@@ -272,8 +270,8 @@ void LXQtVolume::handleDefaultSinkRequested(AudioDevice *device)
         return;
 
     const QList<AudioDevice*> &sinks = m_engine->sinks();
-    auto it = std::find(sinks.begin(), sinks.end(), device);
-    if (it == sinks.end())
+    const int idx = sinks.indexOf(device);
+    if (idx < 0)
         return;
 
     m_engine->setDefaultSink(device); // PulseAudio: sets server default; no-op for ALSA/OSS
@@ -282,7 +280,7 @@ void LXQtVolume::handleDefaultSinkRequested(AudioDevice *device)
         disconnect(m_defaultSink, nullptr, this, nullptr);
 
     m_defaultSink = device;
-    m_defaultSinkIndex = static_cast<int>(std::distance(sinks.begin(), it));
+    m_defaultSinkIndex = idx;
     settings()->setValue(QStringLiteral(SETTINGS_DEVICE), m_defaultSinkIndex);
 
     connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
