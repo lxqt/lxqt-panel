@@ -29,16 +29,18 @@
 
 #include "audiodevice.h"
 
-#include <XdgIcon>
-
+#include <QIcon>
 #include <QSlider>
-#include <QStyleOptionButton>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QScrollArea>
+#include <QLabel>
+#include <QFrame>
 #include <QApplication>
+#include <QFontMetrics>
 #include <QToolTip>
-#include "audioengine.h"
-#include <QDebug>
+#include <QTimer>
 #include <QWheelEvent>
 #include <QScreen>
 
@@ -46,10 +48,9 @@ VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     m_pos(0, 0),
     m_anchor(Qt::TopLeftCorner),
-    m_device(nullptr)
+    m_defaultSink(nullptr),
+    m_sliderStep(3)
 {
-    // Under some Wayland compositors, setting window flags in the c-tor of the base class
-    // may not be enough for a correct positioning of the popup.
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
 
     m_mixerButton = new QPushButton(this);
@@ -59,37 +60,37 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_mixerButton->setText(tr("Mi&xer"));
     m_mixerButton->setAutoDefault(false);
 
-    m_volumeSlider = new QSlider(Qt::Vertical, this);
-    m_volumeSlider->setTickPosition(QSlider::TicksBothSides);
-    m_volumeSlider->setTickInterval(10);
-    // the volume slider shows 0-100 and volumes of all devices
-    // should be converted to percentages.
-    m_volumeSlider->setRange(0, 100);
-    m_volumeSlider->installEventFilter(this);
+    m_sinkScrollArea = new QScrollArea(this);
+    m_sinkScrollArea->setWidgetResizable(true);
+    m_sinkScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_sinkScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_sinkScrollArea->setFrameShape(QFrame::NoFrame);
+    m_sinkScrollArea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_muteToggleButton = new QPushButton(this);
-    m_muteToggleButton->setIcon(XdgIcon::fromTheme(QLatin1String("audio-volume-muted-panel")));
-    m_muteToggleButton->setCheckable(true);
-    m_muteToggleButton->setAutoDefault(false);
+    m_sinksContainer = new QWidget(this);
+    QVBoxLayout *sinksLayout = new QVBoxLayout(m_sinksContainer);
+    sinksLayout->setContentsMargins(0, 0, 0, 0);
+    sinksLayout->setSpacing(2);
+    m_sinkScrollArea->setWidget(m_sinksContainer);
+
+    setMinimumWidth(420);
+    setMinimumHeight(140);
+    m_sinkScrollArea->setMaximumHeight(260);
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setSpacing(0);
-    l->setContentsMargins(QMargins());
+    l->setSpacing(6);
+    l->setContentsMargins(10, 10, 10, 10);
 
     l->addWidget(m_mixerButton, 0, Qt::AlignHCenter);
-    l->addWidget(m_volumeSlider, 0, Qt::AlignHCenter);
-    l->addWidget(m_muteToggleButton, 0, Qt::AlignHCenter);
+    l->addWidget(m_sinkScrollArea);
 
-    connect(m_mixerButton,      &QPushButton::released, this, &VolumePopup::launchMixer);
-    connect(m_volumeSlider,     &QSlider::valueChanged, this, &VolumePopup::handleSliderValueChanged);
-    connect(m_muteToggleButton, &QPushButton::clicked,  this, &VolumePopup::handleMuteToggleClicked);
+    connect(m_mixerButton, &QPushButton::released, this, &VolumePopup::launchMixer);
 }
 
 bool VolumePopup::event(QEvent *event)
 {
     if(event->type() == QEvent::WindowDeactivate)
     {
-        // qDebug("QEvent::WindowDeactivate");
         hide();
     }
     return QDialog::event(event);
@@ -97,14 +98,20 @@ bool VolumePopup::event(QEvent *event)
 
 bool VolumePopup::eventFilter(QObject * watched, QEvent * event)
 {
-    if (watched == m_volumeSlider)
+    if (event->type() == QEvent::Wheel)
     {
-        if (event->type() == QEvent::Wheel)
+        QWheelEvent *wheelEvent = dynamic_cast<QWheelEvent*>(event);
+        if (wheelEvent)
         {
-            handleWheelEvent(dynamic_cast<QWheelEvent *>(event));
-            return true;
+            for (const SinkRow &row : std::as_const(m_sinkRows))
+            {
+                if (row.slider && watched == row.slider)
+                {
+                    handleWheelEvent(wheelEvent);
+                    return true;
+                }
+            }
         }
-        return false;
     }
     return QDialog::eventFilter(watched, event);
 }
@@ -116,67 +123,107 @@ void VolumePopup::enterEvent(QEnterEvent * /*event*/)
 
 void VolumePopup::leaveEvent(QEvent * /*event*/)
 {
-    // qDebug("leaveEvent");
-    emit mouseLeft();
 }
 
 void VolumePopup::handleSliderValueChanged(int value)
 {
-    if (!m_device)
+    QSlider *slider = qobject_cast<QSlider*>(sender());
+    if (!slider)
         return;
-    // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
-    m_device->setVolume(value);
-    QTimer::singleShot(0, this, [this] { QToolTip::showText(QCursor::pos(), m_volumeSlider->toolTip(), this); });
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.slider == slider && row.device)
+        {
+            row.device->setVolume(value);
+            const QString tip = slider->toolTip();
+            QTimer::singleShot(0, [this, tip]() { QToolTip::showText(QCursor::pos(), tip, this); });
+            return;
+        }
+    }
 }
 
 void VolumePopup::handleMuteToggleClicked()
 {
-    if (!m_device)
+    QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    if (!btn)
         return;
-
-    m_device->toggleMute();
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.muteButton == btn && row.device)
+        {
+            row.device->toggleMute();
+            return;
+        }
+    }
 }
 
-void VolumePopup::handleDeviceVolumeChanged(int volume)
+void VolumePopup::handleSetDefaultClicked()
 {
-    // qDebug() << "handleDeviceVolumeChanged" << "volume" << volume << "max" << max;
-    // calling m_volumeSlider->setValue will trigger
-    // handleSliderValueChanged(), which set the device volume
-    // again, so we have to block the signals to avoid recursive
-    // signal emission.
-    m_volumeSlider->blockSignals(true);
-    m_volumeSlider->setValue(volume);
-    m_volumeSlider->setToolTip(QStringLiteral("%1%").arg(volume));
-    dynamic_cast<QWidget&>(*parent()).setToolTip(m_volumeSlider->toolTip()); //parent is the button on panel
-    m_volumeSlider->blockSignals(false);
-
-    // emit volumeChanged(percent);
-    updateStockIcon();
+    QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    if (!btn)
+        return;
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.defaultButton == btn && row.device)
+        {
+            emit defaultSinkRequested(row.device);
+            return;
+        }
+    }
 }
 
-void VolumePopup::handleDeviceMuteChanged(bool mute)
+void VolumePopup::handleDeviceVolumeChanged(AudioDevice *device, int volume)
 {
-    m_muteToggleButton->setChecked(mute);
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.device == device && row.slider)
+        {
+            row.slider->blockSignals(true);
+            row.slider->setValue(volume);
+            row.slider->setToolTip(QStringLiteral("%1%").arg(volume));
+            row.slider->blockSignals(false);
+            if (device == m_defaultSink)
+                onDefaultSinkVolumeOrMuteChanged();
+            return;
+        }
+    }
+}
+
+void VolumePopup::handleDeviceMuteChanged(AudioDevice *device, bool mute)
+{
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.device == device && row.muteButton)
+        {
+            row.muteButton->setChecked(mute);
+            if (device == m_defaultSink)
+                onDefaultSinkVolumeOrMuteChanged();
+            return;
+        }
+    }
+}
+
+void VolumePopup::onDefaultSinkVolumeOrMuteChanged()
+{
     updateStockIcon();
 }
 
 void VolumePopup::updateStockIcon()
 {
-    if (!m_device)
+    if (!m_defaultSink)
         return;
 
     QString iconName;
-    if (m_device->volume() <= 0 || m_device->mute())
+    if (m_defaultSink->volume() <= 0 || m_defaultSink->mute())
         iconName = QLatin1String("audio-volume-muted");
-    else if (m_device->volume() <= 33)
+    else if (m_defaultSink->volume() <= 33)
         iconName = QLatin1String("audio-volume-low");
-    else if (m_device->volume() <= 66)
+    else if (m_defaultSink->volume() <= 66)
         iconName = QLatin1String("audio-volume-medium");
     else
         iconName = QLatin1String("audio-volume-high");
 
     iconName.append(QLatin1String("-panel"));
-    m_muteToggleButton->setIcon(XdgIcon::fromTheme(iconName));
     emit stockIconChanged(iconName);
 }
 
@@ -196,36 +243,188 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event)
 {
-    m_volumeSlider->setSliderPosition(m_volumeSlider->sliderPosition()
-            + (event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_volumeSlider->singleStep()));
+    if (m_defaultSink)
+    {
+        const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_sliderStep;
+        m_defaultSink->setVolume(m_defaultSink->volume() + step);
+        return;
+    }
+    if (m_sinkRows.size() == 1 && m_sinkRows.at(0).slider && m_sinkRows.at(0).device)
+    {
+        QSlider *slider = m_sinkRows.at(0).slider;
+        const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * slider->singleStep();
+        m_sinkRows.at(0).device->setVolume(slider->sliderPosition() + step);
+    }
 }
 
 void VolumePopup::setDevice(AudioDevice *device)
 {
-    if (device == m_device)
+    if (device)
+        setSinks({device}, device);
+    else
+        setSinks({}, nullptr);
+}
+
+void VolumePopup::setSinks(const QList<AudioDevice*> &sinks, AudioDevice *defaultSink)
+{
+    if (m_sinks == sinks && m_defaultSink == defaultSink)
         return;
 
-    // disconnect old device
-    if (m_device)
-        disconnect(m_device);
+    if (m_defaultSink)
+        disconnect(m_defaultSink, nullptr, this, nullptr);
 
-    m_device = device;
+    m_sinks = sinks;
+    m_defaultSink = defaultSink;
 
-    if (m_device) {
-        m_muteToggleButton->setChecked(m_device->mute());
-        handleDeviceVolumeChanged(m_device->volume());
-        connect(m_device, &AudioDevice::volumeChanged, this, &VolumePopup::handleDeviceVolumeChanged);
-        connect(m_device, &AudioDevice::muteChanged,   this, &VolumePopup::handleDeviceMuteChanged);
+    if (m_defaultSink)
+    {
+        connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this](int v) { handleDeviceVolumeChanged(m_defaultSink, v); });
+        connect(m_defaultSink, &AudioDevice::muteChanged, this, [this](bool m) { handleDeviceMuteChanged(m_defaultSink, m); });
     }
-    else
-        updateStockIcon();
+
+    rebuildSinkRows();
+    updateStockIcon();
+    emit deviceChanged();
+}
+
+void VolumePopup::setDefaultSink(AudioDevice *defaultSink)
+{
+    if (m_defaultSink == defaultSink)
+        return;
+
+    if (m_defaultSink)
+        disconnect(m_defaultSink, nullptr, this, nullptr);
+
+    m_defaultSink = defaultSink;
+
+    if (m_defaultSink)
+    {
+        connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this](int v) { handleDeviceVolumeChanged(m_defaultSink, v); });
+        connect(m_defaultSink, &AudioDevice::muteChanged, this, [this](bool m) { handleDeviceMuteChanged(m_defaultSink, m); });
+    }
+
+    updateDefaultButtons();
+    updateStockIcon();
     emit deviceChanged();
 }
 
 void VolumePopup::setSliderStep(int step)
 {
-    m_volumeSlider->setSingleStep(step);
-    m_volumeSlider->setPageStep(step * 10);
+    m_sliderStep = step;
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.slider)
+        {
+            row.slider->setSingleStep(step);
+            row.slider->setPageStep(step * 10);
+        }
+    }
+}
+
+void VolumePopup::rebuildSinkRows()
+{
+    for (const SinkRow &row : std::as_const(m_sinkRows))
+    {
+        if (row.device)
+            disconnect(row.device, nullptr, this, nullptr);
+        if (row.rowWidget)
+            row.rowWidget->deleteLater();
+    }
+    m_sinkRows.clear();
+
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(m_sinksContainer->layout());
+    if (!layout)
+        return;
+
+    for (AudioDevice *dev : std::as_const(m_sinks))
+    {
+        SinkRow row = makeSinkRow(dev);
+        if (!row.rowWidget)
+            continue;
+
+        layout->addWidget(row.rowWidget);
+        m_sinkRows.append(row);
+
+        connect(dev, &AudioDevice::volumeChanged, this, [this, dev](int v) { handleDeviceVolumeChanged(dev, v); });
+        connect(dev, &AudioDevice::muteChanged, this, [this, dev](bool m) { handleDeviceMuteChanged(dev, m); });
+
+        if (row.slider)
+        {
+            connect(row.slider, &QSlider::valueChanged, this, &VolumePopup::handleSliderValueChanged);
+            row.slider->installEventFilter(this);
+        }
+        if (row.muteButton)
+            connect(row.muteButton, &QPushButton::clicked, this, &VolumePopup::handleMuteToggleClicked);
+        if (row.defaultButton)
+            connect(row.defaultButton, &QPushButton::clicked, this, &VolumePopup::handleSetDefaultClicked);
+    }
+
+    updateDefaultButtons();
+    setSliderStep(m_sliderStep);
+}
+
+SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
+{
+    SinkRow row;
+    row.device = device;
+    if (!device)
+        return row;
+
+    QFrame *frame = new QFrame(m_sinksContainer);
+    frame->setFrameShape(QFrame::NoFrame);
+    row.rowWidget = frame;
+    QHBoxLayout *rowLayout = new QHBoxLayout(row.rowWidget);
+    rowLayout->setContentsMargins(0, 2, 0, 2);
+    rowLayout->setSpacing(8);
+
+    const int labelFixedW = 180;
+    const QString desc = device->description();
+    QLabel *label = new QLabel(row.rowWidget);
+    label->setToolTip(desc);
+    label->setFixedWidth(labelFixedW);
+    label->setText(QFontMetrics(label->font()).elidedText(desc, Qt::ElideRight, labelFixedW));
+    rowLayout->addWidget(label);
+
+    row.slider = new QSlider(Qt::Horizontal, row.rowWidget);
+    row.slider->setRange(0, 100);
+    row.slider->setValue(device->volume());
+    row.slider->setToolTip(QStringLiteral("%1%").arg(device->volume()));
+    row.slider->setSingleStep(m_sliderStep);
+    row.slider->setPageStep(m_sliderStep * 10);
+    row.slider->setMinimumWidth(120);
+    rowLayout->addWidget(row.slider, 1);
+
+    row.muteButton = new QPushButton(row.rowWidget);
+    row.muteButton->setCheckable(true);
+    row.muteButton->setChecked(device->mute());
+    row.muteButton->setIcon(QIcon::fromTheme(QLatin1String("audio-volume-muted-panel")));
+    row.muteButton->setToolTip(tr("Mute"));
+    row.muteButton->setFixedSize(28, 28);
+    row.muteButton->setAutoDefault(false);
+    rowLayout->addWidget(row.muteButton);
+
+    row.defaultButton = new QPushButton(row.rowWidget);
+    row.defaultButton->setCheckable(true);
+    row.defaultButton->setToolTip(tr("Set as default output"));
+    row.defaultButton->setFixedSize(28, 28);
+    row.defaultButton->setAutoDefault(false);
+    rowLayout->addWidget(row.defaultButton);
+
+    return row;
+}
+
+void VolumePopup::updateDefaultButtons()
+{
+    for (SinkRow &row : m_sinkRows)
+    {
+        if (!row.defaultButton || !row.device)
+            continue;
+        const bool isDefault = (row.device == m_defaultSink);
+        row.defaultButton->setChecked(isDefault);
+        row.defaultButton->setEnabled(!isDefault);
+        row.defaultButton->setIcon(QIcon::fromTheme(QLatin1String("emblem-default-symbolic")));
+        row.defaultButton->setToolTip(isDefault ? tr("Default output") : tr("Set as default output"));
+    }
 }
 
 void VolumePopup::realign()

@@ -29,10 +29,21 @@
 #define VOLUMEPOPUP_H
 
 #include <QDialog>
+#include <QList>
 
 class QSlider;
 class QPushButton;
+class QScrollArea;
+class QWheelEvent;
 class AudioDevice;
+
+struct SinkRow {
+    AudioDevice *device = nullptr;
+    QWidget *rowWidget = nullptr;
+    QSlider *slider = nullptr;
+    QPushButton *muteButton = nullptr;
+    QPushButton *defaultButton = nullptr;
+};
 
 class VolumePopup : public QDialog
 {
@@ -43,20 +54,20 @@ public:
     void openAt(QPoint pos, Qt::Corner anchor);
     void handleWheelEvent(QWheelEvent *event);
 
-    QSlider *volumeSlider() const { return m_volumeSlider; }
-
-    AudioDevice *device() const { return m_device; }
+    AudioDevice *device() const { return m_defaultSink; }
     void setDevice(AudioDevice *device);
+    void setSinks(const QList<AudioDevice*> &sinks, AudioDevice *defaultSink);
+    void setDefaultSink(AudioDevice *defaultSink);
     void setSliderStep(int step);
 
 signals:
     void mouseEntered();
     void mouseLeft();
 
-    // void volumeChanged(int value);
     void deviceChanged();
     void launchMixer();
     void stockIconChanged(const QString &iconName);
+    void defaultSinkRequested(AudioDevice *device);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -68,19 +79,27 @@ protected:
 private slots:
     void handleSliderValueChanged(int value);
     void handleMuteToggleClicked();
-    void handleDeviceVolumeChanged(int volume);
-    void handleDeviceMuteChanged(bool mute);
+    void handleSetDefaultClicked();
+    void handleDeviceVolumeChanged(AudioDevice *device, int volume);
+    void handleDeviceMuteChanged(AudioDevice *device, bool mute);
+    void onDefaultSinkVolumeOrMuteChanged();
 
 private:
     void realign();
     void updateStockIcon();
+    void rebuildSinkRows();
+    SinkRow makeSinkRow(AudioDevice *device);
+    void updateDefaultButtons();
 
-    QSlider *m_volumeSlider;
+    QScrollArea *m_sinkScrollArea;
+    QWidget *m_sinksContainer;
     QPushButton *m_mixerButton;
-    QPushButton *m_muteToggleButton;
     QPoint m_pos;
     Qt::Corner m_anchor;
-    AudioDevice *m_device;
+    QList<SinkRow> m_sinkRows;
+    QList<AudioDevice*> m_sinks;
+    AudioDevice *m_defaultSink;
+    int m_sliderStep;
 };
 
 #endif // VOLUMEPOPUP_H

@@ -127,6 +127,9 @@ void VolumeButton::showVolumeSlider()
     m_volumePopup->updateGeometry();
     m_volumePopup->adjustSize();
     QRect pos = mPlugin->calculatePopupWindowPos(m_volumePopup->size());
+    // Center the popup horizontally on the volume button
+    const QPoint buttonCenter = mapToGlobal(rect().center());
+    pos.moveLeft(buttonCenter.x() - pos.width() / 2);
     mPlugin->willShowWindow(m_volumePopup);
     m_volumePopup->openAt(pos.topLeft(), Qt::TopLeftCorner);
     m_volumePopup->activateWindow();
