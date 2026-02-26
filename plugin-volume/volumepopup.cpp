@@ -51,6 +51,8 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_defaultSink(nullptr),
     m_sliderStep(3)
 {
+    // Under some Wayland compositors, setting window flags in the c-tor of the base class
+    // may not be enough for a correct positioning of the popup.
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint);
 
     m_mixerButton = new QPushButton(this);
@@ -69,8 +71,8 @@ VolumePopup::VolumePopup(QWidget* parent):
 
     m_sinksContainer = new QWidget(this);
     QVBoxLayout *sinksLayout = new QVBoxLayout(m_sinksContainer);
-    sinksLayout->setContentsMargins(0, 0, 0, 0);
-    sinksLayout->setSpacing(2);
+    sinksLayout->setContentsMargins(QMargins());
+    sinksLayout->setSpacing(0);
     m_sinkScrollArea->setWidget(m_sinksContainer);
 
     setMinimumWidth(420);
@@ -78,8 +80,8 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_sinkScrollArea->setMaximumHeight(260);
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setSpacing(6);
-    l->setContentsMargins(10, 10, 10, 10);
+    l->setSpacing(0);
+    l->setContentsMargins(QMargins());
 
     l->addWidget(m_mixerButton, 0, Qt::AlignHCenter);
     l->addWidget(m_sinkScrollArea);
@@ -91,6 +93,7 @@ bool VolumePopup::event(QEvent *event)
 {
     if(event->type() == QEvent::WindowDeactivate)
     {
+        // qDebug("QEvent::WindowDeactivate");
         hide();
     }
     return QDialog::event(event);
@@ -123,6 +126,7 @@ void VolumePopup::enterEvent(QEnterEvent * /*event*/)
 
 void VolumePopup::leaveEvent(QEvent * /*event*/)
 {
+    // qDebug("leaveEvent");
 }
 
 void VolumePopup::handleSliderValueChanged(int value)
@@ -134,6 +138,7 @@ void VolumePopup::handleSliderValueChanged(int value)
     {
         if (row.slider == slider && row.device)
         {
+            // qDebug("VolumePopup::handleSliderValueChanged: %d\n", value);
             row.device->setVolume(value);
             const QString tip = slider->toolTip();
             QTimer::singleShot(0, [this, tip]() { QToolTip::showText(QCursor::pos(), tip, this); });
@@ -178,6 +183,8 @@ void VolumePopup::handleDeviceVolumeChanged(AudioDevice *device, int volume)
     {
         if (row.device == device && row.slider)
         {
+            // Calling setValue() would trigger handleSliderValueChanged() and set the device volume
+            // again, so we have to block the signals to avoid recursive signal emission.
             row.slider->blockSignals(true);
             row.slider->setValue(volume);
             row.slider->setToolTip(QStringLiteral("%1%").arg(volume));
@@ -270,6 +277,7 @@ void VolumePopup::setSinks(const QList<AudioDevice*> &sinks, AudioDevice *defaul
     if (m_sinks == sinks && m_defaultSink == defaultSink)
         return;
 
+    // Disconnect old default sink.
     if (m_defaultSink)
         disconnect(m_defaultSink, nullptr, this, nullptr);
 
@@ -386,6 +394,7 @@ SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
     rowLayout->addWidget(label);
 
     row.slider = new QSlider(Qt::Horizontal, row.rowWidget);
+    // The volume sliders show 0-100; volumes of all devices should be converted to percentages.
     row.slider->setRange(0, 100);
     row.slider->setValue(device->volume());
     row.slider->setToolTip(QStringLiteral("%1%").arg(device->volume()));
@@ -455,9 +464,12 @@ void VolumePopup::realign()
     {
         auto const & geometry = screen->availableGeometry();
 
+        if (rect.left() < geometry.left())
+            rect.moveLeft(geometry.left());
         if (rect.right() > geometry.right())
             rect.moveRight(geometry.right());
-
+        if (rect.top() < geometry.top())
+            rect.moveTop(geometry.top());
         if (rect.bottom() > geometry.bottom())
             rect.moveBottom(geometry.bottom());
     }
