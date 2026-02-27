@@ -401,6 +401,8 @@ SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
     row.slider->setSingleStep(m_sliderStep);
     row.slider->setPageStep(m_sliderStep * 10);
     row.slider->setMinimumWidth(120);
+    row.slider->setTickPosition(QSlider::TicksBelow);
+    row.slider->setTickInterval(10);
     rowLayout->addWidget(row.slider, 1);
 
     row.muteButton = new QPushButton(row.rowWidget);
