@@ -408,14 +408,12 @@ SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
     row.muteButton->setChecked(device->mute());
     row.muteButton->setIcon(QIcon::fromTheme(QLatin1String("audio-volume-muted-panel")));
     row.muteButton->setToolTip(tr("Mute"));
-    row.muteButton->setFixedSize(28, 28);
     row.muteButton->setAutoDefault(false);
     rowLayout->addWidget(row.muteButton);
 
     row.defaultButton = new QPushButton(row.rowWidget);
     row.defaultButton->setCheckable(true);
     row.defaultButton->setToolTip(tr("Set as default output"));
-    row.defaultButton->setFixedSize(28, 28);
     row.defaultButton->setAutoDefault(false);
     rowLayout->addWidget(row.defaultButton);
 
