@@ -146,7 +146,7 @@ Ar norite jį perrašyti?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Currently not possible under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Šiuo metu „Wayland“ aplinkoje neįmanoma</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>

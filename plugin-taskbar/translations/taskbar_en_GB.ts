@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Window &amp;grouping</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
