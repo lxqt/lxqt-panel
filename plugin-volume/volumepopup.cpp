@@ -76,8 +76,6 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_sinkScrollArea->setWidget(m_sinksContainer);
 
     setMinimumWidth(420);
-    setMinimumHeight(140);
-    m_sinkScrollArea->setMaximumHeight(260);
 
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setSpacing(0);
@@ -369,6 +367,27 @@ void VolumePopup::rebuildSinkRows()
 
     updateDefaultButtons();
     setSliderStep(m_sliderStep);
+
+    // Size the scroll area by row height: show at least 1 row, at most 3 rows.
+    if (!m_sinkRows.isEmpty() && layout)
+    {
+        m_sinksContainer->adjustSize();
+        QWidget *firstRow = m_sinkRows.at(0).rowWidget;
+        int rowHeight = firstRow->sizeHint().height();
+        if (rowHeight <= 0)
+            rowHeight = firstRow->minimumSizeHint().height();
+        if (rowHeight > 0)
+        {
+            const int spacing = layout->spacing();
+            m_sinkScrollArea->setMinimumHeight(rowHeight);
+            m_sinkScrollArea->setMaximumHeight(3 * rowHeight + 2 * spacing);
+        }
+    }
+    else
+    {
+        m_sinkScrollArea->setMinimumHeight(0);
+        m_sinkScrollArea->setMaximumHeight(QWIDGETSIZE_MAX);
+    }
 }
 
 SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
@@ -382,15 +401,15 @@ SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
     frame->setFrameShape(QFrame::NoFrame);
     row.rowWidget = frame;
     QHBoxLayout *rowLayout = new QHBoxLayout(row.rowWidget);
-    rowLayout->setContentsMargins(0, 2, 0, 2);
-    rowLayout->setSpacing(8);
 
-    const int labelFixedW = 180;
     const QString desc = device->description();
     QLabel *label = new QLabel(row.rowWidget);
     label->setToolTip(desc);
-    label->setFixedWidth(labelFixedW);
-    label->setText(QFontMetrics(label->font()).elidedText(desc, Qt::ElideRight, labelFixedW));
+    const QFontMetrics fm(label->font());
+    const int maxChars = 18;
+    const int labelWidth = fm.averageCharWidth() * maxChars;
+    label->setFixedWidth(labelWidth);
+    label->setText(fm.elidedText(desc, Qt::ElideRight, labelWidth));
     rowLayout->addWidget(label);
 
     row.slider = new QSlider(Qt::Horizontal, row.rowWidget);

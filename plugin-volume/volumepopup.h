@@ -30,6 +30,7 @@
 
 #include <QDialog>
 #include <QList>
+#include <QPointer>
 
 class QSlider;
 class QPushButton;
@@ -98,7 +99,7 @@ private:
     Qt::Corner m_anchor;
     QList<SinkRow> m_sinkRows;
     QList<AudioDevice*> m_sinks;
-    AudioDevice *m_defaultSink;
+    QPointer<AudioDevice> m_defaultSink;
     int m_sliderStep;
 };
 
