@@ -177,7 +177,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>theme name</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
