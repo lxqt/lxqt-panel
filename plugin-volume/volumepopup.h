@@ -39,7 +39,7 @@ class QWheelEvent;
 class AudioDevice;
 
 struct SinkRow {
-    AudioDevice *device = nullptr;
+    QPointer<AudioDevice> device;
     QWidget *rowWidget = nullptr;
     QSlider *slider = nullptr;
     QPushButton *muteButton = nullptr;
