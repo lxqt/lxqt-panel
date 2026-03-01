@@ -29,6 +29,7 @@
 
 #include "audiodevice.h"
 
+#include <QByteArray>
 #include <QMetaType>
 #include <QtDebug>
 
@@ -401,6 +402,30 @@ void PulseAudioEngine::setMute(AudioDevice *device, bool state)
     pa_operation_unref(operation);
 
     pa_threaded_mainloop_unlock(m_mainLoop);
+}
+
+bool PulseAudioEngine::setDefaultSink(AudioDevice *device)
+{
+    if (!device || !m_ready)
+        return false;
+
+    const QByteArray name = device->name().toUtf8();
+    if (name.isEmpty())
+        return false;
+
+    pa_threaded_mainloop_lock(m_mainLoop);
+
+    pa_operation *operation = pa_context_set_default_sink(m_context, name.constData(), contextSuccessCallback, this);
+    if (!operation) {
+        pa_threaded_mainloop_unlock(m_mainLoop);
+        return false;
+    }
+    while (pa_operation_get_state(operation) == PA_OPERATION_RUNNING)
+        pa_threaded_mainloop_wait(m_mainLoop);
+    pa_operation_unref(operation);
+
+    pa_threaded_mainloop_unlock(m_mainLoop);
+    return true;
 }
 
 void PulseAudioEngine::setContextState(pa_context_state_t state)
