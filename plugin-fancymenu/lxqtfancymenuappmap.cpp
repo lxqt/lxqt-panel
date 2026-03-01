@@ -48,7 +48,8 @@ LXQtFancyMenuAppMap::LXQtFancyMenuAppMap()
     //Add Favorites category
     Category favorites;
     favorites.menuTitle = LXQtFancyMenuAppMapStrings::tr("Favorites");
-    favorites.icon = XdgIcon::fromTheme(QLatin1String("bookmarks"));
+    QStringList favoritesIcons = { QLatin1String("bookmarks"), QLatin1String("emblem-favorite") };
+    favorites.icon = XdgIcon::fromTheme(favoritesIcons);
     favorites.type = LXQtFancyMenuItemType::CategoryItem;
     mCategories.append(favorites);
 
