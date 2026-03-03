@@ -186,17 +186,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
         <source> steps</source>
-        <translation type="unfinished"></translation>
+        <translation> steps</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="286"/>
         <source>&amp;Source</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Source</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="296"/>
         <source>T&amp;ype</source>
-        <translation type="unfinished"></translation>
+        <translation>T&amp;ype</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="312"/>
