@@ -53,6 +53,11 @@ int AudioEngine::volumeBounded(int volume, AudioDevice* device) const
     return std::round((bounded / maximum) * 100);
 }
 
+bool AudioEngine::setDefaultSink(AudioDevice */*device*/)
+{
+    return false;
+}
+
 
 void AudioEngine::mute(AudioDevice *device)
 {
