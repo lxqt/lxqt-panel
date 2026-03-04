@@ -187,17 +187,17 @@ in the compositor settings under Wayland</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Add your favourites by right-clicking items from categories.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Add to desktop</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
         <source>Question</source>
-        <translation type="unfinished"></translation>
+        <translation>Question</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>

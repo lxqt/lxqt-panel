@@ -186,17 +186,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Window &amp;grouping</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished"></translation>
+        <translation>Show popup on mouse hover</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Appearance</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>

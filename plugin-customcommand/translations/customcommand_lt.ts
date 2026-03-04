@@ -167,17 +167,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>komanda išveda grynąjį tekstą, kuris bus naudojamas kaip mygtuko tekstas</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>komanda išveda piktogramą štai tokiu pavidalu:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>apipavidalinimo pavadinimas</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
