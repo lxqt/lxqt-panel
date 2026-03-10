@@ -201,12 +201,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Button style</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
         <source>Maximum button width</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximum button width</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="125"/>
