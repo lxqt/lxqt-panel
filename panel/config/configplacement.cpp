@@ -90,23 +90,22 @@ ConfigPlacement::ConfigPlacement(LXQtPanel *panel, QWidget *parent) :
     // reset configurations from file
     reset();
 
-    connect(ui->spinBox_panelSize,      &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
-    connect(ui->spinBox_iconSize,       &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
-    connect(ui->spinBox_lineCount,      &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_panelSize,      &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_iconSize,       &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_lineCount,      &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
 
-    connect(ui->spinBox_length,         &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
-    connect(ui->comboBox_lengthType,    &QComboBox::activated,     this, &ConfigPlacement::widthTypeChanged);
+    connect(ui->spinBox_length,         &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
+    connect(ui->comboBox_lengthType,    &QComboBox::currentIndexChanged, this, &ConfigPlacement::widthTypeChanged);
 
-    connect(ui->comboBox_alignment,     &QComboBox::activated,     this, &ConfigPlacement::editChanged);
-    connect(ui->comboBox_position,      &QComboBox::activated,     this, &ConfigPlacement::positionChanged);
-    connect(ui->groupBox_hidable,       &QGroupBox::toggled,       this, &ConfigPlacement::editChanged);
-    connect(ui->checkBox_visibleMargin, &QCheckBox::toggled,       this, &ConfigPlacement::editChanged);
-    connect(ui->checkBox_overlap,       &QAbstractButton::toggled, this, &ConfigPlacement::editChanged);
-    connect(ui->spinBox_animation,      &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
-    connect(ui->spinBox_delay,          &QSpinBox::valueChanged,   this, &ConfigPlacement::editChanged);
+    connect(ui->comboBox_alignment,     &QComboBox::activated,           this, &ConfigPlacement::editChanged);
+    connect(ui->comboBox_position,      &QComboBox::activated,           this, &ConfigPlacement::positionChanged);
+    connect(ui->groupBox_hidable,       &QGroupBox::toggled,             this, &ConfigPlacement::editChanged);
+    connect(ui->checkBox_visibleMargin, &QCheckBox::toggled,             this, &ConfigPlacement::editChanged);
+    connect(ui->checkBox_overlap,       &QAbstractButton::toggled,       this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_animation,      &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
+    connect(ui->spinBox_delay,          &QSpinBox::valueChanged,         this, &ConfigPlacement::editChanged);
 
     connect(ui->checkBox_reserveSpace,  &QAbstractButton::toggled, this, [this](bool checked) { mPanel->setReserveSpace(checked, true); });
-
 }
 
 
