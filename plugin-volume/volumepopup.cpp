@@ -443,9 +443,13 @@ SinkRow VolumePopup::makeSinkRow(AudioDevice *device)
 
 void VolumePopup::updateDefaultButtons()
 {
+    const bool showDefaultButton = m_sinkRows.count() > 1;
     for (SinkRow &row : m_sinkRows)
     {
         if (!row.defaultButton || !row.device)
+            continue;
+        row.defaultButton->setVisible(showDefaultButton);
+        if (!showDefaultButton)
             continue;
         const bool isDefault = (row.device == m_defaultSink);
         row.defaultButton->setChecked(isDefault);
