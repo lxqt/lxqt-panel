@@ -30,6 +30,7 @@
 #include "volumepopup.h"
 #include "audiodevice.h"
 
+#include <QGuiApplication>
 #include <QSlider>
 #include <QMouseEvent>
 #include <QProcess>
@@ -139,6 +140,19 @@ void VolumeButton::showVolumeSlider()
         // Horizontal panel (top/bottom): center the popup horizontally on the volume button.
         pos.moveLeft(buttonCenter.x() - pos.width() / 2);
     }
+
+    // Clamp to available screen geometry so the popup is never cut off (e.g. icon at panel edge).
+    QScreen *screen = QGuiApplication::screenAt(buttonCenter);
+    const QRect geom = screen ? screen->availableGeometry() : QGuiApplication::primaryScreen()->availableGeometry();
+    if (pos.left() < geom.left())
+        pos.moveLeft(geom.left());
+    if (pos.right() > geom.right())
+        pos.moveRight(geom.right());
+    if (pos.top() < geom.top())
+        pos.moveTop(geom.top());
+    if (pos.bottom() > geom.bottom())
+        pos.moveBottom(geom.bottom());
+
     mPlugin->willShowWindow(m_volumePopup);
     m_volumePopup->openAt(pos.topLeft(), Qt::TopLeftCorner);
     m_volumePopup->activateWindow();
