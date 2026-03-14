@@ -63,9 +63,20 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
 
     connect(m_volumePopup, &VolumePopup::launchMixer,      this, &VolumeButton::handleMixerLaunch);
     connect(m_volumePopup, &VolumePopup::stockIconChanged, this, &VolumeButton::handleStockIconChanged);
+    connect(m_volumePopup, &VolumePopup::popupHidden,      this, [this]() {
+        setDown(false);
+        suppressTooltipTemporarily();
+    });
 }
 
 VolumeButton::~VolumeButton() = default;
+
+void VolumeButton::suppressTooltipTemporarily()
+{
+    QToolTip::hideText();
+    m_suppressTooltip = true;
+    QTimer::singleShot(500, this, [this]() { m_suppressTooltip = false; });
+}
 
 void VolumeButton::setMuteOnMiddleClick(bool state)
 {
@@ -80,6 +91,8 @@ void VolumeButton::setMixerCommand(const QString &command)
 
 void VolumeButton::enterEvent(QEnterEvent *event)
 {
+    if (m_volumePopup->isVisible() || m_suppressTooltip)
+        return;
     // show tooltip immediately on entering widget
     QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
 }
@@ -87,6 +100,8 @@ void VolumeButton::enterEvent(QEnterEvent *event)
 void VolumeButton::mouseMoveEvent(QMouseEvent *event)
 {
     QToolButton::mouseMoveEvent(event);
+    if (m_volumePopup->isVisible() || m_suppressTooltip)
+        return;
     // show tooltip immediately on moving the mouse
     if (!QToolTip::isVisible()) // prevent sliding of tooltip
         QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
@@ -124,6 +139,7 @@ void VolumeButton::showVolumeSlider()
     if (m_volumePopup->isVisible())
         return;
 
+    QToolTip::hideText();
     m_popupHideTimer.stop();
     m_volumePopup->updateGeometry();
     m_volumePopup->adjustSize();
@@ -156,6 +172,7 @@ void VolumeButton::showVolumeSlider()
     mPlugin->willShowWindow(m_volumePopup);
     m_volumePopup->openAt(pos.topLeft(), Qt::TopLeftCorner);
     m_volumePopup->activateWindow();
+    setDown(true);
 }
 
 void VolumeButton::hideVolumeSlider()
@@ -163,6 +180,8 @@ void VolumeButton::hideVolumeSlider()
     // qDebug() << "hideVolumeSlider";
     m_popupHideTimer.stop();
     m_volumePopup->hide();
+    setDown(false);
+    suppressTooltipTemporarily();
 }
 
 void VolumeButton::handleMixerLaunch()

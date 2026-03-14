@@ -87,6 +87,12 @@ VolumePopup::VolumePopup(QWidget* parent):
     connect(m_mixerButton, &QPushButton::released, this, &VolumePopup::launchMixer);
 }
 
+void VolumePopup::hideEvent(QHideEvent *event)
+{
+    QDialog::hideEvent(event);
+    emit popupHidden();
+}
+
 bool VolumePopup::event(QEvent *event)
 {
     if(event->type() == QEvent::WindowDeactivate)
