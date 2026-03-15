@@ -143,19 +143,14 @@ void VolumeButton::showVolumeSlider()
     m_popupHideTimer.stop();
     m_volumePopup->updateGeometry();
     m_volumePopup->adjustSize();
-    QRect pos = mPlugin->calculatePopupWindowPos(m_volumePopup->size());
+
     const QPoint buttonCenter = mapToGlobal(rect().center());
+    QRect pos = mPlugin->panel()->calculatePopupWindowPos(buttonCenter, m_volumePopup->size());
     const auto panelPosition = mPlugin->panel()->position();
     if (panelPosition == ILXQtPanel::PositionLeft || panelPosition == ILXQtPanel::PositionRight)
-    {
-        // Vertical panel: popup is already beside the panel; center it vertically with the volume icon.
         pos.moveTop(buttonCenter.y() - pos.height() / 2);
-    }
     else
-    {
-        // Horizontal panel (top/bottom): center the popup horizontally on the volume button.
         pos.moveLeft(buttonCenter.x() - pos.width() / 2);
-    }
 
     // Clamp to available screen geometry so the popup is never cut off (e.g. icon at panel edge).
     QScreen *screen = QGuiApplication::screenAt(buttonCenter);
