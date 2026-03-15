@@ -66,8 +66,10 @@ protected slots:
     void handleShortcutVolumeUp();
     void handleShortcutVolumeDown();
     void handleShortcutVolumeMute();
+    void handleDefaultSinkRequested(AudioDevice *device);
     void shortcutRegistered();
     void showNotification(bool forceShow) const;
+    void updateTrayIconFromDefaultSink();
 
 private:
     AudioEngine *m_engine;

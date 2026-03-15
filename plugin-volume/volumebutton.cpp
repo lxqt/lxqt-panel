@@ -30,6 +30,7 @@
 #include "volumepopup.h"
 #include "audiodevice.h"
 
+#include <QGuiApplication>
 #include <QSlider>
 #include <QMouseEvent>
 #include <QProcess>
@@ -62,9 +63,20 @@ VolumeButton::VolumeButton(ILXQtPanelPlugin *plugin, QWidget* parent):
 
     connect(m_volumePopup, &VolumePopup::launchMixer,      this, &VolumeButton::handleMixerLaunch);
     connect(m_volumePopup, &VolumePopup::stockIconChanged, this, &VolumeButton::handleStockIconChanged);
+    connect(m_volumePopup, &VolumePopup::popupHidden,      this, [this]() {
+        setDown(false);
+        suppressTooltipTemporarily();
+    });
 }
 
 VolumeButton::~VolumeButton() = default;
+
+void VolumeButton::suppressTooltipTemporarily()
+{
+    QToolTip::hideText();
+    m_suppressTooltip = true;
+    QTimer::singleShot(500, this, [this]() { m_suppressTooltip = false; });
+}
 
 void VolumeButton::setMuteOnMiddleClick(bool state)
 {
@@ -79,6 +91,8 @@ void VolumeButton::setMixerCommand(const QString &command)
 
 void VolumeButton::enterEvent(QEnterEvent *event)
 {
+    if (m_volumePopup->isVisible() || m_suppressTooltip)
+        return;
     // show tooltip immediately on entering widget
     QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
 }
@@ -86,6 +100,8 @@ void VolumeButton::enterEvent(QEnterEvent *event)
 void VolumeButton::mouseMoveEvent(QMouseEvent *event)
 {
     QToolButton::mouseMoveEvent(event);
+    if (m_volumePopup->isVisible() || m_suppressTooltip)
+        return;
     // show tooltip immediately on moving the mouse
     if (!QToolTip::isVisible()) // prevent sliding of tooltip
         QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
@@ -123,13 +139,35 @@ void VolumeButton::showVolumeSlider()
     if (m_volumePopup->isVisible())
         return;
 
+    QToolTip::hideText();
     m_popupHideTimer.stop();
     m_volumePopup->updateGeometry();
     m_volumePopup->adjustSize();
-    QRect pos = mPlugin->calculatePopupWindowPos(m_volumePopup->size());
+
+    const QPoint buttonCenter = mapToGlobal(rect().center());
+    QRect pos = mPlugin->panel()->calculatePopupWindowPos(buttonCenter, m_volumePopup->size());
+    const auto panelPosition = mPlugin->panel()->position();
+    if (panelPosition == ILXQtPanel::PositionLeft || panelPosition == ILXQtPanel::PositionRight)
+        pos.moveTop(buttonCenter.y() - pos.height() / 2);
+    else
+        pos.moveLeft(buttonCenter.x() - pos.width() / 2);
+
+    // Clamp to available screen geometry so the popup is never cut off (e.g. icon at panel edge).
+    QScreen *screen = QGuiApplication::screenAt(buttonCenter);
+    const QRect geom = screen ? screen->availableGeometry() : QGuiApplication::primaryScreen()->availableGeometry();
+    if (pos.left() < geom.left())
+        pos.moveLeft(geom.left());
+    if (pos.right() > geom.right())
+        pos.moveRight(geom.right());
+    if (pos.top() < geom.top())
+        pos.moveTop(geom.top());
+    if (pos.bottom() > geom.bottom())
+        pos.moveBottom(geom.bottom());
+
     mPlugin->willShowWindow(m_volumePopup);
     m_volumePopup->openAt(pos.topLeft(), Qt::TopLeftCorner);
     m_volumePopup->activateWindow();
+    setDown(true);
 }
 
 void VolumeButton::hideVolumeSlider()
@@ -137,6 +175,8 @@ void VolumeButton::hideVolumeSlider()
     // qDebug() << "hideVolumeSlider";
     m_popupHideTimer.stop();
     m_volumePopup->hide();
+    setDown(false);
+    suppressTooltipTemporarily();
 }
 
 void VolumeButton::handleMixerLaunch()
