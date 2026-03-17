@@ -58,6 +58,7 @@ LXQtVolume::LXQtVolume(const ILXQtPanelPluginStartupInfo &startupInfo):
         m_showKeyboardNotifications(SETTINGS_DEFAULT_SHOW_KEYBOARD_NOTIFICATIONS)
 {
     m_volumeButton = new VolumeButton(this);
+    connect(m_volumeButton->volumePopup(), &VolumePopup::defaultSinkRequested, this, &LXQtVolume::handleDefaultSinkRequested);
 
     m_notification = new LXQt::Notification(QLatin1String(""), this);
 
@@ -151,10 +152,9 @@ void LXQtVolume::setAudioEngine(AudioEngine *engine)
         if (m_defaultSink)
         {
             disconnect(m_defaultSink, nullptr, this, nullptr);
-            disconnect(m_defaultSink, nullptr, this, nullptr);
             m_defaultSink = nullptr;
         }
-        m_volumeButton->volumePopup()->setDevice(m_defaultSink);
+        m_volumeButton->volumePopup()->setSinks(QList<AudioDevice*>(), nullptr);
 
         disconnect(m_engine, nullptr, nullptr, nullptr);
         delete m_engine;
@@ -215,12 +215,21 @@ void LXQtVolume::handleSinkListChanged()
     {
         if (m_engine->sinks().count() > 0)
         {
-            m_defaultSink = m_engine->sinks().at(std::clamp<qsizetype>(m_defaultSinkIndex, 0, m_engine->sinks().count()-1));
-            m_volumeButton->volumePopup()->setDevice(m_defaultSink);
+            m_defaultSink = m_engine->sinks().at(qBound(0, m_defaultSinkIndex, m_engine->sinks().count() - 1));
+            m_volumeButton->volumePopup()->setSinks(m_engine->sinks(), m_defaultSink);
             connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
             connect(m_defaultSink, &AudioDevice::muteChanged, this, [this] { LXQtVolume::showNotification(false); });
+            connect(m_defaultSink, &AudioDevice::volumeChanged, this, &LXQtVolume::updateTrayIconFromDefaultSink);
+            connect(m_defaultSink, &AudioDevice::muteChanged, this, &LXQtVolume::updateTrayIconFromDefaultSink);
+            updateTrayIconFromDefaultSink();
 
             m_engine->setIgnoreMaxVolume(settings()->value(QStringLiteral(SETTINGS_IGNORE_MAX_VOLUME), SETTINGS_DEFAULT_IGNORE_MAX_VOLUME).toBool());
+        }
+        else
+        {
+            m_defaultSink = nullptr;
+            m_volumeButton->volumePopup()->setSinks(QList<AudioDevice*>(), nullptr);
+            m_volumeButton->setIcon(XdgIcon::fromTheme(QStringLiteral("dialog-error")));
         }
 
         if (m_configDialog)
@@ -253,6 +262,56 @@ void LXQtVolume::handleShortcutVolumeMute()
         m_defaultSink->toggleMute();
         showNotification(true);
     }
+}
+
+void LXQtVolume::handleDefaultSinkRequested(AudioDevice *device)
+{
+    if (!m_engine || !device)
+        return;
+
+    const QList<AudioDevice*> &sinks = m_engine->sinks();
+    const int idx = sinks.indexOf(device);
+    if (idx < 0)
+        return;
+
+    m_engine->setDefaultSink(device); // PulseAudio: sets server default; no-op for ALSA/OSS
+
+    if (m_defaultSink)
+        disconnect(m_defaultSink, nullptr, this, nullptr);
+
+    m_defaultSink = device;
+    m_defaultSinkIndex = idx;
+    settings()->setValue(QStringLiteral(SETTINGS_DEVICE), m_defaultSinkIndex);
+
+    connect(m_defaultSink, &AudioDevice::volumeChanged, this, [this] { LXQtVolume::showNotification(false); });
+    connect(m_defaultSink, &AudioDevice::muteChanged, this, [this] { LXQtVolume::showNotification(false); });
+    connect(m_defaultSink, &AudioDevice::volumeChanged, this, &LXQtVolume::updateTrayIconFromDefaultSink);
+    connect(m_defaultSink, &AudioDevice::muteChanged, this, &LXQtVolume::updateTrayIconFromDefaultSink);
+
+    m_volumeButton->volumePopup()->setDefaultSink(m_defaultSink);
+    updateTrayIconFromDefaultSink();
+}
+
+void LXQtVolume::updateTrayIconFromDefaultSink()
+{
+    if (!m_defaultSink)
+    {
+        m_volumeButton->setIcon(XdgIcon::fromTheme(QStringLiteral("dialog-error")));
+        m_volumeButton->setToolTip(QString());
+        return;
+    }
+    QString iconName;
+    if (m_defaultSink->volume() <= 0 || m_defaultSink->mute())
+        iconName = QLatin1String("audio-volume-muted");
+    else if (m_defaultSink->volume() <= 33)
+        iconName = QLatin1String("audio-volume-low");
+    else if (m_defaultSink->volume() <= 66)
+        iconName = QLatin1String("audio-volume-medium");
+    else
+        iconName = QLatin1String("audio-volume-high");
+    iconName.append(QLatin1String("-panel"));
+    m_volumeButton->setIcon(XdgIcon::fromTheme(iconName));
+    m_volumeButton->setToolTip(tr("%1: %2%").arg(m_defaultSink->description()).arg(m_defaultSink->volume()));
 }
 
 QWidget *LXQtVolume::widget()

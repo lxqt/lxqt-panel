@@ -62,10 +62,13 @@ private slots:
     void handleStockIconChanged(const QString &iconName);
 
 private:
+    void suppressTooltipTemporarily();
+
     VolumePopup *m_volumePopup;
     ILXQtPanelPlugin *mPlugin;
     QTimer m_popupHideTimer;
     bool m_muteOnMiddleClick;
+    bool m_suppressTooltip = false;
     QString m_mixerCommand;
     QStringList m_mixerParams;
 };
