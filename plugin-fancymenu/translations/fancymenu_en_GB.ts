@@ -203,7 +203,8 @@ in the compositor settings under Wayland</translation>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>A file with the same name already exists.
+Do you want to overwrite it?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>

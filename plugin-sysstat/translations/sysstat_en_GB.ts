@@ -206,7 +206,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colours</source>
-        <translation type="unfinished"></translation>
+        <translation>Use t&amp;heme colours</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
