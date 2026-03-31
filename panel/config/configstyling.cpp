@@ -113,8 +113,15 @@ void ConfigStyling::fillComboBox_icon()
                 processed << dir.canonicalFilePath();
                 QDir Dir(dir.canonicalFilePath());
                 QSettings file(Dir.absoluteFilePath(QStringLiteral("index.theme")), QSettings::IniFormat);
-                if (file.status() == QSettings::NoError
-                    && !file.value(QStringLiteral("Icon Theme/Directories")).toStringList().join(QLatin1Char(' ')).isEmpty()
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+        // Qt 6.11+ status check skipped
+#else
+                if (file.status() != QSettings::NoError)
+                    continue;
+#endif
+
+                if (!file.value(QStringLiteral("Icon Theme/Directories")).toStringList().join(QLatin1Char(' ')).isEmpty()
                     && !file.value(QStringLiteral("Icon Theme/Hidden"), false).toBool())
                 {
                     themeList << Dir.dirName();
