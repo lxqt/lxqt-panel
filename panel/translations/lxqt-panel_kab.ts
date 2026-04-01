@@ -21,7 +21,7 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Mdel</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Aɣanib</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiddi</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiddi:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="88"/>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiddi n tignit:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -119,20 +119,20 @@
         <location filename="../config/configplacement.ui" line="219"/>
         <location filename="../config/configplacement.cpp" line="188"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Azelmaḍ</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
         <location filename="../config/configplacement.cpp" line="189"/>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Talemmast</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
         <location filename="../config/configplacement.cpp" line="190"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayeffus</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="237"/>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../config/configplacement.cpp" line="194"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Afella</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="196"/>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="182"/>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Swel</translation>
     </message>
 </context>
 <context>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Swel aɣanib</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
