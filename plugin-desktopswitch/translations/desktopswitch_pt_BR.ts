@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">Área de trabalho %1</translation>
+        <translation>Área de trabalho %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
@@ -88,7 +88,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation>O DesktopSwitch não é suportado na plataforma atual: %1</translation>
+        <translation>DesktopSwitch não é suportado na plataforma atual: %1</translation>
     </message>
 </context>
 </TS>
