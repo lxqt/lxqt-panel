@@ -167,12 +167,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンドはボタンのテキストとして使用するプレーンテキストを出力します</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンドは以下の形式でアイコンを出力します:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
@@ -182,102 +182,102 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>XDG の仕様に基づいて画像化されたアイコン名</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>画像ファイルのパス</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>画像データストリーム</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>プレーン画像ストリーム</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Base64 でエンコードされた画像データストリーム</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>上と同じだが base64 でエンコードされている</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンドはボタンの表示に使用する構造化の変数を次の形式で出力します:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>name1:base64値1 name2:base64値2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>処理される name は次のとおりです:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタンのテキストとして使用する文字列</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>前に説明したのと同じ形式でボタンに表示されるアイコン</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>ボタンのツールチップとして使用する文字列</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>すべての値は base64 でエンコードされる必要があります</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>構造化された出力を生成するスクリプトの例:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>自分のテキスト</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>my_image</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>自分のツールチップ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストのみ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンのみ</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>構造化</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
