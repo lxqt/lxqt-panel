@@ -1,6 +1,15 @@
 lxqt-panel-2.3.3 / 2026-04-02
 ==============================
  * Fixed too strict parsing of icon themes with Qt6.11.
+ * Prioritize starting strings of titles with Fancy Menu's filtering.
+ * Disabled shortcutselector in panel menus on Wayland and show tooltip info.
+ * Version check for 6.10 for filterstring.
+ * Removed obsolete Qt5 version check.
+ * Fixed auto-hiding on dragging over Task Manager and Show Desktop.
+ * KeyboardInteractivityNone also for labwc (0.9.4).
+ * Added tooltip to opacity slider to communicate value.
+ * Cleaned up some ui files.
+ * Updated translations and code cleanup.
 
 lxqt-panel-2.3.2 / 2025-12-21
 ==============================
