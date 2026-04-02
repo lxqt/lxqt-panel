@@ -1,3 +1,7 @@
+lxqt-panel-2.3.3 / 2026-04-02
+==============================
+ * Fixed too strict parsing of icon themes with Qt6.11.
+
 lxqt-panel-2.3.2 / 2025-12-21
 ==============================
  * Used `QPointer` for handling wlroots desktops to prevent dangling pointers, especially with bad compositor codes (previously, Hyprland could make the panel crash).
