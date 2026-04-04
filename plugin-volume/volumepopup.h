@@ -29,6 +29,7 @@
 #define VOLUMEPOPUP_H
 
 #include <QDialog>
+#include <QPointer>
 
 class QSlider;
 class QPushButton;
@@ -80,7 +81,7 @@ private:
     QPushButton *m_muteToggleButton;
     QPoint m_pos;
     Qt::Corner m_anchor;
-    AudioDevice *m_device;
+    QPointer<AudioDevice> m_device;
 };
 
 #endif // VOLUMEPOPUP_H
