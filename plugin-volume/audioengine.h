@@ -47,6 +47,8 @@ public:
     virtual int volumeBounded(int volume, AudioDevice *device) const;
     virtual const QString backendName() const = 0;
 
+    virtual bool setDefaultSink(AudioDevice *device);
+
 public slots:
     virtual void commitDeviceVolume(AudioDevice *device) = 0;
     virtual void setMute(AudioDevice *device, bool state) = 0;
