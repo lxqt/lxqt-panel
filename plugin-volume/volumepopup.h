@@ -53,7 +53,7 @@ public:
     VolumePopup(QWidget* parent = nullptr);
 
     void openAt(QPoint pos, Qt::Corner anchor);
-    void handleWheelEvent(QWheelEvent *event);
+    void handleWheelEvent(QWheelEvent *event, QSlider *slider = nullptr);
 
     AudioDevice *device() const { return m_defaultSink; }
     void setDevice(AudioDevice *device);

@@ -114,7 +114,7 @@ bool VolumePopup::eventFilter(QObject * watched, QEvent * event)
             {
                 if (row.slider && watched == row.slider)
                 {
-                    handleWheelEvent(wheelEvent);
+                    handleWheelEvent(wheelEvent, row.slider);
                     return true;
                 }
             }
@@ -252,8 +252,20 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
     show();
 }
 
-void VolumePopup::handleWheelEvent(QWheelEvent *event)
+void VolumePopup::handleWheelEvent(QWheelEvent *event, QSlider *sliderFromWheel)
 {
+    if (sliderFromWheel)
+    {
+        for (const SinkRow &row : std::as_const(m_sinkRows))
+        {
+            if (row.slider == sliderFromWheel && row.device)
+            {
+                const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * sliderFromWheel->singleStep();
+                row.device->setVolume(row.device->volume() + step);
+                return;
+            }
+        }
+    }
     if (m_defaultSink)
     {
         const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_sliderStep;
