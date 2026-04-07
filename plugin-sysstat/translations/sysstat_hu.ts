@@ -361,7 +361,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
         <source>XXX KBs</source>
-        <translation>XXX KBs</translation>
+        <translation>XXX KB</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>

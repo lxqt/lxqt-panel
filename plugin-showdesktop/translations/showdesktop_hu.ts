@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="91"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation type="unfinished">Asztal megjelenítése: A &apos;%1&apos; gyorsbillentyű nem beállítható</translation>
+        <translation>Asztal megjelenítése: A(z) &apos;%1&apos; gyorsbillentyű nem beállítható</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="53"/>

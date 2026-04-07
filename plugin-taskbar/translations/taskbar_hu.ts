@@ -39,7 +39,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Á&amp;thelyezés a következő monitorra</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="619"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="625"/>
         <source>&amp;Move</source>
-        <translation type="unfinished">&amp;Mozgatás</translation>
+        <translation>&amp;Áthelyezés</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="630"/>
@@ -166,12 +166,12 @@
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesszővel elválasztott ablakosztály-lista</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Kihagyás a tálcáról</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation type="unfinished">Egérre felugró ablak</translation>
+        <translation>Felugró ablak megjelenítése rámutatáskor</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished">A kerék küszöbértéke</translation>
+        <translation>Egérgörgő elmozdulási küszöb</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation type="unfinished">Görgetés felfelé a felengedéshez, le a minimalizáláshoz</translation>
+        <translation>Görgetés felfelé az előtérbe helyezéshez, le a minimalizáláshoz</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation type="unfinished">Görgetés felfelé a minimalizáláshoz, le a felengedéshez</translation>
+        <translation>Görgetés felfelé a minimalizáláshoz, le az előtérbe helyezéshez</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1. asztal</translation>
     </message>
 </context>
 </TS>
