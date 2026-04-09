@@ -111,6 +111,7 @@ void VolumeButton::wheelEvent(QWheelEvent *event)
 {
     m_volumePopup->handleWheelEvent(event);
     QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
+    event->accept();
 }
 
 void VolumeButton::mouseReleaseEvent(QMouseEvent *event)

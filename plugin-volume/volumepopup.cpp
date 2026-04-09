@@ -44,6 +44,36 @@
 #include <QWheelEvent>
 #include <QScreen>
 
+#include <cmath>
+
+namespace {
+
+// Touchpads often use pixelDelta() and/or small angle steps; angleDelta()/120 truncates to 0.
+int volumeScrollStep(const QWheelEvent *event, int singleStep)
+{
+    if (singleStep <= 0)
+        singleStep = 3;
+
+    const QPoint pixel = event->pixelDelta();
+    if (!pixel.isNull() && pixel.y() != 0)
+    {
+        const int py = pixel.y();
+        int step = (py * singleStep) / 32;
+        if (step == 0 && qAbs(py) >= 3)
+            step = (py > 0) ? 1 : -1;
+        return step;
+    }
+
+    const int angleY = event->angleDelta().y();
+    if (angleY == 0)
+        return 0;
+
+    return static_cast<int>(std::lround(static_cast<double>(angleY) * static_cast<double>(singleStep)
+                                        / static_cast<double>(QWheelEvent::DefaultDeltasPerStep)));
+}
+
+} // namespace
+
 VolumePopup::VolumePopup(QWidget* parent):
     QDialog(parent, Qt::Dialog | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::Popup | Qt::X11BypassWindowManagerHint),
     m_pos(0, 0),
@@ -260,23 +290,26 @@ void VolumePopup::handleWheelEvent(QWheelEvent *event, QSlider *sliderFromWheel)
         {
             if (row.slider == sliderFromWheel && row.device)
             {
-                const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * sliderFromWheel->singleStep();
-                row.device->setVolume(row.device->volume() + step);
+                const int step = volumeScrollStep(event, sliderFromWheel->singleStep());
+                if (step != 0)
+                    row.device->setVolume(row.device->volume() + step);
                 return;
             }
         }
     }
     if (m_defaultSink)
     {
-        const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * m_sliderStep;
-        m_defaultSink->setVolume(m_defaultSink->volume() + step);
+        const int step = volumeScrollStep(event, m_sliderStep);
+        if (step != 0)
+            m_defaultSink->setVolume(m_defaultSink->volume() + step);
         return;
     }
     if (m_sinkRows.size() == 1 && m_sinkRows.at(0).slider && m_sinkRows.at(0).device)
     {
         QSlider *slider = m_sinkRows.at(0).slider;
-        const int step = event->angleDelta().y() / QWheelEvent::DefaultDeltasPerStep * slider->singleStep();
-        m_sinkRows.at(0).device->setVolume(slider->sliderPosition() + step);
+        const int step = volumeScrollStep(event, slider->singleStep());
+        if (step != 0)
+            m_sinkRows.at(0).device->setVolume(slider->sliderPosition() + step);
     }
 }
 
