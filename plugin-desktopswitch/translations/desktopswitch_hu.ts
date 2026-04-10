@@ -70,12 +70,12 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">%1. asztal</translation>
+        <translation>%1. asztal</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
-        <translation type="unfinished">%1:. asztal</translation>
+        <translation>%1. asztal:</translation>
     </message>
 </context>
 <context>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>n/a</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A DesktopSwitch nem támogatott a jelenlegi platformon: %1</translation>
     </message>
 </context>
 </TS>

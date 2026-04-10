@@ -55,7 +55,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="14"/>
         <source>Keyboard State Settings</source>
-        <translation type="unfinished">Billentyűzetállapot beállítások</translation>
+        <translation>Billentyűzetállapot-beállítások</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="40"/>
         <source>Show Scroll Lock</source>
-        <translation type="unfinished">Scroll Lock megjelenítése</translation>
+        <translation>Scroll Lock megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="50"/>
@@ -90,12 +90,12 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zászlóútvonal mintája:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation type="unfinished"></translation>
+        <translation>Országzászló-fájlútvonal mintája. Tartalmaznia kell a &lt;strong&gt;%1&lt;/strong&gt; részt, amely a kétbetűs ISO országkódra (kisbetűs) lesz lecserélve.&lt;br&gt;&lt;br&gt;Példa: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>

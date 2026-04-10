@@ -113,7 +113,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="431"/>
         <source>IANA id</source>
-        <translation></translation>
+        <translation>IANA-azonosító</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Megjegyzés:&lt;/b&gt; Kattintson középső egérgombbal az órára az összes beállított időzóna dátumának és idejének megtekintéséhez.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>
@@ -302,7 +302,41 @@
 &lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;the timezone custom name. You can change it the &apos;Time zones&apos; tab of the configuration window&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1&gt;Egyéni dátum- és időformátum-szintaxis&lt;/h1&gt;
+&lt;p&gt;A dátumminta egy karaktersorozat, ahol a meghatározott karakterláncok a naptárból származó dátum- és időadatokra cserélődnek a formázáskor, vagy adatok generálására szolgálnak a naptárhoz a feldolgozás során.&lt;/p&gt;
+&lt;p&gt;Az alábbi Dátummező szimbólumtáblázat tartalmazza a mintákban használt karaktereket, amelyek az adott területi beállításnak megfelelő formátumokat jelenítik meg, például az yyyy az évet jelöli. A karakterek többször is használhatók. Például, ha az y az év jelölése, az „yy” a „99” értéket, míg az „yyyy” az „1999” értéket eredményezheti. A legtöbb numerikus mezőnél a karakterek száma határozza meg a mező szélességét. Például ha a h az óra, a „h” eredménye „5” lehet, de a „hh” eredménye „05”. Egyes karaktereknél a darabszám határozza meg, hogy rövidített vagy teljes alakot kell-e használni, de egyéb választási lehetőségek is lehetnek az alábbiak szerint.&lt;/p&gt;
+&lt;p&gt;Két egymás utáni szimpla idézőjel egyetlen szó szerinti idézőjelet jelent, akár idézőjeleken belül, akár kívül. Az idézőjelek közötti szöveg semmilyen módon nem kerül értelmezésre (kivéve a két egymás melletti idézőjelet). Egyébként az összes ASCII betű a-tól z-ig és A-tól Z-ig szintaktikai karakternek van fenntartva, és idézőjelet igényelnek, ha szó szerinti karakterként kívánjuk megjeleníteni őket. Ezenkívül bizonyos ASCII írásjelek a jövőben változóvá válhatnak (pl. a „:” időelválasztóként, a „/” pedig dátumelválasztóként értelmezhető, és a kijelzőn a megfelelő területi beállítás szerinti karakterekre cserélődik).&lt;br /&gt;&lt;/p&gt;
+&lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kód&lt;/th&gt;&lt;th&gt;Jelentés&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;a nap számként, kezdő nulla nélkül (1-től 31-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;a nap számként, kezdő nullával (01-től 31-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;a rövidített honosított napnév (pl. „Hét” – „Vas”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;a teljes honosított napnév (pl. „Hétfő” – „Vasárnap”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;a hónap számként, kezdő nulla nélkül (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;a hónap számként, kezdő nullával (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;a rövidített honosított hónapnév (pl. „jan.” – „dec.”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;a teljes honosított hónapnév (pl. „január” – „december”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;az év kétjegyű számként (00-99)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;az év négyjegyű számként&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;az óra kezdő nulla nélkül (0-tól 23-ig, vagy 1-től 12-ig AM/PM kijelzésnél)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;az óra kezdő nullával (00-tól 23-ig, vagy 01-től 12-ig AM/PM kijelzésnél)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;az óra kezdő nulla nélkül (0-tól 23-ig, AM/PM kijelzés mellett is)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;az óra kezdő nullával (00-tól 23-ig, AM/PM kijelzés mellett is)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;a perc kezdő nulla nélkül (0-tól 59-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;a perc kezdő nullával (00-tól 59-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;a másodperc kezdő nulla nélkül (0-tól 59-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;a másodperc kezdő nullával (00-tól 59-ig)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;vagy&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;délelőtt/délután (AM/PM) kijelzés. Az &lt;b&gt;A/AP&lt;/b&gt; helyére az „AM” vagy „PM” kerül.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;vagy&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;délelőtt/délután (am/pm) kijelzés. Az &lt;b&gt;a/ap&lt;/b&gt; helyére az „am” vagy „pm” kerül.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;az időzóna (pl. „CEST”)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;eltérés az UTC-től&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;az időzóna IANA azonosítója&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;az időzóna rövidítése&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;az időzóna rövid megjelenített neve&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;az időzóna hosszú megjelenített neve&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;az időzóna egyéni neve. Ez a beállítási ablak „Időzónák” lapján módosítható.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Megjegyzések:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;A mintában minden olyan karakter, amely nem az [&apos;a&apos;..&apos;z&apos;] és [&apos;A&apos;..&apos;Z&apos;] tartományba esik, idézett szövegként lesz kezelve. Például az olyan karakterek, mint a „:”, „.”, „ ”, „#” és „@” megjelennek az eredményül kapott időszövegben akkor is, ha nincsenek szimpla idézőjelek közé zárva. A szimpla idézőjel a betűk „feloldására” (escape) szolgál. Két egymást követő szimpla idézőjel – akár idézett sorozaton belül, akár kívül – egy „valódi” szimpla idézőjelet jelent.&lt;/li&gt;&lt;li&gt;A minimális frissítési időköz 1 másodperc. Ha a z vagy zzz van beállítva, az idő ezredmásodperc pontossággal jelenik meg, de a frissítés nem ezredmásodperc alapú (a nagy teljesítményigény elkerülése érdekében).&lt;/li&gt;&lt;/ul&gt;
+</translation>
     </message>
 </context>
 <context>
