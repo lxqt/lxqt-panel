@@ -1,3 +1,9 @@
+lxqt-panel-2.4.0 / 2026-04-20
+==============================
+ * Implemented multi sink volume plugin.
+ * Added some more padding in LXQtWorldClockPopup.
+ * Fixed weird behavior in panel length configuration when switching between px and %.
+
 lxqt-panel-2.3.3 / 2026-04-02
 ==============================
  * Fixed too strict parsing of icon themes with Qt6.11.
