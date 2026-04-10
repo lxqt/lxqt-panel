@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>แสดงพื้นโต๊ะ: ไม่สามารถตั้ง &apos;%1&apos; เป็นปุ่มลัดส่วนกลางได้</translation>
     </message>

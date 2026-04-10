@@ -14,7 +14,7 @@
         <translation>Arbeitsfläche anzeigen</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Arbeitsfläche anzeigen: Globales Tastaturkürzel &apos;%1&apos; kann nicht registriert werden</translation>
     </message>

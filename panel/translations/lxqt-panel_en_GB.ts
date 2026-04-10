@@ -357,18 +357,18 @@ Colourise icons based on widget style (palette)</translation>
         <translation>Icon theme for panels:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="189"/>
-        <location filename="../config/configstyling.cpp" line="205"/>
+        <location filename="../config/configstyling.cpp" line="199"/>
+        <location filename="../config/configstyling.cpp" line="215"/>
         <source>Pick color</source>
         <translation>Pick Colour</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Pick image</source>
         <translation>Pick image</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Images (*.png *.gif *.jpg *.svg)</translation>
     </message>

@@ -9,7 +9,7 @@
         <translation>Показване на работния плот</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Клавишните комбинации &apos;%1&apos; не могат да бъдат регистрирани</translation>
     </message>

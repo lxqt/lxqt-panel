@@ -350,18 +350,18 @@ Colorize icons based on widget style (palette)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="189"/>
-        <location filename="../config/configstyling.cpp" line="205"/>
+        <location filename="../config/configstyling.cpp" line="199"/>
+        <location filename="../config/configstyling.cpp" line="215"/>
         <source>Pick color</source>
         <translation>Elige un color</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Pick image</source>
         <translation>Elige una imagen</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Imágenes (*.png *.gif *.jpg *.svg)</translation>
     </message>

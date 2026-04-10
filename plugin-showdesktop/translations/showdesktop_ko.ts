@@ -9,7 +9,7 @@
         <translation>바탕화면 표시</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>바탕화면 표시: &apos;%1&apos; 전역 단축키를 등록할 수 없습니다</translation>
     </message>

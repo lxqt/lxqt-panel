@@ -9,7 +9,7 @@
         <translation>Показати стільницю</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Показати стільницю: Не вдалося зареєструвати глобальне скорочення &apos;%1&apos;</translation>
     </message>

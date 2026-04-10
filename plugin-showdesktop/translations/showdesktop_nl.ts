@@ -9,7 +9,7 @@
         <translation>Bureaublad tonen</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Bureaublad tonen: de algemene sneltoets &apos;%1&apos; kan niet worden vastgelegd</translation>
     </message>

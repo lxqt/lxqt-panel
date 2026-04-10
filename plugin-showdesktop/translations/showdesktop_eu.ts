@@ -9,7 +9,7 @@
         <translation>Erakutsi mahaigaina</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Erakutsi mahaigaina: Ezin da &apos;%1&apos; lasterbide globala erregistratu</translation>
     </message>

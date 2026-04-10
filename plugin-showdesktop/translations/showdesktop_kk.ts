@@ -9,7 +9,7 @@
         <translation>Жұмыс үстелін көрсету</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Жұмыс үстелін көрсету: &apos;%1&apos; глобалды пернетақта жарлығын тіркеу мүмкін емес</translation>
     </message>

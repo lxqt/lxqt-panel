@@ -9,7 +9,7 @@
         <translation>Εμφάνιση της επιφάνειας εργασίας</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Εμφάνιση της επιφάνειας εργασίας: Δεν είναι δυνατή η καταχώριση της καθολικής συντόμευσης «%1»</translation>
     </message>

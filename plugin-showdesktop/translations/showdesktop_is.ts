@@ -9,7 +9,7 @@
         <translation>Sýna skjáborð</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Sýna skjáborð: Ekki er hægt að nota &apos;%1&apos; sem almennan lykil</translation>
     </message>

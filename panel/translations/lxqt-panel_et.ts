@@ -357,18 +357,18 @@ Ikoonide värvimine vidinastiili alusel (värvipalett)</translation>
         <translation>Ikooniteema paneeli jaoks:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="189"/>
-        <location filename="../config/configstyling.cpp" line="205"/>
+        <location filename="../config/configstyling.cpp" line="199"/>
+        <location filename="../config/configstyling.cpp" line="215"/>
         <source>Pick color</source>
         <translation>Vali värv</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Pick image</source>
         <translation>Vali pilt</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Pildifailid (*.png *.gif *.jpg *.svg)</translation>
     </message>

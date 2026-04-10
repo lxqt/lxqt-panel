@@ -357,18 +357,18 @@ Colorier les icônes en fonction du style du widget (palette)</translation>
         <translation>Thème d&apos;icônes pour les tableaux de bords :</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="189"/>
-        <location filename="../config/configstyling.cpp" line="205"/>
+        <location filename="../config/configstyling.cpp" line="199"/>
+        <location filename="../config/configstyling.cpp" line="215"/>
         <source>Pick color</source>
         <translation>Choisir une couleur</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Pick image</source>
         <translation>Choisir une image</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>Images (*.png *.gif *.jpg *.svg)</translation>
     </message>

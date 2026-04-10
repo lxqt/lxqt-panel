@@ -357,18 +357,18 @@ LXQt 모양새 구성 →
         <translation>패널용 아이콘 테마:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="189"/>
-        <location filename="../config/configstyling.cpp" line="205"/>
+        <location filename="../config/configstyling.cpp" line="199"/>
+        <location filename="../config/configstyling.cpp" line="215"/>
         <source>Pick color</source>
         <translation>색상 선택</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Pick image</source>
         <translation>이미지 선택</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.cpp" line="223"/>
+        <location filename="../config/configstyling.cpp" line="233"/>
         <source>Images (*.png *.gif *.jpg *.svg)</source>
         <translation>이미지 (*.png *.gif *.jpg *.svg)</translation>
     </message>

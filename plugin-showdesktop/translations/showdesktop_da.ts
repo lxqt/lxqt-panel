@@ -9,7 +9,7 @@
         <translation>Vis skrivebord</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Vis skrivebord: Den global genvej &apos;%1&apos; kan ikke registreres</translation>
     </message>

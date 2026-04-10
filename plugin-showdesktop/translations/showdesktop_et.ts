@@ -9,7 +9,7 @@
         <translation>Näita töölauda</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Näita töölauda: üldist kiirklahvi „%1“ ei õnnestu salvestada</translation>
     </message>

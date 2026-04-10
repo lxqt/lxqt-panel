@@ -4,32 +4,37 @@
 <context>
     <name>LXQtVolume</name>
     <message>
-        <location filename="../lxqtvolume.cpp" line="64"/>
+        <location filename="../lxqtvolume.cpp" line="65"/>
         <source>Increase sound volume</source>
         <translation>Augmenta el volum del so</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="70"/>
+        <location filename="../lxqtvolume.cpp" line="71"/>
         <source>Decrease sound volume</source>
         <translation>Redueix el volum del so</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="76"/>
+        <location filename="../lxqtvolume.cpp" line="77"/>
         <source>Mute/unmute sound volume</source>
         <translation>Silencia/Activa el volum del so</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="137"/>
+        <location filename="../lxqtvolume.cpp" line="138"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
         <translation>Control de volum: No es poden registrar les següents dreceres:%1</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="290"/>
+        <location filename="../lxqtvolume.cpp" line="314"/>
+        <source>%1: %2%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="349"/>
         <source>Volume: %1%%2</source>
         <translation>Volum: %1%%2</translation>
     </message>
     <message>
-        <location filename="../lxqtvolume.cpp" line="290"/>
+        <location filename="../lxqtvolume.cpp" line="349"/>
         <source>(muted)</source>
         <translation>(silenciat)</translation>
     </message>
@@ -100,14 +105,30 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="58"/>
+        <location filename="../volumepopup.cpp" line="91"/>
         <source>Launch mixer</source>
         <translation>Inicia el mesclador</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="59"/>
+        <location filename="../volumepopup.cpp" line="92"/>
         <source>Mi&amp;xer</source>
         <translation>Mes&amp;clador</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="482"/>
+        <source>Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="488"/>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Set as default output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Default output</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
