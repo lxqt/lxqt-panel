@@ -9,7 +9,7 @@
         <translation>Mostra scrivania</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Mostra scrivania: la scorciatoia globale &apos;%1&apos; non può essere registrata</translation>
     </message>

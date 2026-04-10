@@ -9,7 +9,7 @@
         <translation>Прикажи десктоп</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Прикажи десктоп: Глобална пречица &apos;%1&apos; се не може регистровати</translation>
     </message>

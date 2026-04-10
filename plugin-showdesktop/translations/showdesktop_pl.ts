@@ -9,7 +9,7 @@
         <translation>Pokaż pulpit</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Pokaż pulpit: globalny skrót &apos;%1&apos; nie może zostać zarejestrowany</translation>
     </message>

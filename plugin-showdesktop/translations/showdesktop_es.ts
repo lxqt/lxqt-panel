@@ -9,7 +9,7 @@
         <translation>Mostrar el escritorio</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Mostrar el escritorio: El atajo global &apos;%1&apos; no puede ser registrado</translation>
     </message>

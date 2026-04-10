@@ -9,7 +9,7 @@
         <translation>Asztal megjelenítése</translation>
     </message>
     <message>
-        <location filename="../showdesktop.cpp" line="91"/>
+        <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
         <translation>Asztal megjelenítése: A(z) &apos;%1&apos; gyorsbillentyű nem beállítható</translation>
     </message>
