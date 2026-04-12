@@ -624,7 +624,7 @@ LXQtWorldClockPopup::LXQtWorldClockPopup(QWidget *parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setLayout(new QHBoxLayout(this));
-    layout()->setContentsMargins(1, 1, 1, 1);
+    layout()->setContentsMargins(5, 2, 5, 2);
 }
 
 void LXQtWorldClockPopup::show()
