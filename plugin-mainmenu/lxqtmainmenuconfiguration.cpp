@@ -131,7 +131,7 @@ void LXQtMainMenuConfiguration::loadSettings()
 
     if (QGuiApplication::platformName() != QStringLiteral("xcb")) {
         ui->shortcutGB->setEnabled(false);
-        ui->shortcutGB->setToolTip(tr("Currently not possible under Wayland"));
+        ui->shortcutGB->setToolTip(tr("Modify or add a shortcut to 'lxqt-qdbus openmenu'\nin the compositor settings under Wayland"));
     }
     ui->shortcutEd->setText(nullptr != mShortcut ? mShortcut->shortcut() : mDefaultShortcut);
 

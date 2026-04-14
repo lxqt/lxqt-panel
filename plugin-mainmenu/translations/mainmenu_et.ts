@@ -145,8 +145,9 @@ Kas sa soovid seda üle kirjutada?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
-        <source>Currently not possible under Wayland</source>
-        <translation>Hetkel pole Waylandiga võimalik</translation>
+        <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
+in the compositor settings under Wayland</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
