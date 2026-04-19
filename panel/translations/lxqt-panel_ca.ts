@@ -117,20 +117,20 @@
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
-        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="187"/>
         <source>Left</source>
         <translation>Esquerra</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
-        <location filename="../config/configplacement.cpp" line="189"/>
-        <location filename="../config/configplacement.cpp" line="195"/>
+        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="194"/>
         <source>Center</source>
         <translation>Centre</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
-        <location filename="../config/configplacement.cpp" line="190"/>
+        <location filename="../config/configplacement.cpp" line="189"/>
         <source>Right</source>
         <translation>Dreta</translation>
     </message>
@@ -193,52 +193,52 @@
         <translation>Reserva espai a la pantalla</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="154"/>
+        <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
         <translation>Part superior de la pantalla</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="155"/>
+        <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
         <translation>A l&apos;esquerra de la pantalla</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="156"/>
+        <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
         <translation>A la dreta de la pantalla</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="157"/>
+        <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
         <translation>Part inferior de la pantalla</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="166"/>
+        <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
         <translation>Part superior de la pantalla %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="167"/>
+        <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
         <translation>A l&apos;esquerra de la pantalla %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="168"/>
+        <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
         <translation>A la dreta de la pantalla %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="169"/>
+        <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
         <translation>Part inferior de la pantalla %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="194"/>
+        <location filename="../config/configplacement.cpp" line="193"/>
         <source>Top</source>
         <translation>Part superior</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="196"/>
+        <location filename="../config/configplacement.cpp" line="195"/>
         <source>Bottom</source>
         <translation>Part inferior</translation>
     </message>

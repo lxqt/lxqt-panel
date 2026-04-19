@@ -148,7 +148,7 @@ Czy chcesz go nadpisać?</translation>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Zmodyfikuj lub dodaj skrót do „lxqt-qdbus openmenu”
-w ustawieniach kompozytora w Wayland</translation>
+w&#xa0;ustawieniach kompozytora w&#xa0;Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>

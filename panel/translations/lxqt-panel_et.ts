@@ -117,20 +117,20 @@
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
-        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="187"/>
         <source>Left</source>
         <translation>Vasakule</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
-        <location filename="../config/configplacement.cpp" line="189"/>
-        <location filename="../config/configplacement.cpp" line="195"/>
+        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="194"/>
         <source>Center</source>
         <translation>Keskele</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
-        <location filename="../config/configplacement.cpp" line="190"/>
+        <location filename="../config/configplacement.cpp" line="189"/>
         <source>Right</source>
         <translation>Paremale</translation>
     </message>
@@ -193,52 +193,52 @@
         <translation>Varu ekraanile ruumi</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="154"/>
+        <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
         <translation>Ekraani ülemises ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="155"/>
+        <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
         <translation>Ekraani vasakus ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="156"/>
+        <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
         <translation>Ekraani paremas ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="157"/>
+        <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
         <translation>Ekraani alumises ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="166"/>
+        <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
         <translation>%1. monitori ülemises ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="167"/>
+        <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
         <translation>%1. monitori vasakus ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="168"/>
+        <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
         <translation>%1. monitori paremas ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="169"/>
+        <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
         <translation>%1. monitori alumises ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="194"/>
+        <location filename="../config/configplacement.cpp" line="193"/>
         <source>Top</source>
         <translation>Ülemises ääres</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="196"/>
+        <location filename="../config/configplacement.cpp" line="195"/>
         <source>Bottom</source>
         <translation>Alumises ääres</translation>
     </message>
