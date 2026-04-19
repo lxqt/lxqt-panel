@@ -222,7 +222,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation>処理される name は次のとおりです:</translation>
+        <translation>処理される name は次の通りです:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>

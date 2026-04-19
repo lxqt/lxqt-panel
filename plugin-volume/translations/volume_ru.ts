@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="314"/>
         <source>%1: %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2%</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="349"/>
@@ -117,18 +117,18 @@
     <message>
         <location filename="../volumepopup.cpp" line="482"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Заглушить</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="488"/>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Set as default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить в качестве выхода по умолчанию</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Стандартный выход</translation>
     </message>
 </context>
 </TS>
