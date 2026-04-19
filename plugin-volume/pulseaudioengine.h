@@ -37,11 +37,6 @@
 
 #include <pulse/pulseaudio.h>
 
-// PA_VOLUME_UI_MAX is only supported since pulseaudio 0.9.23
-#ifndef PA_VOLUME_UI_MAX
-#define PA_VOLUME_UI_MAX (pa_sw_volume_from_dB(+11.0))
-#endif
-
 class AudioDevice;
 
 class PulseAudioEngine : public AudioEngine
@@ -58,13 +53,16 @@ public:
 
     bool setDefaultSink(AudioDevice *device) override;
 
-    void requestSinkInfoUpdate(uint32_t idx);
-    void removeSink(uint32_t idx);
-    void addOrUpdateSink(const pa_sink_info *info);
+    struct PulseAudioDevice
+    {
+        PulseAudioDevice(const pa_sink_info&);
 
-    pa_context_state_t contextState() const { return m_contextState; }
-    bool ready() const { return m_ready; }
-    pa_threaded_mainloop *mainloop() const { return m_mainLoop; }
+        QString name;
+        QString description;
+        uint32_t index;
+        int mute;
+        pa_cvolume volume;
+    };
 
 public slots:
     void commitDeviceVolume(AudioDevice *device) override;
@@ -77,14 +75,28 @@ signals:
     void sinkInfoChanged(uint32_t idx);
     void contextStateChanged(pa_context_state_t state);
     void readyChanged(bool ready);
+    void sinkRemoved(uint32_t);
+    void sinkInfoReceived(const PulseAudioDevice&);
 
 private slots:
     void handleContextStateChanged();
     void connectContext();
+    void removeSink(uint32_t idx);
+    void addOrUpdateSink(const PulseAudioDevice&);
 
 private:
+    static void sinkInfoCallback(pa_context *, const pa_sink_info *, int, void *);
+    static void contextStateCallback(pa_context *, void *);
+    static void contextSuccessCallback(pa_context *, int, void *);
+    static void contextSubscriptionCallback(pa_context *,
+                                            pa_subscription_event_type_t,
+                                            uint32_t,
+                                            void *);
+    static void contextEventCallback(pa_context *, const char *, pa_proplist *, void *);
+
     void retrieveSinks();
     void setupSubscription();
+    void requestSinkInfoUpdate(uint32_t idx);
 
     pa_mainloop_api *m_mainLoopApi;
     pa_threaded_mainloop *m_mainLoop;
