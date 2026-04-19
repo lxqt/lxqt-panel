@@ -33,6 +33,7 @@
 #include <QMetaType>
 #include <QtDebug>
 
+#include <cmath>
 #include <algorithm>
 
 //#define PULSEAUDIO_ENGINE_DEBUG
