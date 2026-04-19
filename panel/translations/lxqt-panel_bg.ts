@@ -117,20 +117,20 @@
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
-        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="187"/>
         <source>Left</source>
         <translation>ляво</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
-        <location filename="../config/configplacement.cpp" line="189"/>
-        <location filename="../config/configplacement.cpp" line="195"/>
+        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="194"/>
         <source>Center</source>
         <translation>центрирано</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
-        <location filename="../config/configplacement.cpp" line="190"/>
+        <location filename="../config/configplacement.cpp" line="189"/>
         <source>Right</source>
         <translation>дясно</translation>
     </message>
@@ -193,52 +193,52 @@
         <translation>Запазване на място от дисплея</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="154"/>
+        <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
         <translation>в горния край на екрана</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="155"/>
+        <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
         <translation>в левия край на екрана</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="156"/>
+        <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
         <translation>В десния край на екрана</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="157"/>
+        <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
         <translation>в долния край на екрана</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="166"/>
+        <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
         <translation>Горен край на екрана %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="167"/>
+        <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
         <translation>Ляв край на екрана %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="168"/>
+        <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
         <translation>Десен край на екрана %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="169"/>
+        <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
         <translation>Долен край на екрана %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="194"/>
+        <location filename="../config/configplacement.cpp" line="193"/>
         <source>Top</source>
         <translation>горе</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="196"/>
+        <location filename="../config/configplacement.cpp" line="195"/>
         <source>Bottom</source>
         <translation>отдолу</translation>
     </message>

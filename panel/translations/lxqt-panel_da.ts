@@ -117,20 +117,20 @@
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="219"/>
-        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="187"/>
         <source>Left</source>
         <translation>Venstre</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="224"/>
-        <location filename="../config/configplacement.cpp" line="189"/>
-        <location filename="../config/configplacement.cpp" line="195"/>
+        <location filename="../config/configplacement.cpp" line="188"/>
+        <location filename="../config/configplacement.cpp" line="194"/>
         <source>Center</source>
         <translation>Centereret</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
-        <location filename="../config/configplacement.cpp" line="190"/>
+        <location filename="../config/configplacement.cpp" line="189"/>
         <source>Right</source>
         <translation>Højre</translation>
     </message>
@@ -193,52 +193,52 @@
         <translation>Reservér plads på skærm</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="154"/>
+        <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
         <translation>Øverst på skærmen</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="155"/>
+        <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
         <translation>Venstre side af skærmen</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="156"/>
+        <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
         <translation>Højre side af skærmen</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="157"/>
+        <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
         <translation>Nederst på skærmen</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="166"/>
+        <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
         <translation>Øverst på skærmen %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="167"/>
+        <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
         <translation>Venstre side af skærmen %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="168"/>
+        <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
         <translation>Højre side af skærneb %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="169"/>
+        <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
         <translation>Nederst på skærmen %1</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="194"/>
+        <location filename="../config/configplacement.cpp" line="193"/>
         <source>Top</source>
         <translation>Øverst</translation>
     </message>
     <message>
-        <location filename="../config/configplacement.cpp" line="196"/>
+        <location filename="../config/configplacement.cpp" line="195"/>
         <source>Bottom</source>
         <translation>Nederst</translation>
     </message>
