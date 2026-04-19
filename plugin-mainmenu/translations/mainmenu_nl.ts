@@ -147,7 +147,8 @@ Wilt u dit overschrijven?</translation>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk of voeg een snelkoppeling toe voor &apos;lxqt-qdbus openmenu&apos;
+in de vensterbeheerderinstellingen van Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
