@@ -21,7 +21,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="138"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Контроль громкости: следующие сочетания клавиш не могут быть зарегистрированы: %1</translation>
+        <translation>Контроль громкости: следующие сочетания клавиш нельзя зарегистрировать: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="314"/>

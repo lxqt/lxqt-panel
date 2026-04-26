@@ -215,22 +215,22 @@
     <message>
         <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran %1 yukarısı</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran %1 solu</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran %1 sağı</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran %1 aşağısı</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="193"/>

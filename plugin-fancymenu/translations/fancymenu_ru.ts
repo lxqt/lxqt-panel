@@ -204,7 +204,7 @@ in the compositor settings under Wayland</source>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
         <translation>Файл с тем же именем уже существует.
-Вы хотите перезаписать его?</translation>
+Хотите перезаписать его?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
