@@ -26,7 +26,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="314"/>
         <source>%1: %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: %%2</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="349"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Orta tıklama sessize alır</translation>
+        <translation>Orta tıklamayla sessize al</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
@@ -117,18 +117,18 @@
     <message>
         <location filename="../volumepopup.cpp" line="482"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Sessize al</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="488"/>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Set as default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan çıkış olarak ayarla</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan çıkış</translation>
     </message>
 </context>
 </TS>

@@ -172,7 +172,7 @@ v nastavení kompozitoru pod Wayland</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation>Středisko nastavení LXQt</translation>
+        <translation>Centrum nastavení LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
