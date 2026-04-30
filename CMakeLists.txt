@@ -26,7 +26,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-set(REQUIRED_QT_VERSION "6.6.0")
+set(REQUIRED_QT_VERSION "6.10.0")
 set(KF6_MINIMUM_VERSION "6.0.0")
 set(LXQT_GLOBALKEYS_MINIMUM_VERSION "2.4.0")
 set(LXQT_MINIMUM_VERSION "2.4.0")
@@ -39,13 +39,9 @@ find_package(KF6WindowSystem ${KF6_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-globalkeys-ui ${LXQT_GLOBALKEYS_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
-
 find_package(LayerShellQt REQUIRED)
-
-if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
-    find_package(Qt6GuiPrivate REQUIRED)
-    find_package(Qt6WaylandClientPrivate REQUIRED)
-endif()
+find_package(Qt6GuiPrivate REQUIRED)
+find_package(Qt6WaylandClientPrivate REQUIRED)
 
 # Patch Version
 set(LXQT_PANEL_PATCH_VERSION 0)
