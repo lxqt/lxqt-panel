@@ -417,8 +417,8 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1711"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Удаление панели не может быть отменено.
-Вы хотите удалить эту панель?</translation>
+        <translation>Удаление панели необратимо.
+Хотите удалить эту панель?</translation>
     </message>
 </context>
 <context>
