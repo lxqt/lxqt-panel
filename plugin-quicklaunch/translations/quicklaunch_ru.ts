@@ -11,7 +11,7 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="231"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Файл/URL-адрес &apos;%1&apos; сейчас не может быть встроен в быстрый запуск</translation>
+        <translation>Файл/URL-адрес «%1» сейчас нельзя встроить в быстрый запуск</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="337"/>

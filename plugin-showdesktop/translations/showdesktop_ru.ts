@@ -11,7 +11,7 @@
     <message>
         <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Показать рабочий стол: глобальное сочетание клавиш &apos;%1&apos; не может быть зарегистрировано</translation>
+        <translation>Показать рабочий стол: глобальное сочетание клавиш «%1» нельзя зарегистрировать</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="53"/>
