@@ -84,7 +84,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
         <source>Autorotate when the panel is vertical</source>
-        <translation>パネルが垂直ならば回転する</translation>
+        <translation>パネルが垂直のときは自動回転する</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
         <source>Repeat command after:</source>
-        <translation>次の時間の後にコマンドを繰り返す:</translation>
+        <translation>次の間隔でコマンドを繰り返す:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
