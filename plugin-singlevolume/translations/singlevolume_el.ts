@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="el">
+<context>
+    <name>LXQtVolume</name>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="65"/>
+        <source>Increase sound volume</source>
+        <translation>Αύξηση της έντασης του ήχου</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="71"/>
+        <source>Decrease sound volume</source>
+        <translation>Μείωση της έντασης του ήχου</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="77"/>
+        <source>Mute/unmute sound volume</source>
+        <translation>Σίγαση/αποσίγαση της έντασης του ήχου</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="138"/>
+        <source>Volume Control: The following shortcuts can not be registered: %1</source>
+        <translation>Έλεγχος έντασης: Οι ακόλουθες συντομεύσεις δεν μπόρεσαν να καταχωρηθούν: %1</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="314"/>
+        <source>%1: %2%</source>
+        <translation>%1: %2%</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="349"/>
+        <source>Volume: %1%%2</source>
+        <translation>Ένταση: %1%%2</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="349"/>
+        <source>(muted)</source>
+        <translation>(χωρίς ήχο)</translation>
+    </message>
+</context>
+<context>
+    <name>LXQtVolumeConfiguration</name>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
+        <source>Volume Control Settings</source>
+        <translation>Ρυθμίσεις του ελέγχου έντασης του ήχου</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
+        <source>Device to control</source>
+        <translation>Συσκευή για έλεγχο</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
+        <source>ALSA</source>
+        <translation>ALSA</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
+        <source>PulseAudio</source>
+        <translation>PulseAudio</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
+        <source>OSS</source>
+        <translation>OSS</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
+        <source>Behavior</source>
+        <translation>Συμπεριφορά</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
+        <source>Mute on middle click</source>
+        <translation>Σίγαση με μεσαίο κλικ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
+        <source>Allow volume beyond 100% (0dB)</source>
+        <translation>Να επιτρέπεται ένταση πάνω από 100% (0dB)</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
+        <source>Always notify about volume changes</source>
+        <translation>Ειδοποίηση πάντα σε αλλαγές στην ένταση</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <source>Notify about volume changes with keyboard</source>
+        <translation>Ειδοποίηση αλλαγών στην ένταση με το πληκτρολόγιο</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
+        <source>Volume adjust step</source>
+        <translation>Βήμα προσαρμογής της έντασης</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
+        <source>External Mixer</source>
+        <translation>Εξωτερικός μίκτης</translation>
+    </message>
+</context>
+<context>
+    <name>VolumePopup</name>
+    <message>
+        <location filename="../volumepopup.cpp" line="91"/>
+        <source>Launch mixer</source>
+        <translation>Εκτέλεση του μίκτη</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="92"/>
+        <source>Mi&amp;xer</source>
+        <translation>Μί&amp;κτης</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="482"/>
+        <source>Mute</source>
+        <translation>Σίγαση</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="488"/>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Set as default output</source>
+        <translation>Ορισμός ως προεπιλεγμένη έξοδος</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Default output</source>
+        <translation>Προεπιλεγμένη έξοδος</translation>
+    </message>
+</context>
+</TS>

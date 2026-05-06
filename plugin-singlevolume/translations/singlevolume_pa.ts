@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pa">
+<context>
+    <name>LXQtVolume</name>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="65"/>
+        <source>Increase sound volume</source>
+        <translation>ਆਵਾਜ਼ ਵਾਲੀਅਮ ਵਧਾਓ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="71"/>
+        <source>Decrease sound volume</source>
+        <translation>ਆਵਾਜ਼ ਵਾਲੀਅਮ ਘਟਾਓ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="77"/>
+        <source>Mute/unmute sound volume</source>
+        <translation>ਸਾਊਂਡ ਵਾਲੀਅਮ ਨੂੰ ਮੌਨ/ਅਣ-ਮੌਨ ਕਰੋ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="138"/>
+        <source>Volume Control: The following shortcuts can not be registered: %1</source>
+        <translation>ਵਾਲੀਅਮ ਕੰਟਰੋਲ: ਅੱਗੇ ਦਿੱਤੇ ਸ਼ਾਰਟਕੱਟਾਂ ਨੂੰ ਰਜਿਸਟਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ: %1</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="314"/>
+        <source>%1: %2%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="349"/>
+        <source>Volume: %1%%2</source>
+        <translation>ਵਾਲੀਅਮ: %1%%2</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolume.cpp" line="349"/>
+        <source>(muted)</source>
+        <translation>(ਮੌਨ ਹੈ)</translation>
+    </message>
+</context>
+<context>
+    <name>LXQtVolumeConfiguration</name>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
+        <source>Volume Control Settings</source>
+        <translation>ਵਾਲੀਅਮ ਕੰਟਰੋਲ ਸੈਟਿੰਗਾਂ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
+        <source>Device to control</source>
+        <translation>ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਡਿਵਾਈਸ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
+        <source>ALSA</source>
+        <translation>ALSA</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="35"/>
+        <source>PulseAudio</source>
+        <translation>ਪਲਸ-ਆਡਓ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="42"/>
+        <source>OSS</source>
+        <translation>OSS</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="57"/>
+        <source>Behavior</source>
+        <translation>ਰਵਈਆ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
+        <source>Mute on middle click</source>
+        <translation>ਮਿਡਲ ਕਲਿੱਕ ਉੱਤੇ ਮੌਨ ਕਰੋ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
+        <source>Allow volume beyond 100% (0dB)</source>
+        <translation>ਵਾਲੀਅਮ ਨੂੰ 100% (0dB) ਤੋਂ ਵੱਧ ਜਾਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
+        <source>Always notify about volume changes</source>
+        <translation>ਵਾਲੀਅਮ ਤਬਦੀਲੀ ਬਾਰੇ ਹਮੇਸ਼ਾਂ ਸੂਚਨਾ ਦਿਓ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
+        <source>Notify about volume changes with keyboard</source>
+        <translation>ਕੀਬੋਰਡ ਨਾਲ ਵਾਲੀਅਮ ਬਦਲਣ ਬਾਰੇ ਸੂਚਿਤ ਕਰੋ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
+        <source>Volume adjust step</source>
+        <translation>ਵਾਲੀਅਮ ਅਡਜਸਟ ਸਟੈਪ</translation>
+    </message>
+    <message>
+        <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
+        <source>External Mixer</source>
+        <translation>ਬਾਹਰੀ ਮਿਕਸਰ</translation>
+    </message>
+</context>
+<context>
+    <name>VolumePopup</name>
+    <message>
+        <location filename="../volumepopup.cpp" line="91"/>
+        <source>Launch mixer</source>
+        <translation>ਮਿਕਸਰ ਚਲਾਓ</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="92"/>
+        <source>Mi&amp;xer</source>
+        <translation>ਮਿਕਸਰ(&amp;x)</translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="482"/>
+        <source>Mute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="488"/>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Set as default output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../volumepopup.cpp" line="509"/>
+        <source>Default output</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+</TS>
