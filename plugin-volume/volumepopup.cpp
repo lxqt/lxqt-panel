@@ -43,33 +43,18 @@
 #include <QTimer>
 #include <QWheelEvent>
 #include <QScreen>
-
-#include <cmath>
+#include <QElapsedTimer>
 
 namespace {
 
-// Touchpads often use pixelDelta() and/or small angle steps; angleDelta()/120 truncates to 0.
-int volumeScrollStep(const QWheelEvent *event, int singleStep)
+// Map touchpad pixel deltas to the same scale as angleDelta() (one notch = DefaultDeltasPerStep).
+int wheelEventDelta(const QWheelEvent *event)
 {
-    if (singleStep <= 0)
-        singleStep = 3;
-
     const QPoint pixel = event->pixelDelta();
     if (!pixel.isNull() && pixel.y() != 0)
-    {
-        const int py = pixel.y();
-        int step = (py * singleStep) / 32;
-        if (step == 0 && qAbs(py) >= 3)
-            step = (py > 0) ? 1 : -1;
-        return step;
-    }
+        return pixel.y() * QWheelEvent::DefaultDeltasPerStep / 32;
 
-    const int angleY = event->angleDelta().y();
-    if (angleY == 0)
-        return 0;
-
-    return static_cast<int>(std::lround(static_cast<double>(angleY) * static_cast<double>(singleStep)
-                                        / static_cast<double>(QWheelEvent::DefaultDeltasPerStep)));
+    return event->angleDelta().y();
 }
 
 } // namespace
@@ -79,7 +64,8 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_pos(0, 0),
     m_anchor(Qt::TopLeftCorner),
     m_defaultSink(nullptr),
-    m_sliderStep(3)
+    m_sliderStep(3),
+    m_lastWheelDirection(0)
 {
     // Under some Wayland compositors, setting window flags in the c-tor of the base class
     // may not be enough for a correct positioning of the popup.
@@ -282,35 +268,66 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
     show();
 }
 
+int VolumePopup::wheelVolumeDelta(QWheelEvent *event, int stepSize)
+{
+    if (stepSize <= 0)
+        stepSize = 3;
+
+    const int delta = wheelEventDelta(event);
+    if (delta == 0)
+    {
+        if (event->phase() == Qt::ScrollEnd)
+            m_lastWheelDirection = 0;
+        return 0;
+    }
+
+    const int direction = delta > 0 ? 1 : -1;
+
+    if (event->phase() == Qt::ScrollEnd)
+    {
+        m_lastWheelDirection = 0;
+        return 0;
+    }
+
+    // One configured step per scroll; debounce collapses duplicate OS events per click.
+    constexpr int debounceMs = 120;
+    if (m_lastWheelTime.isValid()
+        && m_lastWheelTime.elapsed() < debounceMs
+        && direction == m_lastWheelDirection)
+    {
+        return 0;
+    }
+
+    m_lastWheelTime.start();
+    m_lastWheelDirection = direction;
+    return direction * stepSize;
+}
+
 void VolumePopup::handleWheelEvent(QWheelEvent *event, QSlider *sliderFromWheel)
 {
+    const int stepSize = sliderFromWheel ? sliderFromWheel->singleStep() : m_sliderStep;
+    const int volumeChange = wheelVolumeDelta(event, stepSize);
+    if (volumeChange == 0)
+        return;
+
     if (sliderFromWheel)
     {
         for (const SinkRow &row : std::as_const(m_sinkRows))
         {
             if (row.slider == sliderFromWheel && row.device)
             {
-                const int step = volumeScrollStep(event, sliderFromWheel->singleStep());
-                if (step != 0)
-                    row.device->setVolume(row.device->volume() + step);
+                row.device->setVolume(row.device->volume() + volumeChange);
                 return;
             }
         }
     }
     if (m_defaultSink)
     {
-        const int step = volumeScrollStep(event, m_sliderStep);
-        if (step != 0)
-            m_defaultSink->setVolume(m_defaultSink->volume() + step);
+        m_defaultSink->setVolume(m_defaultSink->volume() + volumeChange);
         return;
     }
-    if (m_sinkRows.size() == 1 && m_sinkRows.at(0).slider && m_sinkRows.at(0).device)
-    {
-        QSlider *slider = m_sinkRows.at(0).slider;
-        const int step = volumeScrollStep(event, slider->singleStep());
-        if (step != 0)
-            m_sinkRows.at(0).device->setVolume(slider->sliderPosition() + step);
-    }
+    if (m_sinkRows.size() == 1 && m_sinkRows.at(0).device)
+        m_sinkRows.at(0).device->setVolume(m_sinkRows.at(0).device->volume() + volumeChange);
 }
 
 void VolumePopup::setDevice(AudioDevice *device)
