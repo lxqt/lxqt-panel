@@ -11,12 +11,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
-        <translation>Прикажи/сакриј мени</translation>
+        <translation>Прикажи/сакриј главни мени</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
-        <translation>Додај на десктоп</translation>
+        <translation>Додај на радну површ</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="477"/>
@@ -27,8 +27,8 @@
         <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Фајл са истим именом већ постоји.
-Желиш ли да га препишеш?</translation>
+        <translation>Датотека са истим називом већ постоји.
+Желите ли да је препишете?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="484"/>
@@ -38,7 +38,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Овај фајл не може бити преписан.</translation>
+        <translation>Ова датотека не може да се препише.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="491"/>
@@ -56,12 +56,12 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
         <source>Main Menu Settings</source>
-        <translation>Поставке главног менија</translation>
+        <translation>Подешавања главног менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
-        <translation>Икона:</translation>
+        <translation>Иконица:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="50"/>
@@ -76,17 +76,17 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
-        <translation> pt</translation>
+        <translation> тч</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
         <source>Menu file</source>
-        <translation>Фајл менија</translation>
+        <translation>Датотека менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="102"/>
         <source>Menu file:</source>
-        <translation>Фајл менија:</translation>
+        <translation>Датотека менија:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="147"/>
@@ -96,37 +96,37 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
-        <translation>Максимална ширина предмета:</translation>
+        <translation>Највећа ширина ставке:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
-        <translation>Прикажи одговарајуће уносе:</translation>
+        <translation>Прикажи подударајуће ставке:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
-        <translation>Максимум видљивих ствари:</translation>
+        <translation>Највећи број видљивих ставки:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
-        <translation>Филтрирај уносе менија</translation>
+        <translation>Филтрирај ставке менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> пкс</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
-        <translation>Сакриј уносе менија током претраживања</translation>
+        <translation>Сакриј ставке менија током претраживања</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
-        <translation>Обриши претрагу по приказу менија</translation>
+        <translation>Очисти претрагу при приказивању менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
@@ -141,18 +141,19 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
         <source>Reset</source>
-        <translation>Ресет</translation>
+        <translation>Врати</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Измени или додај пречицу за &apos;lxqt-qdbus openmenu&apos;
+у подешавањима композитора за Вејленд</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
         <source>Choose icon file</source>
-        <translation>Изабери икону фајла</translation>
+        <translation>Изаберите датотеку иконице</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
@@ -162,12 +163,12 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
         <source>Choose menu file</source>
-        <translation>Изабери фајл менија</translation>
+        <translation>Изаберите датотеку менија</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
         <source>Menu files (*.menu)</source>
-        <translation>Фајлови менија (*.menu)</translation>
+        <translation>Датотеке менија (*.menu)</translation>
     </message>
 </context>
 </TS>

@@ -138,7 +138,8 @@
         <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Verknüpfung für &apos;lxqt-qdbus openmenu&apos; in den Compositor-
+Einstellungen unter Wayland ändern oder hinzufügen</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
@@ -166,7 +167,7 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="155"/>
         <source>Search...</source>
-        <translation>Suchen...</translation>
+        <translation>Suchen ...</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
@@ -191,7 +192,7 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>Hinzufügen zum Arbeitsplatz</translation>
+        <translation>Zum Arbeitsplatz hinzufügen</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
@@ -238,7 +239,7 @@ Möchten Sie diese überschreiben?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation>Kann ausführbare Datei &lt;b&gt;%1&lt;/b&gt; nicht finden.</translation>
+        <translation>Ausführbare Datei &lt;b&gt;%1&lt;/b&gt; konnte nicht gefunden werden.</translation>
     </message>
 </context>
 </TS>

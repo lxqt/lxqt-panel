@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
-        <translation>Прикажи/сакриј мени</translation>
+        <translation>Прикажи/сакриј главни мени</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Омиљено</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Сви програми</translation>
     </message>
 </context>
 <context>
@@ -27,7 +27,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Подешавања Кичерај менија</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
         <source>Icon:</source>
-        <translation>Икона:</translation>
+        <translation>Иконица:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="50"/>
@@ -52,32 +52,32 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
         <source> pt</source>
-        <translation> pt</translation>
+        <translation> тч</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Самоизабери након:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> мс</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
         <source>Menu file</source>
-        <translation>Фајл менија</translation>
+        <translation>Датотека менија</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="131"/>
         <source>Menu file:</source>
-        <translation>Фајл менија:</translation>
+        <translation>Датотека менија:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
-        <translation>Пречица тастатуре</translation>
+        <translation>Пречица на тастатури</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
@@ -97,53 +97,54 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Распоред</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Положај реда дугмади</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Положај категорија</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
         <source>Reset</source>
-        <translation>Ресет</translation>
+        <translation>Врати</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Доле</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Горе</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Лево</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Десно</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените или додајте пречицу за &apos;lxqt-qdbus openmenu&apos;
+у подешавањима композитора у Вејленду</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
-        <translation>Изабери икону фајла</translation>
+        <translation>Изабери датотеку иконице</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
@@ -153,12 +154,12 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
-        <translation>Изабери фајл менија</translation>
+        <translation>Изабери датотеку менија</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
-        <translation>Фајлови менија (*.menu)</translation>
+        <translation>Датотеке менија (*.menu)</translation>
     </message>
 </context>
 <context>
@@ -171,27 +172,27 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt центар за подешавања</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Напусти</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>О LXQt-у</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај ставке у омиљене десним кликом на ставке из категорија.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>Додај на десктоп</translation>
+        <translation>Додај на радну површину</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
@@ -202,8 +203,8 @@ in the compositor settings under Wayland</source>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Фајл са истим именом већ постоји.
-Желиш ли да га препишеш?</translation>
+        <translation>Датотека са истим називом већ постоји.
+Желиш ли да је препишеш?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
@@ -213,7 +214,7 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Овај фајл не може бити преписан.</translation>
+        <translation>Ова датотека не може бити преписана.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
@@ -223,22 +224,22 @@ Do you want to overwrite it?</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Уклони из омиљених</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај у омиљене</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Нема извршне датотеке</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да пронађем извршну датотеку &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

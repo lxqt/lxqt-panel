@@ -39,7 +39,7 @@
     <message>
         <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
-        <translation>Aufklapp-Menü</translation>
+        <translation>Aufklappmenü</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="66"/>

@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
-        <translation>Пребаци на десктоп %1</translation>
+        <translation>Пребаци на радну површ %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="185"/>
         <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
-        <translation>Десктоп %1</translation>
+        <translation>Радна површ %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch Settings</source>
-        <translation>DesktopSwitch поставке</translation>
+        <translation>Подешавања пребацивача радних површина</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Десктоп ознаке:</translation>
+        <translation>Ознаке радних површина:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="59"/>
         <source>Names</source>
-        <translation>Имена</translation>
+        <translation>Називи</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
@@ -55,27 +55,27 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Ако је означено, виџет ће бити само индикатор</translation>
+        <translation>Ако је означено, елемент ће бити само показивач</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation>Прикажи само активни десктоп</translation>
+        <translation>Прикажи само тренутну радну површ</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Имена десктопова</translation>
+        <translation>Називи радних површина</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">Десктоп %1</translation>
+        <translation>Радна површина %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
-        <translation>Десктоп %1:</translation>
+        <translation>Радна површина %1:</translation>
     </message>
 </context>
 <context>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>н/д</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Пребацивач радних површина није подржан на тренутној платформи: %1</translation>
     </message>
 </context>
 </TS>

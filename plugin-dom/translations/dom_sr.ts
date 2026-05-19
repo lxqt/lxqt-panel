@@ -6,7 +6,7 @@
     <message>
         <location filename="../domplugin.cpp" line="41"/>
         <source>Panel DOM Tree</source>
-        <translation>Панел DOM дрво</translation>
+        <translation>ДОМ стабло површи</translation>
     </message>
 </context>
 <context>
@@ -14,13 +14,13 @@
     <message>
         <location filename="../treewindow.ui" line="14"/>
         <source>Panel DOM Tree</source>
-        <translation>Панел DOM дрво</translation>
+        <translation>ДОМ стабло површи</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation>Власништво</translation>
+        <translation>Својство</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
@@ -30,17 +30,17 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation>Сва власништва</translation>
+        <translation>Сва својства</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation>Врста</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="106"/>
         <source>String value</source>
-        <translation>Вредност стринга</translation>
+        <translation>Вредност ниске</translation>
     </message>
 </context>
 </TS>

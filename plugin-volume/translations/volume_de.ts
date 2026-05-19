@@ -117,18 +117,18 @@
     <message>
         <location filename="../volumepopup.cpp" line="482"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Stumm</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="488"/>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Set as default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Als Standardausgabe festlegen</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="509"/>
         <source>Default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardausgabe</translation>
     </message>
 </context>
 </TS>

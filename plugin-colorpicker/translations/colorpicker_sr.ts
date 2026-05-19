@@ -6,7 +6,7 @@
     <message>
         <location filename="../colorpicker.cpp" line="224"/>
         <source>Clear list</source>
-        <translation>Очисти листу</translation>
+        <translation>Очисти списак</translation>
     </message>
     <message>
         <location filename="../colorpicker.cpp" line="254"/>

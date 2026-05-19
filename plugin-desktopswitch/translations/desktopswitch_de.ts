@@ -6,7 +6,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
-        <translation>Wechsele zu Arbeitsfläche %1</translation>
+        <translation>Zu Arbeitsfläche %1 wechseln</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="185"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Wenn diese Option aktiviert ist, ist das Widget nur ein Indikator</translation>
+        <translation>Ist diese Option aktiviert, dient das Widget nur als Indikator</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">Arbeitsfläche %1</translation>
+        <translation>Arbeitsfläche %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation>n/v</translation>
+        <translation>n. v.</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>

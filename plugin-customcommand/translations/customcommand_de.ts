@@ -29,17 +29,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Verwende Symbolthema oder suche Datei</translation>
+        <translation>Symbolthema verwenden oder Datei suchen</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation>Ausführen mit &quot;bash -c&quot;</translation>
+        <translation>Ausführen mit »bash -c«</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="107"/>
         <source>Select Font</source>
-        <translation>Wähle Schriftart</translation>
+        <translation>Schriftart wählen</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="280"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
         <source>Use %1 to display command output</source>
-        <translation>Verwende %1 zur Anzeige der Befehlszeile</translation>
+        <translation>%1 zur Anzeige der Befehlszeile verwenden</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="173"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="293"/>
         <source>Browse</source>
-        <translation>Durchsuche</translation>
+        <translation>Durchsuchen</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgabeformat:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fortlaufende Ausgabe (Zeile für Zeile verarbeitet)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,117 +167,117 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>Befehl gibt reinen Text aus, der als Text für die Schaltfläche verwendet wird</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>Befehl gibt Symbol in folgender Form aus:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>Themenname</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>Name des Symbols wird gemäß der XDG-Spezifikation in ein Bild aufgelöst</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilddateipfad</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilddatenstrom</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfacher Bildstrom</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>Base64-kodierter Bilddatenstrom</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>Wie oben, aber Base64-kodiert</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>Befehl gibt strukturierte Variablen aus, zur Visualisierung von Schaltflächen in folgender Form:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>name1:base64wert1 name2:base64wert2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>Verarbeiteten Namen sind:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeichenkette für den Text der Schaltfläche</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol zur Anzeige auf der Schaltfläche, in derselben Form wie zuvor beschrieben</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeichenkette für die Kurzinfo der Schaltfläche</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Werte sollten Base64-kodiert sein</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>Beispiel für ein Skript, das strukturierte Ausgaben erzeugt:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mein Text</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>mein_Bild</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Mein Kurzinfo</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Text</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Bild</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>Strukturiert</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>

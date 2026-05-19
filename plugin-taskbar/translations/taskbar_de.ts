@@ -228,7 +228,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation>Platziere Schaltflächen der selben Klasse nebeneinander</translation>
+        <translation>Schaltflächen derselben Klasse nebeneinander anordnen</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
@@ -268,22 +268,22 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation>Rolle hoch zum vergrößern, runter zum verkleinern</translation>
+        <translation>Zum Vergrößern nach oben scrollen, zum Minimieren nach unten</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation>Rolle hoch zum verkleinern, runter zum vergrößern</translation>
+        <translation>Zum Verkleinern nach oben scrollen, zum Vergrößern nach unten</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>Rolle hoch zur nächsten Arbeitsfläche, runter zur vorherigen</translation>
+        <translation>Zur nächsten Arbeitsfläche nach oben scrollen, zur vorherigen nach unten</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation>Rolle runter zur nächsten Arbeitsfläche, hoch zur vorherigen</translation>
+        <translation>Zur vorherigen Arbeitsfläche nach oben scrollen, zur nächsten nach unten</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbeitsfläche %1</translation>
     </message>
 </context>
 </TS>

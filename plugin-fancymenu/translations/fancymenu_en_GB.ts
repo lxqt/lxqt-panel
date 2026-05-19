@@ -209,17 +209,17 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation type="unfinished"></translation>
+        <translation>The file cannot be overwritten.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
@@ -234,12 +234,12 @@ Do you want to overwrite it?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>No Executable</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</translation>
     </message>
 </context>
 </TS>

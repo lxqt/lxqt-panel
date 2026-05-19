@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>Мрежни интерфејс &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Мрежна спрега &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor Settings</source>
-        <translation>Подешавање мрежног монитора</translation>
+        <translation>Подешавања надзорника мреже</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
         <source>Interface</source>
-        <translation>Интерфејс</translation>
+        <translation>Спрега</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
         <source>Monitor</source>
-        <translation>Монитор</translation>
+        <translation>Надзорник</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
         <source>Wireless</source>
-        <translation>Бежични</translation>
+        <translation>Бежична веза</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Icon</source>
-        <translation>Икона</translation>
+        <translation>Иконица</translation>
     </message>
 </context>
 </TS>
