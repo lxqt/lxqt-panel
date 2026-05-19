@@ -16,32 +16,32 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="54"/>
         <source>Space type:</source>
-        <translation>Тип размака:</translation>
+        <translation>Врста размака:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="27"/>
         <source>fixed</source>
-        <translation>фиксан</translation>
+        <translation>утврђена</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="47"/>
         <source>expandable</source>
-        <translation>проширив</translation>
+        <translation>проширива</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>постројен</translation>
+        <translation>пуна</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>
         <source>dotted</source>
-        <translation>тачкаст</translation>
+        <translation>тачкаста</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="36"/>
         <source>invisible</source>
-        <translation>невидљив</translation>
+        <translation>невидљива</translation>
     </message>
 </context>
 </TS>

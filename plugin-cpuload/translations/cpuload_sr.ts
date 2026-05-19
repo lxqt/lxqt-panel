@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>Поставке оптерећења процесора</translation>
+        <translation>Подешавања оптерећења процесора</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Уопштено</translation>
+        <translation>Опште</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
@@ -29,42 +29,42 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
-        <translation>Ажурирај интервал:</translation>
+        <translation>Период освежавања:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
-        <translation>sec</translation>
+        <translation>сек</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
-        <translation>Орентација бара:</translation>
+        <translation>Смер траке:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
-        <translation>Ширина бара:</translation>
+        <translation>Ширина траке:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
         <source>Bottom up</source>
-        <translation>Одоздо према горе</translation>
+        <translation>Одоздо нагоре</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
         <source>Top down</source>
-        <translation>Одозго према доле</translation>
+        <translation>Одозго надоле</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
         <source>Left to right</source>
-        <translation>Са лева на десно</translation>
+        <translation>Слева надесно</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
         <source>Right to left</source>
-        <translation>Са десна на лево</translation>
+        <translation>Здесна налево</translation>
     </message>
 </context>
 </TS>

@@ -11,12 +11,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>Типични</translation>
+        <translation>Опште</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Ажурирај интервал (секунде)</translation>
+        <translation>Период освежавања (секунде)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Трепћуће статусне траке када је температура превисока</translation>
+        <translation>Трептање статусних трака када је температура превисока</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
-        <translation>Детектовани чипови:</translation>
+        <translation>Уочени чипови:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Карактеристике чипа:</translation>
+        <translation>Могућности чипа:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>

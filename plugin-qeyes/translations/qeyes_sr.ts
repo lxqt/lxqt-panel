@@ -6,7 +6,7 @@
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="44"/>
         <source>Appearance</source>
-        <translation>Приказ</translation>
+        <translation>Изглед</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="50"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="56"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation>Врста</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="60"/>
@@ -26,17 +26,17 @@
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="65"/>
         <source>Reset</source>
-        <translation>Ресетуј</translation>
+        <translation>Врати</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="69"/>
         <source>QEyes Settings</source>
-        <translation>QEyes подешавање</translation>
+        <translation>Кју-ајс подешавања</translation>
     </message>
     <message>
         <location filename="../qeyesconfigdialog.cpp" line="103"/>
         <source>QEyes default</source>
-        <translation>QEyes подразумевано</translation>
+        <translation>Кју-ајс подразумевано</translation>
     </message>
 </context>
 </TS>

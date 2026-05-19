@@ -6,17 +6,17 @@
     <message>
         <location filename="../showdesktop.cpp" line="46"/>
         <source>Show desktop</source>
-        <translation>Прикажи десктоп</translation>
+        <translation>Прикажи радну површ</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Прикажи десктоп: Глобална пречица &apos;%1&apos; се не може регистровати</translation>
+        <translation>Прикажи радну површ: општа пречица &apos;%1&apos; се не може регистровати</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="53"/>
         <source>Show Desktop</source>
-        <translation>Прикажи десктоп</translation>
+        <translation>Прикажи радну површ</translation>
     </message>
 </context>
 </TS>

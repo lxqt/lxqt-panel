@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Negative Pixelwerte setzen die Leistenlänge auf den Wert verfügbare Größe minus angegebener Größe.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Z.B. bei &quot;Länge&quot; gesetzt auf -100px und einer Bildschirmgröße von 1000px hat die Leiste eine Größe von 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Negative Pixelwerte setzen die Leistenlänge auf den Wert verfügbare Größe minus angegebener Größe.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Beispiel: Wenn »Länge« auf -100 px eingestellt wird und die Bildschirmgröße 1000 px beträgt, wird die Leiste 900 px lang.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="202"/>
         <source>Alignment &amp;&amp; position</source>
-        <translation>Ausrichtung &amp;&amp; Position</translation>
+        <translation>Ausrichtung und Position</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="208"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
         <source>Hide only on overlapping a window</source>
-        <translation>Verstecke nur bei überlappendem Fenster</translation>
+        <translation>Nur bei überlappendem Fenster verbergen</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
@@ -426,17 +426,17 @@ Möchten Sie diese Leiste entfernen?</translation>
     <message>
         <location filename="../plugin.cpp" line="457"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; konfigurieren</translation>
+        <translation>»%1« konfigurieren</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="462"/>
         <source>Move &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; verschieben</translation>
+        <translation>»%1« verschieben</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="470"/>
         <source>Remove &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; entfernen</translation>
+        <translation>»%1« entfernen</translation>
     </message>
 </context>
 <context>

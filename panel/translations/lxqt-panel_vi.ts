@@ -215,32 +215,32 @@
     <message>
         <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên cùng màn hình %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trái màn hình %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Phải màn hình %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Đáy màn hình %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="193"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Trên cùng</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="195"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Đáy</translation>
     </message>
 </context>
 <context>

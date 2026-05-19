@@ -6,17 +6,17 @@
     <message>
         <location filename="../config/addplugindialog.ui" line="14"/>
         <source>Add Plugins</source>
-        <translation>Додај плагинове</translation>
+        <translation>Додај прикључке</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="22"/>
         <source>Search:</source>
-        <translation>Претражи:</translation>
+        <translation>Претрага:</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="102"/>
         <source>Add Widget</source>
-        <translation>Додај виџет</translation>
+        <translation>Додај елемент</translation>
     </message>
     <message>
         <location filename="../config/addplugindialog.ui" line="112"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../config/addplugindialog.cpp" line="115"/>
         <source>(only one instance can run at a time)</source>
-        <translation>(само једна инстанца се може покренути истовремено)</translation>
+        <translation>(само један примерак се може покренути истовремено)</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="31"/>
         <source>Configure Panel</source>
-        <translation>Конфигуриши панел</translation>
+        <translation>Подеси траку</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="39"/>
@@ -44,12 +44,12 @@
     <message>
         <location filename="../config/configpaneldialog.cpp" line="43"/>
         <source>Styling</source>
-        <translation>Стајлинг</translation>
+        <translation>Стилови</translation>
     </message>
     <message>
         <location filename="../config/configpaneldialog.cpp" line="47"/>
         <source>Widgets</source>
-        <translation>Виџети</translation>
+        <translation>Елементи</translation>
     </message>
 </context>
 <context>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="20"/>
         <source>Configure Placement</source>
-        <translation>Конфигуриши постављање</translation>
+        <translation>Подеси размештај</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="44"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="68"/>
         <source>&lt;p&gt;Negative pixel value sets the panel length to that many pixels less than available screen space.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;E.g. &quot;Length&quot; set to -100px, screen size is 1000px, then real panel length will be 900 px.&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Негативна вредност пиксела поставља дужину панела на толико пиксела мање од доступног простора на екрану.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Нпр. &quot;Дужина&quot; постављена на -100px, величина екрана је 1000px, онда ће права дужина панела бити 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Негативна вредност пиксела поставља дужину траке на толико пиксела мање од доступног простора на екрану.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;&lt;i&gt;Нпр. &quot;Дужина&quot; постављена на -100px, величина екрана је 1000px, онда ће права дужина траке бити 900 px.&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="81"/>
@@ -87,18 +87,18 @@
     <message>
         <location filename="../config/configplacement.ui" line="101"/>
         <source>px</source>
-        <translation>px</translation>
+        <translation>пкс</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="109"/>
         <location filename="../config/configplacement.ui" line="153"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> пкс</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="166"/>
         <source>Icon size:</source>
-        <translation>Величина иконе:</translation>
+        <translation>Величина иконице:</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="173"/>
@@ -126,7 +126,7 @@
         <location filename="../config/configplacement.cpp" line="188"/>
         <location filename="../config/configplacement.cpp" line="194"/>
         <source>Center</source>
-        <translation>Центар</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="229"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="250"/>
         <source>A&amp;uto-hide</source>
-        <translation>А&amp;уто-сакриј</translation>
+        <translation>С&amp;амосакривање</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="262"/>
@@ -159,7 +159,7 @@
         <location filename="../config/configplacement.ui" line="288"/>
         <location filename="../config/configplacement.ui" line="314"/>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation> мс</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="301"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="327"/>
         <source>Visible thin margin for hidden panel</source>
-        <translation>Видљива танка маргина за скривани панел</translation>
+        <translation>Видљива танка маргина за сакривену траку</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="334"/>
@@ -185,7 +185,7 @@
     <message>
         <location filename="../config/configplacement.ui" line="344"/>
         <source>Don&apos;t allow maximized windows go under the panel window</source>
-        <translation>Не дозовли да максимизовани прозори оду испод панела прозора</translation>
+        <translation>Не дозволи да увећани прозори иду испод прозора траке</translation>
     </message>
     <message>
         <location filename="../config/configplacement.ui" line="347"/>
@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Врх екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Лева страна екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Десна страна екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Дно екрана</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Врх екрана %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Лева страна екрана %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Десна страна екрана %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Дно екрана %1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="193"/>
@@ -248,12 +248,12 @@
     <message>
         <location filename="../config/configpluginswidget.ui" line="14"/>
         <source>Configure Plugins</source>
-        <translation>Конфигуриши плагинове</translation>
+        <translation>Подеси прикључке</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="84"/>
         <source>Note: changes made in this page cannot be reset.</source>
-        <translation>Напомена: промене направљене на овој страници се не могу ресетовати.</translation>
+        <translation>Напомена: измене направљене на овој страници се не могу вратити.</translation>
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="112"/>
@@ -295,12 +295,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="20"/>
         <source>Configure Styling</source>
-        <translation>Конфигуриши стајлинг</translation>
+        <translation>Подеси стилове</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="44"/>
         <source>Custom styling</source>
-        <translation>Обичан стајлинг</translation>
+        <translation>Прилагођени стилови</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="65"/>
@@ -315,12 +315,12 @@
     <message>
         <location filename="../config/configstyling.ui" line="144"/>
         <source>Background opacity:</source>
-        <translation>Позадинска непровидност:</translation>
+        <translation>Непровидност позадине:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="176"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
-        <translation>&lt;small&gt;Композиција је потребна за транспарентност панела.&lt;/small&gt;</translation>
+        <translation>&lt;small&gt;Састављање је потребно за провидност траке.&lt;/small&gt;</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="204"/>
@@ -337,24 +337,24 @@ You might also want to disable:
 LXQt Appearance Configuration →
 Icons Theme →
 Colorize icons based on widget style (palette)</source>
-        <translation>Делимично решење за стилове виџета који
-не могу дати посебну тему панелу.
+        <translation>Делимично решење за стилове елемената који
+не могу дати посебну тему траци.
 
-Можда ћеш желети да онемогућиш.
+Можда ћете желети да онемогућите:
 
-Конфигурација Рејзор изгледа
-Тема икона→
+Подешавање изгледа LXQt-а →
+Тема икона →
 Обоји иконе на основу стила виџета (палета)</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="266"/>
         <source>Override icon &amp;theme</source>
-        <translation>Обори икону &amp;тему</translation>
+        <translation>Замени иконицу и &amp;тему</translation>
     </message>
     <message>
         <location filename="../config/configstyling.ui" line="281"/>
         <source>Icon theme for panels:</source>
-        <translation>Тема икона за панеле:</translation>
+        <translation>Тема икона за траке:</translation>
     </message>
     <message>
         <location filename="../config/configstyling.cpp" line="199"/>
@@ -379,46 +379,46 @@ Colorize icons based on widget style (palette)</source>
         <location filename="../lxqtpanel.cpp" line="1495"/>
         <location filename="../lxqtpanel.cpp" line="1521"/>
         <source>Panel</source>
-        <translation>Панел</translation>
+        <translation>Трака</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1524"/>
         <source>Configure Panel</source>
-        <translation>Конфигуриши панел</translation>
+        <translation>Подеси траку</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1529"/>
         <source>Manage Widgets</source>
-        <translation>Управљање виџетима</translation>
+        <translation>Управљај елементима</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1535"/>
         <source>Add New Panel</source>
-        <translation>Додај нови панел</translation>
+        <translation>Додај нову траку</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1542"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
-        <translation>Уклони панел</translation>
+        <translation>Уклони траку</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1547"/>
         <source>Lock This Panel</source>
-        <translation>Закључај ову панелу</translation>
+        <translation>Закључај ову траку</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1710"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
-        <translation>Уклони панел</translation>
+        <translation>Уклони траку</translation>
     </message>
     <message>
         <location filename="../lxqtpanel.cpp" line="1711"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
-        <translation>Уклањање панела се не може опозвати.
-Да ли желиш да уклониш панел?</translation>
+        <translation>Уклањање траке се не може опозвати.
+Да ли желиш да уклониш ову траку?</translation>
     </message>
 </context>
 <context>
@@ -426,7 +426,7 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../plugin.cpp" line="457"/>
         <source>Configure &quot;%1&quot;</source>
-        <translation>Конфигуриши &quot;%1&quot;</translation>
+        <translation>Подеси &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../plugin.cpp" line="462"/>
@@ -444,12 +444,12 @@ Do you want to remove this panel?</source>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="340"/>
         <source>Use alternate configuration file.</source>
-        <translation>Користи наизменични конфигурациони фајл.</translation>
+        <translation>Употреби заменску датотеку поставки.</translation>
     </message>
     <message>
         <location filename="../lxqtpanelapplication.cpp" line="341"/>
         <source>Configuration file</source>
-        <translation>Конфигурациони фајл</translation>
+        <translation>Датотека поставки</translation>
     </message>
 </context>
 </TS>

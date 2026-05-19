@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="108"/>
         <source>Search...</source>
-        <translation>Suchen...</translation>
+        <translation>Suchen ...</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="118"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
-        <translation>Hinzufügen zum Arbeitsplatz</translation>
+        <translation>Zum Arbeitsplatz hinzufügen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="477"/>
@@ -147,7 +147,8 @@ Möchten Sie diese überschreiben?</translation>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Verknüpfung für &apos;lxqt-qdbus openmenu&apos; in den Compositor-
+Einstellungen unter Wayland ändern oder hinzufügen</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>

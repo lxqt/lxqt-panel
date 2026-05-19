@@ -19,32 +19,32 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="581"/>
         <source>To &amp;Desktop</source>
-        <translation>На &amp;површ</translation>
+        <translation>На &amp;радну површ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="584"/>
         <source>&amp;All Desktops</source>
-        <translation>&amp;све површи</translation>
+        <translation>&amp;Све радне површи</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="594"/>
         <source>Desktop &amp;%1</source>
-        <translation>површ &amp;%1</translation>
+        <translation>Радна површ &amp;%1</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="604"/>
         <source>&amp;To Current Desktop</source>
-        <translation>&amp;На тренутну површ</translation>
+        <translation>&amp;На тренутну радну површ</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="616"/>
         <source>Move To N&amp;ext Monitor</source>
-        <translation>Пређи на с&amp;ледећи монитор</translation>
+        <translation>Премести на сл&amp;едећи екран</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="619"/>
         <source>Move To &amp;Previous Monitor</source>
-        <translation>Пређи на &amp;Претходни монитор</translation>
+        <translation>Премести на &amp;претходни екран</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="625"/>
@@ -54,32 +54,32 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="630"/>
         <source>Resi&amp;ze</source>
-        <translation>Промени величину</translation>
+        <translation>Промени &amp;величину</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="639"/>
         <source>Ma&amp;ximize</source>
-        <translation>Ма&amp;ксимизуј</translation>
+        <translation>Увећа&amp;ј</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="648"/>
         <source>Maximize vertically</source>
-        <translation>Максимизуј вертикално</translation>
+        <translation>Увећај усправно</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="655"/>
         <source>Maximize horizontally</source>
-        <translation>Максимизуј хоризонтално</translation>
+        <translation>Увећај водоравно</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="663"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Обнови</translation>
+        <translation>В&amp;рати</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="671"/>
         <source>Mi&amp;nimize</source>
-        <translation>&amp;Минимизуј</translation>
+        <translation>У&amp;мањи</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="679"/>
@@ -94,22 +94,22 @@
     <message>
         <location filename="../lxqttaskbutton.cpp" line="696"/>
         <source>&amp;Layer</source>
-        <translation>&amp;Слој</translation>
+        <translation>С&amp;лој</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="701"/>
         <source>Always on &amp;top</source>
-        <translation>увек &amp;изнад</translation>
+        <translation>Увек на &amp;врху</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="706"/>
         <source>&amp;Normal</source>
-        <translation>&amp;нормално</translation>
+        <translation>Обич&amp;но</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="711"/>
         <source>Always on &amp;bottom</source>
-        <translation>увек испо&amp;д</translation>
+        <translation>Увек на &amp;дну</translation>
     </message>
     <message>
         <location filename="../lxqttaskbutton.cpp" line="718"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="14"/>
         <source>Task Manager Settings</source>
-        <translation>Поставке менаџера задатака</translation>
+        <translation>Подешавања управника задатака</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="20"/>
@@ -145,48 +145,48 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="43"/>
         <source>Show only windows from desktop</source>
-        <translation>Прикажи прозоре само са десктопа</translation>
+        <translation>Прикажи само прозоре са радне површине</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="55"/>
         <source>Show only windows from &amp;panel&apos;s screen</source>
-        <translation>Прикажи прозоре само са екрана панела</translation>
+        <translation>Прикажи само &amp;прозоре са екрана траке</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="62"/>
         <source>Show only minimized windows</source>
-        <translation>Прикажи само минимизоване прозоре</translation>
+        <translation>Прикажи само умањене прозоре</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="69"/>
         <source>Raise minimized windows on current desktop</source>
-        <translation>Повећај минимизовани прозор на тренутном десктопу</translation>
+        <translation>Подигни умањене прозоре на тренутној радној површи</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="254"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="264"/>
         <source>Comma separated list of window classes</source>
-        <translation type="unfinished"></translation>
+        <translation>Списак класа прозора одвојених запетама</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="257"/>
         <source>Exclude from taskbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Искључи из траке са задацима</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Cycle windows on wheel scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Кружи кроз прозоре при помицању точкића</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="143"/>
         <source>Window &amp;grouping</source>
-        <translation>Груписање прозора</translation>
+        <translation>&amp;Груписање прозора</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="152"/>
         <source>Show popup on mouse hover</source>
-        <translation>Прикажи искачћући прозор при преласку миша</translation>
+        <translation>Прикажи искачући прозор при преласку миша</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="169"/>
@@ -196,34 +196,34 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="188"/>
         <source>Maximum button width</source>
-        <translation>Максимална ширина дугмета</translation>
+        <translation>Највећа ширина дугмета</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="125"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="201"/>
         <location filename="../lxqttaskbarconfiguration.ui" line="227"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation> пкс</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="86"/>
         <source>Mouse Wheel</source>
-        <translation>Точак миша</translation>
+        <translation>Точкић миша</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="112"/>
         <source>Wheel Delta Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>Праг делте точкића</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="162"/>
         <source>Put buttons of the same class next to each other</source>
-        <translation>Постави дугмад исте класе један поред другог</translation>
+        <translation>Постави дугмад исте класе једно поред другог</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="214"/>
         <source>Maximum button height</source>
-        <translation>Максимална висина дугмета</translation>
+        <translation>Највећа висина дугмета</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="247"/>
@@ -233,12 +233,12 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="240"/>
         <source>Auto&amp;rotate buttons when the panel is vertical</source>
-        <translation>Ауто&amp;ротирај дугмад када је панел вертикалан</translation>
+        <translation>Самозаок&amp;рени дугмад када је трака усправна</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="178"/>
         <source>Button style</source>
-        <translation>Стил тастера</translation>
+        <translation>Стил дугмета</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.ui" line="76"/>
@@ -248,17 +248,17 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
         <source>Icon and text</source>
-        <translation>икона и текст</translation>
+        <translation>Икона и текст</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
         <source>Only icon</source>
-        <translation>само икона</translation>
+        <translation>Само икона</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
         <source>Only text</source>
-        <translation>само текст</translation>
+        <translation>Само текст</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
@@ -268,32 +268,32 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Scroll up to raise, down to minimize</source>
-        <translation>Скролуј горе да повећаш, скролуј доле да минимизујеш</translation>
+        <translation>Помакни горе да подигнеш, доле да умањиш</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
         <source>Scroll up to minimize, down to raise</source>
-        <translation>Скролуј горе да минимизујеш, скролуј доле да повећаш</translation>
+        <translation>Помакни горе да умањиш, доле да подигнеш</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Scroll up to move to next desktop, down to previous</source>
-        <translation>Скролуј горе да се помериш на следећи десктоп, скролуј доле на претходни</translation>
+        <translation>Помакни горе да се помериш на следећу радну површ, доле на претходну</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Scroll up to move to previous desktop, down to next</source>
-        <translation>Скролуј горе да се помериш на претходни десктоп, скролуј доле на следећи</translation>
+        <translation>Помакни горе да се помериш на претходну радну површ, доле на следећу</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
         <source>Current</source>
-        <translation>Тренутни</translation>
+        <translation>Тренутно</translation>
     </message>
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Радна површ %1</translation>
     </message>
 </context>
 </TS>

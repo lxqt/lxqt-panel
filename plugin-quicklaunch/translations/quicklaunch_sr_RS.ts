@@ -11,14 +11,14 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="231"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Фајл/УРЛ „%1“ не може бити уграђен у Брзо Покретање за сада</translation>
+        <translation>Датотека/УРЛ „%1“ за сада не може бити уграђен у брзо покретање</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="337"/>
         <source>Drop application
 icons here</source>
-        <translation>Испусти апликацију
-иконе овде</translation>
+        <translation>Испусти иконе
+програма овде</translation>
     </message>
 </context>
 <context>

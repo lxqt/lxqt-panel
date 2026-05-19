@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Менаџер уклоњивих медија/уређаја</translation>
+        <translation>Управник уклоњивих медија/уређаја</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../configuration.ui" line="42"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action when eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Активирај следећу радњу када се притисне пречица за избацивање (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Покрени следећу радњу када се притисне пречица за избацивање (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; подразумевано)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../configuration.cpp" line="64"/>
         <source>Popup menu</source>
-        <translation>Прикажи мени</translation>
+        <translation>Искачући мени</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="66"/>
         <source>Show info</source>
-        <translation>Прикажи инфо</translation>
+        <translation>Прикажи податке</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="67"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="70"/>
         <source>Eject All Optical Drives</source>
-        <translation>Избаци све оптичке уређаје</translation>
+        <translation>Избаци све оптичке дискове</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Менаџер уклоњивих медија/уређаја</translation>
+        <translation>Управник уклоњивих медија/уређаја</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation>Менаџер уклоњивих медија/уређаја</translation>
+        <translation>Управник уклоњивих медија/уређаја</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation>Избаци све оптичке уређаје</translation>
+        <translation>Сви оптички дискови су избачени</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Менаџер уклоњивих медија/уређаја: Глобална пречица &apos;%1&apos; не може бити регистрована</translation>
+        <translation>Управник уклоњивих медија/уређаја: општа пречица &apos;%1&apos; не може се регистровати</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="127"/>
@@ -107,18 +107,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>Повезивање &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; није успело: %2</translation>
+        <translation>Повезивање &lt;b&gt;&lt;nobr&gt;„%1“&lt;/nobr&gt;&lt;/b&gt; није успело: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="158"/>
         <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
-        <translation>Менаџер уклоњивих медија/уређаја</translation>
+        <translation>Управник уклоњивих медија/уређаја</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>Уклањање &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; није успело: %2</translation>
+        <translation>Откачињање &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; није успело: %2</translation>
     </message>
 </context>
 <context>
