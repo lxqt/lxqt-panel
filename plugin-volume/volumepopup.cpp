@@ -28,6 +28,7 @@
 #include "volumepopup.h"
 
 #include "audiodevice.h"
+#include "lxqtvolumeconfiguration.h"
 
 #include <QIcon>
 #include <QSlider>
@@ -64,7 +65,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_pos(0, 0),
     m_anchor(Qt::TopLeftCorner),
     m_defaultSink(nullptr),
-    m_sliderStep(3),
+    m_sliderStep(SETTINGS_DEFAULT_STEP),
     m_lastWheelDirection(0)
 {
     // Under some Wayland compositors, setting window flags in the c-tor of the base class
@@ -271,7 +272,7 @@ void VolumePopup::openAt(QPoint pos, Qt::Corner anchor)
 int VolumePopup::wheelVolumeDelta(QWheelEvent *event, int stepSize)
 {
     if (stepSize <= 0)
-        stepSize = 3;
+        stepSize = SETTINGS_DEFAULT_STEP;
 
     const int delta = wheelEventDelta(event);
     if (delta == 0)
