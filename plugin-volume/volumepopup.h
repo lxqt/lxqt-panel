@@ -29,6 +29,7 @@
 #define VOLUMEPOPUP_H
 
 #include <QDialog>
+#include <QElapsedTimer>
 #include <QList>
 #include <QPointer>
 
@@ -93,6 +94,7 @@ private:
     void rebuildSinkRows();
     SinkRow makeSinkRow(AudioDevice *device);
     void updateDefaultButtons();
+    int wheelVolumeDelta(QWheelEvent *event, int stepSize);
 
     QScrollArea *m_sinkScrollArea;
     QWidget *m_sinksContainer;
@@ -103,6 +105,8 @@ private:
     QList<AudioDevice*> m_sinks;
     QPointer<AudioDevice> m_defaultSink;
     int m_sliderStep;
+    QElapsedTimer m_lastWheelTime;
+    int m_lastWheelDirection;
 };
 
 #endif // VOLUMEPOPUP_H

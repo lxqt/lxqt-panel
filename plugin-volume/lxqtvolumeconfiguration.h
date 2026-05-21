@@ -44,7 +44,7 @@
 
 #define SETTINGS_DEFAULT_MUTE_ON_MIDDLECLICK    true
 #define SETTINGS_DEFAULT_DEVICE                 0
-#define SETTINGS_DEFAULT_STEP                   3
+#define SETTINGS_DEFAULT_STEP                   5
 #ifdef USE_PULSEAUDIO
     #define SETTINGS_DEFAULT_MIXER_COMMAND      "pavucontrol-qt"
     #define SETTINGS_DEFAULT_AUDIO_ENGINE       "PulseAudio"
