@@ -1,5 +1,6 @@
 lxqt-panel-2.4.0 / 2026-04-20
 ==============================
+ * Fixed crashes when PulseAudio sink information changes.
  * Implemented multi sink volume plugin.
  * Added some more padding in LXQtWorldClockPopup.
  * Fixed weird behavior in panel length configuration when switching between px and %.
