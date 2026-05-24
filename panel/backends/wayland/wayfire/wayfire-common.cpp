@@ -375,7 +375,7 @@ QJsonArray LXQt::Panel::Wayfire::getWorkspaceSetsInfo() const
 
 QString LXQt::Panel::Wayfire::getWorkspaceName(int x, const QString &outputName) const
 {
-    QString targetKey = QString::fromUtf8("%1_workspace_%2").arg(outputName).arg(x);
+    QString targetKey = QString::fromUtf8("%1_workspace_%2").arg(outputName, x);
 
     QJsonObject request;
     request[QSL("method")] = QSL("wayfire/get-config-option");

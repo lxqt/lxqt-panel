@@ -311,7 +311,7 @@ void LXQtVolume::updateTrayIconFromDefaultSink()
         iconName = QLatin1String("audio-volume-high");
     iconName.append(QLatin1String("-panel"));
     m_volumeButton->setIcon(XdgIcon::fromTheme(iconName));
-    m_volumeButton->setToolTip(tr("%1: %2%").arg(m_defaultSink->description()).arg(m_defaultSink->volume()));
+    m_volumeButton->setToolTip(tr("%1: %2%").arg(m_defaultSink->description(), m_defaultSink->volume()));
 }
 
 QWidget *LXQtVolume::widget()
@@ -346,7 +346,7 @@ void LXQtVolume::showNotification(bool forceShow) const
     {
         if (Q_LIKELY(m_defaultSink))
         {
-            m_notification->setSummary(tr("Volume: %1%%2").arg(QString::number(m_defaultSink->volume())).arg(m_defaultSink->mute() ? tr("(muted)") : QLatin1String("")));
+            m_notification->setSummary(tr("Volume: %1%%2").arg(QString::number(m_defaultSink->volume()), m_defaultSink->mute() ? tr("(muted)") : QLatin1String("")));
             m_notification->update();
         }
     }
