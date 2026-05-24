@@ -94,7 +94,8 @@ void LXQtSysStatColours::selectColour(const QString &name)
     if (color.isValid())
     {
         mColours[name] = color;
-        mShowColourMap[name]->setStyleSheet(QStringLiteral("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? QStringLiteral("black") : QStringLiteral("white")));
+        mShowColourMap[name]->setStyleSheet(QStringLiteral("background-color: %1;\ncolor: %2;")
+            .arg(color.name(), (color.toHsl().lightnessF() > 0.5) ? QStringLiteral("black") : QStringLiteral("white")));
 
         ui->buttons->button(QDialogButtonBox::Apply)->setEnabled(true);
     }
@@ -115,7 +116,8 @@ void LXQtSysStatColours::applyColoursToButtons()
     for (Colours::ConstIterator I = mColours.constBegin(); I != M; ++I)
     {
         const QColor &color = I.value();
-        mShowColourMap[I.key()]->setStyleSheet(QStringLiteral("background-color: %1;\ncolor: %2;").arg(color.name()).arg((color.toHsl().lightnessF() > 0.5) ? QStringLiteral("black") : QStringLiteral("white")));
+        mShowColourMap[I.key()]->setStyleSheet(QStringLiteral("background-color: %1;\ncolor: %2;")
+            .arg(color.name(), (color.toHsl().lightnessF() > 0.5) ? QStringLiteral("black") : QStringLiteral("white")));
     }
 }
 

@@ -348,7 +348,7 @@ void LXQtTaskGroup::regroup()
     else
     {
         mSingleButton = false;
-        QString t = QString(QStringLiteral("%1 - %2 windows")).arg(mGroupName).arg(cont);
+        QString t = QString(QStringLiteral("%1 - %2 windows")).arg(mGroupName, cont);
         setTextExplicitly(t);
         setToolTip(parentTaskBar()->isShowGroupOnHover() ? QString() : t);
     }
