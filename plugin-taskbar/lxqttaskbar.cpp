@@ -645,7 +645,7 @@ void LXQtTaskBar::registerShortcuts()
     QString description;
     for (int i = 1; i <= 10; ++i)
     {
-        path = QStringLiteral("/panel/%1/task_%2").arg(mPlugin->settings()->group(), i);
+        path = QStringLiteral("/panel/%1/task_%2").arg(mPlugin->settings()->group()).arg(i);
         description = tr("Activate task %1").arg(i);
 
         gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QLatin1String(""), path, description, this);

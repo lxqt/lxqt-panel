@@ -101,7 +101,7 @@ void Content::layoutChanged(const QString & sym, const QString & name, const QSt
     QString txt = QStringLiteral("<html><table>\
     <tr><td>%1: </td><td>%3</td></tr>\
     <tr><td>%2: </td><td>%4</td></tr>\
-    </table></html>").arg(tr("Layout"), tr("Variant"), name, variant);
+    </table></html>").arg(tr("Layout")).arg(tr("Variant")).arg(name).arg(variant);
     m_layout->setToolTip(txt);
 }
 

@@ -350,7 +350,7 @@ QString PanelPluginsModel::findNewPluginSettingsGroup(const QString &pluginType)
     {
         for (int i = 2; true; ++i)
         {
-            pluginName = QStringLiteral("%1%2").arg(pluginType, i);
+            pluginName = QStringLiteral("%1%2").arg(pluginType).arg(i);
             if (!groups.contains(pluginName))
                 return pluginName;
         }
