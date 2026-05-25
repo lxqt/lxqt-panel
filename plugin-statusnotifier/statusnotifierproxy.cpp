@@ -59,7 +59,7 @@ void StatusNotifierProxy::createWatcher()
 
     QFuture<StatusNotifierWatcher *> future = QtConcurrent::run([]
         {
-            QString dbusName = QStringLiteral("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid(), 1);
+            QString dbusName = QStringLiteral("org.kde.StatusNotifierHost-%1-%2").arg(QApplication::applicationPid()).arg(1);
             if (QDBusConnectionInterface::ServiceNotRegistered == QDBusConnection::sessionBus().interface()->registerService(dbusName, QDBusConnectionInterface::DontQueueService))
                 qDebug() << "unable to register service for " << dbusName;
 

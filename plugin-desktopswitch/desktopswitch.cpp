@@ -105,7 +105,7 @@ void DesktopSwitch::registerShortcuts()
     QString description;
     for (int i = 0; i < 12; ++i)
     {
-        path = QStringLiteral("/panel/%1/desktop_%2").arg(settings()->group(), i + 1);
+        path = QStringLiteral("/panel/%1/desktop_%2").arg(settings()->group()).arg(i + 1);
         description = tr("Switch to desktop %1").arg(i + 1);
 
         gshortcut = GlobalKeyShortcut::Client::instance()->addAction(QString(), path, description, this);

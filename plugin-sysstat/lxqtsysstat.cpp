@@ -493,7 +493,7 @@ void LXQtSysStatContent::memoryUpdate(float apps, float buffers, float cached)
     int y_cached  = static_cast<int>(cached  * 100.0);
 
     toolTipInfo(tr("apps: %1%<br>buffers: %2%<br>cached: %3%", "Memory tooltip information")
-        .arg(y_apps, y_buffers, y_cached));
+        .arg(y_apps).arg(y_buffers).arg(y_cached));
 
     y_apps    = std::clamp(y_apps, 0, 99);
     y_buffers = std::clamp(y_buffers + y_apps, 0, 99);
@@ -558,7 +558,7 @@ void LXQtSysStatContent::networkUpdate(unsigned received, unsigned transmitted)
     int y_min_value = static_cast<int>(min_value * 100.0);
     int y_max_value = static_cast<int>(max_value * 100.0);
 
-    toolTipInfo(tr("min: %1%<br>max: %2%", "Network tooltip information").arg(y_min_value, y_max_value));
+    toolTipInfo(tr("min: %1%<br>max: %2%", "Network tooltip information").arg(y_min_value).arg(y_max_value));
 
     y_min_value = std::clamp(y_min_value, 0, 99);
     y_max_value = std::clamp(y_max_value + y_min_value, 0, 99);
@@ -630,7 +630,7 @@ void LXQtSysStatContent::paintEvent(QPaintEvent *event)
 void LXQtSysStatContent::toolTipInfo(QString const & tooltip)
 {
     setToolTip(QStringLiteral("<b>%1(%2)</b><br>%3")
-            .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataType.toStdString().c_str()),
-                 QCoreApplication::translate("LXQtSysStatConfiguration", mDataSource.toStdString().c_str()),
-                 tooltip));
+            .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataType.toStdString().c_str()))
+            .arg(QCoreApplication::translate("LXQtSysStatConfiguration", mDataSource.toStdString().c_str()))
+            .arg(tooltip));
 }

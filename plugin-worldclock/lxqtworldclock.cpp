@@ -256,10 +256,7 @@ void LXQtWorldClock::settingsChanged()
         else if (formatType == QLatin1String("long-timeonly"))
             mFormat = QLocale{}.timeFormat(QLocale::LongFormat);
         else // if (formatType == QLatin1String("custom-timeonly"))
-            mFormat = QString(QLatin1String("%1:mm%2%3")).arg(
-                timePadHour ? QLatin1String("hh") : QLatin1String("h"),
-                timeShowSeconds ? QLatin1String(":ss") : QLatin1String(""),
-                timeAMPM ? QLatin1String(" A") : QLatin1String(""));
+            mFormat = QString(QLatin1String("%1:mm%2%3")).arg(timePadHour ? QLatin1String("hh") : QLatin1String("h")).arg(timeShowSeconds ? QLatin1String(":ss") : QLatin1String("")).arg(timeAMPM ? QLatin1String(" A") : QLatin1String(""));
 
         if (showTimezone)
         {
@@ -312,13 +309,7 @@ void LXQtWorldClock::settingsChanged()
                 else
                 // Little-endian (day, month, year) (dddd, dd MMMM yyyy) -> most of Europe
                     datePortionOrder = QLatin1String("%6%5%4 %3%2%1");
-                datePortion = datePortionOrder.arg(
-                    dateShowYear ? QLatin1String("yyyy") : QLatin1String(""),
-                    dateShowYear ? QLatin1String(" ") : QLatin1String(""),
-                    dateLongNames ? QLatin1String("MMMM") : QLatin1String("MMM"),
-                    datePadDay ? QLatin1String("dd") : QLatin1String("d"),
-                    dateShowDoW ? QLatin1String(", ") : QLatin1String(""),
-                    dateShowDoW ? (dateLongNames ? QLatin1String("dddd") : QLatin1String("ddd")) : QLatin1String(""));
+                datePortion = datePortionOrder.arg(dateShowYear ? QLatin1String("yyyy") : QLatin1String("")).arg(dateShowYear ? QLatin1String(" ") : QLatin1String("")).arg(dateLongNames ? QLatin1String("MMMM") : QLatin1String("MMM")).arg(datePadDay ? QLatin1String("dd") : QLatin1String("d")).arg(dateShowDoW ? QLatin1String(", ") : QLatin1String("")).arg(dateShowDoW ? (dateLongNames ? QLatin1String("dddd") : QLatin1String("ddd")) : QLatin1String(""));
             }
 
             if (datePosition == QLatin1String("below"))
