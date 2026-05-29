@@ -1,3 +1,8 @@
+lxqt-panel-2.4.1 / 2026-05-29
+==============================
+ * Fixed a regression in the adjusting step of Volume Control plugin.
+ * Updated Free Software Foundation address.
+
 lxqt-panel-2.4.0 / 2026-04-20
 ==============================
  * Fixed crashes when PulseAudio sink information changes.
