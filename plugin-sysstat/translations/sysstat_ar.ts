@@ -205,17 +205,17 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
-        <source>Use t&amp;heme colours</source>
+        <source>Use t&amp;heme colors</source>
         <translation>&amp;استخدم ألوان الموضوع</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
-        <source>Use c&amp;ustom colours</source>
+        <source>Use c&amp;ustom colors</source>
         <translation>&amp;استخدم ألوان التخصيص</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
-        <source>Custom colour ...</source>
+        <source>Custom color ...</source>
         <translation>لون مخصص ...</translation>
     </message>
     <message>
