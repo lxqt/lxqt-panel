@@ -345,17 +345,17 @@
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
-        <source>Use t&amp;heme colours</source>
+        <source>Use t&amp;heme colors</source>
         <translation>Usa colori del &amp;tema</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
-        <source>Use c&amp;ustom colours</source>
+        <source>Use c&amp;ustom colors</source>
         <translation>Colori &amp;personalizzati</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
-        <source>Custom colour ...</source>
+        <source>Custom color ...</source>
         <translation>Colore personalizzato ...</translation>
     </message>
     <message>
