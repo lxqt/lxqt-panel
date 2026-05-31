@@ -27,14 +27,14 @@
 
 #ifndef LXQTNETWORKMONITOR_H
 #define LXQTNETWORKMONITOR_H
-#include <QFrame>
+#include <QToolButton>
 
 class ILXQtPanelPlugin;
 
 /*!
   TODO: How to define cable is not connected?
   */
-class LXQtNetworkMonitor: public QFrame
+class LXQtNetworkMonitor: public QToolButton
 {
     Q_OBJECT
 public:

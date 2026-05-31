@@ -45,7 +45,7 @@ extern "C" {
 #endif
 
 LXQtNetworkMonitor::LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent):
-    QFrame(parent),
+    QToolButton(parent),
     mPlugin(plugin)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
@@ -164,7 +164,7 @@ bool LXQtNetworkMonitor::event(QEvent *event)
             network_stats++;
         }
     }
-    return QFrame::event(event);
+    return QToolButton::event(event);
 }
 
 //void LXQtNetworkMonitor::showConfigureDialog()
