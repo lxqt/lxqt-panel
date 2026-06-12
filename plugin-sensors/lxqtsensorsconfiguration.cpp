@@ -47,6 +47,9 @@ LXQtSensorsConfiguration::LXQtSensorsConfiguration(PluginSettings *settings, QWi
     loadSettings();
 
     connect(ui->buttons,                        &QDialogButtonBox::clicked, this, &LXQtSensorsConfiguration::dialogButtonsAction);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
+
     connect(ui->updateIntervalSB,               &QSpinBox::valueChanged,    this, &LXQtSensorsConfiguration::saveSettings);
     connect(ui->tempBarWidthSB,                 &QSpinBox::valueChanged,    this, &LXQtSensorsConfiguration::saveSettings);
     connect(ui->detectedChipsCB,                &QComboBox::activated,      this, &LXQtSensorsConfiguration::detectedChipSelected);

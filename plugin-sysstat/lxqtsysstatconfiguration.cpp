@@ -109,6 +109,9 @@ LXQtSysStatConfiguration::LXQtSysStatConfiguration(PluginSettings *settings, QWi
     connect(ui->logarithmicCB, &QCheckBox::toggled, this, &LXQtSysStatConfiguration::saveSettings);
     connect(ui->sourceCOB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &LXQtSysStatConfiguration::saveSettings);
     connect(ui->useThemeColoursRB, &QRadioButton::toggled, this, &LXQtSysStatConfiguration::saveSettings);
+
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 }
 
 LXQtSysStatConfiguration::~LXQtSysStatConfiguration()

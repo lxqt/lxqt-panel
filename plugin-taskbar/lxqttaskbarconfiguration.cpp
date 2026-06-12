@@ -33,6 +33,8 @@
 #include "../panel/lxqtpanelapplication.h"
 #include "../panel/backends/ilxqtabstractwmiface.h"
 
+#include <QPushButton>
+
 LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWidget *parent):
     LXQtPanelPluginConfigDialog(settings, parent),
     ui(new Ui::LXQtTaskbarConfiguration)
@@ -42,6 +44,8 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     ui->setupUi(this);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtTaskbarConfiguration::dialogButtonsAction);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     ui->buttonStyleCB->addItem(tr("Icon and text"), QLatin1String("IconText"));
     ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));

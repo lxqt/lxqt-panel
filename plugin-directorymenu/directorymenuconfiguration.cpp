@@ -31,6 +31,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QStandardPaths>
+#include <QPushButton>
 
 #include <XdgIcon>
 
@@ -50,6 +51,8 @@ DirectoryMenuConfiguration::DirectoryMenuConfiguration(PluginSettings *settings,
     ui->setupUi(this);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &DirectoryMenuConfiguration::dialogButtonsAction);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     ui->buttonStyleCB->addItem(tr("Only icon"), QLatin1String("Icon"));
     ui->buttonStyleCB->addItem(tr("Only text"), QLatin1String("Text"));

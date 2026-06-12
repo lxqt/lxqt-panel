@@ -74,7 +74,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
 
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
-    
+
     const QFont monoFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
     ui->commandPlainTextEdit->setFont(monoFont);
 
@@ -124,6 +124,8 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     loadSettings();
 
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &LXQtCustomCommandConfiguration::dialogButtonsAction);
+    if (auto btn = ui->buttonBox->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     connect(ui->autoRotateCheckBox, &QCheckBox::toggled, this, &LXQtCustomCommandConfiguration::autoRotateChanged);
     connect(ui->fontButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::fontButtonClicked);
