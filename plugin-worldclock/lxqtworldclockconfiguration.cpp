@@ -51,7 +51,8 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     ui->setupUi(this);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtWorldClockConfiguration::dialogButtonsAction);
-    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     connect(ui->timeFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timeShowSecondsCB,    &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);

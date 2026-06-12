@@ -57,7 +57,8 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
             load();
         }
     });
-    m_ui->btns->button(QDialogButtonBox::Close)->setDefault(true);
+    if (auto btn = m_ui->btns->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     connect(m_ui->configureLayouts, &QPushButton::clicked, this, &KbdStateConfig::configureLayouts);
 

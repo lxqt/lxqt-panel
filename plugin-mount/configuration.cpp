@@ -78,7 +78,8 @@ Configuration::Configuration(PluginSettings *settings, QWidget *parent) :
     connect(ui->ejectPressedCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &Configuration::ejectPressedChanged);
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &Configuration::dialogButtonsAction);
-    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 }
 
 Configuration::~Configuration()

@@ -47,7 +47,8 @@ LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(PluginSettings *settings, QWi
     fillBarOrientations();
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtCpuLoadConfiguration::dialogButtonsAction);
-    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     loadSettings();
 

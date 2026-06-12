@@ -58,7 +58,8 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
     ui->iconPB->setIcon(folder);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtFancyMenuConfiguration::dialogButtonsAction);
-    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+    if (auto btn = ui->buttons->button(QDialogButtonBox::Close))
+        btn->setDefault(true);
 
     loadSettings();
 
