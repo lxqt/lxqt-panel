@@ -31,6 +31,7 @@
 #include "audiodevice.h"
 
 #include <QComboBox>
+#include <QPushButton>
 #include <QDebug>
 
 LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool ossAvailable, QWidget *parent) :
@@ -43,6 +44,8 @@ LXQtVolumeConfiguration::LXQtVolumeConfiguration(PluginSettings *settings, bool 
     loadSettings();
     connect(ui->devAddedCombo,                     &QComboBox::currentIndexChanged, this, &LXQtVolumeConfiguration::sinkSelectionChanged);
     connect(ui->buttons,                           &QDialogButtonBox::clicked,      this, &LXQtVolumeConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+
     connect(ui->muteOnMiddleClickCheckBox,         &QCheckBox::toggled,             this, &LXQtVolumeConfiguration::muteOnMiddleClickChanged);
     connect(ui->mixerLineEdit,                     &QLineEdit::textChanged,         this, &LXQtVolumeConfiguration::mixerLineEditChanged);
     connect(ui->stepSpinBox,                       &QSpinBox::valueChanged,         this, &LXQtVolumeConfiguration::stepSpinBoxChanged);

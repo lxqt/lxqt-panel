@@ -28,6 +28,8 @@
 #include "lxqtcpuloadconfiguration.h"
 #include "ui_lxqtcpuloadconfiguration.h"
 
+#include <QPushButton>
+
 #define BAR_ORIENT_BOTTOMUP "bottomUp"
 #define BAR_ORIENT_TOPDOWN "topDown"
 #define BAR_ORIENT_LEFTRIGHT "leftRight"
@@ -45,6 +47,7 @@ LXQtCpuLoadConfiguration::LXQtCpuLoadConfiguration(PluginSettings *settings, QWi
     fillBarOrientations();
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtCpuLoadConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
 
     loadSettings();
 

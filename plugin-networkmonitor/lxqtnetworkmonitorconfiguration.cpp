@@ -31,6 +31,8 @@
 
 #include <algorithm>
 
+#include <QPushButton>
+
 extern "C" {
 #include <statgrab.h>
 }
@@ -50,6 +52,8 @@ LXQtNetworkMonitorConfiguration::LXQtNetworkMonitorConfiguration(PluginSettings 
     ui->setupUi(this);
 
     connect(ui->buttons,     &QDialogButtonBox::clicked,      this, &LXQtNetworkMonitorConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+
     connect(ui->iconCB,      &QComboBox::currentIndexChanged, this, &LXQtNetworkMonitorConfiguration::saveSettings);
     connect(ui->interfaceCB, &QComboBox::currentIndexChanged, this, &LXQtNetworkMonitorConfiguration::saveSettings);
 

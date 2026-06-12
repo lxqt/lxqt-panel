@@ -37,7 +37,7 @@
 #include <LXQt/Globals>
 
 #include <QInputDialog>
-
+#include <QPushButton>
 
 LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *settings, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
@@ -51,6 +51,7 @@ LXQtWorldClockConfiguration::LXQtWorldClockConfiguration(PluginSettings *setting
     ui->setupUi(this);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtWorldClockConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
 
     connect(ui->timeFormatCB,         &QComboBox::currentIndexChanged, this, &LXQtWorldClockConfiguration::saveSettings);
     connect(ui->timeShowSecondsCB,    &QCheckBox::clicked,             this, &LXQtWorldClockConfiguration::saveSettings);

@@ -35,6 +35,7 @@
 
 #include <QAction>
 #include <QFileDialog>
+#include <QPushButton>
 
 #include "lxqtfancymenutypes.h"
 
@@ -57,6 +58,7 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
     ui->iconPB->setIcon(folder);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtFancyMenuConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
 
     loadSettings();
 

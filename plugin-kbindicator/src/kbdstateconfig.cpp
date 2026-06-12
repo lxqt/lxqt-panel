@@ -28,6 +28,7 @@
 
 #include <QDebug>
 #include <QProcess>
+#include <QPushButton>
 
 #include "kbdstateconfig.h"
 #include "ui_kbdstateconfig.h"
@@ -56,6 +57,7 @@ KbdStateConfig::KbdStateConfig(QWidget *parent) :
             load();
         }
     });
+    m_ui->btns->button(QDialogButtonBox::Close)->setDefault(true);
 
     connect(m_ui->configureLayouts, &QPushButton::clicked, this, &KbdStateConfig::configureLayouts);
 

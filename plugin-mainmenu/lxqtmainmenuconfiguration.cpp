@@ -35,6 +35,7 @@
 
 #include <QAction>
 #include <QFileDialog>
+#include <QPushButton>
 
 LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, GlobalKeyShortcut::Action * shortcut, const QString &defaultShortcut, QWidget *parent) :
     LXQtPanelPluginConfigDialog(settings, parent),
@@ -52,6 +53,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     ui->iconPB->setIcon(folder);
 
     connect(ui->buttons, &QDialogButtonBox::clicked, this, &LXQtMainMenuConfiguration::dialogButtonsAction);
+    ui->buttons->button(QDialogButtonBox::Close)->setDefault(true);
 
     loadSettings();
 
