@@ -18,17 +18,18 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  */
- 
+
 #include <iostream>
 
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QGroupBox>
+#include <QLabel>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
 
 #include "qeyesconfigdialog.h"
 #include "qeyes.h"
@@ -57,14 +58,18 @@ QEyesConfigDialog::QEyesConfigDialog(PluginSettings *sts,
     typesWidget = new QComboBox();
     l->addWidget(typesWidget, 20, 20);
 
-    auto b = new QPushButton(tr("Close"));
-    l1->addWidget(b, 50, 10);
-    connect(b, &QPushButton::clicked, this, &QEyesConfigDialog::updateAndClose);
-    b->setDefault(true);
-    
-    b = new QPushButton(tr("Reset"));
-    l1->addWidget(b, 50, 20);
-    connect(b, &QPushButton::clicked, this, &QEyesConfigDialog::resetValue);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Reset | QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::clicked, this, [this, buttonBox](QAbstractButton* btn) {
+        if (btn == buttonBox->button(QDialogButtonBox::Reset)) {
+            resetValue();
+        } else if (btn == buttonBox->button(QDialogButtonBox::Close)) {
+            updateAndClose();
+        }
+    });
+
+    l1->addWidget(buttonBox, 50, 10, 1, 11);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
     setWindowTitle(tr("QEyes Settings"));
 
