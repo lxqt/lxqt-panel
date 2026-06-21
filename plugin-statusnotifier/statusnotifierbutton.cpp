@@ -69,6 +69,7 @@ StatusNotifierButton::StatusNotifierButton(QString service, QString objectPath, 
     connect(interface, &SniAsync::NewOverlayIcon, this, &StatusNotifierButton::newOverlayIcon);
     connect(interface, &SniAsync::NewAttentionIcon, this, &StatusNotifierButton::newAttentionIcon);
     connect(interface, &SniAsync::NewToolTip, this, &StatusNotifierButton::newToolTip);
+    connect(interface, &SniAsync::NewTitle, this, &StatusNotifierButton::newToolTip);
     connect(interface, &SniAsync::NewStatus, this, &StatusNotifierButton::newStatus);
 
     // get the title only at the start because that title is used
