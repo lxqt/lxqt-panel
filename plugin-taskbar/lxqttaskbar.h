@@ -127,6 +127,8 @@ private:
 private:
     QMap<WId, LXQtTaskGroup*> mKnownWindows; //!< Ids of known windows (mapping to buttons/groups)
     LXQt::GridLayout *mLayout;
+    QWidget *mContentWidget; // container for mLayout so we can push it to the end
+    QBoxLayout *mOuterLayout;
     QList<GlobalKeyShortcut::Action*> mKeys;
     QSignalMapper *mSignalMapper;
 
