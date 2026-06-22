@@ -51,33 +51,33 @@ namespace
     auto t = localizationWorkaround;//avoid unused function warning
     void localizationWorkaround()
     {
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu0"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu1"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu2"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu3"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu4"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu5"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu6"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu7"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu8"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu9"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu10"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu11"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu12"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu13"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu14"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu15"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu16"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu17"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu18"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu19"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu20"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu21"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu22"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "cpu23"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "memory"));
-        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "swap"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU0"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU1"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU2"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU3"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU4"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU5"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU6"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU7"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU8"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU9"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU10"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU11"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU12"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU13"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU14"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU15"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU16"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU17"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU18"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU19"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU20"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU21"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU22"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "CPU23"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "RAM"));
+        static_cast<void>(QT_TRANSLATE_NOOP("LXQtSysStatConfiguration", "Swap"));
         static_cast<void>(t);//avoid unused variable warning
     }
 }
