@@ -46,6 +46,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mDelayedRunTimer(new QTimer(this)),
         mFirstRun(true),
         mAutoRotate(true),
+        mTextColor(QColor()),
         mRunWithBash(true),
         mOutputFormat(OutputFormat_t::OUTPUT_BEGIN),
         mContinuousOutput(false),
@@ -106,6 +107,7 @@ void LXQtCustomCommand::settingsChanged()
 
     bool oldAutoRotate = mAutoRotate;
     QString oldFont = mFont;
+    QColor oldTextColor = mTextColor;
     QString oldCommand = mCommand;
     bool oldRunWithBash = mRunWithBash;
     LXQtCustomCommandConfiguration::OutputFormat_t oldOutputFormat = mOutputFormat;
@@ -119,7 +121,7 @@ void LXQtCustomCommand::settingsChanged()
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
     mFont = settings()->value(QStringLiteral("font"), QString()).toString(); // the default font should be empty
-    QColor textColor = QColor::fromString(settings()->value(QStringLiteral("textColor")).toString());
+    mTextColor = QColor::fromString(settings()->value(QStringLiteral("textColor")).toString());
     mCommand = settings()->value(QStringLiteral("command"), QStringLiteral("echo Configure...")).toString().trimmed();
     mRunWithBash = settings()->value(QStringLiteral("runWithBash"), true).toBool();
     // backward compatibility check
@@ -154,11 +156,11 @@ void LXQtCustomCommand::settingsChanged()
             updateButton();
         }
     }
-    if (textColor.isValid()) {
-        mButton->setStyleSheet(QStringLiteral("QToolButton{color: %1}").arg(textColor.name()));
-    }
-    else {
-        mButton->setStyleSheet(QString());
+    if (oldTextColor != mTextColor) {
+        if (mTextColor.isValid())
+            mButton->setStyleSheet(QStringLiteral("QToolButton{color: %1}").arg(mTextColor.name()));
+        else
+            mButton->setStyleSheet(QString());
     }
     if (oldCommand != mCommand || oldRunWithBash != mRunWithBash || oldOutputFormat != mOutputFormat || oldContinuousOutput != mContinuousOutput || oldRepeat != mRepeat)
         shouldRun = true;
@@ -195,6 +197,11 @@ void LXQtCustomCommand::settingsChanged()
         mButton->setIcon(QIcon::fromTheme(mIcon, QIcon(mIcon)));
         mButton->setText(QString{});
         mButton->setToolTip(mTooltip);
+        if (mTextColor.isValid())
+            mButton->setStyleSheet(QStringLiteral("QToolButton{color: %1}").arg(mTextColor.name()));
+        else
+            mButton->setStyleSheet(QString());
+            
         mButton->updateWidth();
         mDelayedRunTimer->start();
     }
@@ -284,6 +291,8 @@ void LXQtCustomCommand::updateButton() {
                         mButton->setToolTip(QString::fromUtf8(value));
                     } else if (name_value[0] == "icon") {
                         iconsetter(value, true);
+                    } else if (name_value[0] == "stylesheet") {
+                        mButton->setStyleSheet(QString::fromUtf8(value));
                     } else {
                         qWarning().nospace() << "customcommand: Unsupported parameter(" << QString::fromUtf8(name_value[0]) << ") to set";
                     }
