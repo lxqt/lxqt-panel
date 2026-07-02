@@ -220,12 +220,12 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>使用鼠标滚轮更改时区</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;注：&lt;/b&gt; 点击鼠标中键查看全部已设定时区的时间和日期。</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>

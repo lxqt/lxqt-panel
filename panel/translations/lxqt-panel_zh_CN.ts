@@ -195,42 +195,42 @@
     <message>
         <location filename="../config/configplacement.cpp" line="153"/>
         <source>Top of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕上方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="154"/>
         <source>Left of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕左边</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="155"/>
         <source>Right of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕右边</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="156"/>
         <source>Bottom of screen</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕下方</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="165"/>
         <source>Top of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕上方%1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="166"/>
         <source>Left of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕左边%1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="167"/>
         <source>Right of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕右边%1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="168"/>
         <source>Bottom of screen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕下方%1</translation>
     </message>
     <message>
         <location filename="../config/configplacement.cpp" line="193"/>
