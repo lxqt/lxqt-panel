@@ -11,13 +11,13 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>反转项目排序</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
         <location filename="../statusnotifierconfiguration.ui" line="49"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>如果需要关注，该自动隐藏的项目将在此期间保持可见状态。</translation>
+        <translation>自动隐藏的项目将在关注期间保持可见状态。</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="42"/>
