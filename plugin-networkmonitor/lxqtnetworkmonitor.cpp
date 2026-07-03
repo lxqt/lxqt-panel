@@ -50,6 +50,7 @@ LXQtNetworkMonitor::LXQtNetworkMonitor(ILXQtPanelPlugin *plugin, QWidget* parent
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(&m_stuff);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
     /* Initialise statgrab */
 #ifdef STATGRAB_NEWER_THAN_0_90
