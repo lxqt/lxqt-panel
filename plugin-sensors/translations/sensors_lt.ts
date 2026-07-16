@@ -64,17 +64,17 @@
         <translation>Lusto ypatybės:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
         <translation>Įjungta</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
         <translation>Etiketė</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Color</source>
         <translation>Spalva</translation>
     </message>

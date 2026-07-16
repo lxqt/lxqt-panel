@@ -139,33 +139,33 @@ Você deseja sobrescrevê-lo?</translation>
         <translation>Clique no botão para gravar o atalho:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
         <translation>Redefinir</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Escolher ícone</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Imagens (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Escolher arquivo de menu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Arquivos de menu (*.menu)</translation>
     </message>

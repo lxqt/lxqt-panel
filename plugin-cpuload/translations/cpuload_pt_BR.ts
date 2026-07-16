@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="126"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation>Carga do processador %1%</translation>
     </message>
@@ -47,22 +47,22 @@
         <translation>Largura da barra:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>De baixo para cima</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>De cima para baixo</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>Da esquerda para a direita</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>Da direita para a esquerda</translation>
     </message>

@@ -110,53 +110,53 @@
         <translation>カテゴリの位置</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
         <translation>リセット</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
         <translation>下</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
         <translation>上</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Wayland のコンポジター設定で「lxqt-qdbus openmenu」へのショートカットを変更または追加</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
         <translation>アイコンファイルの選択</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
         <source>Images (*.svg *.png)</source>
         <translation>画像 (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
         <translation>メニューファイルの選択</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
         <source>Menu files (*.menu)</source>
         <translation>メニューファイル (*.menu)</translation>
     </message>

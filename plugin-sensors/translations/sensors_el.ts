@@ -64,17 +64,17 @@
         <translation>Χαρακτηριστικά κυκλώματος:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
         <translation>Ενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
         <translation>Ετικέτα</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Color</source>
         <translation>Χρώμα</translation>
     </message>

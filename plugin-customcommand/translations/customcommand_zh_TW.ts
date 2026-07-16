@@ -280,12 +280,12 @@
         <translation>結構化的</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Select Icon File</source>
         <translation>選擇圖示檔案</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>圖片 (*.png *.svg *.xpm *.jpg)</translation>
     </message>

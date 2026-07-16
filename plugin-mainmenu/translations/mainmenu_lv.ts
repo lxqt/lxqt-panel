@@ -139,33 +139,33 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
         <translation>Nospiediet pogu, lai ierakstītu īsceļu:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
         <translation>Atstatīt</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Izvēlēties ikonas failu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Attēli (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Izvēlēties izvēlnes failu</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Izvēlnes faili (*.menu)</translation>
     </message>

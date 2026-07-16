@@ -64,17 +64,17 @@
         <translation>ਚਿੱਪ ਦੇ ਫੀਚਰ:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
         <translation>ਸਮਰੱਥ ਹੈ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
         <translation>ਲੇਬਲ</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Color</source>
         <translation>ਰੰਗ</translation>
     </message>

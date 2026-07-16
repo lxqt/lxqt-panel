@@ -58,57 +58,57 @@
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="134"/>
         <source>Choose Default Terminal</source>
         <translation>აირჩიეთ ნაგულისხმევი ტერმინალი</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="54"/>
+        <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
         <translation>მხოლოდ ხატულა</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="55"/>
+        <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
         <translation>მხოლოდ ტექსტური</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="56"/>
+        <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
         <translation>ხატულა და ტექსტი</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="115"/>
+        <location filename="../directorymenuconfiguration.cpp" line="118"/>
         <source>Choose Base Directory</source>
         <translation>აირჩიეთ საბაზისო საქაღალდე</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Choose Icon</source>
         <translation>აირჩიეთ ხატულა</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
         <translation>ხატულები (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="188"/>
+        <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
         <translation>აირჩიეთ ჭდე</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="189"/>
+        <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
         <translation>ჭდე:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>Directory Menu</source>
         <translation>კატალოგის მენიუ</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
         <translation>შეცდომა ხატულას ჩატვირთვისას.</translation>
     </message>

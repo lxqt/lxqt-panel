@@ -280,12 +280,12 @@
         <translation>სტრუქტურის მქონე</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Select Icon File</source>
         <translation>აირჩიეთ ხატულას ფაილი</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>გამოსახულებები (*.png *.svg *.xpm *.jpg)</translation>
     </message>

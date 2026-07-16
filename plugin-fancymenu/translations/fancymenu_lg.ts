@@ -110,54 +110,54 @@
         <translation>Ebiti webirabikira</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
         <translation>Komyawo ebyasooka</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
         <translation>Wansi</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
         <translation>Waggulu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
         <translation>Ku kkono</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
         <translation>Ku ddyo</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Kyusamu enyunzi oba kolawo empya mu &apos;lxqt-qdbus openmenu&apos;
 ekisangibwa w&apos;oteekateekera puloguramu ekwanaganya ebirabikira awakolerwa mu Wayland</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
         <translation>Londa fayiro ey&apos;akafaananyi</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
         <source>Images (*.svg *.png)</source>
         <translation>Bifaananyi (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
         <translation>Londa fayiro omuva menyu</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
         <source>Menu files (*.menu)</source>
         <translation>Fayiro ezirimu menyu (*.menu)</translation>
     </message>

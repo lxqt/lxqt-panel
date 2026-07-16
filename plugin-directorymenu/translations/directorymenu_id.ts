@@ -58,57 +58,57 @@
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="134"/>
         <source>Choose Default Terminal</source>
         <translation>Pilih Terminal Default</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="54"/>
+        <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
         <translation>Hanya ikon</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="55"/>
+        <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
         <translation>Hanya teks</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="56"/>
+        <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
         <translation>Ikon dan teks</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="115"/>
+        <location filename="../directorymenuconfiguration.cpp" line="118"/>
         <source>Choose Base Directory</source>
         <translation>Pilih Direktori Dasar</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Choose Icon</source>
         <translation>Pilih Ikon</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
         <translation>Ikon (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="188"/>
+        <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
         <translation>Pilih Label</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="189"/>
+        <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
         <translation type="unfinished">Label:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>Directory Menu</source>
         <translation>Menu Direktori</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Terjadi kesalahan saat memuat ikon.</translation>
     </message>

@@ -158,7 +158,7 @@
         <translation>Разворачивать свёрнутые окна на текущем рабочем столе</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>Переключать окна колёсиком мыши</translation>
     </message>
@@ -246,52 +246,52 @@
         <translation>Закрывать по щелчку средней кнопки мыши</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Icon and text</source>
         <translation>Значок и текст</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Only icon</source>
         <translation>Только значок</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Only text</source>
         <translation>Только текст</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Disabled</source>
         <translation>Нет действий</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="56"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation>Прокрутка вверх разворачивает окно, вниз — сворачивает</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="57"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation>Прокрутка вверх сворачивает окно, вниз — разворачивает</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="58"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation>Прокрутка вверх перемещает на следующий рабочий стол, вниз — на предыдущий</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="59"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation>Прокрутка вверх перемещает на предыдущий рабочий стол, вниз — на следующий</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="64"/>
         <source>Current</source>
         <translation>Текущий</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="71"/>
         <source>Desktop %1</source>
         <translation>Рабочий стол %1</translation>
     </message>

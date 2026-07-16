@@ -110,54 +110,54 @@
         <translation>Kategoriernas placering</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
         <translation>Återställ</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
         <translation>Under</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
         <translation>Över</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
         <translation>Vänster</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
         <translation>Höger</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Modifera eller lägg till en genväg till &apos;lxqt-qdbus openmenu&apos;
 i compositor inställningarna under Wayland</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
         <translation>Välj en ikon</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
         <source>Images (*.svg *.png)</source>
         <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
         <translation>Välj en menyfil</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
         <source>Menu files (*.menu)</source>
         <translation>Menyfiler (*.menu)</translation>
     </message>

@@ -174,7 +174,7 @@
         <translation>Excluir da barra de tarefas</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>Percorrer janelas com a roda do rato</translation>
     </message>
@@ -246,52 +246,52 @@
         <translation>Fechar com a roda do rato</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Icon and text</source>
         <translation>Ícones e texto</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Only icon</source>
         <translation>Ícones</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Only text</source>
         <translation>Texto</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Disabled</source>
         <translation>Desativada</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="56"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation>Desloque acima para maximizar e abaixo para minimizar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="57"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation>Desloque acima para minimizar e abaixo para maximizar</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="58"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation>Deslocar para cima move-se para o ambiente de trabalho seguinte, para baixo move-se para o anterior</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="59"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation>Deslocar para cima move-se para o ambiente de trabalho anterior, para baixo move-se para o seguinte</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="64"/>
         <source>Current</source>
         <translation>Atual</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="71"/>
         <source>Desktop %1</source>
         <translation>Área de trabalho %1</translation>
     </message>

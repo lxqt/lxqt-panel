@@ -110,54 +110,54 @@
         <translation>Санаттардың орналасуы</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
         <translation>Тастау</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
         <translation>Төменде</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
         <translation>Жоғарыда</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
         <translation>Сол жақта</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
         <translation>Оң жақта</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Wayland ортасындағы композитор баптауларында &apos;lxqt-qdbus openmenu&apos;
 командасы үшін пернелер жарлығын қосу немесе өзгерту</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
         <translation>Таңбаша файлын таңдау</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
         <source>Images (*.svg *.png)</source>
         <translation>Суреттер (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
         <translation>Мәзір файлын таңдау</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
         <source>Menu files (*.menu)</source>
         <translation>Мәзір файлдары (*.menu)</translation>
     </message>

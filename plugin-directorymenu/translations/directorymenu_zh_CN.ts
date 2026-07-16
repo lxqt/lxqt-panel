@@ -58,57 +58,57 @@
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="134"/>
         <source>Choose Default Terminal</source>
         <translation>选择默认终端</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="54"/>
+        <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
         <translation>仅有图标</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="55"/>
+        <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
         <translation>只有文本</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="56"/>
+        <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
         <translation>图标和文本</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="115"/>
+        <location filename="../directorymenuconfiguration.cpp" line="118"/>
         <source>Choose Base Directory</source>
         <translation>选择起始目录</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Choose Icon</source>
         <translation>选择图标</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
         <translation>Icons (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="188"/>
+        <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
         <translation>选择标签</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="189"/>
+        <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
         <translation>标签:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>Directory Menu</source>
         <translation>目录菜单</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
         <translation>加载图标时出现错误。</translation>
     </message>

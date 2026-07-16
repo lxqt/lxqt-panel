@@ -4,37 +4,27 @@
 <context>
     <name>QEyesConfigDialog</name>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="44"/>
+        <location filename="../qeyesconfigdialog.cpp" line="45"/>
         <source>Appearance</source>
         <translation>Endabika</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="50"/>
+        <location filename="../qeyesconfigdialog.cpp" line="51"/>
         <source>Number of eyes</source>
         <translation>Obungi bw&apos;amaaso</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="56"/>
+        <location filename="../qeyesconfigdialog.cpp" line="57"/>
         <source>Type</source>
         <translation>Kika</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="60"/>
-        <source>Close</source>
-        <translation>Gala</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="65"/>
-        <source>Reset</source>
-        <translation>Za bugya</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="69"/>
+        <location filename="../qeyesconfigdialog.cpp" line="74"/>
         <source>QEyes Settings</source>
         <translation>Enteekateeka ya QEyes</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="103"/>
+        <location filename="../qeyesconfigdialog.cpp" line="108"/>
         <source>QEyes default</source>
         <translation>Enteekateeka ya QEyes ensangwawo</translation>
     </message>

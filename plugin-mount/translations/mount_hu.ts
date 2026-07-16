@@ -37,23 +37,23 @@
         <translation>A kiadás gomb megnyomásakor:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Popup menu</source>
         <translation>Felugró menü</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="66"/>
+        <location filename="../configuration.cpp" line="67"/>
         <source>Show info</source>
         <translation>Információ megjelenítése</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="67"/>
-        <location filename="../configuration.cpp" line="69"/>
+        <location filename="../configuration.cpp" line="68"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Do nothing</source>
         <translation>Ne tegyen semmit</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="70"/>
+        <location filename="../configuration.cpp" line="71"/>
         <source>Eject All Optical Drives</source>
         <translation>Összes optikai meghajtó kiadása</translation>
     </message>

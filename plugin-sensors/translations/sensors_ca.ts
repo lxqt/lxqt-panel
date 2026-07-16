@@ -64,17 +64,17 @@
         <translation>Característiques del xip:</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
         <translation>Habilitat</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
     <message>
-        <location filename="../lxqtsensorsconfiguration.cpp" line="203"/>
+        <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>

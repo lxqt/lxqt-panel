@@ -110,54 +110,54 @@
         <translation>Locatie van categorieën</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="81"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
         <translation>Standaardwaarden</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="111"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
         <translation>Onderaan</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="112"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
         <translation>Bovenaan</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="117"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="118"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="139"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Bewerk of voeg een snelkoppeling toe aan ‘lxqt-qdbus openmenu’
 in de vensterbeheerinstellingen op Wayland</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="184"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
         <translation>Kies een pictogrambestand</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="186"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
         <source>Images (*.svg *.png)</source>
         <translation>Afbeeldingen (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="198"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
         <translation>Kies een menubestand</translation>
     </message>
     <message>
-        <location filename="../lxqtfancymenuconfiguration.cpp" line="200"/>
+        <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
         <source>Menu files (*.menu)</source>
         <translation>Menubestanden (*.menu)</translation>
     </message>

@@ -174,7 +174,7 @@
         <translation>Vylúčiť z panela úloh</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>Zmena okna rolovaním</translation>
     </message>
@@ -246,52 +246,52 @@
         <translation>Zatvoriť kliknutím na stredné tlačítko</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Icon and text</source>
         <translation>Ikona a text</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Only icon</source>
         <translation>Iba ikona</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Only text</source>
         <translation>Iba text</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Disabled</source>
         <translation>Vypnuté</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="56"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation>Otočením smerom hore preniesť do popredia, smerom dole minimalizovať</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="57"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation>Otočením smerom hore minimalizovať, smerom dole preniesť do popredia</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="58"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation>Posunúť hore pre presun na ďalšiu plochu, dolu na predchádzajúcu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="59"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation>Posunúť hore pre presun na ďalšiu plochu, dolu na predchádzajúcu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="64"/>
         <source>Current</source>
         <translation>Aktuálny</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="71"/>
         <source>Desktop %1</source>
         <translation type="unfinished"></translation>
     </message>

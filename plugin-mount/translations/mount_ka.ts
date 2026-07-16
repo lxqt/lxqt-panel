@@ -37,23 +37,23 @@
         <translation>როცა დააწვებით ამოღების ღილაკს:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Popup menu</source>
         <translation>მხტუნარა მენიუ</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="66"/>
+        <location filename="../configuration.cpp" line="67"/>
         <source>Show info</source>
         <translation>ინფორმაციის ჩვენება</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="67"/>
-        <location filename="../configuration.cpp" line="69"/>
+        <location filename="../configuration.cpp" line="68"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Do nothing</source>
         <translation>არაფრის კეთება</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="70"/>
+        <location filename="../configuration.cpp" line="71"/>
         <source>Eject All Optical Drives</source>
         <translation>ყველა ოპტიკური დისკის ამოღება</translation>
     </message>

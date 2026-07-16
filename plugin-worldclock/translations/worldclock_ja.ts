@@ -148,7 +148,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="201"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="436"/>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="591"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="593"/>
         <source>Custom name</source>
         <translation>カスタム名</translation>
     </message>
@@ -248,12 +248,12 @@
         <translation>パネルが垂直のときは自動回転する(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="108"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="110"/>
         <source>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;ddd, d MMM yyyy&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</source>
         <translation>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt;&lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;&apos;yyyy/M/d (ddd)&apos;&lt;br/&gt;&apos;TT&apos;&lt;/font&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../lxqtworldclockconfiguration.cpp" line="590"/>
+        <location filename="../lxqtworldclockconfiguration.cpp" line="592"/>
         <source>Input custom time zone name</source>
         <translation>タイムゾーンのカスタム名を入力</translation>
     </message>

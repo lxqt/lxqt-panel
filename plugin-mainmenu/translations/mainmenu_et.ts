@@ -139,34 +139,34 @@ Kas sa soovid seda üle kirjutada?</translation>
         <translation>Kiirklahvi salvestamiseks klõpsi nuppu:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
         <translation>Lähtesta</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>„lxqt-qdbus openmenu“ käsu viidet saad muuta või lisada
 Waylandi komposiitori seadistustest</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Vali ikooni fail</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Pildid (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Vali põhimenüü fail</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Menüüfailid (*.menu)</translation>
     </message>

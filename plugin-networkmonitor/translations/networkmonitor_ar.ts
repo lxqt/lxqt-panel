@@ -4,47 +4,47 @@
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>واجهة الشبكة &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
         <translation>نُقلت %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
         <translation>استُقبلت %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="206"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="240"/>
         <source>B</source>
         <translation>بايت</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>KiB</source>
         <translation>ك.بايت</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>MiB</source>
         <translation>م.بايت</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>GiB</source>
         <translation>غ.بايت</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>TiB</source>
         <translation>ت.بايت</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>PiB</source>
         <translation>ب.بايت</translation>
     </message>
@@ -62,32 +62,37 @@
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Interface</source>
         <translation>الواجهة</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="44"/>
         <source>Modem</source>
         <translation>مودم</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <source>Prefer system icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>
         <source>Monitor</source>
         <translation>شاشة</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="62"/>
         <source>Network</source>
         <translation>شبكة</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="71"/>
         <source>Wireless</source>
         <translation>لاسلكي</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="36"/>
         <source>Icon</source>
         <translation>الأيقونة</translation>
     </message>

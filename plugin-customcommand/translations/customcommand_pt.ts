@@ -280,12 +280,12 @@
         <translation>Estruturado</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Select Icon File</source>
         <translation>Selecionar ficheiro de ícones</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Imagens (*.png *.svg *.xpm *.jpg)</translation>
     </message>

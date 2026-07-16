@@ -4,37 +4,27 @@
 <context>
     <name>QEyesConfigDialog</name>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="44"/>
+        <location filename="../qeyesconfigdialog.cpp" line="45"/>
         <source>Appearance</source>
         <translation>Внешний вид</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="50"/>
+        <location filename="../qeyesconfigdialog.cpp" line="51"/>
         <source>Number of eyes</source>
         <translation>Число глаз</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="56"/>
+        <location filename="../qeyesconfigdialog.cpp" line="57"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="60"/>
-        <source>Close</source>
-        <translation>Закрыть</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="65"/>
-        <source>Reset</source>
-        <translation>Сброс</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="69"/>
+        <location filename="../qeyesconfigdialog.cpp" line="74"/>
         <source>QEyes Settings</source>
         <translation>Настройка QEyes</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="103"/>
+        <location filename="../qeyesconfigdialog.cpp" line="108"/>
         <source>QEyes default</source>
         <translation>Стандартно для QEyes</translation>
     </message>

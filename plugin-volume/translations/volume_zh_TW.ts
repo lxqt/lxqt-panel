@@ -105,28 +105,28 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="91"/>
+        <location filename="../volumepopup.cpp" line="78"/>
         <source>Launch mixer</source>
         <translation>執行混音器</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="92"/>
+        <location filename="../volumepopup.cpp" line="79"/>
         <source>Mi&amp;xer</source>
         <translation>混音器(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="482"/>
+        <location filename="../volumepopup.cpp" line="500"/>
         <source>Mute</source>
         <translation>靜音</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="488"/>
-        <location filename="../volumepopup.cpp" line="509"/>
+        <location filename="../volumepopup.cpp" line="506"/>
+        <location filename="../volumepopup.cpp" line="527"/>
         <source>Set as default output</source>
         <translation>設定作為預設輸出</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="509"/>
+        <location filename="../volumepopup.cpp" line="527"/>
         <source>Default output</source>
         <translation>預設輸出</translation>
     </message>

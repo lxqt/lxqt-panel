@@ -58,57 +58,57 @@
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="134"/>
         <source>Choose Default Terminal</source>
         <translation>Επιλογή προκαθορισμένου τερματικού</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="54"/>
+        <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
         <translation>Μόνο εικονίδιο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="55"/>
+        <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
         <translation>Μόνο κείμενο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="56"/>
+        <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
         <translation>Εικονίδιο και κείμενο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="115"/>
+        <location filename="../directorymenuconfiguration.cpp" line="118"/>
         <source>Choose Base Directory</source>
         <translation>Επιλέξτε τον βασικό κατάλογο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Choose Icon</source>
         <translation>Επιλέξτε το εικονίδιο</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
         <translation>Εικόνες (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="188"/>
+        <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
         <translation>Επιλογή ετικέτας</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="189"/>
+        <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
         <translation>Ετικέτα:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>Directory Menu</source>
         <translation>Μενού καταλόγου</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Παρουσιάστηκε ένα σφάλμα κατά την φόρτωση του εικονιδίου.</translation>
     </message>

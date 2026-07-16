@@ -179,7 +179,7 @@
         <translation>Kino kireme okulabikanga ku kabaawo k&apos;emirimu</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
         <source>Cycle windows on wheel scrolling</source>
         <translation>Okunyoola namuziga kikyuse ddirisa eriri kungulu</translation>
     </message>
@@ -246,52 +246,52 @@
         <translation>Obufaananyi obw&apos;oku bupande bubenga bwa WindowClass buli lwe kisoboka</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="46"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
         <source>Icon and text</source>
         <translation>Bubengako kafaananayi n&apos;ebigambo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="47"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="51"/>
         <source>Only icon</source>
         <translation>Bubengako kafaananayi kokka</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="48"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
         <source>Only text</source>
         <translation>Bubengako bigambo byokka</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="50"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
         <source>Disabled</source>
         <translation>Ereme okukola</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="52"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="56"/>
         <source>Scroll up to raise, down to minimize</source>
         <translation>Bw&apos;oginyoolera ku ddyo kireeta ddirisa, ku kkono kirizingako</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="53"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="57"/>
         <source>Scroll up to minimize, down to raise</source>
         <translation>Bw&apos;oginyoolera ku ddyo eddirisa kirizingako, ku kkono kirikomyawo</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="54"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="58"/>
         <source>Scroll up to move to next desktop, down to previous</source>
         <translation>Bw&apos;oginyoolera ku ddyo ogenda awakolerwa awaddako, ku kkono odda awakulembera w&apos;oli</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="55"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="59"/>
         <source>Scroll up to move to previous desktop, down to next</source>
         <translation>Bw&apos;oginyoolera ku ddyo odda awakolerwa awakulembera w&apos;oli, ku kkono ogenda awaddako</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="60"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="64"/>
         <source>Current</source>
         <translation>Agali w&apos;okolera kakano gokka</translation>
     </message>
     <message>
-        <location filename="../lxqttaskbarconfiguration.cpp" line="67"/>
+        <location filename="../lxqttaskbarconfiguration.cpp" line="71"/>
         <source>Desktop %1</source>
         <translation>Awakolerwa namba %1</translation>
     </message>

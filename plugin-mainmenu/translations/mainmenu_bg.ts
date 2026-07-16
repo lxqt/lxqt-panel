@@ -139,34 +139,34 @@ Do you want to overwrite it?</source>
         <translation>Натиснете бутона за запис на комбинация:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
         <translation>Връщане стандартни настройки</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Променете или добавете клавишна комбинация за „lxqt-qdbus openmenu“
 в настройките на композитора под Wayland</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Избиране файл на икона</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Изображения (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Избиране на конфигурационен файл на менюто</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Файлове на меню (*.menu)</translation>
     </message>

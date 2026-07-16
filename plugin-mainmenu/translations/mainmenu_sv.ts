@@ -139,34 +139,34 @@ Vill du ersätta den?</translation>
         <translation>Tryck på knappen för att registrera kortkommando:</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="76"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
         <translation>Återställ</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="134"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
         <translation>Modifera eller lägg till en genväg till &apos;lxqt-qdbus openmenu&apos;
 i compositor inställningarna under Wayland</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="181"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
         <translation>Välj en ikon</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="183"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
         <source>Images (*.svg *.png)</source>
         <translation>Bilder (*.svg *.png)</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="195"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
         <translation>Välj en menyfil</translation>
     </message>
     <message>
-        <location filename="../lxqtmainmenuconfiguration.cpp" line="197"/>
+        <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>
         <source>Menu files (*.menu)</source>
         <translation>Menyfiler (*.menu)</translation>
     </message>

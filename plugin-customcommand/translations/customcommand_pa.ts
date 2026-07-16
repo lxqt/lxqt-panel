@@ -280,12 +280,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Select Icon File</source>
         <translation>ਆਈਕਾਨ ਫ਼ਾਇਲ ਨੂੰ ਚੁਣੋ</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="268"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>ਚਿੱਤਰ (*.png *.svg *.xpm *.jpg)</translation>
     </message>

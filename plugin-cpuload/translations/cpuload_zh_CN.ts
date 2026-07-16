@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="126"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation>CPU 负载 %1%</translation>
     </message>
@@ -47,22 +47,22 @@
         <translation>状态栏宽度:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>自下而上</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>自上而下</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>从左到右</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>从右到左</translation>
     </message>

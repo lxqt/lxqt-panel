@@ -37,23 +37,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Popup menu</source>
         <translation type="unfinished">เมนูผุดขึ้น</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="66"/>
+        <location filename="../configuration.cpp" line="67"/>
         <source>Show info</source>
         <translation type="unfinished">แสดงข้อมูล</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="67"/>
-        <location filename="../configuration.cpp" line="69"/>
+        <location filename="../configuration.cpp" line="68"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Do nothing</source>
         <translation type="unfinished">ไม่ต้องทำอะไร</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="70"/>
+        <location filename="../configuration.cpp" line="71"/>
         <source>Eject All Optical Drives</source>
         <translation type="unfinished"></translation>
     </message>

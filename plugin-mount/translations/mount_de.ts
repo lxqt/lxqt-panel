@@ -37,23 +37,23 @@
         <translation>Wenn die Auswurftaste gedrückt wird:</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="64"/>
+        <location filename="../configuration.cpp" line="65"/>
         <source>Popup menu</source>
         <translation>Aufklappmenü</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="66"/>
+        <location filename="../configuration.cpp" line="67"/>
         <source>Show info</source>
         <translation>Info anzeigen</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="67"/>
-        <location filename="../configuration.cpp" line="69"/>
+        <location filename="../configuration.cpp" line="68"/>
+        <location filename="../configuration.cpp" line="70"/>
         <source>Do nothing</source>
         <translation>Nichts tun</translation>
     </message>
     <message>
-        <location filename="../configuration.cpp" line="70"/>
+        <location filename="../configuration.cpp" line="71"/>
         <source>Eject All Optical Drives</source>
         <translation>Alle optischen Laufwerke auswerfen</translation>
     </message>

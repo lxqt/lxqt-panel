@@ -58,57 +58,57 @@
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
-        <location filename="../directorymenuconfiguration.cpp" line="131"/>
+        <location filename="../directorymenuconfiguration.cpp" line="134"/>
         <source>Choose Default Terminal</source>
         <translation>Londa ekika ky&apos;ekiwandikiro amaterekero mwe ganaabikkulirwanga</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="54"/>
+        <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
         <translation>Kubeko kafaananyi kokka</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="55"/>
+        <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
         <translation>Kubeko bigambo byokka</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="56"/>
+        <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
         <translation>Kubeko kafaananyi n&apos;ebigambo</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="115"/>
+        <location filename="../directorymenuconfiguration.cpp" line="118"/>
         <source>Choose Base Directory</source>
         <translation>Londa etterekero menyu mwekolera</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Choose Icon</source>
         <translation>Londa akafaananyi</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="164"/>
+        <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
         <translation>Bufaananyi (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="188"/>
+        <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
         <translation>Tegeka ekirambe</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="189"/>
+        <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
         <translation>Kirambe:</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>Directory Menu</source>
         <translation>Menyu y&apos;amaterekero</translation>
     </message>
     <message>
-        <location filename="../directorymenuconfiguration.cpp" line="173"/>
+        <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
         <translation>Okubikkula kafaananyi kuzzemu kiremya.</translation>
     </message>

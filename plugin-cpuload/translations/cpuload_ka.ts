@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="126"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation>პროცესორის დატვირთვა %1%</translation>
     </message>
@@ -47,22 +47,22 @@
         <translation>პანელის სიგანე:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>დაბლიდან მაღლა</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>მაღლიდან დაბლა</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>მარცხნიდან მარჯვნივ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>მარჯვნიდან მარცხნივ</translation>
     </message>

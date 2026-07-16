@@ -4,7 +4,7 @@
 <context>
     <name>LXQtCpuLoad</name>
     <message>
-        <location filename="../lxqtcpuload.cpp" line="126"/>
+        <location filename="../lxqtcpuload.cpp" line="124"/>
         <source>CPU load %1%</source>
         <translation>CPU ਲੋਡ %1%</translation>
     </message>
@@ -47,22 +47,22 @@
         <translation>ਪੱਟੀ ਦੀ ਚੌੜਾਈ:</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="64"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
         <translation>ਹੇਠਾਂ ਤੋਂ ਉੱਤੇ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="65"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
         <source>Top down</source>
         <translation>ਉੱਤੇ ਤੋਂ ਹੇਠਾਂ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="66"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
         <translation>ਖੱਬੇ ਤੋਂ ਸੱਜੇ</translation>
     </message>
     <message>
-        <location filename="../lxqtcpuloadconfiguration.cpp" line="67"/>
+        <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
         <translation>ਸੱਜੇ ਤੋਂ ਖੱਬੇ</translation>
     </message>

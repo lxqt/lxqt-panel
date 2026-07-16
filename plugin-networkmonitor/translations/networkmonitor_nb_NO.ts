@@ -4,47 +4,47 @@
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Nettverksgrensesnitt &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
         <translation>Sendt %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
         <translation>Mottatt %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="206"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="240"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>KiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>MiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>GiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>TiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>PiB</source>
         <translation></translation>
     </message>
@@ -62,32 +62,37 @@
         <translation>Generelt</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Interface</source>
         <translation>Grensesnitt</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="44"/>
         <source>Modem</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <source>Prefer system icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>
         <source>Monitor</source>
         <translation>Skjerm</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="62"/>
         <source>Network</source>
         <translation>Nettverk</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="71"/>
         <source>Wireless</source>
         <translation>Trådløst</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="36"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>

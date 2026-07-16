@@ -105,28 +105,28 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="91"/>
+        <location filename="../volumepopup.cpp" line="78"/>
         <source>Launch mixer</source>
         <translation>Mengpaneel openen</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="92"/>
+        <location filename="../volumepopup.cpp" line="79"/>
         <source>Mi&amp;xer</source>
         <translation>&amp;Mengpaneel</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="482"/>
+        <location filename="../volumepopup.cpp" line="500"/>
         <source>Mute</source>
         <translation>Dempen</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="488"/>
-        <location filename="../volumepopup.cpp" line="509"/>
+        <location filename="../volumepopup.cpp" line="506"/>
+        <location filename="../volumepopup.cpp" line="527"/>
         <source>Set as default output</source>
         <translation>Instellen als standaarduitvoer</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="509"/>
+        <location filename="../volumepopup.cpp" line="527"/>
         <source>Default output</source>
         <translation>Standaarduitvoer</translation>
     </message>

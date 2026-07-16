@@ -4,37 +4,27 @@
 <context>
     <name>QEyesConfigDialog</name>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="44"/>
+        <location filename="../qeyesconfigdialog.cpp" line="45"/>
         <source>Appearance</source>
         <translation>Apparence</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="50"/>
+        <location filename="../qeyesconfigdialog.cpp" line="51"/>
         <source>Number of eyes</source>
         <translation>Nombre d&apos;yeux</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="56"/>
+        <location filename="../qeyesconfigdialog.cpp" line="57"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="60"/>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="65"/>
-        <source>Reset</source>
-        <translation>Réinitialiser</translation>
-    </message>
-    <message>
-        <location filename="../qeyesconfigdialog.cpp" line="69"/>
+        <location filename="../qeyesconfigdialog.cpp" line="74"/>
         <source>QEyes Settings</source>
         <translation>Réglage de QEyes</translation>
     </message>
     <message>
-        <location filename="../qeyesconfigdialog.cpp" line="103"/>
+        <location filename="../qeyesconfigdialog.cpp" line="108"/>
         <source>QEyes default</source>
         <translation>QEyes par défaut</translation>
     </message>

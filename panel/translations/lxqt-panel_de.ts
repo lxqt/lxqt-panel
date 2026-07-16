@@ -376,45 +376,45 @@ Symbolfarbe folgt Symbolthema (Farben)</translation>
 <context>
     <name>LXQtPanel</name>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1495"/>
-        <location filename="../lxqtpanel.cpp" line="1521"/>
+        <location filename="../lxqtpanel.cpp" line="1493"/>
+        <location filename="../lxqtpanel.cpp" line="1519"/>
         <source>Panel</source>
         <translation>Leiste</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1524"/>
+        <location filename="../lxqtpanel.cpp" line="1522"/>
         <source>Configure Panel</source>
         <translation>Leiste konfigurieren</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1529"/>
+        <location filename="../lxqtpanel.cpp" line="1527"/>
         <source>Manage Widgets</source>
         <translation>Bedienelemente verwalten</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1535"/>
+        <location filename="../lxqtpanel.cpp" line="1533"/>
         <source>Add New Panel</source>
         <translation>Neue Leiste hinzufügen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1542"/>
+        <location filename="../lxqtpanel.cpp" line="1540"/>
         <source>Remove Panel</source>
         <comment>Menu Item</comment>
         <translation>Leiste entfernen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1547"/>
+        <location filename="../lxqtpanel.cpp" line="1545"/>
         <source>Lock This Panel</source>
         <translation>Diese Leiste sperren</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1710"/>
+        <location filename="../lxqtpanel.cpp" line="1708"/>
         <source>Remove Panel</source>
         <comment>Dialog Title</comment>
         <translation>Leiste entfernen</translation>
     </message>
     <message>
-        <location filename="../lxqtpanel.cpp" line="1711"/>
+        <location filename="../lxqtpanel.cpp" line="1709"/>
         <source>Removing a panel can not be undone.
 Do you want to remove this panel?</source>
         <translation>Das Entfernen einer Leiste kann nicht rückgängig gemacht werden.

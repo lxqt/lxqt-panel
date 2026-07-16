@@ -4,47 +4,47 @@
 <context>
     <name>LXQtNetworkMonitor</name>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="159"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
         <source>Network interface &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>网络接口 &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="160"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="162"/>
         <source>Transmitted %1</source>
         <translation>已传输 %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="161"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="163"/>
         <source>Received %1</source>
         <translation>已接收 %1</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="206"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="240"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>TiB</source>
         <translation>TiB</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitor.cpp" line="207"/>
+        <location filename="../lxqtnetworkmonitor.cpp" line="241"/>
         <source>PiB</source>
         <translation>TiB</translation>
     </message>
@@ -62,32 +62,37 @@
         <translation>常规</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="73"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
         <source>Interface</source>
         <translation>接口</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="34"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="44"/>
         <source>Modem</source>
         <translation>调制解调器</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="43"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <source>Prefer system icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>
         <source>Monitor</source>
         <translation>监测器</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="52"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="62"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="61"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="71"/>
         <source>Wireless</source>
         <translation>无线</translation>
     </message>
     <message>
-        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
+        <location filename="../lxqtnetworkmonitorconfiguration.ui" line="36"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
