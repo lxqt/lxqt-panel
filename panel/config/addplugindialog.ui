@@ -79,6 +79,9 @@
      <property name="sortingEnabled">
       <bool>false</bool>
      </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
