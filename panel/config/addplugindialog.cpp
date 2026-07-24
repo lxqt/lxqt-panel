@@ -60,6 +60,7 @@ AddPluginDialog::AddPluginDialog(QWidget *parent):
 
     ui->pluginList->setItemDelegate(new LXQt::HtmlDelegate(QSize(32, 32), ui->pluginList));
     ui->pluginList->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->pluginList->setWordWrap(true); // update HtmlDelegate on resizing
 
     filter();
 
