@@ -115,8 +115,7 @@
          <string>...</string>
         </property>
         <property name="icon">
-         <iconset theme="go-up">
-          <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+         <iconset theme="go-up"/>
         </property>
        </widget>
       </item>
@@ -129,8 +128,7 @@
          <string>...</string>
         </property>
         <property name="icon">
-         <iconset theme="go-down">
-          <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+         <iconset theme="go-down"/>
         </property>
        </widget>
       </item>
@@ -150,8 +148,7 @@
          <string>...</string>
         </property>
         <property name="icon">
-         <iconset theme="list-add">
-          <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+         <iconset theme="list-add"/>
         </property>
        </widget>
       </item>
@@ -164,8 +161,7 @@
          <string>...</string>
         </property>
         <property name="icon">
-         <iconset theme="list-remove">
-          <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+         <iconset theme="list-remove"/>
         </property>
        </widget>
       </item>
@@ -185,8 +181,7 @@
          <string>...</string>
         </property>
         <property name="icon">
-         <iconset theme="preferences-other">
-          <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+         <iconset theme="preferences-other"/>
         </property>
        </widget>
       </item>
