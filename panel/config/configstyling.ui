@@ -78,8 +78,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="color-picker">
-             <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+            <iconset theme="color-picker"/>
            </property>
           </widget>
          </item>
@@ -118,8 +117,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="color-picker">
-             <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+            <iconset theme="color-picker"/>
            </property>
           </widget>
          </item>
@@ -239,8 +237,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="insert-image">
-             <normaloff>../../../../../.designer/backup</normaloff>../../../../../.designer/backup</iconset>
+            <iconset theme="insert-image"/>
            </property>
           </widget>
          </item>
