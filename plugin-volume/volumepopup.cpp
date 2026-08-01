@@ -44,19 +44,40 @@
 #include <QTimer>
 #include <QWheelEvent>
 #include <QScreen>
-#include <QElapsedTimer>
+
+#include <cmath>
 
 namespace {
 
-// Map touchpad pixel deltas to the same scale as angleDelta() (one notch = DefaultDeltasPerStep).
-int wheelEventDelta(const QWheelEvent *event)
+// Accumulate fractional wheel notches; write whole steps (trunc toward 0).
+double applyWheelUnits(double accumulator, double units, int *steps)
 {
-    const QPoint pixel = event->pixelDelta();
-    if (!pixel.isNull() && pixel.y() != 0)
-        return pixel.y() * QWheelEvent::DefaultDeltasPerStep / 32;
-
-    return event->angleDelta().y();
+    if ((accumulator > 0.0 && units < 0.0) || (accumulator < 0.0 && units > 0.0))
+        accumulator = 0.0;
+    accumulator += units;
+    *steps = static_cast<int>(accumulator);
+    accumulator -= *steps;
+    return accumulator;
 }
+
+#ifndef QT_NO_DEBUG
+struct WheelAccumSelfCheck {
+    WheelAccumSelfCheck()
+    {
+        int steps = 0;
+        double a = applyWheelUnits(0.0, 1.0, &steps); // one mouse notch
+        Q_ASSERT(steps == 1 && std::fabs(a) < 1e-9);
+        a = applyWheelUnits(a, 0.5, &steps); // half touchpad unit
+        Q_ASSERT(steps == 0 && std::fabs(a - 0.5) < 1e-9);
+        a = applyWheelUnits(a, 0.5, &steps);
+        Q_ASSERT(steps == 1 && std::fabs(a) < 1e-9);
+        a = applyWheelUnits(a, 3.0, &steps); // three notches in one event
+        Q_ASSERT(steps == 3 && std::fabs(a) < 1e-9);
+        a = applyWheelUnits(0.4, -1.0, &steps); // reverse clears leftover
+        Q_ASSERT(steps == -1 && std::fabs(a) < 1e-9);
+    }
+} wheelAccumSelfCheck;
+#endif
 
 } // namespace
 
@@ -65,8 +86,7 @@ VolumePopup::VolumePopup(QWidget* parent):
     m_pos(0, 0),
     m_anchor(Qt::TopLeftCorner),
     m_defaultSink(nullptr),
-    m_sliderStep(SETTINGS_DEFAULT_STEP),
-    m_lastWheelDirection(0)
+    m_sliderStep(SETTINGS_DEFAULT_STEP)
 {
     // Under some Wayland compositors, setting window flags in the c-tor of the base class
     // may not be enough for a correct positioning of the popup.
@@ -274,34 +294,25 @@ int VolumePopup::wheelVolumeDelta(QWheelEvent *event, int stepSize)
     if (stepSize <= 0)
         stepSize = SETTINGS_DEFAULT_STEP;
 
-    const int delta = wheelEventDelta(event);
-    if (delta == 0)
-    {
-        if (event->phase() == Qt::ScrollEnd)
-            m_lastWheelDirection = 0;
-        return 0;
-    }
-
-    const int direction = delta > 0 ? 1 : -1;
-
     if (event->phase() == Qt::ScrollEnd)
     {
-        m_lastWheelDirection = 0;
+        m_wheelAccumulator = 0.0;
         return 0;
     }
 
-    // One configured step per scroll; debounce collapses duplicate OS events per click.
-    constexpr int debounceMs = 120;
-    if (m_lastWheelTime.isValid()
-        && m_lastWheelTime.elapsed() < debounceMs
-        && direction == m_lastWheelDirection)
-    {
+    // Prefer angleDelta (mouse notches); pixelDelta is for touchpads / high-res wheels.
+    double units = 0.0;
+    const int angleY = event->angleDelta().y();
+    if (angleY != 0)
+        units = angleY / double(QWheelEvent::DefaultDeltasPerStep);
+    else if (const QPoint pixel = event->pixelDelta(); !pixel.isNull() && pixel.y() != 0)
+        units = pixel.y() / 32.0;
+    else
         return 0;
-    }
 
-    m_lastWheelTime.start();
-    m_lastWheelDirection = direction;
-    return direction * stepSize;
+    int steps = 0;
+    m_wheelAccumulator = applyWheelUnits(m_wheelAccumulator, units, &steps);
+    return steps * stepSize;
 }
 
 void VolumePopup::handleWheelEvent(QWheelEvent *event, QSlider *sliderFromWheel)

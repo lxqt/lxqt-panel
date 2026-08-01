@@ -29,7 +29,6 @@
 #define VOLUMEPOPUP_H
 
 #include <QDialog>
-#include <QElapsedTimer>
 #include <QList>
 #include <QPointer>
 
@@ -105,8 +104,7 @@ private:
     QList<AudioDevice*> m_sinks;
     QPointer<AudioDevice> m_defaultSink;
     int m_sliderStep;
-    QElapsedTimer m_lastWheelTime;
-    int m_lastWheelDirection;
+    double m_wheelAccumulator = 0.0;
 };
 
 #endif // VOLUMEPOPUP_H
