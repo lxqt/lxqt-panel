@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат виведення:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Безперервне виведення (обробка порядково)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,47 +167,47 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>команда виводить звичайний текст, який має використовуватися як текст кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>команда виводить значок у формі:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>імʼя теми</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>назва значка, визначена як зображення відповідно до специфікації XDG</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>шлях до зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>потік даних зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>простий потік даних зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>потік даних зображення, закодований base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>як вище, але закодоване в base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
@@ -222,62 +222,62 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтриманні імена є:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>рядок який має бути використаний як текстом кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>значок, який має бути показаний у кнопці, у тій самій формі, як пояснювалося раніше</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>рядок який має бути використаний як підказка кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>Усі значення мають бути закодовані у base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>Приклад, як скрипт генерує структуроване виведення:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Мій Текст</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>моє_зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Моя підказка</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки текст</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки значок</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>Структурований</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>

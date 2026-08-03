@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Prefer system icons</source>
-        <translation type="unfinished"></translation>
+        <translation>偏好系統圖示</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>
