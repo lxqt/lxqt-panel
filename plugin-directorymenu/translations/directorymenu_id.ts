@@ -44,7 +44,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Label</source>
-        <translation type="unfinished">Label</translation>
+        <translation>Label</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
         <source>Terminal</source>
-        <translation type="unfinished">Terminal</translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
-        <translation type="unfinished">Label:</translation>
+        <translation>Label:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="176"/>
