@@ -87,6 +87,9 @@ public:
     void setAutoSelectionDelay(int delay) {
         mAutoSelTimer.setInterval(delay);
     }
+    void setSearchDelay(int delay) {
+        mSearchTimer.setInterval(delay);
+    }
 
 signals:
     void aboutToShow();
