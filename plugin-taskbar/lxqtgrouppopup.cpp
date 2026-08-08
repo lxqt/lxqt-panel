@@ -38,6 +38,20 @@
 #include <QPainter>
 #include <QStyleOption>
 #include <QDebug>
+#include <QApplication>
+
+
+/************************************************
+    True if the currently active popup (e.g. a context menu opened from a
+    window button) is a descendant of popup, i.e. belongs to it.
+ ************************************************/
+static bool isActivePopupWithin(const QWidget *popup)
+{
+    for (const QWidget *p = QApplication::activePopupWidget(); p; p = p->parentWidget())
+        if (p == popup)
+            return true;
+    return false;
+}
 
 /************************************************
     this class is just a container of window buttons
@@ -133,6 +147,8 @@ void LXQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
  ************************************************/
 void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 {
+   if(isActivePopupWithin(this))
+     return;
     mCloseTimer.start();
 }
 
@@ -178,6 +194,9 @@ void LXQtGroupPopup::addButton(LXQtTaskButton *button)
 
 void LXQtGroupPopup::closeTimerSlot()
 {
+    if (isActivePopupWithin(this))
+        return;
+
     bool button_has_dnd_hover = false;
     QLayout* l = layout();
     for (int i = 0; l->count() > i; ++i)
