@@ -135,7 +135,7 @@ void LXQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
  ************************************************/
 void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 {
-    mHadActivePopup = false;
+    mHadActivePopup = hasActivePopup();
     mCloseTimer.start();
 }
 
@@ -191,17 +191,11 @@ void LXQtGroupPopup::addButton(LXQtTaskButton *button)
 
 void LXQtGroupPopup::closeTimerSlot()
 {
-    // do not close it if it has an active popup (like a context menu)
-    auto p = QApplication::activePopupWidget();
-    while (p)
+    if (hasActivePopup())
     {
-        if (p == this)
-        {
             mHadActivePopup = true;
             mCloseTimer.start();
             return;
-        }
-        p = p->parentWidget();
     }
     mHadActivePopup = false;
 
@@ -218,4 +212,16 @@ void LXQtGroupPopup::closeTimerSlot()
     }
     if (!button_has_dnd_hover)
         close();
+}
+
+bool LXQtGroupPopup::hasActivePopup() const
+{ // check if it has an active popup (like a context menu)
+    auto p = QApplication::activePopupWidget();
+    while (p)
+    {
+        if (p == this)
+            return true;
+        p = p->parentWidget();
+    }
+    return false;
 }
