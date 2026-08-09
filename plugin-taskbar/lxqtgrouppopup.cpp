@@ -145,12 +145,13 @@ void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 void LXQtGroupPopup::enterEvent(QEnterEvent * /*event*/)
 {
     if (mHadActivePopup)
-    { // its active popup is closed now; see closeTimerSlot()
+    {
+        // This may happen under Wayland as soon as the active popup is closed and
+        // without the mouse cursor being on the widget (see closeTimerSlot).
         mHadActivePopup = false;
-        mCloseTimer.start();
+        return;
     }
-    else
-        mCloseTimer.stop();
+    mCloseTimer.stop();
 }
 
 void LXQtGroupPopup::paintEvent(QPaintEvent * /*event*/)
@@ -197,10 +198,12 @@ void LXQtGroupPopup::closeTimerSlot()
         if (p == this)
         {
             mHadActivePopup = true;
+            mCloseTimer.start();
             return;
         }
         p = p->parentWidget();
     }
+    mHadActivePopup = false;
 
     bool button_has_dnd_hover = false;
     QLayout* l = layout();
