@@ -37,6 +37,7 @@
 #include <QLayout>
 #include <QPainter>
 #include <QStyleOption>
+#include <QApplication>
 #include <QDebug>
 
 /************************************************
@@ -47,7 +48,8 @@
  ************************************************/
 LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
     QFrame(group),
-    mGroup(group)
+    mGroup(group),
+    mHadActivePopup(false)
 {
     Q_ASSERT(group);
     setAcceptDrops(true);
@@ -133,6 +135,7 @@ void LXQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
  ************************************************/
 void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 {
+    mHadActivePopup = false;
     mCloseTimer.start();
 }
 
@@ -141,7 +144,13 @@ void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
  ************************************************/
 void LXQtGroupPopup::enterEvent(QEnterEvent * /*event*/)
 {
-    mCloseTimer.stop();
+    if (mHadActivePopup)
+    { // its active popup is closed now; see closeTimerSlot()
+        mHadActivePopup = false;
+        mCloseTimer.start();
+    }
+    else
+        mCloseTimer.stop();
 }
 
 void LXQtGroupPopup::paintEvent(QPaintEvent * /*event*/)
@@ -157,7 +166,10 @@ void LXQtGroupPopup::hide(bool fast)
     if (fast)
         close();
     else
+    {
+        mHadActivePopup = false;
         mCloseTimer.start();
+    }
 }
 
 void LXQtGroupPopup::show()
@@ -178,6 +190,18 @@ void LXQtGroupPopup::addButton(LXQtTaskButton *button)
 
 void LXQtGroupPopup::closeTimerSlot()
 {
+    // do not close it if it has an active popup (like a context menu)
+    auto p = QApplication::activePopupWidget();
+    while (p)
+    {
+        if (p == this)
+        {
+            mHadActivePopup = true;
+            return;
+        }
+        p = p->parentWidget();
+    }
+
     bool button_has_dnd_hover = false;
     QLayout* l = layout();
     for (int i = 0; l->count() > i; ++i)

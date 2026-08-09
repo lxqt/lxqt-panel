@@ -72,6 +72,7 @@ protected:
 private:
     LXQtTaskGroup *mGroup;
     QTimer mCloseTimer;
+    bool mHadActivePopup;
 };
 
 #endif // LXQTTASKPOPUP_H
