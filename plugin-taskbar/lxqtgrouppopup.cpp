@@ -193,9 +193,9 @@ void LXQtGroupPopup::closeTimerSlot()
 {
     if (hasActivePopup())
     {
-            mHadActivePopup = true;
-            mCloseTimer.start();
-            return;
+        mHadActivePopup = true;
+        mCloseTimer.start();
+        return;
     }
     mHadActivePopup = false;
 
