@@ -18,12 +18,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  */
- 
+
 #include <iostream>
 
-#include <QtWidgets/QApplication>
-#include <QtCore/QCommandLineParser>
-#include <QtWidgets/QVBoxLayout>
+#include <QApplication>
+#include <QVBoxLayout>
 
 #include "../panel/ilxqtpanelplugin.h"
 
@@ -63,5 +62,3 @@ class QEyesPluginLibrary: public QObject, public ILXQtPanelPluginLibrary
 public:
     ILXQtPanelPlugin *instance(const ILXQtPanelPluginStartupInfo &startupInfo) const;
 };
-
-
