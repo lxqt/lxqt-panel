@@ -19,10 +19,10 @@
  *
  */
 
-#include <QtGui/QPainter>
-#include <QtGui/QPen>
-#include <QtGui/QCursor>
-#include <QtGui/QRadialGradient>
+#include <QPainter>
+#include <QPen>
+#include <QCursor>
+#include <QRadialGradient>
 
 #include "qeyesvectorwidget.h"
 

@@ -21,10 +21,10 @@
 
 #pragma once
 
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QMenu>
-#include <QtCore/QTimer>
-#include <QtGui/QPixmap>
+#include <QWidget>
+#include <QMenu>
+#include <QTimer>
+#include <QPixmap>
 
 class QAbstractEyesWidget : public QWidget
 {
