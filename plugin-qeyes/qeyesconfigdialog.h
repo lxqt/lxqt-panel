@@ -18,17 +18,15 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  */
- 
+
 #include <iostream>
 #include <map>
 #include <string>
 
-
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QSpinBox>
-#include <QtWidgets/QComboBox>
-#include <QtCore/QMap>
-
+#include <QDialog>
+#include <QSpinBox>
+#include <QComboBox>
+#include <QMap>
 
 #include "../panel/pluginsettings.h"
 #include "../panel/ilxqtpanelplugin.h"
@@ -49,7 +47,7 @@ private:
     void buildList();
     void resetValue();
     void updateAndClose();
-    
+
     int old_num_eyes;
     QString old_type_eyes;
 
