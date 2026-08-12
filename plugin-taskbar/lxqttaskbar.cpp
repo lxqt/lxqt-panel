@@ -83,10 +83,21 @@ LXQtTaskBar::LXQtTaskBar(ILXQtPanelPlugin *plugin, QWidget *parent) :
     mBackend(nullptr)
 {
     setStyle(mStyle);
-    mLayout = new LXQt::GridLayout(this);
-    setLayout(mLayout);
+    mLayout = new LXQt::GridLayout(); // internal grid layout for tasks
     mLayout->setContentsMargins(QMargins());
     mLayout->setStretch(LXQt::GridLayout::StretchHorizontal | LXQt::GridLayout::StretchVertical);
+
+    // Put mLayout inside a content widget so can align it inside this plugin's full space
+    mContentWidget = new QWidget(this);
+    mContentWidget->setLayout(mLayout);
+
+    mOuterLayout = new QBoxLayout(QBoxLayout::LeftToRight, this);
+    mOuterLayout->addWidget(mContentWidget);
+    mOuterLayout->setContentsMargins(0, 0, 0, 0);
+    mOuterLayout->setSpacing(0);
+
+    mContentWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     realign();
 
     mPlaceHolder->setMinimumSize(1, 1);
@@ -494,6 +505,8 @@ void LXQtTaskBar::settingsChanged()
  ************************************************/
 void LXQtTaskBar::realign()
 {
+    bool alignToEnd = mPlugin->settings()->value(QStringLiteral("alignToEnd"), false).toBool();
+
     mLayout->setEnabled(false);
     refreshButtonRotation();
 
@@ -538,7 +551,50 @@ void LXQtTaskBar::realign()
 
     mLayout->setCellMinimumSize(minSize);
     mLayout->setCellMaximumSize(maxSize);
+
     mLayout->setDirection(rotated ? LXQt::GridLayout::TopToBottom : LXQt::GridLayout::LeftToRight);
+    mOuterLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft); // default reset
+
+    if (panel->isHorizontal())
+    {
+        mOuterLayout->setDirection(isRightToLeft() ? QBoxLayout::RightToLeft : QBoxLayout::LeftToRight);
+        mContentWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        if (alignToEnd)
+        {
+            if (mOuterLayout->count() == 1)
+            {
+                mOuterLayout->insertStretch(0, 1);
+            }
+        }
+        else
+        {
+            if (mOuterLayout->count() == 2)
+            {
+                delete mOuterLayout->takeAt(0);
+            }
+            mOuterLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+        }
+    }
+    else
+    {
+        mOuterLayout->setDirection(QBoxLayout::TopToBottom);
+        mContentWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        if (alignToEnd)
+        {
+            if (mOuterLayout->count() == 1)
+            {
+                mOuterLayout->insertStretch(0, 1);
+            }
+        }
+        else
+        {
+            if (mOuterLayout->count() == 2)
+            {
+                delete mOuterLayout->takeAt(0);
+            }
+            mOuterLayout->setAlignment(Qt::AlignTop);
+        }
+    }
     mLayout->setEnabled(true);
 
     //our placement on screen could have been changed
