@@ -80,6 +80,7 @@ private:
 
     bool mAutoRotate;
     QString mFont;
+    QColor mTextColor;
     QString mCommand;
     bool mRunWithBash;
     OutputFormat_t mOutputFormat;
