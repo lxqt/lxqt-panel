@@ -89,6 +89,7 @@ private:
     QString mIcon;
     QString mText;
     QString mTooltip;
+    int mMinWidth;
     int mMaxWidth;
     QString mClick;
     QString mWheelUp;

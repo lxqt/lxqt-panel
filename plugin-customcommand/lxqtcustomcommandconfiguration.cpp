@@ -141,6 +141,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     connect(ui->iconBrowseButton, &QPushButton::clicked, this, &LXQtCustomCommandConfiguration::iconBrowseButtonClicked);
     connect(ui->textLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::textLineEditChanged);
     connect(ui->tooltipLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::tooltipLineEditChanged);
+    connect(ui->minWidthSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::minWidthSpinBoxChanged);
     connect(ui->maxWidthSpinBox, &QSpinBox::editingFinished, this, &LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged);
     connect(ui->clickLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::clickLineEditChanged);
     connect(ui->wheelUpLineEdit, &QLineEdit::editingFinished, this, &LXQtCustomCommandConfiguration::wheelUpLineEditChanged);
@@ -178,7 +179,14 @@ void LXQtCustomCommandConfiguration::loadSettings()
     ui->iconLineEdit->setText(settings().value(QStringLiteral("icon"), QString()).toString());
     ui->textLineEdit->setText(settings().value(QStringLiteral("text"), QStringLiteral("%1")).toString());
     ui->tooltipLineEdit->setText(settings().value(QStringLiteral("tooltip"), QString()).toString());
-    ui->maxWidthSpinBox->setValue(settings().value(QStringLiteral("maxWidth"), 200).toInt());
+
+    int min = settings().value(QStringLiteral("minWidth"), 20).toInt();
+    int max = settings().value(QStringLiteral("maxWidth"), 200).toInt();
+    ui->minWidthSpinBox->setValue(min);
+    ui->minWidthSpinBox->setMaximum(max);
+    ui->maxWidthSpinBox->setValue(max);
+    ui->maxWidthSpinBox->setMinimum(min);
+
     ui->clickLineEdit->setText(settings().value(QStringLiteral("click"), QString()).toString());
     ui->wheelUpLineEdit->setText(settings().value(QStringLiteral("wheelUp"), QString()).toString());
     ui->wheelDownLineEdit->setText(settings().value(QStringLiteral("wheelDown"), QString()).toString());
@@ -283,10 +291,20 @@ void LXQtCustomCommandConfiguration::tooltipLineEditChanged()
         settings().setValue(QStringLiteral("tooltip"), ui->tooltipLineEdit->text());
 }
 
+void LXQtCustomCommandConfiguration::minWidthSpinBoxChanged()
+{
+    int min = ui->minWidthSpinBox->value();
+    ui->maxWidthSpinBox->setMinimum(min);
+    if (!mLockSettingChanges)
+        settings().setValue(QStringLiteral("minWidth"), min);
+}
+
 void LXQtCustomCommandConfiguration::maxWidthSpinBoxChanged()
 {
+    int max = ui->maxWidthSpinBox->value();
+    ui->minWidthSpinBox->setMaximum(max);
     if (!mLockSettingChanges)
-        settings().setValue(QStringLiteral("maxWidth"), ui->maxWidthSpinBox->value());
+        settings().setValue(QStringLiteral("maxWidth"), max);
 }
 
 void LXQtCustomCommandConfiguration::clickLineEditChanged()
