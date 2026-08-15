@@ -89,7 +89,7 @@ void CustomButton::wheelEvent(QWheelEvent *event)
 
 void CustomButton::setWidthRange(int minWidth, int maxWidth)
 {
-    mMinWidth = minWidth;
+    mMinWidth = (minWidth <= maxWidth) ? minWidth : maxWidth;
     mMaxWidth = maxWidth;
     updateWidth();
 }
