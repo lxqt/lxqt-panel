@@ -67,6 +67,7 @@ private slots:
     void iconBrowseButtonClicked();
     void textLineEditChanged();
     void tooltipLineEditChanged();
+    void minWidthSpinBoxChanged();
     void maxWidthSpinBoxChanged();
     void clickLineEditChanged();
     void wheelUpLineEditChanged();

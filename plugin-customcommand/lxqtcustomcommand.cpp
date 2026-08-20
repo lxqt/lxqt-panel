@@ -51,6 +51,7 @@ LXQtCustomCommand::LXQtCustomCommand(const ILXQtPanelPluginStartupInfo &startupI
         mContinuousOutput(false),
         mRepeat(true),
         mRepeatTimer(5),
+        mMinWidth(20),
         mMaxWidth(200)
 {
     mButton = new CustomButton(this);
@@ -115,6 +116,7 @@ void LXQtCustomCommand::settingsChanged()
     QString oldIcon = mIcon;
     QString oldText = mText;
     QString oldTooltip = mTooltip;
+    int oldMinWidth = mMinWidth;
     int oldMaxWidth = mMaxWidth;
 
     mAutoRotate = settings()->value(QStringLiteral("autoRotate"), true).toBool();
@@ -134,6 +136,7 @@ void LXQtCustomCommand::settingsChanged()
     mIcon = settings()->value(QStringLiteral("icon"), QString()).toString();
     mText = settings()->value(QStringLiteral("text"), QStringLiteral("%1")).toString();
     mTooltip = settings()->value(QStringLiteral("tooltip"), QString()).toString();
+    mMinWidth = settings()->value(QStringLiteral("minWidth"), 20).toInt();
     mMaxWidth = settings()->value(QStringLiteral("maxWidth"), 200).toInt();
     mClick = settings()->value(QStringLiteral("click"), QString()).toString().trimmed();
     mWheelUp = settings()->value(QStringLiteral("wheelUp"), QString()).toString().trimmed();
@@ -176,8 +179,8 @@ void LXQtCustomCommand::settingsChanged()
     if (oldTooltip != mTooltip)
         mButton->setToolTip(mTooltip);
 
-    if (mFirstRun || oldMaxWidth != mMaxWidth)
-        mButton->setMaxWidth(mMaxWidth);
+    if (mFirstRun || oldMinWidth != mMinWidth || oldMaxWidth != mMaxWidth)
+        mButton->setWidthRange(mMinWidth, mMaxWidth);
 
     if (mFirstRun || oldAutoRotate != mAutoRotate)
         mButton->setAutoRotation(mAutoRotate);
@@ -223,7 +226,7 @@ void LXQtCustomCommand::handleFinished(int exitCode, QProcess::ExitStatus exitSt
 
 void LXQtCustomCommand::handleOutput()
 {
-    if (!mContinuousOutput) 
+    if (!mContinuousOutput)
         return;
 
     bool something_read = false;
