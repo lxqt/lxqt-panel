@@ -27,22 +27,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="344"/>
         <source>Use icon from theme or browse file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="138"/>
         <source>Run with &quot;bash -c&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="107"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="148"/>
         <source>Select Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="280"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="321"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -52,37 +52,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="207"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="78"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="95"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source> px</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="263"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="304"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="307"/>
         <source>Use %1 to display command output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="173"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="214"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="293"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="334"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="200"/>
         <source>Autorotate when the panel is vertical</source>
         <translation type="unfinished"></translation>
     </message>
@@ -97,30 +98,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="177"/>
         <source>echo Configure...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="142"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="341"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="358"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="375"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="183"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="382"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="399"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="416"/>
         <source>Command to run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="149"/>
-        <source>Max Width</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
         <source>Repeat command after:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="158"/>
         <source>Text Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -130,37 +126,52 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
+        <source>min: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
+        <source>max: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
         <source> second(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="273"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="314"/>
         <source>Tooltip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="351"/>
         <source>Continuous output (processed line by line)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="366"/>
         <source>Mouse Commands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="331"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="372"/>
         <source>Click</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="389"/>
         <source>Wheel Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="365"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="406"/>
         <source>Wheel Down</source>
         <translation type="unfinished"></translation>
     </message>
@@ -280,12 +291,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Select Icon File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation type="unfinished"></translation>
     </message>

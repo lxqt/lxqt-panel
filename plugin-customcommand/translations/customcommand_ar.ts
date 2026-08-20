@@ -27,22 +27,22 @@
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="344"/>
         <source>Use icon from theme or browse file</source>
         <translation>استخدام أيقونة من موضوع أو تصفح الملف</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="138"/>
         <source>Run with &quot;bash -c&quot;</source>
         <translation>تشغيل باستخدام &quot;bash -c&quot;</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="107"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="148"/>
         <source>Select Font</source>
         <translation>تحديد الخط</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="280"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="321"/>
         <source>Text</source>
         <translation>نص</translation>
     </message>
@@ -52,37 +52,38 @@
         <translation>الأمر</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="207"/>
         <source>Font</source>
         <translation>الخط</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="78"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="95"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source> px</source>
         <translation> بكسل</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="263"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="304"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="307"/>
         <source>Use %1 to display command output</source>
         <translation>استخدم%1 لعرض إخراج الأمر</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="173"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="214"/>
         <source>Icon</source>
         <translation>أيقونة</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="293"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="334"/>
         <source>Browse</source>
         <translation>تصفّح</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="200"/>
         <source>Autorotate when the panel is vertical</source>
         <translation>تدوير تلقائي عندما تكون اللوحة عمودية</translation>
     </message>
@@ -97,30 +98,25 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="177"/>
         <source>echo Configure...</source>
         <translation>اعداد الصدى ...</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="142"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="341"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="358"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="375"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="183"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="382"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="399"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="416"/>
         <source>Command to run</source>
         <translation>تشغيل الأمر</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="149"/>
-        <source>Max Width</source>
-        <translation>أقصي عرض</translation>
-    </message>
-    <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
         <source>Repeat command after:</source>
         <translation>كرر الأمر بعد:</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="158"/>
         <source>Text Color</source>
         <translation>لون النص</translation>
     </message>
@@ -130,37 +126,52 @@
         <translation>إعادة ضبط</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
+        <source>min: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
+        <source>max: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
         <source> second(s)</source>
         <translation> ثانية (ثوان)</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="273"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="314"/>
         <source>Tooltip</source>
         <translation>تلميح الأدوات</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="351"/>
         <source>Continuous output (processed line by line)</source>
         <translation>الإخراج المستمر (معالجة سطرًا بسطر)</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="366"/>
         <source>Mouse Commands</source>
         <translation>أوامر الماوس</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="331"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="372"/>
         <source>Click</source>
         <translation>انقر</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="389"/>
         <source>Wheel Up</source>
         <translation>عجلة لأعلى</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="365"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="406"/>
         <source>Wheel Down</source>
         <translation>عجلة أسفل</translation>
     </message>
@@ -280,12 +291,12 @@
         <translation>مهيكلة</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Select Icon File</source>
         <translation>حدد ملف الأيقونة</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>الصور (* .png * .svg * .xpm * .jpg)</translation>
     </message>
