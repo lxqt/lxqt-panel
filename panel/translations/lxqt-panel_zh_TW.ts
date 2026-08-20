@@ -24,7 +24,7 @@
         <translation>關閉</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="115"/>
+        <location filename="../config/addplugindialog.cpp" line="116"/>
         <source>(only one instance can run at a time)</source>
         <translation>(一次只能執行一個項目)</translation>
     </message>
@@ -262,30 +262,30 @@
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
-        <location filename="../config/configpluginswidget.ui" line="129"/>
-        <location filename="../config/configpluginswidget.ui" line="150"/>
-        <location filename="../config/configpluginswidget.ui" line="164"/>
-        <location filename="../config/configpluginswidget.ui" line="185"/>
+        <location filename="../config/configpluginswidget.ui" line="128"/>
+        <location filename="../config/configpluginswidget.ui" line="148"/>
+        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <location filename="../config/configpluginswidget.ui" line="181"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="126"/>
+        <location filename="../config/configpluginswidget.ui" line="125"/>
         <source>Move down</source>
         <translation>向下移動</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="147"/>
+        <location filename="../config/configpluginswidget.ui" line="145"/>
         <source>Add</source>
         <translation>新增</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <location filename="../config/configpluginswidget.ui" line="158"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="182"/>
+        <location filename="../config/configpluginswidget.ui" line="178"/>
         <source>Configure</source>
         <translation>設定</translation>
     </message>
@@ -308,27 +308,27 @@
         <translation>字型顏色：</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="105"/>
+        <location filename="../config/configstyling.ui" line="104"/>
         <source>Background color:</source>
         <translation>背景顏色：</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="144"/>
+        <location filename="../config/configstyling.ui" line="142"/>
         <source>Background opacity:</source>
         <translation>背景不透明度：</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="176"/>
+        <location filename="../config/configstyling.ui" line="174"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation>&lt;small&gt;面板透明度需要進行合成。&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="204"/>
+        <location filename="../config/configstyling.ui" line="202"/>
         <source>Background image:</source>
         <translation>背景圖片：</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="256"/>
+        <location filename="../config/configstyling.ui" line="253"/>
         <source>A partial workaround for widget styles that
 cannot give a separate theme to the panel.
 
@@ -347,12 +347,12 @@ LXQt 外觀設定→
 配色圖示依據小工具樣式(調色盤)</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="266"/>
+        <location filename="../config/configstyling.ui" line="263"/>
         <source>Override icon &amp;theme</source>
         <translation>覆蓋圖示主題(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="281"/>
+        <location filename="../config/configstyling.ui" line="278"/>
         <source>Icon theme for panels:</source>
         <translation>面板的圖示主題：</translation>
     </message>

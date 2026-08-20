@@ -24,7 +24,7 @@
         <translation>ਬੰਦ ਕਰੋ</translation>
     </message>
     <message>
-        <location filename="../config/addplugindialog.cpp" line="115"/>
+        <location filename="../config/addplugindialog.cpp" line="116"/>
         <source>(only one instance can run at a time)</source>
         <translation>(ਇੱਕ ਸਮੇਂ ਇੱਕ ਹੀ ਮੌਕਾ ਚੱਲ ਸਕਦਾ ਹੈ)</translation>
     </message>
@@ -262,30 +262,30 @@
     </message>
     <message>
         <location filename="../config/configpluginswidget.ui" line="115"/>
-        <location filename="../config/configpluginswidget.ui" line="129"/>
-        <location filename="../config/configpluginswidget.ui" line="150"/>
-        <location filename="../config/configpluginswidget.ui" line="164"/>
-        <location filename="../config/configpluginswidget.ui" line="185"/>
+        <location filename="../config/configpluginswidget.ui" line="128"/>
+        <location filename="../config/configpluginswidget.ui" line="148"/>
+        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <location filename="../config/configpluginswidget.ui" line="181"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="126"/>
+        <location filename="../config/configpluginswidget.ui" line="125"/>
         <source>Move down</source>
         <translation>ਹੇਠਾਂ ਭੇਜੋ</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="147"/>
+        <location filename="../config/configpluginswidget.ui" line="145"/>
         <source>Add</source>
         <translation>ਜੋੜੋ</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="161"/>
+        <location filename="../config/configpluginswidget.ui" line="158"/>
         <source>Remove</source>
         <translation>ਹਟਾਓ</translation>
     </message>
     <message>
-        <location filename="../config/configpluginswidget.ui" line="182"/>
+        <location filename="../config/configpluginswidget.ui" line="178"/>
         <source>Configure</source>
         <translation>ਸੰਰਚਨਾ</translation>
     </message>
@@ -308,27 +308,27 @@
         <translation>ਫ਼ੋਂਟ ਦਾ ਰੰਗ:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="105"/>
+        <location filename="../config/configstyling.ui" line="104"/>
         <source>Background color:</source>
         <translation>ਬੈਕਗਰਾਊਂਡ ਦਾ ਰੰਗ:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="144"/>
+        <location filename="../config/configstyling.ui" line="142"/>
         <source>Background opacity:</source>
         <translation>ਬੈਕਗਰਾਊਂਡ ਦਾ ਧੁੰਦਲਾਪਨ:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="176"/>
+        <location filename="../config/configstyling.ui" line="174"/>
         <source>&lt;small&gt;Compositing is required for panel transparency.&lt;/small&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="204"/>
+        <location filename="../config/configstyling.ui" line="202"/>
         <source>Background image:</source>
         <translation>ਬੈਕਗਰਾਊਂਡ ਦਾ ਚਿੱਤਰ:</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="256"/>
+        <location filename="../config/configstyling.ui" line="253"/>
         <source>A partial workaround for widget styles that
 cannot give a separate theme to the panel.
 
@@ -340,12 +340,12 @@ Colorize icons based on widget style (palette)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="266"/>
+        <location filename="../config/configstyling.ui" line="263"/>
         <source>Override icon &amp;theme</source>
         <translation>ਆਈਕਾਨ ਥੀਮ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ(&amp;t)</translation>
     </message>
     <message>
-        <location filename="../config/configstyling.ui" line="281"/>
+        <location filename="../config/configstyling.ui" line="278"/>
         <source>Icon theme for panels:</source>
         <translation>ਪੈਨਲ ਲਈ ਆਈਕਾਨ ਥੀਮ:</translation>
     </message>
