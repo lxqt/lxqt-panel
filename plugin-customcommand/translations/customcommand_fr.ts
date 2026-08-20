@@ -89,12 +89,12 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Format de sortie :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
         <source>Repeat command after:</source>
-        <translation>Répéter la commande après&#xa0;:</translation>
+        <translation>Répéter la commande après :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortie continue (traitement ligne par ligne)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
@@ -167,17 +167,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>cette commande génère du texte brut qui servira de libellé au bouton</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>la commande génère une icône sous la forme :</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>nom du thème</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
