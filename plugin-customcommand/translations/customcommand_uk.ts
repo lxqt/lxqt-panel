@@ -27,22 +27,22 @@
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="344"/>
         <source>Use icon from theme or browse file</source>
         <translation>Застосувати піктограму з теми або знайти файл</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="138"/>
         <source>Run with &quot;bash -c&quot;</source>
         <translation>Запустити з «bash -c»</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="107"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="148"/>
         <source>Select Font</source>
         <translation>Вибрати шрифт</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="280"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="321"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
@@ -52,75 +52,71 @@
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="207"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="78"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="95"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="263"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="304"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="307"/>
         <source>Use %1 to display command output</source>
         <translation>Застосуйте %1, щоб показати вивід команди</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="173"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="214"/>
         <source>Icon</source>
         <translation>Піктограма</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="293"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="334"/>
         <source>Browse</source>
         <translation>Огляд</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="200"/>
         <source>Autorotate when the panel is vertical</source>
         <translation>Автообертання, коли панель вертикальна</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат виведення:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="177"/>
         <source>echo Configure...</source>
         <translation>echo налаштувати...</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="142"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="341"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="358"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="375"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="183"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="382"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="399"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="416"/>
         <source>Command to run</source>
         <translation>Команда для запуску</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="149"/>
-        <source>Max Width</source>
-        <translation>Максимальна ширина</translation>
-    </message>
-    <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
         <source>Repeat command after:</source>
         <translation>Повторити команду через:</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="158"/>
         <source>Text Color</source>
         <translation>Колір тексту</translation>
     </message>
@@ -130,84 +126,99 @@
         <translation>Скинути</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
+        <source>min: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
+        <source>max: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
         <source> second(s)</source>
         <translation> секунд(у)</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="273"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="314"/>
         <source>Tooltip</source>
         <translation>Підказка</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="351"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Безперервне виведення (обробка порядково)</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="366"/>
         <source>Mouse Commands</source>
         <translation>Команди миші</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="331"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="372"/>
         <source>Click</source>
         <translation>Клацнути</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="389"/>
         <source>Wheel Up</source>
         <translation>Прокрутити коліщатко вгору</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="365"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="406"/>
         <source>Wheel Down</source>
         <translation>Прокрутити коліщатко вниз</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>команда виводить звичайний текст, який має використовуватися як текст кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>команда виводить значок у формі:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>імʼя теми</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>назва значка, визначена як зображення відповідно до специфікації XDG</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>шлях до зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>потік даних зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>простий потік даних зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>потік даних зображення, закодований base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>як вище, але закодоване в base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
@@ -222,70 +233,70 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтриманні імена є:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>рядок який має бути використаний як текстом кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>значок, який має бути показаний у кнопці, у тій самій формі, як пояснювалося раніше</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>рядок який має бути використаний як підказка кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>Усі значення мають бути закодовані у base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>Приклад, як скрипт генерує структуроване виведення:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Мій Текст</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>моє_зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Моя підказка</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки текст</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки значок</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>Структурований</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Select Icon File</source>
         <translation>Вибрати піктограму файлу</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Зображення (*.png *.svg *.xpm *.jpg)</translation>
     </message>

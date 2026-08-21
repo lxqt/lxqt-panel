@@ -20,11 +20,11 @@
  */
 
 #include <stdio.h>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QDialog>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QDialog>
+#include <QFile>
+#include <QTextStream>
 
 #include "../panel/pluginsettings.h"
 
@@ -70,7 +70,8 @@ void QEyesPlugin::realign() {
 
 static bool loadImage(QString path, QEyesImageWidget *w) {
     QFile file(path + QStringLiteral("/config"));
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly))
+        return false;
     QTextStream in(&file);
     QString eye, pupil;
     int num=1, wall=1;

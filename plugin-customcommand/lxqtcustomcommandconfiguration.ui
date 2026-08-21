@@ -73,23 +73,64 @@
          </widget>
         </item>
         <item row="11" column="1" colspan="2">
-         <widget class="QSpinBox" name="maxWidthSpinBox">
-          <property name="suffix">
-           <string> px</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
           </property>
-          <property name="minimum">
-           <number>10</number>
+          <property name="topMargin">
+           <number>0</number>
           </property>
-          <property name="maximum">
-           <number>9999</number>
+          <property name="rightMargin">
+           <number>0</number>
           </property>
-          <property name="singleStep">
-           <number>5</number>
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
-          <property name="value">
-           <number>200</number>
-          </property>
-         </widget>
+          <item>
+           <widget class="QSpinBox" name="minWidthSpinBox">
+            <property name="prefix">
+             <string>min: </string>
+            </property>
+            <property name="suffix">
+             <string> px</string>
+            </property>
+            <property name="minimum">
+             <number>10</number>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+            <property name="singleStep">
+             <number>5</number>
+            </property>
+            <property name="value">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="maxWidthSpinBox">
+            <property name="prefix">
+             <string>max: </string>
+            </property>
+            <property name="suffix">
+             <string> px</string>
+            </property>
+            <property name="minimum">
+             <number>10</number>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+            <property name="singleStep">
+             <number>5</number>
+            </property>
+            <property name="value">
+             <number>200</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item row="4" column="1" colspan="2">
          <widget class="QCheckBox" name="runWithBashCheckBox">
@@ -144,9 +185,9 @@
          </widget>
         </item>
         <item row="11" column="0">
-         <widget class="QLabel" name="maxWidthLabel">
+         <widget class="QLabel" name="widthLabel">
           <property name="text">
-           <string>Max Width</string>
+           <string>Width</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
@@ -412,6 +453,7 @@
   <tabstop>iconBrowseButton</tabstop>
   <tabstop>textLineEdit</tabstop>
   <tabstop>tooltipLineEdit</tabstop>
+  <tabstop>minWidthSpinBox</tabstop>
   <tabstop>maxWidthSpinBox</tabstop>
   <tabstop>clickLineEdit</tabstop>
   <tabstop>wheelUpLineEdit</tabstop>

@@ -27,22 +27,22 @@
         <translation>Megjelenés</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="303"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="344"/>
         <source>Use icon from theme or browse file</source>
         <translation>Ikon használata ikontémából vagy fájl tallózása</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="97"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="138"/>
         <source>Run with &quot;bash -c&quot;</source>
         <translation>Futtatás &quot;bash -c&quot;-vel</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="107"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="148"/>
         <source>Select Font</source>
         <translation>Betűtípus kiválasztása</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="280"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="321"/>
         <source>Text</source>
         <translation>Szöveg</translation>
     </message>
@@ -52,37 +52,38 @@
         <translation>Parancs</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="166"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="207"/>
         <source>Font</source>
         <translation>Betűtípus</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="78"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="95"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source> px</source>
         <translation> px</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="263"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="304"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="307"/>
         <source>Use %1 to display command output</source>
         <translation>%1 használata a parancskimenet megjelenítéséhez</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="173"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="214"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="293"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="334"/>
         <source>Browse</source>
         <translation>Tallózás</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="159"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="200"/>
         <source>Autorotate when the panel is vertical</source>
         <translation>Automatikus forgatás, amikor a panel függőleges</translation>
     </message>
@@ -97,30 +98,25 @@
         <translation>…</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="136"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="177"/>
         <source>echo Configure...</source>
         <translation>echo Konfigurálás…</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="142"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="341"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="358"/>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="375"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="183"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="382"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="399"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="416"/>
         <source>Command to run</source>
         <translation>Futtatandó parancs</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="149"/>
-        <source>Max Width</source>
-        <translation>Maximum szélesség</translation>
-    </message>
-    <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="225"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
         <source>Repeat command after:</source>
         <translation>Parancs ismétlése ezután:</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="158"/>
         <source>Text Color</source>
         <translation>Szöveg színe</translation>
     </message>
@@ -130,37 +126,52 @@
         <translation>Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="241"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
+        <source>min: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
+        <source>max: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
         <source> second(s)</source>
         <translation> másodperc</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="273"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="314"/>
         <source>Tooltip</source>
         <translation>Buboréksúgó</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="310"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="351"/>
         <source>Continuous output (processed line by line)</source>
         <translation>Folyamatos kimenet (soronkénti feldolgozás)</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="325"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="366"/>
         <source>Mouse Commands</source>
         <translation>Egérparancsok</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="331"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="372"/>
         <source>Click</source>
         <translation>Kattintás</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="348"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="389"/>
         <source>Wheel Up</source>
         <translation>Felfelé görgetés</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.ui" line="365"/>
+        <location filename="../lxqtcustomcommandconfiguration.ui" line="406"/>
         <source>Wheel Down</source>
         <translation>Lefelé görgetés</translation>
     </message>
@@ -280,12 +291,12 @@
         <translation>Strukturált</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Select Icon File</source>
         <translation>Ikonfájl kiválasztása</translation>
     </message>
     <message>
-        <location filename="../lxqtcustomcommandconfiguration.cpp" line="270"/>
+        <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
         <translation>Képek (*.png *.svg *.xpm *.jpg)</translation>
     </message>

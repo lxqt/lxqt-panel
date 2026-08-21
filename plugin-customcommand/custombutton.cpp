@@ -61,6 +61,7 @@ CustomButton::CustomButton(ILXQtPanelPlugin *plugin, QWidget* parent):
         QToolButton(parent),
         mPlugin(plugin),
         mPanel(plugin->panel()),
+        mMinWidth(20),
         mMaxWidth(200)
 
 {
@@ -86,15 +87,16 @@ void CustomButton::wheelEvent(QWheelEvent *event)
     event->accept();
 }
 
-void CustomButton::setMaxWidth(int maxWidth)
+void CustomButton::setWidthRange(int minWidth, int maxWidth)
 {
+    mMinWidth = (minWidth <= maxWidth) ? minWidth : maxWidth;
     mMaxWidth = maxWidth;
     updateWidth();
 }
 
 void CustomButton::updateWidth()
 {
-    int newWidth = std::min(sizeHint().width(), mMaxWidth);
+    int newWidth = std::clamp(sizeHint().width(), mMinWidth, mMaxWidth);
     if (mOrigin == Qt::TopLeftCorner) {
         setFixedWidth(newWidth);
 

@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include <QtSvg/QSvgRenderer>
+#include <QSvgRenderer>
 #include "qeyeswidget.h"
 
 

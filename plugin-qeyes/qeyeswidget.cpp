@@ -19,12 +19,12 @@
  *
  */
 
-#include <QtGui/QPainter>
-#include <QtGui/QPen>
-#include <QtGui/QCursor>
-#include <QtWidgets/QApplication>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QPainter>
+#include <QPen>
+#include <QCursor>
+#include <QApplication>
+#include <QFile>
+#include <QTextStream>
 
 #include <stdio.h>
 #include <math.h>
@@ -94,17 +94,17 @@ void QAbstractEyesWidget::paintEvent(QPaintEvent *) {
 
         /*
          *  dy      y      ry      sin(alpha)
-         * ----  = --- =  ---- * -------------  
+         * ----  = --- =  ---- * -------------
          *  dx      x      rx      cos(alpha)
-         * 
-         * 
+         *
+         *
          *  dy / ry      sin(alpha)
          * ---------  = ------------- = tan(alpha)
          *  dx / rx      cos(alpha)
-         * 
-         * 
+         *
+         *
          * alpha = atan2( dy/rx, dx/rx)
-         * 
+         *
          */
 
         const auto alpha = atan2(dy/ry, dx/rx);
@@ -113,7 +113,7 @@ void QAbstractEyesWidget::paintEvent(QPaintEvent *) {
         auto y = ry * sin(alpha);
         auto x = rx * cos(alpha);
 
-        /* 
+        /*
          * if the cursor is inside the eye, the pupil position is
          * the cursor
          */

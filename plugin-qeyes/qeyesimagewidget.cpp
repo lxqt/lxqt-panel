@@ -19,18 +19,17 @@
  *
  */
 
-#include <QtGui/QPainter>
-#include <QtGui/QPen>
-#include <QtGui/QCursor>
-#include <QtWidgets/QApplication>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QPainter>
+#include <QPen>
+#include <QCursor>
+#include <QApplication>
+#include <QFile>
+#include <QTextStream>
 
 #include <stdio.h>
 #include <math.h>
 
 #include "qeyesimagewidget.h"
-
 
 bool ImageStretcher::load(const QString& fn)
 {
@@ -50,7 +49,7 @@ bool ImageStretcher::load(const QString& fn)
     stretchedImage = QPixmap();
     return true;
 }
-    
+
 QPixmap & ImageStretcher::ImageStretcher::getImage(int w, int h) {
     if (w == stretchedImage.width() && h == stretchedImage.height())
         return stretchedImage;
@@ -93,7 +92,7 @@ void QEyesImageWidget::drawEye(QPainter &painter, int x, int y, int dx, int dy) 
 }
 void QEyesImageWidget::drawPupil(QPainter &painter, int x, int y) {
 
-    auto & img = pupil.getImage( 
+    auto & img = pupil.getImage(
             pupil.origWidth() * background.stretchedWidth() / background.origWidth(),
             pupil.origHeight() * background.stretchedHeight() / background.origHeight());
 
@@ -124,13 +123,12 @@ void QEyesImageWidget::paintEvent(QPaintEvent *event) {
     if (width() != oldWidth || height() != oldHeight) {
         const auto dx = width() / numEyes;
         background.getImage(dx, height());
-        
+
         borderYStretched = borderY * background.stretchedHeight() / background.origHeight();
         borderXStretched = borderX * background.stretchedWidth() / background.origWidth();
-            
+
         oldWidth = width();
         oldHeight = height();
     }
     QAbstractEyesWidget::paintEvent(event);
 }
-

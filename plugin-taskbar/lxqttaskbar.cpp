@@ -684,7 +684,7 @@ void LXQtTaskBar::activateTask(int pos)
     {
         QWidget * o = mLayout->itemAt(i)->widget();
         LXQtTaskGroup * g = qobject_cast<LXQtTaskGroup *>(o);
-        if (g && g->isVisible())
+        if (g && g->isVisibleTo(this))
         {
             pos--;
             if (pos == 0)

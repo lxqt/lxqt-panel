@@ -37,6 +37,7 @@
 #include <QLayout>
 #include <QPainter>
 #include <QStyleOption>
+#include <QApplication>
 #include <QDebug>
 
 /************************************************
@@ -47,7 +48,8 @@
  ************************************************/
 LXQtGroupPopup::LXQtGroupPopup(LXQtTaskGroup *group):
     QFrame(group),
-    mGroup(group)
+    mGroup(group),
+    mHadActivePopup(false)
 {
     Q_ASSERT(group);
     setAcceptDrops(true);
@@ -133,6 +135,7 @@ void LXQtGroupPopup::dragLeaveEvent(QDragLeaveEvent *event)
  ************************************************/
 void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
 {
+    mHadActivePopup = hasActivePopup();
     mCloseTimer.start();
 }
 
@@ -141,6 +144,13 @@ void LXQtGroupPopup::leaveEvent(QEvent * /*event*/)
  ************************************************/
 void LXQtGroupPopup::enterEvent(QEnterEvent * /*event*/)
 {
+    if (mHadActivePopup)
+    {
+        // This may happen under Wayland as soon as the active popup is closed and
+        // without the mouse cursor being on the widget (see closeTimerSlot).
+        mHadActivePopup = false;
+        return;
+    }
     mCloseTimer.stop();
 }
 
@@ -157,7 +167,10 @@ void LXQtGroupPopup::hide(bool fast)
     if (fast)
         close();
     else
+    {
+        mHadActivePopup = false;
         mCloseTimer.start();
+    }
 }
 
 void LXQtGroupPopup::show()
@@ -178,6 +191,14 @@ void LXQtGroupPopup::addButton(LXQtTaskButton *button)
 
 void LXQtGroupPopup::closeTimerSlot()
 {
+    if (hasActivePopup())
+    {
+        mHadActivePopup = true;
+        mCloseTimer.start();
+        return;
+    }
+    mHadActivePopup = false;
+
     bool button_has_dnd_hover = false;
     QLayout* l = layout();
     for (int i = 0; l->count() > i; ++i)
@@ -191,4 +212,16 @@ void LXQtGroupPopup::closeTimerSlot()
     }
     if (!button_has_dnd_hover)
         close();
+}
+
+bool LXQtGroupPopup::hasActivePopup() const
+{ // check if it has an active popup (like a context menu)
+    auto p = QApplication::activePopupWidget();
+    while (p)
+    {
+        if (p == this)
+            return true;
+        p = p->parentWidget();
+    }
+    return false;
 }

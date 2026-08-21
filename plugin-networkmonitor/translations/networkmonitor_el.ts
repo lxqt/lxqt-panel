@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Prefer system icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Να προτιμώνται τα εικονίδια του συστήματος</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>

@@ -41,7 +41,7 @@ public:
 
 public slots:
     void setAutoRotation(bool value);
-    void setMaxWidth(int maxWidth);
+    void setWidthRange(int minWidth, int maxWidth);
     void updateWidth();
 
 protected:
@@ -55,6 +55,7 @@ private:
     ILXQtPanelPlugin *mPlugin;
     ILXQtPanel *mPanel;
     Qt::Corner mOrigin;
+    int mMinWidth;
     int mMaxWidth;
 
 signals:
