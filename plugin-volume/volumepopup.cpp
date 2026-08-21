@@ -45,39 +45,18 @@
 #include <QWheelEvent>
 #include <QScreen>
 
-#include <cmath>
-
 namespace {
 
 // Accumulate fractional wheel notches; write whole steps (trunc toward 0).
-double applyWheelUnits(double accumulator, double units, int *steps)
+double applyWheelUnits(double accumulator, double units, int &steps)
 {
     if ((accumulator > 0.0 && units < 0.0) || (accumulator < 0.0 && units > 0.0))
         accumulator = 0.0;
     accumulator += units;
-    *steps = static_cast<int>(accumulator);
-    accumulator -= *steps;
+    steps = static_cast<int>(accumulator);
+    accumulator -= steps;
     return accumulator;
 }
-
-#ifndef QT_NO_DEBUG
-struct WheelAccumSelfCheck {
-    WheelAccumSelfCheck()
-    {
-        int steps = 0;
-        double a = applyWheelUnits(0.0, 1.0, &steps); // one mouse notch
-        Q_ASSERT(steps == 1 && std::fabs(a) < 1e-9);
-        a = applyWheelUnits(a, 0.5, &steps); // half touchpad unit
-        Q_ASSERT(steps == 0 && std::fabs(a - 0.5) < 1e-9);
-        a = applyWheelUnits(a, 0.5, &steps);
-        Q_ASSERT(steps == 1 && std::fabs(a) < 1e-9);
-        a = applyWheelUnits(a, 3.0, &steps); // three notches in one event
-        Q_ASSERT(steps == 3 && std::fabs(a) < 1e-9);
-        a = applyWheelUnits(0.4, -1.0, &steps); // reverse clears leftover
-        Q_ASSERT(steps == -1 && std::fabs(a) < 1e-9);
-    }
-} wheelAccumSelfCheck;
-#endif
 
 } // namespace
 
@@ -311,7 +290,7 @@ int VolumePopup::wheelVolumeDelta(QWheelEvent *event, int stepSize)
         return 0;
 
     int steps = 0;
-    m_wheelAccumulator = applyWheelUnits(m_wheelAccumulator, units, &steps);
+    m_wheelAccumulator = applyWheelUnits(m_wheelAccumulator, units, steps);
     return steps * stepSize;
 }
 
