@@ -276,7 +276,10 @@ void LXQtCustomCommandConfiguration::iconLineEditChanged()
 void LXQtCustomCommandConfiguration::iconBrowseButtonClicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Select Icon File"), QString(), tr("Images (*.png *.svg *.xpm *.jpg)"));
-    ui->iconLineEdit->setText(fileName);
+    if (!fileName.isEmpty()) {
+        ui->iconLineEdit->setText(fileName);
+        iconLineEditChanged();
+    }
 }
 
 void LXQtCustomCommandConfiguration::textLineEditChanged()
