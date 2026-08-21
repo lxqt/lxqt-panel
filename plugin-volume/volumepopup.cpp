@@ -398,16 +398,23 @@ void VolumePopup::setSliderStep(int step)
 
 void VolumePopup::rebuildSinkRows()
 {
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(m_sinksContainer->layout());
+
     for (const SinkRow &row : std::as_const(m_sinkRows))
     {
         if (row.device)
             disconnect(row.device, nullptr, this, nullptr);
         if (row.rowWidget)
-            row.rowWidget->deleteLater();
+        {
+            // Remove immediately so layout/sizeHint aren't left with stale rows
+            // (deleteLater would keep them until the next event-loop pass).
+            if (layout)
+                layout->removeWidget(row.rowWidget);
+            delete row.rowWidget;
+        }
     }
     m_sinkRows.clear();
 
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(m_sinksContainer->layout());
     if (!layout)
         return;
 
@@ -437,25 +444,35 @@ void VolumePopup::rebuildSinkRows()
     updateDefaultButtons();
     setSliderStep(m_sliderStep);
 
-    // Size the scroll area by row height: show at least 1 row, at most 3 rows.
-    if (!m_sinkRows.isEmpty() && layout)
+    // Show exactly min(n, 3) rows; scrollbar only when there are more than 3 sinks.
+    constexpr int maxVisibleRows = 3;
+    if (!m_sinkRows.isEmpty())
     {
-        m_sinksContainer->adjustSize();
         QWidget *firstRow = m_sinkRows.at(0).rowWidget;
+        firstRow->ensurePolished();
         int rowHeight = firstRow->sizeHint().height();
         if (rowHeight <= 0)
             rowHeight = firstRow->minimumSizeHint().height();
         if (rowHeight > 0)
         {
             const int spacing = layout->spacing();
-            m_sinkScrollArea->setMinimumHeight(rowHeight);
-            m_sinkScrollArea->setMaximumHeight(3 * rowHeight + 2 * spacing);
+            const int visibleRows = qMin(static_cast<int>(m_sinkRows.size()), maxVisibleRows);
+            const int height = visibleRows * rowHeight + (visibleRows - 1) * spacing;
+            m_sinkScrollArea->setMinimumHeight(height);
+            m_sinkScrollArea->setMaximumHeight(height);
         }
     }
     else
     {
         m_sinkScrollArea->setMinimumHeight(0);
         m_sinkScrollArea->setMaximumHeight(QWIDGETSIZE_MAX);
+    }
+
+    if (isVisible())
+    {
+        updateGeometry();
+        adjustSize();
+        realign();
     }
 }
 
