@@ -145,13 +145,10 @@ void LXQtCpuLoad::paintEvent ( QPaintEvent * )
         float ho = r.width()*(1-m_avg*0.01);
 
         if (m_barOrientation == RightToLeftBar)
-        {
             r1.setRect(r.left()+ho, r.top()+vo, r.width()-ho, r.height()-2*vo );
-        }
         else // LeftToRightBar
-        {
             r1.setRect(r.left(), r.top()+vo, r.width()-ho, r.height()-2*vo );
-        }
+
         shade.setFinalStop(0, r1.height());
     }
     else // BottomUpBar || TopDownBar
@@ -160,13 +157,10 @@ void LXQtCpuLoad::paintEvent ( QPaintEvent * )
         float ho = (r.width() - static_cast<double>(m_barWidth) )/2.0;
 
         if (m_barOrientation == TopDownBar)
-        {
             r1.setRect(r.left()+ho, r.top(), r.width()-2*ho, r.height()-vo );
-        }
         else // BottomUpBar
-        {
             r1.setRect(r.left()+ho, r.top()+vo, r.width()-2*ho, r.height()-vo );
-        }
+            
         shade.setFinalStop(r1.width(), 0);
     }
 

@@ -90,9 +90,7 @@ QScreen* DesktopSwitch::getScreen() const
     for (const auto& screen : screens)
     {
         if (screen->name() == panel()->screenName())
-        {
             return screen;
-        }
     }
     return nullptr;
 }
@@ -131,9 +129,7 @@ void DesktopSwitch::shortcutRegistered()
     Q_ASSERT(-1 != i);
 
     if (shortcut->shortcut().isEmpty())
-    {
         shortcut->changeShortcut(DEFAULT_SHORTCUT_TEMPLATE.arg(i + 1));
-    }
 }
 
 void DesktopSwitch::onWindowChanged(WId id, int prop)
@@ -149,9 +145,7 @@ void DesktopSwitch::onWindowChanged(WId id, int prop)
         { // remove the urgent hint from desktops that do not contain the window
             const auto buttons = m_buttons->buttons();
             for (auto button : buttons)
-            {
                 qobject_cast<DesktopSwitchButton*>(button)->setUrgencyHint(id, desktop != m_buttons->id(button) + 1 ? false : mBackend->applicationDemandsAttention(id));
-            }
         }
         else if (auto button = qobject_cast<DesktopSwitchButton *>(m_buttons->button(desktop - 1)))
         { // set the urgent hint based on whether the window demands attention
@@ -323,7 +317,7 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     m_mouseWheelThresholdCounter -= rotationSteps;
 
     // If the user hasn't scrolled far enough in one direction (positive or negative): do nothing
-    if(std::abs(m_mouseWheelThresholdCounter) < 100)
+    if (std::abs(m_mouseWheelThresholdCounter) < 100)
         return;
 
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
@@ -333,9 +327,8 @@ void DesktopSwitchWidget::wheelEvent(QWheelEvent *e)
     int delta = rotationSteps < 0 ? 1 : -1;
     int current = wmBackend->getCurrentWorkspace(screen()) + delta;
 
-    if (current > max){
+    if (current > max)
         current = 1;
-    }
     else if (current < 1)
         current = max;
 
@@ -347,7 +340,7 @@ ILXQtPanelPlugin *DesktopSwitchPluginLibrary::instance(const ILXQtPanelPluginSta
 {
     LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
     auto wmBackend = a ? a->getWMBackend() : nullptr;
-    if(!wmBackend || !wmBackend->supportsAction(0, LXQtTaskBarBackendAction::DesktopSwitch))
+    if (!wmBackend || !wmBackend->supportsAction(0, LXQtTaskBarBackendAction::DesktopSwitch))
         return new DesktopSwitchUnsupported{startupInfo};
 
     return new DesktopSwitch{startupInfo};

@@ -63,9 +63,7 @@ void DesktopSwitchButton::update(int index, LabelType labelType, const QString &
     }
 
     if (!title.isEmpty())
-    {
         setToolTip(title);
-    }
 }
 
 void DesktopSwitchButton::setUrgencyHint(WId id, bool urgent)

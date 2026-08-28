@@ -81,9 +81,9 @@ void DesktopSwitchConfiguration::loadDesktopsNames()
         QLineEdit *edit = new QLineEdit(deskName, this);
         ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
 
-        //TODO: on Wayland we cannot set desktop names in a standart way
+        // TODO: on Wayland we cannot set desktop names in a standart way
         // On KWin we could use DBus org.kde.KWin as done by kcm_kwin_virtualdesktops
-        if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
+        if (qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
         {
             // C++11 rocks!
             QTimer *timer = new QTimer(this);
