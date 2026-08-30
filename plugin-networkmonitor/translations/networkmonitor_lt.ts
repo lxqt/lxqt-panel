@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Prefer system icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Teikti pirmenybę sistemos piktogramoms</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>

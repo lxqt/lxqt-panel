@@ -128,17 +128,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
         <source>min: </source>
-        <translation type="unfinished"></translation>
+        <translation>min: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
         <source>max: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">max: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Larghezza</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>

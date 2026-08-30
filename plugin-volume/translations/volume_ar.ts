@@ -36,7 +36,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="349"/>
         <source>(muted)</source>
-        <translation>(مكتوم)</translation>
+        <translation>(كتم الصوت)</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>جهاز للتحكّم به</translation>
+        <translation>الجهاز المطلوب التحكم فيه</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>اكتم بالنقر على البكرة</translation>
+        <translation>كتم الصوت بالنقر الأوسط</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="118"/>
         <source>External Mixer</source>
-        <translation>المازج الخارجي</translation>
+        <translation>خلاط الصوت الخارجي</translation>
     </message>
 </context>
 <context>
