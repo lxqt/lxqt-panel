@@ -97,6 +97,7 @@ LXQtTaskbarConfiguration::LXQtTaskbarConfiguration(PluginSettings *settings, QWi
     connect(ui->wheelEventsActionCB, &QComboBox::activated, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->wheelDeltaThresholdSB, &QAbstractSpinBox::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
     connect(ui->excludeLE, &QLineEdit::editingFinished, this, &LXQtTaskbarConfiguration::saveSettings);
+    connect(ui->alignToEndCB, &QAbstractButton::clicked, this, &LXQtTaskbarConfiguration::saveSettings);
 }
 
 LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
@@ -107,6 +108,7 @@ LXQtTaskbarConfiguration::~LXQtTaskbarConfiguration()
 void LXQtTaskbarConfiguration::loadSettings()
 {
     const bool showOnlyOneDesktopTasks = settings().value(QStringLiteral("showOnlyOneDesktopTasks"), false).toBool();
+	const bool alignToEnd = settings().value(QStringLiteral("alignToEnd"), false).toBool();
     ui->limitByDesktopCB->setChecked(showOnlyOneDesktopTasks);
     ui->showDesktopNumCB->setCurrentIndex(ui->showDesktopNumCB->findData(settings().value(QStringLiteral("showDesktopNum"), 0).toInt()));
     ui->showDesktopNumCB->setEnabled(showOnlyOneDesktopTasks);
@@ -126,6 +128,7 @@ void LXQtTaskbarConfiguration::loadSettings()
     ui->wheelEventsActionCB->setCurrentIndex(ui->wheelEventsActionCB->findData(settings().value(QStringLiteral("wheelEventsAction"), 1).toInt()));
     ui->wheelDeltaThresholdSB->setValue(settings().value(QStringLiteral("wheelDeltaThreshold"), 300).toInt());
     ui->excludeLE->setText(settings().value(QStringLiteral("excludedList")).toString());
+    ui->alignToEndCB->setChecked(alignToEnd);
 }
 
 void LXQtTaskbarConfiguration::saveSettings()
@@ -147,4 +150,5 @@ void LXQtTaskbarConfiguration::saveSettings()
     settings().setValue(QStringLiteral("wheelEventsAction"), ui->wheelEventsActionCB->itemData(ui->wheelEventsActionCB->currentIndex()));
     settings().setValue(QStringLiteral("wheelDeltaThreshold"), ui->wheelDeltaThresholdSB->value());
     settings().setValue(QStringLiteral("excludedList"), ui->excludeLE->text());
+    settings().setValue(QStringLiteral("alignToEnd"), ui->alignToEndCB->isChecked());
 }
