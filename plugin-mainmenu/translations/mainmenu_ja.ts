@@ -147,8 +147,8 @@ Do you want to overwrite it?</source>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation>Wayland のコンポジター設定「lxqt-qdbus openmenu」
-へのショートカットを変更または追加</translation>
+        <translation>Wayland のコンポジター設定で「lxqt-qdbus openmenu」
+へのショートカットを変更または追加します</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>

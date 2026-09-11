@@ -128,17 +128,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
         <source>min: </source>
-        <translation type="unfinished"></translation>
+        <translation>мін.: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
         <source>max: </source>
-        <translation type="unfinished"></translation>
+        <translation>макс.: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Ширина</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
@@ -178,22 +178,22 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation>команда виводить звичайний текст, який має використовуватися як текст кнопки</translation>
+        <translation>команда виводить звичайний текст, який має використовуватися текстом кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation>команда виводить значок у формі:</translation>
+        <translation>команда виводить піктограму у формі:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation>імʼя теми</translation>
+        <translation>назва теми</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation>назва значка, визначена як зображення відповідно до специфікації XDG</translation>
+        <translation>назва піктограма, визначена як зображення відповідно до специфікації XDG</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
@@ -208,42 +208,42 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation>простий потік даних зображення</translation>
+        <translation>звичайний потік зображення</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation>потік даних зображення, закодований base64</translation>
+        <translation>потік даних зображення з кодуванням base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation>як вище, але закодоване в base64</translation>
+        <translation>як вище, але закодовано в base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>команда виводить структуровані змінні, які використовуються для візуалізації кнопок у вигляді:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>name1:base64value1 name2:base64value2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation>Підтриманні імена є:</translation>
+        <translation>Підтримувані назви:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation>рядок який має бути використаний як текстом кнопки</translation>
+        <translation>рядок який має бути використаний текстом кнопки</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation>значок, який має бути показаний у кнопці, у тій самій формі, як пояснювалося раніше</translation>
+        <translation>піктограма, яка має бути показана у кнопці, у тій самій формі, як пояснювалося раніше</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
@@ -283,7 +283,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation>Тільки значок</translation>
+        <translation>Тільки піктограма</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>

@@ -293,7 +293,7 @@
     <message>
         <location filename="../lxqttaskbarconfiguration.cpp" line="71"/>
         <source>Desktop %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Стільниця %1</translation>
     </message>
 </context>
 </TS>

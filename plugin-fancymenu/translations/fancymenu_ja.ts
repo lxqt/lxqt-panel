@@ -138,7 +138,8 @@
         <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation>Wayland のコンポジター設定で「lxqt-qdbus openmenu」へのショートカットを変更または追加</translation>
+        <translation>Wayland のコンポジター設定で「lxqt-qdbus openmenu」
+へのショートカットを変更または追加します</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
