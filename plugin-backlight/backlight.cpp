@@ -55,6 +55,10 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
     m_backlightButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    m_backlight = new LXQt::Backlight(this);
+    connect(m_backlight, &LXQt::Backlight::backlightChanged, this, &LXQtBacklight::updateBacklightTooltip);
+    updateBacklightTooltip();
+
     m_updateTimer.setSingleShot(true);
     m_updateTimer.setInterval(2000);
     m_backlightSlider = new SliderDialog(m_backlightButton);
@@ -98,6 +102,14 @@ void LXQtBacklight::toggleSlider()
         m_backlightSlider->show();
         m_backlightSlider->setFocus();
     }
+}
+
+void LXQtBacklight::updateBacklightTooltip()
+{
+    if (m_backlight->isBacklightAvailable() && m_backlight->getMaxBacklight() > 0)
+        m_backlightButton->setToolTip(tr("Brightness: %1%").arg(m_backlight->getBacklight() * 100 / m_backlight->getMaxBacklight()));
+    else
+        m_backlightButton->setToolTip(QString());
 }
 
 

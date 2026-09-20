@@ -35,6 +35,7 @@
 #include "sliderdialog.h"
 
 namespace LXQt {
+class Backlight;
 class Notification;
 }
 namespace GlobalKeyShortcut
@@ -73,7 +74,10 @@ protected Q_SLOTS:
     void toggleSlider();
 
 private:
+    void updateBacklightTooltip();
+
     BacklightButton *m_backlightButton;
+    LXQt::Backlight *m_backlight;
     SliderDialog *m_backlightSlider;
     QTimer m_updateTimer;
 };
