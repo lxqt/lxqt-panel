@@ -49,6 +49,8 @@ public:
     BacklightButton(QWidget *parent = nullptr);
      ~BacklightButton() {};
 
+    void setSliderDialog(SliderDialog *sliderDialog) { m_sliderDialog = sliderDialog; }
+
 signals:
     void wheel(bool up);
 
@@ -59,6 +61,7 @@ protected:
 
 private:
     int m_mouseWheelThresholdCounter;
+    SliderDialog *m_sliderDialog = nullptr;
 };
 
 class LXQtBacklight : public QObject, public ILXQtPanelPlugin

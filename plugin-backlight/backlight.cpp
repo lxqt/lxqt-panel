@@ -37,12 +37,16 @@ BacklightButton::BacklightButton(QWidget *parent):
 
 void BacklightButton::enterEvent(QEnterEvent *event)
 {
+    if (m_sliderDialog && m_sliderDialog->isVisible())
+        return;
     QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
 }
 
 void BacklightButton::mouseMoveEvent(QMouseEvent *event)
 {
     QToolButton::mouseMoveEvent(event);
+    if (m_sliderDialog && m_sliderDialog->isVisible())
+        return;
     if (!QToolTip::isVisible())
         QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
 }
@@ -77,6 +81,7 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_updateTimer.setSingleShot(true);
     m_updateTimer.setInterval(2000);
     m_backlightSlider = new SliderDialog(m_backlightButton);
+    m_backlightButton->setSliderDialog(m_backlightSlider);
     connect(m_backlightButton, &BacklightButton::wheel, m_backlightSlider, [this](bool up) {
         // Using a timer is only a safeguard against returning the slider to its previous value
         // on updating it, although that should not happen with the code of SliderDialog.
