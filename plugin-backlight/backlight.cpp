@@ -54,6 +54,7 @@ void BacklightButton::mouseMoveEvent(QMouseEvent *event)
 void BacklightButton::wheelEvent(QWheelEvent *e)
 {
     e->accept();
+    QToolTip::showText(e->globalPosition().toPoint(), toolTip(), this);
     QPoint angleDelta = e->angleDelta();
     Qt::Orientation orient = (std::abs(angleDelta.x()) > std::abs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
     int rotationSteps = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
@@ -62,7 +63,6 @@ void BacklightButton::wheelEvent(QWheelEvent *e)
         return;
     emit wheel(rotationSteps > 0 ? true : false);
     m_mouseWheelThresholdCounter = 0;
-    QToolTip::showText(e->globalPosition().toPoint(), toolTip(), this);
 }
 
 LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
