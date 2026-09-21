@@ -58,6 +58,7 @@ void BacklightButton::wheelEvent(QWheelEvent *e)
         return;
     emit wheel(rotationSteps > 0 ? true : false);
     m_mouseWheelThresholdCounter = 0;
+    QToolTip::showText(e->globalPosition().toPoint(), toolTip(), this);
 }
 
 LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
@@ -125,6 +126,8 @@ void LXQtBacklight::updateBacklightTooltip()
         m_backlightButton->setToolTip(tr("Brightness: %1%").arg(m_backlight->getBacklight() * 100 / m_backlight->getMaxBacklight()));
     else
         m_backlightButton->setToolTip(QString());
+    if (m_backlightButton->underMouse())
+        QToolTip::showText(QCursor::pos(), m_backlightButton->toolTip(), m_backlightButton);
 }
 
 
