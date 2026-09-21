@@ -53,6 +53,8 @@ signals:
     void wheel(bool up);
 
 protected:
+    void enterEvent(QEnterEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
 
 private:

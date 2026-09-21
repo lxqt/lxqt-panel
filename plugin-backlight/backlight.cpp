@@ -28,10 +28,24 @@
 #include <QEvent>
 
 #include <cmath>
+#include <QCursor>
+#include <QToolTip>
 
 BacklightButton::BacklightButton(QWidget *parent):
     QToolButton(parent),
     m_mouseWheelThresholdCounter(0) {}
+
+void BacklightButton::enterEvent(QEnterEvent *event)
+{
+    QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
+}
+
+void BacklightButton::mouseMoveEvent(QMouseEvent *event)
+{
+    QToolButton::mouseMoveEvent(event);
+    if (!QToolTip::isVisible())
+        QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
+}
 
 void BacklightButton::wheelEvent(QWheelEvent *e)
 {
@@ -95,6 +109,7 @@ void LXQtBacklight::toggleSlider()
         m_backlightSlider->hide();
     else
     {
+        QToolTip::hideText();
         QSize size = m_backlightSlider->sizeHint();
         QRect rect = calculatePopupWindowPos(size);
         m_backlightSlider->setGeometry(rect);
