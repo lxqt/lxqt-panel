@@ -35,6 +35,7 @@
 #include "sliderdialog.h"
 
 namespace LXQt {
+class Backlight;
 class Notification;
 }
 namespace GlobalKeyShortcut
@@ -48,14 +49,19 @@ public:
     BacklightButton(QWidget *parent = nullptr);
      ~BacklightButton() {};
 
+    void setSliderDialog(SliderDialog *sliderDialog) { m_sliderDialog = sliderDialog; }
+
 signals:
     void wheel(bool up);
 
 protected:
+    void enterEvent(QEnterEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
 
 private:
     int m_mouseWheelThresholdCounter;
+    SliderDialog *m_sliderDialog = nullptr;
 };
 
 class LXQtBacklight : public QObject, public ILXQtPanelPlugin
@@ -73,7 +79,10 @@ protected Q_SLOTS:
     void toggleSlider();
 
 private:
+    void updateBacklightTooltip();
+
     BacklightButton *m_backlightButton;
+    LXQt::Backlight *m_backlight;
     SliderDialog *m_backlightSlider;
     QTimer m_updateTimer;
 };

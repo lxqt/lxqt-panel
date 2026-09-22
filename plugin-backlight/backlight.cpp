@@ -28,14 +28,33 @@
 #include <QEvent>
 
 #include <cmath>
+#include <QCursor>
+#include <QToolTip>
 
 BacklightButton::BacklightButton(QWidget *parent):
     QToolButton(parent),
     m_mouseWheelThresholdCounter(0) {}
 
+void BacklightButton::enterEvent(QEnterEvent *event)
+{
+    if (m_sliderDialog && m_sliderDialog->isVisible())
+        return;
+    QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
+}
+
+void BacklightButton::mouseMoveEvent(QMouseEvent *event)
+{
+    QToolButton::mouseMoveEvent(event);
+    if (m_sliderDialog && m_sliderDialog->isVisible())
+        return;
+    if (!QToolTip::isVisible())
+        QToolTip::showText(event->globalPosition().toPoint(), toolTip(), this);
+}
+
 void BacklightButton::wheelEvent(QWheelEvent *e)
 {
     e->accept();
+    QToolTip::showText(e->globalPosition().toPoint(), toolTip(), this);
     QPoint angleDelta = e->angleDelta();
     Qt::Orientation orient = (std::abs(angleDelta.x()) > std::abs(angleDelta.y()) ? Qt::Horizontal : Qt::Vertical);
     int rotationSteps = (orient == Qt::Horizontal ? angleDelta.x() : angleDelta.y());
@@ -56,9 +75,14 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
     m_backlightButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    m_backlight = new LXQt::Backlight(this);
+    connect(m_backlight, &LXQt::Backlight::backlightChanged, this, &LXQtBacklight::updateBacklightTooltip);
+    updateBacklightTooltip();
+
     m_updateTimer.setSingleShot(true);
     m_updateTimer.setInterval(2000);
     m_backlightSlider = new SliderDialog(m_backlightButton);
+    m_backlightButton->setSliderDialog(m_backlightSlider);
     connect(m_backlightButton, &BacklightButton::wheel, m_backlightSlider, [this](bool up) {
         // Using a timer is only a safeguard against returning the slider to its previous value
         // on updating it, although that should not happen with the code of SliderDialog.
@@ -92,6 +116,7 @@ void LXQtBacklight::toggleSlider()
         m_backlightSlider->hide();
     else
     {
+        QToolTip::hideText();
         QSize size = m_backlightSlider->sizeHint();
         QRect rect = calculatePopupWindowPos(size);
         m_backlightSlider->setGeometry(rect);
@@ -99,6 +124,16 @@ void LXQtBacklight::toggleSlider()
         m_backlightSlider->show();
         m_backlightSlider->setFocus();
     }
+}
+
+void LXQtBacklight::updateBacklightTooltip()
+{
+    if (m_backlight->isBacklightAvailable() && m_backlight->getMaxBacklight() > 0)
+        m_backlightButton->setToolTip(tr("Backlight: %1%").arg(m_backlight->getBacklight() * 100 / m_backlight->getMaxBacklight()));
+    else
+        m_backlightButton->setToolTip(QString());
+    if (m_backlightButton->underMouse())
+        QToolTip::showText(QCursor::pos(), m_backlightButton->toolTip(), m_backlightButton);
 }
 
 
