@@ -49,8 +49,9 @@
 #define HELP_STRUC_DESC4 LXQtCustomCommandConfiguration::tr("string to be used as text of the button")
 #define HELP_STRUC_DESC5 LXQtCustomCommandConfiguration::tr("icon to be shown in the button, in the same form as explained before")
 #define HELP_STRUC_DESC6 LXQtCustomCommandConfiguration::tr("string to be used as tooltip of the button")
-#define HELP_STRUC_DESC7 LXQtCustomCommandConfiguration::tr("All values should be encoded in base64")
-#define HELP_STRUC_DESC8 LXQtCustomCommandConfiguration::tr("Example of script generating structured output:")
+#define HELP_STRUC_DESC7 LXQtCustomCommandConfiguration::tr("string to be set as a style sheet in the button")
+#define HELP_STRUC_DESC8 LXQtCustomCommandConfiguration::tr("All values should be encoded in base64")
+#define HELP_STRUC_DESC9 LXQtCustomCommandConfiguration::tr("Example of script generating structured output:")
 #define HELP_STRUC_EXAMPLE1 LXQtCustomCommandConfiguration::tr("My Text")
 #define HELP_STRUC_EXAMPLE2 LXQtCustomCommandConfiguration::tr("my_image")
 #define HELP_STRUC_EXAMPLE3 LXQtCustomCommandConfiguration::tr("My Tooltip")
@@ -89,9 +90,10 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
     "- <span style=\" font-style:italic;\">text</span> - %16<br/>"
     "- <span style=\" font-style:italic;\">icon</span> - %17<br/>"
     "- <span style=\" font-style:italic;\">tooltip</span> - %18<br/>"
-    "<span style=\" text-decoration: underline;\">%19</span><br/><br/>"
-    "%20<br/>"
-    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%21\" | base64 --wrap=0) icon:$(base64 --wrap=0 %22.svg) tooltip:$(echo -n \"%23\" | base64 --wrap=0)\"</span></p></body></html>")
+    "- <span style=\" font-style:italic;\">stylesheet</span> - %19<br/>"
+    "<span style=\" text-decoration: underline;\">%20</span><br/><br/>"
+    "%21<br/>"
+    "<span style=\" font-style:italic;\">echo \"text:$(echo -n \"%22\" | base64 --wrap=0) icon:$(base64 --wrap=0 %23.svg) tooltip:$(echo -n \"%24\" | base64 --wrap=0)\"</span></p></body></html>")
     .arg(msOutputFormatStrings[OUTPUT_TEXT],
         HELP_TEXT_DESC,
         msOutputFormatStrings[OUTPUT_ICON],
@@ -112,6 +114,7 @@ LXQtCustomCommandConfiguration::LXQtCustomCommandConfiguration(PluginSettings *s
         HELP_STRUC_DESC6,
         HELP_STRUC_DESC7,
         HELP_STRUC_DESC8,
+        HELP_STRUC_DESC9,
         HELP_STRUC_EXAMPLE1,
         HELP_STRUC_EXAMPLE2,
         HELP_STRUC_EXAMPLE3
