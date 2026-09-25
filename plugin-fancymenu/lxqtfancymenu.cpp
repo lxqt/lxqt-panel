@@ -217,6 +217,9 @@ void LXQtFancyMenu::settingsChanged()
     int delay = std::clamp(settings()->value(QStringLiteral("autoSelDelay"), 250).toInt(), 50, 1000);
     mWindow->setAutoSelectionDelay(delay);
 
+    int searchDelay = std::clamp(settings()->value(QStringLiteral("searchDelay"), 350).toInt(), 0, 2000);
+    mWindow->setSearchDelay(searchDelay);
+
     realign();
 }
 
