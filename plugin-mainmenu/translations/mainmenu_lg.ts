@@ -147,7 +147,9 @@ Oyagala egyibwewo waddewo eno empya?</translation>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolawo oba kyusamu ekyanguyisamirimu ekya mu
+&apos;lxqt-qdbus openmenu&apos; eya puloguramu ekwanaganya
+ebirabikira awakolerwa mu Wayland</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
