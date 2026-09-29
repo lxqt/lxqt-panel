@@ -74,14 +74,13 @@ LXQtBacklight::LXQtBacklight(const ILXQtPanelPluginStartupInfo &startupInfo):
     m_backlightButton->setIcon(QIcon::fromTheme(QStringLiteral("brightnesssettings")));
     m_backlightButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_backlight = new LXQt::Backlight(this);
-    connect(m_backlight, &LXQt::Backlight::backlightChanged, this, &LXQtBacklight::updateBacklightTooltip);
-    updateBacklightTooltip();
-
     m_updateTimer.setSingleShot(true);
     m_updateTimer.setInterval(2000);
     m_backlightSlider = new SliderDialog(m_backlightButton);
     m_backlightButton->setSliderDialog(m_backlightSlider);
+    m_backlight = m_backlightSlider->backlight();
+    connect(m_backlight, &LXQt::Backlight::backlightChanged, this, &LXQtBacklight::updateBacklightTooltip);
+    updateBacklightTooltip();
     connect(m_backlightButton, &BacklightButton::wheel, m_backlightSlider, [this](bool up) {
         // Using a timer is only a safeguard against returning the slider to its previous value
         // on updating it, although that should not happen with the code of SliderDialog.
