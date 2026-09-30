@@ -126,7 +126,7 @@ void LXQtBacklight::toggleSlider()
 
 void LXQtBacklight::updateBacklightTooltip()
 {
-    if (m_backlight->isBacklightAvailable() && m_backlight->getMaxBacklight() > 0)
+    if (m_backlight->isBacklightAvailable() && !m_backlight->isBacklightOff() && m_backlight->getMaxBacklight() > 0)
         m_backlightButton->setToolTip(tr("Backlight: %1%").arg(qRound(100.0 * m_backlight->getBacklight() / m_backlight->getMaxBacklight())));
     else
         m_backlightButton->setToolTip(QString());
