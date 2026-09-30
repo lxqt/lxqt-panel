@@ -130,7 +130,7 @@ void LXQtBacklight::updateBacklightTooltip()
         m_backlightButton->setToolTip(tr("Backlight: %1%").arg(qRound(100.0 * m_backlight->getBacklight() / m_backlight->getMaxBacklight())));
     else
         m_backlightButton->setToolTip(QString());
-    if (m_backlightButton->underMouse())
+    if (m_backlightButton->underMouse() && !m_backlightSlider->isVisible())
         QToolTip::showText(QCursor::pos(), m_backlightButton->toolTip(), m_backlightButton);
 }
 
