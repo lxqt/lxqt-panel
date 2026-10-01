@@ -105,28 +105,28 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="78"/>
+        <location filename="../volumepopup.cpp" line="115"/>
         <source>Launch mixer</source>
         <translation>მიქსერის გაშვება</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="79"/>
+        <location filename="../volumepopup.cpp" line="116"/>
         <source>Mi&amp;xer</source>
         <translation>მი&amp;ქსერი</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="500"/>
+        <location filename="../volumepopup.cpp" line="539"/>
         <source>Mute</source>
         <translation>დადუმება</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="506"/>
-        <location filename="../volumepopup.cpp" line="527"/>
+        <location filename="../volumepopup.cpp" line="545"/>
+        <location filename="../volumepopup.cpp" line="566"/>
         <source>Set as default output</source>
         <translation>ნაგულისხმევ გამოტანად დაყენება</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="527"/>
+        <location filename="../volumepopup.cpp" line="566"/>
         <source>Default output</source>
         <translation>ნაგულისხმევი გამოტანა</translation>
     </message>
