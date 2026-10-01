@@ -105,28 +105,28 @@
 <context>
     <name>VolumePopup</name>
     <message>
-        <location filename="../volumepopup.cpp" line="78"/>
+        <location filename="../volumepopup.cpp" line="115"/>
         <source>Launch mixer</source>
         <translation>ミキサーを起動します</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="79"/>
+        <location filename="../volumepopup.cpp" line="116"/>
         <source>Mi&amp;xer</source>
         <translation>ミキサー(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="500"/>
+        <location filename="../volumepopup.cpp" line="539"/>
         <source>Mute</source>
         <translation>ミュート</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="506"/>
-        <location filename="../volumepopup.cpp" line="527"/>
+        <location filename="../volumepopup.cpp" line="545"/>
+        <location filename="../volumepopup.cpp" line="566"/>
         <source>Set as default output</source>
         <translation>デフォルト出力として設定</translation>
     </message>
     <message>
-        <location filename="../volumepopup.cpp" line="527"/>
+        <location filename="../volumepopup.cpp" line="566"/>
         <source>Default output</source>
         <translation>デフォルト出力</translation>
     </message>
