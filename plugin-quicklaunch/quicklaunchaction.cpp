@@ -28,6 +28,7 @@
 #include "quicklaunchaction.h"
 #include <QDesktopServices>
 #include <QFileIconProvider>
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QMessageBox>
 #include <QProcess>
