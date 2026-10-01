@@ -586,9 +586,9 @@ bool LXQtTaskbarWayfireBackend::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtTaskbarWayfireBackend::getCurrentWindows() const
+QList<WId> LXQtTaskbarWayfireBackend::getCurrentWindows() const
 {
-    QVector<WId> ids;
+    QList<WId> ids;
     for ( WaylandId viewId : mViews.keys())
     {
         ids << viewId;

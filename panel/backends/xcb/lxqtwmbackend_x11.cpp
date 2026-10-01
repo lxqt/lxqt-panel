@@ -264,7 +264,7 @@ bool LXQtWMBackendX11::supportsAction(WId windowId, LXQtTaskBarBackendAction act
 
 bool LXQtWMBackendX11::reloadWindows()
 {
-    QVector<WId> knownWindows;
+    QList<WId> knownWindows;
     qSwap(knownWindows, m_windows);
     QList<WId> new_list;
 
@@ -294,7 +294,7 @@ bool LXQtWMBackendX11::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtWMBackendX11::getCurrentWindows() const
+QList<WId> LXQtWMBackendX11::getCurrentWindows() const
 {
     return m_windows;
 }

@@ -44,7 +44,7 @@ public:
     // Windows
     bool reloadWindows() override;
 
-    QVector<WId> getCurrentWindows() const override;
+    QList<WId> getCurrentWindows() const override;
 
     QString getWindowTitle(WId windowId) const override;
 

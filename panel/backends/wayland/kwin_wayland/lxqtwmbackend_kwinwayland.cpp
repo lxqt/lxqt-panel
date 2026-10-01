@@ -144,7 +144,7 @@ bool LXQtWMBackend_KWinWayland::supportsAction(WId windowId, LXQtTaskBarBackendA
 
 bool LXQtWMBackend_KWinWayland::reloadWindows()
 {
-    const QVector<WId> wids = getCurrentWindows();
+    const QList<WId> wids = getCurrentWindows();
 
     // Force removal and re-adding
     for(WId windowId : wids)
@@ -159,9 +159,9 @@ bool LXQtWMBackend_KWinWayland::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtWMBackend_KWinWayland::getCurrentWindows() const
+QList<WId> LXQtWMBackend_KWinWayland::getCurrentWindows() const
 {
-    QVector<WId> wids;
+    QList<WId> wids;
     wids.reserve(wids.size());
 
     for(const std::unique_ptr<LXQtTaskBarPlasmaWindow>& window : std::as_const(windows))
@@ -566,7 +566,7 @@ bool LXQtWMBackend_KWinWayland::showDesktop(bool value)
     if (value)
     {
         showDesktopWins.clear();
-        QVector<WId> wids = getCurrentWindows();
+        QList<WId> wids = getCurrentWindows();
         std::sort(wids.begin(), wids.end(), [this](WId id1, WId id2) {
             // sort the list by activation time to keep the z-order on restoring
             return (lastActivated.value(id1) < lastActivated.value(id2));
