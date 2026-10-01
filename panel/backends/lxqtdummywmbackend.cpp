@@ -48,7 +48,7 @@ bool LXQtDummyWMBackend::reloadWindows()
     return false;
 }
 
-QVector<WId> LXQtDummyWMBackend::getCurrentWindows() const
+QList<WId> LXQtDummyWMBackend::getCurrentWindows() const
 {
     return {};
 }

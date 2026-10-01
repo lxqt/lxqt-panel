@@ -33,7 +33,7 @@ public:
     // Windows
     virtual bool reloadWindows() override;
 
-    virtual QVector<WId> getCurrentWindows() const override;
+    virtual QList<WId> getCurrentWindows() const override;
     virtual QString getWindowTitle(WId windowId) const override;
     virtual bool applicationDemandsAttention(WId windowId) const override;
     virtual QIcon getApplicationIcon(WId windowId, int devicePixels) const override;

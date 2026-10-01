@@ -26,7 +26,7 @@ class LXQtTaskbarWayfireBackend : public ILXQtAbstractWMInterface
     virtual bool reloadWindows() override;
 
     // Get the current windows
-    virtual QVector<WId> getCurrentWindows() const override;
+    virtual QList<WId> getCurrentWindows() const override;
 
     // Get the window title
     virtual QString getWindowTitle(WId windowId) const override;

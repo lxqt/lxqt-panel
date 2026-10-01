@@ -50,7 +50,7 @@ public:
     // Windows
     virtual bool reloadWindows() = 0;
 
-    virtual QVector<WId> getCurrentWindows() const = 0;
+    virtual QList<WId> getCurrentWindows() const = 0;
 
     virtual QString getWindowTitle(WId windowId) const = 0;
 

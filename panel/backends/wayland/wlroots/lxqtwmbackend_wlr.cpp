@@ -68,7 +68,7 @@ bool LXQtTaskbarWlrootsBackend::supportsAction(WId, LXQtTaskBarBackendAction act
 
 bool LXQtTaskbarWlrootsBackend::reloadWindows()
 {
-    const QVector<WId> wids = getCurrentWindows();
+    const QList<WId> wids = getCurrentWindows();
 
     // Force removal and re-adding
     for(WId windowId : wids)
@@ -83,9 +83,9 @@ bool LXQtTaskbarWlrootsBackend::reloadWindows()
     return true;
 }
 
-QVector<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
+QList<WId> LXQtTaskbarWlrootsBackend::getCurrentWindows() const
 {
-    QVector<WId> wids;
+    QList<WId> wids;
 
     for( WId wid: windows ){
         wids << wid;
@@ -364,7 +364,7 @@ bool LXQtTaskbarWlrootsBackend::showDesktop(bool value)
     if (value)
     {
         showDesktopWins.clear();
-        QVector<WId> wids = getCurrentWindows();
+        QList<WId> wids = getCurrentWindows();
         std::sort(wids.begin(), wids.end(), [this](WId id1, WId id2) {
             // sort the list by activation time to keep the z-order on restoring
             return (lastActivated.value(id1) < lastActivated.value(id2));

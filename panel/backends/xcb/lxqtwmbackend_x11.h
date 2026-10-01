@@ -49,7 +49,7 @@ public:
     // Windows
     virtual bool reloadWindows() override;
 
-    virtual QVector<WId> getCurrentWindows() const override;
+    virtual QList<WId> getCurrentWindows() const override;
     virtual QString getWindowTitle(WId windowId) const override;
     virtual bool applicationDemandsAttention(WId windowId) const override;
     virtual QIcon getApplicationIcon(WId windowId, int devicePixels) const override;
@@ -112,7 +112,7 @@ private:
     Display *m_X11Display;
     xcb_connection_t *m_xcbConnection;
 
-    QVector<WId> m_windows;
+    QList<WId> m_windows;
 };
 
 class LXQtWMBackendX11Library: public QObject, public ILXQtWMBackendLibrary
