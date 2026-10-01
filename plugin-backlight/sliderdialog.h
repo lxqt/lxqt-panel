@@ -42,6 +42,8 @@ public:
     SliderDialog(QWidget *parent);
     void updateBacklight();
 
+    LXQt::Backlight *backlight() const { return m_backlight; }
+
 public Q_SLOTS:
     void downButtonClicked(bool);
     void upButtonClicked(bool);
