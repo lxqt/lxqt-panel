@@ -109,16 +109,17 @@ QIcon getIconForAppId(QString mAppId)
 
     for (const QString &path : appDirs)
     {
+        const QDir dir(path);
         /** Get the icon name from desktop (mAppId: as it is) */
-        if (QFile::exists(path + mAppId + QSL(".desktop")))
+        if (QFile::exists(dir.filePath(mAppId + QSL(".desktop"))))
         {
-            QSettings desktop(path + mAppId + QSL(".desktop"), QSettings::IniFormat);
+            QSettings desktop(dir.filePath(mAppId + QSL(".desktop")), QSettings::IniFormat);
             iconName = desktop.value(QSL("Desktop Entry/Icon")).toString();
         }
         /** Get the icon name from desktop (mAppId: all lower-case letters) */
-        else if (QFile::exists(path + mAppId.toLower() + QSL(".desktop")))
+        else if (QFile::exists(dir.filePath(mAppId.toLower() + QSL(".desktop"))))
         {
-            QSettings desktop(path + mAppId.toLower() + QSL(".desktop"), QSettings::IniFormat);
+            QSettings desktop(dir.filePath(mAppId.toLower() + QSL(".desktop")), QSettings::IniFormat);
             iconName = desktop.value(QSL("Desktop Entry/Icon")).toString();
         }
 
@@ -153,10 +154,11 @@ QIcon getIconForAppId(QString mAppId)
     /* Check all desktop files for @mAppId */
     for (const QString &path : appDirs)
     {
-        QStringList desktops = QDir(path).entryList({QSL("*.desktop")});
-        for (QString dskf : desktops)
+        const QDir dir(path);
+        const QStringList desktops = dir.entryList({QSL("*.desktop")});
+        for (const QString &dskf : desktops)
         {
-            QSettings desktop(path + dskf, QSettings::IniFormat);
+            QSettings desktop(dir.filePath(dskf), QSettings::IniFormat);
 
             QString exec = desktop.value(QSL("Desktop Entry/Exec"), QSL("abcd1234/-")).toString();
             QString name = desktop.value(QSL("Desktop Entry/Name"), QSL("abcd1234/-")).toString();
