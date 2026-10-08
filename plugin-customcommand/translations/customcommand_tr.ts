@@ -128,17 +128,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
         <source>min: </source>
-        <translation type="unfinished"></translation>
+        <translation>asgari: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
         <source>max: </source>
-        <translation type="unfinished"></translation>
+        <translation>azami: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişlik</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
