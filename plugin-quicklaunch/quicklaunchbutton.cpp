@@ -118,7 +118,8 @@ void QuickLaunchButton::this_customContextMenuRequested(const QPoint & /*pos*/)
     mMoveRightAct->setEnabled(!mPlugin->panel()->isLocked() && panel && panel->indexOfButton(this) < panel->countOfButtons() - 1);
     mDeleteAct->setEnabled(!mPlugin->panel()->isLocked());
     mPlugin->willShowWindow(mMenu);
-    mMenu->popup(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal(QPoint(0, 0)), mMenu->sizeHint()).topLeft());
+    mMenu->setGeometry(QRect(mPlugin->panel()->calculatePopupWindowPos(mapToGlobal(QPoint(0, 0)), mMenu->sizeHint()).topLeft(), mMenu->sizeHint()));
+    mMenu->show();
 }
 
 

@@ -328,7 +328,8 @@ void StatusNotifierButton::mouseReleaseEvent(QMouseEvent *event)
         if (mMenu)
         {
             mPlugin->willShowWindow(mMenu);
-            mMenu->popup(mPlugin->panel()->calculatePopupWindowPos(QCursor::pos(), mMenu->sizeHint()).topLeft());
+            mMenu->setGeometry(QRect(mPlugin->panel()->calculatePopupWindowPos(QCursor::pos(), mMenu->sizeHint()).topLeft(), mMenu->sizeHint()));
+            mMenu->show();
         } else
             interface->ContextMenu(QCursor::pos().x(), QCursor::pos().y());
     }
