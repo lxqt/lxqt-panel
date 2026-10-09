@@ -29,7 +29,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtgrouppopup.h"
-#include "lxqttaskgroup.h"
 
 #include <QEnterEvent>
 #include <QDrag>
