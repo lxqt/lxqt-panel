@@ -38,9 +38,7 @@
 
 
 class XdgDesktopFile;
-class QuickLaunchAction;
 class QDragEnterEvent;
-class QuickLaunchButton;
 class QSettings;
 class QLabel;
 
