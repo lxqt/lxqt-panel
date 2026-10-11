@@ -145,8 +145,8 @@ LXQtFancyMenuWindow::LXQtFancyMenuWindow(QWidget *parent)
     setStyle(s);
 
     mSearchTimer.setSingleShot(true);
+    mSearchTimer.setInterval(350);
     connect(&mSearchTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::doSearch);
-    mSearchTimer.setInterval(350); // typing speed (not very fast)
 
     mAutoSelTimer.setSingleShot(true);
     connect(&mAutoSelTimer, &QTimer::timeout, this, &LXQtFancyMenuWindow::autoSelect);
