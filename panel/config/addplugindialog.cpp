@@ -27,6 +27,7 @@
 
 #include "ui_addplugindialog.h"
 #include "addplugindialog.h"
+#include "plugin.h"
 #include "../lxqtpanelapplication.h"
 
 #include <LXQt/HtmlDelegate>

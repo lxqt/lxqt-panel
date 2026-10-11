@@ -29,7 +29,6 @@
 #ifndef LXQT_ADDPLUGINDIALOG_H
 #define LXQT_ADDPLUGINDIALOG_H
 
-#include "plugin.h"
 #include <LXQt/PluginInfo>
 #include <QDialog>
 #include <QTimer>
