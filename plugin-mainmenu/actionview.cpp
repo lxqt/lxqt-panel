@@ -189,10 +189,9 @@ bool ActionView::existsAction(QAction const * action) const
     bool exists = false;
     for (int row = mModel->rowCount() - 1; 0 <= row; --row)
     {
-        const QModelIndex index = mModel->index(row, 0);
-        if (action->text() == mModel->data(index, Qt::DisplayRole)
-                && action->toolTip() == mModel->data(index, Qt::ToolTipRole)
-                )
+        auto a = qobject_cast<XdgAction const *>(action);
+        auto b = qobject_cast<XdgAction const *>(mModel->item(row)->data(ActionRole).value<QAction*>());
+        if (a->desktopFile().fileName() == b->desktopFile().fileName())
         {
             exists = true;
             break;
