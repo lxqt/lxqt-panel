@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>253</width>
+    <width>287</width>
     <height>235</height>
    </rect>
   </property>
@@ -80,20 +80,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="namesGroupBox">
-     <property name="title">
-      <string>Desktop names</string>
-     </property>
-     <layout class="QFormLayout" name="formLayout"/>
-    </widget>
-   </item>
-   <item>
     <widget class="QDialogButtonBox" name="buttons">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
+      <set>QDialogButtonBox::StandardButton::Close</set>
      </property>
     </widget>
    </item>
