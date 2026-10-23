@@ -151,6 +151,12 @@ if(MOUNT_PLUGIN)
     add_subdirectory(plugin-mount)
 endif(MOUNT_PLUGIN)
 
+setByDefault(POWER_PLUGIN Yes)
+if(POWER_PLUGIN)
+    list(APPEND ENABLED_PLUGINS "Power Draw")
+    add_subdirectory(plugin-power)
+endif()
+
 setByDefault(QUICKLAUNCH_PLUGIN Yes)
 if(QUICKLAUNCH_PLUGIN)
     list(APPEND STATIC_PLUGINS "quicklaunch")
