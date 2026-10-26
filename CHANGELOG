@@ -1,3 +1,24 @@
+lxqt-panel-2.5.0 / 2026-11-05
+==============================
+ * Fixed Network Monitor Plugin not respecting lxqt-panel's icon size.
+ * Added new option to Network Monitor Plugin's config to 'Prefer system icons'.
+ * Change tooltip in Status Notifier if an app sets title instead of tooltip (some GTK apps can't set the tooltip but may change the title).
+ * Fixed volume wheel scroll dropping steps with fast mice, and added touchpad support to Volume Control plugin.
+ * Improved widget removal and height adjustment in Volume Control plugin.
+ * Do not close Task Manager's group popup on showing its context menu.
+ * Added minimum width config option to Custom Command plugin.
+ * Save the icon path when selected via file picker in Custom Command plugin's config dialog.
+ * Made the D-Bus task command work with auto-hiding panels.
+ * Made the Close button the default button for config dialogs of relevant plugins.
+ * Used `QDialogButtonBox` in plugin-qeyes.
+ * Set fallback icon for Favorites in Fancy Menu.
+ * Removed hard-coded font size from CPU monitor widget.
+ * Removed old codes of Qt < 6.8.
+ * Used `setAutoRaise` for transparency with system theme in plugin-backlight.
+ * Show the current brightness in the tooltip of backlight plugin.
+ * Renamed `QVector` to `QList`.
+ * Fixed desktop file lookups in the Wayfire backend.
+
 lxqt-panel-2.4.1 / 2026-05-29
 ==============================
  * Fixed a regression in the adjusting step of Volume Control plugin.
