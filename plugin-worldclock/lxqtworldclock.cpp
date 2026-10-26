@@ -547,13 +547,19 @@ QString LXQtWorldClock::preformat(const QString &format, const QTimeZone &timeZo
             else
                 replacement.prepend(QLatin1Char('\''));
 
+            int skip = 0;
             if (result[tz + length] == QLatin1Char('\''))
-                ++length;
+            {
+                ++length;                                               // skip following apostrophe
+                apos = result.indexOf(QLatin1Char('\''), tz + length);  // next apostrophe (pair to skipped one)
+                if (apos != -1)
+                    skip = apos - tz - length + 1;   // length of text in apostrophes just after T...
+            }
             else
                 replacement.append(QLatin1Char('\''));
 
             result.replace(tz, length, replacement);
-            from = tz + replacement.length();
+            from = tz + replacement.length() + skip;
         }
         else
             break;
