@@ -268,7 +268,7 @@ LXQtPanel::LXQtPanel(const QString &configGroup, LXQt::Settings *settings, QWidg
 
             // WARNING: Only the following desktops are known to give the focus to child popups
             // when the panel does not accept focus.
-            const QRegularExpression desktops(QStringLiteral("(?i)(kde|kwin|labwc|wayfire|hyprland)"));
+            const QRegularExpression desktops(QStringLiteral("(?i)(kde|kwin|labwc|hyprland)"));
 
             if (desktops.match(qEnvironmentVariable("XDG_CURRENT_DESKTOP")).hasMatch())
                 mLayerWindow->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityNone);
