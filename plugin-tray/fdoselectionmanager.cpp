@@ -36,6 +36,8 @@
 
 #include <QGuiApplication> // For nativeInterface()
 
+#include <utility>
+
 #include <xcb/composite.h>
 #include <xcb/damage.h>
 #include <xcb/xcb_atom.h>
@@ -189,7 +191,7 @@ bool FdoSelectionManager::nativeEventFilter(const QByteArray &eventType, void *m
         // it's possible that something showed our container window, we have to hide it
         // workaround for BUG 357443: when KWin is restarted, container window is shown on top
         if (event->state == XCB_VISIBILITY_UNOBSCURED) {
-            for (auto sniProxy : m_proxies.values()) {
+            for (const auto *sniProxy : std::as_const(m_proxies)) {
                 sniProxy->hideContainerWindow(event->window);
             }
         }
