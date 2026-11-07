@@ -35,13 +35,13 @@
 #include <QPropertyAnimation>
 #include <QPointer>
 #include <LXQt/Settings>
+#include "plugin.h"
 #include "ilxqtpanel.h"
 #include "lxqtpanelglobals.h"
 
 #define CFG_KEY_SCREENNAME "screen-name" // also used by LXQtPanelApplication (on Wayland)
 
 class QMenu;
-class Plugin;
 class QAbstractItemModel;
 
 namespace LayerShellQt {

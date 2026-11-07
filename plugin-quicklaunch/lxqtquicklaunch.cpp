@@ -27,8 +27,6 @@
  * END_COMMON_COPYRIGHT_HEADER */
 
 #include "lxqtquicklaunch.h"
-#include "quicklaunchbutton.h"
-#include "quicklaunchaction.h"
 #include "../panel/ilxqtpanelplugin.h"
 #include <QDesktopServices>
 #include <QDragEnterEvent>
