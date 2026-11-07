@@ -56,7 +56,6 @@ private slots:
        Saves settings in conf file.
     */
     void loadSettings();
-    void loadDesktopsNames();
     void rowsChanged(int value);
     void labelTypeChanged(int type);
 };

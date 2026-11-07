@@ -51,8 +51,6 @@ DesktopSwitchConfiguration::DesktopSwitchConfiguration(PluginSettings *settings,
     connect(ui->showOnlyActiveCB, &QAbstractButton::toggled,       this, [this] (bool checked) {
         this->settings().setValue(QStringLiteral("showOnlyActive"), checked);
     });
-
-    loadDesktopsNames();
 }
 
 DesktopSwitchConfiguration::~DesktopSwitchConfiguration()
@@ -65,38 +63,6 @@ void DesktopSwitchConfiguration::loadSettings()
     ui->rowsSB->setValue(settings().value(QStringLiteral("rows"), 1).toInt());
     ui->labelTypeCB->setCurrentIndex(settings().value(QStringLiteral("labelType"), 0).toInt());
     ui->showOnlyActiveCB->setChecked(settings().value(QStringLiteral("showOnlyActive"), false).toBool());
-}
-
-void DesktopSwitchConfiguration::loadDesktopsNames()
-{
-    LXQtPanelApplication *a = reinterpret_cast<LXQtPanelApplication*>(qApp);
-    auto wmBackend = a->getWMBackend();
-
-    int n = wmBackend->getWorkspacesCount(screen());
-    for (int i = 1; i <= n; i++)
-    {
-        auto deskName = wmBackend->getWorkspaceName(i, screen() ? screen()->name() : QString());
-        if (deskName.isEmpty())
-            deskName = tr("Desktop %1").arg(i);
-        QLineEdit *edit = new QLineEdit(deskName, this);
-        ((QFormLayout *) ui->namesGroupBox->layout())->addRow(tr("Desktop %1:").arg(i), edit);
-
-        //TODO: on Wayland we cannot set desktop names in a standart way
-        // On KWin we could use DBus org.kde.KWin as done by kcm_kwin_virtualdesktops
-        if(qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-        {
-            // C++11 rocks!
-            QTimer *timer = new QTimer(this);
-            timer->setInterval(400);
-            timer->setSingleShot(true);
-            connect(timer, &QTimer::timeout,       this, [=] { KX11Extras::setDesktopName(i, edit->text()); });
-            connect(edit,  &QLineEdit::textEdited, this, [=] { timer->start(); });
-        }
-        else
-        {
-            edit->setReadOnly(true);
-        }
-    }
 }
 
 void DesktopSwitchConfiguration::rowsChanged(int value)
