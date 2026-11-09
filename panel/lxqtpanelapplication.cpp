@@ -487,6 +487,9 @@ void LXQtPanelApplication::handleWaylandScreenAdded(QScreen* newScreen)
                 if (panel->name() == name)
                 { // the panel already exists (and is hidden)
                     alreadyExists = true;
+                    // FIXME: This is a workaround for wlroots. Remove it when not needed.
+                    // See https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/5127
+                    QTimer::singleShot(0, panel, &LXQtPanel::ensureVisible);
                     break;
                 }
             }
