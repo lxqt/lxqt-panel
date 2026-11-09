@@ -248,11 +248,11 @@ void LXQtPanelApplicationPrivate::loadBackend()
             for ( QString xdgCurrentDesktop: xdgCurrentDesktops )
         	{
                 QMap<QString, int> backendScoreMap = getBackendScoreMap( xdgCurrentDesktop );
-                for( QString backend: backendScoreMap.keys() )
+                for (const auto &[backend, score] : backendScoreMap.asKeyValueRange())
                 {
-                    if ( backendScoreMap[ backend ] > bestScore )
+                    if ( score > bestScore )
                     {
-                        bestScore = backendScoreMap[ backend ];
+                        bestScore = score;
                         // No need to call testBackend().
                         // We can be sure the plugin can be loaded.
                         // Because we have a score.
