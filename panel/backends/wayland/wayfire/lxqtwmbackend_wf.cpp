@@ -590,13 +590,7 @@ bool LXQtTaskbarWayfireBackend::reloadWindows()
 
 QList<WId> LXQtTaskbarWayfireBackend::getCurrentWindows() const
 {
-    QList<WId> ids;
-    for ( WaylandId viewId : mViews.keys())
-    {
-        ids << viewId;
-    }
-
-    return ids;
+    return QList<WId>(mViews.keyBegin(), mViews.keyEnd());
 }
 
 QString LXQtTaskbarWayfireBackend::getWindowTitle(WId windowId) const
