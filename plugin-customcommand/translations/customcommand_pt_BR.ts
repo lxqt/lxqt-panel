@@ -138,7 +138,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Largura</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
