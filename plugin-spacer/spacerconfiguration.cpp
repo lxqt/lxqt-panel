@@ -50,8 +50,8 @@ SpacerConfiguration::SpacerConfiguration(PluginSettings *settings, QWidget *pare
 
     loadSettings();
 
-    connect(ui->sizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &SpacerConfiguration::sizeChanged);
-    connect(ui->typeCB, static_cast<void (QComboBox::*)(int index)>(&QComboBox::currentIndexChanged), this, &SpacerConfiguration::typeChanged);
+    connect(ui->sizeSB, &QSpinBox::valueChanged, this, &SpacerConfiguration::sizeChanged);
+    connect(ui->typeCB, &QComboBox::currentIndexChanged, this, &SpacerConfiguration::typeChanged);
     //Note: if there will be more than 2 radio buttons for width/size type, this simple setting logic will break
     connect(ui->sizeExpandRB, &QAbstractButton::toggled, this, &SpacerConfiguration::widthTypeChanged);
 }
