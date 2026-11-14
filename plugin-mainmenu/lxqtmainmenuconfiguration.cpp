@@ -79,7 +79,7 @@ LXQtMainMenuConfiguration::LXQtMainMenuConfiguration(PluginSettings *settings, G
     connect(ui->shortcutEd->addMenuAction(tr("Reset")), &QAction::triggered, this, &LXQtMainMenuConfiguration::shortcutReset);
 
     connect(ui->customFontCB, &QAbstractButton::toggled, this, &LXQtMainMenuConfiguration::customFontChanged);
-    connect(ui->customFontSizeSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &LXQtMainMenuConfiguration::customFontSizeChanged);
+    connect(ui->customFontSizeSB, &QSpinBox::valueChanged, this, &LXQtMainMenuConfiguration::customFontSizeChanged);
 
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtMainMenuConfiguration::globalShortcutChanged);
 
