@@ -54,12 +54,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="14"/>
         <source>Network Monitor Settings</source>
-        <translation>Tīkla vērotāja iestatījumi</translation>
+        <translation>Tīkla pārrauga iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Vispārīgie</translation>
+        <translation>Vispārīgi</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="83"/>
@@ -74,12 +74,12 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="26"/>
         <source>Prefer system icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Dot priekšroku sistēmas ikonām</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="53"/>
         <source>Monitor</source>
-        <translation>Vērotājs/monitors</translation>
+        <translation>Pārraugs</translation>
     </message>
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="62"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../lxqtnetworkmonitorconfiguration.ui" line="36"/>
         <source>Icon</source>
-        <translation>Ikona/piktogramma</translation>
+        <translation>Ikona</translation>
     </message>
 </context>
 </TS>

@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="14"/>
         <source>CPU Load Settings</source>
-        <translation>CPU slodzes iestatījumi</translation>
+        <translation>CPU noslodzes iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Vispārīgie</translation>
+        <translation>Vispārīgi</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="26"/>
@@ -29,27 +29,27 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="33"/>
         <source>Update interval:</source>
-        <translation>Aktualizācijas intervāls:</translation>
+        <translation>Atjaunināšanas intervāls:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="40"/>
         <source>sec</source>
-        <translation>sek</translation>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="62"/>
         <source>Bar orientation:</source>
-        <translation>Skalas orientācija:</translation>
+        <translation>Joslas orientācija:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.ui" line="72"/>
         <source>Bar width:</source>
-        <translation>Skalas platums:</translation>
+        <translation>Joslas platums:</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="68"/>
         <source>Bottom up</source>
-        <translation>Ar augšu uz leju</translation>
+        <translation>No apakšas uz augšu</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="69"/>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="70"/>
         <source>Left to right</source>
-        <translation>No kreisās uz labo pusi</translation>
+        <translation>No kreisās uz labo</translation>
     </message>
     <message>
         <location filename="../lxqtcpuloadconfiguration.cpp" line="71"/>
         <source>Right to left</source>
-        <translation>No labās uz kreiso pusi</translation>
+        <translation>No labās uz kreiso</translation>
     </message>
 </context>
 </TS>

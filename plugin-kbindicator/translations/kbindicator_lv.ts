@@ -60,7 +60,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="20"/>
         <source>Lock Indicators</source>
-        <translation>Piestiprināt indikatorus</translation>
+        <translation>Fiksēšanas taustiņu indikatori</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="26"/>
@@ -90,17 +90,17 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="99"/>
         <source>Flags path pattern:</source>
-        <translation>Ceļa pie karoga šablons/veidnis:</translation>
+        <translation>Karogu ceļa šablons:</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="106"/>
         <source>File path pattern for country flags. Must contain &lt;strong&gt;%1&lt;/strong&gt; which is replaced by the two letter ISO country code (lower case).&lt;br&gt;&lt;br&gt;Example: /usr/share/iso-flags-svg/country-squared/%1.svg</source>
-        <translation>Faila ceļa pie valstu karogiem šablons. Jāsatur &lt;strong&gt;%1&lt;/strong&gt;, ko aizstāj ar divu burtu ISO valsts kodu (mazie burti).&lt;br&gt;&lt;br&gt; Piemērs: /usr/share/ikonas-Karogi-svg/country-squared/%1.svg</translation>
+        <translation>Valstu karogu faila ceļa šablons. Jāsatur &lt;strong&gt;%1&lt;/strong&gt;, ko aizstāj ar divburtu ISO valsts kodu (mazajiem burtiem).&lt;br&gt;&lt;br&gt;Piemērs: /usr/share/iso-flags-svg/country-squared/%1.svg</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="116"/>
         <source>Configure layouts</source>
-        <translation>Izkārtojumu iestatīšana</translation>
+        <translation>Konfigurēt izkārtojumus</translation>
     </message>
     <message>
         <location filename="../src/kbdstateconfig.ui" line="69"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../src/kbdstateconfig.ui" line="89"/>
         <source>Application</source>
-        <translation>Lietotne/programma</translation>
+        <translation>Lietotne</translation>
     </message>
 </context>
 </TS>

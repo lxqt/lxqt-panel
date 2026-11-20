@@ -11,7 +11,7 @@
     <message>
         <location filename="../directorymenu.cpp" line="127"/>
         <source>Open in terminal</source>
-        <translation>Atvērt konsolē (terminālī)</translation>
+        <translation>Atvērt terminālī</translation>
     </message>
 </context>
 <context>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="26"/>
         <source>Base directory:</source>
-        <translation>Bāzes katalogs/mape/direktorija:</translation>
+        <translation>Bāzes mape:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="39"/>
         <source>BaseDirectoryName</source>
-        <translation>BāzesKatalogaNosaukums</translation>
+        <translation>BāzesMapesNosaukums</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="46"/>
@@ -44,17 +44,17 @@
     <message>
         <location filename="../directorymenuconfiguration.ui" line="66"/>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiķete</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="86"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Pogas stils</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="103"/>
         <source>Terminal</source>
-        <translation>Termināls</translation>
+        <translation>Terminālis</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.ui" line="96"/>
@@ -65,17 +65,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="57"/>
         <source>Only icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tikai ikona</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="58"/>
         <source>Only text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tikai teksts</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="59"/>
         <source>Icon and text</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona un teksts</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="118"/>
@@ -90,17 +90,17 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="167"/>
         <source>Icons (*.png *.xpm *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonas (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="191"/>
         <source>Choose Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Izvēlieties etiķeti</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="192"/>
         <source>Label:</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiķete:</translation>
     </message>
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="176"/>
@@ -110,7 +110,7 @@
     <message>
         <location filename="../directorymenuconfiguration.cpp" line="176"/>
         <source>An error occurred while loading the icon.</source>
-        <translation>Ielādējot ikonu atgadījās kļūme.</translation>
+        <translation>Ielādējot ikonu, radās kļūda.</translation>
     </message>
 </context>
 </TS>

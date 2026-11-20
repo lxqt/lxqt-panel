@@ -6,12 +6,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="14"/>
         <source>System Statistics Colors</source>
-        <translation>Sistēmas statistikas datu krāsas</translation>
+        <translation>Sistēmas statistikas krāsas</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="24"/>
         <source>Graph</source>
-        <translation>Diagramma</translation>
+        <translation>Grafiks</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="30"/>
@@ -33,27 +33,27 @@
         <location filename="../lxqtsysstatcolours.ui" line="265"/>
         <location filename="../lxqtsysstatcolours.ui" line="282"/>
         <source>Change ...</source>
-        <translation>Mainīt...</translation>
+        <translation>Mainīt ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="47"/>
         <source>T&amp;itle</source>
-        <translation>&amp;Nosaukums</translation>
+        <translation>&amp;Virsraksts</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="67"/>
         <source>CPU</source>
-        <translation>CPU (procesors)</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="80"/>
         <source>&amp;Nice</source>
-        <translation>&amp;Nice (prioritāte)</translation>
+        <translation>&amp;Nice</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="97"/>
         <source>Ot&amp;her</source>
-        <translation>&amp;Citi</translation>
+        <translation>&amp;Cits</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="107"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="124"/>
         <source>S&amp;ystem</source>
-        <translation>S&amp;istēma</translation>
+        <translation>&amp;Sistēma</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="134"/>
@@ -73,27 +73,27 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="172"/>
         <source>Memory</source>
-        <translation>RAM (atmiņa)</translation>
+        <translation>Atmiņa</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="185"/>
         <source>Cache&amp;d</source>
-        <translation>Kešatmiņā (kešots)</translation>
+        <translation>&amp;Kešatmiņā</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="195"/>
         <source>S&amp;wap</source>
-        <translation>&amp;Mijmaiņa (swap)</translation>
+        <translation>&amp;Maiņatmiņa</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="212"/>
         <source>&amp;Applications</source>
-        <translation>&amp;Lietotnes</translation>
+        <translation>Lie&amp;totnes</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="222"/>
         <source>&amp;Buffers</source>
-        <translation>&amp;Bufferi</translation>
+        <translation>&amp;Buferi</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="249"/>
@@ -103,12 +103,12 @@
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="255"/>
         <source>&amp;Received</source>
-        <translation>&amp;Saņemts</translation>
+        <translation>Sa&amp;ņemts</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatcolours.ui" line="272"/>
         <source>&amp;Transmitted</source>
-        <translation>&amp;Nosūtīts</translation>
+        <translation>N&amp;osūtīts</translation>
     </message>
 </context>
 <context>
@@ -116,12 +116,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="14"/>
         <source>System Statistics Settings</source>
-        <translation>Sistēmas statistikas datu iestatījumi</translation>
+        <translation>Sistēmas statistikas iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="22"/>
         <source>Graph</source>
-        <translation>Diagramma/grafiks</translation>
+        <translation>Grafiks</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="34"/>
@@ -131,12 +131,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="44"/>
         <source>Update &amp;interval</source>
-        <translation>Atsvaidzināšanas &amp;intervāls</translation>
+        <translation>Atjaunināšanas &amp;intervāls</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="54"/>
         <source>&amp;Title</source>
-        <translation>&amp;Nosaukums</translation>
+        <translation>&amp;Virsraksts</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="64"/>
@@ -146,17 +146,17 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="80"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal width if the panel is horizontal.&lt;/p&gt;&lt;p&gt;Minimal height if the panel is vertical.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimālais platums, ja panelis horizontāls.&lt;/p&gt;&lt;p&gt;Minimālais augstums, ja panelis vertikāls.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimālais platums, ja panelis ir horizontāls.&lt;/p&gt;&lt;p&gt;Minimālais augstums, ja panelis ir vertikāls.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="83"/>
         <source> px</source>
-        <translation> pikseļi</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="99"/>
         <source> s</source>
-        <translation> S</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="124"/>
@@ -166,12 +166,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="149"/>
         <source>Use &amp;frequency</source>
-        <translation>Lietot &amp;frekvenci</translation>
+        <translation>Izmantot &amp;frekvenci</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="207"/>
         <source>Ma&amp;ximum</source>
-        <translation>Ma&amp;ksimums</translation>
+        <translation>Mak&amp;simums</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="222"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="241"/>
         <source>Lo&amp;garithmic scale</source>
-        <translation>Lo&amp;garitmiskā skala</translation>
+        <translation>Lo&amp;garitmiska skala</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="248"/>
@@ -206,27 +206,27 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="327"/>
         <source>Use t&amp;heme colors</source>
-        <translation>Izmantot tē&amp;mas krāsas</translation>
+        <translation>Izmantot motīva &amp;krāsas</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="337"/>
         <source>Use c&amp;ustom colors</source>
-        <translation>Izmantot pielā&amp;gotas krāsas</translation>
+        <translation>Izmantot &amp;pielāgotas krāsas</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.ui" line="344"/>
         <source>Custom color ...</source>
-        <translation>Pielāgojamā krāsa...</translation>
+        <translation>Pielāgota krāsa ...</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="41"/>
         <source>CPU</source>
-        <translation>CPU (procesors)</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="42"/>
         <source>Memory</source>
-        <translation>RAM (operatīvā atmiņa)</translation>
+        <translation>Atmiņa</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="43"/>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="54"/>
         <source>cpu</source>
-        <translation>cpu (procesors)</translation>
+        <translation>cpu</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="55"/>
@@ -361,12 +361,12 @@
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="79"/>
         <source>memory</source>
-        <translation>RAM (atmiņa)</translation>
+        <translation>atmiņa</translation>
     </message>
     <message>
         <location filename="../lxqtsysstatconfiguration.cpp" line="80"/>
         <source>swap</source>
-        <translation>Mijmaiņas atmiņa (swap)</translation>
+        <translation>maiņatmiņa</translation>
     </message>
 </context>
 <context>
@@ -375,19 +375,19 @@
         <location filename="../lxqtsysstat.cpp" line="404"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: %5%</source>
         <comment>CPU tooltip information</comment>
-        <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv: %5%</translation>
+        <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv.: %5%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="453"/>
         <source>system: %1%&lt;br&gt;user: %2%&lt;br&gt;nice: %3%&lt;br&gt;other: %4%&lt;br&gt;freq: n/a</source>
         <comment>CPU tooltip information</comment>
-        <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv: (nepieejama)</translation>
+        <translation>sistēma: %1%&lt;br&gt;lietotājs: %2%&lt;br&gt;nice: %3%&lt;br&gt;citi: %4%&lt;br&gt;frekv.: nav pieejama</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="495"/>
         <source>apps: %1%&lt;br&gt;buffers: %2%&lt;br&gt;cached: %3%</source>
         <comment>Memory tooltip information</comment>
-        <translation>lietotnes: %1%&lt;br&gt;bufferi: %2%&lt;br&gt;kešots: %3%</translation>
+        <translation>lietotnes: %1%&lt;br&gt;buferi: %2%&lt;br&gt;kešatmiņā: %3%</translation>
     </message>
     <message>
         <location filename="../lxqtsysstat.cpp" line="529"/>
